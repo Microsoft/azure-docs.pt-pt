@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 4b8cfed883ffef780de2e82e3f309e97bcb5515c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4301a55e3f5ea5b445ef1540ee59d1b5c28ca0ed
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278249"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010822"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Resolver problemas de limites de tempo da Cache do Azure para Redis
 
@@ -82,7 +82,7 @@ Pode usar os seguintes passos para investigar possíveis causas de raiz.
    - Verifique se está a ficar com cpU ligado ao servidor, monitorizando a métrica de desempenho da [cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)CPU . Os pedidos que chegam enquanto o Redis está vinculado à CPU podem fazer com que esses pedidos se estem. Para resolver esta condição, pode distribuir a carga por vários fragmentos numa cache premium, ou fazer upgrade para um tamanho maior ou um nível de preços. Para obter mais informações, consulte a [limitação da largura de banda do lado do Servidor](cache-troubleshoot-server.md#server-side-bandwidth-limitation).
 1. Há comandos que levam muito tempo a processar o servidor? Comandos de longa duração que estão a demorar muito tempo a processar no servidor redis podem causar intervalos. Para obter mais informações sobre comandos de longa duração, consulte [comandos de longa duração](cache-troubleshoot-server.md#long-running-commands). Pode ligar-se ao seu Azure Cache para a instância Redis utilizando o cliente redis-cli ou a [Consola Redis](cache-configure.md#redis-console). Em seguida, executar o comando [SLOWLOG](https://redis.io/commands/slowlog) para ver se há pedidos mais lentos do que o esperado. Redis Server e StackExchange.Redis estão otimizados para muitos pequenos pedidos em vez de menos grandes pedidos. Dividir os seus dados em pedaços menores pode melhorar as coisas aqui.
 
-    Para obter informações sobre a ligação ao ponto final sSL da sua cache utilizando redis-cli e stunnel, consulte a publicação de blog anunciando ASP.NET Session State Provider para o Lançamento de [Pré-visualização redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+    Para obter informações sobre a ligação ao ponto final TLS/SSL da sua cache utilizando redis-cli e stunnel, consulte a publicação de blog anunciando ASP.NET Session State Provider para o lançamento de [pré-visualização redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 1. A carga do servidor Redis alta pode causar intervalos. Pode monitorizar a carga do `Redis Server Load` servidor monitorizando a métrica de desempenho da [cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Uma carga de servidor de 100 (valor máximo) significa que o servidor redis tem estado ocupado, sem tempo de inatividade, solicitações de processamento. Para ver se determinados pedidos estão a assumir toda a capacidade do servidor, execute o comando SlowLog, conforme descrito no parágrafo anterior. Para mais informações, consulte o uso de CPU elevado / Carga do Servidor.
 1. Houve algum outro evento do lado do cliente que pudesse ter causado um blip de rede? Os eventos comuns incluem: escalar o número de casos de clientes para cima ou para baixo, implementar uma nova versão do cliente, ou escala automática ativada. Nos nossos testes, descobrimos que a escala automática ou a escala para cima/para baixo pode fazer com que a conectividade da rede de saída se perca durante vários segundos. StackExchange.Redis code é resiliente a tais eventos e reconecta-se. Durante a religação, quaisquer pedidos na fila podem esgotar-se.
 1. Houve um grande pedido anterior a vários pequenos pedidos para a cache que tinha esgotado? O parâmetro `qs` na mensagem de erro diz-lhe quantos pedidos foram enviados do cliente para o servidor, mas não processou uma resposta. Este valor pode continuar a crescer porque stackExchange.Redis usa uma única ligação TCP e só consegue ler uma resposta de cada vez. Mesmo que a primeira operação tenha sido cronometrada, não impede que mais dados sejam enviados de ou para o servidor. Outros pedidos serão bloqueados até que o grande pedido esteja terminado e possam causar intervalos de tempo. Uma solução é minimizar a possibilidade de intervalos, garantindo que a sua cache é suficientemente grande para a sua carga de trabalho e dividindo grandes valores em pedaços menores. Outra solução possível é `ConnectionMultiplexer` usar um conjunto de objetos no seu cliente, e escolher o menos carregado `ConnectionMultiplexer` ao enviar um novo pedido. Carregar vários objetos de ligação deve evitar que um único intervalo de tempo provoque que outros pedidos também se estem.

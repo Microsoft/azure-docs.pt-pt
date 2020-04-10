@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: c8968eb72b29b004d94e25433da65d3262287147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1907eb7cde482927ee8e6b0a2522158f05c1808f
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367147"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010941"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de livro de corridas na Automação Azure
 
 Os livros executam com base na lógica definida dentro deles. Se um livro de execução for interrompido, o livro de execução reinicia no início. Este comportamento requer que escreva livros que suportam ser reiniciados se ocorrerem problemas transitórios.
 
-Iniciar um livro de corridas na Azure Automation cria um trabalho. Um trabalho é um único exemplo de execução do livro de corridas. Cada trabalho tem acesso aos recursos do Azure, fazendo uma ligação à sua subscrição Azure. O trabalho só tem acesso a recursos no seu datacenter se esses recursos estiverem acessíveis a partir da nuvem pública.
+Iniciar um livro de execução na Azure Automation cria um trabalho, que é uma única instância de execução do livro de execução. Cada trabalho tem acesso aos recursos do Azure, fazendo uma ligação à sua subscrição Azure. O trabalho só tem acesso a recursos no seu datacenter se esses recursos estiverem acessíveis a partir da nuvem pública.
 
 A Azure Automation atribui a um trabalhador que dirija cada trabalho durante a execução do livro de corridas. Enquanto os trabalhadores são partilhados por muitas contas Azure, os empregos de diferentes contas da Automação estão isolados uns dos outros. Não tem controlo sobre quais os serviços de trabalho que pede.
 

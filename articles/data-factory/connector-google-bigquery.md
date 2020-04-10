@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: c0eb043ce040f154050ef4c3675f165dad326e32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9fe6b494398337dd49bd8f0fe53b24666412a1b0
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929429"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991591"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiar dados do Google BigQuery utilizando a Fábrica de Dados Azure
 
@@ -99,7 +99,7 @@ Detete a propriedade "autenticaçãoType" para **a Autenticação**do Serviço, 
 |:--- |:--- |:--- |
 | e-mail | O id de e-mail da conta de serviço que é usado para A Autenticação de Serviços. Só pode ser utilizado em Tempo de Funcionação de Integração Auto-hospedado.  | Não |
 | keyFilePath | O caminho completo para o ficheiro chave .p12 que é usado para autenticar o endereço de e-mail da conta de serviço. | Não |
-| trustedCertPath | O caminho completo do ficheiro .pem que contém certificados CA fidedignos utilizados para verificar o servidor quando se conecta através do SSL. Esta propriedade só pode ser definida quando utilizar o SSL no Tempo de Execução de Integração Auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o tempo de execução da integração.  | Não |
+| trustedCertPath | O caminho completo do ficheiro .pem que contém certificados CA fidedignos utilizados para verificar o servidor quando se conecta através de TLS. Esta propriedade só pode ser definida quando utilizar TLS no Tempo de Execução de Integração Auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o tempo de execução da integração.  | Não |
 | useSystemTrustStore | Especifica se utilizará um certificado CA a partir da loja fiduciário do sistema ou de um ficheiro .pem especificado. O valor predefinido é **falso**.  | Não |
 
 **Exemplo:**

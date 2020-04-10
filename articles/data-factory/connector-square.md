@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: de795d082069ff5ad895c48b7a507512449d0208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0113e6a728009d6e24b469041c6e7dc065b79238
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931012"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990825"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar dados da Square utilizando a Azure Data Factory (Pré-visualização)
 
@@ -56,8 +56,8 @@ As seguintes propriedades são suportadas para o serviço square linked:
 | clienteSecret | O segredo do cliente associado à sua aplicação Square. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
 | redirecionamentoUri | O URL de redirecionamento atribuído no painel de aplicações Square. (ou é, http:\//localhost:2500)  | Sim |
 | useEncryptedEndpoints | Especifica se os pontos finais da fonte de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| utilizaçãoVerificação de anfitriões | Especifica se deve exigir o nome de anfitrião no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar-se ao SSL. O valor predefinido é true.  | Não |
-| utilizaçãoPeerVerification | Especifica se deve verificar a identidade do servidor ao ligar-se através do SSL. O valor predefinido é true.  | Não |
+| utilizaçãoVerificação de anfitriões | Especifica se deve exigir o nome de anfitrião no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar-se ao TLS. O valor predefinido é true.  | Não |
+| utilizaçãoPeerVerification | Especifica se deve verificar a identidade do servidor ao ligar-se através do TLS. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 

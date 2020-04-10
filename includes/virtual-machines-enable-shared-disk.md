@@ -5,27 +5,29 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/18/2020
+ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26e76731f663ac9038bc87182d52c4bd245f1b6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0df74b82c847c9738d97d2001573666714c17672
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77471710"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008360"
 ---
 ## <a name="limitations"></a>Limitações
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
 
-## <a name="disk-sizes"></a>Tamanhos do disco
+## <a name="disk-sizes"></a>Tamanhos de disco
 
 [!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
 
-## <a name="deploy-an-azure-shared-disk"></a>Implementar um disco partilhado Azure
+## <a name="deploy-shared-disks"></a>Implementar discos partilhados
 
-Para implantar um disco gerido com a funcionalidade de `maxShares` disco partilhado `>1`ativada, utilize a nova propriedade e defina um valor . Isto torna o disco partilhável em vários VMs.
+### <a name="deploy-a-premium-ssd-as-a-shared-disk"></a>Implementar um SSD premium como um disco partilhado
+
+Para implantar um disco gerido com a funcionalidade de `maxShares` disco partilhado ativada, utilize a nova propriedade e defina um valor superior a 1. Isto torna o disco partilhável em vários VMs.
 
 > [!IMPORTANT]
 > O valor `maxShares` de apenas pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os tamanhos do Disco `maxShares`para os [valores permitidos](#disk-sizes) para .
@@ -68,6 +70,101 @@ Antes de utilizar o `[parameters('dataDiskName')]` `[resourceGroup().location]`s
       }
     }
   ] 
+}
+```
+
+### <a name="deploy-an-ultra-disk-as-a-shared-disk"></a>Implementar um disco ultra como um disco partilhado
+
+#### <a name="cli"></a>CLI
+
+Para implantar um disco gerido com a função `maxShares` de disco partilhado ativada, altere o parâmetro para um valor superior a 1. Isto torna o disco partilhável em vários VMs.
+
+> [!IMPORTANT]
+> O valor `maxShares` de apenas pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os tamanhos do Disco `maxShares`para os [valores permitidos](#disk-sizes) para .
+
+```azurecli
+#Creating an Ultra shared Disk 
+az disk create -g rg1 -n clidisk --size-gb 1024 -l westus --sku UltraSSD_LRS --max-shares 5 --disk-iops-read-write 2000 --disk-mbps-read-write 200 --disk-iops-read-only 100 --disk-mbps-read-only 1
+
+#Updating an Ultra shared Disk 
+az disk update -g rg1 -n clidisk --disk-iops-read-write 3000 --disk-mbps-read-write 300 --set diskIopsReadOnly=100 --set diskMbpsReadOnly=1
+
+#Show shared disk properties:
+az disk show -g rg1 -n clidisk
+```
+
+#### <a name="azure-resource-manager"></a>Azure Resource Manager
+
+Para implantar um disco gerido com a função `maxShares` de disco partilhado ativada, utilize a propriedade e defina um valor superior a 1. Isto torna o disco partilhável em vários VMs.
+
+> [!IMPORTANT]
+> O valor `maxShares` de apenas pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os tamanhos do Disco `maxShares`para os [valores permitidos](#disk-sizes) para .
+
+Antes de utilizar o `[parameters('dataDiskName')]` `[resourceGroup().location]`seguinte `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]`modelo, substitua, `[parameters('diskIOPSReadWrite')]`, , e `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]` `[parameters('diskMBpsReadOnly')]` com os seus próprios valores.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "diskName": {
+      "type": "string",
+      "defaultValue": "uShared30"
+    },
+    "location": {
+        "type": "string",
+        "defaultValue": "westus",
+        "metadata": {
+                "description": "Location for all resources."
+        }
+    },
+    "dataDiskSizeGB": {
+      "type": "int",
+      "defaultValue": 1024
+    },
+    "maxShares": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "diskIOPSReadWrite": {
+      "type": "int",
+      "defaultValue": 2048
+    },
+    "diskMBpsReadWrite": {
+      "type": "int",
+      "defaultValue": 20
+    },    
+    "diskIOPSReadOnly": {
+      "type": "int",
+      "defaultValue": 100
+    },
+    "diskMBpsReadOnly": {
+      "type": "int",
+      "defaultValue": 1
+    }    
+  }, 
+  "resources": [
+    {
+        "type": "Microsoft.Compute/disks",
+        "name": "[parameters('diskName')]",
+        "location": "[parameters('location')]",
+        "apiVersion": "2019-07-01",
+        "sku": {
+            "name": "UltraSSD_LRS"
+        },
+        "properties": {
+            "creationData": {
+                "createOption": "Empty"
+            },
+            "diskSizeGB": "[parameters('dataDiskSizeGB')]",
+            "maxShares": "[parameters('maxShares')]",
+            "diskIOPSReadWrite": "[parameters('diskIOPSReadWrite')]",
+            "diskMBpsReadWrite": "[parameters('diskMBpsReadWrite')]",
+            "diskIOPSReadOnly": "[parameters('diskIOPSReadOnly')]",
+            "diskMBpsReadOnly": "[parameters('diskMBpsReadOnly')]"
+        }
+    }
+  ]
 }
 ```
 

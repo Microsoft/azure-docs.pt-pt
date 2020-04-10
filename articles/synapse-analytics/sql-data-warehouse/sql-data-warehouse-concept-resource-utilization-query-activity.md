@@ -7,16 +7,16 @@ manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 03/11/2020
+ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 85457b62c905cb30ca22264eff1b6c677473f9b9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: ce2fe66888893d82debcc412bb16752914d8a190
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745297"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011111"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorização da utilização de recursos e atividade de consulta no Azure Synapse Analytics
 
@@ -33,8 +33,8 @@ As seguintes métricas estão disponíveis no portal Azure para sQL Analytics. E
 | Percentagem de memória       | Utilização de memória (SQL Server) em todos os nós para o armazém de dados | Avg, Min, Max   |
 | Consultas Ativas          | Número de consultas ativas executadas no sistema             | Soma              |
 | Consultas em fila          | Número de consultas em fila à espera de começar a executar          | Soma              |
-| Conexões bem sucedidas  | Número de ligações bem sucedidas aos dados                 | Soma, Conde       |
-| Ligações com Falhas      | Número de ligações falhadas ao armazém de dados           | Soma, Conde       |
+| Conexões bem sucedidas  | Número de ligações bem sucedidas (logins) na base de dados | Soma, Conde       |
+| Ligações com Falhas      | Número de ligações falhadas (logins) na base de dados | Soma, Conde       |
 | Bloqueado por Firewall     | Número de logins para o armazém de dados que foi bloqueado     | Soma, Conde       |
 | Limite de DWU               | Objetivo de nível de serviço do armazém de dados                | Avg, Min, Max    |
 | Percentagem de DWU          | Máximo entre percentagem de CPU e percentagem de Dados IO        | Avg, Min, Max    |
@@ -42,7 +42,7 @@ As seguintes métricas estão disponíveis no portal Azure para sQL Analytics. E
 | Percentagem de impacto cache    | (cache hits / cache miss) * 100 onde os hits de cache é a soma de todos os segmentos de lojas de colunas atinge na cache local SSD e cache miss é o segmento de loja de colunas que falha na cache SSD local resumida em todos os nós | Avg, Min, Max    |
 | Cache usado percentagem   | (cache utilizada / cache capacidade) * 100 onde a cache utilizada é a soma de todos os bytes na cache SSD local em todos os nós e capacidade de cache é a soma da capacidade de armazenamento da cache SSD local em todos os nós | Avg, Min, Max    |
 | Percentagem de temperatura local | Utilização temporária local em todos os nós de computação - valores são emitidos a cada cinco minutos | Avg, Min, Max    |
-| Tamanho do armazenamento de dados (GB) | Tamanho total dos dados carregados na base de dados. Isto inclui dados residentes em quadros CCI e não CCI onde o tamanho das tabelas não CCI é medido pelo tamanho total dos ficheiros de base de dados | Soma |
+| Tamanho do armazenamento de dados (GB) | Tamanho total da base de dados. Isto inclui espaço usado, reservado e não atribuído. O espaço não atribuído é mantido para a base de dados para otimizar o desempenho da consulta e da carga. | Soma |
 | Tamanho da recuperação de desastres (GB) | Tamanho total do geo-backup tomado a cada 24 horas | Soma |
 | Tamanho de armazenamento instantâneo (GB) | Tamanho total de instantâneos tirados para fornecer pontos de restauro de base de dados. Isto inclui instantâneos automatizados e definidos pelo utilizador. | Soma |
 

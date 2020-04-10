@@ -4,15 +4,15 @@ description: Configure um disco gerido pelo Azure com discos partilhados (pré-v
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 04/09/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0e925abf151abc1a229b57bb035775430fa5332f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0dbb1844d4c670abfdc5562580b0ee8b4549b6bd
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970368"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008361"
 ---
 # <a name="enable-shared-disk"></a>Ativar o disco partilhado
 

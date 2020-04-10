@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 1d6fa75beabdc36750525310008add9594562228
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 951f24ad06014f6d95f10c91e1bad8e99bbbc736
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887117"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991778"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Balanceador de Carga Standard com métricas, alertas e estado de funcionamento dos recursos
 
@@ -86,6 +86,7 @@ Para configurar alertas:
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Cenários de diagnóstico comuns e vistas recomendadas
 
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>O caminho dos dados está disponível para o meu equilibrador de carga VIP?
+<details><summary>Expandir</summary>
 
 A métrica de disponibilidade VIP descreve a saúde do caminho dos dados dentro da região para o hospedeiro da computação onde estão localizados os seus VMs. A métrica é um reflexo da saúde da infraestrutura Azure. Pode usar a métrica para:
 - Monitorize a disponibilidade externa do seu serviço
@@ -113,9 +114,11 @@ A disponibilidade VIP falha pelas seguintes razões:
 Para fins de diagnóstico, pode utilizar a métrica de disponibilidade do [caminho de dados juntamente com o estado da sonda de saúde](#vipavailabilityandhealthprobes).
 
 Use a **Média** como a gregação para a maioria dos cenários.
+</details>
 
 #### <a name="are-the-back-end-instances-for-my-vip-responding-to-probes"></a>Os casos de back-end para o meu VIP respondem às sondas?
-
+<details>
+  <summary>Expandir</summary>
 A métrica do estado da sonda de saúde descreve a saúde da implementação da sua aplicação como configurada por si quando configura a sonda de saúde do seu equilibrador de carga. O equilibrador de carga utiliza o estado da sonda de saúde para determinar para onde enviar novos fluxos. As sondas sanitárias originam-se de um endereço de infraestrutura Azure e são visíveis dentro do os so do VM convidado.
 
 Para obter o estado da sonda de saúde para os seus recursos Standard Load Balancer:
@@ -127,9 +130,11 @@ As sondas de saúde falham pelas seguintes razões:
 - A sua sonda não é permitida pelo Grupo de Segurança da Rede, pela firewall do VM ou pelos filtros da camada de aplicação.
 
 Use a **Média** como a gregação para a maioria dos cenários.
+</details>
 
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>Como posso verificar as minhas estatísticas de ligação de saída? 
-
+<details>
+  <summary>Expandir</summary>
 A métrica de ligações SNAT descreve o volume de ligações bem sucedidas e falhadas para [os fluxos de saída](https://aka.ms/lboutbound).
 
 Um volume de ligações falhado superior a zero indica a exaustão da porta SNAT. Deve investigar mais para determinar o que pode estar a causar estas falhas. A exaustão da porta SNAT manifesta-se como uma falha na [criação](https://aka.ms/lboutbound)de um fluxo de saída . Reveja o artigo sobre ligações de saída para compreender os cenários e mecanismos no trabalho e para aprender a mitigar e projetar para evitar a exaustão da porta SNAT. 
@@ -141,10 +146,12 @@ Para obter estatísticas de ligação SNAT:
 ![Conexão SNAT](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
 *Figura: Contagem de ligação SNAT do balancedor de carga*
+</details>
 
 
 #### <a name="how-do-i-check-my-snat-port-usage-and-allocation"></a>Como posso verificar o uso e alocação da porta SNAT?
-
+<details>
+  <summary>Expandir</summary>
 A métrica de utilização do SNAT indica quantos fluxos únicos são estabelecidos entre uma fonte de internet e um vm de backend ou um conjunto de escala de máquina virtual que está por trás de um equilibrista de carga e não tem um endereço IP público. Ao comparar isto com a métrica de atribuição de SNAT, pode determinar se o seu serviço está a experimentar ou em risco de exaustão sNAT e consequente falha de fluxo de saída. 
 
 Se as suas métricas indicarem risco de falha de fluxo de [saída,](https://aka.ms/lboutbound) faça referência ao artigo e tome medidas para mitigar isso para garantir a saúde do serviço.
@@ -166,9 +173,11 @@ Para ver a utilização e alocação da porta SNAT:
 ![Utilização de SNAT por instância de backend](./media/load-balancer-standard-diagnostics/snat-usage-split.png)
 
 *Figura: Utilização da porta TCP SNAT por instância de backend*
+</details>
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Como posso verificar as tentativas de ligação de entrada/saída para o meu serviço?
-
+<details>
+  <summary>Expandir</summary>
 Uma métrica de pacotes SYN descreve o volume de pacotes De SYN TCP, que chegaram ou foram enviados (para [fluxos de saída](https://aka.ms/lboutbound)) que estão associados a uma extremidade frontal específica. Pode utilizar esta métrica para entender as tentativas de ligação tCP ao seu serviço.
 
 Use a **Total** como agregação para a maioria dos cenários.
@@ -176,10 +185,12 @@ Use a **Total** como agregação para a maioria dos cenários.
 ![Conexão SYN](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
 *Figura: Contagem de SYN do Balancer de Carga*
+</details>
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>Como posso verificar o consumo de largura de banda da rede? 
-
+<details>
+  <summary>Expandir</summary>
 A métrica de bytes e contadores de pacotes descreve o volume de bytes e pacotes que são enviados ou recebidos pelo seu serviço numa base frontal.
 
 Use a **Total** como agregação para a maioria dos cenários.
@@ -193,9 +204,11 @@ Para obter estatísticas de byte ou contagem de pacotes:
 ![Contagem de byte](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
 *Figura: Contagem de byte saqueta do balancer de carga*
+</details>
 
 #### <a name="how-do-i-diagnose-my-load-balancer-deployment"></a><a name = "vipavailabilityandhealthprobes"></a>Como diagnostico a minha implantação de equilibradores de carga?
-
+<details>
+  <summary>Expandir</summary>
 Ao utilizar uma combinação das métricas de disponibilidade VIP e sonda de saúde num único gráfico, pode identificar onde procurar o problema e resolver o problema. Pode obter a garantia de que o Azure está a trabalhar corretamente e usar este conhecimento para determinar conclusivamente que a configuração ou aplicação é a causa principal.
 
 Pode utilizar métricas de sonda de saúde para entender como o Azure vê a saúde da sua implantação de acordo com a configuração que forneceu. Olhar para as sondas de saúde é sempre um grande primeiro passo na monitorização ou determinação de uma causa.
@@ -211,6 +224,7 @@ O gráfico apresenta as seguintes informações:
 - O estado da sonda de saúde (disponibilidade dip), indicado pelo traço roxo, está a 0% no início da tabela. A área circulou em destaques verdes onde o estado da sonda de saúde (disponibilidade dip) tornou-se saudável, e nesse ponto a implantação do cliente foi capaz de aceitar novos fluxos.
 
 O gráfico permite que os clientes problemáticos a implementação por si só sem ter que adivinhar ou perguntar apoio se outros problemas estão acontecendo. O serviço não estava disponível porque as sondas de saúde estavam a falhar devido a uma configuração errada ou a uma aplicação falhada.
+</details>
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Estado de saúde dos recursos
 

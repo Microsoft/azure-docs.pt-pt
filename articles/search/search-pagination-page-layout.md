@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: df80668f5e4a31d6247e9e9806e3de0667fd9036
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 451e83fa6ab547536a4cfd85304930e749a8247f
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656017"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998401"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com os resultados da pesquisa em Pesquisa Cognitiva Azure
 
@@ -94,7 +94,11 @@ Outra opção é usar um perfil de [pontuação personalizado.](index-add-scorin
 
 O destaque do hit refere-se à formatação de texto (como destaques arrojados ou amarelos) aplicados a um termo correspondente num resultado, facilitando a identificação da partida. As instruções de destaque do hit são fornecidas no pedido de [consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). O motor de busca encerra o termo `highlightPreTag` `highlightPostTag`correspondente em etiquetas e, e o seu código trata da resposta (por exemplo, aplicando uma fonte arrojada).
 
-A formatação é aplicada a consultas de termo inteiros. No exemplo seguinte, os termos "areia", "areia", "praias", "praia" encontradas dentro do campo Descrição estão marcados para destaque. Consultas em termos parciais, tais como pesquisa difusa ou pesquisa de wildcard que resultam em expansão de consulta no motor, não podem usar o destaque do hit.
+A formatação é aplicada a consultas de termo inteiros. No exemplo seguinte, os termos "areia", "areia", "praias", "praia" encontradas dentro do campo Descrição estão marcados para destaque. As consultas que desencadeiam a expansão da consulta no motor, como a pesquisa fuzzy e wildcard, têm suporte limitado para o destaque do sucesso.
+
+```http
+GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
+```
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 

@@ -1,16 +1,16 @@
 ---
-title: Referência da API do Agente de Insights de Aplicação Azure
+title: Motor de desativação de deficientes do agente de aplicação da aplicação Azure
 description: Referência da API do Agente Insights de Aplicação Insights. Motor de desativação de instrumentação. Monitorize o desempenho do site sem reimplantar o website. Trabalha com ASP.NET aplicações web hospedadas no local, em VMs ou no Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: dafa12db95a10df467bf0d042cfd9395720648b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c52d429b527c437db5bb8aaf7e3cc1f1c52af57
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671380"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998371"
 ---
 # <a name="application-insights-agent-api-disable-instrumentationengine"></a>Agente de Insights de Aplicação API: Motor de instrumentação para deficientes
 

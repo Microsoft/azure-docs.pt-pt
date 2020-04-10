@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 25cef95e2d01012506148f03be45104e455e1fcd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8083efe833ec80290713fc14d9cb89acd8263fa2
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530279"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010907"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Fornecedor de Estado da Sessão ASP.NET para a Cache do Azure para Redis
 
@@ -82,10 +82,10 @@ A secção comentada fornece um exemplo dos atributos e definições de amostra 
 Configure os atributos com os valores da sua lâmina de cache no portal Microsoft Azure e configure os outros valores conforme desejado. Para obter instruções sobre o acesso às suas propriedades cache, consulte [Configure Azure Cache para configurações redis](cache-configure.md#configure-azure-cache-for-redis-settings).
 
 * **anfitrião** – especifique o seu ponto final de cache.
-* **porta** – utilize a sua porta não SSL ou a sua porta SSL, dependendo das definições de SSL.
+* **porta** – utilize a sua porta não TLS/SSL ou a sua porta TLS/SSL, dependendo das definições de TLS.
 * **acessórioChave** - utilize a chave primária ou secundária para a sua cache.
-* **ssl** – verdadeiro se quiser garantir comunicações cache/cliente com ssl; de outra forma falso. Certifique-se de especificar a porta correta.
-  * Por predefinição, a porta não SSL está desativada para as novas caches. Especifique verdadeiramente para esta definição utilizar a porta SSL. Para obter mais informações sobre a ativação da porta não-SSL, consulte a secção Portas de [Acesso](cache-configure.md#access-ports) no tópico [de cache Da Configuração.](cache-configure.md)
+* **ssl** – verdadeiro se quiser garantir comunicações cache/cliente com TLS; de outra forma falso. Certifique-se de especificar a porta correta.
+  * A porta não-TLS é desativada por padrão para novos caches. Especifique verdadeiramente para esta definição utilizar a porta TLS. Para obter mais informações sobre a ativação da porta não-TLS, consulte a secção Portas de [Acesso](cache-configure.md#access-ports) no tópico [de cache Da Configuração.](cache-configure.md)
 * **throwOnError** – é verdade que se quiser lançar uma exceção se houver uma falha, ou falsa se quiser que a operação falhe silenciosamente. Pode verificar se existeuma falha, verificando a propriedade estática Microsoft.Web.Redis.Redis.RedisSessionStateProvider.LastException. O padrão é verdade.
 * **retryTimeoutInMilliseconds** – As operações que falham são novamente tentadas durante este intervalo, especificadas em milissegundos. A primeira tentativa ocorre após 20 milissegundos, e depois as repetições ocorrem a cada segundo até que o intervalo timeoutInMillisegundos expira. Imediatamente após este intervalo, a operação é novamente tentada uma última vez. Se a operação continuar a falhar, a exceção é reposta para o chamador, dependendo da definição de lanceOnError. O valor padrão é 0, o que significa que não há repetições.
 * **base de dadosId** – Especifica qual base de dados a utilizar para dados de saída de cache. Se não especificado, o valor padrão de 0 é utilizado.

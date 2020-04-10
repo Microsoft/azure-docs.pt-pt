@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 05cee60fb1f4d43d1b4ce371aa9f22650b4782da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79281304"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991506"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mova dados de uma base de dados cassandra no local usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -75,7 +75,7 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 | credenta encriptado |Credencial encriptado pelo portal. |Não |
 
 >[!NOTE]
->Atualmente, a ligação à Cassandra utilizando o SSL não é suportada.
+>Atualmente, a ligação à Cassandra utilizando TLS não é suportada.
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
@@ -261,20 +261,20 @@ Consulte as propriedades do [tipo RelationalSource](#copy-activity-properties) p
 ### <a name="type-mapping-for-cassandra"></a>Tipo de mapeamento para Cassandra
 | Tipo Cassandra | Tipo de base .NET |
 | --- | --- |
-| ASCII |Cadeia |
+| ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |Booleano |
 | DECIMAL |Decimal |
 | DUPLO |Double |
 | BOIA |Único |
-| INET |Cadeia |
+| INET |String |
 | INT |Int32 |
-| TEXT |Cadeia |
+| TEXT |String |
 | CARIMBO TEMPORAL |DateTime |
 | TIMEUUID |GUID |
 | UUID |GUID |
-| RIO VARCHAR |Cadeia |
+| RIO VARCHAR |String |
 | VARINT |Decimal |
 
 > [!NOTE]

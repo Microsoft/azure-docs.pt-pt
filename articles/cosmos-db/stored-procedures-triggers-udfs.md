@@ -1,18 +1,18 @@
 ---
 title: Trabalhar com procedimentos armazenados, gatilhos e UDFs em Azure Cosmos DB
 description: Este artigo introduz os conceitos como procedimentos armazenados, gatilhos e funções definidas pelo utilizador no Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: mjbrown
+ms.date: 04/09/2020
+ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 23a14e7590eca6f63c92acdf6336ffaef8b54381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065900"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010550"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo utilizador
 
@@ -69,7 +69,7 @@ Os procedimentos e gatilhos armazenados são sempre executados na réplica prim�
 
 Todas as operações da Azure Cosmos DB devem ser concluídas dentro da duração prevista do tempo limite. Esta restrição aplica-se às funções JavaScript - procedimentos armazenados, gatilhos e funções definidas pelo utilizador. Se uma operação não estiver concluída dentro desse prazo, a transação é rerolada.
 
-Pode garantir que as funções JavaScript terminem dentro do prazo ou implementem um modelo baseado na continuação para executar o lote/retomar. A fim de simplificar o desenvolvimento de procedimentos e gatilhos armazenados para cumprir os prazos, todas as funções sob o recipiente Azure Cosmos (por exemplo, criar, ler, atualizar e eliminar itens) devolvem um valor booleano que representa se essa operação irá completo. Se este valor for falso, é uma indicação de que o procedimento deve terminar a execução porque o script está a consumir mais tempo ou a provisão do que o valor configurado. As operações em fila antes da primeira operação não aceite da loja são garantidas para completar se o procedimento armazenado estiver concluído a tempo e não fizer mais pedidos. Assim, as operações devem ser em fila uma de cada vez, utilizando a convenção de callback do JavaScript para gerir o fluxo de controlo do script. Como os scripts são executados num ambiente do lado do servidor, são estritamente governados. Scripts que violam repetidamente os limites de execução podem ser marcados inativos e não podem ser executados, e devem ser recriados para honrar os limites de execução.
+Pode garantir que as funções JavaScript terminem dentro do prazo ou implementem um modelo baseado na continuação para executar o lote/retomar. A fim de simplificar o desenvolvimento de procedimentos e gatilhos armazenados para cumprir os prazos, todas as funções sob o recipiente Azure Cosmos (por exemplo, criar, ler, atualizar e eliminar itens) devolvem um valor booleano que representa se essa operação irá completar. Se este valor for falso, é uma indicação de que o procedimento deve terminar a execução porque o script está a consumir mais tempo ou a provisão do que o valor configurado. As operações em fila antes da primeira operação não aceite da loja são garantidas para completar se o procedimento armazenado estiver concluído a tempo e não fizer mais pedidos. Assim, as operações devem ser em fila uma de cada vez, utilizando a convenção de callback do JavaScript para gerir o fluxo de controlo do script. Como os scripts são executados num ambiente do lado do servidor, são estritamente governados. Scripts que violam repetidamente os limites de execução podem ser marcados inativos e não podem ser executados, e devem ser recriados para honrar os limites de execução.
 
 As funções JavaScript também estão sujeitas à [capacidade de entrada prevista](request-units.md). As funções JavaScript podem potencialmente acabar por utilizar um grande número de unidades de pedido num curto espaço de tempo e podem ser limitadas se o limite de capacidade de entrada previsto for atingido. É importante notar que os scripts consomem um adicional de entrada para além da entrada gasta a executar operações de base de dados, embora estas operações de base de dados sejam ligeiramente menos caras do que executar as mesmas operações do cliente.
 
@@ -90,7 +90,7 @@ Semelhantes aos pré-gatilhos, os pós-gatilhos, também estão associados a uma
 
 ## <a name="user-defined-functions"></a><a id="udfs"></a>Funções definidas pelo utilizador
 
-As funções definidas pelo utilizador (UDFs) são usadas para estender a sintaxe de linguagem de consulta SQL API e implementar facilmente a lógica de negócio personalizada. Só podem ser chamados dentro de consultas. Os UDFs não têm acesso ao objeto de contexto e destinam-se a ser usados apenas como computação JavaScript. Portanto, os UDFs podem ser executados em réplicas secundárias. Por exemplo, consulte como escrever o artigo de [funções definidas pelo utilizador.](how-to-write-stored-procedures-triggers-udfs.md#udfs)
+[As funções definidas pelo utilizador](sql-query-udfs.md) (UDFs) são usadas para estender a sintaxe de linguagem de consulta SQL API e implementar facilmente a lógica de negócio personalizada. Só podem ser chamados dentro de consultas. Os UDFs não têm acesso ao objeto de contexto e destinam-se a ser usados apenas como computação JavaScript. Portanto, os UDFs podem ser executados em réplicas secundárias. Por exemplo, consulte como escrever o artigo de [funções definidas pelo utilizador.](how-to-write-stored-procedures-triggers-udfs.md#udfs)
 
 ## <a name="javascript-language-integrated-query-api"></a><a id="jsqueryapi"></a>API de consulta integrada em linguagem JavaScript
 

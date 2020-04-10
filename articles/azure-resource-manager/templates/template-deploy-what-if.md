@@ -3,14 +3,14 @@ title: Implementação do modelo o que-se (Pré-visualização)
 description: Determine quais as mudanças que acontecerão aos seus recursos antes de implementar um modelo de Gestor de Recursos Azure.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/09/2020
 ms.author: jgao
-ms.openlocfilehash: 9e0d0d572e08961b585a93e66e400b8c2e54bf7f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b8e94d0b4f364e2873dfc21792a67f11c33483bf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886845"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010193"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM que-se operação (Pré-visualização)
 
@@ -24,6 +24,14 @@ Pode utilizar a operação "what-if" com os comandos PowerShell ou as operaçõe
 ## <a name="install-powershell-module"></a>Instalar módulo PowerShell
 
 Para utilizar o what-if no PowerShell, instale uma versão de pré-visualização do módulo Az.Resources a partir da galeria PowerShell.
+
+### <a name="install-preview-version"></a>Instalar versão de pré-visualização
+
+Para instalar o módulo de pré-visualização, utilize:
+
+```powershell
+Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+```
 
 ### <a name="uninstall-alpha-version"></a>Desinstalar a versão alfa
 
@@ -47,14 +55,6 @@ Se instalou previamente uma versão alfa do módulo "e se", desinstale esse mód
    ```powershell
    Unregister-PSRepository -Name WhatIfRepository
    ```
-
-### <a name="install-preview-version"></a>Instalar versão de pré-visualização
-
-Para instalar o módulo de pré-visualização, utilize:
-
-```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
-```
 
 Está pronto para usar o que-se.
 

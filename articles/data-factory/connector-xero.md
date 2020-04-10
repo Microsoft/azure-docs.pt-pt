@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 1f6404da163e075b63a99a1d8474cdba4e064b06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdb2dc283287bf83410f1846aca11f233e93d01b
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930889"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990859"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiar dados da Xero utilizando a Azure Data Factory
 
@@ -55,8 +55,8 @@ As seguintes propriedades são suportadas para o serviço ligado à Xero:
 | consumidorChave | A chave do consumidor associada à aplicação Xero. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
 | privateKey | A chave privada do ficheiro .pem que foi gerado para a sua aplicação privada Xero, consulte Criar um par de [chaves público/privado](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Nota para **gerar o privatekey.pem com numbits de 512** usando; `openssl genrsa -out privatekey.pem 512` 1024 não é apoiado. Inclua todo o texto do ficheiro .pem, incluindo os terminadores da linha Unix (\n), consulte a amostra abaixo.<br/><br/>Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos finais da fonte de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| utilizaçãoVerificação de anfitriões | Especifica se o nome do anfitrião é exigido no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar-se ao SSL. O valor predefinido é true.  | Não |
-| utilizaçãoPeerVerification | Especifica se deve verificar a identidade do servidor ao ligar-se através do SSL. O valor predefinido é true.  | Não |
+| utilizaçãoVerificação de anfitriões | Especifica se o nome do anfitrião é exigido no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar-se ao TLS. O valor predefinido é true.  | Não |
+| utilizaçãoPeerVerification | Especifica se deve verificar a identidade do servidor ao ligar-se através do TLS. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 

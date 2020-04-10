@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Encontre respostas a algumas das perguntas comuns sobre os Espaços Azure Dev
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: e7b4620faa01aa9f6d46c34bafb1c623c338beb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3ac6ec3c3ddbe8ff508befba2eb4a8423e66f07
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240504"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998722"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Perguntas frequentes sobre espaços Azure Dev
 
@@ -81,6 +81,14 @@ Ao utilizar o Visual Studio para preparar o seu projeto, tem a opção de permit
 
 Atualmente, a Azure Dev Spaces não suporta a utilização de [identidades geridas][aks-pod-managed-id] por pod em clusters AKS com espaços Azure Dev habilitados. Se tiver as identidades geridas pelo pod instaladas e quiser desinstalá-la, poderá encontrar mais detalhes nas [notas de desinstalada][aks-pod-managed-id-uninstall].
 
+## <a name="can-i-use-azure-dev-spaces-with-multiple-microservices-in-an-application"></a>Posso usar espaços Azure Dev com vários microserviços numa aplicação?
+
+Sim, você pode usar O Espaço Azure Dev numa aplicação com vários microserviços, mas você deve preparar e executar os microserviços individuais na sua raiz. A extensão do Código VS Espaços Azure Dev, Azure Dev Spaces e Visual Studio Azure Development esperam que o ficheiro *azds.yaml* esteja na raiz do microserviço para executar e depurar. Consulte a [aplicação][bike-sharing] da amostra bike sharing para um exemplo de múltiplos microserviços numa única aplicação.
+
+No Visual Studio Code, é possível [abrir projetos separados num único espaço][vs-code-multi-root-workspaces] de trabalho e desinvê-los separadamente através dos Espaços Azure Dev. Cada um dos projetos deve ser autossuficiente e preparado para os Espaços Azure Dev.
+
+No Estúdio Visual, é possível configurar soluções .NET Core para depuração através dos Espaços Azure Dev.
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
@@ -89,6 +97,7 @@ Atualmente, a Azure Dev Spaces não suporta a utilização de [identidades gerid
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
+[bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
 [dev-spaces-routing]: how-dev-spaces-works-routing.md#how-routing-works
 [ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller
@@ -97,4 +106,5 @@ Atualmente, a Azure Dev Spaces não suporta a utilização de [identidades gerid
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
 [quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
+[vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces
 [windows-containers]: how-to/run-dev-spaces-windows-containers.md

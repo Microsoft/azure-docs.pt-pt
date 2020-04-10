@@ -7,19 +7,25 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 846e8da889e3913c4a8eaab7808495bbd8afad29
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 80e38893d764f35511793d8b31f596dcbf16dd42
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754663"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991897"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com monitor Azure
 
 > [!NOTE]
 > Esta lista é em grande parte gerada automaticamente a partir da API DE MÉTRICAS de Monitor Azure. Qualquer modificação feita nesta lista via Github pode ser redigida sem aviso prévio. Contacte o autor deste artigo para obter mais informações sobre como efazer atualizações permanentes.
 
-O Azure Monitor fornece várias formas de interagir com métricas, incluindo mapeá-las no portal, acessá-las através da API REST, ou questioná-las usando PowerShell ou CLI. Abaixo está uma lista completa de todas as métricas atualmente disponíveis com o pipeline métrico do Azure Monitor. Outras métricas podem estar disponíveis no portal ou usando APIs legados. Esta lista abaixo inclui apenas métricas disponíveis utilizando o gasoduto métrico Azure Monitor consolidado. As métricas são organizadas pelo espaço de nome. Para obter uma lista de serviços e os espaços de nome que lhes pertencem, consulte os fornecedores de [recursos para os serviços Azure.](../../azure-resource-manager/management/azure-services-resource-providers.md) Para consultar e aceder a estas métricas programáticamente, por favor use a [versão api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+O Azure Monitor fornece várias formas de interagir com métricas, incluindo mapeá-las no portal, acessá-las através da API REST, ou questioná-las usando PowerShell ou CLI. 
+
+Este artigo é uma lista completa de todas as métricas da plataforma (isto é, recolhidas automaticamente) atualmente disponíveis com o pipeline métrico consolidado do Azure Monitor. A lista foi atualizada pela última vez a 27 de março de 2020. As métricas alteradas ou adicionadas após esta data podem não aparecer abaixo. Para consultar e aceder à lista de métricas programáticamente, por favor use a [versão api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+
+Outras métricas podem estar disponíveis no portal ou usando APIs legados. As métricas para o sistema operativo convidado (guest os) que funciona em Máquinas Virtuais Azure, Tecido de Serviço e Serviços cloud **não** estão listadas aqui. Estes devem ser recolhidos através de um ou mais agentes que funcionam ou como parte do sistema operativo. Pode enviar as métricas do agente para a base de dados de métricas da plataforma utilizando as [métricas personalizadas](metrics-custom-overview.md) API, que estão atualmente em pré-visualização pública. Depois pode traçar, alertar e usar métricas de os convidados como métricas de plataforma. Para mais informações, consulte [a visão geral dos agentes de monitorização](agents-overview.md).    
+
+As métricas são organizadas pelo espaço de nome. Para obter uma lista de serviços e os espaços de nome que lhes pertencem, consulte os fornecedores de [recursos para os serviços Azure.](../../azure-resource-manager/management/azure-services-resource-providers.md) 
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.

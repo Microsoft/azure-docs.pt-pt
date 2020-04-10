@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 0d55bafc513ef7553952ee2096ea32db65d6205d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 555da74da65f3b1897a276cf819a263334cfa053
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673773"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80999045"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Crie uma regra e crie notificações na sua aplicação Azure IoT Central
 
@@ -34,11 +34,11 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, complete a [aplicação Create a Azure IoT Central](./quick-deploy-iot-central.md) e [adicione um dispositivo simulado à sua aplicação IoT Central](./quick-create-pnp-device.md) rapidamente para criar o modelo de dispositivo **MXChip IoT DevKit** para trabalhar.
+Antes de começar, complete a [aplicação Create a Azure IoT Central](./quick-deploy-iot-central.md) e [adicione um dispositivo simulado à sua aplicação IoT Central](./quick-create-simulated-device.md) rapidamente para criar o modelo de dispositivo **MXChip IoT DevKit** para trabalhar.
 
 ## <a name="create-a-rule"></a>Criar uma regra
 
-Para criar uma regra de telemetria, o modelo do dispositivo deve incluir pelo menos um valor de telemetria. Este tutorial utiliza um dispositivo **MXChip IoT DevKit** simulado que envia telemetria de temperatura e humidade. Adicionou este modelo de dispositivo e criou um dispositivo simulado no [Add um dispositivo simulado à sua aplicação IoT Central.](./quick-create-pnp-device.md) A regra monitoriza a temperatura reportada pelo dispositivo e envia um e-mail quando ultrapassa os 70 graus.
+Para criar uma regra de telemetria, o modelo do dispositivo deve incluir pelo menos um valor de telemetria. Este tutorial utiliza um dispositivo **MXChip IoT DevKit** simulado que envia telemetria de temperatura e humidade. Adicionou este modelo de dispositivo e criou um dispositivo simulado no [Add um dispositivo simulado à sua aplicação IoT Central.](./quick-create-simulated-device.md) A regra monitoriza a temperatura reportada pelo dispositivo e envia um e-mail quando ultrapassa os 70 graus.
 
 1. No painel esquerdo, selecione **Regras**.
 

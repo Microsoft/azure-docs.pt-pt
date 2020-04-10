@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 74d56d553c4049a98b4401c66b27ae33e31da5c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40a16d559a96c88a864ef809d40d798b99746230
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927123"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992101"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copiar dados do Marketo utilizando a Azure Data Factory (Pré-visualização)
 
@@ -37,7 +37,7 @@ Pode copiar dados do Marketo para qualquer loja de dados de sink suportado. Para
 A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não necessita de instalar manualmente qualquer controlador utilizando este conector.
 
 >[!NOTE]
->Este conector Marketo é construído em cima da API Marketo REST. Esteja ciente de que o Marketo tem [limite de pedido simultâneo](https://developers.marketo.com/rest-api/) do lado do serviço. Se tiver erros dizendo "Erro ao tentar utilizar REST API: Limite de taxa máxima '100' ultrapassado em '20' segs (606)" ou "Erro ao tentar utilizar a API REST: Limite de acesso simultâneo '10' atingido (615)", considere reduzir a atividade de cópia simultânea para reduzir o número de pedidos ao serviço.
+>Este conector Marketo é construído em cima da API Marketo REST. Esteja ciente de que o Marketo tem [limite de pedido simultâneo](https://developers.marketo.com/rest-api/) do lado do serviço. Se tiver erros dizendo "Erro ao tentar utilizar a API REST: Limite de taxa máxima '100' ultrapassado em '20' segs (606)" ou "Erro ao tentar utilizar a API REST: Limite de acesso simultâneo '10' atingido (615)", considere reduzir a atividade de cópia simultânea para reduzir o número de pedidos ao serviço.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -56,8 +56,8 @@ As seguintes propriedades são suportadas para o serviço ligado ao Marketo:
 | clientId | A identificação do cliente do seu serviço Marketo.  | Sim |
 | clienteSecret | O segredo do cliente do seu serviço Marketo. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos finais da fonte de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| utilizaçãoVerificação de anfitriões | Especifica se deve exigir o nome de anfitrião no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar-se ao SSL. O valor predefinido é true.  | Não |
-| utilizaçãoPeerVerification | Especifica se deve verificar a identidade do servidor ao ligar-se através do SSL. O valor predefinido é true.  | Não |
+| utilizaçãoVerificação de anfitriões | Especifica se deve exigir o nome de anfitrião no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar-se ao TLS. O valor predefinido é true.  | Não |
+| utilizaçãoPeerVerification | Especifica se deve verificar a identidade do servidor ao ligar-se através do TLS. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 

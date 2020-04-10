@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278743"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010312"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache Azure para redis
 Este tópico descreve as configurações disponíveis para os seus casos Azure Cache para Redis. Este tópico também cobre a configuração padrão do servidor Redis para os casos de Azure Cache para redis.
@@ -117,10 +117,10 @@ As seguintes definições estão configuradas na lâmina de **definições Avan�
 * [Notificações do espaço-chave (configurações avançadas)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>Portas de Acesso
-Por predefinição, o acesso não SSL está desativado para as novas caches. Para ativar a porta não-SSL, clique **em Não** **permitir o acesso apenas através do SSL** na lâmina de **definições Avançadas** e, em seguida, clique em **Guardar**.
+Por predefinição, o acesso não-TLS/SSL é desativado para novos caches. Para ativar a porta não-TLS, clique **em Não** **permitir o acesso apenas através do SSL** na lâmina de **definições Avançadas** e, em seguida, clique em **Guardar**.
 
 > [!NOTE]
-> O acesso sSL ao Azure Cache for Redis suporta tLS 1.0, 1.1 e 1.2 atualmente, mas as versões 1.0 e 1.1 estão a ser retiradas em breve.  Leia a nossa [página Remove TLS 1.0 e 1.1](cache-remove-tls-10-11.md) para mais detalhes.
+> O acesso tLS ao Azure Cache for Redis suporta TLS 1.0, 1.1 e 1.2 atualmente, mas as versões 1.0 e 1.1 estão a ser retiradas em breve.  Leia a nossa [página Remove TLS 1.0 e 1.1](cache-remove-tls-10-11.md) para mais detalhes.
 
 ![Cache Azure para portas de acesso Redis](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -193,7 +193,7 @@ Cada nível de preços tem limites diferentes para ligações ao cliente, memór
 Para atualizar a sua cache, clique **em Upgrade agora** para alterar o nível de preços e [escalar](#scale) a sua cache. Para obter mais informações sobre a escolha de um nível de preços, veja [o que azure cache para redis oferecendo e tamanho devo usar?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 
-### <a name="scale"></a>Dimensionamento
+### <a name="scale"></a>Escala
 Clique em **Escala** para visualizar ou alterar o nível de preços para a sua cache. Para obter mais informações sobre escala, consulte [Como escalar o Cache Azure para Redis](cache-how-to-scale.md).
 
 ![Azure Cache para o nível de preços redis](./media/cache-configure/pricing-tier.png)

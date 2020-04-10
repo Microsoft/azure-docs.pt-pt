@@ -6,17 +6,19 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/9/2019
-ms.openlocfilehash: 1dd782092ce91f7b71a3a2a6f2ed1646ee39a7e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: 196d917d31eb08af80587bba30d9f7e67bf8cbea
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444541"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991710"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Construir expressões no fluxo de dados de mapeamento
 
 No mapeamento do fluxo de dados, muitas propriedades de transformação são introduzidas como expressões. Estas expressões são compostas por valores de coluna, parâmetros, funções, operadores e literais que avaliam um tipo de dados spark no tempo de execução.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tkur]
 
 ## <a name="open-expression-builder"></a>Construtor de expressão aberta
 

@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: a916645f153f73a98e7fc5d4046bdf557e8acf2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5ea0fd252d1792d4c40cc6d7869f4ba57edc1ad
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73823518"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011366"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança de fusão split
 
@@ -26,7 +26,7 @@ Para utilizar o serviço Split/Merge, deve configurar corretamente a segurança.
 
 Os certificados são configurados de duas formas. 
 
-1. [Para configurar o certificado SSL](#to-configure-the-ssl-certificate)
+1. [Para configurar o certificado TLS/SSL](#to-configure-the-tlsssl-certificate)
 2. [Para configurar certificados de cliente](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Para obter certificados
@@ -49,26 +49,26 @@ Se essas opções não estiverem disponíveis, pode gerar **certificados auto-as
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 * Obtenha o WDK a partir do [Windows 8.1: Descarregue kits e ferramentas](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
-## <a name="to-configure-the-ssl-certificate"></a>Para configurar o certificado SSL
+## <a name="to-configure-the-tlsssl-certificate"></a>Para configurar o certificado TLS/SSL
 
-É necessário um certificado SSL para encriptar a comunicação e autenticar o servidor. Escolha o mais aplicável dos três cenários abaixo e execute todos os seus passos:
+É necessário um certificado TLS/SSL para encriptar a comunicação e autenticar o servidor. Escolha o mais aplicável dos três cenários abaixo e execute todos os seus passos:
 
 ### <a name="create-a-new-self-signed-certificate"></a>Criar um novo certificado auto-assinado
 
 1. [Criar um Certificado Auto-Assinado](#create-a-self-signed-certificate)
-2. [Criar ficheiro PFX para certificado SSL auto-assinado](#create-pfx-file-for-self-signed-ssl-certificate)
-3. [Carregue o Certificado SSL para o serviço cloud](#upload-ssl-certificate-to-cloud-service)
-4. [Atualizar certificado SSL no ficheiro de configuração do serviço](#update-ssl-certificate-in-service-configuration-file)
-5. [Autoridade de Certificação SSL de Importação](#import-ssl-certification-authority)
+2. [Criar ficheiro PFX para certificado TLS/SSL auto-assinado](#create-pfx-file-for-self-signed-tlsssl-certificate)
+3. [Carregue o Certificado TLS/SSL para o serviço cloud](#upload-tlsssl-certificate-to-cloud-service)
+4. [Certificado TLS/SSL atualizado no ficheiro de configuração do serviço](#update-tlsssl-certificate-in-service-configuration-file)
+5. [Autoridade de Certificação TLS/SSL](#import-tlsssl-certification-authority)
 
 ### <a name="to-use-an-existing-certificate-from-the-certificate-store"></a>Utilizar um certificado existente a partir da loja de certificados
-1. [Certificado SSL de exportação da Loja de Certificados](#export-ssl-certificate-from-certificate-store)
-2. [Carregue o Certificado SSL para o serviço cloud](#upload-ssl-certificate-to-cloud-service)
-3. [Atualizar certificado SSL no ficheiro de configuração do serviço](#update-ssl-certificate-in-service-configuration-file)
+1. [Certificado TLS/SSL de exportação da Loja de Certificados](#export-tlsssl-certificate-from-certificate-store)
+2. [Carregue o Certificado TLS/SSL para o serviço cloud](#upload-tlsssl-certificate-to-cloud-service)
+3. [Certificado TLS/SSL atualizado no ficheiro de configuração do serviço](#update-tlsssl-certificate-in-service-configuration-file)
 
 ### <a name="to-use-an-existing-certificate-in-a-pfx-file"></a>Para utilizar um certificado existente num ficheiro PFX
-1. [Carregue o Certificado SSL para o serviço cloud](#upload-ssl-certificate-to-cloud-service)
-2. [Atualizar certificado SSL no ficheiro de configuração do serviço](#update-ssl-certificate-in-service-configuration-file)
+1. [Carregue o Certificado TLS/SSL para o serviço cloud](#upload-tlsssl-certificate-to-cloud-service)
+2. [Certificado TLS/SSL atualizado no ficheiro de configuração do serviço](#update-tlsssl-certificate-in-service-configuration-file)
 
 ## <a name="to-configure-client-certificates"></a>Para configurar os certificados de cliente
 Os certificados de cliente são necessários para autenticar pedidos ao serviço. Escolha o mais aplicável dos três cenários abaixo e execute todos os seus passos:
@@ -102,7 +102,7 @@ O acesso aos pontos finais do serviço pode ser restrito a gamas específicas de
 
 ### <a name="use-a-new-self-signed-certificate"></a>Use um novo certificado auto-assinado
 1. [Criar um Certificado Auto-Assinado](#create-a-self-signed-certificate)
-2. [Criar ficheiro PFX para certificado de encriptação auto-assinado](#create-pfx-file-for-self-signed-ssl-certificate)
+2. [Criar ficheiro PFX para certificado de encriptação auto-assinado](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Enviar certificado de encriptação para o serviço cloud](#upload-encryption-certificate-to-cloud-service)
 4. [Certificado de encriptação de atualização no ficheiro de configuração do serviço](#update-encryption-certificate-in-service-configuration-file)
 
@@ -186,7 +186,7 @@ Consulte a documentação para A Segurança DINÂMICA do IP no IIS para outros v
 ## <a name="operations-for-configuring-service-certificates"></a>Operações para configurar certificados de serviço
 Este tema é apenas para referência. Siga os passos de configuração descritos em:
 
-* Configure o certificado SSL
+* Configure o certificado TLS/SSL
 * Configurar certificados de cliente
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
@@ -204,7 +204,7 @@ Para personalizar:
 * -n com a URL de serviço. Wildcards ("CN=*.cloudapp.net") e nomes alternativos ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net") são suportados.
 * -e com a data de validade do certificado Crie uma senha forte e especifique-a quando solicitada.
 
-## <a name="create-pfx-file-for-self-signed-ssl-certificate"></a>Criar ficheiro PFX para certificado SSL auto-assinado
+## <a name="create-pfx-file-for-self-signed-tlsssl-certificate"></a>Criar ficheiro PFX para certificado TLS/SSL auto-assinado
 Executar:
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
@@ -214,24 +214,24 @@ Introduza a palavra-passe e, em seguida, exporte certificado com estas opções:
 * Sim, exportar a chave privada
 * Exportar todas as propriedades estendidas
 
-## <a name="export-ssl-certificate-from-certificate-store"></a>Certificado SSL de exportação de certificado
+## <a name="export-tlsssl-certificate-from-certificate-store"></a>Certificado TLS/SSL de exportação de certificados
 * Encontrar certificado
 * Clique em Ações -> Todas as tarefas -> Exportação...
 * Certificado de exportação em . Ficheiro PFX com estas opções:
   * Sim, exportar a chave privada
   * Incluir todos os certificados na via de certificação, se possível *Exportar todas as propriedades estendidas
 
-## <a name="upload-ssl-certificate-to-cloud-service"></a>Carregue o certificado SSL para o serviço na nuvem
-Faça upload do certificado com o existente ou gerado . Ficheiro PFX com o par de chaves SSL:
+## <a name="upload-tlsssl-certificate-to-cloud-service"></a>Carregue o certificado TLS/SSL para o serviço na nuvem
+Faça upload do certificado com o existente ou gerado . Ficheiro PFX com o par de chaves TLS:
 
 * Introduza a palavra-passe protegendo as informações de chave privadas
 
-## <a name="update-ssl-certificate-in-service-configuration-file"></a>Atualizar certificado SSL no ficheiro de configuração do serviço
+## <a name="update-tlsssl-certificate-in-service-configuration-file"></a>Atualizar certificado TLS/SSL no ficheiro de configuração do serviço
 Atualize o valor de impressão digital da seguinte definição no ficheiro de configuração do serviço com a impressão digital do certificado enviado para o serviço em nuvem:
 
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## <a name="import-ssl-certification-authority"></a>Autoridade de certificação SSL de Importação
+## <a name="import-tlsssl-certification-authority"></a>Autoridade de certificação TLS/SSL
 Siga estes passos em todas as contas/máquinas que comunicarão com o serviço:
 
 * Clique duas vezes no . Arquivo CER no Windows Explorer
@@ -248,7 +248,7 @@ Altere estas definições para falsas no ficheiro de configuração do serviço 
 <Setting name="SetupWebserverForClientCertificates" value="false" />
 ```
 
-Em seguida, copie a mesma impressão digital que o certificado SSL na definição do certificado CA:
+Em seguida, copie a mesma impressão digital que o certificado TLS/SSL na definição do certificado CA:
 
 ```xml
 <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
@@ -411,7 +411,7 @@ Atualize o valor de impressão digital das seguintes definições no ficheiro de
 ```
 
 ## <a name="common-certificate-operations"></a>Operações comuns de certificados
-* Configure o certificado SSL
+* Configure o certificado TLS/SSL
 * Configurar certificados de cliente
 
 ## <a name="find-certificate"></a>Encontrar certificado
@@ -477,7 +477,7 @@ No [portal do Azure](https://portal.azure.com/)
 7. Uma vez concluída, copie a impressão digital do certificado a partir da nova entrada na lista.
 
 ## <a name="other-security-considerations"></a>Outras considerações de segurança
-As definições SSL descritas neste documento encriptam a comunicação entre o serviço e os seus clientes quando o ponto final HTTPS é utilizado. Isto é importante, uma vez que as credenciais para o acesso à base de dados e potencialmente outras informações sensíveis estão contidas na comunicação. Note-se, no entanto, que o serviço persiste no estado interno, incluindo credenciais, nas suas tabelas internas na base de dados Microsoft Azure SQL que forneceu para armazenamento de metadados na sua subscrição do Microsoft Azure. Essa base de dados foi definida como parte da seguinte definição no ficheiro de configuração do seu serviço (. Arquivo CSCFG): 
+As definições tLS descritas neste documento encriptam a comunicação entre o serviço e os seus clientes quando o ponto final HTTPS é utilizado. Isto é importante, uma vez que as credenciais para o acesso à base de dados e potencialmente outras informações sensíveis estão contidas na comunicação. Note-se, no entanto, que o serviço persiste no estado interno, incluindo credenciais, nas suas tabelas internas na base de dados Microsoft Azure SQL que forneceu para armazenamento de metadados na sua subscrição do Microsoft Azure. Essa base de dados foi definida como parte da seguinte definição no ficheiro de configuração do seu serviço (. Arquivo CSCFG): 
 
 ```xml
 <Setting name="ElasticScaleMetadata" value="Server=…" />

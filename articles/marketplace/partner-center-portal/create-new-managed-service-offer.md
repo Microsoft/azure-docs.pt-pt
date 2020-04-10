@@ -8,17 +8,17 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: de6e08534722deccb8be11248dd8af3ca2e66739
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6baf5d77b70fa6e2717b492163826f27d80fbb88
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983217"
+ms.locfileid: "80991625"
 ---
 # <a name="create-a-new-managed-service-offer"></a>Criar uma nova oferta de Serviço Gerido
 
 > [!IMPORTANT]
-> Estamos a mover a gestão das suas ofertas de serviços geridos do Cloud Partner Portal para partner Center. Até que as suas ofertas sejam migradas, siga as instruções da Publish uma oferta de [serviço gerida ao Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) para gerir as suas ofertas.
+> Estamos a mover a gestão das suas ofertas de Serviço Gerido do Portal do Parceiro cloud para o Partner Center. Até que as suas ofertas sejam migradas, siga as instruções em Publicar uma oferta de [Serviço Gerido ao Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) para gerir as suas ofertas no Portal do Parceiro cloud.
 
 O Serviço Gerido oferece ajuda para ativar cenários do [Farol Azure.](../../lighthouse/overview.md) Quando um cliente aceita uma oferta de Serviço Gerido, eles são então capazes de embarcar recursos para a [gestão de recursos delegados do Azure.](../../lighthouse/concepts/azure-delegated-resource-management.md)
 

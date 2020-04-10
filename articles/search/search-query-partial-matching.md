@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 7f001a0d443e4ec668aedaabb7505884163bf37e
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: faafc1e12f0703c38b4e602700b1e775bf13a061
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666776"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998337"
 ---
-# <a name="partial-term-search-and-patterns-with-special-characters---azure-cognitive-search-wildcard-regex-patterns"></a>Pesquisa parcial de termo e padrões com caracteres especiais - Pesquisa Cognitiva Azure (wildcard, regex, padrões)
+# <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Pesquisa parcial de termo e padrões com caracteres especiais (wildcard, regex, padrões)
 
 Uma *pesquisa de termo parcial* refere-se a consultas compostas por fragmentos de termo, tais como as primeiras, últimas ou partes interiores de uma corda. Um *padrão* pode uma combinação de fragmentos, às vezes com personagens especiais como traços ou cortes que fazem parte da consulta. Os casos comuns de utilização incluem consulta de porções de um número de telefone, URL, pessoas ou códigos de produto, ou palavras compostas.
 
 A procura parcial pode ser problemática se o índice não tiver termos no formato necessário para a correspondência de padrões. During the text analysis phase of indexing, using the default standard analyzer, special characters are discarded, composite and compound strings are split up, causing pattern queries to fail when no match is found. Por exemplo, um `+1 (425) 703-6214`número de telefone `"1"` `"425"`como `"703"` `"6214"`(tokened as, `"3-62"` , , ) não aparece numa consulta porque esse conteúdo não existe realmente no índice. 
 
-A solução é invocar um analisador que preserve uma cadeia completa, incluindo espaços e caracteres especiais, se necessário, para que possa suportar termos e padrões parciais. Criar um campo adicional para uma cadeia intacta, além de usar um analisador de preservação de conteúdo, é a base da solução.
+A solução é invocar um analisador que preserve uma cadeia completa, incluindo espaços e caracteres especiais, se necessário, para que possa combinar em termos e padrões parciais. Criar um campo adicional para uma cadeia intacta, além de usar um analisador de preservação de conteúdo, é a base da solução.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>O que é pesquisa parcial na Pesquisa Cognitiva Azure
 
@@ -64,7 +64,7 @@ Os analisadores são atribuídos numa base por campo, o que significa que pode c
   "type": "Edm.String",
   "retrievable": true,
   "searchable": true,
-  "analyzer": "my_customanalyzer"
+  "analyzer": "my_custom_analyzer"
 },
 ```
 

@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 745be21c2a7a09a09fdbbfd57a305d09a4fac3ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c54f864b5bd562fdc0a84b2903198704032b360
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72793433"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998490"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Utilize a sintaxe de pesquisa "completa" lucene (consultas avançadas em Pesquisa Cognitiva Azure)
 
@@ -86,7 +86,7 @@ Este primeiro exemplo não é específico de Lucene, mas conduzimo-lo para intro
 
 Para a brevidade, a consulta visa apenas o campo *business_title* e especifica que apenas os títulos de negócio são devolvidos. O parâmetro **searchFields** restringe a execução da consulta apenas ao campo business_title, e **selecione** quais os campos incluídos na resposta.
 
-### <a name="partial-query-string"></a>Corda de consulta parcial
+### <a name="search-expression"></a>Expressão de pesquisa
 
 ```http
 &search=*&searchFields=business_title&$select=business_title
@@ -119,7 +119,7 @@ Deve ter reparado na pontuação da pesquisa na resposta. Pontuações uniformes
 
 A sintaxe lucene completa suporta a deteção de expressões individuais de pesquisa para um campo específico. Este exemplo procura títulos de negóciocom o termo sénior neles, mas não júnior.
 
-### <a name="partial-query-string"></a>Corda de consulta parcial
+### <a name="search-expression"></a>Expressão de pesquisa
 
 ```http
 $select=business_title&search=business_title:(senior NOT junior)
@@ -156,7 +156,7 @@ O campo especificado no **fieldName:searchExpression** deve ser um campo pesquis
 
 A sintaxe lucene completa também suporta a pesquisa fuzzy, combinando em termos que têm uma construção semelhante. Para fazer uma pesquisa difusa, `~` ajuste o símbolo de tilo no final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por `blue~` exemplo, `blue~1` ou devolveria azul, azul e cola.
 
-### <a name="partial-query-string"></a>Corda de consulta parcial
+### <a name="search-expression"></a>Expressão de pesquisa
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:asosiate~
@@ -186,7 +186,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-4-proximity-search"></a>Exemplo 4: Pesquisa de proximidade
 As pesquisas de proximidade são usadas para encontrar termos que se aproximam uns dos outros num documento. Insira um símbolo de tilde "~" no final de uma frase seguida pelo número de palavras que criam o limite de proximidade. Por exemplo, o "aeroporto do hotel"~5 encontrará os termos hotel e aeroporto dentro de 5 palavras um do outro em um documento.
 
-### <a name="partial-query-string"></a>Corda de consulta parcial
+### <a name="search-expression"></a>Expressão de pesquisa
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
@@ -239,7 +239,7 @@ Ao definir o nível de fator, quanto maior for o fator de impulso, mais relevant
 
 Uma pesquisa de expressão regular encontra uma correspondência baseada no conteúdo entre as barras dianteiras "/", conforme documentado na [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
-### <a name="partial-query-string"></a>Corda de consulta parcial
+### <a name="search-expression"></a>Expressão de pesquisa
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
@@ -262,7 +262,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-7-wildcard-search"></a>Exemplo 7: Pesquisa de Wildcard
 Você pode usar sintaxe geralmente reconhecida para múltiplas ()\*ou únicas (?) pesquisas de caracteres wildcard. Note que o parser lucene da consulta suporta o uso destes símbolos com um único termo, e não uma frase.
 
-### <a name="partial-query-string"></a>Corda de consulta parcial
+### <a name="search-expression"></a>Expressão de pesquisa
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:prog*

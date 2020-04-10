@@ -4,18 +4,18 @@ description: Lista de serviços que suportam identidades geridas para recursos A
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 04/03/2020
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c7a65df100cd58561ce12ac2ae01281eebd419a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 45a248300cd61a0e57b9f35c8905d7c335069a27
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656052"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991284"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos Azure
 
@@ -70,7 +70,7 @@ Consulte a seguinte lista para configurar a identidade gerida para o Azure App S
 - [Portal do Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [CLI do Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Modelo Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Modelo de Gestor de Recursos Azure](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
 
@@ -96,7 +96,7 @@ Consulte a seguinte lista para configurar a identidade gerida para funções azu
 - [Portal do Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [CLI do Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Modelo Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Modelo de Gestor de Recursos Azure](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps
 
@@ -109,7 +109,7 @@ Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões Azure Glob
 Consulte a seguinte lista para configurar a identidade gerida para as Aplicações Lógicas Azure (em regiões onde disponível):
 
 - [Portal do Azure](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Modelo Azure Resource Manager](/azure/app-service/overview-managed-identity)
+- [Modelo de Gestor de Recursos Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
@@ -134,7 +134,7 @@ Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões Azure Glob
 
 Consulte a seguinte lista para configurar a identidade gerida para a Gestão da API Azure (em regiões onde disponível):
 
-- [Modelo Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
+- [Modelo de Gestor de Recursos Azure](/azure/api-management/api-management-howto-use-managed-service-identity)
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -146,7 +146,7 @@ Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões Azure Glob
 Consulte a seguinte lista para configurar a identidade gerida para as instâncias de contentores azure (em regiões onde estiver disponível):
 
 - [CLI do Azure](~/articles/container-instances/container-instances-managed-identity.md)
-- [Modelo Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [Modelo de Gestor de Recursos Azure](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 ### <a name="azure-container-registry-tasks"></a>Tarefas do Azure Container Registry
@@ -169,7 +169,7 @@ Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões Azure Glob
 | Utilizador atribuído | ![Disponível][check] | Não Disponível | Não Disponível |Não Disponível |
 
 Consulte a seguinte lista para configurar a identidade gerida para aplicações azure service fabric em todas as regiões:
-- [Modelo Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
+- [Modelo de Gestor de Recursos Azure](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Serviços Azure que suportam autenticação DaAzure
 
@@ -270,6 +270,9 @@ Consulte a seguinte lista para configurar o acesso ao Gestor de Recursos do Azur
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Disponível][check] |
 | Azure Alemanha | `https://*.asazure.cloudapi.de` | ![Disponível][check] |
 | Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Disponível][check] |
+
+> [!Note]
+> O Microsoft Power BI também [suporta identidades geridas.](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)
 
 
 [check]: media/services-support-managed-identities/check.png "Disponível"

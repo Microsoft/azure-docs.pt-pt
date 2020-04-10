@@ -1,20 +1,20 @@
 ---
 title: Criar um conjunto de escala Azure que utiliza zonas de disponibilidade
 description: Saiba como criar conjuntos de escala de máquinas virtuais Azure que utilizam Zonas de Disponibilidade para maior redundância contra interrupções
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.author: cynthn
-ms.openlocfilehash: 11695eb889a10dc689b00399a37382a3b9772eae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: c8795f46e47b2ab43898f6f436b9ee6026a22fa7
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76274413"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011570"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de escala de máquina virtual que utiliza Zonas de Disponibilidade
 
@@ -58,7 +58,7 @@ Quando se cria uma escala definida numa única zona, controla-se a zona de todas
 
 Para utilizar as Zonas de Disponibilidade, o seu conjunto de escala deve ser criado numa [região azure apoiada.](../availability-zones/az-overview.md#services-support-by-region) Pode criar um conjunto de escala que utiliza Zonas de Disponibilidade com um dos seguintes métodos:
 
-- [Portal Azure](#use-the-azure-portal)
+- [Portal do Azure](#use-the-azure-portal)
 - CLI do Azure
 - [Azure PowerShell](#use-azure-powershell)
 - [Modelos do Azure Resource Manager](#use-azure-resource-manager-templates)

@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 214b2868f9733dfc6790c492543fb86a832f18b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.openlocfilehash: dd13a08b3c2f63baf509efbb730032edd4eba61a
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065500"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011553"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento da Blob Azure utilizando a Azure Data Factory
 
@@ -25,7 +25,8 @@ ms.locfileid: "80065500"
 
 Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de e para o armazenamento da Blob Azure, e usar o Data Flow para transformar dados no armazenamento do Azure Blob. Para conhecer a Azure Data Factory, leia o [artigo introdutório.](introduction.md)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+>[!TIP]
+>Para o cenário de migração de data lake ou data warehouse, saiba mais com [a Use Azure Data Factory para migrar dados do seu lago de dados ou armazém de dados para o Azure](data-migration-guidance-overview.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -64,7 +65,7 @@ O conector Azure Blob suporta os seguintes tipos de autenticação, consulte a s
 - [Identidades geridas para autenticação de recursos Azure](#managed-identity)
 
 >[!NOTE]
->Ao utilizar a PolyBase para carregar dados no SQL Data Warehouse, se a sua fonte ou armazenamento blob estiver configurado com ponto final da Rede Virtual, deve utilizar a autenticação de identidade gerida conforme exigido pela PolyBase, e utilizar o Tempo de Execução de Integração Auto-hospedado com versão 3.18 ou superior. Consulte a secção de [autenticação](#managed-identity) de identidade gerida com mais pré-requisitos de configuração.
+>Ao utilizar a PolyBase para carregar dados no SQL Data Warehouse, se o seu armazenamento de origem ou encenação blob estiver configurado com ponto final da Rede Virtual, deve utilizar a autenticação de identidade gerida conforme exigido pela PolyBase, e utilizar o Tempo de Execução de Integração Auto-hospedado com a versão 3.18 ou superior. Consulte a secção de [autenticação](#managed-identity) de identidade gerida com mais pré-requisitos de configuração.
 
 >[!NOTE]
 >As atividades hDInsights e Azure Machine Learning apenas suportam a autenticação da chave de armazenamento Azure Blob.
@@ -136,11 +137,6 @@ Uma assinatura de acesso partilhado proporciona acesso delegado aos recursos na 
 > [!NOTE]
 >- Data Factory agora suporta tanto **assinaturas** de acesso partilhado de serviço como **assinaturas de acesso partilhado**de conta. Para obter mais informações sobre assinaturas de acesso partilhado, consulte Grant acesso limitado aos recursos de [Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md).
 >- Na configuração posterior do conjunto de dados, o caminho da pasta é o caminho absoluto a partir do nível do contentor. Precisa de configurar um alinhado com o caminho no seu SAS URI.
-
-> [!TIP]
-> Para gerar uma assinatura de acesso partilhado de serviço para a sua conta de armazenamento, pode executar os seguintes comandos PowerShell. Substitua os espaços reservados e conceda a permissão necessária.
-> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Para utilizar a autenticação de assinatura de acesso partilhado, são suportadas as seguintes propriedades:
 

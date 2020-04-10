@@ -1,19 +1,19 @@
 ---
 title: Implementar uma aplicação para um conjunto de escala de máquina virtual Azure
 description: Saiba como implementar aplicações para casos de máquinas virtuais Linux e Windows num conjunto de escala
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 6bc319ea50da4ff6a654b2c9ab09bbe218695533
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: e157db79f1835a8ca891dd360a99e3319565d1d4
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278112"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011468"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementar uma aplicação em conjuntos de dimensionamento de máquinas virtuais
 
@@ -25,16 +25,16 @@ Quando utiliza uma das imagens da plataforma Azure para criar as instâncias no 
 
 Para reduzir a gestão da configuração e o tempo para fornecer um VM, pode criar uma imagem VM personalizada que esteja pronta para executar a sua aplicação assim que uma instância for aprovisionada no conjunto de escala. Para obter mais informações sobre como criar e utilizar uma imagem VM personalizada com um conjunto de escala, consulte os seguintes tutoriais:
 
-- [Azure CLI](tutorial-use-custom-image-cli.md)
+- [CLI do Azure](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="install-an-app-with-the-custom-script-extension"></a><a name="already-provisioned"></a>Instale uma aplicação com a extensão personalizada do script
 A Extensão de Script Personalizado transfere e executa scripts em VMs do Azure. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Os scripts podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos para o portal do Azure no runtime da extensão. Para obter mais informações sobre como instalar uma aplicação com uma extensão de script personalizada, consulte os seguintes tutoriais:
 
-- [Azure CLI](tutorial-install-apps-cli.md)
+- [CLI do Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
-- [Modelo Azure Resource Manager](tutorial-install-apps-template.md)
+- [Modelo de Gestor de Recursos Azure](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Instale uma aplicação para um Windows VM com PowerShell DSC

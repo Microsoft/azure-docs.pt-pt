@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 128b4203d34b99df8363ef19783baa4a7b608aa5
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 654aeddbb305124ea00a883dbef9d8b5ad585a36
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631320"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990791"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Orientação de design para a utilização de tabelas replicadas no SQL Analytics
 
@@ -124,7 +124,7 @@ Recriámos `DimDate` e `DimSalesTerritory` como mesas replicadas, e fizemos a co
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Considerações de desempenho para modificar tabelas replicadas
 
-A SQL Analytics implementa uma tabela replicada mantendo uma versão master da tabela. Copia a versão principal para uma base de dados de distribuição em cada nó computacional. Quando há uma mudança, a SQL Analytics atualiza primeiro a tabela principal. Depois reconstrói as mesas em cada nó computacional. Uma reconstrução de uma tabela replicada inclui copiar a tabela para cada nó computacional e, em seguida, construir os índices.  Por exemplo, uma tabela replicada num DW400 tem 5 cópias dos dados.  Uma cópia principal e uma cópia completa em cada nó computacional.  Todos os dados são armazenados em bases de dados de distribuição. O SQL Analytics utiliza este modelo para suportar declarações mais rápidas de modificação de dados e operações de escala flexível.
+A SQL Analytics implementa uma tabela replicada mantendo uma versão master da tabela. Copia a versão principal para a primeira base de dados de distribuição de cada nó computacional. Quando há uma mudança, a SQL Analytics atualiza primeiro a versão master, depois reconstrói as tabelas em cada nó computacional. Uma reconstrução de uma tabela replicada inclui copiar a tabela para cada nó computacional e, em seguida, construir os índices.  Por exemplo, uma tabela replicada num DW2000c tem 5 cópias dos dados.  Uma cópia principal e uma cópia completa em cada nó computacional.  Todos os dados são armazenados em bases de dados de distribuição. O SQL Analytics utiliza este modelo para suportar declarações mais rápidas de modificação de dados e operações de escala flexível.
 
 As reconstruções são necessárias após:
 

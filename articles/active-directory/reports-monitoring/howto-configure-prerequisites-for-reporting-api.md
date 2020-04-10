@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12abfc0d345c937ae886f9bfacfb8ce30227cc45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd3580ca03fa49d428904c6da78fdf9cda202c7
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399302"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991267"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para aceder ao Diretório Ativo Azure reportando API
 
@@ -33,9 +33,10 @@ O relatório API usa [OAuth](https://docs.microsoft.com/azure/api-management/api
 Para preparar o seu acesso à API reporte, precisa de:
 
 1. [Atribuir funções](#assign-roles)
-2. [Registar um pedido](#register-an-application)
-3. [Conceder permissões](#grant-permissions)
-4. [Recolher configurações de configuração](#gather-configuration-settings)
+2. [Requisitos de Licença](#license-requirements)
+3. [Registar uma aplicação](#register-an-application)
+4. [Conceder permissões](#grant-permissions)
+5. [Recolher configurações de configuração](#gather-configuration-settings)
 
 ## <a name="assign-roles"></a>Atribuir funções
 
@@ -46,6 +47,10 @@ Para ter acesso aos dados de reporte através da API, é necessário ter uma das
 - Administrador de Segurança
 
 - Administrador Global
+
+## <a name="license-requirements"></a>Requisitos de Licença
+
+Para aceder aos relatórios de inscrição de um inquilino, um inquilino da Azure AD deve ter associado a licença Azure AD Premium. A licença Azure AD Premium P1 (ou superior) é necessária para aceder a relatórios de inscrição para qualquer inquilino da AD Azure. Alternativamente, se o tipo de diretório for Azure AD B2C, os relatórios de entrada são acessíveis através da API sem qualquer requisito adicional de licença. 
 
 
 ## <a name="register-an-application"></a>Registar uma aplicação

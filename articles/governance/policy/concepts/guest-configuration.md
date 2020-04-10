@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Política Azure utiliza o agente de configuração do hóspede para auditar definições dentro de máquinas virtuais.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 889e99e94b2c81a6654fcbe7851e93c40163a0c6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9e8486af2a9b7ab9e18b8c16f08e51759d1123d7
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985325"
+ms.locfileid: "80998843"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de hóspedes da Política Azure
 
@@ -91,6 +91,13 @@ O Windows Server Nano Server não é suportado em nenhuma versão.
 
 Para comunicar com o fornecedor de recursos de Configuração de Hóspedes em Azure, as máquinas requerem acesso de saída aos centros de dados Azure na porta **443**. Se estiver a utilizar uma rede virtual privada em Azure que não permita o tráfego de saída, configure exceções com as regras [do Network Security Group.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
 A etiqueta de [serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser utilizada para fazer referência ao serviço de Configuração de Hóspedes.
+
+## <a name="azure-managed-identity-requirements"></a>Requisitos de identidade geridos pelo Azure
+
+As políticas **DeployIfNotExists** que adicionam a extensão a máquinas virtuais também permitem um sistema de identidade gerida, se não existir.
+
+> [!WARNING]
+> Evite permitir que o utilizador atribuísse identidade gerida a máquinas virtuais no âmbito de políticas que permitam o sistema de identidade gerida atribuída. A identidade atribuída ao utilizador será substituída e poderá a máquina ficar sem resposta.
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição de configuração de hóspedes
 

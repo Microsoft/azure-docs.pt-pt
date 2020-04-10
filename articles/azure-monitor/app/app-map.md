@@ -4,12 +4,12 @@ description: Monitorize topoologias de aplicações complexas com o mapa de apli
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 0823dd5d880c778f9b7a231ac14f1cbba1940927
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657383"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80989532"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicações: Aplicações distribuídas da triagem
 
@@ -155,7 +155,25 @@ Para ASP.NET aplicações [Core,](asp-net-core.md#adding-telemetryinitializers) 
 
 # <a name="java"></a>[Java](#tab/java)
 
-Começando com insights de aplicação Java SDK 2.5.0, `<RoleName>` pode `ApplicationInsights.xml` especificar o nome da função cloud adicionando ao seu ficheiro, por exemplo.
+**Agente Java**
+
+Para [o agente Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) o nome da nuvem é definido da seguinte forma:
+
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "roleName": "my cloud role name"
+    }
+  }
+}
+```
+
+Também pode definir o nome da ```APPLICATIONINSIGHTS_ROLE_NAME```função da nuvem utilizando a variável ambiental .
+
+**SDK Java**
+
+Se estiver a utilizar o SDK, a começar pela Aplicação Insights Java SDK 2.5.0, pode especificar o nome da função da nuvem adicionando `<RoleName>` ao seu `ApplicationInsights.xml` ficheiro, por exemplo.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>

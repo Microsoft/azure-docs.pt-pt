@@ -1,18 +1,18 @@
 ---
-title: Compilação de configurações na Configuração do Estado da Automação Azure
+title: Compilar configurações dSC na configuração do Estado da Automação Azure
 description: Este artigo descreve como compilar configurações de Configuração de Estado Desejado (DSC) para a Automação Azure.
 services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b366777cce4dd4212a2e3ec0cdcd180e0d7164f4
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 6ce55b83f5547534e44d689adccdd952abc025d5
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757187"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010958"
 ---
-# <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilação de configurações dSC na configuração do Estado da Automação Azure
+# <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Compilar configurações dSC na configuração do Estado da Automação Azure
 
 Pode compilar as configurações de Configuração do Estado Desejado (DSC) na Configuração do Estado da Automação Azure das seguintes formas:
 

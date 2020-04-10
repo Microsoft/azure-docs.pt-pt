@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2821ee637b2562b5287dd3d59cf943b3dcb7ef97
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278119"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010890"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar suporte de rede virtual para um Cache Premium Azure para Redis
 O Azure Cache for Redis tem diferentes ofertas de cache, que proporcionam flexibilidade na escolha do tamanho e funcionalidades do cache, incluindo funcionalidades de nível Premium, como clustering, persistência e suporte de rede virtual. Um VNet é uma rede privada na nuvem. Quando um cache azure para redis é configurado com um VNet, não é publicamente endereçado e só pode ser acedido a partir de máquinas e aplicações virtuais dentro do VNet. Este artigo descreve como configurar o suporte de rede virtual para um azure cache premium para a instância Redis.
@@ -118,7 +118,7 @@ Há nove requisitos de saída. Os pedidos de saída nestas gamas são ou de saí
 
 #### <a name="geo-replication-peer-port-requirements"></a>Requisitos da porta do elemento de rede de georreplicação
 
-Se estiver a utilizar a georeplicação entre caches em Redes Virtuais Azure, por favor note que a configuração recomendada é desbloquear portas 15000-15999 para toda a subrede em ambas as direções de entrada e saída para ambos os caches, de modo que todos os componentes de réplica na sub-rede pode comunicar diretamente uns com os outros mesmo em caso de uma futura geo-falha.
+Se estiver a utilizar a georeplicação entre caches em Redes Virtuais Azure, por favor note que a configuração recomendada é desbloquear portas 15000-15999 para toda a subrede em direções de entrada e saída para ambos os caches, de modo que todos os componentes de réplica na subnet possam comunicar diretamente uns com os outros mesmo em caso de uma futura geo-falha.
 
 #### <a name="inbound-port-requirements"></a>Requisitos de porta de entrada
 
@@ -142,9 +142,9 @@ Existem oito requisitos de alcance de entrada. Os pedidos de entrada nestas gama
 Existem requisitos de conectividade de rede para O Cache Azure para Redis que podem não ser inicialmente cumpridos numa rede virtual. O Azure Cache for Redis requer que todos os seguintes itens funcionem corretamente quando utilizados dentro de uma rede virtual.
 
 * Conectividade de rede de saída para pontos finais de Armazenamento Azure em todo o mundo. Isto inclui pontos finais localizados na mesma região que o Azure Cache para o caso Redis, bem como pontos finais de armazenamento localizados em **outras** regiões do Azure. Os pontos finais do Armazenamento Azure resolvem-se nos seguintes domínios DNS: *table.core.windows.net,* *blob.core.windows.net,* *queue.core.windows.net*e *file.core.windows.net.* 
-* Conectividade de rede de saída para *ocsp.msocsp.com*, *mscrl.microsoft.com*e *crl.microsoft.com*. Esta conectividade é necessária para suportar a funcionalidade SSL.
+* Conectividade de rede de saída para *ocsp.msocsp.com*, *mscrl.microsoft.com*e *crl.microsoft.com*. Esta conectividade é necessária para suportar a funcionalidade TLS/SSL.
 * A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos finais e domínios mencionados nos pontos anteriores. Estes requisitos dNS podem ser cumpridos garantindo que uma infraestrutura DNS válida é configurada e mantida para a rede virtual.
-* Conectividade de rede de saída para os seguintes pontos finais de monitorização Azure, que se resolvem sob os seguintes domínios DNS: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
+* A conectividade da rede de saída para os seguintes pontos finais de Monitorização Azure, que se resolvem nos seguintes domínios DNS: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Como posso verificar se a minha cache está a funcionar numa VNET?
 
@@ -220,13 +220,13 @@ Se possível, recomenda-se utilizar a seguinte configuração:
 
 O efeito combinado destas etapas é que o UDR de nível de subnet tem precedência sobre a via de túneis forçados da ExpressRoute, garantindo assim o acesso à Internet a partir do Azure Cache for Redis.
 
-Ligar-se a um Azure Cache for Redis por exemplo a partir de uma aplicação no local utilizando o ExpressRoute não é um cenário de utilização típico devido a razões de desempenho (para melhor desempenho Os clientes Azure Cache para os clientes Redis devem estar na mesma região que o Azure Cache for Redis) .
+Ligar-se a um Azure Cache para Redis a partir de uma aplicação no local utilizando o ExpressRoute não é um cenário de utilização típico devido a razões de desempenho (para melhor desempenho os clientes Azure Cache para clientes Redis devem estar na mesma região que o Azure Cache for Redis).
 
 >[!IMPORTANT] 
 >As rotas definidas num UDR **devem** ser específicas o suficiente para prevalecer sobre quaisquer rotas anunciadas pela configuração ExpressRoute. O exemplo seguinte utiliza a gama de endereços de 0.0.0.0/0 e, como tal, pode potencialmente ser acidentalmente ultrapassado por anúncios de rotas utilizando faixas de endereço mais específicas.
 
 >[!WARNING]  
->O Azure Cache for Redis não é suportado com configurações expressRoute que **incorretamente cruzam rotas do caminho**de espreitar o público para o caminho de espreitar privado . As configurações expressRoute que têm o público configurado, recebem anúncios de rotas da Microsoft para um grande conjunto de gamas de endereços IP microsoft Azure. Se estas gamas de endereços forem incorretamente publicitadas no caminho privado de observação, o resultado é que todos os pacotes de rede de saída da subnet azure Cache for Redis por exemplo são incorretamente submetidos a um túnel de força para a rede de instalações de um cliente no local infraestrutura. Este fluxo de rede quebra o Cache Azure para redis. A solução para este problema é parar as rotas de publicidade cruzada do caminho de espreitar o público para o caminho do público.
+>O Azure Cache for Redis não é suportado com configurações expressRoute que **incorretamente cruzam rotas do caminho**de espreitar o público para o caminho de espreitar privado . As configurações expressRoute que têm o público configurado, recebem anúncios de rotas da Microsoft para um grande conjunto de gamas de endereços IP microsoft Azure. Se estas gamas de endereços forem incorretamente publicitadas no caminho privado de observação, o resultado é que todos os pacotes de rede de saída da subnet da instância Azure Cache for Redis são incorretamente submetidos a um túnel de força para a infraestrutura de rede de um cliente no local. Este fluxo de rede quebra o Cache Azure para redis. A solução para este problema é parar as rotas de publicidade cruzada do caminho de espreitar o público para o caminho do público.
 
 
 As informações de fundo sobre as rotas definidas pelo utilizador estão disponíveis nesta [visão geral](../virtual-network/virtual-networks-udr-overview.md).

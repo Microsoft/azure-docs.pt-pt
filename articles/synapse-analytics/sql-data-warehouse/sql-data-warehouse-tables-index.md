@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0d63f2c29bfdbdf320185647bd33ec30500ed874
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 8cb4af8faccb68c455928c0d3c5405ef2d3e70df
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742708"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011026"
 ---
 # <a name="indexing-tables-in-synapse-sql-pool"></a>Tabelas de indexação na piscina Synapse SQL
 
@@ -52,9 +52,9 @@ Existem alguns cenários em que a loja de colunas agrupada pode não ser uma boa
 
 ## <a name="heap-tables"></a>Mesas de heap
 
-Quando estiver temporariamente a aterrar dados na piscina SYnapse SQL, poderá descobrir que usar uma tabela de heap torna o processo global mais rápido. Isto porque as cargas em pilhas são mais rápidas do que para indexar tabelas e em alguns casos a leitura subsequente pode ser feita a partir de cache.  Se estiver a carregar dados apenas para os encenar antes de realizar mais transformações, carregar a tabela para a mesa de heap é muito mais rápido do que carregar os dados para uma tabela de colunas agrupada. Além disso, carregar dados para uma [mesa temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que carregar uma tabela para armazenamento permanente.  
+Quando estiver temporariamente a aterrar dados na piscina SYnapse SQL, poderá descobrir que usar uma tabela de heap torna o processo global mais rápido. Isto porque as cargas em pilhas são mais rápidas do que para indexar tabelas e em alguns casos a leitura subsequente pode ser feita a partir de cache.  Se estiver a carregar dados apenas para os encenar antes de realizar mais transformações, carregar a tabela para a mesa de heap é muito mais rápido do que carregar os dados para uma tabela de colunas agrupada. Além disso, carregar dados para uma [mesa temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que carregar uma tabela para armazenamento permanente.  Após o carregamento de dados, pode criar índices na tabela para um desempenho mais rápido da consulta.  
 
-Para pequenas mesas de lookup, menos de 60 milhões de filas, muitas vezes as mesas de amontoada fazem sentido.  As tabelas de colunas de cluster começam a obter uma compressão ideal uma vez que há mais de 60 milhões de linhas.
+As tabelas de colunas de cluster começam a obter uma compressão ideal uma vez que há mais de 60 milhões de linhas.  Para pequenas mesas de lookup, menos de 60 milhões de linhas, considere usar heap ou índice agrupado para um desempenho de consulta mais rápido. 
 
 Para criar uma tabela de heap, basta especificar HEAP na cláusula COM:
 

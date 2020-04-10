@@ -1,19 +1,19 @@
 ---
-title: Publique uma oferta de serviço gerida para o Azure Marketplace
-description: Saiba como publicar uma oferta de serviço gerida que a bordo dos clientes para a gestão de recursos delegados do Azure.
+title: Publicar uma oferta de Serviço Gerido ao Azure Marketplace
+description: Saiba como publicar uma oferta de Serviço Gerido que a bordo dos clientes para a gestão de recursos delegados do Azure.
 ms.date: 04/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4791b1d2ae233b0cc7aad33dd5b15b6ea94b2018
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 247f711188fa10de19cece27f164fdfa71612d1b
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984559"
+ms.locfileid: "80991914"
 ---
-# <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publique uma oferta de serviço gerida para o Azure Marketplace
+# <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de Serviço Gerido ao Azure Marketplace
 
 > [!IMPORTANT]
-> A partir de 14 de abril de 2020, começaremos a movimentar a gestão das suas ofertas de Serviço Gerido para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar novas ofertas](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) de serviço gerido para gerir as suas ofertas migratórias.
+> A partir de 13 de abril de 2020, começaremos a movimentar a gestão das suas ofertas de Serviço Gerido para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma nova oferta](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) de Serviço Gerido para gerir as suas ofertas migratórias.
 
 Neste artigo, você aprenderá a publicar uma oferta de serviço gerido público ou privado para [o Azure Marketplace](https://azuremarketplace.microsoft.com) usando o [Cloud Partner Portal](https://cloudpartner.azure.com/). Os clientes que adquirem a oferta podem então embarcar subscrições e grupos de recursos para a [gestão de recursos delegados do Azure.](../concepts/azure-delegated-resource-management.md)
 
@@ -28,7 +28,7 @@ O id da Microsoft Partner Network (MPN) será [automaticamente associado às](..
 > [!NOTE]
 > Se não quiser publicar uma oferta para o Azure Marketplace, pode embarcar nos clientes manualmente utilizando modelos do Gestor de Recursos Do Azure. Para mais informações, consulte [A bordo um cliente para a gestão de recursos delegados do Azure.](onboard-customer.md)
 
-Publicar uma oferta de Serviços Geridos é semelhante à publicação de qualquer outro tipo de oferta ao Azure Marketplace. Para conhecer o processo de publicação geral, consulte [o Azure Marketplace e o AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). Deve também rever as políticas de certificação do [mercado comercial,](https://docs.microsoft.com/legal/marketplace/certification-policies)nomeadamente a secção [de Serviços Geridos.](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)
+Publicar uma oferta de Serviço Gerido é semelhante à publicação de qualquer outro tipo de oferta ao Azure Marketplace. Para conhecer o processo de publicação geral, consulte [o Azure Marketplace e o AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). Deve também rever as políticas de certificação do [mercado comercial,](https://docs.microsoft.com/legal/marketplace/certification-policies)nomeadamente a secção [de Serviços Geridos.](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)
 
 Assim que um cliente adicionar a sua oferta, eles poderão delegar uma ou mais subscrições ou grupos de recursos, que serão depois [a bordo para a gestão de recursos delegados do Azure.](#the-customer-onboarding-process)
 

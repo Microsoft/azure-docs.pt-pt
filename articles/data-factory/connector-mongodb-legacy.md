@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 0bdd8d454b979250b57cf657d347309b99a86ede
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 31588f9657a883e9c4a5600d2d164125a5f68edf
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892561"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991948"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados da MongoDB utilizando a Azure Data Factory
 
@@ -65,7 +65,7 @@ As seguintes propriedades são suportadas para o serviço ligado ao MongoDB:
 | o nome de utilizador |Conta de utilizador para aceder ao MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |A palavra-passe do utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). |Sim (se for utilizada a autenticação básica). |
 | authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Não. Para a autenticação básica, a predefinição é utilizar a conta de administração e a base de dados especificada utilizando a propriedade databaseName. |
-| enableSsl | Especifica se as ligações ao servidor estão encriptadas utilizando o SSL. O valor predefinido é false.  | Não |
+| enableSsl | Especifica se as ligações ao servidor estão encriptadas utilizando TLS. O valor predefinido é false.  | Não |
 | permitir AutoSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | Não |
 | connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
 
@@ -185,8 +185,8 @@ Ao copiar dados do MongoDB, os seguintes mapeamentos são utilizados desde tipos
 | Número Duplo |Double |
 | NúmeroInt |Int32 |
 | Número longo |Int64 |
-| ObjectID |Cadeia |
-| Cadeia |Cadeia |
+| ObjectID |String |
+| String |String |
 | UUID |GUID |
 | Objeto |Renormalizado em colunas achatadas com "_" como separador aninhada |
 

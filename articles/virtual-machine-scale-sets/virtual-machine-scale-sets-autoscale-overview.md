@@ -1,21 +1,21 @@
 ---
 title: Descrição geral do dimensionamento automático com o conjunto de dimensionamento de máquinas virtuais do Azure
 description: Saiba mais sobre as diferentes formas de escalar automaticamente um conjunto de escala de máquina virtual Azure baseado no desempenho ou num horário fixo
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eb96be187502afcccfd3fb2c88f709facfbc3b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b3af40de107fd9273ec50425c58afc9772ea426
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278147"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010346"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Descrição geral do dimensionamento automático com o conjunto de dimensionamento de máquinas virtuais do Azure
 Um conjunto de escala de máquina virtual Azure pode aumentar ou diminuir automaticamente o número de casos vm que executam a sua aplicação. Este comportamento automatizado e elástico reduz a sobrecarga de gestão para monitorizar e otimizar o desempenho da sua aplicação. Cria regras que definem o desempenho aceitável para uma experiência positiva do cliente. Quando esses limiares definidos são cumpridos, as regras de escala automática tomam medidas para ajustar a capacidade do seu conjunto de escala. Também pode agendar eventos para aumentar ou diminuir automaticamente a capacidade da sua escala definida em horários fixos. Este artigo fornece uma visão geral das métricas de desempenho disponíveis e quais as ações que a escala automática pode realizar.
@@ -34,9 +34,9 @@ Pode criar regras de escala automática que as métricas de hospedagem incorpora
 
 Podem ser criadas regras de dimensionamento automático que utilizem métricas baseadas no anfitrião com uma das seguintes ferramentas:
 
-- [Portal Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [Azure CLI](tutorial-autoscale-cli.md)
+- [CLI do Azure](tutorial-autoscale-cli.md)
 - [Modelo do Azure](tutorial-autoscale-template.md)
 
 Para criar regras de escala automática que utilizem métricas de desempenho mais detalhadas, pode [instalar e configurar a extensão](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) de diagnóstico do Azure em instâncias VM, ou configurar a [sua aplicação usar App Insights](#application-level-metrics-with-app-insights).
@@ -133,7 +133,7 @@ Os seguintes exemplos são cenários que podem beneficiar a utilização de regr
 Pode criar regras de escala automática que utilizam métricas baseadas em hospedeiros com uma das seguintes ferramentas:
 
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [Azure CLI](tutorial-autoscale-cli.md)
+- [CLI do Azure](tutorial-autoscale-cli.md)
 - [Modelo do Azure](tutorial-autoscale-template.md)
 
 Esta visão geral detalha como utilizar regras de escala automática para escalar horizontalmente e aumentar ou diminuir o *número* de instâncias vm no seu conjunto de escala. Também pode escalar verticalmente para aumentar ou diminuir o *tamanho*da instância VM . Para mais informações, consulte a [escala automática vertical com conjuntos de escala](virtual-machine-scale-sets-vertical-scale-reprovision.md)de máquina virtual .

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/25/2019
-ms.openlocfilehash: f5203de43a3d12c40e6cb5bbb33547769f5824c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16778000855b7859e261d8b996b081f779e579f9
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440784"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991454"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiar dados de e para a Base de Dados Azure para mySQL utilizando a Azure Data Factory
 
@@ -55,7 +55,7 @@ Uma corda de `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<dat
 
 | Propriedade | Descrição | Opções | Necessário |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Esta opção especifica se o condutor utiliza encriptação e verificação SSL ao ligar-se ao MySQL. Por exemplo, `SSLMode=<0/1/2/3/4>`| Desativado (0) / PREFERRED (1) **(Predefinido)** / EXIGIDO (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não |
+| SSLMode | Esta opção especifica se o condutor utiliza encriptação e verificação TLS ao ligar-se ao MySQL. Por exemplo, `SSLMode=<0/1/2/3/4>`| Desativado (0) / PREFERRED (1) **(Predefinido)** / EXIGIDO (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não |
 | UseSystemTrustStore | Esta opção especifica se deve utilizar um certificado CA a partir da loja fiduciário do sistema, ou de um ficheiro PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| Ativado (1) / Desativado (0) **(Predefinido)** | Não |
 
 **Exemplo:**

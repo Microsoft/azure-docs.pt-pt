@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 71bff5e3761d72236e6896733b96bd6e01460e52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8364468277123205d967871ab7bf2d048db64a82
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927792"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991795"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copiar dados de Presto utilizando a Fábrica de Dados Azure (Pré-visualização)
 
@@ -56,10 +56,10 @@ As seguintes propriedades são suportadas para o serviço ligado presto:
 | authenticationType | O mecanismo de autenticação utilizado para ligar ao servidor Presto. <br/>Os valores permitidos são: **Anónimo,** **LDAP** | Sim |
 | o nome de utilizador | O nome de utilizador usado para ligar ao servidor Presto.  | Não |
 | palavra-passe | A palavra-passe correspondente ao nome de utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Não |
-| enableSsl | Especifica se as ligações ao servidor estão encriptadas utilizando o SSL. O valor predefinido é false.  | Não |
-| trustedCertPath | O caminho completo do ficheiro .pem contendo certificados CA fidedignos para verificar o servidor ao ligar-se através do SSL. Esta propriedade só pode ser definida quando se utiliza SSL em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | Não |
+| enableSsl | Especifica se as ligações ao servidor estão encriptadas utilizando TLS. O valor predefinido é false.  | Não |
+| trustedCertPath | O caminho completo do ficheiro .pem contendo certificados CA fidedignos para verificar o servidor ao ligar-se através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | Não |
 | useSystemTrustStore | Especifica se deve utilizar um certificado CA a partir da loja fiduciário do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | Não |
-| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar-se ao SSL. O valor predefinido é false.  | Não |
+| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar-se ao TLS. O valor predefinido é false.  | Não |
 | permitir AutoSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | Não |
 | timeZoneID | O fuso horário local utilizado pela ligação. Valores válidos para esta opção são especificados na Base de Dados do Fuso Horário IANA. O valor padrão é o fuso horário do sistema.  | Não |
 

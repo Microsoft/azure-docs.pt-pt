@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: jingwang
-ms.openlocfilehash: b215531fdc1a1bb07b33c427623d5cd4f5f8219a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc81e66e609400c6558f00ee957ccaee715bd7fa
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252486"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991642"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copiar dados do servidor FTP utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -62,7 +62,7 @@ As seguintes propriedades são suportadas para o serviço ligado à FTP:
 | anfitrião | Especifique o nome ou endereço IP do servidor FTP. | Sim |
 | porta | Especifique a porta em que o servidor FTP está a ouvir.<br/>Os valores permitidos são: inteiro, o valor predefinido é **de 21**. | Não |
 | enableSsl | Especifique se utilizar ftp sobre um canal SSL/TLS.<br/>Os valores permitidos são: **verdadeiros** (padrão), **falsos**. | Não |
-| permitirServerCertificateValidação | Especifique se ativa a validação do certificado SSL do servidor quando estiver a utilizar ftp através do canal SSL/TLS.<br/>Os valores permitidos são: **verdadeiros** (padrão), **falsos**. | Não |
+| permitirServerCertificateValidação | Especifique se ativa a validação do certificado TLS/SSL do servidor quando estiver a utilizar ftP através do canal SSL/TLS.<br/>Os valores permitidos são: **verdadeiros** (padrão), **falsos**. | Não |
 | authenticationType | Especifique o tipo de autenticação.<br/>Os valores permitidos são: **Básico,** **Anónimo** | Sim |
 | userName | Especifique o utilizador que tem acesso ao servidor FTP. | Não |
 | palavra-passe | Especifique a palavra-passe para o utilizador (userName). Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Não |

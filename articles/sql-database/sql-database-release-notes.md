@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/09/2020
 ms.author: sstein
-ms.openlocfilehash: 9fa93af72c2869efd7b6d2f1e8b96b0e667f8b16
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: b677fd7fe2b14e1c42443478a887ddfa2481dfbf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607537"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011451"
 ---
 # <a name="sql-database-release-notes"></a>Notas de lançamento da Base de Dados SQL
 
@@ -22,12 +22,11 @@ Este artigo lista as funcionalidades da Base de Dados SQL que estão atualmente 
 
 ## <a name="features-in-public-preview"></a>Características na pré-visualização pública
 
-### <a name="single-database"></a>[Base de dados individual](#tab/single-database)
+### <a name="single-database"></a>[Base de dados única](#tab/single-database)
 
 | Funcionalidade | Detalhes |
 | ---| --- |
 | Novas gerações de hardware da série Fsv2 e da série M| Para obter informações, consulte gerações de [Hardware](sql-database-service-tiers-vcore.md#hardware-generations).|
-| [Ligação privada Azure](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| A Private Link simplifica a arquitetura da rede e assegura a ligação entre pontos finais em Azure, mantendo dados na rede Azure, eliminando assim a exposição à internet. O Private Link também lhe permite criar e prestar os seus próprios serviços no Azure. |
 | Recuperação acelerada da base de dados com bases de dados únicas e piscinas elásticas | Para obter informações, consulte [A Recuperação acelerada da Base de Dados](sql-database-accelerated-database-recovery.md).|
 |Contagem aproximada distinta|Para obter informações, consulte [Aproximada count distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Modo de lote na Rowstore (sob o nível de compatibilidade 150)|Para obter informações, consulte [o Modo Lote na Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
@@ -38,7 +37,7 @@ Este artigo lista as funcionalidades da Base de Dados SQL que estão atualmente 
 |Feedback da concessão da memória (modo de linha) (sob o nível de compatibilidade 150)|Para obter informações, consulte [Memory Grant Feedback (Modo de Linha)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Editor de consulta no portal Azure |Para obter informações, consulte [Use o editor de consulta SQL do portal Azure para ligar e consultar dados](sql-database-connect-query-portal.md).|
 | Serviços R / machine learning com bases de dados únicas e piscinas elásticas |Para obter informações, consulte [Serviços de Aprendizagem Automática na Base de Dados Azure SQL](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
-|SQL Analytics|Para obter informações, consulte [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).|
+|Análise de SQL|Para obter informações, consulte [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).|
 |Compilação Diferida Variável de Tabela (sob o nível de compatibilidade 150)|Para obter informações, consulte [A Compilação Diferida variável da tabela](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | &nbsp; |
 

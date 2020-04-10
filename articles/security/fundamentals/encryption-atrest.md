@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 42b83963dc4996a7347d57be712451086fa79b26
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: c3491a54682e8f2b244c0400480a69e083335f5c
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548634"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008394"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados azure-at-rest
 
@@ -263,16 +263,24 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 |                                  | **Servidor-lado usando chave gerida pelo serviço**     | **Lado do servidor usando a chave gerida pelo cliente**             | **Lado do cliente usando chave gerida pelo cliente**      |
 | **IA e Machine Learning**      |                    |                    |                    |
 | Azure Cognitive Search           | Sim                | Sim                | -                  |
+| Serviços Cognitivos do Azure         | Sim                | Sim                | -                  |
 | Azure Machine Learning           | Sim                | Sim                | -                  |
 | Azure Machine Learning Studio    | Sim                | Pré-visualização, RSA 2048-bit | -               |
+| Content Moderator                | Sim                | Sim                | -                  |
+| Rostos                             | Sim                | Sim                | -                  |
+| Language Understanding           | Sim                | Sim                | -                  |
+| Personalizador                     | Sim                | Sim                | -                  |
+| QnA Maker                        | Sim                | Sim                | -                  |
+| Serviços de Voz                  | Sim                | Sim                | -                  |
+| Texto do Tradutor                  | Sim                | Sim                | -                  |
 | Power BI                         | Sim                | Pré-visualização, RSA 2048-bit | -                  |
 | **Análise**                    |                    |                    |                    |
-| Azure Stream Analytics           | Sim                | -                  | -                  |
+| Azure Stream Analytics           | Sim                | N/D\*            | -                  |
 | Hubs de Eventos                       | Sim                | Sim, todos os Comprimentos RSA. | -                  |
 | Funções                        | Sim                | Sim, todos os Comprimentos RSA. | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  |
-| Apache Kafka no Azure HDInsight  | Sim                | Todos os comprimentos RSA.   | -                  |
+| Azure HDInsight                  | Sim                | Todos                | -                  |
 | Insights de aplicação do Monitor Azure | Sim                | Sim                | -                  |
 | Análise de log do Monitor Azure | Sim                | Sim                | -                  |
 | Azure Data Explorer              | Sim                | Sim                | -                  |
@@ -305,7 +313,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Azure Cosmos DB                  | Sim                | Sim                | -                  |
 | Azure Databricks                 | Sim                | Sim                | -                  |
 | **DevOps**                       |                    |                    |                    |
-| DevOps do Azure                     | Sim                | -                  | Sim                |
+| Serviços de DevOps do Azure            | Sim                | -                  | Sim                |
 | Repositórios do Azure                      | Sim                | -                  | Sim                |
 | **Identidade**                     |                    |                    |                    |
 | Azure Active Directory           | Sim                | -                  | -                  |
@@ -316,24 +324,35 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Gestão de API                   | Sim                | -                  | -                  |
 | **Serviços IoT**                 |                    |                    |                    |
 | IoT Hub                          | Sim                | Sim                | Sim                |
+| Fornecimento de dispositivos IoT Hub      | Sim                | Sim                | -                  |
 | **Gestão e Governação**    |                    |                    |                    |
 | Azure Site Recovery              | Sim                | -                  | -                  |
+| Azure Migrate                    | Sim                | Sim                | -                  |
 | **Meios de comunicação social**                        |                    |                    |                    |
 | Serviços de Multimédia                   | Sim                | -                  | Sim                |
+| **Segurança**                     |                    |                    |                    |
+| Centro de Segurança do Azure para IoT    | Sim                | Sim                | -                  |
+| Azure Sentinel                   | Sim                | Sim                | -                  |
 | **Armazenamento**                      |                    |                    |                    |
 | Blob Storage                     | Sim                | Sim, RSA 2048-bit  | Sim                |
+| Armazenamento Premium Blob             | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Armazenamento em Disco                     | Sim                | Sim                | -                  |
+| Armazenamento ultra disco               | Sim                | Sim                | -                  |
 | Armazenamento de disco gerido             | Sim                | Sim                | -                  |
 | Armazenamento de Ficheiros                     | Sim                | Sim, RSA 2048-bit  | -                  |
+| Armazenamento Premium de Arquivo             | Sim                | Sim, RSA 2048-bit  | -                  |
+| File Sync                         | Sim                | Sim, RSA 2048-bit  | -                  |
 | Armazenamento de filas                    | Sim                | Sim                | Sim                |
 | Avere vFXT                       | Sim                | -                  | -                  |
-| Azure NetApp Files               | Sim                | -                  | -                  |
+| Azure NetApp Files               | Sim                | Sim                | -                  |
 | Armazenamento de Arquivo                  | Sim                | Sim, RSA 2048-bit  | -                  |
 | StorSimple                       | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Azure Backup                     | Sim                | Sim                | Sim                |
 | Data Box                         | Sim                | -                  | Sim                |
 | Data Box Edge                    | Sim                | Sim                | -                  |
 
+\*Este serviço não persiste de dados. Os caches transitórios, caso existam, são encriptados com uma chave Microsoft.
+
 ## <a name="conclusion"></a>Conclusão
 
-A proteção dos dados dos clientes armazenados nos Serviços Azure é da maior importância para a Microsoft. Todos os serviços hospedados do Azure estão empenhados em fornecer opções de Encriptação em Repouso. Serviços fundacionais como o Azure Storage, Azure SQL Database e serviços de análise e inteligência chave já fornecem opções de Encriptação no Rest. Alguns destes serviços suportam chaves controladas pelo cliente e encriptação do lado do cliente, bem como chaves e encriptação geridas pelo serviço. Os serviços do Microsoft Azure estão a melhorar em termos gerais a disponibilidade de Encriptação no Rest e estão previstas novas opções para pré-visualização e disponibilidade geral nos próximos meses.
+A proteção dos dados dos clientes armazenados nos Serviços Azure é da maior importância para a Microsoft. Todos os serviços hospedados do Azure estão empenhados em fornecer opções de Encriptação em Repouso. Os serviços Azure suportam chaves geridas pelo serviço, chaves geridas pelo cliente ou encriptação do lado do cliente. Os serviços do Azure estão a melhorar em termos gerais a disponibilidade de encriptação no Rest e estão previstas novas opções para pré-visualização e disponibilidade geral nos próximos meses.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4129f1a89575c9a0e7cd6a0090168df659356c1b
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 38e319efb100d326d55f6f821e7c903306a7c7d0
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885111"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991012"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Um API web que chama APIs web: Configuração de código
 
@@ -214,7 +214,7 @@ class MsalAuthHelper {
 
 O fluxo em nome da OBO é utilizado para obter um símbolo para chamar a API web a jusante. Neste fluxo, a sua Web API recebe um token ao portador com permissões delegadas pelo utilizador a partir da aplicação do cliente e, em seguida, troca este token por outro token de acesso para chamar a API web a jusante.
 
-Uma API web Python terá de usar algum middleware para validar o token do portador recebido do cliente. A Web API pode então obter o token de acesso para [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) API a jusante usando a biblioteca MSAL Python, chamando o método. Uma amostra que demonstre este fluxo com a MSAL Python ainda não está disponível.
+Uma API web Python terá de usar algum middleware para validar o token do portador recebido do cliente. A Web API pode então obter o token de acesso para [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) API a jusante usando a biblioteca MSAL Python, chamando o método. Para um exemplo de utilização deste API, consulte o código de [teste para a microsoft-autenticação-biblioteca-para-python no GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Veja também a discussão da [questão 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) no mesmo repositório para uma abordagem que contorna a necessidade de uma aplicação de nível médio.
 
 ---
 

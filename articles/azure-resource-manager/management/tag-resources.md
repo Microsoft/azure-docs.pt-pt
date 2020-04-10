@@ -3,18 +3,21 @@ title: Recursos de etiquetas, grupos de recursos e subscrições para organizaç
 description: Mostra como aplicar tags para organizar recursos Azure para faturação e gestão.
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 76f9f61b3fe7002508bbd884f427efcfee698579
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 44759db59ef7e7556c8fbfca3bbc58ef84796198
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548484"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010805"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use tags para organizar os seus recursos Azure e hierarquia de gestão
 
 Você aplica etiquetas aos seus recursos Azure, grupos de recursos e subscrições para logicamente organizá-las em uma taxonomia. Cada etiqueta consiste num nome e num par de valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 
 Para recomendações sobre como implementar uma estratégia de marcação, consulte o guia de decisão de [nomeação e marcação](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)de recursos.
+
+> [!IMPORTANT]
+> Os nomes das etiquetas são insensíveis aos casos. Os valores das etiquetas são sensíveis aos casos.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 

@@ -1,19 +1,19 @@
 ---
 title: Conjuntos de escala automática de máquinas virtuais no portal Azure
 description: Como criar regras de escala automática para conjuntos de escala de máquinas virtuais no portal Azure
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: ecd80f49f0161c8bbc6ab7309f2af89e2ded1fe9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: 1915b144aec5a5447504c70d18dbf420d255a08e
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278189"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010295"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Escala automaticamente uma escala de máquina virtual definida no portal Azure
 Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação.
@@ -96,7 +96,7 @@ Para ver o número e o estado das instâncias VM, selecione **Instâncias** do m
 
 
 ## <a name="autoscale-based-on-a-schedule"></a>Escala automática com base num horário
-Os exemplos anteriores escalaram automaticamente uma escala definida dentro ou fora com métricas básicas do hospedeiro, como a utilização do CPU. Também pode criar regras de escala automática com base em horários. Estas regras baseadas em horários permitem-lhe aumentar automaticamente o número de casos de VM antes de um aumento antecipado da procura de pedidos, como o horário de trabalho central, e depois escalar automaticamente o número de casos numa altura em que antecipa menos exigir, como o fim de semana.
+Os exemplos anteriores escalaram automaticamente uma escala definida dentro ou fora com métricas básicas do hospedeiro, como a utilização do CPU. Também pode criar regras de escala automática com base em horários. Estas regras baseadas em horários permitem-lhe reduzir automaticamente o número de casos de VM antes de um aumento previsto da procura de pedidos, como o horário de trabalho central, e depois escalar automaticamente o número de casos numa altura em que se antecipa menos procura, como o fim de semana.
 
 1. Escolha **o escalonamento** do menu do lado esquerdo da janela de conjunto de escala. Para eliminar as regras de escala automática existentes criadas nos exemplos anteriores, escolha o ícone do caixote do lixo.
 

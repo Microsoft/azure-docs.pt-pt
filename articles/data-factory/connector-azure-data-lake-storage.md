@@ -11,18 +11,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/08/2020
-ms.openlocfilehash: 929b9548661fe48fe90a55f0cacef234c3078cda
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a061df302680488377c3006dcef57b818a101d67
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887270"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011536"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar e transformar dados no Azure Data Lake Storage Gen2 utilizando a Azure Data Factory
 
 Azure Data Lake Storage Gen2 (ADLS Gen2) é um conjunto de capacidades dedicadas à análise de big data incorporada no [armazenamento de Blob Azure.](../storage/blobs/storage-blobs-introduction.md) Pode usá-los para interagir com os seus dados utilizando tanto o sistema de ficheiros como os paradigmas de armazenamento de objetos.
 
 Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de e para o Azure Data Lake Storage Gen2, e usar o Data Flow para transformar dados em Azure Data Lake Storage Gen2. Para conhecer a Azure Data Factory, leia o [artigo introdutório.](introduction.md)
+
+>[!TIP]
+>Para o cenário de migração de data lake ou data warehouse, saiba mais com [a Use Azure Data Factory para migrar dados do seu lago de dados ou armazém de dados para o Azure](data-migration-guidance-overview.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

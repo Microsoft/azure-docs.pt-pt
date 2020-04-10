@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 192e46fd7f86b6053eaf658fa65e3c6cdfa3a4e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528613"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992220"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Access control in Azure Data Lake Storage Gen2 (Controlo de acesso no Azure Data Lake Storage Gen2)
 
@@ -54,7 +54,7 @@ As fichas SAS incluem permissões permitidas como parte do símbolo. As permiss�
 Pode associar um diretor de segurança a um nível de acesso para ficheiros e diretórios. Estas associações são capturadas numa lista de controlo de *acesso (ACL)*. Cada ficheiro e diretório na sua conta de armazenamento tem uma lista de controlo de acesso.
 
 > [!NOTE]
-> Os ACLs aplicam-se apenas aos diretores de segurança do mesmo inquilino. Não se pode associar um utilizador convidado a um nível de acesso.  
+> Os ACLs aplicam-se apenas aos diretores de segurança do mesmo inquilino. 
 
 Se atribuiu uma função a um diretor de segurança ao nível da conta de armazenamento, pode utilizar listas de controlo de acesso para conceder o acesso elevado ao principal de segurança a ficheiros e diretórios específicos.
 

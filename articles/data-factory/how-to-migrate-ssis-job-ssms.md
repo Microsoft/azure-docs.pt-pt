@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: c65fbd9bbd83db9c7c8ec0e9041d08372243b72f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: ee51be1d994c3b81765266e95c48d321a2f43b14
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887648"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80989447"
 ---
-# <a name="migrate-on-premises-ssis-jobs-to-azure-data-factory"></a>Migrar no local empregos sSIS para a Fábrica de Dados Azure
+# <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrar trabalhos de agente de servidor SQL para ADF com SSMS
 
 Ao migrar no local a carga de [trabalho sQL Server Integration Services (SSIS) para o SSIS em ADF,](scenario-ssis-migration-overview.md)após a migração dos pacotes SSIS, pode fazer a migração de lotes de trabalhos do Agente de Servidores SQL com o tipo de serviço sQL Server Integration Services Package para azure Data Factory (ADF) pipelines/atividades/agenda triggers via SQL Server Management Studio (SSMS) **SSIS Job Migration Wizard**.
 

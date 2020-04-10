@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 7dac8d21e3b45307284ece15ca5ddbcc69db909b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b63dcfd6ed293cab9d0107a8b6a35c7ce358d429
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260647"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011689"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON na Fábrica de Dados Azure
 
@@ -30,9 +30,10 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 | ---------------- | ------------------------------------------------------------ | -------- |
 | tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Json**. | Sim      |
 | localização         | Definições de localização dos ficheiros. Cada conector baseado em ficheiros tem `location`o seu próprio tipo de localização e propriedades suportadas em . Consulte os detalhes na secção de propriedades do conjunto de dados **do conector ->**. | Sim      |
-| encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", " IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM001140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859", "ISO-8859", "ISO-8859-5", "ISO-8859" -6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1251", " WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Não       |
-| compressãoCodec | O codec de compressão utilizado para ler/escrever ficheiros de texto. <br>Os valores permitidos são **bzip2,** **gzip,** **desinsuflação,** **ZipDeflate,** **snappy,** ou **lz4**. para usar ao guardar o ficheiro. <br>Nota atualmente A atividade da Cópia não suporta "snappy" & "lz4".<br>Note ao utilizar a atividade de cópia para descomprimir ficheiros ZipDeflate e escrever para `<path specified in dataset>/<folder named as source zip file>/`a loja de dados do lavatório baseado em ficheiros, os ficheiros serão extraídos para a pasta: . | Não       |
-| compressãoN | A relação de compressão. <br>Os valores permitidos são **Ideais** ou **Mais Rápidos.**<br>- **Mais rápido:** A operação de compressão deve ser concluída o mais rapidamente possível, mesmo que o ficheiro resultante não esteja devidamente comprimido.<br>- **Ótimo:** O funcionamento da compressão deve ser optimizadamente comprimido, mesmo que a operação leve mais tempo a concluir. Para mais informações, consulte o tópico [do Nível de Compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
+| encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM86 0", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "IBM01149", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2 8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-8", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-8", "ISO-8859-8", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISo-8859-8", "ISo-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859 , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Não       |
+| compressão | Grupo de propriedades para configurar a compressão de ficheiros. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | Não |
+| tipo | O código de compressão usado para ler/escrever ficheiros JSON. <br>Os valores permitidos são **bzip2,** **gzip,** **desinsuflação,** **ZipDeflate,** **snappy,** ou **lz4**. para usar ao guardar o ficheiro. O padrão não é comprimido.<br>**Nota** atualmente A atividade da Cópia não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate".<br>**Note** ao utilizar a atividade de cópia para descomprimir ficheiros ZipDeflate e escrever para `<path specified in dataset>/<folder named as source zip file>/`a loja de dados do lavatório baseado em ficheiros, os ficheiros serão extraídos para a pasta: . | Não.  |
+| nível | A relação de compressão. <br>Os valores permitidos são **Ideais** ou **Mais Rápidos.**<br>- **Mais rápido:** A operação de compressão deve ser concluída o mais rapidamente possível, mesmo que o ficheiro resultante não esteja devidamente comprimido.<br>- **Ótimo:** O funcionamento da compressão deve ser optimizadamente comprimido, mesmo que a operação leve mais tempo a concluir. Para mais informações, consulte o tópico [do Nível de Compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
 
 Abaixo está um exemplo de conjunto de dados JSON no Armazenamento de Blob Azure:
 
@@ -54,6 +55,7 @@ Abaixo está um exemplo de conjunto de dados JSON no Armazenamento de Blob Azure
             },
             "compression": {
                 "type": "gzip"
+            }
         }
     }
 }

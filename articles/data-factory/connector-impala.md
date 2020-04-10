@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f465fe4bb69bc5ae81db6c78df51bf5133de1b60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c7690390936a05dd472796eb6f50f582f652e35
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929308"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990852"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Copiar dados do Impala utilizando a Azure Data Factory
 
@@ -55,10 +55,10 @@ As seguintes propriedades são suportadas para o serviço ligado ao Impala.
 | authenticationType | O tipo de autenticação a utilizar. <br/>Os valores permitidos são **Anónimos,** **SASLUsername**e **Username AndPassword**. | Sim |
 | o nome de utilizador | O nome de utilizador usado para aceder ao servidor Impala. O valor predefinido é anónimo quando utiliza o Nome SASLUser.  | Não |
 | palavra-passe | A palavra-passe que corresponde ao nome de utilizador quando utiliza o usernameAndPassword. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Não |
-| enableSsl | Especifica se as ligações ao servidor são encriptadas utilizando o SSL. O valor predefinido é **falso**.  | Não |
-| trustedCertPath | O caminho completo do ficheiro .pem que contém certificados CA fidedignos utilizados para verificar o servidor quando se conecta através do SSL. Esta propriedade só pode ser definida quando utilizar o SSL no Tempo de Execução de Integração Auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o tempo de execução da integração.  | Não |
+| enableSsl | Especifica se as ligações ao servidor são encriptadas utilizando o TLS. O valor predefinido é **falso**.  | Não |
+| trustedCertPath | O caminho completo do ficheiro .pem que contém certificados CA fidedignos utilizados para verificar o servidor quando se conecta através de TLS. Esta propriedade só pode ser definida quando utilizar TLS no Tempo de Execução de Integração Auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o tempo de execução da integração.  | Não |
 | useSystemTrustStore | Especifica se deve utilizar um certificado CA a partir da loja fiduciário do sistema ou de um ficheiro PEM especificado. O valor predefinido é **falso**.  | Não |
-| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado SSL emitido pela CA para corresponder ao nome de anfitrião do servidor quando se conecta sobre o SSL. O valor predefinido é **falso**.  | Não |
+| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor quando se conecta sobre TLS. O valor predefinido é **falso**.  | Não |
 | permitir AutoSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é **falso**.  | Não |
 | connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
 

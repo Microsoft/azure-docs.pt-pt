@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 68e234b9db269c30dc9f24106ae1942c01304da7
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 534e5c913685eeac92022f6694ea31b24816da5d
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422509"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011655"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oráculo utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -37,6 +37,7 @@ Pode copiar dados de uma base de dados da Oracle para qualquer loja de dados sup
 Especificamente, este conector Oracle suporta:
 
 - As seguintes versões de uma base de dados da Oracle:
+    - Oráculo 19c R1 (19.1) e superior
     - Oráculo 18c R1 (18.1) e superior
     - Oráculo 12c R1 (12.1) e superior
     - Oráculo 11g R1 (11.1) e superior
@@ -84,9 +85,9 @@ Para permitir a encriptação na ligação Oracle, tem duas opções:
 
 -   Para utilizar **a encriptação Triple-DES (3DES) e advanced Encryption Standard (AES)**, no lado do servidor Oracle, vá ao Oracle Advanced Security (OAS) e configure as definições de encriptação. Para mais detalhes, consulte esta documentação do [Oráculo.](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) O conector Oracle Application Development Framework (ADF) negoceia automaticamente o método de encriptação para utilizar o que configura na OAS ao estabelecer uma ligação à Oráculo.
 
--   Para utilizar **o SSL:**
+-   Para utilizar **TLS:**
 
-    1.  Obtenha a informação do certificado SSL. Obtenha as distintas regras de codificação (DER) codificadas informações do certificado do seu certificado SSL, e guarde a saída (----- Certificado iniciar... Certificado final -----) como ficheiro de texto.
+    1.  Obtenha a informação do certificado TLS/SSL. Obtenha as informações de certificado codificadas por Regras de Codificação Distintas (DER) do seu certificado TLS/SSL e guarde a saída (----- Certificado iniciar... Certificado final -----) como ficheiro de texto.
 
         ```
         openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
@@ -350,25 +351,25 @@ Quando copia dados de e para a Oracle, aplicam-se os seguintes mapeamentos. Para
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(apenas suportado no Oráculo 10g ou superior) |
-| CHAR |Cadeia |
-| CLOB |Cadeia |
+| CHAR |String |
+| CLOB |String |
 | DATA |DateTime |
 | BOIA |Decimal, Corda (se precisão > 28) |
 | INTEGER |Decimal, Corda (se precisão > 28) |
-| Longo |Cadeia |
+| Longo |String |
 | LONG RAW |Byte[] |
-| NCHAR |Cadeia |
-| NCLOB |Cadeia |
+| NCHAR |String |
+| NCLOB |String |
 | NÚMERO |Decimal, Corda (se precisão > 28) |
-| NVARCHAR2 |Cadeia |
+| NVARCHAR2 |String |
 | CRU |Byte[] |
-| ROWID |Cadeia |
+| ROWID |String |
 | CARIMBO TEMPORAL |DateTime |
-| CARIMBO DE TEMPO COM FUSO HORÁRIO LOCAL |Cadeia |
-| CARIMBO DE TEMPO COM FUSO HORÁRIO |Cadeia |
+| CARIMBO DE TEMPO COM FUSO HORÁRIO LOCAL |String |
+| CARIMBO DE TEMPO COM FUSO HORÁRIO |String |
 | INTEIRO NÃO ASSINADO |Número |
-| VARCHAR2 |Cadeia |
-| XML |Cadeia |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Os tipos de dados INTERVAL ANO A MÊS e INTERVAL DAY To SECOND não são suportados.

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/12/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 8f71c039aa6666cec1b871a158d84a6f5a2a107c
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c88f5a4dd4f2997ce01b1f6a3ae192c62f530e76
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666822"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011430"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2. Atribuir permissões de acesso a uma identidade
 
-Para aceder aos recursos do Azure Files com autenticação baseada na identidade, uma identidade (utilizador, grupo ou diretor de serviço) deve ter as permissões necessárias ao nível das ações. Este processo é semelhante ao de especificar as permissões de partilha do Windows, onde especifica o tipo de acesso que um determinado utilizador tem para uma partilha de ficheiros. A recomendação geral é usar a permissão de nível de partilha para uma gestão de acesso de alto nível a uma equipa ou grupo, em seguida, alavancar as permissões NTFS para o controlo de acesso granular no nível de diretório/arquivo. A orientação nesta secção demonstra como atribuir a leitura, escrita ou exclusão de permissões para uma partilha de ficheiros a uma identidade. 
+Para aceder aos recursos do Azure Files com autenticação baseada na identidade, uma identidade (utilizador, grupo ou diretor de serviço) deve ter as permissões necessárias ao nível das ações. Este processo é semelhante ao de especificar as permissões de partilha do Windows, onde especifica o tipo de acesso que um determinado utilizador tem para uma partilha de ficheiros. A orientação nesta secção demonstra como atribuir a leitura, escrita ou exclusão de permissões para uma partilha de ficheiros a uma identidade. 
 
 Introduzimos três funções azure incorporadas para a concessão de permissões de nível de partilha aos utilizadores:
 
@@ -32,6 +32,8 @@ Pode utilizar o portal Azure, PowerShell ou Azure CLI para atribuir as funções
 
 > [!NOTE]
 > Lembre-se de sincronizar as suas credenciais de AD com a AD Azure se pretender utilizar o seu AD para autenticação. A sincronização de hash de ad a D.A. azure é opcional. A permissão de nível de partilha será concedida à identidade Azure AD que está sincronizada a partir de AD.
+
+A recomendação geral é usar a permissão de nível de partilha para uma gestão de acesso de alto nível a um grupo ad que represente um grupo de utilizadores e identidades, em seguida, alavancar as permissões NTFS para o controlo de acesso granular no nível de diretório/arquivo. 
 
 #### <a name="azure-portal"></a>Portal do Azure
 Para atribuir uma função RBAC a uma identidade Azure AD, utilizando o [portal Azure,](https://portal.azure.com)siga estes passos:

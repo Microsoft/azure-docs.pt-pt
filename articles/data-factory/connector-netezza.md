@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: c7e17f7c4493560bd6118b8d4837fd795a6ab0c8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 69e2a0fe63be65a2b5d51f7bd2e0885fcbfc5bbb
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422868"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991676"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados da Netezza utilizando a Azure Data Factory
 
@@ -63,8 +63,8 @@ Uma corda de `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PW
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| Nível de Segurança | O nível de segurança (SSL/TLS) que o condutor utiliza para a ligação ao armazém de dados. Exemplo: `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>- **Apenas não seguro** (**apenas UnSecured**): O condutor não utiliza SSL.<br/>- **Preferencialmente não seguro (preferencialMente UnSecured) (predefinição)**: Se o servidor fornecer uma escolha, o controlador não utiliza SSL. <br/>- **Preferência segura (preferredSecured)**: Se o servidor fornecer uma escolha, o controlador utiliza SSL. <br/>- **Apenas seguro (apenas Protegido)**: O controlador não se liga a menos que esteja disponível uma ligação SSL. | Não |
-| CaCertFile | O caminho completo para o certificado SSL que é usado pelo servidor. Exemplo: `CaCertFile=<cert path>;`| Sim, se o SSL estiver ativado |
+| Nível de Segurança | O nível de segurança (SSL/TLS) que o condutor utiliza para a ligação ao armazém de dados. Exemplo: `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>- **Apenas não seguro** (**apenas UnSecured**): O condutor não utiliza TLS.<br/>- **Preferencialmente não seguro (preferencialMente UnSecured) (predefinição)**: Se o servidor fornecer uma escolha, o controlador não utiliza TLS. <br/>- **Preferência segura (preferredSecured)**: Se o servidor fornecer uma escolha, o controlador utiliza TLS. <br/>- **Apenas seguro (apenas Protegido)**: O controlador não se liga a menos que esteja disponível uma ligação TLS. | Não |
+| CaCertFile | O caminho completo para o certificado TLS/SSL que é usado pelo servidor. Exemplo: `CaCertFile=<cert path>;`| Sim, se o TLS estiver ativado |
 
 **Exemplo**
 

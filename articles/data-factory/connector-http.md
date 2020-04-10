@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ca439d1a82e3cdbe2cc0274cf63653d39048057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a05d955be88f68b3c0db1f4a29b3f6e1155aa0d
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79532557"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992186"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto final http utilizando a Azure Data Factory
 
@@ -68,7 +68,7 @@ As seguintes propriedades são suportadas para o serviço ligado http:
 |:--- |:--- |:--- |
 | tipo | A propriedade **do tipo** deve ser definida para **HttpServer**. | Sim |
 | url | O URL base para o servidor web. | Sim |
-| permitirServerCertificateValidação | Especifique se ativa a validação do certificado SSL do servidor quando se ligar a um ponto final HTTP. Se o seu servidor HTTPS utilizar um certificado auto-assinado, detete to **false**this property . | Não<br /> (o padrão é **verdadeiro)** |
+| permitirServerCertificateValidação | Especifique se ativa a validação do certificado TLS/SSL do servidor quando se ligar a um ponto final http. Se o seu servidor HTTPS utilizar um certificado auto-assinado, detete to **false**this property . | Não<br /> (o padrão é **verdadeiro)** |
 | authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anónimos,** **Básicos,** **Digest,** **Windows**e **ClientCertificate.** <br><br> Consulte as secções que seguem esta tabela para obter mais propriedades e amostras JSON para estes tipos de autenticação. | Sim |
 | connectVia | O Tempo de [Integração](concepts-integration-runtime.md) para utilizar para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, é utilizado o tempo de execução de integração azure padrão. |Não |
 
