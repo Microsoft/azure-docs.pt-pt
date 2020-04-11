@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: a4ab59ab5b988b54333c419ced7fa852da531eaa
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8ef791759a33d08aaff068b0dd2634e5f21bb1b6
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984338"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114995"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Encriptação de disco azure para máquinas virtuais do Windows FAQ
 
@@ -64,7 +64,7 @@ A encriptação do disco Azure fornece encriptação de ponta a ponta para o dis
 
 - Se os seus requisitos incluem encriptar toda a encriptação acima e de ponta a ponta, utilize encriptação do Disco Azure. 
 - Se os seus requisitos incluem encriptar apenas dados em repouso com a chave gerida pelo cliente, em seguida, use [a encriptação do lado do Servidor com chaves geridas pelo cliente](disk-encryption.md). Não é possível encriptar um disco com encriptação do lado da encriptação do disco Azure e do lado do servidor de armazenamento com as chaves geridas pelo cliente.
-_ Se estiver a utilizar um cenário chamado em [cenários não suportados para windows,](disk-encryption-windows.md#unsupported-scenarios)considere a [encriptação do lado do Servidor com chaves geridas pelo cliente](disk-encryption.md). 
+- Se estiver a utilizar um cenário chamado em [cenários não suportados para windows,](disk-encryption-windows.md#unsupported-scenarios)considere a [encriptação do lado do Servidor com chaves geridas pelo cliente](disk-encryption.md). 
 - Se a política da sua organização lhe permitir encriptar conteúdo em repouso com uma chave gerida pelo Azure, então não é necessária nenhuma ação - o conteúdo é encriptado por padrão. Para discos geridos, o conteúdo no interior do armazenamento é encriptado por padrão com encriptação do lado do Servidor com chave gerida pela plataforma. A chave é gerida pelo serviço de Armazenamento Azure. 
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Como posso rodar segredos ou chaves de encriptação?

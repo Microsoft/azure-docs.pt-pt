@@ -3,12 +3,12 @@ title: Serviço de Partição Serviço De Tecido
 description: Descreve como dividir serviço sição Serviço Serviço serviços imponentes. As divisórias permitem o armazenamento de dados nas máquinas locais para que os dados e a computação possam ser dimensionados em conjunto.
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4edfaa74fe109c688cad733d16031e87fff1e46f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258619"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115154"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Serviços de partição fiáveis do Service Fabric
 Este artigo apresenta uma introdução aos conceitos básicos de divisão de serviços fiáveis do Azure Service Fabric. O código fonte utilizado no artigo também está disponível no [GitHub.](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)
@@ -25,7 +25,7 @@ Existem realmente dois tipos de soluções de serviço apátridas. O primeiro é
 
 Em qualquer dos casos, a divisão de um serviço apátrida é um cenário muito raro-- escalabilidade e disponibilidade são normalmente alcançadas adicionando mais instâncias. A única altura em que pretende considerar múltiplas divisórias para casos de serviço apátridas é quando precisa de atender pedidos especiais de encaminhamento.
 
-Como exemplo, considere um caso em que os utilizadores com IDs numa determinada gama só devem ser servidos por uma determinada instância de serviço. Outro exemplo de quando se pode dividir um serviço apátrida é quando se tem um backend verdadeiramente dividido (por exemplo, uma base de dados SQL esfarrapada) e pretende controlar qual a instância de serviço que deve escrever para a base de dados ou realizar outros trabalhos de preparação dentro do serviço apátrida que requer a mesma informação de partição que é usada no backend. Estes tipos de cenários também podem ser resolvidos de diferentes formas e não requerem necessariamente a partilha de serviços.
+Como exemplo, considere um caso em que os utilizadores com IDs numa determinada gama só devem ser servidos por uma determinada instância de serviço. Outro exemplo de quando se pode dividir um serviço apátrida é quando se tem um backend verdadeiramente dividido (por exemplo, uma base de dados SQL esfarrapada) e pretende controlar qual a instância de serviço que deve escrever para a base de dados - ou realizar outros trabalhos de preparação dentro do serviço apátrida que requer a mesma informação de partição que é usada no backend. Estes tipos de cenários também podem ser resolvidos de diferentes formas e não requerem necessariamente a partilha de serviços.
 
 O resto desta passagem centra-se em serviços estatais.
 
@@ -348,9 +348,6 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
     ![Screenshot do navegador](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 Todo o código fonte da amostra está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
-
-## <a name="reliable-services-and-actor-forking-subprocesses"></a>Serviços fiáveis e ator forking subprocessos
-O Service Fabric não suporta serviços fiáveis e, posteriormente, atores fiáveis que forem para subprocessos. Um exemplo do porquê do seu não suportado é [o CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser usado para registar um subprocesso não suportado, e fichas de cancelamento são enviadas apenas para processos registados; resultando em todo o tipo de problemas, tais como falhas de upgrade, quando os subprocessos não fecham após o processo dos pais ter recebido um sinal de cancelamento. 
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter informações sobre os conceitos de Tecido de Serviço, consulte o seguinte:

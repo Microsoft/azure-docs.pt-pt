@@ -1,27 +1,27 @@
 ---
-title: Adicione sugestões e complete automaticamente numa caixa de pesquisa
+title: Adicione autocompleta e sugestões numa caixa de pesquisa
 titleSuffix: Azure Cognitive Search
-description: Ative ações de consulta de tipo em Pesquisa Cognitiva Azure, criando sugestionantes e formulando pedidos que preencham uma caixa de pesquisa com termos ou frases completas.
+description: Ative ações de consulta de pesquisa como você tipo em Pesquisa Cognitiva Azure, criando sugestionantes e formulando pedidos que completem automaticamente uma caixa de pesquisa com termos ou frases terminadas. Também pode devolver os fósforos sugeridos.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 64c4e65ca7b69c7d61c706b48591ac19be3bfcf5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.topic: conceptual
+ms.date: 04/10/2020
+ms.openlocfilehash: d6c1819366fede0b1e81e43bc92ed56af93b39fd
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72792514"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114948"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Adicione sugestões ou complete automaticamente a sua aplicação de Pesquisa Cognitiva Azure
 
 Neste artigo, aprenda a usar [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) e [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) para construir uma poderosa caixa de pesquisa que suporte comportamentos de pesquisa como você tipo.
 
-+ *Sugestões* são sugeridos resultados gerados à medida que escreve, onde cada sugestão é um único resultado do índice que corresponde ao que escreveu até agora. 
++ *Sugestões* geram resultados de pesquisa à medida que escreve, onde cada sugestão é um único resultado ou documento de pesquisa do índice que corresponde ao que escreveu até agora. 
 
-+ *Autocompleto* "Termina" a palavra ou frase que um utilizador está atualmente a escrever. Em vez de devolver resultados, completa uma consulta, que pode então executar para devolver resultados. Tal como acontece com as sugestões, uma palavra ou frase completa numa consulta baseia-se numa correspondência no índice. O serviço não vai oferecer consultas que devolvam zero resultados no índice.
++ *A autocompleta* gera consultas ao "terminar" a palavra ou frase. Em vez de devolver resultados, completa uma consulta, que pode então executar para devolver resultados. Tal como acontece com as sugestões, uma palavra ou frase completa numa consulta baseia-se numa correspondência no índice. O serviço não vai oferecer consultas que devolvam zero resultados no índice.
 
 Pode descarregar e executar o código da amostra no **DotNetHowToAutocomplete** para avaliar estas funcionalidades. O código da amostra visa um índice pré-construído povoado com [dados de demonstração de NYCJobs.](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) O índice NYCJobs contém uma [construção suggester,](index-add-suggesters.md)que é um requisito para usar sugestões ou auto-completar. Pode utilizar o índice preparado hospedado num serviço de caixa de areia, ou [povoar o seu próprio índice](#configure-app) utilizando um carregador de dados na solução de amostra NYCJobs. 
 

@@ -1,17 +1,17 @@
 ---
-title: Prepare-se para o Azure Monitor alerta sionantes migração atualizando as suas aplicações lógicas e livros de corridas
+title: Atualizar aplicações lógicas & livros de corridas para alertas migração
 description: Aprenda a modificar os seus webhooks, aplicações lógicas e livros de corridas para se preparar para a migração voluntária.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 9219e105acb98424939030af76b526d475585619
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665597"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114416"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar as suas aplicações lógicas e runbooks para a migração de regras de alerta clássicas
 
@@ -43,7 +43,7 @@ Utilize a tabela seguinte para mapear os campos de carga útil do webhook do for
 
 |  |Alertas clássicos  |Novos alertas métricos |
 |---------|---------|---------|
-|O alerta foi ativado ou resolvido?    | **status**       | **data.status** |
+|O alerta foi ativado ou resolvido?    | **estado**       | **data.status** |
 |Informação contextual sobre o alerta     | **contexto**        | **dados.contexto**        |
 |Carimbo de tempo em que o alerta foi ativado ou resolvido     | **contexto.carimbo de tempo**       | **data.context.timestamp**        |
 | Id da regra de alerta | **context.id** | **data.context.id** |

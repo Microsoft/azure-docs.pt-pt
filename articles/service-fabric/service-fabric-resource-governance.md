@@ -3,12 +3,12 @@ title: Governação de recursos para contentores e serviços
 description: O Tecido de Serviço Azure permite especificar limites de recursos para serviços que estão a funcionar dentro ou fora dos contentores.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: 85520876d7f0c89450b572d28dee6cb66ed2231d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11ca6e29829d911717a829b3e4dee0a190856a52
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75772385"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115136"
 ---
 # <a name="resource-governance"></a>Governação de recursos
 
@@ -31,7 +31,8 @@ Para estas duas métricas, cluster [Resource Manager](service-fabric-cluster-res
 * O cluster pode ser [desfragmentado](service-fabric-cluster-resource-manager-defragmentation-metrics.md) de acordo com estas duas métricas.
 * Ao [descrever um cluster,](service-fabric-cluster-resource-manager-cluster-description.md)a capacidade tamponada pode ser definida para estas duas métricas.
 
-[O relatório dinâmico da carga](service-fabric-cluster-resource-manager-metrics.md) não é suportado para estas métricas, e as cargas para estas métricas são definidas no momento da criação.
+> [!NOTE]
+> [O relatório dinâmico da carga](service-fabric-cluster-resource-manager-metrics.md) não é suportado para estas métricas; as cargas para estas métricas são definidas no momento da criação.
 
 ## <a name="resource-governance-mechanism"></a>Mecanismo de governação de recursos
 

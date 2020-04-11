@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 8608aaab7bb8b6d10e67f27678c17f20a6c243da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ce7ef15f0bf13182e4799fb640e83136d0d4695
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370862"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115028"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Serviços Azure Lab - Guia de administrador
 Os administradores de Tecnologias de Informação (TI) que gerem os recursos em nuvem de uma universidade são normalmente responsáveis pela criação da conta de laboratório para a sua escola. Uma vez criada uma conta de laboratório, administradores ou educadores criam laboratórios de sala de aula que estão contidos na conta do laboratório. Este artigo fornece uma visão geral de alto nível dos recursos azure envolvidos e a orientação para a sua criação.
@@ -156,6 +156,9 @@ A localização em que existe um laboratório de sala de aula varia com base nos
        
     Quando **não** há VNet e os criadores de [laboratório são autorizados a escolher a localização do laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), os locais que podem ser selecionados pelo criador do laboratório são baseados na capacidade disponível.
 
+> [!NOTE]
+> Para ajudar a garantir que existe capacidade vm suficiente para uma região, é importante que você primeiro solicite capacidade através da conta de laboratório ou ao criar o laboratório.
+
 Uma regra geral é definir a região de um recurso para uma que seja mais próxima dos seus utilizadores. Para laboratórios de sala de aula, isto significa criar o laboratório de sala de aula mais próximo dos seus alunos. Para cursos online onde os alunos estão localizados em todo o mundo, você precisa usar o seu melhor julgamento para criar um laboratório de sala de aula que esteja localizado centralmente. Ou dividir uma aula em vários laboratórios de sala de aula baseados na região dos seus alunos.
 
 ### <a name="shared-image-gallery"></a>Galeria de imagens partilhadas
@@ -169,7 +172,7 @@ Quando administradores ou criadores de laboratório criam um laboratório de sal
 | ---- | ----- | ------ | ------------- |
 | Pequeno| <ul><li>2 núcleos</li><li>3.5 GB DE CARNEIRO</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para linha de comando, abertura do navegador web, servidores web de tráfego baixo, bases de dados pequenas a médias. |
 | Médio | <ul><li>4 Núcleos</li><li>7 GB DE CARNEIRO</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise. |
-| Médio (virtualização aninhada) | <ul><li>4 Núcleos</li><li>16 GB DE CARNEIRO</li></ul> | [Standard_DC4s_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise.  Este tamanho também suporta a virtualização aninhada. |
+| Médio (virtualização aninhada) | <ul><li>4 Núcleos</li><li>16 GB DE CARNEIRO</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise.  Este tamanho também suporta a virtualização aninhada. |
 | Grande | <ul><li>8 núcleos</li><li>32 GB DE RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para aplicações que precisam de CPUs mais rápido, melhor desempenho do disco local, grandes bases de dados, grandes caches de memória.  Este tamanho também suporta a virtualização aninhada. |
 | Pequena GPU (Visualização) | <ul><li>6 Núcleos</li><li>56 GB DE CARNEIRO</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Este tamanho é mais adequado para visualização remota, streaming, gaming, codificação usando quadros como OpenGL e DirectX. |
 | Pequena GPU (Computação) | <ul><li>6 Núcleos</li><li>56 GB DE CARNEIRO</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Este tamanho é mais adequado para aplicações intensivas em computador, como Inteligência Artificial e Deep Learning. |

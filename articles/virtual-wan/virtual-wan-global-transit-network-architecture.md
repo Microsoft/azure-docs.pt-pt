@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 17d0e678008c76da32f20562aa795e83e49c80e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064976"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113170"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura global da rede de trânsito e WAN Virtual
 
@@ -47,7 +47,7 @@ Na arquitetura Azure Virtual WAN, os centros virtuais WAN são aprovisionados na
 
 Você pode estabelecer um WAN virtual criando um único centro de WAN virtual na região que tem o maior número de porta-vozes (ramos, VNets, utilizadores), e, em seguida, conectando os raios que estão em outras regiões ao centro. Esta é uma boa opção quando uma pegada empresarial está principalmente numa região com alguns raios remotos.  
   
-## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>Conectividade hub-to-hub
+## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>Conectividade hub-to-hub (Pré-visualização)
 
 Uma pegada de nuvem da Enterprise pode abranger várias regiões de nuvem e é ideal (em termos de latência) para aceder à nuvem de uma região mais próxima do seu site físico e utilizadores. Um dos princípios fundamentais da arquitetura global da rede de trânsito é permitir a conectividade entre todas as nuvens e os pontos finais da rede no local. Isto significa que o tráfego de um ramo ligado à nuvem numa região pode chegar a outro ramo ou um VNet numa região diferente, utilizando a conectividade hub-to-hub ativada pela [Azure Global Network.](https://azure.microsoft.com/global-infrastructure/global-network/)
 

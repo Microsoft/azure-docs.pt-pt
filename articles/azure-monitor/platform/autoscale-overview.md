@@ -1,15 +1,15 @@
 ---
-title: Visão geral da escala automática em Máquinas Virtuais, Serviços de Nuvem e Aplicações Web
+title: Escala automática em VMs, Serviços de Nuvem e Aplicações Web
 description: Escala automática no Microsoft Azure. Aplica-se a Máquinas Virtuais, conjuntos de escala de máquinas virtuais, serviços de nuvem e aplicações web.
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a60c03f1928b38c78a59edca4b5493307d7d19d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eeb8b301bf087efa164a7864cdce3a04952f45ed
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75364378"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114144"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Descrição geral do dimensionamento automático em Máquinas Virtuais do Microsoft Azure, Serviços Cloud e Aplicações Web
 Este artigo descreve o que é a escala automática do Microsoft Azure, os seus benefícios e como começar a usá-lo.  
@@ -91,7 +91,7 @@ Em contraste, a escala vertical é diferente. Mantém o mesmo número de VMs, ma
 ## <a name="methods-of-access"></a>Métodos de acesso
 Pode configurar a escala automática via
 
-* [Portal Azure](../../azure-monitor/platform/autoscale-get-started.md)
+* [Portal do Azure](../../azure-monitor/platform/autoscale-get-started.md)
 * [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [Interface de Linha de Comandos (CLI) de várias plataformas](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)

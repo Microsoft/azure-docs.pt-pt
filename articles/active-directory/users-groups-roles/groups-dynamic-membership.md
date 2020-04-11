@@ -1,5 +1,5 @@
 ---
-title: Regras para a adesão ao grupo dinâmico - Azure AD [ AD ] Microsoft Docs
+title: Regras para a adesão de grupos de povoados dinamicamente - Azure AD [ AD ] Microsoft Docs
 description: Como criar regras de adesão para povoar automaticamente grupos, e uma referência de regras.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6f8237ac13744e56baa8551f8cced12b2785a48
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79253081"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114729"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Diretório Ativo do Azure
 
@@ -79,7 +79,7 @@ A ordem das peças dentro de uma expressão é importante para evitar erros de s
 Existem três tipos de propriedades que podem ser usadas para construir uma regra de adesão.
 
 - Booleano
-- Cadeia
+- String
 - Coleção de cordas
 
 Seguem-se as propriedades do utilizador que pode utilizar para criar uma única expressão.
@@ -326,7 +326,7 @@ user.objectId -ne null
 Se quiser que o seu grupo exclua os utilizadores convidados e inclua apenas membros do seu inquilino, pode utilizar a seguinte sintaxe:
 
 ```
-(user.objectId -ne null) -and (user.userType -eq “Member”)
+(user.objectId -ne null) -and (user.userType -eq "Member")
 ```
 
 ### <a name="create-an-all-devices-rule"></a>Criar uma regra "Todos os dispositivos"

@@ -1,17 +1,17 @@
 ---
-title: Entenda como funciona a ferramenta de migração voluntária para alertas do Monitor Azure
+title: Compreender ferramenta de migração para alertas do Monitor Azure
 description: Entenda como funciona a ferramenta de migração de alertas e problemas de resolução de problemas.
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 8cc77d13567910797cd519ac193b848f3ea434da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274817"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114311"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Compreender como funciona a ferramenta de migração
 

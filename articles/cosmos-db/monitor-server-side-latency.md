@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 62c10a2ada9ff7d3bf7090028dd9684192517d02
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 0f1e6d07afb3b7b4d26081bc9e34ac257b280d0f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991422"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113912"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Como monitorizar a latência do lado do servidor para operações num contentor ou conta Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Se vir uma latência invulgarmente grande para operações pontiagudas, tais com
 
 Pode procurar o registo de diagnóstico para ver o tamanho dos dados devolvidos. Se vir uma latência elevada sustentada para operações de consulta, pode procurar o registo de diagnóstico para o tamanho dos dados devolvidos, [a entrada ou o RU/s utilizados,](cosmosdb-monitor-resource-logs.md#diagnostic-queries) ou o número de operações deste tipo num determinado período. Desta forma, pode desinviar os problemas de latência do lado do servidor.
 
-## <a name="view-server-side-latency-metric"></a>Ver métrica de latência do lado do servidor
+## <a name="view-the-server-side-latency-metric"></a>Ver a métrica de latência do lado do servidor
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -35,15 +35,15 @@ Pode procurar o registo de diagnóstico para ver o tamanho dos dados devolvidos.
 
 1. Do painel de **métricas** > **Selecione um recurso** > escolha a **subscrição**necessária e **o grupo de recursos**. Para o **tipo de Recurso**, selecione contas **Azure Cosmos DB,** escolha uma das suas contas Azure Cosmos existentes e selecione **Apply**.
    
-   ![Escolha uma conta Cosmos DB para ver métricas](./media/monitor-server-side-latency/select-cosmos-db-account.png)
+   ![Escolha a conta Azure Cosmos DB para ver métricas](./media/monitor-server-side-latency/select-cosmos-db-account.png)
 
-1. Em seguida, selecione a métrica de **Latência lateral** do servidor da lista de métricas disponíveis. Para conhecer em detalhe todas as métricas disponíveis nesta lista, consulte as [Métricas por artigo](monitor-cosmos-db-reference.md) de categoria. Neste exemplo, vamos selecionar a **Latência lateral** do servidor e o **Avg** como o valor de agregação. Além destes detalhes, também pode selecionar a gama de **tempo** e a **granularidade** do tempo das métricas. No máximo, pode ver métricas nos últimos 30 dias.  Depois de aplicar o filtro, é apresentado um gráfico com base no filtro. Pode ver o número médio de unidades de pedido consumidas por minuto durante o período selecionado.  
+1. Em seguida, selecione a métrica de **Latência lateral** do servidor da lista de métricas disponíveis. Para conhecer em detalhe todas as métricas disponíveis nesta lista, consulte as [Métricas por artigo](monitor-cosmos-db-reference.md) de categoria. Neste exemplo, vamos selecionar a **Latência lateral** do servidor e o **Avg** como o valor de agregação. Além destes detalhes, também pode selecionar a gama de **tempo** e a **granularidade** do tempo das métricas. No máximo, pode ver métricas nos últimos 30 dias.  Depois de aplicar o filtro, é apresentado um gráfico com base no filtro. Pode ver a latência do lado do servidor por minuto durante o período selecionado.  
 
    ![Escolha a métrica de latência do lado do servidor do portal Azure](./media/monitor-server-side-latency/server-side-latency-metric.png)
 
 ## <a name="filters-for-server-side-latency"></a>Filtros para latência do lado do servidor
 
-Também pode filtrar métricas e o gráfico apresentado por um **nome**de recolha específico, **Modo de Ligação,** **Nome de Base de Dados,** **FunçãoTipo,** **Região**e **PublicAPIType**. 
+Também pode filtrar métricas e obter os gráficos apresentados por um **nome**de recolha específico, **Modo de Ligação,** **Nome de Base de Dados,** **FunçãoTipo,** **Região**e **PublicAPIType**. 
 
 Para filtrar as métricas, selecione **Adicionar filtro** e escolha a propriedade necessária, como **PublicAPIType** e selecione o valor **sql**. Adicione outro filtro para **OperationType**. Em seguida, o gráfico exibe a latência do lado do servidor para diferentes operações durante o período selecionado. As operações executadas através do procedimento Armazenado não estão registadas, pelo que não estão disponíveis na métrica OperationType.
 
@@ -55,5 +55,5 @@ Também pode agrupar as métricas utilizando a opção **de divisão Apply.**
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Monitor De dados do Azure Cosmos DB utilizando [definições](cosmosdb-monitor-resource-logs.md) de diagnóstico no Azure
+* Monitorize os dados do Azure Cosmos DB utilizando [definições](cosmosdb-monitor-resource-logs.md) de diagnóstico em Azure.
 * [Audit a Azure Cosmos DB controla operações de aviões](audit-control-plane-logs.md)

@@ -17,12 +17,12 @@ ms.date: 11/04/2019
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73612806"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113334"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal azure ative diretório (pré-visualização)
 
@@ -90,38 +90,19 @@ Selecione um item na vista da lista para obter informações mais detalhadas.
 
 ## <a name="filter-provisioning-activities"></a>Atividades de fornecimento de filtros
 
-Para reduzir os dados reportados a um nível que funcione para si, pode filtrar os dados de fornecimento utilizando os seguintes campos predefinidos. Note que os valores nos filtros são povoados dinamicamente com base no seu inquilino. Se, por exemplo, não tiver nenhum evento de criação no seu inquilino, não haverá uma opção de filtro para criar.
+Pode filtrar os seus dados de fornecimento. Alguns valores de filtro são povoados dinamicamente com base no seu inquilino. Se, por exemplo, não tiver nenhum evento de criação no seu inquilino, não haverá uma opção de filtro para criar.
+Na vista predefinida, pode selecionar os seguintes filtros:
 
 - Identidade
-- Ação
-- Sistema de origem
-- Sistema de destino
-- Estado
 - Date
+- Estado
+- Ação
 
 
-![Filtro](./media/concept-provisioning-logs/filter.png "Filtro")
+![Filtro](./media/concept-provisioning-logs/default-filter.png "Filtro")
 
 O filtro **Identidade** permite especificar o nome ou a identidade com que se preocupa. Esta identidade pode ser um utilizador, grupo, papel ou outro objeto. Pode pesquisar pelo nome ou identificação do objeto. A identificação varia de acordo com o cenário. Por exemplo, ao fornecer um objeto da AD Azure para o SalesForce, o ID de origem é o ID de objeto do utilizador em AD Azure enquanto o TargetID é o ID do utilizador na Salesforce. Ao fornecer do Workday para Ative Directy, o ID fonte é o ID do trabalhador do trabalho. Note que o nome do utilizador pode nem sempre estar presente na coluna Identidade. Sempre haverá uma identificação. 
 
-O filtro **Source System** permite especificar de onde a identidade está a ser disponibilizada. Por exemplo, ao fornecer um objeto de Azure AD para ServiceNow, o sistema Fonte é Azure AD. 
-
-O filtro **Target System** permite especificar para onde a identidade está a ser disponibilizada. Por exemplo, ao fornecer um objeto de Azure AD para ServiceNow, o Sistema alvo é ServiceNow. 
-
-O filtro **'Estado'** permite selecionar:
-
-- Todos
-- Êxito
-- Falha
-- Ignorado
-
-O filtro **Action** permite filtrar o:
-
-- Criar 
-- Atualizar
-- Eliminar
-- Desativar
-- Outros
 
 O filtro **Data** permite-lhe definir um período de tempo para os dados devolvidos.  
 Os valores possíveis são:
@@ -135,7 +116,35 @@ Os valores possíveis são:
 Quando selecionar um prazo personalizado, pode configurar uma data de início e uma data de fim.
 
 
-Além dos campos predefinidos, quando selecionados, também pode incluir os seguintes campos no seu filtro:
+O filtro **'Estado'** permite selecionar:
+
+- Todos
+- Êxito
+- Falha
+- Ignorado
+
+
+
+O filtro **Action** permite filtrar o:
+
+- Criar 
+- Atualizar
+- Eliminar
+- Desativar
+- Outros
+
+Além disso, aos filtros da vista predefinida, também pode definir os seguintes filtros:
+
+- ID de trabalho
+- ID do ciclo
+- Alterar ID
+- ID de origem
+- ID do alvo
+- Aplicação
+
+
+![Escolha um campo](./media/concept-provisioning-logs/add-filter.png "Escolha um campo")
+
 
 - **Job ID** - Um ID de trabalho único está associado a cada aplicação que você permitiu o provisionamento.   
 
@@ -144,8 +153,13 @@ Além dos campos predefinidos, quando selecionados, também pode incluir os segu
 - **Alterar ID** - Identificador único para o evento de provisionamento. Você pode partilhar este ID para apoiar para procurar o evento de provisionamento.   
 
 
+- **Sistema Fonte** - Permite-lhe especificar de onde a identidade está a ser disponibilizada. Por exemplo, ao fornecer um objeto de Azure AD para ServiceNow, o sistema Fonte é Azure AD. 
 
-  
+- **Target System** - Permite-lhe especificar para onde a identidade está a ser disponibilizada. Por exemplo, ao fornecer um objeto de Azure AD para ServiceNow, o Sistema alvo é ServiceNow. 
+
+- **Aplicação** - Permite-lhe mostrar apenas registos de aplicações com um nome de exibição que contenha uma cadeia específica.
+
+ 
 
 ## <a name="provisioning-details"></a>Fornecer detalhes 
 

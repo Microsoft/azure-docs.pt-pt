@@ -4,17 +4,17 @@ description: O Azure Storage protege os seus dados encriptando-os automaticament
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f8f6f40f8ce8297b3cbfe6b3afcbf10df4db6572
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f112a4523bc5af9ecae57e93dfb90795d3fe9c50
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409835"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113266"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Encriptação azure storage para dados em repouso
 
@@ -34,7 +34,7 @@ Para obter mais informações sobre os módulos criptográficos subjacentes à e
 
 ## <a name="about-encryption-key-management"></a>Sobre a gestão da chave de encriptação
 
-Por padrão, os dados numa conta de armazenamento são encriptados com chaves geridas pela Microsoft. Pode contar com chaves geridas pela Microsoft para a encriptação dos seus dados, ou pode gerir a encriptação com as suas próprias chaves. Se optar por gerir a encriptação com as suas próprias chaves, tem duas opções:
+Os dados de uma nova conta de armazenamento são encriptados com chaves geridas pela Microsoft. Pode contar com chaves geridas pela Microsoft para a encriptação dos seus dados, ou pode gerir a encriptação com as suas próprias chaves. Se optar por gerir a encriptação com as suas próprias chaves, tem duas opções:
 
 - Pode especificar uma *chave gerida pelo cliente* com o Azure Key Vault para encriptar e desencriptar dados no armazenamento blob e nos Ficheiros Azure. <sup>1,2</sup> Para obter mais informações sobre as chaves geridas pelo cliente, consulte Utilize as chaves geridas pelo cliente com o Cofre de [Chaves Azure para gerir a encriptação do Armazenamento Azure](encryption-customer-managed-keys.md).
 - Pode especificar uma *chave fornecida pelo cliente* nas operações de armazenamento da Blob. Um cliente que faça um pedido de leitura ou escrita contra o armazenamento blob pode incluir uma chave de encriptação no pedido de controlo granular sobre como os dados blob são encriptados e desencriptados. Para obter mais informações sobre as chaves fornecidas pelo cliente, [consulte Forneça uma chave de encriptação num pedido de armazenamento Blob (pré-visualização)](encryption-customer-provided-keys.md).
@@ -47,8 +47,7 @@ A tabela seguinte compara as principais opções de gestão para encriptação d
 |    Serviços de Armazenamento Azure suportados    |    Todos                                                |    Armazenamento blob, Ficheiros Azure<sup>1,2</sup>                                                                                                               |    Armazenamento de blobs                                                                  |
 |    Armazenamento de chaves                         |    Loja chave da Microsoft    |    Azure Key Vault                                                                                                                              |    Cofre de Chaves Azure ou qualquer outra loja-chave                                                                 |
 |    Responsabilidade de rotação chave         |    Microsoft                                          |    Cliente                                                                                                                                     |    Cliente                                                                      |
-|    Utilização chave                           |    Microsoft                                          |    Portal Azure, Fornecedor de Recursos de Armazenamento REST API, Bibliotecas de gestão de armazenamento Azure, PowerShell, CLI        |    Azure Storage REST API (armazenamento blob), bibliotecas de clientes de armazenamento Azure    |
-|    Acesso chave                          |    Apenas microsoft                                     |    Microsoft, Cliente                                                                                                                    |    Apenas para o cliente                                                                 |
+|    Controlo de chaves                          |    Microsoft                                     |    Cliente                                                                                                                    |    Cliente                                                                 |
 
 <sup>1</sup> Para obter informações sobre a criação de uma conta que suporte o uso de chaves geridas pelo cliente com armazenamento de fila, consulte [Criar uma conta que suporte as chaves geridas pelo cliente para filas](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> Para obter informações sobre a criação de uma conta que suporte a utilização de chaves geridas pelo cliente com armazenamento de mesa, consulte [Criar uma conta que suporte as chaves geridas pelo cliente para tabelas](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 95cb29e871cce2ba600ab654d48c685b90ed027e
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: ee4d629d80ff8265d58a1d05b8dca1652ddac6fb
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80573158"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81112885"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de networking - Gestor de Recursos Azure
 Os seguintes limites aplicam-se apenas aos recursos de networking geridos através **do Gestor de Recursos Azure** por região por subscrição. Saiba como [visualizar o seu uso atual de recursos contra os seus limites](../articles/networking/check-usage-against-limits.md)de subscrição .
@@ -74,7 +74,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Tamanho da piscina de backend                       | 1.000 configurações IP, rede virtual única |
 | Recursos de backend <sup>por Load Balancer 1<sup> | 150                   |
 | Portas de alta disponibilidade                 | 1 por frontend interno       |
-| Regras de saída por Balancer de Carga        | 20                            |
+| Regras de saída por Balancer de Carga        | 600                           |
 | [Tempo limite de inatividade da TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutos/30 minutos          |
 
 <sup>1</sup> O limite é de até 150 recursos, em qualquer combinação de recursos de máquinas virtuais autónomas, recursos definidos de disponibilidade e recursos conjuntos de máquinas virtuais.

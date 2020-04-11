@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 367b7c2e1ce1c8b3c0dbc02003218b76096b409d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55537fb923b26de4e02be35fdb817dee147584d7
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75354654"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115127"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Compreender o tratamento de tempo no Azure Stream Analytics
 
@@ -96,7 +96,7 @@ Deve ter notado outro conceito chamado janela de chegada precoce, que se parece 
 
 Como o Azure Stream Analytics garante que gera sempre resultados completos, só pode especificar o tempo de início de **trabalho** como a primeira hora de saída do trabalho, e não o tempo de entrada. A hora de início de trabalho é necessária para que a janela completa seja processada, não apenas a partir do meio da janela.
 
-Stream Analytics deriva então o tempo de início a partir da especificação de consulta. No entanto, como o corretor de eventos de entrada é indexado apenas pela hora de chegada, o sistema tem que traduzir a hora inicial do evento para a hora de chegada. O sistema pode começar a processar eventos a partir desse ponto no corretor de eventos de entrada. Com o limite da janela de chegada antecipada, a tradução é simples. É hora de começar o evento menos a janela de chegada antecipada de 5 minutos. Este cálculo também significa que o sistema deixa cair todos os eventos que são vistos com tempo de evento 5 minutos maior do que a hora de chegada.
+Stream Analytics deriva então o tempo de início a partir da especificação de consulta. No entanto, como o corretor de eventos de entrada é indexado apenas pela hora de chegada, o sistema tem que traduzir a hora inicial do evento para a hora de chegada. O sistema pode começar a processar eventos a partir desse ponto no corretor de eventos de entrada. Com o limite da janela de chegada antecipada, a tradução é simples. É a hora do evento inicial menos a janela de chegada antecipada de 5 minutos. Este cálculo também significa que o sistema deixa cair todos os eventos que são vistos como tendo um tempo de evento 5 minutos mais então do que a hora de chegada.
 
 Este conceito é utilizado para garantir que o processamento é repetível independentemente de onde comece a produção. Sem este mecanismo, não seria possível garantir a repetível, como muitos outros sistemas de streaming afirmam que sim.
 

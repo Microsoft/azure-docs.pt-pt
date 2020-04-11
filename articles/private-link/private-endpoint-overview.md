@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: b8f55b0693b7ffdf10516cfb19b67ccc5a94dc5a
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d10b6c52310da3d799a7fe78c83284960318f82e
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742905"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115253"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é Azure Private Endpoint?
 
@@ -113,7 +113,7 @@ Pode utilizar as seguintes opções para configurar as definições de DNS para 
 > [!IMPORTANT]
 > Não é aconselhável anular uma zona que está ativamente em uso para resolver pontos finais públicos. As ligações aos recursos não serão capazes de resolver corretamente sem que o DNS reencaminha sacar ao DNS público. Para evitar problemas, crie um nome de domínio diferente ou siga o nome sugerido para cada serviço abaixo. 
  
-Para os serviços Azure, utilize os nomes de zona recomendados descritos no quadro seguinte:
+Para os serviços Azure, utilize os nomes de zona descritos no quadro seguinte:
 
 |Tipo de recurso de ligação privada   |Subrecurso  |Nome da zona  |
 |---------|---------|---------|

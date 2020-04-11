@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 2a00405a2100c3e565ca4f8ea4149540a5199b43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab17137f162b893b54942d870b07a36f87d1b71d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651411"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115077"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ligar a sistemas de ficheiros no local com Azure Logic Apps
 
@@ -69,7 +69,7 @@ Este artigo mostra como pode ligar-se a um sistema de ficheiros no local, confor
    | -------- | -------- | ----- | ----------- |
    | **Nome de ligação** | Sim | <*nome de ligação*> | O nome que quer para a sua ligação |
    | **Pasta raiz** | Sim | <*nome da pasta raiz*> | A pasta-raiz do seu sistema de ficheiros, por exemplo, se instalou o seu portal de dados no local, como uma pasta local no computador onde está instalada a porta de dados no local, ou a pasta para uma partilha de rede a que o computador pode aceder. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta-raiz é a pasta principal dos pais, que é usada para caminhos relativos para todas as ações relacionadas com ficheiros. |
-   | **Tipo de autenticação** | Não | <*auth-tipo*> | O tipo de autenticação que o seu sistema de ficheiros utiliza, por exemplo, **o Windows** |
+   | **Tipo de autenticação** | Não | <*auth-tipo*> | O tipo de autenticação que o seu sistema de ficheiros utiliza: **Windows** |
    | **Nome de utilizador** | Sim | <*domain*>\\<*nome de utilizador* de domínio> | O nome de utilizador do computador onde tem o seu sistema de ficheiros |
    | **Palavra-passe** | Sim | <*sua senha*> | A palavra-passe para o computador onde tem o seu sistema de ficheiros |
    | **porta de entrada** | Sim | <*instalado-gateway-nome*> | O nome para o seu gateway previamente instalado |

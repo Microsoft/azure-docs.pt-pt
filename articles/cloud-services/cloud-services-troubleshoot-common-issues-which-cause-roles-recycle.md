@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 554508b1bf784e306cd12a4a601f908e06320933
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a644e211cc933ca686f0bd6a13b0d2ba8ae20162
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71154983"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114099"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comuns que fazem com que as funções reciclem
 Este artigo discute algumas das causas comuns dos problemas de implantação e fornece dicas de resolução de problemas para ajudá-lo a resolver estes problemas. Uma indicação de que existe um problema com uma aplicação é quando a instância de funções não começa, ou se circula entre os estados inicializadores, ocupados e de paragem.
@@ -58,7 +58,7 @@ Para garantir `DiagnosticsConnectionString` que a sua definição está correta 
   Se estiver a desenvolver a sua aplicação utilizando ferramentas Azure para o Microsoft Visual Studio, pode utilizar as páginas de propriedade para definir este valor.
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>Certificado exportado não inclui chave privada
-Para desempenhar uma função web no âmbito do SSL, deve garantir que o seu certificado de gestão exportado inclui a chave privada. Se utilizar o *Gestor de Certificados do Windows* para exportar o certificado, **certifique-se** de selecionar Sim para a Exportação a opção **chave privada.** O certificado deve ser exportado no formato PFX, que é o único formato atualmente suportado.
+Para desempenhar uma função web no âmbito do TLS, deve garantir que o seu certificado de gestão exportado inclui a chave privada. Se utilizar o *Gestor de Certificados do Windows* para exportar o certificado, **certifique-se** de selecionar Sim para a Exportação a opção **chave privada.** O certificado deve ser exportado no formato PFX, que é o único formato atualmente suportado.
 
 ## <a name="next-steps"></a>Passos seguintes
 Veja mais artigos de [resolução de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para serviços na nuvem.

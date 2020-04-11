@@ -5,12 +5,12 @@ author: harahma
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82bc5068be651b05eb24efa3b05e46c1e7c1e24d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282396"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115043"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem de tecido de serviço Azure
 Este artigo fornece uma visão geral dos modelos de hospedagem de aplicações fornecidos pela Azure Service Fabric, e descreve as diferenças entre os modelos **De processo partilhado** e processo **exclusivo.** Descreve como uma aplicação implantada se parece num nó de Tecido de Serviço, e a relação entre réplicas (ou instâncias) do serviço e o processo de hospedamento de serviço.
@@ -168,6 +168,10 @@ Na ativação do 'MultiTypeServicePackage' para a réplica da partição **P1** 
 
 
 No exemplo anterior, pode pensar-se que se o 'MyCodePackageA' registar tanto 'MyServiceTypeA' como 'MyServiceTypeB', e não existir 'MyCodePackageB', não existe um *Código Desativado.* Embora isto esteja correto, este modelo de aplicação não se alinha com o modelo de hospedagem do Processo Exclusivo. Se o objetivo é colocar cada réplica no seu próprio processo dedicado, não precisa de registar ambos os Tipos de *Serviços* do mesmo *CódigoPacote*. Em vez disso, basta colocar cada *ServiceType* no seu próprio *ServicePackage*.
+
+### <a name="reliable-services-and-actor-forking-subprocesses"></a>Serviços fiáveis e ator forking subprocessos
+
+O Service Fabric não suporta serviços fiáveis e, posteriormente, atores fiáveis que forem para subprocessos. Um exemplo do porquê do seu não suportado é [o CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser usado para registar um subprocesso não suportado, e fichas de cancelamento são enviadas apenas para processos registados; resultando em todo o tipo de problemas, tais como falhas de upgrade, quando os subprocessos não fecham após o processo dos pais ter recebido um sinal de cancelamento.
 
 ## <a name="next-steps"></a>Passos seguintes
 [Embala uma aplicação][a4] e prepara-a para ser implantada.

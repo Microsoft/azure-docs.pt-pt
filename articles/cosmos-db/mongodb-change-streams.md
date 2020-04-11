@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: tisande
-ms.openlocfilehash: ecfa98241f74aac43a827b645a6ed877624d643d
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 38e262abefe5444c1fe7586810f4b971cc7baf6c
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437812"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114153"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Alterar streams na API da Azure Cosmos DB para o MongoDB
 
@@ -26,7 +26,8 @@ O suporte [para alimentação](change-feed.md) de alterações na API da Azure C
 As seguintes limitações aplicam-se quando se utilizam fluxos de mudança:
 
 * As `operationType` `updateDescription` propriedades e propriedades ainda não são suportadas no documento de saída.
-* Os `insert` `update`tipos `replace` de operações e operações são atualmente suportados. A eliminação da operação ou de outros eventos ainda não são suportados.
+* Os `insert` `update`tipos `replace` de operações e operações são atualmente suportados. 
+* A eliminação da operação ou de outros eventos ainda não são suportados.
 
 Devido a estas limitações, as opções $match fase, $project palco e fullDocument são necessárias como mostrado nos exemplos anteriores.
 

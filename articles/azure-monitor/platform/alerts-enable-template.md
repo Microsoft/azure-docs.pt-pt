@@ -1,17 +1,17 @@
 ---
-title: Crie um alerta métrico clássico em Azure com um modelo de Gestor de Recursos
+title: Modelo de Gestor de Recursos - criar alerta métrico
 description: Saiba como usar um modelo de Gestor de Recursos para criar um alerta métrico clássico para receber notificações por e-mail ou webhook.
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4f840d3771c2520e239d8ff3416722429f9502f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a868167f80aaa735e4fbeab32fd1d308dd6da1f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037231"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114434"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Resource Manager
 > [!WARNING]

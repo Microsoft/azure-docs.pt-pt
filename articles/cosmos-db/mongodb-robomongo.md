@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: 68b880957754439b3b88a0cccff2218a5942f967
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 627849acb902a721c80b98adbd16103b4729591b
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548818"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114197"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Utilizar o Robo 3T da API do Azure Cosmos DB para MongoDB
 
@@ -31,7 +31,7 @@ Para adicionar a sua conta Cosmos ao gestor de conexão Robo 3T, execute os segu
 1. Recupere as informações de ligação para a sua conta Cosmos configuradas com o API MongoDB da Azure Cosmos DB utilizando as instruções [aqui](connect-mongodb-account.md).
 
     ![Screenshot da lâmina de corda de ligação](./media/mongodb-robomongo/connectionstringblade.png)
-2. Executar *Robomongo.exe*
+2. Executar a aplicação *Robomongo.*
 
 3. Clique no botão de ligação em **Ficheiro** para gerir as suas ligações. Em seguida, clique em **Criar** na janela de **ligações MongoDB,** que abrirá a janela Definições de **Ligação.**
 

@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Política Azure utiliza o agente de configuração do hóspede para auditar definições dentro de máquinas virtuais.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9e8486af2a9b7ab9e18b8c16f08e51759d1123d7
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 4a2989badc099a199bf21f7e020ca8e6256ddaf0
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998843"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113420"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de hóspedes da Política Azure
 
@@ -26,32 +26,11 @@ Para auditar as definições dentro de uma máquina, é ativada uma [extensão v
 
 ### <a name="limits-set-on-the-extension"></a>Limites definidos na extensão
 
-Para limitar a extensão de aplicações com impacto dentro da máquina, a Configuração de Hóspedes não está autorizada a exceder mais de 5% da utilização do CPU. Esta limitação existe tanto para definições incorporadas como personalizadas.
+Para limitar a extensão de aplicações com impacto dentro da máquina, a Configuração de Hóspedes não está autorizada a exceder mais de 5% do CPU. Esta limitação existe tanto para definições incorporadas como personalizadas.
 
 ## <a name="register-guest-configuration-resource-provider"></a>Registe o fornecedor de recursos de configuração de hóspedes
 
-Antes de poder utilizar a Configuração do Hóspede, tem de registar o fornecedor de recursos. Pode registar-se através do portal ou através do PowerShell. O fornecedor de recursos é registado automaticamente se a atribuição de uma política de Configuração de Hóspedes for feita através do portal.
-
-### <a name="registration---portal"></a>Inscrições - Portal
-
-Para registar o fornecedor de recursos para configuração de hóspedes através do portal Azure, siga estes passos:
-
-1. Lance o portal Azure e clique em **Todos os serviços.** Procure e selecione **Subscrições**.
-
-1. Encontre e clique na subscrição para a qual pretende ativar a Configuração do Hóspede.
-
-1. No menu esquerdo da página **de Subscrição,** clique em fornecedores de **Recursos.**
-
-1. Filtrar ou rolar até localizar a **Microsoft.GuestConfiguration**e, em seguida, clicar em **Registar** na mesma linha.
-
-### <a name="registration---powershell"></a>Registo - PowerShell
-
-Para registar o fornecedor de recursos para configuração de hóspedes através do PowerShell, execute o seguinte comando:
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
-```
+Antes de poder utilizar a Configuração do Hóspede, tem de registar o fornecedor de recursos. Pode registar-se através do [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell), ou [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). O fornecedor de recursos é registado automaticamente se a atribuição de uma política de Configuração de Hóspedes for feita através do portal.
 
 ## <a name="validation-tools"></a>Ferramentas de validação
 
@@ -89,7 +68,7 @@ O Windows Server Nano Server não é suportado em nenhuma versão.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Requisitos da rede de extensão de configuração do hóspede
 
-Para comunicar com o fornecedor de recursos de Configuração de Hóspedes em Azure, as máquinas requerem acesso de saída aos centros de dados Azure na porta **443**. Se estiver a utilizar uma rede virtual privada em Azure que não permita o tráfego de saída, configure exceções com as regras [do Network Security Group.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
+Para comunicar com o fornecedor de recursos de Configuração de Hóspedes em Azure, as máquinas requerem acesso de saída aos centros de dados Azure na porta **443**. Se uma rede em Azure não permitir o tráfego de saída, configure exceções com as regras do Grupo de Segurança da [Rede.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
 A etiqueta de [serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser utilizada para fazer referência ao serviço de Configuração de Hóspedes.
 
 ## <a name="azure-managed-identity-requirements"></a>Requisitos de identidade geridos pelo Azure
@@ -101,7 +80,7 @@ As políticas **DeployIfNotExists** que adicionam a extensão a máquinas virtua
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição de configuração de hóspedes
 
-Cada auditoria realizada pela Configuração do Hóspede requer duas definições de política, uma definição **DeployIfNotExists** e uma definição **AuditIfNotExists.** A definição **DeployIfNotExists** é utilizada para preparar a máquina com o agente de configuração do hóspede e outros componentes para suportar as ferramentas de [validação](#validation-tools).
+Cada auditoria realizada pela Configuração do Hóspede requer duas definições de política, uma definição **DeployIfNotExists** e uma definição **AuditIfNotExists.** 
 
 A definição de política **DeployIfNotExists** valida e corrige os seguintes itens:
 
@@ -112,24 +91,24 @@ A definição de política **DeployIfNotExists** valida e corrige os seguintes i
 
 Se a atribuição **DeployIfNotExists** não for conforme, pode ser utilizada uma tarefa de [reparação.](../how-to/remediate-resources.md#create-a-remediation-task)
 
-Uma vez que a atribuição **Do DesdobrifNotExists** esteja em conformidade, a atribuição de políticas **AuditIfNotExists** utiliza as ferramentas de validação locais para determinar se a atribuição de configuração é conforme ou não conforme. A ferramenta de validação fornece os resultados ao cliente de Configuração de Hóspedes. O cliente reencaminha os resultados para a Extensão do Hóspede, que os disponibiliza através do fornecedor de recursos de Configuração de Hóspedes.
+Uma vez que a atribuição **DeployIfNotExists** esteja em conformidade, a atribuição de política **AuditIfNotExists** determina se a atribuição do hóspede é conforme ou não conforme. A ferramenta de validação fornece os resultados ao cliente de Configuração de Hóspedes. O cliente reencaminha os resultados para a Extensão do Hóspede, que os disponibiliza através do fornecedor de recursos de Configuração de Hóspedes.
 
 A Política Azure utiliza a propriedade **compliancede** os fornecedores de recursos de configuração de hóspedes para reportar a conformidade no nó **de conformidade.** Para mais informações, consulte [a obtenção](../how-to/get-compliance-data.md)de dados de conformidade .
 
 > [!NOTE]
 > A política **DeployIfNotExists** é necessária para que a política **AuditIfNotExist** a devolução dos resultados. Sem o **DeployIfNotExists,** a política **AuditIfNotExists** mostra os recursos "0 de 0" como estatuto.
 
-Todas as políticas incorporadas para configuração de hóspedes estão incluídas numa iniciativa para agrupar as definições para uso em atribuições. A iniciativa incorporada denominada _ \[Pré-visualização\]: Audite as definições_ de segurança da palavra-passe dentro das máquinas Linux e Windows contém 18 políticas. Existem seis pares **ImplementIfNotExists** e **AuditIfNotExists** para Windows e três pares para o Linux. A lógica de [definição](definition-structure.md#policy-rule) de política valida que apenas o sistema operativo-alvo é avaliado.
+Todas as políticas incorporadas para configuração de hóspedes estão incluídas numa iniciativa para agrupar as definições para uso em atribuições. A iniciativa incorporada denominada _ \[Pré-visualização\]: Audite a segurança da palavra-passe dentro das máquinas Linux e Windows_ contém 18 políticas. Existem seis pares **ImplementIfNotExists** e **AuditIfNotExists** para Windows e três pares para o Linux. A lógica de [definição](definition-structure.md#policy-rule) de política valida que apenas o sistema operativo-alvo é avaliado.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditoria das definições do sistema operativo seguindo as linhas de base da indústria
 
-Uma das iniciativas disponíveis na Política do Azure fornece a capacidade de auditar as definições do sistema operativo dentro de máquinas virtuais seguindo uma "linha de base" da Microsoft. A definição, _ \[Pré-visualização\]: Auditar VMs do Windows que não correspondam_ às definições de base de segurança do Azure inclui um conjunto completo de regras de auditoria baseadas em definições da Política do Grupo de Directórioactivo Ativo.
+Uma iniciativa da Política Azure oferece a capacidade de auditar as definições do sistema operativo seguindo uma "linha de base". A definição, _ \[Pré-visualização\]: Auditar VMs windows que não correspondam_ às definições de base de segurança do Azure inclui um conjunto de regras baseadas na Política de Grupo de Diretório Ativo.
 
-A maioria das definições estão disponíveis como parâmetros. Esta funcionalidade permite-lhe personalizar o que é auditado para alinhar a política com os seus requisitos organizacionais ou mapear a política para informações de terceiros, como normas regulamentares do setor.
+A maioria das definições estão disponíveis como parâmetros. Os parâmetros permitem personalizar o que é auditado. Alinhe a política com os seus requisitos ou mapeie a política para informações de terceiros, como normas regulamentares do setor.
 
-Alguns parâmetros suportam uma gama de valor inteiro. Por exemplo, o parâmetro idade máxima da senha pode ser definido utilizando um operador de gama para dar flexibilidade aos proprietários das máquinas. Pode auditar que a definição eficaz da Política do Grupo que exige que os utilizadores mudem as suas palavras-passe não deve ser superior a 70 dias, mas não deve ser inferior a um dia. Tal como descrito na bolha de informação para o parâmetro, para tornar esta política comercial o valor de auditoria eficaz, fixou o valor em "1,70".
+Alguns parâmetros suportam uma gama de valor inteiro. Por exemplo, a definição da Idade máxima da palavra-passe poderia auditar a definição efetiva da Política do Grupo. Uma gama de "1,70" confirmaria que os utilizadores são obrigados a alterar as suas palavras-passe pelo menos a cada 70 dias, mas não menos do que um dia.
 
-Se atribuir a apólice utilizando um modelo de implementação do Gestor de Recursos Azure, pode utilizar um ficheiro de parâmetros para gerir estas definições a partir do controlo de fonte. Utilizando uma ferramenta como a Git para gerir alterações às políticas de Auditoria com comentários em cada documento de check-in, prova do porquê de uma atribuição ser uma exceção ao valor esperado.
+Se atribuir a apólice utilizando um modelo de implementação do Gestor de Recursos Azure, utilize um ficheiro de parâmetros para gerir exceções. Verifique os ficheiros num sistema de controlo de versão, como git. Comentários sobre alterações de ficheiros fornecem provas de que uma atribuição é uma exceção ao valor esperado.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Aplicação de configurações usando a configuração do hóspede
 
@@ -162,7 +141,7 @@ Se isso não for bem sucedido, recolher registos de clientes pode ajudar a diagn
 
 #### <a name="windows"></a>Windows
 
-Para utilizar a capacidade de Comando de Execução Azure VM para capturar informações de ficheiros de registo nas máquinas Windows, o seguinte exemplo do script PowerShell pode ser útil. Para mais informações, consulte [scripts Run PowerShell no seu Windows VM com Comando](../../../virtual-machines/windows/run-command.md)de Execução .
+Capture informações de ficheiros de registo utilizando [o Comando de Execução Azure VM,](../../../virtual-machines/windows/run-command.md)o seguinte exemplo o script PowerShell pode ser útil.
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -173,7 +152,7 @@ Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensit
 
 #### <a name="linux"></a>Linux
 
-Para utilizar a capacidade de Comando de Execução Azure VM para capturar informações de ficheiros de registo nas máquinas Linux, o seguinte exemplo de script Bash pode ser útil. Para mais informações, consulte [os scripts run shell no seu VM Linux com Comando de Execução](../../../virtual-machines/linux/run-command.md)
+Capture informações de ficheiros de registo utilizando [o Comando de Execução Azure VM](../../../virtual-machines/linux/run-command.md), o seguinte exemplo de que o script Bash pode ser útil.
 
 ```Bash
 linesToIncludeBeforeMatch=0
@@ -184,7 +163,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## <a name="guest-configuration-samples"></a>Amostras de configuração de convidados
 
-Fonte para as iniciativas de configuração de hóspedes de política estão disponíveis nos seguintes locais:
+As amostras de política incorporadas da Configuração do Hóspede estão disponíveis nos seguintes locais:
 
 - [Definições políticas incorporadas - Configuração de Hóspedes](../samples/built-in-policies.md#guest-configuration)
 - [Iniciativas incorporadas - Configuração de Hóspedes](../samples/built-in-initiatives.md#guest-configuration)
@@ -192,6 +171,7 @@ Fonte para as iniciativas de configuração de hóspedes de política estão dis
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- Saiba como ver os detalhes de cada definição a partir da vista de conformidade de [configuração](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) do hóspede
 - Reveja exemplos nas [amostras da Política Azure.](../samples/index.md)
 - Reveja a [estrutura de definição do Azure Policy](definition-structure.md).
 - Veja [Compreender os efeitos do Policy](effects.md).

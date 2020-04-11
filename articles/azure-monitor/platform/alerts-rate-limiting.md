@@ -1,17 +1,17 @@
 ---
-title: Limitação da taxa para SMS, e-mails, notificações push da App Azure e webhooks
+title: Limitação da taxa para SMS, e-mails, notificações push
 description: Compreenda como o Azure limita o número de possíveis SMS, e-mail, push da App Azure ou notificações de webhook de um grupo de ação.
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.subservice: alerts
-ms.openlocfilehash: 066fcac24571c8e982784a3845a010525ff9088a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61e6cc22171815b15b865dd6ed5670bd9c446ead
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665532"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114320"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Limitação de tarifas para voz, SMS, e-mails, notificações push da App Azure e posts webhook
 A limitação da taxa é uma suspensão de notificações que ocorre quando muitas são enviadas para um determinado número de telefone, endereço de e-mail ou dispositivo. A limitação da taxa garante que os alertas são controláveis e exequíveis.

@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 74522502f5405b56a3a604f20a695de83ef3c3a5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a40c64910260a2d63a529d25e1089fb618fcec1b
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886488"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113496"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
 Este artigo fornece soluções para questões comuns da Azure FarmBeats. Para obter ajuda adicional, contacte o farmbeatssupport@microsoft.comnosso Fórum de [Suporte](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) ou envie-nos um e-mail para .
 
 > [!NOTE]
-  > Se instalou FarmBeats durante o mês de abril e os seus trabalhos estão a falhar com uma mensagem de erro vazia, a sua instalação pode não ter sido atribuída qualquer quota de lote devido a todos os recursos direcionados para emergência, cuidados de saúde e outras necessidades críticas. Terá de solicitar que os VMs sejam atribuídos à conta do Lote.
+  > Se instalou FarmBeats durante o mês de abril e os seus trabalhos estão a falhar com uma mensagem de erro vazia, a sua instalação pode não ter sido atribuída qualquer quota de lote para priorizar o apoio a organizações críticas de saúde e segurança. Consulte [aqui](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) mais informações. Terá de solicitar que os VMs sejam alocados à conta do Lote para executar em sucesso os postos de trabalho.
 
 ## <a name="install-issues"></a>Instalar problemas
 
@@ -45,7 +45,9 @@ Contacte-nos com os seguintes detalhes:
 - Siga os passos abaixo para anexar o ficheiro de registo para a falha de implantação:
 
     1. Navegue para o **Grupo de Recursos** no portal Azure.
+
     2. Selecione **As implementações** na secção **Definições** do lado esquerdo.
+
     3. Para cada implementação que mostrar **Failed**, selecione através dos detalhes e descarregue os detalhes da implementação. Prenda este ficheiro ao correio.
 
 ## <a name="sensor-telemetry"></a>Telemetria do sensor

@@ -1,15 +1,15 @@
 ---
-title: Visão geral dos alertas clássicos no Microsoft Azure e No Monitor Azure
+title: Visão geral dos alertas clássicos no Monitor Azure
 description: Os alertas clássicos estão a ser depreciados. Os alertas permitem-lhe monitorizar as métricas, eventos ou registos de recursos do Azure e ser notificado quando uma condição que especifica for satisfeita.
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 098efd3075c6b099bdfc925cb4f09163f83532a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9c269db870f582c176783a4654b5de251e24412
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668271"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114490"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
 
@@ -28,20 +28,20 @@ Só é possível visualizar alertas clássicos no ecrã clássico dos alertas no
  ![Escolhas de alerta no portal Azure](media/alerts-classic.overview/monitor-alert-screen2.png)
 
 Os novos alertas a experiência do utilizador tem os seguintes benefícios sobre a experiência de alertas clássicos:
--   **Melhor sistema de notificação** - Todos os alertas mais recentes utilizam grupos de ação, que são nomeados grupos de notificações e ações que podem ser reutilizadas em vários alertas. Os alertas métricos clássicos e os alertas de Log Analytics mais antigos não utilizam grupos de ação.
--   **Uma experiência de autoria unificada** - Toda a criação de alerta para métricas, registos e registo de atividade através do Azure Monitor, Log Analytics e Application Insights está num só local.
--   **Ver alertas de Log Analytics disparados no portal Azure** - Agora também pode ver alertas de Log Analytics disparados na sua subscrição. Anteriormente, estes estavam num portal separado.
--   **Separação de alertas e regras de alerta disparados** - Regras de alerta (a definição de condição que desencadeia um alerta) e Alertas de Incêndio (instância da regra de alerta de disparo) são diferenciados, pelo que as vistas operacionais e de configuração são separadas.
--   **Melhor fluxo de trabalho** - Os novos alertas que autorizam a experiência orienta o utilizador ao longo do processo de configuração de uma regra de alerta, o que torna mais simples descobrir as coisas certas para ser alertado.
--   Estado de **consolidação** e alerta de alerta **smart Alerts** - Os alertas mais recentes incluem funcionalidade de agrupamento automático que mostra alertas semelhantes em conjunto para reduzir a sobrecarga na interface do utilizador. 
+- **Melhor sistema de notificação** - Todos os alertas mais recentes utilizam grupos de ação, que são nomeados grupos de notificações e ações que podem ser reutilizadas em vários alertas. Os alertas métricos clássicos e os alertas de Log Analytics mais antigos não utilizam grupos de ação.
+- **Uma experiência de autoria unificada** - Toda a criação de alerta para métricas, registos e registo de atividade através do Azure Monitor, Log Analytics e Application Insights está num só local.
+- **Ver alertas de Log Analytics disparados no portal Azure** - Agora também pode ver alertas de Log Analytics disparados na sua subscrição. Anteriormente, estes estavam num portal separado.
+- **Separação de alertas e regras de alerta disparados** - Regras de alerta (a definição de condição que desencadeia um alerta) e Alertas de Incêndio (instância da regra de alerta de disparo) são diferenciados, pelo que as vistas operacionais e de configuração são separadas.
+- **Melhor fluxo de trabalho** - Os novos alertas que autorizam a experiência orienta o utilizador ao longo do processo de configuração de uma regra de alerta, o que torna mais simples descobrir as coisas certas para ser alertado.
+- Estado de **consolidação** e alerta de alerta **smart Alerts** - Os alertas mais recentes incluem funcionalidade de agrupamento automático que mostra alertas semelhantes em conjunto para reduzir a sobrecarga na interface do utilizador. 
 
 Os novos alertas métricos têm os seguintes benefícios sobre os alertas métricos clássicos:
--   **Latência melhorada**: Os alertas métricos mais recentes podem ser executados com a mesma frequência a cada minuto. Os alertas métricos mais antigos funcionam sempre a uma frequência de 5 minutos. Os alertas mais recentes têm aumentado o atraso da ocorrência de emissão para notificação ou ação (3 a 5 minutos). Os alertas mais antigos são de 5 a 15 minutos, dependendo do tipo.  Os alertas de log normalmente têm um atraso de 10 a 15 minutos devido ao tempo que leva para ingerir os registos, mas os métodos de processamento mais recentes estão reduzindo esse tempo. 
--   **Suporte para métricas multidimensionais:** Pode alertar sobre métricas dimensionais que lhe permitem monitorizar um segmento interessante da métrica.
--   **Mais controlo sobre as condições métricas:** Pode definir regras de alerta mais ricas. Os novos alertas de suporte monitorizando os valores máximos, mínimos, médios e totais das métricas.
--   **Monitorização combinada de múltiplas métricas:** Pode monitorizar várias métricas (atualmente, até duas métricas) com uma única regra. É desencadeado um alerta se ambas as métricas violarem os respetivos limiares durante o período de tempo especificado.
--   **Melhor sistema de notificação**: Todos os alertas mais recentes utilizam grupos de [ação,](../../azure-monitor/platform/action-groups.md)que são nomeados grupos de notificações e ações que podem ser reutilizadas em múltiplos alertas.  Os alertas métricos clássicos e os alertas de Log Analytics mais antigos não utilizam grupos de ação. 
--   **Métricas de Registos** (pré-visualização pública): Os dados de log indo para log Analytics podem agora ser extraídos e convertidos em métricas do Monitor Azure e, em seguida, alertados em outras métricas. Consulte [alertas (clássicos)](alerts-classic.overview.md) para a terminologia específica dos alertas clássicos. 
+- **Latência melhorada**: Os alertas métricos mais recentes podem ser executados com a mesma frequência a cada minuto. Os alertas métricos mais antigos funcionam sempre a uma frequência de 5 minutos. Os alertas mais recentes têm aumentado o atraso da ocorrência de emissão para notificação ou ação (3 a 5 minutos). Os alertas mais antigos são de 5 a 15 minutos, dependendo do tipo.  Os alertas de log normalmente têm um atraso de 10 a 15 minutos devido ao tempo que leva para ingerir os registos, mas os métodos de processamento mais recentes estão reduzindo esse tempo. 
+- **Suporte para métricas multidimensionais:** Pode alertar sobre métricas dimensionais que lhe permitem monitorizar um segmento interessante da métrica.
+- **Mais controlo sobre as condições métricas:** Pode definir regras de alerta mais ricas. Os novos alertas de suporte monitorizando os valores máximos, mínimos, médios e totais das métricas.
+- **Monitorização combinada de múltiplas métricas:** Pode monitorizar várias métricas (atualmente, até duas métricas) com uma única regra. É desencadeado um alerta se ambas as métricas violarem os respetivos limiares durante o período de tempo especificado.
+- **Melhor sistema de notificação**: Todos os alertas mais recentes utilizam grupos de [ação,](../../azure-monitor/platform/action-groups.md)que são nomeados grupos de notificações e ações que podem ser reutilizadas em múltiplos alertas.  Os alertas métricos clássicos e os alertas de Log Analytics mais antigos não utilizam grupos de ação. 
+- **Métricas de Registos** (pré-visualização pública): Os dados de log indo para log Analytics podem agora ser extraídos e convertidos em métricas do Monitor Azure e, em seguida, alertados em outras métricas. Consulte [alertas (clássicos)](alerts-classic.overview.md) para a terminologia específica dos alertas clássicos. 
 
 
 ## <a name="classic-alerts-on-azure-monitor-data"></a>Alertas clássicos sobre dados do Monitor do Azure

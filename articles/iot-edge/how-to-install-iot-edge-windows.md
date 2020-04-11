@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: 80ce962ac6977fcce2455c8e2ef29af448a44075
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61b382f1c286209a12d0be39a81e6817806d3251
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133147"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113464"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalar o runtime do Azure IoT Edge no Windows
 
@@ -78,9 +78,9 @@ Este exemplo demonstra uma instalação manual com recipientes Windows:
 
 1. Se ainda não o fez, registe um novo dispositivo IoT Edge e recupere a **cadeia de ligação**do dispositivo . Copie a cadeia de ligação para utilizar mais tarde nesta secção. Pode completar este passo utilizando as seguintes ferramentas:
 
-   * [Portal Azure](how-to-register-device.md#register-in-the-azure-portal)
-   * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
-   * [Código de estúdio visual](how-to-register-device.md#register-with-visual-studio-code)
+   * [Portal do Azure](how-to-register-device.md#register-in-the-azure-portal)
+   * [CLI do Azure](how-to-register-device.md#register-with-the-azure-cli)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Execute o PowerShell como um administrador.
 
@@ -139,33 +139,45 @@ Para mais informações sobre estas opções de instalação, continue a ler est
 
 ## <a name="offline-or-specific-version-installation"></a>Instalação de versão offline ou específica
 
-Durante a instalação são descarregados dois ficheiros:
+Durante a instalação são descarregados três ficheiros:
 
-* Cabine Microsoft Azure IoT Edge, que contém o daemon de segurança IoT Edge (iotedged), motor de contentorMoby e Moby CLI.
-* Pacote redistribuível Visual C++ (VC runtime) MSI
+* Um script PowerShell, que contém as instruções de instalação
+* Cabine Microsoft Azure IoT Edge, que contém o daemon de segurança IoT Edge (iotedged), motor de contentorMo by e Moby CLI
+* Instalador redistribuível Visual C++ (VC runtime)
 
-Se o seu dispositivo estiver offline durante a instalação, ou se pretender instalar uma versão específica do IoT Edge, pode descarregar um ou ambos estes ficheiros antes do tempo para o dispositivo. Quando chegar a hora de instalar, aponte o script de instalação para o diretório que contém os ficheiros descarregados. O instalador verifica primeiro esse diretório, e depois só descarrega componentes que não são encontrados. Se todos os ficheiros estiverem disponíveis offline, pode instalar sem ligação à Internet.
+Se o seu dispositivo estiver offline durante a instalação, ou se pretender instalar uma versão específica do IoT Edge, pode descarregar estes ficheiros com antecedência para o dispositivo. Quando chegar a hora de instalar, aponte o script de instalação para o diretório que contém os ficheiros descarregados. O instalador verifica primeiro esse diretório, e depois só descarrega componentes que não são encontrados. Se todos os ficheiros estiverem disponíveis offline, pode instalar sem ligação à Internet.
 
-Para obter os mais recentes ficheiros de instalação IoT Edge juntamente com versões anteriores, consulte [lançamentos Do Edge Azure IoT.](https://github.com/Azure/azure-iotedge/releases)
+Também pode utilizar o parâmetro do caminho de instalação offline para atualizar o IoT Edge. Para mais informações, consulte [Atualizar o daemon de segurança IoT Edge e o tempo](how-to-update-iot-edge.md)de execução .
 
-Para instalar com componentes offline, utilize o `-OfflineInstallationPath` parâmetro como parte do comando Deploy-IoTEdge e forneça o caminho absoluto para o diretório de ficheiros. Por exemplo,
+1. Para obter os mais recentes ficheiros de instalação IoT Edge juntamente com versões anteriores, consulte [lançamentos Do Edge Azure IoT.](https://github.com/Azure/azure-iotedge/releases)
 
-```powershell
-. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
-```
+2. Encontre a versão que pretende instalar e descarregue os seguintes ficheiros da secção **Assets** das notas de lançamento no seu dispositivo IoT:
 
->[!NOTE]
->O `-OfflineInstallationPath` parâmetro procura um ficheiro chamado **Microsoft-Azure-IoTEdge.cab** no diretório fornecido. Começando com a versão 1.0.9-rc4 do IoT Edge, existem dois ficheiros .cab disponíveis para utilização, um para dispositivos AMD64 e um para ARM32. Descarregue o ficheiro correto para o seu dispositivo e, em seguida, mude o nome do ficheiro para remover o sufixo de arquitetura.
+   * IoTEdgeSecurityDaemon.ps1
+   * Microsoft-Azure-IoTEdge-amd64.cab a partir de lançamentos 1.0.9 ou mais recentes, ou Microsoft-Azure-IoTEdge.cab a partir dos lançamentos 1.0.8 ou mais velhos.
 
-O `Deploy-IoTEdge` comando instala os componentes IoT Edge e, em `Initialize-IoTEdge` seguida, tem de continuar a fornecer o dispositivo com o seu ID e ligação do dispositivo IoT Hub. Ou executa o comando diretamente e fornece uma cadeia de ligação a partir do IoT Hub, ou utilize uma das ligações na secção anterior para aprender a fornecer automaticamente dispositivos com o Serviço de Provisionamento de Dispositivos.
+   O Microsoft-Azure-IotEdge-arm32.cab também está disponível a partir de 1.0.9 apenas para efeitos de teste. O IoT Edge não é atualmente suportado em dispositivos ARM32 do Windows.
 
-```powershell
-. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-Initialize-IoTEdge
-```
+   É importante utilizar o script PowerShell a partir do mesmo lançamento que o ficheiro .cab que utiliza porque a funcionalidade muda para suportar as funcionalidades em cada versão.
 
-Também pode utilizar o parâmetro do caminho de instalação offline com o comando Update-IoTEdge.
+3. Se o ficheiro .cab que descarregou tiver um sufixo de arquitetura, mude o nome do ficheiro para apenas **Microsoft-Azure-IoTEdge.cab**.
+
+4. Opcionalmente, baixe um instalador para Visual C++ redistribuível. Por exemplo, o script PowerShell utiliza esta versão: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Guarde o instalador na mesma pasta no seu dispositivo IoT que os ficheiros IoT Edge.
+
+5. Para instalar com componentes offline, [faça o ponto de origem](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) da cópia local do script PowerShell. Em seguida, `-OfflineInstallationPath` use o parâmetro `Deploy-IoTEdge` como parte do comando e forneça o caminho absoluto para o diretório de ficheiros. Por exemplo,
+
+   ```powershell
+   . <path>\IoTEdgeSecurityDaemon.ps1
+   Deploy-IoTEdge -OfflineInstallationPath <path>
+   ```
+
+   O comando de implantação utilizará todos os componentes encontrados no diretório de ficheiros local fornecido. Se faltar o ficheiro .cab ou o instalador Visual C++, tentará descarregá-los.
+
+6. Execute `Initialize-IoTEdge` o comando para fornecer o seu dispositivo com uma identidade no IoT Hub. Ou fornece uma cadeia de ligação do dispositivo para o fornecimento manual, ou escolha um dos métodos descritos na secção de [fornecimento automática](#option-2-install-and-automatically-provision) anterior.
+
+   Se o seu dispositivo `Deploy-IoTEdge`recomeçar depois de executar, volte `Initialize-IoTEdge`a ligar o script PowerShell antes de ser reiniciado .
+
+Para mais informações sobre a opção de instalação offline, avance para saber sobre [todos os parâmetros](#all-installation-parameters)de instalação .
 
 ## <a name="verify-successful-installation"></a>Verificar instalação bem sucedida
 

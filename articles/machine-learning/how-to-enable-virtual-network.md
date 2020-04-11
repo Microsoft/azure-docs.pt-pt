@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: 4d845514965a8d60c636902660ce838926cbf3c9
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: ca4bf1b0043a2c73851eab48ff8b9b6b7a987b72
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607605"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115300"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Empregos de experimentação e inferência secure Azure ML dentro de uma Rede Virtual Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,6 +43,11 @@ Este artigo também fornece informações detalhadas sobre *configurações avan
 + Uma rede virtual pré-existente e uma sub-rede para usar com os seus recursos computacionais.
 
 ## <a name="use-a-storage-account-for-your-workspace"></a>Use uma conta de armazenamento para o seu espaço de trabalho
+
+> [!WARNING]
+> Se tiver cientistas de dados que usam o designer de Machine Learning Azure, receberão um erro ao visualizar dados de uma conta de armazenamento dentro de uma rede virtual. O seguinte texto é o erro que recebem:
+>
+> __Erro: Incapaz de perfilar este conjunto de dados. Isto pode acontecer porque os seus dados estão armazenados atrás de uma rede virtual ou os seus dados não suportam o perfil.__
 
 Para utilizar uma conta de armazenamento Azure para o espaço de trabalho numa rede virtual, utilize os seguintes passos:
 
