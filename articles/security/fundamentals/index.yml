@@ -12,12 +12,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 10/28/2019
-  ms.openlocfilehash: 4744c6668de55b28725f1e1662f93030b5f61007
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 62a0bc67624c27ccd8185edb8be1a8cb3f16a9b1
+  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73055916"
+  ms.lasthandoff: 04/10/2020
+  ms.locfileid: "81115232"
 landingContent:
 - title: Sobre a segurança do Azure
   linkLists:
@@ -63,8 +63,6 @@ landingContent:
       url: iaas.md
     - text: Gestão de identidades e controlo de acesso
       url: identity-management-best-practices.md
-    - text: Segurança de bases de dados
-      url: database-best-practices.md
     - text: Implementações PaaS
       url: paas-deployments.md
     - text: Segurança e encriptação de dados
