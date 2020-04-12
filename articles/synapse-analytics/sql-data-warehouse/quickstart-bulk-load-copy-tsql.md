@@ -11,12 +11,12 @@ ms.date: 04/08/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: d03c7d72a0adf02959badac758f94e47fd81de5c
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: d39b3085a802ca0ff745ab1f63f4a8fba966ea48
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992229"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115009"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Arranque rápido: Dados de carga a granel utilizando a declaração COPY
 
@@ -38,7 +38,7 @@ Este quickstart assume que já tem uma piscina SQL. Se não tiver sido criada um
 
 ## <a name="create-the-target-table"></a>Criar a tabela-alvo
 
-Neste exemplo, vamos carregar dados do conjunto de dados de táxi sinuoso de Nova Iorque. Vamos carregar uma mesa chamada Trip que representa viagens de táxi feitas dentro de um ano. Executar o seguinte para criar a tabela:
+Neste exemplo, vamos carregar dados do conjunto de dados de táxi sinuoso de Nova Iorque. Carregaremos uma mesa chamada Trip que representa viagens de táxi feitas dentro de um ano. Executar o seguinte para criar a tabela:
 
 ```sql
 CREATE TABLE [dbo].[Trip]

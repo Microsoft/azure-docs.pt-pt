@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: fcfc86a3aca4aae042ce3589988aa91d821dce98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d95055e79356b9e0fe9c4c0e64f5935619204b3
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76842210"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81112894"
 ---
 1. No Visual Studio Code, prima F1 para abrir a paleta de comando. Na paleta de comando, `Azure Functions: Open in portal`procure e selecione .
 
-1. Escolha a sua aplicação de função e prima Enter. A página da aplicação de funções é aberta no [portal Azure.](https://portal.azure.com)
+1. Escolha a sua aplicação de função e prima Enter. A página da aplicação de funções abre no portal Azure.
 
 1. No separador **Visão Geral,** selecione o link nomeado sob o **grupo Recurso**.
 
