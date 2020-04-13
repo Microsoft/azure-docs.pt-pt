@@ -607,6 +607,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Limpar registos SSISDB com Tarefas de Base de Dados Elástica
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: Migrar trabalhos SSIS com SSMS
+          href: how-to-migrate-ssis-job-ssms.md
     - name: Criar acionadores
       items:
         - name: Criar um acionador baseado em eventos

@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: dapine
-  ms.openlocfilehash: 0f0b9aa0109b7e63bffcbd330dbef3276821698e
-  ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+  ms.openlocfilehash: 43bd0afd1f3d40c144003b2c2cadfdcb885989a9
+  ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/06/2020
-  ms.locfileid: "80743921"
+  ms.lasthandoff: 04/09/2020
+  ms.locfileid: "80991318"
 highlightedContent:
   items:
   - title: O que é o serviço de Voz?
@@ -52,14 +52,14 @@ conceptualContent:
   - title: Conversão de texto em voz
     links:
     - itemType: quickstart
+      text: Noções básicas da sintetização de voz
+      url: text-to-speech-basics.md
+    - itemType: quickstart
       text: Sintetizar a voz num altifalante
       url: quickstarts/text-to-speech.md
     - itemType: quickstart
       text: Sintetizar a voz num ficheiro de áudio
       url: quickstarts/text-to-speech-audio-file.md
-    - itemType: quickstart
-      text: Personalizar a síntese de voz para as suas aplicações
-      url: how-to-custom-voice.md
     footerLink:
       text: Ver mais
       url: index-text-to-speech.yml
