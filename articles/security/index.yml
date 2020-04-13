@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: 37427277a8d4b7bde5e5671510a8f5cdb9979483
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: b3c5fb0dd15c1211132e627b507aa20a043f09ba
+  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75980367"
+  ms.lasthandoff: 04/10/2020
+  ms.locfileid: "81115370"
 highlightedContent:
   items:
   - title: Introdução à segurança do Azure
@@ -219,12 +219,12 @@ conceptualContent:
       text: Recomendações de configuração da segurança
   - title: Segurança de bases de dados
     links:
-    - url: ./fundamentals/database-security-overview.md
+    - url: ./fundamentals/encryption-overview.md#encryption-of-data-at-rest-with-azure-sql-database
       itemType: overview
-      text: Descrição geral da segurança
-    - url: ./fundamentals/database-best-practices.md
+      text: Segurança de dados
+    - url: ./fundamentals/paas-applications-using-sql.md
       itemType: concept
-      text: Melhores práticas de segurança
+      text: Melhores práticas de bases de dados PaaS
     - url: ./fundamentals/database-security-checklist.md
       itemType: concept
       text: Lista de verificação de segurança

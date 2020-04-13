@@ -124,6 +124,8 @@
               href: groups-create-rule.md
             - name: Sintaxe de regras do grupo dinâmico
               href: groups-dynamic-membership.md
+            - name: Validar uma regra de associação
+              href: groups-dynamic-rule-validation.md
             - name: Alterar o tipo de associação ao grupo
               href: groups-change-type.md
     - name: Atribuir licenças
