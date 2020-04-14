@@ -168,13 +168,13 @@
       "url": "https://github.com/Azure-Samples/functions-python-pytorch-tutorial",
       "branch": "master",
       "branch_mapping": {}
-    },   
+    },
     {
       "path_to_root": "functions-quickstart-templates",
       "url": "https://github.com/Azure/azure-functions-templates",
       "branch": "dev"
     },
-   {
+    {
       "path_to_root": "functions-quickstart-java",
       "url": "https://github.com/Azure-Samples/functions-quickstarts-java",
       "branch": "master"
@@ -383,7 +383,7 @@
       "path_to_root": "azure-sdk-for-java-script-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-js/",
       "branch": "master"
-    },        
+    },
     {
       "path_to_root": "azure-sdk-for-net-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
@@ -393,7 +393,7 @@
       "path_to_root": "azure-sdk-for-python-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-python/",
       "branch": "master"
-    },      
+    },
     {
       "path_to_root": "cosmos-dotnet-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-getting-started",
@@ -533,5 +533,8 @@
     }
   },
   "need_generate_pdf": false,
-  "need_generate_intellisense": false
+  "need_generate_intellisense": false,
+  "docs_build_engine": {
+    "name": "docfx_v3"
+  }
 }
