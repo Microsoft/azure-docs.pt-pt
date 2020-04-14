@@ -1,5 +1,5 @@
 ---
-title: Pesquisa fuzzy
+title: Pesquisa difusa
 titleSuffix: Azure Cognitive Search
 description: Implemente uma experiência de pesquisa "quer dizer" para corrigir automaticamente um termo ou tipografia mal escrito.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 95f6befa7e97984ad64a3ffb2a9b91d343945cbb
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81000664"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262439"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Procura difusa para corrigir erros ortográficos e tipografias
 
@@ -71,7 +71,7 @@ Na Pesquisa Cognitiva Azure, além do termo e distância (máximo de 2), não ex
 > [!NOTE]
 > Durante o processamento de consultas, as consultas difusas não são submetidas a [análises lexical](search-lucene-query-architecture.md#stage-2-lexical-analysis). A entrada de consulta é adicionada diretamente à árvore de consulta e expandida para criar um gráfico de termos. A única transformação realizada é o invólucro mais baixo.
 
-## <a name="how-to-test-fuzzy-search"></a>Como testar a pesquisa fuzzy
+## <a name="testing-fuzzy-search"></a>Testar pesquisa difusa
 
 Para testes simples, recomendamos [o explorador](search-explorer.md) de pesquisa ou [carteiro](search-get-started-postman.md) para iterar sobre uma expressão de consulta. Ambas as ferramentas são interativas, o que significa que você pode rapidamente passar por várias variantes de um termo e avaliar as respostas que voltam.
 

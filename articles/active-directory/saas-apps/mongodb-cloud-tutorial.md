@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7792ab2dc9fe7386accab96b0fb00aa93e6e4196
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d3d33634a8e6c3f7fd311ab70ab04f2839672191
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668980"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261147"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com MongoDB Cloud
 
 Neste tutorial, você vai aprender a integrar mongoDB Cloud com O Diretório Ativo Azure (Azure AD). Quando integrar a Nuvem MongoDB com o Azure AD, pode:
 
-* Controlo em Azure AD que tem acesso à Nuvem MongoDB.
+* Controlo em Azure AD que tem acesso a MongoDB Cloud, MongoDB Atlas, a Comunidade MongoDB, Universidade e Apoio.
 * Ative que os seus utilizadores sejam automaticamente inscritos na MongoDB Cloud com as suas contas Azure AD.
 * Gerencie as suas contas num local central - o portal Azure.
 
@@ -146,11 +146,11 @@ Nesta secção, você permitirá que B.Simon use o único sign-on Azure, concede
 
 ## <a name="configure-mongodb-cloud-sso"></a>Configure MongoDB Cloud SSO
 
-Para configurar um único sinal no lado da **Nuvem MongoDB,** você precisa enviar os metadados da **Federação XML** descarregados e URLs copiados apropriados do portal Azure para a equipa de suporte da [Nuvem MongoDB.](https://support.mongodb.com/) Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sinal no lado da **Nuvem MongoDB,** você precisará dos URLs apropriados copiados do portal Azure, e você precisa configurar a Aplicação da Federação para a sua Organização de Nuvem MongoDB. Siga as instruções nos [Docs de Nuvem MongoDB](https://docs.atlas.mongodb.com/security/federated-authentication/index.html). Se encontrar algum problema, pode contactar a equipa de apoio da [MongoDB Cloud](https://support.mongodb.com/) para obter assistência.
 
 ### <a name="create-mongodb-cloud-test-user"></a>Criar o utilizador de teste MongoDB Cloud
 
-Nesta secção, um utilizador chamado Britta Simon é criado em MongoDB Cloud. MongoDB Cloud suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir na Nuvem MongoDB, um novo é criado após a autenticação.
+Nesta secção, um utilizador chamado B.Simon é criado em MongoDB Cloud. MongoDB Cloud suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir na Nuvem MongoDB, um novo é criado após a autenticação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
@@ -165,6 +165,8 @@ Quando clicar no azulejo MongoDB Cloud no Painel de Acesso, deve ser automaticam
 - [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Inscrições para O Atlas MongoDB no Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mongodb.mongodb_atlas_azure_08082019?tab=Overview)
 
 - [Experimente a Nuvem MongoDB com a AD Azure](https://aad.portal.azure.com/)
 

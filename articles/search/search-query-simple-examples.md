@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 42ace2444c7d8e790c7575a7c1a7b3b1219d090a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3a801af7b97954510139a009a6d1344b281cf056
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656426"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261810"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Criar uma consulta simples na Pesquisa Cognitiva Azure
 
 Na Pesquisa Cognitiva Azure, a [simples sintaxe](query-simple-syntax.md) de consulta invoca o parser de consulta padrão para executar consultas completas de pesquisa de texto contra um índice. Este parser é rápido e lida com cenários comuns, incluindo pesquisa completa de texto, pesquisa filtrada e facetada, e geo-pesquisa. 
 
-Neste artigo, usamos exemplos para ilustrar a simples sintaxe.
+Neste artigo, utilizamos exemplos para ilustrar a simples `search=` sintaxe, povoando o parâmetro de uma operação de Documentos de [Busca.](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 
 Uma sintaxe de consulta alternativa é [Full Lucene,](query-lucene-syntax.md)suportando estruturas de consulta mais complexas, como a pesquisa fuzzy e wildcard, que pode levar mais tempo para processar. Para mais informações e exemplos que demonstrem a completa [sintaxe, consulte Use a sintaxe lucene completa](search-query-lucene-examples.md).
 

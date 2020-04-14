@@ -7,21 +7,21 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d0db6553a774a69bb8a55538cbd2b4a333be9316
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 148b80a6843168b11e4feb3558f6bf08eaeb3ace
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281413"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261266"
 ---
-# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Painel de encomendas na análise do Mercado Comercial
+# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Painel de encomendas em análise de marketplace comercial
 
 Este artigo fornece informações sobre o **dashboard encomendas** no Partner Center. Este dashboard exibe informações sobre as suas encomendas num formato gráfico e descarregável.
 
 Para aceder ao **dashboard De Encomendas** nas ferramentas de análise do Partner Center, abra o dashboard **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no âmbito do Mercado Comercial.
 
 >[!NOTE]
-> Para definições detalhadas de terminologia analítica, consulte [perguntas frequentes e terminologia para análise](./faq-terminology.md)do Mercado Comercial.
+> Para definições detalhadas de terminologia analítica, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)de mercado comercial.
 
 ## <a name="orders-dashboard"></a>Dashboard de pedidos
 
@@ -36,7 +36,7 @@ O **dashboard Encomendas** do menu **Analyze** exibe as encomendas atuais para t
 - [Tabela de detalhes de encomenda](#order-details-table)
 
 > [!NOTE]
-> Existem diferenças entre a forma como os relatórios de análise apresentam no Portal dos Parceiros da Nuvem (CPP) e o novo programa de Marketplace Comercial no Partner Center. Uma forma específica é que o **Seller Insights** em CPP tem um separador **de utilização & Encomendas,** que apresenta dados para ofertas baseadas na utilização e ofertas não baseadas em uso. No Partner Center, a página **Encomendas** tem um separador para Ofertas SaaS.
+> Existem diferenças entre a forma como os relatórios de análise apresentam no Portal dos Parceiros da Nuvem (CPP) e o novo programa de marketplace comercial no Partner Center. Uma forma específica é que o **Seller Insights** em CPP tem um separador **de utilização & Encomendas,** que apresenta dados para ofertas baseadas na utilização e ofertas não baseadas em uso. No Partner Center, a página **Encomendas** tem um separador para Ofertas SaaS.
 
 ## <a name="order-dashboard-details"></a>Encomende detalhes do dashboard
 
@@ -124,10 +124,10 @@ Pode selecionar vários filtros para tornar o gráfico pelos critérios que esco
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para uma visão geral dos relatórios de análise disponíveis no Partner Center Commercial Marketplace, consulte [o Analytics para o Mercado Comercial no Partner Center](./analytics.md).
-- Para gráficos, tendências e valores de dados agregados que resumam a atividade do mercado para a sua oferta, consulte o [dashboard Sumário na análise do Mercado Comercial.](./summary-dashboard.md)
-- Para máquina virtual (VM) oferece métricas de utilização e faturação medida, consulte [o dashboard de utilização na análise do Mercado Comercial](./usage-dashboard.md).
-- Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte o [dashboard do Cliente na análise do Mercado Comercial.](./customer-dashboard.md)
-- Para obter uma lista dos seus pedidos de descarregamento ao longo dos últimos 30 dias, consulte [downloads dashboard na análise do Mercado Comercial](./downloads-dashboard.md).
-- Para ver uma visão consolidada do feedback dos clientes para as ofertas no Azure Marketplace e appSource, consulte [ratings e análises dashboard na análise](./ratings-reviews.md)do Mercado Comercial.
-- Para perguntas frequentes sobre análise do Mercado Comercial e para um dicionário abrangente de termos de dados, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)do Mercado Comercial.
+- Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [o Analytics para o mercado comercial no Partner Center](./analytics.md).
+- Para gráficos, tendências e valores de dados agregados que resumam a atividade do mercado para a sua oferta, consulte o [dashboard Summary na análise do mercado comercial.](./summary-dashboard.md)
+- Para máquina virtual (VM) oferece métricas de utilização e faturação medida, consulte [o dashboard de utilização na análise do mercado comercial](./usage-dashboard.md).
+- Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte o [dashboard do Cliente na análise do mercado comercial.](./customer-dashboard.md)
+- Para obter uma lista dos seus pedidos de descarregamento ao longo dos últimos 30 dias, consulte [downloads dashboard na análise do mercado comercial](./downloads-dashboard.md).
+- Para ver uma visão consolidada do feedback dos clientes para as ofertas no Azure Marketplace e appSource, consulte [ratings e avaliações de dashboard na análise do mercado comercial.](./ratings-reviews.md)
+- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)de mercado comercial.

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração individual (SSO) com Logz.io - Cloud Observability for Engineers [ Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e Logz.io - Cloud Observability for Engineers.
+title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com Logz.io - Integração AD Azure [ Azure AD Integração ] Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e Logz.io - Azure AD Integration.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,22 +12,22 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 04/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de1c929ffa790d2abe3a1922cecc2175cd7a8e12
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: e192a8e97e82ba26ffa7527cb12219aeaf2a80cd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385481"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259430"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-logzio---cloud-observability-for-engineers"></a>Tutorial: Azure Ative Directory integração de inscrição única (SSO) com Logz.io - Observabilidade da Nuvem para Engenheiros
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-logzio---azure-ad-integration"></a>Tutorial: Azure Ative Directory integração individual (SSO) com Logz.io - Integração ada azure
 
-Neste tutorial, você aprenderá a integrar Logz.io - Observabilidade da Nuvem para Engenheiros com Diretório Ativo Azure (Azure AD). Quando integrar Logz.io - Observabilidade da Nuvem para Engenheiros com Anúncio Azure, pode:
+Neste tutorial, aprenderá a integrar Logz.io - Integração AD Azure com o Azure Ative Directory (Azure AD). Quando integrar Logz.io - Integração ad-ad azure com a AD Azure, pode:
 
-* Controlo em Azure AD que tem acesso a Logz.io - Observabilidade da Nuvem para Engenheiros.
-* Permitir que os seus utilizadores sejam automaticamente inscritos para Logz.io - Observabilidade da Cloud para Engenheiros com as suas contas Azure AD.
+* Controlo em Azure AD que tem acesso a Logz.io - Integração ad.
+* Permitir que os seus utilizadores sejam automaticamente inscritos para Logz.io - Integração AD Azure com as suas contas Azure AD.
 * Gerencie as suas contas num local central - o portal Azure.
 
 Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -37,44 +37,44 @@ Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o qu
 Para começar, precisa dos seguintes itens:
 
 * Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Logz.io - Cloud Observability for Engineers single sign-on (SSO) enabled subscrição.
+* Logz.io - Azure AD Integration single sign-on (SSO) enabled subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
-* Logz.io - Cloud Observability for Engineers suporta **IDP** iniciado SSO
-* Assim que configurar Logz.io - Observabilidade da Nuvem para Engenheiros pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
+* Logz.io - Azure AD Integração suporta **IDP** iniciado SSO
+* Assim que configurar Logz.io - Integração AD Azure pode impor o controlo de sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
 
-## <a name="adding-logzio---cloud-observability-for-engineers-from-the-gallery"></a>Adicionar Logz.io - Observabilidade da Nuvem para Engenheiros da galeria
+## <a name="adding-logzio---azure-ad-integration-from-the-gallery"></a>Adicionar Logz.io - Integração ad-iorquina azure da galeria
 
-Para configurar a integração de Logz.io - Cloud Observability for Engineers in Azure AD, você precisa adicionar Logz.io - Observabilidade cloud para engenheiros da galeria para a sua lista de aplicações geridas saaS.
+Para configurar a integração do Logz.io - Azure AD Integration in Azure AD, você precisa adicionar Logz.io - Integração AD Azure da galeria para a sua lista de aplicações geridas saaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
 1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
-1. No Add da secção **galeria,** escreva **Logz.io - Observabilidade em nuvem para engenheiros** na caixa de pesquisa.
-1. Selecione **Logz.io - Cloud Observability for Engineers** from results panel and then add the app. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. No **Add da** secção galeria, escreva **Logz.io - Integração ad Azure** na caixa de pesquisa.
+1. Selecione **Logz.io - Azure AD Integração** a partir do painel de resultados e, em seguida, adicione a app. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-logzio---cloud-observability-for-engineers"></a>Configure e teste Azure AD único sign-on para Logz.io - Observabilidade da Nuvem para Engenheiros
+## <a name="configure-and-test-azure-ad-single-sign-on-for-logzio---azure-ad-integration"></a>Configure e teste Azure AD único sign-on para Logz.io - Integração AD Azure
 
-Configure e teste Azure AD SSO com Logz.io - Observabilidade da Nuvem para Engenheiros utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Logz.io - Cloud Observability for Engineers.
+Configure e teste Azure AD SSO com Logz.io - Integração ad Azure utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Logz.io - Integração ad.
 
-Para configurar e testar o Azure AD SSO com Logz.io - Observabilidade da Nuvem para Engenheiros, complete os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com Logz.io - Integração AD Azure, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
     1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
-1. **[Configure Logz.io Observabilidade da Nuvem para Engenheiros SSO](#configure-logzio-cloud-observability-for-engineers-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
-    1. **[Crie Logz.io Cloud Observability para o utilizador](#create-logzio-cloud-observability-for-engineers-test-user)** de testes de Engenheiros - para ter uma contrapartida de B.Simon em Logz.io - Observabilidade da Nuvem para Engenheiros que está ligada à representação do utilizador da AD Azure.
+1. **[Configure Logz.io - Azure AD Integration SSO](#configure-logzio-azure-ad-integration-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
+    1. Criar Logz.io - utilizador de testes de **[Integração AD Azure](#create-logzio-azure-ad-integration-test-user)** - para ter uma contrapartida de B.Simon em Logz.io - Integração AD Azure que está ligada à representação do utilizador da AD Azure.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na **página Logz.io - Cloud Observability for Engineers** application integration, encontre a secção **Gerir** e selecione um **único sinal.**
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações da **Logz.io - Azure AD Integration,** encontre a secção **Gerir** e selecione um **único sinal.**
 1. Na página **de método de inscrição, selecione** **SAML**.
 1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
@@ -87,13 +87,13 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://logzio.auth0.com/login/callback?connection=CONNECTION-NAME`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [Logz.io - Cloud Observability for Engineers Client support team](mailto:help@logz.io) to get these values. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte Logz.io - Equipa de apoio ao Cliente de [Integração AD Azure](mailto:help@logz.io) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. Logz.io - A aplicação Cloud Observability for Engineers espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
+1. Logz.io - A aplicação de integração adcto Azure espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
     ![image](common/default-attributes.png)
 
-1. Além de acima, Logz.io - A aplicação Cloud Observability for Engineers espera que poucos atributos sejam retransmitidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
+1. Além de acima, Logz.io - A aplicação de integração ad-azure espera que poucos atributos sejam retransmitidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
     | Nome |  Atributo fonte|
     | ---------------| --------- |
@@ -105,7 +105,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
     ![O link de descarregamento do Certificado](common/certificatebase64.png)
 
-1. Na **secção Configuração Logz.io - Observabilidade da Nuvem para Engenheiros,** copie os URL(s) adequados com base na sua exigência.
+1. Na **secção de integração de Logz.io - Azure AD,** copie os URL(s) adequados com base na sua exigência.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
@@ -123,10 +123,10 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, concedendo acesso a Logz.io - Observabilidade da Nuvem para Engenheiros.
+Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, concedendo acesso a Logz.io - Integração AD Azure.
 
 1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de aplicações, selecione **Logz.io - Cloud Observability for Engineers**.
+1. Na lista de aplicações, selecione **Logz.io - Integração AD Azure**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
@@ -139,19 +139,19 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-## <a name="configure-logzio-cloud-observability-for-engineers-sso"></a>Configure Logz.io observabilidade da nuvem para engenheiros SSO
+## <a name="configure-logzio-azure-ad-integration-sso"></a>Configure Logz.io Azure AD Integration SSO
 
-Para configurar um único sinal on em **Logz.io - Cloud Observability for Engineers** side, você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para [Logz.io - Cloud Observability for Engineers support team](mailto:help@logz.io). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sign-on no Logz.io - Lado de **Integração AD Azure,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para Logz.io - Equipa de apoio à [Integração Azure AD.](mailto:help@logz.io) Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
-### <a name="create-logzio-cloud-observability-for-engineers-test-user"></a>Criar Logz.io observabilidade da nuvem para o utilizador de testes de engenheiros
+### <a name="create-logzio-azure-ad-integration-test-user"></a>Criar Logz.io utilizador de testes de integração de anúncios azure
 
-Nesta secção, cria-se uma utilizadora chamada Britta Simon em Logz.io - Observabilidade da Nuvem para Engenheiros. Trabalhe com Logz.io - Equipa de suporte de Observação de [Nuvem para Engenheiros](mailto:help@logz.io) para adicionar os utilizadores na plataforma Logz.io - Cloud Observability for Engineers. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+Nesta secção, cria-se uma utilizadora chamada Britta Simon em Logz.io - Integração ad. Trabalhe com Logz.io - Equipa de suporte à [Integração AD Azure](mailto:help@logz.io) para adicionar os utilizadores na plataforma de integração de ads Logz.io - Azure. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Quando clicar na Logz.io - Cloud Observability for Engineers tile in the Access Panel, deve ser automaticamente inscrito no Logz.io - Observabilidade da Nuvem para Engenheiros para os quais configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando clicar no azulejo de integração de Logz.io - Azure AD no Painel de Acesso, deverá ser automaticamente inscrito no Logz.io - Integração AD Azure para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -161,9 +161,9 @@ Quando clicar na Logz.io - Cloud Observability for Engineers tile in the Access 
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente Logz.io - Observabilidade em nuvem para engenheiros com Anúncio Azure](https://aad.portal.azure.com/)
+- [Experimente Logz.io - Integração ad-ad azure com Azure AD](https://aad.portal.azure.com/)
 
 - [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger Logz.io - Observabilidade da Nuvem para Engenheiros com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Como proteger Logz.io - Integração ad-ad azure com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

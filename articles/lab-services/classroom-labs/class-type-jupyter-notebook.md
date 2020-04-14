@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 371c2186d44469a22b138255fb513761a9be4437
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 222f5647248d27c3bdfabd0feaeb66dd9f543652
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478214"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257730"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Criar um laboratório para ensinar ciência de dados com cadernos Python e Jupyter
 
@@ -37,7 +37,7 @@ Ative as definições descritas na tabela abaixo para a conta de laboratório. P
 | Imagem de mercado | Ative a máquina virtual da ciência dos dados - imagem [do Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) para utilização na sua conta de laboratório. |
 
 >[!TIP]
->Este artigo irá focar-se na configuração de uma máquina de modeloque utiliza o sistema operativo Windows Server.  Também é possível criar uma aula de ciência de dados com cadernos Python e Jupyter usando imagens [de Data Science Virtual Machine para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) do Azure Marketplace.
+>Este artigo irá focar-se na configuração de uma máquina de modeloque utiliza o sistema operativo Windows Server.  Também é possível criar uma aula de ciência de dados com cadernos Python e Jupyter usando imagens [de Data Science Virtual Machine para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) do Azure Marketplace.
 
 ### <a name="lab-settings"></a>Configurações de laboratório
 

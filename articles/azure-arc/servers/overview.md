@@ -9,12 +9,12 @@ ms.author: magoedte
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualizações, rastreio de alterações, inventário, livros de execução, pitão, gráfico, híbrido
 ms.date: 03/24/2020
 ms.topic: overview
-ms.openlocfilehash: 5ffe845178fffc252e95794bfb58801c9bff16a7
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: a441b80e4d7dd9604aa2ca69da320e462859a486
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411233"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261230"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é O Arco Azure para servidores (pré-visualização)
 
@@ -54,7 +54,7 @@ As seguintes versões do sistema operativo Windows e Linux são oficialmente sup
 - CentOS Linux 7
 - SUSE Linux Enterprise Server (SLES) 15
 - Red Hat Enterprise Linux (RHEL) 7
-- Amazon Linux 7
+- Amazon Linux 2
 
 >[!NOTE]
 >Esta versão de pré-visualização do agente Connected Machine para windows apenas suporta o Windows Server configurado para utilizar o idioma inglês.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: db60a864ff29ff9eccdcfbdc0bd63587375d4bbd
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 5a05f2973ac17460250fb3e80eb7bc0da9849940
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114972"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262881"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Pesquisa parcial de termo e padrões com caracteres especiais (wildcard, regex, padrões)
 
@@ -22,6 +22,9 @@ Uma *pesquisa a termo parcial* refere-se a consultas compostas por fragmentos de
 A pesquisa parcial e padrão pode ser problemática se o índice não tiver termos no formato esperado. Durante a fase de [análise lexical](search-lucene-query-architecture.md#stage-2-lexical-analysis) da indexação (assumindo o analisador padrão padrão padrão padrão), os caracteres especiais são descartados, as cordas compostas e compostas são divididas, e o espaço branco é eliminado; tudo o que pode fazer com que as consultas de padrão falhem quando não é encontrada correspondência. Por exemplo, um `+1 (425) 703-6214` número de telefone `"1"` `"425"`como `"703"` `"6214"`(tokened as, `"3-62"` , , ) não aparece numa consulta porque esse conteúdo não existe realmente no índice. 
 
 A solução é invocar um analisador que preserve uma cadeia completa, incluindo espaços e caracteres especiais, se necessário, para que possa combinar em termos e padrões parciais. Criar um campo adicional para uma cadeia intacta, além de usar um analisador de preservação de conteúdo, é a base da solução.
+
+> [!TIP]
+> Familiarizado com o Carteiro e as APIs do REST? [Descarregue a coleção](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) de exemplos de consulta para consultar termos parciais e caracteres especiais descritos neste artigo.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>O que é pesquisa parcial na Pesquisa Cognitiva Azure
 
@@ -74,6 +77,7 @@ Ao escolher um analisador que produz fichas de todo o termo, os seguintes analis
 
 | Analisador | Comportamentos |
 |----------|-----------|
+| [analisadores de linguagem](index-add-language-analyzers.md) | Preserva os hífenes em palavras ou cordas compostas, mutações vogais e formas de verbo. Se os padrões de consulta incluem traços, usar um analisador de linguagem pode ser suficiente. |
 | [palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | O conteúdo de todo o campo é tokenizado como um único termo. |
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa-se apenas em espaços brancos. Termos que incluem traços ou outros caracteres são tratados como um único símbolo. |
 | [analisador personalizado](index-add-custom-analyzers.md) | (recomendado) A criação de um analisador personalizado permite especificar tanto o tokenizer como o filtro de fichas. Os analisadores anteriores devem ser utilizados como está. Um analisador personalizado permite-lhe escolher quais tokenizers e filtros de fichas para usar. <br><br>Uma combinação recomendada é o [tokenizer de palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) com um [filtro de ficha inferior](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). Por si só, o analisador de [palavras-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) predefinido não diminui qualquer texto maiúsculo, o que pode fazer com que as consultas falhem. Um analisador personalizado dá-lhe um mecanismo para adicionar o filtro de ficha sinuoso. |
@@ -151,7 +155,9 @@ Quer esteja a avaliar os analisadores ou a avançar com uma configuração espec
 
 ### <a name="use-built-in-analyzers"></a>Utilizar analisadores incorporados
 
-Os analisadores incorporados ou predefinidos podem `analyzer` ser especificados pelo nome numa propriedade de uma definição de campo, sem nenhuma configuração adicional necessária no índice. O exemplo que se segue `whitespace` demonstra como colocaria o analisador num campo. Para obter mais informações sobre os analisadores incorporados disponíveis, consulte a lista de [analisadores predefinidos](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Os analisadores incorporados ou predefinidos podem `analyzer` ser especificados pelo nome numa propriedade de uma definição de campo, sem nenhuma configuração adicional necessária no índice. O exemplo que se segue `whitespace` demonstra como colocaria o analisador num campo. 
+
+Para outros cenários e para saber mais sobre outros analisadores incorporados, consulte a lista de [analisadores predefinidos](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {

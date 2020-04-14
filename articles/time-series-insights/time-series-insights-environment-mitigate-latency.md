@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 245a0b18187ff1c1b226e94b03374f2c071e51c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314832"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263391"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitore e mitigate a aceleração para reduzir a latência em Azure Time Series Insights
 
@@ -30,7 +30,7 @@ Pode evitar a latência e o estrangulamento configurando corretamente o seu ambi
 - Adicione uma fonte de evento que contenha dados antigos que possam exceder a sua taxa de ingresso atribuída (Time Series Insights terá de recuperar).
 - Adicione mais fontes de eventos a um ambiente, resultando num pico de eventos adicionais (que podem exceder a capacidade do seu ambiente).
 - Empurre grandes quantidades de eventos históricos para uma fonte de evento, resultando num atraso (Time Series Insights terá de recuperar).
-- Junte dados de referência com telemetria, resultando em maior tamanho de evento. De uma perspetiva de estrangulamento, um pacote de dados ingressado com um pacote de 32 KB é tratado como 32 eventos, cada um do tamanho 1 KB. O tamanho máximo permitido do evento é de 32 KB; os pacotes de dados superiores a 32 KB são truncados.
+- Junte dados de referência com telemetria, resultando em maior tamanho de evento. O tamanho máximo permitido do pacote é de 32 KB; os pacotes de dados superiores a 32 KB são truncados.
 
 ## <a name="video"></a>Vídeo
 

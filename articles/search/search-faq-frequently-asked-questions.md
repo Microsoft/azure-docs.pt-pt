@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: fee74cb6ec5acd5fa0f171eab9769a833f04ad66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.openlocfilehash: d7ba62c795e23e41a1947def77300ffe5d2cc010
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72792919"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262456"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Pesquisa Cognitiva Azure - perguntas frequentes (FAQ)
 
@@ -24,16 +24,6 @@ ms.locfileid: "72792919"
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>Como é que a Pesquisa Cognitiva Azure é diferente da pesquisa completa de texto no meu DBMS?
 
 A Azure Cognitive Search suporta múltiplas fontes de dados, [análise linguística para muitas línguas,](https://docs.microsoft.com/rest/api/searchservice/language-support) [análise personalizada para inputs de dados interessantes e incomuns,](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)controlos de classificação de pesquisa através de perfis de [pontuação,](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)e funcionalidades de experiência de utilizador como typeahead, destaque de sucesso e navegação facetada. Também inclui outras características, como sinónimos e sintaxe de consulta rica, mas geralmente não são características diferenciantes.
-
-### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>Qual é a diferença entre a Pesquisa Cognitiva Azure e a Pesquisa Elástica?
-
-Ao comparar tecnologias de pesquisa, os clientes frequentemente pedem detalhes sobre como a Pesquisa Cognitiva Azure se compara com a Pesquisa Elástica. Os clientes que escolhem a Pesquisa Cognitiva Azure sobre a Pesquisa Elástica para os seus projetos de aplicação de pesquisa normalmente fazem-no porque tornámos uma tarefa chave mais fácil ou precisam da integração incorporada com outras tecnologias da Microsoft:
-
-+ A Azure Cognitive Search é um serviço de nuvem totalmente gerido com 99,9% de acordos de nível de serviço (SLA) quando aprovisionado com redundância suficiente (2 réplicas para acesso a leitura, três réplicas para leitura-escrita).
-+ [Os processadores](https://docs.microsoft.com/rest/api/searchservice/language-support) de linguagem natural da Microsoft oferecem uma análise linguística de ponta.  
-+ Os indexadores de [pesquisa cognitiva azure](search-indexer-overview.md) podem rastejar uma variedade de fontes de dados Azure para indexação inicial e incremental.
-+ Se necessitar de uma resposta rápida às flutuações nos volumes de consulta ou indexação, pode utilizar [controlos](search-manage.md#scale-up-or-down) de slider no portal Azure, ou executar um [script PowerShell,](search-manage-powershell.md)contornando a gestão do fragmento diretamente.  
-+ [As funcionalidades de pontuação e afinação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) fornecem os meios para influenciar as pontuações de classificação de pesquisa para além do que o motor de busca por si só pode fornecer.
 
 ### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>Posso parar o serviço de pesquisa cognitiva Azure e parar de faturar?
 

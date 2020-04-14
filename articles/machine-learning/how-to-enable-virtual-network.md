@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: ca4bf1b0043a2c73851eab48ff8b9b6b7a987b72
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ea65956a73874b717ecab25d83ed25b59f2ada55
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115300"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257254"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Empregos de experimentação e inferência secure Azure ML dentro de uma Rede Virtual Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -546,7 +546,7 @@ Para obter mais informações sobre a configuração de uma regra de rede, consu
     > [!IMPORTANT]
     > A sua conta de armazenamento, o cluster de cálculo e o Registo de Contentores Azure devem estar todos na mesma sub-rede da rede virtual.
     
-    Para mais informações, consulte a referência do método [de atualização()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none-)
+    Para mais informações, consulte a referência do método [de atualização()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-)
 
 1. Se estiver a utilizar o Private Link para o seu espaço de trabalho de Aprendizagem automática Azure e colocar o Registo de Contentores Azure para o seu espaço de trabalho numa rede virtual, também deve aplicar o seguinte modelo de Gestor de Recursos Azure. Este modelo permite que o seu espaço de trabalho se comunique com a ACR através do Link Privado.
 

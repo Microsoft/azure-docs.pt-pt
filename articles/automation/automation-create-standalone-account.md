@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22efb5e94049b975780c6f6ea69aa94a71cc9992
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f06480767b697dca8fe41e484c02aefc58f040bf
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279016"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261335"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
@@ -92,7 +92,7 @@ Quando a conta de Automatização é criada com sucesso, são criados vários re
 | AzureRunAsCertificate |Um ativo de certificado que é criado automaticamente quando a conta Automation é criada, ou usando um script PowerShell para uma conta existente. O certificado autentica com o Azure para que possa gerir os recursos do Gestor de Recursos Azure a partir de livros de execução. Este certificado tem um tempo de vida de um ano. |
 | AzureRunAsConnection |Um ativo de ligação que é criado automaticamente quando a conta Automation é criada, ou usando um script PowerShell para uma conta existente. |
 
-## <a name="classic-run-as-accounts"></a>Contas clássicas run-as
+## <a name="create-a-classic-run-as-account"></a>Criar uma conta Clássica Run-As
 
 As contas Clássicas run-As já não são criadas, por padrão, quando cria uma conta De Automação Azure. Se ainda necessitar de uma conta Classic Run-As, execute os seguintes passos.
 

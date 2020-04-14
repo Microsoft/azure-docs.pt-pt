@@ -5,35 +5,36 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 2f5211716145d6c05bbfb0132c4a6ba2f9cceabe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cf6ca27101a08ff58f32dcd31413256762490a2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280512"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255923"
 ---
-<a name="retrieve-offer-status"></a>Obter estado da oferta 
-=====================
+# <a name="retrieve-offer-status"></a>Obter estado da oferta
+
+> [!NOTE]
+> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a trabalhar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas alterações. Reveja as alterações listadas no [Portal do Parceiro cloud Referência API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que o seu código continua a funcionar após a migração para partner Center.
 
 Recupera o estado atual da oferta.
 
   `GET  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/status?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parâmetros URI
---------------
+## <a name="uri-parameters"></a>Parâmetros URI
 
 |  **Nome**       |   **Descrição**                            |  **Tipo de dados** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  editorId    | Identificador de editor, por exemplo`Contoso`  |     Cadeia     |
-|  offerId        | GUID que identifica exclusivamente a oferta      |     Cadeia     |
+|  editorId    | Identificador de editor, por exemplo`Contoso`  |     String     |
+|  offerId        | GUID que identifica exclusivamente a oferta      |     String     |
 |  api-version    | Versão mais recente da API                        |     Date       |
 |  |  |
 
 
-<a name="header"></a>Cabeçalho
-------
+## <a name="header"></a>Cabeçalho
+
 
 |  Nome           |  Valor               |
 |  -------------  | -------------------  |
@@ -41,9 +42,8 @@ Recupera o estado atual da oferta.
 |  Autorização  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
+## <a name="body-example"></a>Exemplo do corpo
 
-<a name="body-example"></a>Exemplo do corpo
-------------
 
 ### <a name="response"></a>Resposta
 
@@ -115,8 +115,7 @@ Recupera o estado atual da oferta.
       ],
       "previewLinks": [],
       liveLinks": [],
-      "notificationEmails": "jdoe@contoso.com"
-  } 
+  }
 ```
 
 
@@ -136,9 +135,8 @@ Recupera o estado atual da oferta.
 |  processoPercentage    | Conclusão percentual do passo                                                              |
 |  pré-visualizaçãoLinks         | *Não atualmente implementado*                                                                    |
 |  liveLinks            | *Não atualmente implementado*                                                                    |
-|  notificaçõesEmails   | Lista separada da Comma de endereços de e-mail a ser notificado do progresso da operação        |
+|  notificaçõesEmails   | Depreciada por ofertas migradas para partner center. Os e-mails de notificação para ofertas migradas serão enviados para o e-mail especificado sob a informação de contacto do Vendedor nas definições da Conta.<br><br>Para ofertas não migradas, a lista separada de endereços de e-mail separados com vírpara a ser notificada do progresso da operação        |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Códigos de estado de resposta
 
@@ -148,7 +146,6 @@ Recupera o estado atual da oferta.
 |  400     | `Bad/Malformed request`- O corpo de resposta a erros pode conter mais informações.                 |
 |  404     | `Not found`- A entidade especificada não existe.                                                |
 |  |  |
-
 
 ### <a name="offer-status"></a>Estado da oferta
 
@@ -162,7 +159,6 @@ Recupera o estado atual da oferta.
 |  Cancelado                    | A submissão da oferta foi cancelada.                           |
 |  Falhou                      | A submissão da oferta falhou.                                 |
 |  |  |
-
 
 ### <a name="step-status"></a>Estado do Passo
 

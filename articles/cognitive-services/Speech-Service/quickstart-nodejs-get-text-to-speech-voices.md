@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 7a929794ffaea4f863ffaef7227e58c7ccf901f0
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9fe8bc06aafd17518d37c35034fac9b566e079ce
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74976575"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261555"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Quickstart: Obtenha a lista de vozes de texto-a-fala usando Node.js
 
@@ -27,8 +27,8 @@ Este quickstart requer uma [conta de Serviços Cognitivos Azure](https://docs.mi
 
 Este início rápido requer:
 
-* [Node 8.12.x ou posterior](https://nodejs.org/en/)
-* [Estúdio Visual](https://visualstudio.microsoft.com/downloads/), [Código de Estúdio Visual,](https://code.visualstudio.com/download)ou o seu editor de texto favorito
+* <a href="https://nodejs.org/en/" target="_blank">Nó 8.12.x ou mais tarde<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* Estúdio Visual , <a href="https://code.visualstudio.com/download" target="_blank">Código <span class="docon docon-navigate-external x-hidden-focus"> </span>de Estúdio Visual, </a>ou o seu editor de texto favorito <a href="https://visualstudio.microsoft.com/downloads/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>
 * Uma chave de subscrição Azure para o serviço De Fala. [Pegue um de graça!](get-started.md)
 
 ## <a name="create-a-project-and-require-dependencies"></a>Criar um projeto e exigir dependências

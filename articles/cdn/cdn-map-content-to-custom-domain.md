@@ -3,7 +3,7 @@ title: Tutorial - Adicionar um domínio personalizado ao ponto final da CDN do A
 description: Neste tutorial, vai mapear o conteúdo do ponto final da CDN do Azure para um domínio personalizado.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.service: azure-cdn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/11/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 04c6ddf03f1c0433ad4e2d0808f118f42670ee08
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: ab4845a93771bace5bca15ea3afa7027884e36f4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891276"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260586"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure
 Este tutorial mostra como adicionar um domínio personalizado a um ponto final da Rede de Entrega de Conteúdos (CDN) do Azure. Se utilizar um ponto final da CDN para entregar conteúdos e se quiser que o seu próprio nome de domínio seja visível no URL da CDN, é necessário um domínio personalizado. Ter um nome de domínio visível pode ser conveniente para os seus clientes e útil para fins de imagem corporativa. 

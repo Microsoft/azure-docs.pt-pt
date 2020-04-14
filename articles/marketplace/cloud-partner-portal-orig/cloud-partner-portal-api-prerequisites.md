@@ -5,17 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 2a1022c6d041bf645b43dfed391a489de30b2fce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df94cba1f77ae3ea8cf595e7c651af7a69108bb6
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288568"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255979"
 ---
 <a name="api-prerequisites"></a>Pré-requisitos da API
 ================
+
+> [!NOTE]
+> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a trabalhar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas alterações. Reveja as alterações listadas no [Portal do Parceiro cloud Referência API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que o seu código continua a funcionar após a migração para partner Center.
 
 Existem dois ativos programáticos necessários que você precisa para usar o Portal de Parceiros cloud APIs: um diretor de serviço e um diretório Ativo Azure (Azure AD) de acesso.
 
@@ -41,7 +44,7 @@ Utilize os seguintes passos para adicionar o diretor de serviço:
 3. A partir do **dropdown do Tipo,** selecione **Diretor de Serviço** e adicione os seguintes detalhes:
 
 -   Um **Nome Amigável** para o `spAccount`diretor de serviço, por exemplo.
--   O ID da **aplicação**. Para encontrar este identificador, vá ao [Portal Azure,](https://portal.azure.com)clique no **Diretório Ativo do Azure,** escolha **as inscrições**da App e clique na sua aplicação.
+-   O ID da **aplicação**. Para encontrar este identificador, vá ao [portal Azure,](https://portal.azure.com)clique no **Azure Ative Directory,** escolha **as inscrições**da App e clique na sua aplicação.
 -   O **ID do Inquilino**, também conhecido como Id do **Diretório,** para o seu inquilino Azure AD. Pode encontrar este identificador na página de Diretório Ativo Azure no [portal Azure,](https://portal.azure.com)no âmbito **do Properties**.
 -   O **ID do objeto** para o seu objeto principal de serviço. Pode obter este identificador do portal Azure. Vá ao **Azure Ative Directory**, escolha **as inscrições**da App, clique na sua aplicação e clique no nome da aplicação sob **aplicação gerida no diretório local**. Em seguida, vá à página **Propriedades,** para encontrar o ID do Objeto. Certifique-se de que não está a agarrar o ID inicial do Objeto que está na sua aplicação, mas sim o ID do Objeto na aplicação gerida.
 -   O **Papel** associado à conta, que será utilizado para o RBAC.

@@ -4,12 +4,12 @@ description: Aprenda a usar o portal Azure para criar um cluster Azure Kubernete
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 696821e12e963292107cad5b22f00a9816a94b25
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 7b9127c016fff78a8867dcecbe3260becdf02c65
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616417"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259124"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
@@ -66,7 +66,7 @@ A funcionalidade Nós virtuais está fortemente dependente do conjunto de funcio
 * [Pseudónimos hospedeiros](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argumentos](../container-instances/container-instances-exec.md#restrictions) para executivo no ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) não vai implantar cápsulas para o nó virtual
-* Os [nós do Windows Server (atualmente em pré-visualização no AKS)](windows-container-cli.md) não são suportados ao lado de nós virtuais. Pode utilizar nós virtuais para agendar os recipientes do Windows Server sem a necessidade de nós do Windows Server num cluster AKS.
+* Os nódos os nódosos virtuais suportam o agendamento de cápsulas Linux. Pode instalar manualmente o fornecedor [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) de código aberto para agendar os recipientes do Windows Server para a ACI. 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

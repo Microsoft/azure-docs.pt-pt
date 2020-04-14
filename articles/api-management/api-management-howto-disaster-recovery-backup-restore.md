@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: f9758678708338a284a35b45f7f9dd43b9a9017c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e74d7dcf8764d167e0080c9d7cca5573bd69ef1d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335962"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261011"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure
 
@@ -55,7 +55,7 @@ Todas as tarefas que faz sobre recursos utilizando o Gestor de Recursos Azure de
 
 ### <a name="create-an-azure-active-directory-application"></a>Criar uma aplicação azure ative diretório
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Utilizando a subscrição que contém a sua instância de serviço de Gestão API, navegue para o separador de **registos** da App em **Diretório Ativo Azure (Diretório Ativo** Azure > registos de Gestão/App).
 
     > [!NOTE]
@@ -131,7 +131,7 @@ Substitua, `{tenant id}` `{application id}` `{redirect uri}` e use as seguintes 
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Chamar as operações de backup e restaurar
 
-As APIs rest são O Serviço de [Gestão Api - Backup](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) e Serviço de [Gestão Api - Restaurar](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
+As APIs rest são O Serviço de [Gestão Api - Backup](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup) e Serviço de [Gestão Api - Restaurar](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore).
 
 Antes de ligar para as operações de "backup e restauro" descritas nas seguintes secções, detete tede o cabeçalho do pedido de autorização para a sua chamada REST.
 

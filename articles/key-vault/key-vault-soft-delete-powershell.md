@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 26c309eeebd7226c6777ec41ae674587da796dd4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 52feeb67681bacb64cd20601e00f00109a4b810f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78199670"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257917"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell
 
@@ -202,6 +202,34 @@ Como chaves, os segredos são geridos com os seus próprios comandos:
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
+#### <a name="certificates"></a>Certificados
+
+Pode gerir certificados utilizando comandos abaixo:
+
+- Eliminar um Certificado denominado SQLPassword: 
+  ```powershell
+  Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
+  ```
+
+- Enumerar todos os certificados apagados num cofre chave: 
+  ```powershell
+  Get-AzKeyVaultCertificate -VaultName ContosoVault -InRemovedState
+  ```
+
+- Recuperar um certificado no estado eliminado: 
+  ```powershell
+  Undo-AzKeyVaultCertificateRemoval -VaultName ContosoVault -Name 'MyCert'
+  ```
+
+- Expurgar um certificado em estado eliminado: 
+
+  > [!IMPORTANT]
+  > A purga de um certificado irá apagá-lo permanentemente e não será recuperável!
+
+  ```powershell
+  Remove-AzKeyVaultcertificate -VaultName ContosoVault -Name 'MyCert' -InRemovedState 
+  ```
+  
 ## <a name="purging-a-soft-delete-protected-key-vault"></a>Purgar um cofre de chave protegido de eliminação suave
 
 > [!IMPORTANT]

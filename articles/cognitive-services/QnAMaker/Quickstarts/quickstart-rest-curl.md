@@ -1,16 +1,16 @@
 ---
 title: 'Quickstart: Use cURL & REST para gerir base de conhecimento - QnA Maker'
 description: Este quickstart mostra-lhe como criar, publicar e consultar a sua base de conhecimentos usando as APIs REST.
-ms.date: 02/27/2020
+ms.date: 04/13/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: 00ec52fe20fb0e6a976f3e7142386e835713c98c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: facc45ab8f916181f7eeceb65c5102a60ae7d7e9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78851205"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261708"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Quickstart: Use cURL e REST para gerir base de conhecimento
 
@@ -21,9 +21,9 @@ Este quickstart leva-o através da criação, publicação e consulta da sua bas
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A versão atual do [cURL](https://curl.haxx.se/). Vários interruptores de linha de comando são utilizados nos quickstarts, que são anotados na [documentação cURL](https://curl.haxx.se/docs/manpage.html).
-* Deve ter um [recurso QnA Maker.](../How-To/set-up-qnamaker-service-azure.md) Para recuperar o seu nome de chave e recursos, selecione **Quickstart** para o seu recurso no portal Azure. O nome do recurso é a primeira parte do URL final:
+* Deve ter um [recurso QnA Maker,](../How-To/set-up-qnamaker-service-azure.md)para usar a chave e o nome do recurso. Entraste no **nome** do recurso durante a criação de recursos, então a chave foi criada para ti. O nome do recurso é usado como subdomínio para o seu ponto final. Para recuperar o seu nome de chave e recursos, selecione **Quickstart** para o seu recurso no portal Azure. O nome do recurso é o primeiro subdomínio do URL do ponto final:
 
-    `https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
+    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
 > [!CAUTION]
 > Os seguintes exemplos `\` bash usam o caráter de continuação da linha. Se consolar ou terminal utilizar um personagem de continuação de linha diferente, use este personagem.

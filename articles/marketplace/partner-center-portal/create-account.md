@@ -1,22 +1,22 @@
 ---
-title: Criar uma conta de Marketplace Comercial no Partner Center
-description: Saiba como criar uma conta de Marketplace Comercial no Partner Center.
+title: Criar uma conta de mercado comercial no Partner Center
+description: Saiba como criar uma conta de marketplace comercial no Partner Center.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 03/10/2020
-ms.openlocfilehash: 82caf46905c0b76deae524d8b172d70b436361d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c635d285f83e8e9c4c5547a9ee983686c507819
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281362"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261742"
 ---
-# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de Marketplace Comercial no Partner Center
+# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de mercado comercial no Partner Center
 
-Para publicar as suas ofertas no [Azure Marketplace](https://azuremarketplace.microsoft.com/) ou [AppSource,](https://appsource.microsoft.com/)terá de criar uma conta no programa Mercado Comercial no Partner Center. Neste artigo, vamos cobrir como criar uma conta Partner Center e como adicionar novas editoras ao programa Mercado Comercial.
+Para publicar as suas ofertas no [Azure Marketplace](https://azuremarketplace.microsoft.com/) ou [Microsoft AppSource,](https://appsource.microsoft.com/)terá de criar uma conta no programa de marketplace comercial no Partner Center. Neste artigo, vamos cobrir como criar uma conta Partner Center e como adicionar novas editoras ao programa Mercado Comercial.
 
 >[!IMPORTANT]
 >Se tem uma conta no Portal do [Parceiro cloud (CPP)](https://cloudpartner.azure.com) que foi transferida para partner Center, não precisa de criar uma nova conta. Consulte [editores que se deslocam do CPP](#publishers-moving-from-cpp) para obter mais informações.
@@ -75,7 +75,7 @@ Depois de confirmar as informações sobre o perfil da sua editora, concorde com
 
 Uma vez matriculado, é levado para a página de visão geral do Mercado Comercial. **O Mercado Comercial** é exibido na barra de navegação esquerda. Se selecionar Programas de Definições de > **Parceiros**de **Definições,** > **Partner Settings**verá que o Mercado Comercial está listado como registado.
 
-Obrigado por criar uma conta de Marketplace Comercial no Partner Center! Para obter ajuda, consulte a visão geral do [Mercado Comercial](./commercial-marketplace-overview.md). Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao programa Mercado Comercial](#add-new-publishers-to-the-commercial-marketplace-program).
+Obrigado por criar uma conta de Marketplace Comercial no Partner Center! Para obter ajuda, consulte a visão geral do [mercado comercial.](./commercial-marketplace-overview.md) Para obter ajuda na adição de editores, consulte [Adicionar novos editores ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
 ## <a name="create-an-account-using-existing-microsoft-partner-center-enrollments"></a>Criar uma conta utilizando as matrículas existentes do Microsoft Partner Center
 
@@ -119,7 +119,7 @@ Depois de iniciar sessão, utilize os seguintes passos para terminar a configura
 
 Uma vez matriculado, é levado para a página de visão geral do Mercado Comercial. **O Mercado Comercial** é exibido na barra de navegação esquerda. Se selecionar Programas de Definições de > **Parceiros**de **Definições,** > **Partner Settings**verá que o Mercado Comercial está listado como registado.
 
-Obrigado por criar uma conta no Partner Center! Para obter ajuda, consulte a visão geral do [Mercado Comercial](./commercial-marketplace-overview.md). Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao programa Mercado Comercial](#add-new-publishers-to-the-commercial-marketplace-program).
+Obrigado por criar uma conta no Partner Center! Para obter ajuda, consulte a visão geral do [mercado comercial.](./commercial-marketplace-overview.md) Para obter ajuda na adição de editores, consulte [Adicionar novos editores ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
 ### <a name="enrolled-in-a-developer-program"></a>Matriculado num programa de programação
 
@@ -143,13 +143,13 @@ Depois de iniciar sessão, utilize os seguintes passos para terminar a configura
 
 Uma vez matriculado, é levado para a página de visão geral do Mercado Comercial. **O Mercado Comercial** é exibido na barra de navegação esquerda. Se selecionar**programas**de **Definições** > de Definições de**Definições,** > verá que o Mercado Comercial está listado como registado.
 
-Obrigado por criar uma conta no Partner Center! Para obter ajuda, consulte a visão geral do [Mercado Comercial](./commercial-marketplace-overview.md). Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao programa Mercado Comercial](#add-new-publishers-to-the-commercial-marketplace-program).
+Obrigado por criar uma conta no Partner Center! Para obter ajuda, consulte a visão geral do [mercado comercial.](./commercial-marketplace-overview.md) Para obter ajuda na adição de editores, consulte [adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
 ## <a name="publishers-moving-from-cpp"></a>Editores que se deslocam do CPP
 
 Se a sua conta tiver sido migrada do Portal do [Parceiro cloud (CPP),](https://cloudpartner.azure.com)não precisa de criar uma nova conta de Partner Center. Você deveria ter recebido um link personalizado para a sua nova conta Partner Center em e-mail, e em uma notificação de banner após iniciar sessão na sua conta CPP existente.
 
-Assim que tiver ativado a sua nova conta partner center visitando este link personalizado, pode voltar à sua conta visitando o [dashboard do Mercado Comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) no Partner Center.
+Assim que tiver ativado a sua nova conta partner center visitando este link personalizado, pode voltar à sua conta visitando o [dashboard do mercado comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) no Partner Center.
 
 O acordo de publicação e as informações sobre o perfil da empresa serão migrados para a sua nova conta Partner Center, juntamente com quaisquer informações de perfil de pagamento de conta previamente configuradas, contas de utilizador e permissões, e ofertas ativas associadas à sua conta CPP.
 
@@ -170,7 +170,7 @@ Outro utilizador do mesmo inquilino do Azure Ative Directory pode adicionar um n
 4. Escolha o ID MPN que pretende associar à editora.
 5. Atualize os detalhes da **editora** no formulário.
 
-   1. **Nome da editora**: O nome que será exibido no Azure Marketplace ou appSource com a oferta.
+   1. **Nome da Editora**: O nome que será exibido no mercado comercial com a oferta.
    1. **PublisherID**: Um identificador utilizado pelo Partner Center para identificar exclusivamente o seu editor. O padrão para este campo mapeia para um existente e único `PublisherID` no sistema, que não pode ser reutilizado, e, portanto, este campo precisa de ser atualizado.
    1. **Informações de contacto**: Atualize as informações de contacto quando necessário.
 
@@ -178,4 +178,4 @@ Depois de concluir o processo, pode gerir o seu editor recém-criado indo para o
 
 ## <a name="next-step"></a>Passo seguinte
 
-- [Gerencie a sua conta de Mercado Comercial no Partner Center](./manage-account.md)
+- [Gerencie a sua conta de mercado comercial no Partner Center](./manage-account.md)

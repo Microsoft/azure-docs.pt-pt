@@ -2,17 +2,17 @@
 title: Condições de jogo no motor standard regras para Azure CDN [ Microsoft Docs
 description: Documentação de referência para as condições de correspondência no motor de regras Standard para a Rede de Entrega de Conteúdos Azure (Azure CDN).
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: 425266e2a7ca42bb17ca598ddfc2f2b86591f32e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74900183"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259936"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condições de jogo no motor standard regras para Azure CDN
 
@@ -58,7 +58,7 @@ Identifica pedidos com base em informações de cookies no pedido de entrada.
 
 Nome do cookie | Operador | Valor de cookies | Transformação de caso
 ------------|----------|--------------|---------------
-Cadeia | [Lista de operadores padrão](#standard-operator-list) | String | Sem transformação, em maiúsculas, para minúsculas
+String | [Lista de operadores padrão](#standard-operator-list) | String | Sem transformação, em maiúsculas, para minúsculas
 
 #### <a name="key-information"></a>Informação chave
 
@@ -77,7 +77,7 @@ Identifica pedidos com base em argumentos definidos para o método de pedido do 
 
 Nome do argumento | Operador | Valor do argumento | Transformação de caso
 --------------|----------|----------------|---------------
-Cadeia | [Lista de operadores padrão](#standard-operator-list) | String | Sem transformação, em maiúsculas, para minúsculas
+String | [Lista de operadores padrão](#standard-operator-list) | String | Sem transformação, em maiúsculas, para minúsculas
 
 ### <a name="query-string"></a>Cadeias de consulta
 
@@ -132,7 +132,7 @@ Identifica pedidos que usam um cabeçalho específico no pedido.
 
 Nome do cabeçalho | Operador | Valor do cabeçalho | Transformação de caso
 ------------|----------|--------------|---------------
-Cadeia | [Lista de operadores padrão](#standard-operator-list) | String | Sem transformação, em maiúsculas, para minúsculas
+String | [Lista de operadores padrão](#standard-operator-list) | String | Sem transformação, em maiúsculas, para minúsculas
 
 ### <a name="request-method"></a>Método de pedido
 

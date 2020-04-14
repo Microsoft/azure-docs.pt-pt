@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: e7e56f3562965a0a49082024c905d90ed989ccdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfdc588ffe3ca8c0f21e4111b6f4c66de162299d
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280036"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270184"
 ---
 # <a name="container-offer-settings-tab"></a>Separador de definições de oferta de contentores
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de contentores Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de recipiente azure](https://aka.ms/CreateContainerOffer) para gerir as suas ofertas migratórias.
 
 A página **De Contentores > New Offer** abre com o foco no separador Definições de **Oferta.** 
 

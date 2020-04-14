@@ -2,7 +2,7 @@
 title: Arquiteturas de referência para bases de dados Oracle no Azure Microsoft Docs
 description: Referências arquiteturas para executar bases de dados Oracle Database Enterprise Edition em Máquinas Virtuais Microsoft Azure.
 services: virtual-machines-linux
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 tags: ''
 ms.service: virtual-machines
@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: rogirdh
+ms.author: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 235482f5d44877e5c4e47aed4d7eaf2baea5c3fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dc677ded1e13a64c082d49140fa0de69c0ed9d4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75560339"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263272"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition em Azure
 

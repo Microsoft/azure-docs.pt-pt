@@ -1,36 +1,36 @@
 ---
-title: C# tutorial sobre auto-conclusão e sugestões
+title: Autocompleta e sugestões
 titleSuffix: Azure Cognitive Search
-description: Este tutorial demonstra a auto-conclusão e sugestões como uma forma de recolher a entrada de prazos de pesquisa dos utilizadores usando a lista de dropdown. Baseia-se num projeto de hotéis existente.
+description: Este tutorial demonstra a completação automática e sugestões como uma forma de recolher a entrada de prazos de pesquisa dos utilizadores usando a lista de dropdown. Baseia-se num projeto de hotéis existente.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/12/2020
+ms.openlocfilehash: 4391b565b684b74258b9c71da88600d4628b5c6f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121527"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259770"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C# tutorial: Adicionar auto-conclusão e sugestões - Pesquisa Cognitiva Azure
+# <a name="c-tutorial-add-autocomplete-and-suggestions---azure-cognitive-search"></a>C# tutorial: Adicionar autocomplete e sugestões - Pesquisa Cognitiva Azure
 
-Saiba como implementar a auto-conclusão (tipo à frente e sugestões) quando um utilizador começa a digitar na sua caixa de pesquisa. Neste tutorial, mostraremos resultados de tipo de antecedência e sugestões separadamente, em seguida, mostrar um método de combiná-los para criar uma experiência de utilizador mais rica. Um utilizador só pode ter de digitar duas ou três teclas para localizar todos os resultados disponíveis. Este tutorial baseia-se no projeto de paging criado no [C# Tutorial: Pesquisa resultados paginação - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
+Aprenda a implementar automaticamente (consultas de tipo grafite e documentos sugeridos) quando um utilizador começa a digitar numa caixa de pesquisa. Neste tutorial, mostraremos consultas e resultados de sugestões auto-completas separadamente, em seguida, mostrar um método de combiná-los para criar uma experiência de utilizador mais rica. Um utilizador só pode ter de escrever dois ou três caracteres para localizar todos os resultados disponíveis.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Adicionar sugestões
 > * Adicione destaque às sugestões
-> * Adicionar auto-conclusão
+> * Adicionar autocompleto
 > * Combine auto-conclusão e sugestões
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, precisa de:
+Este tutorial faz parte de uma série e baseia-se no projeto de paging criado no [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md).
 
-Tenha o [C# Tutorial: Resultados de pesquisa paginação - Projeto](tutorial-csharp-paging.md) de Pesquisa Cognitiva Azure em funcionamento. Este projeto pode ser a sua própria versão, que completou no tutorial anterior, ou instalá-lo a partir do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Em alternativa, pode descarregar e executar a solução para este tutorial específico: [3 add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead).
 
 ## <a name="add-suggestions"></a>Adicionar sugestões
 

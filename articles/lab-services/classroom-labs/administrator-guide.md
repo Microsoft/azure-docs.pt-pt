@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 7ce7ef15f0bf13182e4799fb640e83136d0d4695
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 55e319ba8aecb9205c00dda4a400e37f7c010649
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115028"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257781"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Serviços Azure Lab - Guia de administrador
 Os administradores de Tecnologias de Informação (TI) que gerem os recursos em nuvem de uma universidade são normalmente responsáveis pela criação da conta de laboratório para a sua escola. Uma vez criada uma conta de laboratório, administradores ou educadores criam laboratórios de sala de aula que estão contidos na conta do laboratório. Este artigo fornece uma visão geral de alto nível dos recursos azure envolvidos e a orientação para a sua criação.
@@ -59,7 +59,7 @@ A lista a seguir destaca cenários em que mais de uma conta de laboratório pode
     
     Quando crias uma conta de laboratório, defines políticas que se aplicam a *todos os* laboratórios de sala de aula sob a conta do laboratório, tais como:
     - A rede virtual Azure com recursos partilhados a que o laboratório de sala de aula pode aceder. Por exemplo, você pode ter um conjunto de laboratórios de sala de aula que precisam de acesso a um conjunto de dados partilhado dentro de uma rede virtual.
-    - A máquina virtual (VM) imagens que os laboratórios de sala de aula podem usar para criar VMs. Por exemplo, você pode ter um conjunto de laboratórios de sala de aula que precisam de acesso ao VM de Ciência de Dados para imagem [de Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) Marketplace. 
+    - A máquina virtual (VM) imagens que os laboratórios de sala de aula podem usar para criar VMs. Por exemplo, você pode ter um conjunto de laboratórios de sala de aula que precisam de acesso ao VM de Ciência de Dados para imagem [de Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Marketplace. 
     
     Se você tem laboratórios de sala de aula que têm requisitos políticos únicos uns dos outros, pode ser benéfico criar contas de laboratório separadas para gerir estes laboratórios de sala de aula separadamente.
 

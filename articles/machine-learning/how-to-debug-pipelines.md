@@ -1,7 +1,7 @@
 ---
-title: Depurar e resolver problemas de pipelines de machine learning
+title: Depuração & problemas de resolução de oleodutos ML
 titleSuffix: Azure Machine Learning
-description: Debug e troubleshoot machine learning pipelines no Azure Machine Learning SDK para Python. Aprenda armadilhas comuns para desenvolver oleodutos e dicas para ajudá-lo a depurar os seus scripts antes e durante a execução remota. Aprenda a usar o Visual Studio Code para desinbugicar interativamente os seus oleodutos de aprendizagem automática.
+description: Desinem os vossos oleodutos Azure Machine Learning em Python. Aprenda armadilhas comuns para desenvolver oleodutos e dicas para ajudá-lo a depurar os seus scripts antes e durante a execução remota. Aprenda a usar o Visual Studio Code para desinbugicar interativamente os seus oleodutos de aprendizagem automática.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: b68efbb64e9634ade001373e8cd9d61355bf786f
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388989"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257221"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e resolver problemas de pipelines de machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ As seguintes secções fornecem uma visão geral das armadilhas comuns ao constr
 
 ### <a name="testing-scripts-locally"></a>Testar scripts localmente
 
-Uma das falhas mais comuns num pipeline é que um script anexado (script de limpeza de dados, script de pontuação, etc.) não está a funcionar como pretendido, ou contém erros de tempo de execução no contexto de computação remota que são difíceis de depurar no seu espaço de trabalho na Máquina Azure Estúdio de aprendizagem. 
+Uma das falhas mais comuns num pipeline é que um script anexado (script de limpeza de dados, script de pontuação, etc.) não está a funcionar como pretendido, ou contém erros de tempo de execução no contexto de computação remota que são difíceis de desinbugicar no seu espaço de trabalho no estúdio Azure Machine Learning. 
 
 Os próprios oleodutos não podem ser executados localmente, mas executar os scripts isoladamente na sua máquina local permite-lhe depurar mais rapidamente porque não precisa esperar pelo processo de construção de cálculo e ambiente. Alguns trabalhos de desenvolvimento são necessários para o fazer:
 
@@ -50,7 +50,7 @@ Uma vez que você tem uma configuração de script para executar no seu ambiente
 
 ### <a name="debugging-scripts-from-remote-context"></a>Depurando scripts do contexto remoto
 
-Testar scripts localmente é uma ótima maneira de depurar grandes fragmentos de código e lógica complexa antes de começar a construir um oleoduto, mas em algum momento você provavelmente precisará de depurar scripts durante o pipeline real executar-se, especialmente quando diagnosticar o comportamento que ocorre durante a interação entre os passos do gasoduto. Recomendamos o `print()` uso liberal de declarações nos seus scripts de passo para que possa ver o estado do objeto e valores esperados durante a execução remota, semelhante à forma como iria depurar o código JavaScript.
+Testar scripts localmente é uma ótima maneira de depurar grandes fragmentos de código e lógica complexa antes de começar a construir um oleoduto, mas em algum momento você provavelmente precisará de depurar scripts durante o pipeline real executar-se, especialmente quando diagnosticar o comportamento que ocorre durante a interação entre passos de pipeline. Recomendamos o `print()` uso liberal de declarações nos seus scripts de passo para que possa ver o estado do objeto e valores esperados durante a execução remota, semelhante à forma como iria depurar o código JavaScript.
 
 O ficheiro `70_driver_log.txt` de registo contém: 
 

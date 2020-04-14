@@ -3,7 +3,7 @@ title: Adicione a monitorização & diagnósticos a uma máquina virtual Azure
 description: Utilize um modelo de Gestor de Recursos Azure para criar uma nova máquina virtual do Windows com extensão de diagnóstico Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: sbtron
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/31/2017
-ms.author: saurabh
+ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d100f054da5f82bc4dea51e054a28cca07f5de7b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073849"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258835"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utilize monitorização e diagnósticos com modelos de VM windows e gestor de recursos azure
 A extensão de diagnóstico azure fornece as capacidades de monitorização e diagnóstico numa máquina virtual Azure baseada no Windows. Pode ativar estas capacidades na máquina virtual, incluindo a extensão como parte do modelo do Gestor de Recursos Azure. Consulte os modelos de [gestor de recursos do Azure autor com extensões VM](../windows/template-description.md#extensions) para obter mais informações sobre a inclusão de qualquer extensão como parte de um modelo de máquina virtual. Este artigo descreve como pode adicionar a extensão de Diagnóstico Azure a um modelo de máquina virtual windows.  
@@ -84,7 +84,7 @@ O elemento *de configuração* contém propriedades de configurações para a ex
 As propriedades em *Definições protegidas* (por vezes referidas como configuração privada) podem ser definidas, mas não podem ser lidas de volta após serem definidas. A natureza apenas escrita de *Definições protegidas* torna-a útil para armazenar segredos como a chave da conta de armazenamento onde os dados de diagnóstico são escritos.    
 
 ## <a name="specifying-diagnostics-storage-account-as-parameters"></a>Especificação da conta de armazenamento de diagnósticos como parâmetros
-A extensão de diagnóstico json snippet acima assume dois *parâmetros existentesStorageAccountName* e *diagnósticos existentesStorageResourceGroup* para especificar a conta de armazenamento de diagnósticos onde os dados de diagnóstico são armazenados. Especificar a conta de armazenamento de diagnósticocomo parâmetro facilita a alteração da conta de armazenamento de diagnósticos em diferentes ambientes, por exemplo, pode querer usar uma conta de armazenamento de diagnóstico diferente para testes e outra para o seu implantação de produção.  
+A extensão de diagnóstico json snippet acima assume dois *parâmetros existentesStorageAccountName* e *diagnósticos existentesStorageResourceGroup* para especificar a conta de armazenamento de diagnósticos onde os dados de diagnóstico são armazenados. Especificar a conta de armazenamento de diagnósticos como parâmetro facilita a alteração da conta de armazenamento de diagnósticos em diferentes ambientes, por exemplo, pode querer utilizar uma conta de armazenamento de diagnóstico diferente para testes e outra para a sua implementação de produção.  
 
 ```json
 "existingdiagnosticsStorageAccountName": {
@@ -101,7 +101,7 @@ A extensão de diagnóstico json snippet acima assume dois *parâmetros existent
 }
 ```
 
-É uma boa prática especificar uma conta de armazenamento de diagnóstico num grupo de recursos diferente do grupo de recursos para a máquina virtual. Um grupo de recursos pode ser considerado uma unidade de implantação com o seu próprio tempo de vida, uma máquina virtual pode ser implantada e reimplantada à medida que novas atualizações de configurações são feitas para ele, mas você pode querer continuar a armazenar os dados de diagnóstico na mesma conta de armazenamento em toda a as implantações de máquinas virtuais. Ter a conta de armazenamento num recurso diferente permite que a conta de armazenamento aceite dados de várias implementações de máquinas virtuais, facilitando a resolução de problemas nas várias versões.
+É uma boa prática especificar uma conta de armazenamento de diagnóstico num grupo de recursos diferente do grupo de recursos para a máquina virtual. Um grupo de recursos pode ser considerado uma unidade de implantação com o seu próprio tempo de vida, uma máquina virtual pode ser implantada e reimplantada à medida que novas atualizações de configurações são feitas para ele, mas você pode querer continuar a armazenar os dados de diagnóstico na mesma conta de armazenamento através dessas implementações de máquinas virtuais. Ter a conta de armazenamento num recurso diferente permite que a conta de armazenamento aceite dados de várias implementações de máquinas virtuais, facilitando a resolução de problemas nas várias versões.
 
 > [!NOTE]
 > Se criar um modelo de máquina virtual windows do Visual Studio, a conta de armazenamento padrão pode ser definida para usar a mesma conta de armazenamento onde a máquina virtual VHD é carregada. Isto é para simplificar a configuração inicial do VM. Refactor o modelo para usar uma conta de armazenamento diferente que pode ser passado como um parâmetro. 

@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 9345138e948d84e0ea3c804dbd7a4b3c21daca2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668150"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261079"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas métricos com limiares dinâmicos no Monitor Azure
 
@@ -93,7 +93,8 @@ Quando uma regra de alerta é criada pela primeira vez, os limiares que aparecem
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Quantos dados são necessários para desencadear um alerta?
 
-Se tiver um novo recurso ou dados métricos em falta, os Limiares Dinâmicos não desencadearão alertas antes de três dias ou 30 amostras de dados métricos estarem disponíveis para garantir limiares precisos.
+Se tiver um novo recurso ou dados métricos em falta, os Limiares Dinâmicos não desencadearão alertas antes de três dias e pelo menos 30 amostras de dados métricos estão disponíveis, para garantir limiares precisos.
+Para os recursos existentes com dados métricos suficientes, os Limiares Dinâmicos podem desencadear alertas imediatamente.
 
 ## <a name="dynamic-thresholds-best-practices"></a>As melhores práticas dos Limiares Dinâmicos
 

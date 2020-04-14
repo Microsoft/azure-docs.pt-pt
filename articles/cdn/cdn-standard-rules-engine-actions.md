@@ -2,17 +2,17 @@
 title: Ações no motor standard regras para Azure CDN [ Microsoft Docs
 description: Documentação de referência para ações no motor de regras Standard para a Rede de Entrega de Conteúdos Azure (Azure CDN).
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: 53280bc90f629d93ff8a045c80f34a73970b43f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74171638"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259957"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Ações no motor standard regras para Azure CDN
 
@@ -63,9 +63,9 @@ Utilize esta ação para modificar os cabeçalhos presentes nos pedidos enviados
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome header** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor está anexado ao valor existente. | Cadeia
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome header** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | Cadeia
-Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é apagado do pedido. | Cadeia
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome header** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor está anexado ao valor existente. | String
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome header** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | String
+Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é apagado do pedido. | String
 
 ### <a name="modify-response-header"></a>Modificar cabeçalho de resposta
 
@@ -75,9 +75,9 @@ Utilize esta ação para modificar os cabeçalhos presentes nas respostas devolv
 
 Ação | Http Nome cabeçalho | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome header** é adicionado à resposta utilizando o **valor**especificado . Se o cabeçalho já estiver presente, o **Valor** está anexado ao valor existente. | Cadeia
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome header** é adicionado à resposta utilizando o **valor**especificado . Se o cabeçalho já estiver presente, o **Valor** substitui o valor existente. | Cadeia
-Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado da resposta. | Cadeia
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome header** é adicionado à resposta utilizando o **valor**especificado . Se o cabeçalho já estiver presente, o **Valor** está anexado ao valor existente. | String
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome header** é adicionado à resposta utilizando o **valor**especificado . Se o cabeçalho já estiver presente, o **Valor** substitui o valor existente. | String
+Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado da resposta. | String
 
 ### <a name="url-redirect"></a>Redirecionamento de URL
 

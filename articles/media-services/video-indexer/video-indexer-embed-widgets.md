@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 6ed5c509cf310b743e4ef52f411dfa34e5db09c1
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 5134a262397676aa9b59de9b0c6de61c26d21523
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411617"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262915"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Widgets de Indexer de Vídeo incorporados nas suas apps
 
@@ -56,7 +56,7 @@ Você pode usar o widget Editor para criar novos projetos e gerir as ideias de u
 
 |Nome|Definição|Descrição|
 |---|---|---|
-|`accessToken`<sup>*</sup> | Cadeia | Fornece acesso a vídeos que estão apenas na conta que é usado para incorporar o widget.<br> O widget editor `accessToken` requer o parâmetro. |
+|`accessToken`<sup>*</sup> | String | Fornece acesso a vídeos que estão apenas na conta que é usado para incorporar o widget.<br> O widget editor `accessToken` requer o parâmetro. |
 |`language` | Um código de linguagem | Controla a linguagem dos jogadores. O valor predefinido é `en-US`.<br/>Exemplo: `language=de-DE`. |
 |`locale` | Um código de linguagem curto | Controla a linguagem insights. O valor predefinido é `en`.<br/>Exemplo: `language=de`. |
 
@@ -265,7 +265,7 @@ Por padrão, o leitor começará a reproduzir o vídeo. pode optar por não `&au
 
 ## <a name="code-samples"></a>Exemplos de código
 
-Consulte o repo de [amostras](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) de código que contém amostras para a API e Widgets do Indexer de Vídeo:
+Consulte o repo de [amostras](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) de código que contém amostras para a API e Widgets do Indexer de Vídeo:
 
 | Arquivo/pasta                       | Descrição                                |
 |-----------------------------------|--------------------------------------------|

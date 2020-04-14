@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 6d0f035d77e74f157b793b9edf3ab5d3494096d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 302ba8d550f5e91efe12c620d766550958d3bf68
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288653"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256404"
 ---
 # <a name="concurrency-control"></a>Controlo de Moedas
+
+> [!NOTE]
+> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a trabalhar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas alterações. Reveja as alterações listadas no [Portal do Parceiro cloud Referência API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que o seu código continua a funcionar após a migração para partner Center.
 
 Todas as chamadas para o Portal do Parceiro cloud que publicam APIs devem especificar explicitamente qual a estratégia de controlo de moedas a utilizar. Se não fornecer o cabeçalho **If-Match** resultará numa resposta de erro HTTP 400. Oferecemos duas estratégias para o controlo da moeda.
 

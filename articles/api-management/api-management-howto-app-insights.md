@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 12aeea8393a00d7d2662c826f847265bdbdc0119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442719"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259141"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Como integrar a Gestão de API do Azure com o Azure Application Insights
 
@@ -51,7 +51,7 @@ Antes de poder utilizar o Azure Application Insights, primeiro precisa de criar 
     ![Logger App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> No local, uma entidade [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) é criada na sua instância de Gestão API, contendo a Chave de Instrumentação da instância de Insights de Aplicação.
+> No local, uma entidade [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) é criada na sua instância de Gestão API, contendo a Chave de Instrumentação da instância de Insights de Aplicação.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Ativar insights de aplicação para o seu API
 
@@ -70,7 +70,7 @@ Antes de poder utilizar o Azure Application Insights, primeiro precisa de criar 
 > A sobreposição do valor padrão **0** nos **primeiros bytes do** campo do corpo pode diminuir significativamente o desempenho das suas APIs.
 
 > [!NOTE]
-> No local, uma entidade de [Diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) chamada 'applicationinsights' é criada ao nível da API.
+> No local, uma entidade de [Diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) chamada 'applicationinsights' é criada ao nível da API.
 
 | Nome da definição                        | Tipo de valor                        | Descrição                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

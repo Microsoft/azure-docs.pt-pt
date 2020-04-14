@@ -6,12 +6,12 @@ metadata:
   title: Documentação dos serviços de contentores do Microsoft Azure | Microsoft Docs
   description: Saiba como utilizar os serviços de contentores do Azure para gerir e desenvolver aplicações de contentor com base na cloud.
   ms.topic: hub-page
-  ms.openlocfilehash: 740b95a28e8437defb1929003a74c53cacdcaa70
-  ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+  ms.openlocfilehash: f4d76c0f2ddbecd386a3e3b9d3de370f19b86fee
+  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/01/2020
-  ms.locfileid: "80478131"
+  ms.lasthandoff: 04/13/2020
+  ms.locfileid: "81259022"
 highlightedContent:
   items:
   - itemType: whats-new
@@ -67,10 +67,10 @@ conceptualContent:
     - url: /azure/app-service/app-service-web-get-started-windows-container
       itemType: get-started
       text: Executar um contentor personalizado do Windows
-    - url: /azure/app-service/quickstart-docker
+    - url: /azure/app-service/containers/quickstart-docker
       itemType: quickstart
       text: Executar um contentor personalizado do Linux
-    - url: /azure/app-service/quickstart-multi-container
+    - url: /azure/app-service/containers/quickstart-multi-container
       itemType: quickstart
       text: Criar uma aplicação com vários contentores do Linux
     footerLink:
@@ -87,7 +87,7 @@ conceptualContent:
     - url: /azure/container-instances/container-instances-using-azure-container-registry
       itemType: how-to-guide
       text: Implementar uma imagem a partir do Azure Container Registry
-    - url: /azure/container-registry/container-registry-quick-task-cli
+    - url: /azure/container-registry/container-registry-quickstart-task-cli
       itemType: get-started
       text: Criar, emitir e executar uma imagem com a CLI do Azure
     footerLink:
@@ -129,7 +129,7 @@ conceptualContent:
     - url: /azure/container-registry/container-registry-get-started-azure-cli
       itemType: get-started
       text: Criar um registo de contentor privado com a CLI do Azure
-    - url: /azure/container-registry/container-registry-quick-task-cli
+    - url: /azure/container-registry/container-registry-quickstart-task-cli
       itemType: get-started
       text: Criar, emitir e executar uma imagem com a CLI do Azure
     footerLink:

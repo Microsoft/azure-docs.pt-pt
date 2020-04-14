@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 595c87d2b8182c9044baeb2662e34871d9e52c52
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991250"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261028"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registos de atividade da Azure AD no Monitor Azure
 
@@ -98,12 +98,13 @@ Os eventos são colocados em lote com aproximadamente cinco minutos de intervalo
 
 Por exemplo, para um inquilino grande com mais de 100 000 utilizadores, ocorrem normalmente cerca de 18 eventos por segundo, uma taxa que equivale a 5400 eventos de cinco em cinco minutos. Uma vez que os registos de auditoria têm perto de 2k por evento, equivale a 10,8 MB de dados. Consequentemente, são enviadas 43 mensagens para o hub de eventos nesse intervalo de cinco minutos. 
 
-A tabela seguinte contém os custos estimados por mês para um hub de eventos básico nos E.U.A. Oeste, consoante o volume de dados de eventos. Para calcular uma estimativa exata do volume de dados que prevê para a sua aplicação, utilize a [calculadora de preços do Hub de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
+O quadro seguinte contém custos estimados por mês para um centro de eventos básicos no Oeste dos EUA, dependendo do volume de dados do evento que podem variar de inquilino para inquilino, de acordo com muitos fatores como o comportamento de entrada do utilizador, etc. Para calcular uma estimativa precisa do volume de dados que antecipa para a sua aplicação, utilize a calculadora de preços do [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Categoria do registo | Número de utilizadores | Eventos por segundo | Eventos por intervalo de cinco minutos | Volume por intervalo | Mensagens por intervalo | Mensagens por mês | Custo por mês (est.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Auditoria | 100 000 | 18 | 5400 | 10,8 MB | 43 | 371 520 | $10,83 |
 | Auditoria | 1,000 | 0.1 | 52 | 104 KB | 1 | 8640 | 10,80 $ |
+| Inícios de sessão | 100 000 | 18000 | 5,400,000 | 10,8 GB | 42188 | 364,504,320 | $23.9 |  
 | Inícios de sessão | 1,000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Azure Monitor regista considerações de custos

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: cec1d3e07800dd3093ca79a87cafcf5fceafbf2f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c393ba081b480408373ed6867624ac6278c1674e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77209193"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260960"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Function App do Azure como uma API na Gestão de API do Azure
 
@@ -118,7 +118,7 @@ A importação de uma Function App do Azure gera automaticamente:
 * Chave de hospedar dentro da App função com o nome apim-{ o nome de instância de*serviço Azure API Management*},
 * Valor nomeado dentro da instância de Gestão API Azure com o nome { o nome da aplicação de*função Azure*}-chave, que contém a chave de hospedar criada.
 
-Para APIs criadaapós 4 de abril de 2019, a chave anfitriã é passada em pedidos HTTP da API Management para a App de Funções em um cabeçalho. APIs mais antigos passam a chave hospedeira como parâmetro de [consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Este comportamento pode ser `PATCH Backend` alterado através da [chamada REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) sobre a entidade *Backend* associada à App de Função.
+Para APIs criadaapós 4 de abril de 2019, a chave anfitriã é passada em pedidos HTTP da API Management para a App de Funções em um cabeçalho. APIs mais antigos passam a chave hospedeira como parâmetro de [consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Este comportamento pode ser `PATCH Backend` alterado através da [chamada REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) sobre a entidade *Backend* associada à App de Função.
 
 > [!WARNING]
 > Remover ou alterar o valor da chave de anfitrião da Aplicação de Funções do Azure ou o valor nomeado da Gestão de API do Azure irá interromper a comunicação entre os serviços. Os valores não são sincronizados automaticamente.

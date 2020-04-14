@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: c612d2234e6c3c4e93c3c984242bb283ed85c27f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8003bf1cb7905d5decf8a6267ea397f1b2c01222
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279985"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270167"
 ---
 # <a name="publish-container-offer"></a>Publicar oferta de contentor
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de contentores Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de recipiente azure](https://aka.ms/CreateContainerOffer) para gerir as suas ofertas migratórias.
 
  Depois de criar uma nova oferta usando a página **New Offer,** pode publicar a oferta. Selecione **Publicar** para iniciar o processo de publicação.
 

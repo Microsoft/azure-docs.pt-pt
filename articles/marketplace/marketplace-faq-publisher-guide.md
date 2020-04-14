@@ -1,5 +1,5 @@
 ---
-title: Microsoft Commercial Marketplace FAQ
+title: FaQ do mercado comercial da Microsoft
 description: Respostas a perguntas comuns sobre o Azure Marketplace e o Microsoft AppSource
 author: qianw211
 ms.service: marketplace
@@ -7,20 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/4/2019
 ms.author: dsindona
-ms.openlocfilehash: ae5c691375d52bc7da7a877f5b2e0c2ca52cc87e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a142ce3c082f6f9a53287885ba347fc78f77718
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288466"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262031"
 ---
-# <a name="microsoft-commercial-marketplace-faqs"></a>FaQs do Mercado Comercial da Microsoft
+# <a name="microsoft-commercial-marketplace-faqs"></a>FAQs do marketplace comercial da Microsoft
 
-Respostas a perguntas comuns sobre o Azure Marketplace e o Microsoft AppSource.
+Respostas a perguntas comuns sobre o mercado comercial.
 
 ## <a name="faq-for-customers"></a>FAQ para clientes
 
-### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>O que precisa de saber sobre o Azure Marketplace e o Microsoft AppSource
+### <a name="what-you-need-to-know-about-the-commercial-marketplace"></a>O que precisa de saber sobre o mercado comercial
 
 **O que é o Azure Marketplace?**
 
@@ -168,11 +168,11 @@ Sim, para os clientes do Enterprise Agreement (EA), o administrador de inscriç�
 
 **Que métodos de pagamento são suportados para as compras no mercado comercial?**
 
-Os clientes podem adquirir ofertas do Azure Marketplace e da Microsoft AppSource utilizando cartões de crédito. Se tiver uma subscrição Azure existente, as compras do Azure Marketplace utilizarão o método de pagamento configurado na conta e aparecerão na mesma fatura que um item de linha separado. Algumas ofertas consomem compromisso monetário Azure, mas a maioria das compras no mercado comercial não retiram os compromissos do Acordo Empresarial, embora o consumo de infraestruturas azure o faça.
+Os clientes podem comprar ofertas no mercado comercial usando cartões de crédito. Se tiver uma subscrição Azure existente, as compras do Azure Marketplace utilizarão o método de pagamento configurado na conta e aparecerão na mesma fatura que um item de linha separado. Algumas ofertas consomem compromisso monetário Azure, mas a maioria das compras no mercado comercial não retiram os compromissos do Acordo Empresarial, embora o consumo de infraestruturas azure o faça.
 
 **Posso aplicar créditos de subscrição azure ou fundos de compromisso monetário na minha conta para ofertas do Azure Marketplace?**
 
-As ofertas específicas do Azure Marketplace podem utilizar créditos de subscrição Azure ou fundos de compromisso monetário. Veja o artigo sobre a [alocação monetária do Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) para obter uma lista completa dos produtos que participam neste programa. Estas ofertas não incluem opções BYOL ou BYOS. Todas as outras ofertas do Azure Marketplace não podem utilizar créditos de subscrição Azure ou compromisso monetário: tais como o crédito experimental gratuito de um mês, créditos mensais da MSDN, créditos de promoções Azure, saldos de compromisso monetário e quaisquer outros créditos gratuitos concedidos a partir de O Azure.
+As ofertas específicas do Azure Marketplace podem utilizar créditos de subscrição Azure ou fundos de compromisso monetário. Veja o artigo sobre a [alocação monetária do Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) para obter uma lista completa dos produtos que participam neste programa. Estas ofertas não incluem opções BYOL ou BYOS. Todas as outras ofertas do Azure Marketplace não podem utilizar créditos de subscrição azure ou compromisso monetário: tais como o crédito experimental gratuito de um mês, créditos mensais da MSDN, créditos de promoções Azure, saldos de compromisso monetário e quaisquer outros créditos gratuitos concedidos pelo Azure.
 
 **Os descontos da Licença de Volume aplicam-se às compras do Azure Marketplace?**
 
@@ -258,12 +258,12 @@ Sim, é possível que um cliente possua dois planos da mesma oferta simultaneame
 
 **As políticas de reembolso e de mudança de plano diferem por montra?**
 
-Não, as políticas de negócio são consistentes em todo o Azure Marketplace e Microsoft AppSource. Se for revendido por um parceiro no programa Cloud Solution Provide, o parceiro poderá impor uma política diferente para os seus clientes.
+Não, as políticas comerciais são consistentes em todo o mercado comercial. Se for revendido por um parceiro no programa Cloud Solution Provide, o parceiro poderá impor uma política diferente para os seus clientes.
 
 
 ## <a name="faq-for-publishers"></a>FAQ para editores
 
-### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>O que precisa de saber sobre o Azure Marketplace e o Microsoft AppSource
+### <a name="what-you-need-to-know-about-the-commercial-marketplace"></a>O que precisa de saber sobre o mercado comercial
 
 **O que é o Azure Marketplace?**
 
@@ -347,7 +347,7 @@ Depois de completar a oferta e criar um destino de chumbo, a listagem pode ser p
 
 **De que países/regiões estão disponíveis o Azure Marketplace para os editores venderem?**
 
-Os editores sediados nos seguintes países/regiões podem atualmente ser vendidos no Mercado Azure: Afeganistão, Albânia, Argélia, Angola, Antígua e Barbuda, Argentina, Arménia, Austrália, Áustria, Azerbaijão, Bahrein, Bangladesh, Bielorrússia, Bélgica, Benin, Bolívia, Bósnia e Herzegovina, Botsuana, Brasil, Bulgária, Burkina Faso, Burundi, Camboja, Camarões, Canadá, República Centro-Africana, Chade, Chile, Colômbia, Comores, Congo, Congo (RDC), Costa Rica, Costa Rica, Costa D'Ivoire, Croácia, Chipre, República Checa, Dinamarca, Dominica, República Dominicana, Equador, Egito, El Salvador, Eritreia, Estónia, Etiópia, Ilhas Fiji, Finlândia, França, Geórgia, Alemanha, Gana, Grécia, Guatemala, Guiné, Haiti, Honduras, Hong Kong SAR, Hungria, Islândia, Índia, Indonésia, Iraque, Irlanda, Israel, Itália, Jamaica, Japão, Jordânia, Cazaquistão, Quénia, Coreia (Sul), Kuwait, Laos, Letónia, Líbano, Libéria, Liechtenstein, Lituânia, Luxemburgo, Madagáscar, Malásia, Malásia, Mali, Malta, Maurícia, México, Mongólia, Mongólia, Marrocos, Moçambique, Nepal, Holanda, Nova Zelândia, Nicarágua, Níger, Nigéria, Noruega, Omã, Paquistão, Panamá, Paraguai, Peru, Filipinas, Polónia, Portugal, Qatar, Roménia, Rússia, Ruanda, Arábia Saudita, Senegal, Sérvia, Serra Leoa, Singapura, Eslováquia, Eslovénia, Somália, África do Sul, Espanha, Sri Lanka, Suécia, Suíça, Tajiquistão, Tanzânia, Tailândia, Timor-Leste, Togo, Tonga, Trinidad e Tobago, Tunísia, Turquia, Turquemenistão, Uganda, Ucrânia, Reino Unido Estados, Uruguai, Uzbequistão, Venezuela, Vietname, Zâmbia e Zimbabué.
+Os editores sediados nos seguintes países/regiões podem atualmente ser vendidos no Mercado Azure: Afeganistão, Albânia, Argélia, Angola, Antígua e Barbuda, Argentina, Arménia, Austrália, Áustria, Azerbaijão, Bahrein, Bangladesh, Bielorrússia, Bélgica, Benin, Bolívia, Bósnia e Herzegovina, Botsuana, Brasil, Bulgária, Burkina Faso, Burundi, Camboja, Camarões, Canadá, República Centro-Africana, Chade, Chile, Colômbia, Comores, Congo, Congo (RDC), Costa Rica, Costa D'Ivoire, Croácia, Chipre, República Checa, Dinamarca, Dominica, República Dominicana, Equador, Egito, Etiópia, Ilhas Fiji, Finlândia, França, Geórgia, Alemanha, Gana, Grécia, Guatemala, Guiné, Haiti, Honduras, Hong Kong SAR, Hungria, Islândia, Índia, Indonésia, Iraque, Irlanda, Israel, Itália, Jamaica, Japão, Jordânia, Cazaquistão, Quénia, Coreia (Sul), Kuwait, Laos, Letónia, Líbano, Libéria, Liechtenstein, Lituânia, Luxemburgo, Madagáscar, Malawi, Malásia, Mali, Malta, Maurícia, Coreia do Sul, Mongólia, Mongólia, Mónaco, - Marrocos, Moçambique, Nepal, Países Baixos, Nova Zelândia, Nicarágua, Níger, Nigéria, Noruega, Omã, Paquistão, Panamá, Paraguai, Peru, Filipinas, Polónia, Portugal, Qatar, Roménia, Rússia, Ruanda, Arábia Saudita, Senegal, Sérvia, Serra Leoa, Singapura, Eslováquia, Eslovénia, Somália, África do Sul, Espanha, Sri Lanka, Suécia, Suíça, Tajiquistão, Tanzânia, Tailândia, Timor-Leste, Togo, Tonga, Trinidad e Tobago, Tunísia, Turquia, Turquemenistão, Uganda, Ucrânia, Emirados Árabes Unidos, Reino Unido, Estados Unidos, Uruguai, Uzbequistão, Venezuela, Afeganistão,
 
 **Como posso apagar uma listagem do Mercado Azure?**
 
@@ -372,8 +372,8 @@ Para mais informações, consulte [a Apagar uma oferta.](./cloud-partner-portal/
 
 *Aplicativos O365:*
 
-1.  Inscreva-se <https://sellerdashboard.microsoft.com> na sua Conta Dev.
-1.  Retire o suplemento.
+1.    Inscreva-se <https://sellerdashboard.microsoft.com> na sua Conta Dev.
+1.    Retire o suplemento.
 
     > [!NOTE]
     > As aplicações desaparecem de uma listagem existente após 90 dias.
@@ -422,7 +422,7 @@ Para problemas de faturação e subscrição com a compra do Azure Marketplace, 
 
 **Quem contacto com a publicação ou a oferta de questões de gestão?**
 
-Visite o [Guia de Editores](marketplace-publishers-guide.md) do Azure Marketplace para obter recursos atualizados e documentação sobre questões frequentemente colocadas. Além disso, pode registar um bilhete com suporte da [Microsoft no Partner Center](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+Visite o guia de [editores](marketplace-publishers-guide.md) do mercado comercial para obter recursos atualizados e documentação sobre perguntas frequentes. Além disso, pode registar um bilhete com suporte da [Microsoft no Partner Center](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
 
 ### <a name="azure-marketplace-for-publishers"></a>Azure Marketplace para editoras
 
@@ -473,7 +473,7 @@ Sim, a seu pedido através de bilhete de suporte, a Microsoft processará crédi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Visite a página de guia do [Azure Marketplace e da AppSource Publisher.](/azure/marketplace/marketplace-publishers-guide)
+Visite a página de guia do editor do [mercado comercial.](/azure/marketplace/marketplace-publishers-guide)
 
 
-[Portal Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

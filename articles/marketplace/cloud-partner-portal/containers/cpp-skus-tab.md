@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: adbe3d4c498c8f4e4968ca903f78c34aedca9a4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c5cf218632c720fd042cc5f5d4ed95d5096b5b5
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280002"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270201"
 ---
 # <a name="container-skus-tab"></a>Separador SKUs contentor
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de contentores Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de recipiente azure](https://aka.ms/CreateContainerOffer) para gerir as suas ofertas migratórias.
 
 O separador **SKUs** da página **New Offer** permite-lhe criar uma ou mais SKUs e associá-las à sua nova oferta.  Pode utilizar diferentes SKUs para diferenciar uma solução por conjuntos de funcionalidades, modelos de faturação ou outra característica.
 

@@ -4,16 +4,16 @@ description: Configure, otimize e desame o AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: d2cb40d7510e46539db46bdb61ec2d64c0fd1ec7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87a335f44a31436de735395adbee9035493cbbd2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77526500"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263425"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configure, otimize e problemas AzCopy
 
@@ -53,9 +53,6 @@ Esta secção ajuda-o a executar estas tarefas de otimização:
 ### <a name="run-benchmark-tests"></a>Executar testes de referência
 
 Pode realizar um teste de benchmark de desempenho em recipientes de blob específicos para ver estatísticas gerais de desempenho e estrangulamentos de desempenho de identidade. 
-
-> [!NOTE]
-> No lançamento atual, esta funcionalidade está disponível apenas para recipientes de armazenamento Blob.
 
 Utilize o seguinte comando para realizar um teste de referência de desempenho.
 

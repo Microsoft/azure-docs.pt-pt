@@ -1,5 +1,5 @@
 ---
-title: Criar uma nova oferta de Apps Azure no Mercado Comercial
+title: Criar uma nova oferta de Apps Azure no mercado comercial
 description: Como criar uma nova oferta de Aplicações Azure para listagem ou venda no Azure Marketplace, AppSource ou através do programa Cloud Solution Provider (CSP) utilizando o portal Mercado Comercial no Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 0ff1bbd976273a7d0cbfb22effebdf45c84d2f41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 260193b3c71e29a32e0589f50864ffcca2e9a67c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277245"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262269"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -66,9 +66,9 @@ Reveja a seguinte documentação da aplicação Azure, que fornece Quickstarts, 
     * [Criar ficheiros de definição](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Publicar a aplicação do mercado](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
-* Exemplos:
+* Amostras:
 
-    * [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
+    * [CLI do Azure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     * [Soluções de aplicação gerida](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
@@ -89,11 +89,11 @@ A sua equipa de engenharia deve ter conhecimento sobre as seguintes tecnologias 
 Escolha um ou ambos os seguintes ambientes de scripts para ajudar a gerir a sua aplicação Azure:
 
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-* [Azure CLI](https://docs.microsoft.com/cli/azure)
+* [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 Recomendamos adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
 
-* [Explorador do Armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Explorador do Storage do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Código de Estúdio Visual](https://code.visualstudio.com/) com as seguintes extensões:
     * Extensão: Ferramentas de [Gestor de Recursos Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Extensão: [Embelezar](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -103,7 +103,7 @@ Pode rever as ferramentas disponíveis na página Ferramentas de [Desenvolviment
 
 ## <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
-Antes de poder criar uma oferta de aplicação Azure, primeiro deve [criar uma conta partner center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e abrir o dashboard Do Mercado [Comercial,](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)com o separador **Overview** selecionado.
+Antes de poder criar uma oferta de aplicação Azure, primeiro deve [criar uma conta Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e abrir o dashboard do mercado [comercial,](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)com o separador **Overview** selecionado.
 
 >[!Note]
 >Uma vez publicada uma oferta, as edas para a oferta feita no Partner Center só serão atualizadas no sistema e nas montras após a republicação.  Certifique-se de que submete a oferta para publicação depois de serem feitas alterações.

@@ -3,7 +3,7 @@ title: O que é uma rede de entrega de conteúdos (CDN)? - Azure | Microsoft Doc
 description: Saiba o que é a Rede de Entrega de Conteúdos (CDN) do Azure e como utilizá-la para fornecer conteúdo de largura de banda alta.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/09/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4158df06b4eea175a4225e478325f8f151795850
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 262e5b7bbcbf6c463ef97d5acc72248d37195124
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75660635"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260457"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>O que é uma rede de entrega de conteúdos (CND) no Azure?
 As redes de entrega de conteúdos são redes distribuídas de servidores que podem entregar, de forma eficiente, conteúdos da Web aos utilizadores. As CDNs armazenam os conteúdos em cache em servidores Edge em localizações do ponto de presença (POP) que estão próximas dos utilizadores finais, para minimizar a latência. 

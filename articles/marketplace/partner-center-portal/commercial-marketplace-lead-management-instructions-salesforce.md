@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 9b59181f7c1b24a7bc00ab579bbe67a70f499c92
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 087cdafe8b819e4929e1608ed7e00be2c1169414
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755373"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263099"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configure a gestão de chumbo para a Salesforce
 
@@ -64,11 +64,15 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 
 1. Na janela pop-up de detalhes da Ligação, selecione `oid` **Salesforce** para o Destino De **Chumbo** e cola no formulário web-to-lead que criou seguindo passos anteriores no campo de identificador da **Organização.**
 
-1. Selecione **Guardar**. 
+1. **E-mail de contacto** - Forneça e-mails para pessoas da sua empresa que devam receber notificações de e-mail quando um novo chumbo for recebido. Pode fornecer vários e-mails separando-os com ponto e vírgula.
 
-    >[!Note]
-    >Tem de terminar de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta.
+1. Selecione **Ok**.
 
-    ![Detalhes da ligação - Escolha um destino principal](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
+Para se certificar de que se ligou com sucesso a um destino de chumbo, clique no botão de validação. Se for bem sucedido, terá um chumbo de teste no destino principal.
 
-    ![Detalhes da ligação - Escolha um destino principal](./media/commercial-marketplace-lead-management-instructions-salesforce/connection-details.png)
+>[!Note]
+>Tem de terminar de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta.
+
+![Detalhes da ligação - Escolha um destino principal](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
+
+![Detalhes da ligação - Escolha um destino principal](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)

@@ -3,7 +3,7 @@ title: Eventos agendados para VMs windows em Azure
 description: Eventos agendados utilizando o serviço de Metadados Azure para as suas máquinas virtuais Windows.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
-author: ericrad
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
-ms.author: ericrad
-ms.openlocfilehash: 2b3aa5d50822863e3aa46fcf9970e0b3e67a6f69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: c1e9ef8de65912c4f33e17ee2bb2175c76e7ea07
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944481"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258689"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados Azure: Eventos agendados para VMs do Windows
 

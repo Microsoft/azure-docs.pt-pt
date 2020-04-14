@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: dsindona
-ms.openlocfilehash: c35f721131b997dcfdb0f23a91a39329168b757c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb875a5c4ab1b898b64fe22140414e5d5b7830b8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277349"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273788"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Publicar uma oferta de máquina virtual
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Create a Azure Virtual Machine para](https://aka.ms/CreateAzureVMoffer) gerir as suas ofertas migratórias.
 
  O último passo, depois de ter definido a oferta no portal e criado os ativos técnicos associados, é submeter a oferta para publicação. O diagrama seguinte retrata os principais passos do processo de publicação para "ir ao vivo":
 

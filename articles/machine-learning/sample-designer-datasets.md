@@ -1,7 +1,7 @@
 ---
-title: Utilize conjuntos de dados de amostras em designer de aprendizagem automática Azure
+title: Dados da amostra para designer
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre os conjuntos de dados da amostra incluídos no designer de Machine Learning Azure.
+description: Saiba mais sobre os conjuntos de dados de amostradisponíveis com o designer de Machine Learning Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.date: 03/03/2020
-ms.openlocfilehash: 943e23aa9d83df33bbe636ce7aee62e6e5a2950e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b19c1ed5aa556a2cfb633ac6fbc0cf9f95d0337f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037308"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256982"
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-designer-preview"></a>Utilize os conjuntos de dados da amostra no designer de machine learning Azure (pré-visualização)
+# <a name="sample-datasets-in-azure-machine-learning-designer-preview"></a>Conjuntos de dados de amostras em designer de aprendizagem automática Azure (pré-visualização)
 
 Quando cria um novo pipeline no designer de Machine Learning Azure (pré-visualização), vários conjuntos de dados de amostra saem incluídos por padrão. Estes conjuntos de dados de amostra são utilizados pelos gasodutos de amostra na página inicial do designer. 
 

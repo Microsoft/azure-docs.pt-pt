@@ -6,12 +6,12 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: e49fafc2889b98d013d77471f8177fd85a307cc8
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 440835f50d2ef9c03dabc7a66e8f162e3fa15b2f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754887"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260705"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integrar o cofre de chaves azure na implementação do modelo ARM
 
@@ -171,6 +171,8 @@ New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile "$HOME/azuredeploy.json" `
     -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 Quando implementar o modelo, use o mesmo grupo de recursos que usou no cofre da chave. Esta abordagem facilita a limpeza dos recursos, porque é necessário eliminar apenas um grupo de recursos em vez de dois.
@@ -194,6 +196,8 @@ $projectName = Read-Host -Prompt "Enter the same project name that is used for c
 $resourceGroupName = "${projectName}rg"
 
 Remove-AzResourceGroup -Name $resourceGroupName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

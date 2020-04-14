@@ -1,6 +1,6 @@
 ---
-title: Determine a sua opção de publicação no Microsoft AppSource e no Azure Marketplace
-description: Este artigo descreve os critérios de elegibilidade e os requisitos de publicação dos parceiros que tentam entender como publicar aplicações no Microsoft AppSource e no Azure Marketplace.
+title: Determine a sua opção de publicação no mercado comercial
+description: Este artigo descreve os critérios de elegibilidade e os requisitos de publicação dos parceiros que tentam entender como publicar aplicações no mercado comercial.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: dsindona
 ms.service: marketplace
@@ -8,18 +8,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: dsindona
-ms.openlocfilehash: 4c41fcbb8766feb68db7d60d591e914a6ba0aea2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 84d5c351f3997fe5430ea1ce517c2dca13203c03
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349528"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261691"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 
 A opção de publicação que escolher para a sua oferta diz respeito diretamente aos requisitos de elegibilidade e aos benefícios do marketplace comercial GTM. Mais importante ainda, a seleção de opção de publicação e tipo de oferta define como os utilizadores irão interagir com a sua oferta de mercado comercial.
 
-Para configurar a sua oferta, terá de compreender os seguintes conceitos chave do mercado comercial: as opções de publicação, os tipos de oferta e configuração, e as chamadas à ação que irão governar como e onde a sua oferta é apresentada no mercado comercial montras.
+Para configurar a sua oferta, terá de compreender os seguintes conceitos chave do mercado comercial: as opções de publicação, os tipos de oferta e configuração, e as chamadas à ação que irão governar como e onde a sua oferta é apresentada nas montras do mercado comercial.
 
 ![Microsoft mercado comercial lojas e opções de publicação](./media/marketplace-publishers-guide/storefronts_options_table.png)
 

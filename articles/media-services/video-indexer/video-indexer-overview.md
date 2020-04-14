@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/02/2020
+ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: efd8386f464bfdf2ac27d3be07e6572dc27952e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bea9e375e00d6fc0f6c33aa1bcc766773db2059
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78163595"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269946"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
@@ -70,9 +70,9 @@ A lista que se segue mostra as ideias que pode obter dos seus vídeos utilizando
 
 ### <a name="audio-insights"></a>Insights áudio
 
-* **Automatic language detection** (Deteção automática do idioma): identifica automaticamente o idioma falado dominante. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português brasileiro. Se a língua não pode ser identificada com confiança, o Indexer de vídeo assume que a língua falada é inglês. Para mais informações, consulte o modelo de [identificação da língua.](language-identification-model.md)
+* **Transcrição áudio**: Converte a fala em texto em 12 idiomas e permite extensões. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, mandarim chines, japonês, árabe, russo, português brasileiro, hindi e coreano.
+* **Automatic language detection** (Deteção automática do idioma): identifica automaticamente o idioma falado dominante. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, mandarim chines, japonês, russo e português brasileiro. Se a língua não pode ser identificada com confiança, o Indexer de vídeo assume que a língua falada é inglês. Para mais informações, consulte o modelo de [identificação da língua.](language-identification-model.md)
 * **Identificação e transcrição da fala multi-idioma (pré-visualização):** Identifica automaticamente a língua falada em diferentes segmentos a partir do áudio. Envia cada segmento do ficheiro mediático para ser transcrito e, em seguida, combina a transcrição de volta a uma transcrição unificada. Para mais informações, consulte [Automaticamente identificar e transcrever conteúdo multilingues.](multi-language-identification-transcription.md)
-* **Transcrição áudio**: Converte a fala em texto em 12 idiomas e permite extensões. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, árabe, russo, português brasileiro, hindi e coreano.
 * **Closed captioning** (Legendas): cria legendas em três formatos: VTT, TTML e SRT.
 * **Processamento de dois canais:** O Auto deteta transcrição separada e funde-se numa única linha temporal.
 * **Redução do ruído**: Limpa gravações áudio de telefonia ou ruidosas (com base em filtros Skype).

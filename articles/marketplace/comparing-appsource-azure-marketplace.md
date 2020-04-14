@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: bd6c375231facc3d7afb35df74210d26b5f50ba8
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 9d2f4b02dd2b009e96abb65d4c42ef3a281e6ce1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387789"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262830"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Comparar o AppSource e o Azure Marketplace
 As lojas no [Azure Marketplace](https://azuremarketplace.microsoft.com) e [microsoft AppSource](https://appsource.microsoft.com) servem requisitos únicos do cliente. Utilize montras para direcionar os clientes por função. Pode oferecer a solução ou serviço certo com base no seu cliente.
@@ -30,10 +30,10 @@ A tabela seguinte descreve os benefícios da utilização de uma montra:
 |:--- |:--- | :--- |
 | **Flexibilidade de faturação** | O Azure Marketplace suporta tipos de oferta sem graça, experimentais, BYOL e transacionáveis. As ofertas transacionáveis são baseadas no consumo ou baseadas em subscrições. As ofertas baseadas no consumo são faturadas por uso horário e podem proporcionar um período livre inicial. Os serviços baseados em subscrições são faturados mensalmente ou anualmente por assento ou taxa fixa.| O AppSource suporta tipos de oferta gratuitos, experimentais, BYOL e transacionáveis. As ofertas transacionáveis são produtos SaaS baseados em subscrição que podem ser faturados mensalmente ou anualmente por assento ou tarifa fixa. |
 |**Ligações com outros parceiros**  | Atualmente, não pode ligar um prestador de serviços ou parceiros de entrega à sua oferta. | Liga fornecedores de software independentes, integradores de sistemas e fornecedores de serviços geridos a cenários específicos de implementação. Pode vender colaborativamente a novos clientes. |
-| **Automação** | Atualmente, não pode ligar um prestador de serviços ou parceiros de entrega à sua oferta. Aproveite o software automatizado como serviço (SaaS) com fornecimento de complemento. Utilize as aplicações Azure: Opção de publicação do modelo de solução para automatizar cenários de recolha e implementação de dados baseados no SaaS. | Liga fornecedores de software independentes, integradores de sistemas e fornecedores de serviços geridos a cenários específicos de implementação. Pode vender colaborativamente a novos clientes. |
+| **Automatização** | Atualmente, não pode ligar um prestador de serviços ou parceiros de entrega à sua oferta. Aproveite o software automatizado como serviço (SaaS) com fornecimento de complemento. Utilize as aplicações Azure: Opção de publicação do modelo de solução para automatizar cenários de recolha e implementação de dados baseados no SaaS. | Liga fornecedores de software independentes, integradores de sistemas e fornecedores de serviços geridos a cenários específicos de implementação. Pode vender colaborativamente a novos clientes. |
 | **Vários tipos de nuvem** | Publique soluções tanto para a nuvem pública como para as instalações utilizando os seguintes tipos:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Nuvens regionais, incluindo China e Alemanha</li></ul> | Atualmente, não apoia Azure Stack, Governo Azure, ou nuvens regionais. |
 | **Apresentação em contexto aos clientes** | Disponibilize a sua solução na experiência azure in-portal para pesquisa contextual. Utilize as aplicações Virtual machine e Azure: Opções de publicação do modelo de solução. | Contacte mais clientes através da experiência na aplicação para produtos da Microsoft, como Dynamics 365, Power BI e Office 365. |
 
 ## <a name="next-steps"></a>Passos seguintes
-*   Reveja o guia de [publicação Azure Marketplace e AppSource](./marketplace-publishers-guide.md).
+*   Reveja o guia de publicação do [mercado comercial.](./marketplace-publishers-guide.md)
 

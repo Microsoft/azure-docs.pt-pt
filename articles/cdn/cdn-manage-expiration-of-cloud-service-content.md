@@ -3,7 +3,7 @@ title: Gerir a expiração de conteúdos web no Azure CDN [ Microsoft Docs
 description: Saiba como gerir a expiração dos conteúdos azure Web Apps/Cloud, ASP.NET ou IIS no Azure CDN.
 services: cdn
 documentationcenter: .NET
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: magattus
-ms.openlocfilehash: a701c332659181081184906a73826b7137d8c49c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 4598e6cee6ffbaaeb2a99727842fcd17fe0046c7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593720"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260569"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Manage expiration of web content in Azure CDN (Gerir a expiração do conteúdo Web na CDN do Azure)
 > [!div class="op_single_selector"]
 > * [Conteúdo Web do Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Armazenamento Azure Blob](cdn-manage-expiration-of-blob-content.md)
+> * [Armazenamento de Blobs do Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 
 Os ficheiros de servidores web de origem acessível ao público podem ser guardados na Rede de Entrega de Conteúdos Azure (CDN) até que o seu tempo de vida (TTL) decorrido. O TTL é `Cache-Control` determinado pelo cabeçalho na resposta HTTP do servidor de origem. Este artigo descreve `Cache-Control` como definir cabeçalhos para a funcionalidade web Apps do Microsoft Azure App Service, Azure Cloud Services, ASP.NET aplicações e sites de Serviços de Informação de Internet (IIS), todos configurados da mesma forma. Pode definir `Cache-Control` o cabeçalho utilizando ficheiros de configuração ou programáticamente. 

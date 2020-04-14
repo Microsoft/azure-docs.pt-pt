@@ -5,19 +5,19 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4f4b0805e2a9247aff881a9e34b0bd1cd4c6ca27
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 7b619d3c9b4b334e637d6a1c456256cb33ad5134
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80550412"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261385"
 ---
 # <a name="enable-azure-startstop-vms-solution"></a>Ativar a solução De VMs Start/Stop Azure
 
 Execute os seguintes passos para adicionar os VMs de início/paragem durante a solução off-hours a uma nova ou existente conta de Automação e espaço de trabalho ligado ao Log Analytics. Depois de concluir o processo de embarque, configure as variáveis para personalizar a solução.
 
 >[!NOTE]
->Para utilizar esta solução com VMs clássicos, precisa de uma conta Classic RunAs, que não é criada por defeito. Para obter instruções sobre a criação de uma conta RunAs [Clássicas, consulte contas Clássicas Run-As](automation-create-standalone-account.md#classic-run-as-accounts).
+>Para utilizar esta solução com VMs clássicos, precisa de uma conta Classic Run As, que não é criada por defeito. Para obter instruções sobre a criação de uma conta Classic Run As, consulte [Create a Classic Run As account](automation-create-standalone-account.md#create-a-classic-run-as-account).
 >
 
 ## <a name="enable-solution"></a>Ativar a solução

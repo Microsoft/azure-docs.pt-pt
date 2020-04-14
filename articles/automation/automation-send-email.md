@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: tutorial
-ms.openlocfilehash: 332d7e4cae3b65d794d48d208b54db3809b78a8f
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: f12b5c158025db89dcc64a3be03b263f95a3a64c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632374"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261364"
 ---
 # <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Tutorial: Envie um e-mail de um livro de execução da Automação Azure
 
@@ -81,7 +81,7 @@ Para utilizar o Azure KeyVault dentro de um livro de execução, a sua Conta de 
 
 Clique em <kbd>Implementar para Automatização Azure</kbd> no separador Automação Azure em opções de instalação. Esta ação abre o portal Azure. Na página Import, selecione a sua Conta de Automação e clique <kbd>EM OK</kbd>.
 
-Para obter métodos adicionais para adicionar os módulos necessários, consulte [módulos de importação](/azure/automation/shared-resources/modules#import-modules).
+Para obter métodos adicionais para adicionar os módulos necessários, consulte [módulos de importação](/azure/automation/shared-resources/modules#importing-modules).
 
 ## <a name="create-the-runbook-to-send-an-email"></a>Crie o livro de corridas para enviar um e-mail
 

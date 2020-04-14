@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 04/08/2020
-ms.openlocfilehash: 5b99e2f31d82630e2adc138c11485201a617af81
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.date: 04/12/2020
+ms.openlocfilehash: dbd217c7135172c52a5ec7459930977960c452aa
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892330"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260871"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuração da chave gerida pelo cliente do Azure Monitor 
 
@@ -95,8 +95,7 @@ O procedimento não é suportado na UI atualmente e o processo de provisionament
 Por exemplo:
 
 ```rst
-GET
-https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
 Authorization: Bearer eyJ0eXAiO....
 ```
 
@@ -106,8 +105,8 @@ Pode adquirir o símbolo utilizando um destes métodos:
 
 1. Utilize o método de [registos da Aplicação.](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
 2. No portal do Azure
-    1. Navegue para o portal Azure em "ferramenta de desenvolvimento (F12)
-    1. Procure uma corda de autorização em "Request Headers" numa das instâncias "batch?api-version". Parece: "autorização: símbolo \<\>do portador". 
+    1. Navegue para o portal Azure enquanto está em "ferramenta de desenvolvimento" (F12)
+    1. Procure uma corda de autorização em "Request Headers" numa das instâncias "batch?api-version". Parece: "autorização: Portador eyJ0eXAiO....". 
     1. Copie e adicione à sua chamada API segundo os exemplos abaixo.
 3. Navegue para o site de documentação Azure REST. Prima "Experimente" em qualquer API e copie o token bearer.
 
@@ -115,29 +114,52 @@ Pode adquirir o símbolo utilizando um destes métodos:
 
 Algumas das operações neste procedimento de configuração funcionam assincronicamente porque não podem ser concluídas rapidamente. A resposta para uma operação assíncrona devolve inicialmente um código de estado HTTP 200 (OK) e um cabeçalho com a propriedade *Azure-AsyncOperation* quando aceite:
 ```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-03-01-preview"
 ```
 
 Pode verificar o estado da operação assíncrona enviando um pedido GET para o valor cabeçalho da *Operação Azure-Async:*
 ```rst
-GET "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 ```
 
-O corpo da resposta da operação contém informações sobre a operação e a propriedade *status* indica o seu estado. As operações assíncronas neste procedimento de configuração e os seus estatutos são:
+A resposta contém informações sobre a operação e o seu *Estado*. Pode ser um dos seguintes exemplos:
 
-**Criação de um recurso *cluster***
-* ProvisioningAccount -- Cluster ADX está em provisionamento 
-* Succeeded - O fornecimento de cluster ADX está concluído
+A operação está em curso.
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "InProgress", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+}
+```
 
-**Concedendo permissões ao seu Cofre chave**
-* Atualização -- Atualização de detalhes do identificador está em andamento
-* Succeeded -- Atualização concluída
+A operação está concluída
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Succeeded", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
 
-**Associar espaços de trabalho de Log Analytics**
-* Ligação -- Associação do espaço de trabalho ao cluster está em andamento
-* Sucedeu - Associação concluída
-
+Operação falhada
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Failed", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+    "error" : { 
+        "code": "error-code",  
+        "message": "error-message" 
+    }
+}
+```
 
 ### <a name="subscription-whitelisting"></a>Lista de subscrição
 
@@ -149,6 +171,8 @@ A capacidade cmk é uma funcionalidade de acesso precoce. As subscrições onde 
 ### <a name="storing-encryption-key-kek"></a>Chave de encriptação de armazenamento (KEK)
 
 Crie ou utilize um Cofre de Chave Azure que já tem de gerar, ou importar uma chave para ser usado para encriptação de dados. O Cofre de Chaves Azure deve ser configurado como recuperável para proteger a sua chave e o acesso aos seus dados no Monitor Azure. Pode verificar esta configuração sob propriedades no seu Cofre de Chaves, tanto a *proteção Soft delete* como *a purga* devem ser ativadas.
+
+![Eliminar e purgar suavemente as definições de proteção](media/customer-managed-keys/soft-purge-protection.png)
 
 Estas definições estão disponíveis via CLI e PowerShell:
 - [Eliminação de Forma Recuperável](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
@@ -189,11 +213,10 @@ A identidade é atribuída ao recurso *cluster* no momento da criação.
 
 **Resposta**
 
-200 OK e cabeçalho quando aceite.
->[!Important]
-> Durante o período de acesso precoce da funcionalidade, o cluster ADX é aprovisionado manualmente. Embora leve o fornecimento do cluster ADX sub-adx um pouco para ser concluído, você pode verificar o estado de provisionamento de duas maneiras:
-> 1. Copie o valor URL da *Operação Azure-Asyncoperation* a partir da resposta e use-o para a verificação do estado de funcionamento em [operações assíncronas](#asynchronous-operations-and-status-check)
-> 2. Envie um pedido GET sobre o recurso *Cluster* e veja o valor do Estado de *provisionamento.* É *ProvisioningAccount* durante o provisionamento e *bem sucedido* quando concluído.
+200 OK e cabeçalho.
+Durante o período de acesso precoce da funcionalidade, o cluster ADX é aprovisionado manualmente. Embora leve o fornecimento do cluster ADX sub-adx um pouco para ser concluído, você pode verificar o estado de provisionamento de duas maneiras:
+1. Copie o valor URL da Operação Azure-Async a partir da resposta e siga a verificação do [estado de funcionamento assíncrono](#asynchronous-operations-and-status-check).
+2. Envie um pedido GET sobre o recurso *Cluster* e veja o valor do Estado de *provisionamento.* É *ProvisioningAccount* durante o provisionamento e *bem sucedido* quando concluído.
 
 ### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Fornecimento de loja de dados Azure Monitor (cluster ADX)
 
@@ -205,7 +228,7 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> Copie e guarde a resposta uma vez que necessitará dos seus detalhes em etapas posteriores
+> Copie e guarde a resposta, uma vez que necessitará dos detalhes nos próximos passos.
 
 **Resposta**
 
@@ -260,11 +283,11 @@ Atualize o recurso *cluster* KeyVaultProperties com detalhes do identificador de
 
 Este pedido do Gestor de Recursos é uma operação assíncrona.
 
->[!Warning]
+> [!Warning]
 > Deve fornecer um corpo inteiro na atualização de recursos *cluster* que inclua *identidade,* *sku,* *KeyVaultProperties* e *localização*. Faltando os detalhes *keyVaultProperties* removerá o identificador chave do recurso *Cluster* e causará [a revogação da chave](#cmk-kek-revocation).
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -290,11 +313,10 @@ Content-type: application/json
 
 **Resposta**
 
-200 OK e cabeçalho quando aceite.
->[!Important]
-> Leva alguns minutos para completar a propagação do identificador chave. Pode verificar o estado de provisionamento de duas formas:
-> 1. Copie o valor URL da *Operação Azure-Asyncoperation* a partir da resposta e use-o para a verificação do estado de funcionamento em [operações assíncronas](#asynchronous-operations-and-status-check)
-> 2. Envie um pedido GET sobre o recurso *Cluster* e veja as propriedades *keyVaultProperties.* Os seus dados de identificação key recentemente atualizados devem voltar na resposta.
+200 OK e cabeçalho.
+Leva alguns minutos para completar a propagação do identificador chave. Pode verificar o estado de provisionamento de duas formas:
+1. Copie o valor URL da Operação Azure-Async a partir da resposta e siga a verificação do [estado de funcionamento assíncrono](#asynchronous-operations-and-status-check).
+2. Envie um pedido GET sobre o recurso *Cluster* e veja as propriedades *keyVaultProperties.* Os seus dados de identificação key recentemente atualizados devem voltar na resposta.
 
 Uma resposta ao pedido get sobre o recurso *Cluster* deve ser assim quando a atualização do identificador chave estiver completa:
 
@@ -330,8 +352,6 @@ Uma resposta ao pedido get sobre o recurso *Cluster* deve ser assim quando a atu
 ### <a name="workspace-association-to-cluster-resource"></a>Associação workspace ao recurso *Cluster*
 Para a configuração cmk de Insights de Aplicação, siga o conteúdo do Apêndice para este passo.
 
-Este pedido do Gestor de Recursos é uma operação assíncrona.
-
 É necessário ter permissões de 'write' tanto para o seu espaço de trabalho como para o recurso *Cluster* para realizar esta operação, que incluem estas ações:
 
 - No espaço de trabalho: Microsoft.OperationalInsights/workspaces/write
@@ -345,7 +365,7 @@ Este pedido do Gestor de Recursos é uma operação assíncrona.
 Este pedido do Gestor de Recursos é uma operação assíncrona.
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -358,15 +378,13 @@ Content-type: application/json
 
 **Resposta**
 
-200 OK e cabeçalho quando aceite.
->[!Important]
-> Pode funcionar até 90 minutos para ser concluído. Os dados ingeridos nos seus espaços de trabalho são armazenados encriptados com a sua chave gerida apenas após uma associação de espaços de trabalho bem-sucedido.
-> Para verificar o estado da associação workspace, copie o valor URL da *Operação Azure-AsyncOperation* a partir da resposta e use-o para a verificação do estado de funcionamento em [operações assíncronas](# asynchronous-operations-and-status-check)
-
-Pode verificar o recurso *Cluster* associado ao seu espaço de trabalho enviando um pedido GET para [Espaços de Trabalho – Obter](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) e observar a resposta. O *clusterResourceId* indica no ID do recurso *cluster.*
+200 OK e cabeçalho.
+Os dados ingeridos são armazenados encriptados com a sua chave gerida após operação de associação, que pode demorar até 90 minutos para ser concluída. Pode verificar o estado da associação workspace de duas formas:
+1. Copie o valor URL da Operação Azure-Async a partir da resposta e siga a verificação do [estado de funcionamento assíncrono](#asynchronous-operations-and-status-check).
+2. Envie um [Workspaces – Obtenha](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) pedido e observe a resposta, o espaço de trabalho associado terá um clusterResourceId em "funcionalidades".
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
 ```
 
 **Resposta**
@@ -455,7 +473,7 @@ Todos os seus dados são acessíveis após a operação de rotação da chave, i
 - Obtenha todos os recursos *do Cluster* para um grupo de recursos:
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
     
@@ -492,7 +510,7 @@ Todos os seus dados são acessíveis após a operação de rotação da chave, i
 - Obtenha todos os recursos *do Cluster* para uma subscrição:
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
     
@@ -503,8 +521,7 @@ Todos os seus dados são acessíveis após a operação de rotação da chave, i
 - Eliminar o seu recurso *Cluster* -- é executada uma operação de eliminação suave para permitir a recuperação do seu recurso Cluster, dos seus dados e espaços de trabalho associados no prazo de 14 dias, quer a eliminação tenha sido acidental ou intencional. O nome do recurso *Cluster* permanece reservado durante o período de eliminação suave e não pode criar um novo cluster com esse nome. Após o período de eliminação suave, o seu recurso *cluster* e os seus dados não são recuperáveis. Os espaços de trabalho associados são desassociados a partir do recurso *Cluster* e novos dados são ingeridos para armazenamento partilhado e encriptados com a chave microsoft.
 
   ```rst
-  DELETE
-  https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
 
@@ -540,8 +557,10 @@ Este recurso é utilizado como ligação de identidade intermédia entre o seu C
 
 **Criar**
 
+Este pedido do Gestor de Recursos é uma operação assíncrona.
+
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -562,10 +581,10 @@ Content-type: application/json
 
 **Resposta**
 
-202 Aceite. Esta é uma resposta padrão do Gestor de Recursos para operações assíncronas.
-
->[!Important]
-> Leva o fornecimento do cluster ADX sub-adx alguns minutos para ser concluído. Pode verificar o estado de provisionamento ao executar a chamada DAA DO GET REST sobre o recurso *Cluster* e olhando para o valor do Estado de *provisionamento.* É *ProvisioningAccount* durante o provisionamento e "Succeeded" quando concluído.
+200 OK e cabeçalho.
+Durante o período de acesso precoce da funcionalidade, o cluster ADX é aprovisionado manualmente. Embora leve o fornecimento do cluster ADX sub-adx um pouco para ser concluído, você pode verificar o estado de provisionamento de duas maneiras:
+1. Copie o valor URL da Operação Azure-Async a partir da resposta e siga a verificação do [estado de funcionamento assíncrono](#asynchronous-operations-and-status-check).
+2. Envie um pedido GET sobre o recurso *Cluster* e veja o valor do Estado de *provisionamento.* É *ProvisioningAccount* durante o provisionamento e *bem sucedido* quando concluído.
 
 ### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associar um componente a um recurso *cluster* usando [componentes - Criar ou atualizar](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 
@@ -579,7 +598,7 @@ Content-type: application/json
 > Para verificar se o cluster ADX está aprovisionado, execute o recurso *Cluster* Get REST API e verifique se o valor do Estado de *provisionamento* é *bem sucedido*.
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 ```
 
@@ -614,7 +633,7 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> Copie e guarde o valor de "princípio-id", uma vez que vai precisar dele nos próximos passos.
+> Copie e guarde a resposta, uma vez que vai precisar dela nos próximos passos.
 
 **Associar um componente**
 

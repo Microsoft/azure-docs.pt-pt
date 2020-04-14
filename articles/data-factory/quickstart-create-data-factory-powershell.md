@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 7f527d3c57f086e7941505a9ca4396885c746762
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 682c35e1510834d8958b2ed6765d6fe530432ebd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75440088"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262150"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Quickstart: Criar uma fábrica de dados Azure utilizando a PowerShell
 
@@ -111,6 +111,10 @@ Tenha em atenção os seguintes pontos:
 ## <a name="create-a-linked-service"></a>Criar um serviço ligado
 
 Crie os serviços ligados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Neste início rápido, vai criar um serviço ligado do Armazenamento do Azure que será utilizado não só como arquivo de origem como arquivo sink. O serviço ligado tem as informações de ligação utilizadas pelo serviço Data Factory em runtime para se ligar ao mesmo.
+
+>[!TIP]
+>Neste arranque rápido, utiliza a *chave conta* como tipo de autenticação para a sua loja de dados, mas pode escolher outros métodos de autenticação suportados: *SAS URI,**Diretor de Serviço* e Identidade *Gerida,* se necessário. Consulte as secções correspondentes [neste artigo](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties) para obter mais detalhes.
+>Para armazenar segredos para lojas de dados de forma segura, também é recomendado usar um Cofre chave Azure. Consulte [este artigo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para ilustrações detalhadas.
 
 1. Crie um ficheiro JSON com o nome **AzureStorageLinkedService.json** na pasta **C:\ADFv2QuickStartPSH** com o seguinte conteúdo: (crie a pasta ADFv2QuickStartPSH, caso ainda não exista.).
 

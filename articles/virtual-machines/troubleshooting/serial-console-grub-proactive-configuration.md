@@ -3,8 +3,8 @@ title: Configuração de GRUB proactiva da Consola Em Série Azure Microsoft Doc
 description: Configure o GRUB em várias distribuições permitindo o acesso de um único utilizador e modo de recuperação em máquinas virtuais Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: vilibert
-manager: spogge
+author: mimckitt
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
-ms.author: vilibert
-ms.openlocfilehash: a154ab4742f0d0d7acae0376bcf894bc2b62b4cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 573bd0797e63fc512e59b0e0882c718e4569111c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74186932"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262898"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantir proativamente que você tem acesso a GRUB e sysrq poderia poupar-lhe muito tempo de descanso
 
@@ -98,7 +98,7 @@ Neste artigo, vamos rever várias distribuições linux e configurações de doc
 A chave sysrq está ativada em alguns distros linux mais recentes por padrão, embora em outros possa ser configurado para aceitar valores apenas para certas funções SysRq.
 Em distros mais antigos, pode ser completamente desativado.
 
-A funcionalidade SysRq é útil para reiniciar um VM despenhado ou pendurado diretamente a partir da Consola Série Azure, também útil para obter acesso ao menu GRUB, em alternativa reiniciar um VM a partir de outra janela ou sessão ssh do portal pode deixar cair a sua atual ligação de consola pode deixar cair a sua atual ligação de consola pode deixar cair a sua atual ligação de consola pode deixar cair a sua atual ligação de consola pode deixar cair a sua atual ligação de consola pode deixar cair a sua atual ligação de consola pode deixar cair a sua atual ligação à consola pode deixar cair a sua ligação de consola atual pode deixar cair a sua atual ligação à consola pode deixar cair a sua atual ligação à consola pode deixar cair a sua atual ligação à consola pode deixar cair a sua atual ligação à consola pode deixar cair a sua atual ligação assim expirando os timeouts GRUB aos quais são utilizados para exibir o menu GRUB.
+A funcionalidade SysRq é útil para reiniciar um VM despenhado ou pendurado diretamente a partir da Consola Série Azure, também útil para obter acesso ao menu GRUB, em alternativa reiniciar um VM a partir de outra janela ou sessão de ssh do portal pode deixar cair a sua ligação de consola atual, expirando assim os Timeouts GRUB aos quais são utilizados para exibir o menu GRUB.
 O VM deve ser configurado para aceitar um valor de 1 para o parâmetro kernel, que permite todas as funções de sysrq ou 128, o que permite reiniciar/desligar
 
 

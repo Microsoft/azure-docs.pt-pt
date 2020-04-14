@@ -1,5 +1,5 @@
 ---
-title: Painel de avaliações e avaliações no dashboard do Mercado Comercial no Partner Center
+title: Painel de avaliações e avaliações na análise do mercado comercial no Partner Center
 description: Saiba como aceder a uma visão consolidada do feedback dos clientes para as suas ofertas no Azure Marketplace e appSource.
 author: dsindona
 ms.author: dsindona
@@ -7,21 +7,21 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 2995cd2a97329aa8b7947145150c6a3501346fdb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 405ba37fd10fa48bf45f1031d2e9b5b17620ea0a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275667"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262422"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Avaliações e avaliações de dashboard na análise do Mercado Comercial
+# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Avaliações e avaliações de dashboard na análise do mercado comercial
 
 Este artigo fornece informações sobre as avaliações & painel de comentários no Partner Center. Este dashboard apresenta uma visão consolidada do feedback do cliente para ofertas no Azure Marketplace e AppSource.
 
 Para aceder às **Classificações & analisa** o dashboard nas ferramentas de análise do Partner Center, abra o dashboard **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no Mercado Comercial.
 
 >[!NOTE]
-> Para definições detalhadas de terminologia analítica, consulte [perguntas frequentes e terminologia para análise](./faq-terminology.md)do Mercado Comercial.
+> Para definições detalhadas de terminologia analítica, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)de mercado comercial.
 
 ## <a name="ratings--reviews"></a>Avaliações & avaliações
 
@@ -57,10 +57,10 @@ As avaliações são exibidas por ordem cronológica para quando foram publicada
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para uma visão geral dos relatórios de análise disponíveis no Partner Center Commercial Marketplace, consulte [o Analytics para o Mercado Comercial no Partner Center](./analytics.md).
-- Para gráficos, tendências e valores de dados agregados que resumam a atividade do mercado para a sua oferta, consulte [Summary Dashboard na análise do Mercado Comercial.](./summary-dashboard.md)
-- Para obter informações sobre as suas encomendas num formato gráfico e descarregável, consulte [o Painel de Encomendas na análise do Mercado Comercial](./orders-dashboard.md).
-- Para máquina virtual (VM) oferece métricas de utilização e faturação medida, consulte [O Dashboard de Utilização na análise do Mercado Comercial](./usage-dashboard.md).
-- Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte o [Customer Dashboard na análise do Mercado Comercial.](./customer-dashboard.md)
-- Para obter uma lista dos seus pedidos de descarregamento ao longo dos últimos 30 dias, consulte [Downloads Dashboard na análise do Mercado Comercial](./downloads-dashboard.md).
-- Para perguntas frequentes sobre análise do Mercado Comercial e para um dicionário abrangente de termos de dados, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)do Mercado Comercial.
+- Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [o Analytics para o mercado comercial no Partner Center](./analytics.md).
+- Para gráficos, tendências e valores de dados agregados que resumam a atividade do mercado para a sua oferta, consulte [Summary Dashboard na análise do mercado comercial.](./summary-dashboard.md)
+- Para obter informações sobre as suas encomendas num formato gráfico e descarregável, consulte [o Painel de Encomendas na análise do mercado comercial](./orders-dashboard.md).
+- Para máquina virtual (VM) oferece métricas de utilização e faturação medida, consulte [o Usage Dashboard na análise do mercado comercial](./usage-dashboard.md).
+- Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte o [Customer Dashboard na análise do mercado comercial.](./customer-dashboard.md)
+- Para obter uma lista dos seus pedidos de descarregamento ao longo dos últimos 30 dias, consulte [Downloads Dashboard na análise do mercado comercial](./downloads-dashboard.md).
+- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)de mercado comercial.

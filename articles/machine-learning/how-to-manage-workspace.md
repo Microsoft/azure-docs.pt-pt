@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: f38b0895b0d6eddcf63c082d3df205f4d9de9d50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b4b64bcca57e1dc98cdba10626597532ae1461c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297070"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269738"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerir espaços de trabalho azure machine learning no portal Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,7 @@ Neste artigo, você vai criar, visualizar e eliminar espaços de [**trabalho Azu
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-Para criar um espaço de trabalho, precisa de uma subscrição Azure. Se não tiver uma subscrição Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
+Para criar um espaço de trabalho, precisa de uma subscrição Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando as credenciais para a sua subscrição Azure. 
 
@@ -90,6 +90,8 @@ Pode atualizar o seu espaço de trabalho da edição Basic para a edição Enter
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Encontre um espaço de trabalho
 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+
 1. No campo de pesquisa superior, digite **Machine Learning**.  
 
 1. Selecione **Machine Learning**.
@@ -102,9 +104,9 @@ Pode atualizar o seu espaço de trabalho da edição Basic para a edição Enter
 
 ## <a name="delete-a-workspace"></a>Eliminar uma área de trabalho
 
-Utilize o botão Apagar na parte superior do espaço de trabalho que pretende eliminar.
+No [portal Azure,](https://portal.azure.com/)selecione **Apagar** na parte superior do espaço de trabalho que pretende eliminar.
 
-  ![Eliminar botão](./media/how-to-manage-workspace/delete-workspace.png)
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Eliminar espaço de trabalho":::
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

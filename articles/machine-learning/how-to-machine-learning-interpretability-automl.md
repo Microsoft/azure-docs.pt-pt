@@ -1,5 +1,5 @@
 ---
-title: Capacidade de interpretação de modelos no machine learning automatizado
+title: Explanabilidade na aprendizagem automática de máquinas
 titleSuffix: Azure Machine Learning
 description: Saiba como obter explicações sobre como o seu modelo ML automatizado determina a importância da funcionalidade e faz previsões ao utilizar o Azure Machine Learning SDK.
 services: machine-learning
@@ -8,20 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: trbye
 ms.date: 03/11/2020
-ms.openlocfilehash: e2465a2df3fab736c8f118911da14ef23c8aec86
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: ecf7cde1a7f804ef1c43b21ac5c1d2a488660590
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437286"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257169"
 ---
-# <a name="model-interpretability-in-automated-machine-learning"></a>Capacidade de interpretação de modelos no machine learning automatizado
+# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretação: explicações de modelo saqueadas em machine learning automatizado
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, aprende-se a ativar as funcionalidades de interpretação para machine learning automatizado (ML) em Azure Machine Learning. Ml automatizado ajuda-o a compreender a importância da funcionalidade projetada. 
+Neste artigo, aprende-se a obter explicações para aprendizagem automática de máquinas (ML) em Aprendizagem automática de Máquinas azure. Ml automatizado ajuda-o a compreender a importância da funcionalidade projetada. 
 
 Todas as versões SDK após `model_explainability=True` 1.0.85 definidas por padrão. Na versão SDK 1.0.85 e versões `model_explainability=True` anteriores os utilizadores precisam de definir o `AutoMLConfig` objeto para utilizar a interpretação do modelo. 
 

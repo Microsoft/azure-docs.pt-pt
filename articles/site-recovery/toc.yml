@@ -241,7 +241,7 @@
               href: vmware-azure-set-up-replication.md
             - name: Implementar o serviço de Mobilidade
               items:
-                - name: Descrição geral e instalação do serviço de mobilidade
+                - name: Sobre a instalação do serviço de Mobilidade
                   href: vmware-physical-mobility-service-overview.md
                 - name: Preparar para instalação push
                   href: vmware-azure-install-mobility-service.md

@@ -3,7 +3,7 @@ title: Otimização de descarregamento de ficheiros com CDN Azure
 description: Este artigo explica como grandes downloads de ficheiros podem ser otimizados.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: magattus
-ms.openlocfilehash: 4fe72985a799595908a0ff6bceb1a73dca823c8f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 28b3c4faf62bcd9f9495810927ece03e2dadc1fc
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593790"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260535"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Otimização de descarregamento de ficheiros com CDN Azure
 

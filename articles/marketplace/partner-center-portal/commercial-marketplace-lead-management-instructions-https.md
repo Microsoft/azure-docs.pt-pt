@@ -5,20 +5,23 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 6a0131cf94759fc529a52ea33d5392a60c5ef30c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33359883df86091120295b93618a13476e428d2f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281600"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262618"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configure a gestão de chumbo utilizando um ponto final HTTPS
 
-Se o seu sistema de Gestão de Relacionamento com o Cliente (CRM) não for explicitamente suportado no Partner Center para receber os leads Do Azure Marketplace e AppSource, pode utilizar um ponto final HTTPS no MS Flow para lidar com estes cabos. Com um ponto final HTTPS, estes leads podem ser enviados como uma notificação de e-mail, ou podem ser escritos para um sistema de Gestão de Relacionamento com O Cliente (CRM) suportado pela MS Flow. As instruções deste artigo irão levá-lo através do processo básico para criar um novo fluxo utilizando o Microsoft Flow, que gerará o URL HTTP POST que irá introduzir no portal de publicação para o campo **DE URL HTTPS Endpoint** de Gestão de Chumbo >. Além disso, estão incluídas instruções sobre como pode testar o seu fluxo com a ajuda de uma ferramenta chamada [Carteiro](https://www.getpostman.com/downloads/) que pode ser encontrada online.
+>[!Note]
+>O conector Power Automate utilizado nestas instruções requer uma subscrição paga ao Power Automate. Por favor, tenha em conta isto antes de seguir as instruções deste documento.
 
-## <a name="create-a-flow-using-microsoft-flow"></a>Criar um fluxo usando o Microsoft Flow
+Se o seu sistema de Gestão de Relacionamento com o Cliente (CRM) não for explicitamente suportado no Partner Center para receber os leads Do Azure Marketplace e AppSource, pode utilizar um ponto final HTTPS no Power Automate para lidar com estes cabos. Com um ponto final HTTPS, estes leads podem ser enviados como uma notificação de e-mail, ou podem ser escritos para um sistema de Gestão de Relacionamento com O Cliente (CRM) suportado pela Power Automate. As instruções deste artigo irão levá-lo através do processo básico para criar um novo fluxo utilizando power automate, que gerará o URL HTTP POST que você vai introduzir no portal de publicação para o campo **DE URL HTTPS Endpoint** de Gestão de Chumbo >. Além disso, estão incluídas instruções sobre como pode testar o seu fluxo com a ajuda de uma ferramenta chamada [Carteiro](https://www.getpostman.com/downloads/) que pode ser encontrada online.
+
+## <a name="create-a-flow-using-power-automate"></a>Criar um fluxo usando power automate
 
 1. Abra a página do [Flow.](https://flow.microsoft.com/) Selecione **Iniciar sessão**, ou se ainda não tiver uma conta, selecione **Iniciar sessão gratuitamente** para criar uma conta Flow gratuita.
 
@@ -168,7 +171,7 @@ Pode testar que tudo funciona como esperado usando uma ferramenta chamada [Corre
 
    ![Teste o meu fluxo](./media/commercial-marketplace-lead-management-instructions-https/test-my-flow.png)
 
-4. Colar o URL HTTP POST do fluxo que criou no MS Flow onde diz *Enter request URL*.
+4. Colar o URL HTTP POST do fluxo que criou no Power Automate onde diz *Enter request URL*.
 
    ![Colar o URL HTTP POST](./media/commercial-marketplace-lead-management-instructions-https/paste-http-post-url.png)
 
@@ -202,7 +205,10 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 1. Navegue na página de **configuração** da Oferta para a sua oferta.
 2. Selecione **Ligar** sob a secção de Gestão de Chumbo.
 3. Na janela pop-up de detalhes da Ligação, selecione **HTTPS Endpoint** para o **Destino de Chumbo** e cola no URL HTTP POST do fluxo que criou seguindo passos anteriores no campo DEURL do ponto final **HTTPS.**
-4. Selecione **Guardar**. 
+4. **E-mail de contacto** - Forneça e-mails para pessoas da sua empresa que devam receber notificações de e-mail quando um novo chumbo for recebido. Pode fornecer vários e-mails separando-os com um ponto evío.
+5. Selecione **OK**.
+
+Para se certificar de que se ligou com sucesso a um destino de chumbo, clique no botão de validação. Se for bem sucedido, terá um chumbo de teste no destino principal.
 
 >[!Note] 
 >Tem de terminar de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta.
@@ -213,5 +219,5 @@ Quando os cabos são gerados, a Microsoft envia pistas para o Flow, que são enc
 
 ![Detalhes da ligação](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
 
-![Detalhes da ligação](./media/commercial-marketplace-lead-management-instructions-https/connection-details-1.png)
+![Detalhes da ligação](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 

@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: c6062ec008a7a12c720cf28c2d79531e805ebba0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9398820c88120400d97fbaf8cb0da100c2bdbf81
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984440"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261759"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece partilhas de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de Mensagens de [Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)padrão da indústria. Pode montar partilhas de ficheiros Azure simultaneamente em implementações em nuvem ou no local de implementações de Windows, Linux e macOS. Também pode cache as partilhas de ficheiros Azure nas máquinas do Windows Server utilizando o Azure File Sync para acesso rápido perto do local onde os dados são utilizados.
@@ -217,7 +217,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="ad-aad-smb-files"></a>
 **Como posso verificar se permiti a autenticação da AD na minha conta de armazenamento e nas informações de domínio da AD?**
 
-    Pode consultar as instruções [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) fornecidas para validar se a Autenticação AD dos Ficheiros Azure estiver ativada na sua conta de armazenamento e recuperar as informações de domínio aD.
+    Pode consultar as instruções [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account) fornecidas para validar se a Autenticação AD dos Ficheiros Azure estiver ativada na sua conta de armazenamento e recuperar as informações de domínio aD.
     
 * <a id="encryption-at-rest"></a>
 **Como posso garantir que a minha partilha de ficheiros Azure esteja encriptada em repouso?**  

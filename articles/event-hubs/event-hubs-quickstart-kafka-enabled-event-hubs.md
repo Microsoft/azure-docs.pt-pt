@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: 89d2c16e3f54d3170b4f0d23590294be13dd8caa
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 67ee882acab22d977f08124591289e9cfc7cded1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632755"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261827"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Quickstart: Streaming de dados com Hubs de Eventos usando o protocolo Kafka
 Este quickstart mostra como transmitir para Os Hubs de Eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. Aprende a usar os seus produtores e consumidores para falar com o Event Hubs com apenas uma mudança de configuração nas suas aplicações. Os Hubs de Eventos do Azure suportam o [Apache Kafka versão 1.0](https://kafka.apache.org/10/documentation.html)
@@ -46,7 +46,7 @@ Quando cria **um** espaço de nome padrão do Event Hubs, o ponto final de Kafka
 
 3. Atualize os detalhes de configuração do produtor em `src/main/resources/producer.config`, da seguinte forma:
 
-    **SSL:**
+    **TLS/SSL:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -76,7 +76,7 @@ Quando cria **um** espaço de nome padrão do Event Hubs, o ponto final de Kafka
 
 6. Atualize os detalhes de configuração para o consumidor em `src/main/resources/consumer.config`, da seguinte forma:
    
-    **SSL:**
+    **TLS/SSL:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093

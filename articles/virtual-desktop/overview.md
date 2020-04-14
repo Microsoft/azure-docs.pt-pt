@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/19/2020
+ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 01767e88714bfb4e134957298505edd218d462d3
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546931"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261725"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -99,10 +99,8 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Ativação do Windows|Internet|
 
-
-
 >[!IMPORTANT]
->A abertura destes URLs é essencial para uma implementação fiável do Windows Virtual Desktop. O bloqueio do acesso a estes URLs não é suportado e afetará a funcionalidade do serviço. Estes URLs apenas correspondem a sites e recursos do Windows Virtual Desktop, e não incluem URLs para outros serviços como o Azure Ative Directory.
+>Recomendamos que utilize as etiquetas de serviço em vez de URLs na maioria dos casos para evitar problemas de serviço. Desbloquear estes URLs é essencial para uma implementação fiável do Windows Virtual Desktop. O bloqueio do acesso a estes URLs não é suportado e afetará a funcionalidade do serviço. Estes URLs apenas correspondem a sites e recursos do Windows Virtual Desktop, e não incluem URLs para outros serviços como o Azure Ative Directory.
 
 A tabela a seguir lista URLs opcionais a que as suas máquinas virtuais Azure possam ter acesso:
 

@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 813117bce4abd3550ac559109c1650ea4a7cff5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 686d6e2ff01fd4d8283350ab8097e1f73c914af0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74538251"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261001"
 ---
 # <a name="create-and-publish-a-product"></a>Criar e publicar um produto  
 
@@ -85,7 +85,7 @@ Os programadores têm de subscrever primeiro um produto para obter acesso à API
 4. Escolha uma API e clique em **Selecionar**.
 
 > [!TIP]
-> Pode criar ou atualizar a subscrição do utilizador para um *Produto*, com chaves de subscrição personalizadas [através da API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate) ou do comando do PowerShell.
+> Pode criar ou atualizar a subscrição do utilizador para um *Produto*, com chaves de subscrição personalizadas [através da API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate) ou do comando do PowerShell.
 
 ## <a name="next-steps"></a>Passos seguintes
 

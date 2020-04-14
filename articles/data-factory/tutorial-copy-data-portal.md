@@ -1,6 +1,6 @@
 ---
 title: Utilize o portal Azure para criar um oleoduto de fábrica de dados
-description: Este tutorial disponibiliza instruções passo-a-passo para utilizar o portal do Azure para criar uma fábrica de dados com um pipeline. O pipeline utiliza a atividade para copiar os dados de um Armazenamento de blobs do Azure para uma base de dados SQL.
+description: Este tutorial disponibiliza instruções passo-a-passo para utilizar o portal do Azure para criar uma fábrica de dados com um pipeline. O pipeline utiliza a atividade de cópia para copiar dados do armazenamento da Azure Blob para uma base de dados Azure SQL.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/21/2018
+ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 135a18f275137e72b5ff4d79f6a32bd39bd9c00c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0e4214466a2650df833cebd704577114b8818690
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977407"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259699"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de blobs do Azure para a base de dados SQL com o Azure Data Factory
-Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O pipeline nesta fábrica de dados copia os dados do Armazenamento de blobs do Azure para uma base de dados SQL. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O oleoduto desta fábrica de dados copia dados do armazenamento da Azure Blob para uma base de dados Azure SQL. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
 > - Se não estiver familiarizado com o Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
@@ -38,7 +38,7 @@ Neste tutorial, vai executar os seguintes passos:
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Assinatura Azure.** Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de armazenamento do Azure**. Utilize o Armazenamento de blobs como um arquivo dos dados de *origem*. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) para seguir os passos para criar uma.
-* **Base de Dados Azure SQL**. Pode utilizar a base de dados como um arquivo de dados *sink*. Se não tiver uma base de dados SQL, veja [Criar uma base de dados SQL](../sql-database/sql-database-get-started-portal.md) para seguir os passos para criar uma.
+* **Base de Dados Azure SQL**. Pode utilizar a base de dados como um arquivo de dados *sink*. Se não tiver uma base de dados Azure SQL, consulte [Criar uma base de dados SQL](../sql-database/sql-database-get-started-portal.md) para obter passos para criar uma.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 
@@ -49,6 +49,7 @@ Agora, prepare o Armazenamento de blobs e a Base de Dados SQL para o tutorial, a
 1. Inicie o Bloco de notas. Copie o texto seguinte e guarde-o como um ficheiro **emp.txt** no disco:
 
     ```
+    FirstName,LastName
     John,Doe
     Jane,Doe
     ```
@@ -77,10 +78,7 @@ Agora, prepare o Armazenamento de blobs e a Base de Dados SQL para o tutorial, a
 Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para criar um pipeline na fábrica de dados.
 
 1. Abra **o Microsoft Edge** ou o Google **Chrome.** Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-2. No menu esquerdo, selecione **Criar um recurso** > **Analytics** > **Data Factory:**
-
-   ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
-
+2. No menu esquerdo, selecione **Criar um recurso** > **Analytics** > **Data Factory**.
 3. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
 
    O nome da fábrica de dados Azure deve ser *globalmente único.* Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. (por exemplo, o seu nomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
@@ -121,33 +119,38 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
 ### <a name="configure-source"></a>Configurar origem
 
+>[!TIP]
+>Neste tutorial, utiliza a *chave conta* como tipo de autenticação para a sua loja de dados de origem, mas pode escolher outros métodos de autenticação suportados: *SAS URI,**Diretor de Serviço* e Identidade *Gerida,* se necessário. Consulte as secções correspondentes [neste artigo](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties) para obter mais detalhes.
+>Para armazenar segredos para lojas de dados de forma segura, também é recomendado usar um Cofre chave Azure. Consulte [este artigo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para ilustrações detalhadas.
+
 1. Vá ao separador **Fonte.** Selecione **+ Novo** para criar um conjunto de dados de origem.
 
 1. Na caixa de diálogo **New Dataset,** selecione **Armazenamento De Blob Azure**, e, em seguida, selecione **Continue**. A origem de dados está num Armazenamento de blobs, pelo que vai selecionar o **Armazenamento de Blobs do Azure** para o conjunto de dados de origem.
 
 1. Na caixa de diálogo **Select Format,** escolha o tipo de formato dos seus dados e, em seguida, selecione **Continuar**.
 
-    ![Tipo de formato de dados](./media/doc-common-process/select-data-format.png)
+1. Na caixa de diálogo **set Properties,** introduza **SourceBlobDataset** para nome. Selecione a caixa de verificação para **primeira linha como cabeçalho**. Na caixa de texto **de serviço Linked,** selecione **+ Novo**.
 
-1. Na caixa de diálogo **set Properties,** introduza **SourceBlobDataset** para nome. Junto à caixa de texto **Serviço ligado**, selecione **+ Novo**.
-
-1. Na caixa de diálogo **New Linked Service (Azure Blob Storage),** introduza o **AzureStorageLinkedService** como nome, selecione a sua conta de armazenamento na lista de nomes da **conta de armazenamento.** Teste a ligação e, em seguida, selecione **Terminar** para implementar o serviço ligado.
+1. Na caixa de diálogo **New Linked Service (Azure Blob Storage),** introduza o **AzureStorageLinkedService** como nome, selecione a sua conta de armazenamento na lista de nomes da **conta de armazenamento.** Teste a ligação, selecione **Criar** para implementar o serviço ligado.
 
 1. Após a criação do serviço ligado, é navegado de volta para a página de propriedades do **set.** Junto a **Caminho do ficheiro**, selecione **Procurar**.
 
-1. Navegue para a pasta **adftutorial/input**, selecione o ficheiro **emp.txt** e, em seguida, selecione **Concluir**.
+1. Navegue para a pasta **adftutorial/entrada,** selecione o ficheiro **emp.txt** e, em seguida, selecione **OK**.
 
-1. Navega automaticamente para a página do oleoduto. No separador **Fonte,** confirme se **o SourceBlobDataset** está selecionado. Para pré-visualizar os dados nesta página, selecione **Pré-visualizar dados**.
+1. Selecione **OK**. Navega automaticamente para a página do oleoduto. No separador **Fonte,** confirme se **o SourceBlobDataset** está selecionado. Para pré-visualizar os dados nesta página, selecione **Pré-visualizar dados**.
 
     ![Conjunto de dados de origem](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
 ### <a name="configure-sink"></a>Configurar sink
+>[!TIP]
+>Neste tutorial, utiliza a *autenticação SQL* como tipo de autenticação para a sua loja de dados de sumidouro, mas pode escolher outros métodos de autenticação suportados: *Diretor de Serviço* e Identidade *Gerida,* se necessário. Consulte as secções correspondentes [neste artigo](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties) para obter mais detalhes.
+>Para armazenar segredos para lojas de dados de forma segura, também é recomendado usar um Cofre chave Azure. Consulte [este artigo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para ilustrações detalhadas.
 
 1. Vá para o separador **Sink** e selecione **+ Novo** para criar um conjunto de dados sink.
 
 1. Na caixa de diálogo **New Dataset,** insere "SQL" na caixa de pesquisa para filtrar os conectores, selecione Base de **Dados SQL Azure,** e, em seguida, selecione **Continue**. Neste tutorial, vai copiar dados para uma base de dados SQL.
 
-1. Na caixa de diálogo **set Properties,** introduza **outputSqlDataset** para nome. Junto à caixa de texto **Serviço ligado**, selecione **+ Novo**. Os conjuntos de dados têm de estar associados a um serviço ligado. O serviço ligado tem a cadeia de ligação que o Data Factory utiliza para ligar à base de dados SQL no runtime. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) para os quais os dados são copiados.
+1. Na caixa de diálogo **set Properties,** introduza **outputSqlDataset** para nome. A partir da lista de abandono do **serviço Linked,** selecione **+ Novo**. Os conjuntos de dados têm de estar associados a um serviço ligado. O serviço ligado tem a cadeia de ligação que o Data Factory utiliza para ligar à base de dados SQL no runtime. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) para os quais os dados são copiados.
 
 1. Na caixa de diálogo New **Linked Service (Azure SQL Database),** tome os seguintes passos:
 
@@ -163,17 +166,17 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
     f. Selecione **Testar ligação** para testar a ligação.
 
-    g. Selecione **Terminar** para implementar o serviço ligado.
+    g. Selecione **Criar** para implementar o serviço ligado.
 
     ![Guardar novo serviço ligado](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-1. Navega automaticamente para a caixa de diálogo **set Properties.** Em **Tabela**, selecione **[dbo].[emp]**. Em seguida, selecione **Concluir**.
+1. Navega automaticamente para a caixa de diálogo **set Properties.** Em **Tabela**, selecione **[dbo].[emp]**. Em seguida, selecione **OK**.
 
 1. Vá para o separador com o pipeline e, em **Conjunto de Dados Sink**, confirme que **OutputSqlDataset** está selecionado.
 
     ![Separador do pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
 
-Você pode mapear opcionalmente o esquema da fonte para o esquema correspondente de destino, seguindo [o mapeamento de Schema na atividade](copy-activity-schema-and-type-mapping.md) de cópia
+Pode mapear opcionalmente o esquema da fonte para o esquema correspondente de destino, seguindo o [mapeamento de Schema na atividade](copy-activity-schema-and-type-mapping.md)de cópia .
 
 ## <a name="validate-the-pipeline"></a>Validar o pipeline
 Para validar o pipeline, selecione **Validar** na barra de ferramentas.
@@ -185,20 +188,20 @@ Pode depurar um pipeline antes de publicar artefactos (serviços ligados, conjun
 
 1. Para depurar o pipeline, selecione **Depurar** na barra de ferramentas. Verá o estado da execução do pipeline no separador **Saída**, na parte inferior da janela.
 
-1. Uma vez que o gasoduto possa funcionar com sucesso, na barra de ferramentas superior, **selecione Publicar Tudo**. Esta ação publica as entidades (conjuntos de dados e pipeline) que criou no Data Factory.
+1. Uma vez que o gasoduto possa funcionar com sucesso, na barra de ferramentas superior, **selecione Publicar tudo**. Esta ação publica as entidades (conjuntos de dados e pipeline) que criou no Data Factory.
 
 1. Aguarde até ver a mensagem **Publicação com êxito**. Para ver mensagens de notificação, clique em **Mostrar Notificações**, no canto superior direito (botão do sino).
 
 ## <a name="trigger-the-pipeline-manually"></a>Acionar o pipeline manualmente
 Neste passo, vai acionar manualmente o pipeline que publicou no passo anterior.
 
-1. **Selecione Adicionar gatilho** na barra de ferramentas e, em seguida, selecione **'Gatilho' agora**. Na página **Executar Pipeline**, selecione **Concluir**.  
+1. Selecione **Acionar** na barra de ferramentas e, em seguida, selecione **Acionar Agora**. Na página **Pipeline Run,** selecione **OK**.  
 
-1. Vá para o separador **Monitorizar**, no lado esquerdo. Verá uma execução de pipeline que é acionada por um acionador manual. Pode utilizar links na coluna **Ações** para visualizar detalhes de atividade e reexecutar o gasoduto.
+1. Vá para o separador **Monitorizar**, no lado esquerdo. Verá uma execução de pipeline que é acionada por um acionador manual. Pode utilizar links sob a coluna **PIPELINE NAME** para visualizar os detalhes da atividade e reexecutar o gasoduto.
 
     ![Monitorizar execuções de pipeline](./media/tutorial-copy-data-portal/monitor-pipeline.png)
 
-1. Para ver as execuções de atividade associadas à execução do pipeline, selecione a ligação **Ver Execuções de Atividade** na coluna **Ações**. Neste exemplo, só há uma atividade, por isso só se vê uma entrada na lista. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos), na coluna **Ações**. Selecione **Pipeline Runs** na parte superior para voltar à vista Pipeline Runs. Para atualizar a vista, selecione **Atualizar**.
+1. Para ver as operações associadas à execução do gasoduto, selecione a ligação **CopyPipeline** sob a coluna **PIPELINE NAME.** Neste exemplo, só há uma atividade, por isso só se vê uma entrada na lista. Para mais detalhes sobre o funcionamento da cópia, selecione o link **Detalhes** (ícone de óculos) sob a coluna **'NOME** DE ATIVIDADE'. Selecione **Todos os gasodutos que correm** na parte superior para voltar à vista Pipeline Runs. Para atualizar a vista, selecione **Atualizar**.
 
     ![Monitorização de execuções de atividade](./media/tutorial-copy-data-portal/view-activity-runs.png)
 
@@ -209,9 +212,9 @@ Nesta agenda, vai criar um acionador de agenda para o pipeline. O acionador exec
 
 1. Vá para o separador **Criar**, no lado esquerdo acima do separador do monitor.
 
-1. Vá ao seu pipeline, clique em **Adicionar Gatilho** na barra de ferramentas e selecione **New/Edit**.
+1. Aceda ao seu pipeline, clique em **Acionador** na barra de ferramentas e selecione **Novo/Editar**.
 
-1. Na caixa de diálogo **Add Triggers,** selecione **+ Nova** para Escolher a área do **gatilho.**
+1. Na caixa de diálogo **'Gatilhos' Adicionar,** selecione **+ Nova** para Escolher a área do **gatilho.**
 
 1. Na janela **Novo Acionador**, siga os passos seguintes:
 
@@ -225,25 +228,24 @@ Nesta agenda, vai criar um acionador de agenda para o pipeline. O acionador exec
 
     e. Atualize a parte **do tempo final** para estar alguns minutos depois da data atual. O acionador só é ativado depois de publicar as alterações. Se o definires a apenas alguns minutos de distância, e não o publicares até lá, não vês um gatilho a correr.
 
-    f. Selecione **Aplicar**.
+    f. Selecione **OK**.
 
     g. Para a opção **Ativada,** selecione **Sim**.
 
-    h. Selecione **Next**.
-
-    ![Botão Ativado](./media/tutorial-copy-data-portal/trigger-activiated-next.png)
+    h. Selecione **OK**.
 
     > [!IMPORTANT]
     > Está associado um custo a cada execução de pipeline, por isso, defina a data de fim adequadamente.
-1. Na página **Parâmetros da Execução do Acionador**, reveja o aviso e, em seguida, selecione **Concluir**. O pipeline neste exemplo não tem nenhum parâmetro.
 
-1. Clique em **Publicar tudo** para publicar a alteração.
+1. Na página do **gatilho Editar,** reveja o aviso e, em seguida, selecione **Guardar**. O pipeline neste exemplo não tem nenhum parâmetro.
+
+1. Clique **em publicar tudo** para publicar o troco.
 
 1. Vá para o separador **Monitorizar**, do lado esquerdo, para ver as execuções do pipeline acionadas.
 
     ![Execuções de pipeline acionadas](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)   
 
-1. Para mudar da vista **Pipeline Runs** para a vista **'Disparos',** selecione **Disparos** de gatilho na parte superior da janela.
+1. Para mudar da vista **Pipeline Runs** para a vista **'Disparos',** selecione **Disparos** de gatilho no lado esquerdo da janela.
 
 1. Verá as execuções do acionador numa lista.
 

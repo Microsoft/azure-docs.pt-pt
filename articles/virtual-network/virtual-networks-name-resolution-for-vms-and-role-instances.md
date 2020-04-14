@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d7d0699718642a7eb9f85b2e8a86623092c34365
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 9ea63192732184ff7a13ff1465a5b393a282f9d2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010567"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262201"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Name resolution for resources in Azure virtual networks (Resolução de nomes para recursos em redes virtuais do Azure)
 
@@ -88,6 +88,7 @@ O DNS inverso é suportado em todas as redes virtuais baseadas em ARM. Pode emit
 * O look up para a \[frente em\]FQDNs de formulário vmname .internal.cloudapp.net resolverá o endereço IP atribuído à máquina virtual.
 * Se a rede virtual estiver ligada a uma [zona privada Azure DNS](../dns/private-dns-overview.md) como uma rede virtual de registo, as consultas de DNS inversas devolverão dois registos. Um disco será o \[vmname\]de formulário. [priatednszonename] e outros seriam \[do formulário\]vmname .internal.cloudapp.net
 * A procura inversa do DNS é remetido para uma determinada rede virtual, mesmo que seja observada para outras redes virtuais. As consultas de DNS inversas (consultas de PTR) para endereços IP de máquinas virtuais localizadas em redes virtuais peered devolverão o NXDOMAIN.
+* Se quiser desligar a função DNS inversa numa rede virtual, pode fazê-lo criando uma zona de procura inversa utilizando [zonas privadas Azure DNS](../dns/private-dns-overview.md) e ligando esta zona à sua rede virtual. Por exemplo, se o espaço de endereço IP da sua rede virtual for 10.20.0.0/16, então pode criar uma zona privada vazia de DNS 20.10.in-addr.arpa e ligá-lo à rede virtual. Ao ligar a zona à sua rede virtual, deve desativar o registo automático no link. Esta zona irá sobrepor-se às zonas de procura inversa sem fim para a rede virtual e uma vez que esta zona está vazia, obterá o NXDOMAIN para as suas consultas de DNS inversas. Consulte o nosso [guia Quickstart](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) para obter detalhes sobre como criar uma zona Privada de DNS e ligá-la a uma rede virtual.
 
 > [!NOTE]
 > Se quiser que a procura inversa do DNS se estenda através da rede virtual, pode criar uma zona de procuração inversa (in-addr.arpa) [Zonas privadas Azure DNS](../dns/private-dns-overview.md) e liga-a a várias redes virtuais. No entanto, terá de gerir manualmente os registos dNS invertidos para as máquinas virtuais.

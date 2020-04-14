@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ccfaa57b8e8fdea325bed908ffe8815b09d0d15
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271164"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257798"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunique com o seu hub IoT usando o protocolo MQTT
 
@@ -46,11 +46,11 @@ A tabela seguinte contém links para amostras de código para cada idioma suport
 
 | Idioma | Parâmetro de protocolo MQTT | Parâmetro de protocolo MQTT sobre Web Sockets
 | --- | --- | --- |
-| [Nó.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-dispositivo-mqtt. Mqtt | azure-iot-dispositivo-mqtt. MqttWs |
+| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-dispositivo-mqtt. Mqtt | azure-iot-dispositivo-mqtt. MqttWs |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
 | [C #](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [Tipo de transporte](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). Mqtt | TransportType.Mqtt volta a MQTT sobre as tomadas web se o MQTT falhar. Para especificar mQTT apenas sobre tomadas web, use TransportType.Mqtt_WebSocket_Only |
-| [Pitão](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Suporta MQTT por defeito | Adicione `websockets=True` a chamada para criar o cliente |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Suporta MQTT por defeito | Adicione `websockets=True` a chamada para criar o cliente |
 
 O seguinte fragmento mostra como especificar o protocolo MQTT sobre tomadas Web ao utilizar o Nó Azure IoT Node.js SDK:
 
@@ -118,7 +118,7 @@ Se um dispositivo não puder utilizar os SDKs do dispositivo, ainda pode ligar-s
 
   Para obter mais informações sobre como gerar tokens SAS, consulte a secção do dispositivo de utilização de [tokens de segurança Do Hub IoT](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Ao testar, também pode utilizar as [ferramentas azure ioT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) cross-platform para código de estúdio visual ou a ferramenta [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) para gerar rapidamente um símbolo SAS que você pode copiar e colar no seu próprio código:
+  Ao testar, também pode utilizar as [ferramentas azure ioT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) cross-platform para o Código do Estúdio Visual ou o comando de extensão CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) para gerar rapidamente um token SAS que você pode copiar e colar no seu próprio código:
 
 ### <a name="for-azure-iot-tools"></a>Para ferramentas Azure IoT
 
@@ -129,16 +129,6 @@ Se um dispositivo não puder utilizar os SDKs do dispositivo, ainda pode ligar-s
 3. Detete **o tempo** de validade e prima 'Enter'.
   
 4. O token SAS é criado e copiado para a prancheta.
-
-### <a name="for-device-explorer"></a>Para explorador de dispositivos
-
-1. Vá ao separador **Gestão** no Explorador de **Dispositivos.**
-
-2. Clique em **SAS Token** (direita superior).
-
-3. No **SASTokenForm,** selecione o seu dispositivo no **DeviceID.** Desloque o seu **TTL**.
-
-4. Clique em **Gerar** para criar o seu símbolo.
 
    O símbolo SAS gerado tem a seguinte estrutura:
 

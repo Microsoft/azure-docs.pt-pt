@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 3bd559b90a4df5573a44b895ce3b097864d1add7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 8cf82827258b3888f4c30ad39a395d697a518a32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585586"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261108"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com opsGenie
 
@@ -29,7 +29,7 @@ Neste tutorial, você vai aprender a integrar opsGenie com o Azure Ative Directo
 * Ative que os seus utilizadores sejam automaticamente inscritos na OpsGenie com as suas contas Azure AD.
 * Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -193,7 +193,7 @@ Quando clicar no azulejo OpsGenie no Painel de Acesso, deve ser automaticamente 
 
 - [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

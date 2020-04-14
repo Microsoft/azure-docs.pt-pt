@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/02/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249710aa34ff99e7c4755e7df7228d3006f15e31
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 05aed032eeb3a3cd925a718516ba9c8ffb87f65e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668973"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261109"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nitro-productivity-suite"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com a Nitro Productivity Suite
 
@@ -37,7 +37,7 @@ Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o qu
 Para começar, precisa dos seguintes itens:
 
 * Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* A assinatura ativada pela Nitro Productivity Suite (SSO) permitiu a subscrição.
+* Uma assinatura da Nitro Productivity Suite [Enterprise.](https://www.gonitro.com/pricing)
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -78,40 +78,56 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **da Nitro Productivity Suite,** encontre a secção **Gerir** e selecione um **único sinal.**
 1. Na página **de método de inscrição, selecione** **SAML**.
-1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
+1. Na secção **certificado de assinatura SAML:**
+
+    a. Encontre **o Certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
+
+    ![O link de descarregamento do Certificado](common/certificatebase64.png)
+    
+1. Na secção Configurar a Suite de **Produtividade** nitrosa:
+
+    a. Clique no ícone da cópia ao lado do URL de **Login**
+    
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    
+1. No [portal Nitro Admin](https://admin.gonitro.com/), na página Definições da **Empresa,** encontre a secção **De Início único** e clique no botão **Configuração SAML SSO.**
+
+    a. **Colá-lo** do passo acima para o campo URL do **SignIn.**
+    
+    a. Faça upload do **Certificado (Base64)** a partir do passo anterior no campo de certificado de **assinatura X509.**
+    
+    a. Clique em **Submeter**
+    
+    a. Clique em **ativar um único sign-on**
+
+
+1. Volte ao [portal Azure,](https://portal.azure.com/)no set único de inscrição com a página **SAML,** clique no ícone de edição/caneta para **configuração Básica do SAML** para editar as definições.
 
    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
 1. Na secção **Basic SAML Configuration,** caso deseje configurar a aplicação no modo iniciado do **IDP,** introduza os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`urn:auth0:gonitro-prod:<ENVIRONMENT>`
+    a. Na caixa de texto **identificador,** copie e cole o campo de ID da **entidade SAML** do [portal Nitro Admin](https://admin.gonitro.com/). Deve ter o seguinte padrão:`urn:auth0:gonitro-prod:<ENVIRONMENT>`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://gonitro-prod.eu.auth0.com/login/callback?connection=<ENVIRONMENT>`
+    b. Na caixa de texto **URL de resposta,** copie e cole o campo **URL ACS** do [portal Nitro Admin](https://admin.gonitro.com/). Deve ter o seguinte padrão:`https://gonitro-prod.eu.auth0.com/login/callback?connection=<ENVIRONMENT>`
 
 1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
     Na caixa de texto **de URL sign-on,** escreva o URL:`https://sso.gonitro.com/login`
 
-    > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte a equipa de suporte do [Cliente da Nitro Productivity Suite](https://www.gonitro.com/support) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+1. Clique em Guardar.
 
 1. A aplicação Nitro Productivity Suite espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
     ![image](common/default-attributes.png)
 
-1. Além de acima, a aplicação Nitro Productivity Suite espera que poucos atributos sejam retransmitidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
+1. Além disso, a aplicação Nitro Productivity Suite espera que mais alguns atributos sejam retransmitidos na resposta SAML, como mostra a tabela seguinte. Estes atributos são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
     | Nome  |  Atributo fonte|
-    | ---------------| --------------- | --------- |
+    | ---------------| --------------- |
     | empregadoNúmero |  utilizador.objectid |
 
-1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de descarregamento do Certificado](common/certificatebase64.png)
-
-1. Na secção Configurar a **Suite de Produtividade** nitrosa, copie os URL(s) adequados com base no seu requisito.
-
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
 Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.

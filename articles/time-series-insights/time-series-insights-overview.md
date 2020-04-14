@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 02/04/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: a938dc69b2b0401a062b1db314d71100b4fbbc4f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 59149b2ca598104d8aca9b4e5e60194a8f6398bf
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77024386"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269963"
 ---
 # <a name="what-is-azure-time-series-insights"></a>O que é o Azure Time Series Insights?
 

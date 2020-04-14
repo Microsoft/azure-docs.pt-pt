@@ -3,7 +3,7 @@ title: Eventos agendados para VMs Linux em Azure
 description: Agendar eventos utilizando o Serviço de Metadados Azure para as suas máquinas virtuais Linux.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
-author: ericrad
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
-ms.author: ericrad
-ms.openlocfilehash: dbea68f5699f26b866d2e22c960c0359bcb3479b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: b3b9914d0e5162f8f8f41b929d7bdfef68f85ad9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79267199"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263323"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados Azure: Eventos agendados para VMs Linux
 

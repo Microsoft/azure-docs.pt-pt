@@ -1,22 +1,22 @@
 ---
-title: Disponibilidade geográfica e Apoio cambial Azure
-description: Disponibilidade geográfica no Azure Marketplace e AppSource
+title: Disponibilidade geográfica e apoio cambial Azure
+description: Disponibilidade geográfica no mercado comercial
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
-ms.openlocfilehash: 79965180d897b91afc1fb1a27e777e385108d2c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82c3ed79bbcc566a91f9f249ec2df747bbc01cac
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288432"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262014"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Disponibilidade geográfica e apoio cambial
 
-As ofertas do Azure Marketplace e appSource podem ser adquiridas em 141 geografias, tal como definidas pelo endereço de faturação do cliente, e as transações podem ser concluídas em 17 moedas. A tabela abaixo lista cada localização geográfica suportada, o seu [código alfa ISO 3166 de dois dígitos,](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e a moeda atribuída.
+As ofertas de marketplace comercial podem ser adquiridas em 141 geografias, tal como definidas pelo endereço de faturação do cliente, e as transações podem ser concluídas em 17 moedas. A tabela abaixo lista cada localização geográfica suportada, o seu [código alfa ISO 3166 de dois dígitos,](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e a moeda atribuída.
 
 |   Nome país/região               |   ISO-2   |   Moeda   |
 |-------------------------------------|-----------|--------------|

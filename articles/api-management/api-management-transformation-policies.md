@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 81b7fb687bb6ef88d1ed436923d0e5ff7561c22b
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803250"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260909"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação da Gestão de API
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre a adição e configuração de políticas, consulte [Políticas na Gestão da API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -214,7 +214,7 @@ ou
 ```
 
 > [!NOTE]
-> As entidades backend podem ser geridas através da gestão [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) e [PowerShell.](https://www.powershellgallery.com/packages?q=apimanagement)
+> As entidades backend podem ser geridas através da gestão [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) e [PowerShell.](https://www.powershellgallery.com/packages?q=apimanagement)
 
 ### <a name="example"></a>Exemplo
 
@@ -269,7 +269,7 @@ Neste exemplo, a política encaminha o pedido para um backend de tecido de servi
 |Nome|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |base-url|Url de base de serviço de backend novo.|Um `base-url` dos `backend-id` ou deve estar presente.|N/D|
-|backend-id|Identificador do backend para. (As entidades backend são geridas via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um `base-url` dos `backend-id` ou deve estar presente.|N/D|
+|backend-id|Identificador do backend para. (As entidades backend são geridas via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um `base-url` dos `backend-id` ou deve estar presente.|N/D|
 |chave de partição sf|Só aplicável quando o backend é um serviço de tecido de serviço e é especificado usando 'backend-id'. Usado para resolver uma partição específica do serviço de resolução de nomes.|Não|N/D|
 |sf-replica-tipo|Só aplicável quando o backend é um serviço de tecido de serviço e é especificado usando 'backend-id'. Controle se o pedido deve ir para a réplica primária ou secundária de uma divisória. |Não|N/D|
 |sf-resolver-condição|Só aplicável quando o backend é um serviço de Tecido de Serviço. Condição identificando se a chamada para o backend do Tecido de Serviço tem que ser repetida com nova resolução.|Não|N/D|

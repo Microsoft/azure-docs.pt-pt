@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 9de75b5537b3e267116882e7f151d893de575071
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 672f145b638fa6b85f7139f2edb4fc41bb2855d9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70072470"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260977"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerir contas de utilizador na Gestão de API do Azure
 
-Na Gestão aPi, os desenvolvedores são os utilizadores das APIs que expõe usando a API Management. Este guia mostra como criar e convidar os desenvolvedores a utilizaras APIs e produtos que disponibiliza com a sua instância de Gestão API. Para obter informações sobre a gestão das contas dos utilizadores programáticamente, consulte a documentação da [entidade utilizadora](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user) na referência REST de Gestão da [API.](/rest/api/apimanagement/)
+Na Gestão aPi, os desenvolvedores são os utilizadores das APIs que expõe usando a API Management. Este guia mostra como criar e convidar os desenvolvedores a utilizaras APIs e produtos que disponibiliza com a sua instância de Gestão API. Para obter informações sobre a gestão das contas dos utilizadores programáticamente, consulte a documentação da [entidade utilizadora](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user) na referência REST de Gestão da [API.](/rest/api/apimanagement/)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 

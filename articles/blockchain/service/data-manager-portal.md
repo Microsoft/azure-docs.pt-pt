@@ -4,12 +4,12 @@ description: Crie e gerencie o Gestor de Dados blockchain para o Serviço Azure 
 ms.date: 03/30/2020
 ms.topic: article
 ms.reviewer: ravastra
-ms.openlocfilehash: beacef0660a253c90afb507618e8a1742f0c9d2d
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 08f5a4a807087afce13dd4a6e96c0e9dd0a36103
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529607"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260603"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurar o Blockchain Data Manager com o portal do Azure
 
@@ -28,11 +28,11 @@ Para configurar uma instância do Gestor de Dados blockchain, você:
 
 ## <a name="create-instance"></a>Criar instância
 
-Uma instância do Gestor de Dados blockchain conecta e monitoriza um nó de transações do Serviço Azure Blockchain. Apenas os utilizadores com acesso ao nó de transações podem criar uma ligação. Um caso captura todos os dados de transações brutas e blocos brutos do nó de transações.
+Uma instância do Gestor de Dados blockchain conecta e monitoriza um nó de transações do Serviço Azure Blockchain. Apenas os utilizadores com acesso ao nó de transações podem criar uma ligação. Um caso captura todos os dados de transações brutas e blocos brutos do nó de transações. O Blockchain Data Manager publica uma mensagem **RawBlockAndTransactionMsg** que é um superconjunto de informação devolvida a partir do web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) e obter consultas [de Transações.](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction)
 
 Uma ligação de saída envia dados blockchain para a Rede de Eventos Azure. Configura uma única ligação de saída quando cria a instância. O Blockchain Data Manager suporta várias ligações de saída do Tópico de Evento para qualquer instância do Gestor de Dados blockchain. Pode enviar dados blockchain para um único destino ou enviar dados blockchain para vários destinos. Para adicionar outro destino, adicione apenas ligações adicionais de saída à instância.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Vá ao membro do Serviço Azure Blockchain que pretende ligar ao Blockchain Data Manager. Selecione **Blockchain Data Manager**.
 1. Selecione **Adicionar**.
 
