@@ -1,20 +1,20 @@
 ---
 title: Escala automática de resolução de problemas com conjuntos de escala de máquina virtual
 description: Escala automática de sessão de problemas com conjuntos de escala de máquina virtual. Compreender os problemas típicos encontrados e como resolvê-los.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
 ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: windows
 ms.topic: conceptual
 ms.date: 11/16/2017
-ms.author: manayar
-ms.openlocfilehash: 923967a902f611ce845fbdc096fd2c02e681bb6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 4bc5e66f5b0759bdb5fe34276369161200bd5442
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76272437"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273380"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Resolver problemas de dimensionamento automático em Conjuntos de Dimensionamento de Máquinas Virtuais
 **Problema** – criou uma infraestrutura de autoscalcificação no Azure Resource Manager utilizando conjuntos de escala https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale de máquinas virtuais – por exemplo, ao implementar um modelo como este: – tem as suas regras de escala definidas e funciona muito bem, exceto por mais carga que coloque nos VMs, não faz escala automática.

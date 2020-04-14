@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 951f24ad06014f6d95f10c91e1bad8e99bbbc736
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 9003d35ce2eea18aa912a866802b026bb923aa08
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991778"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272700"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Balanceador de Carga Standard com métricas, alertas e estado de funcionamento dos recursos
 
@@ -37,8 +37,8 @@ As várias configurações de Balancer de Carga Padrão fornecem as seguintes m�
 
 | Métrica | Tipo de recurso | Descrição | Agregação recomendada |
 | --- | --- | --- | --- |
-| Disponibilidade de caminhos de dados (disponibilidade VIP)| Equilibrador de carga público e interno | O Standard Load Balancer exerce continuamente o caminho de dados de dentro de uma região para a extremidade frontal do equilibrador de carga, até à pilha SDN que suporta o seu VM. Enquanto forem casos saudáveis, a medição segue o mesmo caminho que o tráfego equilibrado da sua aplicação. O caminho de dados que os seus clientes utilizam também é validado. A medição é invisível à sua aplicação e não interfere com outras operações.| Média |
-| Estado da sonda de saúde (disponibilidade dip) | Equilibrador de carga público e interno | O Standard Load Balancer utiliza um serviço de sondagem de saúde distribuído que monitoriza a saúde do ponto final da sua aplicação de acordo com as definições de configuração. Esta métrica proporciona uma visão filtrada agregada ou por ponto final de cada ponto final na piscina de equilíbrio de carga. Pode ver como o Balancer de Carga vê a saúde da sua aplicação, conforme indicado pela sua configuração de sonda de saúde. |  Média |
+| Disponibilidade de caminhos de dados | Equilibrador de carga público e interno | O Standard Load Balancer exerce continuamente o caminho de dados de dentro de uma região para a extremidade frontal do equilibrador de carga, até à pilha SDN que suporta o seu VM. Enquanto forem casos saudáveis, a medição segue o mesmo caminho que o tráfego equilibrado da sua aplicação. O caminho de dados que os seus clientes utilizam também é validado. A medição é invisível à sua aplicação e não interfere com outras operações.| Média |
+| Estado da sonda de saúde | Equilibrador de carga público e interno | O Standard Load Balancer utiliza um serviço de sondagem de saúde distribuído que monitoriza a saúde do ponto final da sua aplicação de acordo com as definições de configuração. Esta métrica proporciona uma visão filtrada agregada ou por ponto final de cada ponto final na piscina de equilíbrio de carga. Pode ver como o Balancer de Carga vê a saúde da sua aplicação, conforme indicado pela sua configuração de sonda de saúde. |  Média |
 | Pacotes SYN (sincronização) | Equilibrador de carga público e interno | O Balancer de Carga Standard não termina as ligações do Protocolo de Controlo de Transmissão (TCP) nem interage com os fluxos de pacotes TCP ou UDP. Os fluxos e os seus apertos de mão estão sempre entre a fonte e a instância VM. Para melhor resolver os seus cenários de protocolo TCP, pode utilizar os contadores de pacotes SYN para entender quantas tentativas de ligação tCP são feitas. A métrica relata o número de pacotes de SYN tCP que foram recebidos.| Média |
 | Ligações SNAT | Equilibrador de carga pública |A Standard Load Balancer informa o número de fluxos de saída que são mascarados para a extremidade frontal do endereço IP público. As portas de tradução de endereços de rede de origem (SNAT) são um recurso de escape. Esta métrica pode dar uma indicação de quão fortemente a sua aplicação está a depender do SNAT para fluxos originados de saída. Os contadores para fluxos sNAT bem sucedidos e falhados são relatados e podem ser usados para resolver problemas e entender a saúde dos seus fluxos de saída.| Média |
 | Portas SNAT atribuídas | Equilibrador de carga pública | A Standard Load Balancer informa o número de portas SNAT atribuídas por instância de backend | A média. |
@@ -85,13 +85,13 @@ Para configurar alertas:
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Cenários de diagnóstico comuns e vistas recomendadas
 
-#### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>O caminho dos dados está disponível para o meu equilibrador de carga VIP?
+#### <a name="is-the-data-path-up-and-available-for-my-load-balancer-frontend"></a>O caminho de dados está disponível para o meu Frontend de Equilíbrio de Carga?
 <details><summary>Expandir</summary>
 
-A métrica de disponibilidade VIP descreve a saúde do caminho dos dados dentro da região para o hospedeiro da computação onde estão localizados os seus VMs. A métrica é um reflexo da saúde da infraestrutura Azure. Pode usar a métrica para:
+A métrica de disponibilidade da trajetória de dados descreve a saúde da trajetória de dados dentro da região para o hospedeiro da computação onde estão localizados os seus VMs. A métrica é um reflexo da saúde da infraestrutura Azure. Pode usar a métrica para:
 - Monitorize a disponibilidade externa do seu serviço
 - Investigue mais profundamente e compreenda se a plataforma em que o seu serviço é implantado é saudável ou se o seu hóspede OS ou a instância de aplicação são saudáveis.
-- Isole se um evento está relacionado com o seu serviço ou com o plano de dados subjacente. Não confunda esta métrica com o estado da sonda de saúde ("disponibilidade dip").
+- Isole se um evento está relacionado com o seu serviço ou com o plano de dados subjacente. Não confunda esta métrica com o estado da sonda de saúde ("Disponibilidade de Instância de Backend").
 
 Para obter a disponibilidade do Caminho de Dados para os seus recursos de Balancer De Carga Padrão:
 1. Certifique-se de que o recurso correto do equilíbrio de carga está selecionado. 
@@ -107,7 +107,7 @@ A métrica é gerada por uma medição ativa e em banda. Um serviço de sondagem
 
 Um pacote que corresponde à extremidade dianteira da sua implantação e regra é gerado periodicamente. Atravessa a região desde a nascente até ao hospedeiro onde está localizado um VM na piscina traseira. A infraestrutura de equilíbrio de carga realiza as mesmas operações de equilíbrio de carga e tradução que faz para todos os outros tráfegos. Esta sonda está em banda no seu ponto final equilibrado. Depois da sonda chegar ao hospedeiro da computação, onde está localizado um VM saudável na piscina traseira, o anfitrião da computação gera uma resposta ao serviço de sondagem. O seu VM não vê este trânsito.
 
-A disponibilidade VIP falha pelas seguintes razões:
+A disponibilidade de disponibilidade de datapath falha pelas seguintes razões:
 - A sua implantação não tem VMs saudáveis restantes na piscina traseira. 
 - Ocorreu uma falha na infraestrutura.
 
@@ -116,7 +116,7 @@ Para fins de diagnóstico, pode utilizar a métrica de disponibilidade do [camin
 Use a **Média** como a gregação para a maioria dos cenários.
 </details>
 
-#### <a name="are-the-back-end-instances-for-my-vip-responding-to-probes"></a>Os casos de back-end para o meu VIP respondem às sondas?
+#### <a name="are-the-backend-instances-for-my-load-balancer-responding-to-probes"></a>Os Casos Backend para o meu Balancer de Carga estão a responder às sondas?
 <details>
   <summary>Expandir</summary>
 A métrica do estado da sonda de saúde descreve a saúde da implementação da sua aplicação como configurada por si quando configura a sonda de saúde do seu equilibrador de carga. O equilibrador de carga utiliza o estado da sonda de saúde para determinar para onde enviar novos fluxos. As sondas sanitárias originam-se de um endereço de infraestrutura Azure e são visíveis dentro do os so do VM convidado.
@@ -209,19 +209,19 @@ Para obter estatísticas de byte ou contagem de pacotes:
 #### <a name="how-do-i-diagnose-my-load-balancer-deployment"></a><a name = "vipavailabilityandhealthprobes"></a>Como diagnostico a minha implantação de equilibradores de carga?
 <details>
   <summary>Expandir</summary>
-Ao utilizar uma combinação das métricas de disponibilidade VIP e sonda de saúde num único gráfico, pode identificar onde procurar o problema e resolver o problema. Pode obter a garantia de que o Azure está a trabalhar corretamente e usar este conhecimento para determinar conclusivamente que a configuração ou aplicação é a causa principal.
+Ao utilizar uma combinação das métricas de disponibilidade de caminhos de dados e estado da sonda de saúde num único gráfico, pode identificar onde procurar o problema e resolver o problema. Pode obter a garantia de que o Azure está a trabalhar corretamente e usar este conhecimento para determinar conclusivamente que a configuração ou aplicação é a causa principal.
 
 Pode utilizar métricas de sonda de saúde para entender como o Azure vê a saúde da sua implantação de acordo com a configuração que forneceu. Olhar para as sondas de saúde é sempre um grande primeiro passo na monitorização ou determinação de uma causa.
 
-Pode dar um passo mais além e usar métricas de disponibilidade VIP para obter informações sobre como o Azure vê a saúde do plano de dados subjacente que é responsável pela sua implementação específica. Quando combinar ambas as métricas, pode isolar onde a falha pode estar, como ilustrado neste exemplo:
+Pode dar um passo mais além e utilizar a métrica de disponibilidade do Data Path para obter informações sobre como o Azure vê a saúde do plano de dados subjacente que é responsável pela sua implementação específica. Quando combinar ambas as métricas, pode isolar onde a falha pode estar, como ilustrado neste exemplo:
 
 ![Combinando disponibilidade de caminhos de dados e métricas de estado da sonda de saúde](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
 
 *Figura: Combinando disponibilidade de caminhos de dados e métricas de estado da sonda de saúde*
 
 O gráfico apresenta as seguintes informações:
-- A infraestrutura que alberga os seus VMs estava indisponível e a 0% no início da tabela. Mais tarde, a infraestrutura estava saudável e os VMs eram acessíveis, e mais de um VM foi colocado na parte de trás. Esta informação é indicada pelo traço azul para a disponibilidade da trajetória de dados (disponibilidade VIP), que foi posteriormente a 100 por cento. 
-- O estado da sonda de saúde (disponibilidade dip), indicado pelo traço roxo, está a 0% no início da tabela. A área circulou em destaques verdes onde o estado da sonda de saúde (disponibilidade dip) tornou-se saudável, e nesse ponto a implantação do cliente foi capaz de aceitar novos fluxos.
+- A infraestrutura que alberga os seus VMs estava indisponível e a 0% no início da tabela. Mais tarde, a infraestrutura estava saudável e os VMs eram acessíveis, e mais de um VM foi colocado na parte de trás. Esta informação é indicada pelo traço azul para a disponibilidade da trajetória de dados, que foi posteriormente a 100 por cento. 
+- O estado da sonda de saúde, indicado pelo traço roxo, está a 0% no início da tabela. A área circulou em destaques verdes onde o estado da sonda de saúde tornou-se saudável, e nessa altura a implantação do cliente foi capaz de aceitar novos fluxos.
 
 O gráfico permite que os clientes problemáticos a implementação por si só sem ter que adivinhar ou perguntar apoio se outros problemas estão acontecendo. O serviço não estava disponível porque as sondas de saúde estavam a falhar devido a uma configuração errada ou a uma aplicação falhada.
 </details>

@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Operadores lógicos numa definição de política'
 description: Este padrão de política azure fornece exemplos de como utilizar os operadores lógicos numa definição de política.
-ms.date: 01/31/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 8e57efaea81848c6b2d0188dbf3f91e06ed74c67
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 691383b1f8ae34bbd51ce7f4f9310980e3c66537
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77172850"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272513"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Padrão de política azure: operadores lógicos
 
@@ -38,6 +38,18 @@ Esta definição de política avalia os recursos para um padrão de nomeação. 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-2.json" range="7-21" highlight="2,3,9":::
 
 Esta **políticaRule.se** o bloco também inclui um único **allOf**, mas cada condição é embrulhada com o operador **não** lógico. O condicional dentro do operador **não** lógico avalia primeiro e, em seguida, avalia o **não** determinar se a cláusula inteira é verdadeira ou falsa. Se ambos **os** operadores não lógicos avaliarem verdadeiramente, o efeito político desencadeia.
+
+## <a name="sample-3-combining-logical-operators"></a>Amostra 3: Combinação de operadores lógicos
+
+Esta definição de política avalia as contas de Java Spring para ver se algum dos vestígios não está ativado ou se o vestígio não está num estado de sucesso.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
+
+### <a name="sample-3-explanation"></a>Amostra 3: Explicação
+
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json" range="6-28" highlight="3,8":::
+
+Esta **políticaRule.se** o bloco inclui tanto o **allOf** como **qualquer dos** operadores lógicos. O operador lógico **avalia** a verdade enquanto uma condição incluída for verdadeira. Como o _tipo_ está no centro do **allOf,** deve sempre avaliar o verdadeiro. Se o _tipo_ e uma das condições em **qualquer Of** forem verdadeiros, o efeito político dispara.
 
 ## <a name="next-steps"></a>Passos seguintes
 

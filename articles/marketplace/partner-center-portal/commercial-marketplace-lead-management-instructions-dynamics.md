@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 8af6b3a451d20bcc9cab3fa4adb9643f82b85e49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b3e35b6d19905e3c5262dfea3e52511510c9ffe
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288823"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252787"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configure a gestão de chumbo para a Dynamics 365 para envolvimento com o cliente
 
@@ -180,6 +180,7 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
     ![Detalhes da ligação - destino de chumbo](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
 4. Fornecer o URL de instância `https://contoso.crm4.dynamics.com`Dynamics **365,** tais como .
+
 5. Selecione o método de **Autenticação,** Diretório Ativo Azure ou Office 365. 
 6. Se selecionou o Azure Ative Directory, forneça o `23456052-aaaa-bbbb-8662-1234df56788f` **ID (cliente) da Aplicação (exemplo:** ), ID do **Diretório** (exemplo: `12345678-8af1-4asf-1234-12234d01db47`) e **segredo do Cliente** (exemplo: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
 
@@ -188,6 +189,13 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 7. Se selecionou o Office 365, forneça `contoso@contoso.onmicrosoft.com`o nome de `P@ssw0rd` **utilizador** (exemplo: ) e palavra-passe (exemplo: ).
 
     ![Detalhes da ligação - Nome do utilizador](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
+
+8. **E-mail de contacto** - Forneça e-mails para pessoas da sua empresa que devam receber notificações de e-mail quando um novo chumbo for recebido. Pode fornecer vários e-mails separando-os com ponto e vírgula.
+9. Selecione **OK**.
+
+Para se certificar de que se ligou com sucesso a um destino de chumbo, clique no botão de validação. Se for bem sucedido, terá um chumbo de teste no destino principal.
+
+![Gestão de chumbo - conta de armazenamento de detalhes de ligação](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-connection-details.png)
 
 >[!Note]
 >Tem de terminar de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta.

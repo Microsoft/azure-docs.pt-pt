@@ -1,7 +1,7 @@
 ---
 title: Conjuntos de escala vertical de escala azure conjuntos de escala virtual
 description: Como escalar verticalmente uma Máquina Virtual em resposta a alertas de monitorização com a Automação Azure
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
@@ -9,13 +9,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: manayar
-ms.openlocfilehash: fa1dda2907e8400491c8d18897bb41fb9cff49fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: c28c50ef78f67daa6adc4022d8feb559f5c1c1f0
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76274441"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273363"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Escala automática vertical com conjuntos de escala de máquina virtual
 

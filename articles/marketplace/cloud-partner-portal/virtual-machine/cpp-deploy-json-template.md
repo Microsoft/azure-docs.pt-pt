@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 2db8c05d086c7b4e8537a1c17b1ca84eedb19857
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 506412c23288d58c2f59b91a300265ddd79428bf
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277876"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273924"
 ---
-# <a name="virtual-hard-disk-deployment-template"></a>Modelo de implementação de disco rígido virtual 
+# <a name="virtual-hard-disk-deployment-template"></a>Modelo de implementação de disco rígido virtual
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na certificação de [imagem Azure VM](https://aks.ms/CertifyVMimage) para gerir as suas ofertas migratórias.
 
 O seguinte modelo do Gestor de Recursos Azure define uma nova instância de máquina virtual Azure (VM), criada a partir de disco rígido virtual local (VHD).  Este modelo é utilizado no artigo [Implementar um VM Azure de um VHD utilizador](./cpp-deploy-vm-user-image.md). 
 

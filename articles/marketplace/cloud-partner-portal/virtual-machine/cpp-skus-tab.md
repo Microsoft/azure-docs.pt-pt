@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: 49f1de5128325b2884ea76b010727be45f1b195d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8dbadf959107e733a94216c8a01495e6ebf5039
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288891"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273125"
 ---
 # <a name="virtual-machine-skus-tab"></a>Tab SKUs máquina virtual
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Create a Azure Virtual Machine para](https://aka.ms/CreateAzureVMoffer) gerir as suas ofertas migratórias.
 
 O separador **SKUs** da página **New Offer** permite-lhe criar uma ou mais SKUs e associá-las à sua nova oferta.  Diferentes SKUs podem diferenciar uma solução por conjuntos de funcionalidades, tipos de imagem VM, entrada ou escalabilidade, modelos de faturação ou alguma outra característica.
 

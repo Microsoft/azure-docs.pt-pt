@@ -3,12 +3,12 @@ title: Criar grupos de gestão para organizar recursos - Azure Governance
 description: Aprenda a criar grupos de gestão Azure para gerir múltiplos recursos usando o portal, Azure PowerShell e Azure CLI.
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: d9bb2e82404c0188094298f40da3346ee132eec3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a06679432d795b5b7854af8dc66b468841978e9c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75436537"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273193"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gestão para a organização e gestão de recursos
 
@@ -20,7 +20,7 @@ O primeiro grupo de gestão criado no diretório pode demorar até 15 minutos a 
 
 Qualquer utilizador da AD Azure no inquilino pode criar um grupo de gestão sem que o grupo de gestão escreva permissão atribuída a esse utilizador.  Este novo grupo de gestão será filho do Grupo de Gestão de Raízes e o criador terá uma função de "Proprietário". O serviço de grupo de gestão permite esta capacidade para que as atribuições de funções não sejam necessárias ao nível da raiz. Nenhum utilizador tem acesso ao Grupo de Gestão de Raiz quando é criado.  Para evitar o obstáculo de encontrar os Administradores Globais da AD Azure para começar a usar grupos de gestão, permitimos a criação dos grupos de gestão inicial ao nível das raízes.      
 
-Pode criar o grupo de gestão utilizando o portal, PowerShell ou Azure CLI. Atualmente, não pode usar modelos de Gestor de Recursos para criar grupos de gestão.
+Pode criar o grupo de gestão utilizando o portal, um modelo de Gestor de [Recursos,](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group)PowerShell ou Azure CLI.
 
 ### <a name="create-in-portal"></a>Criar no portal
 

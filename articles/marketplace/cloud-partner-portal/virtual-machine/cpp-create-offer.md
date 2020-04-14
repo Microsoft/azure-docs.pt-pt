@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: bc1cf7a839307e65bd91eb29531663141e521472
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d06809df2774224b61fd3fb643ab628dd2890f6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278046"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273992"
 ---
 # <a name="create-virtual-machine-offer"></a>Criar oferta de Máquina Virtual
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Create a Azure Virtual Machine para](https://aka.ms/CreateAzureVMoffer) gerir as suas ofertas migratórias.
 
 Esta secção enumera os passos necessários para criar uma nova máquina virtual (VM) oferecer pedido para o Mercado Azure.  Cada oferta aparece como sua própria entidade no Azure Marketplace e está associada a uma ou mais SKUs.  Uma oferta VM é composta pelos seguintes agrupamentos de ativos e serviços de apoio: 
 
@@ -46,7 +49,7 @@ Assim que iniciar sessão no Portal do [Parceiro cloud,](https://cloudpartner.az
 
 Os tópicos subsequentes nesta secção espelham os separadores na página **New Offer** (para um tipo de oferta VM).  Cada artigo explica como usar o separador associado para definir os grupos de ativos e serviços de apoio para a sua nova oferta vm.
 
-- [Separador Definições da oferta](./cpp-offer-settings-tab.md)
+- [Separador Definições de Oferta](./cpp-offer-settings-tab.md)
 - [Separador de SKUs](./cpp-skus-tab.md)
 - [Separador Versão de Teste](./cpp-test-drive-tab.md)
 - [Separador Marketplace](./cpp-marketplace-tab.md)

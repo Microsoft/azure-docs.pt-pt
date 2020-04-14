@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: dapine
-ms.openlocfilehash: 8abc014592b06092f48424c03ef3c36ee5014992
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 34d9dc2bdf99737e6b4c17abe37a18f795c19df8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671470"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81274763"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -148,7 +148,7 @@ Se tiver problemas seguindo estas instruções, consulte o tutorial de Código P
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## <a name="see-also"></a>Consulte também
 

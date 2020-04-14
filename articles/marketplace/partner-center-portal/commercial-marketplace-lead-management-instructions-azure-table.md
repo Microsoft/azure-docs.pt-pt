@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: f511a60b533d6d1e0b1ae8847d0ee0fb6be3500c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a36c411b9ababc42adb51d82a316df4252c01e24
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288840"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252011"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Configure a gestão de chumbo usando uma tabela Azure
 
@@ -66,12 +66,12 @@ Use este exemplo como um guia para criar um fluxo simples que automaticamente en
 
    ![Meus fluxos **+ Agendados - de blank**](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-5.  Na *Construção de uma* janela de fluxo programada sob *A Repetição de cada* "1" selecionado para intervalo e "hora" para a frequência. Além disso, dê ao fluxo um nome, se quiser. Selecione **Criar**.
+5.    Na *Construção de uma* janela de fluxo programada sob *A Repetição de cada* "1" selecionado para intervalo e "hora" para a frequência. Além disso, dê ao fluxo um nome, se quiser. Selecione **Criar**.
 
-    >[!Note]
-    >Embora este exemplo utilize um intervalo de 1 hora, pode selecionar o intervalo e a frequência que é o melhor para as necessidades do seu negócio.
+>[!Note]
+>Embora este exemplo utilize um intervalo de 1 hora, pode selecionar o intervalo e a frequência que é o melhor para as necessidades do seu negócio.
 
-    ![Construir um fluxo programado.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
+![Construir um fluxo programado.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
 6. Selecione **+Novo passo**.
 7. Na *escolha de uma* janela de ação para "passar o tempo", e, em seguida, selecione **Passar o tempo** em Ações.
@@ -92,23 +92,17 @@ Nos próximos passos, irá ligar-se à sua tabela Azure e configurar a lógica d
 
 9. Depois do passo de tempo do Get, selecione **+ Novo passo,** e depois procure "Obter entidades" na janela de ação Escolha uma janela de *ação.*
 10. No âmbito **de Ações**, selecione Obter entidades (Armazenamento de **Mesa Azure)**.
-11. Na janela de armazenamento de **mesa azul,** forneça informações para os seguintes campos e selecione **Criar:**
+11.    Na janela de armazenamento de **mesa azul,** forneça informações para os seguintes campos e selecione **Criar:**
+* *Nome de ligação* - forneça um nome significativo para a ligação que está a estabelecer entre este fluxo e a Tabela Azure.
+* *Nome da conta* de armazenamento - forneça o nome da conta de armazenamento para a sua tabela Azure. Pode encontrar isso na página de chaves de **acesso** da conta de armazenamento.
+* *Chave de Armazenamento Partilhada* - forneça o valor-chave para a sua conta de loja para a sua tabela Azure. Pode encontrar isso na página de chaves de **acesso** da conta de armazenamento.
+    ![Armazenamento de mesa azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-    * *Nome de ligação* - forneça um nome significativo para a ligação que está a estabelecer entre este fluxo e a Tabela Azure.
-    * *Nome da conta* de armazenamento - forneça o nome da conta de armazenamento para a sua tabela Azure. Pode encontrar isso na página de chaves de **acesso** da conta de armazenamento.
-    * *Chave de Armazenamento Partilhada* - forneça o valor-chave para a sua conta de loja para a sua tabela Azure. Pode encontrar isso na página de chaves de **acesso** da conta de armazenamento.
+Depois de clicar em Criar verá uma janela *De Obter entidades.* Aqui selecione **Mostrar opções avançadas** e fornecer informações para os seguintes campos:
+* *Tabela* - Selecione o nome do seu Armazenamento de Mesa Azure (a partir do passo 6 das instruções sobre como configurar uma tabela Azure). A próxima captura do ecrã mostra o pedido quando a tabela "marketplaceleads" é selecionada para este exemplo.
+    ![Mesa Azure obter entidades.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        ![Armazenamento de mesa azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
-
-    Depois de clicar em Criar verá uma janela *De Obter entidades.* Aqui selecione **Mostrar opções avançadas** e fornecer informações para os seguintes campos:
-
-       * *Tabela* - Selecione o nome do seu Armazenamento de Mesa Azure (a partir do passo 6 das instruções sobre como configurar uma tabela Azure). A próxima captura do ecrã mostra o pedido quando a tabela "marketplaceleads" é selecionada para este exemplo.
-
-            ![Mesa Azure obter entidades.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
-
-        * *Consulta de filtro* - Selecione este campo e colhe esta função no campo:`Timestamp gt datetime'@{body('Get_past_time')}'`
-
-            ![Mesa Azure obter entidades - Filter Querry.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
+* *Consulta de filtro* - Selecione este campo `Timestamp gt datetime'@{body('Get_past_time')}'` ![e colhe esta função no campo: Tabela Azure obtenha entidades - Filter Query.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
 12. Agora que completou a configuração da ligação à tabela Azure, selecione **Novo passo** para adicionar uma condição para digitalizar a tabela Azure para novas pistas. 
 
@@ -178,7 +172,10 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 1. Navegue na página de **configuração** da Oferta para a sua oferta.
 2. Selecione **Ligar** sob a secção de Gestão de Chumbo.
 3. Na janela pop-up de detalhes da Ligação, **selecione Tabela Azure** para o **Destino de Chumbo**, e cola na cadeia de ligação da conta de armazenamento Azure que criou seguindo passos anteriores no campo de cadeia de ligação da conta de **armazenamento.**
-4. Selecione **Guardar**. 
+4. **E-mail de contacto** - Forneça e-mails para pessoas da sua empresa que devam receber notificações de e-mail quando um novo chumbo for recebido. Pode fornecer vários e-mails separando-os com ponto e vírgula.
+5. Selecione **Ok**.
+
+Para se certificar de que se ligou com sucesso a um destino de chumbo, clique no botão de validação. Se for bem sucedido, terá um chumbo de teste no destino principal.
 
 >[!Note]
 >Tem de terminar de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta.

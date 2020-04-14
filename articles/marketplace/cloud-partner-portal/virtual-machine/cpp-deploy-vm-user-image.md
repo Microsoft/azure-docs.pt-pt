@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 957bc187b0123338947f62333c913cf82a6c66a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79754b4ce7c3dfe2a5c549f4a39ef3160be423d8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277961"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273891"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implementar um VM Azure a partir de um VHD de utilizador
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na certificação de [imagem Azure VM](https://aks.ms/CertifyVMimage) para gerir as suas ofertas migratórias.
 
 Este artigo explica como implementar uma imagem VHD generalizada para criar um novo recurso Azure VM, utilizando o modelo de Gestor de Recursos Azure fornecido e script Azure PowerShell.
 

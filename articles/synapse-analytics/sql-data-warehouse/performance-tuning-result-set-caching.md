@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 4eef8a3a83456a9f2066311b9339b26b83afa009
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 42f8f51545f643e1ed9e1a23c9445f6e216fdabe
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633808"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273414"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Otimização do desempenho com a colocação em cache dos resultados
 
@@ -71,10 +71,10 @@ O conjunto de resultados em cache é reutilizado para uma consulta se todos os s
 - Há uma correspondência exata entre a nova consulta e a consulta anterior que gerou a cache do conjunto de resultados.
 - Não existem alterações de dados ou esquemas nas tabelas onde o conjunto de resultados em cache foi gerado.
 
-Execute este comando para verificar se uma consulta foi executada com um golpe de cache de resultado ou falha. A coluna result_set_cache devolve 1 para cache hit, 0 para cache falha, e valores negativos por razões pelas quais o resultado definido caching não foi usado. Verifique se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para obter detalhes.
+Execute este comando para verificar se uma consulta foi executada com um golpe de cache de resultado ou falha. A coluna result_cache_hit devolve 1 para cache hit, 0 para cache falha, e valores negativos por razões pelas quais o resultado definido caching não foi usado. Verifique se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para obter detalhes.
 
 ```sql
-SELECT request_id, command, result_set_cache FROM sys.dm_pdw_exec_requests
+SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests
 WHERE request_id = <'Your_Query_Request_ID'>
 ```
 

@@ -2,19 +2,19 @@
 title: Converter um modelo de conjunto de dimensionamento para utilizar um disco gerido
 description: Converta um modelo de conjunto de conjunto de máquinas virtual do Gestor de Recursos Azure para um modelo de conjunto de escala de disco gerido.
 keywords: conjuntos de dimensionamento de máquinas virtuais
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 5/18/2017
-ms.author: manayar
-ms.openlocfilehash: 4ab5c48c6673a2353c70fe808d09aa15675e0424
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 79fafa8344312294f6df107b88c9b7c571af1969
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278116"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270660"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Converter um modelo de conjunto de escala para um modelo de conjunto de escala de disco gerido
 
@@ -119,7 +119,7 @@ Não existe uma propriedade explícita na configuração do conjunto de escala p
 
 ## <a name="data-disks"></a>Discos de dados
 
-Com as alterações acima, o conjunto de escala utiliza discos geridos para o disco OS, mas e os discos de dados? Para adicionar discos de dados, adicione a propriedade "dataDisks" em "storageProfile" ao mesmo nível que "osDisk". O valor do imóvel é uma lista JSON de objetos, cada um dos quais tem propriedades "lun" (que devem ser únicas por disco de dados num VM), "createOption" ("empty" é atualmente a única opção suportada) e "diskSizeGB" (o tamanho do disco em gigabytes; deve ser maior do que o tamanho do disco em gigabytes; 0 e menos de 1024) como no seguinte exemplo:
+Com as alterações acima, o conjunto de escala utiliza discos geridos para o disco OS, mas e os discos de dados? Para adicionar discos de dados, adicione a propriedade "dataDisks" em "storageProfile" ao mesmo nível que "osDisk". O valor do imóvel é uma lista JSON de objetos, cada um dos quais tem propriedades "lun" (que devem ser únicas por disco de dados num VM), "createOption" ("empty" é atualmente a única opção suportada) e "diskSizeGB" (o tamanho do disco em gigabytes; deve ser superior a 0 e inferior a 1024) como no exemplo seguinte:
 
 ```
 "dataDisks": [

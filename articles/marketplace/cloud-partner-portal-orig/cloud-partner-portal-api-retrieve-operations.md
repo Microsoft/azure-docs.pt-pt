@@ -5,17 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/14/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 4fc77407ae1c5854d3fe977da5a81f4226bf5305
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93b2ca700a987b86aedfdae55d58540c8ffe84ed
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280478"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255878"
 ---
-<a name="retrieve-operations"></a>Obter operações
-===================
+# <a name="retrieve-operations"></a>Obter operações
+
+> [!NOTE]
+> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a trabalhar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas alterações. Reveja as alterações listadas no [Portal do Parceiro cloud Referência API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que o seu código continua a funcionar após a migração para partner Center.
 
 Recupera todas as operações da oferta ou para obter uma determinada operação para a operação especificadaId. O cliente pode utilizar parâmetros de consulta para filtrar as operações de funcionamento.
 
@@ -28,21 +30,18 @@ Recupera todas as operações da oferta ou para obter uma determinada operação
 ```
 
 
-<a name="uri-parameters"></a>Parâmetros URI
---------------
+## <a name="uri-parameters"></a>Parâmetros URI
 
 |  **Nome**          |      **Descrição**                                                                                           | **Tipo de dados** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  editorId       |  Identificador de editor, por exemplo`Contoso`                                                                   |  Cadeia       |
-|  offerId           |  Identificador de oferta                                                                                              |  Cadeia       |
+|  editorId       |  Identificador de editor, por exemplo`Contoso`                                                                   |  String       |
+|  offerId           |  Identificador de oferta                                                                                              |  String       |
 |  operationId       |  GUID que identifica exclusivamente a operação na oferta. O operationId pode ser recuperado utilizando esta API, e também é devolvido no cabeçalho HTTP da resposta para qualquer operação de longo prazo, como a [oferta de Publicação](./cloud-partner-portal-api-publish-offer.md) API.  |   GUID   |
-|  estatuto filtrado    | Parâmetro de consulta opcional utilizado para filtrar por estado (por exemplo) `running`na recolha devolvida por esta API.  |   Cadeia |
-|  api-version       | Versão mais recente da API                                                                                           |    Date      |
+|  api-version       | Versão mais recente da API |    Date      |
 |  |  |  |
 
+## <a name="header"></a>Cabeçalho
 
-<a name="header"></a>Cabeçalho
-------
 
 |  **Nome**          |  **Valor**           |
 |  ---------------   | -------------------- |
@@ -51,8 +50,7 @@ Recupera todas as operações da oferta ou para obter uma determinada operação
 |  |  |
 
 
-<a name="body-example"></a>Exemplo do corpo
-------------
+## <a name="body-example"></a>Exemplo do corpo
 
 ### <a name="response"></a>Resposta
 
@@ -167,25 +165,35 @@ Recupera todas as operações da oferta ou para obter uma determinada operação
                     ],
                 "previewLinks": [],
                 "liveLinks": [],
-                "notificationEmails": "jondoe@contoso.com"
-            } 
+            }
         }
     ]
 ```
-
 
 ### <a name="response-body-properties"></a>Propriedades do corpo de resposta
 
 |  **Nome**                    |  **Descrição**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  ID                          | GUID que identifica exclusivamente a operação                                                       |
-|  submissãoTipo              | Identifica o tipo de operação que está a ser reportada para a oferta, por exemplo`Publish/GGoLive`      |
+|  submissãoTipo              | Identifica o tipo de operação que está a ser reportada para a oferta, por exemplo`Publish/GoLive`      |
 |  criadoDateTime             | UTC data de data quando a operação foi criada                                                       |
 |  lastActionDateTime          | UtC data de data em que a última atualização foi feita sobre a operação                                       |
 |  status                      | Estado da operação, `not started` \| `running` \| `failed` \| `completed`também. Só uma operação `running` pode ter estatuto de cada vez. |
 |  erro                       | Mensagem de erro para operações falhadas                                                               |
 |  |  |
 
+### <a name="response-step-properties"></a>Propriedades de passo de resposta
+
+|  **Nome**                    |  **Descrição**                                                                                  |
+|  --------------------        |  ------------------------------------------------------------------------------------------------ |
+| calculou timeframe | A duração estimada desta operação |
+| ID | O identificador único para o processo de etapa |
+| descrição | Descrição do passo |
+| nome do passo | O nome amigável para o passo |
+| status | O estado do passo, ou `notStarted` \| `running` \| `failed` \|`completed` |
+| mensagens | Quaisquer notificações ou avisos encontrados durante o passo. Conjunto de cordas |
+| progressPercentage | Um inteiro de 0 a 100 indicando a progressão do degrau |
+| | |
 
 ### <a name="response-status-codes"></a>Códigos de estado de resposta
 

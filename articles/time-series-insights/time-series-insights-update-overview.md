@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 02/04/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1e4f72300752c93659db4edd4610464dbebf2503
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 73244a635bbf14efcf33f1b978db14e9e2589581
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77014424"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271068"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>O que é a Pré-visualização do Azure Time Series Insights?
 
@@ -55,16 +55,16 @@ Uma rica plataforma de análise operacional combinada com as nossas capacidades 
 
 * Solução de armazenamento com várias camadas com suporte a análise quente e frio, proporcionando aos clientes a opção de encaminhar dados entre analítica quente e fria para análiseinterativa sobre dados quentes, bem como inteligência operacional ao longo de décadas de dados históricos. 
 
-    *   Uma solução de análise quente altamente interativa para realizar frequentes, e um grande número de consultas ao longo de dados de tempo mais curto 
-    *   Um lago de dados de séries de tempo escalável, performante e custo otimizado com base no Armazenamento Azure, permitindo aos clientes tendência de dados de séries temporais em segundos. 
+    *    Uma solução de análise quente altamente interativa para realizar frequentes, e um grande número de consultas ao longo de dados de tempo mais curto 
+    *    Um lago de dados de séries de tempo escalável, performante e custo otimizado com base no Armazenamento Azure, permitindo aos clientes tendência de dados de séries temporais em segundos. 
 
 * Suporte de modelo semântico que descreve o domínio e metadados associados aos sinais derivados e brutos de ativos e dispositivos.
 
-* Plataforma de análise flexível para armazenar dados de séries históricas em conta de armazenamento de tempo histórico na conta de Armazenamento Azure, permitindo assim aos clientes a propriedade dos seus dados IoT. Os dados são armazenados em formato Apache Parquet de código aberto que permite conectividade e interop em uma variedade de cenários de dados, incluindo análisepre, machine learning e outras computações personalizadas feitas usando tecnologias familiares, incluindo Spark, Tijolos de dados e Jupyter.
+* Plataforma de análise flexível para armazenar dados de séries históricas em conta de armazenamento de tempo histórico na conta de Armazenamento Azure, permitindo assim aos clientes a propriedade dos seus dados IoT. Os dados são armazenados em formato Apache Parquet de código aberto que permite conectividade e interop através de uma variedade de cenários de dados, incluindo análisepre, machine learning e outras computações personalizadas feitas usando tecnologias familiares, incluindo Spark, Databricks e Jupyter.
 
-* Análise rica com APIs de consulta melhorada e experiência do utilizador que combina insights de dados baseados em ativos com análise de dados ricos e ad hoc com suporte para funções de interpolação, escalar e agregadas, variáveis categóricas, enredos de dispersão e tempo de mudança de tempo sinais de série para análise aprofundada.
+* Análise rica com APIs de consulta melhorada e experiência do utilizador que combina insights de dados baseados em ativos com análise símio de dados ad hoc com suporte para funções de interpolação, esescalar e agregadas, variáveis categóricas, enredos de dispersão e sinais de séries de tempo de mudança de tempo para análise aprofundada.
 
-*   Plataforma de grau empresarial para suportar as necessidades de escala, desempenho, segurança e fiabilidade dos nossos clientes ioT da empresa.
+*    Plataforma de grau empresarial para suportar as necessidades de escala, desempenho, segurança e fiabilidade dos nossos clientes ioT da empresa.
 
 * Suporte de extensibility e integração para análises de ponta a ponta. Time Series Insights fornece uma plataforma de análise extensível para uma variedade de cenários de dados. O conector Time Series Insights Power BI permite que os clientes levem as consultas que fazem na Time Series Insights diretamente para o Power BI para obter uma visão unificada da sua análise bi e série stemporal num único painel de vidro.
 

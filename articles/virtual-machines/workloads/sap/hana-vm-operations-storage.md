@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b469c098db4f8d90147b491bcb54bd55d326b03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4e8b544ea3daeb23b22f3864beb21ba9d3f342f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080313"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255622"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -72,7 +72,7 @@ Acumular uma série de VHDs Azure por baixo de um RAID, é acumulado a partir de
 Tenha também em mente a entrada geral de I/O em vm ao dimensionar ou decidir um VM. A entrada global de armazenamento vm está documentada no artigo Tamanhos de [máquina virtual otimizados](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)pela memória.
 
 ## <a name="linux-io-scheduler-mode"></a>Modo Programador Linux I/O
-O Linux tem vários modos de agendamento de I/S diferentes. A recomendação comum através dos fornecedores Linux e do SAP é reconfigurar o modo de programador de I/O para volumes de disco desde o modo **cfq** até ao **noop** (não-multifila) ou **nenhum** para o modo (multifila). Os detalhes são referenciados no [#1984787 de Nota SAP](https://launchpad.support.sap.com/#/notes/1984787). 
+O Linux tem vários modos de agendamento de I/S diferentes. A recomendação comum através dos fornecedores Linux e do SAP é reconfigurar o modo de programador de I/S para volumes de disco desde o prazo **mq** ou o modo **kyber** até ao **noop** (não-multifila) ou **nenhum** para o modo (multifila). Os detalhes são referenciados no [#1984787 de Nota SAP](https://launchpad.support.sap.com/#/notes/1984787). 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Soluções com Armazenamento Premium e Acelerador de Escrita Azure para máquinas virtuais da Série M Azure

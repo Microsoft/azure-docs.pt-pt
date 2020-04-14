@@ -8,14 +8,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 6fe07da1e658efa8150c8cafb95bc5719c780aff
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: b2a621a23a81e4fb4f47e7c99d780211973e30a0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879034"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81275247"
 ---
-O recipiente fornece [APIs de ponto final baseado em REPOUSO](../rest-text-to-speech.md). Existem muitos projetos de [código-fonte](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/) de amostra para as variações de plataforma, enquadramento e linguagem disponíveis.
+O recipiente fornece [APIs de ponto final baseado em REPOUSO](../rest-text-to-speech.md). Existem muitos projetos de [código-fonte](https://github.com/Azure-Samples/Cognitive-Speech-TTS) de amostra para as variações de plataforma, enquadramento e linguagem disponíveis.
 
 Com o recipiente *Standard Text-to-speech,* deve contar com o local e a voz da etiqueta de imagem que descarregou. Por exemplo, se descarregou a etiqueta `latest` `en-US` o `JessaRUS` local padrão é e a voz. O `{VOICE_NAME}` argumento seria, [`en-US-JessaRUS`](../language-support.md#standard-voices)então. Veja o exemplo SSML abaixo:
 

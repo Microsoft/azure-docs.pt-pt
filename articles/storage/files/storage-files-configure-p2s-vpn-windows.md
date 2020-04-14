@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5f12b77f5baa1a3b06a093aac7267c65a038881e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 95386af4522adca1d65e04b01c2a349a80e9ab8a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061022"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273482"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configure uma VPN ponto-a-local (P2S) no Windows para utilização com ficheiros Azure
 Pode utilizar uma ligação VPN Point-to-Site (P2S) para montar as suas ações de ficheiro Azure sobre SMB de fora do Azure, sem abrir a porta 445. Uma ligação VPN Ponto-a-Local é uma ligação VPN entre o Azure e um cliente individual. Para utilizar uma ligação P2S VPN com Ficheiros Azure, uma ligação P2S VPN terá de ser configurada para cada cliente que queira ligar. Se tiver muitos clientes que precisam de se conectar às suas ações de ficheiroS Azure a partir da sua rede no local, pode utilizar uma ligação VPN site-to-site (S2S) em vez de uma ligação Ponto-a-Site para cada cliente. Para saber mais, consulte [Configure uma VPN site-to-site para utilização com ficheiros Azure](storage-files-configure-s2s-vpn.md).
@@ -31,7 +31,7 @@ O artigo detalha os passos para configurar uma VPN ponto-a-site no Windows (clie
 ## <a name="deploy-a-virtual-network"></a>Implementar uma rede virtual
 Para aceder à sua partilha de ficheiros Azure e outros recursos Azure a partir de instalações através de uma VPN Ponto-a-Site, tem de criar uma rede virtual, ou VNet. A ligação VPN P2S que irá criar automaticamente é uma ponte entre a sua máquina Windows no local e esta rede virtual Azure.
 
-O seguinte PowerShell criará uma rede virtual Azure com três subnets: uma para o ponto final de serviço da sua conta de armazenamento, uma para o ponto final privado da sua conta de armazenamento, que é necessária para aceder à conta de armazenamento no local sem criar encaminhamento personalizado para o IP público da conta de armazenamento que pode mudar, e um para o seu gateway de rede virtual que fornece o serviço VPN. 
+O seguinte PowerShell criará uma rede virtual Azure com três subredes: uma para o ponto final de serviço da sua conta de armazenamento, uma para o ponto final privado da sua conta de armazenamento, que é necessária para aceder à conta de armazenamento no local sem criar encaminhamento personalizado para o IP público da conta de armazenamento que pode mudar, e uma para o seu portal de rede virtual que fornece o serviço VPN. 
 
 Lembre-se `<region>` `<resource-group>`de `<desired-vnet-name>` substituir, e com os valores apropriados para o seu ambiente.
 
@@ -79,7 +79,7 @@ $gatewaySubnet = $virtualNetwork.Subnets | `
 ```
 
 ## <a name="create-root-certificate-for-vpn-authentication"></a>Criar certificado raiz para autenticação VPN
-Para que as ligações VPN das suas máquinas Windows no local sejam autenticadas para aceder à sua rede virtual, deve criar dois certificados: um certificado de raiz, que será fornecido ao portal da máquina virtual, e um certificado de cliente, que irá ser assinado com o certificado de raiz. O seguinte PowerShell cria o certificado raiz; o certificado de cliente será criado após a criação do portal de rede virtual Azure com informações a partir do gateway. 
+Para que as ligações VPN das suas máquinas Windows no local sejam autenticadas para aceder à sua rede virtual, tem de criar dois certificados: um certificado de raiz, que será fornecido ao portal da máquina virtual, e um certificado de cliente, que será assinado com o certificado raiz. O seguinte PowerShell cria o certificado raiz; o certificado de cliente será criado após a criação do portal de rede virtual Azure com informações a partir do gateway. 
 
 ```PowerShell
 $rootcertname = "CN=P2SRootCert"
@@ -138,7 +138,7 @@ $vpnName = "<desired-vpn-name-here>"
 $publicIpAddressName = "$vpnName-PublicIP"
 
 $publicIPAddress = New-AzPublicIpAddress `
-    -ResourceGroupName $resourceGroupName ` 
+    -ResourceGroupName $resourceGroupName `
     -Name $publicIpAddressName `
     -Location $region `
     -Sku Basic `
@@ -242,7 +242,7 @@ foreach ($session in $sessions) {
         -ArgumentList `
             $mypwd, `
             $vpnTemp, `
-            $virtualNetworkName
+            $virtualNetworkName `
         -ScriptBlock { 
             $mypwd = $args[0] 
             $vpnTemp = $args[1]
@@ -267,7 +267,7 @@ foreach ($session in $sessions) {
 
             Add-VpnConnection `
                 -Name $virtualNetworkName `
-                -ServerAddress $vpnProfile.VpnServer ` 
+                -ServerAddress $vpnProfile.VpnServer `
                 -TunnelType Ikev2 `
                 -EncryptionLevel Required `
                 -AuthenticationMethod MachineCertificate `

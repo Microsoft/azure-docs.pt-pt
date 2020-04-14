@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: dsindona
-ms.openlocfilehash: 7c799c4a56ee5fc2074e4d644bdbcbc6d2b1ca5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2a4bb107309894a7180e0a4585cdba6f04d1bee
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288755"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273040"
 ---
 # <a name="windows-remote-management-over-https"></a>Gestão Remota do Windows através de HTTPS
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Create a Azure Virtual Machine para](https://aka.ms/CreateAzureVMoffer) gerir as suas ofertas migratórias.
 
 Esta secção explica como configurar um VM baseado no Windows, baseado no Windows, para que possa ser gerido e implantado remotamente com o PowerShell.  Para permitir a remoção powerShell, o VM alvo deve expor um ponto final HTTPS de Gestão Remota do Windows (WinRM).  Para obter mais informações sobre o remo powerShell, consulte [Comandos Remotos em Execução](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands).  Para mais informações sobre o WinRM, consulte [a Windows Remote Management](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 

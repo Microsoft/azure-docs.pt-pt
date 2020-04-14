@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: 567dc83e36020ef9af328f52dae89ef37b6e4908
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 156a405d93aeac27f27fe617e1a5485044309846
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277726"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273822"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Separador mercado de máquina virtual
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Create a Azure Virtual Machine para](https://aka.ms/CreateAzureVMoffer) gerir as suas ofertas migratórias.
 
 O separador **Marketplace** da página **New Offer** permite-lhe fornecer aos seus potenciais clientes informações e acordos de marketing, vendas e informações legais e gerir pistas geradas a partir do mercado. Esta longa forma é dividida em quatro secções: **Visão Geral,** **Artefactos de Marketing,** **Gestão de Chumbo,** e **Legal.**
 
@@ -52,7 +55,7 @@ A tabela seguinte descreve o propósito e o conteúdo destes campos. Os campos n
 |  ---------                |     ---------------                                                          |
 | *Logotipos*  |  |
 | **Pequeno\***                 | 40x40 pixel .ico bitmap                                                      |
-| **Médio\***                | 90x90 pixel .ico bitmap                                                      |
+| **Medium\***                | 90x90 pixel .ico bitmap                                                      |
 | **Grande\***                 | 115x115 pixel .ico bitmap                                                   |
 | **Largo\***                  | 255x115 pixel .ico bitmap                                                    |
 | **Herói**                  | Bitmap 815x290.  Opcional, no entanto, uma vez carregado o ícone herói não pode ser eliminado. |

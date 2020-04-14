@@ -4,14 +4,14 @@ description: Saiba como configurar o Azure Private Link para aceder a uma conta 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 9a6a1560e169c51256c198868dc7293a020189f4
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4b49d2aa61587d0156755bdd5c47b3eeb90090a5
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421426"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270694"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Link Privado Azure para uma conta Azure Cosmos
 
@@ -624,6 +624,10 @@ As seguintes situações e resultados são possíveis quando utiliza o Private L
 * Se configurar o tráfego público ou um ponto final de serviço e criar pontos finais privados, então diferentes tipos de tráfego de entrada são autorizados pelo tipo correspondente de regra de firewall.
 
 * Se não configurar qualquer ponto final de tráfego público ou de serviço e criar pontos finais privados, então a conta Azure Cosmos só é acessível através dos pontos finais privados. Se não configurar o tráfego público ou um ponto final de serviço, depois de todos os pontos finais privados aprovados serem rejeitados ou eliminados, a conta está aberta a toda a rede.
+
+## <a name="blocking-public-network-access-during-account-creation"></a>Bloquear o acesso à rede pública durante a criação de contas
+
+Tal como descrito na secção anterior, e a menos que tenham sido definidas regras específicas de firewall, adicionar um ponto final privado torna a sua conta Azure Cosmos acessível apenas através de pontos finais privados. Isto significa que a conta Azure Cosmos poderia ser alcançada a partir do tráfego público após a sua criação e antes de um ponto final privado ser adicionado. Para garantir que o acesso à rede pública é desativado `publicNetworkAccess` mesmo `Disabled` antes da criação de pontos finais privados, pode definir a bandeira durante a criação de contas. Consulte este modelo de Gestor de [Recursos Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) para um exemplo que mostra como usar esta bandeira.
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Atualize um ponto final privado quando adicionar ou remover uma região
 

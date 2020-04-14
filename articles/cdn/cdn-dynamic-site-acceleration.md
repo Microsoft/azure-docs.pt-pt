@@ -3,7 +3,7 @@ title: Aceleração do local dinâmico via Azure CDN
 description: O Azure CDN suporta a otimização dinâmica do site (DSA) para ficheiros com conteúdo dinâmico.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
-ms.author: magattus
-ms.openlocfilehash: 08e705d3c3623d4d02ccaea609eb0555aa1c8e33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 26559adf183a5e008d77b87654a1bd4dabebbca0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593912"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253837"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração do local dinâmico via Azure CDN
 

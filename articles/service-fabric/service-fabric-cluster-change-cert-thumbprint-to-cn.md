@@ -3,12 +3,12 @@ title: Atualizar um cluster para usar o nome comum do certificado
 description: Aprenda a mudar um cluster de tecido de serviço de usar impressões digitais de certificado para usar o nome comum do certificado.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 66c49ccb7b7633d0eff392b676bb381118eb64a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610204"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272632"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster do thumbprint do certificado para o nome comum
 Nenhum certificado pode ter a mesma impressão digital, o que dificulta a capotamento ou a gestão do certificado de cluster. Vários certificados, no entanto, podem ter o mesmo nome ou assunto comum.  Trocar um cluster implantado de usar impressões digitais de certificado para usar nomes comuns de certificado torna a gestão de certificados muito mais simples. Este artigo descreve como atualizar um cluster de tecido de serviço em execução para usar o nome comum do certificado em vez da impressão digital do certificado.
@@ -20,12 +20,12 @@ Nenhum certificado pode ter a mesma impressão digital, o que dificulta a capota
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>Obter um certificado
-Primeiro, obtenha um certificado de uma autoridade de [certificados (CA)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser o nome anfitrião do cluster.  Por exemplo, "myclustername.southcentralus.cloudapp.azure.com".  
+Primeiro, obtenha um certificado de uma autoridade de [certificados (CA)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser para o domínio personalizado que possui, e comprado a partir de um registo de domínio. Por exemplo, "azureservicefabricbestpractices.com"; aqueles que não são empregados da Microsoft não podem fornecer certificados para domínios EmS, pelo que não pode utilizar os nomes DNS do seu LB ou Traffic Manager como nomes comuns para o seu certificado, e terá de fornecer uma [Zona DNS Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) se o seu domínio personalizado for resolúvel em Azure. Também vai querer declarar o seu domínio personalizado que possui como "managementEndpoint" do seu cluster se quiser que o portal reflita o pseudónimo de domínio personalizado para o seu cluster.
 
 Para efeitos de teste, pode obter um certificado assinado pela AC de uma autoridade de certificados gratuitos ou abertos.
 
 > [!NOTE]
-> Os certificados auto-assinados, incluindo os gerados na implementação de um cluster de tecido de serviço no portal Azure, não são suportados.
+> Os certificados auto-assinados, incluindo os gerados na implementação de um cluster de tecido de serviço no portal Azure, não são suportados. 
 
 ## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Faça upload do certificado e instale-o no conjunto de escala
 Em Azure, um cluster de tecido de serviço é implantado num conjunto de escala de máquina virtual.  Faça o upload do certificado para um cofre chave e instale-o no conjunto de escala virtual da máquina em que o cluster está a funcionar.

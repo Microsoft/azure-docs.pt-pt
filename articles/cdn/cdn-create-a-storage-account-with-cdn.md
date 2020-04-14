@@ -3,7 +3,7 @@ title: Quickstart - Integre uma conta de armazenamento Azure com o Azure CDN
 description: Saiba como utilizar a Rede de Entrega de Conteúdos (CDN) do Azure para entregar conteúdo de largura de banda elevada ao colocar blobs do Armazenamento do Microsoft Azure em cache.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/24/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: ffcbeb311a91791432bb285b59f5486393ffe4f7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 35de327b4a6602bb5191157e3b3c4e56c9c091b5
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75386991"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254092"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Início Rápido: integrar uma conta de armazenamento do Azure com a CDN do Azure
 Neste início rápido, permite que a [Rede de Entrega de Conteúdos (CDN) do Azure](cdn-overview.md) coloque conteúdo do armazenamento do Azure em cache. A CDN do Azure oferece aos programadores uma solução global para entregar conteúdo de largura de banda elevada. Pode colocar blobs e conteúdo estático em cache de instâncias de computação em nós físicos nos Estados Unidos da América, Europa, Ásia, Austrália e América do Sul.
@@ -30,7 +30,7 @@ Neste início rápido, permite que a [Rede de Entrega de Conteúdos (CDN) do Azu
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do Azure.
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Utilize o procedimento seguinte para criar uma nova conta de armazenamento para uma subscrição do Azure. Uma conta de armazenamento dá acesso a serviços de Armazenamento do Microsoft Azure. A conta de armazenamento representa o nível mais elevado de espaço de nomes para aceder a cada componente de serviços de Armazenamento do Microsoft Azure: armazenamento de Blobs, Filas e Tabelas do Azure. Para mais informações, consulte [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md).
 
 Para criar uma conta de armazenamento, tem de ser o administrador de serviços ou um coadministrador da subscrição associada.
@@ -74,7 +74,7 @@ Pode utilizar vários métodos para criar uma conta de armazenamento, incluindo 
     | **Replicação** | Utilize o valor predefinido. |
     | **Desempenho** | Utilize o valor predefinido. |
     | **Transferência segura necessária** | Utilize o valor predefinido. |
-    | **Assinatura** | Selecione uma subscrição do Azure na lista pendente. |
+    | **Subscrição** | Selecione uma subscrição do Azure na lista pendente. |
     | **Grupo de recursos** | Selecione **Criar novo** e introduza *my-resource-group-123* como nome do grupo de recursos. Este nome tem de ser globalmente exclusivo. Se já estiver a ser utilizado, poderá introduzir um diferente ou selecionar **Utilizar existente** e selecionar **my-resource-group-123** na lista pendente. <br />Para informações sobre grupos de recursos, consulte o artigo [Descrição geral do Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).| 
     | **Configurar redes virtuais** | Utilize o valor predefinido. |  
     

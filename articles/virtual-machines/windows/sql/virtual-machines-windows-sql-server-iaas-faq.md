@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 3b73c329c3db54ba78db15ced8e919af4d4a45d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d6d69b82e80ff9bc33e49302cf59766b9c2e8d4
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249740"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270830"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Frequently asked questions for SQL Server running on Windows virtual machines in Azure (Perguntas frequentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure)
 
@@ -53,9 +53,17 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre executar
 
    Sim, usando powerShell. Para obter mais informações sobre a implementação de VMs do Servidor SQL utilizando powerShell, consulte [como fornecer máquinas virtuais SQL Server com O PowerShell Azure](virtual-machines-windows-ps-sql-create.md).
 
-1. **Posso criar uma imagem generalizada do Mercado do Servidor Azure SQL do meu VM de servidor SQL e usá-lo para implementar VMs?**
+1. **Como posso generalizar o SQL Server no Azure VM e usá-lo para implementar novos VMs?**
 
-   Sim, mas deve [então registar cada VM do Servidor SQL com o fornecedor de recursos SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md) para gerir o seu VM de Servidor SQL no portal, bem como utilizar funcionalidades como patching automatizado e backups automáticos. Ao registar-se com o fornecedor de recursos, também terá de especificar o tipo de licença para cada VM do Servidor SQL. 
+   Pode implementar um VM do Servidor Windows (sem qualquer Servidor SQL instalado no mesmo) e utilizar o processo de [sysprep SQL](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) para generalizar o Servidor SQL no Azure VM (Windows) com os meios de instalação do Servidor SQL. Os clientes que possuam garantia de [software](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) podem obter os seus suportes de instalação a partir do Centro de Licenciamento de [Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não possuem garantia de software podem usar os suportes de configuração a partir de uma imagem VM do Marketplace SQL Server que tem a edição desejada.
+
+   Em alternativa, utilize uma das imagens do SQL Server formando o mercado Azure para generalizar o Servidor SQL no Azure VM. Tenha em anote que deve eliminar a seguinte chave de registo na imagem de origem antes de criar a sua própria imagem. Se não o fizer, pode resultar no inchaço da pasta de botas de configuração do Servidor SQL e na extensão SQL IaaS em estado falhado.
+
+   Caminho-chave do registo:  
+   `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
+
+   > [!NOTE]
+   > Recomendamos que todos os VMs SQL Server Azure, incluindo os implantados a partir de imagens personalizadas generalizadas, sejam registados com um fornecedor de [recurso SQL VM](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) para satisfazer os requisitos de conformidade e utilizar funcionalidades opcionais, tais como patching automatizado e backups automáticos. Também lhe permitirá [especificar o tipo](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) de licença para cada VM do Servidor SQL.
 
 1. **Posso usar o meu próprio VHD para implantar um VM sQL Server?**
 
@@ -117,13 +125,13 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre executar
    A instância passiva do Servidor SQL não serve dados do SQL Server aos clientes nem executa cargas de trabalho ativas do Servidor SQL. É usado apenas para sincronizar com o servidor primário e, de outra forma, manter a base de dados passiva em um estado de espera quente. Se estiver a servir dados, tais como relatórios a clientes que executam cargas de trabalho ativas do SQL Server, ou a realizar qualquer trabalho que não seja o especificado nos termos do produto, deve ser uma instância de Servidor SQL licenciada paga. A seguinte atividade é permitida na instância secundária: verificações de consistência da base de dados ou CheckDB, cópias de segurança completas, cópias de segurança de registo de transações e monitorização dos dados de utilização dos recursos. Também pode executar a primeira e correspondente instância de recuperação de desastres simultaneamente para breves períodos de testes de recuperação de desastres a cada 90 dias.
    
 
-1. **Que cenários podem utilizar o benefício distaster Recovery (DR) ?**
+1. **Que cenários podem utilizar o benefício de Recuperação de Desastres (DR) ?**
 
    O guia de [licenciamento](https://aka.ms/sql2019licenseguide) fornece cenários em que o Benefício de Recuperação de Desastres pode ser utilizado. Consulte os termos do produto e fale com os seus contactos de licenciamento ou gestor de conta para obter mais informações.
 
 1. **Quais as subscrições que suportam o benefício de Recuperação de Desastres (DR) ?**
 
-   Programas abrangentes que oferecem direitos de subscrição equivalentes de Garantia de Software como um benefício fixo suportam o benefício DR. Isto inclui. mas não se limita a, o Valor Aberto (OV), subscrição de valor aberto (OVS), Acordo de Empresa (EA), Acordo de Subscrição empresarial (EAS) e o Servidor e Inscrição em Nuvem (SCE). Consulte os termos do [produto](https://www.microsoft.com/licensing/product-licensing/products) e fale com os seus contactos de licenciamento ou com o gestor da acocunt para obter mais informações. 
+   Programas abrangentes que oferecem direitos de subscrição equivalentes de Garantia de Software como um benefício fixo suportam o benefício DR. Isto inclui. mas não se limita a, o Valor Aberto (OV), subscrição de valor aberto (OVS), Acordo de Empresa (EA), Acordo de Subscrição empresarial (EAS) e o Servidor e Inscrição em Nuvem (SCE). Consulte os termos do [produto](https://www.microsoft.com/licensing/product-licensing/products) e fale com os seus contactos de licenciamento ou gestor de conta para obter mais informações. 
 
    
  ## <a name="resource-provider"></a>Fornecedor de recursos

@@ -2,17 +2,17 @@
 title: Azure CDN da Verizon Premium governa características do motor / Microsoft Docs
 description: Documentação de referência para O CDN Azure a partir das características do motor de regras Verizon Premium.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: magattus
-ms.openlocfilehash: 9177ac544c83305ae95ad681d3dc9f84ac64ea36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 373e7838327d11b1b54278ee0c16c6e6ae554b0b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247582"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253497"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN da Verizon Premium governa características do motor
 
@@ -846,7 +846,7 @@ Normalmente, quando o tempo máximo de um ativo expira, o POP enviará um pedido
 
 Se o POP não conseguir estabelecer uma ligação com o servidor de origem enquanto tenta tal revalidação, então esta funcionalidade Internal Max-Stale controla se, e por quanto tempo, o POP pode continuar a servir o ativo agora velho.
 
-Note que este intervalo de tempo começa quando a idade máxima do ativo expirar, e não quando ocorre a revalidação falhada. Por conseguinte, o período máximo durante o qual um ativo pode ser servido sem revalidação bem sucedida é a quantidade de tempo especificada pela combinação de idade máxima mais o máximo. Por exemplo, se um ativo fosse cacheado às 9:00 com uma idade máxima de 30 minutos e um máximo de 15 minutos, então uma tentativa falhada de revalidação às 9:44 resultaria em um utilizador final recebendo o ativo em cache velho, enquanto uma tentativa de revalidação falhada às 9:46 resultaria no utilizador final recebendo um Timeout Gateway 504.
+Note que este intervalo de tempo começa quando a idade máxima do ativo expirar, e não quando ocorre a revalidação falhada. Por conseguinte, o período máximo durante o qual um ativo pode ser servido sem revalidação bem sucedida é a quantidade de tempo especificada pela combinação de idade máxima mais o máximo. Por exemplo, se um ativo fosse cacheado às 9:00 com uma idade máxima de 30 minutos e um máximo de 15 minutos, então uma tentativa falhada de revalidação às 9:44 resultaria em um utilizador final recebendo o ativo em cache velho, enquanto uma tentativa falhada de revalidação às 9:46 resultaria no utilizador final recebendo um Timeout Gateway 504.
 
 Qualquer valor configurado para esta funcionalidade `Cache-Control: must-revalidate` é `Cache-Control: proxy-revalidate` substituído por ou cabeçalhos recebidos do servidor de origem. Se algum desses cabeçalhos for recebido do servidor de origem quando um ativo é inicialmente cache, então o POP não servirá um ativo em cache velho. Neste caso, se o POP não conseguir revalidar com a origem quando o intervalo máximo de idade do ativo tiver expirado, o POP devolve um erro de tempo de gateway 504.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 825d26307f2b462d51b143b88127e229508f2f25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ab578b4b688c02c9150dfb23fce53fbb82df405
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264599"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273176"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux traz imagens gold de subscrição própria em Azure
 
@@ -120,7 +120,7 @@ As seguintes instruções passam pelo processo inicial de implantação de um VM
 1. SSH no seu VM, e verifique se tem uma imagem sem direito. Para fazer este `sudo yum repolist`passo, corra. Para rHEL 8, utilize `sudo dnf repolist`. A saída pede-lhe que utilize o Subscription-Manager para registar o VM com Chapéu Vermelho.
 
 >[!NOTE]
->No RHEL `dnf` 8, e `yum` são permutáveis. Para mais informações, consulte o [guia de administração RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings).
+>No RHEL `dnf` 8, e `yum` são permutáveis. Para mais informações, consulte o [guia de administração RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/packaging_and_distributing_software/index).
 
 ## <a name="use-the-red-hat-gold-images-from-powershell"></a>Use as imagens de ouro do chapéu vermelho da PowerShell
 
@@ -214,6 +214,7 @@ Para obter passos para aplicar encriptação de disco azure, consulte cenários 
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- Mais detalhes sobre o Acesso à Nuvem de Chapéu Vermelho estão disponíveis na [documentação](https://access.redhat.com/public-cloud) da nuvem pública do Chapéu Vermelho
 - Para obter guias passo a passo e detalhes do programa para o Cloud Access, consulte a [documentação de Acesso](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)à Nuvem de Chapéu Vermelho .
 - Para saber mais sobre a Infraestrutura de Atualização do Chapéu Vermelho, consulte a Infraestrutura de Atualização do [Chapéu Vermelho Azure](./redhat-rhui.md).
 - Para saber mais sobre todas as imagens do Chapéu Vermelho em Azure, consulte a página de [documentação.](./redhat-images.md)

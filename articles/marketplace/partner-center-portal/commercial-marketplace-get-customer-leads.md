@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: ce576d9825819770486197a6c39425adf6ac3208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05b166b2ec46900d9e3972025efb581d9619ec6a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275905"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252656"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Clientes potenciais da oferta do marketplace
 
@@ -133,11 +133,11 @@ O destino de chumbo Azure Blob já não é suportado, pelo que lhe faltam quaisq
 
 ### <a name="i-received-an-email-from-marketplace-why-cant-i-find-the-lead-in-my-crm"></a>Recebi um e-mail do Marketplace, por que não encontro a pista no meu CRM?
 
-É possível que o domínio de e-mail do utilizador final seja de .edu. Por razões de privacidade, não passamos dados pii do domínio .edu. Envie um bilhete de apoio através aka.ms/marketplacepublishersupport.
+É possível que o domínio de e-mail do utilizador final seja de .edu. Por razões de privacidade, não passamos informações privadas identificáveis do domínio .edu. Envie um bilhete de apoio através aka.ms/marketplacepublishersupport.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Configurei a Mesa Azure como o meu destino principal, como posso ver as pistas?
 
-Pode aceder aos dados de chumbo armazenados na Tabela Azure a partir do Portal Azure, ou pode descarregar e instalar o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gratuitamente para ver gratuitamente os dados das tabelas da sua conta de armazenamento Azure.
+Pode aceder aos dados de chumbo armazenados na Tabela Azure a partir do portal Azure, ou pode descarregar e instalar o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gratuitamente para ver gratuitamente os dados das tabelas da sua conta de armazenamento Azure.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-lead-is-sent-by-marketplace"></a>Configurei a Mesa Azure como o meu destino principal, posso ser notificado sempre que uma nova pista é enviada pelo Marketplace?
 
@@ -149,13 +149,17 @@ Verifique se o formulário "web to lead" é um campo obrigatório baseado numa l
 
 ### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>Houve um problema com o meu destino principal, e perdi algumas pistas. Posso mandá-los num e-mail?
 
-Devido às políticas pii (Informação Privada identificável), não podemos partilhar informações de chumbo através de e-mail não seguro.
+Devido a políticas de informação privadas identificáveis, não podemos partilhar informações de chumbo através de e-mail não seguro.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Configurei a Mesa Azure como o meu destino principal, quanto vai custar?
 
 Os dados da geração lead são baixos (<1 GB para quase todos os editores). O custo dependerá do número de pistas recebidas, se 1.000 pistas forem recebidas num mês, custa cerca de 50 cêntimos. Para obter mais informações sobre os preços de armazenamento, consulte [os preços de armazenamento.](https://azure.microsoft.com/pricing/details/storage/)
 
 Se a sua pergunta ainda não for respondida, contacte o Suporte através aka.ms/marketplacepublishersupport, em seguida, selecione **'offer creation'** → **o seu tipo de oferta** → 'configuração de gestão de **chumbo'.** 
+
+### <a name="i-am-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-who-to-receive-these-emails"></a>Estou a receber notificações por e-mail quando são recebidos novos clientes. Como posso configurar quem receber estes e-mails?
+
+Aceda à sua oferta no Partner Center e navegue para a página de **configuração da Oferta** - >**Edição**de **Gestão** -> de Chumbo. Atualize os endereços de e-mail no campo de **email contacte.**
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: d4d59642f638e7b1221c35a4bb281923571d5066
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297592"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273295"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistem ficheiros em Azure Cloud Shell
 A Cloud Shell utiliza o armazenamento de ficheiros Azure para persistir ficheiros em sessões. No início inicial, a Cloud Shell pede-lhe que associe uma nova ou existente partilha de ficheiros para persistir ficheiros em sessões.
@@ -50,7 +50,7 @@ Ao utilizar a opção avançada, pode associar os recursos existentes. Ao seleci
 Quando aparecer o pedido de configuração de armazenamento, selecione **Configurações avançadas** para visualizar opções adicionais. As opções de armazenamento povoadas filtram para armazenamento localmente redundante (LRS), armazenamento geo-redundante (GRS) e contas de armazenamento redundante em zona (ZRS). 
 
 > [!NOTE]
-> Recomenda-se a utilização de contas de armazenamento GRS ou ZRS para uma resiliência adicional para a sua parte de ficheiro de apoio. Que tipo de redundância depende dos seus objetivos e preferência de preço. [Saiba mais sobre as opções](https://docs.microsoft.com/azure/storage/common/storage-redundancy)de replicação para as contas de Armazenamento Azure.
+> Recomenda-se a utilização de contas de armazenamento GRS ou ZRS para uma resiliência adicional para a sua parte de ficheiro de apoio. Que tipo de redundância depende dos seus objetivos e preferência de preço. [Saiba mais sobre as opções](../storage/common/storage-redundancy.md)de replicação para as contas de Armazenamento Azure.
 
 ![A definição do grupo de recursos](media/persisting-shell-storage/advanced-storage.png)
 
@@ -169,5 +169,5 @@ Nota: Se precisar de definir uma função num ficheiro e chamá-la a partir dos 
 
 ## <a name="next-steps"></a>Passos seguintes
 [Cloud Shell Quickstart](quickstart.md) <br>
-[Saiba mais sobre o armazenamento do Microsoft Azure Files](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
+[Saiba mais sobre o armazenamento do Microsoft Azure Files](../storage/files/storage-files-introduction.md) <br>
 [Saiba mais sobre etiquetas de armazenamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

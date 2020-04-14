@@ -1,18 +1,18 @@
 ---
 title: Aplicação Aplicação Extensão de saúde com conjuntos de escala de máquina seleção azul
 description: Saiba como utilizar a extensão de Saúde de Aplicação para monitorizar a saúde das suas aplicações implementadas em conjuntos de escala de máquinas virtuais.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: manayar
-ms.openlocfilehash: 37d93b04e6755512eac6c2a168bd2a04f8ac298f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: cb5f1d48bb1a95db004d9da553e19a35071c73b0
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76275884"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273737"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Utilizar a extensão Estado da Aplicação com conjuntos de dimensionamento de máquinas virtuais
 Monitorizar a saúde da sua aplicação é um sinal importante para gerir e melhorar a sua implementação. Os conjuntos de escala de máquinas virtuais Azure fornecem suporte para [atualizações de rolos,](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluindo [atualizações automáticas de imagem de OS,](virtual-machine-scale-sets-automatic-upgrade.md)que dependem da monitorização da saúde das instâncias individuais para atualizar a sua implementação.

@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 74f97b082c07e17a59a1615c4b1245434c497ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 650ef45e56184b67efba67810580d9d6e763a4d0
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279951"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271272"
 ---
 # <a name="update-an-existing-container-offer"></a>Atualizar uma oferta de contentores existente
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de contentores Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de recipiente azure](https://aka.ms/CreateContainerOffer) para gerir as suas ofertas migratórias.
 
 Este artigo atravessa os diferentes aspetos da atualização da sua oferta de contentores no Portal do [Parceiro cloud.](https://cloudpartner.azure.com/)
 

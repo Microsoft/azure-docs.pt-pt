@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 5a07f0749b59efc96b67df3ad5ed2fbf353be614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41e88dd5a08de485f770559959843ba3b54e590f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74538832"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81274015"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprenda conceitos de moderação de texto
 
@@ -58,13 +58,13 @@ O seguinte extrato no extrato JSON mostra uma saída exemplo:
     "Classification": {
         "ReviewRecommended": true,
         "Category1": {
-            "Score": 1.5113095059859916E-06
+              "Score": 1.5113095059859916E-06
             },
         "Category2": {
-            "Score": 0.12747249007225037
+              "Score": 0.12747249007225037
             },
         "Category3": {
-            "Score": 0.98799997568130493
+              "Score": 0.98799997568130493
         }
     }
 
@@ -84,70 +84,41 @@ A funcionalidade de dados pessoais deteta a presença potencial desta informaç�
 - Endereço de correio dos EUA
 - Endereço IP
 - Número de telefone dos EUA
-- Número de telefone do Reino Unido
-- Número de Segurança Social (SSN)
 
 O exemplo seguinte mostra uma resposta da amostra:
 
 ```json
-"PII":{ 
-  "Email":[ 
-    { 
-      "Detected":"abcdef@abcd.com",
-      "SubType":"Regular",
-      "Text":"abcdef@abcd.com",
-      "Index":32
-    }
+"pii":{
+  "email":[
+      {
+        "detected":"abcdef@abcd.com",
+        "sub_type":"Regular",
+        "text":"abcdef@abcd.com",
+        "index":32
+      }
   ],
-  "IPA":[ 
-    { 
-      "SubType":"IPV4",
-      "Text":"255.255.255.255",
-      "Index":72
-    }
+  "ssn":[
+
   ],
-  "Phone":[ 
-    { 
-      "CountryCode":"US",
-      "Text":"4255550111",
-      "Index":56
-    },
-    { 
-      "CountryCode":"US",
-      "Text":"425 555 0111",
-      "Index":212
-    },
-    { 
-      "CountryCode":"UK",
-      "Text":"+123 456 7890",
-      "Index":208
-    },
-    { 
-      "CountryCode":"UK",
-      "Text":"0234 567 8901",
-      "Index":228
-    },
-    { 
-      "CountryCode":"UK",
-      "Text":"0456 789 0123",
-      "Index":245
-    }
+  "ipa":[
+      {
+        "sub_type":"IPV4",
+        "text":"255.255.255.255",
+        "index":72
+      }
   ],
-  "Address":[ 
-    { 
-      "Text":"1234 Main Boulevard, Panapolis WA 96555",
-      "Index":89
-    }
+  "phone":[
+      {
+        "country_code":"US",
+        "text":"6657789887",
+        "index":56
+      }
   ],
-  "SSN":[ 
-    { 
-      "Text":"999999999",
-      "Index":56
-    },
-    { 
-      "Text":"999-99-9999",
-      "Index":267
-    }
+  "address":[
+      {
+        "text":"1 Microsoft Way, Redmond, WA 98052",
+        "index":89
+      }
   ]
 }
 ```

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 0261ff7ca8a60dc5fd986a64b9944f9cb9f101e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: 59faf63312bd7cc657f8b96ca3110707ea997c02
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062504"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273614"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configure e aceda a registos de consultas lentas do portal Azure
 
@@ -23,7 +23,7 @@ Os passos neste artigo exigem que tenha [base de dados Azure para servidor MySQL
 ## <a name="configure-logging"></a>Configurar a exploração madeireira
 Configure o acesso ao registo de consulta lenta MySQL. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione a sua Base de Dados Azure para o servidor MySQL.
 
@@ -32,11 +32,15 @@ Configure o acesso ao registo de consulta lenta MySQL.
 
 4. Para ver os parâmetros do servidor, selecione **Clique aqui para ativar registos e configurar parâmetros**de registo .
 
-5. Mude os parâmetros que precisa de ajustar. Todas as alterações que fizer nesta sessão são destacadas em roxo. 
+5. Ligue **slow_query_log** para **ligar**.
 
-   Depois de ter alterado os parâmetros, selecione **Guardar**. Ou pode descartar as suas mudanças.
+6. Selecione onde fazer os registos para utilizar **log_output**. Para enviar registos tanto para o armazenamento local como para os registos de diagnóstico do Monitor Azure, selecione **File**. 
 
-   ![Screenshot das opções de parâmetros do servidor](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+7. Mude os outros parâmetros necessários. 
+
+8. Selecione **Guardar**. 
+
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot de parâmetros de registo de consulta lenta e guardar.":::
 
 A partir da página Parâmetros do **Servidor,** pode voltar à lista de registos fechando a página.
 

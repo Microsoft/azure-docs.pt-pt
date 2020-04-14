@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: yinhew
-ms.openlocfilehash: 87fe6b49ce98b3fcb2b16c6573f81aa25fac7f5c
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 91e06805b687e66c147b0904175ae20d01387acf
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671566"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275554"
 ---
 > [!NOTE]
 > O .NET Core é uma plataforma .NET de código-fonte aberto para várias plataformas, que implementa a especificação [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -56,7 +56,7 @@ Antes de começar, certifique-se de:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## <a name="see-also"></a>Consulte também
 

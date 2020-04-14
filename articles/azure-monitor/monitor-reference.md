@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 0ef7e5d869ab2d7e085cbf861bfc32e57b1fad4b
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e0e98b87cf3612bf01f90f806ea64ef06d08c60a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408493"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255333"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorizado pelo Monitor Azure?
 Este artigo descreve as diferentes aplicações e serviços que são monitorizados pelo Azure Monitor. 
@@ -31,7 +31,7 @@ Insights fornecem uma experiência de monitorização personalizada para aplica�
 | [Monitor Azure para Redes (pré-visualização)](insights/network-insights-overview.md) | Proporciona uma visão abrangente da saúde e das métricas para todos os recursos da sua rede. A capacidade avançada de pesquisa ajuda-o a identificar dependências de recursos, permitindo cenários como identificar recursos que estão hospedando o seu website, simplesmente procurando o nome do seu site. |
 [Monitor Azure para Grupos de Recursos (pré-visualização)](insights/resource-group-insights.md) |  Triagem e diagnosticar quaisquer problemas que os seus recursos individuais encontrem, ao mesmo tempo que oferece contexto sobre a saúde e desempenho do grupo de recursos como um todo. |
 | [Monitor Azure para Armazenamento (pré-visualização)](insights/storage-insights-overview.md) | Fornece uma monitorização abrangente das suas contas de Armazenamento Azure, proporcionando uma visão unificada do desempenho, capacidade e disponibilidade dos seus serviços de Armazenamento Azure. |
-| [Monitor Azure para VMs (pré-visualização)](insights/container-insights-overview.md) | Monitoriza as suas máquinas virtuais Azure (VM) e conjuntos de escala de máquinas virtuais à escala. Analisa o desempenho e o estado de funcionamento das suas VMs do Windows e do Linux e monitoriza os respetivos processos e dependências noutros recursos e processos externos. |
+| [Monitor Azure para VMs](insights/container-insights-overview.md) | Monitoriza as suas máquinas virtuais Azure (VM) e conjuntos de escala de máquinas virtuais à escala. Analisa o desempenho e o estado de funcionamento das suas VMs do Windows e do Linux e monitoriza os respetivos processos e dependências noutros recursos e processos externos. |
 
 ### <a name="core-solutions"></a>Soluções centrais
 
@@ -178,11 +178,11 @@ Os serviços e soluções na tabela seguinte armazenam os seus dados num espaço
 | [Proteção de Informação Azure](https://docs.microsoft.com/azure/information-protection/) | Classifique e proteja opcionalmente documentos e e-mails. Consulte o [relatório central para a Proteção de Informação do Azure](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Centro de Segurança do Azure](/azure/security-center/) | Colete e analise eventos de segurança e realize análise de ameaças. Ver [recolha de dados no Centro de Segurança Azure](/azure/security-center/security-center-enable-data-collection) |
 | [Azure Sentinel](/azure/sentinel/) | Conecta-se a diferentes fontes, incluindo o Office 365 e o Amazon Web Services Cloud Trail. Ver [Ligar fontes](/azure/sentinel/connect-data-sources)de dados . |
-| [Análise do Cofre de Chaves](insights/azure-key-vault.md) | Analise os registos de auditoria do cofre de chaves Azure. |
+| [Análise do Key Vault](insights/azure-key-vault.md) | Analise os registos de auditoria do cofre de chaves Azure. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Crie uma definição de diagnóstico para enviar registos para o Monitor Azure. Consulte Enviar dados de registo para armazenamento, centros de [eventos ou análises de registo em Intune (pré-visualização)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
 | Rede  | [Monitor](insights/network-performance-monitor.md) de Desempenho da Rede - Monitor de conectividade e desempenho da rede para os pontos finais de serviço e aplicação.<br>[Gateway de aplicação Azure](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Analise registos e métricas do Portal de Aplicação Azure.<br>[Traffic Analytics](/azure/network-watcher/traffic-analytics) - Analisa os registos de fluxo do grupo de segurança da rede Desfluxo (NSG) para fornecer informações sobre o fluxo de tráfego na sua nuvem Azure. |
 | [Office 365](insights/solution-office-365.md) | Monitorize o ambiente do Office 365. Versão atualizada com melhor embarque disponível através do Azure Sentinel. |
-| [SQL Analytics](insights/azure-sql.md) | Monitorize o desempenho das bases de dados Azure SQL, piscinas elásticas e instâncias geridas em escala e em várias subscrições. |
+| [Análise de SQL](insights/azure-sql.md) | Monitorize o desempenho das bases de dados Azure SQL, piscinas elásticas e instâncias geridas em escala e em várias subscrições. |
 | [Surface Hub](insights/surface-hubs.md) | Acompanhe a saúde e o uso dos dispositivos Surface Hub. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Recolha dados dos agentes do Gestor de Operações ligando o seu grupo de gestão ao Azure Monitor. Ver [Connect Operations Manager to Azure Monitor](platform/om-agents.md)<br> Avalie o risco e a saúde do seu grupo de gestão de Gestão de Operações do Centro de Sistema com solução de Avaliação do Gestor de [Operações.](insights/scom-assessment.md) |
 | [Quartos de equipas da Microsoft](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Gestão integrada e de ponta a ponta dos dispositivos Microsoft Teams Rooms. |

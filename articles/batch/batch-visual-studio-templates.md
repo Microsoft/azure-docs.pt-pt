@@ -14,19 +14,19 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: a71dbd1b38ff58ccf1eb7a4d50daad5b24922e2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e42917237f3b114881655d88a017c2c4366612b3
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022754"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254568"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Use modelos de projeto do Estúdio Visual para lançar soluções de lote
 
 Os modelos do Estúdio Visual do Gestor **de Emprego** e do Processador de **Tarefas** para o Batch fornecem código para ajudá-lo a implementar e executar as suas cargas de trabalho intensivas em Computação no Lote com o menor esforço. Este documento descreve estes modelos e fornece orientações para como usá-los.
 
 > [!IMPORTANT]
-> Este artigo discute apenas informações aplicáveis a estes dois modelos, e assume que está familiarizado com o serviço De lote e conceitos-chave relacionados com ele: piscinas, nós de computação, empregos e tarefas, tarefas de gestor de emprego, variáveis ambientais e outros relevantes informação. Pode encontrar mais informações no [Basics of Azure Batch](batch-technical-overview.md) e [No lote para desenvolvedores](batch-api-basics.md).
+> Este artigo discute apenas informações aplicáveis a estes dois modelos, e assume que está familiarizado com o serviço De lote e conceitos-chave relacionados com ele: piscinas, nós de computação, empregos e tarefas, tarefas de gestor de emprego, variáveis ambientais e outras informações relevantes. Pode encontrar mais informações no [Basics of Azure Batch](batch-technical-overview.md) e [No lote para desenvolvedores](batch-api-basics.md).
 > 
 > 
 
@@ -215,7 +215,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 ```
 **Credenciais de armazenamento**
 
-Normalmente, o cliente não precisa de fornecer as credenciais de conta de armazenamento ligadas à tarefa do gestor de emprego porque (a) a maioria dos gestores de emprego não precisa de aceder explicitamente à conta de armazenamento ligada e (b) a conta de armazenamento ligada é muitas vezes fornecida a todas as tarefas como a ambiente comum para o trabalho. Se não estiver a fornecer a conta de armazenamento ligada através das configurações do ambiente comum, e o gestor de emprego exigir acesso ao armazenamento ligado, então deve fornecer as credenciais de armazenamento ligadas da seguinte forma:
+Normalmente, o cliente não precisa de fornecer as credenciais de conta de armazenamento ligadas à tarefa do gestor de emprego porque (a) a maioria dos gestores de emprego não precisa de aceder explicitamente à conta de armazenamento ligada e (b) a conta de armazenamento ligada é muitas vezes fornecida a todas as tarefas como um ambiente comum para o trabalho. Se não estiver a fornecer a conta de armazenamento ligada através das configurações do ambiente comum, e o gestor de emprego exigir acesso ao armazenamento ligado, então deve fornecer as credenciais de armazenamento ligadas da seguinte forma:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -361,7 +361,7 @@ A sua implementação tem acesso a:
 
 **Falha de tarefa**
 
-Em caso de falha, pode sair do método Run() lançando uma exceção, mas isso deixa o manipulador de exceção de nível superior no controlo do código de saída de tarefas. Se precisar de controlar o código de saída para que possa distinguir diferentes tipos de falhas, por exemplo para fins de diagnóstico ou porque alguns modos de falha devem terminar o trabalho e outros não devem, então deve sair do método Run() devolvendo um não-zero código de saída. Isto torna-se o código de saída de tarefas.
+Em caso de falha, pode sair do método Run() lançando uma exceção, mas isso deixa o manipulador de exceção de nível superior no controlo do código de saída de tarefas. Se precisar de controlar o código de saída para que possa distinguir diferentes tipos de falhas, por exemplo para fins de diagnóstico ou porque alguns modos de falha devem terminar o trabalho e outros não devem, então deve sair do método Run() devolvendo um código de saída não zero. Isto torna-se o código de saída de tarefas.
 
 ### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Códigos de saída e exceções no modelo do Processador de Tarefas
 Os códigos de saída e as exceções fornecem um mecanismo para determinar o resultado da execução de um programa, e podem ajudar a identificar quaisquer problemas com a execução do programa. O modelo do Processador de Tarefas implementa os códigos de saída e exceções descritos nesta secção.
@@ -444,7 +444,7 @@ Outra ferramenta útil no desenvolvimento da solução de lote é as Convençõe
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [process_exitcode]: https://msdn.microsoft.com/library/system.diagnostics.process.exitcode.aspx
 [vs_gallery]: https://visualstudiogallery.msdn.microsoft.com/
-[vs_gallery_templates]: https://go.microsoft.com/fwlink/?linkid=820714
+[vs_gallery_templates]: https://github.com/Azure/batch-extension-templates
 [vs_find_use_ext]: https://msdn.microsoft.com/library/dd293638.aspx
 
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: c92f045f2c8d4443d596697596363bda3d0df975
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8a0ef4c5abcd4c4137a878adf6a7fff9e80c2764
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985291"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273516"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Segurança no Azure Cosmos DB – descrição geral
 
@@ -66,8 +66,8 @@ Vamos investigar cada um em detalhe.
 |Replicação global|O Azure Cosmos DB oferece uma distribuição global chave na mão, o que lhe permite replicar os seus dados a qualquer um dos centros de dados mundiais do Azure com o clique de um botão. A replicação global permite escalar globalmente e fornecer acesso de baixa latência aos seus dados em todo o mundo.<br><br>No contexto da segurança, a replicação global garante a proteção de dados contra falhas regionais.<br><br>Saiba mais em [Distribuir dados globalmente](distribute-data-globally.md).|
 |Ativações pós-falha regionais|Se tiver replicado os seus dados em mais de um centro de dados, o Azure Cosmos DB passa automaticamente sobre as suas operações caso um centro de dados regional fique offline. Pode criar uma lista prioritária de regiões de failover utilizando as regiões em que os seus dados são replicados. <br><br>Saiba mais em [Falhas Regionais em Azure Cosmos DB.](high-availability.md)|
 |Replicação local|Mesmo dentro de um único centro de dados, o Azure Cosmos DB replica automaticamente dados para alta disponibilidade, dando-lhe a escolha dos níveis de [consistência.](consistency-levels.md) Esta replicação garante uma [disponibilidade](https://azure.microsoft.com/support/legal/sla/cosmos-db) de 99,99% para todas as contas unipessoais da região e todas as contas multi-regiões com consistência descontraída, e 99,999% lê disponibilidade em todas as contas de bases de dados multi-regiões.|
-|Backups online automatizados|As bases de dados da Azure Cosmos são regularmente armazenadas e armazenadas numa loja georedundant. <br><br>Saiba mais em [backup automático on-line e restaure com Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).|
-|Restaurar os dados eliminados|As cópias de segurança online automatizadas podem ser utilizadas para recuperar dados que pode ter apagado acidentalmente até ~30 dias após o evento. <br><br>Saiba mais em [backup automático on-line e restaure com Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md)|
+|Backups online automatizados|As bases de dados da Azure Cosmos são regularmente armazenadas e armazenadas numa loja georedundant. <br><br>Saiba mais em [backup automático on-line e restaure com Azure Cosmos DB](online-backup-and-restore.md).|
+|Restaurar os dados eliminados|As cópias de segurança online automatizadas podem ser utilizadas para recuperar dados que pode ter apagado acidentalmente até ~30 dias após o evento. <br><br>Saiba mais em [backup automático on-line e restaure com Azure Cosmos DB](online-backup-and-restore.md)|
 |Proteger e isolar dados sensíveis|Todos os dados das regiões listadas em "O que há de novo"? está agora encriptado em repouso.<br><br>Os dados pessoais e outros dados confidenciais podem ser isolados em recipientes específicos e ler-escrita, ou o acesso apenas a leitura pode ser limitado a utilizadores específicos.|
 |Monitor para ataques|Utilizando registos de registos de [registos de auditoria e de atividade,](logging.md)pode monitorizar a sua conta para uma atividade normal e anormal. Pode ver que operações foram realizadas nos seus recursos, quem iniciou a operação, quando ocorreu a operação, o estado da operação, e muito mais como mostrado na imagem que se segue a esta tabela.|
 |Responder a ataques|Uma vez contactado o apoio do Azure para relatar um possível ataque, um processo de resposta a incidentes de 5 passos é iniciado. O objetivo do processo de 5 etapas é restaurar a segurança e as operações normais de serviço o mais rapidamente possível após a deteção de um problema e iniciar uma investigação.<br><br>Saiba mais na [Resposta de Segurança do Microsoft Azure na Nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|

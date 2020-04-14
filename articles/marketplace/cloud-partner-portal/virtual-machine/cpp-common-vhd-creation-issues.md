@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: dsindona
-ms.openlocfilehash: 8ae1dcbeff6e14e6f1f7cd44ae3a0a68bd379b56
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 988121effb35949cce442ba9458789105e88feec
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387347"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273448"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Questões comuns durante a criação de VHD (FAQ)
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Create VHD FAQs](https://aka.ms/VHDcreationIssues) para gerir as suas ofertas migratórias.
 
 As seguintes perguntas frequentes (FAQ) cobrem questões comuns encontradas durante o disco rígido virtual (VHD) e a criação de máquina virtual (VM) para ofertas vm. 
 

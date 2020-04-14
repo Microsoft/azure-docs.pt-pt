@@ -4,15 +4,15 @@ description: Conheça os Serviços de Análise Azure, uma plataforma totalmente 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 03/30/2020
+ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7eb46e0eda1cd702f26829fac49ffe0e7916626f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 350fd9c7057df96a4ad1abc0d9c8b5ec3871ef38
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410386"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271663"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -64,12 +64,14 @@ Este escalão destina-se a aplicações de produção críticas para o negócio,
 |S1    |    100     |    25     |
 |S2    |    200     |    50     |
 |S4    |    400     |    100     |
-|S8*    |    320     |    200     |
-|S9*    |    640    |    400     |
-|S8v2*    |    640     |    200     |
-|S9v2*    |    1280    |    400     |
+|S8 <sup>[1,](#depr)</sup> <sup>[2](#rec)</sup>    |    320    |    200     |
+|S9 <sup>[1,](#depr)</sup> <sup>[2](#rec)</sup>    |    640    |    400     |
+|S8v2 <sup> [1](#depr)</sup>   |    640     |    200     |
+|S9v2 <sup> [1](#depr)</sup>    |    1280    |    400     |
 
-\* Não está disponível em todas as regiões.  
+<a name="depr">1</a> - Não disponível em todas as regiões.   
+<a name="rec">2</a> - Este plano está premeditado. v2 é recomendado.
+
 
 ## <a name="availability-by-region"></a>Armazenamento por região
 
@@ -83,15 +85,15 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |E.U.A. Leste     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |E.U.A. Leste 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|E.U.A. Leste 2     |     S8, S9, S8v2, S9v2   |    1    |
+|E.U.A. Leste 2     |     S8<sup>[2](#rec)</sup>, S9<sup>[2,](#rec)</sup>S8v2, S9v2   |    1    |
 |E.U.A. Centro-Norte     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Central     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Centro-Oeste   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |E.U.A. Oeste     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|E.U.A. Oeste     |    S8, S9, S8v2, S9v2   |    2  |
+|E.U.A. Oeste     |    S8<sup>[2](#rec)</sup>, S9<sup>[2,](#rec)</sup>S8v2, S9v2   |    2  |
 |E.U.A. Oeste 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|E.U.A. Oeste 2    |    S8, S9, S8v2, S9v2  |    1     |
+|E.U.A. Oeste 2    |    S8<sup>[2](#rec)</sup>, S9<sup>[2,](#rec)</sup>S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>Europa
 
@@ -101,17 +103,17 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |Europa do Norte     |    S8v2, S9v2      |    3     |
 |Sul do Reino Unido     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europa ocidental     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Europa ocidental    |   S8, S9, S8v2, S9v2  |  1  |
+|Europa ocidental    |   S8<sup>[2](#rec)</sup>, S9<sup>[2,](#rec)</sup>S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Ásia-Pacífico 
 
 |Região  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
 |---------|---------|:---------:|
 |Leste da Austrália     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Leste da Austrália     |    S8, S9, S8v2, S9v2    |    1     |
+|Leste da Austrália     |    S8<sup>[2](#rec)</sup>, S9<sup>[2,](#rec)</sup>S8v2, S9v2    |    1     |
 |Austrália Sudeste     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Leste do Japão     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Ásia Sudeste     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Ásia Sudeste     |     B1, B2, S0, S1, S2, S4, S8<sup>[2,](#rec)</sup>S9<sup>[2,](#rec)</sup>S8v2, S9v2, D1     |   1      |
 |Oeste da Índia     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Dimensionar para as suas necessidades

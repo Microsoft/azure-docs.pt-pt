@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 01/07/2020
+ms.date: 04/13/2020
 ms.author: diberry
-ms.openlocfilehash: 30132983f37323e798efd330f5cc8f15c0a9d2b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33f8b787119e1c5d6d1a1bb28c94d9791a1c048e
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78270741"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272615"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída DatetimeV2 para uma app LUIS
 
@@ -145,7 +145,7 @@ Cada elemento `values` da matriz pode ter os seguintes campos:
 
 |Nome da propriedade|Descrição do imóvel|
 |--|--|
-|timex|intervalo de tempo, data ou data expresso no formato TIMEX que segue a [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e os atributos TIMEX3 para anotação utilizando a linguagem TimeML. Esta anotação é descrita nas [diretrizes TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
+|timex|intervalo de tempo, data ou data expresso no formato TIMEX que segue a [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e os atributos TIMEX3 para anotação utilizando a linguagem TimeML.|
 |mod|termo usado para descrever como usar `before` `after`o valor como , .|
 |tipo|O subtipo, que pode ser um dos `datetime` `date`seguintes `timerange`itens: `duration` `set`. `time` `daterange`, , `datetimerange`, , , .|
 |valor|**Opcional.** Um objeto de data no Formato yyyy-MM-dd (data), HH:mm:ss (hora) yyyy-MM-dd HH:mm:ss (data). Se `type` `duration`for, o valor é o número de segundos (duração) <br/> Só é `type` `datetime` utilizado `date` `time`se for ou, ou "duração".|

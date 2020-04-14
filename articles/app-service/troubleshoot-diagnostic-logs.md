@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f22d5b2140e42f5f4b8ef5787d22b4be399c7e8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280472"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272530"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Ativar diagnósticos de login para apps no Serviço de Aplicações Azure
 ## <a name="overview"></a>Descrição geral
@@ -188,7 +188,7 @@ A tabela que se segue mostra os tipos e descrições suportadas:
 | AppServiceHTTPLogs | Sim | Sim | Registos de servidores web |
 | AppServiceEnvironmentPlatformLogs | Sim | Sim | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
 | AppServiceAuditLogs | Sim | Sim | Atividade de login via FTP e Kudu |
-| AppServiceFileAuditLogs | TBA | Sim | Alterações de ficheiros via FTP e Kudu |
+| AppServiceFileAuditLogs | Sim | TBD | Alterações de ficheiros via FTP e Kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Registos de aplicação |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Próximos passos
