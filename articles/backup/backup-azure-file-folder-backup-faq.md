@@ -3,12 +3,12 @@ title: Backup de ficheiros e pastas - questões comuns
 description: Aborda questões comuns sobre o backup de ficheiros e pastas com o Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 55819ce7ec5196812d935a21c096c132144d78af
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421314"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254755"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre o backup de ficheiros e pastas
 
@@ -22,7 +22,7 @@ O mais recente agente MARS utilizado ao fazer backup das máquinas Do Windows Se
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Quanto tempo as credenciais do cofre são válidas?
 
-As credenciais do cofre expiram após 48 horas. Se o ficheiro de credenciais expirar, faça o download do ficheiro novamente a partir do portal Azure.
+As credenciais do cofre expiram após 10 dias. Se o ficheiro de credenciais expirar, faça o download do ficheiro novamente a partir do portal Azure.
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>A partir de que unidades posso fazer o back-up de ficheiros e pastas?
 
@@ -185,7 +185,6 @@ Se tiver a mesma frase de passe (que forneceu durante o registo) da máquina ori
 | --- | --- | --- |
 | Perdido |Disponível |Pode instalar e registar o agente MARS noutra máquina com a mesma frase que forneceu durante o registo da máquina original. Escolha **Opção** > de Recuperação**Outro local** para realizar o seu restauro. Para mais informações, consulte este [artigo.](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine)
 | Perdido |Perdido |Não é possível recuperar os dados ou dados não disponíveis |
-
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontece se eu cancelar um trabalho de restauro em curso?
 

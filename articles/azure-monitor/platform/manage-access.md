@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
-ms.openlocfilehash: 1e559309b8e8d9768ca2f79dabfb01ec6086a961
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/10/2019
+ms.openlocfilehash: b8d7f995997b828c2323b3e6934b97354c2f8c8b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348726"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255248"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir acesso a dados de log e espaços de trabalho no Monitor Azure
 
@@ -91,7 +91,7 @@ Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 }
 ```
 
-### <a name="using-a-resource-manager-template"></a>Usando um modelo de Gestor de Recursos
+### <a name="using-a-resource-manager-template"></a>Utilizar um modelo do Resource Manager
 
 Para configurar o modo de acesso num modelo de Gestor de Recursos Azure, detete a bandeira de funcionalidades **de funcionalidadeLogAccessUseOnlyResourcePermissions** no espaço de trabalho para um dos seguintes valores.
 
@@ -273,7 +273,7 @@ Para criar uma função com acesso apenas à tabela _SecurityBaseline,_ crie uma
 
  Os registos personalizados são criados a partir de fontes de dados, tais como registos personalizados e API de Colecionador de Dados HTTP. A forma mais fácil de identificar o tipo de registo é verificando as tabelas listadas [em Registos Personalizados no esquema](../log-query/get-started-portal.md#understand-the-schema)de log .
 
- Atualmente não pode conceder acesso a registos personalizados individuais, mas pode conceder acesso a todos os registos personalizados. Para criar um papel com acesso a todos os registos personalizados, crie uma função personalizada usando as seguintes ações:
+ Não pode conceder acesso a registos personalizados individuais, mas pode conceder acesso a todos os registos personalizados. Para criar um papel com acesso a todos os registos personalizados, crie uma função personalizada usando as seguintes ações:
 
 ```
 "Actions":  [
@@ -282,6 +282,9 @@ Para criar uma função com acesso apenas à tabela _SecurityBaseline,_ crie uma
     "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
 ],
 ```
+Uma abordagem alternativa para gerir o acesso a registos personalizados é atribuí-los a um recurso Azure e gerir o acesso usando o paradigma de contexto de recursos. Para utilizar este método, deve incluir o ID de recurso especificando-o no cabeçalho [x-ms-AzureResourceId](data-collector-api.md#request-headers) quando os dados são ingeridos para log Analytics através da [Http Data Collector API](data-collector-api.md). O ID de recurso deve ser válido e ter regras de acesso aplicadas. Depois de ingeridos os registos, são acessíveis a quem tem acesso lido ao recurso, como aqui explicado.
+
+Por vezes, os registos personalizados provêm de fontes que não estão diretamente associadas a um recurso específico. Neste caso, crie um grupo de recursos apenas para gerir o acesso a estes registos. O grupo de recursos não incorre em qualquer custo, mas dá-lhe um ID de recurso válido para controlar o acesso aos registos personalizados. Por exemplo, se uma firewall específica estiver a enviar registos personalizados, crie um grupo de recursos chamado "MyFireWallLogs" e certifique-se de que os pedidos da API contêm o ID de recurso de "MyFireWallLogs". Os registos de registo de firewall são então acessíveis apenas a utilizadores a quem foi concedido acesso a MyFireWallLogs ou a pessoas com acesso total ao espaço de trabalho.          
 
 ### <a name="considerations"></a>Considerações
 

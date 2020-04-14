@@ -4,16 +4,19 @@ description: Aprenda a criar e gerir piscinas de nós de sistema no Serviço Azu
 services: container-service
 ms.topic: article
 ms.date: 04/06/2020
-ms.openlocfilehash: ef5400f19f68fd2da45776d220e17777f58e46e6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986320"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259073"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gerir piscinas de nó de sistema no Serviço Azure Kubernetes (AKS)
 
-No Serviço Azure Kubernetes (AKS), os nódosos da mesma configuração são agrupados em *piscinas*de nó . As piscinas de nó contêm os VMs subjacentes que executam as suas aplicações. Piscinas de nós de sistema e piscinas de nós de utilizador são dois modos diferentes de piscina de nós para os seus clusters AKS. Os conjuntos de nó do sistema acolhem serviços essenciais do sistema, como o CoreDNS. As piscinas de nó do utilizador são onde coloca as suas cápsulas específicas para aplicações. Cada cluster AKS deve conter pelo menos uma piscina de nó de sistema com pelo menos um nó. Se você executar uma única piscina de nó de sistema para o seu cluster AKS, recomendamos que use pelo menos três nós para a piscina do nó. 
+No Serviço Azure Kubernetes (AKS), os nódosos da mesma configuração são agrupados em *piscinas*de nó . As piscinas de nó contêm os VMs subjacentes que executam as suas aplicações. Piscinas de nós de sistema e piscinas de nós de utilizador são dois modos diferentes de piscina de nós para os seus clusters AKS. As piscinas de nó do sistema servem o principal propósito de hospedar cápsulas de sistema críticos, tais como CoreDNS e tunnelfront. As piscinas de nó do utilizador servem o principal propósito de hospedar as suas cápsulas de aplicação. No entanto, as cápsulas de aplicação podem ser programadas em piscinas de nós do sistema se desejar ter apenas uma piscina no seu cluster AKS. Cada cluster AKS deve conter pelo menos uma piscina de nó de sistema com pelo menos um nó. 
+
+> [!Important]
+> Se você executar uma única piscina de nó de sistema para o seu cluster AKS em um ambiente de produção, recomendamos que você use pelo menos três nós para a piscina do nó.
 
 ## <a name="before-you-begin"></a>Antes de começar
 

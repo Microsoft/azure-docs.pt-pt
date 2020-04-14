@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/2/2020
-ms.openlocfilehash: 99b614de87c666d1cb1fb8a34eaafadf6fa82849
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: f8c020da72e9cdf8777a3eefac266e97e4a312bd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632555"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263476"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Criar utilizadores na Base de Dados Azure para servidor MySQL
 
@@ -92,4 +92,4 @@ Assim que for criada a Base de Dados Azure para o servidor MySQL, pode utilizar 
 
 Abra a firewall para os endereços IP das máquinas dos novos utilizadores para que possam ligar: Criar e gerir a Base de Dados Azure para as regras de [firewall MySQL utilizando o portal Azure](howto-manage-firewall-using-portal.md) ou [o Azure CLI](howto-manage-firewall-using-cli.md).
 
-Para obter mais informações sobre a gestão da conta de utilizador, consulte a documentação do produto MySQL para [a gestão](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html)da conta utilizador, [GRANT Syntax](https://dev.mysql.com/doc/refman/5.7/en/grant.html)e [Privileges](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).
+Para obter mais informações sobre a gestão da conta de utilizador, consulte a documentação do produto MySQL para [a gestão](https://dev.mysql.com/doc/refman/5.7/en/access-control.html)da conta utilizador, [GRANT Syntax](https://dev.mysql.com/doc/refman/5.7/en/grant.html)e [Privileges](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/07/2020
+ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86c5f572ba66845467a7e3f4412b8da8368fe772
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 0866db6b549bc940d2e73bccfc77b8fad19abd51
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811263"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273227"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -110,6 +110,7 @@ Para obter informações sobre a integração dos serviços Azure nos componente
 
 
 ## <a name="change-log"></a>Alterar Log
+- 04/13/2020: Correto sap Os números de lançamento da ASE ASE na implantação de [máquinas virtuais SAP ASE Azure PARA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase) carga de trabalho SAP
 - 04/07/2020: Alteração na configuração do [Pacemaker nas SLES em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) para clarificar instruções cloud-netconfig-azure
 - 04/06/2020: Alterações na [escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) e em [Escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp no RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) para remover referências ao NetApp [TR-4435](https://www.netapp.com/us/media/tr-4746.pdf) (substituído por [TR-4746](https://www.netapp.com/us/media/tr-4746.pdf))
 - 03/31/2020: Alteração da [alta disponibilidade de SAP HANA em VMs Azure em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) e [Alta disponibilidade de SAP HANA em VMs Azure no RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) para adicionar instruções sobre como especificar o tamanho das riscas ao criar volumes listrados
@@ -173,11 +174,6 @@ Para obter informações sobre a integração dos serviços Azure nos componente
 - 10/11/2019: Alterações às configurações de armazenamento de discos Ultra e introdução de ANF nas configurações de [armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 10/01/2019: Alteração dos gráficos dos grupos de colocação de proximidade do [Azure para uma latência ótima da rede com aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) para obter mais clareza
 - 10/01/2019: Alteração das [configurações e operações de infraestruturas SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) para corrigir declarações em torno da quota nfs altamente disponível para /hana/shared. 
-- 09/28/2019: Alteração na criação do [Pacemaker na Red Hat Enterprise Linux em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) para clarificar a SBD como um mecanismo de esgrima não é suportado em clusters RHEL  
-- 09/17/2019: Alteração do Guia de Planeamento e Implementação da NetWeaver para unificar os termos em torno da extensão VM para SAP  
-- 08/22/2019: Alterações na configuração do [Pacemaker no SUSE Linux Enterprise Server em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) para atualizar os URLs para criação de papéis personalizados  
-- 08/16/2019: Alterações na criação do [Pacemaker na Red Hat Enterprise Linux em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) para lembrar os clientes de atualizarem as ações no papel personalizado, se atualizarem para a nova versão do agente da cerca azure  
-- 08/15/2019: Alterações nas configurações de [armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) para refletir a Disponibilidade Geral do Disco Ultra (ex-Ultra SSD)
-- 08/01/2019: Alterações à configuração do [Pacemaker no SUSE Linux Enterprise Server em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) para integrar alterações especificamente para sles 15 
+
 
 

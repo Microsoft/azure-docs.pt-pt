@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 326b79e1aca6fa82b3275249401c755428a8b71d
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 631a20c7bf73aa2af363fdc0019ef24cccc58f9e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878566"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258614"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ligue IoT DevKit AZ3166 ao Hub Azure IoT
 
@@ -327,6 +327,17 @@ A aplicação da amostra está a funcionar com sucesso quando vir os seguintes r
 * O LED do MXChip IoT DevKit está a piscar.
 
 ![Saída do monitor de série](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
+
+> [!NOTE]
+> Pode encontrar um erro durante os testes em que o LED não está a piscar, o portal Azure não mostra os dados de entrada do dispositivo, mas o ecrã OLED do dispositivo mostra como **Running...**. Para resolver o problema, no portal Azure, vá ao dispositivo no hub IoT e envie uma mensagem para o dispositivo. Se vir a seguinte resposta no monitor de série no Código VS, é possível que a comunicação direta do dispositivo esteja bloqueada ao nível do router. Verifique as regras de firewall e router que estão configuradas para os dispositivos de ligação. Além disso, certifique-se de que a porta de saída 1833 está aberta.
+> 
+> ERRO: mqtt_client.c (nn 454): Erro: ligação de abertura de falha ao ponto final  
+> Estado de ligação INFO: >>>: desligado  
+> ERRO: tlsio_mbedtls.c (n.º 604): Abertura subjacente da IO falhou  
+> ERRO: mqtt_client.c (n1 1042): Erro: io_open falhou  
+> ERRO: iothubtransport_mqtt_common.c (nn 2283): falha na ligação ao endereço atcsliothub.azure-devices.net.  
+> INFO: >>>Reconectar.  
+> INFORMAÇÃO: Versão IoThub: 1.3.6  
 
 ### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>Veja a telemetria recebida pelo Azure IoT Hub
 

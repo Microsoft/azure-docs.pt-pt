@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 64eb19e43223c1953a7244f8fd29c48d085f1e96
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 2fa2e40ba2a7fe84b6df57bfb711d01332b8f523
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80116955"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275386"
 ---
 <a name="HOLTop"></a>
 
@@ -44,7 +44,7 @@ Utilizando o Visual Studio IDE, crie uma nova aplicação de consola .NET Core. 
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Instale a biblioteca do cliente clicando corretamente sobre a solução no **Solution Explorer** e selecionando **pacotes Manage NuGet**. No gestor de pacotes que abre selecione **Browse,** verifique **Incluir pré-lançamento**, e procurar `Azure.AI.TextAnalytics`por . Selecione a versão, `1.0.0-preview.3`e depois **instale**. Também pode utilizar a consola de gestor de [pacotes.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)
+Instale a biblioteca do cliente clicando corretamente sobre a solução no **Solution Explorer** e selecionando **pacotes Manage NuGet**. No gestor de pacotes que abre selecione **Browse,** verifique **Incluir pré-lançamento**, e procurar `Azure.AI.TextAnalytics`por . Selecione a versão, `1.0.0-preview.4`e depois **instale**. Também pode utilizar a consola de gestor de [pacotes.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)
 
 > [!TIP]
 > Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo [no GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs)que contém os exemplos de código neste arranque rápido. 
@@ -63,6 +63,7 @@ Instale a biblioteca do cliente clicando corretamente sobre a solução no **Sol
 Abra o ficheiro *program.cs* `using` e adicione as seguintes diretivas:
 
 ```csharp
+using Azure;
 using System;
 using System.Globalization;
 using Azure.AI.TextAnalytics;
@@ -73,7 +74,7 @@ Na aula da `Program` aplicação, crie variáveis para a chave e ponto final do 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 ```csharp
-private static readonly TextAnalyticsApiKeyCredential credentials = new TextAnalyticsApiKeyCredential("<replace-with-your-text-analytics-key-here>");
+private static readonly AzureKeyCredential credentials = new AzureKeyCredential("<replace-with-your-text-analytics-key-here>");
 private static readonly Uri endpoint = new Uri("<replace-with-your-text-analytics-endpoint-here>");
 ```
 
@@ -87,7 +88,6 @@ static void Main(string[] args)
     SentimentAnalysisExample(client);
     LanguageDetectionExample(client);
     EntityRecognitionExample(client);
-    EntityPIIExample(client);
     EntityLinkingExample(client);
     KeyPhraseExtractionExample(client);
 
@@ -121,14 +121,13 @@ Substitua o `Main` método da aplicação. Definirá os métodos aqui chamados m
 
 O cliente Text `TextAnalyticsClient` Analytics é um objeto que autentica o Azure usando a sua chave, e fornece funções para aceitar texto como cordas únicas ou como um lote. Pode enviar sms para a API sincronicamente, ou assincronicamente. O objeto de resposta conterá as informações de análise de cada documento que enviar. 
 
-Se estiver a `3.0-preview`utilizar a versão, `TextAnalyticsClientOptions` pode utilizar uma instância opcional para inicializar o cliente com várias definições padrão (por exemplo, linguagem padrão ou sugestão de país). Também pode autenticar utilizando um símbolo do Diretório Ativo Azure. 
+Se estiver a `3.0-preview` utilizar a versão do serviço, pode utilizar uma instância opcional `TextAnalyticsClientOptions` para inicializar o cliente com várias definições predefinidas (por exemplo, idioma padrão ou sugestão de país). Também pode autenticar utilizando um símbolo do Diretório Ativo Azure. 
 
 ## <a name="code-examples"></a>Exemplos de código
 
 * [Análise de sentimento](#sentiment-analysis)
-* [Deteção de idioma](#language-detection)
+* [Deteção de linguagem](#language-detection)
 * [Reconhecimento de Entidades Nomeadas](#named-entity-recognition-ner)
-* [Detetar informações pessoais](#detect-personal-information)
 * [Ligação de entidades](#entity-linking)
 * [Extração de frase-chave](#key-phrase-extraction)
 
@@ -264,7 +263,6 @@ Language: English
 
 > [!NOTE]
 > Novo em `3.0-preview`versão:
-> * O reconhecimento da entidade inclui agora a capacidade de detetar informações pessoais em texto.
 > * A ligação de entidades é agora separada do reconhecimento da entidade.
 
 
@@ -293,33 +291,6 @@ Named Entities:
         Text: last week,        Category: DateTime,     Sub-Category: DateRange
                 Length: 9,      Score: 0.80
 ```
-
-## <a name="detect-personal-information"></a>Detetar informações pessoais
-
-Crie uma `EntityPIIExample()` nova função chamada que leve o `RecognizePiiEntities()` cliente que criou anteriormente, ligue para a sua função e iterar através dos resultados. Semelhante à função `Response<IReadOnlyCollection<CategorizedEntity>>` anterior, o objeto devolvido conterá a lista de entidades detetadas. Se houve um erro, vai `RequestFailedException`lançar um .
-
-```csharp
-static void EntityPIIExample(TextAnalyticsClient client)
-{
-    string inputText = "Insurance policy for SSN on file 123-12-1234 is here by approved.";
-    var response = client.RecognizePiiEntities(inputText);
-    Console.WriteLine("Personally Identifiable Information Entities:");
-    foreach (var entity in response.Value)
-    {
-        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
-    }
-}
-```
-
-### <a name="output"></a>Saída
-
-```console
-Personally Identifiable Information Entities:
-        Text: 123-12-1234,      Category: U.S. Social Security Number (SSN),    Sub-Category:
-                Length: 11,     Score: 0.85
-```
-
 
 ## <a name="entity-linking"></a>Ligação de entidades
 

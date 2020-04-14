@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e7d6b23aa3f35c99cf03f855152b2b231a60a965
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b117861a528b6983876d28d5b343ea88c2bcadc0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75921628"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260688"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos de Gestor de Recursos Azure com Pipelines Azure
 
@@ -46,7 +46,7 @@ Para concluir este artigo, precisa de:
 
 ## <a name="prepare-a-github-repository"></a>Preparar um repositório do GitHub
 
-O GitHub é usado para armazenar o seu código fonte de projeto, incluindo modelos de Gestor de Recursos. Para outros repositórios apoiados, consulte [repositórios apoiados por Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types).
+O GitHub é usado para armazenar o seu código fonte de projeto, incluindo modelos de Gestor de Recursos. Para outros repositórios apoiados, consulte [repositórios apoiados por Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
 
 ### <a name="create-a-github-repository"></a>Criar um repositório GitHub
 
@@ -212,7 +212,7 @@ Para criar um oleoduto com um passo para implementar um modelo:
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Abra o grupo de recursos. O nome é o que especificou no ficheiro YAML do oleoduto.  Verá uma conta de armazenamento criada.  O nome da conta de armazenamento começa com **a loja**.
 1. Selecione o nome da conta de armazenamento para abri-lo.
 1. Selecione **Propriedades**. Note que a **Replicação** é **armazenamento localmente redundante (LRS)**.
@@ -260,4 +260,4 @@ Também pode querer eliminar o repositório GitHub e o projeto Azure DevOps.
 Neste tutorial, você cria um pipeline Azure DevOps para implementar um modelo de Gestor de Recursos Azure. Para saber como implementar recursos do Azure em várias regiões e como utilizar práticas de implementação seguras, veja
 
 > [!div class="nextstepaction"]
-> [Utilize práticas de implementação seguras](./deployment-manager-tutorial.md)
+> [Utilize as práticas recomendadas de implementação segura](./deployment-manager-tutorial.md)

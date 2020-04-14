@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/21/2019
+ms.date: 04/12/2020
 author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: a5540eea91937319a6ac947b50698ccaa8b25847
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 006d4fa9ed09170a423e796e893b817e079e861b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931708"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261941"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Executar pacotes de Serviços de Integração de Servidores SQL com o utilitário DTexec ativado pelo Azure
 Este artigo descreve o utilitário de comando dtexec (AzureDTExec) ativado por AzureDTExec. É usado para executar pacotes SQL Server Integration Services (SSIS) no Tempo de Funcionano de Integração Azure-SSIS (IR) na Azure Data Factory.
@@ -46,19 +46,19 @@ Na janela **AzureDTExecConfig,** introduza as definições de configuração da 
 - **ApplicationId**: Introduza o identificador único da aplicação Azure AD que cria com as permissões certas para gerar oleodutos na sua fábrica de dados. Para mais informações, consulte [Create a Azure AD app e diretor](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)de serviço via portal Azure .
 - **AutenticaçãoChave**: Introduza a tecla de autenticação para a sua aplicação Azure AD.
 - **TenantId**: Introduza o identificador único do inquilino Azure AD, ao abrigo do qual a sua aplicação Azure AD é criada.
-- **SubscriçãoId**: Introduza o identificador único da subscrição Azure, sob o qual a sua fábrica de dados foi criada.
-- **ResourceGroup**: Introduza o nome do grupo de recursos Azure no qual a sua fábrica de dados foi criada.
 - **DataFactory**: Introduza o nome da sua fábrica de dados em que os gasodutos exclusivos com a atividade do Pacote Execute SSIS neles são gerados com base nos valores das opções fornecidas quando invoca o AzureDTExec.
 - **NOME IRNome**: Introduza o nome do IR Azure-SSIS na sua fábrica de dados, no qual serão executados os pacotes especificados no seu caminho da Convenção Universal de Nomeação (UNC) quando invocar o AzureDTExec.
-- **PackageAccessDomain**: Introduza a credencial de domínio para aceder aos seus pacotes no seu caminho UNC especificado quando invoca o AzureDTExec.
-- **PacoteAccessUserName**: Introduza a credencial de nome de utilizador para aceder aos seus pacotes no seu caminho UNC especificado quando invocar o AzureDTExec.
-- **PackageAccessPassword**: Introduza a credencial de senha para aceder aos seus pacotes no seu caminho UNC especificado quando invocar o AzureDTExec.
-- **LogPath**: Introduza o caminho unc da pasta de registo, no qual são escritos ficheiros de registo das execuções do seu pacote no IR Azure-SSIS.
-- **LogLevel**: Introduza o âmbito selecionado de exploração madeireira a partir de **nulas**predefinidos, **básicos,** **verboses**ou opções de **desempenho** para as suas execuções de pacotes no IR Azure-SSIS.
-- **LogAccessDomain**: Introduza a credencial de domínio para aceder à sua pasta de registo no seu caminho UNC quando escrever ficheiros de registo, o que é necessário quando **o LogPath** é especificado e **o LogLevel** não é **nulo**.
-- **LogAccessUserName**: Introduza a credencial de nome de utilizador para aceder à sua pasta de registo no seu caminho UNC quando escrever ficheiros de registo, o que é necessário quando **o LogPath** é especificado e **o LogLevel** não é **nulo**.
-- **LogAccessPassword**: Introduza a credencial de senha para aceder à sua pasta de registo no seu caminho UNC quando escrever ficheiros de registo, o que é necessário quando **o LogPath** é especificado e **o LogLevel** não é **nulo**.
 - **PipelineNameHashStrLen**: Introduza o comprimento das cordas de haxixe a gerar a partir dos valores das opções que fornece quando invoca o AzureDTExec. As cordas são usadas para formar nomes únicos para os oleodutos data Factory que executam os seus pacotes no IR Azure-SSIS. Normalmente, um comprimento de 32 caracteres é suficiente.
+- **ResourceGroup**: Introduza o nome do grupo de recursos Azure no qual a sua fábrica de dados foi criada.
+- **SubscriçãoId**: Introduza o identificador único da subscrição Azure, sob o qual a sua fábrica de dados foi criada.
+- **LogAccessDomain**: Introduza a credencial de domínio para aceder à sua pasta de registo no seu caminho UNC quando escrever ficheiros de registo, o que é necessário quando **o LogPath** é especificado e **o LogLevel** não é **nulo**.
+- **LogAccessPassword**: Introduza a credencial de senha para aceder à sua pasta de registo no seu caminho UNC quando escrever ficheiros de registo, o que é necessário quando **o LogPath** é especificado e **o LogLevel** não é **nulo**.
+- **LogAccessUserName**: Introduza a credencial de nome de utilizador para aceder à sua pasta de registo no seu caminho UNC quando escrever ficheiros de registo, o que é necessário quando **o LogPath** é especificado e **o LogLevel** não é **nulo**.
+- **LogLevel**: Introduza o âmbito selecionado de exploração madeireira a partir de **nulas**predefinidos, **básicos,** **verboses**ou opções de **desempenho** para as suas execuções de pacotes no IR Azure-SSIS.
+- **LogPath**: Introduza o caminho unc da pasta de registo, no qual são escritos ficheiros de registo das execuções do seu pacote no IR Azure-SSIS.
+- **PackageAccessDomain**: Introduza a credencial de domínio para aceder aos seus pacotes no seu caminho UNC especificado quando invoca o AzureDTExec.
+- **PackageAccessPassword**: Introduza a credencial de senha para aceder aos seus pacotes no seu caminho UNC especificado quando invocar o AzureDTExec.
+- **PacoteAccessUserName**: Introduza a credencial de nome de utilizador para aceder aos seus pacotes no seu caminho UNC especificado quando invocar o AzureDTExec.
 
 Para armazenar os seus pacotes e ficheiros de registo em sistemas de ficheiros ou file shares no local, junte-se ao seu IR Azure-SSIS a uma rede virtual ligada à sua rede no local para que possa ir buscar os seus pacotes e escrever os seus ficheiros de registo. Para mais informações, consulte [Join a Azure-SSIS IR a uma rede virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
@@ -92,7 +92,7 @@ Invocar o AzureDTExec oferece opções semelhantes à de invocar o dtexec. Para 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de gasodutos únicos com a atividade do Pacote Execute SSIS neles serem gerados e executados após invocar o AzureDTExec, podem ser monitorizados no portal data Factory. Para mais informações, consulte os [pacotes Run SSIS como atividades da Fábrica](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)de Dados.
+Depois de gasodutos únicos com a atividade do Pacote Execute SSIS neles serem gerados e executados quando invoca o AzureDTExec, podem ser monitorizados no portal data Factory. Também pode atribuir os gatilhos da Data Factory aos mesmos se pretender orquestrar/programar utilizando data factory. Para mais informações, consulte os [pacotes Run SSIS como atividades da Fábrica](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)de Dados.
 
 > [!WARNING]
 > Espera-se que o gasoduto gerado seja utilizado apenas pela AzureDTExec. As suas propriedades ou parâmetros podem mudar no futuro, por isso não as modifique ou reutilize para outros fins. As modificações podem quebrar o AzureDTExec. Se isto acontecer, apague o gasoduto. A AzureDTExec gera um novo oleoduto da próxima vez que for invocado.

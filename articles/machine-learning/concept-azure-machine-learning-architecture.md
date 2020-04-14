@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/17/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f779781eee81bf85f6420e5bae6b0feb62680b8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f1d23f11cf73680a8861c9f1ac6cbd40ad497a4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064178"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257339"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona o Azure Machine Learning: Arquitetura e conceitos
 
@@ -62,7 +62,7 @@ Utilize estas ferramentas para aprendizagem automática azure:
             * [Configuração de execução](#run-configurations)
             * [Instantâneo](#snapshots)
             * [Rastreio de Git](#github-tracking-and-integration)
-            * [Exploração madeireira](#logging)
+            * [Registo](#logging)
     * [Pipelines de ML](#ml-pipelines)
     * [Modelos](#models)
         * [Ambientes](#environments)
@@ -187,7 +187,7 @@ Para obter mais informações, veja os artigos seguintes:
 * [Treine modelos ML com estimadores.](how-to-train-ml-models.md)
 * [Treine modelos de aprendizagem profunda pytorch em escala com Azure Machine Learning](how-to-train-pytorch.md).
 * [Treine e registe os modelos TensorFlow em escala com o Azure Machine Learning.](how-to-train-tensorflow.md)
-* [Treine e registe os modelos Chainer em escala com o Azure Machine Learning.](how-to-train-chainer.md)
+* [Treine e registe os modelos Chainer em escala com o Azure Machine Learning.](how-to-train-ml-models.md)
 
 ### <a name="endpoints"></a>Pontos Finais
 

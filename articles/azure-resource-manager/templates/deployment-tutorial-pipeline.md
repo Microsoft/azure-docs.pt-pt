@@ -4,12 +4,12 @@ description: Aprenda a construir, testar e implementar continuamente modelos do 
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 303edac9221b2a58986129388e33c84c3817d96e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ce6f176a52a742a3216a5b761b34254027a1c5b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369366"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255078"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos de Gestor de Recursos Azure com Pipelines Azure
 
@@ -44,7 +44,7 @@ Para concluir este artigo, precisa de:
 
 ## <a name="prepare-a-github-repository"></a>Preparar um repositório do GitHub
 
-O GitHub é usado para armazenar o seu código fonte de projeto, incluindo modelos de Gestor de Recursos. Para outros repositórios apoiados, consulte [repositórios apoiados por Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types).
+O GitHub é usado para armazenar o seu código fonte de projeto, incluindo modelos de Gestor de Recursos. Para outros repositórios apoiados, consulte [repositórios apoiados por Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
 
 ### <a name="create-a-github-repository"></a>Criar um repositório GitHub
 
@@ -202,7 +202,7 @@ Para criar um oleoduto com um passo para implementar um modelo:
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Abra o grupo de recursos. O nome é o que especificou no ficheiro YAML do oleoduto.  Verá uma conta de armazenamento criada.  O nome da conta de armazenamento começa com **a loja**.
 1. Selecione o nome da conta de armazenamento para abri-lo.
 1. Selecione **Propriedades**. Note que a **Replicação** é **armazenamento localmente redundante (LRS)**.

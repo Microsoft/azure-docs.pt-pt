@@ -3,7 +3,7 @@ title: Localizações azure CDN POP por abreviatura Microsoft Docs
 description: Este artigo lista localizações pop Azure CDN POP, ordenadas por abreviatura pop, para Azure CDN de Verizon.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
-ms.author: magattus
-ms.openlocfilehash: 488f7bc4cb715e9cdb99b7a7c79407b9bbc0d29c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: a5f3f8dbb83b23fc16fd1225e5a9cbeab16b9576
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593604"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260246"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Localizações azure CDN POP por abreviatura
 > [!div class="op_single_selector"]

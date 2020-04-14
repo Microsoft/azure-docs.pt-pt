@@ -3,12 +3,12 @@ title: Suporte de etiquetas para recursos
 description: Mostra quais os tipos de suporte dos tipos de recursos Azure. Fornece detalhes para todos os serviços azure.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: b8b1c0b738bb8b94ee53433141f1ae3dbbb3f942
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c971d3af102faf99f97aac261882797460d71f37
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982332"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255032"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte de etiquetas para recursos Azure
 Este artigo descreve se um tipo de recurso suporta [etiquetas](tag-resources.md). As etiquetas de suporte com a etiqueta da coluna com **etiquetas** indica se o tipo de recurso tem uma propriedade para a etiqueta. O relatório de **custos** da coluna rotulada tag indica se esse tipo de recurso passa a etiqueta para o relatório de custos. Pode visualizar os custos através de tags na análise de custos de Gestão de [Custos](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e na [fatura de faturação Azure e dados de utilização diária.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
@@ -96,6 +96,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.HybridData](#microsofthybriddata)
 > - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
+> - [Microsoft.Insights](#microsoftinsights)
 > - [Microsoft.Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
@@ -1201,6 +1202,33 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | empregos | Sim | Sim |
 
+## <a name="microsoftinsights"></a>Microsoft.Insights
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Etiquetas de suporte | Tag no relatório de custos |
+> | ------------- | ----------- | ----------- |
+> | grupos de ação | Sim | Sim |
+> | atividadeLogAlerts | Sim | Sim |
+> | regras de alerta | Sim | Sim |
+> | definições de escala automática | Sim | Sim |
+> | componentes | Sim | Sim |
+> | componentes / linkedStorageAccounts | Não | Não |
+> | componentes / ProactiveDetectionConfigs | Não | Não |
+> | diagnósticoDefinições | Não | Não |
+> | guestDiagnosticSettings | Sim | Sim |
+> | guestDiagnosticSettingsAssociation | Sim | Sim |
+> | perfis de registo | Sim | Sim |
+> | metricAlerts | Sim | Sim |
+> | privateLinkScopes | Sim | Sim |
+> | privateLinkScopes / privateEndpointConnections | Não | Não |
+> | privateLinkScopes / scopedResources | Não | Não |
+> | consultasPacks | Sim | Sim |
+> | consultas / consultas | Não | Não |
+> | regras agendadasQueryRules | Sim | Sim |
+> | webtestes | Sim | Sim |
+> | livros | Sim | Sim |
+> | modelos de livro | Sim | Sim |
+
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tableFixed"]
@@ -1454,7 +1482,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | aplicaçõesGrupos de Segurança | Sim | Sim |
 > | azureFirewallFqdnTags | Não | Não |
 > | azureFirewalls | Sim | Não |
-> | bastionHosts | Sim | Sim |
+> | bastionHosts | Sim | Não |
 > | bgpServiceComunidades | Não | Não |
 > | conexões | Sim | Sim |
 > | ddosCustomPolicies | Sim | Sim |
@@ -1484,14 +1512,14 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (ver [nota abaixo)](#frontdoor) | Sim |
 > | obterDnsResourceReference | Não | Não |
 > | internalNotifica | Não | Não |
-> | loadBalancers | Sim | Não |
+> | loadBalancers | Sim | Sim |
 > | networkgateways locais | Sim | Sim |
 > | natGateways | Sim | Sim |
 > | políticas de intenções de rede | Sim | Sim |
 > | networkInterfaces | Sim | Sim |
 > | perfis de rede | Sim | Sim |
 > | networkSecurityGroups | Sim | Sim |
-> | networkWatchers | Sim | Não |
+> | networkWatchers | Sim | Sim |
 > | networkWatchers / connectionMonitors | Sim | Não |
 > | networkWatchers / flowLogs | Não | Não |
 > | networkWatchers / lentes | Sim | Não |
@@ -1524,8 +1552,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | virtualNetworkGateways | Sim | Sim |
 > | redes virtuais | Sim | Sim |
 > | virtualNetworkTaps | Sim | Sim |
-> | virtualWans | Sim | Sim |
-> | vpnGateways | Sim | Não |
+> | virtualWans | Sim | Não |
+> | vpnGateways | Sim | Sim |
 > | vpnSites | Sim | Sim |
 > | webApplicationFirewallPolicies | Sim | Sim |
 
@@ -1821,7 +1849,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Etiquetas de suporte | Tag no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | espaços de nome | Sim | Não |
+> | espaços de nome | Sim | Sim |
 > | espaços de nomes / regras de autorização | Não | Não |
 > | espaços de nomes / desastres recoveryconfigs | Não | Não |
 > | espaços de nome / filtros de eventgrid | Não | Não |

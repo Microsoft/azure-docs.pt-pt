@@ -2,20 +2,20 @@
 title: Considerações de design para conjuntos de escala de máquinas virtuais azure
 description: Conheça as considerações de design para os seus Conjuntos de Escala de Máquinas Virtuais Azure. Compare as funcionalidades de conjuntos de escala com as funcionalidades VM.
 keywords: máquina virtual linux,conjuntos de escala de máquina virtual
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
 ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 06/01/2017
-ms.author: manayar
-ms.openlocfilehash: b427319fdba634ea3c61681baa30547450709dc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 20f6cb08781c7c6aca7a4022e75a7be8640ef18a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250780"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273771"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de escala
 Este artigo discute considerações de design para conjuntos de escala de máquina virtual. Para obter informações sobre o que são os conjuntos de escala de máquina virtual, consulte a visão geral dos [conjuntos](virtual-machine-scale-sets-overview.md)de escala de máquina virtual .
@@ -39,7 +39,7 @@ Atualmente, algumas funcionalidades estão disponíveis apenas em VMs:
 - Pode migrar um VM individual de discos nativos para discos geridos, mas não pode migrar instâncias vm num conjunto de escala.
 - Pode atribuir endereços IP públicos IPv6 a cartões individuais de interface de rede vM (NICs), mas não pode fazê-lo para instâncias vm num conjunto de escala. Pode atribuir endereços IP públicos IPv6 para carregar os equilibradores na frente de vMs individuais ou vMs de escala.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Conjuntos de escala com discos geridos azure
 Conjuntos de escala podem ser criados com [Discos Geridos Azure](../virtual-machines/windows/managed-disks-overview.md) em vez de contas tradicionais de armazenamento Azure. Os Discos Geridos proporcionam os seguintes benefícios:

@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 35d57d117f6308863965ffd789c0e28bedd0f301
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04eae529efcf9509d8cd43a7629bb0b76b593cd0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281515"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252504"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configure a gestão de chumbo em Marketo
 
@@ -76,3 +76,9 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
     >[!Note]
     >Tem de terminar de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta. 
 
+5. **E-mail de contacto** - Forneça e-mails para pessoas da sua empresa que devam receber notificações de e-mail quando um novo chumbo for recebido. Pode fornecer vários e-mails separando-os com um ponto evío.
+6. Selecione **OK**.
+
+Para se certificar de que se ligou com sucesso a um destino de chumbo, clique no botão de validação. Se for bem sucedido, terá um chumbo de teste no destino principal.
+
+![Detalhes da ligação](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

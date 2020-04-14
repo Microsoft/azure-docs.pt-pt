@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: a2d0b9bdfba1b96ad42e45d54faf106b2361e29d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cdc9f9a4503c786065b6d514f61fe17eae4ce5e
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264797"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270915"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configure o encerramento automático para laboratório e computação de máquinas virtuais em Azure DevTest Labs
 
@@ -28,7 +28,7 @@ Este artigo explica como configurar as definições de encerramento automático 
 ## <a name="configure-autoshutdown-for-lab-vms-devtest-labs"></a>Configure o encerramento automático para VMs de laboratório (DevTest Labs)
 A Azure DevTest Labs permite-lhe controlar os custos e minimizar os resíduos nos seus laboratórios, gerindo políticas (configurações) para cada laboratório. Este artigo mostra-lhe como configurar a política de encerramento automático para uma conta de laboratório e configurar as definições de encerramento automático para um laboratório na conta do laboratório. Para ver como definir todas as políticas de laboratório, consulte as políticas de [laboratório define em Laboratórios Azure DevTest](devtest-lab-set-lab-policy.md).  
 
-### <a name="set-auto-shut-down-policy-for-a-lab"></a>Definir a política de encerramento automático para um laboratório
+### <a name="set-auto-shutdown-policy-for-a-lab"></a>Definir a política de encerramento automático para um laboratório
 Como dono de laboratório, pode configurar um horário de encerramento para todos os VMs do seu laboratório. Ao fazê-lo, pode poupar custos de máquinas de funcionamento que não estão a ser usadas (ociosa). Você pode impor uma política de encerramento em todos os seus VMs de laboratório centralmente, mas também poupar os seus utilizadores de laboratório o esforço de configurar um horário para as suas máquinas individuais. Esta funcionalidade permite definir a política na sua programação de laboratório a partir de não oferecer controlo total aos utilizadores do laboratório. Como dono de laboratório, pode configurar esta política tomando os seguintes passos:
 
 1. Na página inicial do seu laboratório, selecione **Configuração e políticas**.
@@ -42,7 +42,7 @@ A política de encerramento automático ajuda a minimizar os resíduos de labora
 
 Para ver (e alterar) as políticas para um laboratório, siga estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Da lista de laboratórios, selecione o laboratório desejado.   
 4. **Selecione Configuração e políticas**.
@@ -191,13 +191,34 @@ Para começar, crie uma aplicação lógica na subscrição do Azure utilizando 
 
 ## <a name="configure-autoshutdown-for-compute-vms"></a>Configure o encerramento automático para VMs computacionais
 
-1. Na página da **máquina Virtual,** selecione **a paragem automática** no menu esquerdo. 
+1. Na página da **máquina Virtual,** selecione **a paragem automática** no menu esquerdo na secção **Operações.** 
 2. Na página de encerramento automático, selecione **On** para ativar esta política e **Desligue** para desativá-la. **Auto-shutdown**
 3. Se ativar esta política, especifique a **hora** (e o **fuso horário)** em que o VM deve ser desligado.
 4. Especifique **Sim** ou **Não** para a opção de enviar uma notificação 30 minutos antes do tempo especificado de encerramento automático. Se escolher **Sim**, introduza um ponto final de URL de webhook ou endereço de e-mail especificando onde pretende que a notificação seja publicada ou enviada. O utilizador recebe a notificação e é-lhe dada a opção de atrasar a paralisação. Para mais informações, consulte a secção [Notificações.](#notifications) 
 9. Selecione **Guardar**.
 
     ![Configure o encerramento automático para um VM computacional](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
+
+### <a name="view-activity-logs-for-auto-shutdown-updates"></a>Ver registos de atividade para atualizações de encerramento automático
+Quando atualizar a definição de desativação automática, verá a atividade registada no registo de atividade para o VM. 
+
+1. No [portal Azure,](https://portal.azure.com)navegue para a página inicial do seu VM.
+2. Selecione **registo de atividade** a partir do menu esquerdo. 
+3. Remover **Recurso: mycomputevm** dos filtros.
+3. Confirme que vê o funcionamento do **Add ou modifique** o funcionamento dos horários no registo de atividade. Se não o vir, espere um dia e refresque o registo de atividade.
+
+    ![Entrada de registo de atividade](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
+4. Selecione o funcionamento **de Adicionar ou modificar os horários** para ver as seguintes informações na página **Resumo:**
+
+    - Nome de operação (Adicionar ou modificar horários)
+    - A data e a hora em que a definição de encerramento automático foi atualizada.
+    - O endereço de e-mail do utilizador que atualizou a definição. 
+
+        ![Resumo de entrada de registo de atividade](./media/devtest-lab-auto-shutdown/activity-log-entry-summary.png)
+5. Mude para o separador **'Alterar'** o histórico na página Adicionar ou modificar os **horários,** consulte o histórico de alterações para a definição. No exemplo seguinte, o tempo de paragem foi alterado das 19:00 às 18:00 do dia 10 de abril de 2020 às 15:18:47 EST. E o cenário foi desativado às 15:25:09 EST. 
+
+    ![Registo de atividade - alterar histórico](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
+6. Para ver mais detalhes sobre a operação, mude para o separador **JSON** na página Adicionar ou modifique os **horários.**
 
 ## <a name="next-steps"></a>Passos seguintes
 Para aprender a definir todas as políticas, consulte as políticas de [laboratório define em Azure DevTest Labs](devtest-lab-set-lab-policy.md).

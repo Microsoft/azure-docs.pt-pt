@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para o comando de 
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 431372b930269c3dfa6bdc6e8b2fe4d291a8162e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0325a71fb069f3d96f05d106afac1639fc38fe42
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933791"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253344"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -169,6 +169,8 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 
 ## <a name="options"></a>Opções
 
+**--backup**                               Ativa o SeBackupPrivilege do Windows para uploads, ou SeRestorePrivilege para downloads, para permitir que o AzCopy veja ler todos os ficheiros, independentemente das suas permissões no sistema de ficheiros, e restaurar todas as permissões. Exige que a conta que executa a AzCopy já tenha estas permissões (por exemplo, tem direitos de administrador ou é membro do grupo 'Operadores de Backup'). Tudo o que esta bandeira faz é ativar privilégios que a conta já tem.
+
 **--cadeia do tipo blob** Define o tipo de bolha no destino. Isto é utilizado para o upload de bolhas e para copiar entre contas (predefinido 'Detecte'). Os valores válidos incluem 'Detect', 'BlockBlob', 'PageBlob' e 'AppendBlob'. Ao copiar entre contas, um valor de 'Detect' faz com que a AzCopy utilize o tipo de bolha de origem para determinar o tipo de bolha de destino. Ao carregar um ficheiro, 'Detect' determina se o ficheiro é um VHD ou um ficheiro VHDX baseado na extensão do ficheiro. Se o ficheiro for éter um ficheiro VHD ou VHDX, a AzCopy trata o ficheiro como uma bolha de página. (padrão "Detetar")
 
 **-block-blob-tier** string Upload block blobs diretamente para o [nível de acesso](../blobs/storage-blob-storage-tiers.md) à sua escolha. (padrão 'Nenhum'). Os valores válidos incluem 'Nenhum', 'Hot', 'Cool' e 'Archive'. Se 'Nenhum' ou nenhum nível for passado, a bolha herdará o nível da conta de armazenamento.
@@ -222,6 +224,12 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 **-página-blob-tier** Enviar página blob para Armazenamento Azure usando este nível de blob. (padrão "Nenhum")
 
 **--preservar-último tempo modificado**          Só disponível quando o destino é o sistema de ficheiros.
+
+**--preserve-smb-permissões** corda falsa por defeito. Preserva os ACLs SMB entre recursos conscientes (Windows e Ficheiros Azure). Para downloads, também terá de `--backup` utilizar a bandeira para restaurar as permissões onde o novo Proprietário não será o utilizador que está a executar o AzCopy. Esta bandeira aplica-se tanto a ficheiros como a pastas, a `include-pattern`menos que seja especificado um filtro apenas de ficheiro (por exemplo).
+
+**--preserve-smb-info** string Falso por defeito. Preserva a informação da propriedade SMB (tempo de escrita, tempo de criação, atributos) entre recursos conscientes de SMB (Windows e Ficheiros Azure). Apenas serão transferidos os bits de atributo suportados pelos Ficheiros Azure; quaisquer outros serão ignorados. Esta bandeira aplica-se tanto a ficheiros como a pastas, a menos que seja especificado um filtro apenas de ficheiro (por exemplo, incluir o padrão). A informação transferida para pastas é a mesma dos ficheiros, exceto no Tempo de Última Escrita que nunca é preservado para pastas.
+
+**--proprietário da reserva**                       Só tem um efeito no download de `--preserve-smb-permissions` dados, e apenas quando os são utilizados. Se for verdade (o predefinido), o proprietário e o grupo de ficheiros são preservados em downloads. Se esta bandeira estiver `--preserve-smb-permissions` definida como falsa, continuará a preservar OS ACLs, mas o Proprietário e o Grupo basear-se-ão no utilizador que está a executar o AzCopy.
 
 **-put-md5**                             Crie um haxixe MD5 de cada ficheiro e guarde o haxixe como propriedade Content-MD5 da bolha de destino ou ficheiro. (Por padrão, o hash NÃO é criado.) Só disponível no momento do upload.
 

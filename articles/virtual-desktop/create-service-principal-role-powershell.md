@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61b5017609d99f2f0074c67d3838cf351ea38bea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 322ff2be4b90a945305915432a8191db9f4efee2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79365428"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252562"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar diretores de serviço e atribuições de funções utilizando a PowerShell
 
@@ -77,7 +77,7 @@ Aqui estão as três credenciais que deve escrever e os cmdlets que precisa corr
     $svcPrincipal.AppId
     ```
 
-## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Criar uma atribuição de funções na pré-visualização virtual do Windows
+## <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Criar uma atribuição de funções no Windows Virtual Desktop
 
 Em seguida, é necessário criar uma atribuição de funções para que o diretor de serviço possa iniciar sessão no Windows Virtual Desktop. Certifique-se de assinar com uma conta que tenha permissões para criar atribuições de papéis.
 

@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 1418205843fefc76db4e73832736b308d0cc79a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6720a018cdc3fff95192b0956b3d1040be263ab2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76122615"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261886"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Credencial de loja em Cofre chave Azure
 
@@ -32,7 +32,7 @@ Esta funcionalidade baseia-se na identidade gerida pela fábrica de dados. Saiba
 Para fazer referência a uma credencial armazenada no Cofre chave Azure, é necessário:
 
 1. **Recupere** a identidade gerida pela fábrica de dados copiando o valor do "Id de Objeto de Identidade Gerido" gerado juntamente com a sua fábrica. Se utilizar a ADF a autoria de UI, o ID do objeto de identidade gerido será mostrado na janela de criação de serviço ligada ao Cofre chave Azure; também pode recuperá-lo do portal Azure, consulte a identidade gerida pela fábrica de [dados Retrieve.](data-factory-service-identity.md#retrieve-managed-identity)
-2. **Conceda o acesso de identidade gerido ao seu Cofre chave Azure.** No seu cofre chave -> Políticas de acesso -> Adicione novas > procurar esta identidade gerida para conceder permissão **obter** permissão em secretas. Permite que esta fábrica designada aceda a segredo no cofre.
+2. **Conceda o acesso de identidade gerido ao seu Cofre chave Azure.** No seu cofre-chave - > políticas de acesso - > Adicionar Política de Acesso, procure esta identidade gerida para conceder permissão **obter** permissão em secretas. Permite que esta fábrica designada aceda a segredo no cofre.
 3. **Crie um serviço ligado que indique o seu Cofre chave Azure.** Consulte o serviço ligado ao [Cofre de Chaves Azure](#azure-key-vault-linked-service).
 4. **Crie um serviço ligado à loja de dados, no interior do qual referenciam o segredo correspondente armazenado no cofre chave.** Consulte o [segredo de referência armazenado no cofre da chave](#reference-secret-stored-in-key-vault).
 
@@ -47,13 +47,13 @@ As seguintes propriedades são suportadas para o serviço ligado ao Cofre chave 
 
 **Utilizando a autoria da UI:**
 
-Clique em **Conexões Serviços** -> **Ligados** -> **+Nova** pesquisa -> para "Cofre de Chaves Azure":
+Selecione **Ligações Serviços** -> **Ligados** -> **Novos**. No novo serviço ligado, procure e selecione "Azure Key Vault":
 
-![Pesquisar AKV](media/store-credentials-in-key-vault/search-akv.png)
+![Pesquisar cofre de chaves azure](media/store-credentials-in-key-vault/search-akv.png)
 
 Selecione o cofre de chaves Azure aprovisionado onde as suas credenciais estão armazenadas. Pode fazer **a Ligação de Teste** para se certificar de que a sua ligação AKV é válida. 
 
-![Configure AKV](media/store-credentials-in-key-vault/configure-akv.png)
+![Configurar o Azure Key Vault](media/store-credentials-in-key-vault/configure-akv.png)
 
 **Exemplo jSON:**
 
@@ -87,7 +87,7 @@ Selecione **Azure Key Vault** para campos secretos enquanto cria a ligação à 
 >[!TIP]
 >Para conectores que utilizem cordas de ligação em serviço sitiato como O Servidor SQL, armazenamento Blob, etc., pode optar por armazenar apenas o campo secreto, por exemplo, palavra-passe no AKV, ou armazenar toda a cadeia de ligação em AKV. Pode encontrar ambas as opções na UI.
 
-![Configurar o segredo akv](media/store-credentials-in-key-vault/configure-akv-secret.png)
+![Configure segredo do cofre de chaves azure](media/store-credentials-in-key-vault/configure-akv-secret.png)
 
 **Exemplo jSON: (ver a secção "password")**
 

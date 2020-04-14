@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 5dec08bd4bc0a63a419d2bdc63383348a69b02db
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70067474"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258750"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformar e proteger a sua API
 
@@ -112,7 +112,7 @@ Para ver a resposta original:
 2.  Selecione **todas as operações**.
 3.  Na parte superior do ecrã, selecione o separador **Design**.
 4.  Na secção **Processamento de saída**, clique no ícone**</>**.
-5.  Posicione o cursor dentro do ** &lt;&gt; ** elemento de saída.
+5.  Posicione o cursor dentro do **Insert policy** ** &lt;&gt; ** elemento de saída e clique em inserir o botão de política no canto superior direito.
 6.  Na janela direita, em **Políticas de transformação**, clique em **+ Localizar e substituir a cadeia no corpo**.
 7.  Modifique o código **find-and-replace** (no elemento de **\<saída\>**) para substituir o URL para que corresponda ao seu gateway de APIM. Por exemplo:
 

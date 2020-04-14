@@ -2,17 +2,17 @@
 title: Sobrepor o comportamento do HTTP com o Azure CDN - Motor de regras Verizon Premium
 description: O motor de regras permite-lhe personalizar a forma como os pedidos de HTTP são tratados pelo Azure CDN da Verizon Premium, tais como bloquear a entrega de certos tipos de conteúdo, definir uma política de cache e modificar os cabeçalhos HTTP.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: magattus
-ms.openlocfilehash: aa0606eafb8fe4c517b0c18e0137058a120115ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 2e5e4265f30631f8e68d8f9e7156ea578ae85e7a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74082960"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253480"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Sobrepor o comportamento http usando o CDN Azure do motor de regras Verizon Premium
 

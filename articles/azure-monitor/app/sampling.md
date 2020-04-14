@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: fc9db23f7733f97ca207e834d4543fbdb1b9db5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e888e0606b7a9bcd9a7a94c28455d705c5f1bec
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275831"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255486"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -22,7 +22,7 @@ Quando as contagens métricas são apresentadas no portal, são renormalizadas p
 
 * Existem três tipos diferentes de amostragem: amostragem adaptável, amostragem de taxa fixa e amostragem de ingestão.
 * A amostragem adaptativa é ativada por padrão em todas as versões mais recentes dos Insights de Aplicação ASP.NET e ASP.NET Core Software Development Kits (SDKs). Também é utilizado pelas [Funções Azure.](https://docs.microsoft.com/azure/azure-functions/functions-overview)
-* A amostragem de taxa fixa está disponível em versões recentes dos SDKs de Insights de Aplicação para ASP.NET, ASP.NET Core, Java e Python.
+* A amostragem de taxa fixa está disponível nas versões recentes dos SDKs de Insights de Aplicação para ASP.NET, ASP.NET Core, Java (tanto o agente como o SDK) e python.
 * A amostragem de ingestão funciona no ponto final do serviço Application Insights. Só se aplica quando não existe qualquer outra amostragem. Se o SDK provar a sua telemetria, a amostragem de ingestão é desativada.
 * Para aplicações web, se você registar eventos personalizados e precisar de garantir que um conjunto `OperationId` de eventos é retido ou descartado em conjunto, os eventos devem ter o mesmo valor.
 * Se escrever consultas de Análise, deve ter em conta a [amostragem.](../../azure-monitor/log-query/aggregations.md) Em particular, em vez de simplesmente `summarize sum(itemCount)`contar registos, deve usar.
@@ -306,7 +306,29 @@ No Metrics Explorer, as taxas como as contagens de pedido e de exceção são mu
 
 ### <a name="configuring-fixed-rate-sampling-for-java-applications"></a>Configuração da amostragem de taxa fixa para aplicações java
 
-Por padrão, não é ativada qualquer amostragem no Java SDK. Atualmente, apenas suporta a amostragem de taxa fixa. A amostragem adaptável não é suportada no Java SDK.
+Por padrão, não é ativada qualquer amostragem no agente Java e no SDK. Atualmente, apenas suporta a amostragem de taxa fixa. A amostragem adaptável não é suportada em Java.
+
+#### <a name="configuring-java-agent"></a>Configurar o Agente Java
+
+1. Baixar [applicationinsights-agent-3.0.0-PREVIEW.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.2/applicationinsights-agent-3.0.0-PREVIEW.2.jar)
+
+1. Para permitir a amostragem `ApplicationInsights.json` adicione o seguinte ao seu ficheiro:
+
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "sampling": {
+        "fixedRate": {
+          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
+        }
+      }
+    }
+  }
+}
+```
+
+#### <a name="configuring-java-sdk"></a>Configurar Java SDK
 
 1. Descarregue e configure a sua aplicação web com as mais recentes Informações de [Aplicação Java SDK](../../azure-monitor/app/java-get-started.md).
 
@@ -534,7 +556,7 @@ A precisão da aproximação depende em grande parte da percentagem de amostrage
 
 * A amostragem de ingestão pode ocorrer automaticamente para qualquer telemetria acima de um determinado volume, se o SDK não estiver a realizar amostras. Esta configuração funcionaria, por exemplo, se estiver a utilizar uma versão mais antiga do SDK ASP.NET ou Java SDK.
 * Se estiver a utilizar os ASP.NET atuais ou ASP.NET SDKs Core (hospedados no Azure ou no seu próprio servidor), obtém uma amostragem adaptativa por padrão, mas pode mudar para a taxa fixa como acima descrito. Com amostragem de taxa fixa, o Navegador SDK sincroniza automaticamente para eventos relacionados com amostras. 
-* Se estiver a utilizar o Atual Java SDK, pode configurar `ApplicationInsights.xml` para ligar a amostragem de taxa fixa. A amostragem é desligada por defeito. Com amostragem de taxa fixa, o Navegador SDK e o servidor sincronizam automaticamente para experimentar eventos relacionados.
+* Se estiver a utilizar o agente Java `ApplicationInsights.json` atual, pode configurar (para Java SDK, `ApplicationInsights.xml`configurar) para ativar a amostragem de taxa fixa. A amostragem é desligada por defeito. Com amostragem de taxa fixa, o Navegador SDK e o servidor sincronizam automaticamente para experimentar eventos relacionados.
 
 *Há certos eventos raros que sempre quis ver. Como posso fazê-los passar pelo módulo de amostragem?*
 

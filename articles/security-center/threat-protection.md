@@ -1,5 +1,5 @@
 ---
-title: Proteção contra ameaças no Centro de Segurança Azure
+title: Proteção contra ameaças no Centro de Segurança do Azure
 description: Este tópico descreve os recursos protegidos pelas funcionalidades de proteção contra ameaças do Azure Security Center
 services: security-center
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 395f4b5481fcf2028d6bfe736e58c3174a0c80b2
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: fdf22e4d981549b876a14aed2b0a1d7e0c76e40e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435353"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263459"
 ---
-# <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança Azure
+# <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança do Azure
 
 Quando o Centro de Segurança deteta uma ameaça em qualquer área do seu ambiente, gera um alerta. Estes alertas descrevem detalhes dos recursos afetados, sugeriram medidas de reparação e, em alguns casos, uma opção para desencadear uma aplicação lógica em resposta.
 
@@ -159,19 +159,20 @@ Para obter mais informações, consulte:
 
 
 
-
 ## <a name="threat-protection-for-azure-storage"></a>Proteção contra ameaças para armazenamento azure<a name="azure-storage"></a>
 
-> [!NOTE]
-> Este serviço está disponível nas nuvens do governo dos EUA, mas nenhuma outra região soberana ou azure nuvem de nuvem.
+A Advanced Threat Protection for Storage deteta tentativas incomuns e potencialmente nocivas de acesso ou exploração de contas de armazenamento. Esta camada de proteção permite-lhe lidar com ameaças sem exigir que seja um perito em segurança, e ajuda-o a gerir os seus sistemas de monitorização de segurança.
 
-A Advanced Threat Protection for Storage (atualmente disponível apenas para armazenamento blob) deteta tentativas incomuns e potencialmente nocivas de acesso ou exploração de contas de armazenamento. Esta camada de proteção permite-lhe lidar com ameaças sem exigir que seja um perito em segurança, e ajuda-o a gerir os seus sistemas de monitorização de segurança.
+A proteção avançada contra ameaças para o Armazenamento Azure está atualmente disponível apenas para [armazenamento blob](https://azure.microsoft.com/services/storage/blobs/). 
+
+Este serviço está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas nenhuma outra região soberana ou azure nuvem de governo.
+
+Para obter detalhes sobre preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do Centro de [Segurança Azure](https://azure.microsoft.com/pricing/details/security-center/).
 
 Para obter mais informações, consulte:
 
 * [Como permitir a Proteção Avançada de Ameaças para armazenamento de Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [A lista de alertas de proteção contra ameaças para o Armazenamento De Azure](alerts-reference.md#alerts-azurestorage)
-
 
 > [!TIP]
 > Pode simular alertas de armazenamento azure seguindo as instruções [nesta publicação de blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).

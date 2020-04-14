@@ -7,12 +7,12 @@ ms.reviewer: prvavill
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 9b8b1b40e972d7719ef2cf495ed12cb4ed3478fd
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: ee42f45d8c96e908061142b5a8e6b2e5cee21993
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479373"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262065"
 ---
 # <a name="monitor-azure-data-explorer-using-resource-health-preview"></a>Monitor Azure Data Explorer utilizando a Saúde dos Recursos (Pré-visualização)
 
@@ -44,7 +44,7 @@ Um estado de saúde do **Disponível** indica que o seu recurso Azure Data Explo
 
 ### <a name="unavailable"></a>Indisponível
 
-Um estado de saúde do **Indisponível** indica que há um problema contínuo com o seu recurso Azure Data Explorer que faz com que não esteja disponível para consultas e ingestão. Por exemplo, os nós no seu recurso Azure Data Explorer podem ter reiniciado inesperadamente. Se o seu recurso Azure Data Explorer permanecer neste estado por um longo período de tempo, [suporte]()de contato .
+Um estado de saúde do **Indisponível** indica que há um problema contínuo com o seu recurso Azure Data Explorer que faz com que não esteja disponível para consultas e ingestão. Por exemplo, os nós no seu recurso Azure Data Explorer podem ter reiniciado inesperadamente. Se o seu recurso Azure Data Explorer permanecer neste estado por um longo período de tempo, suporte de contato.
 
 ![Indisponível](media/monitor-with-resource-health/unavailable.png)
 

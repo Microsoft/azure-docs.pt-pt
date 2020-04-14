@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0994e1af8ca6deccbe6224625a5320fb195a10a1
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 1a026cc241eb372e15f2600e52ec53a46efb1024
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586510"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256013"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Parceiros de inteligência empresarial Azure Synapse Analytics
 
@@ -37,7 +37,7 @@ Para criar a sua solução completa de armazém de dados utilizando piscina SQL 
 | ![Qlik](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) |**Qlik Sense Enterprise**<br>Conduza a descoberta de insights com a aplicação de visualização de dados que qualquer um pode usar. Com a Qlik Sense, todos na sua organização podem facilmente criar visualizações flexíveis e interativas e tomar decisões significativas. |[Página do produto](https://www.qlik.com/us/products/qlik-sense/enterprise)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/) |
 | ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**SiSense**<br>O SiSense é um software de Business Intelligence de grande pilha que vem com ferramentas que uma empresa precisa para analisar e visualizar dados: uma base de dados analítica de alto desempenho, a capacidade de juntar várias fontes, extração simples de dados (ETL) e visualização de dados baseadona na Web. Comece a analisar e visualizar grandes conjuntos de dados com o SiSense BI e o Analytics hoje. |[Página do produto](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>A análise de self-service de Tableau ajuda qualquer pessoa a ver e entender os seus dados, através de muitos tipos de dados, desde ficheiros planos a bases de dados. Tableau tem um conector nativo e otimizado para o pool SYnapse SQL que suporta tanto dados ao vivo como análise sintetizada. |[Página do produto](https://www.tableau.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/)<br>|
-| ![Rio Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Decision Suite)**<br>A Targit Decision Suite fornece a plataforma BI e Analytics que fornece dashboards em tempo real, análise de self-service, relatórios fáceis de utilizar, capacidades móveis impressionantes e tecnologia simples de descoberta de dados numa única solução coesa. Targit dá às empresas a coragem de agir. |[Página do produto](https://www.targit.com/en/software/deployment/targitonazure)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/)<br> |
+| ![Rio Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Decision Suite)**<br>A Targit Decision Suite fornece a plataforma BI e Analytics que fornece dashboards em tempo real, análise de self-service, relatórios fáceis de utilizar, capacidades móveis impressionantes e tecnologia simples de descoberta de dados numa única solução coesa. Targit dá às empresas a coragem de agir. |[Página do produto](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/)<br> |
 | ![Barbatana amarela](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Barbatana amarela**<br>Yellowfin é um fornecedor de Cloud BI com melhor classificação para relatórios ad hoc e dashboards por BARC; A Pesquisa bi. Conecte-se à piscina SYnapse SQL, em seguida, crie e partilhe belos relatórios e dashboards com funcionalidades de bi colaborativa e inteligência de localização premiadas. |[Página do produto](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->

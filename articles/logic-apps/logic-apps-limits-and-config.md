@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/12/2020
-ms.openlocfilehash: 418be090e7ff78ec0089c115c9884ffeffdda871
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4359c5581d14f4a918a49cf2b91ac58561ea93d3
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284021"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257458"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -84,7 +84,7 @@ Aqui estão os limites para uma única aplicação lógica executada:
 
 | Nome | Limite | Notas |
 | ---- | ----- | ----- |
-| Desencadear conmoeda | - Ilimitado quando o controlo da moeda é desligado <p><p>- 25 é o limite de incumprimento quando o controlo da moeda é ligado, o que não pode ser desfeito depois de ligar o controlo. Pode alterar o padrão para um valor entre 1 e 50 inclusive. | Este limite descreve o maior número de instâncias de aplicações lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>**Nota:** Quando a moeda é ligada, o limite SplitOn é reduzido a 100 itens para [conjuntos de delotamento](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar o limite de incumprimento para um valor entre 1 e 50 inclusive, consulte alterar o limite de [conmoedação](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) do gatilho ou [as instâncias do Gatilho sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Desencadear conmoeda | - Ilimitado quando o controlo da moeda é desligado <p><p>- 25 é o limite de incumprimento quando o controlo da moeda é ligado, o que não pode desfazer depois de ativar a moeda. Pode alterar o padrão para um valor entre 1 e 50 inclusive. | Este limite descreve o maior número de instâncias de aplicações lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>**Nota:** Quando a moeda é ligada, o limite SplitOn é reduzido a 100 itens para [conjuntos de delotamento](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar o limite de incumprimento para um valor entre 1 e 50 inclusive, consulte alterar o limite de [conmoedação](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) do gatilho ou [as instâncias do Gatilho sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Corridas máximas de espera | - Sem moeda, o número mínimo de espera é de 1, enquanto o número máximo é de 50. <p><p>- Com moeda, o número mínimo de corridas de espera é de 10 mais o número de execuções simultâneas (troca de gatilho). Pode alterar o número máximo até 100 com inclualmente. | Este limite descreve o maior número de instâncias lógicas de aplicações que podem esperar para ser executadas quando a sua aplicação lógica já está a executar as instâncias simultâneas máximas. <p><p>Para alterar o limite de predefinição, consulte alterar o limite de [corridas](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)de espera . |
 | Itens de matriz foreach | 100 000 | Este limite descreve o maior número de itens matrizques que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, pode utilizar a ação de [consulta](logic-apps-perform-data-operations.md#filter-array-action). |
 | Foreach concurrency | 20 é o limite de incumprimento quando o controlo da moeda é desligado. Pode alterar o padrão para um valor entre 1 e 50 inclusive. | Este limite é o maior número de iterações em loop "para cada" que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite de incumprimento para um valor entre 1 e 50 inclusive, consulte [alterar o limite de moeda "para cada"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou executar [ciclos "para cada" circuitos sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
@@ -166,6 +166,8 @@ Algumas operações de conector fazem chamadas assíncronas ou ouvem pedidos de 
 | Limite de avaliação da expressão | 131 072 carateres | `@base64()` `@string()` As `@concat()`expressões não podem ser maiores do que este limite. |
 | Limite de caracteres URL de pedido | 16.384 caracteres |
 |||
+
+<a name="retry-policy-limits"></a>
 
 #### <a name="retry-policy"></a>Política de repetição
 

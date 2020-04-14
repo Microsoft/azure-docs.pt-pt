@@ -1,53 +1,95 @@
 ---
-title: Atribuição de parceiro sacial do parceiro Azure e do cliente Mercado Azure
-description: Visão geral de como acompanhar o uso do cliente para soluções Azure Marketplace
+title: Atribuição de parceiro sacial do Mercado Comercial e da atribuição do uso do cliente
+description: Obtenha uma visão geral do rastreio do uso do cliente para soluções Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 9/23/2019
+ms.date: 04/13/2020
 ms.author: dsindona
-ms.openlocfilehash: 2895944dea6417949488076186135680523e19db
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 5fec72ce5f86c1bee9ec0e978e458f5be454c8e3
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874964"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256591"
 ---
-# <a name="azure-partner-customer-usage-attribution"></a>Atribuição da utilização do cliente de parceiro do Azure
+# <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribuição de parceiro sacial do Mercado Comercial e da atribuição do uso do cliente
 
-Como parceiro de software para o Azure, as suas soluções requerem componentes Azure ou precisam de ser implantados diretamente na infraestrutura Azure. Os clientes que implementam uma solução parceira e disponibilizam os seus próprios recursos Azure podem ter dificuldade em ganhar visibilidade no estado da implantação e obter ótica no impacto no crescimento do Azure. Quando adicionas um nível de visibilidade mais elevado, alinhas-te com as equipas de vendas da Microsoft e ganhas crédito para programas parceiros da Microsoft.
+A atribuição do uso do cliente é um método para associar recursos Azure a executar em subscrições de clientes, implementados para executar a sua solução, consigo como parceiro. A formação destas associações em sistemas internos da Microsoft traz maior visibilidade à pegada Azure que executa o seu software. Ao adotar esta capacidade de rastreio, alinha-se com as equipas de vendas da Microsoft e ganha crédito pelos programas de parceiros da Microsoft.
 
-A Microsoft oferece agora um método para ajudar os parceiros a rastrear melhor o uso do Azure das implementações de clientes do seu software no Azure. O novo método utiliza o Azure Resource Manager para orquestrar a implantação de serviços Azure.
+Pode formar a associação via Azure Marketplace, o repositório Quickstart, os repositórios privados do GitHub e os compromissos com o cliente 1:1 que criam IP durável (como o desenvolvimento de uma app).
 
-Como parceiro da Microsoft, pode associar o uso do Azure a quaisquer recursos Azure que for provisionado em nome de um cliente. Você pode formar a associação através do Azure Marketplace, o repositório Quickstart, repositórios privados GitHub e envolvimento de cliente um-a-um. A atribuição de utilização do cliente suporta três opções de implementação:
+A atribuição de utilização do cliente suporta três opções de implementação:
 
 - Modelos de Gestor de Recursos Azure: Os parceiros podem usar modelos de Gestor de Recursos para implementar os serviços Azure para executar o software do parceiro. Os parceiros podem criar um modelo de Gestor de Recursos para definir a infraestrutura e configuração da sua solução Azure. Um modelo de Gestor de Recursos permite que você e seus clientes implementem a sua solução ao longo do seu ciclo de vida. Pode estar confiante de que os seus recursos estão implantados num estado consistente.
 - ApIs, Gestor de Recursos Azure: Os parceiros podem ligar diretamente para o Gestor de Recursos APIs para implementar um modelo de Gestor de Recursos ou para gerar as chamadas da API para fornecer diretamente serviços Azure.
-- Terraform: Os parceiros podem usar o orquestrador de nuvem como terraforme para implementar um modelo de Gestor de Recursos ou implementar diretamente os serviços Azure.
+- Terraform: Os parceiros podem usar a Terraform para implementar um modelo de Gestor de Recursos ou implementar diretamente os serviços Azure.
 
-A atribuição do uso do cliente é para uma nova implementação e não suporta a marcação de recursos existentes que já foram implementados.
-
-A atribuição do uso do cliente é necessária na [Aplicação Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): oferta de modelo de solução publicada no Azure Marketplace.
-
+>[!IMPORTANT]
+>- A atribuição do uso do cliente não se destina a acompanhar o trabalho dos integradores de sistemas, dos prestadores de serviços geridos ou das ferramentas concebidas para implementar e gerir o software em funcionamento no Azure.
+>
+>- A atribuição do uso do cliente é para novas implementações e NÃO suporta a marcação de recursos existentes que já foram implementados.
+>
+>- A atribuição de utilização do cliente é necessária para as ofertas da [Aplicação Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) publicadas no Azure Marketplace.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+## <a name="create-guids"></a>Criar GUIDs
+
+Um GUID é um identificador de referência único que tem 32 dígitos hexadecimais. Para criar GUIDs para rastreio, deve utilizar um gerador GUID. A equipa de Armazenamento Azure criou um [formulário de gerador GUIA](https://aka.ms/StoragePartners) que lhe enviará um GUIA do formato correto e pode ser reutilizado nos diferentes sistemas de rastreio.
+
+> [!NOTE]
+> É altamente recomendável que utilize o [formulário de gerador GUID do Azure Storage](https://aka.ms/StoragePartners) para criar o seu GUID. Para mais informações, consulte as [nossas FAQ.](#faq)
+
+Recomendamos que crie um GUID único para cada canal de oferta e distribuição para cada produto. Pode optar por utilizar um único GUID para os múltiplos canais de distribuição do produto se não quiser que o relatório seja dividido.
+
+Se implementar um produto utilizando um modelo e estiver disponível tanto no Azure Marketplace como no GitHub, pode criar e registar dois GUIDS distintos:
+
+- Produto A no Mercado Azure
+- Produto A no GitHub
+
+O reporte é feito pelo Microsoft Partner Network ID e PELO GUID.
+
+Também pode rastrear o uso a um nível mais granular, registando GUIDs adicionais e alterando GUIDs entre planos, onde os planos são variantes de uma oferta.
+
+## <a name="register-guids"></a>Registar GUIDs
+
+Os GUIDs devem ser registados no Partner Center para permitir a atribuição do uso do cliente.
+
+Depois de adicionar um GUID ao seu modelo ou no agente utilizador, e registar o GUID no Partner Center, futuras implementações são rastreadas.
+
+1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard).
+
+1. Inscreva-se como editor de [marketplace comercial.](https://aka.ms/JoinMarketplace)
+
+   * Os parceiros são obrigados a [ter um perfil no Partner Center.](https://docs.microsoft.com/azure/marketplace/become-publisher) É encorajado a listar a oferta no Azure Marketplace ou appSource.
+   * Os parceiros podem registar vários GUIDs.
+   * Os parceiros podem registar GUIDs para modelos e ofertas de solução não-marketplace.
+
+1. No canto superior direito, selecione o ícone de engrenagem de definições e, em seguida, selecione **as definições do Desenvolvedor**.
+
+1. Na página de **definições da Conta,** selecione **Adicionar Guia de Rastreio.**
+
+1. Na caixa **GUID,** introduza o seu GUIA de rastreio. Introduza apenas o GUID sem o **prefixo pid.** Na caixa **Descrição,** insira o nome ou descrição da sua oferta.
+
+1. Para registar mais de um GUID, **selecione Adicionar** Guia de Rastreio novamente. Caixas adicionais aparecem na página.
+
+1. Selecione **Guardar**.
+
 ## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Resource Manager
-Muitas soluções de parceiros são implementadas na subscrição de um cliente usando modelos de Gestor de Recursos. Se tiver um modelo de Gestor de Recursos disponível no Mercado Azure, no GitHub, ou como Quickstart, o processo de modificar o seu modelo para permitir a atribuição de utilização do cliente deve ser direto para a frente.
+Muitas soluções parceiras são implementadas usando modelos de Gestor de Recursos Azure. Se tiver um modelo de Gestor de Recursos disponível no Mercado Azure, no GitHub, ou como Quickstart, o processo de modificar o seu modelo para permitir a atribuição de utilização do cliente é direto para a frente.
 
-Para mais informações sobre a criação e publicação de modelos de soluções, consulte
+> [!NOTE]
+> Para mais informações sobre a criação e publicação de modelos de soluções, consulte
+> * [Crie e implemente o seu primeiro modelo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)de Gestor de Recursos.
+>* [Oferta de aplicação Azure.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer)
+>* Vídeo: Modelos de [solução de construção e aplicações geridas para o Mercado Azure.](https://channel9.msdn.com/Events/Build/2018/BRK3603)
 
-* [Crie e implemente o seu primeiro modelo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)de Gestor de Recursos.
-* [Oferta de aplicação Azure.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer)
-* Vídeo: Modelos de [solução de construção e aplicações geridas para o Mercado Azure.](https://channel9.msdn.com/Events/Build/2018/BRK3603)
-
-
-## <a name="add-a-guid-to-your-template"></a>Adicione um GUID ao seu modelo
 
 Para adicionar um identificador globalmente único (GUID), efaz uma única modificação no ficheiro do modelo principal:
 
-1. [Crie um GUID](#create-guids) utilizando o método sugerido e [registe o GUID](#register-guids-and-offers).
+1. [Crie um GUID](#create-guids) utilizando o método sugerido e [registe o GUID](#register-guids).
 
 1. Abra o modelo de Gestor de Recursos.
 
@@ -96,7 +138,7 @@ Para permitir a atribuição de utilização do cliente, quando conceber as suas
 
 ![Formato GUIA de exemplo](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
-> [!Note]
+> [!NOTE]
 > O formato da corda é importante. Se o **prefixo pid** não estiver incluído, não é possível consultar os dados. Diferentes SDKs seguem de forma diferente. Para implementar este método, reveja a abordagem de suporte e rastreio do seu SDK Azure preferido.
 
 #### <a name="example-the-python-sdk"></a>Exemplo: O Python SDK
@@ -105,7 +147,7 @@ Para Python, use o atributo de **config.** Só pode adicionar o atributo a um Us
 
 ![Adicione o atributo a um agente utilizador](media/marketplace-publishers-guide/python-for-lu.PNG)
 
-> [!Note]
+> [!NOTE]
 > Adicione o atributo para cada cliente. Não há configuração estática global. Pode marcar uma fábrica de clientes para ter certeza que todos os clientes estão a seguir. Para mais informações, consulte esta amostra de [fábrica de clientes no GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
 
 #### <a name="tag-a-deployment-by-using-the-azure-powershell"></a>Marque uma implementação utilizando o Azure PowerShell
@@ -143,50 +185,6 @@ Os parceiros que pretendam obter a sua implantação via Terraform rastreado pel
 
 * Criar um GUID (o GUID deve ser adicionado para cada Oferta ou SKU)
 * Atualize o seu Fornecedor Azure para definir o valor de *partner_id* ao GUID (NÃO pré-fixar o GUID com "pid-", basta defini-lo para o GUIA real)
-
-## <a name="create-guids"></a>Criar GUIDs
-
-Um GUID é um número de referência único que tem 32 dígitos hexadecimais. Para criar GUIDs para rastreio, deve utilizar um gerador GUID. A equipa de Armazenamento Azure criou um [formulário de gerador GUIA](https://aka.ms/StoragePartners) que lhe enviará um GUIA do formato correto e pode ser reutilizado nos diferentes sistemas de rastreio.
-
-> [!Note]
-> É altamente recomendável que utilize o [formulário de gerador GUID do Azure Storage](https://aka.ms/StoragePartners) para criar o seu GUID. Para mais informações, consulte as [nossas FAQ.](#faq)
-
-Recomendamos que crie um GUID único para cada canal de oferta e distribuição para cada produto. Pode optar por utilizar um único GUID para os múltiplos canais de distribuição do produto se não quiser que o relatório seja dividido.
-
-Se implementar um produto utilizando um modelo e estiver disponível tanto no Azure Marketplace como no GitHub, pode criar e registar 2 GUIDS distintos:
-
-*   Produto A no Mercado Azure
-*   Produto A no GitHub
-
-O reporte é feito pelo valor do parceiro (Microsoft Partner ID) e pelos GUIDs.
-
-Também pode rastrear GUIDs a um nível mais granular como o SKU, onde as SKUs são variantes de uma oferta.
-
-## <a name="register-guids-and-offers"></a>Registar GUIDs e ofertas
-
-Os GUIDs devem ser registados para permitir a atribuição do uso do cliente.
-
-Todas as inscrições para GUIDs de modelo são feitas dentro do Partner Center.
-
-Depois de adicionar o GUID ao seu modelo ou no agente utilizador, e registar o GUID no Partner Center, todas as implementações são rastreadas.
-
-1. Inscreva-se como editor de [marketplace comercial.](https://aka.ms/JoinMarketplace)
-
-   * Os parceiros são obrigados a [ter um perfil no Partner Center.](https://docs.microsoft.com/azure/marketplace/become-publisher) É encorajado a listar a oferta no Azure Marketplace ou appSource.
-   * Os parceiros podem registar vários GUIDs.
-   * Os parceiros podem registar um GUID para os modelos e ofertas de solução não-Marketplace.
-
-1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard).
-
-1. No canto superior direito, selecione o ícone de engrenagem de definições e, em seguida, selecione **as definições do Desenvolvedor**.
-
-1. Na página de **definições da Conta,** selecione **Adicionar Guia de Rastreio.**
-
-1. Na caixa **GUID,** introduza o seu GUIA de rastreio. Introduza apenas o GUID sem o **prefixo pid.** Na caixa **Descrição,** insira o nome ou descrição da sua oferta.
-
-1. Para registar mais de um GUID, **selecione Adicionar** Guia de Rastreio novamente. Caixas adicionais aparecem na página.
-
-1. Selecione **Guardar**.
 
 
 ## <a name="verify-the-guid-deployment"></a>Verifique a implantação guid
@@ -277,7 +275,7 @@ Se necessitar de assistência para o Marketplace Onboarding e/ou atribuição de
 
 1. Na página seguinte, introduza os valores necessários.
 
-   > [!Important]
+   > [!IMPORTANT]
    > Na caixa de **títulos Incident,** introduza o **Rastreio de Utilização ISV**. Descreva o seu problema em detalhe.
 
    ![Insira o rastreio de utilização do ISV para o título do incidente](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
@@ -315,11 +313,11 @@ Sim, um cliente ou parceiro de implementação pode personalizar o modelo e pode
 
 **Posso rastrear modelos implantados a partir de um repositório não-Microsoft como o GitHub?**
 
-Sim, desde que o GUID esteja presente quando o modelo for implantado, o uso é rastreado. Os parceiros são obrigados a ter um perfil na inscrição no mercado comercial no Partner Center para registar GUIDs utilizados para a implantação fora do Mercado Azure.
+Sim, desde que o GUID esteja presente quando o modelo for implantado, o uso é rastreado. Os parceiros devem continuar a registar os seus GUIDs.
 
 **O cliente também recebe reportagens?**
 
-Os clientes podem acompanhar a sua utilização de recursos individuais ou grupos de recursos definidos pelo cliente dentro do portal Azure.
+Os clientes podem acompanhar a sua utilização de recursos individuais ou grupos de recursos definidos pelo cliente dentro do portal Azure. Os clientes não vêem o uso desfeito pelo GUID.
 
 **Esta metodologia é semelhante ao Parceiro Digital da Record (DPOR)?**
 

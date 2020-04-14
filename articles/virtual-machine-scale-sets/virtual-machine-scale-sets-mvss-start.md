@@ -1,19 +1,19 @@
 ---
 title: Saiba sobre modelos de conjunto de escala de máquina virtual
 description: Aprenda a criar um modelo de conjunto de escala básica para conjuntos de escala de máquinas virtuais Azure através de vários passos simples.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 04/26/2019
-ms.author: manayar
-ms.openlocfilehash: 24db9b2d39771c481a8c43e2b55f12cef381b4d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 9c6a30a5f08b33adfa515973962236516f34fbf3
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76271894"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273397"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba sobre modelos de conjunto de escala de máquina virtual
 Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) são uma ótima maneira de implementar grupos de recursos relacionados. Esta série tutorial mostra como criar um modelo de conjunto de escala básica e como modificar este modelo para se adequar a vários cenários. Todos os exemplos vêm deste [repositório GitHub.](https://github.com/gatneil/mvss)

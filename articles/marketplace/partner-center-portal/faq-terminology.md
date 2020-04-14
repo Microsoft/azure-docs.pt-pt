@@ -1,20 +1,20 @@
 ---
-title: Perguntas e terminologia frequentes para a análise do Mercado Comercial no Partner Center
-description: Saiba como abordar perguntas comumente feitas sobre análises do Mercado Comercial. Inclui um dicionário de dados para terminologia de análise.
+title: Perguntas e terminologia frequentes para a análise do mercado comercial no Partner Center
+description: Saiba como abordar perguntas comumente feitas sobre análise de mercado comercial. Inclui um dicionário de dados para terminologia de análise.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: d53ae01fb302382ca5bc2d31e729e153aea6c838
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286086"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251831"
 ---
-# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Perguntas frequentes e terminologia para análise do Mercado Comercial
+# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Perguntas frequentes e terminologia para análise de mercado comercial
 
 Este artigo aborda perguntas comumente feitas sobre mensagens de análise no Partner Center e também fornece um dicionário de terminologia analítica.
 
@@ -29,14 +29,14 @@ Esta secção fornece respostas a perguntas comumente feitas sobre mensagens no 
 Porque pode estar a receber esta mensagem:
 
 - Não existem atualmente aquisições para as suas ofertas publicadas no mercado. Isto pode significar que as suas ofertas estão ao vivo no mercado e a ganhar visualizações dos clientes nas páginas de exibição de produtos, mas os clientes ainda não tomaram medidas para as comprar e implementar.
-- A publicação da sua oferta pode estar em processo e ainda não está ao vivo. Só as ofertas ao vivo podem ser adquiridas pelos clientes. Para verificar o estado das suas ofertas, consulte a visão geral no [painel de instrumentos da Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Para mais informações, consulte [Summary Dashboard na análise do Mercado Comercial](./summary-dashboard.md).
+- A publicação da sua oferta pode estar em processo e ainda não está ao vivo. Só as ofertas ao vivo podem ser adquiridas pelos clientes. Para verificar o estado das suas ofertas, consulte a visão geral no [painel de instrumentos da Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Para mais informações, consulte [Summary Dashboard na análise](./summary-dashboard.md)do mercado comercial.
 - As suas ofertas podem ser listadas como **Contact Me**, que são ofertas apenas de lista e não podem ser compradas por clientes no mercado. Embora estas ofertas gerem pistas e sejam partilhadas consigo, as encomendas não são criadas para estas ofertas, uma vez que não podem ser compradas. Para verificar o seu tipo de oferta de listagem, vá à página de configuração.
 
 **Sei que tenho dados de análise, mas a mensagem abaixo está a aparecer:**
 
 ![Não há dados para a data dada](./media/analytics-faq-data-range.png)
 
-Se estiver a receber esta mensagem, significa que tem dados de análise, mas não existem dados para o intervalo de data seletiva selecionado. Selecione uma gama de datas diferente ou uma gama de datas personalizadas para visualizar quaisquer dados desde 2010. Para mais informações, consulte a secção Data Range do [Dashboard Sumário na análise do Mercado Comercial](./summary-dashboard.md).
+Se estiver a receber esta mensagem, significa que tem dados de análise, mas não existem dados para o intervalo de data seletiva selecionado. Selecione uma gama de datas diferente ou uma gama de datas personalizadas para visualizar quaisquer dados desde 2010. Para mais informações, consulte a secção Data Range do [Summary Dashboard na análise do mercado comercial](./summary-dashboard.md).
 
 ## <a name="dictionary-of-data-terms"></a>Dicionário de termos de dados
 
@@ -96,10 +96,10 @@ Se estiver a receber esta mensagem, significa que tem dados de análise, mas nã
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para uma visão geral dos relatórios de análise disponíveis no Partner Center Commercial Marketplace, consulte [o Analytics para o Mercado Comercial no Partner Center](./analytics.md).
-- Para gráficos, tendências e valores de dados agregados que resumam a atividade do mercado para a sua oferta, consulte [Summary Dashboard na análise do Mercado Comercial.](./summary-dashboard.md)
-- Para obter informações sobre as suas encomendas num formato gráfico e descarregável, consulte [o Painel de Encomendas na análise do Mercado Comercial](./orders-dashboard.md).
-- Para máquina virtual (VM) oferece métricas de utilização e faturação medida, consulte [O Dashboard de Utilização na análise do Mercado Comercial](./usage-dashboard.md).
-- Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte o [Customer Dashboard na análise do Mercado Comercial.](./customer-dashboard.md)
-- Para obter uma lista dos seus pedidos de descarregamento ao longo dos últimos 30 dias, consulte [Downloads Dashboard na análise do Mercado Comercial](./downloads-dashboard.md).
-- Para ver uma visão consolidada do feedback dos clientes para as ofertas no Azure Marketplace e appSource, consulte [ratings e análises dashboard na análise](./ratings-reviews.md)do Mercado Comercial.
+- Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [o Analytics para o mercado comercial no Partner Center](./analytics.md).
+- Para gráficos, tendências e valores de dados agregados que resumam a atividade do mercado para a sua oferta, consulte [Summary Dashboard na análise do mercado comercial.](./summary-dashboard.md)
+- Para obter informações sobre as suas encomendas num formato gráfico e descarregável, consulte [o Painel de Encomendas na análise do mercado comercial](./orders-dashboard.md).
+- Para máquina virtual (VM) oferece métricas de utilização e faturação medida, consulte [o Usage Dashboard na análise do mercado comercial](./usage-dashboard.md).
+- Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte o [Customer Dashboard na análise do mercado comercial.](./customer-dashboard.md)
+- Para obter uma lista dos seus pedidos de descarregamento ao longo dos últimos 30 dias, consulte [Downloads Dashboard na análise do mercado comercial](./downloads-dashboard.md).
+- Para ver uma visão consolidada do feedback dos clientes para as ofertas no Azure Marketplace e appSource, consulte [ratings e avaliações de dashboard na análise do mercado comercial.](./ratings-reviews.md)

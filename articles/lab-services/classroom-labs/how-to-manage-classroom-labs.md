@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/20/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: cc937589b2fc4f394b44cf6890a352d770751d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c53c99c12ade986ab913bf013b652a931a4d22
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502030"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257747"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de salas de aula em Serviços de Laboratório Azure 
 Este artigo descreve como criar e apagar um laboratório de sala de aula. Também mostra como ver todos os laboratórios numa conta de laboratório. 
@@ -37,6 +37,8 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
     1. Especifique um **nome** para o seu laboratório. 
     2. Selecione o **tamanho das máquinas virtuais** que precisa para a aula. Para a lista de tamanhos disponíveis, consulte a secção [Tamanhos VM.](#vm-sizes) 
     3. Selecione a **imagem virtual** da máquina que pretende utilizar para o laboratório de sala de aula. Se selecionar uma imagem Linux, verá uma opção para ativar a ligação remota para o ambiente de trabalho. Para mais detalhes, consulte [Ativar a ligação remota para o ambiente de trabalho para o Linux](how-to-enable-remote-desktop-linux.md).
+
+        Se assinou usando credenciais do proprietário da conta de laboratório, verá uma opção para permitir mais imagens para o laboratório. Para mais informações, consulte [Imagens Enable no momento da criação do laboratório.](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation)
     4. Reveja o **preço total por hora** exibido na página. 
     6. Selecione **Guardar**.
 

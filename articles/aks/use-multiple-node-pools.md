@@ -4,16 +4,16 @@ description: Aprenda a criar e gerir várias piscinas de nós para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 26fd541552ee203216af5a08d948644d82061191
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984917"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259090"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Crie e gerencie várias piscinas de nós para um cluster no Serviço Azure Kubernetes (AKS)
 
-No Serviço Azure Kubernetes (AKS), os nódosos da mesma configuração são agrupados em *piscinas*de nó . Estas piscinas de nó contêm os VMs subjacentes que executam as suas aplicações. O número inicial de nós e o seu tamanho (SKU) é definido quando se cria um cluster AKS, que cria uma piscina de *nós padrão*. Para suportar aplicações que tenham diferentes exigências de computação ou armazenamento, pode criar piscinas adicionais de nós. Por exemplo, utilize estes conjuntos de nós adicionais para fornecer GPUs para aplicações intensivas em cálculos ou acesso a armazenamento sSD de alto desempenho.
+No Serviço Azure Kubernetes (AKS), os nódosos da mesma configuração são agrupados em *piscinas*de nó . Estas piscinas de nó contêm os VMs subjacentes que executam as suas aplicações. O número inicial de nós e o seu tamanho (SKU) é definido quando se cria um cluster AKS, que cria um conjunto de nós do [sistema.][use-system-pool] Para suportar aplicações que tenham diferentes exigências de cálculo ou armazenamento, pode criar piscinas adicionais de *nós de utilizador.* As piscinas de nó do sistema servem o principal propósito de hospedar cápsulas de sistema críticos, tais como CoreDNS e tunnelfront. As piscinas de nó do utilizador servem o principal propósito de hospedar as suas cápsulas de aplicação. No entanto, as cápsulas de aplicação podem ser programadas em piscinas de nós do sistema se desejar ter apenas uma piscina no seu cluster AKS. As piscinas de nó do utilizador são onde coloca as suas cápsulas específicas para aplicações. Por exemplo, utilize estes conjuntos adicionais de nós de utilizador para fornecer GPUs para aplicações intensivas em cálculos ou acesso a armazenamento sSD de alto desempenho.
 
 > [!NOTE]
 > Esta funcionalidade permite um maior controlo sobre como criar e gerir várias piscinas de nós. Como resultado, são necessários comandos separados para criar/atualizar/eliminar. Anteriormente, as `az aks create` `az aks update` operações de cluster através ou utilizadas a API gerida do Cluster e eram a única opção para alterar o seu plano de controlo e uma única piscina de nó. Esta função expõe um conjunto de operação separado para piscinas de `az aks nodepool` agentes através da API do agente Pool e exige a utilização do conjunto de comandos para executar operações numa piscina de nó individual.
@@ -29,7 +29,8 @@ Precisa da versão 2.2.0 do Azure CLI ou posteriormente instalada e configurada.
 As seguintes limitações aplicam-se quando cria e gere clusters AKS que suportam múltiplos conjuntos de nós:
 
 * Ver Quotas, restrições de tamanho de máquina virtual e disponibilidade da [região no Serviço Azure Kubernetes (AKS)][quotas-skus-regions].
-* Não é possível eliminar o nó do sistema, por padrão, a primeira piscina de nós.
+* Você pode eliminar piscinas de nós do sistema, desde que você tenha outra piscina de nó de sistema para tomar o seu lugar no cluster AKS.
+* As piscinas do sistema devem conter pelo menos um nó, e as piscinas de nós de utilizador podem conter zero ou mais nós.
 * O cluster AKS deve utilizar o equilibrador de carga SKU padrão para utilizar várias piscinas de nós, a funcionalidade não é suportada com equilibradores básicos de carga SKU.
 * O cluster AKS deve utilizar conjuntos de escala de máquinas virtuais para os nós.
 * O nome de uma piscina de nó só pode conter caracteres alfanuméricos minúsculos e deve começar com uma letra minúscula. Para piscinas de nó Linux o comprimento deve ser entre 1 e 12 caracteres, para piscinas de nó windows o comprimento deve ser entre 1 e 6 caracteres.
@@ -37,6 +38,9 @@ As seguintes limitações aplicam-se quando cria e gere clusters AKS que suporta
 * Ao criar várias piscinas de nós no cluster criar tempo, todas as versões Kubernetes usadas por piscinas de nós devem corresponder à versão definida para o plano de controlo. Isto pode ser atualizado após o aglomerado ter sido provisionado utilizando operações de piscina de nó.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
+
+> [!Important]
+> Se você executar uma única piscina de nó de sistema para o seu cluster AKS em um ambiente de produção, recomendamos que você use pelo menos três nós para a piscina do nó.
 
 Para começar, crie um cluster AKS com uma única piscina de nó. O exemplo seguinte usa o [grupo AZ criar][az-group-create] comando para criar um grupo de recursos chamado *myResourceGroup* na região *oriental.* Um cluster AKS chamado *myAKSCluster* é então criado usando as [aks az criar][az-aks-create] comando. Uma *versão --kubernetes* de *1.15.7* é usada para mostrar como atualizar um conjunto de nó num passo seguinte. Pode especificar qualquer [versão Kubernetes suportada][supported-versions].
 
@@ -753,6 +757,8 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Passos seguintes
 
+Saiba mais sobre [piscinas de nós][use-system-pool]do sistema.
+
 Neste artigo, aprendeu a criar e gerir várias piscinas de nós num cluster AKS. Para obter mais informações sobre como controlar as cápsulas através de piscinas de nós, consulte [as melhores práticas para funcionalidades avançadas de programadores em AKS][operator-best-practices-advanced-scheduler].
 
 Para criar e utilizar piscinas de nó de contentores do Windows Server, consulte [Criar um recipiente de servidor windows em AKS][aks-windows].
@@ -788,3 +794,4 @@ Para criar e utilizar piscinas de nó de contentores do Windows Server, consulte
 [tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
+[use-system-pool]: use-system-pools.md

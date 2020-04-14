@@ -5,20 +5,22 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 4e04f521ed2023dfb9cd562549cb2e1bcd319b8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4d4d5cb16e1037458d09f8c7681ab2d2ecf8676
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288636"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256336"
 ---
 # <a name="api-considerations"></a>Considerações DaPi
 
-
 <a name="api-versioning"></a>Versão API
 --------------
+
+> [!NOTE]
+> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a trabalhar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas alterações. Reveja as alterações listadas no [Portal do Parceiro cloud Referência API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que o seu código continua a funcionar após a migração para partner Center.
 
 Pode haver várias versões da API que estão disponíveis ao mesmo tempo. Os clientes devem indicar qual a versão que `api-version` pretendem invocar, fornecendo o parâmetro como parte da cadeia de consulta.
 

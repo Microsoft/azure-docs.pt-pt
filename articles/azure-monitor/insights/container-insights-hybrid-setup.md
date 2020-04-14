@@ -3,12 +3,12 @@ title: Configure clusters Híbridos Kubernetes com Monitor Azure para contentore
 description: Este artigo descreve como pode configurar o Monitor Azure para os contentores monitorizarem os clusters Kubernetes alojados em Azure Stack ou noutro ambiente.
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: 6d03716b988b1139e01d41120f48ea9a9bf34be1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a973e7e500906ebe833ec4cc6fd2fa8ee79c19e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198059"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255435"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configure aglomerados kubernetes híbridos com Monitor Azure para contentores
 
@@ -228,7 +228,7 @@ Para identificar primeiro o id completo do seu espaço `workspaceResourceId` de 
        az login
        az account set --subscription "Subscription Name"
        # execute deployment command to add container insights solution to the specified Log Analytics workspace
-       az group deployment create --resource-group <resource group of log analytics workspace> --template-file ./containerSolution.json --parameters @./containerSolutionParams.json
+       az deployment group create --resource-group <resource group of log analytics workspace> --name <deployment name> --template-file  ./containerSolution.json --parameters @./containerSolutionParams.json
        ```
 
        A mudança de configuração pode demorar alguns minutos a ser completada. Quando está concluída, é apresentada uma mensagem semelhante à seguinte e inclui o resultado:

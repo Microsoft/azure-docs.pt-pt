@@ -3,7 +3,7 @@ title: Troncos de diagnóstico azure / Microsoft Docs
 description: O cliente pode ativar a análise de registo para o Azure CDN.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: magattus
-ms.openlocfilehash: 86696ed6715b4e43a9d02232c013eb64feb61f67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 35d028a38e6ac19f270abcc8708a532b3749eb39
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67594212"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254806"
 ---
 # <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
@@ -51,7 +51,7 @@ Para obter mais informações sobre registos de diagnóstico, consulte [Registos
 
 Siga estes passos, permitir o login com aanálise do núcleo cdN:
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com). Se ainda não tiver ativado o CDN para o seu fluxo de trabalho, [crie um perfil De CDN Azure e um ponto final](cdn-create-new-endpoint.md) antes de continuar.
+Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver ativado o CDN para o seu fluxo de trabalho, [crie um perfil De CDN Azure e um ponto final](cdn-create-new-endpoint.md) antes de continuar.
 
 1. No portal Azure, navegue para **o perfil CDN**.
 
@@ -445,7 +445,7 @@ Propriedades de exemplo:
 
 * [Troncos de diagnóstico azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Análise de núcleo através do portal suplementar Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Registos do Monitor Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

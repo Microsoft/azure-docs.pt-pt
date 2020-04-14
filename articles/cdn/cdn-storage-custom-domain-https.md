@@ -3,7 +3,7 @@ title: Aceda a bolhas de armazenamento utilizando um domínio personalizado Azur
 description: Aprenda a adicionar um domínio personalizado Azure CDN e ative HTTPS nesse domínio para o seu ponto final de armazenamento blob personalizado.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/15/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: be09229136289e343856f1e2ba61cda63730d21f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b6fe2b2704f101a7775b7eb700375105b0a9eca
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80053938"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259889"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: aceder aos blobs de armazenamento com um domínio personalizado da CDN do Azure através de HTTPS
 

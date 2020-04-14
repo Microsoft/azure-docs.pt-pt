@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: robinsh
-ms.openlocfilehash: dd12f974b9b02d919752dcb932c9ce1709d7315b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71193523a83987de2440d8c70c133c29dde4fe91
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70813788"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257883"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Dispositivo Azure IoT SDK para C
 
@@ -21,7 +21,7 @@ O **dispositivo Azure IoT SDK** é um conjunto de bibliotecas projetadas para si
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-O dispositivo Azure IoT SDK para C está escrito em ANSI C (C99) para maximizar a portabilidade. Esta funcionalidade torna as bibliotecas bem adaptadas para operar em várias plataformas e dispositivos, especialmente onde minimizar a pegada de disco e memória é uma prioridade.
+O dispositivo Azure IoT SDK para C está escrito em ANSI C (C99) para maximizar a portabilidade. Esta funcionalidade torna as bibliotecas bem adaptadas para operar em várias plataformas e dispositivos, especialmente onde minimizar o disco e a pegada de memória é uma prioridade.
 
 Existem uma ampla gama de plataformas nas quais o SDK foi testado (ver o catálogo de [dispositivos Azure Certified para ioT](https://catalog.azureiotsolutions.com/) para mais detalhes). Embora este artigo inclua walkthroughs de código de amostra em execução na plataforma Windows, o código descrito neste artigo é idêntico em toda a gama de plataformas suportadas.
 
@@ -73,7 +73,7 @@ Agora que tens o código fonte da amostra, a próxima coisa a fazer é obter um 
 
 Existem várias ferramentas de código aberto para ajudá-lo a gerir o seu hub IoT.
 
-* Uma aplicação do Windows chamada [explorador de dispositivos.](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
+* Uma aplicação Windows chamada [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer).
 
 * Uma extensão de Código de Estúdio Visual de plataforma cruzada chamada [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
@@ -245,7 +245,7 @@ O último parâmetro é um ponteiro vazio para o que quiser. Na amostra, é um p
 
 Quando o dispositivo recebe uma mensagem, a função de chamada registada é invocada. Esta função de callback recupera:
 
-* A mensagem id e a correlação id da mensagem.
+* O ID da mensagem e a identificação da correlação da mensagem.
 * O conteúdo da mensagem.
 * Quaisquer propriedades personalizadas da mensagem.
 

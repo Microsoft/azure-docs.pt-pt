@@ -5,17 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: a83b664bb770a88f3c4c13a672655e736a46ca75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2182ed2377a392f55af2c1f723be325bd518349
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280461"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255924"
 ---
 <a name="retrieve-a-specific-offer"></a>Recuperar uma oferta específica
 =========================
+
+> [!NOTE]
+> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a trabalhar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas alterações. Reveja as alterações listadas no [Portal do Parceiro cloud Referência API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que o seu código continua a funcionar após a migração para partner Center.
 
 Recupera a oferta especificada dentro do espaço de nome da editora.  
 
@@ -40,8 +43,8 @@ Você também pode recuperar uma versão particular da oferta, ou recuperar a of
 
 | **Nome**    | **Descrição**                                                                          | **Tipo de dados** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| editorId | editorId. Por exemplo, Contoso                                                        | Cadeia        |
-| offerId     | Guid que identifica exclusivamente a oferta.                                                 | Cadeia        |
+| editorId | editorId. Por exemplo, Contoso                                                        | String        |
+| offerId     | Guid que identifica exclusivamente a oferta.                                                 | String        |
 | versão     | Versão da oferta que está a ser recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Número inteiro       |
 | slotId      | O slot a partir do qual a oferta deve ser recuperada, pode ser um dos:      <br/>  - `Draft`(padrão) recupera a versão de oferta atualmente em projeto.  <br/>  -  `Preview`recupera a versão de oferta atualmente em pré-visualização.     <br/>  -  `Production`recupera a versão de oferta atualmente em produção.          |      enum |
 | api-version | Versão mais recente da API                                                                    | Date          |

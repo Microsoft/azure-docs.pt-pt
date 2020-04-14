@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: a6f977c0cdca670b40ccdc01db64a493962e3dda
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 820332b0692c0c863ed23912fe9913c419769155
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239890"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273006"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Começar a criar a sua primeira experiência ML com o Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -86,7 +86,7 @@ Completa as seguintes etapas de experimentação no estúdio Azure Machine Learn
     
 1. Selecione o ficheiro **tutorial-1st-experiment-sdk-train.ipynb** nos seus **tutoriais/pasta create-first-ml-experiment.**
 
-1. Na barra superior, selecione uma instância de cálculo para utilizar para executar o caderno. Estes VMs estão pré-configurados com tudo o [que precisa para executar o Azure Machine Learning.](concept-compute-instance.md#contents) Pode selecionar um VM criado por qualquer utilizador do seu espaço de trabalho. 
+1. Na barra superior, selecione uma instância de cálculo para utilizar para executar o caderno. Estes VMs estão pré-configurados com tudo o [que precisa para executar o Azure Machine Learning.](concept-compute-instance.md#contents) 
 
 1. Se não forem encontrados VMs, selecione **+ Adicione** para criar a instância computacional VM. 
 

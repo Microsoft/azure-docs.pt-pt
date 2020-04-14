@@ -1,22 +1,22 @@
 ---
-title: Como gerir uma conta de Marketplace Comercial no Partner Center
-description: Saiba como gerir uma conta de Marketplace Comercial no Partner Center.
+title: Como gerir uma conta de mercado comercial no Partner Center
+description: Saiba gerir uma conta de marketplace comercial no Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 6d3952c38703d8102a45c4117e3c59e3fa464957
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50ea56a8c743636f9fdd9105e5b07a868e71d3d0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275820"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262932"
 ---
-# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerir a conta do Marketplace Comercial no Centro de Parceiros
+# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerir a sua conta de mercado comercial no Partner Center
 
-Depois de [criar uma conta partner center,](./create-account.md)pode gerir a sua conta e oferecer através do [dashboard Mercado Comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+Depois de [criar uma conta partner center,](./create-account.md)pode gerir a sua conta e oferecer através do [dashboard do mercado comercial.](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)
 
 Neste artigo, vamos mergulhar em como gerir a sua conta de Partner Center, incluindo como:
 
@@ -40,7 +40,7 @@ Se ainda não o fez, você (ou administrador da sua organização) deve aceder �
 
 ### <a name="open-developer-settings"></a>Configurações de desenvolvedores abertos
 
-As definições de conta estão localizadas no canto superior direito do seu [dashboard Do Mercado Comercial](https://partner.microsoft.com/dashboard/commercial-marketplace) no Partner Center. Selecione o ícone de engrenagem (perto do canto superior direito do painel de instrumentos) e, em seguida, selecione **as definições**do Desenvolvedor .
+As definições de conta estão localizadas no canto superior direito do seu [painel de instrumentos de marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace) no Partner Center. Selecione o ícone de engrenagem (perto do canto superior direito do painel de instrumentos) e, em seguida, selecione **as definições**do Desenvolvedor .
 
 ![Menu de definições de conta no Partner Center](./media/dashboard-developer-settings.png)
 
@@ -67,7 +67,7 @@ Na secção de informações de Contacto, pode ver o nome de **exibição**do Ed
 Uma conta de pagamento é a conta bancária para a qual os lucros são enviados das suas vendas. Esta conta bancária deve estar no mesmo país onde registou a sua conta de Partner Center.
 
 Para configurar a sua conta de pagamento, precisa de associar a **sua Conta Microsoft:**
-1. Vá à [página de visão geral](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) do Mercado Comercial no Partner Center.
+1. Vá à [página de visão geral](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) do mercado comercial no Partner Center.
 2. Na secção Perfil, selecione Associar a **sua Conta Microsoft**.
 3. Quando solicitado, inscreva-se na sua Conta Microsoft (MSA). Esta conta já não pode estar associada a outra conta do Partner Center.
 4. Para completar a configuração da sua conta de pagamento, faça login completamente fora do Partner Center e, em seguida, faça login na sua Conta Microsoft (em vez da sua conta de trabalho).
@@ -126,8 +126,8 @@ Recomendamos que crie um GUID único para cada canal de oferta e distribuição 
 
 Se implementar um produto utilizando um modelo e estiver disponível tanto no Azure Marketplace como no GitHub, pode criar e registar 2 GUIDS distintos:
 
-*   Produto A no Mercado Azure
-*   Produto A no GitHub
+*    Produto A no Mercado Azure
+*    Produto A no GitHub
 
 O reporte é feito pelo valor do parceiro (Microsoft Partner ID) e pelos GUIDs. Também pode rastrear GUIDs a um nível mais granular alinhado com cada plano dentro da sua oferta.
 
@@ -308,7 +308,7 @@ Para obter mais informações sobre a gestão de funções e permissões noutras
 
 ## <a name="manage-tenants"></a>Gerir inquilinos
 
-Um inquilino azure Ative Directory (AD), também referido como a sua "conta de trabalho" ao longo desta documentação, é uma representação da sua organização criada no portal Azure e ajuda-o a gerir uma instância específica de serviços de nuvem da Microsoft para o seu interior e utilizadores externos. Se a sua organização subscreveu um serviço de cloud da Microsoft, como o Azure, o Microsoft Intune ou o Office 365, foi criado um inquilino da Azure AD para si.
+Um inquilino azure Ative Directory (AD), também referido como a sua "conta de trabalho" ao longo desta documentação, é uma representação da sua organização criada no portal Azure e ajuda-o a gerir uma instância específica dos serviços de nuvem da Microsoft para os seus utilizadores internos e externos. Se a sua organização subscreveu um serviço de cloud da Microsoft, como o Azure, o Microsoft Intune ou o Office 365, foi criado um inquilino da Azure AD para si.
 
 Você pode configurar vários inquilinos para usar com partner center. Qualquer utilizador com a função **de Gestor** na conta Partner Center terá a opção de adicionar e remover os inquilinos da Azure AD da conta.  
 
