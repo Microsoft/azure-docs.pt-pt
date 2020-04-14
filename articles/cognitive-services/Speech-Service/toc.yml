@@ -214,6 +214,8 @@
       items:
         - name: O que é a tradução de voz?
           href: speech-translation.md
+        - name: Noções básicas de tradução de voz
+          href: speech-translation-basics.md
     - name: Início Rápido
       items:
         - name: Traduzir voz para texto
