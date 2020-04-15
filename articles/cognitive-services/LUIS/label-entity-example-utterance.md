@@ -1,21 +1,14 @@
 ---
 title: Proclamação do exemplo da entidade do rótulo
-titleSuffix: Azure Cognitive Services
 description: Aprenda a rotular uma entidade aprendida com subcomponentes numa página de detalhes de intenção do portal LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.author: diberry
-ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: ea5fbea902c9694d9a8a6a8a5bffcf5e7234bbbd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898379"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382409"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Rotular entidade aprendida por máquinas numa expressão de exemplo
 
@@ -72,7 +65,7 @@ A paleta de entidades oferece uma alternativa à experiência de rotulagem anter
 
 ## <a name="labeling-subcomponents-of-a-machine-learned-entity"></a>Rotulagem subcomponentes de uma entidade aprendida por máquinas
 
-Os subcomponentes nas entidades são rotulados exatamente da mesma forma que as entidades de alto nível. Ao selecionar texto, as entidades disponíveis na janela pop-up são relativas ao contexto em que o texto aparece. Por exemplo, se tiver uma entidade de 5 níveis aprendido com máquinas, e estiver a selecionar texto que tenha sido rotulado com os níveis 1 e 2 (indicado por um nome de entidade rotulado sob a expressão do exemplo), as entidades disponíveis na janela pop-up estão limitadas ao contexto dos componentes do 3º nível. Para rotular o texto com outras entidades, selecione Label como outra opção **de entidade.**
+Os subcomponentes nas entidades são rotulados exatamente da mesma forma que as entidades de alto nível. Ao selecionar texto, as entidades disponíveis na janela pop-up são relativas ao contexto em que o texto aparece. Por exemplo, se tiver uma entidade de 5 níveis aprendido com máquinas, e estiver a selecionar texto seleção que tenha sido rotulado com os níveis 1 e 2 (indicado por uma entidade rotulada sob o exemplo da expressão), as entidades disponíveis na janela pop-up estão limitadas ao contexto de componentes do 3º nível. Para rotular o texto com outras entidades, selecione Label como outra opção **de entidade.**
 
 > [!div class="mx-imgBorder"]
 > ![Paleta de entidades para entidade sinuosa](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
@@ -87,6 +80,10 @@ As funções da entidade são rotuladas utilizando a paleta de entidades.
 1. Depois da paleta de Entidade abrir, selecione a entidade da lista de entidades.
 1. Mude-se para o **inspetor da Entidade,** e selecione uma função existente ou crie um novo papel.
 1. No texto de expressão de exemplo, rotule o texto com o papel da entidade.
+
+## <a name="labeling-for-punctuation"></a>Rotulagem para pontuação
+
+Não precisa de rotular para pontuação. Utilize [as definições](luis-reference-application-settings.md) de aplicação para controlar se a pontuação tiver impacto nas previsões de expressão.
 
 ## <a name="unlabel-entities"></a>Entidades de suprimente
 

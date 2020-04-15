@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.date: 04/14/2020
+ms.openlocfilehash: 18f8b0732e4af0229ff225d9c3b423e27bf342a8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409850"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382788"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de dados de mapeamento de fluxos de dados e afinação
 
@@ -31,13 +31,13 @@ Ao conceber fluxos de dados de mapeamento, pode fazer um teste de cada transform
 
  Pode utilizar estas informações para estimar o desempenho do fluxo dos seus dados contra fontes de dados de diferentes dimensões. Para obter mais informações, consulte [monitorização dos fluxos](concepts-data-flow-monitoring.md)de dados de mapeamento .
 
-![Monitorização de Fluxo de Dados](media/data-flow/mon003.png "Monitor de Fluxo de Dados 3")
+![Monitorização do fluxo de dados](media/data-flow/mon003.png "Monitor de Fluxo de Dados 3")
 
  Para as corridas de depuração do gasoduto, cerca de um minuto de tempo de configuração do cluster nos seus cálculos globais de desempenho é necessário para um cluster quente. Se estiver a inicializar o tempo de execução de integração azul padrão, o tempo de centrifugação pode demorar cerca de 5 minutos.
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumento do tamanho da computação no Tempo de Execução da Integração Azure
 
-Um Tempo de Integração com mais núcleos aumenta o número de nós nos ambientes de computação Spark e fornece mais poder de processamento para ler, escrever e transformar os seus dados.
+Um Tempo de Integração com mais núcleos aumenta o número de nós nos ambientes de computação Spark e fornece mais poder de processamento para ler, escrever e transformar os seus dados. A Df Data Flows utiliza a Spark para o motor de computação. O ambiente Spark funciona muito bem com recursos otimizados pela memória.
 * Experimente um cluster **Compute Otimizado** se quiser que a sua taxa de processamento seja superior à sua taxa de entrada.
 * Experimente um cluster **Otimizado** de Memória se quiser cache mais dados na memória. A memória otimizada tem um preço-ponto por núcleo mais elevado do que o Compute Otimizado, mas provavelmente resultará em velocidades de transformação mais rápidas.
 
@@ -49,7 +49,11 @@ Para mais informações sobre como criar um Tempo de Funcionação de Integraç�
 
 Por predefinição, ligar o depurado utilizará o tempo de funcionação padrão da Integração Azure que é criado automaticamente para cada fábrica de dados. Este Inversor De indevido azure está definido para oito núcleos, quatro para um nó de condutor e quatro para um nó de trabalhador, utilizando propriedades da Calcule Geral. À medida que testa com dados maiores, pode aumentar o tamanho do seu cluster de depuração criando um Azure IR com configurações maiores e escolher este novo Azure IR quando ligar o depurado. Isto instruirá a ADF a utilizar este IR Azure para pré-visualização de dados e depuração de gasodutos com fluxos de dados.
 
-## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Otimização para Base de Dados Azure SQL e Armazém de Dados Azure SQL
+### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Diminuir o tempo de arranque do cluster compute com tTL
+
+Existe uma propriedade no Azure IR no âmbito da Data Flow Properties que lhe permitirá levantar um conjunto de recursos de computação cluster para a sua fábrica. Com este pool, pode submeter sequencialmente atividades de fluxo de dados para execução. Uma vez estabelecida a piscina, cada trabalho subsequente levará 1-2 minutos para o cluster Spark a pedido executar o seu trabalho. A configuração inicial do conjunto de recursos levará cerca de 6 minutos. Especifique o tempo que pretende manter o conjunto de recursos na definição de tempo de vida (TTL).
+
+## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Otimização para Base de Dados Azure SQL e Azure SQL Data Warehouse Synapse
 
 ### <a name="partitioning-on-source"></a>Partição na fonte
 

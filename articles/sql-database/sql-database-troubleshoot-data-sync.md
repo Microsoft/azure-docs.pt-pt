@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 8e223d0c6243bfddc1e5a56867c4c69de5e2a62e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6ea604446cb9d56bb699685d24c81992bcac3a2
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73822461"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382897"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Resolução de problemas de Sincronização de Dados SQL
 

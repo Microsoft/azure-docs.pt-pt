@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63271567e70955f6dfb0b10a5c882b6dce9545ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55ce0233fdefb8360376e94c0baafabe4c62ced7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74932492"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309199"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloquear a autenticação do legado
  
@@ -31,11 +31,11 @@ Hoje, a maioria de todas as tentativas comprometedoras de inscrição vêm da au
 
 Antes de poder bloquear a autenticação do legado no seu diretório, tem de perceber primeiro se os seus utilizadores têm aplicações que utilizam a autenticação do legado e como isso afeta o seu diretório geral. Os registos de entrada de AD Azure podem ser usados para entender se está a usar a autenticação do legado.
 
-1. Navegue para o portal Azure > Diretório Ativo Azure > Sign-ins.
-1. Adicione a coluna da Aplicação cliente se não for mostrada clicando em Colunas > App cliente.
-1. Filter by Client App > verifique todas as opções do Outro Cliente apresentadas e clique em Aplicar.
-1. Filtrar por Status > Sucesso e clique em Aplicar. 
-1. Aumente a sua gama de datas, se necessário, utilizando o filtro Date.
+1. Navegue para o > **portal Azure** **Ative Directory** > **Sign-ins**.
+1. Adicione a coluna da **Aplicação cliente** se não for mostrada clicando na App do **Cliente**das **Colunas** >.
+1. Filter by **Client App**  > verificar todas as opções de Clientes de **Autenticação Legado apresentadas.**
+1. Filtrar por **Status** > **Success**. 
+1. Aumente a sua gama de datas, se necessário, utilizando o filtro **Date.**
 
 A filtragem só lhe mostrará tentativas de inscrição bem sucedidas que foram feitas pelos protocolos de autenticação do legado selecionados. Clicar em cada tentativa de inscrição individual irá mostrar-lhe detalhes adicionais. A coluna da Aplicação do Cliente ou o campo de Aplicações do Cliente sob o separador Informação Básica após a seleção de uma linha de dados individuais indicarão qual o protocolo de autenticação legado utilizado. Estes registos indicarão quais os utilizadores que ainda dependem da autenticação do legado e quais as aplicações que estão a utilizar protocolos legados para fazer pedidos de autenticação. Para os utilizadores que não aparecem nestes registos e que se confirme que não estão a utilizar a autenticação do legado, implementem uma política de Acesso Condicional ou permitam a política de Base: bloquear a autenticação do legado apenas para estes utilizadores.
 
@@ -62,7 +62,7 @@ Se estiver a utilizar clientes windows do Office 2013 ou mais velhos, recomendam
 
 O Office 2010 não suporta a autenticação moderna. Terá de atualizar qualquer utilizador com o Office 2010 para uma versão mais recente do Office. Recomendamos a atualização para o Office 2016 ou mais tarde, uma vez que bloqueia a autenticação do legado por defeito.
 
-Se estiver a utilizar o MacOS, recomendamos a atualização para o Office para o Mac 2016 ou mais tarde. Se estiver a utilizar o cliente de correio nativo, terá de ter a versão 10.14 do MacOS ou mais tarde em todos os dispositivos.
+Se estiver a utilizar o macOS, recomendamos a atualização para o Office para o Mac 2016 ou mais tarde. Se estiver a utilizar o cliente de correio nativo, terá de ter a versão 10.14 do macOS ou posteriormente em todos os dispositivos.
 
 ### <a name="step-3-exchange-and-sharepoint"></a>Passo 3: Troca e Ponto de Partilha
 

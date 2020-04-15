@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
-ms.date: 08/26/2019
-ms.openlocfilehash: 1e13c7ef8eae81ef2a12a8761b0596f6329f94dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: a95c4d654650276c815c5b23fb2c6f8a6d06bc2e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76937915"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383460"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Falhas na criação de cluster saturadas com azure HDInsight
 

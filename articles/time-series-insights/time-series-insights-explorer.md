@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: b8c2ba54fcc69ba126bf5f68aed99b25f8156155
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b564373780da5bba71bc46ddbac3dc69a0c94a4a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76046172"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382786"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Insights da Série De Tempo Azure
 

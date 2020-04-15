@@ -5,16 +5,16 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 44ca8f721967b90be283f867f8656344ec3f1906
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 80881d96d713f3dc4127c94fd324e925e3c68792
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673418"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382936"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um recipiente personalizado
 
-Neste tutorial, cria e implanta o código Python para as Funções Azure como um recipiente Docker personalizado usando uma imagem base linux. Normalmente, utiliza-se uma imagem personalizada quando as suas funções requerem uma versão idioma específica ou tem uma dependência ou configuração específica que não é fornecida pela imagem incorporada.
+Neste tutorial, cria e implementa o seu código para as Funções Azure como recipiente Docker personalizado utilizando uma imagem base linux. Normalmente, utiliza-se uma imagem personalizada quando as suas funções requerem uma versão idioma específica ou tem uma dependência ou configuração específica que não é fornecida pela imagem incorporada.
 
 Também pode utilizar um recipiente de serviço de aplicações Azure padrão, tal como descrito no [Create your first function hospedado no Linux](functions-create-first-azure-function-azure-cli-linux.md). As imagens de base suportadas para funções azure são encontradas no repo de [imagens base funções do Azure](https://hub.docker.com/_/microsoft-azure-functions-base).
 

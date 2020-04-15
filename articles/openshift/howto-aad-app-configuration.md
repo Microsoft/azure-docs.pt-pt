@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280537"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382922"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Diretório Ativo Azure para o Azure Red Hat OpenShift
 
@@ -25,13 +25,13 @@ No [portal Azure,](https://portal.azure.com)certifique-se de que o seu inquilino
 
 ![Screenshot do portal com inquilino](./media/howto-create-tenant/tenant-callout.png) listado no topo direito Se o inquilino errado for apresentado, clique no seu nome de utilizador no direito superior, em seguida, clique em **Switch Diretório**, e selecione o inquilino correto da lista **de Todos os Diretórios.**
 
-Crie um novo utilizador de administrador global do Azure Ative Diretório para iniciar sessão no seu cluster Azure Red Hat OpenShift.
+Crie um novo utilizador de 'Owner' do Diretório Ativo Azure para iniciar sessão no seu cluster Azure Red Hat OpenShift.
 
 1. Vá para a lâmina [utilizadores-todos os utilizadores.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)
 2. Clique em **+Novo utilizador** para abrir o painel **do Utilizador.**
 3. Introduza um **Nome** para este utilizador.
 4. Crie um **nome de Utilizador** com base `.onmicrosoft.com` no nome do inquilino que criou, com anexação no final. Por exemplo, `yourUserName@yourTenantName.onmicrosoft.com`. Escreva este nome de utilizador. Vai precisar dele para se inscrever no seu agrupamento.
-5. Clique na **função de Diretório** para abrir o painel de papéis de diretório e selecione **administrador global** e, em seguida, clique em **Ok** na parte inferior do painel.
+5. Clique na **função de Diretório** para abrir o painel de papéis do diretório e selecione **Owner** e, em seguida, clique em **Ok** na parte inferior do painel.
 6. No painel **do Utilizador,** clique em **Mostrar Palavra-passe** e grave a palavra-passe temporária. Depois de assinar pela primeira vez, será solicitado a reset-lo.
 7. Na parte inferior do painel, clique em **Criar** para criar o utilizador.
 

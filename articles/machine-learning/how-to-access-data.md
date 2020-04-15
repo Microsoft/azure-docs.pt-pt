@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 97aa446636ea3131246a06f69f74b5868abff608
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: ca892b5f360f523ee2b5ff875dfb0707136a5ab5
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668652"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383448"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligue-se aos serviços de armazenamento azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -73,7 +73,7 @@ Recomendamos a criação de uma loja de dados para um [recipiente Azure Blob.](h
 Quando se cria um espaço de trabalho, um recipiente de blob Azure e uma partilha de ficheiros Azure estão automaticamente registados no espaço de trabalho. São nomeados `workspaceblobstore` `workspacefilestore`e, respectivamente. `workspaceblobstore`é usado para armazenar artefactos do espaço de trabalho e os seus registos de experiências de aprendizagem automática. `workspacefilestore`é utilizado para armazenar cadernos e scripts R autorizados por instância de [cálculo](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). O `workspaceblobstore` recipiente é definido como o datastore padrão.
 
 > [!IMPORTANT]
-> O designer de Aprendizagem automática Azure (pré-visualização) criará uma loja de dados chamada **azureml_globaldatasets** automaticamente quando abrir uma amostra na página inicial do designer. Esta loja de dados contém apenas conjuntos de dados de amostras. Por favor, **não** utilize esta loja de dados para qualquer acesso confidencial a dados!
+> O designer de Aprendizagem automática Azure (pré-visualização) criará uma loja de dados chamada **azureml_globaldatasets** automaticamente quando abrir uma amostra na página inicial do designer. Esta loja de dados contém apenas conjuntos de dados de amostras. Por favor, **não** utilize esta loja de dados para qualquer acesso confidencial a dados.
 > ![Loja de dados criada automaticamente para conjuntos de dados de amostras de designers](media/how-to-access-data/datastore-designer-sample.png)
 
 <a name="access"></a>
@@ -94,7 +94,7 @@ Todos os métodos [`Datastore`](https://docs.microsoft.com/python/api/azureml-co
 Pode encontrar a informação de `register()` que necessita para preencher o método no [portal Azure.](https://portal.azure.com)
 Selecione Contas de **Armazenamento** no painel esquerdo e escolha a conta de armazenamento que pretende registar. A página **'Overview'** fornece informações como o nome da conta, o contentor e o nome da partilha de ficheiros. 
 
-* Para itens de autenticação, como chave de conta ou ficha SAS, vá para **As Teclas de Conta** no painel **Definições.** 
+* Para itens de autenticação, como chave de conta ou ficha SAS, aceda às **teclas de acesso** no painel **Definições.** 
 
 * Para itens principais de serviço como, ID de inquilino e ID do cliente, vá às **suas inscrições** da App e selecione qual a aplicação que pretende utilizar. A sua página **de visão geral** correspondente conterá estes itens.
 
@@ -107,13 +107,13 @@ Os exemplos seguintes mostram como registar um contentor de blob Azure, uma part
 
 Para registar um recipiente de blob Azure como uma loja de dados, utilize [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
 
-O seguinte código cria `blob_datastore_name` e regista `ws` a loja de dados no espaço de trabalho. Esta loja de `my-container-name` dados acede `my-account-name` ao recipiente blob na conta de armazenamento, utilizando a chave de conta fornecida.
+O seguinte código cria `blob_datastore_name` e regista `ws` a loja de dados no espaço de trabalho. Esta loja de `my-container-name` dados acede `my-account-name` ao recipiente blob na conta de armazenamento, utilizando a chave de acesso à conta fornecida.
 
 ```Python
 blob_datastore_name='azblobsdk' # Name of the datastore to workspace
 container_name=os.getenv("BLOB_CONTAINER", "<my-container-name>") # Name of Azure blob container
 account_name=os.getenv("BLOB_ACCOUNTNAME", "<my-account-name>") # Storage account name
-account_key=os.getenv("BLOB_ACCOUNT_KEY", "<my-account-key>") # Storage account key
+account_key=os.getenv("BLOB_ACCOUNT_KEY", "<my-account-key>") # Storage account access key
 
 blob_datastore = Datastore.register_azure_blob_container(workspace=ws, 
                                                          datastore_name=blob_datastore_name, 
@@ -126,13 +126,13 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 Para registar uma partilha de ficheiros [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)Azure como uma loja de dados, utilize . 
 
-O seguinte código cria `file_datastore_name` e regista `ws` a loja de dados no espaço de trabalho. Esta loja de `my-fileshare-name` dados acede `my-account-name` à parte do ficheiro na conta de armazenamento, utilizando a chave de conta fornecida.
+O seguinte código cria `file_datastore_name` e regista `ws` a loja de dados no espaço de trabalho. Esta loja de `my-fileshare-name` dados acede `my-account-name` à parte do ficheiro na conta de armazenamento, utilizando a chave de acesso à conta fornecida.
 
 ```Python
 file_datastore_name='azfilesharesdk' # Name of the datastore to workspace
 file_share_name=os.getenv("FILE_SHARE_CONTAINER", "<my-fileshare-name>") # Name of Azure file share container
 account_name=os.getenv("FILE_SHARE_ACCOUNTNAME", "<my-account-name>") # Storage account name
-account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage account key
+account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage account access key
 
 file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      datastore_name=file_datastore_name, 
@@ -181,7 +181,7 @@ Crie uma nova datastore em alguns passos no estúdio Azure Machine Learning:
   
 Pode encontrar a informação de que necessita para preencher o formulário no [portal Azure.](https://portal.azure.com) Selecione Contas de **Armazenamento** no painel esquerdo e escolha a conta de armazenamento que pretende registar. A página **'Overview'** fornece informações como o nome da conta, o contentor e o nome da partilha de ficheiros. 
 
-* Para itens de autenticação, como chave de conta ou ficha SAS, vá para **As Teclas de Conta** no painel **Definições.** 
+* Para itens de autenticação, como chave de conta ou ficha SAS, aceda às **teclas de acesso** no painel **Definições.** 
 
 * Para itens principais de serviço como, ID de inquilino e ID do cliente, vá às **suas inscrições** da App e selecione qual a aplicação que pretende utilizar. A sua página **de visão geral** correspondente conterá estes itens. 
 

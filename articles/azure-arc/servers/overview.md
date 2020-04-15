@@ -9,12 +9,12 @@ ms.author: magoedte
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualizações, rastreio de alterações, inventário, livros de execução, pitão, gráfico, híbrido
 ms.date: 03/24/2020
 ms.topic: overview
-ms.openlocfilehash: a441b80e4d7dd9604aa2ca69da320e462859a486
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 5fa39028f1041a063bab295adabf8145a8b46ae4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261230"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81308774"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é O Arco Azure para servidores (pré-visualização)
 
@@ -143,7 +143,7 @@ Pode descarregar o pacote de agente Azure Connected Machine para Windows e Linux
 >[!NOTE]
 >Durante esta pré-visualização, apenas foi lançado um pacote, que é adequado para Ubuntu 16.04 ou 18.04.
 
-O agente Azure Connected Machine para Windows e Linux pode ser atualizado para a mais recente versão manual ou automaticamente, dependendo dos seus requisitos. Para mais informações, consulte [aqui](manage-agent.md)
+O agente Azure Connected Machine para Windows e Linux pode ser atualizado para a mais recente versão manual ou automaticamente, dependendo dos seus requisitos. Para mais informações, consulte [aqui.](manage-agent.md)
 
 ### <a name="agent-status"></a>Estado do agente
 

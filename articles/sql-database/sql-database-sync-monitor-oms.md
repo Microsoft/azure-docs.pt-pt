@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 0ed0bd3544fff89c8230267e3d6d8826c5ae3c7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f5980f74b24cd972d43e9b05d4a5d623e6e3d2f
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74114614"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383694"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitor SQL Data Sync com registos do Monitor Azure 
 

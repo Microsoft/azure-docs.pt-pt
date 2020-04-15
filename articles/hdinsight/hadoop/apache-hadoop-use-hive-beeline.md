@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 4f2b192765aab4c7cf18c62988ae2f6080b4b17c
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 426294f20dd51538920182a0e7a2915f6a47ba54
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436888"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383562"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utilizar o cliente do Apache Beeline com o Apache Hive
 
@@ -40,8 +40,7 @@ Ao ligar-se de um cliente ao HDInsight sobre uma Rede Virtual Azure, deve fornec
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-Substitua-a `<headnode-FQDN>` com o nome de domínio totalmente qualificado de um headnode de cluster. Para encontrar o nome de domínio totalmente qualificado de um headnode, utilize a informação no [Manage HDInsight utilizando o documento Apache Ambari REST API.](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes)
-
+<a name="replace-headnode-fqdn-with-the-fully-qualified-domain-name-of-a-cluster-headnode-to-find-the-fully-qualified-domain-name-of-a-headnode-use-the-information-in-the-manage-hdinsight-using-the-apache-ambari-rest-api-document"></a>Substitua-a `<headnode-FQDN>` com o nome de domínio totalmente qualificado de um headnode de cluster. Para encontrar o nome de domínio totalmente qualificado de um headnode, utilize a informação no [Manage HDInsight utilizando o documento Apache Ambari REST API.](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes)
 ---
 
 ### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Para o cluster HDInsight Enterprise Security Package (ESP) utilizando kerberos

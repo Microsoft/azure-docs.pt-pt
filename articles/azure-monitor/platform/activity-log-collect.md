@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/24/2020
-ms.openlocfilehash: 4265f6050b237cb40afeddfc228ade9be06be039
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.date: 04/14/2020
+ms.openlocfilehash: 098aeaa06a26c57744402722aa3eacc51ea85fb7
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396791"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382859"
 ---
 # <a name="collect-and-analyze-azure-activity-log-in-azure-monitor"></a>Recolher e analisar o log da Atividade Azure no Monitor Azure
 O [registo da Atividade Azure](platform-logs-overview.md) é um registo de [plataforma](platform-logs-overview.md) que fornece informações sobre eventos de nível de subscrição que ocorreram no Azure. Enquanto pode ver o registo de atividade no portal Azure, deve configurá-lo para enviar para um espaço de trabalho log Analytics para permitir funcionalidades adicionais do Monitor Azure. Este artigo descreve como executar esta configuração e como enviar o registo de atividade para centros de armazenamento e evento sinuosos do Azure.
@@ -25,7 +25,8 @@ Recolher o Registo de Atividades num espaço de trabalho de Log Analytics propor
 - Registo de registo de atividade de loja por mais de 90 dias.
 - Consolidar entradas de registo de várias subscrições do Azure e inquilinos num único local para análise em conjunto.
 
-
+> [!IMPORTANT]
+> Recolher registos entre inquilinos requer [o Farol Azure.](/azure/lighthouse)
 
 ## <a name="collecting-activity-log"></a>Registo de Atividades de Recolha
 O registo de Atividade é recolhido automaticamente para [visualização no portal Azure](activity-log-view.md). Para o recolher num espaço de trabalho do Log Analytics ou para o enviar centros de armazenamento ou eventos Azure, crie uma [definição de diagnóstico](diagnostic-settings.md). Este é o mesmo método utilizado pelos registos de recursos tornando-o consistente para todos os [registos da plataforma](platform-logs-overview.md).  

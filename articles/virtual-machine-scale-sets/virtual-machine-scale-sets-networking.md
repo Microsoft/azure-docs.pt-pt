@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mimckitt
-ms.openlocfilehash: 7e6b8ea702d28fcd2747115710a8b1a8ec2bb1b2
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9f048c7d89da0ab75c321cd8e3932ea97c7ed09c
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270524"
+ms.locfileid: "81310018"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -69,6 +69,14 @@ az vmss create \
 
 >[!NOTE]
 > Após a criação do conjunto de calcário, a porta de backend não pode ser modificada para uma regra de equilíbrio de carga utilizada por uma sonda de saúde do equilibrador de carga. Para alterar a porta, pode remover a sonda de saúde atualizando o conjunto de escala de máquina virtual Azure, atualizar a porta e, em seguida, configurar novamente a sonda de saúde. 
+
+Para obter mais informações sobre o equilíbrio de carga e conjuntos de escala de máquinas virtuais, consulte [redes virtuais e máquinas virtuais em Azure](../../articles/virtual-machines/windows/network-overview.md).
+
+Os seguintes métodos podem ser utilizados para implantar um conjunto de escala de máquina virtual com um equilibrador de carga Azure existente.
+
+* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o portal Azure](../../articles/load-balancer/configure-vm-scale-set-portal.md).
+* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o Azure PowerShell](../../articles/load-balancer/configure-vm-scale-set-powershell.md).
+* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o Azure CLI](../../articles/load-balancer/configure-vm-scale-set-cli.md).
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencie um Gateway de Aplicação
 Para criar um conjunto de dimensionamento que utiliza um gateway de aplicação, referencie o conjunto de endereços de back-end do gateway de aplicação na secção ipConfigurations do seu conjunto de dimensionamento como nesta configuração de modelo ARM:

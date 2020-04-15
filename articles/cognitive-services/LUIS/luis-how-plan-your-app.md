@@ -1,22 +1,14 @@
 ---
 title: Planeie a sua app - LUIS
-titleSuffix: Azure Cognitive Services
 description: Delineie as intenções e entidades relevantes da aplicação e, em seguida, crie os seus planos de aplicação em Serviços Inteligentes de Compreensão de Línguas (LUIS).
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/20/2019
-ms.author: diberry
-ms.openlocfilehash: 6a155f4c43da03ccdc40d289742918973aa6da7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74326781"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382297"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planeje o seu esquema de aplicação LUIS com domínio sujeito e extração de dados
 
@@ -44,7 +36,7 @@ Se não precisar identificar a intenção geral do utilizador, adicione `None` t
 
 ## <a name="create-example-utterances-for-each-intent"></a>Criar pronunciações exemplo para cada intenção
 
-Para começar, evite criar demasiadas expressões para cada intenção. Uma vez determinados as intenções, crie 15 a 30 exemplos de pronunciações por intenção. Cada expressão deve ser diferente das declarações anteriormente fornecidas. Uma boa variedade em expressões incluem contagem geral de palavras, escolha de palavras, verbo tenso e pontuação.
+Para começar, evite criar demasiadas expressões para cada intenção. Uma vez determinados as intenções, crie 15 a 30 exemplos de pronunciações por intenção. Cada expressão deve ser diferente das declarações anteriormente fornecidas. Uma boa variedade em expressões incluem contagem geral de palavras, escolha de palavras, verbo tenso e [pontuação.](luis-reference-application-settings.md#punctuation-normalization)
 
 Para mais informações, consulte a compreensão de [boas expressões para aplicações LUIS.](luis-concept-utterance.md)
 

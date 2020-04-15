@@ -10,12 +10,12 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.date: 02/13/2020
-  ms.openlocfilehash: 72c338133e59ef8b7f5bb78eafc45bd44dea9c14
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 6d2a654fc584a45335b02763ade5a215964652c4
+  ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77199437"
+  ms.lasthandoff: 04/14/2020
+  ms.locfileid: "81382839"
 landingContent:
 - title: Comprar reservas
   linkLists:
@@ -42,7 +42,7 @@ landingContent:
     - text: SQL Database
       url: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
     - text: Azure Data Explorer
-      url: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+      url: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
     - text: Azure Databricks
       url: prepay-databricks-reserved-capacity.md
     - text: Serviço de Aplicações

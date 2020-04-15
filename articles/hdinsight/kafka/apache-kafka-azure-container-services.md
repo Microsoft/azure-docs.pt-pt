@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 6abb4f632535f1bda7e9f337f111ba372a624f2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55373f71c78b6d45b9c78c52dea61a37b89b4a00
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239623"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383050"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Use o Serviço Azure Kubernetes com Apache Kafka no HDInsight
 
@@ -26,7 +26,7 @@ O [Apache Kafka](https://kafka.apache.org) é uma plataforma de transmissão em 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Uma subscrição do Azure.
 
 Este documento assume que está familiarizado com a criação e utilização dos seguintes serviços Azure:
@@ -163,7 +163,7 @@ Neste momento, o Kafka e o Azure Kubernetes Service estão em comunicação atra
     * `var topic = 'mytopic'`: `mytopic` Substitua o nome do tópico Kafka utilizado por esta aplicação.
     * `var brokerHost = '176.16.0.13:9092`: `176.16.0.13` Substitua com o endereço IP interno de um dos anfitriões do corretor para o seu cluster.
 
-        Para encontrar o endereço IP interno dos anfitriões de corretor (nódeos de trabalhadores) no cluster, consulte o documento [Apache Ambari REST API.](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) Escolha o endereço IP de uma das `wn`entradas onde o nome de domínio começa com .
+        Para encontrar o endereço IP interno dos anfitriões de corretor (nódeos de trabalhadores) no cluster, consulte o documento [Apache Ambari REST API.](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes) Escolha o endereço IP de uma das `wn`entradas onde o nome de domínio começa com .
 
 4. A partir de `src` uma linha de comando no diretório, instale dependências e use o Docker para construir uma imagem para implantação:
 

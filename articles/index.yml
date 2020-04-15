@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 5d155f17c5b8d2d4c2cac5c2a4e788fd5dca78eb
-  ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+  ms.openlocfilehash: 2514c6a6cfadd7b864d8eb14db99ba5c83c81c1a
+  ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/07/2020
-  ms.locfileid: "80810499"
+  ms.lasthandoff: 04/14/2020
+  ms.locfileid: "81383022"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -277,7 +277,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/data-explorer.svg
     azureCategories:
     - analytics
-    url: data-explorer/index.yml
+    url: /azure/data-explorer
   - title: Armazenamento do Azure Data Lake
     summary: Funcionalidade de data lake segura, dimensionável em massa, incorporada no Armazenamento de Blobs do Azure
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg

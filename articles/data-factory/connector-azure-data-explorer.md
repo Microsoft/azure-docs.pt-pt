@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
-ms.openlocfilehash: 4c265cb0cdc665ef52f4dc6e69440e83c22db449
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f0eada5184f2c8e36b0deb5a9d27a8a9230776d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77460982"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382767"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure Data Explorer utilizando a Azure Data Factory
 
-Este artigo descreve como utilizar a atividade de cópia na Azure Data Factory para copiar dados de ou para o [Azure Data Explorer](../data-explorer/data-explorer-overview.md). Baseia-se no artigo de visão geral da atividade de [cópia,](copy-activity-overview.md) que oferece uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia na Azure Data Factory para copiar dados de ou para o [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). Baseia-se no artigo de visão geral da atividade de [cópia,](copy-activity-overview.md) que oferece uma visão geral da atividade de cópia.
 
 >[!TIP]
->Para a Azure Data Factory e para a integração do Azure Data Explorer em geral, saiba mais com [a Integração azure Data Explorer com a Azure Data Factory.](../data-explorer/data-factory-integration.md)
+>Para a Azure Data Factory e para a integração do Azure Data Explorer em geral, saiba mais com [a Integração azure Data Explorer com a Azure Data Factory.](/azure/data-explorer/data-factory-integration)
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -47,7 +47,7 @@ Com o conector Azure Data Explorer, pode fazer o seguinte:
 ## <a name="getting-started"></a>Introdução
 
 >[!TIP]
->Para uma passagem pelo conector Azure Data Explorer, consulte [os dados de Cópia de/para o Azure Data Explorer utilizando](../data-explorer/data-factory-load-data.md) a Azure Data Factory e a cópia a granel de uma base de dados para o [Azure Data Explorer](../data-explorer/data-factory-template.md).
+>Para uma passagem pelo conector Azure Data Explorer, consulte [os dados de Cópia de/para o Azure Data Explorer utilizando](/azure/data-explorer/data-factory-load-data) a Azure Data Factory e a cópia a granel de uma base de dados para o [Azure Data Explorer](/azure/data-explorer/data-factory-template).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -63,7 +63,7 @@ O conector Azure Data Explorer utiliza a autenticação principal do serviço. S
     - Chave de aplicação
     - ID do inquilino
 
-2. Conceda ao diretor de serviço as permissões corretas no Azure Data Explorer. Consulte [a Manage Azure Data Explorer permissões](../data-explorer/manage-database-permissions.md) para obter informações detalhadas sobre papéis e permissões e sobre gestão de permissões. Em geral, deve:
+2. Conceda ao diretor de serviço as permissões corretas no Azure Data Explorer. Consulte [a Manage Azure Data Explorer permissões](/azure/data-explorer/manage-database-permissions) para obter informações detalhadas sobre papéis e permissões e sobre gestão de permissões. Em geral, deve:
 
     - **Como fonte,** conceda pelo menos o papel de **visualizador** da Base de Dados à sua base de dados
     - **Como pia,** conceda pelo menos o papel **ingestor** da Base de Dados na sua base de dados

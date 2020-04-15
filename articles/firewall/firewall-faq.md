@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: af66da115e228efe39e4cd5dda3c494b71428676
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ea94e452b463fffc1800e09fa1302abacdf015cc
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113561"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383061"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -72,9 +72,9 @@ O Firewall de aplicação web (WAF) é uma funcionalidade do Application Gateway
 
 O serviço Azure Firewall complementa a funcionalidade do grupo de segurança da rede. Juntos, proporcionam uma melhor segurança da rede "defesa-em profundidade". Os grupos de segurança da rede fornecem filtragem de tráfego de camadas de rede distribuída para limitar o tráfego aos recursos dentro das redes virtuais em cada subscrição. O Azure Firewall é um firewall de rede totalmente audacionado e centralizado como um serviço, que fornece proteção ao nível da rede e da aplicação em diferentes subscrições e redes virtuais.
 
-## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Os Grupos de Segurança da Rede (NSGs) são suportados na subnet Azure Firewall?
+## <a name="are-network-security-groups-nsgs-supported-on-the-azurefirewallsubnet"></a>Os Grupos de Segurança da Rede (NSGs) são suportados no AzureFirewallSubnet?
 
-O Azure Firewall é um serviço gerido com múltiplas camadas de proteção, incluindo a proteção da plataforma com NSGs de nível NIC (não visível).  NsGs de nível de sub-rede não são necessários na subnet Azure Firewall, e são desativados para garantir que não há interrupção do serviço.
+O Azure Firewall é um serviço gerido com múltiplas camadas de proteção, incluindo a proteção da plataforma com NSGs de nível NIC (não visível).  NsGs de nível subnet não são necessários no AzureFirewallSubnet, e são desativados para garantir nenhuma interrupção do serviço.
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Como configurar o Azure Firewall com os meus pontos finais de serviço?
 

@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/14/2020
 ms.author: sstein
-ms.openlocfilehash: b677fd7fe2b14e1c42443478a887ddfa2481dfbf
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 7d922aa0727ad28054d050a29039951d3f04985f
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011451"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383379"
 ---
 # <a name="sql-database-release-notes"></a>Notas de lançamento da Base de Dados SQL
 
@@ -49,6 +49,7 @@ Este artigo lista as funcionalidades da Base de Dados SQL que estão atualmente 
 | <a href="https://aka.ms/managed-instance-aadlogins">Diretores de servidores AD de nível de instância (logins)</a> | Crie logins ao nível do servidor utilizando a <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">declaração create LOGIN from EXTERNAL PROVIDER.</a> |
 | [Replicação transacional](sql-database-managed-instance-transactional-replication.md) | Replicar as alterações das suas tabelas para outras bases de dados colocadas em instâncias geridas, bases de dados únicas ou casos do Servidor SQL, ou atualizar as suas tabelas quando algumas linhas são alteradas em outras instâncias geridas ou instância do Servidor SQL. Para obter informações, consulte a [replicação da Configuração numa](replication-with-sql-database-managed-instance.md)base de dados de instância gerida por 1den . |
 | Deteção de ameaças |Para obter informações, consulte a deteção de [ameaças configure na base de dados Azure SQL gerida](sql-database-managed-instance-threat-detection.md).|
+| Retenção de cópia de segurança de longa duração | Para obter informações, consulte a retenção de back-up a longo prazo na base de [dados Azure SQL gerida](sql-database-managed-instance-long-term-backup-retention-configure.md). | 
 
 ---
 
@@ -167,7 +168,7 @@ Os diálogos do Corretor de Serviços cross-database deixarão de entregar as me
 ### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>A ipersonificação dos tipos de login Azure AD não é suportada
 
 Não é `EXECUTE AS USER` suportada a utilização ou `EXECUTE AS LOGIN` dos seguintes diretores da AAD:
--   Utilizadores de AAD aliased. Neste caso, `15517`devolve-se o seguinte erro.
+-    Utilizadores de AAD aliased. Neste caso, `15517`devolve-se o seguinte erro.
 - Logins aAD e utilizadores com base em aplicações aAD ou diretores de serviço. Neste caso, `15517` são devolvidos `15406`os seguintes erros e .
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparâmetro não suportado em sp_send_db_mail
