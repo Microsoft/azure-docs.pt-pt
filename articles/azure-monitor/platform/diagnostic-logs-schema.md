@@ -4,12 +4,12 @@ description: Compreenda os serviços suportados e o esquema de eventos para os r
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8abd8767d9bb7e3c4336f6600b94f6b3f4ea48f1
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248817"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380527"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Serviços suportados, schemas e categorias para Registos de Recursos Azure
 
@@ -54,7 +54,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante o recurso
 | Azure Batch |[Exploração madeireira de lote azure](../../batch/batch-diagnostics.md) |
 | Base de Dados do Azure para MySQL | [Base de Dados Azure para registos de diagnóstico MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Base de Dados do Azure para PostgreSQL | [Base de Dados Azure para registos PostgreSQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Data Explorer | [Registos do Explorador de Dados Azure](../../data-explorer/using-diagnostic-logs.md) |
+| Azure Data Explorer | [Registos do Explorador de Dados Azure](/azure/data-explorer/using-diagnostic-logs) |
 | Serviços Cognitivos | [Exploração madeireira para serviços cognitivos azure](../../cognitive-services/diagnostic-logging.md) |
 | Registo de Contentor | [Exploração madeireira para registo de contentores azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Rede de Entrega de Conteúdos | [Registos Azure para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -62,11 +62,11 @@ O esquema para os registos de diagnóstico de recursos varia consoante o recurso
 | Data Factory | [Monitor fábricas de dados usando o Monitor Azure](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Acesso a registos para Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Acesso a registos para Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Event Hubs |[Registos de Hubs de Eventos Azure](../../event-hubs/event-hubs-diagnostic-logs.md) |
+| Hubs de Eventos |[Registos de Hubs de Eventos Azure](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Schema não está disponível. |
 | Azure Firewall | Schema não está disponível. |
 | IoT Hub | [Operações do Hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Cofre de Chaves |[Registo do Cofre de Chaves do Azure](../../key-vault/key-vault-logging.md) |
+| Cofre de Chaves |[Exploração do cofre de chaves azure](../../key-vault/key-vault-logging.md) |
 | Serviço Kubernetes |[Exploração Madeireira Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
 | Load balancer |[Análise de registos para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Aplicações Lógicas |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |

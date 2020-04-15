@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: efa2885ce0534c5d78bb08bbf24da59850f6ea22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a171dc795e685655b5a3c73d088d3963c2aaa4ae
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075183"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312309"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Suporte de Gateway de aplicação para extremidades de vários inquilinos, como serviço de App
 
@@ -30,9 +30,9 @@ O Gateway de Aplicação fornece uma capacidade que permite aos utilizadores sub
 
 A capacidade de especificar uma sobreposição do hospedeiro é definida nas [definições http](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) e pode ser aplicada a qualquer piscina de back-end durante a criação de regras. As duas seguintes formas de dominar o cabeçalho do anfitrião e a extensão SNI para extremidades traseiras multi-arrendatárias são suportadas:
 
-- A capacidade de definir o nome do anfitrião para um valor fixo explicitamente introduzido nas definições http. Esta capacidade garante que o cabeçalho do hospedeiro é ultrapassado a este valor para todo o tráfego para a piscina traseira onde são aplicadas as definições http-finais específicas. Ao utilizar o SSL ponto a ponto, este nome de anfitrião substituído é utilizado na extensão SNI. Esta capacidade permite cenários onde uma quinta de piscinas de back-end espera um cabeçalho de anfitrião diferente do cabeçalho do anfitrião do cliente.
+- A capacidade de definir o nome do anfitrião para um valor fixo explicitamente introduzido nas definições http. Esta capacidade garante que o cabeçalho do hospedeiro é ultrapassado a este valor para todo o tráfego para a piscina traseira onde são aplicadas as definições http-finais específicas. Ao utilizar tLS de ponta para ponta, este nome de anfitrião ultrapassado é utilizado na extensão SNI. Esta capacidade permite cenários onde uma quinta de piscinas de back-end espera um cabeçalho de anfitrião diferente do cabeçalho do anfitrião do cliente.
 
-- A capacidade de obter o nome de anfitrião do IP ou FQDN dos membros do pool de back-end. As definições http também fornecem uma opção para escolher dinamicamente o nome do anfitrião a partir do FQDN de um membro do pool de back-end se configurado com a opção de derivar o nome do anfitrião de um membro do pool de back-end individual. Ao utilizar o SSL ponto a ponto, este nome de anfitrião é derivado a partir do FQDN e é utilizado na extensão SNI. Esta capacidade permite cenários onde um pool back-end pode ter dois ou mais serviços paaS multi-inquilinos como aplicações web Azure e o cabeçalho do pedido para cada membro contém o nome de anfitrião derivado do seu FQDN. Para implementar este cenário, utilizamos um interruptor nas Definições HTTP chamado [Pick hostname from backend address](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) que irá sobrepor-se dinamicamente ao cabeçalho do anfitrião no pedido original ao mencionado na piscina de backend.  Por exemplo, se o seu pool de backend FQDN contiver "contoso11.azurewebsites.net" e "contoso22.azurewebsites.net", o cabeçalho do anfitrião original, que é contoso.com será ultrapassado para contoso11.azurewebsites.net ou contoso22.azurewebsites.net quando o pedido for enviado para o servidor de backend apropriado. 
+- A capacidade de obter o nome de anfitrião do IP ou FQDN dos membros do pool de back-end. As definições http também fornecem uma opção para escolher dinamicamente o nome do anfitrião a partir do FQDN de um membro do pool de back-end se configurado com a opção de derivar o nome do anfitrião de um membro do pool de back-end individual. Ao utilizar tLS de ponta para ponta, este nome de hospedeiro é derivado do FQDN e é utilizado na extensão SNI. Esta capacidade permite cenários onde um pool back-end pode ter dois ou mais serviços paaS multi-inquilinos como aplicações web Azure e o cabeçalho do pedido para cada membro contém o nome de anfitrião derivado do seu FQDN. Para implementar este cenário, utilizamos um interruptor nas Definições HTTP chamado [Pick hostname from backend address](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) que irá sobrepor-se dinamicamente ao cabeçalho do anfitrião no pedido original ao mencionado na piscina de backend.  Por exemplo, se o seu pool de backend FQDN contiver "contoso11.azurewebsites.net" e "contoso22.azurewebsites.net", o cabeçalho do anfitrião do pedido original, que é contoso.com será ultrapassado para contoso11.azurewebsites.net ou contoso22.azurewebsites.net quando o pedido for enviado para o servidor de backend apropriado. 
 
   ![cenário de aplicação Web](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -40,11 +40,11 @@ Com esta capacidade, os clientes especificam as opções nas definições de HTT
 
 ## <a name="special-considerations"></a>Considerações especiais
 
-### <a name="ssl-termination-and-end-to-end-ssl-with-multi-tenant-services"></a>Rescisão ssl e fim para acabar com SSL com serviços multi-inquilinos
+### <a name="tls-termination-and-end-to-end-tls-with-multi-tenant-services"></a>TLS rescisão e fim do TLS com serviços multi-inquilinos
 
-Tanto a rescisão do SSL como a encriptação ssl final são suportadas com serviços multi-inquilinos. Para a rescisão de SSL no gateway da aplicação, o certificado SSL continua a ser necessário para ser adicionado ao ouvinte do gateway de aplicação. No entanto, em caso de fim para acabar com o SSL, serviços azure confiáveis, como aplicações web de serviço Azure App, não requerem whitelisting os backends no gateway da aplicação. Por isso, não há necessidade de adicionar quaisquer certificados de autenticação. 
+Tanto a rescisão do TLS como a encriptação tLS final é suportada com serviços multi-inquilinos. Para a rescisão de TLS no gateway da aplicação, o certificado TLS continua a ser necessário para ser adicionado ao ouvinte do gateway de aplicação. No entanto, em caso de fim para acabar com o TLS, serviços de confiança do Azure, como as aplicações web do serviço Azure App, não requerem a lista de backbacks no gateway da aplicação. Por isso, não há necessidade de adicionar quaisquer certificados de autenticação. 
 
-![fim para fim SSL](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
+![fim para fim TLS](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 
 Note que na imagem acima, não existe qualquer obrigação de adicionar certificados de autenticação quando o serviço app é selecionado como backend.
 

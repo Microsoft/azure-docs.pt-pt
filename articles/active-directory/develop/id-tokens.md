@@ -9,16 +9,16 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.author: ryanwi
+ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 3ede70719c124caebc541df8578ab2720fc68cd5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 23ff71bf24c3acbce3d27276981739305e1d074a
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885519"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309546"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Fichas de ID da plataforma de identidade da Microsoft
 

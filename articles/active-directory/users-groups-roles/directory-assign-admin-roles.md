@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/07/2020
+ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e097173712693754baab99912301c98ee336f64f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: bfe8aa088538663ac3e64f5913ff031e6160b045
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877920"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382646"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -228,12 +228,11 @@ Os utilizadores com esta função têm acesso a todas as funcionalidades adminis
 
 ### <a name="global-reader"></a>[Leitor Global](#global-reader-permissions)
 
-Os utilizadores desta função podem ler configurações e informações administrativas através dos serviços da Microsoft 365, mas não podem tomar ações de gestão. O leitor global é a contraparte apenas para administrador global. Atribuir leitor global em vez de administrador global para planeamento, auditorias ou investigações. Utilize o leitor global em combinação com outras funções de administrador limitada, como o Exchange Administrator, para facilitar o trabalho sem atribuir o papel de Administrador Global. O leitor global trabalha com o centro de administração microsoft 365, centro de administração de exchange, centro de administração de equipas, centro de segurança, centro de conformidade, centro de administração da AD Azure e centro de administração de gestão de dispositivos.
+Os utilizadores desta função podem ler configurações e informações administrativas através dos serviços da Microsoft 365, mas não podem tomar ações de gestão. O leitor global é a contraparte apenas para administrador global. Atribuir leitor global em vez de administrador global para planeamento, auditorias ou investigações. Utilize o leitor global em combinação com outras funções de administrador limitada, como o Exchange Administrator, para facilitar o trabalho sem atribuir o papel de Administrador Global. O leitor global trabalha com o centro de administração microsoft 365, centro de administração de exchange, centro de administração SharePoint, centro de administração de equipas, centro de segurança, centro de conformidade, centro de administração da AD Azure e centro de administração de gestão de dispositivos.
 
 > [!NOTE]
 > O papel global dos leitores tem algumas limitações neste momento -
 >
->- SharePoint centro de administração - O centro de administração do SharePoint não suporta o papel de leitor global. Não verá 'SharePoint' no painel esquerdo sob o Administrador Centers no [centro de administração da Microsoft 365](https://admin.microsoft.com/Adminportal/Home#/homepage).
 >- [OneDrive centro de administração](https://admin.onedrive.com/) - O centro de administração OneDrive não suporta o papel do leitor Global.
 >- [Portal Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - O leitor global não consegue ler o modo de provisionamento de uma aplicação empresarial.
 >- [Centro de administração M365](https://admin.microsoft.com/Adminportal/Home#/homepage) - O leitor global não consegue ler pedidos de bloqueio de clientes. Não encontrará o separador de pedidos de **bloqueio do Cliente** sob **suporte** no painel esquerdo do Centro de Administração M365.

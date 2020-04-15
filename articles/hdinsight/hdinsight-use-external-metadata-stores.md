@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/03/2020
-ms.openlocfilehash: 0cadf3930008868fe223e6e1024a2d14d17d8131
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e53164d1e25f8a8d0a14d21c0544d95cf912fe9f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657110"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313943"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Use external metadata stores in Azure HDInsight (Utilizar arquivos de metadados externos no Azure HDInsight)
 
@@ -63,7 +63,7 @@ O HDInsight também suporta metalojas personalizadas, que são recomendadas para
 
 Crie ou tenha uma base de dados Azure SQL existente antes de criar uma metaloja de Colmeia personalizada para um cluster HDInsight.  Para mais informações, consulte [Quickstart: Crie uma única base de dados em Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
-Configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos do Azure acedam ao servidor. Ative esta opção no portal Azure selecionando a firewall do **servidor set**. Em seguida, selecione **ON** por baixo **permitir serviços e recursos do Allow Azure para aceder a este servidor** para o servidor ou base de dados Azure SQL. Para mais informações, consulte [Criar e gerir as regras de firewall IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+Ao criar o cluster, o serviço HDInsight precisa de se ligar à metaloja externa e verificar as suas credenciais. Configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos do Azure acedam ao servidor. Ative esta opção no portal Azure selecionando a firewall do **servidor set**. Em seguida, selecione **No** under **Deny acesso**à rede pública , e **Sim** por baixo **permitir serviços e recursos do Allow Azure para aceder a este servidor** para o servidor ou base de dados Azure SQL. Para mais informações, consulte [Criar e gerir as regras de firewall IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
 ![definir botão de firewall do servidor](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 

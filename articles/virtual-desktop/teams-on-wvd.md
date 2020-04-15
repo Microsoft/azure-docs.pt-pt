@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cfec30e56b0fd523896cbc1a7e84e92f639075a8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 15a4c9b16b102310fd02f8db3a4fb93cff84882b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879059"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314058"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize as equipas da Microsoft no ambiente de trabalho do Windows Virtual
 
@@ -67,3 +67,7 @@ Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma inst
 
       > [!NOTE]
       > Se instalar equipas com a definição de MSI ALLUSER=1, as atualizações automáticas serão desativadas. Recomendamos que atualize as Equipas pelo menos uma vez por mês.
+      
+### <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto para uma piscina de anfitriões
+Personalizar as propriedades do Protocolo de Ambiente de Trabalho Remoto (RDP) de um pool anfitrião, como experiência de multimonitor, permitindo a reorientação do Microfone e do áudio, permite-lhe oferecer uma experiência ideal para os seus utilizadores com base nas suas necessidades. Pode personalizar propriedades RDP no Windows Virtual Desktop utilizando o parâmetro **-CustomRdpProperty** no **set-RdsHostPool** cmdlet.
+Consulte as definições de [ficheiroRD Suportadas](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) para obter uma lista completa de propriedades suportadas e os seus valores predefinidos.

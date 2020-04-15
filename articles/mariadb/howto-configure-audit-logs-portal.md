@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: d31b7531e00199ea63c7b057dacff1b67d7cedc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: 506bf076c955beb5c5e57811bbdb42bfedb8cbe3
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528936"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382974"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configure e aceda aos registos de auditoria no portal Azure
 
@@ -30,7 +30,7 @@ Para passar por este guia de como guiar, você precisa:
 
 Ativar e configurar a exploração de auditoria.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione a sua Base de Dados Azure para o servidor MariaDB.
 
@@ -69,4 +69,5 @@ Ativar e configurar a exploração de auditoria.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [os registos de auditoria](concepts-audit-logs.md) na Base de Dados Azure para o MariaDB.
+- Saiba mais sobre [registos](concepts-audit-logs.md) de auditoria na Base de Dados Azure para MariaDB
+- Saiba como configurar registos de auditoria no [Azure CLI](howto-configure-audit-logs-cli.md)

@@ -5,16 +5,19 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: df28116c588ed77f02c78a42a85feb91ca339e7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d5eb330cd6e5d02432298a5b58e84ae7d24ee7e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75366705"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383327"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Use um alerta para desencadear um livro de execução da Automação Azure
 
 Pode utilizar o [Monitor Azure](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) para monitorizar métricas e registos de nível base para a maioria dos serviços em Azure. Pode ligar para os livros de execução da Automatização Azure utilizando [grupos](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) de ação ou utilizando alertas clássicos para automatizar tarefas com base em alertas. Este artigo mostra-lhe como configurar e executar um livro de corridas usando alertas.
+
+>[!NOTE]
+>Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
 
 ## <a name="alert-types"></a>Tipos de alerta
 
@@ -45,7 +48,7 @@ Tal como descrito na secção anterior, cada tipo de alerta tem um esquema difer
 
 Este exemplo usa um alerta de um VM. Recupera os dados vm da carga útil e, em seguida, utiliza essa informação para parar o VM. A ligação deve ser configurada na conta Automation onde o livro de execução é executado. Ao utilizar alertas para acionar os livros de execução, é importante verificar o estado do alerta no livro de execução que é acionado. O livro de execução irá desencadear cada vez que o estado de alerta. Os alertas têm vários estados, os dois estados mais comuns são `Activated` e. `Resolved` Verifique este estado na sua lógica de caderneta para garantir que o seu livro de execução não funciona mais do que uma vez. O exemplo neste artigo mostra `Activated` como procurar apenas alertas.
 
-O livro de execução utiliza o **AzureRunAsConnection** [Run Como conta](automation-create-runas-account.md) para autenticar com o Azure para realizar a ação de gestão contra o VM.
+O livro de `AzureRunAsConnection` execução utiliza a [conta Run As](automation-create-runas-account.md) para autenticar com o Azure para realizar a ação de gestão contra o VM.
 
 Use este exemplo para criar um livro chamado **Stop-AzureVmInResponsetoVMAlert**. Pode modificar o script PowerShell e usá-lo com muitos recursos diferentes.
 
@@ -139,13 +142,13 @@ Use este exemplo para criar um livro chamado **Stop-AzureVmInResponsetoVMAlert**
                     throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
                 }
                 Write-Verbose "Authenticating to Azure with service principal." -Verbose
-                Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+                Add-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
                 Write-Verbose "Setting subscription to work against: $SubId" -Verbose
-                Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
+                Set-AzContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
 
                 # Stop the Resource Manager VM
                 Write-Verbose "Stopping the VM - $ResourceName - in resource group - $ResourceGroupName -" -Verbose
-                Stop-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
+                Stop-AzVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
                 # [OutputType(PSAzureOperationResponse")]
             }
             else {
@@ -170,7 +173,7 @@ Use este exemplo para criar um livro chamado **Stop-AzureVmInResponsetoVMAlert**
 
 Os alertas utilizam grupos de ação, que são coletores de ações que são desencadeadas pelo alerta. Os livros de corridas são apenas uma das muitas ações que pode usar com grupos de ação.
 
-1. Na sua Conta de Automação, selecione **Alertas** sob **Monitorização**.
+1. Na sua conta de Automação, selecione **Alertas** sob **Monitorização**.
 1. Selecione **+ Nova regra de alerta**.
 1. Clique em **Selecionar** sob **recurso**. Na página **Selecione uma** página de recursos, selecione o seu VM para alertar e clique **em Done**.
 1. Clique em **Adicionar condição** sob **condição**. Selecione o sinal que pretende utilizar, por exemplo, **percentagem de CPU** e clique **em Done**.
@@ -195,3 +198,5 @@ Os alertas utilizam grupos de ação, que são coletores de ações que são des
 * Para mais detalhes sobre diferentes formas de iniciar um livro de corridas, consulte Iniciar um livro de [corridas](automation-starting-a-runbook.md).
 * Para aprender a criar um alerta de registo de atividade, consulte [Criar alertas](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)de registo de atividade .
 * Para aprender a criar um alerta quase em tempo real, consulte Criar uma regra de [alerta no portal Azure](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 24c0d9955a857e8bbc1e1c09e600031a7541026c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fcfac923da1c0daee58b10d92cbc6a6ad5e7910
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296952"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383411"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar alvos de cálculo para formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -152,32 +152,19 @@ Utilize a Máquina Virtual de Ciência de Dados Azure (DSVM) como o Azure VM de 
     > [!WARNING]
     > O Azure Machine Learning só suporta máquinas virtuais que executam o Ubuntu. Quando criar um VM ou escolher um VM existente, deve selecionar um VM que utilize Ubuntu.
 
-1. **Anexar**: Para fixar uma máquina virtual existente como alvo de cálculo, deve fornecer o nome de domínio totalmente qualificado (FQDN), nome do utilizador e palavra-passe para a máquina virtual. No exemplo, \<substitua a fqdn> pelo FQDN público do VM ou pelo endereço IP público. Substitua \<o \<nome de utilizador> e a palavra-passe> pelo nome de utilizador ssh e palavra-passe para o VM.
+1. **Anexar**: Para fixar uma máquina virtual existente como alvo de cálculo, deve fornecer o ID de recurso, o nome do utilizador e a palavra-passe para a máquina virtual. O ID de recurso do VM pode ser construído utilizando o ID de subscrição, o nome do grupo de recursos e o nome VM utilizando o seguinte formato de cadeia:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
 
-    > [!IMPORTANT]
-    > As seguintes regiões azure não suportam a fixação de uma máquina virtual utilizando o endereço IP público do VM. Em vez disso, utilize o ID do `resource_id` Gestor de Recursos Azure do VM com o parâmetro:
-    >
-    > * E.U.A Leste
-    > * E.U.A. Oeste 2
-    > * E.U.A. Centro-Sul
-    >
-    > O ID de recurso do VM pode ser construído utilizando o ID de subscrição, `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`o nome do grupo de recursos e o nome VM utilizando o seguinte formato de cadeia: .
-
-
+ 
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
-                                                    ssh_port=22,
-                                                    username='<username>',
-                                                    password="<password>")
-   # If in US East, US West 2, or US South Central, use the following instead:
-   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
-   #                                                 ssh_port=22,
-   #                                                 username='<username>',
-   #                                                 password="<password>")
+   
+   attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+                                                   ssh_port=22,
+                                                   username='<username>',
+                                                   password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -211,16 +198,7 @@ O Azure HDInsight é uma plataforma popular para análise de big data. A platafo
     
     Depois de criado o cluster, ligue-se ao nome de clustername \<de>-ssh.azurehdinsight.net, onde \<o nome de cluster> é o nome que forneceu para o cluster. 
 
-1. **Anexar:** Para fixar um cluster HDInsight como um alvo de cálculo, deve fornecer o nome de anfitrião, o nome do utilizador e a palavra-passe para o cluster HDInsight. O exemplo seguinte utiliza o SDK para anexar um cluster ao seu espaço de trabalho. No exemplo, \<substitua o nome de cluster> pelo nome do seu cluster. Substitua \<o \<nome de utilizador> e a palavra-passe> pelo nome de utilizador e palavra-passe do SSH para o cluster.
-
-    > [!IMPORTANT]
-    > As seguintes regiões azure não suportam a fixação de um cluster HDInsight utilizando o endereço IP público do cluster. Em vez disso, utilize o ID do `resource_id` Gestor de Recursos Azure do cluster com o parâmetro:
-    >
-    > * E.U.A Leste
-    > * E.U.A. Oeste 2
-    > * E.U.A. Centro-Sul
-    >
-    > O ID de recurso do cluster pode ser construído utilizando o ID de subscrição, o nome do grupo de recursos e o nome do cluster utilizando o seguinte formato de cadeia: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
+1. **Anexar:** Para anexar um cluster HDInsight como um alvo de cálculo, deve fornecer o ID de recurso, o nome do utilizador e a palavra-passe para o cluster HDInsight. O ID de recurso do cluster HDInsight pode ser construído utilizando o ID de subscrição, o nome do grupo de recursos e o nome do cluster HDInsight utilizando o seguinte formato de cadeia:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -228,15 +206,11 @@ O Azure HDInsight é uma plataforma popular para análise de big data. A platafo
 
    try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
-    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azurehdinsight.net', 
+
+    attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
-    # If you are in US East, US West 2, or US South Central, use the following instead:
-    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
-    #                                                      ssh_port=22, 
-    #                                                      username='<ssh-username>', 
-    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)

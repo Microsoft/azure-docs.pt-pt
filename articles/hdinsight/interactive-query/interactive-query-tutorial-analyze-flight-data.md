@@ -1,23 +1,23 @@
 ---
 title: 'Tutorial: Operações Da ETL com Consulta Interativa - Azure HDInsight'
-description: Tutorial - Aprenda a extrair dados de um conjunto de dados CSV cru, transforme-os usando consulta interativa no HDInsight e, em seguida, carregue os dados transformados em base de dados Azure SQL utilizando o Apache Sqoop.
+description: Tutorial - Aprenda a extrair dados de um conjunto de dados CSV cru. Transforme-o utilizando consulta interativa no HDInsight. Em seguida, carregue os dados transformados na base de dados Azure SQL utilizando o Apache Sqoop.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 07/02/2019
-ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/02/2019
+ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73494152"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313748"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando consulta interativa no Azure HDInsight
 
-Neste tutorial, você pega num ficheiro de dados CSV cru de dados de voo disponíveis publicamente, importa-os para armazenamento de cluster HDInsight e, em seguida, transforma os dados usando a Consulta Interativa no Azure HDInsight. Uma vez transformados os dados, você carrega esses dados numa base de dados Azure SQL usando [Apache Sqoop](https://sqoop.apache.org/).
+Neste tutorial, você descarrega um ficheiro de dados CSV cru de dados de voo disponíveis publicamente. Importe-o para armazenamento de cluster HDInsight e, em seguida, transforme os dados usando a Consulta Interativa em Azure HDInsight. Uma vez transformados os dados, você carrega esses dados numa base de dados Azure SQL usando [Apache Sqoop](https://sqoop.apache.org/).
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -46,7 +46,7 @@ Este tutorial abrange as seguintes tarefas:
    | --- | --- |
    | Filtrar Ano |2019 |
    | Filtrar Período |Janeiro |
-   | Campos |Ano, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestStateName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Campos |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
 3. Selecione **Transferir**. Vai obter um ficheiro .zip com os campos de dados que selecionou.
 
@@ -60,7 +60,7 @@ Existem muitas formas de carregar dados para o armazenamento associado a um clus
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
 
-    Se lhe for pedido que introduza sim ou não para prosseguir, escreva sim no pedido de comando e pressione a entrada. O texto não é visível na janela como escreve.
+    Introduza sim ou não para continuar se solicitado. O texto não é visível na janela como escreve.
 
 2. Depois de concluído o carregamento, utilize SSH para ligar ao cluster. Editar o comando abaixo `CLUSTERNAME` substituindo pelo nome do cluster HDInsight. Em seguida, introduza o seguinte comando:
 
@@ -283,13 +283,13 @@ Nas secções anteriores, copiou os dados transformados em `/tutorials/flightdel
     GO
     ```
 
-    Deverá ver uma lista dos dados na tabela. A tabela inclui o nome da cidade e o tempo médio dos atrasos dos voos. 
+    Deverá ver uma lista dos dados na tabela. A tabela inclui o nome da cidade e o tempo médio dos atrasos dos voos.
 
     Introduza `exit` para sair do utilitário tsql.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de concluir o tutorial, pode pretender eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
+Depois de concluir o tutorial, pode pretender eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Armazenamento Azure, para que possa eliminar com segurança um cluster quando não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que as taxas de armazenamento, faz sentido económico apagar clusters quando não estão em uso.
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
@@ -298,4 +298,4 @@ Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o s
 Neste tutorial, pegou num ficheiro de dados CSV cru, importou-o para um armazenamento de cluster HDInsight e depois transformou os dados usando a Consulta Interativa no Azure HDInsight.  Avance para o próximo tutorial para saber sobre o Conector apache Hive Warehouse.
 
 > [!div class="nextstepaction"]
->[Integre a Apache Spark e a Apache Hive com o Conector de Armazém da Colmeia](./apache-hive-warehouse-connector.md)
+> [Integre a Apache Spark e a Apache Hive com o Conector de Armazém da Colmeia](./apache-hive-warehouse-connector.md)

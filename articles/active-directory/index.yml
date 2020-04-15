@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 03/17/2020
-  ms.openlocfilehash: 325534bece8ca5dc85e84a286642b0f1d4f6cc51
-  ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+  ms.openlocfilehash: cba5540948f87eb6d0631cc11cc0d5e1134307fa
+  ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/03/2020
-  ms.locfileid: "80631682"
+  ms.lasthandoff: 04/14/2020
+  ms.locfileid: "81312985"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -140,7 +140,7 @@ conceptualContent:
       text: Ver mais
   - title: Programadores
     links:
-    - url: ./develop/about-microsoft-identity-platform.md
+    - url: ./develop/v2-overview.md
       itemType: overview
       text: Acerca da plataforma de identidade da Microsoft
     - url: ./develop/v2-oauth2-auth-code-flow.md

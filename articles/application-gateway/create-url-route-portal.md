@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: bc810ac7901d83f03d3f3ac2199561225326d261
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8d48ea133aaabbe9fd44bda545d672e68c93c08d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74048141"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312204"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Tutorial: Criar um portal de aplicação com regras de encaminhamento baseadas em caminhos usando o portal Azure
 
@@ -207,4 +207,4 @@ Reveja as definições no **separador Review + criar** e, em seguida, selecione 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Habilitar fim ao fim do SSL no Portal de Aplicação Azure](application-gateway-backend-ssl.md)
+- [Habilitar fim ao TLS no Portal de Aplicação Azure](application-gateway-backend-ssl.md)

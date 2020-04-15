@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: 46ffe61028e40b17d31ceba34ee58b8f25c0c471
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b1dfbe026b7f30344d49cc2d49881c885227019d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80501773"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314195"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -83,7 +83,7 @@ using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
 ## <a name="recognize-speech"></a>Reconhecer voz
 
-A [classe Recogniser](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotne) para o Speech SDK for C# expõe alguns métodos que pode usar para reconhecimento da fala.
+A [classe Recogniser](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) para o Speech SDK for C# expõe alguns métodos que pode usar para reconhecimento da fala.
 
 * Reconhecimento de tiro único (assincron) - Realiza o reconhecimento num modo não bloqueante (assíncrono). Isto reconhecerá uma única expressão. O fim de uma única expressão é determinado ouvindo o silêncio no final ou até que um máximo de 15 segundos de áudio seja processado.
 * Reconhecimento contínuo (assincron) - Inicia assincronicamente o funcionamento de reconhecimento contínuo. O utilizador regista-se em eventos e trata de vários estados de aplicação. Para parar o reconhecimento contínuo assíncrono, ligue. [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync?view=azure-dotnet)
@@ -250,5 +250,5 @@ phraseList.Clear();
 
 As listas de frases são apenas uma opção para melhorar a precisão do reconhecimento. Também pode: 
 
-* [Melhorar a precisão com Voz Personalizada](../../../how-to-custom-speech.md)
+* [Melhorar a precisão com Discurso Personalizado](../../../how-to-custom-speech.md)
 * [Melhorar a precisão com modelos de inquilinos](../../../tutorial-tenant-model.md)

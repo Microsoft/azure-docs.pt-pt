@@ -3,12 +3,12 @@ title: Compreender o bloqueio de recursos
 description: Conheça as opções de bloqueio em Plantas Azure para proteger os recursos ao atribuir uma planta.
 ms.date: 03/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9c4e2f4c6fd8f5fb574002217ca71d1e7d130ff7
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676759"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383597"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreenda o bloqueio de recursos em Plantas Azure
 
@@ -103,7 +103,7 @@ Quando a atribuição é removida, as fechaduras criadas por Plantas Azure são 
 
 Um RBAC [nega que as atribuições](../../../role-based-access-control/deny-assignments.md) negem que a ação é aplicada aos recursos de artefactos durante a atribuição de um projeto se a atribuição selecionou a opção **Ler Apenas** ou **Não Excluir.** A ação de negação é adicionada pela identidade gerida da atribuição do projeto e só pode ser removida dos recursos do artefacto pela mesma identidade gerida. Esta medida de segurança aplica o mecanismo de bloqueio e impede a remoção do bloqueio de plantas fora das plantas azure.
 
-![Projeto negar atribuição no grupo de recursos](../media/resource-locking/blueprint-deny-assignment.png)
+:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Projeto negar atribuição no grupo de recursos" border="false":::
 
 As propriedades de [atribuição de negar](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo são as seguintes:
 

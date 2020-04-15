@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: f2ca1566358fad45f6ec2860fcca96b887c54adb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e278bcedc48226a59f258ad7d7064fa224737496
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722582"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81308989"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
 2. Num novo diretório, crie um ficheiro com o nome `Dockerfile` para criar a Imagem do Service Fabric:
 
     ```Dockerfile
-    FROM microsoft/service-fabric-onebox
+    FROM mcr.microsoft.com/service-fabric/onebox:latest
     WORKDIR /home/ClusterDeployer
     RUN ./setup.sh
     #Generate the local
@@ -98,7 +98,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >
     >Se a aplicação estiver a escutar em determinadas portas, as portas têm de ser especificada através da utilização de etiquetas `-p` adicionais. Por exemplo, se a sua aplicação estiver em escuta na porta 8080, adicione a seguinte etiqueta `-p`:
     >
-    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
 5. O aglomerado vai demorar um pouco para começar. Quando estiver em funcionamento, pode ver os registos utilizando o seguinte [http://localhost:19080](http://localhost:19080)comando ou saltar para o painel de instrumentos para ver a saúde dos clusters:
@@ -197,7 +197,7 @@ Fornece um plug-in do Azure Service Fabric para o Eclipse Neon (ou posterior) pa
 O último passo consiste em instanciar o contentor com um caminho que é partilhado com o anfitrião. O plug-in requer este tipo de instanciação para trabalhar com o contentor do Docker no seu Mac. Por exemplo:
 
 ```bash
-docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox
+docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest
 ```
 
 Os atributos são definidos do seguinte modo:

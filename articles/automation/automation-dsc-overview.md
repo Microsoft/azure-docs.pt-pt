@@ -1,5 +1,5 @@
 ---
-title: Descrição geral da Configuração de Estado
+title: Visão geral da configuração do Estado da Automação Azure
 description: Uma visão geral da Configuração do Estado da Automação Azure (DSC), os seus termos e questões conhecidas
 keywords: powershell dsc, configuração de estado desejado, powershell dsc azure
 services: automation
@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 02e540c9ac2654be97ff247749d1ed18573cfc24
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: afceb11180662416aa4953b8b58ef03ffaa70eec
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010261"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383191"
 ---
 # <a name="state-configuration-overview"></a>Descrição geral da Configuração de Estado
 
@@ -123,6 +123,7 @@ Os utilizadores do Azure ExpressRoute devem notar que este ficheiro é utilizado
 - Para começar a usar o DSC na Configuração do Estado da Automação Azure, consulte Começar com a Configuração do Estado da [Automação Azure](automation-dsc-getting-started.md).
 - Para aprender a bordo dos nós, consulte [máquinas de embarque para gestão pela Configuração do Estado da Automação Azure](automation-dsc-onboarding.md).
 - Para aprender sobre a compilação de configurações de DSC para que possa atribuí-las a nós-alvo, consulte [configurações de compilação na Configuração do Estado da Automação Azure](automation-dsc-compile.md).
-- Para referência de cmdlet PowerShell, consulte [os cmdlets](/powershell/module/azurerm.automation/#automation)de configuração do Estado da Automatização Do Azure .
+- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 - Para obter informações sobre preços, consulte os preços de configuração do Estado da [Automatização do Azure](https://azure.microsoft.com/pricing/details/automation/).
 - Para ver um exemplo de utilização da Configuração do Estado da Automação Azure num gasoduto de implantação contínua, consulte a implantação contínua utilizando a Configuração do Estado da [Automação Azure e](automation-dsc-cd-chocolatey.md)o Chocolatey .

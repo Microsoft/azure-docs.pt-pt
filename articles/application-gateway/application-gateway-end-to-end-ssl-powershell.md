@@ -1,26 +1,26 @@
 ---
-title: Configure o SSL de ponta a ponta com o Portal de Aplicação Azure
-description: Este artigo descreve como configurar o SSL de ponta a ponta com o Portal de Aplicação Azure utilizando o PowerShell
+title: Configure TLS de ponta a ponta com gateway de aplicação Azure
+description: Este artigo descreve como configurar TLS de ponta a ponta com gateway de aplicação Azure usando powerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 7ba273cddb6cf41872c4db1c34560c104b992787
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 481cbda1d35f7d630dabca00fd01677f542447c2
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72286463"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312503"
 ---
-# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurar SSL ponto a ponto através do Gateway de Aplicação com o PowerShell
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configure fim para fim do TLS utilizando o Gateway da Aplicação com powerShell
 
 ## <a name="overview"></a>Descrição geral
 
-O Portal de Aplicações Azure suporta a encriptação de ponta a ponta do tráfego. O Gateway de aplicação termina a ligação SSL no gateway da aplicação. O portal aplica então as regras de encaminhamento ao tráfego, encripta o pacote e reencaminha o pacote para o servidor back-end apropriado com base nas regras de encaminhamento definidas. Qualquer resposta do servidor Web atravessa o mesmo processo para o utilizador final.
+O Portal de Aplicações Azure suporta a encriptação de ponta a ponta do tráfego. O Gateway de aplicação termina a ligação TLS/SSL no gateway da aplicação. O portal aplica então as regras de encaminhamento ao tráfego, encripta o pacote e reencaminha o pacote para o servidor back-end apropriado com base nas regras de encaminhamento definidas. Qualquer resposta do servidor Web atravessa o mesmo processo para o utilizador final.
 
-O Application Gateway suporta a definição de opções SSL personalizadas. Também suporta a desativação das seguintes versões protocolares: **TLSv1.0**, **TLSv1.1**e **TLSv1.2,** bem como definir quais as suites de cifra a utilizar e a ordem de preferência. Para saber mais sobre opções SSL configuráveis, consulte a visão geral da [política SSL](application-gateway-SSL-policy-overview.md).
+O Application Gateway suporta a definição de opções TLS personalizadas. Também suporta a desativação das seguintes versões protocolares: **TLSv1.0**, **TLSv1.1**e **TLSv1.2,** bem como definir quais as suites de cifra a utilizar e a ordem de preferência. Para saber mais sobre opções configuráveis de TLS, consulte a visão geral da [política do TLS](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 e SSL 3.0 são desativados por defeito e não podem ser ativados. São considerados inseguros e não podem ser utilizados com o Gateway de Aplicação.
@@ -29,22 +29,22 @@ O Application Gateway suporta a definição de opções SSL personalizadas. Tamb
 
 ## <a name="scenario"></a>Cenário
 
-Neste cenário, aprende-se a criar um portal de aplicação utilizando o SSL de ponta a ponta com o PowerShell.
+Neste cenário, aprende-se a criar um portal de aplicação utilizando TLS de ponta a ponta com powerShell.
 
 Este cenário irá:
 
 * Crie um grupo de recursos chamado **appgw-rg**.
 * Crie uma rede virtual chamada **appgwvnet** com um espaço de endereço de **10.0.0.0.0/16**.
 * Crie duas subredes chamadas **appgwsubnet** e **appsubnet**.
-* Crie um pequeno portal de aplicações que suporte a encriptação SSL de ponta a ponta que limita as versões de protocolo SSL e as suítes cifra.
+* Crie um pequeno portal de aplicações que suporte a encriptação TLS de ponta a ponta que limita versões de protocolo TLS e suítes cifra.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para configurar o SSL de ponta a ponta com um gateway de aplicação, é necessário um certificado para o gateway e são necessários certificados para os servidores de back-end. O certificado de gateway é utilizado para obter uma chave simétrica de acordo com a especificação do protocolo SSL. A chave simétrica é então usada encriptar e desencriptar o tráfego enviado para o portal. O certificado de gateway tem de estar no formato Personal Information Exchange (PFX). Este formato de ficheiro permite-lhe exportar a chave privada que é exigida pela porta de entrada de aplicação para realizar a encriptação e desencriptação do tráfego.
+Para configurar tLS de ponta a ponta com um gateway de aplicação, é necessário um certificado para o gateway e os certificados são necessários para os servidores de back-end. O certificado de gateway é utilizado para obter uma chave simétrica de acordo com a especificação do protocolo TLS. A chave simétrica é então usada encriptar e desencriptar o tráfego enviado para o portal. O certificado de gateway tem de estar no formato Personal Information Exchange (PFX). Este formato de ficheiro permite-lhe exportar a chave privada que é exigida pela porta de entrada de aplicação para realizar a encriptação e desencriptação do tráfego.
 
-Para a encriptação SSL de ponta a ponta, a parte traseira deve ser explicitamente permitida pelo gateway da aplicação. Faça upload do certificado público dos servidores back-end para o gateway da aplicação. A adição do certificado garante que o gateway da aplicação comunica apenas com instâncias conhecidas. Isto assegura ainda a comunicação de ponta a ponta.
+Para a encriptação TLS de ponta a ponta, a parte traseira deve ser explicitamente permitida pelo gateway da aplicação. Faça upload do certificado público dos servidores back-end para o gateway da aplicação. A adição do certificado garante que o gateway da aplicação comunica apenas com instâncias conhecidas. Isto assegura ainda a comunicação de ponta a ponta.
 
 O processo de configuração é descrito nas seguintes secções.
 
@@ -154,20 +154,20 @@ Todos os itens de configuração são definidos antes de criar o gateway da apli
    ```
 
    > [!NOTE]
-   > Esta amostra configura o certificado utilizado para a ligação SSL. O certificado tem de estar em formato .pfx, e a palavra-passe deve ser de 4 a 12 caracteres.
+   > Esta amostra configura o certificado utilizado para a ligação TLS. O certificado tem de estar em formato .pfx, e a palavra-passe deve ser de 4 a 12 caracteres.
 
-6. Crie o ouvinte HTTP para o gateway da aplicação. Atribuir a configuração IP frontal, porta e certificado SSL para utilizar.
+6. Crie o ouvinte HTTP para o gateway da aplicação. Atribuir a configuração IP frontal, porta e certificado TLS/SSL para utilizar.
 
    ```powershell
    $listener = New-AzApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
-7. Faça o upload do certificado a utilizar nos recursos de piscina ssl-end ativados pela SSL.
+7. Faça o upload do certificado a utilizar nos recursos de piscina de back-end ativados pelo TLS.
 
    > [!NOTE]
-   > A sonda padrão obtém a chave pública *a* partir da ligação padrão do SSL no endereço IP do back-end e compara o valor de chave pública que recebe com o valor-chave público que fornece aqui. 
+   > A sonda predefinida obtém a chave pública a partir da ligação *padrão* do TLS no endereço IP do back-end e compara o valor de chave pública que recebe com o valor-chave público que fornece aqui. 
    > 
-   > Se estiver a utilizar cabeçalhos de anfitrião e indicações de nome de servidor (SNI) na parte de trás, a chave pública recuperada pode não ser o local pretendido para o qual o tráfego flui. Em caso de dúvida, https://127.0.0.1/ visite os servidores back-end para confirmar qual o certificado utilizado para a ligação SSL *predefinida.* Utilize a chave pública desse pedido nesta secção. Se estiver a utilizar cabeçalhos de anfitrião e SNI em encadernações https://127.0.0.1/ HTTPS e não receber uma resposta e certificado de um pedido manual de navegador para os servidores back-end, tem de configurar uma ligação SSL padrão nos mesmos. Se não o fizer, as sondas falham e a parte de trás não está na lista branca.
+   > Se estiver a utilizar cabeçalhos de anfitrião e indicações de nome de servidor (SNI) na parte de trás, a chave pública recuperada pode não ser o local pretendido para o qual o tráfego flui. Em caso de dúvida, https://127.0.0.1/ visite os servidores de back-end para confirmar qual o certificado utilizado para a ligação *padrão* do TLS. Utilize a chave pública desse pedido nesta secção. Se estiver a utilizar cabeçalhos de anfitrião e SNI em encadernações https://127.0.0.1/ HTTPS e não receber uma resposta e certificado de um pedido manual de navegador para os servidores de back-end, tem de configurar uma ligação TLS padrão nos mesmos. Se não o fizer, as sondas falham e a parte de trás não está na lista branca.
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
@@ -176,7 +176,7 @@ Todos os itens de configuração são definidos antes de criar o gateway da apli
    > [!NOTE]
    > O certificado fornecido no escalão anterior deve ser a chave pública do certificado .pfx presente na parte de trás. Exportar o certificado (não o certificado raiz) instalado no servidor back-end em formato Dereclamação, Evidência e Raciocínio (CER) e utilizá-lo neste passo. Este passo lista a parte de trás com o gateway de aplicação.
 
-   Se estiver a utilizar o Gateway de aplicação v2 SKU, crie um certificado de raiz fidedigno em vez de um certificado de autenticação. Para mais informações, consulte a visão geral do fim para o fim do [SSL com o Gateway da Aplicação:](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)
+   Se estiver a utilizar o Gateway de aplicação v2 SKU, crie um certificado de raiz fidedigno em vez de um certificado de autenticação. Para mais informações, consulte [a visão geral do fim para o tLS final com o Gateway da Aplicação:](ssl-overview.md#end-to-end-tls-with-the-v2-sku)
 
    ```powershell
    $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
@@ -209,7 +209,7 @@ Todos os itens de configuração são definidos antes de criar o gateway da apli
     > [!NOTE]
     > Uma contagem de 1 pode ser escolhida para efeitos de teste. É importante saber que qualquer contagem de casos em duas instâncias não é abrangida pelo SLA e, por conseguinte, não é recomendada. Os pequenos portais devem ser utilizados para o teste de dev e não para fins de produção.
 
-11. Configure a política SSL a utilizar no gateway da aplicação. O Application Gateway suporta a capacidade de definir uma versão mínima para versões protocolares SSL.
+11. Configure a política de TLS a utilizar no gateway da aplicação. O Application Gateway suporta a capacidade de definir uma versão mínima para versões protocolares TLS.
 
     Os seguintes valores são uma lista de versões protocolares que podem ser definidas:
 
@@ -247,7 +247,7 @@ Utilize este procedimento para aplicar um novo certificado se o certificado fina
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Adicione o novo recurso de certificado do ficheiro .cer, que contém a chave pública do certificado e pode também ser o mesmo certificado adicionado ao ouvinte para a rescisão de SSL no gateway da aplicação.
+2. Adicione o novo recurso de certificado do ficheiro .cer, que contém a chave pública do certificado e pode também ser o mesmo certificado adicionado ao ouvinte para a rescisão de TLS no gateway da aplicação.
 
    ```powershell
    Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
@@ -300,9 +300,9 @@ Utilize este procedimento para remover um certificado expirado não utilizado da
    ```
 
    
-## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Limite as versões de protocolo SSL numa porta de aplicação existente
+## <a name="limit-tls-protocol-versions-on-an-existing-application-gateway"></a>Limite as versões de protocolo TLS numa porta de aplicação existente
 
-Os passos anteriores levaram-no através da criação de uma aplicação com SSL de ponta a ponta e desativando certas versões de protocolo SSL. O exemplo seguinte desativa certas políticas ssl numa porta de aplicação existente.
+Os passos anteriores levaram-no através da criação de uma aplicação com TLS de ponta a ponta e desativando certas versões de protocolo TLS. O exemplo que se segue desativa certas políticas de TLS numa porta de aplicação existente.
 
 1. Recupere a porta de entrada da aplicação para atualizar.
 
@@ -310,14 +310,14 @@ Os passos anteriores levaram-no através da criação de uma aplicação com SSL
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Defina uma política SSL. No exemplo seguinte, **TLSv1.0** e **TLSv1.1** são desativados e as suites de cifra **TLS\_\_ECDHE ECDSA\_COM\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_COM\_AES\_256\_GCM\_SHA384**, e **TLS\_RSA\_COM\_AES\_128\_GCM\_SHA256** são os únicos permitidos.
+2. Defina uma política de TLS. No exemplo seguinte, **TLSv1.0** e **TLSv1.1** são desativados e as suites de cifra **TLS\_\_ECDHE ECDSA\_COM\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_COM\_AES\_256\_GCM\_SHA384**, e **TLS\_RSA\_COM\_AES\_128\_GCM\_SHA256** são os únicos permitidos.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 
-3. Finalmente, atualize o portal. Este último passo é uma tarefa de longa data. Quando estiver feito, o SSL de ponta a ponta está configurado no gateway da aplicação.
+3. Finalmente, atualize o portal. Este último passo é uma tarefa de longa data. Quando estiver feito, o TLS de ponta a ponta está configurado no gateway da aplicação.
 
    ```powershell
    $gw | Set-AzApplicationGateway

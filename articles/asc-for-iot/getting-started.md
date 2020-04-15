@@ -1,5 +1,5 @@
 ---
-title: Começar a usar o Azure Security Center para ioT. Microsoft Docs
+title: Opções de implementação
 description: Começar a compreender o fluxo básico de trabalho do Azure Security Center para funcionalidades e serviços IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,32 +15,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 86c6c0bac5caae0873d0067c6abcb5a8ac864c88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 452372f187e97a95b9eee88936b15a0409dd4fe0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68596415"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311378"
 ---
 # <a name="get-started-with-azure-security-center-for-iot"></a>Introdução ao Centro de Segurança do Azure para IoT
 
-Este artigo fornece uma explicação dos diferentes blocos de construção do Serviço De Segurança Azure para ioT e explica como começar com o serviço usando duas opções de implementação possíveis.  
+Este artigo fornece uma explicação sobre os diferentes componentes do Serviço De Segurança Azure para ioT e explica como começar com o serviço usando duas opções de implementação possíveis.
 
 ## <a name="deployment-options"></a>Opções de implementação
 
-Escolha o cenário de serviço que melhor satisfaz os requisitos do seu dispositivo IoT e do ambiente. 
+Escolha o cenário de serviço que melhor satisfaz os requisitos do seu dispositivo IoT e do ambiente.
 
 ### <a name="built-in-deployment"></a>Implantação incorporada
+
 Utilizando a opção de implementação incorporada e perfeita, o Azure Security Center for IoT pode ser rapidamente integrado no seu Hub IoT e fornecer uma análise de segurança da configuração do hub IoT, identidade e gestão do dispositivo e padrões de comunicação de hub-device.
 
-Inicie uma [implantação incorporada](iot-hub-integration.md) com monitorização e recomendações do IoT Hub. 
+Inicie uma [implantação incorporada](iot-hub-integration.md) com monitorização e recomendações do IoT Hub.
     <br>
 
 ### <a name="enhanced-deployment"></a>Implantação melhorada
-Para uma maior capacidade de segurança, a implementação do Azure Security Center para agentes IoT, além de permitir a segurança do IoT Hub, fornece a recolha, análise e deteção de ameaças baseadas em agentes de dados de segurança chave dos seus dispositivos IoT, bem como abrangentes capacidades de gestão da postura de segurança.
+
+Para uma maior capacidade de segurança, a implementação do Azure Security Center para agentes IoT, além de permitir a segurança do IoT Hub, fornece a recolha, análise e deteção de ameaças baseadas em agentes de dados de segurança chave dos seus dispositivos IoT, bem como capacidades abrangentes de gestão de posturas de segurança.
 
 Inicie uma [implementação melhorada](security-agents.md) com uma solução de proteção abrangente de ameaças e gestão de posturade segurança baseada em agentes.
-   
 
 ## <a name="next-steps"></a>Passos seguintes
 

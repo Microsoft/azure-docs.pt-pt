@@ -3,12 +3,12 @@ title: 'Quickstart: Criar uma planta no portal'
 description: Neste arranque rápido, utiliza-se plantas Azure para criar, definir e implantar artefactos através do portal Azure.
 ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: 457f4f9c53f45077129b291c904bc1580b6d965e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd50b1833f16d364a4494483fcccfee017bb982b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282057"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381894"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Quickstart: Defina e atribua uma planta no portal
 
@@ -28,7 +28,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    Ou, selecione **Create** from the **Getting start** page para ir direto para criar uma planta.
 
-   ![Criar uma planta a partir da página definições de Blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
+   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="Criar uma planta a partir da página definições de Blueprint" border="false":::
 
 1. Selecione **Comece com a planta em branco** do cartão no topo da lista de plantas incorporadas.
 
@@ -48,10 +48,10 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    1. Selecione **Adicionar** este artefacto à planta.
 
-   ![Atribuição de funções para um artefacto de planta](./media/create-blueprint-portal/add-role-assignment.png)
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="Atribuição de funções para um artefacto de planta" border="false":::
 
    > [!NOTE]
-   > A maioria dos artefactos suporta parâmetros. Um parâmetro que lhe foi atribuído um valor durante a criação de plantas é um *parâmetro estático.* Se o parâmetro for atribuído durante a atribuição da planta, é um *parâmetro dinâmico.* Para mais informações, consulte os [parâmetros blueprint](./concepts/parameters.md).
+   > A maioria dos artefactos suporta parâmetros. Um parâmetro que lhe foi atribuído um valor durante a criação de plantas é um _parâmetro estático._ Se o parâmetro for atribuído durante a atribuição da planta, é um _parâmetro dinâmico._ Para mais informações, consulte os [parâmetros blueprint](./concepts/parameters.md).
 
 1. Adicione uma atribuição de política ao nível da subscrição:
 
@@ -144,11 +144,11 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    1. Selecione **Adicionar** este artefacto à planta.
 
-   ![Modelo de Gestor de Recursos para o artefacto da planta](./media/create-blueprint-portal/add-resource-manager-template.png)
+   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="Modelo de Gestor de Recursos para o artefacto da planta" border="false":::
 
 1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Note que cada artefacto tem ** _x_ de _y_ parâmetros povoados** na coluna **Parâmetros.** Os parâmetros dinâmicos são definidos durante cada atribuição do esquema.
 
-   ![Definição de planta completa](./media/create-blueprint-portal/completed-blueprint.png)
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="Definição de planta completa" border="false":::
 
 1. Agora que todos os artefactos planeados foram adicionados, selecione **Save Draft** na parte inferior da página.
 
@@ -174,13 +174,13 @@ Em [Create a blueprint,](#create-a-blueprint)não forneceu uma descrição ou ad
 
    1. Procure e selecione um utilizador, app ou grupo para adicionar. Este artefacto utiliza um parâmetro estático que é o mesmo em cada atribuição deste esquema.
 
-   e. Selecione **Adicionar** este artefacto à planta.
+   1. Selecione **Adicionar** este artefacto à planta.
 
-   ![Segunda função para o artefacto da planta](./media/create-blueprint-portal/add-role-assignment-2.png)
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="Segunda função para o artefacto da planta" border="false":::
 
 1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Note que a atribuição de funções recentemente adicionada mostra **1 em 1 parâmetros povoados**. Significa que é um parâmetro estático.
 
-   ![Segunda definição para o projeto concluído](./media/create-blueprint-portal/completed-blueprint-2.png)
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="Segunda definição para o projeto concluído" border="false":::
 
 1. Selecione **Save Draft** agora que foi atualizado.
 
@@ -219,10 +219,10 @@ Depois de uma planta ter sido publicada, pode ser atribuída a uma subscrição.
 
    1. Selecione **Criar** na parte inferior da página.
 
-   ![Criar uma subscrição para uma subscrição de atribuição de plantas](./media/create-blueprint-portal/assignment-create-subscription.png)
+      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="Criar uma subscrição para uma subscrição de atribuição de plantas" border="false":::
 
-   > [!IMPORTANT]
-   > A nova subscrição é criada imediatamente após selecionar **Criar**.
+      > [!IMPORTANT]
+      > A nova subscrição é criada imediatamente após selecionar **Criar**.
 
    > [!NOTE]
    > É criada uma atribuição para cada subscrição que selecionar. Pode efazer alterações numa única atribuição de subscrição posteriormente sem forçar alterações nas restantes subscrições selecionadas.
@@ -235,7 +235,7 @@ Depois de uma planta ter sido publicada, pode ser atribuída a uma subscrição.
 
 1. Em **Atribuição de Bloqueio**, deixe a predefinição **Não Bloquear**. Para mais informações, consulte o bloqueio de [recursos blueprints](./concepts/resource-locking.md).
 
-   ![Bloqueio e identidades geridas para a atribuição](./media/create-blueprint-portal/assignment-locking-mi.png)
+   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Bloqueio e identidades geridas para a atribuição" border="false":::
 
 1. Em **Identidade Gerida,** deixe o padrão do **Sistema atribuído**.
 
@@ -266,7 +266,7 @@ Agora que o projeto foi atribuído a uma subscrição, verifique o progresso da 
 
 1. Na lista de plantas, clique na direita daquela que atribuiu anteriormente e selecione **Ver detalhes**de atribuição .
 
-   ![Ver detalhes de atribuição da página de plantas atribuídas](./media/create-blueprint-portal/view-assignment-details.png)
+   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Ver detalhes de atribuição da página de plantas atribuídas" border="false":::
 
 1. Na página de atribuição do **Blueprint,** valide que todos os artefactos foram implantados com sucesso e que não houve erros durante a implementação. Se ocorrerem erros, consulte as plantas de [resolução de problemas](./troubleshoot/general.md) para as medidas para determinar o que correu mal.
 

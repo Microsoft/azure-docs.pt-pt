@@ -7,20 +7,23 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 04/14/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8cee874106598c7d81b923d7dd32ba91902d9326
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 5d73ba8f21fe7731fb751d42a8497ff8e1ebba7d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745183"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383632"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Converter classes de recursos para grupos de carga de trabalho
 
 Os grupos de carga de trabalho fornecem um mecanismo para isolar e conter os recursos do sistema.  Além disso, os grupos de carga de trabalho permitem-lhe definir regras de execução para os pedidos que estão a decorrer neles.  Uma regra de execução de tempo de consulta permite que as consultas em fuga sejam canceladas sem a intervenção do utilizador.  Este artigo explica como tomar uma classe de recursos existente e criar um grupo de carga de trabalho com uma configuração semelhante.  Além disso, é adicionada uma regra de tempo de consulta opcional.
+
+> [!NOTE]
+> Consulte as atribuições da classe de recursos de mistura com a secção de [classificadores](sql-data-warehouse-workload-classification.md#mixing-resource-class-assignments-with-classifiers) no documento de [classificação](sql-data-warehouse-workload-classification.md) da carga de trabalho para orientação sobre a utilização de grupos de carga de trabalho e aulas de recursos ao mesmo tempo.
 
 ## <a name="understanding-the-existing-resource-class-configuration"></a>Compreender a configuração da classe de recursos existente
 
@@ -86,4 +89,6 @@ SELECT request_id, [label], classifier_name, group_name, command
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Isolamento da carga de trabalho](sql-data-warehouse-workload-isolation.md)
-- [Como criar uma ligação de grupo de trabalho](quickstart-configure-workload-isolation-tsql.md)
+- [Como criar um grupo de carga de trabalho](quickstart-configure-workload-isolation-tsql.md)
+- [CRIAR A CLASSIFIER DE CARGA DE TRABALHO (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)

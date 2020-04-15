@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b1bf2c365229a418870250a78a733f9870fb5bb0
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 7ba8d201c29b5e3835fec52d8c479a388ca07f71
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892381"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312999"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Quickstart: Converter um modelo para renderização
 
@@ -72,10 +72,10 @@ Preencha o formulário da seguinte forma:
 * Crie um novo Grupo de Recursos a partir do link abaixo da caixa de lançamento e nomeie este **ARR_Tutorial**
 * Para o nome da **conta De armazenamento,** insira um nome único aqui. **Este nome deve ser globalmente único,** caso contrário haverá uma solicitação que o informe de que o nome está pronto. No âmbito deste arranque rápido, damos-lhe o nome de **arrtutorialstorage.** Assim, tem de substituí-lo pelo seu nome por qualquer ocorrência neste arranque rápido.
 * Selecione um **local** próximo. Idealmente, utilize o mesmo local usado para configurar a renderização no outro arranque rápido.
-* **Conjunto de desempenho** para Standard
-* **Tipo de conta** definido para StorageV2 (finalidade geral v2)
-* Conjunto de **replicação** para armazenamento geo-redundante de acesso de leitura (RA-GRS)
-* **Nível de acesso** definido para Hot
+* **Desempenho** definido para 'Standard'
+* **Tipo de conta** definido para 'StorageV2 (finalidade geral v2)'
+* **Replicação** definida para "Armazenamento geo-redundante de acesso de leitura (RA-GRS)"
+* **Nível de acesso** definido para 'Hot'
 
 Nenhuma das propriedades de outros separadores tem de ser alterada, para que possa prosseguir com **"Review + create"** e, em seguida, seguir os passos para completar a configuração.
 

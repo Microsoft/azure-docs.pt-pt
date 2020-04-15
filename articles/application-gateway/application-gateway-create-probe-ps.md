@@ -8,17 +8,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 1fef24f4065ca6fc749f35a07143487e049ee6ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f720a94d3467ce15ea5d58a8ece6de2a669f6258
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075261"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312592"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Crie uma sonda personalizada para o Portal de Aplicações Azure utilizando a PowerShell para o Gestor de Recursos Azure
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](application-gateway-create-probe-portal.md)
+> * [Portal do Azure](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -91,7 +91,7 @@ Configura todos os itens de configuração antes de criar o gateway da aplicaç�
 |---|---|
 | **Configuração de IP do gateway** | Uma configuração IP para um gateway de aplicação.|
 | **Piscina de backend** | Um conjunto de endereços IP, FQDN's ou NICs que são para os servidores de aplicação que acolhem a aplicação web|
-| **Sonda de saúde** | Uma sonda personalizada usada para monitorizar a saúde dos membros da piscina de backend|
+| **Sonda de estado de funcionamento** | Uma sonda personalizada usada para monitorizar a saúde dos membros da piscina de backend|
 | **Definições http** | Uma coleção de configurações incluindo, porta, protocolo, afinidade baseada em cookies, sonda e timeout.  Estas configurações determinam como o tráfego é encaminhado para os membros da piscina de backend|
 | **Porto frontend** | O porto que a porta de aplicação escuta para o tráfego em|
 | **Serviço de Escuta** | Uma combinação de um protocolo, configuração IP frontal e porta frontend. Isto é o que ouve os pedidos de entrada.
@@ -197,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprenda a configurar o descarregamento do SSL visitando: [Configure SSL Offload](application-gateway-ssl-arm.md)
+Aprenda a configurar o descarregamento do TLS visitando: [Configure TLS Offload](application-gateway-ssl-arm.md)
 

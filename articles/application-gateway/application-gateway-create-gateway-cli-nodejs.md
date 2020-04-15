@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed7bbbf55956d655115b94c8ac46432b3e36c49b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62095987"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312638"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Criar um portal de aplicação utilizando o Azure CLI
 
-O Application Gateway do Azure é um balanceador de carga de 7 camadas. Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entre diversos servidores, quer estejam na nuvem ou no local. O gateway da aplicação tem as seguintes funcionalidades de entrega de aplicações: equilíbrio de carga HTTP, afinidade de sessão baseada em cookies e descarregamento de camada de tomadas seguras (SSL), sondas de saúde personalizadas e suporte para multi-site.
+O Application Gateway do Azure é um balanceador de carga de 7 camadas. Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entre diversos servidores, quer estejam na nuvem ou no local. O gateway da aplicação tem as seguintes funcionalidades de entrega de aplicações: equilíbrio de carga HTTP, afinidade de sessão baseada em cookies e Segurança da Camada de Transporte (TLS), anteriormente conhecida como Secure Sockets Layer (SSL), descarregamento, sondas de saúde personalizadas e suporte para multi-site.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Pré-requisito: Instalar o Azure CLI
 
@@ -135,7 +135,7 @@ Se já tem a sua aplicação web definida com o backend pool nos passos anterior
 
 Saiba como criar sondas de saúde personalizadas visitando [Criar uma sonda de saúde personalizada](application-gateway-create-probe-portal.md)
 
-Saiba como configurar o Descarregamento sSL e tirar a dispendiosa desencriptação sSL dos seus servidores web visitando a [Configure SSL Offload](application-gateway-ssl-arm.md)
+Saiba como configurar o Descarregamento de TLS e tirar a dispendiosa desencriptação do TLS dos seus servidores web visitando a [Configure TLS Offload](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

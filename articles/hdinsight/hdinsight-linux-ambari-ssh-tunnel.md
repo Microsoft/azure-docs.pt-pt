@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: 6f4efd9a316b92f17f89cea66a7c81e84ac3cf06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: 9bdf7360ce00637b0eed3de7a3349da8656a3ed0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72991358"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314162"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Utilize túneis SSH para aceder a Apache Ambari web UI, JobHistory, NameNode, Apache Oozie, e outros UIs
 
-Os clusters HDInsight fornecem acesso ao Apache Ambari web UI através da Internet, mas algumas funcionalidades requerem um túnel SSH. Por exemplo, a UI web para o serviço Apache Oozie não pode ser acedida através da internet sem um túnel SSh.
+Os clusters HDInsight fornecem acesso ao Apache Ambari web UI através da Internet. Algumas características requerem um túnel SSH. Por exemplo, a Rede Apache Oozie UI não pode ser acedida através da internet sem um túnel SSH.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Por que usar um túnel SSH
 
@@ -31,7 +31,7 @@ As seguintes UIs Web requerem um túnel SSH:
 * Oozie web UI
 * HBase Master e Logs UI
 
-Se utilizar as Ações do Script para personalizar o seu cluster, quaisquer serviços ou utilitários que instale que exponham um serviço web requerem um túnel SSH. Por exemplo, se instalar o Hue utilizando uma Ação de Script, deve utilizar um túnel SSH para aceder à UI web hue.
+Os serviços instalados com Script Actions que expõem um serviço web exigirão um túnel SSH. O tom instalado com a Ação de Script requer um túnel SSH para aceder à UI web.
 
 > [!IMPORTANT]  
 > Se tiver acesso direto ao HDInsight através de uma rede virtual, não precisa de utilizar túneis SSH. Para um exemplo de acesso direto ao HDInsight através de uma rede virtual, consulte o [Connect HDInsight para o documento de rede no local.](connect-on-premises-network.md)
@@ -64,14 +64,16 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 Este comando cria uma ligação que encaminha o tráfego para o porto local 9876 para o aglomerado sobre o SSH. As opções são:
 
-* **D 9876** - O porto local que faz o tráfego através do túnel.
-* **C** - Comprima todos os dados, porque o tráfego web é maioritariamente texto.
-* **2** - Force SSH a tentar apenas a versão protocolar 2.
-* **q** - Modo silencioso.
-* **T** - Desativar a atribuição de pseudo-tty, já que está apenas a reencaminhar uma porta.
-* **n** - Evite a leitura de STDIN, uma vez que está apenas a encaminhar uma porta.
-* **N** - Não execute um comando remoto, já que está apenas a encaminhar uma porta.
-* **f** - Corra ao fundo.
+    |Opção |Descrição |
+    |---|---|
+    |D 9876|O porto local que faz o tráfego através do túnel.|
+    |C|Comprima todos os dados, porque o tráfego web é principalmente texto.|
+    |2|Force o SSH a tentar apenas a versão protocolar 2.|
+    |q|Modo silencioso.|
+    |T|Desative a atribuição de pseudo-tty, já que está apenas a reencaminhar uma porta.|
+    |n|Evite a leitura do STDIN, já que está apenas a encaminhar uma porta.|
+    |N|Não execute um comando remoto, já que está apenas a encaminhar uma porta.|
+    |f|Corra ao fundo.|
 
 Uma vez que o comando termina, o tráfego enviado para o porto 9876 no computador local é encaminhado para o nó da cabeça do cluster.
 

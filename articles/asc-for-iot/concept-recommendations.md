@@ -1,5 +1,5 @@
 ---
-title: Compreender o Centro de Segurança Azure para recomendações de segurança do IoT. Microsoft Docs
+title: Recomendações de segurança
 description: Conheça o conceito de recomendações de segurança e como são usadas no Azure Security Center para IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,22 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: a8de821abcedf6bb9a331852a2c0af9b6439667a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 213595ac69efc90ec855b2891641e1f00bd1ba92
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78303584"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311550"
 ---
 # <a name="security-recommendations"></a>Recomendações de segurança
 
-O Azure Security Center for IoT verifica os seus recursos Azure e dispositivos IoT e fornece recomendações de segurança para reduzir a sua superfície de ataque. As recomendações de segurança são exequíveis e visam ajudar os clientes no cumprimento das melhores práticas de segurança.
+O Azure Security Center for IoT verifica os seus recursos Azure e dispositivos IoT e fornece recomendações de segurança para reduzir a sua superfície de ataque.
+As recomendações de segurança são exequíveis e visam ajudar os clientes no cumprimento das melhores práticas de segurança.
 
 Neste artigo, encontrará uma lista de recomendações que podem ser desencadeadas nos seus dispositivos IoT Hub e/ou IoT.
 
 ## <a name="recommendations-for-iot-devices"></a>Recomendações para dispositivos IoT
 
-As recomendações do dispositivo fornecem insights e sugestões para melhorar a postura de segurança do dispositivo. 
+As recomendações do dispositivo fornecem insights e sugestões para melhorar a postura de segurança do dispositivo.
 
 | Gravidade | Nome                                                      | Origem de Dados | Descrição                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -53,7 +54,7 @@ Recomendações operacionais fornecem insights e sugestões para melhorar a conf
 
 ## <a name="recommendations-for-iot-hub"></a>Recomendações para IoT Hub
 
-Os alertas de recomendação fornecem insights e sugestões para ações para melhorar a postura de segurança do seu ambiente.  
+Os alertas de recomendação fornecem insights e sugestões para ações para melhorar a postura de segurança do seu ambiente.
 
 | Gravidade | Nome                                                     | Origem de Dados | Descrição                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

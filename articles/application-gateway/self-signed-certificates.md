@@ -8,18 +8,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 0547f254a64cecc7072ee9ff79eb50204b34bc17
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 5ceefb076b63df942cfff202946f6b82050bbab9
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548870"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311949"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Gere um certificado auto-assinado do Azure Application Gateway com uma raiz personalizada CA
 
-O Gateway de aplicação v2 SKU introduz a utilização de Certificados de Raiz Fidedignos para permitir servidores de backend. Isto remove os certificados de autenticação que foram exigidos no V1 SKU. O *certificado de raiz* é um Base-64 codificado X.509(. Cer) certificado raiz de formato do servidor de certificado backend. Identifica a autoridade de certificados de raiz (CA) que emitiu o certificado do servidor e o certificado de servidor é então utilizado para a comunicação SSL.
+O Gateway de aplicação v2 SKU introduz a utilização de Certificados de Raiz Fidedignos para permitir servidores de backend. Isto remove os certificados de autenticação que foram exigidos no V1 SKU. O *certificado de raiz* é um Base-64 codificado X.509(. Cer) certificado raiz de formato do servidor de certificado backend. Identifica a autoridade do certificado de raiz (CA) que emitiu o certificado de servidor e o certificado de servidor é então utilizado para a comunicação TLS/SSL.
 
-Application Gateway confia no certificado do seu website por padrão se for assinado por um conhecido CA (por exemplo, GoDaddy ou DigiCert). Não precisas de carregar explicitamente o certificado de raiz nesse caso. Para mais informações, consulte a [visão geral da rescisão do SSL e termine o SSL com](ssl-overview.md)o Gateway de Aplicação . No entanto, se tiver um ambiente de dev/teste e não quiser adquirir um certificado assinado pela AC, pode criar o seu próprio CA personalizado e criar um certificado auto-assinado com ele. 
+Application Gateway confia no certificado do seu website por padrão se for assinado por um conhecido CA (por exemplo, GoDaddy ou DigiCert). Não precisas de carregar explicitamente o certificado de raiz nesse caso. Para mais informações, consulte a [visão geral da rescisão do TLS e termine com o TLS com o Gateway](ssl-overview.md)de Aplicação . No entanto, se tiver um ambiente de dev/teste e não quiser adquirir um certificado assinado pela AC, pode criar o seu próprio CA personalizado e criar um certificado auto-assinado com ele. 
 
 > [!NOTE]
 > Os certificados auto-assinados não são confiáveis por defeito e podem ser difíceis de manter. Além disso, podem usar suítes de haxixe e cifra desatualizadas que podem não ser fortes. Para uma melhor segurança, compre um certificado assinado por uma conhecida autoridade de certificados.
@@ -125,15 +125,15 @@ A RSE é uma chave pública que é dada a uma AC ao solicitar um certificado. A 
    - fabrikam.crt
    - fabrikam.key
 
-## <a name="configure-the-certificate-in-your-web-servers-ssl-settings"></a>Configure o certificado nas definições SSL do seu servidor web
+## <a name="configure-the-certificate-in-your-web-servers-tls-settings"></a>Configure o certificado nas definições de TLS do seu servidor web
 
-No seu servidor web, configure os ficheiros Fabrikam.crt e fabrikam.key. Se o seu servidor web não conseguir utilizar dois ficheiros, pode combiná-los com um único ficheiro .pem ou .pfx utilizando comandos OpenSSL.
+No seu servidor web, configure os ficheiros tLS utilizando os ficheiros fabrikam.crt e fabrikam.key. Se o seu servidor web não conseguir utilizar dois ficheiros, pode combiná-los com um único ficheiro .pem ou .pfx utilizando comandos OpenSSL.
 
 ### <a name="iis"></a>IIS
 
 Para obter instruções sobre como importar certificado e carregá-los como certificado de servidor no IIS, consulte [COMO Instalar Certificados Importados num Servidor Web no Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
-Para instruções de ligação SSL, consulte [Como configurar o SSL no IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
+Para instruções de ligação TLS, consulte [Como configurar o SSL no IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
 ### <a name="apache"></a>Apache
 
@@ -151,9 +151,9 @@ A seguinte configuração é um [exemplo de hospedeiro virtual configurado para 
 
 ### <a name="nginx"></a>NGINX
 
-A seguinte configuração é um bloco de [servidor NGINX](https://nginx.org/docs/http/configuring_https_servers.html) de exemplo com configuração SSL:
+A seguinte configuração é um bloco de [servidor NGINX](https://nginx.org/docs/http/configuring_https_servers.html) de exemplo com configuração TLS:
 
-![NGINX com SSL](media/self-signed-certificates/nginx-ssl.png)
+![NGINX com TLS](media/self-signed-certificates/nginx-ssl.png)
 
 ## <a name="access-the-server-to-verify-the-configuration"></a>Aceda ao servidor para verificar a configuração
 
@@ -232,7 +232,7 @@ $probe = Get-AzApplicationGatewayProbeConfig `
 
 ## Add the configuration to the HTTP Setting and don't forget to set the "hostname" field
 ## to the domain name of the server certificate as this will be set as the SNI header and
-## will be used to verify the backend server's certificate. Note that SSL handshake will
+## will be used to verify the backend server's certificate. Note that TLS handshake will
 ## fail otherwise and might lead to backend servers being deemed as Unhealthy by the probes
 
 Add-AzApplicationGatewayBackendHttpSettings `
@@ -272,5 +272,5 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o SSL\TLS no Gateway de Aplicação, consulte a [visão geral da rescisão do SSL e termine o SSL com](ssl-overview.md)o Application Gateway .
+Para saber mais sobre o SSL\TLS no Gateway de Aplicação, consulte a [visão geral da rescisão de TLS e termine com tLS com Application Gateway](ssl-overview.md).
 

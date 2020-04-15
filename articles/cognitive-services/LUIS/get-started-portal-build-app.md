@@ -2,13 +2,13 @@
 title: 'Quickstart: Criar uma nova app no portal LUIS'
 description: Neste arranque rápido, cria-se as partes básicas de uma app, intenções e entidades, bem como testar com a expressão da amostra no portal LUIS.
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.openlocfilehash: f0c8f0c77f832e049dfc494f82e90edb61a8cb2a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/14/2020
+ms.openlocfilehash: 2d601646c43c0f0d99dc6934cf1f1c960e0b0f79
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80244619"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382576"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Quickstart: Criar uma nova app no portal LUIS
 
@@ -88,11 +88,10 @@ Adicione as seguintes 15 declarações de exemplo à `FindForm` intenção.
 Por design, estas expressões de exemplo variam das seguintes formas:
 
 * comprimento de expressão
-* pontuação
+* [pontuação](luis-reference-application-settings.md#punctuation-normalization)
 * escolha de palavras
 * verbo tenso (é, foi, será)
 * ordem de palavras
-
 
 
 ## <a name="create-a-regular-expression-entity"></a>Criar uma entidade de expressão regular

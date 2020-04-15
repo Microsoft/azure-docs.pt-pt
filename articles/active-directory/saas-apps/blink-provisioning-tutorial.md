@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b19052b8a71b582b47308c41d170f50352d643e2
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 314445275f99898913bd91eb8abc2a5acdab098a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618348"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381036"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutorial: Configure Blink para fornecimento automático de utilizadores
 
@@ -89,7 +89,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 ### <a name="to-configure-automatic-user-provisioning-for-blink-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para Blink em Azure AD:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -121,7 +121,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 9. Reveja os atributos do utilizador que são sincronizados de Azure AD para Blink na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Blink para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-    ![Atributos de utilizador intermitentes](media/blink-provisioning-tutorial/User_attributes.png)
+    ![Atributos de utilizador intermitentes](media/blink-provisioning-tutorial/user-attributes.png)
 
 10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

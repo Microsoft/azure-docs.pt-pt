@@ -1,25 +1,19 @@
 ---
 title: Referência de sintaxe padrão - LUIS
-titleSuffix: Azure Cognitive Services
 description: Criar entidades para extrair dados-chave de declarações de utilizadores em aplicações de Compreensão de Idiomas (LUIS). Os dados extraídos são utilizados pela aplicação do cliente.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/09/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc24667f43dfedc032f52c40fc5f8fe5c80bad70
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219733"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382149"
 ---
 # <a name="pattern-syntax"></a>Sintaxe de padrão
 
-Sintaxe padrão é um modelo para uma expressão. O modelo deve conter palavras e entidades que pretende combinar, bem como palavras e pontuação que pretende ignorar. **Não** é uma expressão regular.
+Sintaxe padrão é um modelo para uma expressão. O modelo deve conter palavras e entidades que pretende combinar, bem como palavras e [pontuação](luis-reference-application-settings.md#punctuation-normalization) que pretende ignorar. **Não** é uma expressão regular.
 
 > [!CAUTION]
 > Os padrões apenas incluem pais de entidades aprendidas por máquinas, não subcomponentes.

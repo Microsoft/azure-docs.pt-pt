@@ -2,13 +2,13 @@
 title: 'Tutorial: Padrões - LUIS'
 description: Use padrões para aumentar a intenção e a previsão da entidade, ao mesmo tempo que fornece menos declarações de exemplo neste tutorial. O padrão é fornecido como um exemplo de expressão de modelo, que inclui sintaxe para identificar entidades e texto ignorável.
 ms.topic: tutorial
-ms.date: 04/01/2020
-ms.openlocfilehash: 10f0ade45dedb3413887cc4b4dea89e857c1bde7
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/14/2020
+ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545994"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380773"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicione formatos de expressão de modelo comum para melhorar as previsões
 
@@ -214,7 +214,7 @@ Alguns exemplos de expressões de modelo para esta intenção incluem:
 |`Who does {Employee} report to[?]`|intercambiável`{Employee}`<br>ignorar`[?]`|
 |`Who reports to {Employee}[?]`|intercambiável`{Employee}`<br>ignorar`[?]`|
 
-A sintaxe `{Employee}` marca a localização da entidade na expressão de modelo, bem como de que entidade se trata. A sintaxe `[?]`opcional, marca palavras ou pontuação que é opcional. O LUIS faz corresponder a expressão, ignorando o texto opcional dentro dos parênteses retos.
+A sintaxe `{Employee}` marca a localização da entidade na expressão de modelo, bem como de que entidade se trata. A sintaxe `[?]`opcional, marca palavras ou [pontuação](luis-reference-application-settings.md#punctuation-normalization) que é opcional. O LUIS faz corresponder a expressão, ignorando o texto opcional dentro dos parênteses retos.
 
 Embora a sintaxe pareça uma expressão regular, não é uma expressão regular. Apenas é suportada a sintaxe das chavetas, `{}`, e dos parênteses retos, `[]`. Podem ser aninhadas até dois níveis.
 

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 51c191a7815bb64243e2324e150c00c2dcb7ec4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd33d23a506bd86b9651af3d4c3bbca01673a7a4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705331"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312101"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um portal de aplicação com http para https redirection usando o portal Azure
 
-Pode utilizar o portal Azure para criar um portal de [aplicação](overview.md) com um certificado para a rescisão de SSL. Uma regra de encaminhamento é usada para redirecionar o tráfego HTTP para a porta HTTPS no seu gateway de aplicação. Neste exemplo, também cria um conjunto de escala de [máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para o conjunto de backend do gateway de aplicação que contém duas instâncias de máquina virtual.
+Pode utilizar o portal Azure para criar um portal de [aplicação](overview.md) com um certificado para a rescisão de TLS. Uma regra de encaminhamento é usada para redirecionar o tráfego HTTP para a porta HTTPS no seu gateway de aplicação. Neste exemplo, também cria um conjunto de escala de [máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para o conjunto de backend do gateway de aplicação que contém duas instâncias de máquina virtual.
 
 Neste artigo, vai aprender a:
 

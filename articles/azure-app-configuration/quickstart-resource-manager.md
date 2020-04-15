@@ -3,18 +3,18 @@ title: Implantação automática de VM com configuração de aplicação Azure q
 description: Este quickstart demonstra como usar o módulo PowerShell Azure e os modelos do Gestor de Recursos Azure para implementar uma loja de configuração de aplicações Azure. Em seguida, utilize os valores na loja para implantar um VM.
 author: lisaguthrie
 ms.author: lcozzens
-ms.date: 03/05/2020
+ms.date: 04/14/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 02afa2cb36323e0c3c38c2451b1924b636f7faed
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79126377"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309102"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Quickstart: Implementação automática de VM com configuração de aplicativos e modelo de gestor de recursos
 
@@ -152,6 +152,9 @@ Pode criar uma loja de configuração de aplicações utilizando um modelo de Ge
 ## <a name="deploy-vm-using-stored-key-values"></a>Implementar VM utilizando valores-chave armazenados
 
 Agora que adicionou valores-chave à loja, está pronto para implementar um VM usando um modelo de Gestor de Recursos Azure. O modelo refere as teclas **windowsOsVersion** e **diskSizeGB** que criou.
+
+> [!WARNING]
+> Os modelos ARM não podem fazer referência a chaves numa loja de configuração de aplicações que tenha link privado ativado.
 
 1. Copie e cole o seguinte código json num novo ficheiro chamado *azuredeploy.json,* ou descarregue o ficheiro a partir dos [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json).
 
@@ -423,13 +426,13 @@ Agora que adicionou valores-chave à loja, está pronto para implementar um VM u
    |storageAccountName|Um nome único para uma conta de armazenamento associada ao VM.|
    |domínioNameLabel|Um nome de domínio único.|
 
-1. Na janela PowerShell, execute o seguinte comando para implantar a loja de configuração de aplicações Azure. Não se esqueça de substituir o nome do grupo de recursos, o caminho do ficheiro do modelo e o caminho do ficheiro do parâmetro do modelo.
+1. Na janela PowerShell, execute o seguinte comando para implantar o VM. Não se esqueça de substituir o nome do grupo de recursos, o caminho do ficheiro do modelo e o caminho do ficheiro do parâmetro do modelo.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>" 
-       -TemplateFile "<path to prereq.azuredeploy.json>" `
-       -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
+       -ResourceGroupName "<your resource group>"
+       -TemplateFile "<path to azuredeploy.json>" `
+       -TemplateParameterFile "<path to azuredeploy.parameters.json>"
    ```
 
 Parabéns! Implementou um VM utilizando configurações armazenadas na Configuração de Aplicações Azure.

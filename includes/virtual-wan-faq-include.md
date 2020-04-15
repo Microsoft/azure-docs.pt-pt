@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ad821036047dcf46821b2b2722e3dd17f8e318c2
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: cb2302637efb16fc31bd420bf8c4ead19d7f598d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80386127"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81384944"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O utilizador precisa de ter hub e falou com dispositivos SD-WAN/VPN para utilizar o Azure Virtual WAN?
 
@@ -131,6 +131,8 @@ Sim. Veja a página [Preços](https://azure.microsoft.com/pricing/details/virtua
 
 * Se tivesse o gateway ExpressRoute devido aos circuitos ExpressRoute que ligavam a um hub virtual, então pagaria pelo preço unitário de escala. Cada unidade de escala em ER é de 2 Gbps e cada unidade de ligação é carregada ao mesmo ritmo que a unidade vpn connection.
 
+* Se tivesse satisfeito VNETs ligados ao centro, ainda se aplicam as acusações nos VNETs spoke. 
+
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Como é que os novos parceiros que não estão listados na sua lista de parceiros de lançamento são incluídos?
 
 Todas as APIs wan virtuais estão abertas a API. Pode ver a documentação para avaliar a viabilidade técnica. Se tiver alguma dúvida, envie azurevirtualwan@microsoft.comum e-mail para . Um parceiro ideal é o que tem um dispositivo que pode ser aprovisionado para a conectividade IKEv1 ou IKEv2 IPsec.
@@ -149,7 +151,7 @@ Pode ligar um VNet numa região diferente do seu WAN virtual.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>Os VNets falados podem comunicar entre si um centro virtual (V2V Transit)?
 
-Sim. O Standard Virtual WAN suporta a conectividade transitiva Vnet para Vnet através do centro virtual WAN a que os Vnets estão ligados. Na terminologia Virtual WAN, referimo-nos a estes caminhos como "trânsito virtual WAN VNet" para VNets ligados a um Virtual Wan Hub dentro de uma única região, e "trânsito global de WAN VNet" para VNets conectados através de múltiplos Centros WAN Virtuais em dois ou mais regiões. O trânsito vNet suporta até 3 Gbps de entrada durante a pré-visualização pública. A produção expandir-se-á quando o trânsito global for a GA.
+Sim. O Standard Virtual WAN suporta a conectividade transitiva Vnet para Vnet através do centro virtual WAN a que os Vnets estão ligados. Na terminologia Virtual WAN, referimo-nos a estes caminhos como "trânsito virtual WAN VNet" para VNets ligados a um Virtual Wan Hub dentro de uma única região, e "trânsito global de WAN VNet" para VNets ligados através de múltiplos Centros VIRTUAIS WAN em duas ou mais regiões. O trânsito vNet suporta até 3 Gbps de entrada durante a pré-visualização pública. A produção expandir-se-á quando o trânsito global for a GA.
 
 NOTA: Atualmente, a pré-visualização do trânsito V2V requer que um GW VPN seja implantado num Hub Virtual para desencadear o lançamento dos elementos de encaminhamento. Este VPN GW não é utilizado para a via de trânsito V2V. Esta é uma limitação conhecida e será removida no momento do V2V GA. Pode eliminar o Gateway VPN no centro(s) depois de totalmente lançado, uma vez que não é necessário para a funcionalidade de trânsito V2V. 
 

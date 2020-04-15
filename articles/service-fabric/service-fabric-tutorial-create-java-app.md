@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 019e50057497c9f98d303a93dfa3f905226fa246
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cf1ede2db8dbdc7557775cf7b22dde53b69280da
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75465446"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314229"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutorial: Crie uma aplicação com um serviço frontal Java API e um serviço de back-end imponente no Azure Service Fabric
 
@@ -49,7 +49,7 @@ Em primeiro lugar, crie o front-end para a Web da aplicação de Voto. Uma UI we
 
 1. Abra o Eclipse.
 
-2. Create a project with **File** > **New** > **Other** > **Service Fabric** > **Service Fabric Project**.
+2. Crie um projeto com **file** > **New** > **Other** > Service**Fabric** > **Fabric Fabric Fabric Project**.
 
     ![Novo projeto de Tecido de Serviço em Eclipse](./media/service-fabric-tutorial-create-java-app/service-fabric-project-wizard.png)
 
@@ -889,7 +889,7 @@ Neste momento, a aplicação está pronta para ser implementada num cluster do S
     Se estiver a utilizar um Mac, execute o cluster local com o seguinte comando: substitua o comando transmitido no parâmetro **-v** pelo caminho para a sua área de trabalho.
 
     ```bash
-    docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest
     ```
     Consulte instruções mais detalhadas no [guia de configuração OS X.](service-fabric-get-started-mac.md)
 

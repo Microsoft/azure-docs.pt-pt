@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c56e6729307a1cad998a060202f51cb8f29bf94a
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 16fa33999a38b21fd2016c986dd2db81f7d84051
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548328"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383751"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Gestor de Recursos Azure
 
@@ -2392,7 +2392,7 @@ Serviço Azure: [Gestão de Custos](../cost-management-billing/index.yml)
 > | Ação | Microsoft.Consumo/reservasResumos/leitura | Enumerar o resumo da utilização para as instâncias reservadas por ordem de reserva ou grupos de gestão. Os dados sumários são mensais ou diários. |
 > |  | **reservasTransacções** |  |
 > | Ação | Microsoft.Consumo/reservasTransacções/leitura | Enumerar o histórico de transações para casos reservados por grupos de gestão. |
-> |  | **etiquetas** |  |
+> |  | **tags** |  |
 > | Ação | Microsoft.Consumo/tags/leitura | Listas para EA e subscrições. |
 > |  | **inquilinos** |  |
 > | Ação | Microsoft.Consumo/inquilinos/registo/ação | Registe a ação para o âmbito da Microsoft.Consumo por um inquilino. |
@@ -5180,7 +5180,7 @@ Serviço Azure: [Cofre chave](../key-vault/index.yml)
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
-Serviço Azure: [Azure Data Explorer](../data-explorer/index.yml)
+Serviço Azure: [Azure Data Explorer](/azure/data-explorer/)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
@@ -8324,7 +8324,7 @@ Serviço Azure: [Gestor de Recursos Azure](../azure-resource-manager/index.yml)
 > | Ação | Microsoft.Recursos/subscrições/tagNames/tagValues/read | Obtém ou lista valores de etiquetas de subscrição. |
 > | Ação | Microsoft.Recursos/subscrições/tagNames/tagValues/write | Adiciona um valor de etiqueta de assinatura. |
 > | Ação | Microsoft.Recursos/subscrições/tagNames/tagValues/delete | Elimina o valor da etiqueta de assinatura. |
-> |  | **etiquetas** |  |
+> |  | **tags** |  |
 > | Ação | Microsoft.Recursos/tags/leitura | Recebe todas as etiquetas num recurso. |
 > | Ação | Microsoft.Recursos/tags/escrita | Atualiza as etiquetas num recurso substituindo ou fundindo as etiquetas existentes por um novo conjunto de etiquetas ou removendo as etiquetas existentes. |
 > | Ação | Microsoft.Recursos/tags/delete | Remove todas as etiquetas num recurso. |

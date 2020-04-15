@@ -65,8 +65,6 @@
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
     - name: Programar
       items:
-        - name: REST
-          href: azure-netapp-files-develop-with-rest-api.md
         - name: SDKs do Azure NetApp Files e ferramentas da CLI
           href: azure-netapp-files-sdk-cli.md
         - name: Resolver problemas de erros do Fornecedor de Recursos do Azure NetApp Files

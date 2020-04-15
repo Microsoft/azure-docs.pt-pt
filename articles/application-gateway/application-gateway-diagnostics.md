@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: c7b38ad40977e1042032210d3a82a73ff6169adc
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: b458537c7cf8a254cd188c565ab1925afa202369
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411050"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312660"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Registos de saúde e diagnóstico de back-end para gateway de aplicação
 
@@ -172,7 +172,7 @@ O registo de acesso só é gerado se o tiver ativado em cada instância de Gatew
 |recebidoBytes     | Tamanho do pacote recebido, em bytes.        |
 |sentBytes| Tamanho do pacote enviado, em bytes.|
 |tempo Tomada| O tempo (em milissegundos) que leva para que um pedido seja processado e a sua resposta seja enviada. Isto é calculado como o intervalo a partir do momento em que o Gateway de aplicação recebe o primeiro byte de um pedido HTTP para o momento em que a resposta envia a operação termina. É importante notar que o campo Time-Taken geralmente inclui o tempo que os pacotes de pedido e resposta estão viajando sobre a rede. |
-|sslEnabled| Se a comunicação para as piscinas traseiras usava SSL. Valores válidos estão dentro e fora.|
+|sslEnabled| Se a comunicação para as piscinas traseiras usava TLS/SSL. Valores válidos estão dentro e fora.|
 |anfitrião| O nome de anfitrião com o qual o pedido foi enviado para o servidor backend. Se o nome de anfitrião está a ser ultrapassado, este nome refletirá isso.|
 |anfitrião original| O nome de anfitrião com o qual o pedido foi recebido pelo Gateway de Aplicação do cliente.|
 ```json
@@ -215,9 +215,9 @@ Para o Application Gateway e waf v2, os registos mostram um pouco mais de inform
 |recebidoBytes     | Tamanho do pacote recebido, em bytes.        |
 |sentBytes| Tamanho do pacote enviado, em bytes.|
 |tempo Tomada| Duração (em **segundos)** que leva para que um pedido seja processado e a sua resposta seja enviada. Isto é calculado como o intervalo a partir do momento em que o Gateway de aplicação recebe o primeiro byte de um pedido HTTP para o momento em que a resposta envia a operação termina. É importante notar que o campo Time-Taken geralmente inclui o tempo que os pacotes de pedido e resposta estão viajando sobre a rede. |
-|sslEnabled| Se a comunicação para as piscinas traseiras usava SSL. Valores válidos estão dentro e fora.|
-|sslCipher| Suíte cifra a ser utilizada para comunicação SSL (se o SSL estiver ativado).|
-|sslProtocol| O protocolo SSL/TLS está a ser utilizado (se o SSL estiver ativado).|
+|sslEnabled| Se a comunicação para as piscinas traseiras usava TLS. Valores válidos estão dentro e fora.|
+|sslCipher| Suíte cifra sendo utilizada para comunicação TLS (se tLS estiver ativada).|
+|sslProtocol| O protocolo SSL/TLS está a ser utilizado (se o TLS estiver ativado).|
 |servidorRouted| O servidor backend que aplica o gateway de aplicação encaminha o pedido para.|
 |servidorStatus| Código de estado HTTP do servidor backend.|
 |servidorResponseLatency| Latência da resposta do servidor de backend.|

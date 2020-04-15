@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/25/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6482040f0d50f08f04ea87384a99af556f694075
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 913bc16f7408acebb0e65359e8845ce0f6a3a2f4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478794"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314257"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -40,7 +40,7 @@ Terá acesso aos serviços do Azure em todas as regiões numa região geopolíti
 ## <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a><a name="locations"></a>Regiões do Azure para localizações do ExpressRoute numa região geopolítica.
 A tabela seguinte fornece um mapa de regiões do Azure para localizações do ExpressRoute numa região geopolítica.
 
-| **Região geopolítica** | **Regiões do Azure** | **Localizações do ExpressRoute** |
+| **Região geopolítica** | **Regiões de Azure** | **Localizações do ExpressRoute** |
 | --- | --- | --- |
 | **Governo da Austrália** |Austrália Central, Austrália Central 2 |Camberra, Camberra2 |
 | **Europa** | France Central, França Sul, Alemanha Norte, Alemanha West Central, Norte Europa, Noruega Leste, Noruega Oeste, Suíça Norte, Suíça Oeste, Reino Unido Oeste, Reino Unido Sul, Europa Ocidental |Amesterdão, Amesterdão2, Copenhague, Dublin, Frankfurt, Genebra, Londres, Londres2, Marselha, Milão, Munique, Newport (País de Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique |
@@ -58,7 +58,7 @@ A tabela seguinte fornece um mapa de regiões do Azure para localizações do Ex
 ## <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiões e limites geopolíticos para nuvens nacionais
 A tabela abaixo fornece informações sobre regiões e limites geopolíticos para nuvens nacionais.
 
-| **Região geopolítica** | **Regiões do Azure** | **Localizações do ExpressRoute** |
+| **Região geopolítica** | **Regiões de Azure** | **Localizações do ExpressRoute** |
 | --- | --- | --- |
 | **Nuvem do US Gov** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East  |Atlanta, Chicago, Dallas, Nova Iorque, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **Leste da China** |Leste da China, Leste da China 2 |Xangai |
@@ -94,7 +94,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **China Mobile International** |Suportado |Suportado | Singapura |
 | **China Telecom Global** |Suportado |Suportado |RAE de Hong Kong |
 | **China Unicom Global** |Suportado |Suportado | Singapura2 |
-| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Montreal, Toronto, Washington D.C. |
+| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Montreal, Toronto, Vancouver, Washington DC |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Suportado |Suportado |Amesterdão, Amesterdão2, Chicago, Dublin, Frankfurt, Londres, Londres2, Newport, Nova Iorque, Osaka, Paris, Silicon Valley, Silicon Valley2, Singapura2, Tóquio, Washington DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Suportado |Suportado |Chicago, Denver, Los Angeles, Nova Iorque, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |

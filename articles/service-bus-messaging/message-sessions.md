@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 4df6396d156c3fe1b75e3cac3d3f4aad7f23553a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e22641e9d4f9959c26cd2043ea2acd7e260e0f0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77660670"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314047"
 ---
 # <a name="message-sessions"></a>Sessões de mensagens
 As sessões de ônibus de serviço do Microsoft Azure permitem o manuseamento conjunto e ordenado de sequências não limitadas de mensagens relacionadas. As sessões podem ser usadas em primeiro dentro, primeiro fora (FIFO) e padrões de resposta a pedidos. Este artigo mostra como usar sessões para implementar estes padrões ao usar o Service Bus. 
@@ -68,7 +68,7 @@ O bloqueio de sessão mantido pelo recetor da sessão é um guarda-chuva para os
 
 ### <a name="message-session-state"></a>Estado da sessão de mensagens
 
-Quando os fluxos de trabalho são processados em sistemas de nuvem de alta escala e de alta disponibilidade, o manipulador de fluxo de trabalho associado a uma determinada sessão deve ser capaz de recuperar de falhas inesperadas e pode retomar os trabalhos parcialmente concluídos em um processo ou máquina diferente de onde o trabalho começou.
+Quando os fluxos de trabalho são processados em sistemas de nuvem de alta escala e de alta disponibilidade, o manipulador de fluxode trabalho associado a uma determinada sessão deve ser capaz de recuperar de falhas inesperadas e pode retomar os trabalhos parcialmente concluídos em um processo ou máquina diferente de onde os trabalhos começaram.
 
 A instalação do estado da sessão permite uma anotação definida pela aplicação de uma sessão de mensagem dentro do corretor, de modo que o estado de processamento registado relativo a essa sessão fica instantaneamente disponível quando a sessão é adquirida por um novo processador.
 
@@ -78,7 +78,7 @@ As APIs para gestão do estado de sessão, [SetState](/dotnet/api/microsoft.serv
 
 O estado da sessão permanece enquanto não estiver esclarecido (retornando **nulo),** mesmo que todas as mensagens de uma sessão sejam consumidas.
 
-Todas as sessões existentes numa fila ou subscrição podem ser enumeradas com o método **SessionBrowser** no API java e com [O GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) no [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) e [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) no cliente .NET.
+Todas as sessões existentes numa fila ou subscrição podem ser enumeradas com o método **SessionBrowser** na API java e com [O GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) no [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) e [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient) no cliente .NET Framework.
 
 O estado da sessão realizado numa fila ou numa subscrição conta para a quota de armazenamento daquela entidade. Quando o pedido estiver concluído com uma sessão, recomenda-se, por isso, que a aplicação limpe o seu estado retido para evitar custos de gestão externos.
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 085933f9a74ee37779ce63ce499d89ea53a9f7d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 767d87efcf94d720159dcf3b9dc42981ec957ef0
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198944"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381402"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e fiabilidade dos clusters Apache Hadoop no HDInsight
 
@@ -33,7 +33,7 @@ Os nós de um cluster HDInsight são implementados utilizando máquinas virtuais
 
 Para garantir uma elevada disponibilidade de serviços Hadoop, o HDInsight fornece dois nós de cabeça. Ambos os nós da cabeça estão ativos e em funcionamento dentro do cluster HDInsight simultaneamente. Alguns serviços, como o Apache HDFS ou o Apache Hadoop YARN, só estão 'activos' num nó de cabeça a qualquer momento. Outros serviços, como o HiveServer2 ou o Hive MetaStore, estão ativos em ambos os nós de cabeça ao mesmo tempo.
 
-Para obter os nomes de anfitriões para diferentes tipos de nó no seu cluster, utilize a [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
+Para obter os nomes de anfitriões para diferentes tipos de nó no seu cluster, utilize a [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > Não associe o valor numérico ao facto de um nó ser primário ou secundário. O valor numérico só está presente para fornecer um nome único para cada nó.

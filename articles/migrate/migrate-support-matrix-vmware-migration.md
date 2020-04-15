@@ -3,12 +3,12 @@ title: Apoio à migração de VMware em Azure Migrate
 description: Conheça o suporte à migração VMware VM em Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 9d8dc4dadc975a0fb69ea207f6062b72231460ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf9cc471eef31edd513358a97d2ece17015ba781
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269513"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314000"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração vMware
 
@@ -47,7 +47,7 @@ Reveja [este artigo](server-migrate-overview.md) para descobrir qual o método q
 **Alterações necessárias para O Azure** | Alguns VMs podem exigir alterações para que possam correr em Azure. A Azure Migrate faz estas alterações automaticamente para os seguintes sistemas operativos:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - Centos 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debiano 7, 8<br/><br/> Para outros sistemas operativos, é necessário efazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazê-lo.
 **Bota Linux** | Se /boot estiver numa divisória dedicada, deve residir no disco OS e não ser espalhado por vários discos.<br/> Se a /bota fizer parte da partição raiz (/), então a partição '/' deve estar no disco OS e não abranger outros discos.
 **Bota UEFI** | VMs com bota UEFI não são suportados para migração.
-**Tamanho do disco** | Disco de 2 TB OS; 4 TB para discos de dados.
+**Tamanho do disco** | Disco de 2 TB OS; 8 TB para discos de dados.
 **Limites de disco** |  Até 60 discos por VM.
 **Discos/volumes encriptados** | VMs com discos/volumes encriptados não são suportados para migração.
 **Cluster de disco partilhado** | Não suportado.

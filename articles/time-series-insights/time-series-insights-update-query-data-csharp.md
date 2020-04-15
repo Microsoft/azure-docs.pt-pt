@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 76e3ac85a6725976ebd14dac1805079613c94ec6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbc2cbc29cb23a21e7d3713091fc22f01bb1b15a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76980992"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81379821"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Dados de consulta do ambiente de pré-visualização da Série de Tempo Azure insights usando C #
 

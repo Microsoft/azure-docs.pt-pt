@@ -11,21 +11,21 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a275e5ab394b54960a2340848152741762b28f8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf50a8f58978a010fe3d8228ace8579fcf52eb38
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269387"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309907"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando utilizar um fornecedor de autenticação multifactor Azure
+
+> [!IMPORTANT]
+> A partir de 01 de setembro de 2018, os novos fornecedores de auth já não podem ser criados. Os fornecedores auth existentes podem continuar a ser utilizados e atualizados, mas a migração já não é possível. A autenticação multifactor continuará disponível como funcionalidade nas licenças Azure AD Premium.
 
 A verificação de dois passos está disponível por predefinição para os administradores globais que tenham utilizadores do Azure Active Directory e do Office 365. No entanto, se pretender tirar partido das [funcionalidades avançadas](howto-mfa-mfasettings.md), deverá comprar a versão completa do Multi-Factor Authentication (MFA) do Azure.
 
 Um Fornecedor Auth Azure Multi-Factor é utilizado para tirar partido das funcionalidades fornecidas pela Autenticação Multi-Factor Azure para utilizadores que **não possuam licenças.**
-
-> [!NOTE]
-> A partir de 01 de setembro de 2018, os novos fornecedores de auth já não podem ser criados. Os fornecedores auth existentes podem continuar a ser utilizados e atualizados, mas a migração já não é possível. A autenticação multifactor continuará disponível como funcionalidade nas licenças Azure AD Premium.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Ressalvas relacionadas com o SDK Azure MFA
 

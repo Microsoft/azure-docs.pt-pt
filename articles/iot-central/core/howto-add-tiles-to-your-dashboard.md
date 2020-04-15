@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 49b41715d95a5f210e6e70faf09aa016d1478728
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f75e5a28f7ec56750432e74ee48ba68491a5e481
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158790"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310290"
 ---
 # <a name="configure-the-application-dashboard"></a>Configure o painel de aplicações
 
@@ -74,7 +74,7 @@ A tabela seguinte resume a utilização de azulejos em Azure IoT Central:
 | Conteúdo | Instrumentos de aplicação e conjunto de dispositivos |Os azulejos suportados por marcação são azulejos clicáveis que exibem texto de cabeça e descrição. Também pode utilizar este azulejo como um azulejo de ligação para permitir que um utilizador navegue para um URL relacionado com a sua aplicação.|
 | Imagem | Instrumentos de aplicação e conjunto de dispositivos |Os azulejos de imagem exibem uma imagem personalizada e podem ser clicáveis. Utilize um azulejo de imagem para adicionar gráficos a um dashboard e opcionalmente permitir que um utilizador navegue num URL relevante para a sua aplicação.|
 | Etiqueta | Dashboards de aplicação |Os azulejos de etiqueta exibem texto personalizado num painel de instrumentos. Pode escolher o tamanho do texto. Utilize um azulejo de etiqueta para adicionar informações relevantes ao painel de instrumentos tais descrições, detalhes de contacto ou ajuda.|
-| Mapa | Instrumentos de aplicação e conjunto de dispositivos |Os azulejos do mapa exibem a localização e o estado de um dispositivo num mapa. Por exemplo, pode visualizar onde está um dispositivo e se o ventilador está ligado.|
+| Mapa | Instrumentos de aplicação e dispositivo |Os azulejos do mapa exibem a localização de um dispositivo num mapa. Também pode exibir até 100 pontos do histórico de localização de um dispositivo. Por exemplo, pode ser apresentada uma rota de exibição de onde um dispositivo esteve na última semana.|
 | Gráfico de linha | Instrumentos de aplicação e dispositivo |Os azulejos da linha apresentam um gráfico de medição agregada para um dispositivo durante um período de tempo. Por exemplo, pode apresentar um gráfico de linha que mostre a temperatura média e a pressão de um dispositivo durante a última hora.|
 | gráfico de barras | Instrumentos de aplicação e dispositivo |Os azulejos da tabela de barras apresentam um gráfico de medições agregadas para um dispositivo durante um período de tempo. Por exemplo, pode apresentar um gráfico de barras que mostre a temperatura média e a pressão de um dispositivo durante a última hora.|
 | Gráfico de torta | Instrumentos de aplicação e conjunto de dispositivos |Os azulejos da carta de tarte apresentam um gráfico de medições agregadas para um dispositivo durante um período de tempo.|

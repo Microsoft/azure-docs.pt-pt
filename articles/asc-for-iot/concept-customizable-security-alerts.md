@@ -1,5 +1,5 @@
 ---
-title: Guia de alerta de segurança personalizável para o Centro de Segurança Azure para o IoT Microsoft Docs
+title: Alertas de segurança personalizáveis
 description: Conheça alertas de segurança personalizáveis e remediação recomendada utilizando o Azure Security Center para funcionalidades e serviços IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,24 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 32d79267559480de8ec91e5e66196bfd57e01cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b39d70c60a4c9701d0a8bafde17b241fe01cc46
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299578"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311629"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Alertas de segurança do Centro de Segurança do Azure para IoT
 
 O Azure Security Center for IoT analisa continuamente a sua solução IoT utilizando análises avançadas e inteligência de ameaça para alertá-lo para atividades maliciosas.
 
-Encorajamo-lo a criar alertas personalizados com base no seu conhecimento do comportamento esperado do dispositivo para garantir que os alertas atuam como os indicadores mais eficientes de potencial compromisso na sua implantação organizacional única e paisagem. 
+Encorajamo-lo a criar alertas personalizados com base no seu conhecimento do comportamento esperado do dispositivo para garantir que os alertas atuam como os indicadores mais eficientes de potencial compromisso na sua implantação organizacional única e paisagem.
 
 A seguinte lista de alertas do Azure Security Center para alertas IoT é definível por si com base no seu comportamento esperado do IoT Hub e/ou do dispositivo. Para mais detalhes sobre como personalizar cada alerta, consulte [criar alertas personalizados](quickstart-create-custom-alerts.md).
 
-## <a name="iot-hub-alerts-available-for-customization"></a>IoT Hub alertas disponíveis para personalização 
-
-
+## <a name="iot-hub-alerts-available-for-customization"></a>IoT Hub alertas disponíveis para personalização
 
 | Gravidade | Nome do alerta | Origem de dados | Descrição | Remediação sugerida|
 |---|---|---|---|---|
@@ -51,7 +49,7 @@ A seguinte lista de alertas do Azure Security Center para alertas IoT é definí
 | Baixa      | Alerta personalizado - número de operações não autorizadas está fora do alcance permitido  | IoT Hub     | A quantidade de operações não autorizadas dentro de um prazo específico está fora do intervalo atualmente configurado e admissível.|
 |
 
-## <a name="agent-alerts-available-for-customization"></a>Alertas de agente disponíveis para personalização 
+## <a name="agent-alerts-available-for-customization"></a>Alertas de agente disponíveis para personalização
 
 | Gravidade | Nome do alerta | Origem de dados | Descrição | Remediação sugerida|
 |---|---|---|---|---|

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 04/08/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 60d936d9c2785e4723cdc09e55927fe13af8d8a1
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: bb4b654bd0b3591ebaa1bd217020095319a4938c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892313"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381920"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -53,7 +53,7 @@ O Azure Firewall pode aumentar verticalmente conforme as suas necessidades para 
 
 ## <a name="application-fqdn-filtering-rules"></a>Regras de filtragem de FQDN de aplicação
 
-Pode limitar o tráfego DE saída HTTP/S ou o tráfego Azure SQL (pré-visualização) a uma lista especificada de nomes de domínio totalmente qualificados (FQDN), incluindo cartões selvagens. Esta funcionalidade não requer a rescisão do SSL.
+Pode limitar o tráfego DE saída HTTP/S ou o tráfego Azure SQL (pré-visualização) a uma lista especificada de nomes de domínio totalmente qualificados (FQDN), incluindo cartões selvagens. Esta funcionalidade não requer a rescisão de TLS.
 
 ## <a name="network-traffic-filtering-rules"></a>Regras de filtragem de tráfego de rede
 
@@ -116,7 +116,7 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |As zonas de disponibilidade só podem ser configuradas durante a implantação.|As zonas de disponibilidade só podem ser configuradas durante a implantação. Não é possível configurar zonas de disponibilidade depois de uma firewall ter sido implantada.|Esta ação é propositada.|
 |SNAT em ligações de entrada|Além do DNAT, as ligações através do endereço IP público firewall (entrada) são SNATed para um dos IPs privados firewall. Este requisito hoje (também para NVAs Ativos/Ativos) para garantir o encaminhamento simétrico.|Para preservar a fonte original para HTTP/S, considere usar cabeçalhos [XFF.](https://en.wikipedia.org/wiki/X-Forwarded-For) Por exemplo, utilize um serviço como [a Porta Frontal Azure](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) ou o Portal de [Aplicações Azure](../application-gateway/rewrite-http-headers.md) em frente à firewall. Também pode adicionar WAF como parte da Porta Frontal Azure e corrente à firewall.
 |Suporte de filtragem SQL FQDN apenas em modo proxy (porta 1433)|Para base de dados Azure SQL, Azure SQL Data Warehouse e Azure SQL Managed Instance:<br><br>Durante a pré-visualização, a filtragem SQL FQDN é suportada apenas no modo proxy (porta 1433).<br><br>Para Azure SQL IaaS:<br><br>Se estiver a utilizar portas não standard, pode especificar essas portas nas regras de aplicação.|Para o SQL no modo de redirecionamento (o predefinido se ligar a partir do Azure), pode, em vez disso, filtrar o acesso utilizando a etiqueta de serviço SQL como parte das regras de rede Azure Firewall.
-|Tráfego de saída na porta 25 da TCP não é permitido| As ligações SMTP de saída que utilizam a porta TCP 25 estão bloqueadas. A porta 25 é usada principalmente para entrega de e-mail não autenticada. Este é o comportamento padrão da plataforma para máquinas virtuais. Para mais informações, consulte mais problemas de [conectividade SMTP em Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). No entanto, ao contrário das máquinas virtuais, não é atualmente possível ativar esta funcionalidade no Azure Firewall.|Siga o método recomendado para enviar e-mail conforme documentado no artigo de resolução de problemas da SMTP. Ou excluir a máquina virtual que necessita de acesso SMTP de saída da sua rota padrão para a firewall. Em vez disso, configure o acesso de saída diretamente à Internet.
+|Tráfego de saída na porta 25 da TCP não é permitido| As ligações SMTP de saída que utilizam a porta TCP 25 estão bloqueadas. A porta 25 é usada principalmente para entrega de e-mail não autenticada. Este é o comportamento padrão da plataforma para máquinas virtuais. Para mais informações, consulte mais problemas de [conectividade SMTP em Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). No entanto, ao contrário das máquinas virtuais, não é atualmente possível ativar esta funcionalidade no Azure Firewall. Nota: para permitir a autenticação de SMTP (porta 587) ou SMTP sobre uma porta que não seja 25, certifique-se de configurar uma regra de rede e não uma regra de aplicação, uma vez que a inspeção SMTP não é suportada neste momento.|Siga o método recomendado para enviar e-mail, conforme documentado no artigo de resolução de problemas da SMTP. Ou excluir a máquina virtual que necessita de acesso SMTP de saída da sua rota padrão para a firewall. Em vez disso, configure o acesso de saída diretamente à internet.
 |FtP ativo não é suportado|O FTP ativo é desativado no Azure Firewall para proteger contra ataques ftp bounce usando o comando FTP PORT.|Em vez disso, pode utilizar ftp passivo. Ainda deve abrir explicitamente as portas TCP 20 e 21 na firewall.
 |Métrica de utilização da porta SNAT mostra 0%|A métrica de utilização da porta Azure Firewall SNAT pode mostrar uma utilização de 0%, mesmo quando as portas SNAT são utilizadas. Neste caso, a utilização da métrica como parte da métrica de saúde da firewall proporciona um resultado incorreto.|Esta questão foi corrigida e a produção está direcionada para maio de 2020. Em alguns casos, a redistribuição da firewall resolve o problema, mas não é consistente. Como uma suposição intermédia, utilize apenas o estado de saúde da firewall para procurar *o estado=degradado,* não para *o status=insalubre*. A exaustão portuária mostrar-se-á *degradada.* *Não é saudável* é reservado para uso futuro quando são mais métricas para impactar a saúde da firewall.
 |O DNAT não é suportado com túnel forçado habilitado|As firewalls implantadas com túneis forçados ativados não suportam o acesso à entrada da Internet devido ao encaminhamento assimétrico.|Isto é por design por causa do encaminhamento assimétrico. O caminho de retorno para ligações de entrada passa pela firewall no local, que não viu a ligação estabelecida.

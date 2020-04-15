@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: a565aba12f1b10f215d8f6cc7fc0b7247a0441d2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 854bf2d1ed2155290c2ecebd17695049fdd0c8bb
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80066247"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314289"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Encaminhar o tráfego de rede com uma tabela de rotas através do portal do Azure
 
@@ -208,7 +208,7 @@ Antes de selecionar **Criar** para criar o VM público ou privado, vá às duas 
 | Noções básicas | Grupo de recursos | **myResourceGroup** |
 | | Nome da máquina virtual | *myVmPublic* |
 | | Portos de entrada pública | **Permitir portas selecionadas** |
-| | Selecione portas de entrada | **HTTP** e **RDP** |
+| | Selecione portas de entrada | **RDP** |
 | Redes | Rede virtual | **myVirtualNetwork** |
 | | Subrede | **Público (10.0.0.0.0/24)** |
 | | Endereço IP público | O padrão |
@@ -221,7 +221,7 @@ Antes de selecionar **Criar** para criar o VM público ou privado, vá às duas 
 | Noções básicas | Grupo de recursos | **myResourceGroup** |
 | | Nome da máquina virtual | *myVmPrivate* |
 | | Portos de entrada pública | **Permitir portas selecionadas** |
-| | Selecione portas de entrada | **HTTP** e **RDP** |
+| | Selecione portas de entrada | **RDP** |
 | Redes | Rede virtual | **myVirtualNetwork** |
 | | Subrede | **Privado (10.0.1.0/24)** |
 | | Endereço IP público | O padrão |

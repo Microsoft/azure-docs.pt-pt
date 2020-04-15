@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b72d52463164c2a059fce316cc11a63aad62e7c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75771688"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380936"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Melhores práticas para a Sincronização de Dados SQL 
 

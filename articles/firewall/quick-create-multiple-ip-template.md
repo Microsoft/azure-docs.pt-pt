@@ -5,22 +5,24 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: b14ff2e94e9df25186a13ae8fbd63d8d4044b538
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 76211014f96aee864412fd19686d58d0338ec5c2
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/14/2020
-ms.locfileid: "81274243"
+ms.locfileid: "81310244"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---resource-manager-template"></a>Quickstart: Criar uma Firewall Azure com vários endereços IP públicos - modelo de Gestor de Recursos
 
 Neste arranque rápido, você usa um modelo de Gestor de Recursos para implementar uma Firewall Azure com vários endereços IP públicos.
 
-As regras de recolha de regras na NAT permitem ligações RDP a duas máquinas virtuais Do Windows Server 2019.
+A firewall implementada tem regras de recolha de regras NAT que permitem ligações RDP a duas máquinas virtuais Windows Server 2019.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Para obter mais informações sobre o Azure Firewall com vários endereços IP públicos, consulte [Implementar uma Firewall Azure com vários endereços IP públicos utilizando o Azure PowerShell](deploy-multi-public-ip-powershell.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

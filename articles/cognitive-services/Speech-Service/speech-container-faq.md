@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/14/2020
 ms.author: aahi
-ms.openlocfilehash: 4d597b872cf31a823f314d9f3c67c9f45201c542
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 17582244aef173da6ac700c980f7bd7fb0fec307
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258478"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383088"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Contentores de serviço de fala frequentemente fazem perguntas (FAQ)
 
@@ -379,7 +379,7 @@ O médico diz para expor um porto diferente, o que eu faço, mas o contentor do 
 <b>Como posso conseguir que as APIs &lt;não-lote sais para lidar com áudio 15 segundos de duração?</b>
 </summary>
 
-**Resposta:** Isto está em modo interativo. Se usar ditado ou conversação, isso não é um problema.
+**Resposta:** `RecognizeOnce()` em modo interativo apenas processa até 15 segundos de áudio, uma vez que o modo destina-se ao Comando da Fala onde se espera que as expressões sejam curtas. Se utilizar `StartContinuousRecognition()` para ditado ou conversação, não existe um limite de 15 segundos.
 
 
 <br>

@@ -1,5 +1,5 @@
 ---
-title: Guia de alerta de segurança para o Centro de Segurança Azure para o IoT Microsoft Docs
+title: Lista de alertas personalizados & incorporados
 description: Conheça alertas de segurança e remediação recomendada utilizando o Azure Security Center para funcionalidades e serviços IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 7a319baeba3d34f3d3056ce9b42f2e733b5a874f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74a6adbd2415cfcf7d5d48cff01d189cfd8b73a5
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78296138"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311476"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Alertas de segurança do Centro de Segurança do Azure para IoT
 
@@ -32,11 +32,9 @@ Neste artigo, encontrará uma lista de alertas incorporados que podem ser desenc
 Além de alertas incorporados, o Azure Security Center for IoT permite definir alertas personalizados com base no comportamento esperado do IoT Hub e/ou do dispositivo.
 Para mais detalhes, consulte [alertas personalizáveis](concept-customizable-security-alerts.md).
 
-
-
 ## <a name="built-in-alerts-for-iot-devices"></a>Alertas incorporados para dispositivos IoT
 
-| Nome | Gravidade | Origem de Dados | Descrição | Etapas de reparação sugeridas|                  
+| Nome | Gravidade | Origem de Dados | Descrição | Etapas de reparação sugeridas|
 |----------|---------------|-------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |**Alta** severidade|  |  |  |
 |   Linha de Comando Binário   | Alta | Agente | La Linux binário sendo chamado/executado da linha de comando foi detetado. Este processo pode ser uma atividade legítima, ou uma indicação de que o seu dispositivo está comprometido.|   Reveja o comando com o utilizador que o executou e verifique se isto é algo legitimamente esperado para ser executado no dispositivo. Caso contrário, aumente o alerta para a sua equipa de segurança de informação. |
@@ -52,7 +50,7 @@ Para mais detalhes, consulte [alertas personalizáveis](concept-customizable-sec
 |  Comportamento semelhante ao ransomware Fairware detetado  | Médio | Agente       | Execução de comandos RM-rf aplicados a locais suspeitos detetados através da análise dos dados do hospedeiro. Uma vez que o rm-rf elimina recursivamente ficheiros, normalmente só é utilizado em pastas discretas. Neste caso, está a ser utilizado num local que pode remover uma grande quantidade de dados. O ransomware Fairware é conhecido por executar comandos rm-rf nesta pasta. |Reveja com o utilizador que executou o comando esta foi uma atividade legítima que espera ver no dispositivo. Caso contrário, aumente o alerta para a equipa de segurança da informação.
 |  Comportamento semelhante ao ransomware detetado  | Médio | Agente       | A execução de ficheiros semelhantes ao ransomware conhecido que pode impedir os utilizadores de acederem ao seu sistema, ou ficheiros pessoais, e podem exigir o pagamento do resgate para recuperar o acesso.|Consulte o utilizador que executou o comando se esta fosse uma atividade legítima que espera ver no dispositivo. Caso contrário, aumente o alerta para a equipa de segurança da informação.
 |   Imagem de contentor de mineração de moeda cripto detetada | Médio                   | Agente       | Contentor detetando imagens de mineração de moeda digital conhecidas. |  1. Se este comportamento não for concebido, elimine a imagem do recipiente relevante.<br> 2. Certifique-se de que o daemon do Docker não está acessível através de uma tomada TCP insegura.<br> 3. Aumente o alerta para a equipa de segurança da informação.|
-|  Imagem de mineiro de moeda cripto  | Médio| Agente       | Execução de um processo normalmente associado à mineração de moeda digital detetada.| Verifique com o utilizador que executou o comando se esta era uma atividade legítima no dispositivo. Caso contrário, aumente o alerta para a equipa de segurança da informação.| 
+|  Imagem de mineiro de moeda cripto  | Médio| Agente       | Execução de um processo normalmente associado à mineração de moeda digital detetada.| Verifique com o utilizador que executou o comando se esta era uma atividade legítima no dispositivo. Caso contrário, aumente o alerta para a equipa de segurança da informação.|
 |   Detetado uso suspeito do comando nohup | Médio | Agente       | Uso suspeito do comando nohup no hospedeiro detetado. Os atores maliciosos geralmente executam o comando nohup de um diretório temporário, permitindo efetivamente que os seus executáveis corram em segundo plano. Ver este comando a ser executado em ficheiros localizados num diretório temporário não é esperado nem comportamento habitual. |Consulte o utilizador que executou o comando se esta fosse uma atividade legítima que espera ver no dispositivo. Caso contrário, aumente o alerta para a equipa de segurança da informação.
 |   Detetado uso suspeito do comando useradd  | Médio      | Agente       | Utilização suspeita do comando useradd detetado no dispositivo. |Consulte o utilizador que executou o comando se esta fosse uma atividade legítima que espera ver no dispositivo. Caso contrário, aumente o alerta para a equipa de segurança da informação.
 |  Daemon Docker exposto por tomada TCP  | Médio | Agente | Os registos da máquina indicam que o seu daemon Docker (estivado) expõe uma tomada TCP. Por defeito, a configuração do Docker não utiliza encriptação ou autenticação quando uma tomada TCP está ativada. A configuração Predefinida Docker permite o acesso total ao daemon do Docker, por qualquer pessoa com acesso à porta relevante.|Consulte o utilizador que executou o comando se esta fosse uma atividade legítima que espera ver no dispositivo. Caso contrário, aumente o alerta para a equipa de segurança da informação.
@@ -60,7 +58,7 @@ Para mais detalhes, consulte [alertas personalizáveis](concept-customizable-sec
 |  Downloads de ficheiros de uma fonte maliciosa conhecida detetada   | Médio  | Agente       |  Descarregamento de um ficheiro de uma fonte conhecida de malware detetado.|Consulte o utilizador que executou o comando se esta fosse uma atividade legítima que espera ver no dispositivo. Caso contrário, aumente o alerta para a equipa de segurança da informação.
 |   acesso de ficheiro htaccess detetado | Médio                       | Agente       | A análise dos dados do anfitrião detetou uma possível manipulação de um ficheiro htaccess. O Htaccess é um poderoso ficheiro de configuração que permite fazer múltiplas alterações num servidor web que executa o software Apache Web, incluindo funcionalidades básicas de redirecionamento e funções mais avançadas, como a proteção básica de senhas. Os atores maliciosos modificam frequentemente ficheiros de htaccess em máquinas comprometidas para ganhar persistência. |Confirme que esta é uma atividade legítima esperada no hospedeiro. Caso contrário, aumente o alerta para a sua equipa de segurança de informação.|
 |  Ferramenta de ataque conhecida  | Médio                                   | Agente       | Foi detetada uma ferramenta frequentemente associada a utilizadores maliciosos que atacassem outras máquinas de alguma forma. |Consulte o utilizador que executou o comando se esta fosse uma atividade legítima que espera ver no dispositivo. Caso contrário, aumente o alerta para a equipa de segurança da informação.|
-|  O agente IoT tentou e não analisou a configuração gémea do módulo | Médio  | Agente       | O Centro de Segurança Azure para o agente de segurança IoT não analisou a configuração gémea do módulo devido a desajustes de tipo no objeto de configuração|Valide a configuração gémea do módulo contra o esquema de configuração do agente IoT, corrija todas as incompatibilidades. 
+|  O agente IoT tentou e não analisou a configuração gémea do módulo | Médio  | Agente       | O Centro de Segurança Azure para o agente de segurança IoT não analisou a configuração gémea do módulo devido a desajustes de tipo no objeto de configuração|Valide a configuração gémea do módulo contra o esquema de configuração do agente IoT, corrija todas as incompatibilidades.
 |  Reconhecimento local de hospedeiro saqueado  | Médio | Agente       | Execução de um comando normalmente associado com reconhecimento de bot linux comum detetado. |Reveja a linha de comando suspeita para confirmar que foi executada por um utilizador legítimo. Caso contrário, aumente o alerta para a sua equipa de segurança de informação.
 |  Desfasamento entre o intérprete do script e a extensão do ficheiro  | Médio | Agente       | Desfasamento entre o intérprete do script e a extensão do ficheiro script fornecido como entrada detetada. Este tipo de desfasamento é geralmente associado com execuções de scripts atacantes. |Consulte o utilizador que executou o comando se esta fosse uma atividade legítima que espera ver no dispositivo. Caso contrário, aumente o alerta para a equipa de segurança da informação.
 |  Possível porta traseira detetada  | Médio | Agente |Um ficheiro suspeito foi descarregado e, em seguida, executado em um anfitrião na sua subscrição. Este tipo de atividade é geralmente associado com a instalação de uma porta traseira. |Consulte o utilizador que executou o comando se esta fosse uma atividade legítima que espera ver no dispositivo. Caso contrário, aumente o alerta para a equipa de segurança da informação.

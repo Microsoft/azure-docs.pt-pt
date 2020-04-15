@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Security Center for IoT agent Microsoft Docs
+title: Configurar agentes de segurança
 description: Saiba como configurar o Azure Security Center para agentes de segurança IoT para uso com o Centro de Segurança Azure para o serviço de segurança IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
-ms.openlocfilehash: 70396cdcaf8b6e2ac66619290eea35a7b260cd9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e41b7222ca89976674973e1eb700d62765b306f0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77461254"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311333"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configure agentes de segurança
 
-Este artigo explica o Azure Security Center para agentes de segurança IoT, e detalha como mudá-los e configurá-los. 
+Este artigo explica o Azure Security Center para agentes de segurança IoT, e detalha como mudá-los e configurá-los.
 
 > [!div class="checklist"]
 > * Configurar agentes de segurança
@@ -33,35 +33,34 @@ Este artigo explica o Azure Security Center para agentes de segurança IoT, e de
 
 ## <a name="agents"></a>Agentes
 
-O Azure Security Center para agentes de segurança IoT recolhe dados de dispositivos IoT e realiza ações de segurança para mitigar as vulnerabilidades detetadas. A configuração do agente de segurança é controlável usando um conjunto de propriedades gémeas de módulo que pode personalizar. Em geral, as atualizações secundárias a estas propriedades são pouco frequentes.  
+O Azure Security Center para agentes de segurança IoT recolhe dados de dispositivos IoT e realiza ações de segurança para mitigar as vulnerabilidades detetadas. A configuração do agente de segurança é controlável usando um conjunto de propriedades gémeas de módulo que pode personalizar. Em geral, as atualizações secundárias a estas propriedades são pouco frequentes.
 
-O Azure Security Center para o objeto de configuração twin do agente de segurança IoT é um objeto de formato JSON. O objeto de configuração é um conjunto de propriedades controláveis que pode definir para controlar o comportamento do agente. 
+O Azure Security Center para o objeto de configuração twin do agente de segurança IoT é um objeto de formato JSON. O objeto de configuração é um conjunto de propriedades controláveis que pode definir para controlar o comportamento do agente.
 
-Estas configurações ajudam-no a personalizar o agente para cada cenário necessário. Por exemplo, excluir automaticamente alguns eventos, ou manter o consumo de energia a um nível mínimo são possíveis configurando estas propriedades.  
+Estas configurações ajudam-no a personalizar o agente para cada cenário necessário. Por exemplo, excluir automaticamente alguns eventos, ou manter o consumo de energia a um nível mínimo são possíveis configurando estas propriedades.
 
-Utilize o Centro de Segurança Azure para configuração de [um](https://aka.ms/iot-security-github-module-schema) agente de segurança IoT para fazer alterações.  
+Utilize o Centro de Segurança Azure para configuração de [um](https://aka.ms/iot-security-github-module-schema) agente de segurança IoT para fazer alterações.
 
-## <a name="configuration-objects"></a>Objetos de configuração 
+## <a name="configuration-objects"></a>Objetos de configuração
 
-Propriedades relacionadas com todos os agentes de segurança do Azure Security Center para ioT estão localizadas no objeto de configuração do agente, dentro da secção de propriedades desejada, do módulo de **segurança azureiot.** 
+Propriedades relacionadas com todos os agentes de segurança do Azure Security Center para ioT estão localizadas no objeto de configuração do agente, dentro da secção de propriedades desejada, do módulo de **segurança azureiot.**
 
-Para modificar a configuração, crie e modifique este objeto dentro da identidade dupla do módulo de **segurança azul.** 
+Para modificar a configuração, crie e modifique este objeto dentro da identidade dupla do módulo de **segurança azul.**
 
-Se o objeto de configuração do agente não existir no módulo de segurança **azul** twin, todos os valores de propriedade do agente de segurança estão definidos como padrão. 
+Se o objeto de configuração do agente não existir no módulo de segurança **azul** twin, todos os valores de propriedade do agente de segurança estão definidos como padrão.
 
 ```json
 "desired": {
   "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-  } 
+  }
 }
 ```
 
-## <a name="configuration-schema-and-validation"></a>Esquema de configuração e validação 
+## <a name="configuration-schema-and-validation"></a>Esquema de configuração e validação
 
 Certifique-se de validar a configuração do seu agente contra este [esquema](https://aka.ms/iot-security-github-module-schema). Um agente não será lançado se o objeto de configuração não corresponder ao esquema.
 
- 
-Se, enquanto o agente estiver em execução, o objeto de configuração for alterado para uma configuração não válida (a configuração não corresponde ao esquema), o agente ignorará a configuração inválida e continuará a utilizar a configuração atual. 
+Se, enquanto o agente estiver em execução, o objeto de configuração for alterado para uma configuração não válida (a configuração não corresponde ao esquema), o agente ignorará a configuração inválida e continuará a utilizar a configuração atual.
 
 ### <a name="configuration-validation"></a>Validação de configuração
 
@@ -78,7 +77,7 @@ Valide as suas propriedades desejadas contra o [esquema,](https://aka.ms/iot-sec
 > Será disparado um alerta de erro de configuração do agente no caso de o agente não ter sido capaz de analisar a configuração desejada.
 > Compare a secção reportada e desejada para entender se o alerta ainda se aplica
 
-## <a name="editing-a-property"></a>Editar uma propriedade 
+## <a name="editing-a-property"></a>Editar uma propriedade
 
 Todas as propriedades personalizadas devem ser definidas dentro do objeto de configuração do agente dentro do módulo de **segurança azul** twin.
 Para utilizar um valor de propriedade predefinido, retire a propriedade do objeto de configuração.
@@ -92,9 +91,9 @@ Para utilizar um valor de propriedade predefinido, retire a propriedade do objet
 1. Clique no **Módulo Identidade Twin**.
 
 1. Editar as propriedades que pretende alterar no módulo de segurança.
-   
+
    Por exemplo, para configurar eventos de conexão como alta prioridade e recolher eventos de alta prioridade a cada 7 minutos, use a seguinte configuração.
-   
+
     ```json
     "desired": {
         "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
@@ -114,7 +113,7 @@ Para utilizar um valor de propriedade predefinido, retire a propriedade do objet
 
 Para utilizar um valor de propriedade predefinido, retire a propriedade do objeto de configuração.
 
-## <a name="default-properties"></a>Propriedades padrão 
+## <a name="default-properties"></a>Propriedades padrão
 
 A tabela seguinte contém as propriedades controláveis do Azure Security Center para agentes de segurança IoT.
 
@@ -123,31 +122,30 @@ Os valores predefinidos estão disponíveis no esquema adequado no [GitHub](http
 | Nome| Estado | Valores válidos| Valores predefinidos| Descrição |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |altaPrioridadeMessageFrequência|Obrigatório: falso |Valores válidos: Duração no formato ISO 8601 |Valor predefinido: PT7M |Intervalo de tempo máximo antes de enviar mensagens de alta prioridade.|
-|baixaPrioridadeMessageFrequência |Obrigatório: falso|Valores válidos: Duração no formato ISO 8601 |Valor predefinido: PT5H |Tempo máximo antes de enviarem mensagens de baixa prioridade.| 
-|snapshotFrequência |Exigir: falso|Valores válidos: Duração no formato ISO 8601 |Valor predefinido PT13H |Intervalo de tempo para a criação de instantâneos do estado do dispositivo.| 
-|maxLocalCacheSizeInBytes |Obrigatório: falso |Valores válidos: |Valor predefinido: 2560000, superior a 8192 | Armazenamento máximo (in bytes) permitido para o cache de mensagem de um agente. Quantidade máxima de espaço permitida para armazenar mensagens no dispositivo, antes de enviar mensagens.| 
+|baixaPrioridadeMessageFrequência |Obrigatório: falso|Valores válidos: Duração no formato ISO 8601 |Valor predefinido: PT5H |Tempo máximo antes de enviarem mensagens de baixa prioridade.|
+|snapshotFrequência |Exigir: falso|Valores válidos: Duração no formato ISO 8601 |Valor predefinido PT13H |Intervalo de tempo para a criação de instantâneos do estado do dispositivo.|
+|maxLocalCacheSizeInBytes |Obrigatório: falso |Valores válidos: |Valor predefinido: 2560000, superior a 8192 | Armazenamento máximo (in bytes) permitido para o cache de mensagem de um agente. Quantidade máxima de espaço permitida para armazenar mensagens no dispositivo, antes de enviar mensagens.|
 |maxMessageSizeInBytes |Obrigatório: falso |Valores válidos: Um número positivo, superior a 8192, inferior a 262144 |Valor predefinido: 204800 |O tamanho máximo permitido de um agente para cloud message. Esta definição controla a quantidade de dados máximos enviados em cada mensagem. |
-|eventoPriority${EventName} |Obrigatório: falso |Valores válidos: Alto, Baixo, Off |Valores predefinidos: |Prioridade de todos os eventos gerados por agentes | 
+|eventoPriority${EventName} |Obrigatório: falso |Valores válidos: Alto, Baixo, Off |Valores predefinidos: |Prioridade de todos os eventos gerados por agentes |
 
 ### <a name="supported-security-events"></a>Eventos de segurança apoiados
 
 |Nome do evento| PropertyName | Valor Predefinido| Evento Snapshot| Estado dos Detalhes  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|Evento de diagnóstico|eventoPriorityDiagnostic| Desativado| Falso| Eventos de diagnóstico relacionados com o agente. Utilize este evento para a exploração madeireira verbosa.| 
-|Erro de configuração |eventoPriorityConfigurationError |Baixa |Falso |O agente não analisou a configuração. Verifique a configuração contra o esquema.| 
+|Evento de diagnóstico|eventoPriorityDiagnostic| Desativado| Falso| Eventos de diagnóstico relacionados com o agente. Utilize este evento para a exploração madeireira verbosa.|
+|Erro de configuração |eventoPriorityConfigurationError |Baixa |Falso |O agente não analisou a configuração. Verifique a configuração contra o esquema.|
 |Estatísticas de eventos derrubados |eventoPriorityDroppedEventsStatistics |Baixa |Verdadeiro|Estatísticas de eventos relacionadas com o agente. |
 |Hardware conectado|eventoPriorityConnectedHardware |Baixa |Verdadeiro |Foto de todo o hardware ligado ao dispositivo.|
 |Portas de escuta|eventoPriorityListeningPorts |Alta |Verdadeiro |Instantâneo de todas as portas de escuta abertas no dispositivo.|
 |Processo criar |eventoPriorityProcessCreate |Baixa |Falso |Auditorias processam criação no dispositivo.|
-|Processo encerrado|eventoPriorityProcessTerminate |Baixa |Falso |Auditorias processam rescisão no dispositivo.| 
-|Informação do sistema |eventoPrioritySystemInformation |Baixa |Verdadeiro |Uma imagem instantânea da informação do sistema (por exemplo: OS ou CPU).| 
+|Processo encerrado|eventoPriorityProcessTerminate |Baixa |Falso |Auditorias processam rescisão no dispositivo.|
+|Informação do sistema |eventoPrioritySystemInformation |Baixa |Verdadeiro |Uma imagem instantânea da informação do sistema (por exemplo: OS ou CPU).|
 |Utilizadores locais| eventoPrioritárioLocalUsers |Alta |Verdadeiro|Uma foto dos utilizadores locais registados dentro do sistema. |
 |Iniciar sessão|  eventoPriorityLogin |Alta|Falso|Audite os eventos de login no dispositivo (logins locais e remotos).|
 |Criação de conexão |eventoPriorityConnectionCreate|Baixa|Falso|Audita as ligações TCP criadas de e para o dispositivo. |
 |Configuração da firewall| eventoPriorityFirewallConfiguration|Baixa|Verdadeiro|Instantâneo da configuração da firewall do dispositivo (regras de firewall). |
 |Linha de base do OS| eventoPriorityOSBaseline| Baixa|Verdadeiro|Foto instantânea da verificação da linha de base do dispositivo OS.|
 |
- 
 
 ## <a name="next-steps"></a>Passos seguintes
 

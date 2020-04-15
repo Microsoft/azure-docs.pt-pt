@@ -4,12 +4,12 @@ description: Este artigo acompanha-o através da monitorização de livros de ex
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: 9bd028157b33817898ef69f9e47cb8b5d9b8f381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f288029bb35fe4e3c71db37a1de265edbcd913b1
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75367098"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310547"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Monitorização de livros de execução com alertas métricos
 
@@ -23,7 +23,7 @@ Inicie sessão no Azure a https://portal.azure.com
 
 Os alertas permitem definir uma condição para monitorizar e uma ação a tomar quando essa condição é satisfeita.
 
-No portal Azure, navegue para a sua Conta de Automação. Em **monitorização,** selecione **Alertas** e clique **+ Nova Regra de Alerta**. A margem para o alvo já está definida na sua Conta de Automação.
+No portal Azure, navegue para a sua conta de Automação. Em **monitorização,** selecione **Alertas** e clique **+ Nova Regra de Alerta**. A margem para o alvo já está definida na sua conta Desmótica.
 
 ### <a name="configure-alert-criteria"></a>Configurar critérios de alerta
 
@@ -77,7 +77,7 @@ Uma vez que a métrica já não esteja fora do limiar definido, o alerta é desa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Continue a conhecer o seguinte artigo para saber sobre outras formas de integrar alertas na sua Conta de Automação.
+Continue a conhecer o seguinte artigo para saber sobre outras formas de integrar alertas na sua conta De automação.
 
 > [!div class="nextstepaction"]
 > [Use um alerta para desencadear um livro de execução da Automação Azure](automation-create-alert-triggered-runbook.md)

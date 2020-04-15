@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições políticas são usadas para estabelecer convenções para os recursos azure na sua organização.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: e6b1d5c43f290fc2dd953492440670608a15faca
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 017878c4c47a5645ea8815580d2176c7a2ff5d66
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80638084"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314021"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -252,11 +252,13 @@ Uma condição avalia se um **campo** ou o acessório de **valor** satisfaz dete
 - `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
-- `"less": "value"`
-- `"lessOrEquals": "value"`
-- `"greater": "value"`
-- `"greaterOrEquals": "value"`
+- `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
+- `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
+- `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
+
+Para **menos**, **lessOrEquals**, **maiores**, e **maiorEsOrEquals**, se o tipo de propriedade não corresponder ao tipo de condição, um erro é lançado. As comparações `InvariantCultureIgnoreCase`de cordas são feitas usando .
 
 Ao utilizar as condições **similares** e `*` **não semelhantes,** fornece um wildcard no valor.
 O valor não deve ter `*`mais do que um wildcard.

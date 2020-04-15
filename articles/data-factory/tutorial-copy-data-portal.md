@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 0e4214466a2650df833cebd704577114b8818690
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 9e81efd826c78bfa1af5624272ae9b190cb54348
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81259699"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313897"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de blobs do Azure para a base de dados SQL com o Azure Data Factory
 Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O oleoduto desta fábrica de dados copia dados do armazenamento da Azure Blob para uma base de dados Azure SQL. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -199,11 +199,11 @@ Neste passo, vai acionar manualmente o pipeline que publicou no passo anterior.
 
 1. Vá para o separador **Monitorizar**, no lado esquerdo. Verá uma execução de pipeline que é acionada por um acionador manual. Pode utilizar links sob a coluna **PIPELINE NAME** para visualizar os detalhes da atividade e reexecutar o gasoduto.
 
-    ![Monitorizar execuções de pipeline](./media/tutorial-copy-data-portal/monitor-pipeline.png)
+    [![Monitorizar as corridas de gasodutos](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
 
 1. Para ver as operações associadas à execução do gasoduto, selecione a ligação **CopyPipeline** sob a coluna **PIPELINE NAME.** Neste exemplo, só há uma atividade, por isso só se vê uma entrada na lista. Para mais detalhes sobre o funcionamento da cópia, selecione o link **Detalhes** (ícone de óculos) sob a coluna **'NOME** DE ATIVIDADE'. Selecione **Todos os gasodutos que correm** na parte superior para voltar à vista Pipeline Runs. Para atualizar a vista, selecione **Atualizar**.
 
-    ![Monitorização de execuções de atividade](./media/tutorial-copy-data-portal/view-activity-runs.png)
+    [![Monitorizar as execuções de atividade](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
 1. Verifique se são adicionadas mais duas linhas à tabela **emp** na base de dados SQL.
 
@@ -243,7 +243,7 @@ Nesta agenda, vai criar um acionador de agenda para o pipeline. O acionador exec
 
 1. Vá para o separador **Monitorizar**, do lado esquerdo, para ver as execuções do pipeline acionadas.
 
-    ![Execuções de pipeline acionadas](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)   
+    [![Execuções de pipeline acionadas](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox)
 
 1. Para mudar da vista **Pipeline Runs** para a vista **'Disparos',** selecione **Disparos** de gatilho no lado esquerdo da janela.
 

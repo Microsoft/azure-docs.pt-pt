@@ -1,5 +1,5 @@
 ---
-title: Configure a rescisão sSL com certificados Key Vault - PowerShell
+title: Configure tLS terminação com certificados key vault - PowerShell
 titleSuffix: Azure Application Gateway
 description: Saiba como pode integrar o Portal de Aplicações Azure com o Key Vault para certificados de servidor que estão ligados a ouvintes com acesso a HTTPS.
 services: application-gateway
@@ -8,20 +8,20 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 15e10d34120ab5475f241235bbebeb0c7689ca14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1979f759f5a1b037adfd7b67a7be50cbba0f596f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371229"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312219"
 ---
-# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configure a rescisão do SSL com certificados key vault utilizando o Azure PowerShell
+# <a name="configure-tls-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configure a rescisão de TLS com certificados key vault utilizando o Azure PowerShell
 
-[O Azure Key Vault](../key-vault/key-vault-overview.md) é uma loja secreta gerida pela plataforma que pode usar para salvaguardar segredos, chaves e certificados SSL. O Portal de Aplicações Azure suporta a integração com o Key Vault para certificados de servidor que estão ligados a ouvintes com SUPORTE HTTPS. Este suporte está limitado ao Gateway de aplicação v2 SKU.
+[O Azure Key Vault](../key-vault/key-vault-overview.md) é uma loja secreta gerida pela plataforma que pode usar para salvaguardar segredos, chaves e certificados TLS/SSL. O Portal de Aplicações Azure suporta a integração com o Key Vault para certificados de servidor que estão ligados a ouvintes com SUPORTE HTTPS. Este suporte está limitado ao Gateway de aplicação v2 SKU.
 
-Para mais informações, consulte a [rescisão do SSL com certificados key vault](key-vault-certs.md).
+Para mais informações, consulte a [rescisão de TLS com certificados key vault](key-vault-certs.md).
 
-Este artigo mostra-lhe como usar um script Azure PowerShell para integrar o seu cofre chave com a sua porta de aplicação para certificados de rescisão SSL.
+Este artigo mostra-lhe como usar um script Azure PowerShell para integrar o seu cofre chave com o seu portal de aplicação para certificados de rescisão TLS/SSL.
 
 Este artigo requer a versão 1.0.0 ou posterior do módulo PowerShell Azure. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, também precisa de criar `Connect-AzAccount`uma ligação com o Azure executando .
 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> A bandeira -EnableSoftDelete deve ser utilizada para que a terminação SSL funcione corretamente. Se estiver a configurar o [soft-delete do Key Vault através do Portal,](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior)o período de retenção deve ser mantido em 90 dias, o valor predefinido. O Application Gateway ainda não suporta um período de retenção diferente. 
+> A bandeira -EnableSoftDelete deve ser utilizada para que a terminação do TLS funcione corretamente. Se estiver a configurar o [soft-delete do Key Vault através do Portal,](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior)o período de retenção deve ser mantido em 90 dias, o valor predefinido. O Application Gateway ainda não suporta um período de retenção diferente. 
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
@@ -102,7 +102,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### <a name="point-the-ssl-certificate-to-your-key-vault"></a>Aponte o certificado SSL para o seu cofre chave
+### <a name="point-the-tlsssl-certificate-to-your-key-vault"></a>Aponte o certificado TLS/SSL para o seu cofre chave
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
@@ -144,4 +144,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Saiba mais sobre a rescisão do SSL](ssl-overview.md)
+[Saiba mais sobre a rescisão de TLS](ssl-overview.md)

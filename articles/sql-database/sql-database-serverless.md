@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 4/3/2020
-ms.openlocfilehash: 07f29a01ae0128ba0a35504dea54ba1ae2dde944
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6a1d2f6079280002c868702a6547c8fd359a7c21
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657069"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310131"
 ---
 # <a name="azure-sql-database-serverless"></a>Base de dados Azure SQL sem servidor
 
@@ -138,6 +138,8 @@ O pressuposto automático é desencadeado se alguma das seguintes condições fo
 |Sincronização de dados SQL|Sincronização entre as bases de dados do hub e dos membros que funcionam numa programação configurável ou são realizadas manualmente|
 |Modificação de certos metadados de base de dados|Adicionando novas etiquetas de base de dados.<br>Alterar vCores max, min vCores ou atraso de pausa automática.|
 |SQL Server Management Studio (SSMS)|A utilização de versões SSMS antes do dia 18.1 e a abertura de uma nova janela de consulta para qualquer base de dados no servidor retomará qualquer base de dados de pausa automática no mesmo servidor. Este comportamento não ocorre se utilizar a versão SSMS 18.1 ou posterior.|
+
+A monitorização, gestão ou outras soluções que executem qualquer uma das operações acima listadas desencadearão o reinício automático.
 
 O auto-aviso também é desencadeado durante a implementação de algumas atualizações de serviço que exigem que a base de dados esteja online.
 

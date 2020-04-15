@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: f5aaf8adf33d27f8ebb99c8ca3a873d958632a4f
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616836"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314296"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Gestão de modelos, implantação e monitorização com Aprendizagem automática Azure
 
@@ -124,6 +124,16 @@ Para implementar o modelo como um serviço web, deve fornecer os seguintes itens
 
 Para mais informações, consulte [os modelos Deploy](how-to-deploy-and-where.md).
 
+#### <a name="controlled-rollout"></a>Rollout controlado
+
+Ao ser implantado no Serviço Azure Kubernetes, pode utilizar o lançamento controlado para permitir os seguintes cenários:
+
+* Criar várias versões de um ponto final para uma implementação
+* Efetuar testes A/B encaminhando o tráfego para diferentes versões do ponto final.
+* Alterna entre versões de ponto final atualizando a percentagem de tráfego na configuração do ponto final.
+
+Para obter mais informações, consulte o [lançamento controlado dos modelos ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
+
 #### <a name="iot-edge-devices"></a>Dispositivos IoT Edge
 
 Pode utilizar modelos com dispositivos IoT através de **módulos Azure IoT Edge**. Os módulos IoT Edge são implantados num dispositivo de hardware, que permite inferência, ou pontuação de modelo, no dispositivo.
@@ -136,12 +146,20 @@ O Microsoft Power BI suporta a utilização de modelos de machine learning para 
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Capturar os dados de governação necessários para capturar o ciclo de vida ml final
 
-O Azure ML dá-lhe a capacidade de rastrear o rasto de auditoria de ponta a ponta de todos os seus ativos ml. Mais concretamente:
+O Azure ML dá-lhe a capacidade de rastrear o rasto de auditoria de ponta a ponta de todos os seus ativos ML utilizando metadados.
 
 - O Azure ML [integra-se com](how-to-set-up-training-targets.md#gitintegration) a Git para rastrear informações sobre as quais veio o repositório/ramo/ comprometer o seu código.
-- [Os Conjuntos](how-to-create-register-datasets.md) de Dados Azure ML ajudam-no a rastrear, perfil e versão dados. 
+- [Os Conjuntos](how-to-create-register-datasets.md) de Dados Azure ML ajudam-no a rastrear, perfil e versão dados.
+- [A interpretação](how-to-machine-learning-interpretability.md) permite-lhe explicar os seus modelos, cumprir a conformidade regulamentar e compreender como os modelos chegam a um resultado para determinada entrada.
 - O histórico azure ML Run armazena uma imagem instantânea do código, dados e cálculos usados para treinar um modelo.
 - O Registo do Modelo Azure ML captura todos os metadados associados ao seu modelo (que experiência o treinou, onde está a ser implantado, se as suas implementações forem saudáveis).
+- [A integração com](concept-event-grid-integration.md) a Azure Event Grid permite-lhe atuar em eventos no ciclo de vida ml. Por exemplo, registo de modelos, implantação, deriva de dados e eventos de formação (executar).
+
+> [!TIP]
+> Enquanto algumas informações sobre modelos e conjuntos de dados são automaticamente capturadas, pode adicionar informações adicionais utilizando __tags__. Ao procurar modelos e conjuntos de dados registados no seu espaço de trabalho, pode utilizar etiquetas como filtro.
+>
+> Associar um conjunto de dados a um modelo registado é um passo opcional. Para obter informações sobre a referência a um conjunto de dados ao registar um modelo, consulte a referência da classe [Modelo.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py)
+
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notificar, automatizar e alertar sobre os acontecimentos no ciclo de vida ml
 O Azure ML publica eventos-chave para a Azure EventGrid, que pode ser usada para notificar e automatizar eventos no ciclo de vida ml. Para mais informações, por favor leia as informações sobre [este documento.](how-to-use-event-grid.md)
@@ -157,7 +175,7 @@ Para mais informações, consulte Como ativar a recolha de dados do [modelo.](ho
 
 ## <a name="retrain-your-model-on-new-data"></a>Retrete o seu modelo em novos dados
 
-Muitas vezes, vai querer atualizar o seu modelo, ou até mesmo retreiná-lo do zero, uma vez que recebe novas informações. Às vezes, receber novos dados é uma parte esperada do domínio. Outras vezes, como discutido no [Detect data drift (pré-visualização) em conjuntos](how-to-monitor-datasets.md)de dados, o desempenho do modelo pode degradar-se face a coisas como alterações a um determinado sensor, alterações de dados naturais, tais como efeitos sazonais, ou funcionalidades que mudam na sua relação com outras funcionalidades. 
+Muitas vezes, vai querer validar o seu modelo, atualizá-lo ou até treiná-lo do zero, uma vez que recebe novas informações. Às vezes, receber novos dados é uma parte esperada do domínio. Outras vezes, como discutido no [Detect data drift (pré-visualização) em conjuntos](how-to-monitor-datasets.md)de dados, o desempenho do modelo pode degradar-se face a coisas como alterações a um determinado sensor, alterações de dados naturais, tais como efeitos sazonais, ou funcionalidades que mudam na sua relação com outras funcionalidades. 
 
 Não há resposta universal para "Como sei se devo voltar a treinar?" mas o evento Azure ML e as ferramentas de monitorização anteriormente discutidas são bons pontos de partida para a automação. Uma vez que tenha decidido voltar a treinar, deve: 
 

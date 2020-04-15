@@ -1,14 +1,14 @@
 ---
 title: Use parâmetros para criar plantas dinâmicas
 description: Aprenda sobre parâmetros estáticos e dinâmicos e como usá-los para criar plantas seguras e dinâmicas.
-ms.date: 03/12/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 36735d71b746301819e5079aba1697b55fe5e183
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ed596db2050ac788c2d98c63cb7314de473b5f4e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677590"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383604"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de plantas dinâmicas através de parâmetros
 
@@ -28,8 +28,7 @@ Através da API REST, os parâmetros podem ser criados na própria planta. Estes
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Utilizando parâmetros SecureString e SecureObject
 
-Enquanto um _artefacto_ de modelo de Gestor de Recursos suporta parâmetros dos tipos **secureString** e **secureObject,** as plantas azure exigem que cada um seja ligado a um Cofre de Chave Azure.
-Esta medida de segurança impede a prática insegura de armazenar segredos juntamente com o Projeto e incentiva o emprego de padrões seguros. A Azure Blueprints apoia esta medida de segurança, detetando a inclusão de um parâmetro seguro num _artefacto_de modelo do Gestor de Recursos. O serviço solicita então durante a atribuição das seguintes propriedades do Cofre chave por parâmetro seguro detetado:
+Enquanto um _artefacto_ de modelo de Gestor de Recursos suporta parâmetros dos tipos **secureString** e **secureObject,** as plantas azure exigem que cada um seja ligado a um Cofre de Chave Azure. Esta medida de segurança impede a prática insegura de armazenar segredos juntamente com o Projeto e incentiva o emprego de padrões seguros. A Azure Blueprints apoia esta medida de segurança, detetando a inclusão de um parâmetro seguro num _artefacto_de modelo do Gestor de Recursos. O serviço solicita então durante a atribuição das seguintes propriedades do Cofre chave por parâmetro seguro detetado:
 
 - ID de recurso chave vault
 - Nome secreto do cofre chave
@@ -62,11 +61,11 @@ Um valor parâmetro definido na definição de uma planta é chamado **de parâm
 
 1. Artefactos adicionados à planta que têm opções de parâmetros mostram **parâmetros X de Y povoados** na coluna **Parâmetros.** Clique na linha do artefacto para editar os parâmetros do artefacto.
 
-   ![Parâmetros de planta numa definição de planta](../media/parameters/parameter-column.png)
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parâmetros de planta numa definição de planta" border="false":::
 
 1. A página **Editar Artefacto** exibe opções de valor adequadas ao artefacto clicado. Cada parâmetro no artefacto tem um título, uma caixa de valor e uma caixa de verificação. Coloque a caixa desmarcada para torná-la um **parâmetro estático**. No exemplo abaixo, apenas a _localização_ é um **parâmetro estático,** uma vez que não é verificado e o Nome do _Grupo de Recursos_ é verificado.
 
-   ![Parâmetros estáticos de planta em um artefacto de planta](../media/parameters/static-parameter.png)
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Parâmetros estáticos de planta em um artefacto de planta" border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Definição de parâmetros estáticos da API REST
 
@@ -177,7 +176,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico.** Este parâme
 
 1. Na página de **design de atribuição,** encontre a secção de **parâmetros do Artefacto.** Cada artefacto com pelo menos um **parâmetro dinâmico** exibe o artefacto e as opções de configuração. Forneça os valores necessários aos parâmetros antes de atribuir a planta. No exemplo abaixo, o _Nome_ é um **parâmetro dinâmico** que deve ser definido para completar a atribuição do projeto.
 
-   ![Parâmetro dinâmico de planta durante a atribuição da planta](../media/parameters/dynamic-parameter.png)
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Parâmetro dinâmico de planta durante a atribuição da planta" border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definição de parâmetros dinâmicos da Rest API
 

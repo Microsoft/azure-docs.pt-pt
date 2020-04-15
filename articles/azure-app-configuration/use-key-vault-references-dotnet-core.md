@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 01/21/2020
+ms.date: 04/08/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: eceb4a9d4e0cc84166280f30b094b82088f53a4a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4641c50f0579e2a8db514df58c0401eb2173d793
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79475311"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309057"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Use referências chave vault em uma aplicação ASP.NET Core
 
@@ -82,7 +82,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Adicione uma referência chave vault à configuração da aplicação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). **Selecione Todos os recursos**e, em seguida, selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). **Selecione Todos os recursos**e, em seguida, selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
 1. Selecione Explorador de **Configuração**.
 
@@ -160,14 +160,12 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 1. Adicione uma referência aos pacotes NuGet necessários executando o seguinte comando:
 
     ```dotnetcli
-    dotnet add package Microsoft.Azure.KeyVault
     dotnet add package Azure.Identity
     ```
 
 1. Abra *Program.cs*e adicione referências aos seguintes pacotes necessários:
 
     ```csharp
-    using Microsoft.Azure.KeyVault;
     using Azure.Identity;
     ```
 

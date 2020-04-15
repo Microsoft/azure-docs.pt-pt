@@ -3,12 +3,12 @@ title: Como criar políticas de configuração de hóspedes para Windows
 description: Saiba como criar uma política azure de configuração de hóspedes para windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 24069ff6518c4244026378e48216d4568fffeb8a
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: deb51cf502d26dc994bf74ef3cb0c728f624afde
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365465"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313986"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de configuração de hóspedes para Windows
 
@@ -73,7 +73,11 @@ Para uma visão geral dos conceitos dSC e terminologia, consulte [powerShell DSC
 
 ### <a name="how-guest-configuration-modules-differ-from-windows-powershell-dsc-modules"></a>Como os módulos de configuração do hóspede diferem dos módulos DSC do Windows PowerShell
 
-Quando a Configuração do Hóspede `Test-TargetResource` audita uma máquina, funciona primeiro para determinar se está no estado correto. O valor booleano devolvido pela função determina se o estatuto de Gestor de Recursos Azure para a Atribuição de Hóspedes deve ser conforme/não conforme. Em seguida, `Get-TargetResource` o fornecedor corre para devolver o estado atual de cada configuração para que os detalhes estejam disponíveis tanto sobre o porquê de uma máquina não estar em conformidade, como para confirmar que o estado atual está em conformidade.
+Quando a Configuração do Hóspede audita uma máquina:
+
+1. O agente `Test-TargetResource` corre primeiro para determinar se a configuração está no estado correto.
+1. O valor booleano devolvido pela função determina se o estatuto de Gestor de Recursos Azure para a Atribuição de Hóspedes deve ser conforme/não conforme.
+1. O fornecedor `Get-TargetResource` corre para devolver o estado atual de cada configuração para que os detalhes estejam disponíveis tanto sobre o porquê de uma máquina não estar em conformidade e confirmar que o estado atual está em conformidade.
 
 ### <a name="get-targetresource-requirements"></a>Requisitos de Get-TargetResource
 
@@ -102,6 +106,25 @@ return @{
     reasons = $reasons
 }
 ```
+
+A propriedade Reasons também deve ser adicionada ao esquema MOF para o recurso como uma classe incorporada.
+
+```mof
+[ClassVersion("1.0.0.0")] 
+class Reason
+{
+    [Read] String Phrase;
+    [Read] String Code;
+};
+
+[ClassVersion("1.0.0.0"), FriendlyName("ResourceName")]
+class ResourceName : OMI_BaseResource
+{
+    [Key, Description("Example description")] String Example;
+    [Read, EmbeddedInstance("Reason")] String Reasons[];
+};
+```
+
 ### <a name="configuration-requirements"></a>Requisitos de configuração
 
 O nome da configuração personalizada deve ser consistente em todo o lado. O nome do ficheiro .zip para o pacote de conteúdo, o nome de configuração no ficheiro MOF e o nome de atribuição de hóspedes no modelo de Gestor de Recursos, devem ser os mesmos.
@@ -134,7 +157,7 @@ Também poderia implementar [o ponto final](../../../storage/common/storage-netw
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Passo a passo, criando uma política de auditoria personalizada de Configuração de Hóspedes para windows
 
-Criar uma configuração DSC. O seguinte exemplo de script PowerShell cria uma configuração chamada **AuditBitLocker,** importa `Service` o módulo de recursos **psDscResources,** e usa o recurso para auditar para um serviço de execução. O script de configuração pode ser executado a partir de uma máquina Windows ou macOS.
+Crie uma configuração DSC para auditar definições. O seguinte exemplo de script PowerShell cria uma configuração chamada **AuditBitLocker,** importa `Service` o módulo de recursos **psDscResources,** e usa o recurso para auditar para um serviço de execução. O script de configuração pode ser executado a partir de uma máquina Windows ou macOS.
 
 ```powershell
 # Define the DSC configuration and import GuestConfiguration
@@ -160,7 +183,7 @@ O `Node AuditBitlocker` comando não é tecnicamente necessário, mas `AuditBitl
 
 Uma vez compilado o MOF, os ficheiros de suporte devem ser embalados em conjunto. O pacote completo é utilizado pela Configuração do Hóspede para criar as definições de Política Azure.
 
-O `New-GuestConfigurationPackage` cmdlet cria a embalagem. Parâmetros do `New-GuestConfigurationPackage` cmdlet ao criar conteúdo windows:
+O `New-GuestConfigurationPackage` cmdlet cria a embalagem. Os módulos necessários pela configuração `$Env:PSModulePath`devem estar disponíveis em . Parâmetros do `New-GuestConfigurationPackage` cmdlet ao criar conteúdo windows:
 
 - **Nome**: Nome do pacote de configuração do hóspede.
 - **Configuração**: Documento de configuração DSC compilado caminho completo.
@@ -176,7 +199,7 @@ New-GuestConfigurationPackage `
 
 Depois de criar o pacote de configuração, mas antes de publicá-lo no Azure, pode testar o pacote a partir da sua estação de trabalho ou ambiente CI/CD. O cmdlet `Test-GuestConfigurationPackage` GuestConfiguration inclui o mesmo agente no seu ambiente de desenvolvimento que é usado dentro das máquinas Azure. Utilizando esta solução, pode fazer testes de integração localmente antes de lançar para ambientes de nuvem faturada.
 
-Uma vez que o agente está realmente a avaliar o ambiente local, na maioria dos casos é preciso executar o Teste-cmdlet na mesma plataforma de SO que planeia auditar.
+Uma vez que o agente está realmente a avaliar o ambiente local, na maioria dos casos é preciso executar o Teste-cmdlet na mesma plataforma de SO que planeia auditar. O teste utilizará apenas módulos incluídos no pacote de conteúdos.
 
 Parâmetros do `Test-GuestConfigurationPackage` cmdlet:
 

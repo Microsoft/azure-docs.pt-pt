@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: ea65956a73874b717ecab25d83ed25b59f2ada55
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: f70c24c91e048270696b244bb9775cb24f0ef30d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257254"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383481"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Empregos de experimentação e inferência secure Azure ML dentro de uma Rede Virtual Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -484,6 +484,21 @@ O conteúdo `body.json` do ficheiro referenciado pelo comando é semelhante ao s
 > Atualmente, não é possível configurar o equilibrista de carga ao executar uma operação __de fixação__ num cluster existente. Primeiro, tem de fixar o cluster e, em seguida, executar uma operação de atualização para alterar o equilíbrio de carga.
 
 Para obter mais informações sobre a utilização do equilibrador de carga interna com AKS, consulte [Utilize o equilibrador de carga interno com o Serviço Azure Kubernetes](/azure/aks/internal-lb).
+
+## <a name="use-azure-container-instances-aci"></a>Utilizar instâncias de contentores Azure (ACI)
+
+As instâncias de contentores Azure são criadas dinamicamente ao implementar um modelo. Para permitir que o Azure Machine Learning crie ACI dentro da rede virtual, deve permitir a delegação de __sub-rede__ para a sub-rede utilizada pela implantação.
+
+Para utilizar o ACI numa rede virtual para o seu espaço de trabalho, utilize os seguintes passos:
+
+1. Para permitir a delegação de sub-redes na sua rede virtual, utilize as informações no Add ou remova um artigo de delegação de [sub-rede.](../virtual-network/manage-subnet-delegation.md) Pode permitir a delegação na criação de uma rede virtual ou adicioná-la a uma rede existente.
+
+    > [!IMPORTANT]
+    > Ao permitir a `Microsoft.ContainerInstance/containerGroups` delegação, utilize como __sub-rede delegado o__ valor do serviço.
+
+2. Implementar o modelo utilizando [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-)() use os `vnet_name` e `subnet_name` os parâmetros. Defina estes parâmetros para o nome e subrede de rede virtual onde permitiu a delegação.
+
+
 
 ## <a name="use-azure-firewall"></a>Utilizar firewall Azure
 

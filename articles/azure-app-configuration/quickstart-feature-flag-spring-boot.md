@@ -4,14 +4,14 @@ description: Adicione bandeiras de funcionalidade sabotadas e gerencie-as usando
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 01/21/2020
+ms.date: 04/13/2020
 ms.author: lcozzens
-ms.openlocfilehash: 489bc0234580e8df8dcc85c1d3cc0add547818b1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 398005b37660cfa68936a0c8b3a3d90da8160e49
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78944346"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309077"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação spring boot
 
@@ -103,7 +103,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 1. Navegue `resources` para o diretório `bootstrap.properties`da sua app e abra.  Se o ficheiro não existir, crie-o. Adicione a seguinte linha ao ficheiro.
 
     ```properties
-    spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. No portal de configuração da aplicação para a sua loja de config, selecione `Access keys` a partir da barra lateral. Selecione o separador de teclas apenas para leitura. Copiar o valor da cadeia de ligação primária.
@@ -283,7 +283,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
     mvn spring-boot:run
     ```
 
-1. Abra uma janela do navegador e vá ao URL padrão `https://localhost:8080`para uma aplicação web localmente hospedada: .
+1. Abra uma janela do navegador e `http://localhost:8080/welcome`vá ao URL: .
 
     ![Lançamento de app Quickstart local](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 

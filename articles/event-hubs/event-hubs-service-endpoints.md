@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 6de51c23bd6358a6f54fe3baf9e9b256047d4ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abd7940551f7a8182364475b0cf50b60afb5e1b7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064900"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313799"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utilize pontos finais de serviço de rede virtual com hubs de eventos Azure
 
@@ -25,6 +25,22 @@ A integração de Hubs de Eventos com Pontos finais de Serviço de [Rede Virtual
 Uma vez configurado para vincular-se a pelo menos um ponto final de serviço de rede virtual, o respetivo espaço de nome sem nome do Event Hubs já não aceita tráfego de qualquer lugar, mas autorizado subredes em redes virtuais. Do ponto de vista da rede virtual, vincular um espaço de nome do Event Hubs a um ponto final de serviço configura um túnel de rede isolado da subnet da rede virtual para o serviço de mensagens. 
 
 O resultado é uma relação privada e isolada entre as cargas de trabalho ligadas à subnet e o respetivo espaço de nome sem nome do Event Hubs, apesar do endereço de rede observável do ponto final do serviço de mensagens estar numa gama de IP pública. Há uma exceção a este comportamento. Ativar um ponto final de serviço, `denyall` por defeito, permite a regra na [firewall IP](event-hubs-ip-filtering.md) associada à rede virtual. Pode adicionar endereços IP específicos na firewall IP para permitir o acesso ao ponto final do Event Hub. 
+
+>[!WARNING]
+> A implementação da integração das Redes Virtuais pode impedir que outros serviços Azure interajam com os Centros de Eventos.
+>
+> Os serviços fidedignos da Microsoft não são suportados quando as Redes Virtuais são implementadas.
+>
+> Cenários Comuns Azure que não funcionam com Redes Virtuais (note que a lista **NÃO** é exaustiva) -
+> - Azure Stream Analytics
+> - Integração com a Grelha de Eventos Azure
+> - Rotas do Hub Azure IoT
+> - Explorador de dispositivos Azure IoT
+>
+> Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
+> - Aplicações Web do Azure
+> - Funções do Azure
+
 
 > [!IMPORTANT]
 > As redes virtuais são suportadas em níveis **standard** e **dedicados** de Centros de Eventos. Não é suportado no nível **básico.**
@@ -35,7 +51,7 @@ As soluções que requerem segurança apertada e compartimentada, e onde as rede
 
 Qualquer rota IP imediata entre os compartimentos, incluindo os que transportam HTTPS sobre TCP/IP, acarreta o risco de exploração de vulnerabilidades da camada de rede para cima. Os serviços de mensagens fornecem caminhos de comunicação isolados, onde as mensagens são até escritas em disco à medida que transitam entre as partes. As cargas de trabalho em duas redes virtuais distintas que estão ambas ligadas ao mesmo caso de Hubs de Eventos podem comunicar de forma eficiente e fiável através de mensagens, enquanto a respetiva integridade de fronteira de isolamento da rede é preservada.
  
-Isto significa que as suas soluções de nuvem sensíveis à segurança não só têm acesso a capacidades de mensagens assíncronas fiáveis e escaláveis da indústria Azure, como podem agora usar mensagens para criar caminhos de comunicação entre compartimentos de solução segura que são inerentemente mais seguros do que o que é alcançável com qualquer modo de comunicação peer-to-peer, incluindo HTTPS e outros protocolos de tomada seleções protegidos por TLS.
+Isto significa que as suas soluções de nuvem sensíveis à segurança não só têm acesso a capacidades de mensagens assíncronas fiáveis e escaláveis, como podem agora utilizar mensagens para criar caminhos de comunicação entre compartimentos de solução segura que são inerentemente mais seguros do que o que é possível com qualquer modo de comunicação entre pares, incluindo HTTPS e outros protocolos de tomada seletivos protegidos por TLS.
 
 ## <a name="bind-event-hubs-to-virtual-networks"></a>Ligar centros de eventos a redes virtuais
 

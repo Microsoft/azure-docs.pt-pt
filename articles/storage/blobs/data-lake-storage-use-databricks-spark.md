@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: be5a2f76a99149fde378d29f2ef7748ebe60b038
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5889afa033b30606f8981ddb826aa192f24efa10
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78303244"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312903"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
@@ -47,7 +47,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
   > [!IMPORTANT]
   > Certifique-se de atribuir o papel no âmbito da conta de armazenamento gen2 de armazenamento do Lago de Dados. Pode atribuir uma função ao grupo de recursos-mãe ou subscrição, mas receberá erros relacionados com permissões até que essas atribuições de funções se propaguem na conta de armazenamento.
 
-  :heavy_check_mark: Ao executar os passos nos [valores Get para assinar na](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colar o ID do inquilino, id da aplicação e valores de palavra-passe em um ficheiro de texto. Vai precisar disso em breve.
+  :heavy_check_mark: Ao executar os passos nos [valores Get para assinar na](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colar o ID do inquilino, id da aplicação e valores secretos do cliente em um ficheiro de texto. Vai precisar disso em breve.
 
 ### <a name="download-the-flight-data"></a>Transferir os dados de voos
 
@@ -74,7 +74,7 @@ Nesta secção, cria-se um serviço Azure Databricks utilizando o portal Azure.
     |Propriedade  |Descrição  |
     |---------|---------|
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks.  |
-    |**Assinatura**     | Na lista pendente, selecione a sua subscrição do Azure.        |
+    |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../azure-resource-manager/management/overview.md). |
     |**Localização**     | Selecione **E.U.A. Oeste 2**. Para outras regiões disponíveis, veja [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).       |
     |**Nível de Preços**     |  Selecione **Standard**.     |
@@ -151,7 +151,7 @@ Nesta secção, irá criar um recipiente e uma pasta na sua conta de armazenamen
     configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
            "fs.azure.account.oauth2.client.id": "<appId>",
-           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.secret": "<clientSecret>",
            "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
@@ -161,7 +161,7 @@ Nesta secção, irá criar um recipiente e uma pasta na sua conta de armazenamen
     extra_configs = configs)
     ```
 
-18. Neste bloco de código, `password` `tenant`substitua `storage-account-name` os `appId`valores de , , e espaço reservado neste bloco de código supor os valores que recolheu ao completar os pré-requisitos deste tutorial. Substitua `container-name` o valor do espaço reservado pelo nome do recipiente.
+18. Neste bloco de código, `clientSecret` `tenant`substitua `storage-account-name` os `appId`valores de , , e espaço reservado neste bloco de código supor os valores que recolheu ao completar os pré-requisitos deste tutorial. Substitua `container-name` o valor do espaço reservado pelo nome do recipiente.
 
 19. Prima as teclas **SHIFT + ENTER** para executar o código neste bloco.
 

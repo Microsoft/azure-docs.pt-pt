@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Realizar operações ETL utilizando tijolos de dados Azure
-description: Neste tutorial, aprenda a extrair dados do Data Lake Storage Gen2 em Tijolos de Dados Azure, transforme os dados e, em seguida, carregue os dados no Azure SQL Data Warehouse.
+description: Neste tutorial, aprenda a extrair dados do Data Lake Storage Gen2 em Tijolos de Dados Azure, transforme os dados e, em seguida, carregue os dados em Azure Synapse Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
@@ -8,22 +8,22 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 8819b79a105b7a654a34e47c5ba9b3d351a1d926
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: fa7750a6e7888b6ca13c1ec32cabee9bcf803e65
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239418"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382727"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados utilizando os Databricks Azure
 
-Neste tutorial, realiza uma operação ETL (extrair, transformar e carregar dados) utilizando os Bricks Azure. Extrai dados do Azure Data Lake Storage Gen2 em Azure Databricks, executa transformações nos dados em Tijolos de Dados Azure e carrega os dados transformados em Azure SQL Data Warehouse.
+Neste tutorial, realiza uma operação ETL (extrair, transformar e carregar dados) utilizando os Bricks Azure. Extrai dados do Azure Data Lake Storage Gen2 em Azure Databricks, executa transformações nos dados em Tijolos de Dados Azure e carrega os dados transformados em Azure Synapse Analytics.
 
-Os passos neste tutorial utilizam o conector SQL Data Warehouse para o Azure Databricks para transferir dados para este último serviço. Por sua vez, este conector utiliza o Armazenamento de Blobs do Azure como armazenamento temporário para os dados que estão a ser transferidos entre um cluster do Azure Databricks e o Azure SQL Data Warehouse.
+Os passos neste tutorial utilizam o conector Azure Synapse para os Tijolos de Dados Azure para transferir dados para os Tecidos De dados do Azure. Este conector, por sua vez, utiliza o Armazenamento Azure Blob como armazenamento temporário para os dados que são transferidos entre um cluster Azure Databricks e Azure Synapse.
 
 A ilustração seguinte mostra o fluxo da aplicação:
 
-![Tijolos de dados azure com Data Lake Store e Armazém de Dados SQL](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Tijolos de dados azure com Data Lake Store e Armazém de Dados SQL")
+![Tijolos de dados azure com Data Lake Store e Azure Synapse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Tijolos de dados azure com Data Lake Store e Azure Synapse")
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -35,7 +35,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Crie um diretor de serviço.
 > * Extrair dados da conta De armazenamento de lagos Azure Data Gen2.
 > * Transforme dados em Tijolos de Dados Azure.
-> * Carregue os dados no Armazém de Dados Azure SQL.
+> * Carregue os dados em Azure Synapse.
 
 Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -47,9 +47,9 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 Complete estas tarefas antes de iniciar este tutorial:
 
-* Crie um armazém de dados Azure SQL, crie uma regra de firewall ao nível do servidor e ligue-se ao servidor como administrador do servidor. Ver [Quickstart: Criar e consultar um armazém de dados Azure SQL no portal Azure](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* Crie um Azure Synapse, crie uma regra de firewall ao nível do servidor e ligue-se ao servidor como administrador do servidor. Ver [Quickstart: Criar e consultar uma piscina SQL Synapse utilizando o portal Azure](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
-* Crie uma chave principal para o armazém de dados Azure SQL. Ver [Criar uma chave de base de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
+* Crie uma chave-mestra para o Azure Synapse. Ver [Criar uma chave de base de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
 * Crie uma conta de armazenamento de Blobs do Azure e um contentor no mesmo. Obtenha também a chave de acesso para aceder à conta de armazenamento. Ver [Quickstart: Upload, download e lista de bolhas com o portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
@@ -63,9 +63,9 @@ Complete estas tarefas antes de iniciar este tutorial:
 
       Se preferir utilizar uma lista de controlo de acesso (ACL) para associar o diretor de serviço a um ficheiro ou diretório específico, referência Controlo de [acesso em Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
-   * Ao executar os passos nos [valores Get para assinar na](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colhe o ID do inquilino, o ID da aplicação e os valores secretos num ficheiro de texto. Vai precisar disso em breve.
+   * Ao executar os passos nos [valores Get para assinar na](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colhe o ID do inquilino, o ID da aplicação e os valores secretos num ficheiro de texto.
 
-* Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="gather-the-information-that-you-need"></a>Reúna a informação de que precisa
 
@@ -73,7 +73,7 @@ Certifique-se de que completa os pré-requisitos deste tutorial.
 
    Antes de começar, deve ter estes itens de informação:
 
-   :heavy_check_mark: O nome da base de dados, o nome do servidor de base de dados, o nome do utilizador e a palavra-passe do seu armazém de dados Azure SQL.
+   :heavy_check_mark: O nome da base de dados, o nome do servidor de base de dados, o nome do utilizador e a palavra-passe do seu Azure Synapse.
 
    :heavy_check_mark: A chave de acesso da sua conta de armazenamento blob.
 
@@ -104,7 +104,7 @@ Nesta secção, cria-se um serviço Azure Databricks utilizando o portal Azure.
     |Propriedade  |Descrição  |
     |---------|---------|
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks.        |
-    |**Assinatura**     | Na lista pendente, selecione a sua subscrição do Azure.        |
+    |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../azure-resource-manager/management/overview.md). |
     |**Localização**     | Selecione **E.U.A. Oeste 2**.  Para outras regiões disponíveis, veja [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).      |
     |**Nível de Preços**     |  Selecione **Standard**.     |
@@ -316,11 +316,11 @@ Os dados da amostra crua **small_radio_json ficheiro.json** captura o público p
    +---------+----------+------+--------------------+-----------------+
    ```
 
-## <a name="load-data-into-azure-sql-data-warehouse"></a>Carregar dados para o Azure SQL Data Warehouse
+## <a name="load-data-into-azure-synapse"></a>Carregue os dados em Azure Synapse
 
-Nesta secção, vai carregar os dados transformados para o Azure SQL Data Warehouse. Utiliza o conector Azure SQL Data Warehouse para os Bricks Azure para fazer o upload direto de um dataframe como tabela num armazém de dados SQL.
+Nesta secção, você envia os dados transformados em Azure Synapse. Utilize o conector Azure Synapse para Os Tijolos de Dados Azure para fazer o upload direto de uma moldura de dados como uma tabela numa piscina synapse Spark.
 
-Como mencionado anteriormente, o conector SQL Data Warehouse utiliza o armazenamento Azure Blob como armazenamento temporário para fazer upload de dados entre os Databricks Azure e o Azure SQL Data Warehouse. Assim, comece por indicar a configuração para ligar à conta de armazenamento. Já deve ter criado a conta como parte dos pré-requisitos para este artigo.
+Como mencionado anteriormente, o conector Azure Synapse utiliza o armazenamento Azure Blob como armazenamento temporário para carregar dados entre os Databricks Azure e o Azure Synapse. Assim, comece por indicar a configuração para ligar à conta de armazenamento. Já deve ter criado a conta como parte dos pré-requisitos para este artigo.
 
 1. Indique a configuração para aceder à conta de Armazenamento do Azure a partir do Azure Databricks.
 
@@ -330,7 +330,7 @@ Como mencionado anteriormente, o conector SQL Data Warehouse utiliza o armazenam
    val blobAccessKey =  "<access-key>"
    ```
 
-2. Especifique uma pasta temporária para utilizar ao mover dados entre os Databricks Azure e o Azure SQL Data Warehouse.
+2. Especifique uma pasta temporária para utilizar ao mover dados entre os Databricks Azure e o Azure Synapse.
 
    ```scala
    val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
@@ -343,10 +343,10 @@ Como mencionado anteriormente, o conector SQL Data Warehouse utiliza o armazenam
    sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
    ```
 
-4. Indique os valores para ligar à instância do Azure SQL Data Warehouse. Deve ter criado um armazém de dados SQL como pré-requisito. Utilize o nome do servidor totalmente qualificado para **dwServer**. Por exemplo, `<servername>.database.windows.net`.
+4. Forneça os valores para se ligar à instância Azure Synapse. Deve ter criado um serviço Azure Synapse Analytics como pré-requisito. Utilize o nome do servidor totalmente qualificado para **dwServer**. Por exemplo, `<servername>.database.windows.net`.
 
    ```scala
-   //SQL Data Warehouse related settings
+   //Azure Synapse related settings
    val dwDatabase = "<database-name>"
    val dwServer = "<database-server-name>"
    val dwUser = "<user-name>"
@@ -357,7 +357,7 @@ Como mencionado anteriormente, o conector SQL Data Warehouse utiliza o armazenam
    val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
    ```
 
-5. Executar o seguinte corte para carregar o quadro de dados transformado, **renomeadoColumnsDF,** como uma tabela num armazém de dados SQL. Este fragmento cria uma tabela chamada **SampleTable** na base de dados SQL.
+5. Executar o seguinte corte para carregar o quadro de dados transformado, **renomeadoColumnsDF,** como uma tabela em Azure Synapse. Este fragmento cria uma tabela chamada **SampleTable** na base de dados SQL.
 
    ```scala
    spark.conf.set(
@@ -368,9 +368,9 @@ Como mencionado anteriormente, o conector SQL Data Warehouse utiliza o armazenam
    ```
 
    > [!NOTE]
-   > Esta amostra `forward_spark_azure_storage_credentials` utiliza a bandeira, o que faz com que o SQL Data Warehouse aceda a dados do armazenamento de blob utilizando uma Chave de Acesso. Este é o único método de autenticação suportado.
+   > Esta amostra `forward_spark_azure_storage_credentials` utiliza a bandeira, o que faz com que o Azure Synapse aceda a dados do armazenamento de blob utilizando uma Chave de Acesso. Este é o único método de autenticação suportado.
    >
-   > Se o seu Armazenamento De Blob Azure estiver restrito para selecionar redes virtuais, o SQL Data Warehouse requer identidade de [serviço gerida em vez de Chaves de Acesso](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Isto causará o erro "Este pedido não está autorizado a executar esta operação."
+   > Se o seu Armazenamento Azure Blob estiver restrito a selecionar redes virtuais, o Azure Synapse requer identidade de [serviço gerida em vez de Chaves de Acesso](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Isto causará o erro "Este pedido não está autorizado a executar esta operação."
 
 6. Ligue-se à base de dados SQL e verifique se vê uma base de dados chamada **SampleTable**.
 
@@ -398,9 +398,9 @@ Neste tutorial, ficou a saber como:
 > * Criar um bloco de notas no Azure Databricks
 > * Extrair dados de uma conta Gen2 de Armazenamento de Data Lake
 > * Transformar dados no Azure Databricks
-> * Carregar dados para o Azure SQL Data Warehouse
+> * Carregue os dados em Azure Synapse
 
 Avance para o próximo tutorial para saber como transmitir dados em tempo real em fluxo para o Azure Databricks mediante a utilização dos Hubs de Eventos do Azure.
 
 > [!div class="nextstepaction"]
->[Transmitir dados para o Azure Databricks utilizando os Hubs de Eventos](databricks-stream-from-eventhubs.md)
+>[Transmitir em fluxo dados para o Azure Databricks com os Hubs de Eventos](databricks-stream-from-eventhubs.md)

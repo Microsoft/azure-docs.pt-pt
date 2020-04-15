@@ -1,28 +1,28 @@
 ---
-title: SSL descarregar usando PowerShell - Gateway de aplicação Azure
-description: Este artigo fornece instruções para criar um portal de aplicação com a descarga SSL utilizando o modelo de implementação clássico azure
+title: Descarregamento tLS usando PowerShell - Gateway de aplicação Azure
+description: Este artigo fornece instruções para criar um portal de aplicação com a descarga tLS utilizando o modelo de implementação clássico azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: c456a0856adb0d36349b5f96ba0ab8bab3eec5c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ead16b61784b8073d50b7e0e6079805a1e48e9b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74047910"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312329"
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configure uma porta de aplicação para descarregar SSL utilizando o modelo de implementação clássico
+# <a name="configure-an-application-gateway-for-tls-offload-by-using-the-classic-deployment-model"></a>Configure uma porta de aplicação para descarregar TLS utilizando o modelo de implementação clássico
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](application-gateway-ssl-portal.md)
+> * [Portal do Azure](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 > * [PowerShell clássico azure](application-gateway-ssl.md)
-> * [Azure CLI](application-gateway-ssl-cli.md)
+> * [CLI do Azure](application-gateway-ssl-cli.md)
 
-Pode configurar o Azure Application Gateway para terminar a sessão SSL (Secure Sockets Layer) no gateway para evitar tarefas dispendiosas de desencriptação de SSL que ocorrem no farm Web. A descarga de SSL simplifica ainda a configuração do servidor de front-end e a gestão da aplicação Web.
+O Portal de Aplicações Azure pode ser configurado para acabar com a Segurança da Camada de Transporte (TLS), anteriormente conhecida como Secure Sockets Layer (SSL), sessão na porta de entrada para evitar tarefas dispendiosas de desencriptação do TLS que acontecem na quinta web. A descarga de TLS também simplifica a configuração e gestão do servidor frontal da aplicação web.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -30,10 +30,10 @@ Pode configurar o Azure Application Gateway para terminar a sessão SSL (Secure 
 2. Verifique se a rede virtual funciona com uma sub-rede válida. Verifique se a sub-rede não está a ser utilizada por nenhuma máquina virtual ou implementação na nuvem. O gateway de aplicação tem de constar, por si só, numa sub-rede de rede virtual.
 3. Os servidores que configurapara utilizar o gateway da aplicação devem existir ou ter os seus pontos finais criados quer na rede virtual, quer com um endereço IP público ou endereço IP virtual (VIP) atribuído.
 
-Para configurar a descarga do SSL num gateway de aplicação, complete os seguintes passos na ordem listada:
+Para configurar a descarga de TLS num gateway de aplicação, complete os seguintes passos na ordem listada:
 
 1. [Criar um portal de aplicação](#create-an-application-gateway)
-2. [Carregar certificados SSL](#upload-ssl-certificates)
+2. [Carregar certificados TLS/SSL](#upload-tlsssl-certificates)
 3. [Configurar o gateway](#configure-the-gateway)
 4. [Definir a configuração do gateway](#set-the-gateway-configuration)
 5. [Iniciar o gateway](#start-the-gateway)
@@ -55,7 +55,7 @@ Na amostra, **Descrição,** **Contagem de Casos**e **GatewaySize** são parâme
 Get-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="upload-ssl-certificates"></a>Carregar certificados SSL
+## <a name="upload-tlsssl-certificates"></a>Carregar certificados TLS/SSL
 
 Introduza `Add-AzureApplicationGatewaySslCertificate` para carregar o certificado de servidor em formato PFX para o gateway da aplicação. O nome do certificado é um nome escolhido pelo utilizador e deve ser único dentro do gateway da aplicação. Este certificado é referido por este nome em todas as operações de gestão de certificados no gateway da aplicação.
 
@@ -95,12 +95,12 @@ Os valores são:
 * **Piscina de servidorde back-end**: A lista de endereços IP dos servidores de back-end. Os endereços IP listados devem pertencer à subnet da rede virtual ou devem ser um endereço IP ou VIP público.
 * **Definições de piscina de servidor de back-end**: Cada piscina tem configurações como porta, protocolo e afinidade baseada em cookies. Estas definições estão associadas a um conjunto e são aplicadas a todos os servidores do referido conjunto.
 * **Porta frontal**: Este porto é o porto público que é aberto na porta de aplicação. O tráfego chega a esta porta, sendo posteriormente redirecionado para um dos servidores de back-end.
-* **Ouvinte**: O ouvinte tem uma porta frontal, um protocolo (Http ou Https; estes valores são sensíveis a casos) e o nome do certificado SSL (se configurar uma descarga SSL).
+* **Ouvinte**: O ouvinte tem uma porta frontal, um protocolo (Http ou Https; estes valores são sensíveis a casos) e o nome do certificado TLS/SSL (se configurar uma descarga TLS).
 * **Regra**: A regra liga o ouvinte e o conjunto de servidores de back-end e define qual o conjunto de servidores de back-end para direcionar o tráfego para quando atinge um ouvinte particular. Atualmente, apenas é suportada a regra *básica*. A regra *básica* refere-se à distribuição de carga round robin.
 
 **Notas de configuração adicionais**
 
-Para a configuração de certificados SSL, o protocolo em **HttpListener** deverá passar para **Https** (sensível às maiúsculas e minúsculas). Adicione o elemento **SslCert** ao **HttpListener** com o valor definido para o mesmo nome utilizado na secção [de certificados SSL upload.](#upload-ssl-certificates) A porta frontal deve ser atualizada para **443**.
+Para a configuração dos certificados TLS/SSL, o protocolo em **HttpListener** deve mudar para **Https** (sensível a casos). Adicione o elemento **SslCert** ao **HttpListener** com o valor definido para o mesmo nome utilizado na secção [de certificados Upload TLS/SSL.](#upload-tlsssl-certificates) A porta frontal deve ser atualizada para **443**.
 
 Para ativar a **afinidade baseada em cookies**: Pode configurar um portal de aplicação para garantir que um pedido de uma sessão de cliente é sempre direcionado para o mesmo VM na quinta web. Para isso, insira um cookie de sessão que permita que o portal direcione o tráfego de forma adequada. Para ativar a afinidade com base em cookies, defina **CookieBasedAffinity** como **Ativado** no elemento **BackendHttpSettings**.
 

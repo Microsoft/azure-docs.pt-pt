@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: e01a1cad98ded9d7ce8683b6adf38b5d53959774
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75966807"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312559"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Crie uma sonda personalizada para O Gateway de Aplicação Azure (clássico) usando powerShell
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](application-gateway-create-probe-portal.md)
+> * [Portal do Azure](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -200,7 +200,7 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se pretender configurar a descarga da Camada de Tomadas Seguras (SSL), consulte configurar um gateway de [aplicação para descarregamento ssl](application-gateway-ssl.md).
+Se pretender configurar a Segurança da Camada de Transporte (TLS), anteriormente conhecida como descarregamento da Camada de Tomadas Seguras (SSL), consulte configurar um gateway de [aplicação para a descarga de TLS](application-gateway-ssl.md).
 
 Se pretender configurar um gateway de aplicação para utilizar com um balanceador de carga interno, veja [Create an application gateway with an internal load balancer (ILB) (Criar um gateway de aplicação com um balanceador de carga interno (ILB))](application-gateway-ilb.md).
 

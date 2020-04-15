@@ -708,6 +708,8 @@
               href: sql-database-managed-instance-configure-vm.md
             - name: Ligação Site a Site
               href: sql-database-managed-instance-configure-p2s.md
+            - name: Retenção de cópia de segurança de longa duração
+              href: sql-database-managed-instance-long-term-backup-retention-configure.md
         - name: Carregar dados
           items:
             - name: Restaurar a cópia de segurança de base de dados

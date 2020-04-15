@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Configure a rescisão do SSL no portal - Gateway de aplicação Azure'
-description: Neste tutorial, aprende-se a configurar um gateway de aplicação e a adicionar um certificado para a rescisão de SSL através do portal Azure.
+title: 'Tutorial: Configure tLS terminação no portal - Gateway de aplicação Azure'
+description: Neste tutorial, aprende-se a configurar um gateway de aplicação e a adicionar um certificado de rescisão de TLS através do portal Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: b4278fc6d44f32921713681cb094b659901cc87c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74012312"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312381"
 ---
-# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Tutorial: Configure um portal de aplicação com rescisão SSL utilizando o portal Azure
+# <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configure um portal de aplicação com rescisão de TLS utilizando o portal Azure
 
-Pode utilizar o portal Azure para configurar um portal de [aplicação](overview.md) com um certificado de rescisão SSL que utiliza máquinas virtuais para servidores de backend.
+Pode utilizar o portal Azure para configurar um portal de [aplicação](overview.md) com um certificado de rescisão De TLS que utiliza máquinas virtuais para servidores de backend.
 
 Neste tutorial, ficará a saber como:
 
@@ -265,4 +265,4 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o suporte do Application Gateway SSL](ssl-overview.md)
+> [Saiba mais sobre o suporte do Gateway TLS de aplicação](ssl-overview.md)

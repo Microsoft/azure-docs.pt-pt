@@ -8,18 +8,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: f56929e14aef34f675139782328ed5c559df12c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 809274aba35e9607aeacf7c6483ec3d10f899667
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198637"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312358"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configure um gateway de aplicação com um ponto final de equilíbrio de carga interna (ILB)
 
 O Portal de Aplicações Azure pode ser configurado com um VIP virado para a Internet ou com um ponto final interno que não esteja exposto à Internet. Um ponto final interno utiliza um endereço IP privado para a extremidade frontal, que também é conhecido como um ponto final do equilibrista de *carga interna (ILB).*
 
-Configurar o gateway utilizando um endereço IP privado frontend é útil para aplicações internas de linha de negócio que não estão expostas à Internet. Também é útil para serviços e níveis dentro de uma aplicação de vários níveis que estão em um limite de segurança que não é exposto à Internet, mas ainda requerem distribuição de carga de robin redondo, stickiness de sessão ou falha secure sockets layer (SSL).
+Configurar o gateway utilizando um endereço IP privado frontend é útil para aplicações internas de linha de negócio que não estão expostas à Internet. Também é útil para serviços e níveis dentro de uma aplicação de vários níveis que estão em um limite de segurança que não é exposto à Internet, mas ainda requerem distribuição de carga de robin redondo, stickiness de sessão ou Segurança da Camada de Transporte (TLS), anteriormente conhecido como Secure Sockets Layer (SSL), rescisão.
 
 Este artigo guia-o através dos passos para configurar um gateway de aplicação com um endereço IP privado frontend usando o portal Azure.
 

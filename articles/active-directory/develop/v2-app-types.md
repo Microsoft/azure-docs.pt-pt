@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 04/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 34ccddff3e42f69a50b44f4bfff391070063a5a1
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 143a2ec0bfbcc6997eb6d8b2599b848a509ee773
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886369"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309499"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicação para plataforma de identidade Microsoft
 

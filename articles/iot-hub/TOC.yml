@@ -85,8 +85,6 @@
   items:
     - name: Suporte de TLS
       href: iot-hub-tls-support.md
-    - name: Descontinuação do TLS 1.0 e 1.1
-      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Suporte de redes virtuais
       href: virtual-network-support.md
     - name: Descrição geral dos melhoramentos das mensagens
@@ -444,6 +442,8 @@
           href: iot-hub-operations-monitoring.md
         - name: Migrar para as definições de diagnóstico
           href: iot-hub-migrate-to-diagnostics-settings.md
+        - name: Descontinuação do TLS 1.0 e 1.1
+          href: iot-hub-tls-deprecating-1-0-and-1-1.md
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda

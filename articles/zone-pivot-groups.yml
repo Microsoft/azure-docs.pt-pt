@@ -268,10 +268,26 @@ groups:
     title: Java
   - id: programming-language-more
     title: Mais linguagens...
+- id: programming-languages-set-sixteen
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: Mais linguagens...
 metadata:
-  ms.openlocfilehash: 122de10a24f5b4b1de1415079ffcb5b14dfa55df
-  ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+  ms.openlocfilehash: 0db2fe3e05334bda0888375cbbcd8dc69ad0ff68
+  ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/08/2020
-  ms.locfileid: "80886811"
+  ms.lasthandoff: 04/14/2020
+  ms.locfileid: "81313732"

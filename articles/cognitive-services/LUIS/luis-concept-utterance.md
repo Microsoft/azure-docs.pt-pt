@@ -1,22 +1,14 @@
 ---
 title: Boas declarações de exemplo - LUIS
-titleSuffix: Azure Cognitive Services
 description: As expressões são os elementos introduzidos pelo utilizador que a sua aplicação tem de interpretar. Colete frases que pensa que os utilizadores vão entrar. Inclua expressões que significam a mesma coisa, mas são construídas de forma diferente no comprimento da palavra e na colocação de palavras.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.author: diberry
-ms.openlocfilehash: 7412677773b60a1894a6ece7251e797bfddee091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: d851082a4ec4a003619826eeffd4f4b856a67824
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219920"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382278"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Compreenda quais são as boas declarações para a sua app LUIS
 
@@ -25,13 +17,13 @@ ms.locfileid: "79219920"
 Colete declarações que pensa que os utilizadores vão entrar. Incluem expressões, que significam a mesma coisa, mas são construídas de várias maneiras diferentes:
 
 * Comprimento de expressão - curto, médio e longo para a sua aplicação de cliente
-* Comprimento de palavra e frase 
+* Comprimento de palavra e frase
 * Colocação de palavras - entidade no início, meio e fim da expressão
-* Gramática 
+* Gramática
 * Pluralização
 * Consoante
 * Escolha do substantivo e do verbo
-* Pontuação - uma boa variedade usando correta, incorreta e sem gramática
+* [Pontuação](luis-reference-application-settings.md#punctuation-normalization) - uma boa variedade usando correta, incorreta e sem gramática
 
 ## <a name="how-to-choose-varied-utterances"></a>Como escolher expressões variadas
 
@@ -39,7 +31,7 @@ Quando começa por [dar o exemplo](luis-how-to-add-example-utterances.md) ao seu
 
 ### <a name="utterances-arent-always-well-formed"></a>As expressões nem sempre estão bem formadas.
 
-Pode ser uma frase, como "Reserve um bilhete para Paris para mim", ou um fragmento de uma frase, como "Booking" ou "Paris flight".  Os utilizadores frequentemente cometem erros ortográficos. Ao planear a sua aplicação, considere se utiliza ou não [o Bing Spell Check](luis-tutorial-bing-spellcheck.md) para corrigir a entrada do utilizador antes de a passar para a LUIS. 
+Pode ser uma frase, como "Reserve um bilhete para Paris para mim", ou um fragmento de uma frase, como "Booking" ou "Paris flight".  Os utilizadores frequentemente cometem erros ortográficos. Ao planear a sua aplicação, considere se utiliza ou não [o Bing Spell Check](luis-tutorial-bing-spellcheck.md) para corrigir a entrada do utilizador antes de a passar para a LUIS.
 
 Se não soletrar as declarações do utilizador, deve treinar o LUIS em expressões que incluem erros de ortografia e erros ortográficos.
 
@@ -58,17 +50,17 @@ Tome estas declarações exemplo:
 |Como consigo um computador?|
 |Onde consigo um computador?|
 |Quero um computador, como é que o faço?|
-|Quando posso ter um computador?| 
+|Quando posso ter um computador?|
 
 O termo principal aqui, "computador", não é variado. Utilize alternativas como computador de secretária, portátil, estação de trabalho ou até mesmo apenas uma máquina. Luis pode inferir inteligentemente sinónimos do contexto, mas quando se criam expressões para o treino, é sempre melhor vary-los.
 
 ## <a name="example-utterances-in-each-intent"></a>Declarações exemplo em cada intenção
 
-Cada intenção precisa de ter declarações exemplo, pelo menos 15. Se tiver uma intenção que não tenha nenhum exemplo, não poderá treinar o LUIS. Se tiver uma intenção com um ou muito poucos exemplos, luis pode não prever com precisão a intenção. 
+Cada intenção precisa de ter declarações exemplo, pelo menos 15. Se tiver uma intenção que não tenha nenhum exemplo, não poderá treinar o LUIS. Se tiver uma intenção com um ou muito poucos exemplos, luis pode não prever com precisão a intenção.
 
 ## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>Adicione pequenos grupos de 15 expressões para cada iteração de autor
 
-Em cada iteração do modelo, não adicione uma grande quantidade de expressões. Adicione expressões em quantidades de 15. [Treinar,](luis-how-to-train.md) [publicar](luis-how-to-publish-app.md)e [testar](luis-interactive-test.md) novamente.  
+Em cada iteração do modelo, não adicione uma grande quantidade de expressões. Adicione expressões em quantidades de 15. [Treinar,](luis-how-to-train.md) [publicar](luis-how-to-publish-app.md)e [testar](luis-interactive-test.md) novamente.
 
 A LUIS constrói modelos eficazes com expressões que são cuidadosamente selecionadas pelo autor modelo LUIS. Adicionar demasiadas expressões não é valioso porque introduz confusão.
 
@@ -76,13 +68,13 @@ A LUIS constrói modelos eficazes com expressões que são cuidadosamente seleci
 
 ## <a name="utterance-normalization"></a>Normalização da expressão
 
-A normalização da expressão é o processo de ignorar os efeitos da pontuação e dos diacríticos durante o treino e a previsão.
+A normalização da expressão é o processo de ignorar os efeitos da pontuação e dos diacríticos durante o treino e a previsão. Utilize [as definições](luis-reference-application-settings.md) de aplicação para controlar como a normalização da expressão afeta as previsões de expressão.
 
 ## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalização da expressão para diacríticos e pontuação
 
-A normalização da expressão é definida quando cria ou importa a app porque é uma definição no ficheiro JSON da aplicação. As definições de normalização da expressão são desligadas por defeito. 
+A normalização da expressão é definida quando cria ou importa a app porque é uma definição no ficheiro JSON da aplicação. As definições de normalização da expressão são desligadas por defeito.
 
-Os críticos de diasão são marcas ou sinais dentro do texto, tais como: 
+Os críticos de diasão são marcas ou sinais dentro do texto, tais como:
 
 ```
 İ ı Ş Ğ ş ğ ö ü
@@ -96,41 +88,41 @@ Ligue a normalização da expressão para diacríticos ou pontuação no `settin
 "settings": [
     {"name": "NormalizePunctuation", "value": "true"},
     {"name": "NormalizeDiacritics", "value": "true"}
-] 
+]
 ```
 
-Normalizar **a pontuação** significa que antes que os seus modelos sejam treinados e antes que as suas consultas de ponto final sejam previstas, a pontuação será removida das expressões. 
+Normalizar **a pontuação** significa que antes que os seus modelos sejam treinados e antes que as suas consultas de ponto final sejam previstas, a pontuação será removida das expressões.
 
-Normalizar **os diacríticos** substitui os personagens por diacritics em expressões por caracteres regulares. Por `Je parle français` exemplo: `Je parle francais`torna-se . 
+Normalizar **os diacríticos** substitui os personagens por diacritics em expressões por caracteres regulares. Por `Je parle français` exemplo: `Je parle francais`torna-se .
 
 A normalização não significa que não verá pontuação e diacríticos no seu exemplo de palavras ou respostas de previsão, apenas que serão ignoradas durante o treino e a previsão.
 
-
 ### <a name="punctuation-marks"></a>Marcas de pontuação
 
-Pontuação é um símbolo separado em LUIS. Uma expressão que contém um período no final contra uma expressão que não contenha um período no final são duas expressões separadas e pode obter duas previsões diferentes. 
+Pontuação é um símbolo separado em LUIS. Uma expressão que contém um período no final contra uma expressão que não contenha um período no final são duas expressões separadas e pode obter duas previsões diferentes.
 
-Se a pontuação não for normalizada, a LUIS não ignora as marcas de pontuação, por defeito, porque algumas aplicações de clientes podem colocar significado nestas marcas. Certifique-se de que as expressões do seu exemplo utilizam pontuação e nenhuma pontuação para que ambos os estilos devolvam as mesmas pontuações relativas. 
+Se a pontuação não for normalizada, a LUIS não ignora as marcas de pontuação, por defeito, porque algumas aplicações de clientes podem colocar significado nestas marcas. Certifique-se de que as expressões do seu exemplo utilizam pontuação e nenhuma pontuação para que ambos os estilos devolvam as mesmas pontuações relativas.
 
 Certifique-se de que o modelo lida com pontuação quer nas declarações de exemplo (tendo e não tendo pontuação) quer nos [padrões](luis-concept-patterns.md) em que é mais fácil ignorar a pontuação com a sintaxe especial:`I am applying for the {Job} position[.]`
 
-Se a pontuação não tiver um significado específico na sua aplicação de cliente, considere [ignorar a pontuação](#utterance-normalization) normalizando a pontuação. 
+Se a pontuação não tiver um significado específico na sua aplicação de cliente, considere [ignorar a pontuação](#utterance-normalization) normalizando a pontuação.
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorando palavras e pontuação
 
-Se quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com `[]`a sintaxe _ignore_ os suportes quadrados, . 
+Se quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com `[]`a sintaxe _ignore_ os suportes quadrados, .
 
 ## <a name="training-utterances"></a>Proclamações de treino
 
-A formação é geralmente não determinista: a previsão de expressão pode variar ligeiramente entre versões ou aplicações. Pode remover o treino não determinístico atualizando as `UseAllTrainingData` [definições](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) da versão API com o nome/par de valor para utilizar todos os dados de treino.
+A formação é geralmente não determinista: a previsão de expressão pode variar ligeiramente entre versões ou aplicações.
+Pode remover o treino não determinístico atualizando as `UseAllTrainingData` [definições](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) da versão API com o nome/par de valor para utilizar todos os dados de treino.
 
-## <a name="testing-utterances"></a>Declarações de teste 
+## <a name="testing-utterances"></a>Declarações de teste
 
-Os desenvolvedores devem começar a testar a sua aplicação LUIS com tráfego real, enviando expressões para o URL [final de previsão.](luis-how-to-azure-subscription.md) Estas declarações são usadas para melhorar o desempenho das intenções e entidades com declarações de [Revisão.](luis-how-to-review-endpoint-utterances.md) Os testes submetidos ao painel de testes do site da LUIS não são enviados através do ponto final, pelo que não contribuem para a aprendizagem ativa. 
+Os desenvolvedores devem começar a testar a sua aplicação LUIS com tráfego real, enviando expressões para o URL [final de previsão.](luis-how-to-azure-subscription.md) Estas declarações são usadas para melhorar o desempenho das intenções e entidades com declarações de [Revisão.](luis-how-to-review-endpoint-utterances.md) Os testes submetidos ao painel de testes do site da LUIS não são enviados através do ponto final, pelo que não contribuem para a aprendizagem ativa.
 
 ## <a name="review-utterances"></a>Comentários proferidos
 
-Depois de o seu modelo ser treinado, publicado e recebendo consultas [de ponto final,](luis-glossary.md#endpoint) [reveja as declarações](luis-how-to-review-endpoint-utterances.md) sugeridas pela LUIS. A LUIS seleciona expressões de ponto final que têm pontuações baixas para a intenção ou entidade. 
+Depois de o seu modelo ser treinado, publicado e recebendo consultas [de ponto final,](luis-glossary.md#endpoint) [reveja as declarações](luis-how-to-review-endpoint-utterances.md) sugeridas pela LUIS. A LUIS seleciona expressões de ponto final que têm pontuações baixas para a intenção ou entidade.
 
 ## <a name="best-practices"></a>Melhores práticas
 
@@ -138,7 +130,7 @@ Reveja [as melhores práticas](luis-concept-best-practices.md) e aplique-as como
 
 ## <a name="label-for-word-meaning"></a>Etiqueta para significado de palavra
 
-Se a palavra escolha ou arranjo de palavras for a mesma, mas não significa a mesma coisa, não a rotule com a entidade. 
+Se a palavra escolha ou arranjo de palavras for a mesma, mas não significa a mesma coisa, não a rotule com a entidade.
 
 As seguintes declarações, `fair` a palavra é uma homografia. É escrito o mesmo, mas tem um significado diferente:
 

@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 1ee2efbb8aebfc2f1a94c89edef6166898946d8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80afbeb5668d43ac7bb0b12fadb88a93c68e0ddb
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74422520"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383720"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sync dados em várias bases de dados de nuvem e no local com SQL Data Sync
 

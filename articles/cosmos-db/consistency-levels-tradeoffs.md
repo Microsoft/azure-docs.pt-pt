@@ -5,20 +5,20 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 04/06/2020
 ms.reviewer: sngun
-ms.openlocfilehash: a16acfc8f9be820e9cc9b3bd59d6675b7f75d2ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cdaa9699b15000359c438bcc410e300415b759a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445555"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81379949"
 ---
-# <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho 
+# <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho
 
 As bases de dados distribuídas que dependem da replicação para elevada disponibilidade, baixa latência ou ambos, têm vantagens e desvantagens. As vantagens e desvantagens estão entre a consistência da leitura vs disponibilidade, latência e débito.
 
-Azure Cosmos DB aborda a consistência dos dados como um espectro de escolhas. Esta abordagem inclui mais opções do que os dois extremos de consistência forte e eventual. Pode escolher entre cinco modelos bem definidos no espectro de consistência. Dos mais fortes aos mais fracos, os modelos são:
+Azure Cosmos DB aborda a consistência dos dados como um espectro de escolhas. Esta abordagem inclui mais opções do que os dois extremos de consistência forte e eventual. Pode escolher entre cinco níveis bem definidos no espectro de consistência. Dos mais fortes aos mais fracos, os níveis são:
 
 - *Forte*
 - *Estagnação limitada*
@@ -26,23 +26,36 @@ Azure Cosmos DB aborda a consistência dos dados como um espectro de escolhas. E
 - *Prefixo consistente*
 - *Eventual*
 
-Cada modelo proporciona trocas de disponibilidade e desempenho e é apoiado por SLAs abrangentes.
+Cada nível proporciona trocas de disponibilidade e desempenho e é apoiado por SLAs abrangentes.
 
 ## <a name="consistency-levels-and-latency"></a>Níveis de consistência e latência
 
-A latência de leitura para todos os níveis de consistência é sempre garantida a menos de 10 milissegundos no percentil 99. Esta latência lida é apoiada pelo SLA. A latência média de leitura, no percentil 50, é tipicamente de 2 milissegundos ou menos. As contas da Azure Cosmos que se estendem por várias regiões e estão configuradas com forte consistência são uma exceção a esta garantia.
+A latência de leitura para todos os níveis de consistência é sempre garantida a menos de 10 milissegundos no percentil 99. Esta latência lida é apoiada pelo SLA. A latência média de leitura, no percentil 50, é tipicamente de 4 milissegundos ou menos.
 
-A latência de escrita para todos os níveis de consistência é sempre garantida a menos de 10 milissegundos no percentil 99. Esta latência escrita é apoiada pelo SLA. A latência média de escrita, no percentil 50, é geralmente de 5 milissegundos ou menos.
+A latência de escrita para todos os níveis de consistência é sempre garantida a menos de 10 milissegundos no percentil 99. Esta latência escrita é apoiada pelo SLA. A latência média de escrita, no percentil 50, é geralmente de 5 milissegundos ou menos. As contas da Azure Cosmos que se estendem por várias regiões e estão configuradas com forte consistência são uma exceção a esta garantia.
 
-Para as contas da Azure Cosmos configuradas com forte consistência com mais de uma região, a latência por escrito é garantida mente menos de duas vezes o tempo de ida e volta (RTT) entre qualquer uma das duas regiões mais distantes, mais 10 milissegundos no percentil 99.
+### <a name="write-latency-and-strong-consistency"></a>Escreva latência e forte consistência
 
-A latência RTT exata é uma função da distância de velocidade da luz e da topologia de rede Azure. A rede Azure não fornece SLAs de latência para o RTT entre duas regiões Azure. Para a sua conta Azure Cosmos, as tardios de replicação são exibidas no portal Azure. Pode utilizar o portal Azure (vá à lâmina das Métricas) para monitorizar as tardios de replicação entre várias regiões que estão associadas à sua conta Azure Cosmos.
+Para as contas da Azure Cosmos configuradas com forte consistência com mais de uma região, a latência por escrito é igual a duas vezes o tempo de ida e volta (RTT) entre qualquer uma das duas regiões mais distantes, mais 10 milissegundos no percentil 99. A alta rede RTT entre as regiões traduzir-se-á numa maior latência para os pedidos de DB da Cosmos, uma vez que a forte consistência só completa uma operação depois de garantir que se comprometeu com todas as regiões dentro de uma conta.
+
+A latência RTT exata é uma função da distância de velocidade da luz e da topologia de rede Azure. A rede Azure não fornece SLAs de latência para o RTT entre duas regiões Azure. Para a sua conta Azure Cosmos, as tardios de replicação são exibidas no portal Azure. Pode utilizar o portal Azure (vá à lâmina Métricas, selecione separador Consistência) para monitorizar as tardios de replicação entre várias regiões que estão associadas à sua conta Azure Cosmos.
+
+> [!IMPORTANT]
+> A forte consistência das contas com regiões com mais de 8000 quilómetros é bloqueada por defeito devido à elevada latência escrita. Para ativar esta capacidade contacte o suporte.
 
 ## <a name="consistency-levels-and-throughput"></a>Níveis de consistência e de entrada
 
-- Para o mesmo número de unidades de pedido, a sessão, prefixo consistente e níveis de consistência eventual fornecem cerca de duas vezes a entrada de leitura quando comparada com a estagnação forte e limitada.
+- Para uma estagnação forte e limitada, são feitas leituras contra duas réplicas num conjunto de quatro réplicas (quórum minoritário) para fornecer garantias de consistência. Sessão, prefixo consistente e eventualmente fazer leituras de réplica única. O resultado é que, para o mesmo número de unidades de pedido, a leitura da entrada para estagnação forte e limitada é metade dos outros níveis de consistência.
 
 - Para um determinado tipo de operação de escrita, como inserir, substituir, sersert e eliminar, a entrada de escrita para unidades de pedido é idêntica para todos os níveis de consistência.
+
+|**Nível de Consistência**|**Leituras de Quórum**|**Quorum escreve**|
+|--|--|--|
+|**Forte**|Minoria Local|Maioria Global|
+|**Estagnação Limitada**|Minoria Local|Maioria Local|
+|**Sessão**|Réplica única (usando ficha de sessão)|Maioria Local|
+|**Prefixo Consistente**|Réplica única|Maioria Local|
+|**Eventual**|Réplica única|Maioria Local|
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Níveis de consistência e durabilidade dos dados
 

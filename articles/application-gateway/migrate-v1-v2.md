@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 96f3825288846e86771ef3907eb4da4e58630df3
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475186"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312038"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Portal de aplicações Migrate Azure e Firewall de aplicação web de v1 para v2
 
@@ -36,7 +36,7 @@ Está disponível um script Azure PowerShell que faz o seguinte:
 
 * O novo gateway v2 tem novos endereços IP públicos e privados. Não é possível mover os endereços IP associados ao gateway v1 existente perfeitamente para v2. No entanto, pode atribuir um endereço IP público ou privado (não atribuído) existente ao novo gateway v2.
 * Deve fornecer um espaço de endereço IP para outra subrede dentro da sua rede virtual onde se encontra o gateway V1. O script não pode criar o gateway v2 em quaisquer subredes existentes que já tenham um gateway v1. No entanto, se a subnet existente já tiver um gateway v2, isso ainda pode funcionar desde que haja espaço suficiente para endereços IP.
-* Para migrar uma configuração SSL, deve especificar todas as certas SSL utilizadas no seu gateway V1.
+* Para migrar uma configuração TLS/SSL, deve especificar todas as certas TLS/SSL utilizadas no seu gateway V1.
 * Se tiver o modo FIPS ativado para o seu gateway V1, não será migrado para o seu novo gateway V2. O modo FIPS não é suportado em v2.
 * v2 não suporta iPv6, por isso os gateways v1 habilitados iPv6 não são migrados. Se executar o guião, pode não estar completo.
 * Se o gateway v1 tiver apenas um endereço IP privado, o script cria um endereço IP público e um endereço IP privado para o novo gateway v2. os gateways v2 atualmente não suportam apenas endereços IP privados.
@@ -101,7 +101,7 @@ Para executar o script:
 
    * **subnetAddressRange: [String]: Required** - Este é o espaço de endereço IP que atribuiu (ou quer alocar) para uma nova subnet que contenha o seu novo gateway v2. Isto deve ser especificado na notação CIDR. Por exemplo: 10.0.0.0/24. Não precisas de criar esta sub-rede com antecedência. O guião cria-o para ti se não existir.
    * **appgwName: [String]: Opcional**. Esta é uma cadeia que especifica para usar como nome para o novo portal de Standard_v2 ou WAF_v2. Se este parâmetro não for fornecido, o nome do seu gateway v1 existente será utilizado com o sufixo *_v2* anexado.
-   * **sslCertificados: [PSApplicationGatewaySslCertificado]: Opcional**.  Uma lista separada da vírposta de objetos PSApplicationGatewaySslCertificate que cria para representar as certs SSL do seu gateway v1 deve ser enviada para o novo gateway v2. Para cada um dos seus certificados SSL configurados para o seu gateway Standard v1 ou WAF v1, pode criar um novo objeto PSApplicationGatewaySslCertificate através do `New-AzApplicationGatewaySslCertificate` comando aqui mostrado. Precisa do caminho para o seu ficheiro SSL Cert e a palavra-passe.
+   * **sslCertificados: [PSApplicationGatewaySslCertificado]: Opcional**.  Uma lista separada da vírposta de objetos PSApplicationGatewaySslCertificate que cria para representar os certificados TLS/SSL do seu gateway v1 deve ser enviada para o novo gateway v2. Para cada um dos seus certificados TLS/SSL configurados para o seu gateway Standard v1 ou WAF v1, pode criar um novo objeto PSApplicationGatewaySslCertificate através do `New-AzApplicationGatewaySslCertificate` comando aqui mostrado. Precisa do caminho para o seu ficheiro TLS/SSL Cert e a palavra-passe.
 
      Este parâmetro só é opcional se não tiver ouvintes HTTPS configurados para o seu gateway v1 ou WAF. Se tiver pelo menos uma configuração de escuta HTTPS, deve especificar este parâmetro.
 

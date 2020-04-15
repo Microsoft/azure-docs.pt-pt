@@ -3,16 +3,16 @@ title: Descrição geral do Azure Resource Graph
 description: Entenda como o serviço Azure Resource Graph permite uma consulta complexa de recursos em escala através de subscrições e inquilinos.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: 38ead7be09e038b19c390acd9f10e1c0ccf9d858
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240059"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381521"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
-O Azure Resource Graph é um serviço no Azure que é projetado para alargar a Gestão de Recursos Azure, fornecendo uma exploração eficiente e performativa de recursos com a capacidade de consultar em escala através de um determinado conjunto de subscrições para que possa efetivamente governar o seu ambiente. Estas consultas fornecem as seguintes funcionalidades:
+O Azure Resource Graph é um serviço no Azure que foi projetado para alargar a Gestão de Recursos Azure, fornecendo uma exploração eficiente e performativa de recursos com a capacidade de consultar em escala através de um determinado conjunto de subscrições para que possa efetivamente governar o seu ambiente. Estas consultas fornecem as seguintes funcionalidades:
 
 - Capacidade de consultar recursos com filtragem, agrupamento e classificação complexos por propriedades de recursos.
 - Capacidade de explorar iterativamente recursos com base nos requisitos de governação.
@@ -50,7 +50,7 @@ O Resource Graph atualiza então a sua base de dados. O Resource Graph também f
 
 Agora que tem uma melhor compreensão do que é o Azure Resource Graph, vamos mergulhar em como construir consultas.
 
-É importante entender que a linguagem de consulta do Azure Resource Graph é baseada na linguagem de [consulta Kusto](../../data-explorer/data-explorer-overview.md) usada pelo Azure Data Explorer.
+É importante entender que a linguagem de consulta do Azure Resource Graph é baseada na linguagem de [consulta Kusto](/azure/data-explorer/data-explorer-overview) usada pelo Azure Data Explorer.
 
 Em primeiro lugar, para obter detalhes sobre operações e funções que podem ser utilizadas com o Azure Resource Graph, veja [Linguagem de consulta do Resource Graph](./concepts/query-language.md).
 Para procurar recursos, veja [explorar recursos](./concepts/explore-resources.md).
@@ -84,7 +84,7 @@ O Azure Resource Graph Explorer, parte do portal Azure, permite a execução de 
 O Resource Graph suporta o Azure CLI, Azure PowerShell, Azure SDK para .NET, e muito mais. A consulta é estruturada da mesma forma para cada língua. Saiba como ativar o Graph de Recursos com:
 
 - [Portal Azure e Explorador de Gráficos de Recursos](first-query-portal.md) 
-- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
+- [CLI do Azure](first-query-azurecli.md#add-the-resource-graph-extension)
 - [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
 ## <a name="next-steps"></a>Passos seguintes

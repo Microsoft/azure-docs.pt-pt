@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: feacd463a10bae66dc8fa88a99b9ea60f399e9ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75e1f5fbfa41ac310d2a737dcfe28199715a094b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74684175"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312882"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Develop and deploy WebJobs using Visual Studio - Azure App Service (Programar e implementar WebJobs com o Visual Studio – Serviço de Aplicações do Azure)
 
@@ -225,7 +225,7 @@ WebJobs usa as mesmas expressões cron para agendamento que o gatilho do tempori
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-### <a name="settingjob-reference"></a>definição.referência de trabalho
+### <a name="settingsjob-reference"></a>definições.referência de trabalho
 
 As seguintes definições são suportadas pelo WebJobs:
 

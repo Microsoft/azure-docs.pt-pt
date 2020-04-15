@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/10/2020
 ms.author: rogarana
-ms.openlocfilehash: ae575eebf700f5495ea20d2bd3732ca21ad32315
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 172e0944fe117dc78565b10e6c0324737056ddcb
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011429"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383828"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Ativar a autenticação de Diretório Ativo sobre SMB para ações de ficheiros Azure
 
@@ -72,7 +72,7 @@ A autenticação ad (pré-visualização) do Azure Files está disponível em [t
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 
-Antes de ativar a Autenticação AD sobre SMB para partilhas de ficheiros Azure, recomendamos que passe pelos [pré-requisitos](#prerequisites) e certifique-se de que completou todos os passos. Os pré-requisitos validam que os seus ambientes de AD, Azure AD e Azure Storage estão devidamente configurados. 
+Antes de ativar a Autenticação AD sobre SMB para partilhas de ficheiros Azure, recomendamos que passe pelos [pré-requisitos](#prerequisites) e certifique-se de que completou todos os passos. Os pré-requisitos validam que os seus ambientes de AD, Azure AD e Azure Storage estão devidamente configurados. Se planeia ativar quaisquer configurações de rede na sua partilha de ficheiros, recomendamos que avalie a consideração de [networking](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) e complete a configuração relacionada primeiro antes de ativar a Autenticação AD. 
 
 Em seguida, siga os passos abaixo para configurar ficheiros Azure para autenticação ad: 
 
@@ -84,7 +84,7 @@ Em seguida, siga os passos abaixo para configurar ficheiros Azure para autentica
 
 4. Monte uma partilha de ficheiros Azure de um domínio AD juntou-se à VM. 
 
-5. Rotação da palavra-passe da conta AD (Opcional)
+5. Atualize a palavra-passe da sua identidade de conta de armazenamento em AD
 
 O diagrama que se segue ilustra o fluxo de trabalho de ponta a ponta para permitir a autenticação da AD Azure sobre a SMB para partilhas de ficheiros Azure. 
 
@@ -100,7 +100,7 @@ Para permitir a autenticação de AD sobre SMB para ações de ficheiroS Azure, 
 > [!IMPORTANT]
 > O `Join-AzStorageAccountForAuth` cmdlet irá fazer modificações no seu ambiente aD. Leia a seguinte explicação para entender melhor o que está a fazer para garantir que tem as permissões adequadas para executar o comando e que as alterações aplicadas estão alinhadas com as políticas de conformidade e segurança. 
 
-O `Join-AzStorageAccountForAuth` cmdlet realizará o equivalente a um domínio offline em nome da conta de armazenamento indicada. Criará uma conta no seu domínio AD, seja uma [conta de computador](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (predefinido) ou uma conta de [logon](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts)de serviço . A conta AD criada representa a conta de armazenamento no domínio AD. Se a conta AD for criada ao abrigo de uma Unidade Organizacional AD (OU) que aplique a expiração da palavra-passe, deve atualizar a palavra-passe antes da idade máxima da senha. A não atualização da palavra-passe da conta AD resultará em falhas de autenticação ao aceder a ações de ficheiros do Azure. Para saber como atualizar a palavra-passe, consulte a [palavra-passe](#5-update-ad-account-password)da conta AD atualizada .
+O `Join-AzStorageAccountForAuth` cmdlet realizará o equivalente a um domínio offline em nome da conta de armazenamento indicada. Criará uma conta no seu domínio AD, seja uma [conta de computador](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (predefinido) ou uma conta de [logon](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts)de serviço . A conta AD criada representa a conta de armazenamento no domínio AD. Se a conta AD for criada ao abrigo de uma Unidade Organizacional AD (OU) que aplique a expiração da palavra-passe, deve atualizar a palavra-passe antes da idade máxima da senha. A não atualização da palavra-passe da conta AD resultará em falhas de autenticação ao aceder a ações de ficheiros do Azure. Para saber como atualizar a palavra-passe, consulte [Atualizar a palavra-passe da sua identidade de conta de armazenamento em AD](#5-update-the-password-of-your-storage-account-identity-in-ad).
 
 Pode utilizar o seguinte script para efetuar o registo e ativar a funcionalidade ou, em alternativa, pode executar manualmente as operações que o script faria. Estas operações são descritas na secção que segue o guião. Não precisas de fazer as duas coisas.
 
@@ -113,7 +113,8 @@ Pode utilizar o seguinte script para efetuar o registo e ativar a funcionalidade
 ### <a name="12-domain-join-your-storage-account"></a>1.2 Domínio junte-se à sua conta de armazenamento
 Lembre-se de substituir os valores do espaço reservado por si próprio nos parâmetros abaixo antes de executá-lo no PowerShell.
 > [!IMPORTANT]
-> O domínio junta-se a cmdlet abaixo criará uma conta AD para representar a conta de armazenamento (parte de arquivo) em AD. Pode optar por se registar como conta de computador ou conta de login de serviço. Para as contas de computador, existe uma idade de validade da palavra-passe padrão definida em AD aos 30 dias. Da mesma forma, a conta de logon de serviço pode ter uma idade de validade da palavra-passe predefinida definida no domínio ad ou Unidade Organizacional (OU). Recomendamos vivamente que verifique qual é a idade de validade da palavra-passe configurada no seu ambiente ad e planeio atualizar a [palavra-passe](#5-update-ad-account-password) da conta AD da conta AD abaixo antes da idade máxima da senha. A não atualização da palavra-passe da conta AD resultará em falhas de autenticação ao aceder a ações de ficheiros do Azure. Pode considerar [criar uma nova Unidade Organizacional ad (OU) em AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) e desativar a política de expiração de palavras-passe em contas de [computador](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) ou contas de logon de serviço em conformidade. 
+> O domínio junta-se a cmdlet abaixo criará uma conta AD para representar a conta de armazenamento (parte de arquivo) em AD. Pode optar por se registar como conta de computador ou conta de login de serviço, consulte [as FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) para obter mais detalhes. Para as contas de computador, existe uma idade de validade da palavra-passe padrão definida em AD aos 30 dias. Da mesma forma, a conta de logon de serviço pode ter uma idade de validade da palavra-passe predefinida definida no domínio ad ou Unidade Organizacional (OU).
+> Para ambos os tipos de conta, recomendamos vivamente que verifique qual é a idade de validade da palavra-passe configurada no seu ambiente ad e planeie [atualizar a palavra-passe da sua identidade de conta](#5-update-the-password-of-your-storage-account-identity-in-ad) de armazenamento em AD da conta AD abaixo antes da idade máxima da senha. A não atualização da palavra-passe da conta AD resultará em falhas de autenticação ao aceder a ações de ficheiros do Azure. Pode considerar [criar uma nova Unidade Organizacional ad (OU) em AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) e desativar a política de expiração de palavras-passe em contas de [computador](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) ou contas de logon de serviço em conformidade. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -128,21 +129,27 @@ Import-Module -Name AzFilesHybrid
 #Login with an Azure AD credential that has either storage account owner or contributer RBAC assignment
 Connect-AzAccount
 
+#Define parameters
+$SubscriptionId = "<your-subscription-id-here>"
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
 #Select the target subscription for the current session
-Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
+Select-AzSubscription -SubscriptionId $SubscriptionId 
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
 # You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
+#You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
+
 Join-AzStorageAccountForAuth `
-        -ResourceGroupName "<resource-group-name-here>" `
-        -Name "<storage-account-name-here>" `
-        -DomainAccountType "ComputerAccount" `
-        -OrganizationalUnitName "<ou-name-here>" or -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>"
+        -ResourceGroupName $ResourceGroupName `
+        -Name $StorageAccountName `
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` #Default set to "ComputerAccount"
+        -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
 
-#If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
-
-#
+#You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, go to Azure Files FAQ.
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 
 ```
 
@@ -161,7 +168,7 @@ Para criar esta conta manualmente, crie uma nova `New-AzStorageAccountKey -KeyNa
 
 Assim que tiver essa chave, crie uma conta de serviço ou de computador sob a sua OU. Utilize a seguinte especificação: SPN: "cifs/your-storage-account-name-here.file.windows.net" Palavra-passe: Tecla Kerberos para a sua conta de armazenamento.
 
-Se a sua OU impor a expiração da palavra-passe, deve atualizar a palavra-passe antes da idade máxima da senha para evitar falhas de autenticação ao aceder a ações de ficheiros do Azure. Consulte a [palavra-passe](#5-update-ad-account-password) da conta AD atualizada para obter detalhes.
+Se a sua OU impor a expiração da palavra-passe, deve atualizar a palavra-passe antes da idade máxima da senha para evitar falhas de autenticação ao aceder a ações de ficheiros do Azure. Consulte a [palavra-passe atualizada da sua identidade de conta](#5-update-the-password-of-your-storage-account-identity-in-ad) de armazenamento em AD para obter mais detalhes.
 
 Mantenha o SID da conta recém-criada, vai precisar dele para o próximo passo. A identidade AD que acaba de criar que representam a conta de armazenamento não precisa de ser sincronizada com a Azure AD.
 
@@ -207,7 +214,7 @@ Agora, permitiu a funcionalidade com sucesso na sua conta de armazenamento. Mesm
 
 Agora permitiu a autenticação de AD com sucesso em SMB e atribuiu uma função personalizada que fornece acesso a uma partilha de ficheiros Azure com uma identidade AD. Para conceder aos utilizadores adicionais acesso à sua parte de ficheiro, siga as instruções nas [permissões](#2-assign-access-permissions-to-an-identity) de acesso da Atribuição para utilizar uma identidade e [configure permissões NTFS através](#3-configure-ntfs-permissions-over-smb) das secções SMB.
 
-## <a name="5-update-ad-account-password"></a>5. Atualizar a palavra-passe da conta AD
+## <a name="5-update-the-password-of-your-storage-account-identity-in-ad"></a>5. Atualizar a palavra-passe da sua identidade de conta de armazenamento em AD
 
 Se registou a identidade/conta AD que representa a sua conta de armazenamento num OU que aplique o tempo de validade da palavra-passe, deve rodar a palavra-passe antes da idade máxima da senha. A não atualização da palavra-passe da conta AD resultará em falhas de autenticação no acesso a ações de ficheiros DoIe.  
 

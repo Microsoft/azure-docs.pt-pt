@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: d9691a6fd5c320242b9677776cbd08be4f800921
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: e64b0a8602a4a0806ada15546972856743c38161
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544512"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312476"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicação
 
@@ -28,11 +28,11 @@ O Portal de Aplicações Azure fornece um controlador de entrega de aplicações
 
 ### <a name="what-features-does-application-gateway-support"></a>Quais as funcionalidades que o Application Gateway suporta?
 
-Application Gateway suporta autoscalcificação, descarregamento sl e SSL de ponta a ponta, uma firewall de aplicação web (WAF), afinidade de sessão baseada em cookies, encaminhamento baseado em caminhos de URL, hospedagem multisite e outras funcionalidades. Para obter uma lista completa de funcionalidades suportadas, consulte [Introdução ao Gateway de Aplicação](application-gateway-introduction.md).
+Application Gateway suporta autoscalcificação, descarga de TLS e TLS de ponta a ponta, uma firewall de aplicação web (WAF), afinidade de sessão baseada em cookies, encaminhamento baseado em caminhos de URL, hospedagem multisite e outras funcionalidades. Para obter uma lista completa de funcionalidades suportadas, consulte [Introdução ao Gateway de Aplicação](application-gateway-introduction.md).
 
 ### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>Como diferem o Gateway de Aplicação e o Equilíbrio de Carga Azure?
 
-Application Gateway é um equilibrista de carga de camada 7, o que significa que funciona apenas com tráfego web (HTTP, HTTPS, WebSocket e HTTP/2). Suporta capacidades como a rescisão de SSL, a finidade de sessão baseada em cookies e robin redondo para tráfego de equilíbrio de carga. O balanço de carga equilibra o tráfego na camada 4 (TCP ou UDP).
+Application Gateway é um equilibrista de carga de camada 7, o que significa que funciona apenas com tráfego web (HTTP, HTTPS, WebSocket e HTTP/2). Suporta capacidades como a rescisão de TLS, a finidade de sessão baseada em cookies e robin redondo para tráfego de equilíbrio de carga. O balanço de carga equilibra o tráfego na camada 4 (TCP ou UDP).
 
 ### <a name="what-protocols-does-application-gateway-support"></a>Que protocolos suporta o Application Gateway?
 
@@ -216,7 +216,7 @@ Não.
 
 O Gateway v2 de aplicação não suporta atualmente o IPv6. Pode funcionar numa vNet de dupla pilha usando apenas IPv4, mas a subnet gateway deve ser apenas IPv4. Application Gateway v1 não suporta VNets de dupla pilha. 
 
-## <a name="configuration---ssl"></a>Configuração - SSL
+## <a name="configuration---tls"></a>Configuração - TLS
 
 ### <a name="what-certificates-does-application-gateway-support"></a>Que certificados suporta o Application Gateway?
 
@@ -255,13 +255,13 @@ Application Gateway suporta as seguintes suítes cifra.
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
-Para obter informações sobre como personalizar as opções SSL, consulte [versões políticas SSL configure e suítes cifra no Gateway](application-gateway-configure-ssl-policy-powershell.md)de Aplicação .
+Para obter informações sobre como personalizar as opções tLS, consulte [versões políticas De Configuração TLS e suítes cifra no Gateway](application-gateway-configure-ssl-policy-powershell.md)de Aplicação .
 
 ### <a name="does-application-gateway-support-reencryption-of-traffic-to-the-backend"></a>O Application Gateway suporta a reencriptação do tráfego até ao fim?
 
-Sim. O Application Gateway suporta a descarga ssl e o SSL de ponta a ponta, que reencripta maquete si.
+Sim. Application Gateway suporta a descarga tLS e tLS de ponta a ponta, que reencriptam o tráfego para o backend.
 
-### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Posso configurar a política SSL para controlar as versões protocolais SSL?
+### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Posso configurar a política do TLS para controlar as versões de protocolo TLS?
 
 Sim. Pode configurar o Gateway de Aplicação para negar TLS1.0, TLS1.1 e TLS1.2. Por predefinição, sSL 2.0 e 3.0 já estão desativados e não são configuráveis.
 
@@ -278,9 +278,9 @@ Sim. No Gateway da Aplicação, pode [configurar suites de cifra.](application-g
 
 Application Gateway usa SHA256 para gestão de backend.
 
-### <a name="how-many-ssl-certificates-does-application-gateway-support"></a>Quantos certificados SSL suportam o Application Gateway?
+### <a name="how-many-tlsssl-certificates-does-application-gateway-support"></a>Quantos certificados TLS/SSL suportam o Application Gateway?
 
-O Gateway de aplicação suporta até 100 certificados SSL.
+O Gateway de aplicação suporta até 100 certificados TLS/SSL.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>Quantos certificados de autenticação para reencriptação de backend suporta o Application Gateway?
 
@@ -288,7 +288,7 @@ O Gateway de aplicação suporta até 100 certificados de autenticação.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>O Application Gateway integra-se de forma nativa com o Cofre chave Azure?
 
-Sim, o Gateway de aplicação v2 SKU suporta o Cofre chave. Para mais informações, consulte a [rescisão do SSL com certificados key vault](key-vault-certs.md).
+Sim, o Gateway de aplicação v2 SKU suporta o Cofre chave. Para mais informações, consulte a [rescisão de TLS com certificados key vault](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Como configurar os ouvintes HTTPS para sites .com e .net? 
 
@@ -338,7 +338,7 @@ Sim. Pode ativar a proteção DDoS na rede virtual onde o gateway da aplicação
 
 ### <a name="what-is-an-ingress-controller"></a>O que é um Controlador de Ingress?
 
-Kubernetes permite `deployment` a `service` criação e recurso para expor um grupo de cápsulas internamente no cluster. Para expor o mesmo serviço [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) externamente, é definido um recurso que proporciona o equilíbrio de carga, a rescisão de SSL e o alojamento virtual baseado em nomes.
+Kubernetes permite `deployment` a `service` criação e recurso para expor um grupo de cápsulas internamente no cluster. Para expor o mesmo serviço [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) externamente, é definido um recurso que proporciona o equilíbrio de carga, a rescisão de TLS e o alojamento virtual baseado em nomes.
 Para satisfazer `Ingress` este recurso, é necessário um Controlador De `Ingress` Ingress que ouça quaisquer alterações aos recursos e configura as políticas de equilíbrio de carga.
 
 O controlador de entrada de entrada de gateway de aplicação permite que o Portal de [Aplicações Azure](https://azure.microsoft.com/services/application-gateway/) seja usado como entrada para um [Serviço Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/) também conhecido como cluster AKS.

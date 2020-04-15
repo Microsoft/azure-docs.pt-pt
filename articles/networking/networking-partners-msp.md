@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: dc78f105d353a9a17af4b33dfc806eed91e7c6dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ac5997cfdb097c2c13b2a964f3cf8e276229f123
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063210"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380231"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros msp de Networking Azuring Azuring
 
@@ -32,17 +32,17 @@ Utilize os links nesta secção para obter mais informações sobre serviços ge
 | ---| ---| ---| ---|
 |[Grupo ANS UK](https://www.ans.co.uk/)|[Implementação de Azure Managed Svc + ANS Glass 10wk](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.glassms)|||||
 |[Redes Aryaka](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Aryaka Azure Connect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[Aryaka Azure Virtual WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.aryaka_azure_virtual_wan?tab=Overview) | | |
-|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[Consultoria de Transformação de Rede: Avaliação de 1-Hr](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting)|||||
+|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[Consultoria de Transformação de Rede: Avaliação de 1-Hr](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting)|[BT Cloud Connect Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-001?tab=Overview)||||
 |[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|||[Managed VMware SD-WAN Virtual Edge](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|[Otimização da rede em Azure: Avaliação de 2 horas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||
 |[Dados NTT](https://us.nttdata.com/en/digital/cloud-transformation)|[Serviços Geridos: Implementação de 10 semanas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttdata-2932930.managed_service)|||||
-|[Equinix](https://www.equinix.com/)|[Cloud Optimized WAN Engagement: Avaliação de 4 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/equinix.cloud_optimized_wan_workshop)|[Estratégia de Conectividade ExpressRoute: Workshop de 3 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/equinix.eps_expressroute)||||
+|[Equinix](https://www.equinix.com/)|[Workshop wan otimizado em nuvem](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.cloudoptimizedwan?tab=Overview)|[Workshop de Estratégia de Conectividade ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.expressroutestrategy?tab=Overview)||||
 |[Rio IIJ](https://www.iij.ad.jp/biz/cloudex/)|[Implementação expressRoute: 1-Hr Briefing](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxm_consulting)|[ExpressRoute: Implementação 2-Wk](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxmer_consulting)||||
 |[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|[Infosys Integra+ para O Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/infosysltd.infosys-integrate-for-azure?tab=Overview)|||||
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Avaliação de Networking Azure - 5 Dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
 |[Liquid Telecom](https://liquidcloud.africa/azure-networking)|[Prontidão em Nuvem - Avaliação de 2 horas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|||||
-|[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|[Macquarie Cloud Services Consult: Workshop de 2 horas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/macquariecloudservices.clear_for_takeoff_consulting_service)||[SD-WAN Virtual Edge Instalado por Macquarie Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.nanaged_network_services?tab=Overview)|||
-|[Serviços oncore cloud]( https://www.oncore.cloud/services/ue-for-expressroute/)||[UniversalEdge para Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
+|[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|[Serviços Geridos azure por Macquarie Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.managed_services?tab=Overview)||[SD-WAN Virtual Edge Instalado por Macquarie Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.nanaged_network_services?tab=Overview)|||
+|[Serviços oncore cloud]( https://www.oncore.cloud/services/ue-for-expressroute/)|[Fundações Enterprise Cloud: Workshop (~10 dias)](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/oncore_cloud_services-4944214.oncore_cloud_onboard_201810)|[UniversalEdge para Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
 |[Orixcom]( https://www.orixcom.com/cloud-solutions/)||[Rota expressa gerida pela Orixcom](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_managed_expressroute?tab=Overview)|[Orixcom SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||
 |[SoftBank]( https://www.softbank.jp/biz/nw/nwp/cloud_access/direct_access_for_az/)|[Serviço de Consultoria de Rede Azure: Avaliação 1-Wk;](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_nw_msp_service_azure) [Serviço de Avaliação Azure: 1Semana](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_msp_service_azure_01?tab=Overview&pub_source=email&pub_status=success)|||||
 |[CTT](https://www.tatacommunications-ts.com/index.php)|[Migração Azure: Avaliação de 3 semanas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/tcs.azure_migration_assessment)|||||

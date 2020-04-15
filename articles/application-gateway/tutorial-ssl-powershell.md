@@ -1,7 +1,7 @@
 ---
-title: Rescisão SSL usando PowerShell
+title: TLS terminação usando PowerShell
 titleSuffix: Azure Application Gateway
-description: Saiba como criar um gateway de aplicação e adicionar um certificado para terminação SSL com o Azure PowerShell.
+description: Aprenda a criar um gateway de aplicação e adicione um certificado para a rescisão de TLS utilizando o Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2ce5b8472fe10b51cff34677c9ce5a89888bdc01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bd625982ebd051b92df2f66515fd5b0d0612303
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075067"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311924"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Criar um gateway de aplicação com a terminação SSL, com o Azure PowerShell
+# <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Criar um portal de aplicação com rescisão tLS usando o Azure PowerShell
 
-Pode utilizar o Azure PowerShell para criar um [gateway de aplicação](overview.md) com um certificado para [terminação SSL](ssl-overview.md) que utiliza um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação. 
+Pode utilizar o Azure PowerShell para criar um gateway de [aplicação](overview.md) com um certificado para [a rescisão TLS/SSL](ssl-overview.md) que utiliza um conjunto de escala de [máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores de backend. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação. 
 
 Neste artigo, vai aprender a:
 

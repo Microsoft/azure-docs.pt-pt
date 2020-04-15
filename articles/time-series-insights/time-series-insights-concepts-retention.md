@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 34cf1e91b1fe5aae516c77bf2c280dfe70000611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75894758"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380692"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Compreender a retenção de dados em Insights da Série Temporal Azure
 
