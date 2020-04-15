@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema Zona de destino de migração do CAF
 description: Descrição geral e arquitetura do exemplo de esquema da zona de destino da Migração do Framework de Adoção da Cloud (CAF) para o Azure.
-ms.date: 08/20/2019
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 08171a39c83ea6822243d7239882a19b053f213e
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: d0328a590d86677e098504a7498a696697fc38c8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "74545502"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383547"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Descrição geral do exemplo de esquema Zona de destino de migração do Microsoft Cloud Adoption Framework para o Azure
 
@@ -20,7 +20,7 @@ O exemplo de esquema [Fundação do CAF](../caf-foundation/index.md) expande est
 
 O exemplo de esquema Zona de destino de migração do CAF implementa recursos de infraestrutura essenciais no Azure que as organizações podem utilizar para preparar as respetivas subscrições para migrar máquinas virtuais. Também ajuda a aplicar os controlos de governação necessários para gerir os respetivos patrimónios de cloud. Este exemplo irá implementar e impor recursos, políticas e modelos que permitirão a uma organização começar a utilizar o Azure com toda a confiança.
 
-![Zona de destino de migração do CAF. A imagem descreve o que é instalado como parte da documentação de orientação do CAF para criar uma zona de destino inicial ](../../media/caf-blueprints/caf-migration-landing-zone-architecture.png)
+:::image type="content" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Zona de destino de Migração do CAF. A imagem descreve o que é instalado como parte da documentação de orientação do CAF para criar uma zona de destino inicial" border="false":::
 
 Este ambiente é composto por vários serviços do Azure utilizados para fornecer uma governação segura, completamente monitorizada e preparada para empresas. Este ambiente é composto por:
 

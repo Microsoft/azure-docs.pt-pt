@@ -3,12 +3,12 @@ title: Índice de exemplos de esquema
 description: Índice de exemplos de conformidade e normas para a implementação de ambientes, políticas e fundações do Framework de Adoção da Cloud com o Azure Blueprints.
 ms.date: 02/26/2020
 ms.topic: sample
-ms.openlocfilehash: 703c383f41cd833fb47ca489682258158f9fe179
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 745b16f8aff8fe003ec65449cdf3dc0d629ba6ff
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "78196829"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383535"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -38,7 +38,7 @@ A tabela seguinte inclui ligações para exemplos do Azure Blueprints. Cada exem
 
 ## <a name="samples-strategy"></a>Estratégia de Exemplos
 
-![Estratégia de exemplos de esquema](../media/blueprint-samples-strategy.png)
+:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Estratégia de exemplos de esquema" border="false":::
 
 Os esquemas Fundação do CAF e Zona de destino de migração do CAF pressupõem que o cliente está a preparar uma subscrição individual limpa já existente para migrar ativos e cargas de trabalho no local para o Azure.
 (Regiões A e B na figura).  

@@ -3,22 +3,26 @@ title: Configurar a integração do AWS com o Azure Cost Management
 description: Este artigo acompanha-o através da definição e configuração da integração do relatório de Custos e Utilização do AWS com o Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.openlocfilehash: c0f6f18abf7c05cf5ae6dcaa31a57974ecfca806
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3b1efabbf5f05c05ef939ee8713829fbd49f483
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203088"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878991"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Definir e configurar a integração do relatório de Custos e Utilização do AWS
 
 Com a integração do relatório de Custos e Utilização (CUR) do Amazon Web Services (AWS), pode monitorizar e controlar os gastos do AWS no Azure Cost Management. A integração oferece uma única localização no portal do Azure, onde monitoriza e controla as despesas do Azure e do AWS. Este artigo explica como configurar a integração e como a definir para que possa utilizar as funcionalidades do Azure Cost Management para analisar os custos e os orçamentos.
 
 O Cost Management processa o relatório de Custos e Utilização do AWS armazenado num registo S3 com as suas credenciais de acesso ao AWS para obter as definições do relatório e transferir os ficheiros CSV do relatório no formato GZIP.
+
+Veja o vídeo [How to set up Connectors for AWS in Cost Management](https://www.youtube.com/watch?v=Jg5KC1cx5cA) (Como configurar Conectores para o AWS no Cost Management) para saber mais sobre como configurar a integração de relatórios do AWS. Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/Jg5KC1cx5cA]
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Criar um relatório de Custos e Utilização no AWS
 

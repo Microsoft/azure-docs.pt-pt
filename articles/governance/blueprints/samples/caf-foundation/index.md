@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema Fundação do CAF
 description: Descrição geral e arquitetura do exemplo de esquema da Fundação do Framework de Adoção da Cloud (CAF) para o Azure.
-ms.date: 08/20/2019
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 79b47127b81caf148054f4223e5fa7ad9fbf86fe
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: a5616667ae909b63f406e399a23bdf568089bf52
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75562566"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383582"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Descrição geral do exemplo de esquema Fundação do Microsoft Cloud Adoption Framework para o Azure
 
@@ -18,7 +18,7 @@ O esquema Fundação do Microsoft Cloud Adoption Framework para o Azure (CAF) im
 
 O exemplo de esquema Fundação do CAF implementa recursos de infraestrutura recomendados no Azure que as organizações podem utilizar para aplicar os controlos de fundação que são necessários para gerir o respetivo património de cloud. Este exemplo irá implementar e impor recursos, políticas e modelos que permitirão a uma organização começar a utilizar o Azure com toda a confiança.
 
-![Fundação do CAF. A imagem descreve o que é instalado como parte da documentação de orientação do CAF para criar uma fundação para começar a utilizar o Azure](../../media/caf-blueprints/caf-foundation-architecture.png)
+:::image type="content" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="Fundação do CAF. A imagem descreve o que é instalado como parte da documentação de orientação do CAF para criar uma fundação para começar a utilizar o Azure" border="false":::
 
 Esta implementação incorpora vários serviços do Azure utilizados para fornecer uma fundação segura, totalmente monitorizada e pronta para empresas. Este ambiente é composto por:
 

@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema dos Serviços Partilhados ISO 27001
 description: Descrição geral e arquitetura do exemplo de esquema Serviços Partilhados ISO 27001. Este exemplo de esquema ajuda os clientes a avaliar controlos ISO 27001 específicos.
-ms.date: 01/13/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 0b6a250ebac2744adca813219225388841f1776f
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75922547"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381577"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Descrição geral do exemplo de esquema dos Serviços Partilhados ISO 27001
 
@@ -21,7 +21,7 @@ O exemplo de esquema de [carga de trabalho da Base de Dados SQL/Ambiente do Serv
 O exemplo de esquema Serviços Partilhados ISO 27001 implementa uma infraestrutura de base no Azure que pode ser utilizada por organizações para alojar várias cargas de trabalho com base na abordagem de Datacenter Virtual (VDC).
 O VDC é um conjunto comprovado de arquiteturas de referência, ferramentas de automatização e modelos de cativação utilizados pela Microsoft com os seus clientes empresariais de maior dimensão. O exemplo de esquema Serviços Partilhados baseia-se num ambiente VDC do Azure totalmente nativo, apresentado abaixo.
 
-![Estrutura de exemplo do esquema Serviços Partilhados ISO 27001](../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png" alt-text="Estrutura de exemplo do esquema Serviços Partilhados ISO 27001" border="false":::
 
 Este ambiente é composto por vários serviços do Azure utilizados para fornecer uma infraestrutura de serviços partilhados segura, completamente monitorizada e preparada para empresas, com base nas normas ISO 27001. Este ambiente é composto por:
 

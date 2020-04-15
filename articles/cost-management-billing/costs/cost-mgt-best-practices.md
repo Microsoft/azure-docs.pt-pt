@@ -3,17 +3,17 @@ title: Otimizar o investimento na cloud com o Azure Cost Management
 description: Este artigo ajuda-o a obter o valor máximo dos seus investimentos na cloud, reduzir os custos e a avaliar onde está a gastar o seu dinheiro.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 4941c1be8fd20dfa88e3ac36bfa30af77a2b1be1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8df98514545a2670ea18a2b4b131a097244d7b46
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80157216"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874590"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar o investimento na cloud com o Azure Cost Management
 
@@ -36,6 +36,10 @@ Existem três grupos-chave, descritos abaixo, que têm de estar alinhados na sua
 ### <a name="key-principles"></a>Princípios-chave
 
 Utilize os princípios descritos abaixo para posicionar a sua organização no caminho do sucesso relativamente à gestão de custos na cloud.
+
+Para saber mais, veja o vídeo [Cost Management setting up for success](https://www.youtube.com/watch?v=dVuwITdSAZ4) (Preparação do Cost Management para o sucesso). Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/dVuwITdSAZ4]
 
 #### <a name="planning"></a>Planeamento
 
@@ -125,7 +129,7 @@ Mantenha-se informado sobre como os custos da sua organização evoluem com o te
 
 Organize os recursos com o custo em mente. À medida que cria subscrições e grupos de recursos, pense nas equipas que são responsáveis pelos custos associados. Confirme que os relatórios têm a sua organização em mente. As subscrições e os grupos de recursos fornecem bons registos para organizar e atribuir despesas em toda a organização. As etiquetas são uma boa forma para atribuir custos. Pode utilizar as etiquetas como filtros. E pode utilizá-las para “agrupar por” quando analisa dados e investiga os custos. Os clientes do Contrato Enterprise também podem criar departamentos e colocar subscrições sob os mesmos. A organização com base em custos no Azure ajuda a manter as pessoas relevantes na sua organização responsáveis pela redução das despesas das equipas delas.
 
-Veja o vídeo [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) (Como rever as políticas de etiquetas com o Azure Cost Management) para compreender as ferramentas que estão disponíveis para impor a identificação de recursos dimensionáveis na sua organização.
+Veja o vídeo [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) (Como rever as políticas de etiquetas com o Azure Cost Management) para compreender as ferramentas que estão disponíveis para impor a identificação de recursos dimensionáveis na sua organização. Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 

@@ -1,11 +1,11 @@
-- name: Documentação do Azure Marketplace e AppSource
+- name: Documentação do marketplace comercial
   href: index.yml
   items:
-    - name: Roteiro do Azure Marketplace e AppSource
+    - name: Mapa de objetivos do marketplace comercial
       href: ./marketplace-roadmap.md
-    - name: Políticas e termos do Azure Marketplace
+    - name: Políticas e termos do marketplace comercial
       href: ./policies-terms.md
-    - name: Descrição geral e benefícios do Azure Marketplace e do AppSource
+    - name: Descrição geral e benefícios do marketplace comercial
       href: ./marketplace-publishers-guide.md
       items:
         - name: 'Um marketplace, duas lojas'
@@ -15,7 +15,7 @@
           items:
             - name: Gestão de oportunidades potenciais
               href: ./lead-management-for-cloud-marketplace.md
-            - name: Transações no Azure Marketplace
+            - name: Realizar transações no marketplace comercial
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
             - name: Ofertas Privadas
               href: ./private-offers.md
@@ -66,7 +66,7 @@
               href: ./preferred-solutions.md
             - name: Soluções integradas
               href: ./integrated-solutions.md
-        - name: Suporte para o Azure Marketplace e AppSource
+        - name: Suporte para o marketplace comercial
           href: ./support-azure-marketplace.md
           items:
             - name: FAQs do Marketplace
@@ -78,6 +78,8 @@
   items:
     - name: Migração do Cloud Partner Portal para o Centro de Parceiros
       href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
+    - name: FAQ da migração
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
     - name: Tour pelo Portal
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
@@ -427,12 +429,10 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Obter suporte
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
-- name: Portal Comercial do Marketplace no Centro de Parceiros
+- name: Marketplace comercial no Partner Center
   items:
-    - name: Descrição geral
-      items:
-        - name: O que é o Marketplace Comercial?
-          href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: Descrição geral do marketplace comercial
+      href: ./partner-center-portal/commercial-marketplace-overview.md
     - name: Gestão de Contas
       items:
         - name: Criar uma nova conta do Centro de Parceiros
@@ -453,6 +453,30 @@
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API para integração
               href: ./partner-center-portal/azure-app-apis.md
+        - name: Ofertas do Azure Container
+          items:
+            - name: Preparar recursos técnicos
+              href: ./partner-center-portal/create-azure-container-technical-assets.md
+            - name: Criar uma oferta do Azure Container
+              href: ./partner-center-portal/create-azure-container-offer.md
+        - name: Oferta de Máquina Virtual
+          items:
+            - name: Criar uma oferta de Máquina Virtual do Azure
+              href: ./partner-center-portal/azure-vm-create-offer.md
+            - name: Criar recursos técnicos de VM do Azure
+              items:
+                - name: Criar recursos técnicos de VM do Azure
+                  href: ./partner-center-portal/create-azure-vm-technical-asset.md
+                - name: FAQ dos recursos técnicos de VM do Azure
+                  href: ./partner-center-portal/common-issues-during-vhd-creation.md
+                - name: Certificar imagens de VM do Azure
+                  href: ./partner-center-portal/azure-vm-image-certification.md
+                - name: URI de SAS
+                  items:
+                    - name: Obter o URI de SAS
+                      href: ./partner-center-portal/get-sas-uri.md
+                    - name: FAQ do URI de SAS
+                      href: ./partner-center-portal/common-sas-uri-issues.md
         - name: Serviços de consultadoria
           items:
             - name: Pré-requisitos
@@ -539,7 +563,7 @@
       href: ./partner-center-portal/support.md
     - name: Análise do Centro de Parceiros
       items:
-        - name: Análise do Marketplace Comercial
+        - name: Análise para o marketplace comercial
           href: ./partner-center-portal/analytics.md
         - name: Dashboard de resumo
           href: ./partner-center-portal/summary-dashboard.md

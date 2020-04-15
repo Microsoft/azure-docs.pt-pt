@@ -3,17 +3,17 @@ title: Início Rápido – Explorar os custos do Azure com a análise de custos
 description: Este guia de início rápido ajuda-o a utilizar a análise de custos para explorar e analisar os custos da sua organização associados ao Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 53e1ef2f5e4faecd3ab2dee1350f3e9087df8e9d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e63e3ef999db7053609fb098cd2b7583143a2937
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155958"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874505"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custos
 
@@ -45,7 +45,7 @@ Para rever os custos na análise de custos, abra o âmbito no portal do Azure e 
 
 O âmbito que selecionar será utilizado em todo o Cost Management para permitir obter a consolidação dos dados e o controlo de acesso às informações relativas aos custos. Quando utiliza âmbitos, não faz uma seleção múltipla dos mesmos. Em vez disso, seleciona um âmbito maior, no qual os outros âmbitos são incluídos e, em seguida, filtra até obter os âmbitos aninhados de que necessita. É importante compreender esta abordagem, pois algumas pessoas poderão não ter acesso a um âmbito principal único, que abrange vários âmbitos aninhados.
 
-Veja o vídeo [How to use Cost Management in the Azure portal](https://www.youtube.com/watch?v=mfxysF-kTFA) (Como utilizar o Cost Management no portal do Azure) para saber mais sobre como utilizar a Análise de Custos.
+Veja o vídeo [How to use Cost Management in the Azure portal](https://www.youtube.com/watch?v=mfxysF-kTFA) (Como utilizar o Cost Management no portal do Azure) para saber mais sobre como utilizar a Análise de Custos. Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
 
@@ -145,6 +145,10 @@ Pode ver o conjunto de dados completo relativo a qualquer vista. As seleções o
 
 ## <a name="understanding-grouping-and-filtering-options"></a>Compreender as opções de agrupamento e de filtragem
 
+A análise de custos tem muitas opções de agrupamento e filtragem. Para ver um vídeo sobre opções de agrupamento e filtragem, veja o vídeo [Cost Management reporting by dimensions and tags](https://www.youtube.com/watch?v=2Vx7V17zbmk) (Relatórios do Cost Management por dimensões e etiquetas). Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
+
 A seguinte tabela lista algumas das opções de agrupamento e filtragem mais comuns e quando deverão ser utilizadas.
 
 | Propriedade | Quando utilizar | Notas |
@@ -178,7 +182,7 @@ Para obter mais informações sobre os termos, veja [Compreender os termos utili
 
 Guarde e partilhe vistas personalizadas com outras pessoas ao afixar a análise de custos no dashboard do portal do Azure ou ao copiar uma ligação para a análise de custos.
 
-Veja o vídeo [Sharing and saving views in Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) (Partilhar e guardar vistas no Azure Cost Management) para saber mais sobre como utilizar o portal para partilhar conhecimentos sobre custos na sua organização.
+Veja o vídeo [Sharing and saving views in Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) (Partilhar e guardar vistas no Azure Cost Management) para saber mais sobre como utilizar o portal para partilhar conhecimentos sobre custos na sua organização. Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 

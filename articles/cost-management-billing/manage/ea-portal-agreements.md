@@ -3,16 +3,16 @@ title: Contratos e emendas do Azure EA
 description: Este artigo explica como os contratos e as emendas do Azure EA afetam a utilização do Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/04/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b007e98f37246d17679761fd601ed76fd9fb875
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78301425"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586233"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e emendas do Azure EA
 
@@ -105,7 +105,7 @@ Confirme que analisa as informações comerciais (informações de saldo monetá
 
 **Passo 2: Analisar e validar**
 
-Analise o preço da margem de lucro no _Resumo da Utilização_ para o período de alocação na vista de cliente. O preço da Microsoft ainda estará disponível na vista de parceiro. Pode alternar as vistas com o botão “pessoas” da margem de lucro do parceiro no canto superior direito.
+Analise o preço da margem de lucro no _Resumo da Utilização_ para o período de alocação na vista de cliente. O preço da Microsoft ainda estará disponível na vista de parceiro. Pode alternar as vistas com o botão "pessoas" da margem de lucro do parceiro no canto superior direito.
 
 1. Analise os preços na folha de preços.
 1. Pode fazer alterações antes da publicação. Para tal, selecione **Editar** no separador _Ver Resumo da Utilização > Vista de Cliente_ .  
@@ -164,17 +164,17 @@ O Plano de Compra Prévia de Computação (CPP, anteriormente conhecido como Pro
 
 Se tiver encomendado uma SKU do CPP, esta destina-se a um tipo específico de computador, num datacenter específico. No estado em que se encontra atualmente esta funcionalidade, não fornecemos nenhuma lista de todas as compras CPP que um cliente realizou, pelo qual não existe nenhuma lista de créditos em espera; no entanto, quando configura os tipos de computadores comprados no datacenter onde foram comprados, verá a alocação mensal no relatório Resumo da Utilização no EA Portal.
 
-O valor comprado previamente será apresentado como um crédito na coluna “Unidades Incluídas” e a sua utilização não resultará em custos de utilização até que as “Unidades Incluídas” sejam consumidas. Uma vez consumidas, a utilização adicional será cobrada às taxas negociadas na folha de preços do cliente EA normal.
+O valor comprado previamente será apresentado como um crédito na coluna "Unidades Incluídas" e a sua utilização não resultará em custos de utilização até que as "Unidades Incluídas" sejam consumidas. Uma vez consumidas, a utilização adicional será cobrada às taxas negociadas na folha de preços do cliente EA normal.
 
 A forma como os créditos são comprados baseia-se no número de computadores de uma classe por mês. Por exemplo: se tiver comprado 70 VMs A2 por ano no E.U.A. Leste 2, não veria isto no EA Portal do mesma forma como foi comprado.
 
-Os computadores mensais são calculados como estando em execução 744 horas por mês. Ao converter esse valor em horas seria 70 vezes 744, ou seja 52 080 horas compradas de VMs A2 por mês. Dado que no Resumo da Utilização do EA Portal, as VMs A2 são indicadas em incrementos de 100 Horas, o que iria ver seria um crédito de 520,8 (52 080/100) “Unidades Incluídas” por mês e iria ver as unidades consumidas até à data no mês. Os custos de utilização devem aparecer como zero até que as unidades consumidas mensais ultrapassem as unidades mensais incluídas.
+Os computadores mensais são calculados como estando em execução 744 horas por mês. Ao converter esse valor em horas seria 70 vezes 744, ou seja 52 080 horas compradas de VMs A2 por mês. Dado que no Resumo da Utilização do EA Portal, as VMs A2 são indicadas em incrementos de 100 Horas, o que iria ver seria um crédito de 520,8 (52 080/100) "Unidades Incluídas" por mês e iria ver as unidades consumidas até à data no mês. Os custos de utilização devem aparecer como zero até que as unidades consumidas mensais ultrapassem as unidades mensais incluídas.
 
 Diferentes tipos de computadores utilizam unidades de medida diferentes, por exemplo, as VMs D3 e D4 utilizam uma unidade de medida de 10 Horas no nosso relatório Resumo da Utilização. Assim, uma compra de 70, será apresentada como 5208 unidades incluídas por mês (52 080/10).
 
 De uma forma geral, a fórmula abaixo fornecerá o número de VMs compradas com base nas unidades de medição:
 
-<center><b> (“Quantidade Incluída“ * “Unidades de Medida”)/744 </b></center>
+<center><b> ("Quantidade Incluída" * "Unidades de Medida")/744 </b></center>
 
 ## <a name="plan-skus"></a>SKUs do Plano
 
@@ -190,7 +190,7 @@ Os Administradores do Enterprise podem atribuir Proprietários da Conta para apr
 1. Clique em **Relatórios** no painel de navegação esquerdo.
 1. Clique no separador **Folha de Preços**.
 1. Clique no ícone “Transferir” no canto superior direito.
-1. Localize os números de peça das SKUS do Plano correspondentes ao filtro na coluna “Quantidade Incluída” e selecione os valores superiores a “0”.
+1. Localize os números de peça das SKUS do Plano correspondentes ao filtro na coluna "Quantidade Incluída" e selecione os valores superiores a "0".
 
 ### <a name="provision-the-plan-skus"></a>Aprovisionar as SKUs do plano
 
@@ -219,7 +219,7 @@ Os administradores do Enterprise podem adicionar novos proprietários de conta, 
 1. Forneça o nome que gostaria de utilizar para identificar esta conta no relatório.
 1. Clique em **Adicionar**.
 1. Pode adicionar uma conta adicional ao selecionar a opção **+ Adicionar uma Conta** novamente ou regressar à home page ao selecionar o botão **Admin**.  
-1. Se clicar para ver a página Conta, a conta recentemente adicionada será apresentada com um estado “Pendente”. O estado será alterado para “Ativo” após o Proprietário da Conta iniciar sessão no EA Portal pela primeira vez.
+1. Se clicar para ver a página Conta, a conta recentemente adicionada será apresentada com um estado “Pendente”. O estado será alterado para "Ativo" após o Proprietário da Conta iniciar sessão no EA Portal pela primeira vez.
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Proprietários de conta novos/existentes para criar novas subscrições
 
@@ -235,7 +235,7 @@ Na primeira vez que adicionar uma subscrição à conta, ser-lhe-á pedido que a
 
 **Passo 2: Atualizar o nome da subscrição**
 
-Todas as novas subscrições serão adicionadas com o nome de subscrição “Microsoft Azure Enterprise” predefinido. É importante atualizar o nome da subscrição para a diferenciar das outras subscrições na Inscrição do Enterprise e garantir que é reconhecível nos relatórios ao nível da empresa.
+Todas as novas subscrições serão adicionadas com o nome de subscrição "Microsoft Azure Enterprise" predefinido. É importante atualizar o nome da subscrição para a diferenciar das outras subscrições na Inscrição do Enterprise e garantir que é reconhecível nos relatórios ao nível da empresa.
 
 Clique em **Subscrições**, clique na subscrição que criou e, em seguida, clique em **Editar Detalhes da Subscrição**.
 
@@ -248,13 +248,13 @@ Apenas os proprietários da conta podem ver e gerir subscrições.
 
 **Proprietário da conta apresenta no estado pendente**
 
-Quando são adicionados novos Proprietários de Conta (AO) à inscrição pela primeira vez, serão sempre apresentados com o estado “pendente”. Quando receber o e-mail de boas-vindas de ativação, o AO poderá iniciar sessão para ativar a conta. Esta ativação atualizará o estado da conta de “pendente” para “ativo”.
+Quando são adicionados novos Proprietários de Conta (AO) à inscrição pela primeira vez, serão sempre apresentados com o estado "pendente". Quando receber o e-mail de boas-vindas de ativação, o AO poderá iniciar sessão para ativar a conta. Esta ativação atualizará o estado da conta de "pendente" para "ativo".
 
 **Utilizações que estão a ser faturadas após a compra de SKUs do Plano**
 
 Este cenário ocorre quando o cliente implementou serviços ao abrigo do número de inscrição errado ou selecionou os serviços errados.
 
-Para confirmar que está a implementar ao abrigo da inscrição correta, pode consultar as informações das unidades incluídas na folha de preços. Inicie sessão como Administrador do Enterprise, clique em **Relatórios** no painel de navegação esquerdo e selecione o separador **Folha de Preços**. Clique no ícone Transferir no canto superior direito, localize os números de peça das SKUs do Plano correspondentes ao filtro na coluna “Quantidade Incluída” e selecione os valores superiores a “0”.
+Para confirmar que está a implementar ao abrigo da inscrição correta, pode consultar as informações das unidades incluídas na folha de preços. Inicie sessão como Administrador do Enterprise, clique em **Relatórios** no painel de navegação esquerdo e selecione o separador **Folha de Preços**. Clique no ícone Transferir no canto superior direito, localize os números de peça das SKUs do Plano correspondentes ao filtro na coluna "Quantidade Incluída" e selecione os valores superiores a "0".
 
 Confirme que o plano OMS é apresentado na folha de preços nas unidades incluídas. Se não existirem unidades incluídas para o plano OMS na inscrição, o plano OMS poderá estar noutra inscrição. Contacte o Suporte do Azure Enterprise Portal em [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 

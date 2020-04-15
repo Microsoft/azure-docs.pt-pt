@@ -3,17 +3,17 @@ title: Tutorial - Criar e gerir orçamentos do Azure
 description: Este tutorial ajuda a planear e a contabilizar os custos dos serviços do Azure que consome.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f7c1ac65026fd366be1003842ff70a78b9082339
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 82094fadf7b11d97b0e9e74d9ba897baed16ee01
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155941"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874284"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerir orçamentos do Azure
 
@@ -25,7 +25,7 @@ Os orçamentos são repostos automaticamente no final de um período (mensal, tr
 
 Os exemplos mostrados neste tutorial irão guiá-lo através da criação e edição de um orçamento para uma subscrição EA (Contrato Enterprise).
 
-Veja o vídeo [Apply budgets to subscriptions using the Azure portal](https://www.youtube.com/watch?v=UrkHiUx19Po) (Aplicar orçamentos a subscrições com o portal do Azure) para ver como pode criar orçamentos no Azure para monitorizar os custos.
+Veja o vídeo [Apply budgets to subscriptions using the Azure portal](https://www.youtube.com/watch?v=UrkHiUx19Po) (Aplicar orçamentos a subscrições com o portal do Azure) para ver como pode criar orçamentos no Azure para monitorizar os custos. Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/UrkHiUx19Po]
 
@@ -38,11 +38,32 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os orçamentos são suportados para diferentes tipos de contas do Azure. Para ver a lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](understand-cost-mgt-data.md). Para ver os orçamentos, precisa de ter, pelo menos, acesso de leitura na sua conta do Azure.
+São suportados orçamentos para os seguintes tipos e âmbitos de conta do Azure:
+
+- Âmbitos do Controlo de Acesso Baseado em Funções do Azure
+    - Grupos de gestão
+    - Subscrição
+- Âmbitos do Contrato Enterprise
+    - Conta de faturação
+    - Departamento
+    - Conta de inscrição
+- Contratos individuais
+    - Conta de faturação
+- Âmbitos do Contrato de Cliente Microsoft
+    - Conta de faturação
+    - Perfil de faturação
+    - Secção de fatura
+    - Cliente
+- Âmbitos do AWS
+    - Conta externa
+    - Subscrição externa
+
+
+Para ver os orçamentos, precisa de ter, pelo menos, acesso de leitura na sua conta do Azure.
 
 Se tiver uma subscrição nova, não pode criar imediatamente um orçamento nem utilizar outras funcionalidades do Cost Management. Poderá demorar até 48 horas até poder utilizar todas as funcionalidades do Cost Management.
 
-No caso de subscrições EA, tem de ter acesso de leitura para ver os orçamentos. Para criar e gerir orçamentos, tem de ter permissão de contribuidor. Pode criar orçamentos individuais para subscrições EA e grupos de recursos. Contudo, não pode criar orçamentos para contas de faturação EA.
+No caso de subscrições EA, tem de ter acesso de leitura para ver os orçamentos. Para criar e gerir orçamentos, tem de ter permissão de contribuidor.
 
 As seguintes permissões, ou âmbitos, do Azure são suportadas por subscrição para os orçamentos por utilizador e grupo. Para obter mais informações sobre os âmbitos, veja [Compreender e trabalhar com âmbitos](understand-work-scopes.md).
 
@@ -58,7 +79,7 @@ Para obter mais informações sobre a atribuição da permissão para os dados d
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Criar um orçamento no portal do Azure
 
-Pode criar um orçamento para a subscrição do Azure por período mensal, semestral ou anual. O conteúdo de navegação no portal do Azure determina se cria um orçamento para uma subscrição ou para um grupo de gestão.
+Pode criar um orçamento para a subscrição do Azure por período mensal, semestral ou anual.
 
 Para criar ou ver um orçamento, abra o âmbito desejado no portal do Azure e selecione **Orçamentos** no menu. Por exemplo, navegue para **Subscrições**, selecione uma subscrição na lista e, em seguida, selecione **Orçamentos** no menu. Em Orçamentos, utilize o atalho **Âmbito** para mudar para um âmbito diferente, como um grupo de gestão. Para obter mais informações sobre os âmbitos, veja [Compreender e trabalhar com âmbitos](understand-work-scopes.md).
 
@@ -110,15 +131,11 @@ As avaliações dos custos do orçamento baseiam-se no custo real, não incluem 
 
 Quando cria ou edita um orçamento de um âmbito de subscrição ou grupo de recursos, pode configurá-lo para chamar um grupo de ações. O grupo de ações pode realizar várias ações quando o limiar do orçamento for atingido. De momento, os Grupos de Ações são suportados apenas nos âmbitos de subscrição e grupo de recursos. Para obter mais informações sobre os Grupos de Ações, veja [Criar e gerir grupos de ações no portal do Azure](../../azure-monitor/platform/action-groups.md). Para obter mais informações sobre a utilização da automatização baseada em orçamentos com os grupos de ações, veja [Gerir os custos com os orçamentos do Azure](../manage/cost-management-budget-scenario.md).
 
-
-
 Para criar ou atualizar os grupos de ações, selecione **Gerir grupos de ações** enquanto estiver a criar ou a editar um orçamento.
 
 ![Exemplo da criação de um orçamento para mostrar Gerir grupos de ações](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
-
 Em seguida, selecione **Adicionar grupo de ações** e crie o grupo de ações.
-
 
 ![Imagem da caixa Adicionar grupo de ações](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
 

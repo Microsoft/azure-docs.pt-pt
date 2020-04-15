@@ -3,17 +3,17 @@ title: Atribuir acesso a dados do Azure Cost Management
 description: Este artigo mostra-lhe os passos para a atribuição de permissão a dados do Azure Cost Management para vários âmbitos de acesso.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/19/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 56090798defd9209c3587aa701c88db6958d1b97
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b3ede4dcc4df8bf10ce24b3d74dc5af0424de5a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065845"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879110"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados do Cost Management
 
@@ -21,9 +21,9 @@ Para os utilizadores com contratos Azure Enterprise, uma combinação de permiss
 
 O âmbito que um utilizador seleciona será utilizado em todo o Cost Management para fornecer a consolidação de dados e para controlar o acesso às informações relativas aos custos. Ao utilizarem os âmbitos, os utilizadores não podem selecionar vários. Em vez disso, selecionam um âmbito maior onde os âmbitos subordinados estão incluídos e, em seguida, filtram para o que querem visualizar. É importante que compreenda a consolidação dos dados, porque algumas pessoas não devem aceder a um âmbito principal no qual os âmbitos subordinados estão incluídos.
 
-Veja o vídeo [How to assign access with Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) (Como atribuir acesso com o Azure Cost Management) para saber mais sobre a atribuição de acesso para ver custos cobranças com o controlo de acesso baseado em funções do Azure.
+Veja o vídeo [Cost Management controlling access](https://www.youtube.com/watch?v=_uQzQ9puPyM) (Controlo de acesso do Cost Management) para saber mais sobre a atribuição de acesso para ver custos e cobranças com o controlo de acesso baseado em funções do Azure. Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
->[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
+>[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
 ## <a name="cost-management-scopes"></a>Âmbitos do Cost Management
 

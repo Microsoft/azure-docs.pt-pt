@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema de carga de trabalho ASE/SQL ISO 
 description: Descrição geral e arquitetura do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: d77029b93b1e77bdba85c5dd5608cbdc5d6543a5
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9957ab1bef5b65fc90b5a357bd56d6f0013ea690
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75920779"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381736"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Descrição geral do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001
 
@@ -24,7 +24,7 @@ Existem dois exemplos de esquema ISO 27001: este exemplo e o exemplo de esquema 
 
 O exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001 implementa uma plataforma como um ambiente Web baseado num serviço. O ambiente pode ser utilizado para alojar várias aplicações Web, APIs Web e instâncias da Base de Dados SQL que seguem as normas ISO 27001. Este exemplo de esquema depende do exemplo de esquema [Serviços Partilhados ISO 27001](../iso27001-shared/index.md).
 
-![Design de exemplo de esquema de carga de trabalho ASE/SQL ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png" alt-text="Estrutura de exemplo de esquema de carga de trabalho ASE/SQL ISO 27001" border="false":::
 
 Este ambiente é composto por vários serviços do Azure utilizados para fornecer uma infraestrutura de carga de trabalho segura, completamente monitorizada e preparada para empresas, com base nas normas ISO 27001. Este ambiente é composto por:
 

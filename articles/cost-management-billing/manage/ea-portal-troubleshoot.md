@@ -3,16 +3,16 @@ title: Resolver problemas de acesso ao Azure EA Portal
 description: Este artigo descreve alguns problemas comuns que podem ocorrer com um Contrato Enterprise (EA) do Azure no Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3bf1c10e28ef9e3e4008968c9dbaef576bccdb5f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: ee8363a76db93f0c2bd4734151e3d250de5402fc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411557"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586190"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Resolver problemas de acesso ao Azure EA Portal
 
@@ -112,7 +112,7 @@ As inscrições estarão no estado pendente se o administrador do EA inicial nã
 
 ### <a name="why-is-my-account-stuck-in-pending-status"></a>Por que é que a minha conta está no estado pendente?
 
-Quando são adicionados novos Proprietários de Conta (AO) à inscrição pela primeira vez, serão sempre apresentados com o estado “pendente”. Quando receber o e-mail de boas-vindas de ativação, o AO pode iniciar sessão para ativar a respetiva conta. Ao iniciar sessão, o estado da conta será atualizado de “pendente” para “ativo”.
+Quando são adicionados novos Proprietários de Conta (AO) à inscrição pela primeira vez, serão sempre apresentados com o estado "pendente". Quando receber o e-mail de boas-vindas de ativação, o AO pode iniciar sessão para ativar a respetiva conta. Ao iniciar sessão, o estado da conta será atualizado de "pendente" para "ativo".
 
 ### <a name="i-received-an-error-when-signing-in-to-azure-ea-portal"></a>Recebi um erro ao iniciar sessão no Azure EA Portal
 
@@ -161,7 +161,7 @@ Caso se tenha esquecido da sua palavra-passe profissional, contacte o administra
 
 ### <a name="i-have-a-valid-work-or-school-account-but-i-cant-add-it-to-the-ea-portal"></a>Tenho uma conta escolar ou profissional válida, mas não consigo adicioná-la ao EA Portal
 
-Se tiver uma conta escolar ou profissional num inquilino diferente, altere o nível de autorização na página de detalhes de inscrição para “Conta Escolar ou Profissional em Vários Inquilinos” e poderá adicionar a conta.
+Se tiver uma conta escolar ou profissional num inquilino diferente, altere o nível de autorização na página de detalhes de inscrição para "Conta Escolar ou Profissional em Vários Inquilinos" e poderá adicionar a conta.
 
 ## <a name="next-steps"></a>Passos seguintes
 

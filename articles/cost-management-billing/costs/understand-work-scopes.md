@@ -3,17 +3,17 @@ title: Compreender e trabalhar com âmbitos do Azure Cost Management
 description: Este artigo ajuda-o a compreender os âmbitos de gestão de faturação e de recursos disponíveis no Azure e como utilizar os âmbitos no Cost Management e nas APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: bbed4209d26fe32f95b93b2c7411e1ab74f03ede
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80131366"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877937"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -26,6 +26,10 @@ Um _âmbito_ é um nó na hierarquia de recursos do Azure onde os utilizadores d
 - Serviços cloud, como governação de custos e políticas
 
 Os âmbitos são onde gere os dados de faturação, tem funções específicas de pagamentos, visualiza faturas e onde realiza a gestão global da conta. As funções de faturação e de conta são geridas separadamente daquelas que são utilizadas na gestão de recursos, que utilizam as funções [RBAC do Azure](../../role-based-access-control/overview.md). Para fazermos a distinção clara do objetivo dos diferentes âmbitos, incluindo as diferenças de controlo de acesso, serão designados como _âmbitos de faturação_ e _âmbitos de RBAC_, respetivamente.
+
+Para saber mais sobre os âmbitos, veja o vídeo [Cost Management setting up hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) (Configuração de hierarquias do Cost Management). Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
 
 ## <a name="how-cost-management-uses-scopes"></a>Como o Cost Management utiliza os âmbitos
 
@@ -71,7 +75,7 @@ O Contribuidor do Cost Management é a função de privilégios mínimos recomen
 
 As contas de faturação do Contrato Enterprise (EA), também chamadas inscrições, têm os seguintes âmbitos:
 
-- [**Conta de faturação**](../manage/view-all-accounts.md) – representa uma inscrição do EA. As faturas são geradas neste âmbito. As compras que não se baseiam na utilização, como no caso do Marketplace e das reservas, estão disponíveis apenas neste âmbito. Não são representadas em departamentos nem contas de inscrição.
+- [**Conta de faturação**](../manage/view-all-accounts.md) – representa uma inscrição do EA. As faturas são geradas neste âmbito. As compras que não se baseiam na utilização, como no caso do Marketplace e das reservas, estão disponíveis apenas neste âmbito. Não são representadas em departamentos nem contas de inscrição. A utilização de reservas, juntamente com todos os outros tipos de utilização, é aplicada a recursos individuais. A utilização é implementada nas subscrições incluídas na conta de faturação. Para ver os custos de reserva discriminados em cada recurso, mude para ver os **Custos amortizados** na análise de custos.
 
     Tipo de recurso: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **Departamento** – agrupamento opcional de contas de inscrição.

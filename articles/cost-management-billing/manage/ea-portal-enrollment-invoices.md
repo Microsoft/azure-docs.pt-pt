@@ -3,16 +3,16 @@ title: Faturas de inscrição do Azure Enterprise
 description: Este artigo explica como gerir e interpretar a fatura Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 9fbc2ffcf1158f436c060817f8f25152f839c3e0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d8d189d2ee67e3f98fec5d7d4cd295879e8689c9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037261"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743888"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas de inscrição do Azure Enterprise
 
@@ -494,6 +494,12 @@ Os seguintes serviços são faturados separadamente:
 - Visual Studio Enterprise (Anual)
 - Visual Studio Professional (Mensal)
 - Visual Studio Professional (Anual)
+
+## <a name="what-to-expect-after-change-of-channel-partner"></a>O que esperar após a mudança de parceiro de canal
+
+Se a mudança de parceiro de canal (COCP) ocorrer a meio do mês, um cliente receberá uma fatura de utilização do parceiro associado anterior e outra fatura para a utilização referente ao novo parceiro.
+
+As faturas serão disponibilizadas no mês a seguir ao final do período de faturação. Se a cadência de faturação for mensal, a fatura de setembro será disponibilizada em outubro para ambos os parceiros. Se o ciclo de faturação for trimestral ou anual, o cliente pode esperar uma fatura do parceiro associado anterior para a utilização durante o respetivo período e a restante para o novo parceiro com base na cadência de faturação.
 
 ## <a name="azure-marketplace-for-ea-customers"></a>Azure Marketplace para clientes EA
 
