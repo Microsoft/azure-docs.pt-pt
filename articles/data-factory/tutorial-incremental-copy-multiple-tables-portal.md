@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.openlocfilehash: 2c89b53d66b93ff38a7cff07b2889faf8eda24ce
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 290ddf9a99d421bbf6303675fd544e81b637d070
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75439301"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419277"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
 
@@ -177,7 +179,7 @@ Execute a seguinte consulta para criar dois procedimentos armazenados e dois tip
 
 Para facilitar a viagem, utilizamos diretamente estes Procedimentos Armazenados passando os dados delta através de uma variável de tabela e, em seguida, fundi-los em loja de destino. Tenha cuidado ao facto de não esperar que um número "grande" de linhas delta (mais de 100) seja armazenado na variável de tabela.  
 
-Se precisar de fundir um grande número de linhas delta na loja de destino, sugerimos que use a atividade de cópia para copiar todos os dados delta numa mesa temporária de "encenação" primeiro na loja de destino, e depois construiu o seu próprio procedimento armazenado sem usar a mesa variável para fundi-los da tabela "encenação" para a tabela "final". 
+Se precisar de fundir um grande número de linhas delta na loja de destino, sugerimos que utilize a atividade de cópia para copiar todos os dados delta numa tabela temporária de "encenação" primeiro na loja de destino, e depois construiu o seu próprio procedimento armazenado sem usar a variável de mesa para os fundir da tabela "staging" para a tabela "final". 
 
 
 ```sql
@@ -470,7 +472,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
         | Nome | Tipo | Valor | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | Cadeia | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Selecione **Publicar Tudo** para publicar as entidades que criou para o serviço Data Factory. 

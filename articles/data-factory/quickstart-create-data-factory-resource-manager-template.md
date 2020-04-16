@@ -10,18 +10,20 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5ea45346de5ea841867dd13dd4c9a0ed26647448
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240745"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419124"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar uma fábrica de dados do Azure com o modelo do Azure Resource Manager
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Versão atual](quickstart-create-data-factory-resource-manager-template.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este início rápido descreve como utilizar um modelo do Azure Resource Manager para criar uma fábrica de dados do Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para ter acesso a um tutorial sobre como **transformar** dados com o Azure Data Factory, veja [Tutorial: Transformar dados com o Spark](transform-data-using-spark.md).
 
@@ -636,7 +638,7 @@ Define um pipeline que copia dados de um conjunto de dados binário para outro c
 
 #### <a name="trigger"></a>Acionador
 
-Defina um acionador que executa o pipeline uma vez por hora. O acionador implementado está no estado parado. Inicie o gatilho utilizando o **cmdlet Start-AzDataFactoryV2Trigger.** Para mais informações sobre os gatilhos, consulte a [execução do Pipeline e desencadeia](concepts-pipeline-execution-triggers.md#triggers) o artigo.
+Defina um acionador que executa o pipeline uma vez por hora. O acionador implementado está no estado parado. Inicie o gatilho utilizando o **cmdlet Start-AzDataFactoryV2Trigger.** Para mais informações sobre os gatilhos, consulte a [execução do Pipeline e desencadeia](concepts-pipeline-execution-triggers.md#trigger-execution) o artigo.
 
 ```json
 {  
