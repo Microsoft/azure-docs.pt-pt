@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: dapine
-ms.openlocfilehash: 02227a0d4b9bf436632c5179696228ae865ff866
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.author: trbye
+ms.openlocfilehash: b565bf3bae61cf92133b957bb75fdae9545c030e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409719"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421727"
 ---
 Para transmitir num formato áudio comprimido para `PullAudioInputStream` `PushAudioInputStream`o serviço De Fala, crie ou . Em seguida, `AudioConfig` crie um a partir de uma instância da sua classe de fluxo, especificando o formato de compressão do fluxo.
 

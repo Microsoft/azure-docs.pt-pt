@@ -1,16 +1,16 @@
 ---
-title: Implementar amostra de unidade para desktop
+title: Implementar exemplo do Unity no Ambiente de Trabalho
 description: Quickstart que mostra como colocar a amostra de Unidade em um PC de ambiente de trabalho
 author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 93ec25123f60083d4b31cf54592b1a1c0dacab69
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 95993a54d321c9581d35f12b56d60e4ea052e505
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679759"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415712"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Quickstart: Implementar amostra de unidade para desktop
 
@@ -58,6 +58,9 @@ Apenas aplicações planas para desktop são suportadas no ambiente de trabalho,
 1. Mude o modo de debugger para **Local Machine**.
   ![Configuração da solução](./media/unity-deploy-config-pc.png)
 1. Construir a solução (F7).
+
+> [!WARNING]
+> Certifique-se de selecionar **x86**. **x64** não é suportado atualmente, ver [limitações da plataforma](../reference/limits.md#platform-limitations).
 
 ## <a name="launch-the-sample-project"></a>Lançar o projeto da amostra
 

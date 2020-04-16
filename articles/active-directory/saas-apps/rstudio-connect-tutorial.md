@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a9b49f75ad377a9377a2311ed16c17ca3d749e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2bb5dd845b03bd94f0a94db50c01b804cf6f55c2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67092579"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Integração de Diretório Ativo Azure com rStudio Connect
 
@@ -158,9 +158,9 @@ IdPAttributeProfile = azure
 SSOInitiated = IdPAndSP
 ```
 
-Guarde **Server Address** o `Server.Address` seu Endereço de Servidor no valor e o Url de Metadados da Federação de **Aplicações** no `SAML.IdPMetaData` valor.
+Guarde **Server Address** o `Server.Address` seu Endereço de Servidor no valor e o Url de Metadados da Federação de **Aplicações** no `SAML.IdPMetaData` valor. Note que esta configuração da amostra utiliza uma ligação HTTP não encriptada, enquanto o Azure AD requer a utilização de uma ligação HTTPS encriptada. Pode utilizar um [proxy inverso](https://docs.rstudio.com/connect/admin/proxy/) em frente ao RStudio Connect ou configurar o RStudio Connect para utilizar o HTTPS [diretamente](https://docs.rstudio.com/connect/admin/appendix/configuration/#HTTPS). 
 
-Se tiver problemas com a configuração, pode ler o [Guia de Administrador rStudio Connect](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) ou enviar um e-mail à equipa de suporte do [RStudio](mailto:support@rstudio.com) para obter ajuda.
+Se tiver problemas com a configuração, pode ler o [Guia de Administrador rStudio Connect](https://docs.rstudio.com/connect/admin/authentication/saml/) ou enviar um e-mail à equipa de suporte do [RStudio](mailto:support@rstudio.com) para obter ajuda.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
 

@@ -18,8 +18,6 @@
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: Tutoriais
   items:
-    - name: Preparar uma aplicação Java Spring para a implementação
-      href: spring-cloud-tutorial-prepare-app-deployment.md
     - name: Configurar o Servidor de Configuração
       href: spring-cloud-tutorial-config-server.md
     - name: Dimensionar a aplicação manualmente
@@ -44,6 +42,8 @@
       href: disaster-recovery.md
 - name: Guias de procedimentos
   items:
+    - name: Preparar uma aplicação Java Spring para a implementação
+      href: spring-cloud-tutorial-prepare-app-deployment.md
     - name: 'Como iniciar, parar e eliminar uma aplicação do Azure Spring Cloud'
       href: spring-cloud-howto-start-stop-delete.md
     - name: Como configurar um ambiente de teste

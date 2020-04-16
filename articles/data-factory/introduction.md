@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: e23268d21b01435aa71d4f471afc6d37ee9e9c1d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 327aadbc2996e91ef0f7639da86a647ddd42247c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73672709"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410947"
 ---
 # <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory?
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 No mundo dos macrodados, muitas vezes, são armazenados dados desorganizados e não processados em sistemas relacionais, não relacionais, entre outros. No entanto, por si só, os dados não processados não têm o contexto ou o significado adequado para disponibilizar informações significativas para analistas, cientistas de dados ou decisores empresariais. 
 
@@ -109,13 +111,13 @@ Aqui estão importantes documentos de próximo passo para explorar:
 
 - [Dataset and linked services](concepts-datasets-linked-services.md) (Conjuntos de dados e serviços ligados)
 - [Pipelines e atividades](concepts-pipelines-activities.md)
-- [Integration runtime](concepts-integration-runtime.md) (Runtime de integração)
+- [Runtime de integração](concepts-integration-runtime.md)
 - [Fluxos de dados de mapeamento](concepts-data-flow-overview.md)
 - [IU do Data Factory no portal do Azure](quickstart-create-data-factory-portal.md)
 - [Ferramenta de Copiar Dados no portal do Azure](quickstart-create-data-factory-copy-data-tool.md)
 - [PowerShell](quickstart-create-data-factory-powershell.md)
 - [.NET](quickstart-create-data-factory-dot-net.md)
-- [Pitão](quickstart-create-data-factory-python.md)
+- [Python](quickstart-create-data-factory-python.md)
 - [REST](quickstart-create-data-factory-rest-api.md)
 - [Modelo Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md)
  

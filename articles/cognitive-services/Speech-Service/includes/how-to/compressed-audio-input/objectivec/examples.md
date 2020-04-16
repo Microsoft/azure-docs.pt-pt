@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: dapine
-ms.openlocfilehash: 788903d802ca47c763734e7cf6ddbbf3b0032203
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.author: trbye
+ms.openlocfilehash: f0baac79bfbfc06b24d692caef87a20013c4654c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409671"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422372"
 ---
 Para transmitir num formato áudio comprimido para `SPXPullAudioInputStream` o `SPXPushAudioInputStream`serviço De Fala, crie um ou .
 

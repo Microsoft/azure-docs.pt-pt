@@ -1,16 +1,16 @@
 ---
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2020
-ms.author: dapine
-ms.openlocfilehash: bb177963b824e6d5d80d5f60e8b9f995b6ecd121
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.author: trbye
+ms.openlocfilehash: d97a1bf00d722414bedda4be79adc0c26d02c751
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80537012"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422140"
 ---
 ## <a name="speech-modes"></a>Modos de fala
 

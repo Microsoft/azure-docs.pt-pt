@@ -7,16 +7,20 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c501205812ac72da8cd970b61b71e493888cef1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d453b2724c308e48366d653a51d9e6aa8e82c96
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76156731"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415932"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integração de dados utilizando a Azure Data Factory e a Azure Data Share
 
-À medida que os clientes embarcam nos seus modernos projetos de armazenamento de dados e analíticos, exigem não só mais dados, mas também mais visibilidade nos seus dados através da sua propriedade de dados. Este workshop mergulha na forma como as melhorias na Azure Data Factory e na Azure Data Share simplificam a integração e gestão de dados no Azure. Desde permitir a ETL/ELT sem código sem código sem código sem código sem código sem código sem códigos até criar uma visão abrangente sobre os seus dados, as melhorias na Azure Data Factory capacitarão os seus engenheiros de dados a trazerem com confiança mais dados e, portanto, mais valor, para a sua empresa. A Azure Data Share permitir-lhe-á fazer negócios com a partilha de negócios de forma regida.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+À medida que os clientes embarcam nos seus modernos projetos de armazenamento de dados e analíticos, exigem não só mais dados, mas também mais visibilidade nos seus dados através da sua propriedade de dados. Este workshop mergulha na forma como as melhorias na Azure Data Factory e na Azure Data Share simplificam a integração e gestão de dados no Azure. 
+
+Desde permitir a ETL/ELT sem código sem código sem código sem código sem código sem código sem códigos até criar uma visão abrangente sobre os seus dados, as melhorias na Azure Data Factory capacitarão os seus engenheiros de dados a trazerem com confiança mais dados e, portanto, mais valor, para a sua empresa. A Azure Data Share permitir-lhe-á fazer negócios com a partilha de negócios de forma regida.
 
 Neste workshop, utilizará a Azure Data Factory (ADF) para ingerir dados de uma base de dados Azure SQL (SQL DB) no Azure Data Lake Storage gen2 (ADLS gen2). Assim que aterrar os dados no lago, irá transformá-lo através de fluxos de dados de mapeamento, serviço de transformação nativa da fábrica de dados, e afundá-lo em Azure Synapse Analytics (anteriormente SQL DW). Em seguida, partilhará a tabela com dados transformados juntamente com alguns dados adicionais usando a Partilha de Dados do Azure. 
 

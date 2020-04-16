@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 397eb6fbfea88b0eab0648275fc59764505f7d42
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: a9506d45350a567e3643b6edd6afc7668662f6e5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633097"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416033"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é Azure Synapse Analytics (anteriormente SQL DW)?
 
-O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento de dados empresariais e a análise de macrodados. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. Azure Synapse reúne estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e servir dados para as necessidades imediatas de BI e machine learning
+Azure Synapse é um serviço de análise que reúne o armazenamento de dados da empresa e a análise de Big Data. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. A Azure Synapse reúne estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e servir dados para as necessidades imediatas de BI e machine learning.
 
 Azure Synapse tem quatro componentes:
 
@@ -27,11 +27,13 @@ Azure Synapse tem quatro componentes:
   - Piscina SQL (pagamento por DWU provisionado)
   - SQL on-demand (pagamento por TB processado) – (Pré-visualização)
 - Faísca: Faísca Apache profundamente integrada (Pré-visualização)
-- Integração de Dados: Integração de dados híbridos (Pré-visualização)
+- Gasodutos Synapse: Integração de dados híbridos (Pré-visualização)
 - Estúdio: Experiência unificada do utilizador.  (Pré-visualização)
 
 > [!NOTE]
 > Para aceder às funcionalidades de pré-visualização do Azure Synapse, solicite acesso [aqui.](https://aka.ms/synapsepreview) A Microsoft triagemtodos os pedidos e responderá o mais rapidamente possível.
+>
+> Consulte a documentação de [pré-visualização Azure Synapse](../overview-what-is.md).
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Piscina SQL synapse em Azure Synapse
 

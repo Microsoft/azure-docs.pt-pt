@@ -4,12 +4,12 @@ description: Neste tutorial, vai aprender a adicionar um ponto final de HTTPS a 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 0e8b79a88fc173674caa0ca65e394e21d58d5f2f
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: aafe2e7c89f6d4a90806378e9cf25c81f51feb60
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756092"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411189"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Adicionar um ponto final de HTTPS a um serviço de front-end de API Web ASP.NET Core com o Kestrel
 
@@ -156,27 +156,42 @@ Substitua&lt;&gt;"your_CN_value" por "mytestcert" se tiver criado um certificado
 Esteja ciente de que, no `localhost` caso de implantação local, é preferível utilizar "CN=localhost" para evitar exceções de autenticação.
 
 ```csharp
-private X509Certificate2 GetHttpsCertificateFromStore()
+private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonName)
 {
     using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
     {
-        store.Open(OpenFlags.ReadOnly);
+        store.Open(OpenFlags.OpenExistingOnly | OpenFlags.ReadOnly);
         var certCollection = store.Certificates;
-        var currentCerts = certCollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=<your_CN_value>", false);
+        var matchingCerts = new X509Certificate2Collection();
+    
+    foreach (var enumeratedCert in certCollection)
+    {
+      if (StringComparer.OrdinalIgnoreCase.Equals(subjectCommonName, enumeratedCert.GetNameInfo(X509NameType.SimpleName, forIssuer: false))
+        && DateTime.Now < enumeratedCert.NotAfter
+        && DateTime.Now >= enumeratedCert.NotBefore)
+        {
+          matchingCerts.Add(enumeratedCert);
+        }
+    }
+
+        if (matchingCerts.Count == 0)
+    {
+        throw new Exception($"Could not find a match for a certificate with subject 'CN={subjectCommonName}'.");
+    }
         
-        if (currentCerts.Count == 0)
-                {
-                    throw new Exception("Https certificate is not found.");
-                }
-        
-        return currentCerts[0];
+        return matchingCerts[0];
     }
 }
+
+
 ```
 
-## <a name="give-network-service-access-to-the-certificates-private-key"></a>Dar ao SERVIÇO DE REDE acesso à chave privada do certificado
+## <a name="grant-network-service-access-to-the-certificates-private-key"></a>Concessão de serviço de rede de acesso à chave privada do certificado
 
 Num passo anterior, importou o certificado para o arquivo `Cert:\LocalMachine\My` no computador de desenvolvimento.  Agora, dê explicitamente à conta que executa o serviço (SERVIÇO DE REDE, por padrão) acesso à chave privada do certificado. Pode fazer este passo manualmente (utilizando a ferramenta certlm.msc), mas é melhor executar automaticamente um script PowerShell [configurando um script](service-fabric-run-script-at-service-startup.md) de arranque no **SetupEntryPoint** do manifesto de serviço.
+
+>[!NOTE]
+> Serviço Tecido suporta declarar certificados de ponto final por impressão digital ou nome comum sujeito. Nesse caso, o prazo de funcionamento irá configurar a ligação e a ACL a chave privada do certificado para a identidade que o serviço está a funcionar como. O tempo de execução também monitorizará o certificado para alterações/renovações e re-ACL a chave privada correspondente em conformidade.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Configurar o ponto de entrada da configuração do serviço
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: aahi
-ms.openlocfilehash: 481fef7121dcbf2939b6e2a296763166dfc9e618
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d58f294195efc393c07ecc3886c29e33dba02e6d
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384882"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81421945"
 ---
 <a name="HOLTop"></a>
 
@@ -40,7 +40,7 @@ Depois de instalar a Python, pode instalar a biblioteca do cliente com:
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 ```console
-pip install azure-ai-textanalytics==1.0.0b3
+pip install azure-ai-textanalytics
 ```
 
 > [!TIP]

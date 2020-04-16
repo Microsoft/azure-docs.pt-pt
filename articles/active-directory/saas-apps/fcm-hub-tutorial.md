@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/25/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee1ea7d2623d6315007257218ddfc4e6ce445e65
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 5abc1e093dc7d4e8da823227dc3e3caa556e37e4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668910"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406854"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fcm-hub"></a>Tutorial: Azure Ative Diretório integração de um único sign-on (SSO) com o FCM HUB
 
@@ -92,7 +92,16 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
     > [!NOTE]
     > O valor não é real. Atualize o valor com o URL de sign-on real. Contacte o gestor da conta que lhe seja atribuído ou contacte a equipa de suporte ao [Cliente FCM HUB](mailto:fcmssoadmin@us.fcm.travel) para obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. Clique em **Guardar**.
+1. Selecione **Guardar**.
+
+1. Na página **'Gerir reclamações',** na secção **Atributos de Utilizador & Reivindicações,** adicione estes atributos personalizados:
+   - **Nome**: PortalID
+   - **Fonte**: Atributo
+   - **Atributo fonte**: PortalID, valor fornecido pela FCM
+
+1. Na secção Certificado de **Assinatura SAML,** utilize a opção de edição para selecionar ou introduzir as seguintes definições e, em seguida, selecione **Guardar:**
+   - **Opção de Assinatura**: Assinar resposta SAML
+   - **Algoritmo de assinatura**: SHA-256
 
 1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 

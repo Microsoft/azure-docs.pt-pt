@@ -1,17 +1,17 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.topic: include
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: abd69a49659ef745f81a2186ea97440cf35f20df
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 770e037641ac8fbf75989dc94b66fd1df0689e50
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671493"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421937"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

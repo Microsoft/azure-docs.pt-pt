@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 4f1760c32117b34d4d453964473cba3c7d07f725
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1c3a73cba6a2ece0c9c7459b3515f053a648d683
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79202183"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408612"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Métricas NAT da Rede Virtual Azure
 
-Os recursos de gateway da Rede Virtual Azure NAT fornecem métricas multidimensionais. Pode utilizar estas métricas para observar a operação e para [resolução de problemas.](nat-metrics.md)  Os alertas podem ser configurados para questões críticas como a exaustão do SNAT.
+Os recursos de gateway da Rede Virtual Azure NAT fornecem métricas multidimensionais. Pode utilizar estas métricas para observar a operação e para [resolução de problemas.](troubleshoot-nat.md)  Os alertas podem ser configurados para questões críticas como a exaustão do SNAT.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" width="256" title="Rede Virtual NAT para saída para a Internet">
