@@ -1,24 +1,26 @@
 ---
-title: Esquema de evento de evento azure para cofre chave Azure
+title: Cofre de chaves Azure como fonte da grelha de eventos
 description: Descreve as propriedades e esquemas fornecidos para eventos azure key vault com azure event grid
 services: event-grid
-author: msmbaldwin
+author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/25/2019
-ms.author: mbaldwin
-ms.openlocfilehash: fe186e2ba8f3cafeb4d186066ba65ae036302f70
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: 36b7b81a18c8725929ab5676b844e1ee319e287f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010516"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393302"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-key-vault-preview"></a>Esquema de evento sinuoso do evento Azure Event Grid para cofre de chaves Azure (pré-visualização)
+# <a name="azure-key-vault-as-event-grid-source"></a>Cofre de chaves Azure como fonte da grelha de eventos
 
 Este artigo fornece as propriedades e esquemas para eventos em [Azure Key Vault,](../key-vault/index.yml)atualmente em pré-visualização. Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
 
-## <a name="available-event-types"></a>Tipos de eventos disponíveis
+## <a name="event-grid-event-schema"></a>Esquema de evento sinuoso do evento Da Grelha de Eventos
+
+### <a name="available-event-types"></a>Tipos de eventos disponíveis
 
 Uma conta Azure Key Vault gera os seguintes tipos de eventos:
 
@@ -34,7 +36,7 @@ Uma conta Azure Key Vault gera os seguintes tipos de eventos:
 | Microsoft.KeyVault.SecretNearExpiry | Segredo perto de expirar | Desencadeado quando a versão atual de um segredo está prestes a expirar. (O evento é desencadeado 30 dias antes da data de validade.) |
 | Microsoft.KeyVault.SecretExpired | Segredo Expirado | Desencadeado quando um segredo é expirado. |
 
-## <a name="event-examples"></a>Exemplos de eventos
+### <a name="event-examples"></a>Exemplos de eventos
 
 O exemplo seguinte mostra esquema para **Microsoft.KeyVault.SecretNewVersionCreated**:
 
@@ -61,7 +63,7 @@ O exemplo seguinte mostra esquema para **Microsoft.KeyVault.SecretNewVersionCrea
 ]
 ```
 
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de alto nível:
 
@@ -74,6 +76,12 @@ Um evento tem os seguintes dados de alto nível:
 | versão | string | A versão do objeto que desencadeou este evento |
 | nbf | número | A data não antes em segundos desde 1970-01-01T00:00:00Z do objeto que desencadeou este evento |
 | exp | número | A data de validade em segundos desde 1970-01-01T00:00:00Z do objeto que desencadeou este evento |
+
+## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
+|Título  |Descrição  |
+|---------|---------|
+| [Monitorização de eventos chave vault com grelha de eventos Azure](../key-vault/event-grid-overview.md) | Visão geral da integração do Cofre chave com grelha de eventos. |
+| [Tutorial: Criar e monitorizar eventos chave vault com grelha de eventos](../key-vault/event-grid-tutorial.md) | Saiba como configurar notificações da Grelha de Eventos para o Cofre chave. |
 
 
 ## <a name="next-steps"></a>Passos seguintes

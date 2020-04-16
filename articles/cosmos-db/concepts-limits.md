@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: b24d7db679bb9cb9dacd5e1db8e6410b883548cc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652192"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415698"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Pode [fornecer e gerir a sua conta Azure Cosmos](how-to-manage-database-account.
 > [!NOTE]
 > As falhas regionais aplicam-se apenas a uma única região, escreve contas. As contas escritas multi-regiões não requerem ou têm quaisquer limites para a alteração da região de escrita.
 
-Cosmos DB recebe automaticamente cópias de segurança dos seus dados em intervalos regulares. Para mais detalhes sobre intervalos de retenção de backup e janelas, consulte a cópia de segurança online e os dados a [pedido restaurados em Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Cosmos DB recebe automaticamente cópias de segurança dos seus dados em intervalos regulares. Para mais detalhes sobre intervalos de retenção de backup e janelas, consulte a cópia de segurança online e os dados a [pedido restaurados em Azure Cosmos DB](online-backup-and-restore.md).
 
 ## <a name="per-account-limits"></a>Limites por conta
 
@@ -214,4 +214,4 @@ Introdução ao Azure Cosmos DB com um dos nossos manuais de introdução:
 * [Introdução à API de Tabela do Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
-> [Experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)
+> [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)

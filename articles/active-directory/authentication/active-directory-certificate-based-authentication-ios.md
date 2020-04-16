@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a042897ecbe35935c1832a53f523eb0597ebafc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6fd8a0c3688e5056c7941d334da8caee9f21ba82
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654249"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407272"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificado de diretório Ativo Azure no iOS
 
@@ -27,7 +27,7 @@ Os dispositivos iOS podem utilizar a autenticação baseada em certificados (CBA
 
 Configurar esta funcionalidade elimina a necessidade de introduzir uma combinação de nome de utilizador e palavra-passe em determinadas aplicações de correio e microsoft office no seu dispositivo móvel.
 
-Este tópico fornece-lhe os requisitos e os cenários suportados para configurar cba num dispositivo iOS (Android) para utilizadores de inquilinos no Office 365 Enterprise, Business, Education, Governo dos EUA, China e Alemanha.
+Este tópico fornece-lhe os requisitos e os cenários suportados para configurar a CBA num dispositivo iOS para utilizadores de inquilinos no Office 365 Enterprise, Business, Education, Us Government, China e Alemanha.
 
 Esta funcionalidade está disponível em pré-visualização no Office 365 US Government Defense and Federal plans.
 

@@ -3,17 +3,17 @@ title: Principais de serviço do Azure Kubernetes Services (AKS)
 description: Criar e gerir um principal de serviço do Azure Active Directory para um cluster no Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: 523f08ddbf22e175af5b0604b04d4a2460ffd634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259425"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392730"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)
 
-Para interagir com as APIs do Azure, os clusters do AKS requerem um [principal de serviço do Azure Active Directory (AD)][aad-service-principal]. O principal de serviço é necessário para criar e gerir dinamicamente outros recursos do Azure como um balanceador de carga ou registo de contentor do Azure (ACR).
+Para interagir com apis azure, um cluster AKS requer um diretor de serviço de [Diretório Ativo Azure (AD)][aad-service-principal] ou uma [identidade gerida](use-managed-identity.md). Um principal de serviço ou identidade gerida é necessário para criar e gerir de forma dinâmica outros recursos Azure, como um balanceador de carga Azure ou registo de contentores (ACR).
 
 Este artigo mostra como criar e utilizar um principal de serviço para os seus clusters do AKS.
 
@@ -108,7 +108,7 @@ Pode utilizar uma rede avançada onde a rede virtual e os endereços IP da rede 
   - *Microsoft.Network/publicIPAddresss/write*
 - Ou, atribuir o papel integrado do Colaborador da [Rede][rbac-network-contributor] na subrede dentro da rede virtual
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 
 Poderá ter de aceder aos recursos do Disco existentes noutro grupo de recursos. Atribuir uma das seguintes permissões de funções:
 

@@ -7,14 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 196d917d31eb08af80587bba30d9f7e67bf8cbea
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: c28305cc55fcc561863670a15480782ce63e75b4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991710"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415524"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Construir expressões no fluxo de dados de mapeamento
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 No mapeamento do fluxo de dados, muitas propriedades de transformação são introduzidas como expressões. Estas expressões são compostas por valores de coluna, parâmetros, funções, operadores e literais que avaliam um tipo de dados spark no tempo de execução.
 

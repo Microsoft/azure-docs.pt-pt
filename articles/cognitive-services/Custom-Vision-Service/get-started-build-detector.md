@@ -3,19 +3,19 @@ title: Quickstart Construa um detetor de objetos - Serviço de Visão Personaliz
 titleSuffix: Azure Cognitive Services
 description: Neste arranque rápido, você vai aprender a usar o site Da Visão Personalizada para criar um modelo de classificação de imagem.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.author: anroth
-ms.openlocfilehash: 8aef46f0b9c3dc526f1fbed3d9bc59f97771b509
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/14/2020
+ms.author: pafarley
+ms.openlocfilehash: ba121400368f37c4a562a9c34e209c59d15b173c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76169994"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404115"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Quickstart: Como construir um detetor de objetos com Visão Personalizada
 

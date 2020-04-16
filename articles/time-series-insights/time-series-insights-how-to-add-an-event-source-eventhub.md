@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3b06289ba6ce98d4307a8255981ecdba069fdfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 021ac5fccf4d694895ab9941bd46dd2388f49af9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76905403"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407466"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Adicione uma fonte de evento sita ao seu ambiente Time Series Insights
 
@@ -54,7 +54,7 @@ Para adicionar um novo grupo de consumidores no seu centro de eventos:
 
 ## <a name="add-a-new-event-source"></a>Adicione uma nova fonte de evento
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Localize o ambiente de Insights da Série Do Tempo existente. No menu esquerdo, selecione **Todos os recursos**e, em seguida, selecione o ambiente Time Series Insights.
 

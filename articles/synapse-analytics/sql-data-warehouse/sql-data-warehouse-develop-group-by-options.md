@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 25e6770fb38d13591186754bc5e6a7641083a899
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 5d8d4c6d47e33ca365415542c2da9779b4d7d1dd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633519"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416203"
 ---
 # <a name="group-by-options-in-synapse-sql-pool"></a>Grupo por opções na piscina Synapse SQL
 
@@ -125,7 +125,7 @@ A imagem seguinte mostra os resultados dos CTAS:
 
 ![Grupo por cubo](./media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
-O segundo passo é especificar uma tabela-alvo para armazenar resultados provisórios:
+O segundo passo consiste em especificar um quadro-alvo para armazenar resultados provisórios:
 
 ```sql
 DECLARE

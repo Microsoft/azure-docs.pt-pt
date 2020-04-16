@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 17e474de9c221126d67cc2982ba11c6ff75e7aa3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c1d2c0e48394fbde1b595ae4b405d84f437dc5e4
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668499"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392817"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um balancedor de carga SKU Standard no Serviço Azure Kubernetes (AKS)
 
@@ -32,7 +32,7 @@ Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja
 
 Este artigo assume que tem um cluster AKS com o *Standard* SKU Azure Load Balancer. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-O principal serviço de cluster AKS também precisa de permissão para gerir os recursos da rede se utilizar uma subnet ou grupo de recursos existente. Em geral, atribuir o papel de colaborador da *Rede* ao seu principal de serviço sobre os recursos delegados. Para obter mais informações sobre permissões, consulte o [acesso do Delegado AKS a outros recursos Do Azure.][aks-sp]
+O principal serviço de cluster AKS também precisa de permissão para gerir os recursos da rede se utilizar uma subnet ou grupo de recursos existente. Em geral, atribuir o papel de colaborador da *Rede* ao seu principal de serviço sobre os recursos delegados. Em vez de um diretor de serviço, também pode utilizar o sistema de identidade gerida atribuída para permissões. Para mais informações, consulte [Use identidades geridas](use-managed-identity.md). Para obter mais informações sobre permissões, consulte o [acesso do Delegado AKS a outros recursos Do Azure.][aks-sp]
 
 ### <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>Passando de um Equilíbrio de Carga SKU Básico para SKU Padrão
 

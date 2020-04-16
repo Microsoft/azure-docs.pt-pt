@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6cb9dadc107c6907f1ccb28a876270e577f10395
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d60f1101fc858e9dcaa22162be97417544e13693
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74977306"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405048"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Quickstart: Gere uma miniatura utilizando a API e cURL de Visão Computacional
 
@@ -28,23 +28,6 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 - Tem de ter o [cURL](https://curl.haxx.se/windows).
 - Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave.
-
-## <a name="get-thumbnail-request"></a>Pedido Obter Miniatura
-
-Com o [método Get Miniatura,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)pode gerar uma miniatura de uma imagem.
-
-Para executar o exemplo, siga os seguintes passos:
-
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Substitua `<File>` pelo caminho e nome de ficheiro para guardar a miniatura.
-1. Altere o URL de Pedido (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`) para utilizar a localização onde obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, altere a imagem (`{\"url\":\"...`) a analisar.
-1. Abra uma janela de comando num computador com o cURL instalado.
-1. Cole o código na janela e execute o comando.
-
->[!NOTE]
->Tem de utilizar na sua chamada REST a mesma localização que utilizou para obter as chaves de subscrição. Por exemplo, se tiver obtido as chaves de subscrição a partir de westus, substitua "westcentralus" no URL abaixo por "westus".
 
 ## <a name="create-and-run-the-sample-command"></a>Criar e executar o comando de exemplo
 

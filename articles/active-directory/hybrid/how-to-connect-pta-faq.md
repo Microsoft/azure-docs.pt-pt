@@ -16,12 +16,12 @@ ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59bf7ae5914f5cc886d95f25b36abccfdf09c4a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 661d4f622dce45aeca1d41ead60f05ccdcfbc9c9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331274"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406882"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem por passe por diretório ativo azure: Perguntas frequentes
 
@@ -121,7 +121,7 @@ Se está a migrar de AD FS (ou outras tecnologias da federação) para a Autenti
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Posso usar a autenticação pass-through num ambiente de Diretório Ativo multiflorestal?
 
-Sim. Ambientes multiflorestais são apoiados se houver fundos florestais entre as suas florestas de Diretório Ativo e se o encaminhamento do sufixo de nome estiver corretamente configurado.
+Sim. Ambientes multiflorestais são apoiados se houver fundos florestais (bidirecionais) entre as suas florestas de Diretório Ativo e se o encaminhamento de sufixo de nome estiver corretamente configurado.
 
 ## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>A Autenticação Pass-through fornece o equilíbrio de carga em vários Agentes de Autenticação?
 

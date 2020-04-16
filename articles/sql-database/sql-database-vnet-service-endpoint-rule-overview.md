@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4faead13c10171c31e76fe2dd59be32a93a12f86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124754"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414401"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Utilize pontos finais e regras de serviço de rede virtual para servidores de base de dados
 
@@ -64,6 +64,7 @@ Tem a opção de utilizar o controlo de [acesso baseado em funções (RBAC)][rba
 
 > [!NOTE]
 > Em alguns casos, a Base de Dados Azure SQL e a vNet-subnet estão em diferentes subscrições. Nestes casos deve assegurar as seguintes configurações:
+>
 > - Ambas as subscrições devem estar no mesmo inquilino do Azure Ative Directory.
 > - O utilizador possui as permissões necessárias para iniciar operações, tais como permitir pontos finais de serviço e adicionar uma sub-rede VNet ao servidor dado.
 > - Ambas as subscrições devem ter o fornecedor Microsoft.Sql registado.
@@ -134,7 +135,7 @@ A PolyBase é comumente usada para carregar dados no Armazém de Dados Azure SQL
    > [!NOTE]
    > - Se tiver uma conta de armazenamento v1 ou blob de uso geral, tem primeiro de **atualizar para v2** utilizando este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Para questões conhecidas com o Azure Data Lake Storage Gen2, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
-    
+
 1. Na sua conta de armazenamento, navegue para o Controlo de **Acesso (IAM)** e clique em **Adicionar a atribuição de funções**. Atribuir papel de RBAC do Colaborador de **Dados blob** de armazenamento ao seu Servidor Azure SQL que acolhe o seu Armazém de Dados Azure SQL, que registou com o Azure Ative Directory (AAD) como no passo#1.
 
    > [!NOTE]
@@ -235,7 +236,7 @@ Já deve ter uma sub-rede que esteja marcada com o nome final do tipo de ponto f
 
 ## <a name="azure-portal-steps"></a>Passos do portal Azure
 
-1. Inicie sessão no [Portal do Azure][http-azure-portal-link-ref-477t].
+1. Inicie sessão no [portal do Azure][http-azure-portal-link-ref-477t].
 
 2. Procure e selecione **servidores SQL**e, em seguida, selecione o seu servidor. Em **Segurança,** selecione **Firewalls e redes virtuais.**
 
@@ -264,6 +265,7 @@ Já deve ter uma sub-rede que esteja marcada com o nome final do tipo de ponto f
 
 > [!NOTE]
 > Os seguintes estatutos ou Estados aplicam-se às regras:
+>
 > - **Pronto:** Indica que a operação que iniciou foi bem sucedida.
 > - **Falhou:** Indica que a operação que iniciou falhou.
 > - **Eliminado:** Aplica-se apenas à operação Delete e indica que a regra foi suprimida e já não se aplica.

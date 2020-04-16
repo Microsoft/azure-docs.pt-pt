@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 8941c097fbb2d05c3a28be87d216b7a2679ebc68
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: a728ec6f261b82d563aeb4a8f5c98bbd546f4400
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804899"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413219"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação de afundar no fluxo de dados de mapeamento
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Depois de transformar os seus dados, pode afundar os dados num conjunto de dados de destino. Cada fluxo de dados requer pelo menos uma transformação de afundar, mas pode escrever a todos os lavatórios necessários para completar o seu fluxo de transformação. Para escrever para pias adicionais, crie novos fluxos através de novos ramos e divisões condicionais.
 

@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 0c30294f2ca139a602074a980810e7c6737c4e2d
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 27d3a242d91a79ea00974748f4a8b5460d2dd247
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742983"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416062"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteja uma base de dados em Azure Synapse
 
@@ -104,4 +104,4 @@ Pode encriptar a sua base de dados através do [portal Azure](sql-data-warehouse
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para mais detalhes e exemplos sobre a ligação ao seu armazém com diferentes protocolos, consulte [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
+Para mais detalhes e exemplos sobre a ligação ao seu armazém com diferentes protocolos, consulte [Connect to SQL pool](../sql/connect-overview.md).

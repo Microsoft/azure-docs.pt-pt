@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: a5f46f5af723e1245afbc6bca90d25ae9036d646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472431"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399016"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configure um ambiente de desenvolvimento para azure machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -201,7 +201,7 @@ Quando estiver a utilizar um computador local (que também pode ser uma máquina
     pip install <new package>
     ```
 
-### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Cadernos jupyter
+### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Jupyter Notebooks
 
 Os Cadernos Jupyter fazem parte do [Projeto Jupyter.](https://jupyter.org/) Eles fornecem uma experiência de codificação interativa onde você cria documentos que misturam código ao vivo com texto narrativo e gráficos. Os Cadernos Jupyter também são uma ótima maneira de partilhar os seus resultados com outros, porque você pode salvar a saída das suas secções de código no documento. Você pode instalar Cadernos Jupyter em uma variedade de plataformas.
 
@@ -243,7 +243,7 @@ Para ativar estes componentes no seu ambiente Jupyter Notebook:
 
 1. Para configurar o Caderno Jupyter para utilizar o seu espaço de trabalho Azure Machine Learning, vá à secção de ficheiros de [configuração do espaço de trabalho Create.](#workspace)
 
-### <a name="visual-studio-code"></a><a id="vscode"></a>Código de estúdio visual
+### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
 
 Visual Studio Code é um editor de código de plataforma transversal muito popular que suporta um vasto conjunto de linguagens e ferramentas de programação através de extensões disponíveis no [mercado do Estúdio Visual.](https://marketplace.visualstudio.com/vscode) A [extensão Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) instala a [extensão Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para codificação em todos os tipos de ambientes Python (virtual, Anaconda, etc.). Além disso, fornece funcionalidades de conveniência para trabalhar com recursos de Machine Learning Azure e executar experiências de Machine Learning Azure tudo sem deixar o Visual Studio Code.
 
@@ -288,7 +288,7 @@ Utilize estas definições:
 | Definição |Aplica-se a| Valor |
 |----|---|---|
 | Nome do cluster |sempre| seu nome cluster |
-| Runtime do Databricks |sempre|Tempo de execução não-ML 6.0 (scala 2.11, faísca 2.4.3) |
+| Runtime do Databricks |sempre|Tempo de execução não-ML 6.5 (scala 2.11, faísca 2.4.3) |
 | Versão de Python |sempre| 3 |
 | Trabalhadores |sempre| 2 ou mais |
 | Tipos de VM do nó do trabalhador <br>(determina o máximo # das iterações simultâneas) |ML Automatizado<br>apenas| VM otimizado de memória preferido |

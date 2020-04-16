@@ -5,18 +5,18 @@ services: container-service
 author: saudas
 manager: saudas
 ms.topic: article
-ms.date: 03/10/2019
+ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 85efc6d9d203ca06c5f7566376993b4c13950788
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a150e2f197f24db5da331195290d11ad925c47e
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369959"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392640"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Use identidades geridas no Serviço Azure Kubernetes
 
-Atualmente, um cluster azure Kubernetes Service (AKS) (especificamente, o fornecedor de nuvem Kubernetes) requer um *principal de serviço* para criar recursos adicionais como equilibradores de carga e discos geridos em Azure. Ou deve fornecer um diretor de serviço ou aks cria um em seu nome. Os diretores de serviço normalmente têm uma data de validade. Os agrupamentos acabam por chegar a um estado em que o diretor de serviço deve ser renovado para manter o cluster a funcionar. Gerir os diretores de serviços adiciona complexidade.
+Atualmente, um cluster azure Kubernetes Service (AKS) (especificamente, o fornecedor de nuvem Kubernetes) requer e identidade para criar recursos adicionais como equilibradores de carga e discos geridos em Azure, esta identidade pode ser uma *identidade gerida* ou um *principal de serviço.* Se utilizar um diretor de [serviço,](kubernetes-service-principal.md)deve fornecer um ou o AKS cria um em seu nome. Se utilizar a identidade gerida, esta será criada automaticamente pela AKS. Os agrupamentos que utilizam os diretores de serviço eventualmente chegam a um estado em que o diretor de serviço deve ser renovado para manter o cluster a funcionar. Gerir os diretores de serviços adiciona complexidade, razão pela qual é mais fácil usar identidades geridas. Os mesmos requisitos de permissão aplicam-se tanto aos diretores de serviço como às identidades geridas.
 
 *As identidades geridas* são essencialmente um invólucro em torno dos diretores de serviço, e tornam a sua gestão mais simples. Para saber mais, leia sobre [identidades geridas para os recursos do Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 

@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: edb80c604951a140d21e3775eec3f1dc6d55af73
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 2557ce7be44f0505b96df06cd2b44a2fa3ce3fdb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421403"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414227"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia na Fábrica de Dados Azure
 
 > [!div class="op_single_selector" title1="Selecione a versão da Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-data-movement-activities.md)
 > * [Versão atual](copy-activity-overview.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Na Azure Data Factory, pode utilizar a atividade Copy para copiar dados entre lojas de dados localizadas no local e na nuvem. Depois de copiar os dados, pode usar outras atividades para transformá-los e analisá-los. Também pode utilizar a atividade copy para publicar resultados de transformação e análise para inteligência empresarial (BI) e consumo de aplicação.
 

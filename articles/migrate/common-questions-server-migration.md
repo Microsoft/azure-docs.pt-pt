@@ -3,12 +3,12 @@ title: FaQ migração do servidor migratório Azure
 description: Obtenha respostas a perguntas comuns sobre a utilização da Migração do Servidor Migratório Azure migrate para migrar máquinas.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 507cc8088bf54b1a4f4483673ec5332efcdd36c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc78d2087dcaad2922ca6b6d9c090a8decdb6e84
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127808"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393801"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração do servidor migratório Azure Migrador: Questões comuns
 
@@ -92,6 +92,10 @@ As máquinas migratórias, tratando-as como servidores físicos, são úteis em 
 - Para migrar VMs Hiper-V ou VMware, se por alguma razão você não puder usar o processo de migração padrão para a migração [hyper-V](tutorial-migrate-hyper-v.md)ou [VMware.](server-migrate-overview.md) Por exemplo, se não estiver a executar vCenter VMware vCenter, e estiver a utilizar apenas os anfitriões ESXi.
 - Para migrar VMs que estão atualmente em execução em nuvens privadas para Azure
 - Se quiser migrar VMs em nuvens públicas como Amazon Web Services (AWS) ou Google Cloud Platform (GCP), para O Azure.
+
+## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>Desloquei dois (ou mais) aparelhos para descobrir VMs no meu vCenter Server. No entanto, quando tento migrar os VMs, só vejo VMs correspondentes a um dos aparelhos.
+
+Embora este possa ser um caso de bom uso, não o apoiamos atualmente. A colocação de dois (ou mais) aparelhos para descobrir o mesmo conjunto de VMs causa um problema de serviço em que a propriedade vM continua a alternar entre os dois aparelhos. Esta é a razão pela qual vês vMs a aparecer e a desaparecer. Nesses casos, para resolver o problema, deve eliminar um aparelho e fazer uma atualização dura.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Preciso de VMware vCenter para migrar VMware VMware VMs?
 Para [migrar VMware VMs](server-migrate-overview.md) usando migração baseada em vMware ou sem agente, os anfitriões ESXi em que os VMs estão localizados devem ser geridos pelo VCenter Server. Se não tiver vCenter Server, pode migrar VMware VMware VMware migrando-os como servidores físicos. [Saiba mais](migrate-support-matrix-physical-migration.md).

@@ -3,14 +3,14 @@ title: Implementar uma aplicação service Fabric com MI atribuído ao sistema
 description: Este artigo mostra-lhe como atribuir uma identidade gerida atribuída pelo sistema a uma aplicação Azure Service Fabric
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614830"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415658"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Implementar aplicação de tecido de serviço com identidade gerida atribuída pelo sistema (pré-visualização)
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Implementar aplicação de tecido de serviço com identidade gerida atribuída pelo sistema
 
 Para aceder à funcionalidade de identidade gerida para aplicações Azure Service Fabric, tem primeiro de ativar o Serviço de Fichas de Identidade Gerida no cluster. Este serviço é responsável pela autenticação de aplicações de Tecido de Serviço utilizando as suas identidades geridas e pela obtenção de fichas de acesso em seu nome. Uma vez ativado o serviço, pode vê-lo no Service Fabric Explorer sob a secção **Sistema** no painel esquerdo, funcionando sob o nome **de tecido:/System/ManagedIdentityTokenService** ao lado de outros serviços do sistema.
 

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a75b71d43b072d366ef2fcb15bf4c901680d48fb
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: badd8ba676ef25c33a5034bb04d616faeb4ef1b0
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383223"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392099"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Forward Azure Automation Configuração de relatórios de dados para registos do Monitor Azure
 
@@ -87,6 +87,7 @@ O painel de Pesquisa de Registos abre com uma região de consulta ao seu recurso
 | where OperationName contains 'DSCNodeStatusData'
 | where ResultType != 'Compliant'
 ```
+
 Detalhes de filtragem:
 
 * Filtrar `DscNodeStatusData` as operações de devolução de cada nó de Configuração do Estado.
@@ -104,7 +105,7 @@ Para criar uma regra de alerta, comece por criar uma pesquisa de registo para os
 1. A partir da página de visualização geral do espaço de trabalho Log Analytics, clique em **Registos**.
 1. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta:`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   Se tiver configurado registos a partir de mais de uma conta Automation ou subscrição do seu espaço de trabalho, pode agrupar os seus alertas por subscrição e conta de Automação. Obtenha o nome da `Resource` conta Automation a partir do campo na pesquisa dos **registos DscNodeStatusData.**
+   Se tiver configurado registos a partir de mais de uma conta Automation ou subscrição do seu espaço de trabalho, pode agrupar os seus alertas por subscrição e conta de Automação. Obtenha o nome da `Resource` conta Automation a `DscNodeStatusData` partir do campo na pesquisa dos registos.
 1. Para abrir o ecrã de **regra Criar,** clique em **Nova Regra** de Alerta no topo da página. 
 
 Para obter mais informações sobre as opções para configurar o alerta, consulte [Criar uma regra de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
@@ -128,46 +129,46 @@ Esta consulta exibe um gráfico do estado do nó ao longo do tempo.
 
 Os diagnósticos da Azure Automation criam duas categorias de registos nos registos do Monitor Azure:
 
-* Dados do estado do nó **(DscNodeStatusData)**
-* Dados do estado dos recursos **(DscResourceStatusData)**
+* Dados do estado`DscNodeStatusData`do nó ()
+* Dados do`DscResourceStatusData`estado dos recursos ()
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
 | Propriedade | Descrição |
 | --- | --- |
 | TimeGenerated |Data e hora quando a verificação de conformidade foi decorrido. |
-| OperationName |DscNodeStatusData. |
-| Tipo de resultados |Se o nó é compatível. |
+| OperationName |`DscNodeStatusData`. |
+| Tipo de resultados |Valor que indica se o nó está em conformidade. |
 | NodeName_s |O nome do nó gerido. |
-| NodeComplianceStatus_s |Se o nó é compatível. |
-| DscReportStatus |Se a verificação de conformidade correu com sucesso. |
-| Modo de Configuração | Como a configuração é aplicada ao nó. Os valores possíveis são: <ul><li>`ApplyOnly`: O DSC aplica a configuração e não faz mais nada a menos que uma nova configuração seja empurrada para o nó alvo ou quando uma nova configuração é retirada de um servidor. Após a aplicação inicial de uma nova configuração, a DSC não verifica a deriva de um estado previamente configurado. A DSC tenta aplicar a configuração `ApplyOnly` até que tenha sucesso antes que o valor entre em vigor. </li><li>`ApplyAndMonitor`: Este é o valor predefinido. O LCM aplica novas configurações. Após a aplicação inicial de uma nova configuração, se o nó alvo deriva do estado pretendido, a DSC relata a discrepância nos registos. A DSC tenta aplicar a configuração `ApplyAndMonitor` até que tenha sucesso antes que o valor entre em vigor.</li><li>`ApplyAndAutoCorrect`: A DSC aplica novas configurações. Após a aplicação inicial de uma nova configuração, se o nó alvo deriva do estado pretendido, a DSC relata a discrepância nos registos e, em seguida, reaplica a configuração atual.</li></ul> |
+| NodeComplianceStatus_s |Valor de estado que especifica se o nó está em conformidade. |
+| DscReportStatus |Valor de estado indicando se a verificação de conformidade foi com sucesso. |
+| Modo de Configuração | O modo utilizado para aplicar a configuração ao nó. Os valores possíveis são: <ul><li>`ApplyOnly`: O DSC aplica a configuração e não faz mais nada a menos que uma nova configuração seja empurrada para o nó alvo ou quando uma nova configuração é retirada de um servidor. Após a aplicação inicial de uma nova configuração, a DSC não verifica a deriva de um estado previamente configurado. A DSC tenta aplicar a configuração `ApplyOnly` até que tenha sucesso antes que o valor entre em vigor. </li><li>`ApplyAndMonitor`: Este é o valor predefinido. O LCM aplica novas configurações. Após a aplicação inicial de uma nova configuração, se o nó alvo deriva do estado pretendido, a DSC relata a discrepância nos registos. A DSC tenta aplicar a configuração `ApplyAndMonitor` até que tenha sucesso antes que o valor entre em vigor.</li><li>`ApplyAndAutoCorrect`: A DSC aplica novas configurações. Após a aplicação inicial de uma nova configuração, se o nó alvo deriva do estado pretendido, a DSC relata a discrepância nos registos e, em seguida, reaplica a configuração atual.</li></ul> |
 | HostName_s | O nome do nó gerido. |
 | IPAddress | O endereço IPv4 do nó gerido. |
-| Categoria | DscNodeStatus. |
+| Categoria | `DscNodeStatus`. |
 | Recurso | O nome da conta Azure Automation. |
-| Tenant_g | GUID que identifica o inquilino para o Chamador. |
-| NodeId_g |GUID que identifica o nó gerido. |
-| DscReportId_g |GUID que identifica o relatório. |
-| LastSeenTime_t |Data e hora em que o relatório foi visto pela última vez. |
-| ReportStartTime_t |Data e hora quando o relatório foi iniciado. |
-| ReportEndTime_t |Data e hora quando o relatório estiver concluído. |
-| NumberOfResources_d |O número de recursos dSC chamados na configuração aplicada ao nó. |
-| SourceSystem | A forma como os registos do Monitor Azure recolheram os dados. Sempre "Azure" para diagnósticos Azure. |
-| ResourceId |Identificador da conta Azure Automation. |
-| Descrição do resultado | A descrição desta operação. |
+| Tenant_g | GUID que identifica o inquilino para quem liga. |
+| NodeId_g | GUID que identifica o nó gerido. |
+| DscReportId_g | GUID que identifica o relatório. |
+| LastSeenTime_t | Data e hora em que o relatório foi visto pela última vez. |
+| ReportStartTime_t | Data e hora quando o relatório foi iniciado. |
+| ReportEndTime_t | Data e hora quando o relatório estiver concluído. |
+| NumberOfResources_d | O número de recursos dSC chamados na configuração aplicada ao nó. |
+| SourceSystem | O sistema de origem que identifica como os registos do Monitor Azure recolheram os dados. Sempre `Azure` para diagnósticos Azure. |
+| ResourceId |O identificador de recursos da conta Azure Automation. |
+| Descrição do resultado | A descrição do recurso para esta operação. |
 | SubscriptionId | O ID de subscrição Azure (GUID) para a conta Automation. |
-| ResourceGroup | Nome do grupo de recursos para a conta Automation. |
+| ResourceGroup | O nome do grupo de recursos para a conta Automation. |
 | ResourceProvider | A MICROSOFT. A AUTOMAÇÃO. |
 | ResourceType | AUTOMATIZAÇÃOCONTAS. |
-| CorrelationId |GUID que é o identificador de correlação do relatório de conformidade. |
+| CorrelationId | Um GUID que é o identificador de correlação do relatório de conformidade. |
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
 | Propriedade | Descrição |
 | --- | --- |
 | TimeGenerated |Data e hora quando a verificação de conformidade foi decorrido. |
-| OperationName |DscResourceStatusData.|
+| OperationName |`DscResourceStatusData`.|
 | Tipo de resultados |Se o recurso é compatível. |
 | NodeName_s |O nome do nó gerido. |
 | Categoria | DscNodeStatus. |
@@ -185,10 +186,10 @@ Os diagnósticos da Azure Automation criam duas categorias de registos nos regis
 | ErrorMessage_s |A mensagem de erro se o recurso falhou. |
 | DscResourceDuration_d |O tempo, em segundos, de que o recurso dSC funcionou. |
 | SourceSystem | A forma como os registos do Monitor Azure recolheram os dados. Sempre `Azure` para diagnósticos Azure. |
-| ResourceId |Especifica a conta De automação Azure. |
+| ResourceId |O identificador da conta Azure Automation. |
 | Descrição do resultado | A descrição desta operação. |
 | SubscriptionId | O ID de subscrição Azure (GUID) para a conta Automation. |
-| ResourceGroup | Nome do grupo de recursos para a conta Automation. |
+| ResourceGroup | O nome do grupo de recursos para a conta Automation. |
 | ResourceProvider | A MICROSOFT. A AUTOMAÇÃO. |
 | ResourceType | AUTOMATIZAÇÃOCONTAS. |
 | CorrelationId |GUID que é a identificação correlação do relatório de conformidade. |

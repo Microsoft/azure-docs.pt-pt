@@ -5,12 +5,12 @@ description: Saiba como proteger o tráfego que flui dentro e fora das cápsulas
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 01ba9e7353b6783d1b4fd1649291a64405fd9382
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a2794f53407be3ce3d7e69caa8039c13217a0356
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886709"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392620"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Tráfego seguro entre cápsulas utilizando políticas de rede no Serviço Azure Kubernetes (AKS)
 
@@ -82,6 +82,8 @@ O seguinte exemplo script:
 * Atribui permissões *ao Colaborador* para o principal do serviço de cluster AKS na rede virtual.
 * Cria um cluster AKS na rede virtual definida e permite a política de rede.
     * A opção de política de rede *azure* é utilizada. Para utilizar o Calico como opção `--network-policy calico` de política de rede, utilize o parâmetro. Nota: Calico pode ser `--network-plugin azure` `--network-plugin kubenet`utilizado com qualquer um ou .
+
+Note que em vez de utilizar um diretor de serviço, pode utilizar uma identidade gerida para obter permissões. Para mais informações, consulte [Use identidades geridas](use-managed-identity.md).
 
 Forneça o seu próprio *SP_PASSWORD*seguro. Pode substituir as variáveis *RESOURCE_GROUP_NAME* e *CLUSTER_NAME:*
 

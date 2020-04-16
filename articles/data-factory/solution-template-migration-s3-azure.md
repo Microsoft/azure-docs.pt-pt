@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: e918fe01426202746f0225d25304b9c1b26cb74b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927330"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414766"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrar dados da Amazon S3 para o Azure Data Lake Storage Gen2
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Use os modelos para migrar petabytes de dados que consistem em centenas de milhões de ficheiros da Amazon S3 para o Azure Data Lake Storage Gen2. 
 
@@ -71,7 +73,7 @@ O modelo contém dois parâmetros:
 
     > [!NOTE]
     > O nome da mesa é s3_partition_control_table.
-    > O esquema da tabela de controlo é PartitionPrefix e SuccessOrFailure, onde partitionPrefix é a definição de prefixo em S3 para filtrar as pastas e ficheiros no Amazon S3 pelo nome, e SuccessOrFailure é o estado de copiar cada partição: 0 significa que esta partição tem não foi copiada para Azure e 1 significa que esta partição foi copiada para Azure com sucesso.
+    > O esquema da tabela de controlo é PartitionPrefix e SuccessOrFailure, onde partitionPrefix é a definição prefixo em S3 para filtrar as pastas e ficheiros na Amazon S3 pelo nome, e SuccessOrFailure é o estado de copiar cada partição: 0 significa que esta partição não foi copiada para Azure e 1 significa que esta partição foi copiada para Azure com sucesso.
     > Existem 5 divisórias definidas na tabela de controlo e o estado padrão de copiar cada divisória é 0.
 
     ```sql
@@ -132,7 +134,7 @@ O modelo contém dois parâmetros:
 
     > [!NOTE]
     > O nome da mesa é s3_partition_delta_control_table.
-    > O esquema da tabela de controlo é PartitionPrefix, JobRunTime e SuccessOrFailure, onde partitionPrefix é a definição de prefixo no S3 para filtrar as pastas e ficheiros no Amazon S3 pelo nome, JobRunTime é o valor de data quando os trabalhos de cópia são executados, e SuccessOrFailure é o estado de cópia de cada partição: 0 significa que esta partição não foi copiada para Azure e 1 significa que esta partição foi copiada para Azure com sucesso.
+    > O esquema da tabela de controlo é PartitionPrefix, JobRunTime e SuccessOrFailure, onde partitionPrefix é a definição de prefixo em S3 para filtrar as pastas e ficheiros na Amazon S3 pelo nome, JobRunTime é o valor de data em que os trabalhos de cópia são executados, e SuccessOrFailure é o estado de copiar cada partição: 0 significa que esta partição não foi copiada para Azure e 1 significa que esta partição foi copiada para azure com sucesso.
     > Existem 5 divisórias definidas na tabela de controlo. O valor padrão para jobRunTime pode ser o momento em que a migração de dados históricos começa. A atividade de cópia ADF copiará os ficheiros da AWS S3 que foram modificados pela última vez após esse período. O estado predefinido de copiar cada partição é 1.
 
     ```sql

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 35025bf1592f1293b9326d643f76322b4af590c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46bceeb31fa38068c6c4f9f3a86ed556ad39effb
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501203"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393155"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tópicos do sistema na Grelha de Eventos Azure
 O serviço Azure Event Grid cria tópicos do sistema quando cria uma subscrição de primeiro evento para uma fonte de evento seletiva. Atualmente, a Event Grid não cria tópicos de sistema para fontes de tópicos que foram criados antes de Mar, 15, 2020. Para todas as fontes de tópico que criou nesta ou após esta data, a Rede de Eventos cria automaticamente tópicos do sistema. Este artigo descreve tópicos do sistema na Grelha de **Eventos** Azure.
@@ -38,5 +38,5 @@ Quando tentar eliminar o grupo de recursos com a conta de armazenamento, verá o
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
 
-- [Tópicos personalizados](event-sources.md#custom-topics)
+- [Tópicos personalizados](custom-topics.md)
 - [Domínios](event-domains.md)

@@ -2,13 +2,13 @@
 title: Diretrizes para Coleções Fiáveis
 description: Diretrizes e Recomendações para a utilização de Coleções Fiáveis de Tecido de Serviço numa aplicação Azure Service Fabric.
 ms.topic: conceptual
-ms.date: 12/10/2017
-ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/10/2020
+ms.openlocfilehash: db37067069b2a9eb08009eb6bb373f6fce1cafa9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645485"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398531"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para Coleções Fiáveis em Tecido de Serviço Azure
 Esta secção fornece orientações para a utilização de Reliable State Manager e Reliable Collections. O objetivo é ajudar os utilizadores a evitar armadilhas comuns.
@@ -28,7 +28,7 @@ As diretrizes são organizadas como recomendações simples pré-fixadas com os 
 * Considere manter os seus itens (por exemplo, TKey + TValue for Reliable Dictionary) abaixo de 80 KBytes: menor, melhor. Isto reduz a quantidade de utilização do Large Object Heap, bem como os requisitos de io do disco e da rede. Muitas vezes, reduz a replicação de dados duplicados quando apenas uma pequena parte do valor está a ser atualizada. A forma comum de o conseguir no Dicionário Fiável é quebrar as suas fileiras em várias linhas.
 * Considere usar a funcionalidade de backup e restaurar a funcionalidade para ter recuperação de desastres.
 * Evite misturar operações de entidade única e `GetCountAsync` `CreateEnumerableAsync`operações multi-entidades (por exemplo, ) na mesma transação devido aos diferentes níveis de isolamento.
-* Manuseie a InvalidOperationException. As transações de utilizadores podem ser abortadas pelo sistema por diversas razões. Por exemplo, quando o Gestor de Estado Fiável está a mudar o seu papel fora da Primary ou quando uma transação de longo prazo está a bloquear a truncação do registo transacional. Nesses casos, o utilizador pode receber InvalidOperationException indicando que a sua transação já foi encerrada. Assumindo que a rescisão da transação não foi solicitada pelo utilizador, a melhor forma de lidar com esta exceção é eliminar a transação, verificar se o sinal de cancelamento foi sinalizado (ou se o papel da réplica foi alterado), e se não criar um novo transação e novatentativa.  
+* Manuseie a InvalidOperationException. As transações de utilizadores podem ser abortadas pelo sistema por diversas razões. Por exemplo, quando o Gestor de Estado Fiável está a mudar o seu papel fora da Primary ou quando uma transação de longo prazo está a bloquear a truncação do registo transacional. Nesses casos, o utilizador pode receber InvalidOperationException indicando que a sua transação já foi encerrada. Assumindo que a rescisão da transação não foi solicitada pelo utilizador, a melhor forma de lidar com esta exceção é eliminar a transação, verificar se o sinal de cancelamento foi sinalizado (ou se o papel da réplica foi alterado), e se não criar uma nova transação e nova tentativa.  
 
 Eis algumas coisas a ter em mente:
 
@@ -41,7 +41,19 @@ Eis algumas coisas a ter em mente:
   As leituras das Primárias são sempre estáveis: nunca podem ser falsas progredidas.
 * A segurança/privacidade dos dados persistidos pela sua aplicação numa recolha fiável é a sua decisão e está sujeita às proteções fornecidas pela sua gestão de armazenamento; I.E. A encriptação do disco do Sistema Operativo pode ser usada para proteger os seus dados em repouso.  
 
-### <a name="next-steps"></a>Passos seguintes
+## <a name="volatile-reliable-collections"></a>Coleções voláteis fiáveis
+Ao decidir utilizar coleções voláteis fiáveis, considere o seguinte:
+
+* ```ReliableDictionary```tem apoio volátil
+* ```ReliableQueue```tem apoio volátil
+* ```ReliableConcurrentQueue```não tem apoio volátil
+* Os serviços persistidos não podem ser tornados voláteis. Mudar ```HasPersistedState``` a ```false``` bandeira para exigir recriar todo o serviço do zero
+* Os serviços voláteis não podem ser realizados. Mudar ```HasPersistedState``` a ```true``` bandeira para exigir recriar todo o serviço do zero
+* ```HasPersistedState```é um config nível de serviço. Isto significa que **todas as** coleções serão persuedidas ou voláteis. Não se pode misturar coleções voláteis e persistidas
+* Perda de quórum de uma divisória volátil resulta em perda completa de dados
+* Backup e restauro NÃO está disponível para serviços voláteis
+
+## <a name="next-steps"></a>Passos seguintes
 * [Trabalhar com as Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transações e Fechaduras](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gestão de Dados
@@ -50,5 +62,5 @@ Eis algumas coisas a ter em mente:
   * [Serialização e Upgrade](service-fabric-application-upgrade-data-serialization.md)
   * [Configuração fiável do Gestor do Estado](service-fabric-reliable-services-configuration.md)
 * Outros
-  * [Início rápido dos Serviços Fiáveis](service-fabric-reliable-services-quick-start.md)
+  * [Serviços fiáveis arranque rápido](service-fabric-reliable-services-quick-start.md)
   * [Referência do desenvolvedor para Coleções Fiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

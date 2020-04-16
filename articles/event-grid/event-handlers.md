@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 7ea00d663264e902c1818f7a4684e90eccd97b28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73118823aec9b8d4bd872986b13f19496240c0b9
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265054"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393446"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Manipuladores de eventos na Grelha de Eventos Azure
 
@@ -42,7 +42,7 @@ Se utilizar as Funções do Azure como o processador, utilize o acionador do Eve
 | [Tutorial: transmitir big data em um armazém de dados](event-grid-event-hubs-integration.md) | Quando o Event Hubs cria um ficheiro Capture, a Rede de Eventos envia um evento para uma aplicação de função. A aplicação recupera o ficheiro Capture e migra dados para um armazém de dados. |
 | [Tutorial: Ônibus de serviço azure para exemplos de integração da Rede de Eventos Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A Rede de Eventos envia mensagens do tópico do Bus de Serviço para a aplicação de função e lógica. |
 
-## <a name="event-hubs"></a>Event Hubs
+## <a name="event-hubs"></a>Hubs de Eventos
 
 Use Os Centros de Eventos quando a sua solução obtém eventos mais rápido do que pode processar os eventos. A sua aplicação processa os eventos a partir de Event Hubs na sua própria agenda. Pode escalar o processamento do seu evento para lidar com os eventos que estão a chegar.
 
@@ -52,8 +52,6 @@ Os Hubs de Eventos podem funcionar como uma fonte de eventoou manipulador de eve
 |---------|---------|
 | [Quickstart: encaminha eventos personalizados para Hubs de Eventos Azure com Azure CLI e Grid de Eventos](custom-event-to-eventhub.md) | Envia um evento personalizado para um centro de eventos para processamento por uma aplicação. |
 | [Modelo de Gestor de Recursos: tópico personalizado e ponto final do Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Um modelo de Gestor de Recursos que cria uma subscrição para um tópico personalizado. Envia eventos para um Azure Event Hubs. |
-
-Por exemplo, de Centros de Eventos como fonte, consulte a [fonte do Event Hubs](event-sources.md#event-hubs).
 
 ## <a name="hybrid-connections"></a>Ligações Híbridas
 

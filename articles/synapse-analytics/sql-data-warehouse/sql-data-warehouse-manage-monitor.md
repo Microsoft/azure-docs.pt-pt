@@ -11,12 +11,12 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: cf6f25e8839ead5738eb7259cc4fccb674a4adea
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 5360d91a17a7eee2dd0373ac311c79d22e085939
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633194"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416088"
 ---
 # <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Monitorize a sua carga de trabalho de piscina Azure Synapse Analytics SQL utilizando DMVs
 
@@ -309,4 +309,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre DMVs, consulte [as vistas do Sistema](sql-data-warehouse-reference-tsql-system-views.md).
+Para obter mais informações sobre DMVs, consulte [as vistas do Sistema](../sql/reference-tsql-system-views.md).

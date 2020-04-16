@@ -4,14 +4,14 @@ description: Saiba usar identidades geridas para Azure com Tecido de Serviço.
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 06ebcfdf3d6a3815908752153acb09437d745d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6f3736bed4d3d59bce08d4df3ee0aa164a0a764
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76986755"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415102"
 ---
-# <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>Utilização de identidades geridas para Azure com tecido de serviço (Pré-visualização)
+# <a name="using-managed-identities-for-azure-with-service-fabric"></a>Utilização de identidades geridas para Azure com tecido de serviço
 
 Um desafio comum ao construir aplicações em nuvem é como gerir de forma segura as credenciais do seu código para autenticar vários serviços sem as guardar localmente numa estação de trabalho de desenvolvedores ou no controlo de fontes. *Identidades geridas para o Azure* resolvem este problema por todos os seus recursos no Azure Ative Directory (Azure AD), fornecendo-lhes identidades geridas automaticamente dentro da AD Azure. Pode utilizar a identidade de um serviço para autenticar qualquer serviço que suporte a autenticação Azure AD, incluindo o Key Vault, sem quaisquer credenciais armazenadas no seu código.
 
@@ -47,7 +47,7 @@ As identidades geridas para o Tecido de Serviço são suportadas apenas em clust
 
 A identidade atribuída pelo sistema de uma aplicação é única a essa aplicação; uma identidade atribuída ao utilizador é um recurso autónomo, que pode ser atribuído a várias aplicações. Dentro de uma aplicação, uma única identidade (atribuída pelo sistema ou atribuída ao utilizador) pode ser atribuída a vários serviços da aplicação, mas cada serviço individual só pode ser atribuído a uma identidade. Por último, deve ser atribuído um serviço a uma identidade explicitamente para ter acesso a esta funcionalidade. Com efeito, o mapeamento das identidades de uma aplicação aos seus serviços constituintes permite o isolamento na aplicação — um serviço só pode utilizar a identidade mapeada para a mesma.  
 
-Atualmente, os seguintes cenários são suportados para esta funcionalidade de pré-visualização:
+Atualmente, os seguintes cenários são suportados para esta funcionalidade:
 
 - Implementar uma nova aplicação com um ou mais serviços e uma ou mais identidades atribuídas
 
@@ -57,12 +57,7 @@ Os seguintes cenários não são suportados ou não são recomendados; Note que 
 
 - Remover ou alterar as identidades atribuídas a um pedido; se tiver de fazer alterações, submeta-se a uma nova atribuição de identidade e, em seguida, a remover uma anteriormente atribuída. A remoção de uma identidade de uma aplicação existente pode ter efeitos indesejáveis, incluindo deixar a sua aplicação num estado que não é atualizável. É seguro suprimir completamente o pedido se for necessária a remoção de uma identidade; Note que eliminará a identidade atribuída pelo sistema (se tal for definida) associada à aplicação, e removerá quaisquer associações com as identidades atribuídas ao utilizador atribuídas à aplicação.
 
-- O suporte do Serviço Tecido para identidades geridas não está integrado neste momento no [AzureServiceTokenProvider;](../key-vault/service-to-service-authentication.md) a integração será alcançada até ao final do período de pré-visualização para a funcionalidade de identidade gerida.
-
->
-> [!NOTE]
->
-> Esta funcionalidade está em pré-visualização. Pode estar sujeito a alterações frequentes e não adequado para implantações de produção.
+- O suporte do Serviço Tecido para identidades geridas não está integrado neste momento no [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

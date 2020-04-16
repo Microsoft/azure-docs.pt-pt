@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 18848695327a374f12fbe5a34d03366b050d8b65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5fa34125f1ec712dda3099e2b3596c2566a536d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928369"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415538"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeando o fluxo de dados Modo Debug
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## <a name="overview"></a>Descrição geral
 

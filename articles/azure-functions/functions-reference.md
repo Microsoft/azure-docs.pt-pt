@@ -4,14 +4,14 @@ description: Aprenda os conceitos e técnicas de Funções Azure que precisa par
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 7dd7ef3c4833fb9ffa3781f06faba4f40cd40cfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6af3d7ab1fdd35391c9a189162c57dfb259f2d4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276624"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405344"
 ---
-# <a name="azure-functions-developers-guide"></a>Guia de desenvolvedores de funções azure
+# <a name="azure-functions-developer-guide"></a>Guia do programador das Funções do Azure
 Nas Funções Azure, as funções específicas partilham alguns conceitos e componentes técnicos fundamentais, independentemente da linguagem ou da ligação que utilize. Antes de entrar em detalhes de aprendizagem específicos de uma determinada língua ou de ligação, não se esqueça de ler através desta visão geral que se aplica a todos eles.
 
 Este artigo assume que já leu a visão geral das [Funções Azure.](functions-overview.md)

@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 2a634c81273c26722d53610a13e362e5e453f7e9
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 97c8f8a5bb2111264e9459a7d2128c1ab7c2503d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380118"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414420"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Create a trigger that runs a pipeline on a tumbling window(Criar um acionador que execute um pipeline numa janela em cascata)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Este artigo fornece passos para criar, iniciar e monitorizar um gatilho da janela caindo. Para obter informações gerais sobre os gatilhos e os tipos suportados, consulte a [execução do Gasoduto e](concepts-pipeline-execution-triggers.md)os gatilhos .
 
 Os acionadores de janela em cascata são um tipo de acionador que é acionado num intervalo de tempo periódico a partir de uma hora de início especificada, mantendo o estado. As janelas em cascata são uma série de intervalos de tempo com tamanho fixo, não sobrepostos e contínuos. Um gatilho de janela caindo tem uma relação um-para-um com um oleoduto e só pode referenciar um oleoduto singular.
@@ -229,5 +231,5 @@ Para monitorizar as condutas de disparo e o gasoduto corre no portal Azure, cons
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter informações detalhadas sobre os gatilhos, consulte a [execução do Gasoduto e os gatilhos](concepts-pipeline-execution-triggers.md#triggers).
+* Para obter informações detalhadas sobre os gatilhos, consulte a [execução do Gasoduto e os gatilhos](concepts-pipeline-execution-triggers.md#trigger-execution).
 * [Criar uma dependência de acionamento de janela em cascata](tumbling-window-trigger-dependency.md)

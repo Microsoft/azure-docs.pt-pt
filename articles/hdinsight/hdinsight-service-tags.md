@@ -6,17 +6,17 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/10/2020
-ms.openlocfilehash: 34ec05a8362f5947cb61924b19c6b1a52e5d91a4
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/15/2020
+ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437675"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410858"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Etiquetas de serviço NSG para Azure HDInsight
 
-As etiquetas de serviço Azure HDInsight para grupos de segurança de rede (NSGs) são grupos de endereços IP para serviços de saúde e gestão. Estes grupos ajudam a minimizar a complexidade da criação de regras de segurança. [As etiquetas](../virtual-network/security-overview.md#service-tags) de serviço fornecem um método alternativo para permitir o tráfego de entrada a partir de endereços IP específicos sem introduzir cada um dos [endereços IP](hdinsight-management-ip-addresses.md) de gestão nos seus NSGs.
+As etiquetas de serviço Azure HDInsight para grupos de segurança de rede (NSGs) são grupos de endereços IP para serviços de saúde e gestão. Estes grupos ajudam a minimizar a complexidade da criação de regras de segurança. [As etiquetas](../virtual-network/security-overview.md#service-tags) de serviço permitem o tráfego de entrada de IPs específicos sem introduzir cada um dos [endereços IP](hdinsight-management-ip-addresses.md) de gestão nos seus NSGs.
 
 O serviço HDInsight gere estas etiquetas de serviço. Não pode criar a sua própria etiqueta de serviço ou modificar uma etiqueta existente. A Microsoft gere os prefixos de endereço que correspondem à etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam.
 
@@ -46,13 +46,13 @@ Esta etiqueta contém os endereços IP dos serviços de saúde e gestão para to
 
 ## <a name="use-regional-hdinsight-service-tags"></a>Utilize etiquetas de serviço hDInsight regionais
 
-Se a opção de marcação global não funcionar porque precisa de permissões mais restritivas, só pode permitir as etiquetas de serviço aplicáveis à sua região. Pode haver uma, duas ou três etiquetas de serviço aplicáveis, dependendo da região onde o seu cluster é criado.
+Se a opção de marcação global não funcionar porque precisa de permissões mais restritivas, só pode permitir as etiquetas de serviço aplicáveis à sua região. Pode haver várias etiquetas de serviço, dependendo da região onde o seu cluster é criado.
 
 Para saber quais as etiquetas de serviço a adicionar para a sua região, leia as seguintes secções do artigo.
 
 ### <a name="use-a-single-regional-service-tag"></a>Use uma única etiqueta de serviço regional
 
-Se preferir utilizar etiquetas de serviço regionais e o seu cluster está localizado numa das regiões listadas nesta tabela, apenas precisa adicionar uma única etiqueta de serviço regional ao seu grupo de segurança de rede.
+Se o seu cluster estiver localizado numa região listada nesta tabela, basta adicionar uma única etiqueta de serviço regional ao seu NSG.
 
 | País | Região | Etiqueta de serviço |
 | ---- | ---- | ---- |
@@ -80,13 +80,13 @@ Se preferir utilizar etiquetas de serviço regionais e o seu cluster está local
 
 ### <a name="use-multiple-regional-service-tags"></a>Utilize várias etiquetas de serviço regional
 
-Se preferir usar etiquetas de serviço regionais, mas a região onde o seu cluster é criado não estava listada na tabela anterior, precisa de permitir várias etiquetas de serviço regional. A necessidade de utilizar mais do que uma deve-se às diferenças no regime dos fornecedores de recursos para as várias regiões.
+Se a região onde o seu cluster foi criado não está listada na tabela anterior, você precisa permitir várias etiquetas de serviço regional. A necessidade de utilizar mais do que uma deve-se às diferenças no regime dos prestadores de recursos para as diferentes regiões.
 
 As restantes regiões dividem-se em grupos com base nas etiquetas de serviço regionais que utilizam.
 
 #### <a name="group-1"></a>Grupo 1
 
-Se o seu cluster for criado numa das regiões na `HDInsight.WestUS` tabela `HDInsight.EastUS` seguinte, permita as etiquetas de serviço e para além da etiqueta de serviço regional listada. As regiões desta secção requerem três etiquetas de serviço.
+Se o seu cluster for criado numa das regiões da `HDInsight.WestUS` tabela `HDInsight.EastUS`seguinte, permita as etiquetas de serviço e . Além disso, a etiqueta de serviço regional listada. As regiões desta secção requerem três etiquetas de serviço.
 
 Por exemplo, se o `East US 2` seu cluster for criado na região, terá de adicionar as seguintes etiquetas de serviço ao seu grupo de segurança de rede:
 

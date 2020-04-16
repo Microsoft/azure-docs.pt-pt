@@ -13,14 +13,17 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 5263af2708ee30566e90cdf59ef69f52f76a9d32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39f758b779e7c4935feab2424be16b829db8e46b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440326"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399521"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Azure-SSIS Integration Runtime numa agenda
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Este artigo descreve como agendar o início e paragem do Tempo de Funcionamento de Integração Azure-SSIS (IR) utilizando a Azure Data Factory (ADF). O Azure-SSIS IR é um recurso de computação ADF dedicado à execução de pacotes sQL Server Integration Services (SSIS). Executar o Ir Azure-SSIS tem um custo associado a ele. Por isso, normalmente só pretende executar o seu IR quando precisa de executar pacotes SSIS em Azure e parar o seu IR quando já não precisa. Pode utilizar a Interface de Utilizador ADF (UI)/app ou o Azure PowerShell para [iniciar ou parar manualmente o seu IR](manage-azure-ssis-integration-runtime.md)).
 
 Em alternativa, pode criar atividades Web em pipelines ADF para iniciar/parar o seu IR no horário, por exemplo, iniciá-lo de manhã antes de executar as suas cargas diárias de trabalho ETL e detê-lo à tarde depois de terminarem.  Também pode acorrentar uma atividade do Pacote Execute SSIS entre duas atividades Web que iniciam e param o seu IR, para que o seu IR inicie/pare a pedido, mesmo antes/após a execução do seu pacote. Para obter mais informações sobre a atividade do Pacote SSIS execute, consulte [Executar um pacote SSIS utilizando a atividade do Pacote Execute SSIS no](how-to-invoke-ssis-package-ssis-activity.md) artigo do pipeline ADF.
@@ -41,7 +44,7 @@ Depois de criar e testar esses oleodutos, pode criar um gatilho de horário e as
 
 Por exemplo, pode criar dois gatilhos, o primeiro está programado para funcionar diariamente às 6 da manhã e associado ao primeiro oleoduto, enquanto o segundo está programado para funcionar diariamente às 18:00 e associado ao segundo oleoduto.  Desta forma, tem um período entre as 6:00 e as 18:00 todos os dias quando o seu IR está em execução, pronto para executar as suas cargas diárias de trabalho ETL.  
 
-Se criar um terceiro gatilho que está programado para funcionar diariamente à meia-noite e associado ao terceiro oleoduto, esse gasoduto funcionará à meia-noite todos os dias, começando o seu IR pouco antes da execução do pacote, executando posteriormente o seu pacote, e imediatamente parar o seu IR logo após a execução do pacote, para que o seu IR não esteja a funcionar de braços cruzados.
+Se criar um terceiro gatilho que está programado para funcionar diariamente à meia-noite e associado ao terceiro oleoduto, esse gasoduto funcionará à meia-noite todos os dias, começando o seu IR pouco antes da execução do pacote, executando posteriormente o seu pacote, e imediatamente parando o seu IR logo após a execução do pacote, para que o seu IR não esteja a funcionar de braços cruzados.
 
 ### <a name="create-your-adf"></a>Crie o seu ADF
 
@@ -160,7 +163,7 @@ Agora que os seus oleodutos funcionam como esperava, pode criar gatilhos para ex
     4. Para **recorrência,** insira uma cadência para o gatilho. No exemplo seguinte, é **o Daily** uma vez. 
     5. Para **terminar,** selecione **No End** ou introduza uma data e hora finais depois de selecionar a data de **entrada**. 
     6. Selecione **Ativado** para ativar o gatilho imediatamente após publicar toda a definição da ADF. 
-    7. Selecione **Next**.
+    7. Selecione **Seguinte**.
 
    ![Gatilho -> Novo/Edição](./media/how-to-schedule-azure-ssis-integration-runtime/new-trigger-window.png)
     

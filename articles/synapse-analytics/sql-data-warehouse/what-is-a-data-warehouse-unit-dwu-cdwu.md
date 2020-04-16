@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62cf1f369cbde372e82e7c3ffe26473f09668bc7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: db282bae92ec14c1cb4f6a61b61d435814b0f13c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742553"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408056"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unidades de Armazém de Dados (DWUs)
 
@@ -32,7 +32,7 @@ Uma alteração ao nível do seu serviço altera o número de DWUs que estão di
 
 Para um desempenho mais elevado, pode aumentar o número de unidades de armazém de dados. Para menos desempenho, reduza as unidades de armazém de dados. Os custos de armazenamento e de computação são faturados em separado, pelo que a alteração das unidades do armazém de dados não afeta os custos de armazenamento.
 
-O desempenho das unidades de armazém de dados baseia-se nestas métricas de carga de trabalho:
+O desempenho das unidades de armazém de dados baseia-se nestas métricas de carga de trabalho do armazém de dados:
 
 - A rapidez com que uma consulta padrão de piscina SQL pode digitalizar um grande número de linhas e, em seguida, executar uma agregação complexa. Esta operação é intensiva em I/O e CPU.
 - A rapidez com que o pool SQL pode ingerir dados a partir de Blobs de Armazenamento Azure ou do Lago de Dados Azure. Esta operação é de rede e de CPU intensiva.
@@ -46,21 +46,37 @@ Crescente DWUs:
 
 ## <a name="service-level-objective"></a>Objetivo de Nível de Serviço
 
+O Objetivo de Nível de Serviço (SLO) é a definição de escalabilidade que determina o custo e o nível de desempenho do seu armazém de dados. Os níveis de serviço para gen2 são medidos em unidades de armazém de dados computacionais (cDWU), por exemplo DW2000c. Os níveis de serviço gen1 são medidos em DWUs, por exemplo DW2000.
+
 O Objetivo de Nível de Serviço (SLO) é a definição de escalabilidade que determina o custo e o nível de desempenho da sua piscina SQL. Os níveis de serviço para o conjunto Gen2 SQL são medidos em unidades de armazém de dados (DWU), por exemplo DW2000c.
 
-No T-SQL, a definição de SERVICE_OBJETIVE determina o nível de serviço para a sua piscina SQL.
+> [!NOTE]
+> O Azure SQL Data Warehouse Gen2 adicionou recentemente capacidades de escala adicionais para suportar níveis de computação tão baixos como 100 cDWU. Os armazéns de dados existentes atualmente na Gen1 que requerem os níveis de computação mais baixos podem agora atualizar para a Gen2 nas regiões que estão atualmente disponíveis sem custos adicionais.  Se a sua região ainda não for apoiada, ainda pode fazer upgrade para uma região apoiada. Para mais informações, consulte [Upgrade para gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+
+No T-SQL, a definição de SERVICE_OBJETIVE determina o nível de serviço e o nível de desempenho para a sua piscina SQL.
 
 ```sql
 CREATE DATABASE mySQLDW
-( EDITION = 'Datawarehouse'
+(Edition = 'Datawarehouse'
  ,SERVICE_OBJECTIVE = 'DW1000c'
 )
 ;
 ```
 
-## <a name="capacity-limits"></a>Limites de capacidade
+## <a name="performance-tiers-and-data-warehouse-units"></a>Níveis de desempenho e unidades de armazém de dados
+
+Cada nível de desempenho utiliza uma unidade de medida ligeiramente diferente para as suas unidades de armazém de dados. Esta diferença reflete-se na fatura, uma vez que a unidade de escala se traduz diretamente na faturação.
+
+- Os armazéns de dados gen1 são medidos em Unidades de Armazém de Dados (DWUs).
+- Os armazéns de dados gen2 são medidos em Unidades de Armazém de Dados computacionais (cDWUs).
+
+Tanto a DWUs como a cDWUs suportam a computação de escala para cima ou para baixo, e param a computação quando não é preciso usar o armazém de dados. Estas operações são todas a pedido. Gen2 usa uma cache baseada em disco local nos nódosos computacionais para melhorar o desempenho. Quando escala ou pausa o sistema, a cache é invalidada e por isso é necessário um período de aquecimento da cache antes de se alcançar um desempenho ideal.  
 
 Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma quota da Unidade de Transações de Base de [Dados (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) que permite um número específico de unidades de armazém de dados. Para obter mais informações, consulte os limites de capacidade de gestão da [carga de trabalho.](sql-data-warehouse-service-capacity-limits.md#workload-management)
+
+## <a name="capacity-limits"></a>Limites de capacidade
+
+Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma quota da Unidade de Transações de Base de [Dados (DTU)](../../sql-database/sql-database-what-is-a-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) que permite um número específico de unidades de armazém de dados. Para obter mais informações, consulte os limites de capacidade de gestão da [carga de trabalho.](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management)
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Quantas unidades de armazém de dados preciso
 
@@ -115,21 +131,21 @@ Para alterar DWUs:
 
 3. Clique em **Guardar**. É apresentada uma mensagem de confirmação. Clique em **sim** para confirmar ou **não** para cancelar.
 
-### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para alterar os DWUs, utilize o [cmdlet Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell. O exemplo seguinte define o objetivo do nível de serviço para DW1000c para a base de dados MySQLDW que está hospedada no servidor MyServer.
+Para alterar os DWUs, utilize o [cmdlet Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell. O exemplo seguinte define o objetivo do nível de serviço para DW1000 para a base de dados MySQLDW que está hospedada no servidor MyServer.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-Para mais informações, consulte [powerShell cmdlets para SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)
+Para mais informações, consulte [powerShell cmdlets para SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ### <a name="t-sql"></a>T-SQL
 
-Com o T-SQL pode visualizar as definições dWU atuais, alterar as definições e verificar o progresso.
+Com o T-SQL pode visualizar as atuais DWUsettings, alterar as definições e verificar o progresso.
 
 Para alterar os DWUs:
 
@@ -152,12 +168,12 @@ Content-Type: application/json; charset=UTF-8
 
 {
     "properties": {
-        "requestedServiceObjectiveName": DW1000c
+        "requestedServiceObjectiveName": DW1000
     }
 }
 ```
 
-Para mais exemplos de API REST, consulte ASAP IS [REST para SQL Data Warehouse](sql-data-warehouse-manage-compute-rest-api.md).
+Para mais exemplos de API REST, consulte ASAP IS [REST para SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="check-status-of-dwu-changes"></a>Verifique o estado das alterações da DWU
 
@@ -170,14 +186,13 @@ Não é possível verificar se há operações de escala com o portal Azure.
 Para verificar o estado das alterações da DWU:
 
 1. Ligue-se à base de dados principal associada ao seu servidor lógico de base de dados SQL.
+2. Envie a seguinte consulta para verificar o estado da base de dados.
 
-1. Envie a seguinte consulta para verificar o estado da base de dados.
-
-    ```sql
-    SELECT    *
-    FROM      sys.databases
-    ;
-    ```
+```sql
+SELECT    *
+FROM      sys.databases
+;
+```
 
 1. Submeter a seguinte consulta para verificar o estado de funcionamento
 

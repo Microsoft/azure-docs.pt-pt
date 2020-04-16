@@ -11,15 +11,17 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: d6252b7a0ecce553bc3a1519055375fd4cd034f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 3aabf68b6763e5815a03021cb02683d509c26190
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336191"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415058"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalize a configuração para um Tempo de Integração Azure-SSIS
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 A configuração personalizada para um Runtime de Integração de Serviços de Integração de Servidores Azure-SQL (Azure-SSIS IR) fornece uma interface para adicionar os seus próprios passos durante a configuração ou reconfiguração do seu IR Azure-SSIS. 
 
@@ -32,7 +34,7 @@ Pode fazer configurações personalizadas no seu IR Azure-SSIS de duas formas:
 Pode instalar componentes gratuitos e não licenciados e componentes pagos e licenciados com configurações personalizadas expressas e standard. Se for um fornecedor de software independente (ISV), consulte [Desenvolver componentes pagos ou licenciados para um IR Azure-SSIS](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
-> Como os nós da série V2 de um IR Azure-SSIS não são adequados para configuração personalizada, utilize os nós da série V3. Se já estiver a usar nós da série V2, mude para nós da série V3 o mais rápido possível.
+> Para beneficiar de futuras melhorias, recomendamos a utilização de v3 ou séries posteriores de nós para o seu IR Azure-SSIS com configuração personalizada.
 
 ## <a name="current-limitations"></a>Limitações atuais
 
@@ -72,7 +74,7 @@ Para personalizar o seu IR Azure-SSIS, precisa dos seguintes itens:
 
    a. Em **(Local e Anexado)**, contas de **armazenamento**de clique soro direito, e, em seguida, selecione Connect **to Azure storage**.
 
-      ![Ligue-se ao Armazenamento Azure](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
+      ![Ligar ao Armazenamento do Azure](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
    b. Selecione Utilize o nome e a **chave da conta de armazenamento**e, em seguida, selecione **Next**.
 

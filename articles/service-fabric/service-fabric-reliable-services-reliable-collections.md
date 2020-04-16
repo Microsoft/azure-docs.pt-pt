@@ -2,13 +2,13 @@
 title: Introdução a Coleções Fiáveis
 description: Serviço Fabric serviços imponentes fornecem coleções fiáveis que permitem escrever aplicações cloud altamente disponíveis, escaláveis e de baixa latência.
 ms.topic: conceptual
-ms.date: 1/3/2019
-ms.openlocfilehash: 48fa682f4c017f66911729e1f581f3aa91cdc28d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 3/10/2020
+ms.openlocfilehash: 78ecc57a4da43bf416839226253e6d0e2f4c1651
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75609728"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398437"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introdução a Coleções Fiáveis em Serviços De Serviço Azure Tecido
 
@@ -24,10 +24,9 @@ A principal diferença entre coleções fiáveis e outras tecnologias de alta di
 Coleções fiáveis podem ser consideradas como a evolução natural das classes **System.Collections:** um novo conjunto de coleções que são projetadas para a nuvem e aplicações multi-computador sem aumentar a complexidade para o desenvolvedor. Como tal, as Coleções Fiáveis são:
 
 * Replicado: As alterações de Estado são replicadas para alta disponibilidade.
-* Persistida: Os dados são persistidos no disco para durabilidade contra interrupções em larga escala (por exemplo, uma falha de energia do datacenter).
-* Como os escritos são persistidos e replicados, não é possível criar um Fiável Dicionário volátil, ReliableQueue ou outra coleção fiável que apenas persiste dados na memória.
 * AsAPHonios: As APIs são assíncronas para garantir que os fios não são bloqueados quando incorrem em IO.
 * Transacional: As APIs utilizam a abstração de transações para que possa gerir facilmente várias Coleções Fiáveis dentro de um serviço.
+* Persistidos ou voláteis: Os dados podem ser persistidos no disco para durabilidade contra interrupções em larga escala (por exemplo, uma falha de energia do datacenter). Algumas Coleções Fiáveis também suportam um modo volátil (com [Caveats)](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)onde todos os dados são mantidos na memória, como uma cache replicada na memória.
 
 As Coleções Fiáveis fornecem fortes garantias de consistência fora da caixa para facilitar o raciocínio sobre o estado de aplicação.
 A forte consistência é conseguida garantindo que as transações só terminam depois de toda a transação ter sido registada num quórum maioritário de réplicas, incluindo as primárias.
@@ -57,5 +56,5 @@ Hoje, **microsoft.ServiceFabric.Data.Collections** contém três coleções:
   * [Serialização e Upgrade](service-fabric-application-upgrade-data-serialization.md)
   * [Configuração fiável do Gestor do Estado](service-fabric-reliable-services-configuration.md)
 * Outros
-  * [Início rápido dos Serviços Fiáveis](service-fabric-reliable-services-quick-start.md)
+  * [Serviços fiáveis arranque rápido](service-fabric-reliable-services-quick-start.md)
   * [Referência do desenvolvedor para Coleções Fiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

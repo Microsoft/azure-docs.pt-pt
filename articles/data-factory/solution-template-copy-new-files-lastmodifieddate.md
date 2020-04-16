@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
-ms.openlocfilehash: 971d311dfb54d417a8f66f504d01f08f8bcfc48b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 979977b2dd2eb5742d4e488623c79cb91427f055
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74942094"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414806"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copiar novos e alterados ficheiros por LastModifiedDate com fábrica de dados Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve um modelo de solução que pode usar para copiar novos ficheiros e alterados apenas pelo LastModifieDDate de uma loja baseada em ficheiros para uma loja de destino. 
 

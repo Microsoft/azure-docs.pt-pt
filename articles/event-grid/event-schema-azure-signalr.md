@@ -1,25 +1,26 @@
 ---
-title: Esquema de evento azure do evento Azure SignalR
+title: Azure SingnalR como fonte da Grelha de Eventos
 description: Descreve as propriedades que estão fornecidas para eventos Azure SignalR com Grelha de Eventos Azure
 services: event-grid
-author: chenyl
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 06/11/2019
-ms.author: chenyl
-ms.openlocfilehash: 3b072ff2b680ad6d144c7441190ab2df9870f5d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: 730d1a7a053ab636c45313dd0c35a537434eb782
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67789075"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393398"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Esquema de evento sinuoso do evento Azure Event Grid para o Serviço de Sinalizador
 
-Este artigo fornece as propriedades e esquemas para eventos do SignalR Service.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
+Este artigo fornece as propriedades e esquemas para eventos do SignalR Service.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md). Também lhe dá uma lista de arranques rápidos e tutoriais para usar o Azure SignalR como fonte de evento.
 
+## <a name="event-grid-event-schema"></a>Esquema de evento sinuoso do evento Da Grelha de Eventos
 
-## <a name="available-event-types"></a>Tipos de eventos disponíveis
+### <a name="available-event-types"></a>Tipos de eventos disponíveis
 
 O Serviço SignalR emite os seguintes tipos de eventos:
 
@@ -28,7 +29,7 @@ O Serviço SignalR emite os seguintes tipos de eventos:
 | Microsoft.signalrService.ClientConnectionConnected | Criado quando uma ligação com um cliente ligou. |
 | Microsoft.SignalRService.ClientConnectionDisconnected | Levantada quando uma ligação de cliente se desligou. |
 
-## <a name="example-event"></a>Evento de exemplo
+### <a name="example-event"></a>Evento de exemplo
 
 O exemplo que se segue mostra o esquema de um evento ligado à ligação ao cliente: 
 
@@ -71,7 +72,7 @@ O esquema para um evento desligado de ligação ao cliente é semelhante:
 }]
 ```
 
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de alto nível:
 
@@ -95,6 +96,12 @@ O objeto de dados tem as seguintes propriedades:
 | conexãoId | string | O identificador único para a ligação do cliente. |
 | userId | string | O identificador de utilizador definido na reivindicação. |
 | errorMessage | string | O erro que causa a ligação desligada. |
+
+## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
+|Título | Descrição |
+|---------|---------|
+| [Reaja aos eventos do Serviço De Sinalização Azure utilizando a Grelha de Eventos](../azure-signalr/signalr-concept-event-grid-integration.md) | Visão geral da integração do Serviço de Sinalização Azure com grelha de eventos. |
+| [Como enviar eventos do Serviço De Sinalização Azure para a Grelha de Eventos](../azure-signalr/signalr-howto-event-grid-integration.md) | Mostra como enviar eventos do Serviço De Sinalização Azure para uma aplicação através da Rede de Eventos. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

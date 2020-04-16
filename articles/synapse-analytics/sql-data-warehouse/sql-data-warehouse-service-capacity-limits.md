@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f35a5da15ca1a672046844282626a6cb7b8ecbdf
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: fbdf0fda51ae35fac4f3f8ae45bfcd788fc406ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583534"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414007"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacidade da Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -42,7 +42,7 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | Tabela |Tamanho máximo |Tamanho ilimitado para mesas de loja de colunas. <br>60 TB para mesas de loja de remo comprimidos no disco. |
 | Tabela |Tabelas por base de dados | 100 000 |
 | Tabela |Colunas por tabela |1024 colunas |
-| Tabela |Bytes por coluna |Dependente do tipo de [dados](sql-data-warehouse-tables-data-types.md)da coluna . Para tipos de dados de caracteres, o MAX Limit pode armazenar até 2 GB no armazenamento off page (row-overflow).  Os caracteres não-Unicode, como o limite de carvão ou varchar, são 8000 numa página de dados, caracteres Unicode como nchar ou nvarchar limit é de 4000 numa página de dados.  Utilize os tamanhos de armazenamento da página de dados para aumentar o desempenho. |
+| Tabela |Bytes por coluna |Dependente do tipo de [dados](sql-data-warehouse-tables-data-types.md)da coluna . Limite é 8000 para tipos de dados de carvão, 4000 para nvarchar, ou 2 GB para tipos de dados MAX. |
 | Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma forma que é para o SQL Server com compressão de página. Tal como o SQL Server, o armazenamento de transbordo de linha é suportado, o que permite que as colunas de **comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são empurradas para fora da linha, apenas a raiz de 24 bytes é armazenada no registo principal. Para mais informações, consulte dados de [transbordo de linha superiores a 8-KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tabela |Divisórias por mesa |15 000<br/><br/>Para um alto desempenho, recomendamos minimizar o número de divisórias que necessita, ao mesmo tempo que suporta os seus requisitos de negócio. À medida que o número de divisórias aumenta, as operações gerais para as operações de Linguagem de Definição de Dados (DDL) e Linguagem de Manipulação de Dados (DML) crescem e causam um desempenho mais lento. |
 | Tabela |Caracteres por valor de fronteira de divisória. |4000 |

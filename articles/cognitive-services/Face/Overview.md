@@ -7,22 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c433d99fd96e99d418fd5500c1075e68dfb1742c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 6714a0c4b967d80ad683ef023b5811423bdcb022
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053586"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403458"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço Azure Face?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-O serviço Azure Cognitive Services Face fornece algoritmos que são usados para detetar, reconhecer e analisar rostos humanos em imagens. A capacidade de processar informação facial humana é importante em muitos cenários de software diferentes. Os cenários exemplo são segurança, interface natural do utilizador, análise e gestão de conteúdos de imagem, aplicações móveis e robótica.
+O serviço Azure Cognitive Services Face fornece algoritmos que detetam, reconhecem e analisam rostos humanos em imagens. A capacidade de processar informação facial humana é importante em muitos cenários de software diferentes. Os cenários exemploincluem segurança, interface natural do utilizador, análise e gestão de conteúdos de imagem, aplicações móveis e robótica.
 
-O serviço Face fornece várias funções diferentes. Cada função é descrita nas seguintes secções. Leia mais sobre eles.
+O serviço Face fornece várias funções diferentes que são delineadas nas seguintes secções.
 
 ## <a name="face-detection"></a>Deteção de rostos
 
@@ -69,7 +69,7 @@ Depois de criar e treinar uma base de dados, pode fazer a identificação contra
 
 Para obter mais informações sobre a identificação de pessoas, consulte o guia de conceitos de [reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API identificar.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
 
-## <a name="use-containers"></a>Utilizar contentores
+## <a name="containers"></a>Contentores
 
 [Utilize o recipiente Face](face-how-to-install-containers.md) para detetar, reconhecer e identificar rostos instalando um recipiente Docker padronizado mais próximo dos seus dados.
 

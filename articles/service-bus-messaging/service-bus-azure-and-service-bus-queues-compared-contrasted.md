@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: 8379b7f48e7e494370f3fdba81676d34821d7b6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffa98e511053edc75fd0e6f25f7b0e21ee9ddda0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75563382"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414536"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas de ônibus de serviço - comparadoe e contrastado
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidas hoje pelo Microsoft Azure: filas de armazenamento e filas de ônibus de serviço. Ao utilizar esta informação, pode comparar e comparar as respetivas tecnologias e ser capaz de tomar uma decisão mais informada sobre qual a solução que melhor satisfaz as suas necessidades.
@@ -57,7 +57,7 @@ Como arquiteto/desenvolvedor de **soluções, deve considerar a utilização** d
     - [Autenticar a partir de uma aplicação](authenticate-application.md)
 * O tamanho da fila não irá ultrapassar os 80 GB.
 * Você quer usar o protocolo de mensagens baseado em padrões AMQP 1.0. Para mais informações sobre a AMQP, consulte a [visão geral do Bus de Serviço AMQP](service-bus-amqp-overview.md).
-* Você pode prever uma eventual migração da comunicação ponto a ponto baseada na fila para um padrão de troca de mensagens que permite uma integração perfeita de recetores adicionais (assinantes), cada um dos quais recebe cópias independentes de alguns ou todos mensagens enviadas para a fila. Este último refere-se à capacidade de publicação/subscrição nativamente fornecida pela Service Bus.
+* Pode prever uma eventual migração da comunicação ponto-a-ponto baseada na fila para um padrão de troca de mensagens que permite a integração perfeita de recetores adicionais (assinantes), cada um dos quais recebe cópias independentes de algumas ou de todas as mensagens enviadas para a fila. Este último refere-se à capacidade de publicação/subscrição nativamente fornecida pela Service Bus.
 * A sua solução de mensagens deve ser capaz de suportar a garantia de entrega "At-Most-Once" sem a necessidade de construir os componentes adicionais da infraestrutura.
 * Quer publicar e consumir lotes de mensagens.
 
@@ -73,7 +73,7 @@ Esta secção compara algumas das capacidades fundamentais de fila fornecidas pe
 | Garantia de entrega |**Pelo menos uma vez** |**Pelo menos uma vez** (utilizando o modo de receção PeekLock - este é o padrão) <br/><br/>**No mais uma vez** (usando o modo receiveanddelete) <br/> <br/> Saiba mais sobre [vários modos Receber](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Suporte à operação atómica |**Não** |**Sim**<br/><br/> |
 | Receber comportamento |**Não bloqueio**<br/><br/>(completa imediatamente se não for encontrada nova mensagem) |**Bloqueio com/sem tempo**<br/><br/>(oferece sondagens longas, ou a ["técnica do Cometa"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Não bloqueio**<br/><br/>(através da utilização de .NET gerido apenas API) |
-| API estilo push |**Não** |**Sim**<br/><br/>[Sessões onMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) e **OnMessage** .NET API. |
+| API estilo push |**Não** |**Sim**<br/><br/>[QueueClient.OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) e [MessageSessionHandler.OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagesessionhandler.onmessage#Microsoft_ServiceBus_Messaging_MessageSessionHandler_OnMessage_Microsoft_ServiceBus_Messaging_MessageSession_Microsoft_ServiceBus_Messaging_BrokeredMessage__) sessions .NET API. |
 | Receber modo |**Peek & Arrendamento** |**Espreitar & Fechadura**<br/><br/>**Receber & Excluir** |
 | Modo de acesso exclusivo |**Baseado em locação** |**Baseado em bloqueio** |
 | Duração do arrendamento/bloqueio |**30 segundos (padrão)**<br/><br/>**7 dias (máximo)** (Pode renovar ou lançar um contrato de locação de mensagens utilizando o [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |**60 segundos (padrão)**<br/><br/>Pode renovar um bloqueio de mensagem utilizando o [API Renovador.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) |
@@ -85,7 +85,7 @@ Esta secção compara algumas das capacidades fundamentais de fila fornecidas pe
 * As mensagens nas filas de armazenamento são tipicamente a primeira a sair, mas às vezes podem estar fora de ordem; por exemplo, quando a duração do tempo de validade da mensagem expira (por exemplo, como resultado de uma falha na aplicação do cliente durante o processamento). Quando o tempo de validade da visibilidade expira, a mensagem torna-se visível novamente na fila para que outro trabalhador a desfaça. Nessa altura, a mensagem recém-visível pode ser colocada na fila (para ser despacuada novamente) depois de uma mensagem que foi originalmente enquecida depois dela.
 * O padrão FIFO garantido nas filas de ônibus de serviço requer o uso de sessões de mensagens. No caso de a aplicação se falhar durante o processamento de uma mensagem recebida no modo **Peek & Lock,** da próxima vez que um recetor de fila aceitar uma sessão de mensagens, começará com a mensagem falhada após o termo do prazo de vida (TTL).
 * As filas de armazenamento são projetadas para suportar cenários de fila padrão, tais como dissociar componentes de aplicação para aumentar a escalabilidade e tolerância para falhas, nivelamento de carga e fluxos de trabalho de processo de construção.
-* Inconsistências no que diz respeito ao tratamento de mensagens no contexto das sessões de ônibus de serviço podem ser evitadas usando o estado de sessão para armazenar o estado da aplicação em relação ao progresso do manuseamento da sequência de mensagens da sessão, e usando transações em torno resolver mensagens recebidas e atualizar o estado da sessão. Este tipo de funcionalidade de consistência é por vezes rotulado *exactamente-uma vez processamento* em outros produtos do fornecedor, mas falhas de transação obviamente fazem com que as mensagens sejam reentregues e, portanto, o termo não é exatamente adequado.
+* As inconsistências no que diz respeito ao tratamento de mensagens no contexto das sessões de ônibus de serviço podem ser evitadas usando o estado de sessão para armazenar o estado da aplicação em relação ao progresso do manuseamento da sequência de mensagens da sessão, e usando transações em torno de regularizar mensagens recebidas e atualizar o estado da sessão. Este tipo de funcionalidade de consistência é por vezes rotulado *exactamente-uma vez processamento* em outros produtos do fornecedor, mas falhas de transação obviamente fazem com que as mensagens sejam reentregues e, portanto, o termo não é exatamente adequado.
 * As filas de armazenamento proporcionam um modelo de programação uniforme e consistente através de filas, mesas e BLOBs – tanto para desenvolvedores como para equipas de operações.
 * As filas de ônibus de serviço fornecem suporte para transações locais no contexto de uma única fila.
 * O modo **Receber e Eliminar** suportado pelo Service Bus fornece a capacidade de reduzir a contagem de operações de mensagens (e custo associado) em troca de uma garantia de entrega reduzida.

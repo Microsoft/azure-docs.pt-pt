@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: d0c60f5738bf634f9d43d6d4f0d78c1239b7ff3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650698"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391697"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Ver artefacto de definição em Aplicações Geridas de Azure
 
@@ -20,7 +20,7 @@ Este artigo fornece uma visão geral do artefacto de definição de visão e sua
 
 ## <a name="view-definition-artifact"></a>Artefacto de definição de vista
 
-O artefacto de definição de vista deve ser nomeado **viewDefinition.json** e colocado ao mesmo nível que **createUiDefinition.json** e **mainTemplate.json** no pacote .zip que cria uma definição de aplicação gerida. Para aprender a criar o pacote .zip e publicar uma definição de aplicação gerida, consulte Publicar uma definição de [Aplicação Gerida azure](publish-managed-app-definition-quickstart.md)
+O artefacto de definição de vista deve ser nomeado **viewDefinition.json** e colocado ao mesmo nível que **createUiDefinition.json** e **mainTemplate.json** no pacote .zip que cria uma definição de aplicação gerida. Para aprender a criar o pacote .zip e publicar uma definição de aplicação gerida, consulte Publicar uma definição de [Aplicação Gerida azure](publish-service-catalog-app.md)
 
 ## <a name="view-definition-schema"></a>Ver esquema de definição
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dc87628d8b47435012c3d20ec2e72ac186983555
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 856bd6c2a3546a438293e89a0b576e1392d9c6a5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189332"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407282"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Começar com políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -32,7 +32,7 @@ ms.locfileid: "78189332"
 
 ## <a name="add-signing-and-encryption-keys"></a>Adicione chaves de assinatura e encriptação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. No portal Azure, procure e selecione **Azure AD B2C**.
 1. Na página geral, no âmbito de **Políticas,** selecione Quadro de **Experiência de Identidade**.
@@ -78,7 +78,7 @@ Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a exp
 
 #### <a name="applications"></a>[Aplicações](#tab/applications/)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No portal Azure, procure e selecione **Azure Ative Directory**.
 1. No menu de visão geral do **Diretório Ativo Azure,** em **'Gerir',** selecione registos de **aplicações (Legacy)**.
 1. Selecione **Novo registo de aplicação**.
@@ -116,7 +116,7 @@ Em seguida, expor a API adicionando um âmbito:
 1. Nos **registos de aplicações (Legacy)**, selecione Novo registo de **aplicações.**
 1. Para **Nome,** insira `ProxyIdentityExperienceFramework`.
 1. Para **o tipo de aplicação,** escolha **Nativo**.
-1. Para **Redirecionar URI,** entre, `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`onde `your-tenant-name` está o seu inquilino Azure AD AD B2C.
+1. Para **Redirecionar URI,** introduza `myapp://auth`.
 1. Selecione **Criar**. Depois de criado, copie o ID da aplicação e guarde-o para usar mais tarde.
 1. Selecione **Definições,** depois selecione **permissões necessárias,** e depois selecione **Adicionar**.
 1. Escolha **Selecione um API,** procure e selecione **IdentityExperienceFramework**, e, em seguida, clique em **Selecionar**.
@@ -129,7 +129,7 @@ Em seguida, expor a API adicionando um âmbito:
 1. Para **Nome,** insira `ProxyIdentityExperienceFramework`.
 1. Nos tipos de **conta suportada,** selecione **Contas apenas neste diretório organizacional**.
 1. Em **Redirect URI,** utilize a queda para selecionar **cliente/nativo público (mobile & desktop)**.
-1. Para **Redirecionar URI,** entre, `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`onde `your-tenant-name` está o seu inquilino Azure AD AD B2C.
+1. Para **Redirecionar URI,** introduza `myapp://auth`.
 1. Em **Permissões**, selecione o consentimento do *administrador grant para abrir e offline_access permissões* verifiquem a caixa.
 1. Selecione **Registar**.
 1. Grave o ID de **Aplicação (cliente)** para utilização num passo posterior.

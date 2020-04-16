@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae3ace24d6f33702c15a364b913f841d90fd8872
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d1246b5b980f60c2f3e65aa5b32a7d79dd6efc7d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654199"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407164"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Gestão de passwords frequentemente perguntas
 
@@ -235,7 +235,7 @@ Este FAQ é dividido nas seguintes secções:
   >
 * **P: Existe uma API para aceder aos dados de reset ou registo de informação de informação?**
 
-  > **R:** Sim. Para saber como pode aceder ao fluxo de dados de redefinição de password, consulte [Saiba como aceder programaticamente a eventos de redefinição](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent)de passwords .
+  > **R:** Sim. Para saber como pode aceder aos dados de relato de reset de palavras-passe, consulte a [referência aAPI](/rest/api/loganalytics/)do Rest API do Azure Log Analytics .
   >
   >
 

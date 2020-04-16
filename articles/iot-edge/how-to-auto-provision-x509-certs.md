@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: kevindaw
-ms.date: 03/06/2020
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b4d247f151240da8c3f0d38bbd22e43e230a1b95
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d5e968e578428a16a0005149a409986015a1fc5c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668616"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393759"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Criar e fornecer um dispositivo IoT Edge utilizando certificados X.509
 
@@ -44,6 +44,12 @@ O certificado de identidade do dispositivo é um certificado de folha que se lig
 Os certificados de identidade do dispositivo são utilizados apenas para o fornecimento do dispositivo IoT Edge e autenticação do dispositivo com hub Azure IoT. Não estão a assinar certificados, ao contrário dos certificados CA que o dispositivo IoT Edge apresenta a módulos ou dispositivos de folhas para verificação. Para mais informações, consulte o detalhe de utilização do [certificado Azure IoT Edge](iot-edge-certs.md).
 
 Depois de criar o certificado de identidade do dispositivo, deve ter dois ficheiros: um ficheiro .cer ou .pem que contenha a parte pública do certificado e um ficheiro .cer ou .pem com a chave privada do certificado. Se planeia utilizar a inscrição em grupo em DPS, também precisa da parte pública de um certificado ca intermédio ou raiz na mesma cadeia de fidedignidade de certificado.
+
+Precisa dos seguintes ficheiros para configurar o fornecimento automático com X.509:
+
+* O certificado de identidade do dispositivo e o seu certificado de chave privada. O certificado de identidade do dispositivo é enviado para DPS se criar uma matrícula individual. A chave privada é passada para o tempo de execução de IoT Edge.
+* Um certificado em cadeia completo, que deve ter, pelo menos, a identidade do dispositivo e os certificados intermédios nele. O certificado de corrente completo é passado para o tempo de funcionação do IoT Edge.
+* Um certificado de AC intermédio ou raiz da cadeia de certificados de confiança. Este certificado é enviado para dPS se criar uma inscrição em grupo.
 
 ### <a name="use-test-certificates"></a>Utilizar certificados de ensaio
 
@@ -86,7 +92,7 @@ Para obter mais informações sobre as inscrições no Serviço de Provisionamen
 
    * **Certificado Primário .pem ou ficheiro .cer**: Faça o upload do ficheiro público a partir do certificado de identidade do dispositivo. Se usou os scripts para gerar um certificado de teste, escolha o seguinte ficheiro:
 
-      `<WRKDIR>/certs/iot-edge-device-identity-<name>-full-chain.cert.pem`
+      `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 
    * **IoT Hub Device ID**: Forneça uma identificação para o seu dispositivo, se quiser. Pode utilizar iDs do dispositivo para direcionar um dispositivo individual para a implementação do módulo. Se não fornecer um ID do dispositivo, o nome comum (CN) no certificado X.509 é utilizado.
 
@@ -205,7 +211,7 @@ O fornecimento x.509 com DPS só é suportado na versão 1.0.9 do IoT Edge ou ma
 Necessitará das seguintes informações ao fornecer o seu dispositivo:
 
 * O valor do Âmbito de **identificação** dPS. Pode recuperar este valor a partir da página geral da sua instância DPS no portal Azure.
-* O ficheiro de certificado de identidade do dispositivo no dispositivo.
+* O ficheiro da cadeia de certificadode identidade do dispositivo no dispositivo.
 * O ficheiro de chave de identidade do dispositivo no dispositivo.
 * Um ID de registo opcional (retirado do nome comum no certificado de identidade do dispositivo se não for fornecido).
 
@@ -217,7 +223,7 @@ Utilize o seguinte link para instalar o tempo de execução do Azure IoT Edge no
 
 Quando adicionar o certificado X.509 e as informações chave ao ficheiro config.yaml, os caminhos devem ser fornecidos como URIs de ficheiro. Por exemplo:
 
-* `file:///<path>/identity_certificate.pem`
+* `file:///<path>/identity_certificate_chain.pem`
 * `file:///<path>/identity_key.pem`
 
 A secção do ficheiro de configuração para o fornecimento automático X.509 é a seguinte:
@@ -235,7 +241,7 @@ provisioning:
     identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
 ```
 
-Substitua os valores `identity_cert` `identity_pk` do espaço reservado para, `scope_id`com o ID de âmbito da sua instância DPS, e as URIs para os locais de ficheiro cert e chave no seu dispositivo. Forneça `registration_id` um para o dispositivo, se quiser, ou deixe esta linha comentada para registar o dispositivo com o nome NC do certificado de identidade.
+Substitua os valores `identity_cert` `identity_pk` do espaço reservado para, `scope_id`com o ID de âmbito da sua instância DPS, e as URIs para a cadeia cert e localizações de ficheiros chave no seu dispositivo. Forneça `registration_id` um para o dispositivo, se quiser, ou deixe esta linha comentada para registar o dispositivo com o nome NC do certificado de identidade.
 
 Reinicie sempre o daemon de segurança depois de atualizar o ficheiro config.yaml.
 
@@ -245,7 +251,7 @@ sudo systemctl restart iotedge
 
 ### <a name="windows-device"></a>Dispositivo Windows
 
-Instale o tempo de execução do IoT Edge no dispositivo para o qual gerou o certificado de identidade e a chave de identidade. Você vai configurar o tempo de funcionamento do IoT Edge para o fornecimento automático, não manual.
+Instale o tempo de execução do IoT Edge no dispositivo para o qual gerou a cadeia de certificados de identidade e a chave de identidade. Você vai configurar o tempo de funcionamento do IoT Edge para o fornecimento automático, não manual.
 
 Para obter informações mais detalhadas sobre a instalação do IoT Edge no Windows, incluindo pré-requisitos e instruções para tarefas como gerir contentores e atualizar o IoT Edge, consulte Instalar o tempo de execução do [Edge Azure IoT no Windows](how-to-install-iot-edge-windows.md).
 
@@ -262,11 +268,11 @@ Para obter informações mais detalhadas sobre a instalação do IoT Edge no Win
 
 1. O comando **Initialize-IoTEdge** configura o tempo de execução do IoT Edge na sua máquina. O comando não se aplica ao `-Dps` fornecimento manual, a menos que utilize a bandeira para utilizar o fornecimento automático.
 
-   Substitua os valores `{identity cert path}`do `{identity key path}` espaço reservado para, `{scope_id}`e pelos valores apropriados da sua instância DPS e dos caminhos de ficheiro no seu dispositivo. Se quiser especificar o ID `-RegistrationId {registration_id}` de registo, inclua também, substituindo o espaço reservado conforme apropriado.
+   Substitua os valores `{identity cert chain path}`do `{identity key path}` espaço reservado para, `{scope_id}`e pelos valores apropriados da sua instância DPS e dos caminhos de ficheiro no seu dispositivo. Se quiser especificar o ID `-RegistrationId {registration_id}` de registo, inclua também, substituindo o espaço reservado conforme apropriado.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert path} -X509IdentityPrivateKey {identity key path}
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
    ```
 
    >[!TIP]

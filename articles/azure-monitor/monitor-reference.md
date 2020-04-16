@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: e0e98b87cf3612bf01f90f806ea64ef06d08c60a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 27503defa23b2a35e767156139228aa2e177652f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255333"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405187"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorizado pelo Monitor Azure?
 Este artigo descreve as diferentes aplicações e serviços que são monitorizados pelo Azure Monitor. 
@@ -205,7 +205,6 @@ Outras soluções estão disponíveis para monitorizar diferentes aplicações e
 | [Avaliações a pedido](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Avalie e otimize a disponibilidade, segurança e desempenho dos seus ambientes tecnológicos no local, híbridos e cloud Microsoft. |
 | [Verificação de saúde SQL](insights/sql-assessment.md) | Avalie o risco e a saúde dos ambientes do Seu Servidor SQL.  |
 | [Ligar Dados](insights/wire-data.md) | Dados consolidados de rede e desempenho recolhidos a partir de computadores ligados ao Windows e ligados ao Linux com o agente Log Analytics. |
-
 
 ## <a name="third-party-integration"></a>Integração de terceiros
 

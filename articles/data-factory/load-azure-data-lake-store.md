@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/17/2018
-ms.openlocfilehash: 1325910877d1e030b3bf4114e16d0f81ecea8cf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b1b19814709451bdbbea97462c459149484e71f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443984"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415848"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carregue dados no Azure Data Lake Storage Gen1 utilizando a Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) (anteriormente conhecido como Azure Data Lake Store) é um repositório de hiperescala em toda a empresa para cargas de trabalho analíticas de big data. Data Lake Storage Gen1 permite-lhe capturar dados de qualquer tamanho, tipo e velocidade de ingestão. Os dados são capturados num único local para análise operacional e exploratória.
 
@@ -88,7 +90,7 @@ Este artigo mostra-lhe como usar a ferramenta Data Copy Data da Data Factory par
    
       ![Especificar a conta Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
-   4. Verá uma nova ligação. Selecione **Next**.
+   4. Verá uma nova ligação. Selecione **Seguinte**.
    
    ![Especificar a conta Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
    
@@ -108,7 +110,7 @@ Este artigo mostra-lhe como usar a ferramenta Data Copy Data da Data Factory par
 
    1. Selecione a sua conta Data Lake Storage Gen1 para o nome da **conta Data Lake Store**.
    2. Especifique o **Inquilino**e selecione Terminar.
-   3. Selecione **Next**.
+   3. Selecione **Seguinte**.
    
    > [!IMPORTANT]
    > Neste passeio, você usa uma identidade gerida para os recursos Azure para autenticar a sua conta Data Lake Storage Gen1. Certifique-se de conceder ao MSI as permissões adequadas no Data Lake Storage Gen1 seguindo [estas instruções](connector-azure-data-lake-store.md#managed-identity).

@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: ganesr
-ms.openlocfilehash: 2f2311adc231eac4260e26f0d5d1f2115f43d2eb
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: aaa849633591bfd34a9fca026c820ec2f9137844
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618705"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410846"
 ---
 # <a name="about-azure-edge-zones---preview"></a>Sobre as Zonas de Borda Azure - Pré-visualização
 
@@ -38,7 +38,7 @@ As Zonas Azure Edge vêm em três ofertas discretas:
 
 ![Zonas de Borda](./media/edge-zones-overview/edge-zones.png "Zonas de borda")
 
-As Zonas de Ponta Azul são pequenas extensões de pegada de Azure colocadas em centros populacionais que estão longe das regiões de Azure. As Zonas De Borda Azure suportam VMs, contentores e um conjunto selecionado de serviços Azure que lhe permitem executar aplicações intensivas de latência sensíveis e de entrada de pontos de venda perto dos utilizadores finais. As Zonas De Ponta Azul fazem parte da rede global da Microsoft e oferecem conectividade segura, fiável e de alta largura de banda entre aplicações que executam na Edge Zone perto do utilizador, e todo o conjunto de serviços Azure que funciona dentro das regiões do Azure. As Zonas De Ponta Azul são propriedade e operadas pela Microsoft e permitem-lhe utilizar o mesmo conjunto de ferramentas e portais Azure para gerir e implementar serviços nas Zonas de Borda.
+As Zonas de Ponta Azul são pequenas extensões de pegada de Azure colocadas em centros populacionais que estão longe das regiões de Azure. As Zonas De Borda Azure suportam VMs, contentores e um conjunto selecionado de serviços Azure que lhe permitem executar aplicações intensivas de latência sensíveis e de entrada de produtos próximos dos utilizadores finais. As Zonas De Ponta Azul fazem parte da rede global da Microsoft e oferecem conectividade segura, fiável e de alta largura de banda entre aplicações que executam na Edge Zone perto do utilizador, e todo o conjunto de serviços Azure que funciona dentro das regiões do Azure. As Zonas De Ponta Azul são propriedade e operadas pela Microsoft e permitem-lhe utilizar o mesmo conjunto de ferramentas e portais Azure para gerir e implementar serviços nas Zonas de Borda.
 
 Os casos de uso típico incluem:
 

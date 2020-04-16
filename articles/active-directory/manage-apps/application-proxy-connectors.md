@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b097ce3781a77a8c5e8a94b9c2bf0977f3efcfd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f1b8b9af8f90629d087246edf0cb3426bd9b66c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481335"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406835"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de procuração de aplicação da AD Azure
 
@@ -153,12 +153,17 @@ Para fornecer um serviço seguro, os conectores têm de autenticar em direção 
 
 Os certificados utilizados são específicos do serviço de procuração de aplicações. São criados durante o registo inicial e são automaticamente renovados pelos conectores a cada dois meses.
 
+Após a primeira renovação bem sucedida do certificado, o serviço de conector proxy de aplicação da AD Azure (Serviço de Rede) não tem autorização para remover o antigo certificado da loja de máquinas local. Se o certificado tiver expirado ou não for mais utilizado pelo serviço, pode eliminá-lo com segurança.
+
+Para evitar problemas com a renovação do certificado, certifique-se de que a comunicação da rede do conector para os [destinos documentados](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) está ativada.
+
 Se um conector não estiver ligado ao serviço durante vários meses, os seus certificados podem estar desatualizados. Neste caso, desinstale e reinstale o conector para acionar o registo. Pode executar os seguintes comandos PowerShell:
 
 ```
 Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
+Para saber mais sobre como verificar o certificado e problemas de resolução de problemas consulte Verificar Máquina e suporte de [componentes de backend para certificado fidedigno proxy](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate)de aplicação .
 
 ## <a name="under-the-hood"></a>Os bastidores
 

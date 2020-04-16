@@ -2,13 +2,13 @@
 title: Definir múltiplas instâncias de uma propriedade
 description: Utilize a operação de cópia num modelo de Gestor de Recursos Azure para iterar várias vezes ao criar uma propriedade num recurso.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: e86d38b0e5d2e39d54b3c419b6eebdcda74022db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258112"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391343"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteração de propriedade em modelos ARM
 
@@ -30,7 +30,9 @@ O elemento de cópia tem o seguinte formato geral:
 ]
 ```
 
-Para **nome**, forneça o nome da propriedade de recursos que pretende criar. A propriedade **de contagem** especifica o número de iterações que você quer para a propriedade.
+Para **nome**, forneça o nome da propriedade de recursos que pretende criar.
+
+A propriedade **de contagem** especifica o número de iterações que você quer para a propriedade.
 
 A propriedade **de entrada** especifica as propriedades que pretende repetir. Você cria uma variedade de elementos construídos a partir do valor na propriedade de **entrada.**
 
@@ -78,11 +80,7 @@ O exemplo que se `copy` segue mostra como aplicar à propriedade dataDisks numa 
 }
 ```
 
-Note que `copyIndex` ao usar dentro de uma iteração de propriedade, você deve fornecer o nome da iteração.
-
-> [!NOTE]
-> A iteração imobiliária também suporta um argumento compensado. A contrapartida deve ser seguida do nome da iteração, como o copyIndex('dataDisks', 1).
->
+Note que `copyIndex` ao usar dentro de uma iteração de propriedade, você deve fornecer o nome da iteração. A iteração imobiliária também suporta um argumento compensado. A contrapartida deve ser seguida do nome da iteração, como o copyIndex('dataDisks', 1).
 
 O Gestor de `copy` Recursos expande a matriz durante a implantação. O nome da matriz torna-se o nome da propriedade. Os valores de entrada tornam-se as propriedades do objeto. O modelo implantado torna-se:
 
@@ -111,6 +109,66 @@ O Gestor de `copy` Recursos expande a matriz durante a implantação. O nome da 
         }
       ],
       ...
+```
+
+A operação de cópia é útil quando se trabalha com matrizes porque pode iterar através de cada elemento da matriz. Utilize `length` a função na matriz para especificar `copyIndex` a contagem para iterações e para recuperar o índice atual na matriz.
+
+O seguinte modelo de exemplo cria um grupo de falhas para bases de dados que são transmitidas como uma matriz.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "primaryServerName": {
+            "type": "string"
+        },
+        "secondaryServerName": {
+            "type": "string"
+        },
+        "databaseNames": {
+            "type": "array",
+            "defaultValue": [
+                "mydb1",
+                "mydb2",
+                "mydb3"
+            ]
+        }
+    },
+    "variables": {
+        "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers/failoverGroups",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[variables('failoverName')]",
+            "properties": {
+                "readWriteEndpoint": {
+                    "failoverPolicy": "Automatic",
+                    "failoverWithDataLossGracePeriodMinutes": 60
+                },
+                "readOnlyEndpoint": {
+                    "failoverPolicy": "Disabled"
+                },
+                "partnerServers": [
+                    {
+                        "id": "[resourceId('Microsoft.Sql/servers', parameters('secondaryServerName'))]"
+                    }
+                ],
+                "copy": [
+                    {
+                        "name": "databases",
+                        "count": "[length(parameters('databaseNames'))]",
+                        "input": "[resourceId('Microsoft.Sql/servers/databases', parameters('primaryServerName'), parameters('databaseNames')[copyIndex('databases')])]"
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
 ```
 
 O elemento de cópia é uma matriz para que possa especificar mais do que uma propriedade para o recurso.

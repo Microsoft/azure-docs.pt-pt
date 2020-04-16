@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/08/2020
-ms.openlocfilehash: e5ac25c002da121be3adadf0eed978dd60ba26d9
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 6f0310f13ab23b5b3d4fba649d0faf0da4dad5b8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010661"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413148"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Transformação chave de substituição no fluxo de dados de mapeamento 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Utilize a transformação da chave de substituição para adicionar um valor-chave incrementante a cada linha de dados. Isto é útil ao desenhar tabelas de dimensão num modelo de dados analíticos de esquema sino de estrela. Num esquema estrela, cada membro nas tabelas de dimensão requer uma chave única que é uma chave não comercial.
 

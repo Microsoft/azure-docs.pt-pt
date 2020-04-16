@@ -1,38 +1,66 @@
 ---
-title: Mapeando fluxo de dados ordenar transformação
+title: Ordenar transformação no fluxo de dados de mapeamento
 description: Fábrica de dados azure mapeia dados classificam a transformação
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/08/2018
-ms.openlocfilehash: c09439c5f54ae4b0884e9e25ae9a5a488f935bac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 381c6573dff1b3f1638af9090a535d9a1e59b2b5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930214"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413175"
 ---
-# <a name="azure-data-factory-data-flow-sort-transformations"></a>Transformações de fluxo de dados da fábrica de dados azure
+# <a name="sort-transformation-in-mapping-data-flow"></a>Ordenar transformação no fluxo de dados de mapeamento
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+A transformação de classificação permite-lhe classificar as linhas de entrada no fluxo de dados atuais. Pode escolher colunas individuais e separe-las em ordem ascendente ou descendente.
+
+> [!NOTE]
+> Os fluxos de dados de mapeamento são executados em clusters de faíscas que distribuem dados por vários nós e divisórias. Se optar por repartipartição dos seus dados numa transformação subsequente, poderá perder a sua triagem devido à remodelação de dados.
+
+## <a name="configuration"></a>Configuração
 
 ![Ordenar configurações](media/data-flow/sort.png "Ordenar")
 
-A transformação do Sort permite-lhe classificar as linhas de entrada no fluxo de dados atual. As filas de saída da Transformação de Sort seguirão posteriormente as regras de encomenda que definiu. Pode escolher colunas individuais e selá-las ASC ou DEC, utilizando o indicador de seta ao lado de cada campo. Se precisar de modificar a coluna antes de aplicar o tipo, clique em "Colunas Computadas" para lançar o editor de expressão. Isto proporcionará uma oportunidade de construir uma expressão para a operação de tipo em vez de simplesmente aplicar uma coluna para o tipo.
+**Caso insensível:** Quer deseje ou não ignorar caso ao classificar cordas ou campos de texto
 
-## <a name="case-insensitive"></a>Não sensível a maiúsculas e minúsculas
-Pode ligar "Caso insensível" se desejar ignorar o caso ao classificar os campos de cordas ou texto.
+**Ordenar apenas dentro das divisórias:** À medida que os fluxos de dados são executados em faísca, cada fluxo de dados é dividido em divisórias. Esta definição classifica os dados apenas dentro das divisórias que chegam em vez de classificar todo o fluxo de dados. 
 
-"Ordenar apenas dentro das divisórias" alavanca a divisão de dados da Faísca. Ao classificar os dados de entrada apenas em cada divisória, os Fluxos de Dados podem classificar dados divididos em vez de classificar todo o fluxo de dados.
+**Condições de classificação:** Escolha quais as colunas por que está a classificar e em que ordem o tipo acontece. A ordem determina a prioridade de classificação. Escolha se os nulos aparecerão ou não no início ou no fim do fluxo de dados.
 
-Cada uma das condições de tipo na Transformação de Classificação pode ser reorganizada. Por isso, se precisar de mover uma coluna mais alto na precedência do tipo, agarre essa linha com o rato e mova-a mais ou menos na lista de classificação.
+### <a name="computed-columns"></a>Colunas computorizadas
 
-Efeitos de divisão no Sort
+Para modificar ou extrair um valor de coluna antes de aplicar o tipo, pairar sobre a coluna e selecionar "coluna computorizada". Isto abrirá o construtor de expressão para criar uma expressão para a operação de tipo em vez de usar um valor de coluna.
 
-ADF Data Flow é executado em grandes dados Clusters Spark com dados distribuídos por vários nós e divisórias. É importante ter isso em mente quando se arquiteto o fluxo de dados se estiver dependente da transformação do Sort para manter os dados nessa mesma ordem. Se optar por repartipartição dos seus dados numa transformação subsequente, poderá perder a sua triagem devido a essa remodelação de dados.
+## <a name="data-flow-script"></a>Script de fluxo de dados
+
+### <a name="syntax"></a>Sintaxe
+
+```
+<incomingStream>
+    sort(
+        desc(<sortColumn1>, { true | false }),
+        asc(<sortColumn2>, { true | false }),
+        ...
+    ) ~> <sortTransformationName<>
+```
+
+### <a name="example"></a>Exemplo
+
+![Ordenar configurações](media/data-flow/sort.png "Ordenar")
+
+O script de fluxo de dados para a configuração de classificação acima está no código abaixo.
+
+```
+BasketballStats sort(desc(PTS, true),
+    asc(Age, true)) ~> Sort1
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

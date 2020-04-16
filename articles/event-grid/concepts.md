@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265067"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393468"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos na Grelha de Eventos Azure
 
@@ -35,7 +35,7 @@ Uma editora é o utilizador ou organização que decide enviar eventos para a Ev
 
 Uma fonte de evento é onde o evento acontece. Cada origem de evento está relacionada com um ou mais tipos de evento. Por exemplo, o Armazenamento do Azure é a origem de evento para eventos criados por blobs. O Hub IoT é a origem de evento para eventos criados por dispositivos. A sua aplicação é a origem de evento para os eventos personalizados que definir. As origens de eventos são responsáveis pelo envio de eventos para o Event Grid.
 
-Para obter informações sobre a implementação de qualquer uma das fontes suportadas da Rede de Eventos, consulte fontes do [evento em Azure Event Grid](event-sources.md).
+Para obter informações sobre a implementação de qualquer uma das fontes suportadas da Rede de Eventos, consulte fontes do [evento em Azure Event Grid](overview.md#event-sources).
 
 ## <a name="topics"></a>Tópicos
 

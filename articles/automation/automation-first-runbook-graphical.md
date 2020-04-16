@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6bd360b2075c337e3ed3d69d84368d16571a9335
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcef0574e16e0b4d28755716c32670b00c65af14
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536059"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406098"
 ---
 # <a name="my-first-graphical-runbook"></a>O meu primeiro runbook gráfico
 
@@ -19,7 +19,7 @@ ms.locfileid: "79536059"
 > * [Gráficos](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-> * [Pitão](automation-first-runbook-textual-python2.md)
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 
 Este tutorial explica como criar um [ runbook gráfico](automation-runbook-types.md#graphical-runbooks) na Automatização do Azure. Comece com um simples livro de corridas que pode testar e publicar, enquanto aprende a rastrear o estado do trabalho do livro de corridas. Em seguida, modifique o livro de execução para realmente gerir os recursos do Azure, neste caso iniciando uma máquina virtual Azure. Complete o tutorial para tornar o livro de corridas mais robusto adicionando parâmetros de livro e ligações condicionais.
@@ -100,7 +100,7 @@ O livro de execução que criou ainda está em modo Draft. Tem de ser publicado 
 1. Clique em **Todos os Registos** para abrir o painel Fluxos da tarefa de runbook. Só deve `Hello World` ver no fluxo de saída. 
 
     Note que o painel streams pode mostrar outros fluxos para um trabalho de livro de corridas, como verbose e fluxos de erro, se o livro de execução escrever para eles.
-1. Feche o painel de Streams e o painel de trabalho para voltar à página **MyFirstRunbook-Graphical.**
+1. Feche o painel de Streams e o painel de trabalho para voltar à página MyFirstRunbook-Graphical.
 1. Para ver todos os trabalhos para o livro de corridas, selecione **Jobs** under **Resources**. A página Jobs lista todos os empregos criados pelo seu livro de corridas. Só devias ver um emprego na lista, já que só geriste o trabalho uma vez.
 1. Clique no nome do trabalho para abrir o mesmo painel de trabalho que viu quando iniciou o livro de corridas. Utilize este painel para ver os detalhes de qualquer trabalho criado para o livro de corridas.
 
@@ -126,7 +126,7 @@ Agora que tem uma variável para segurar o ID de subscrição, pode configurar o
 >[!NOTE]
 >Para os livros `Add-AzAccount` de `Add-AzureRMAccount` execução da `Connect-AzAccount`PowerShell, e são pseudónimos para . Note que estes pseudónimos não estão disponíveis para os seus livros gráficos. Um livro gráfico só `Connect-AzAccount`pode usar-se sozinho.
 
-1. Navegue para o seu livro de execução e selecione **Editar** na página **MyFirstRunbook-Graphical.**
+1. Navegue para o seu livro de execução e selecione **Editar** na página MyFirstRunbook-Graphical.
 1. Já não precisas `Write Hello World to output` da entrada. Basta clicar na elipse e selecionar **Apagar**.
 1. No controlo da Biblioteca, expandir **ATIVOS,** depois **Ligações**. Adicione `AzureRunAsConnection` à tela selecionando **Adicionar à tela**.
 1. Mude `AzureRunAsConnection` o `Get Run As Connection`nome para .
@@ -141,7 +141,7 @@ Agora que tem uma variável para segurar o ID de subscrição, pode configurar o
 
    * **Fonte de dados** - selecione **Saída de Atividade**.
    * Lista de fonte de dados - **selecione Get Automation Connection**.
-   * **Caminho de** campo `ApplicationId`- tipo . Está a especificar o nome da propriedade para o caminho de campo porque a atividade produz um objeto com múltiplas propriedades.
+   * **Caminho de** campo `ApplicationId`- tipo . Você está especificando o nome da propriedade para o caminho de campo porque a atividade produz um objeto com múltiplas propriedades.
 
 1. Clique em **CERTIFICATETHUMBPRINT**, e na página Valor do Parâmetro, faça as seguintes definições e, em seguida, clique **OK**.
 
@@ -185,7 +185,7 @@ Agora tem de `Start-AzVM` adicionar uma atividade para iniciar uma máquina virt
 
 O seu livro de execução inicia atualmente o VM no grupo de recursos que especificou para o `Start-AzVM` cmdlet. O livro de execução será mais útil se especificar tanto o nome como o grupo de recursos quando o livro de execução for iniciado. Vamos adicionar parâmetros de entrada ao livro de execução para fornecer essa funcionalidade.
 
-1. Abra o editor gráfico clicando em **Editar** no painel **MyFirstRunbook-Graphical.**
+1. Abra o editor gráfico clicando em **Editar** na página MyFirstRunbook-Graphical.
 1. Selecione **entrada e saída** **e,** em seguida, adicione a entrada para abrir o painel de parâmetro de entrada de saída do livro de execução.
 1. Faça as seguintes definições nos campos fornecidos **e,** em seguida, clique OK .
    * **Nome** - `VMName`especificar .
@@ -243,7 +243,7 @@ Agora pode modificar o livro de execução para que apenas tente iniciar o VM se
 1. Para o `Write-Output` primeiro controlo, clique em **Parâmetros** e altere o valor do **Rótulo** para notificar o **VM iniciado**.
 1. Para **inputObject,** altere a **fonte de dados** para a expressão **PowerShell**, e escreva na expressão `$VMName successfully started.`.
 1. No segundo `Write-Output` controlo, clique em **Parâmetros** e altere o valor do **Rótulo** para notificar o **arranque do VM falhado**.
-1. Para **inputObject,** altere a **fonte de dados** para a expressão **PowerShell**, e escreva na expressão `$VMName could not start.`.
+1. Para **inputObject,** altere a **fonte de dados** para a expressão **PowerShell**, e escreva na expressão `$VMName could not start`.
 1. Criar ligações `Notify VM Started` `Notify VM Start Failed`de `Start-AzVM` e.
 1. Selecione `Notify VM Started` o link e mude **a condição de aplicar** a verdade.
 1. Para a expressão `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true` **Condição,** escreva . Este `Write-Output` controlo agora só funciona se o VM começar com sucesso.
@@ -259,3 +259,5 @@ Agora pode modificar o livro de execução para que apenas tente iniciar o VM se
 * Para saber mais sobre autoria gráfica, consulte [a autoria gráfica em Automação Azure.](automation-graphical-authoring-intro.md)
 * Para começar com os livros de execução da PowerShell, veja o meu primeiro livro de [corridas PowerShell.](automation-first-runbook-textual-powershell.md)
 * Para começar com os livros de execução powerShell Workflow, consulte o meu primeiro livro de execução de fluxo de [trabalho PowerShell](automation-first-runbook-textual.md).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

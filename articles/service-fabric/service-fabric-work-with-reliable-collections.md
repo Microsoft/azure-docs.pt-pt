@@ -2,13 +2,13 @@
 title: Trabalhar com as Reliable Collections
 description: Aprenda as melhores práticas para trabalhar com Coleções Fiáveis dentro de uma aplicação Azure Service Fabric.
 ms.topic: conceptual
-ms.date: 02/22/2019
-ms.openlocfilehash: 4a1f48d9523e5d753c222f0526e210a30e1927e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/10/2020
+ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645978"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409797"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhar com as Reliable Collections
 O Service Fabric oferece um modelo de programação imponente disponível para os desenvolvedores .NET através de Coleções Fiáveis. Especificamente, o Service Fabric fornece dicionário fiável e aulas de fila fiáveis. Quando utiliza estas aulas, o seu estado é dividido (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica acid). Vamos ver um uso típico de um objeto de dicionário fiável e ver o que está realmente a fazer.
@@ -50,6 +50,19 @@ No código acima, a chamada para a CommitAsync compromete todas as operações d
 
 Se o CommitAsync não for chamado (normalmente devido a uma exceção a ser lançada), então o objeto ITransac fica eliminado. Ao eliminar um objeto ITransac não comprometido, o Service Fabric anexa abortar informações para o ficheiro de registo do nó local e nada precisa de ser enviado para nenhuma das réplicas secundárias. E então, quaisquer fechaduras associadas a chaves que foram manipuladas através da transação são libertadas.
 
+## <a name="volatile-reliable-collections"></a>Coleções voláteis fiáveis 
+Em algumas cargas de trabalho, como uma cache replicada, por exemplo, a perda ocasional de dados pode ser tolerada. Evitar a persistência dos dados ao disco pode permitir melhores latenciências e inputs ao escrever para Dicionários Fiáveis. A compensação por falta de persistência é que, se ocorrer perda de quórum, ocorrerão perdas completas de dados. Uma vez que a perda de quórum é uma ocorrência rara, o aumento do desempenho pode valer a rara possibilidade de perda de dados para essas cargas de trabalho.
+
+Atualmente, o suporte volátil só está disponível para Dicionários Fiáveis e Filas Fiáveis, e não para Filas De Concurrent Fiável. Consulte a lista de [Caveats](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) para informar a sua decisão sobre se deve usar coleções voláteis.
+
+Para permitir o apoio volátil ```HasPersistedState``` no seu serviço, coloque a bandeira na declaração do tipo de serviço para, ```false```assim como:
+```xml
+<StatefulServiceType ServiceTypeName="MyServiceType" HasPersistedState="false" />
+```
+
+>[!NOTE]
+>Os serviços persuinosos existentes não podem ser tornados voláteis, e vice-versa. Se assim o desejar, terá de apagar o serviço existente e, em seguida, colocar o serviço com a bandeira atualizada. Isto significa que deve estar disposto a incorrer em ```HasPersistedState``` perda total de dados se quiser mudar a bandeira. 
+
 ## <a name="common-pitfalls-and-how-to-avoid-them"></a>Armadilhas comuns e como evitá-las
 Agora que entende como as coleções confiáveis funcionam internamente, vamos dar uma olhada em alguns erros comuns deles. Consulte o código abaixo:
 
@@ -60,7 +73,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
    // & sends the bytes to the secondary replicas.
    await m_dic.AddAsync(tx, name, user);
 
-   // The line below updates the property’s value in memory only; the
+   // The line below updates the property's value in memory only; the
    // new value is NOT serialized, logged, & sent to secondary replicas.
    user.LastLogin = DateTime.UtcNow;  // Corruption!
 
@@ -87,13 +100,13 @@ Eis outro exemplo que mostra um erro comum:
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
 {
-   // Use the user’s name to look up their data
+   // Use the user's name to look up their data
    ConditionalValue<User> user = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
    if (user.HasValue)
    {
-      // The line below updates the property’s value in memory only; the
+      // The line below updates the property's value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
       await tx.CommitAsync();
@@ -110,7 +123,7 @@ O código abaixo mostra a forma correta de atualizar um valor numa coleção fi�
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
 {
-   // Use the user’s name to look up their data
+   // Use the user's name to look up their data
    ConditionalValue<User> currentUser = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
@@ -124,7 +137,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
       // In the new object, modify any properties you desire
       updatedUser.LastLogin = DateTime.UtcNow;
 
-      // Update the key’s value to the updateUser info
+      // Update the key's value to the updateUser info
       await m_dic.SetValue(tx, name, updatedUser);
       await tx.CommitAsync();
    }
@@ -138,7 +151,7 @@ O tipo UserInfo abaixo demonstra como definir um tipo imutável tirando partido 
 
 ```csharp
 [DataContract]
-// If you don’t seal, you must ensure that any derived classes are also immutable
+// If you don't seal, you must ensure that any derived classes are also immutable
 public sealed class UserInfo
 {
    private static readonly IEnumerable<ItemId> NoBids = ImmutableList<ItemId>.Empty;
@@ -200,7 +213,7 @@ Além disso, o código de serviço é atualizado um domínio de atualização de
 
 Em alternativa, pode realizar o que é tipicamente referido como um upgrade de dois. Com uma atualização em duas fases, atualiza o seu serviço de V1 para V2: V2 contém o código que sabe lidar com a nova alteração de esquemas mas este código não executa. Quando o código V2 lê os dados v1, opera nele e escreve dados V1. Em seguida, após a atualização estar completa em todos os domínios de upgrade, pode de alguma forma sinalizar para as instâncias V2 em execução que a atualização está completa. (Uma maneira de sinalizar isto é lançar uma atualização de configuração; é isso que faz desta uma atualização em duas fases.) Agora, os casos V2 podem ler dados V1, convertê-lo em dados V2, operá-lo e escrevê-lo como dados V2. Quando outros casos lêem dados v2, não precisam de os converter, apenas operam e escrevem dados V2.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para aprender sobre a criação de contratos de dados compatíveis a prazo, consulte [Contratos de Dados Compatíveis com O Futuro](https://msdn.microsoft.com/library/ms731083.aspx)
 
 Para aprender as melhores práticas na versão de contratos de dados, consulte Versão [do Contrato](https://msdn.microsoft.com/library/ms731138.aspx) de Dados

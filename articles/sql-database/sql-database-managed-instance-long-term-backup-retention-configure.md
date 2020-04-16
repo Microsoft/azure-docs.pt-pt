@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 0af322d589efd48cc224c69cef8e96fb887d9868
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: c9edbbf54696a817d0495f6890e0d796e482231f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384223"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393724"
 ---
 # <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Gerir a Base de Dados Azure SQL gerida por exemplo retenção de backup a longo prazo (PowerShell)
 
-Na base de dados Azure SQL gerida, pode configurar uma política de [retenção](sql-database-long-term-retention.md#managed-instance-support) de backup a longo prazo (LTR) como uma funcionalidade de pré-visualização pública limitada. Isto permite-lhe reter automaticamente cópias de dados em recipientes de armazenamento Azure Blob separados por um período de até 10 anos. Em seguida, pode recuperar uma base de dados utilizando estas cópias de segurança utilizando o PowerShell.
+Na base de dados Azure SQL gerida, pode configurar uma política de [retenção](sql-database-long-term-retention.md#managed-instance-support) de backup a longo prazo (LTR) como uma funcionalidade de pré-visualização pública limitada. Isto permite-lhe reter automaticamente cópias de dados em recipientes de armazenamento Azure Blob separados por um período de até 10 anos. Em seguida, pode recuperar uma base de dados utilizando estas cópias de segurança com o PowerShell.
 
    > [!IMPORTANT]
    > O LTR para casos geridos encontra-se atualmente em pré-visualização limitada e disponível para subscrições de EA e CSP caso a caso. Para solicitar a inscrição, por favor crie um bilhete de [apoio Azure](https://azure.microsoft.com/support/create-ticket/) ao abrigo do tópico de apoio **Backup, Restore e Business Continuity/Retenção de backup a longo prazo**. 
@@ -34,7 +34,7 @@ As seguintes secções mostram-lhe como usar o PowerShell para configurar a rete
 Para **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** e **Restore-AzSqlInstanceDatabase,** terá de ter uma das seguintes funções:
 
 - Função do Proprietário da Subscrição ou
-- Função de Colaborador de Instância SManaged ou
+- Função de Colaborador de Instância Gerida ou
 - Papel personalizado com as seguintes permissões:
 
    ```Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read``` ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read```
@@ -48,7 +48,7 @@ Para **remover-AzSqlInstanceDatabaseLongTermRetentionBackup,** terá de ter uma 
    ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete```
 
 > [!NOTE]
-> A função SManaged Instance Contributor não tem permissão para eliminar cópias de segurança LTR.
+> A função de Colaborador de Instância Gerida não tem permissão para eliminar cópias de segurança LTR.
 
 As permissões RBAC podem ser concedidas no âmbito de *subscrição* ou de grupo de *recursos.* No entanto, para aceder a cópias de segurança LTR que pertencem a uma instância abandonada, a autorização deve ser concedida no âmbito de *subscrição* desse caso.
 

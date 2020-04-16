@@ -11,15 +11,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 26dd7c4f33360030b13ddbfc1516396436724c40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4bd667a2302136b5e12d2e4e548c9e8863715621
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440444"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415286"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Executar atividade do pipeline na Fábrica de Dados Azure
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 A atividade Executar Pipeline permite que um pipeline do Data Factory invoque outro pipeline.
+
+
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -61,8 +66,8 @@ A atividade Executar Pipeline permite que um pipeline do Data Factory invoque ou
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade do gasoduto de execução. | Cadeia | Sim
-tipo | Deve ser definido para: **ExecutarPipeline**. | Cadeia | Sim
+nome | Nome da atividade do gasoduto de execução. | String | Sim
+tipo | Deve ser definido para: **ExecutarPipeline**. | String | Sim
 oleoduto | Referência do gasoduto ao gasoduto dependente que este gasoduto invoca. Um objeto de referência de gasoduto tem duas propriedades: nome de **referência** e **tipo**. A propriedade de nome de referência especifica o nome do pipeline de referência. A propriedade tipo deve ser definida para PipelineReference. | PipelineReference | Sim
 parâmetros | Parâmetros a serem passados para o oleoduto invocado | Um objeto JSON que mapeia nomes de parâmetros para valores de argumento | Não
 waitOnCompletion | Define se a execução da atividade aguarda que a execução do gasoduto dependente termine. A predefinição é falso. | Booleano | Não
@@ -255,6 +260,6 @@ O principal gasoduto encaminha estes valores para o gasoduto invocado, como most
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Para Cada Atividade](control-flow-for-each-activity.md)
-- [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
+- [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade Web](control-flow-web-activity.md)

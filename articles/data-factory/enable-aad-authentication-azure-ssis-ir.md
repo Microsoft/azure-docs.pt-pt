@@ -11,14 +11,16 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 5/14/2019
-ms.openlocfilehash: 70367a38fbf7b59486e2eaaf6c05634aa7575869
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2359b378b1f54cf6e03218f819b3a7c5740ba596
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260712"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416393"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o Azure-SSIS Integration Runtime
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este artigo mostra-lhe como permitir a autenticação do Azure Ative Directory (Azure AD) com a identidade gerida para a sua Fábrica de Dados Azure (ADF) e usá-lo em vez de métodos convencionais de autenticação (como a autenticação SQL) para:
 
@@ -26,7 +28,7 @@ Este artigo mostra-lhe como permitir a autenticação do Azure Ative Directory (
 
 - Ligue-se a vários recursos Azure ao executar pacotes SSIS no Ir Azure-SSIS.
 
-Para obter mais informações sobre a identidade gerida para o seu ADF, consulte [a identificação gerida para data factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+Para obter mais informações sobre a identidade gerida para a sua ADF, consulte [a identidade gerida para data factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 >-  Neste cenário, a autenticação Da Azure Com a identidade gerida para o seu ADF só é utilizada na criação e subsequentes operações de arranque do seu IR SSIS que, por sua vez, fornecerão e ligarão ao SSISDB. Para execuções de pacotes SSIS, o seu SSIS IR continuará a ligar-se ao SSISDB utilizando a autenticação SQL com contas totalmente geridas que são criadas durante o provisionamento SSISDB.
@@ -63,7 +65,7 @@ Pode utilizar um grupo AD Azure existente ou criar um novo utilizando o Azure AD
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Adicione a identidade gerida para a sua ADF ao grupo. Pode seguir o artigo [Identidade gerida para a Fábrica](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) de Dados para obter o ID principal de objeto de identidade gerido (por exemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mas não utilize o ID de aplicação de identidade gerida para o efeito).
+3.  Adicione a identidade gerida para a sua ADF ao grupo. Pode seguir o artigo [Identidade gerida para data factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter o ID principal de objeto de identidade gerido (por exemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mas não utilizar o ID de aplicação de identidade gerida para este fim).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

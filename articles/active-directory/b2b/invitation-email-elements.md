@@ -5,75 +5,81 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 04/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65768359"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407183"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do convite de colaboração B2B - Azure Ative Directory
 
-Os e-mails de convite são uma componente crítica para trazer parceiros a bordo como utilizadores de colaboração B2B em Azure AD. Pode usá-los para aumentar a confiança do destinatário. pode adicionar legitimidade e prova social ao e-mail, para garantir que o destinatário se sinta confortável ao selecionar o botão **Get Started** para aceitar o convite. Esta confiança é um meio fundamental para reduzir a partilha de atritos. E também quer que o e-mail fique ótimo!
+Os e-mails de convite são uma componente crítica para trazer parceiros a bordo como utilizadores de colaboração B2B em Azure AD. Embora não seja [necessário enviar um e-mail para convidar alguém que utilize a colaboração B2B](add-user-without-invite.md), fazê-lo dá ao utilizador toda a informação necessária para tomar uma decisão sobre se aceita o seu convite. Também lhes dá um link a que podem sempre referir-se no futuro quando precisam de regressar aos seus recursos.
 
 ![Screenshot mostrando o e-mail de convite B2B](media/invitation-email-elements/invitation-email.png)
 
+> [!NOTE]
+> Este novo modelo de e-mail ainda está sendo lançado para todos os inquilinos, então alguns inquilinos ainda estão usando um design mais antigo. Até ao final de maio de 2020, os convites de todos os inquilinos estarão a usar este modelo.
+
 ## <a name="explaining-the-email"></a>Explicando o e-mail
+
 Vamos ver alguns elementos do e-mail para que saiba a melhor forma de usar as suas capacidades.
 
 ### <a name="subject"></a>Assunto
-O tema do e-mail segue o seguinte &lt;padrão:&gt; Você é convidado para a organização do nome do inquilino
+
+O tema do e-mail segue este padrão:
+
+&lt;o&gt; nome de utilizador convidou-o a aceder a aplicações dentro da sua organização.
 
 ### <a name="from-address"></a>A partir do endereço
-Usamos um padrão linkedIn para o endereço From.  Deve ser claro quem é o convidado e de que empresa, e também esclarecer que o e-mail vem de um endereço de e-mail da Microsoft. O formato é: <invites@microsoft.com> &lt;Microsoft Invitations&gt; ou &lt;Display&gt; name of <invites@microsoft.com>inviter from tenantname (via Microsoft) .
+
+Usamos um padrão linkedIn para o endereço From. Este padrão deve deixar claro invites@microsoft.comque, embora o e-mail venha, o convite é de outra organização. O formato é: <invites@microsoft.com> Convites da Microsoft &lt;ou&gt; <invites@microsoft.com>convites da Microsoft em nome do nome do inquilino. 
 
 ### <a name="reply-to"></a>Resposta a
+
 O e-mail de resposta ao e-mail é definido para o e-mail do convidado quando disponível, de modo que responder ao e-mail envia um e-mail de volta para o convidado.
 
-### <a name="branding"></a>Imagem corporativa
-Os e-mails de convite do seu inquilino usam a marca da empresa que você pode ter configurado para o seu inquilino. Se quiser aproveitar esta capacidade, [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) estão os detalhes sobre como configurá-la. O logotipo do banner aparece no e-mail. Siga aqui o tamanho da imagem e as [instruções](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) de qualidade para obter os melhores resultados. Além disso, o nome da empresa também aparece no apelo à ação.
+### <a name="phishing-warning"></a>Aviso de phishing
 
-### <a name="call-to-action"></a>Chamada à ação
-A chamada à ação consiste em duas partes: explicar porque é que o destinatário recebeu o correio e o que o destinatário está a ser solicitado a fazer em relação a isso.
-- A secção "porquê" pode ser abordada usando o seguinte padrão: Foi convidado &lt;a&gt; aceder a aplicações na organização de nome de inquilinos
+O e-mail começa com um breve aviso ao utilizador sobre o phishing, alertando-os de que apenas devem aceitar convites que esperam. É uma boa prática garantir que os parceiros que convida não se surpreendam com o seu convite, mencionando-os antes do tempo.
 
-- E a secção "o que te pedem para fazer" é indicada pela presença do botão **Get Started.** Quando o destinatário foi adicionado sem a necessidade de convites, este botão não aparece.
+![Imagem do aviso de phishing no e-mail](media/invitation-email-elements/phishing-warning.png)
 
 ### <a name="inviters-information"></a>Informações do convidado
-O nome de exibição do convidado está incluído no e-mail. Além disso, se tiver configurado uma imagem de perfil para a sua conta Azure AD, o e-mail convidativo incluirá essa imagem também. Ambos destinam-se a aumentar a confiança do seu destinatário no e-mail.
 
-Se ainda não configurar a sua imagem de perfil, é mostrado um ícone com as iniciais do convidado no lugar da imagem:
+O e-mail inclui informações sobre o convidado e a organização de onde estão a enviar o convite. Isto inclui o nome do remetente e o endereço de e-mail, bem como o nome e o domínio primário associados à organização. Toda esta informação deve ajudar o convidado a tomar uma decisão informada sobre a aceitação do convite.
 
-  ![Screenshot mostrando o convite com as iniciais de convite exibidas](media/invitation-email-elements/inviters-initials.png)
+![Imagem da informação do convidado no e-mail](media/invitation-email-elements/inviters-information.png)
 
-### <a name="body"></a>Corpo
-O corpo contém a mensagem que o convidado compõe ao [convidar um utilizador convidado para o diretório, grupo ou app](add-users-administrator.md) ou utilizando o convite [API](customize-invitation-api.md). É uma área de texto, por isso não processa etiquetas HTML por razões de segurança.
+### <a name="invitation-message"></a>Mensagem de convite
 
-  ![Screenshot mostrando o corpo do e-mail de convite](media/invitation-email-elements/invitation-email-body.png)
+Se o convidado incluir uma mensagem como parte do seu convite quando [convida um utilizador convidado para o diretório, grupo ou app](add-users-administrator.md) ou quando utilizar o convite [API,](customize-invitation-api.md)a mensagem é realçada na secção principal do e-mail. Também estão incluídos o nome e a imagem de perfil do convidado se tiverem definido um. A mensagem em si é uma área de texto, por isso, por razões de segurança, não processa tags HTML.
+
+![Imagem da mensagem de convite no e-mail](media/invitation-email-elements/invitation-message.png)
+
+### <a name="accept-button-and-redirect-url"></a>Aceitar url de botão e redirecionar
+
+A próxima secção do e-mail contém informações sobre onde o convite será levado depois de aceitar o convite, bem como um botão para o fazer.  No futuro, o convidado pode sempre usar este link para voltar diretamente aos seus recursos.
+
+![Imagem do botão de aceitação e URL redirecionamento no e-mail](media/invitation-email-elements/accept-button.png)
 
 ### <a name="footer-section"></a>Secção footer
-O rodapé contém a marca da empresa Microsoft e informa o destinatário se o e-mail foi enviado de um pseudónimo não monitorizado. 
 
-Casos especiais:
+O rodapé contém mais informações sobre o convite que está a ser enviado. Há sempre uma opção para o convite bloquear futuros convites. Se a organização tiver estabelecido uma declaração de [privacidade,](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area)o link para a declaração é apresentado aqui.  Caso contrário, uma nota indica que a organização não definiu uma declaração de privacidade.
 
-- O convidado não tem um endereço de e-mail no arrendamento convidativo
-
-  ![Screenshot quando um convidado não tem e-mail no arrendamento convidativo](media/invitation-email-elements/inviter-no-email.png)
-
-
-- O destinatário não precisa de resgatar o convite.
-
-  ![Screenshot quando o destinatário não precisa resgatar convite](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
-
+![Imagem da secção do rodapé no e-mail](media/invitation-email-elements/footer-section.png)
+ 
 ## <a name="how-the-language-is-determined"></a>Como a linguagem é determinada
-O idioma apresentado ao utilizador convidado no e-mail de convite é determinado pelas seguintes definições. Estas definições estão listadas por ordem de precedência. Se uma definição não estiver configurada, a próxima definição na lista determina o idioma. 
+
+O idioma apresentado ao utilizador convidado no e-mail de convite é determinado pelas seguintes definições. Estas definições estão listadas por ordem de precedência. Se uma definição não estiver configurada, a próxima definição na lista determina o idioma.
+
 - A propriedade **de mensagemIdioma** do objeto [UserMessageInfo convidado](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) se o Convite Criar API é usado
 -   A propriedade **preferredLanguage** especificada no objeto de [utilizador](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) do hóspede
 -   A **linguagem de notificação** definida nas propriedades do inquilino do hóspede (apenas para inquilinos da AD Azure)

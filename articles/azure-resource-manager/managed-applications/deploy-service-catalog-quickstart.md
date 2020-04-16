@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9a69296ddfc93fd7e8a6650df91876829631f5d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce58fc69496f54c078b0a0a55a8a3c7cad82a051
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473069"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391718"
 ---
 # <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Quickstart: Implementar app de catálogo de serviços através do portal Azure
 
-No [arranque anterior,](publish-managed-app-definition-quickstart.md)publicou uma definição de candidatura gerida. Neste arranque rápido, cria-se uma aplicação de catálogo de serviços a partir dessa definição.
+No [arranque anterior,](publish-service-catalog-app.md)publicou uma definição de candidatura gerida. Neste arranque rápido, cria-se uma aplicação de catálogo de serviços a partir dessa definição.
 
 ## <a name="create-service-catalog-app"></a>Criar aplicativo de catálogo de serviços
 

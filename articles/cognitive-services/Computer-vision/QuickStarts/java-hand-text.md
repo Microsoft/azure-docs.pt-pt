@@ -8,26 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 15c84b0c4cd4311300b951c3bf86b2bd62d48bfd
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: aaaa382d41990b801d1c451b2bf416493a7ba7c6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77566136"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404917"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-java"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a Visão computacional 2.0 e 2.1 REST API e Java
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a API e Java de Visão Computacional
 
-Neste arranque rápido, irá extrair texto impresso e/ou manuscrito de uma imagem utilizando a API DE DESCANSO DA Visão Computacional. Com os métodos [de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e leitura do resultado da [operação,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legível por máquina. A API determinará qual o modelo de reconhecimento a utilizar para cada linha de texto, de modo a suportar imagens com texto impresso e manuscrito.
+Neste arranque rápido, irá extrair texto impresso e/ou manuscrito de uma imagem utilizando a API DE DESCANSO DA Visão Computacional. Com os métodos [de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e leitura do resultado da [operação,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legível por máquina. O serviço determinará qual o modelo de reconhecimento a utilizar para cada linha de texto, de modo a suportar imagens com texto impresso e manuscrito.
 
-Em comparação com a Visão Computacional 2.0 e 2.1, a Visualização Pública da Visão Computacional 3.0 fornece:
+Esta funcionalidade está disponível tanto num API v2.1 como num API de pré-visualização pública v3.0. Em comparação com o v2.1, o 3.0 API tem:
 
-* ainda melhor precisão
-* um formato de saída alterado
-* pontuação de confiança para palavras
-* apoio das línguas espanhola e inglesa com o parâmetro linguístico adicional
+* Precisão melhorada
+* Pontuações de confiança para palavras
+* Apoio tanto ao espanhol como `language` ao inglês com o parâmetro adicional
+* Um formato de saída diferente
+
+Selecione o separador abaixo para a versão que está a utilizar.
 
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
@@ -765,13 +767,11 @@ Text recognition result response:
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Quando já não for necessário, elimine o projeto Java, incluindo a classe compilada e as bibliotecas importadas.
-
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore uma aplicação do Java Swing que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Em seguida, explore uma aplicação Java Swing que utiliza a Visão Computacional para realizar o reconhecimento ótico de caracteres (OCR); criar miniaturas de corte inteligente; e detetar, categorizar, etiquetar e descrever características visuais em imagens.
 
 > [!div class="nextstepaction"]
 > [Tutorial de Java de API de Imagem Digitalizada](../Tutorials/java-tutorial.md)
+
+* Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

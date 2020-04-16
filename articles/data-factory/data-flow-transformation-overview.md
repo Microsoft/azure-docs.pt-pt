@@ -7,14 +7,16 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 94f7277c1b741fb5ef6d2807fabbb266c0109415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 68423bee6096357add9b5d4b107c984ac67c9cab
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086919"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81412972"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Mapeando a visão geral da transformação do fluxo de dados
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Abaixo está uma lista das transformações atualmente suportadas no fluxo de dados de mapeamento. Clique em cada transformação para aprender os seus detalhes de configuração.
 
@@ -26,7 +28,7 @@ Abaixo está uma lista das transformações atualmente suportadas no fluxo de da
 | [Coluna derivada](data-flow-derived-column.md) | Modificador de esquemas | gerar novas colunas ou modificar os campos existentes utilizando a linguagem de expressão do fluxo de dados. | 
 | [Existe](data-flow-exists.md) | Múltiplas entradas/saídas | Verifique se os seus dados existem noutra fonte ou fluxo. | 
 | [Filtro](data-flow-filter.md) | Modificador de remo | Filtre uma linha com base numa condição. |
-| [Achatado](data-flow-flatten.md) | Modificador de esquemas |  Tome os valores de matriz dentro de estruturas hierárquicas, como jSON e desenrolar-os em linhas individuais. |
+| [Aplanar](data-flow-flatten.md) | Modificador de esquemas |  Tome os valores de matriz dentro de estruturas hierárquicas, como jSON e desenrolar-os em linhas individuais. |
 | [Aderir](data-flow-join.md) | Múltiplas entradas/saídas |  Combine dados de duas fontes ou streams. |
 | [Pesquisa](data-flow-lookup.md) | Múltiplas entradas/saídas | Dados de referência de outra fonte. |
 | [Novo ramo](data-flow-new-branch.md) | Múltiplas entradas/saídas | Aplique vários conjuntos de operações e transformações contra o mesmo fluxo de dados. |

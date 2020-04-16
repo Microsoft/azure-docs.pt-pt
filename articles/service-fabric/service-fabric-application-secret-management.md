@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 4a489993f982993d5703a9b46d42fffaa6134038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259061"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414518"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerir segredos encriptados em aplicações de Tecido de Serviço
 Este guia acompanha-o através dos passos de gestão de segredos numa aplicação de Tecido de Serviço. Os segredos podem ser qualquer informação sensível, como cordas de ligação de armazenamento, palavras-passe ou outros valores que não devem ser tratados em texto simples.
@@ -57,6 +57,11 @@ Os segredos também devem ser incluídos na sua aplicação Service Fabric, espe
   </Certificates>
 </ApplicationManifest>
 ```
+> [!NOTE]
+> Ao ativar uma aplicação que especifica um SecretsCertificate, o Service Fabric encontrará o certificado de correspondência e concederá a identidade que o pedido está a executar sob permissões completas à chave privada do certificado. O Serviço Fabric também monitorizará o certificado para alterações e reaplicará as permissões em conformidade. Para detetar alterações para certificados declarados pelo nome comum, o Service Fabric executa uma tarefa periódica que encontra todos os certificados correspondentes, e compara-o com uma lista em cache de impressões digitais. Quando uma nova impressão digital é detetada, significa que um certificado por esse sujeito foi renovado. A tarefa funciona uma vez por minuto em cada nó do cluster.
+>
+> Embora o SecretsCertificate permita declarações baseadas em assuntos, note que as definições encriptadas estão ligadas ao par de chaves que foi usado para encriptar a definição no cliente. Deve certificar-se de que o certificado de encriptação original (ou equivalente) corresponde à declaração baseada no sujeito e que está instalado, incluindo a sua chave privada correspondente, em cada nó do cluster que possa acolher a aplicação. Todos os certificados válidos pelo tempo que correspondem à declaração baseada no sujeito e construídos a partir do mesmo par chave que o certificado de encriptação original são considerados equivalentes.
+>
 
 ### <a name="inject-application-secrets-into-application-instances"></a>Injete segredos de aplicação em instâncias de aplicação
 Idealmente, a implantação para diferentes ambientes deve ser o mais automatizada possível. Isto pode ser realizado executando encriptação secreta em um ambiente de construção e fornecendo os segredos encriptados como parâmetros ao criar instâncias de aplicação.

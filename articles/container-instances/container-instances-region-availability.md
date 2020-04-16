@@ -4,12 +4,12 @@ description: Disponibilidade de recursos de computação e memória para o servi
 ms.topic: article
 ms.date: 02/19/2020
 ms.author: danlep
-ms.openlocfilehash: f429a165fe26cc9fc7aa973231f5a77163feef4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c84ab7833f7c90d5d4b3c340c268fd9f75e20da9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247140"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399407"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores azure nas regiões de Azure
 
@@ -18,7 +18,7 @@ Este artigo detalha a disponibilidade de dados de instâncias de contentores azu
 Os valores apresentados são os recursos máximos disponíveis por implantação de um grupo de [contentores.](container-instances-container-groups.md) Os valores são atuais no momento da publicação. 
 
 > [!NOTE]
-> Os grupos de contentores criados dentro destes limites de recursos estão sujeitos à disponibilidade dentro da região de implantação. Quando uma região está sob muita carga, pode ocorrer uma falha ao implementar instâncias. Para mitigar tal falha de implementação, tente implementar instâncias com configurações de recursos mais baixas ou tente a sua implementação mais tarde.
+> Os grupos de contentores criados dentro destes limites de recursos estão sujeitos à disponibilidade dentro da região de implantação. Quando uma região está sob muita carga, pode ocorrer uma falha ao implementar instâncias. Para mitigar tal falha de implementação, tente implementar instâncias com configurações de recursos mais baixas ou tente a sua implantação mais tarde ou numa região diferente com recursos disponíveis.
 
 Para obter informações sobre quotas e outros limites nas suas implantações, consulte [Quotas e limites para instâncias de contentores Azure](container-instances-quotas.md).
 

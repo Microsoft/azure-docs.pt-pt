@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d5eb330cd6e5d02432298a5b58e84ae7d24ee7e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e8ddcaf6a5c9ab51147e540e2426ef8c4a1fdd3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383327"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392376"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Use um alerta para desencadear um livro de execução da Automação Azure
 
@@ -35,8 +35,8 @@ Quando um alerta chama um livro de execução, a chamada real é um pedido HTTP 
 |Alerta  |Descrição|Esquema de carga útil  |
 |---------|---------|---------|
 |[Alerta comum](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|O esquema de alerta comum que normaliza a experiência de consumo para notificações de alerta hoje em Azure.|Esquema de carga útil de alerta comum|
-|[Alerta de registo de atividade](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer novo evento no registo de atividade do Azure corresponde a condições específicas. Por exemplo, `Delete VM` quando uma operação ocorre no **myProductionResourceGroup** ou quando aparece um novo evento de Saúde de Serviço Azure com um estado **Ativo.**| [Esquema de alerta de registo de atividade](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Alerta métrico em tempo real](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação mais rapidamente do que os alertas métricos quando uma ou mais métricas ao nível da plataforma cumprem as condições especificadas. Por exemplo, quando o valor para a **CPU %** num VM é superior a **90**, e o valor para a **Rede In** é superior a **500 MB** nos últimos 5 minutos.| [Esquema de carga útil de alerta métrico em tempo real](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[Alerta de registo de atividade](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer novo evento no registo de atividade do Azure corresponde a condições específicas. Por exemplo, `Delete VM` quando uma operação ocorre no **myProductionResourceGroup** ou quando aparece um novo evento de Saúde de Serviço Azure com um estado Ativo.| [Esquema de alerta de registo de atividade](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[Alerta métrico em tempo real](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação mais rapidamente do que os alertas métricos quando uma ou mais métricas ao nível da plataforma cumprem as condições especificadas. Por exemplo, quando o valor para a **CPU %** num VM é superior a 90, e o valor para a **Rede In** é superior a 500 MB nos últimos 5 minutos.| [Esquema de carga útil de alerta métrico em tempo real](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 Como os dados fornecidos por cada tipo de alerta são diferentes, cada tipo de alerta é tratado de forma diferente. Na secção seguinte, aprende-se a criar um livro de rés para lidar com diferentes tipos de alertas.
 
@@ -44,11 +44,11 @@ Como os dados fornecidos por cada tipo de alerta são diferentes, cada tipo de a
 
 Para utilizar a Automação com alertas, é necessário um livro de execução que tenha uma lógica que gere a carga útil jSON alerta que é passada para o livro de execução. O seguinte livro de exemplo saem de um alerta Azure.
 
-Tal como descrito na secção anterior, cada tipo de alerta tem um esquema diferente. O script retira os dados `WebhookData` do webhook no parâmetro de entrada do livro de execução a partir de um alerta. Em seguida, o script avalia a carga útil JSON para determinar que tipo de alerta foi usado.
+Tal como descrito na secção anterior, cada tipo de alerta tem um esquema diferente. O script retira os dados do `WebhookData` webhook a partir de um alerta no parâmetro de entrada do livro de execução. Em seguida, o script avalia a carga útil JSON para determinar que tipo de alerta está sendo usado.
 
-Este exemplo usa um alerta de um VM. Recupera os dados vm da carga útil e, em seguida, utiliza essa informação para parar o VM. A ligação deve ser configurada na conta Automation onde o livro de execução é executado. Ao utilizar alertas para acionar os livros de execução, é importante verificar o estado do alerta no livro de execução que é acionado. O livro de execução irá desencadear cada vez que o estado de alerta. Os alertas têm vários estados, os dois estados mais comuns são `Activated` e. `Resolved` Verifique este estado na sua lógica de caderneta para garantir que o seu livro de execução não funciona mais do que uma vez. O exemplo neste artigo mostra `Activated` como procurar apenas alertas.
+Este exemplo usa um alerta de um VM. Recupera os dados vm da carga útil e, em seguida, utiliza essa informação para parar o VM. A ligação deve ser configurada na conta Automation onde o livro de execução é executado. Ao utilizar alertas para acionar os livros de execução, é importante verificar o estado de alerta no livro de execução que é acionado. O livro de execução dispara cada vez que o estado de alerta muda de estado. Os alertas têm vários estados, com os dois mais comuns a serem ativados e resolvidos. Verifique o estado na lógica do seu livro de corridas para garantir que o livro de corridas não funciona mais do que uma vez. O exemplo neste artigo mostra como procurar alertas apenas com o Estado Ativado.
 
-O livro de `AzureRunAsConnection` execução utiliza a [conta Run As](automation-create-runas-account.md) para autenticar com o Azure para realizar a ação de gestão contra o VM.
+O livro de execução utiliza o ativo `AzureRunAsConnection` de ligação Run Como [conta](automation-create-runas-account.md) para autenticar com o Azure para realizar a ação de gestão contra o VM.
 
 Use este exemplo para criar um livro chamado **Stop-AzureVmInResponsetoVMAlert**. Pode modificar o script PowerShell e usá-lo com muitos recursos diferentes.
 

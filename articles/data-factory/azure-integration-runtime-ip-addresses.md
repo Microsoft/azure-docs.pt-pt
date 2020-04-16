@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 598876e12fe04129692d0c9a842f4edb2ec00768
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b0ba47ff28208bce1a6fa6ec300a261d788167de
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086803"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415602"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Endereços IP do Azure Integration Runtime
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Os endereços IP que o Azure Integration Runtime utiliza depende da região onde está localizado o seu tempo de execução de integração Azure. *Todos* Os tempos de execução de integração azure que se encontram na mesma região utilizam as mesmas gamas de endereços IP.
 

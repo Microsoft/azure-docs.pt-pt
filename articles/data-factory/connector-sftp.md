@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/02/2020
-ms.openlocfilehash: 06428d4a9c4a4178212d16d42b8b3adffb5c9718
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6d29f73716b04699e0cd250396df7f7d744d4c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250289"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415250"
 ---
 # <a name="copy-data-from-and-to-sftp-server-using-azure-data-factory"></a>Copiar dados do servidor SFTP utilizando a Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-sftp-connector.md)
 > * [Versão atual](connector-sftp.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como copiar dados de e para o servidor SFTP. Para conhecer a Azure Data Factory, leia o [artigo introdutório.](introduction.md)
 
@@ -287,7 +288,7 @@ As seguintes propriedades são suportadas `storeSettings` para SFTP em definiç�
 | tipo                     | A propriedade `storeSettings` do tipo em baixo deve ser definida para **SftpWriteSettings**. | Sim      |
 | copiarComportamento             | Define o comportamento da cópia quando a fonte é ficheiros de uma loja de dados baseada em ficheiros.<br/><br/>Os valores permitidos são:<br/><b>- PreserveHierarchy (predefinição)</b>: Preserva a hierarquia dos ficheiros na pasta-alvo. O caminho relativo do ficheiro fonte para a pasta fonte é idêntico ao caminho relativo do ficheiro-alvo para a pasta-alvo.<br/><b>- Hierarquia flattena</b>: Todos os ficheiros da pasta fonte estão no primeiro nível da pasta-alvo. Os ficheiros-alvo têm nomes autogerados. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, é um nome de ficheiro autogerado. | Não       |
 | maxConcurrentConnections | O número de ligações para ligar à loja de dados simultaneamente. Especifique apenas quando pretende limitar a ligação simultânea à loja de dados. | Não       |
-| useTempFileRename | Indique se deve fazer o upload para ficheiros temporários e renomear ou escrever diretamente para a pasta-alvo/localização do ficheiro. Por predefinição, a ADF escreve primeiro a ficheiros temporários e depois faz o nome do ficheiro após a conclusão do upload, de modo a 1) evitar a escrita de conflitos, resultando em ficheiros corrompidos se tiver outro processo escrito para o mesmo ficheiro, e 2) garantir que a versão original do ficheiro existe durante transferência total. Se o seu servidor SFTP não suportar a operação de renome, desative esta opção e certifique-se de que não tem escrita simultânea para o ficheiro alvo. Consulte a ponta de resolução de problemas por baixo desta tabela. | Não. O valor padrão é verdadeiro. |
+| useTempFileRename | Indique se deve fazer o upload para ficheiros temporários e renomear ou escrever diretamente para a pasta-alvo/localização do ficheiro. Por predefinição, a ADF escreve primeiro a ficheiros temporários e depois faz o nome do ficheiro após a conclusão do upload, de modo a 1) evitar a escrita de conflitos, resultando em ficheiros corrompidos se tiver outro processo escrito para o mesmo ficheiro, e 2) garantir que a versão original do ficheiro existe durante a transferência total. Se o seu servidor SFTP não suportar a operação de renome, desative esta opção e certifique-se de que não tem escrita simultânea para o ficheiro alvo. Consulte a ponta de resolução de problemas por baixo desta tabela. | Não. O valor padrão é verdadeiro. |
 | operaçãoTimeout | O tempo de espera antes de cada pedido de escrita para o servidor SFTP tem horários. O valor predefinido é de 60 min (01:00:00).|Não |
 
 >[!TIP]

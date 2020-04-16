@@ -11,14 +11,15 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: e4301afafb48fb9a1b0c9e36dde9800e2b8390f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d697fb8afe3e92dfe54eb5d89a2ef59425cb0cde
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443927"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414921"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um oleoduto em resposta a um evento
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve os gatilhos baseados em eventos que pode criar nos seus oleodutos data Factory.
 
@@ -80,10 +81,10 @@ A tabela seguinte fornece uma visão geral dos elementos do esquema que estão r
 
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores Permitidos** | **Necessário** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **âmbito** | O Id de recurso do Gestor de Recursos Azure da Conta de Armazenamento. | Cadeia | ID do Gestor de Recursos Azure | Sim |
+| **âmbito** | O Id de recurso do Gestor de Recursos Azure da Conta de Armazenamento. | String | ID do Gestor de Recursos Azure | Sim |
 | **eventos** | O tipo de eventos que causam este gatilho a disparar. | Matriz    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação destes valores. |
-| **blobPathcomeça Com** | O caminho da bolha deve começar com o padrão previsto para o gatilho disparar. Por exemplo, `/records/blobs/december/` apenas dispara o gatilho `december` para `records` bolhas na pasta sob o recipiente. | Cadeia   | | Tem de fornecer um valor para pelo `blobPathBeginsWith` menos `blobPathEndsWith`uma destas propriedades: ou . |
-| **blobPathEndsWith** | O caminho da bolha deve terminar com o padrão previsto para o gatilho disparar. Por exemplo, `december/boxes.csv` apenas dispara o `boxes` gatilho `december` para bolhas nomeadas numa pasta. | Cadeia   | | Tem de fornecer um valor para pelo `blobPathBeginsWith` menos `blobPathEndsWith`uma destas propriedades: ou . |
+| **blobPathcomeça Com** | O caminho da bolha deve começar com o padrão previsto para o gatilho disparar. Por exemplo, `/records/blobs/december/` apenas dispara o gatilho `december` para `records` bolhas na pasta sob o recipiente. | String   | | Tem de fornecer um valor para pelo `blobPathBeginsWith` menos `blobPathEndsWith`uma destas propriedades: ou . |
+| **blobPathEndsWith** | O caminho da bolha deve terminar com o padrão previsto para o gatilho disparar. Por exemplo, `december/boxes.csv` apenas dispara o `boxes` gatilho `december` para bolhas nomeadas numa pasta. | String   | | Tem de fornecer um valor para pelo `blobPathBeginsWith` menos `blobPathEndsWith`uma destas propriedades: ou . |
 | **ignorar EmptyBlobs** | Se as bolhas de byte zero desencadearão ou não uma execução de gasoduto. Por defeito, isto está definido para verdade. | Booleano | true ou false | Não |
 
 ## <a name="examples-of-event-based-triggers"></a>Exemplos de gatilhos baseados em eventos
@@ -104,4 +105,4 @@ Esta secção fornece exemplos de definições de gatilho baseadas em eventos.
 | **O caminho blob termina com** | `foldername/file.txt` | Recebe eventos para uma `file.txt` `foldername` bolha nomeada em pasta sob qualquer recipiente. |
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter informações detalhadas sobre os gatilhos, consulte a [execução do Gasoduto e os gatilhos](concepts-pipeline-execution-triggers.md#triggers).
+Para obter informações detalhadas sobre os gatilhos, consulte a [execução do Gasoduto e os gatilhos](concepts-pipeline-execution-triggers.md#trigger-execution).

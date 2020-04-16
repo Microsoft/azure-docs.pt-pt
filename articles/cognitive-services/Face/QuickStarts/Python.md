@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c4d136eaf0f6c4ac64093f417f144e422e2da52f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c88a60fdc6d064fba91f4b6d79e1637f45bf2716
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74977918"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403222"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Quickstart: Detete rostos numa imagem usando a Face REST API e Python
 
-Neste arranque rápido, você usará a API Face Face Azur com Python para detetar rostos humanos numa imagem. O guião desenhará quadros em torno dos rostos e sobreporá a informação sobre género e idade na imagem.
+Neste arranque rápido, você usará a API De ROSTO Azure com Python para detetar rostos humanos numa imagem. O guião desenhará quadros em torno dos rostos e sobreporá a informação sobre género e idade na imagem.
 
 ![Um homem e uma mulher, cada um com um retângulo desenhado em torno do rosto e idade e sexo exibidos na imagem](../images/labelled-faces-python.png)
 

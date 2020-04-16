@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78945387"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414418"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlos de acesso à rede Azure SQL e Data Warehouse
 
@@ -59,10 +59,10 @@ Quando definido para **ON** Azure SQL Server permite comunicações de todos os 
 Em muitos casos, a definição **de ON** é mais permissiva do que a maioria dos clientes quer. Podem querer definir esta definição para **OFF** e substituí-la por regras de firewall IP mais restritivas ou regras de firewall da Rede Virtual. Fazê-lo afeta as seguintes funcionalidades que funcionam em VMs em Azure que não fazem parte do seu VNet e, portanto, ligam-se à Base de Dados Sql através de um endereço IP Azure.
 
 ### <a name="import-export-service"></a>Serviço de Exportação de Importação
-O Serviço de Exportação de Importação não funciona **Permitir que os serviços azure acedam ao servidor** definido para OFF. No entanto, pode contornar o problema [executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) diretamente no seu código utilizando a API DACFx.
+O Serviço de Exportação de Importação não funciona quando **o acesso aos serviços Azure** está definido para **off**. No entanto, pode contornar o problema [executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) diretamente no seu código utilizando a API DACFx.
 
 ### <a name="data-sync"></a>Sincronização de Dados
-Para utilizar a funcionalidade de sincronização de dados com **os serviços Allow Azure para aceder ao servidor** definido para OFF, é necessário criar entradas individuais de regras de firewall para adicionar [endereços IP](sql-database-server-level-firewall-rule.md) a partir da etiqueta de serviço **Sql** para a região que acolhe a base de dados **Hub.**
+Para utilizar a funcionalidade de sincronização de dados com **permitir o acesso aos serviços Azure** definidos para **OFF,** é necessário criar entradas individuais de regras de firewall para [adicionar endereços IP](sql-database-server-level-firewall-rule.md) a partir da etiqueta de serviço **Sql** para a região que acolhe a base de dados **Hub.**
 Adicione estas regras de firewall ao nível do servidor aos servidores lógicos que hospedam bases de dados **hub** e **membros** (que podem estar em diferentes regiões)
 
 Utilize o seguinte script PowerShell para gerar os endereços IP correspondentes à etiqueta de serviço Sql para a região dos EUA Ocidentais

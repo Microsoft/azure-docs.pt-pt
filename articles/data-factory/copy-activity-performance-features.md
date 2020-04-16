@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/09/2020
-ms.openlocfilehash: d37b4648c0a37f16fe5c9d8794bd78417c5780ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd7844340553809e1429097a9dda70f6bdb3e075
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257891"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414196"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Copiar funcionalidades de otimização de desempenho de atividade
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve as funcionalidades de otimização de desempenho da atividade de cópia que pode alavancar na Azure Data Factory.
 
@@ -134,7 +136,7 @@ Quando ativa a função de encenação, primeiro os dados são copiados da loja 
 
 ![Cópia encenada](media/copy-activity-performance/staged-copy.png)
 
-Quando ativa o movimento de dados utilizando uma loja de estágios, pode especificar se pretende que os dados sejam comprimidos antes de transferir os dados da loja de dados de origem para uma loja provisória ou de encenação de dados e, em seguida, descomprimido antes de mover dados de um provisório ou encenação armazenamento de dados na loja de dados do lavatório.
+Quando ativa o movimento de dados utilizando uma loja de encenação, pode especificar se pretende que os dados sejam comprimidos antes de transferir os dados da loja de dados de origem para uma loja provisória ou de desativação de dados e, em seguida, descomprimido antes de transferir dados de uma loja de dados provisória ou de encenação para a loja de dados do lavatório.
 
 Atualmente, não é possível copiar dados entre duas lojas de dados que estão ligadas através de diferentes IRs auto-hospedados, nem com nem com cópia encenada. Para tal cenário, pode configurar duas atividades de cópia explicitamente acorrentadas para copiar de origem para encenação e depois de encenação a afundar.
 
@@ -187,7 +189,7 @@ Aqui está uma definição de amostra de uma atividade de cópia com as propried
 É cobrado com base em dois passos: duração da cópia e tipo de cópia.
 
 * Quando utiliza a encenação durante uma cópia em nuvem, que está a copiar dados de uma loja de dados em nuvem para outra loja de dados em nuvem, ambas as fases empoderadas pelo tempo de execução da integração do Azure, é-lhe cobrada a [soma da duração da cópia para o passo 1 e passo 2] x [preço unitário de cópia em nuvem].
-* Quando utiliza a encenação durante uma cópia híbrida, que está a copiar dados de uma loja de dados no local para uma loja de dados em nuvem, uma fase capacitada por um tempo de integração auto-hospedado, é cobrado pela duração [da cópia híbrida] x [preço unitário de cópia híbrida] + [duração da cópia em nuvem] x [preço unitário de cópia de nuvem].
+* Quando utiliza a encenação durante uma cópia híbrida, que está a copiar dados de uma loja de dados no local para uma loja de dados em nuvem, uma fase capacitada por um tempo de integração auto-hospedado, é cobrado pela duração [da cópia híbrida] x [preço unitário de cópia híbrida] + [duração da cópia em nuvem] x [preço unitário de cópia em nuvem].
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de atividade de cópia:

@@ -9,14 +9,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 34972e70039fef17161bdef66f64278cbabf908f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d0b49b73ef6b67653fbf32db1174880a51d432d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130804"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81412950"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ (FAQ do Azure Data Factory)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Este artigo fornece respostas a perguntas frequentes sobre a Azure Data Factory.  
 
 ## <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory? 
@@ -147,7 +150,7 @@ Para obter mais informações sobre os conceitos do Data Factory, veja os artigo
 
 - [Dataset and linked services](concepts-datasets-linked-services.md) (Conjuntos de dados e serviços ligados)
 - [Pipelines e atividades](concepts-pipelines-activities.md)
-- [Integration runtime](concepts-integration-runtime.md) (Runtime de integração)
+- [Runtime de integração](concepts-integration-runtime.md)
 
 ## <a name="what-is-the-pricing-model-for-data-factory"></a>Qual é o modelo de preços para data factory?
 Para obter detalhes sobre os preços da Fábrica de Dados Azure, consulte os detalhes dos [preços da Fábrica](https://azure.microsoft.com/pricing/details/data-factory/)de Dados .
@@ -155,7 +158,7 @@ Para obter detalhes sobre os preços da Fábrica de Dados Azure, consulte os det
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Como posso manter-me atualizado com informações sobre a Fábrica de Dados?
 Para obter as informações mais atualizadas sobre a Azure Data Factory, vá aos seguintes sites:
 
-- [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Blogue](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 - [Página inicial da documentação](/azure/data-factory)
 - [Página inicial do produto](https://azure.microsoft.com/services/data-factory/)
 

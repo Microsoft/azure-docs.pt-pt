@@ -5,16 +5,16 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
-ms.openlocfilehash: 872f0e60943a674e5febf269dcb5b09fd08d77c9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681158"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409864"
 ---
-# <a name="interact-with-unity-game-objects-and-components"></a>Interaja com objetos e componentes do jogo da Unidade
+# <a name="interact-with-unity-game-objects-and-components"></a>Interagir com objetos e componentes de jogos do Unity
 
-A renderização remota azure (ARR) está otimizada para um grande número de objetos (ver [Limites).](../../reference/limits.md) Embora seja possível gerir grandes e complexas hierarquias no hospedeiro, replicá-las todas em Unidade em dispositivos de baixa potência é inviável.
+A renderização remota azure (ARR) está otimizada para um grande número de objetos (ver [Limitações).](../../reference/limits.md) Embora seja possível gerir grandes e complexas hierarquias no hospedeiro, replicá-las todas em Unidade em dispositivos de baixa potência é inviável.
 
 Assim, quando um modelo é carregado no hospedeiro, a Azure Remote Rendering espelha a informação sobre a estrutura do modelo no dispositivo cliente (que incorrerá no tráfego de rede), mas não replica os objetos e componentes da Unidade. Em vez disso, espera que solicite manualmente os objetos e componentes necessários do jogo da Unidade, de modo a que possa limitar a sobrecarga ao que é realmente necessário. Desta forma, tem mais controlo sobre o desempenho do cliente.
 
@@ -121,5 +121,5 @@ if (cutplane != null)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Configurar a renderização remota para a unidade](unity-setup.md)
+* [Configurar o Remote Rendering para o Unity](unity-setup.md)
 * [Tutorial: Trabalhar com entidades remotas na Unidade](../../tutorials/unity/working-with-remote-entities.md)

@@ -9,16 +9,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f04955fb910a6159dc09ac40a87a398e67d59d6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260816"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414122"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como a atividade de cópia da Azure Data Factory faz mapeamento de esquemas e mapeamento de tipo de dados de dados de origem para afundar dados ao executar a cópia de dados.
 
@@ -278,11 +279,7 @@ A atividade de cópia executa tipos de origem para os tipos de sink type mapeame
 1. Converter de tipos de origem nativa para tipos de dados provisórios da Azure Data Factory
 2. Converter de tipos de dados provisórios da Azure Data Factory para o tipo de pia nativa
 
-Pode encontrar o mapeamento entre o tipo nativo e o tipo provisório na secção "Mapeamento do tipo data" em cada tópico do conector.
-
-### <a name="supported-data-types"></a>Tipos de dados suportados
-
-Data Factory suporta os seguintes tipos de dados provisórios: Pode especificar abaixo valores ao configurar informações do tipo na configuração da estrutura do conjunto de [dados:](concepts-datasets-linked-services.md#dataset-structure-or-schema)
+A atividade de cópia suporta os seguintes tipos de dados intercalares: 
 
 * Byte[]
 * Booleano
@@ -295,7 +292,7 @@ Data Factory suporta os seguintes tipos de dados provisórios: Pode especificar 
 * Int32
 * Int64
 * Único
-* Cadeia
+* String
 * Timespan
 
 ## <a name="next-steps"></a>Passos seguintes

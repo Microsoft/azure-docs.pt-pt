@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3145c7db064432e443aae5dcd503905b865ffe46
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f7558745442ac26fc33a063ff66fe170d08487ac
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383257"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392078"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Compilar configurações dSC na configuração do Estado da Automação Azure
 
@@ -130,12 +130,12 @@ A função **Recursos Compósitos** permite-lhe utilizar as configurações dSC 
 
 ### <a name="manage-configurationdata-when-compiling-configurations-in-azure-automation"></a>Gerir o ConfigurationData ao compilar configurações na Automação Azure
 
-**A ConfiguraçãoData** permite-lhe separar a configuração estrutural de qualquer configuração específica do ambiente enquanto utiliza o PowerShell DSC. Para mais informações, consulte [Separar "O quê" de "Onde" no PowerShell DSC](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
+`ConfigurationData`é um parâmetro DSC incorporado que lhe permite separar a configuração estrutural de qualquer configuração específica do ambiente enquanto utiliza o PowerShell DSC. Para mais informações, consulte [Separar "O quê" de "Onde" no PowerShell DSC](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
 
 > [!NOTE]
-> Ao compilar na Configuração do Estado da Automatização Azure, pode utilizar **o ConfigurationData** no Azure PowerShell, mas não no portal Azure.
+> Ao compilar em Configuração do Estado `ConfigurationData` de Automação Azure, pode utilizar no Azure PowerShell, mas não no portal Azure.
 
-O exemplo seguinte A configuração DSC utiliza **o ConfigurationData** através das `$ConfigurationData` palavras-chave e `$AllNodes` palavras-chave. Também precisa do [módulo xWebAdministration](https://www.powershellgallery.com/packages/xWebAdministration/) para este exemplo.
+O exemplo seguinte A `ConfigurationData` configuração `$ConfigurationData` `$AllNodes` DSC utiliza através das palavras-chave e palavras-chave. Também precisa do [módulo xWebAdministration](https://www.powershellgallery.com/packages/xWebAdministration/) para este exemplo.
 
 ```powershell
 Configuration ConfigurationDataSample
@@ -198,7 +198,7 @@ As configurações dSC na Automatização Azure podem `Get-AutomationPSCredentia
 
 Manter as credenciais seguras nas configurações do nó (documentos de configuração MOF) requer encriptar as credenciais no ficheiro MOF de configuração do nó. Atualmente deve dar permissão ao PowerShell DSC para obter credenciais de saída em texto simples durante a geração MOF de configuração do nó. A PowerShell DSC não sabe que a Azure Automation encripta todo o ficheiro MOF após a sua geração através de um trabalho de compilação.
 
-Pode dizer ao PowerShell DSC que não faz mal que as credenciais sejam saídas em texto simples nos MOFs de configuração do nó gerado utilizando dados de configuração. Deve passar `PSDscAllowPlainTextPassword = $true` via **ConfigurationData** para cada nome de bloco de nó que aparece na configuração DSC e utiliza credenciais.
+Pode dizer ao PowerShell DSC que não faz mal que as credenciais sejam saídas em texto simples nos MOFs de configuração do nó gerado utilizando dados de configuração. Você deve `PSDscAllowPlainTextPassword = $true` `ConfigurationData` passar por cada nome de bloco de nó que aparece na configuração DSC e usa credenciais.
 
 O exemplo seguinte mostra uma configuração DSC que utiliza um ativo credencial automation.
 
@@ -264,7 +264,7 @@ Pode executar este processo a partir de uma estação de trabalho de desenvolvim
 
 1. Na sua conta de Automação, clique na **configuração do Estado (DSC)** em Gestão de **Configuração**.
 1. Na página de configuração do Estado (DSC), clique no separador **Configurações** e, em seguida, clique em **Adicionar**.
-1. Na página Import, clique no ícone da pasta ao lado da caixa de texto do Ficheiro de **Configuração** do Nó para procurar um ficheiro de configuração de nó (MOF) no seu computador local.
+1. Na página Import, clique no ícone da pasta ao lado do campo de ficheiros de **configuração** do nó para procurar um ficheiro MOF de configuração de nó no seu computador local.
 
    ![Procurar arquivo local](./media/automation-dsc-compile/import-browse.png)
 

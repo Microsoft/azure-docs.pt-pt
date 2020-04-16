@@ -5,12 +5,12 @@ description: Aprenda a criar e utilizar um equilibrador de carga interno para ex
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 4decd66a558b031f1aaaf9c64556dae545ed05d3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 9c2966215d07c4ddf052d30a5757a2deee2e0b5c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668414"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392782"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utilize um equilibrante de carga interna com o Serviço Azure Kubernetes (AKS)
 
@@ -25,7 +25,7 @@ Este artigo assume que você tem um aglomerado AKS existente. Se precisar de um 
 
 Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
-O principal do serviço de cluster AKS precisa de permissão para gerir os recursos da rede se utilizar uma subnet ou grupo de recursos existente. Em geral, atribuir o papel de colaborador da *Rede* ao seu principal de serviço sobre os recursos delegados. Para obter mais informações sobre permissões, consulte o [acesso do Delegado AKS a outros recursos Do Azure.][aks-sp]
+O principal do serviço de cluster AKS precisa de permissão para gerir os recursos da rede se utilizar uma subnet ou grupo de recursos existente. Em geral, atribuir o papel de colaborador da *Rede* ao seu principal de serviço sobre os recursos delegados. Em vez de um diretor de serviço, pode utilizar o sistema de identidade gerida para obter permissões. Para mais informações, consulte [Use identidades geridas](use-managed-identity.md). Para obter mais informações sobre permissões, consulte o [acesso do Delegado AKS a outros recursos Do Azure.][aks-sp]
 
 ## <a name="create-an-internal-load-balancer"></a>Criar um balanceador de carga interno
 

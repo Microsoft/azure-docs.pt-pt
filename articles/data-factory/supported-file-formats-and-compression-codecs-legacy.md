@@ -9,14 +9,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 423706c391e8d8c2c609798d9f50e5a22f5c39bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1f11a1ff25117c07e61475e7e83fc0c170cd552
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260686"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414642"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formatos de ficheiros suportados e codificadores de compressão na Azure Data Factory (legado)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 *Este artigo aplica-se aos seguintes conectores: [Amazon S3,](connector-amazon-simple-storage-service.md) [Azure Blob,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage,](connector-azure-file-storage.md) [File System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).*
 
@@ -34,7 +36,7 @@ Se pretender ler a partir de um ficheiro de `type` texto ou `format` escrever pa
 | --- | --- | --- | --- |
 | columnDelimiter |O caráter utilizado para separar colunas num ficheiro. Pode considerar usar um carácter raro e imprimível que pode não existir nos seus dados. Por exemplo, especifique "\u0001", que representa o início da rubrica (SOH). |Só é permitido um caráter. O valor **predefinido** é a **vírgula (“,”)**. <br/><br/>Para utilizar um caracteres Unicode, consulte o [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obter o código correspondente para o mesmo. |Não |
 | rowDelimiter |O caráter utilizado para separar linhas num ficheiro. |Só é permitido um caráter. O valor **predefinido** é um dos seguintes valores: **["\r\n", "\r", "\n"]** na leitura e **"\r\n"** na escrita. |Não |
-| escapeChar |O caráter especial utilizado para escapar a um delimitador de colunas no conteúdo do ficheiro de entrada. <br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: se utilizar a vírgula (“,”) como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: "Olá, mundo"), pode definir “$” como caráter de escape e utilizar a cadeia "Olá$, mundo" na origem. |Não |
+| escapeChar |O caráter especial utilizado para escapar a um delimitador de colunas no conteúdo do ficheiro de entrada. <br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: se tiver víramida ('''') como delimitador de coluna, mas quer ter o personagem de vírem no texto (exemplo: "Olá, mundo"), pode definir '$' como personagem de fuga e usar a corda "Olá$, mundo" na fonte. |Não |
 | quoteChar |O caráter utilizado para colocar um valor de cadeia entre aspas. Os delimitadores de colunas e linhas dentro dos carateres de aspas são tratados como parte do valor de cadeia. Esta propriedade é aplicável a conjuntos de dados de entrada e de saída.<br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: se utilizar a vírgula (“,”) como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: <Olá, mundo>), pode definir " (aspas duplas) como caráter de aspas e utilizar a cadeia "Olá, mundo" na origem. |Não |
 | nullValue |Um ou mais carateres utilizados para representar um valor nulo. |Um ou mais carateres. Os valores **predefinidos** são **"\N" e "NULL"** na leitura e **"\N"** na escrita. |Não |
 | encodingName |Especifique o nome de codificação. |Um nome de codificação válido. Veja [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exemplo: windows-1250 ou shift_jis. O valor **predefinido** é **UTF-8**. |Não |
@@ -455,7 +457,7 @@ Exemplo: definir `_JAVA_OPTIONS` variável com valor `-Xms256m -Xmx16g`. A `Xms`
 | Único | Float | N/D | N/D |
 | Double | Double | N/D | N/D |
 | Decimal | Binário | Decimal | Decimal |
-| Cadeia | Binário | Utf8 | Utf8 |
+| String | Binário | Utf8 | Utf8 |
 | DateTime | Int96 | N/D | N/D |
 | TimeSpan | Int96 | N/D | N/D |
 | DataTimeOffset | Int96 | N/D | N/D |
@@ -504,16 +506,16 @@ Para cópia sintetizada em IR auto-hospedado com serialização/desserializaçã
 | Int32 | int |
 | UInt32 | Longo |
 | Int64 | Longo |
-| UInt64 | Cadeia |
+| UInt64 | String |
 | Único | Float |
 | Double | Double |
 | Decimal | Decimal |
-| Cadeia | Cadeia |
+| String | String |
 | DateTime | Carimbo de data/hora |
 | DataTimeOffset | Carimbo de data/hora |
 | TimeSpan | Carimbo de data/hora |
 | ByteArray | Binário |
-| GUID | Cadeia |
+| GUID | String |
 | Char | Char(1) |
 
 ## <a name="avro-format-legacy"></a><a name="avro-format"></a>Formato AVRO (legado)
@@ -530,7 +532,7 @@ Se quiser analisar os ficheiros Avro ou escrever os dados em formato Avro, defin
 }
 ```
 
-Para utilizar o formato Avro numa tabela do Hive, veja o [tutorial do Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+Para utilizar o formato Avro numa tabela da Colmeia, pode consultar o [tutorial da Apache Hive.](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)
 
 Tenha em atenção os seguintes pontos:
 

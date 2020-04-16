@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: acba378badb41324b2124b84833407da920a0e00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78190063"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392884"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitor Azure AD B2C com Monitor Azure
 
@@ -84,8 +84,8 @@ Para embarcar no seu inquilino Azure AD (o **Cliente),** crie um modelo de Gesto
 
 Descarregue o modelo de gestor de recursos azure e os ficheiros de parâmetros:
 
-- [rgDelegatedResourceManagement.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement.parameters.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+- [rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
+- [rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
 Em seguida, atualize o ficheiro de parâmetros com os valores que registou anteriormente. O seguinte snippet JSON mostra um exemplo de um ficheiro de parâmetros de modelo do Gestor de Recursos Azure. Para `authorizations.value.roleDefinitionId`, use o valor de papel `b24988ac-6180-42a0-ab88-20f7382dd24c` [incorporado](../role-based-access-control/built-in-roles.md) para o papel de *Contribuinte,*.
 
@@ -223,7 +223,7 @@ Está pronto para [criar configurações](../active-directory/reports-monitoring
 
 Para configurar as definições de monitorização dos registos de atividade do Azure AD B2C:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. Selecione **Diretório Ativo Azure**
 1. Em **Monitorização**, selecione **Definições de diagnóstico**.

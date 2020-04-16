@@ -2,13 +2,13 @@
 title: Tópicos avançados de atualização de aplicações
 description: Este artigo aborda alguns tópicos avançados relativos à atualização de uma aplicação de Tecido de Serviço.
 ms.topic: conceptual
-ms.date: 1/28/2020
-ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.date: 03/11/2020
+ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422817"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414489"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Upgrade de aplicação service Fabric: Tópicos avançados
 
@@ -18,7 +18,7 @@ Se um novo tipo de serviço for adicionado a uma aplicação publicada como part
 
 Da mesma forma, os tipos de serviço podem ser removidos de uma aplicação como parte de uma atualização. No entanto, todas as instâncias de serviço do tipo de serviço a remover devem ser removidas antes de proceder à atualização (ver [Remover-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
-## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Evite quedas de ligação durante o tempo de paragem previsto para o serviço apátrida (pré-visualização)
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Evite quedas de ligação durante o tempo de paragem planeado para o serviço apátrida
 
 Para os tempos de paragem de instâncias apátridas planeadas, tais como a atualização de aplicações/cluster ou a desativação do nó, as ligações podem ser retiradas devido ao ponto final exposto ser removido após a ocorrência ter sido baixada, o que resulta em encerramentos de ligação forçadas.
 

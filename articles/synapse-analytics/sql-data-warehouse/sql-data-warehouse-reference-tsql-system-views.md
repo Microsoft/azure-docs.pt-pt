@@ -11,12 +11,12 @@ ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 104b377d9a1318a7320ea382580aaeedf9ac25f9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d673c5afcaece9b1cfe50d800ea9eeca96532ae8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745153"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411624"
 ---
 # <a name="system-views-supported-in-synapse-sql-pool"></a>Vistas do sistema suportadas na piscina SYnapse SQL
 
@@ -150,16 +150,16 @@ Os seguintes DMVs são aplicáveis à piscina SYnapse SQL, mas devem ser executa
 * [sys.types](/sql/relational-databases/system-catalog-views/sys-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.vistas](/sql/relational-databases/system-catalog-views/sys-views-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-available-in-synapse-sql-pool"></a>DMVs do servidor SQL disponíveis em piscina Synapse SQL
+## <a name="sql-server-dmvs-available-in-sql-pool"></a>DMVs do servidor SQL disponíveis em piscina SQL
 
-A piscina SYnapse SQL expõe muitas das vistas dinâmicas de gestão do SQL Server (DMVs). Estas opiniões, quando questionadas na piscina Synapse SQL, estão a reportar o estado das Bases de Dados SQL em execução nas distribuições.
+A piscina SQL expõe muitas das vistas dinâmicas de gestão do SQL Server (DMVs). Estas vistas, quando consultadas na piscina SQL, estão a reportar o estado das Bases de Dados SQL em execução nas distribuições.
 
 A piscina SYnapse SQL e o Parallel Data Warehouse (PDW) utilizam as mesmas vistas do sistema. Cada DMV tem uma coluna chamada pdw_node_id, que é o identificador para o nó Compute.
 
 > [!NOTE]
 > Para utilizar estas vistas, insira 'pdw_nodes_' no nome, como mostra a tabela seguinte:
 
-| Nome DMV na piscina Synapse SQL | Artigo Transact-SQL do Servidor SQL|
+| Nome DMV na piscina SQL | Artigo Transact-SQL do Servidor SQL|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
@@ -221,9 +221,9 @@ A piscina SYnapse SQL e o Parallel Data Warehouse (PDW) utilizam as mesmas vista
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-top-version-generators-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-synapse-sql-pool"></a>DMVs PolyBase DMVs sql SQL SQL disponíveis em piscina Synapse SQL
+## <a name="sql-server-2016-polybase-dmvs-available-in-sql-pool"></a>DMVs PolyBase Do SQL Server 2016 disponíveis em piscina SQL
 
-Os seguintes DMVs são aplicáveis à piscina SYnapse SQL, mas devem ser executados ligando-se à base de dados **principal.**
+Os seguintes DMVs são aplicáveis ao pool SQL, mas devem ser executados ligando-se à base de dados **principal.**
 
 * [sys.dm_exec_compute_node_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-errors-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_exec_compute_node_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-status-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

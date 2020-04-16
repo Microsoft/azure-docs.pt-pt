@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fba4dae66b5adcea6cc33e61d8cf88946e29546e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f5987bee82dc22d3742cb5d87040930e5d2c52d
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051176"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393040"
 ---
 # <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>As políticas e restrições de redefinição de senha de autosserviço no Diretório Ativo do Azure
 
@@ -160,16 +160,6 @@ Para começar, [descarregue e instale o módulo PowerShell Da AD Azure](https://
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Os seguintes artigos fornecem informações adicionais sobre o reset de palavra-passe através do Azure AD:
+Para começar com o SSPR, consulte [Tutorial: Ative os utilizadores a desbloquearem a sua conta ou a redefinirem as palavras-passe utilizando o reset de palavras-passe de autosserviço do Diretório Ativo Azure](tutorial-enable-sspr.md).
 
-* [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
-* [Reponha ou altere a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md).
-* [Registe-se para reset de palavra-passe de autosserviço](../user-help/active-directory-passwords-reset-register.md).
-* [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
-* [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
-* [Que métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)
-* [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](howto-sspr-writeback.md)
-* [Como posso comunicar a atividade da SSPR?](howto-sspr-reporting.md)
-* [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
-* [Acho que algo está partido. Como posso resolver problemas com a SSPR?](active-directory-passwords-troubleshoot.md)
-* [Tenho uma pergunta que ainda não foi abordada](active-directory-passwords-faq.md)
+Se você ou utilizadores tiverem problemas com o SSPR, consulte o reset da [palavra-passe self-service Troubleshoot](active-directory-passwords-troubleshoot.md)

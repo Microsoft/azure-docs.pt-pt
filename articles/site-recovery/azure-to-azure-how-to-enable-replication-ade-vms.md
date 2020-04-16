@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75772232"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408626"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicate Azure Disk Cryptigrafed máquinas virtuais para outra região do Azure
 
 Este artigo descreve como replicar VMs Azure com encriptação de disco azure (ADE) habilitado, de uma região azure para outra.
 
 >[!NOTE]
-> ATualmente, a Recovery do Site suporta a ADE, com e sem Diretório Ativo Azure (AAD) para VMs que executam sistemas operativos Windows e Linux.  Para máquinas que executem a ADE 1.1 (sem AAD), os VMs devem estar a utilizar discos geridos. VMs com discos não geridos não são suportados. Se mudar de ADE 0.1 (com AAD) para 1.1, tem de desativar a replicação e ativar a replicação de um VM após ativar 1.1.
+> ATualmente, a Recovery do Site suporta a ADE, com e sem Diretório Ativo Azure (AAD) para VMs que executam sistemas operativos Windows. Para os sistemas operativos Linux, só suportamos a ADE sem AAD. Além disso, para as máquinas que executam a ADE 1.1 (sem AAD), os VMs devem estar a utilizar discos geridos. VMs com discos não geridos não são suportados. Se mudar de ADE 0.1 (com AAD) para 1.1, tem de desativar a replicação e ativar a replicação de um VM após ativar 1.1.
 
 
 ## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>Permissões de utilizador necessárias

@@ -8,26 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/26/2020
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cca5680d307874a565dec47f643bf9320192c270
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 35988f10703967bd5986015ccb0fb480679b94e9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656091"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404755"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-javascript"></a>Início rápido: Extrair texto impresso e manuscrito utilizando a Visão do Computador 2.0 e 2.1 REST API e JavaScript
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a API e javaScript de visão computacional
 
 Neste arranque rápido, irá extrair texto impresso e/ou manuscrito de uma imagem utilizando a API DE DESCANSO DA Visão Computacional. Com os métodos [de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e leitura do resultado da [operação,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legível por máquina. A API determinará qual o modelo de reconhecimento a utilizar para cada linha de texto, de modo a suportar imagens com texto impresso e manuscrito.
 
-Em comparação com a Visão Computacional 2.0 e 2.1, a Visualização Pública da Visão Computacional 3.0 fornece:
+Esta funcionalidade está disponível tanto num API v2.1 como num API de pré-visualização pública v3.0. Em comparação com o v2.1, o 3.0 API tem:
 
-* ainda melhor precisão
-* um formato de saída alterado
-* pontuação de confiança para palavras
-* apoio das línguas espanhola e inglesa com o parâmetro linguístico adicional
+* Precisão melhorada
+* Pontuações de confiança para palavras
+* Apoio tanto ao espanhol como `language` ao inglês com o parâmetro adicional
+* Um formato de saída diferente
+
+Selecione o separador abaixo para a versão que está a utilizar.
 
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
@@ -784,7 +786,9 @@ O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e aprese
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore uma aplicação do JavaScript que utiliza a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore uma aplicação JavaScript que utiliza a Visão computacional para realizar o reconhecimento ótico de caracteres (OCR); criar miniaturas de corte inteligente; e detetar, categorizar, etiquetar e descrever características visuais em imagens. 
 
 > [!div class="nextstepaction"]
 > [Tutorial de JavaScript de API de Imagem Digitalizada](../Tutorials/javascript-tutorial.md)
+
+* Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

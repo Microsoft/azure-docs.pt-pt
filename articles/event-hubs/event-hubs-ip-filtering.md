@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: e0116c1cfe61b49f2d5aff46fab9cadc0e423ecc
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 18212726f0ab921a05a3b640a32754c62958d047
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310180"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393131"
 ---
 # <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Configure regras de firewall IP para um espaço de nome do Azure Event Hubs
 Por predefinição, os espaços de nome do Event Hubs são acessíveis a partir da internet desde que o pedido venha com autenticação e autorização válidas. Com firewall IP, pode restringi-lo ainda mais a apenas um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -29,6 +29,7 @@ Esta funcionalidade é útil em cenários em que os Hubs de Eventos Azure devem 
 > Os serviços fidedignos da Microsoft não são suportados quando as Redes Virtuais são implementadas.
 >
 > Cenários Comuns Azure que não funcionam com Redes Virtuais (note que a lista **NÃO** é exaustiva) -
+> - Monitor Azure (definição de diagnóstico)
 > - Azure Stream Analytics
 > - Integração com a Grelha de Eventos Azure
 > - Rotas do Hub Azure IoT

@@ -1,24 +1,26 @@
 ---
-title: Esquema de evento azure do evento Azure Maps do Azure Maps
+title: Mapas Azure como fonte da Grelha de Eventos
 description: Descreve as propriedades e esquemas fornecidos para eventos do Azure Maps com a Grelha de Eventos Azure
 services: event-grid
-author: femila
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 02/08/2019
-ms.author: femila
-ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: e879ec3442f2e7912acb450a97079d80d7d95a01
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77486364"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393410"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-maps"></a>Esquema de evento sinuoso do evento Azure Event Grid para o Azure Maps
+# <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps como fonte da Grelha de Eventos
 
-Este artigo fornece as propriedades e esquemas para eventos do Azure Maps. Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](https://docs.microsoft.com/azure/event-grid/event-schema).
+Este artigo fornece as propriedades e esquemas para eventos do Azure Maps. Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](https://docs.microsoft.com/azure/event-grid/event-schema). Também lhe dá uma lista de arranques rápidos e tutoriais para usar o Azure Maps como fonte de evento.
 
-## <a name="available-event-types"></a>Tipos de eventos disponíveis
+## <a name="event-grid-event-schema"></a>Esquema de evento sinuoso do evento Da Grelha de Eventos
+
+### <a name="available-event-types"></a>Tipos de eventos disponíveis
 
 Uma conta Azure Maps emite os seguintes tipos de eventos:
 
@@ -28,7 +30,7 @@ Uma conta Azure Maps emite os seguintes tipos de eventos:
 | Microsoft.Maps.GeofenceExited | Levantadas quando as coordenadas recebidas se deslocaram de dentro de uma dada geoveda para fora |
 | Microsoft.Maps.GeofenceResult | Levantada cada vez que uma consulta de geofencing devolve um resultado, independentemente do estado |
 
-## <a name="event-examples"></a>Exemplos de eventos
+### <a name="event-examples"></a>Exemplos de eventos
 
 O exemplo que se segue mostra o esquema de um evento **GeofenceEntered**
 
@@ -98,7 +100,7 @@ O exemplo seguinte mostra esquema para **GeofenceResult**
 }
 ```
 
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de alto nível:
 
@@ -162,6 +164,12 @@ O objeto de dados tem as seguintes propriedades:
 | geometrias | geometrias[] |Enumera as geometrias da vedação que contêm a posição de coordenada ou sobrepõem o tampão de busca em torno da posição. |
 | inválidoPeriodGeofenceGeometryId | cadeia[]  | Listas da identificação de geometria da geoveda que se encontra em período inválido em relação ao tempo de utilização no pedido. |
 | isEventPublished | boolean | É verdade que pelo menos um evento é publicado para o assinante do evento Azure Maps, falso se nenhum evento for publicado para o subscritor do evento Azure Maps. |
+
+## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
+|Título  |Descrição  |
+|---------|---------|
+| [Reaja aos eventos do Azure Maps usando a Grelha de Eventos](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visão geral da integração do Azure Maps com a Grelha de Eventos. |
+| [Tutorial: Criar uma geovete](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial acompanha-o através dos passos básicos para configurar geovese usando o Azure Maps. Utilize a Rede de Eventos Azure para transmitir os resultados da geovedação e configurar uma notificação com base nos resultados da geovedação. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

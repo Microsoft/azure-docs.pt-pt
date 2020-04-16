@@ -8,13 +8,13 @@ ms.author: ladolan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/06/2020
-ms.openlocfilehash: a35f34ed27299077dca78630511ea3c291caff60
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.date: 04/13/2020
+ms.openlocfilehash: f726ca90c215c4aff3734bd8022bbc1ad4dc5f87
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804978"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416000"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gerir aplicações lógicas no portal Azure
 
@@ -177,6 +177,46 @@ A apagar a sua aplicação lógica afeta os seus casos de fluxo de trabalho dest
    ![Confirme para eliminar as suas aplicações lógicas](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 
    O portal Azure mostra uma notificação na barra de ferramentas Azure principal que confirma se a sua operação foi bem sucedida ou falhou.
+
+<a name="manage-logic-app-versions"></a>
+
+## <a name="manage-logic-app-versions"></a>Gerir versões de aplicativos lógicos
+
+Pode utilizar o portal Azure para controlar a versão das suas aplicações lógicas. Pode encontrar o histórico da sua aplicação lógica e promover versões anteriores.
+
+<a name="find-version-history"></a>
+
+### <a name="find-and-view-previous-versions"></a>Encontre e veja versões anteriores
+
+1. No portal Azure, [encontre a aplicação lógica que pretende gerir.](#find-logic-app)
+
+1. No menu da sua aplicação lógica, em **Ferramentas**de Desenvolvimento, selecione **Versões.**
+
+   ![No menu da sua aplicação lógica, selecione "Versões" em "Ferramentas de Desenvolvimento"](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+
+1. Selecione a **versão** da sua aplicação lógica para gerir a partir da lista. Pode introduzir o identificador **versão** na barra de pesquisa para filtrar a lista.
+
+1. Na página da **versão História,** verá os detalhes da versão anterior no modo de leitura. Pode selecionar entre os modos Logic Apps **Designer** e **Code view.**
+
+   ![Página de versão de história para app lógica com vista de código e visão de designer de apps lógica](./media/manage-logic-apps-with-azure-portal/history-version.png)
+
+<a name="promote-previous-versions"></a>
+
+### <a name="promote-previous-versions"></a>Promover versões anteriores
+
+1. No histórico da sua aplicação lógica, [encontre e selecione a versão que pretende promover.](#find-version-history)
+
+1. Na página da **versão História,** selecione **Promover**.
+
+   ![Promover o botão no histórico da versão da aplicação lógica](./media/manage-logic-apps-with-azure-portal/promote-button.png)
+
+1. Na página logic **Apps Designer** que abre, edite a versão que está a promover conforme necessário. Pode alternar entre os modos **de visualização de Design** e **Code.** Também pode atualizar **Parâmetros,** **Modelos**e **Conectores.**
+
+   ![Página de designer de aplicações lógicas para promover uma versão anterior](./media/manage-logic-apps-with-azure-portal/promote-page.png)
+
+1. Para guardar quaisquer atualizações e terminar a promoção da versão anterior, selecione **Save**. (Ou, para cancelar as suas alterações, selecione **Discard**.) 
+
+   Ao ver novamente o [histórico da versão da sua aplicação lógica,](#find-version-history) a versão promovida aparece no topo da lista e tem um novo identificador.
 
 ## <a name="next-steps"></a>Passos seguintes
 

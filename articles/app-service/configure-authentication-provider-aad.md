@@ -3,14 +3,14 @@ title: Configurar a autenticação do Azure AD
 description: Saiba como configurar a autenticação do Diretório Ativo Azure como fornecedor de identidade para o seu App Service ou aplicação Funções Azure.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: dbbe58df4f1cfe93555b494e525fad18f5b02664
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 6f4dbedad56f6867558a8b70575ad906c8796612
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632576"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392566"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu app service ou app Funções Azure para usar login Azure AD
 
@@ -19,8 +19,7 @@ ms.locfileid: "80632576"
 Este artigo mostra-lhe como configurar o Azure App Service ou as Funções Azure para utilizar o Azure Ative Directory (Azure AD) como fornecedor de autenticação.
 
 > [!NOTE]
-> Neste momento, o [Azure Ative Directory v2.0](../active-directory/develop/v2-overview.md) (incluindo [mSAL)](../active-directory/develop/msal-overview.md)não é suportado para o Azure App Service e funções Azure. Por favor, verifique se há novidades.
->
+> O fluxo de definições expressas configura um registo de aplicação AAD V1. Se desejar utilizar o [Diretório Ativo Azure v2.0](../active-directory/develop/v2-overview.md) (incluindo o [MSAL),](../active-directory/develop/msal-overview.md)siga as [instruções avançadas](#advanced)de configuração .
 
 Siga estas boas práticas ao configurar a sua app e autenticação:
 
@@ -101,7 +100,7 @@ Execute os seguintes passos:
     |Campo|Descrição|
     |-|-|
     |ID de Cliente| Utilize a identificação da **Aplicação (cliente)** do registo da aplicação. |
-    |Url de emitente| Utilize `https://login.microsoftonline.com/<tenant-id>`, e substitua * \<o>* de identificação do inquilino pelo **D.D. (inquilino) identificação** do registo da aplicação. Este valor é utilizado para redirecionar os utilizadores para o inquilino da AD Azure correto, bem como para descarregar os metadados apropriados para determinar as chaves de assinatura simbólicas apropriadas e o valor de reclamação de emitente simbólico, por exemplo. |
+    |Url de emitente| Utilize `https://login.microsoftonline.com/<tenant-id>/v2.0`, e substitua * \<o>* de identificação do inquilino pelo **D.D. (inquilino) identificação** do registo da aplicação. Este valor é utilizado para redirecionar os utilizadores para o inquilino da AD Azure correto, bem como para descarregar os metadados apropriados para determinar as chaves de assinatura simbólicas apropriadas e o valor de reclamação de emitente simbólico, por exemplo. A `/v2.0` secção pode ser omitida para aplicações utilizando AAD v1. |
     |Segredo de Cliente (Opcional)| Use o segredo do cliente gerado no registo da aplicação.|
     |Audiências simbólicas permitidas| Se se trata de uma aplicação de nuvem ou servidor e pretende permitir fichas de autenticação a partir de uma aplicação web, adicione o **ID URI** da aplicação web aqui. O ID do **cliente** configurado é *sempre* considerado implicitamente como um público permitido. |
 

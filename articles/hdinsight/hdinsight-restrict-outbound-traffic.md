@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 6e0c98cffef06fb6d6345fc2b23bbc22715909b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3432f981df3f666d6276eee4564ef33000faa6b1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370190"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410900"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configure o tráfego de rede de saída para clusters Azure HDInsight usando firewall
 
@@ -221,7 +221,7 @@ As instruções anteriores ajudam-no a configurar o Firewall Azure para restring
 #### <a name="fqdn-httphttps-dependencies"></a>Dependências fQDN HTTP/HTTPS
 
 > [!Important]
-> A lista abaixo dá apenas alguns dos FQDNs mais importantes. Pode obter a lista completa de FQDNs para configurar o seu NVA [neste ficheiro](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
+> A lista abaixo dá apenas alguns dos FQDNs mais importantes. Pode obter FQDNs adicionais (principalmente Azure Storage e Azure Service Bus) para configurar o seu NVA [neste ficheiro](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
 
 | **Ponto Final**                                                          |
 |---|

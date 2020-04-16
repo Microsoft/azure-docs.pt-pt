@@ -4,16 +4,16 @@ description: Crie certificados de teste e aprenda a instalá-los num dispositivo
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2020
+ms.date: 04/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5afb9b7a6ba1ffb99df064c9f92780dc820b2e8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 364846f6cef196f6cefa7872af48f262b387db4f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535991"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393826"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Criar certificados de demonstração para testar funcionalidades do dispositivo IoT Edge
 
@@ -247,8 +247,9 @@ New-CACertsEdgeDeviceIdentity "<name>"
 
 O nome que passar para este comando será o ID do dispositivo IoT Edge no IoT Hub.
 
-O novo comando de identidade do dispositivo cria vários ficheiros de certificados e chave, incluindo dois que utilizará ao criar uma inscrição individual no DPS e instalar o tempo de execução ioT Edge:
+O novo comando de identidade do dispositivo cria vários ficheiros de certificados e chave, incluindo três que utilizará ao criar uma inscrição individual no DPS e instalar o tempo de execução ioT Edge:
 
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
@@ -262,8 +263,9 @@ Crie o certificado de identidade do dispositivo IoT Edge e a chave privada com o
 
 O nome que passar para este comando será o ID do dispositivo IoT Edge no IoT Hub.
 
-O script cria vários ficheiros de certificados e chave, incluindo dois que utilizará ao criar uma inscrição individual no DPS e instalar o tempo de execução do IoT Edge:
+O script cria vários ficheiros de certificados e chave, incluindo três que utilizará ao criar uma inscrição individual no DPS e instalar o tempo de execução do IoT Edge:
 
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 

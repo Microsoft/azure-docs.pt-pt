@@ -9,14 +9,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 03/16/2020
-ms.openlocfilehash: 115cb3e499117457629e130b6432a1cbc2224edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32088dd712cd0c70fc01de48add17a0b6a828dc8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79463055"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415336"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade de Fluxo de Dados na Fábrica de Dados azure
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Utilize a atividade data Flow para transformar e mover dados através de fluxos de dados de mapeamento. Se você é novo em fluxos de dados, consulte [mapeiação do fluxo](concepts-data-flow-overview.md) de dados
 
@@ -59,7 +61,7 @@ integraçãoTempo de corrida | O ambiente computacional em que o fluxo de dados 
 compute.coreCount | O número de núcleos usados no aglomerado de faíscas. Só pode ser especificado se o tempo de execução de integração azure de resolução automática for utilizado | 8, 16, 32, 48, 80, 144, 272 | Não
 compute.computeType | O tipo de computação usada no aglomerado de faíscas. Só pode ser especificado se o tempo de execução de integração azure de resolução automática for utilizado | "Geral", "ComputeOptimized", "MemoryOptimized" | Não
 staging.linkedService | Se estiver a utilizar uma fonte ou pia SQL DW, a conta de armazenamento utilizada para a encenação da PolyBase | Referência de Serviços Linked | Só se o fluxo de dados ler ou escrever para um DW SQL
-staging.folderPath | Se estiver a utilizar uma fonte ou pia SQL DW, o caminho da pasta na conta de armazenamento blob utilizada para a encenação da PolyBase | Cadeia | Só se o fluxo de dados ler ou escrever para um DW SQL
+staging.folderPath | Se estiver a utilizar uma fonte ou pia SQL DW, o caminho da pasta na conta de armazenamento blob utilizada para a encenação da PolyBase | String | Só se o fluxo de dados ler ou escrever para um DW SQL
 
 ![Executar fluxo de dados](media/data-flow/activity-data-flow.png "Executar fluxo de dados")
 
@@ -160,9 +162,9 @@ Para obter o número de linhas lidas de uma fonte chamada 'source1' que foi usad
 Consulte as atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
-- [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
+- [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para Cada Atividade](control-flow-for-each-activity.md)
-- [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
+- [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade Web](control-flow-web-activity.md)
-- [Atividade Until](control-flow-until-activity.md)
+- [Até a Atividade](control-flow-until-activity.md)

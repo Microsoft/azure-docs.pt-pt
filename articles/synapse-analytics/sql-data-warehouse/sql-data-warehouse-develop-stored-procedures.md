@@ -10,13 +10,12 @@ ms.subservice: ''
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 3283fbeec2226a825625b4e3ede6942a609ae723
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 3ffdf7a66c2562b43fc2ed02bb088ab1095118fb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633446"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416163"
 ---
 # <a name="using-stored-procedures-in-synapse-sql-pool"></a>Utilização de procedimentos armazenados na piscina SYnapse SQL
 

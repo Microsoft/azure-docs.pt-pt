@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad2032497b4b01476389428f5a2ef4a3961a1c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e17cc4bf6f70901e3bb5d250f0a55f073ad8d99e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481250"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406721"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações wildcard no proxy de aplicação de diretório ativo Azure
 
@@ -116,7 +116,7 @@ A aplicação wildcard está representada com apenas um azulejo no [painel MyApp
 
 ### <a name="kerberos-constrained-delegation"></a>Delegação restrita de Kerberos
 
-Para aplicações que utilizem [a delegação limitada de Kerberos (KCD) como método SSO,](application-proxy-configure-single-sign-on-with-kcd.md)o SPN listado para o método SSO também pode necessitar de um wildcard. Por exemplo, o SPN `HTTP/*.adventure-works.com`pode ser: . Ainda precisa de ter as SPNs individuais configuradas nos `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`seus servidores de backend (por exemplo, ).
+Para aplicações que utilizem [a delegação limitada de Kerberos (KCD) como método SSO,](application-proxy-configure-single-sign-on-with-kcd.md)o SPN listado para o método SSO também pode necessitar de um wildcard. Por exemplo, o SPN `HTTP/*.adventure-works.com`pode ser: . Ainda precisa de ter as SPNs individuais configuradas nos `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`seus servidores de backend (por exemplo, ).
 
 ## <a name="scenario-1-general-wildcard-application"></a>Cenário 1: Aplicação geral wildcard
 

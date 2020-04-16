@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ce2fe66888893d82debcc412bb16752914d8a190
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: d38c0df45da3a751a456846813543a4ce5de98eb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011111"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416207"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorização da utilização de recursos e atividade de consulta no Azure Synapse Analytics
 
@@ -56,14 +56,14 @@ Coisas a considerar ao visualizar métricas e definir alertas:
 
 Para uma experiência programática ao monitorizar o SQL Analytics via T-SQL, o serviço fornece um conjunto de Pontos de Vista de Gestão Dinâmica (DMVs). Estas opiniões são úteis quando se desloque ativamente problemas e identifique estrangulamentos de desempenho com a sua carga de trabalho.
 
-Para ver a lista de DMVs que a SQL Analytics fornece, consulte esta [documentação](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs).
+Para ver a lista de DMVs que se aplicam ao Synapse SQL, consulte esta [documentação](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
 
-## <a name="metrics-and-diagnostics-logging"></a>Métricas e registos de diagnóstico
+## <a name="metrics-and-diagnostics-logging"></a>Métricas e registos de diagnóstico 
 
 Ambas as métricas e registos podem ser exportados para o Monitor Azure, especificamente o componente de [registos do Monitor Azure](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e podem ser acedidos programáticamente através de consultas de [registo](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). A latência de registo para SQL Analytics é de cerca de 10-15 minutos. Para mais detalhes sobre os fatores com impacto na latência, visite a seguinte documentação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Os seguintes guias como descrever descrevem cenários comuns e utilizam casos ao monitorizar e gerir o seu armazém de dados:
+O seguinte guia como orientar descreve cenários comuns e utiliza casos ao monitorizar e gerir o seu armazém de dados:
 
 - [Monitorize a carga de trabalho do seu armazém de dados com DMVs](sql-data-warehouse-manage-monitor.md)

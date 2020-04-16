@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
-ms.openlocfilehash: 5f0eada5184f2c8e36b0deb5a9d27a8a9230776d
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 12bf807f5866567508b644105f377cfde1494250
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382767"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410766"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure Data Explorer utilizando a Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como utilizar a atividade de cópia na Azure Data Factory para copiar dados de ou para o [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). Baseia-se no artigo de visão geral da atividade de [cópia,](copy-activity-overview.md) que oferece uma visão geral da atividade de cópia.
 

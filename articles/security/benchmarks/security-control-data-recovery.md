@@ -1,19 +1,18 @@
 ---
 title: Controlo de Segurança Azure - Recuperação de Dados
-description: Recuperação de dados de controlo de segurança
+description: Recuperação de dados de controlo de segurança azure
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/14/2020
 ms.author: mbaldwin
-ms.custom: security-recommendations
-ms.openlocfilehash: c585ebd903d4070f6247456e06efffbc6ec45270
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: security-benchmark
+ms.openlocfilehash: 4f3e8540902809f951a441aa2fe8d00026c44d82
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934498"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408603"
 ---
 # <a name="security-control-data-recovery"></a>Controlo de Segurança: Recuperação de dados
 
@@ -27,9 +26,7 @@ Certifique-se de que todos os dados, configurações e segredos do sistema são 
 
 Ative a Cópia de Segurança Azure e configure a fonte de backup (VMs Azure, SQL Server ou File Shares), bem como o período de frequência e retenção desejado.
 
-Como ativar o Backup Azure:
-
-https://docs.microsoft.com/azure/backup/
+- [Como ativar o Backup Azure](https://docs.microsoft.com/azure/backup/)
 
 ## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Executar cópias de segurança completas do sistema e fazer cópias de segurança de quaisquer chaves geridas pelo cliente
 
@@ -39,13 +36,9 @@ https://docs.microsoft.com/azure/backup/
 
 Ativar o Backup Azure e os VM(s) de destino, bem como os períodos de frequência e retenção desejados. O cliente de reserva geria as chaves dentro do Cofre de Chaves Azure.
 
-Como ativar o Backup Azure:
+- [Como ativar o Backup Azure](https://docs.microsoft.com/azure/backup/)
 
-https://docs.microsoft.com/azure/backup/
-
-Como apoiar as chaves do cofre em Azure:
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+- [Como apoiar as chaves do cofre chave em Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 ## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Validar todas as cópias de segurança, incluindo chaves geridas pelo cliente
 
@@ -53,15 +46,11 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvau
 |--|--|--|
 | 9.3 | 10.3 | Cliente |
 
-Garantir a capacidade de realizar periodicamente a restauração de dados dos conteúdos dentro do Azure Backup. Se necessário, o teste restaurar a um VLAN isolado. Teste a restauração das chaves geridas pelo cliente.
+Garantir a capacidade de realizar periodicamente a restauração de dados dos conteúdos dentro do Azure Backup. Teste a restauração das chaves geridas pelo cliente.
 
-Como recuperar ficheiros da cópia de segurança da Máquina Virtual Azure:
+- [Como recuperar ficheiros da cópia de segurança da Máquina Virtual Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm)
 
-https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm
-
-Como restaurar as chaves do cofre chave em Azure:
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+- [Como restaurar as chaves do cofre chave em Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 ## <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
@@ -69,12 +58,17 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 |--|--|--|
 | 9.4 | 10.4 | Cliente |
 
-Para cópias de segurança no local, a encriptação inativa de dados é fornecida ao utilizar a frase de acesso que forneceu ao fazer cópias de segurança no Azure. Nas VMs do Azure, os dados são encriptados inativamente com a Encriptação do Serviço de Armazenamento (SSE). Pode ativar o Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
+Para cópias de segurança no local, a encriptação inativa de dados é fornecida ao utilizar a frase de acesso que forneceu ao fazer cópias de segurança no Azure. Nas VMs do Azure, os dados são encriptados inativamente com a Encriptação do Serviço de Armazenamento (SSE). Utilize o controlo de acesso baseado em papéis para proteger as cópias de segurança e as chaves geridas pelo cliente.  
 
-Como ativar o Soft-Delete no Cofre de Chaves:
+Ative o Soft-Delete e expurga a proteção no Cofre-Chave para proteger as chaves contra a eliminação acidental ou maliciosa.  Se o Armazenamento Azure for utilizado para armazenar backups, ative a eliminação suave para guardar e recuperar os seus dados quando as bolhas ou as imagens blob ssão eliminada. 
 
-https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+- [Compreender o Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+
+- [Como ativar a proteção Soft-Delete e Purga no Cofre-Chave](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+
+- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o próximo controlo de segurança: Resposta a [incidentes](security-control-incident-response.md)
+- Consulte o próximo Controlo de Segurança: Resposta a [Incidentes](security-control-incident-response.md)

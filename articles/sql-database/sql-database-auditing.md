@@ -1,5 +1,5 @@
 ---
-title: Auditoria Azure SQL
+title: Auditoria de SQL do Azure
 description: Utilize a auditoria da base de dados Azure SQL para rastrear os eventos da base de dados num registo de auditoria.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,14 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 682735e1189333c2455863b8fde8e57d815111ba
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 4e20129502e7538bd2f3354b75b33095970e1595
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387704"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411868"
 ---
-# <a name="azure-sql-auditing"></a>Auditoria Azure SQL
+# <a name="azure-sql-auditing"></a>Auditoria de SQL do Azure
 
 A auditoria da Azure [SQL Database](sql-database-technical-overview.md) e [da Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rastreia eventos de base de dados e escreve-os num registo de auditoria na sua conta de armazenamento Azure, log Analytics espaço de trabalho ou Hubs de Eventos. 
 
@@ -81,7 +81,7 @@ A secção seguinte descreve a configuração da auditoria utilizando o portal A
 2. Navegue para **Auditoria** sob a rubrica Segurança na sua base de dados/painel de servidor SQL.
 3. Se preferir configurar uma política de auditoria do servidor, pode selecionar o link de definições do **servidor 'Ver'** na página de auditoria da base de dados. Em seguida, pode visualizar ou modificar as definições de auditoria do servidor. As políticas de auditoria do servidor aplicam-se a todas as bases de dados existentes e recém-criadas neste servidor.
 
-    ![Painel de navegação][2]
+    ![Painel de navegação](./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png)
 
 4. Se preferir ativar a auditoria ao nível da base de dados, mude **a Auditoria** para **ON**. Se a auditoria do servidor estiver ativada, a auditoria configurada pela base de dados existirá lado a lado com a auditoria do servidor.
 
@@ -94,7 +94,7 @@ A secção seguinte descreve a configuração da auditoria utilizando o portal A
 Para configurar registos de auditoria de escrita numa conta de armazenamento, selecione **detalhes de Armazenamento** e **armazenamento**aberto. Selecione a conta de armazenamento Azure onde os registos serão guardados e, em seguida, selecione o período de retenção. Em seguida, clique em **OK**. Os registos mais antigos do que o período de retenção são eliminados.
 
 - O valor predefinido para o período de retenção é 0 (retenção ilimitada). Pode alterar este valor movendo o slider **de Retenção (Dias)** nas **definições** de Armazenamento ao configurar a conta de armazenamento para auditoria.
-  - Se alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, por favor note que a retenção só se aplicará aos registos escritos após a alteração do valor de retenção (os registos escritos durante o período em que a retenção foi definida para ilimitado são preservados, mesmo depois de alteradoo valor de retenção (os registos escritos durante o período em que a retenção foi definida para ilimitado são preservados, mesmo depois de alteradoo valor de retenção (os registos escritos durante o período em que a retenção foi definida para ilimitado são preservados, mesmo depois de alterado o valor da retenção (os registos escritos durante o período em que a retenção foi definida para ilimitado são preservados, mesmo depois de preserva a retenção está ativada).
+  - Se alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, por favor note que a retenção só se aplicará aos registos escritos após a alteração do valor de retenção (os registos escritos durante o período em que a retenção foi definida para ilimitado são preservados, mesmo após a retenção ser ativada).
 
   ![conta de armazenamento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
@@ -164,7 +164,7 @@ Se optou por escrever registos de auditoria numa conta de armazenamento Azure, e
 
 - Utilize o [portal Azure.](https://portal.azure.com)  Abra a base de dados relevante. No topo da página de **Auditoria** da base de dados, clique em **Ver registos**de auditoria .
 
-    ![Painel de navegação][7]
+    ![Painel de navegação](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
 
     **Os registos** de auditoria abrem,a partir do qual poderá ver os registos.
 
@@ -172,14 +172,14 @@ Se optou por escrever registos de auditoria numa conta de armazenamento Azure, e
   - Pode alternar entre os registos de auditoria que foram criados pela política de auditoria do *servidor* e a política de auditoria da base de *dados,* toggling **Audit Source**.
   - Só pode ver registos de auditoria relacionados com injeção SQL verificando **apenas registos de auditoria para a caixa de verificação de injeções SQL.**
 
-       ![Painel de navegação][8]
+       ![Painel de navegação]( ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png)
 
 - Utilize a função do sistema **sys.fn_get_audit_file** (T-SQL) para devolver os dados de registo de auditoria em formato tabular. Para obter mais informações sobre a utilização desta função, consulte [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Utilize **ficheiros de auditoria** de fusão no Estúdio de Gestão de Servidores SQL (começando com SSMS 17):
     1. No menu SSMS, selecione **Ficheiros** > de Auditoria de Fusão**Abertas** > de**Ficheiros**.
 
-        ![Painel de navegação][9]
+        ![Painel de navegação](./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png)
     2. A caixa de diálogo **Add Audit Files** abre. Selecione uma das opções **Add** para escolher se deve fundir ficheiros de auditoria a partir de um disco local ou importá-los a partir do Armazenamento Azure. É-lhe exigido que forneça os seus dados de Armazenamento Azure e a chave da conta.
 
     3. Depois de todos os ficheiros a fundir terem sido adicionados, clique em **OK** para completar a operação de fusão.
@@ -220,10 +220,10 @@ Em produção, é provável que refresque periodicamente as suas chaves de armaz
 
 1. Detalhes de **armazenamento**abertos. Na caixa de acesso ao **armazenamento,** selecione **Secundário**, e clique **EM OK**. Em seguida, clique em **Guardar** no topo da página de configuração de auditoria.
 
-    ![Painel de navegação][5]
+    ![Painel de navegação](./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png)
 2. Vá à página de configuração de armazenamento e regeneraa a chave de acesso primária.
 
-    ![Painel de navegação][6]
+    ![Painel de navegação](./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png)
 3. Volte para a página de configuração de auditoria, mude a chave de acesso de armazenamento de secundário para primário e, em seguida, clique EM **OK**. Em seguida, clique em **Guardar** no topo da página de configuração de auditoria.
 4. Volte para a página de configuração de armazenamento e regeneraa a chave de acesso secundário (em preparação para o ciclo de atualização da próxima chave).
 
@@ -268,15 +268,3 @@ Pode gerir a auditoria da base de dados Azure SQL utilizando modelos do Gestor d
 
 > [!NOTE]
 > As amostras ligadas estão num repositório público externo e são fornecidas 'como está', sem garantia, e não são suportadas ao abrigo de qualquer programa/serviço de suporte da Microsoft.
-
-<!--Image references-->
-[1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
-[2]: ./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png
-[3]: ./media/sql-database-auditing-get-started/3_auditing_get_started_turn_on.png
-[4]: ./media/sql-database-auditing-get-started/4_auditing_get_started_storage_details.png
-[5]: ./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png
-[6]: ./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png
-[7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png
-[8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
-[9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
-[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png 

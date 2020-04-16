@@ -3,12 +3,12 @@ title: referência host.json para funções Azure 2.x
 description: Documentação de referência para o ficheiro host.json funções azure com o tempo de funcionamento v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 1a861d500f0b8cc31b8312d6c955916ab741b649
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 7b3c9d15fc8cf3a1651c44a5656f731a7820e344
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878256"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405491"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência host.json para funções Azure 2.x e mais tarde 
 
@@ -141,7 +141,7 @@ Controla as opções de Insights de Aplicação, incluindo [opções de amostrag
 Para obter a estrutura json completa, consulte o [ficheiro host.json](#sample-hostjson-file)exemplo anterior .
 
 > [!NOTE]
-> A amostragem de registo pode fazer com que algumas execuções não apareçam na lâmina do monitor Deinsights de Aplicação. Para evitar a `samplingExcludedTypes: "Request"` amostragem `applicationInsights` de registo, adicione ao valor.
+> A amostragem de registo pode fazer com que algumas execuções não apareçam na lâmina do monitor Deinsights de Aplicação. Para evitar a `excludedTypes: "Request"` amostragem `samplingSettings` de registo, adicione ao valor.
 
 | Propriedade | Predefinição | Descrição |
 | --------- | --------- | --------- | 
@@ -166,8 +166,8 @@ Para obter a estrutura json completa, consulte o [ficheiro host.json](#sample-ho
 | minSamplingPercentage | 0.1 | Como a percentagem de amostragem varia, este imóvel determina a percentagem mínima de amostragem permitida. |
 | maxSamplingPercentage | 0.1 | Como a percentagem de amostragem varia, este imóvel determina a percentagem máxima permitida de amostragem. |
 | movingAverageRatio | 1.0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Use um valor igual ou inferior a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
-| excluídosTipos | nulo | Uma lista de tipos deslimitadas do cólon que não queres ser amostradas. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Request, Trace. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não estão especificados são amostrados. |
-| incluídoTipos | nulo | Uma lista de tipos deslimitada seletiva que pretende ser amostrada; uma lista vazia implica todos os tipos. Tipo listado `excludedTypes` em tipos de substituição listados aqui. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Request, Trace. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não estão especificados são amostrados. |
+| excluídosTipos | nulo | Uma lista de tipos deslimitadas do cólon que não queres ser amostradas. Os tipos `Dependency`reconhecidos `PageView`são: `Trace`, `Event` `Exception`, e `Request`. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não estão especificados são amostrados. |
+| incluídoTipos | nulo | Uma lista de tipos deslimitada seletiva que pretende ser amostrada; uma lista vazia implica todos os tipos. Tipo listado `excludedTypes` em tipos de substituição listados aqui. Os tipos `Dependency`reconhecidos `PageView`são: `Trace`, `Event` `Exception`, e `Request`. Os casos dos tipos especificados são amostrados; os tipos que não estão especificados ou implícitos são transmitidos sem amostragem. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>aplicaçõesInsights.httpAutoCollectionOptions
 

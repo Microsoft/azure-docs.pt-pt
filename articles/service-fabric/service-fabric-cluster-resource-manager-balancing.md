@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8e170c27923d2bb091c4121e350809b85e4c48a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6df25b525975f2d4fe6a02064e81f359a804c58
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79081697"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416257"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Equilibrando o seu cluster de tecido de serviço
 O Gestor de Recursos de Cluster de Tecidos de Serviço suporta alterações dinâmicas de carga, reagindo a adições ou remoção de nós ou serviços. Também corrige automaticamente as violações de restrições e reequilibra proactivamente o cluster. Mas quantas vezes estas ações são tomadas, e o que as desencadeia?
@@ -205,6 +205,7 @@ O Cluster Resource Manager descobre automaticamente quais os serviços relaciona
 * As métricas são como o Manjedoura de Recursos de Cluster de Tecido de Serviço gere o consumo e a capacidade no cluster. Para saber mais sobre métricas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
 * O Custo de Movimento é uma forma de sinalizar ao Gestor de Recursos cluster que certos serviços são mais caros para se movimentardo do que outros. Para mais informações sobre o custo de movimento, consulte [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
 * O Cluster Resource Manager tem vários aceleradores que pode configurar para abrandar o ressurgimento do cluster. Normalmente não são necessários, mas se precisares deles podes aprender sobre eles [aqui.](service-fabric-cluster-resource-manager-advanced-throttling.md)
+* O Cluster Resource Manager pode reconhecer e lidar com o subagrupamento (uma situação que por vezes surge quando se utilizam restrições de colocação e equilíbrio). Para aprender como o subagrupamento pode afetar o equilíbrio e como pode lidar com isso, consulte [aqui](cluster-resource-manager-subclustering.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

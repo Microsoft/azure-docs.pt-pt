@@ -1,20 +1,20 @@
 ---
-title: Esquema de evento de subscrição da Azure Event Grid
+title: Assinatura Azure como fonte da Grelha de Eventos
 description: Descreve as propriedades que estão previstas para eventos de subscrição com a Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/12/2019
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa88fe4e05ac968588a65d67a2f075bcae48ba7a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561681"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393217"
 ---
-# <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de evento sinuoso do evento Azure Event Grid para subscrições
+# <a name="azure-subscription-as-an-event-grid-source"></a>Assinatura Azure como fonte da Grelha de Eventos
 
 Este artigo fornece as propriedades e esquemas para eventos de subscrição azure.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
 
@@ -28,9 +28,10 @@ Para lidar programáticamente com os eventos, `operationName` pode classificar e
 
 O assunto do evento é a identificação de recursos do recurso que é o alvo da operação. Para filtrar eventos para um recurso, forneça esse ID de recurso ao criar a subscrição do evento. Para filtrar por um tipo de recurso, utilize um valor no seguinte formato:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
-Para obter uma lista de scripts e tutoriais de amostra, consulte a fonte do [evento de subscrição do Azure.](event-sources.md#azure-subscriptions)
 
-## <a name="available-event-types"></a>Tipos de eventos disponíveis
+## <a name="event-grid-event-schema"></a>Esquema de evento sinuoso do evento Da Grelha de Eventos
+
+### <a name="available-event-types"></a>Tipos de eventos disponíveis
 
 As subscrições do Azure emitem eventos de gestão do Azure Resource Manager, como quando um VM é criado ou uma conta de armazenamento é eliminada.
 
@@ -46,7 +47,7 @@ As subscrições do Azure emitem eventos de gestão do Azure Resource Manager, c
 | Microsoft.Resources.ResourceWriteFailure | O funcionamento da criação ou atualização falha. |
 | Microsoft.Resources.ResourceWriteSuccess | Criada quando a operação de criação ou atualização é bem sucedida. |
 
-## <a name="example-event"></a>Evento de exemplo
+### <a name="example-event"></a>Evento de exemplo
 
 O exemplo seguinte mostra o esquema para um evento **ResourceWriteSuccess.** O mesmo esquema é utilizado para **eventos ResourceWriteFailure** e `eventType` **ResourceWriteCancel** com valores diferentes para .
 
@@ -230,7 +231,7 @@ O exemplo que se segue mostra o esquema para um evento **ResourceActionSuccess.*
 }]
 ```
 
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de alto nível:
 
@@ -259,6 +260,14 @@ O objeto de dados tem as seguintes propriedades:
 | status | string | O estado da operação. |
 | subscriptionId | string | A identificação de subscrição do recurso. |
 | inquilinoId | string | A identificação do inquilino do recurso. |
+
+## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
+|Título |Descrição  |
+|---------|---------|
+| [Tutorial: Automação Azure com Grelha de Eventos e Equipas da Microsoft](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, que envie um evento. O evento despoleta um livro de automação que marca a máquina virtual e despoleta uma mensagem que é enviada para um canal da Microsoft Teams. |
+| [Como: subscrever eventos através do portal](subscribe-through-portal.md) | Utilize o portal para subscrever eventos para uma subscrição do Azure. |
+| [Azure CLI: subscreva eventos para uma subscrição do Azure](./scripts/event-grid-cli-azure-subscription.md) |Sample script que cria uma subscrição de Event Grid para uma subscrição Azure e envia eventos para um WebHook. |
+| [PowerShell: subscreva eventos para uma subscrição do Azure](./scripts/event-grid-powershell-azure-subscription.md)| Sample script que cria uma subscrição de Event Grid para uma subscrição Azure e envia eventos para um WebHook. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

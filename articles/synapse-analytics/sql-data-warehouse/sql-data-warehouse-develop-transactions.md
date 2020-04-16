@@ -10,13 +10,12 @@ ms.subservice: ''
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d9578653ff8074fee8336df447caf119f79febe0
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 558b16fc348728c507af1fa0260a67ccacefed0f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745266"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416153"
 ---
 # <a name="use-transactions-in-synapse-sql-pool"></a>Utilize transações em piscina Synapse SQL
 
@@ -45,7 +44,7 @@ Na tabela seguinte, foram apresentados dois pressupostos:
 
 ## <a name="gen2"></a>Gen2
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Tampa por distribuição (GB) | Número de Distribuições | Tamanho da transação MAX (GB) | # Filas por distribuição | Max Rows por transação |
+| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Tampa por distribuição (GB) | Número de Distribuições | Tamanho da transação MAX (GB) | # Filas por distribuição | Max Rows por transação |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -66,7 +65,7 @@ Na tabela seguinte, foram apresentados dois pressupostos:
 
 ## <a name="gen1"></a>Gen1
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Tampa por distribuição (GB) | Número de Distribuições | Tamanho da transação MAX (GB) | # Filas por distribuição | Max Rows por transação |
+| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Tampa por distribuição (GB) | Número de Distribuições | Tamanho da transação MAX (GB) | # Filas por distribuição | Max Rows por transação |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |

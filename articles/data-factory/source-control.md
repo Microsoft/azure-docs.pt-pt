@@ -11,14 +11,15 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 6645c2672e15c562216b4347f779ef3634a2f124
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2108f2f9098fe6da8ee4666b30605bed14164484
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130876"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414710"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controlo de fontes na Fábrica de Dados Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A experiência de interface de utilizador da Azure Data Factory (UX) tem duas experiências disponíveis para autoria visual:
 
@@ -231,7 +232,7 @@ Abrir-se-á um painel lateral onde confirma que a filial e as alterações pende
 Normalmente, não queres que todos os membros da equipa tenham permissões para atualizar a fábrica. Recomenda-se as seguintes definições de permissões:
 
 *   Todos os membros da equipa deviam ter lido permissões para a fábrica de dados.
-*   Apenas um conjunto selecionado de pessoas deve ser autorizado a publicar na fábrica. Para isso, devem ter o papel de **colaborador da Fábrica** de Dados na fábrica. Para obter mais informações sobre permissões, consulte [Papéis e permissões para a Azure Data Factory](concepts-roles-permissions.md).
+*   Apenas um conjunto selecionado de pessoas deve ser autorizado a publicar na fábrica. Para isso, devem ter o papel de contribuinte da **Data Factory** no grupo de recursos em que a fábrica se encontra. Para obter mais informações sobre permissões, consulte [Papéis e permissões para a Azure Data Factory](concepts-roles-permissions.md).
    
 Recomenda-se não permitir check-ins diretos no ramo de colaboração. Esta restrição pode ajudar a prevenir bugs, uma vez que cada check-in passará por um processo de revisão de pedidos de retirada descrito na [Criação](source-control.md#creating-feature-branches)de ramos de recurso .
 

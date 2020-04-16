@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 8d5bef141f83eedaa996bb63c1fb814aeb6af197
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: dd986a7557f468b939aefe1da825c9834618047f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76165969"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402923"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: criar uma aplicação Android para detetar e enquadrar rostos numa imagem
 
-Neste tutorial, irá criar uma aplicação Android que utiliza o serviço Azure Face, através do Java SDK, para detetar rostos humanos numa imagem. A aplicação exibe uma imagem selecionada e desenha uma moldura em torno de cada rosto detetado.
+Neste tutorial, você vai criar uma aplicação Android que usa o serviço Azure Face, através do Java SDK, para detetar rostos humanos numa imagem. A aplicação exibe uma imagem selecionada e desenha uma moldura em torno de cada rosto detetado.
 
 Este tutorial mostrar-lhe como:
 
@@ -39,7 +39,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 - Uma chave de subscrição Face. Você pode obter uma chave de subscrição de teste gratuito da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço Face e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para `FACE_SUBSCRIPTION_KEY` a `FACE_ENDPOINT`chave e corda final de serviço, nomeada e, respectivamente.
 - Qualquer edição do [Visual Studio 2015 ou 2017.](https://www.visualstudio.com/downloads/)
-- [Android Studio](https://developer.android.com/studio/) com Nível API 22 ou mais tarde (exigido pela biblioteca do cliente Face).
+- [Android Studio](https://developer.android.com/studio/) com Nível API 22 ou mais tarde.
 
 ## <a name="create-the-android-studio-project"></a>Criar o projeto Android Studio
 
@@ -123,7 +123,7 @@ Execute a aplicação e procure uma imagem com um rosto. Aguarde alguns segundos
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu o processo básico para usar o Face Java SDK e criou uma aplicação para detetar e enquadrar rostos numa imagem. Em seguida, saiba mais sobre os detalhes da deteção facial.
+Neste tutorial, aprendeu a usar o Face Java SDK para criar uma aplicação para detetar e enquadrar rostos numa imagem. Em seguida, saiba mais sobre os detalhes da deteção facial.
 
 > [!div class="nextstepaction"]
 > [Como Detetar Rostos numa Imagem](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe8aa088538663ac3e64f5913ff031e6160b045
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: b3f284efd6a9a2fd83c8e2a8f9fb7a962c1cacc1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382646"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406468"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
-Utilizando o Azure Ative Directory (Azure AD), pode designar administradores limitados para gerir tarefas de identidade em funções menos privilegiadas. Os administradores podem ser atribuídos para fins como adicionar ou alterar utilizadores, atribuir funções administrativas, redefinir palavras-passe de utilizador, gerir as licenças dos utilizadores e gerir nomes de domínio. As permissões de utilizador predefinidas só podem ser alteradas nas definições do utilizador em AD Azure.
+Utilizando o Azure Ative Directory (Azure AD), pode designar administradores limitados para gerir tarefas de identidade em funções menos privilegiadas. Os administradores podem ser atribuídos para fins como adicionar ou alterar utilizadores, atribuir funções administrativas, redefinir palavras-passe de utilizador, gerir as licenças dos utilizadores e gerir nomes de domínio. As [permissões de utilizador predefinidas](../fundamentals/users-default-permissions.md) só podem ser alteradas nas definições do utilizador em AD Azure.
 
 ## <a name="limit-use-of-global-administrator"></a>Limitar a utilização de administrador global
 
@@ -276,6 +276,10 @@ Delegar permissões administrativas sobre subconjuntos de utilizadores e aplicar
 
 Esta função foi anteriormente chamada de "Administrador de Passwords" no [portal Azure.](https://portal.azure.com/) O nome "Administrador de Helpdesk" em Azure AD corresponde agora ao seu nome no Azure AD PowerShell e no Microsoft Graph API.
 
+### <a name="hybrid-identity-administrator"></a>[Administrador de Identidade Híbrida](#hybrid-identity-administrator-permissions)
+
+Os utilizadores desta função podem ativar, configurar e gerir serviços e configurações relacionadas com a ativação da identidade híbrida em Azure AD. Esta função confere a capacidade de configurar a AD Azure a um dos três métodos de autenticação suportados, sincronização de hash password (PHS), autenticação pass-through (PTA) ou Federação (AD FS ou fornecedor de 3.ª federação), e implantar infraestruturas relacionadas no local para os permitir. A infraestrutura on-prem inclui agentes de provisionamento e PTA. Esta função permite ativar o Single Sign-On (S-SSO) sem emenda para permitir a autenticação perfeita em dispositivos não Windows 10 ou computadores não Windows Server 2016. Além disso, este papel confere a capacidade de ver registos de login e acesso à saúde e análise para fins de monitorização e resolução de problemas. 
+
 ### <a name="intune-administrator"></a>[Administrador inafinado](#intune-service-administrator-permissions)
 
 Os utilizadores com esta função têm permissões globais dentro do Microsoft Intune Online, quando o serviço está presente. Além disso, esta função contém a capacidade de gerir utilizadores e dispositivos de forma a associar a política, bem como criar e gerir grupos. Mais informações sobre [o controlo da administração baseado em Role (RBAC) com](https://docs.microsoft.com/intune/role-based-access-control)a Microsoft Intune .
@@ -300,6 +304,10 @@ Os utilizadores desta função podem monitorizar todas as notificações no Cent
 ### <a name="message-center-reader"></a>[Leitor de centro de mensagens](#message-center-reader-permissions)
 
 Os utilizadores desta função podem monitorizar notificações e atualizações de saúde consultivas no [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para a sua organização em serviços configurados como Exchange, Intune e Microsoft Teams. Os leitores do Centro de Mensagens recebem semanalmente e-mails de publicações, atualizações e podem partilhar posts de centros de mensagens no Office 365. No Azure AD, os utilizadores atribuídos a esta função só terão acesso apenas a leitura sacana em serviços da Azure AD, como utilizadores e grupos. Esta função não tem acesso a visualização, criação ou gestão de bilhetes de apoio.
+
+### <a name="network-administrator"></a>[Administrador de Rede](#network-administrator-permissions)
+
+Os utilizadores desta função podem rever as recomendações de arquitetura do perímetro da rede da Microsoft que se baseiam na telemetria da rede a partir das suas localizações de utilizador. O desempenho da rede para o Office 365 baseia-se na arquitetura cuidadosa do perímetro da rede de clientes empresariais, que é geralmente específica para a localização do utilizador. Esta função permite a edição de locais de utilizador descobertos e a configuração de parâmetros de rede para esses locais para facilitar a melhoria das medições de telemetria e recomendações de design. 
 
 ### <a name="office-apps-administrator"></a>[Administrador de aplicações de escritório](#office-apps-administrator-permissions)
 
@@ -331,6 +339,14 @@ Os utilizadores com esta função têm permissões globais dentro do Microsoft P
 ### <a name="power-platform-administrator"></a>[Administrador da Plataforma de Energia](#power-platform-administrator-permissions)
 
 Os utilizadores desta função podem criar e gerir todos os aspetos dos ambientes, PowerApps, Flows, Data Loss Prevention. Além disso, os utilizadores com esta função têm a capacidade de gerir os bilhetes de apoio e monitorizar a saúde do serviço.
+
+### <a name="printer-administrator"></a>[Administrador de impressora](#printer-administrator-permissions)
+
+Os utilizadores desta função podem registar impressoras e gerir todos os aspetos de todas as configurações da impressora na solução Microsoft Universal Print, incluindo as definições do Conector Universal Print. Podem consentir em todos os pedidos de autorização de impressão delegados. Os Administradores da Impressora também têm acesso a relatórios de impressão.
+
+### <a name="printer-technician"></a>[Técnico de impressora](#printer-technician-permissions)
+
+Os utilizadores com esta função podem registar impressoras e gerir o estado da impressora na solução Microsoft Universal Print. Também podem ler todas as informações sobre conector. Tarefa chave que um Técnico de Impressora não pode fazer é definir permissões do utilizador em impressoras e partilhar impressoras.
 
 ### <a name="privileged-authentication-administrator"></a>[Administrador de Autenticação Privilegiada](#privileged-authentication-administrator-permissions)
 
@@ -998,6 +1014,7 @@ Pode gerir todos os aspetos do produto Exchange.
 | microsoft.diretório/grupos/unificado/membros/atualização | Atualização da adesão ao Office 365 Groups. |
 | microsoft.diretório/grupos/unificado/proprietários/atualização | Atualizar a propriedade do Office 365 Groups. |
 | microsoft.office365.exchange/allEntities/allTasks | Gerencie todos os aspetos do Exchange Online. |
+| microsoft.office365.network/performance/allProperties/read | Leia as páginas de desempenho da rede no Centro de Administração M365. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Gabinete 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
 | microsoft.office365.usageReports/allEntities/read | Leia os relatórios de utilização do Office 365. |
@@ -1076,6 +1093,7 @@ Pode ler tudo o que um Administrador Global pode, mas não editar nada.
 | microsoft.office365.exchange/allEntities/read    | Leia todos os aspetos do Exchange Online. |
 | microsoft.office365.messageCenter/messages/read    | Leia mensagens em microsoft.office365.messageCenter. |
 | microsoft.office365.messageCenter/securityMessages/read    | Leia segurançaMensagens em microsoft.office365.messageCenter. |
+| microsoft.office365.network/performance/allProperties/read | Leia as páginas de desempenho da rede no Centro de Administração M365. |
 | microsoft.office365.protectionCenter/allEntities/read    | Leia todos os aspetos do Centro de Proteção do Escritório 365. |
 | microsoft.office365.securityComplianceCenter/allEntities/read    | Leia todas as propriedades padrão em microsoft.office365.securityComplianceCenter. |
 | microsoft.office365.usageReports/allEntities/read    | Leia os relatórios de utilização do Office 365. |
@@ -1132,6 +1150,50 @@ Pode redefinir palavras-passe para não administradores e administradores de hel
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Gabinete 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
+
+### <a name="hybrid-identity-administrator-permissions"></a>Permissões de Administrador de Identidade Híbrida
+
+Ativar, implementar, configurar, gerir, monitorizar e resolver serviços de fornecimento e autenticação em nuvem. 
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
+| microsoft.directy/applications/audience/update  | Atualizar aplicações.propriedade do público em Azure Ative Directory. |
+| microsoft.directy/applications/autenticação/atualização | Atualizar aplicações.propriedade de autenticação no Diretório Ativo Azure.  |
+| microsoft.diretório/aplicações/básico/atualização | Atualizar propriedades básicas sobre aplicações no Diretório Ativo Azure. |
+| microsoft.directy/applications/create | Criar aplicações no Diretório Ativo Azure. |
+| microsoft.directy/applications/credentials/update | Atualizar aplicações.credenciais propriedade em Azure Ative Directory. |
+| microsoft.directy/applications/delete | Eliminar aplicações no Diretório Ativo Azure. |
+| microsoft.diretório/aplicações/proprietários/atualização | Atualizar aplicações.proprietários propriedade em Azure Ative Diretório. |
+| microsoft.directy/applications/permissions/update | Atualizar aplicações.permissões propriedade em Azure Ative Directory. |
+| microsoft.directy/applications/policies/update | Atualizar aplicações.policies property in Azure Ative Directory. |
+| microsoft.diretório/aplicaçãoTemplates/instantiate | Aplicações de galeria instantânea a partir de modelos de aplicação. |
+| microsoft.directy/auditLogs/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) em auditlogs no Diretório Ativo Azure. |
+| microsoft.directy/cloudProvisioning/allProperties/allTasks | Leia e configure todas as propriedades do serviço de fornecimento de nuvem Azure AD. |
+| microsoft.directy/federatedAuthentication/allProperties/allTasks | Gerencie todos os aspetos dos Serviços Federados de Diretório Ativo (ADFS) ou 3º provedor da federação de terceiros em Azure AD. |
+| microsoft.directy/organization/dirSync/update | Atualização organization.dirSync property in Azure Ative Directory. |
+| microsoft.directy/passwordHashSync/allProperties/allTasks | Gerencie todos os aspetos do Password Hash Sync (PHS) em Azure AD. |
+| microsoft.directy/passThroughAuthentication/allProperties/allTasks | Gerencie todos os aspetos da Autenticação Pass-through (PTA) em Azure AD. |
+| microsoft.directy/seamlessSSO/allProperties/allTasks | Gerencie todos os aspetos do único sign-on sem emenda (SSO) em Azure AD. |
+| microsoft.directy/servicePrincipas/audience/update | Atualizar serviçoSPrincipais.propriedade do público em Azure Ative Directory. |
+| microsoft.directy/servicePrincipas/autenticação/atualização | Atualizar serviçoSPrincipais.propriedade de autenticação em Diretório Ativo Azure. |
+| microsoft.directy/servicePrincipas/basic/update | Atualizar propriedades básicas em serviçoPrincipais em Diretório Ativo Azure. |
+| microsoft.directy/servicePrincipas/criar | Crie serviços Diretores em Diretório Ativo Azure. |
+| microsoft.directy/servicePrincipas/credenciais/atualização | Atualizar serviçoSPrincipais.credenciais propriedade em Azure Ative Directory. |
+| microsoft.directy/servicePrincipas/delete | Elimine os principais de serviço no Diretório Ativo Azure. |
+| microsoft.directy/servicePrincipas/proprietários/atualização | Atualizar serviçoSPrincipais.proprietários propriedade em Azure Ative Directory. |
+| microsoft.directy/servicePrincipas/permissões/atualização | Atualizar serviçoSPrincipais.permissions propriedade em Azure Ative Directory. |
+| microsoft.directy/servicePrincipas/policies/update | Atualizar serviçoSPrincipais.policies propriedade em Azure Ative Directory. |
+| microsoft.directy/servicePrincipas/sincronizaçãoJobs/manage | Gerir todos os aspetos dos trabalhos de sincronização em Azure AD. |
+| microsoft.directy/servicePrincipas/sincronizaçãoSchema/manage | Gerencie todos os aspetos do esquema de sincronização em Azure AD. |
+| microsoft.directy/servicePrincipais/sincronizaçãoCredenciais/gerir | Gerencie todos os aspetos das credenciais de sincronização em Azure AD. |
+| microsoft.directy/servicePrincipas/tag/update | Atualizar serviçoSPrincipais.tag propriedade em Azure Ative Directory. |
+| microsoft.directy/signInReports/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) no signInReports in Azure Ative Directory. |
+| microsoft.office365.messageCenter/messages/read | Leia mensagens em microsoft.office365.messageCenter. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Gabinete 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
+
 
 ### <a name="intune-service-administrator-permissions"></a>Intune Service Administrator permissões
 
@@ -1246,6 +1308,19 @@ Pode ler mensagens e atualizações para a sua organização apenas no Office 36
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Leia mensagens em microsoft.office365.messageCenter. |
 
+### <a name="network-administrator-permissions"></a>Permissões do Administrador de Rede
+Pode gerir as localizações da rede e rever as ideias de design de rede da empresa para o Microsoft 365 Software como aplicações de Serviço.
+
+> [!NOTE]
+> Este papel tem permissões adicionais fora do Azure Ative Directory. Para mais informações, consulte a descrição do papel acima.
+>
+>
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.office365.network/performance/allProperties/read | Leia as páginas de desempenho da rede no Centro de Administração M365.  |
+| microsoft.office365.network/locations/allProperties/allTasks | Leia e configure propriedades de localização de rede para cada local. |
+
 ### <a name="office-apps-administrator-permissions"></a>Permissões de administrador de apps de escritório
 Pode gerir os serviços de cloud das aplicações do Office, incluindo a gestão de políticas e configurações, e gerir a capacidade de selecionar, desseleccionar e publicar conteúdo de funcionalidade "novidade" para dispositivos de utilizador final.
 
@@ -1261,6 +1336,7 @@ Pode gerir os serviços de cloud das aplicações do Office, incluindo a gestão
 | microsoft.office365.messageCenter/messages/read | Leia mensagens em microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Gabinete 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
+| microsoft.office365.usageReports/allEntities/read | Leia os relatórios de utilização do Office 365. |
 | microsoft.office365.userCommunication/allEntities/allTasks | Leia e atualize a visibilidade das novas mensagens. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
@@ -1377,6 +1453,34 @@ Pode criar e gerir todos os aspetos do Microsoft Dynamics 365, PowerApps e Micro
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Gabinete 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
+
+### <a name="printer-administrator-permissions"></a>Permissões do Administrador da Impressora
+
+Pode gerir todos os aspetos das impressoras e conectores da impressora.
+
+> [!NOTE]
+> Este papel tem permissões adicionais fora do Azure Ative Directory. Para mais informações, consulte a descrição do papel acima.
+>
+>
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.azure.print/allEntities/allProperties/allTasks | Crie e elimine impressoras e conectores e leia e atualize todas as propriedades na Microsoft Print. |
+
+### <a name="printer-technician-permissions"></a>Permissões do Técnico de Impressora
+
+Pode registar e desregistar impressoras e atualizar o estado da impressora.
+
+> [!NOTE]
+> Este papel tem permissões adicionais fora do Azure Ative Directory. Para mais informações, consulte a descrição do papel acima.
+>
+>
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.azure.print/conectores/allProperties/read | Leia todas as propriedades dos conectores na Microsoft Print. |
+| microsoft.azure.print/printers/allProperties/read | Leia todas as propriedades das impressoras na Microsoft Print. |
+| microsoft.azure.print/impressoras/basic/update | Atualizar propriedades básicas das impressoras na Microsoft Print. |
+| microsoft.azure.print/impressoras/register | Registe as impressoras na Microsoft Print. |
+| microsoft.azure.print/printers/unregister | Desregistre as impressoras na Microsoft Print. |
 
 ### <a name="privileged-authentication-administrator-permissions"></a>Autorizações de Administrador de Autenticação Privilegiada
 
@@ -1565,6 +1669,7 @@ Pode gerir todos os aspetos do serviço SharePoint.
 | microsoft.diretório/grupos/unificado/excluir | Eliminar o Office 365 Groups. |
 | microsoft.diretório/grupos/unificado/membros/atualização | Atualização da adesão ao Office 365 Groups. |
 | microsoft.diretório/grupos/unificado/proprietários/atualização | Atualizar a propriedade do Office 365 Groups. |
+| microsoft.office365.network/performance/allProperties/read | Leia as páginas de desempenho da rede no Centro de Administração M365. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Gabinete 365 Service Health. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Crie e elimine todos os recursos e leia e atualize as propriedades padrão em microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
@@ -1630,6 +1735,8 @@ Pode gerir o serviço Microsoft Teams.
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
 | microsoft.diretório/grupos/hiddenMembers/read | Leia a propriedade dos grupos.hiddenMembers em Azure Ative Directory. |
 | microsoft.directy/groups/uniified/appRoleAssignments/update | Atualizar grupos.propriedade unificada em Azure Ative Directory. |
 | microsoft.diretório/grupos/unificado/básico/atualização | Atualizar propriedades básicas do Office 365 Groups. |
@@ -1637,12 +1744,11 @@ Pode gerir o serviço Microsoft Teams.
 | microsoft.diretório/grupos/unificado/excluir | Eliminar o Office 365 Groups. |
 | microsoft.diretório/grupos/unificado/membros/atualização | Atualização da adesão ao Office 365 Groups. |
 | microsoft.diretório/grupos/unificado/proprietários/atualização | Atualizar a propriedade do Office 365 Groups. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
-| microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
+| microsoft.office365.network/performance/allProperties/read | Leia as páginas de desempenho da rede no Centro de Administração M365. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Gabinete 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
 | microsoft.office365.usageReports/allEntities/read | Leia os relatórios de utilização do Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="user-administrator-permissions"></a>Permissões do Administrador do Utilizador
 Pode gerir todos os aspetos dos utilizadores e grupos, incluindo a reposição de senhas para administradores limitados.
@@ -1719,18 +1825,22 @@ Leitor Global | Leitor global | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Administrador de Grupos | Administrador de grupos | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Convidado convidado | Convidado convidado | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Administrador de Helpdesk | Administrador de helpdesk | 729827e3-9c14-49f7-bb1b-9608f156bbb8
+Administrador de Identidade Híbrida | Administrador de identidade híbrido | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2
 Administrador de Serviços do Intune | Administrador do Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Administrador kaizala | Administrador kaizala | 74ef975b-6605-40af-a5d2-b9539d836353
 Administrador de Licença | Administrador de licença | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Administrador de Serviço Lync | Administrador do Skype para Empresas | 75941009-915a-4869-abe7-691bff18279e
 Leitor de privacidade do Centro de Mensagens | Leitor de privacidade do centro de mensagens | ac16e43d-7b2d-40e0-ac05-243ff356ab5b5b
 Leitor de centro de mensagens | Leitor de centro de mensagens | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Administrador de Rede | Administrador de rede | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Administrador de aplicações de escritório | Administrador de aplicações de escritório | 2b745bdf-0803-4d80-aa65-822c4493daac
 Suporte de parceiro tier1 | Suporte de nível parceiro1 | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Suporte de parceiro tier2 | Suporte de nível parceiro2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Administrador de palavra-passe | Administrador de palavras-passe | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Administrador do Serviço Power BI | Administrador power BI | a9ea8996-122f-4c74-9520-8edcd192826c
 Administrador da Plataforma de Energia | Administrador de plataforma de energia | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
+Administrador de impressora | Administrador de impressora | 644ef478-e28f-4e28-b9dc-3fdde9a0b1f
+Técnico de impressora | Técnico de impressora | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477
 Administrador de Autenticação Privilegiada | Administrador de autenticação privilegiado | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Administrador privilegiado | Administrador privilegiado | e8611ab8-c189-46e8-94e1-60213ab1f814
 Relatórios Leitor | Leitor de relatórios | 4a5d8f65-41da-4de4-8968-e035b65339cf

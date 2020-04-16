@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: ffb610634399594788afcb9b600ba00c6803dfdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77207030"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415314"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Atividade da Função Azure na Fábrica de Dados Azure
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 A atividade da Função Azure permite-lhe executar [funções Azure](../azure-functions/functions-overview.md) num oleoduto de Fábrica de Dados. Para executar uma Função Azure, é necessário criar uma ligação de serviço ligada e uma atividade que especifique a Função Azure que pretende executar.
 
 Para uma introdução de oito minutos e demonstração desta funcionalidade, veja o seguinte vídeo:
@@ -41,10 +41,10 @@ O tipo de devolução da função `JObject`Azure tem de ser válido . (Tenha em 
 
 | **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| nome  | Nome da atividade no oleoduto  | Cadeia | sim |
-| tipo  | Tipo de atividade é 'AzureFunctionActivity' | Cadeia | sim |
+| nome  | Nome da atividade no oleoduto  | String | sim |
+| tipo  | Tipo de atividade é 'AzureFunctionActivity' | String | sim |
 | serviço ligado | O serviço ligado à função Azure para a app de função azure correspondente  | Referência de serviço ligada | sim |
-| nome da função  | Nome da função na App função Azure que esta atividade chama | Cadeia | sim |
+| nome da função  | Nome da função na App função Azure que esta atividade chama | String | sim |
 | método  | Método DE API REST para a chamada de função | Tipos suportados por cordas: "GET", "POST", "PUT"   | sim |
 | cabeçalho  | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e escrever num pedido: "cabeçalhos": { "Aceitar-Linguagem": "en-us", "Content-Type": "application/json" } | Corda (ou expressão com resultadoTipo de corda) | Não |
 | body  | corpo que é enviado juntamente com o pedido para o método api função  | Corda (ou expressão com resultadoTipo de corda) ou objeto.   | Necessário para métodos PUT/POST |

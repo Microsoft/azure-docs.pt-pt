@@ -1,20 +1,20 @@
 ---
-title: Esquema de evento de grupo de recursos da Azure Event Grid
+title: Grupo de recursos Azure como fonte da Rede de Eventos
 description: Descreve as propriedades que estão fornecidas para eventos de grupo de recursos com a Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/12/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 6cbfc06f380d7c4818ca82e858c23bb18849fb7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb52b54eb32a119a463b59e4d4f2ab30096886fa
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561698"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393257"
 ---
-# <a name="azure-event-grid-event-schema-for-resource-groups"></a>Esquema de evento sinuoso do evento Azure Event Grid para grupos de recursos
+# <a name="azure-resource-group-as-an-event-grid-source"></a>Grupo de recursos Azure como fonte da Rede de Eventos
 
 Este artigo fornece as propriedades e esquemas para eventos de grupo de recursos.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
 
@@ -28,9 +28,10 @@ Para lidar programáticamente com os eventos, `operationName` pode classificar e
 
 O assunto do evento é a identificação de recursos do recurso que é o alvo da operação. Para filtrar eventos para um recurso, forneça esse ID de recurso ao criar a subscrição do evento.  Para filtrar por um tipo de recurso, utilize um valor no seguinte formato:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
-Para obter uma lista de scripts e tutoriais de amostras, consulte a fonte do [evento do grupo Resource](event-sources.md#resource-groups).
 
-## <a name="available-event-types"></a>Tipos de eventos disponíveis
+## <a name="event-grid-event-schema"></a>Esquema de evento sinuoso do evento Da Grelha de Eventos
+
+### <a name="available-event-types"></a>Tipos de eventos disponíveis
 
 Os grupos de recursos emitem eventos de gestão do Azure Resource Manager, como quando um VM é criado ou uma conta de armazenamento é eliminada.
 
@@ -46,7 +47,7 @@ Os grupos de recursos emitem eventos de gestão do Azure Resource Manager, como 
 | Microsoft.Resources.ResourceWriteFailure | O funcionamento da criação ou atualização falha. |
 | Microsoft.Resources.ResourceWriteSuccess | Criada quando a operação de criação ou atualização é bem sucedida. |
 
-## <a name="example-event"></a>Evento de exemplo
+### <a name="example-event"></a>Evento de exemplo
 
 O exemplo seguinte mostra o esquema para um evento **ResourceWriteSuccess.** O mesmo esquema é utilizado para **eventos ResourceWriteFailure** e `eventType` **ResourceWriteCancel** com valores diferentes para .
 
@@ -230,7 +231,7 @@ O exemplo que se segue mostra o esquema para um evento **ResourceActionSuccess.*
 }]
 ```
 
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de alto nível:
 
@@ -259,6 +260,16 @@ O objeto de dados tem as seguintes propriedades:
 | status | string | O estado da operação. |
 | subscriptionId | string | A identificação de subscrição do recurso. |
 | inquilinoId | string | A identificação do inquilino do recurso. |
+
+## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
+|Título  |Descrição  |
+|---------|---------|
+| [Tutorial: monitorizar alterações de máquinas virtuais com grelha de eventos azure e aplicações lógicas](monitor-virtual-machine-changes-event-grid-logic-app.md) | Uma aplicação lógica monitoriza alterações a uma máquina virtual e envia e-mails sobre essas alterações. |
+| [Azure CLI: subscreva eventos para um grupo de recursos](./scripts/event-grid-cli-resource-group.md)| Sample script que subscreve eventos para um grupo de recursos. Envia eventos para um WebHook. |
+| [Azure CLI: subscreva eventos para um grupo de recursos e filtre para um recurso](./scripts/event-grid-cli-resource-group-filter.md) | Sample script que subscreve eventos para um grupo de recursos e filtra eventos para um recurso. |
+| [PowerShell: subscreva eventos para um grupo de recursos](./scripts/event-grid-powershell-resource-group.md) | Sample script que subscreve eventos para um grupo de recursos. Envia eventos para um WebHook. |
+| [PowerShell: subscreva eventos para um grupo de recursos e filtre para um recurso](./scripts/event-grid-powershell-resource-group-filter.md) | Sample script que subscreve eventos para um grupo de recursos e filtra eventos para um recurso. |
+| [Modelo de Gestor de Recursos: subscrição de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Subscreve eventos para uma subscrição azure ou grupo de recursos. Envia eventos para um WebHook. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

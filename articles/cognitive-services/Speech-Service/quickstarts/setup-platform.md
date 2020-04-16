@@ -3,20 +3,20 @@ title: 'Quickstart: Configurar plataforma de dev'
 titleSuffix: Azure Cognitive Services
 description: Neste arranque rápido, aprenderá a instalar o Speech SDK para a sua plataforma preferida e combinação de linguagem de programação.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-three
-ms.openlocfilehash: 074d1cb2003db45bbddf6c747b3fd024886492f1
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 67ade64cdb3b2da6f78f77beb4d0cdc993715c9a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666923"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400866"
 ---
 # <a name="quickstart-setup-development-environment"></a>Quickstart: Ambiente de desenvolvimento de configuração
 

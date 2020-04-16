@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 128b15bd5b3ba3c3ac891719bf5c3ec8e5137cce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4f1369aa850a244128da470aee81b2efc2e09be
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023519"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413197"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformação de origem no fluxo de dados de mapeamento 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Uma transformação de origem confunde a sua fonte de dados para o fluxo de dados. Ao conceber fluxos de dados, o seu primeiro passo será sempre configurar uma transformação de origem. Para adicionar uma fonte, clique na caixa **Adicionar Fonte** na tela de fluxo de dados.
 

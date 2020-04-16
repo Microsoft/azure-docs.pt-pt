@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 933a175213afd81c81eb237a2b2dd4c3e24e3315
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 12f91633834ee98582eaad886b48eb8619378265
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633158"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411654"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Decisões de conceção e técnicas de codificação para uma piscina SQL Synapse em Azure Synapse Analytics 
  Neste artigo, você encontrará recursos adicionais para ajudá-lo a entender melhor as decisões de design chave, recomendações e técnicas de codificação para uma piscina SQL em Azure Synapse.
@@ -23,7 +23,7 @@ ms.locfileid: "80633158"
 ## <a name="key-design-decisions"></a>Decisões-chave de design
 Os seguintes artigos destacam conceitos e decisões de design para o desenvolvimento de um armazém de dados distribuído utilizando a capacidade de piscina SQL em Azure Synapse:
 
-* [conexões](sql-data-warehouse-connect-overview.md)
+* [conexões](../sql/connect-overview.md)
 * [conmoeda](resource-classes-for-workload-management.md)
 * [transações](sql-data-warehouse-develop-transactions.md)
 * [schemas definidos pelo utilizador](sql-data-warehouse-develop-user-defined-schemas.md)

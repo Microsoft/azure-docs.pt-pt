@@ -11,14 +11,15 @@ author: djpmsft
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: f150234ecd3446858e8a6aa7d224eb3ad3d0efd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14f1d3b58996d438279bfa2a234c754a6d840c79
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927333"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414737"
 ---
 # <a name="templates"></a>Modelos
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Os modelos são oleodutos pré-definidos da Fábrica de Dados Azure que permitem começar rapidamente com a Data Factory. Os modelos são úteis quando se é novo na Data Factory e quer começar rapidamente. Estes modelos reduzem o tempo de desenvolvimento para a construção de projetos de integração de dados, melhorando assim a produtividade do desenvolvedor.
 

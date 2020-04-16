@@ -1,67 +1,43 @@
 ---
-title: No local, a integração de reescrita de palavra-passe com a Azure AD SSPR - Diretório Ativo Azure
-description: Obtenha senhas de nuvem escritas de volta para a infraestrutura de AD no local
+title: Reescrita de palavra-passe no local com redefinição de senha de autosserviço - Diretório Ativo Azure
+description: Saiba como a mudança de palavra-passe ou o reset de eventos no Diretório Ativo do Azure pode ser reescrito para um ambiente de diretório no local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 04/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fe58ae95c8d9c6b93c7e92e093541af009781ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 787c15c11c995c7eb30662131302658175c7f877
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454436"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393027"
 ---
-# <a name="what-is-password-writeback"></a>O que é a redação da palavra-passe?
+# <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Como é que a palavra-passe de autosserviço repõe o reescrita no Diretório Ativo do Azure?
 
-Ter um utilitário de redefinição de senha baseado na nuvem é ótimo, mas a maioria das empresas ainda tem um diretório no local onde os seus utilizadores existem. Como é que a Microsoft suporta manter o Diretório Ativo (AD) tradicional no local em sincronização com as alterações de password na nuvem? A reescrita de palavra-passe é uma funcionalidade ativada com [o Azure AD Connect](../hybrid/whatis-hybrid-identity.md) que permite que as alterações de palavra-passe na nuvem sejam reescritas para um diretório existente no local em tempo real.
+O reset de senha de autosserviço do Azure Ative Directory (Azure AD) permite que os utilizadores resetas sedem as suas palavras-passe na nuvem, mas a maioria das empresas também tem um ambiente de Serviços de Domínio de Diretório Ativo (AD DS) no local onde os seus utilizadores existem. A reescrita de palavra-passe é uma funcionalidade ativada com [o Azure AD Connect](../hybrid/whatis-hybrid-identity.md) que permite que as alterações de palavra-passe na nuvem sejam reescritas para um diretório existente no local em tempo real. Nesta configuração, à medida que os utilizadores alteram ou redefiniram as suas palavras-passe utilizando SSPR na nuvem, as palavras-passe atualizadas também foram reescritas para o ambiente AD DS no local.
 
-A reescrita de palavra-passe é suportada em ambientes que utilizam:
+A reescrita de palavra-passe é suportada em ambientes que utilizam os seguintes modelos de identidade híbrida:
 
-* [Serviços de Federação do Active Directory](../hybrid/how-to-connect-fed-management.md)
 * [Sincronização de hash de palavra-passe](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Autenticação pass-through](../hybrid/how-to-connect-pta.md)
+* [Serviços de Federação do Active Directory](../hybrid/how-to-connect-fed-management.md)
 
-> [!WARNING]
-> A reversão da palavra-passe deixará de funcionar para os clientes que estão a utilizar as versões Azure AD Connect 1.0.8641.0 e mais antigas quando o serviço de Controlo de [Acesso Azure (ACS) for retirado a 7 de novembro de 2018.](../azuread-dev/active-directory-acs-migration.md) As versões Azure AD Connect 1.0.8641.0 e mais antigas deixarão de permitir a reescrita de palavra-passe nessa altura, porque dependem do ACS para essa funcionalidade.
->
-> Para evitar uma perturbação no serviço, atualize de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [Azure AD Connect: Upgrade de uma versão anterior para a mais recente](../hybrid/how-to-upgrade-previous-version.md)
->
+A reescrita da palavra-passe fornece as seguintes funcionalidades:
 
-A reescrita da palavra-passe fornece:
-
-* **Aplicação das políticas de senha**de diretório ativo no local : Quando um utilizador repõe a sua palavra-passe, é verificado para garantir que cumpre a sua política de Diretório Ativo no local antes de a comprometer com esse diretório. Esta análise inclui a verificação do histórico, complexidade, idade, filtros de senha e quaisquer outras restrições de senha que tenha definido no Diretório Ativo local.
-* **Feedback de atraso zero**: A reescrita da palavra-passe é uma operação sincronizada. Os seus utilizadores são imediatamente notificados se a sua palavra-passe não cumpriu a apólice ou não puder ser redefinida ou alterada por qualquer motivo.
-* **Suporta alterações de palavra-passe do painel de acesso e do Office 365**: Quando os utilizadores sincronizados com hash federados ou passwords vêm alterar as suas palavras-passe expiradas ou não expiradas, essas palavras-passe são reescritas para o ambiente do Diretório Ativo local.
-* Suporta a **redação da palavra-passe quando um administrador os repõe do portal Azure**: Sempre que um administrador repõe a palavra-passe de um utilizador no [portal Azure](https://portal.azure.com), se esse utilizador for federado ou a palavra-passe sincronizada, a palavra-passe é reescrita para as instalações. Esta funcionalidade não é atualmente suportada no portal de administração do Office.
+* Aplicação das políticas de password sinuosas de **domínio ativo (AD DS)** no local : Quando um utilizador repõe a sua palavra-passe, é verificado para garantir que cumpre a sua política de DS ad no local antes de a comprometer com esse diretório. Esta análise inclui a verificação do histórico, complexidade, idade, filtros de senha e quaisquer outras restrições de senha que defina em DS AD.
+* **Feedback de atraso zero**: A reescrita da palavra-passe é uma operação sincronizada. Os utilizadores são notificados imediatamente se a sua palavra-passe não cumprir a apólice ou não puder ser redefinida ou alterada por qualquer motivo.
+* **Suporta alterações de palavra-passe do painel de acesso e do Office 365**: Quando os utilizadores sincronizados de hash federados ou de palavra-passe vêm alterar as suas palavras-passe expiradas ou não expiradas, essas palavras-passe são reescritas em AD DS.
+* Suporta a reescrita da **palavra-passe quando um administrador os repõe do portal Azure**: Quando um administrador repõe a palavra-passe de um utilizador no [portal Azure](https://portal.azure.com), se esse utilizador for federado ou a palavra-passe sincronizada, a palavra-passe é reescrita para as instalações. Esta funcionalidade não é atualmente suportada no portal de administração do Office.
 * **Não requer nenhuma regra**de firewall de entrada : A reescrita de palavra-passe utiliza um relé De ônibus de serviço Azure como um canal de comunicação subjacente. Toda a comunicação está de saída sobre a porta 443.
 
 > [!NOTE]
-> As contas de administrador que existam dentro de grupos protegidos no local a d.A. podem ser utilizadas com redação de palavra-passe. Os administradores podem alterar a sua palavra-passe na nuvem, mas não podem usar o reset da palavra-passe para redefinir uma palavra-passe esquecida. Para obter mais informações sobre grupos protegidos, consulte [contas protegidas e grupos em Diretório Ativo](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
-
-## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento para a reescrita de palavra-passe
-
-**Reset/Change/Unlock com a reescrita de palavras-passe de self-service é uma característica premium do Azure AD**. Para mais informações sobre o licenciamento, consulte o site de [preços do Diretório Ativo Azure.](https://azure.microsoft.com/pricing/details/active-directory/)
-
-Para utilizar a reescrita da palavra-passe, deve ter uma das seguintes licenças atribuídas ao seu inquilino:
-
-* Azure AD Premium P1
-* Azure AD Premium P2
-* Mobilidade Empresarial + Segurança E3 ou A3
-* Mobilidade Empresarial + Segurança E5 ou A5
-* Microsoft 365 E3 ou A3
-* Microsoft 365 E5 ou A5
-* Microsoft 365 F1
-* Microsoft 365 Empresas
-
-> [!WARNING]
-> Os planos de licenciamento autónomos do Office 365 *não suportam "Reset/Change/Unlock with on-premis"* e exigem que tenha um dos planos anteriores para que esta funcionalidade funcione.
+> As contas de administrador que existam dentro de grupos protegidos no local a d.A. podem ser utilizadas com redação de palavra-passe. Os administradores podem alterar a sua palavra-passe na nuvem, mas não podem usar o reset da palavra-passe para redefinir uma palavra-passe esquecida. Para obter mais informações sobre grupos protegidos, consulte [contas protegidas e grupos em Diretório Ativo](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
 
 ## <a name="how-password-writeback-works"></a>Como funciona a repetição de escrita de palavras-passe
 
@@ -75,30 +51,31 @@ Quando um utilizador sincronizado de hash federado ou senha tenta redefinir ou a
 1. Quando o utilizador seleciona **Enviar,** a palavra-passe de texto simples é encriptada com uma chave simétrica criada durante o processo de configuração de reprodução.
 1. A palavra-passe encriptada está incluída numa carga útil que é enviada por um canal HTTPS para o seu retransmissor de ônibus de serviço específico do seu inquilino (que é configurado para si durante o processo de configuração de redação). Este retransmissor está protegido por uma senha gerada aleatoriamente que só a sua instalação no local sabe.
 1. Depois de a mensagem chegar ao autocarro de serviço, o ponto final de reset de palavra-passe acorda automaticamente e vê que tem um pedido de reset pendente.
-1. O serviço procura então o utilizador utilizando o atributo de âncora em nuvem. Para que esta procura tenha sucesso:
+1. O serviço procura então o utilizador utilizando o atributo de âncora em nuvem. Para que esta procura seja bem sucedida, devem ser satisfeitas as seguintes condições:
 
    * O objeto do utilizador deve existir no espaço do conector ative diretório.
    * O objeto do utilizador deve ser ligado ao objeto metaverso correspondente (MV).
    * O objeto do utilizador deve estar ligado ao objeto de conector Ativo azure correspondente.
    * O link do objeto do conector ative diretório para `Microsoft.InfromADUserAccountEnabled.xxx` o MV deve ter a regra de sincronização no link.
-   
+
    Quando a chamada chega da nuvem, o motor de sincronização usa o atributo **cloudAnchor** para procurar o objeto espacial do conector Azure Ative Diretório. Segue então a ligação de volta ao objeto MV e, em seguida, segue a ligação de volta ao objeto de Diretório Ativo. Como pode haver vários objetos ative diretório (multi-floresta) para o `Microsoft.InfromADUserAccountEnabled.xxx` mesmo utilizador, o motor sincronizado depende do link para escolher o correto.
 
 1. Após a descoberta da conta de utilizador, é feita uma tentativa de redefinir a palavra-passe diretamente na floresta de Diretório Ativo apropriado.
 1. Se a operação de conjunto de passwords for bem sucedida, o utilizador é informado de que a sua palavra-passe foi alterada.
-   > [!NOTE]
-   > Se o hash de senha do utilizador for sincronizado para a AD Azure utilizando a sincronização de hash de palavra-passe, existe a possibilidade de a política de senha no local ser mais fraca do que a política de palavra-passe em nuvem. Neste caso, a política no local é aplicada. Esta política garante que a sua política no local seja aplicada na nuvem, não importa se utilizar a sincronização de hash de senha ou a federação para fornecer um único sinal.
 
-1. Se a operação de conjunto de palavra-passe falhar, um erro leva o utilizador a tentar novamente. A operação pode falhar porque:
+   > [!NOTE]
+   > Se o hash de senha do utilizador for sincronizado para o Azure AD utilizando a sincronização de hash de palavra-passe, há a possibilidade de a política de senha no local ser mais fraca do que a política de palavra-passe em nuvem. Neste caso, a política no local é aplicada. Esta política garante que a sua política no local seja aplicada na nuvem, não importa se utilizar a sincronização de hash de senha ou a federação para fornecer um único sinal.
+
+1. Se a operação de conjunto de palavra-passe falhar, um erro leva o utilizador a tentar novamente. A operação pode falhar devido às seguintes razões:
     * O serviço foi para baixo.
-    * A palavra-passe que escolheram não cumpriu as políticas da organização.
+    * A palavra-passe que escolheram não cumpre as políticas da organização.
     * Incapaz de encontrar o utilizador no Diretório Ativo local.
 
-      As mensagens de erro fornecem orientações aos utilizadores para que possam tentar resolver sem a intervenção do administrador.
+   As mensagens de erro fornecem orientações aos utilizadores para que possam tentar resolver sem a intervenção do administrador.
 
 ## <a name="password-writeback-security"></a>Segurança de redação de palavra-passe
 
-A reescrita de palavra-passe é um serviço altamente seguro. Para garantir que a sua informação está protegida, um modelo de segurança de quatro camadas está ativado como o seguinte descreve:
+A reescrita de palavra-passe é um serviço altamente seguro. Para garantir que a sua informação está protegida, um modelo de segurança de quatro camadas está ativado da seguinte forma:
 
 * **Retransmissão de ônibus de serviço específico para inquilinos**
    * Quando configura o serviço, é criado um retransmissor de ônibus de serviço específico para inquilinos que está protegido por uma senha forte gerada aleatoriamente a que a Microsoft nunca tem acesso.
@@ -117,10 +94,10 @@ A reescrita de palavra-passe é um serviço altamente seguro. Para garantir que 
 
 Depois de um utilizador submeter uma reposição de palavra-passe, o pedido de reset passa por vários passos de encriptação antes de chegar ao seu ambiente no local. Estes passos de encriptação garantem a máxima fiabilidade e segurança do serviço. São descritos da seguinte forma:
 
-* **Passo 1: Encriptação de palavra-passe com chave RSA de 2048:** Depois de um utilizador submeter uma palavra-passe a ser redigida no local, a senha submetida em si é encriptada com uma chave RSA de 2048 bits.
-* **Passo 2: Encriptação de nível de pacote com AES-GCM**: Todo o pacote, a palavra-passe mais os metadados necessários, é encriptado utilizando a AES-GCM. Esta encriptação impede qualquer pessoa com acesso direto ao canal ServiceBus subjacente de visualizar ou adulterar o conteúdo.
-* **Passo 3: Toda a comunicação ocorre sobre TLS/SSL**: Toda a comunicação com o ServiceBus ocorre num canal SSL/TLS. Esta encriptação protege o conteúdo de terceiros não autorizados.
-* **Chave automática rola de seis em seis meses:** Todas as teclas rolam de seis em seis meses, ou cada vez que a redação da palavra-passe é desativada e, em seguida, reativada no Azure AD Connect, para garantir a máxima segurança e segurança do serviço.
+1. **Encriptação de password com chave RSA de 2048:** Depois de um utilizador submeter uma palavra-passe a ser reescrita no local, a senha submetida em si é encriptada com uma chave RSA de 2048 bits.
+1. **Encriptação de nível de pacote com AES-GCM**: Todo o pacote, a palavra-passe mais os metadados necessários, é encriptado utilizando a AES-GCM. Esta encriptação impede qualquer pessoa com acesso direto ao canal ServiceBus subjacente de visualizar ou adulterar o conteúdo.
+1. **Toda a comunicação ocorre sobre TLS/SSL**: Toda a comunicação com o ServiceBus acontece num canal SSL/TLS. Esta encriptação protege o conteúdo de terceiros não autorizados.
+1. **Chave automática rola de seis em seis meses:** Todas as teclas rolam de seis em seis meses, ou cada vez que a redação da palavra-passe é desativada e, em seguida, reativada no Azure AD Connect, para garantir a máxima segurança e segurança do serviço.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Utilização da largura de banda de redação de palavras-passe
 
@@ -144,28 +121,32 @@ O tamanho de cada uma das mensagens descritas anteriormente é tipicamente infer
 As palavras-passe são redigidas em todas as seguintes situações:
 
 * **Operações de utilizador final suportadas**
-   * Qualquer operação voluntária de alteração voluntária de autosserviço do utilizador final
-   * Qualquer força de autosserviço de utilizador final altere a operação de senha, por exemplo, a expiração da palavra-passe
-   * Qualquer redefinição da palavra-passe de autosserviço do utilizador final que tenha origem no portal de reset de [palavra-passe](https://passwordreset.microsoftonline.com)
+   * Qualquer operação de alteração voluntária de autosserviço do utilizador final.
+   * Qualquer força de autosserviço de utilizador final altere a operação de senha, por exemplo, a caducidade da palavra-passe.
+   * Qualquer redefinição da palavra-passe de autosserviço do utilizador final que tenha origem no portal de reset da [palavra-passe](https://passwordreset.microsoftonline.com).
+
 * **Operações de administrador apoiados**
-   * Qualquer operação de mudança voluntária de autosserviço do administrador
-   * Qualquer força de autosserviço do administrador altere a operação de senha, por exemplo, a expiração da palavra-passe
-   * Qualquer reset de palavra-passe de autosserviço do administrador que tenha origem no portal de reset de [palavra-passe](https://passwordreset.microsoftonline.com)
-   * Qualquer palavra-passe de utilizador final iniciado por administrador do [portal Azure](https://portal.azure.com)
+   * Qualquer administrador de autosserviço de mudança voluntária operação de senha.
+   * Qualquer força de autosserviço do administrador altere a operação de senha, por exemplo, a expiração da palavra-passe.
+   * Qualquer redefinição da palavra-passe de autosserviço do administrador que tenha origem no portal de reset da [palavra-passe](https://passwordreset.microsoftonline.com).
+   * Qualquer palavra-passe de utilizador final iniciado pelo administrador reset do [portal Azure](https://portal.azure.com).
 
 ## <a name="unsupported-writeback-operations"></a>Operações de redisonam não apoiadas
 
-As palavras-passe *não* são redigidas em nenhuma das seguintes situações:
+As palavras-passe não são escritas em nenhuma das seguintes situações:
 
 * **Operações não suportadas de utilizador final**
-   * Qualquer utilizador final que reajuste a sua própria palavra-passe utilizando a versão 1, a versão 2 ou a Microsoft Graph API
+   * Qualquer utilizador final que reajuste a sua própria palavra-passe utilizando a versão 1, a versão 2 ou a API do Microsoft Graph.
 * **Operações de administrador não apoiados**
-   * Qualquer palavra-passe de utilizador final iniciado pelo administrador a partir da versão 1, versão 2 da PowerShell ou da Microsoft Graph API
-   * Qualquer palavra-passe de utilizador final iniciado por administrador do centro de administração da [Microsoft 365](https://admin.microsoft.com)
+   * Qualquer palavra-passe de utilizador final iniciado pelo administrador reset a partir da versão 1, versão 2 da Versão 2 ou do Microsoft Graph API.
+   * Qualquer palavra-passe de utilizador final iniciado pelo administrador reset a partir do centro de administração microsoft [365](https://admin.microsoft.com).
 
 > [!WARNING]
-> A utilização da caixa de verificação "O utilizador deve alterar a palavra-passe no próximo início de sessão" em ferramentas administrativas de Diretório Ativo no local, como utilizadores e computadores de diretório ativo ou o Ative Directory Administrative Center é suportado como uma funcionalidade de pré-visualização do Azure AD Connect. Para mais informações, consulte o artigo, Implemente a sincronização de hash de [palavra-passe com a sincronização Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
+> A utilização da caixa de verificação "O utilizador deve alterar a palavra-passe no próximo início de sessão" em ferramentas administrativas AD DS no local, como utilizadores e computadores de diretório ativo ou o Ative Directory Administrative Center é suportado como uma funcionalidade de pré-visualização do Azure AD Connect. Para mais informações, consulte A sincronização de hash de [palavra-passe implemente com sincronização Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Ativar a reescrita da palavra-passe utilizando o Tutorial: Permitir a reescrita da [palavra-passe](tutorial-enable-writeback.md)
+Para começar com a reescrita da SSPR, complete o seguinte tutorial:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Ativar repor a palavra-passe de autosserviço (SSPR)](tutorial-enable-writeback.md)

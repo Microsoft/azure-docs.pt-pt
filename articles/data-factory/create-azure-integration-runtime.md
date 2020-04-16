@@ -10,14 +10,16 @@ ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: cf3bb7e6733ef55a85d0b4ae26a4ce05059a8fb9
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: e32530ece3626807b199850a2b4af5461ff51cde
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887171"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414068"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Tempo de Funcionação de Integração Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 O Tempo de Integração (IR) é a infraestrutura computacional utilizada pela Azure Data Factory para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para mais informações sobre o IR, consulte o tempo de [execução da Integração.](concepts-integration-runtime.md)
 
 O Azure IR fornece uma computação totalmente gerida para realizar de forma nativa o movimento de dados e enviar atividades de transformação de dados para calcular serviços como o HDInsight. Está alojado em ambiente Azure e apoia a ligação aos recursos em ambiente de rede pública com pontos finais acessíveis ao público.

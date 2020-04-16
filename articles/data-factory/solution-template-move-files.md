@@ -11,19 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b36eb2615e98ee8ea7751c836fd43e81a5a0f4e2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74941948"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414750"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Mova ficheiros com a Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve um modelo de solução que pode utilizar para mover ficheiros de uma pasta para outra entre lojas baseadas em ficheiros. Um dos cenários comuns de utilização deste modelo: Os ficheiros são continuamente deixados cair numa pasta de aterragem da sua loja de origem. Ao criar um gatilho de horário, o gasoduto ADF pode periodicamente mover esses ficheiros da fonte para a loja de destino.  A forma como o pipeline ADF consegue "ficheiros em movimento" é obter os ficheiros da pasta de aterragem, copiando cada um deles para outra pasta na loja de destino e, em seguida, apagando os mesmos ficheiros da pasta de aterragem na loja fonte.
 
 > [!NOTE]
-> Esteja ciente de que este modelo foi concebido para mover ficheiros em vez de mover pastas.  Se pretender mover a pasta alterando o conjunto de dados para a tornar apenas uma pasta e, em seguida, utilizar a atividade da cópia e eliminar a atividade para se referir ao mesmo conjunto de dados que representa uma pasta, tem de ter muito cuidado. É porque tem de se certificar de que não haverá novos ficheiros que chegam à pasta entre a operação de cópia e a eliminação da operação. Se houver novos ficheiros que chegam à pasta no momento em que a sua atividade de cópia acabou de completar a função de cópia, mas a atividade de Eliminar não foi encarada, é possível que a atividade do Delete apague este novo ficheiro de chegada que NÃO foi copiado para o destino ainda, apagando toda a pasta.
+> Esteja ciente de que este modelo foi concebido para mover ficheiros em vez de mover pastas.  Se pretender mover a pasta alterando o conjunto de dados para a tornar apenas uma pasta e, em seguida, utilizar a atividade da cópia e eliminar a atividade para se referir ao mesmo conjunto de dados que representa uma pasta, tem de ter muito cuidado. É porque tem de se certificar de que não haverá novos ficheiros que chegam à pasta entre a operação de cópia e a eliminação da operação. Se houver novos ficheiros que chegam à pasta no momento em que a sua atividade de cópia acabou de completar a função de cópia, mas a atividade de Eliminar não foi encarada, é possível que a atividade do Delete apague este novo ficheiro de chegada que ainda não foi copiado para o destino, eliminando toda a pasta.
 
 ## <a name="about-this-solution-template"></a>Sobre este modelo de solução
 

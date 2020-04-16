@@ -1,27 +1,26 @@
 ---
-title: Esquema de evento de ônibus de rede de eventos de rede de eventos de evento seletiva de eventos de eventos de eventos de evento
+title: Ônibus de serviço Azure como fonte da Rede de Eventos
 description: Descreve as propriedades que são fornecidas para eventos de ônibus de serviço com rede de eventos Azure
 services: event-grid
 author: banisadr
-manager: darosa
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: babanisa
-ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561766"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393244"
 ---
-# <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de evento da Azure Event Grid para ônibus de serviço
+# <a name="azure-service-bus-as-an-event-grid-source"></a>Ônibus de serviço Azure como fonte da Rede de Eventos
 
 Este artigo fornece as propriedades e esquemas para eventos de ônibus de serviço.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
 
-Para obter uma lista de scripts e tutoriais de amostras, consulte a fonte do [evento Service Bus](event-sources.md#service-bus).
+## <a name="event-grid-event-schema"></a>Esquema de evento sinuoso do evento Da Grelha de Eventos
 
-## <a name="available-event-types"></a>Tipos de eventos disponíveis
+### <a name="available-event-types"></a>Tipos de eventos disponíveis
 
 O Ônibus de Serviço emite os seguintes tipos de eventos:
 
@@ -30,7 +29,7 @@ O Ônibus de Serviço emite os seguintes tipos de eventos:
 | Microsoft.serviceBus.ActiveMessagesAvailableWithNoListeners | Levantados quando há mensagens ativas numa fila ou subscrição e nenhum recetor a ouvir. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Levantados quando há mensagens ativas numa Fila da Carta Morta e nenhum ouvinte ativo. |
 
-## <a name="example-event"></a>Evento de exemplo
+### <a name="example-event"></a>Evento de exemplo
 
 O exemplo que se segue mostra o esquema de mensagens ativas sem evento de ouvintes:
 
@@ -76,7 +75,7 @@ O esquema para um evento de fila de cartas mortas é semelhante:
 }]
 ```
 
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de alto nível:
 
@@ -101,6 +100,12 @@ O objeto de dados tem as seguintes propriedades:
 | queueName | string | A fila com mensagens ativas se subscrever uma fila. Valor nulo se utilizar tópicos/subscrições. |
 | tópicoNome | string | O tema a assinatura do Ônibus de serviço com mensagens ativas pertence. Valor nulo se utilizar uma fila. |
 | subscriptionName | string | A subscrição do Ônibus de serviço com mensagens ativas. Valor nulo se utilizar uma fila. |
+
+## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
+|Título  |Descrição  |
+|---------|---------|
+| [Tutorial: Ônibus de serviço azure para exemplos de integração da Rede de Eventos Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A Rede de Eventos envia mensagens do tópico do Bus de Serviço para a aplicação de função e lógica. |
+| [Azure Service Bus para integração da Rede de Eventos](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Visão geral da integração do ônibus de serviço com grelha de eventos. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

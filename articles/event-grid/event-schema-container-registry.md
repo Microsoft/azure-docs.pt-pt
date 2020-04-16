@@ -1,25 +1,27 @@
 ---
-title: Esquema de evento de registo de contentores da grelha de evento seletiva de eventos de eventos de eventos
+title: Registo de contentores azure como fonte da Rede de Eventos
 description: Descreve as propriedades que estão fornecidas para eventos de registo de contentores com grelha de eventos Azure
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
-ms.topic: reference
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60345469"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393352"
 ---
-# <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de evento da Grelha de Eventos Azure para registo de contentores
+# <a name="azure-container-registry-as-an-event-grid-source"></a>Registo de contentores azure como fonte da Rede de Eventos
 
 Este artigo fornece as propriedades e esquemas para eventos de registo de contentores.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
 
-## <a name="available-event-types"></a>Tipos de eventos disponíveis
+## <a name="event-grid-event-schema"></a>Esquema de evento sinuoso do evento Da Grelha de Eventos
+
+### <a name="available-event-types"></a>Tipos de eventos disponíveis
 
 O Registo de Contentores Azure emite os seguintes tipos de eventos:
 
@@ -30,7 +32,7 @@ O Registo de Contentores Azure emite os seguintes tipos de eventos:
 | Microsoft.ContainerRegistry.ChartPushed | Levantado quando um gráfico helm é empurrado. |
 | Microsoft.ContainerRegistry.ChartDeleted | Levantado quando um gráfico helm é apagado. |
 
-## <a name="example-event"></a>Evento de exemplo
+### <a name="example-event"></a>Evento de exemplo
 
 O exemplo que se segue mostra o esquema de um evento empurrado por imagem: 
 
@@ -151,7 +153,7 @@ O esquema para um evento eliminado por gráfico é semelhante ao esquema para um
 }]
 ```
 
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de alto nível:
 
@@ -198,6 +200,12 @@ O objeto de pedido tem as seguintes propriedades:
 | anfitrião | string | O nome de anfitrião acessível externamente da instância de registo, conforme especificado pelo cabeçalho do anfitrião http nos pedidos de entrada. |
 | método | string | O método de pedido que gerou o evento. |
 | useragent | string | O cabeçalho do agente utilizador do pedido. |
+
+## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
+|Título |Descrição  |
+|---------|---------|
+| [Quickstart: envie eventos de registo de contentores](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure CLI para enviar eventos de registo de contentores. |
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

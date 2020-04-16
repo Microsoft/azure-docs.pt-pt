@@ -3,14 +3,14 @@ title: Execução de livro de corridas na Automação Azure
 description: Descreve os detalhes de como um livro de execução na Automatização Azure é processado.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/04/2019
+ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: de01a7a76a5d225770c273c67f864c83226ecd07
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: a7dd9de1f2ae41b20d94cf31de48e92fbb71ca6a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261317"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405645"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de livro de corridas na Automação Azure
 
@@ -18,11 +18,11 @@ A automatização de processos na Automatização Azure permite-lhe criar e geri
 
 A automatização executa os seus livros com base na lógica definida dentro deles. Se um livro de execução for interrompido, reinicia no início. Este comportamento requer que escreva livros que suportam ser reiniciados se ocorrerem problemas transitórios.
 
-Iniciar um livro de execução na Azure Automation cria um trabalho, que é uma única instância de execução do livro de execução. Cada trabalho acede aos recursos do Azure fazendo uma ligação à sua subscrição Azure. O trabalho só pode aceder a recursos no seu datacenter se esses recursos estiverem acessíveis a partir da nuvem pública.
+Iniciar um livro de execução na Azure Automation cria um trabalho, que é uma única instância de execução do livro de execução. Cada trabalho acede aos recursos do Azure fazendo uma ligação à sua subscrição Azure. O trabalho só pode aceder a recursos no seu centro de dados se esses recursos estiverem acessíveis a partir da nuvem pública.
 
 A Azure Automation atribui a um trabalhador que dirija cada trabalho durante a execução do livro de corridas. Enquanto os trabalhadores são partilhados por muitas contas Azure, os empregos de diferentes contas da Automação estão isolados uns dos outros. Não pode controlar que trabalhadores presta o seu trabalho.
 
-Quando se vê a lista de livros de execução no portal Azure, mostra o estado de cada trabalho iniciado para cada livro de execução. A Azure Automation armazena registos de trabalho por um período máximo de 30 dias. 
+Quando se vê a lista de livros de execução no portal Azure, mostra o estado de cada trabalho iniciado para cada livro de execução. A Azure Automation armazena registos de trabalho por um período máximo de 30 dias.
 
 O diagrama seguinte mostra o ciclo de vida de um trabalho de livro de corridas para os livros de [execução powerShell,](automation-runbook-types.md#powershell-runbooks)livros de fluxo de [trabalho PowerShell](automation-runbook-types.md#powershell-workflow-runbooks)e [livros gráficos](automation-runbook-types.md#graphical-runbooks).
 
@@ -35,7 +35,7 @@ O diagrama seguinte mostra o ciclo de vida de um trabalho de livro de corridas p
 
 ## <a name="where-to-run-your-runbooks"></a>Onde executar os seus livros de execução
 
-Os livros de execução em Azure Automation podem funcionar numa caixa de areia Azure ou num Trabalhador híbrido do livro de [corridas.](automation-hybrid-runbook-worker.md) Você pode facilmente executar a maioria dos livros de corridas em uma caixa de areia Azure, que é um ambiente compartilhado que vários trabalhos podem usar. Os trabalhos que utilizam a mesma caixa de areia estão ligados às limitações de recursos da caixa de areia.
+Os livros de execução em Azure Automation podem funcionar numa caixa de areia Azure ou num Trabalhador híbrido do livro de [corridas.](automation-hybrid-runbook-worker.md) Quando os livros são projetados para autenticar e correr contra recursos em Azure, eles funcionam numa caixa de areia Azure, que é um ambiente partilhado que vários trabalhos podem usar. Os trabalhos que utilizam a mesma caixa de areia estão ligados às limitações de recursos da caixa de areia.
 
 >[!NOTE]
 >O ambiente de caixa de areia Azure não suporta operações interativas. Também requer o uso de ficheiros MOF locais para livros de execução que fazem chamadas Win32.
@@ -44,21 +44,21 @@ Você pode usar um Trabalhador de Runbook Híbrido para executar livros de execu
 
 A tabela seguinte lista algumas tarefas de execução do livro de execução com o ambiente de execução recomendado listado para cada um.
 
-|Tarefa|Melhor Escolha|Notas|
+|Tarefa|Recomendação|Notas|
 |---|---|---|
 |Integrar com recursos Azure|Caixa de areia azure|Hospedada em Azure, a autenticação é mais simples. Se estiver a usar um Trabalhador De Raqui híbrido num VM Azure, pode utilizar [identidades geridas para recursos Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources).|
 |Obtenha um desempenho ideal para gerir os recursos do Azure|Caixa de areia azure|O guião é executado no mesmo ambiente, que tem menos latência.|
 |Minimizar os custos operacionais|Caixa de areia azure|Não há despesas de cálculo nem necessidade de um VM.|
-|Executar script de longa duração|Função de Trabalho de Runbook Híbrida|As caixas de areia azure têm [limitações nos recursos.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
-|Interaja com os Serviços Locais|Função de Trabalho de Runbook Híbrida|Pode ter acesso direto à máquina hospedeira.|
+|Executar script de longa duração|Função de Trabalho de Runbook Híbrida|As caixas de areia azure têm limites de [recursos.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
+|Interagir com os serviços locais|Função de Trabalho de Runbook Híbrida|Pode aceder diretamente à máquina hospedeira, ou recursos em outros ambientes de nuvem, ou no seu ambiente no local. |
 |Exigir software e executáveis de terceiros|Função de Trabalho de Runbook Híbrida|Gere o sistema operativo e pode instalar software.|
 |Monitorize um ficheiro ou pasta com um livro de execução|Função de Trabalho de Runbook Híbrida|Use uma [tarefa observadora](automation-watchers-tutorial.md) num trabalhador híbrido do livro de corridas.|
-|Executar um roteiro intensivo de recursos|Função de Trabalho de Runbook Híbrida| As caixas de areia azure têm [limitações nos recursos.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
-|Utilizar módulos com requisitos específicos| Função de Trabalho de Runbook Híbrida|Alguns exemplos incluem:</br> WinSCP - dependência de winscp.exe </br> IISAdministration - dependência da habilitação do IIS.|
+|Executar um roteiro intensivo de recursos|Função de Trabalho de Runbook Híbrida| As caixas de areia azure têm limites de [recursos.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
+|Utilizar módulos com requisitos específicos| Função de Trabalho de Runbook Híbrida|Alguns exemplos incluem:</br> WinSCP - dependência de winscp.exe </br> Administração IIS - dependência de permitir ou gerir o IIS.|
 |Instale um módulo com um instalador|Função de Trabalho de Runbook Híbrida|Os módulos para caixa de areia devem suportar a cópia.|
-|Utilize livros ou módulos que exijam versão .NET Framework diferente de 4.7.2|Função de Trabalho de Runbook Híbrida|As caixas de areia de automação têm .NET Framework 4.7.2, e não há como atualizar a versão.|
+|Utilize livros ou módulos que exijam versão .NET Framework diferente de 4.7.2|Função de Trabalho de Runbook Híbrida|As caixas de areia de automação suportam .NET Framework 4.7.2, e a atualização para uma versão diferente não é suportada.|
 |Executar scripts que requerem elevação|Função de Trabalho de Runbook Híbrida|As caixas de areia não permitem a elevação. Com um Trabalhador híbrido do livro, pode desligar o UAC e utilizar o [Comando Invocado](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) ao executar o comando que requer elevação.|
-|Executar scripts que requerem acesso a Instrumentação de Gestão do Windows (WMI)|Função de Trabalho de Runbook Híbrida|Empregos a correr em caixas de areia na nuvem não conseguem aceder ao WMI. |
+|Executar scripts que requerem acesso a Instrumentação de Gestão do Windows (WMI)|Função de Trabalho de Runbook Híbrida|Os empregos em caixas de areia na nuvem não podem aceder ao fornecedor de WMI. |
 
 ## <a name="runbook-behavior"></a>Comportamento do livro de corridas
 
@@ -75,7 +75,7 @@ $vmExists = Get-AzResource -Name $vmName -ResourceGroupName $resourceGroupName
 if(!$vmExists)
     {
     Write-Output "VM $vmName does not exist, creating"
-    New-AzureRMVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
+    New-AzVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
     }
 else
     {
@@ -278,7 +278,7 @@ Pode utilizar os passos seguintes para ver as tarefas de um runbook.
 
 ### <a name="retrieving-job-status-using-powershell"></a>Recuperação do estado do trabalho usando powerShell
 
-Utilize `Get-AzAutomationJob` o cmdlet para recuperar os postos de trabalho criados para um livro de corridas e os detalhes de um determinado trabalho. Se iniciar um livro de `Start-AzAutomationRunbook`execução com a utilização da PowerShell, devolve o trabalho resultante. Utilize [o Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída de emprego.
+Utilize o cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para recuperar os postos de trabalho criados para um livro de corridas e os detalhes de um determinado trabalho. Se iniciar um livro de `Start-AzAutomationRunbook`execução com a utilização da PowerShell, devolve o trabalho resultante. Utilize [o Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída de emprego.
 
 O exemplo seguinte obtém o último trabalho para um livro de amostras e mostra o seu estado, os valores previstos para os parâmetros do livro de execução e a saída de trabalho.
 
@@ -356,3 +356,5 @@ A utilização de livros infantis diminui o tempo total para que o livro de exec
 * Para saber como trabalhar com um livro de corridas, consulte [Gerir livros de execução em Automação Azure](manage-runbooks.md).
 * Para saber mais sobre os métodos que podem ser usados para iniciar um livro de corridas em Automação Azure, consulte [Iniciar um livro de corridas em Automação Azure.](automation-starting-a-runbook.md)
 * Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte os [Docs PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

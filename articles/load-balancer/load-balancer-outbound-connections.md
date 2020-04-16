@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f8f21405a79a6fcf70adef9815ba06a229d6954d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886981"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393109"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -168,7 +168,7 @@ O quadro seguinte mostra as pré-alocações da porta SNAT para níveis de taman
 | 801-1,000 | 32 |
 
 >[!NOTE]
-> Ao utilizar o Standard Load Balancer com [várias extremidades dianteiras,](load-balancer-multivip-overview.md)cada endereço IP frontal multiplica o número de portas SNAT disponíveis na tabela anterior. Por exemplo, um conjunto de 50 VM's com 2 regras de equilíbrio de carga, cada um com um endereço IP frontal separado, utilizará 2048 (2x 1024) portas SNAT por configuração IP. Consulte os detalhes para [várias frentes.](#multife)
+> Ao utilizar o Standard Load Balancer com [várias extremidades dianteiras,](load-balancer-multivip-overview.md)cada endereço IP frontal multiplica o número de portas SNAT disponíveis na tabela anterior. Por exemplo, um conjunto de 50 VM's com 2 regras de equilíbrio de carga, cada um com um endereço IP frontal separado, utilizará 2048 (2x 1024) portas SNAT por regra. Consulte os detalhes para [várias frentes.](#multife)
 
 Lembre-se que o número de portas SNAT disponíveis não se traduz diretamente no número de fluxos. Uma única porta SNAT pode ser reutilizada para vários destinos únicos. Os portos só são consumidos se for necessário para tornar os fluxos únicos. Para orientação de conceção e mitigação, consulte a secção sobre [como gerir este recurso gaseificante](#snatexhaust) e a secção que descreve [pat](#pat).
 

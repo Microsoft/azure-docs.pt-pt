@@ -4,16 +4,16 @@ description: Automatizar tarefas que monitorizam, criam, gerem, enviam e recebem
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/7/2020
+ms.date: 04/13/2020
 tags: connectors
-ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128408"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393639"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorize, crie e gere os ficheiros SFTP utilizando aplicações lógicas SSH e Azure
 
@@ -147,6 +147,16 @@ Se a sua chave privada estiver no formato PuTTY, que utiliza a extensão do nome
 
 1. Guarde o ficheiro `.pem` de chave privada com a extensão do nome do ficheiro.
 
+## <a name="considerations"></a>Considerações
+
+Esta secção descreve considerações para rever os gatilhos e ações deste conector.
+
+<a name="create-file"></a>
+
+### <a name="create-file"></a>Criar ficheiro
+
+Para criar um ficheiro no seu servidor SFTP, pode utilizar a ação de **ficheiroS** SFTP-SSH. Quando esta ação cria o ficheiro, o serviço De Aplicações Lógicas também liga automaticamente para o seu servidor SFTP para obter os metadados do ficheiro. No entanto, se mover o ficheiro recém-criado antes do serviço De Aplicações Lógicas pode fazer a chamada para obter os metadados, obtém uma `404` mensagem de erro, `'A reference was made to a file or folder which does not exist'`. Para não ler os metadados do ficheiro após a criação de ficheiros, siga os passos para [adicionar e deteteto a propriedade **de metadados** de ficheiros para **Nº**](#file-does-not-exist).
+
 <a name="connect"></a>
 
 ## <a name="connect-to-sftp-with-ssh"></a>Ligue-se ao SFTP com sSH
@@ -211,9 +221,27 @@ Este gatilho inicia um fluxo de trabalho de aplicação lógica quando um fichei
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP - Ação SSH: Obtenha conteúdo usando caminho
+### <a name="sftp---ssh-action-get-file-content-using-path"></a>Ação SFTP - SSH: Obtenha conteúdo de ficheiro utilizando caminho
 
-Esta ação obtém o conteúdo de um ficheiro num servidor SFTP. Assim, por exemplo, pode adicionar o gatilho do exemplo anterior e uma condição que o conteúdo do ficheiro deve satisfazer. Se a condição for verdadeira, a ação que obtém o conteúdo pode ser executada.
+Esta ação obtém o conteúdo de um ficheiro num servidor SFTP, especificando o caminho do ficheiro. Assim, por exemplo, pode adicionar o gatilho do exemplo anterior e uma condição que o conteúdo do ficheiro deve satisfazer. Se a condição for verdadeira, a ação que obtém o conteúdo pode ser executada.
+
+<a name="troubleshooting-errors"></a>
+
+## <a name="troubleshoot-errors"></a>Resolver erros
+
+Esta secção descreve possíveis soluções para erros ou problemas comuns.
+
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>Erro 404: "Foi feita uma referência a um ficheiro ou pasta que não existe"
+
+Este erro pode ocorrer quando a sua aplicação lógica cria um novo ficheiro no seu servidor SFTP através da ação de ficheiroS SFTP-SSH **Criar,** mas o ficheiro recém-criado é imediatamente movido antes que o serviço de Aplicações Lógicas possa obter os metadados do ficheiro. Quando a sua aplicação lógica executa a ação de **ficheiroS Create,** o serviço De Aplicações Lógicas também liga automaticamente para o seu servidor SFTP para obter os metadados do ficheiro. No entanto, se o ficheiro for movido, o serviço De `404` Aplicações Lógicas já não pode encontrar o ficheiro para obter a mensagem de erro.
+
+Se não conseguir evitar ou atrasar a movimentação do ficheiro, pode ignorar a leitura dos metadados do ficheiro após a criação de ficheiros, seguindo estes passos:
+
+1. Na ação **de ficheiro Criar,** abra a lista **de novos parâmetros,** selecione toda a propriedade de metadados de **ficheiros** e defina o valor para **Nº**.
+
+1. Se precisar destes metadados de ficheiros mais tarde, pode utilizar a ação de metadados do **ficheiro Get.**
 
 ## <a name="connector-reference"></a>Referência do conector
 

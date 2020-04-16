@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64919124"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407019"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Troubleshoot object synchronization with Azure AD Connect sync (Resolver problemas de sincronização de objetos com a sincronização do Azure AD Connect)
 Este artigo fornece passos para problemas de resolução de problemas com sincronização de objetos usando a tarefa de resolução de problemas. Para ver como funciona a resolução de problemas no Azure Ative Directory (Azure AD) Connect, veja [este pequeno vídeo](https://aka.ms/AADCTSVideo).
@@ -61,11 +61,6 @@ O resto desta secção descreve resultados específicos que são devolvidos pela
 Quando o Sufixo de ID de Login (UPN)/Alternate Login não for verificado com o Inquilino AD Azure, então o Azure Ative Directory substitui os sufixos UPN com o nome de domínio padrão "onmicrosoft.com".
 
 ![Azure AD substitui UPN](media/tshoot-connect-objectsync/objsynch2.png)
-
-### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Mudar o Sufixo UPN de um domínio federado para outro domínio federado
-O Diretório Ativo Azure não permite a sincronização do UserPrincipalName (UPN)/Alternate Login ID alterar de um domínio federado para outro domínio federado. Isto aplica-se a domínios, que são verificados com o Inquilino AD Azure e têm o Tipo de Autenticação como Federado.
-
-![Nenhuma sincronização UPN de um domínio federado para outro](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>Funcionalidade dirSync do Inquilino AD Azure 'SynchronizeUpnForManagedUsers' está desativada
 Quando a funcionalidade DirSync do Inquilino AD Azure 'SynchronizeUpnForManagedUsers' estiver desativada, o Diretório Ativo azure não permite atualizações de sincronização para userPrincipalName/Id de Login Alternativo para contas de utilizador licenciadas com autenticação gerida.

@@ -5,18 +5,20 @@ description: Saiba como atualizar ou redefinir as credenciais do diretor de serv
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 0203321af32bcc2ae70b726737b85870d08be86f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 8420771e32aa792aa79a07fdf4362ad0d9b45d48
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886760"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392623"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou rodar as credenciais para o Serviço Azure Kubernetes (AKS)
 
 Por padrão, os clusters AKS são criados com um diretor de serviço que tem um prazo de validade de um ano. À medida que se aproxima da data de validade, pode redefinir as credenciais para estender o diretor de serviço por um período adicional de tempo. Também pode querer atualizar, ou rodar, as credenciais como parte de uma política de segurança definida. Este artigo detalha como atualizar estas credenciais para um cluster AKS.
 
-Também pode ter integrado o seu cluster AKS com o [Azure Ative Directory,][aad-integration]e usá-lo como fornecedor de autenticação para o seu cluster. Nesse caso, terá mais 2 identidades criadas para o seu cluster, a App AAD Server e a App de Clientes AAD, podendo também redefinir essas credenciais. 
+Também pode ter integrado o seu cluster AKS com o [Azure Ative Directory,][aad-integration]e usá-lo como fornecedor de autenticação para o seu cluster. Nesse caso, terá mais 2 identidades criadas para o seu cluster, a App AAD Server e a App de Clientes AAD, podendo também redefinir essas credenciais.
+
+Em alternativa, pode utilizar uma identidade gerida para permissões em vez de um diretor de serviço. As identidades geridas são mais fáceis de gerir do que os diretores de serviço e não requerem atualizações ou rotações. Para mais informações, consulte [Use identidades geridas](use-managed-identity.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

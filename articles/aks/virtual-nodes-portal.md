@@ -4,12 +4,12 @@ description: Aprenda a usar o portal Azure para criar um cluster Azure Kubernete
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 7b9127c016fff78a8867dcecbe3260becdf02c65
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 62d8fec4c5c3ff35fb46826cb7118946f66948b2
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81259124"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392584"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
@@ -89,7 +89,7 @@ Na página **Escala,** selecione *Ativado* sob **nós virtuais**.
 
 ![Criar cluster AKS e ativar os nós virtuais](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
-Por padrão, é criado um diretor de serviço de Diretório Ativo Azure. Este diretor de serviço é utilizado para comunicação de cluster e integração com outros serviços Azure.
+Por padrão, é criado um diretor de serviço de Diretório Ativo Azure. Este diretor de serviço é utilizado para comunicação de cluster e integração com outros serviços Azure. Em alternativa, pode utilizar uma identidade gerida para permissões em vez de um diretor de serviço. Para mais informações, consulte [Use identidades geridas](use-managed-identity.md).
 
 O cluster também está configurado para networking avançado. Os nódosos virtuais estão configurados para usar a sua própria rede virtual Azure. Esta sub-rede delegou permissões para ligar os recursos do Azure entre o cluster AKS. Se ainda não tiver subnet delegado, o portal Azure cria e configura a rede virtual Azure e a subnet para utilização com os nós virtuais.
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 3172c92ecae094ab5d978803d2ccac7e6404a5e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 599f48ed241010d8551bd110c7f778c9ef508eac
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721511"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393165"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Subscreva eventos através do portal
 
@@ -20,7 +20,7 @@ Este artigo descreve como criar subscrições da Rede de Eventos através do por
 
 ## <a name="create-event-subscriptions"></a>Criar subscrições de eventos
 
-Para criar uma subscrição da Grelha de Eventos para qualquer uma das fontes de [eventos](event-sources.md)suportadas, utilize os seguintes passos. Este artigo mostra como criar uma subscrição da Rede de Eventos para uma subscrição do Azure.
+Para criar uma subscrição da Grelha de Eventos para qualquer uma das fontes de [eventos](overview.md#event-sources)suportadas, utilize os seguintes passos. Este artigo mostra como criar uma subscrição da Rede de Eventos para uma subscrição do Azure.
 
 1. Selecione **Todos os serviços**.
 

@@ -1,16 +1,16 @@
 ---
 title: Usar identidade gerida com uma aplicação
-description: Como utilizar identidades geridas no código de aplicação Azure Service Fabric para aceder aos Serviços Azure. Esta funcionalidade está em pré-visualização pública.
+description: Como utilizar identidades geridas no código de aplicação Azure Service Fabric para aceder aos Serviços Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbdb1190ec3238a6accd34db3025e08c194d60b8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610323"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415625"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Como alavancar a identidade gerida de uma aplicação service Fabric para aceder aos serviços Azure (pré-visualização)
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como alavancar a identidade gerida de uma aplicação de Tecido de Serviço para aceder aos serviços Azure
 
 As aplicações service Fabric podem aproveitar identidades geridas para aceder a outros recursos Azure que suportam a autenticação baseada no Diretório Ativo azure. Uma aplicação pode obter um [token](../active-directory/develop/developer-glossary.md#access-token) de acesso que represente a sua identidade, que pode ser atribuída ao sistema ou atribuída ao utilizador, e usá-la como um símbolo 'portador' para se autenticar a outro serviço - também conhecido como servidor de [recursos protegidos.](../active-directory/develop/developer-glossary.md#resource-server) O símbolo representa a identidade atribuída à aplicação Service Fabric, e só será emitida aos recursos da Azure (incluindo aplicações SF) que partilhem essa identidade. Consulte a documentação de visão geral de [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para uma descrição detalhada das identidades geridas, bem como a distinção entre identidades atribuídas ao sistema e identidades atribuídas ao utilizador. Referimo-nos a uma aplicação de Tecido de Serviço com identidade gerida como [aplicação](../active-directory/develop/developer-glossary.md#client-application) do cliente ao longo deste artigo.
 
@@ -24,19 +24,18 @@ As aplicações service Fabric podem aproveitar identidades geridas para aceder 
 Em clusters habilitados para a identidade gerida, o tempo de execução do Tecido de Serviço expõe um ponto final do hospedeiro local que as aplicações podem usar para obter fichas de acesso. O ponto final está disponível em cada nó do cluster, e é acessível a todas as entidades nesse nó. Os chamadores autorizados podem obter fichas de acesso, ligando para este ponto final e apresentando um código de autenticação; o código é gerado pelo tempo de execução do Tecido de Serviço para cada ativação de pacote de código de serviço distinto, e está ligado ao tempo de vida do processo que acolhe o pacote de código de serviço.
 
 Especificamente, o ambiente de um serviço de tecido de serviço gerido com identidade será semeado com as seguintes variáveis:
-- 'MSI_ENDPOINT': o ponto final do hospedeiro local, completo com caminho, versão API e parâmetros correspondentes à identidade gerida desse serviço
-- 'MSI_SECRET': um código de autenticação, que é uma corda opaca e representa exclusivamente o serviço no nó atual
-
-> [!NOTE]
-> Os nomes 'MSI_ENDPOINT' e 'MSI_SECRET' referem-se à designação anterior de identidades geridas ("Identidade de Serviço Gerida"), e que agora é depreciada. Os nomes também são consistentes com os nomes variáveis de ambiente equivalente usados por outros serviços Azure que suportam identidades geridas.
+- 'IDENTITY_ENDPOINT': o ponto final do local correspondente à identidade gerida do serviço
+- 'IDENTITY_HEADER': um código de autenticação único que representa o serviço no nó atual
+- 'IDENTITY_SERVER_THUMBPRINT' : Impressão digital do servidor de identidade gerido por tecido de serviço
 
 > [!IMPORTANT]
-> O código de aplicação deve considerar o valor da variável ambiente 'MSI_SECRET' como dados sensíveis - não deve ser registado ou divulgado de outra forma. O código de autenticação não tem qualquer valor fora do nó local, ou após o processo de hospedagem do serviço ter terminado, mas representa a identidade do serviço de Tecido de Serviço, pelo que deve ser tratado com as mesmas precauções que o próprio token de acesso.
+> O código de aplicação deve considerar o valor da variável ambiente "IDENTITY_HEADER" como dados sensíveis - não deve ser registado ou divulgado de outra forma. O código de autenticação não tem qualquer valor fora do nó local, ou após o processo de hospedagem do serviço ter terminado, mas representa a identidade do serviço de Tecido de Serviço, pelo que deve ser tratado com as mesmas precauções que o próprio token de acesso.
 
 Para obter um símbolo, o cliente executa os seguintes passos:
-- forma um URI concatenando o ponto final de identidade gerido (MSI_ENDPOINT valor) com a versão API e o recurso (público) necessário para o símbolo
-- cria um pedido GET http para o URI especificado
-- adiciona o código de autenticação (valor MSI_SECRET) como cabeçalho ao pedido
+- forma um URI concatenando o ponto final de identidade gerido (valor IDENTITY_ENDPOINT) com a versão API e o recurso (público) necessário para o símbolo
+- cria um pedido GET http(s) para o URI especificado
+- adiciona lógica de validação de certificado de servidor apropriado
+- adiciona o código de autenticação (IDENTITY_HEADER valor) como cabeçalho ao pedido
 - submete o pedido
 
 Uma resposta bem sucedida conterá uma carga útil JSON que representa o token de acesso resultante, bem como metadados descrevendo-o. Uma resposta falhada incluirá também uma explicação do fracasso. Veja abaixo mais detalhes sobre o manuseamento de erros.
@@ -44,19 +43,22 @@ Uma resposta bem sucedida conterá uma carga útil JSON que representa o token d
 As fichas de acesso serão cached by Service Fabric a vários níveis (nó, cluster, serviço de prestador de recursos), pelo que uma resposta bem sucedida não implica necessariamente que o símbolo tenha sido emitido diretamente em resposta ao pedido da aplicação do utilizador. Os tokens serão cached por menos do que a sua vida, e assim uma aplicação é garantida para receber um token válido. Recomenda-se que o código de aplicação caches quaisquer fichas de acesso que adquire; a chave de cache deve incluir (uma derivação de) o público. 
 
 
+> [!NOTE]
+> A única versão API `2019-07-01-preview`aceite está presentemente , e está sujeita a alterações.
+
 Pedido de amostra:
 ```http
-GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://keyvault.azure.com/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
+GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://vault.azure.net/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
 em que:
 
 | Elemento | Descrição |
 | ------- | ----------- |
 | `GET` | O verbo HTTP, indicando que pretende recuperar dados do ponto final. Neste caso, um sinal de acesso da OAuth. | 
-| `http://localhost:2377/metadata/identity/oauth2/token` | O ponto final de identidade gerido para aplicações de Tecido de Serviço, fornecido através da variável ambiente MSI_ENDPOINT. |
+| `https://localhost:2377/metadata/identity/oauth2/token` | O ponto final de identidade gerido para aplicações de Tecido de Serviço, fornecido através da variável ambiente IDENTITY_ENDPOINT. |
 | `api-version` | Um parâmetro de corda de consulta, especificando a versão API do Serviço de Fichas de Identidade Gerida; atualmente o único `2019-07-01-preview`valor aceite é , e está sujeito a alterações. |
-| `resource` | Um parâmetro de corda de consulta, indicando o ID da aplicação URI do recurso alvo. Isto será refletido `aud` como a (audiência) reivindicação do símbolo emitido. Este exemplo solicita um sinal de acesso ao Azure Key Vault, cujo ID de aplicação URI é https:\//keyvault.azure.com/. |
-| `Secret` | Um campo de cabeçalho de pedido HTTP, exigido pelo Serviço de Ficha de Identidade Gerida por Tecidos de Serviço para os serviços de tecido de serviço para autenticar o chamador. Este valor é fornecido pelo sf tempo de execução através MSI_SECRET variável ambiental. |
+| `resource` | Um parâmetro de corda de consulta, indicando o ID da aplicação URI do recurso alvo. Isto será refletido `aud` como a (audiência) reivindicação do símbolo emitido. Este exemplo solicita um sinal de acesso ao Azure Key Vault, cujo ID de aplicação URI é https:\//vault.azure.net/. |
+| `Secret` | Um campo de cabeçalho de pedido HTTP, exigido pelo Serviço de Ficha de Identidade Gerida por Tecidos de Serviço para os serviços de tecido de serviço para autenticar o chamador. Este valor é fornecido pelo sf tempo de execução através de IDENTITY_HEADER variável ambiental. |
 
 
 Resposta da amostra:
@@ -67,7 +69,7 @@ Content-Type: application/json
     "token_type":  "Bearer",
     "access_token":  "eyJ0eXAiO...",
     "expires_on":  1565244611,
-    "resource":  "https://keyvault.azure.com/"
+    "resource":  "https://vault.azure.net/"
 }
 ```
 em que:
@@ -124,20 +126,33 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
         /// <returns>Access token</returns>
         public static async Task<string> AcquireAccessTokenAsync()
         {
-            var managedIdentityEndpoint = Environment.GetEnvironmentVariable("MSI_ENDPOINT");
-            var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("MSI_SECRET");
+            var managedIdentityEndpoint = Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT");
+            var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("IDENTITY_HEADER");
+            var managedIdentityServerThumbprint = Environment.GetEnvironmentVariable("IDENTITY_SERVER_THUMBPRINT");
+            // Latest api version, 2019-07-01-preview is still supported.
+            var managedIdentityApiVersion = Environment.GetEnvironmentVariable("IDENTITY_API_VERSION");
             var managedIdentityAuthenticationHeader = "secret";
-            var managedIdentityApiVersion = "2019-07-01-preview";
             var resource = "https://management.azure.com/";
 
             var requestUri = $"{managedIdentityEndpoint}?api-version={managedIdentityApiVersion}&resource={HttpUtility.UrlEncode(resource)}";
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri);
             requestMessage.Headers.Add(managedIdentityAuthenticationHeader, managedIdentityAuthenticationCode);
+            
+            var handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, certChain, policyErrors) =>
+            {
+                // Do any additional validation here
+                if (policyErrors == SslPolicyErrors.None)
+                {
+                    return true;
+                }
+                return 0 == string.Compare(cert.GetCertHashString(), managedIdentityServerThumbprint, StringComparison.OrdinalIgnoreCase);
+            };
 
             try
             {
-                var response = await new HttpClient().SendAsync(requestMessage)
+                var response = await new HttpClient(handler).SendAsync(requestMessage)
                     .ConfigureAwait(false);
 
                 response.EnsureSuccessStatusCode();

@@ -4,15 +4,15 @@ description: Descreve como usar os Serviços de Análise Azure REST API para cod
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273725"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406291"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
@@ -208,8 +208,8 @@ Aqui está uma amostra de código C# para começar, [RestApiSample no GitHub](ht
 
 ### <a name="to-use-the-code-sample"></a>Para utilizar a amostra de código
 
-1.  Clone ou baixe o repo. Abra a solução RestApiSample.
-2.  Encontre o cliente da **linha. Endereço base = ...** e fornecer o seu [URL base](#base-url).
+1.    Clone ou baixe o repo. Abra a solução RestApiSample.
+2.    Encontre o cliente da **linha. Endereço base = ...** e fornecer o seu [URL base](#base-url).
 
 A amostra de código utiliza a autenticação [do principal de serviço.](#service-principal)
 
@@ -217,14 +217,14 @@ A amostra de código utiliza a autenticação [do principal de serviço.](#servi
 
 Consulte o [diretor de serviço Create - Portal Azure](../active-directory/develop/howto-create-service-principal-portal.md) e Adicione um principal de serviço ao papel de administrador do [servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar um diretor de serviço e atribuir as permissões necessárias no Azure AS. Depois de concluído os passos, complete os seguintes passos adicionais:
 
-1.  Na amostra de código, encontre a autoridade de **cordas = ... ,** substitua o **comum** pela identificação do inquilino da sua organização.
-2.  Comentário/não comentário para que a classe ClientCredential seja usada para instantaneamente o objeto de cred. Certifique-se de que os \<valores> e \<> chave da aplicação da App Key são acedidos de forma segura ou utilizam a autenticação baseada em certificados para os diretores de serviço.
-3.  Execute o exemplo.
+1.    Na amostra de código, encontre a autoridade de **cordas = ... ,** substitua o **comum** pela identificação do inquilino da sua organização.
+2.    Comentário/não comentário para que a classe ClientCredential seja usada para instantaneamente o objeto de cred. Certifique-se de que os \<valores> e \<> chave da aplicação da App Key são acedidos de forma segura ou utilizam a autenticação baseada em certificados para os diretores de serviço.
+3.    Execute o exemplo.
 
 
 ## <a name="see-also"></a>Consulte também
 
 [Amostras](analysis-services-samples.md)   
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

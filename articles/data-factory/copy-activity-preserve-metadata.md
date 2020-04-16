@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: jingwang
-ms.openlocfilehash: b73cd73a18d286f221c7be2c624719e1d23d7c06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ce1b85394a7bb604841f7fb941bdebf12c0bca2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153833"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414154"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Preservar metadados e ACLs utilizando a atividade de cópia na Fábrica de Dados Azure
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Quando utiliza a atividade de cópia da Azure Data Factory para copiar dados de origem para afundar, nos seguintes cenários, também pode preservar os metadados e os ACLs junto.
 
@@ -146,4 +148,4 @@ Aqui está um exemplo de configuração JSON de atividade de cópia (ver): `pres
 Consulte os outros artigos da Atividade cópia:
 
 - [Descrição geral da atividade de cópia](copy-activity-overview.md)
-- [Copiar desempenho da atividade](copy-activity-performance.md)
+- [Desempenho da atividade de cópia](copy-activity-performance.md)

@@ -11,14 +11,17 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: 006d4fa9ed09170a423e796e893b817e079e861b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261941"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414329"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Executar pacotes de Serviços de Integração de Servidores SQL com o utilitário DTexec ativado pelo Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Este artigo descreve o utilitário de comando dtexec (AzureDTExec) ativado por AzureDTExec. É usado para executar pacotes SQL Server Integration Services (SSIS) no Tempo de Funcionano de Integração Azure-SSIS (IR) na Azure Data Factory.
 
 O utilitário dtexec tradicional vem com o SQL Server. Para mais informações, consulte a [utilidade dtexec](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). É frequentemente invocado por orquestradores ou programadores de terceiros, como ActiveBatch e Control-M, para executar pacotes SSIS no local. 

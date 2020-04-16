@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2579748d9c68512e51fe46ec70084c30d06953bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9dc4dce5a7af49529924881321b1a5080293a585
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278769"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405616"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implante um trabalhador de runbook híbrido Linux
 
@@ -30,9 +30,27 @@ A função Hybrid Runbook Worker suporta as seguintes distribuições:
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS e 18.04 (x86/x64)
 * SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
+## <a name="supported-runbook-types"></a>Tipos de livro de corridas suportados
+
+Os trabalhadores do livro de corridas híbridos Linux não suportam todo o conjunto de tipos de livros de corridas na Automação Azure.
+
+Os seguintes tipos de livro funcionam num Linux Hybrid Worker:
+
+* Python 2
+* PowerShell
+
+  > [!NOTE]
+  > Os livros de execução PowerShell exigem que o PowerShell Core seja instalado na máquina Linux. Consulte [a instalação do PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para aprender a instalá-lo.
+
+Os seguintes tipos de livros não funcionam num Linux Hybrid Worker:
+
+* Fluxo de Trabalho do PowerShell
+* Gráficos
+* Fluxo de trabalho de PowerShell Graphical PowerShell
+
 ## <a name="installing-a-linux-hybrid-runbook-worker"></a>Instalação de um Trabalhador do Livro de Corridas Híbrido Linux
 
-Para instalar e configurar um Trabalhador de Livro Híbrido no seu computador Linux, siga um processo simples para instalar e configurar manualmente a função. Requer permitir a solução **Automation Hybrid Worker** no seu espaço de trabalho Azure Log Analytics e, em seguida, executar um conjunto de comandos para registar o computador como trabalhador e adicioná-lo a um grupo.
+Para instalar e configurar um Trabalhador do Livro de Execução Híbrido no seu computador Linux, siga um processo manual simples. Requer permitir a solução Automation Hybrid Worker no seu espaço de trabalho Azure Log Analytics e, em seguida, executar um conjunto de comandos para registar o computador como trabalhador e adicioná-lo a um grupo.
 
 Os requisitos mínimos para um Trabalhador do Livro De Execução Híbrido Linux são:
 
@@ -56,9 +74,9 @@ Os requisitos mínimos para um Trabalhador do Livro De Execução Híbrido Linux
 
 Antes de proceder, note o espaço de trabalho log Analytics a que a sua conta Deautomação está ligada. Note também a chave principal para a sua conta Deautomação. Pode encontrar tanto a partir do portal Azure selecionando a sua conta de Automação, selecionando **workspace** para o ID do espaço de trabalho e selecionando **Chaves** para a chave principal. Para obter informações sobre portas e endereços de que necessita para o Trabalhador do Livro híbrido, consulte [Configurar a sua rede](automation-hybrid-runbook-worker.md#network-planning).
 
-1. Ativar a solução **Automation Hybrid Worker** em Azure utilizando um dos seguintes métodos:
+1. Ativar a solução Automation Hybrid Worker em Azure utilizando um dos seguintes métodos:
 
-   * Adicione a solução **Automation Hybrid Worker** à sua subscrição utilizando o procedimento no Add [Azure Monitor soluçãos de logs para o seu espaço de trabalho](../log-analytics/log-analytics-add-solutions.md).
+   * Adicione a solução Automation Hybrid Worker à sua subscrição utilizando o procedimento no [Add Azure Monitor soluçãos de logs para o seu espaço de trabalho](../log-analytics/log-analytics-add-solutions.md).
    * Execute o seguinte cmdlet:
 
         ```azurepowershell-interactive
@@ -79,36 +97,18 @@ Antes de proceder, note o espaço de trabalho log Analytics a que a sua conta De
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
    ```
 
-1. Após a conclusão do comando, a página dos **Grupos de Trabalhadores Híbridos** no portal Azure mostra o novo grupo e o número de membros. Se este é um grupo existente, o número de membros é incrementado. Pode selecionar o grupo da lista na página grupo seletiva de grupos de **trabalhadores híbridos** e selecionar o azulejo **Híbrido Workers.** Na página dos **Trabalhadores Híbridos,** vê-se cada membro do grupo listado.
+1. Após a conclusão do comando, a página dos Grupos de Trabalhadores Híbridos no portal Azure mostra o novo grupo e o número de membros. Se este é um grupo existente, o número de membros é incrementado. Pode selecionar o grupo da lista na página grupo seletiva de grupos de trabalhadores híbridos e selecionar o azulejo **Híbrido Workers.** Na página dos Trabalhadores Híbridos, vê-se cada membro do grupo listado.
 
 > [!NOTE]
-> Se estiver a utilizar a extensão da máquina virtual Azure Monitor `autoUpgradeMinorVersion` para o Linux para um VM Azure, recomendamos que se ajuste a versões falsas, uma vez que versões de atualização automática podem causar problemas ao Hybrid Runbook Worker. Para aprender a atualizar a extensão manualmente, consulte a [implementação do Azure CLI ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+> Se estiver a utilizar a extensão da máquina virtual Azure Monitor `autoUpgradeMinorVersion` para o Linux para um VM Azure, recomendamos que se ajuste a versões falsas, uma vez que versões de atualização automática podem causar problemas ao Hybrid Runbook Worker. Para aprender a atualizar a extensão manualmente, consulte a [implementação do Azure CLI](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turning-off-signature-validation"></a>Desativação da validação de assinaturas
 
-Por padrão, os trabalhadores do livro de corridas híbridos Linux exigem validação de assinaturas. Se publicar um livro de corridas não assinado contra um trabalhador, verá um erro que diz "Validação de assinatura falhou". Para desativar a validação da assinatura, execute o seguinte comando. Substitua o segundo parâmetro pelo id do espaço de trabalho de análise de registo.
+Por padrão, os trabalhadores do livro de corridas híbridos Linux exigem validação de assinaturas. Se publicares um livro de corridas não `Signature validation failed` assinado contra um trabalhador, vês um erro. Para desativar a validação da assinatura, execute o seguinte comando. Substitua o segundo parâmetro pelo id do espaço de trabalho Log Analytics.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
  ```
-
-## <a name="supported-runbook-types"></a>Tipos de livro de corridas suportados
-
-Os trabalhadores do livro de corridas híbridos Linux não suportam todo o conjunto de tipos de livros de corridas na Automação Azure.
-
-Os seguintes tipos de livro funcionam num Linux Hybrid Worker:
-
-* Python 2
-* PowerShell
-
-  > [!NOTE]
-  > Os livros de execução PowerShell exigem que o PowerShell Core seja instalado na máquina Linux. Consulte [a instalação do PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para aprender a instalá-lo.
-
-Os seguintes tipos de livros não funcionam num Linux Hybrid Worker:
-
-* Fluxo de Trabalho do PowerShell
-* Gráficos
-* Fluxo de trabalho de PowerShell Graphical PowerShell
 
 ## <a name="next-steps"></a>Passos seguintes
 

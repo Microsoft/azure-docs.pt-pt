@@ -11,14 +11,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: e94eef3072b9636c8022a5949b05519c1554cb9e
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: cf13dbe17738ca1ae658c73bb0092a219b4823d1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585794"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415907"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Join an Azure-SSIS integration runtime to a virtual network (Associar um runtime de integração do Azure-SSIS a uma rede virtual)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Ao utilizar os Serviços de Integração de Servidores SQL (SSIS) na Azure Data Factory, deverá juntar-se ao seu tempo de execução de integração Azure-SSIS (IR) a uma rede virtual Azure nos seguintes cenários:
 
@@ -336,7 +338,7 @@ Utilize o portal para configurar uma rede virtual do Gestor de Recursos Azure an
 
 1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, apenas estes navegadores web suportam a UI da Fábrica de Dados. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 1. Selecione **Mais serviços**. Filtrar e selecionar **redes virtuais**. 
 
@@ -366,7 +368,7 @@ Utilize o portal para configurar uma rede virtual clássica antes de tentar ader
 
 1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, apenas estes navegadores web suportam a UI da Fábrica de Dados. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 1. Selecione **Mais serviços**. Filtrar e selecionar **redes virtuais (clássica)**. 
 

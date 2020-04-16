@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: a14f4d548053fb7aaf6f450176fdc49bc7b119bf
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421040"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414133"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Desempenho da atividade da cópia de resolução de problemas
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como resolver problemas na questão do desempenho da atividade na Azure Data Factory. 
 
@@ -54,7 +56,7 @@ Os detalhes e durações de execução na parte inferior da visão de monitoriza
 | --------------- | ------------------------------------------------------------ |
 | Filas           | O tempo decorrido até que a atividade de cópia realmente comece no tempo de execução da integração. |
 | Roteiro pré-cópia | O tempo decorrido entre a atividade de cópia a partir do IR e a atividade de cópia terminando a execução do script pré-cópia na loja de dados do lavatório. Aplicar quando configurar o script pré-cópia para pias de base de dados, por exemplo, ao escrever dados na Base de Dados Azure SQL, limpe antes de copiar novos dados. |
-| Transferência        | O tempo decorrido entre o final do passo anterior e o IR transferindo todos os dados de origem para afundar. Subpassos em "Transferência" corre em paralelo.<br><br>- **Hora de primeiro passar:** O tempo decorrido entre o final do passo anterior e o momento em que o IR recebe o primeiro byte da loja de dados de origem. Aplica-se a fontes não baseadas em ficheiros.<br>- **Fonte de listagem:** A quantidade de tempo gasto na enumeração de ficheiros de origem ou partições de dados. Este último aplica-se quando configura opções de partição para fontes de base de dados, por exemplo, quando copia dados de bases de dados como o Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Leitura a partir da fonte:** A quantidade de tempo gasto na recuperação de dados da loja de dados de origem.<br/>- **Escrever para afundar:** A quantidade de tempo gasto na escrita de dados para afundar a loja de dados. |
+| Transferir        | O tempo decorrido entre o final do passo anterior e o IR transferindo todos os dados de origem para afundar. Subpassos em "Transferência" corre em paralelo.<br><br>- **Hora de primeiro passar:** O tempo decorrido entre o final do passo anterior e o momento em que o IR recebe o primeiro byte da loja de dados de origem. Aplica-se a fontes não baseadas em ficheiros.<br>- **Fonte de listagem:** A quantidade de tempo gasto na enumeração de ficheiros de origem ou partições de dados. Este último aplica-se quando configura opções de partição para fontes de base de dados, por exemplo, quando copia dados de bases de dados como o Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Leitura a partir da fonte:** A quantidade de tempo gasto na recuperação de dados da loja de dados de origem.<br/>- **Escrever para afundar:** A quantidade de tempo gasto na escrita de dados para afundar a loja de dados. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Atividade de cópia de resolução de problemas no Azure IR
 

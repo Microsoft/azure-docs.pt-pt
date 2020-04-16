@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: abd7940551f7a8182364475b0cf50b60afb5e1b7
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 91b08d6130da640adc28a3b7d85bd33f0e876caf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313799"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390290"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utilize pontos finais de serviço de rede virtual com hubs de eventos Azure
 
@@ -32,6 +32,7 @@ O resultado é uma relação privada e isolada entre as cargas de trabalho ligad
 > Os serviços fidedignos da Microsoft não são suportados quando as Redes Virtuais são implementadas.
 >
 > Cenários Comuns Azure que não funcionam com Redes Virtuais (note que a lista **NÃO** é exaustiva) -
+> - Monitor Azure (definição de diagnóstico)
 > - Azure Stream Analytics
 > - Integração com a Grelha de Eventos Azure
 > - Rotas do Hub Azure IoT

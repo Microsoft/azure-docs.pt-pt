@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 81f8577592f1d53627bc09a2f9ace8c060ad4660
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668856"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415826"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiar dados do Azure Data Lake Storage Gen1 para gen2 com azure data factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Lake Storage Gen2 é um conjunto de capacidades dedicadas à análise de big data que está incorporada no [armazenamento azure Blob.](../storage/blobs/storage-blobs-introduction.md) Pode usá-los para interagir com os seus dados utilizando tanto o sistema de ficheiros como os paradigmas de armazenamento de objetos.
 
@@ -65,7 +67,7 @@ Este artigo mostra-lhe como usar a ferramenta de dados de cópia da Data Factory
 1. Na página **Iniciar-se,** selecione o azulejo **Copy Data** para lançar a ferramenta de dados de cópia. 
 
    ![Copiar azulejo da ferramenta de dados](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
-2. Na página **Propriedades,** especifique **CopyFromADLSGen1ToGen2** para o campo de **nome de tarefas.** Selecione **Next**.
+2. Na página **Propriedades,** especifique **CopyFromADLSGen1ToGen2** para o campo de **nome de tarefas.** Selecione **Seguinte**.
 
     ![Página Propriedades](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)
 3. Na página da loja de **dados Source,** selecione **+ Criar uma nova ligação**.
@@ -82,7 +84,7 @@ Este artigo mostra-lhe como usar a ferramenta de dados de cópia da Data Factory
   
    b. Selecione a **ligação de teste** para validar as definições. Em seguida, selecione **Concluir**.
   
-   c. Sabe que foi criada uma nova ligação. Selecione **Next**.
+   c. Sabe que foi criada uma nova ligação. Selecione **Seguinte**.
    
    > [!IMPORTANT]
    > Neste walk-through, você usa uma identidade gerida para os recursos Azure para autenticar o seu Azure Data Lake Storage Gen1. Para conceder à identidade gerida as permissões adequadas no Azure Data Lake Storage Gen1, siga [estas instruções](connector-azure-data-lake-store.md#managed-identity).
@@ -93,7 +95,7 @@ Este artigo mostra-lhe como usar a ferramenta de dados de cópia da Data Factory
 
     ![Escolher ficheiro ou pasta de entrada](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
 
-7. Especifique o comportamento da cópia selecionando os **ficheiros Copy de forma recursiva** e as opções **de cópia binária.** Selecione **Next**.
+7. Especifique o comportamento da cópia selecionando os **ficheiros Copy de forma recursiva** e as opções **de cópia binária.** Selecione **Seguinte**.
 
     ![Especificar pasta de saída](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     

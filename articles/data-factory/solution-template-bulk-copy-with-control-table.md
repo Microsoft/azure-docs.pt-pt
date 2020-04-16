@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 3a42d7da21cfb2e3066fbdd81b27c82155d8456f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6d634d9a32ae1728e1122d863ddabd94f73ee27
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439941"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414835"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Cópia a granel de uma base de dados com uma tabela de controlo
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Para copiar dados de um armazém de dados no Oracle Server, Netezza, Teradata ou SQL Server para o Azure SQL Data Warehouse, tem de carregar enormes quantidades de dados a partir de várias tabelas. Normalmente, os dados têm de ser divididos em cada tabela para que possa carregar linhas com vários fios em paralelo a partir de uma única tabela. Este artigo descreve um modelo para usar nestes cenários.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Enviado para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
-description: Aprenda a configurar o Diretório Ativo Azure para fornecer automaticamente e desfornecer contas de utilizador ao Enviado.
+description: Aprenda a fornecer e desfornecer automaticamente contas de utilizadores de Azure AD para enviado.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -14,77 +14,79 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
-ms.author: jeedes
-ms.openlocfilehash: 30faae80f1af4ff63924a76b26a03b8fe354a7df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: Zhchia
+ms.openlocfilehash: 68e17ba1dd5981e565e56d6c8137f77d33ad755b
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77058030"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393502"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Tutorial: Configure enviado para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar os passos a serem realizados no Enviado e no Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer automaticamente e desfornecer utilizadores e/ou grupos ao Enviado.
+Este tutorial descreve os passos necessários para executar tanto no Envoy como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático de utilizadores. Quando configurado, a AD Azure disponibiliza automaticamente e despresta utilizadores e grupos ao [Enviado](https://envoy.com/pricing/) utilizando o serviço de provisionamento de AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../manage-apps/user-provisioning.md) 
 
-> [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Da AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
->
-> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+
+## <a name="capabilities-supported"></a>Capacidades suportadas
+> [!div class="checklist"]
+> * Criar utilizadores no Enviado
+> * Remova os utilizadores no Enviado quando já não necessitam de acesso
+> * Mantenha os atributos dos utilizadores sincronizados entre a Azure AD e o Enviado
+> * Grupos de provisões e membros do grupo no Enviado
+> * [Inscrição única](https://docs.microsoft.com/azure/active-directory/saas-apps/envoy-tutorial) para enviado (recomendado)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
-* Um inquilino da AD Azure
-* [Um inquilino enviado](https://envoy.com/pricing/)
+* [Um inquilino da AD Azure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* Uma conta de utilizador em Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação na Nuvem, Proprietário de Aplicações ou Administrador Global). 
+* [Um inquilino enviado.](https://envoy.com/pricing/)
 * Uma conta de utilizador no Enviado com permissões de administrador.
 
-## <a name="add-envoy-from-the-gallery"></a>Adicione enviado da galeria
+## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planeie a sua implantação de provisionamento
+1. Saiba como funciona o serviço de [provisionamento.](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+2. Determinar quem estará no [âmbito do provisionamento.](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)
+3. Determine quais os dados a [mapear entre a AD Azure e](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)o enviado. 
 
-Antes de configurar o Enviado para o fornecimento automático de utilizadores com a AD Azure, você precisa adicionar o enviado da galeria de aplicações Azure AD à sua lista de aplicações geridas saaS.
+## <a name="step-2-configure-envoy-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure enviado para apoiar o provisionamento com a AD Azure
 
-**Para adicionar enviado da galeria de aplicações da AD Azure, execute os seguintes passos:**
+1. Inscreva-se na sua [Consola De Enviado Admin](https://dashboard.envoy.com/login). Clique em **Integrações**.
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
+    ![Integrações do Enviado](media/envoy-provisioning-tutorial/envoy01.png)
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+2. Clique em **Instalar** para a integração do **Microsoft Azure SCIM**.
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+    ![Instalação do enviado](media/envoy-provisioning-tutorial/envoy02.png)
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+3. Clique em **Guardar** para **Sincronizar todos os utilizadores**. 
 
-3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
+    ![Enviado Salvar](media/envoy-provisioning-tutorial/envoy03.png)
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+4. Copie o TOKEN DO PORTADOR DA **OAUTH**. Este valor será inscrito no campo **Secret Token** no separador de fornecimento da sua aplicação de enviado no portal Azure.
+    
+    ![Enviado OAUTH](media/envoy-provisioning-tutorial/envoy04.png)
 
-4. Na caixa de pesquisa, insira **o Enviado**, selecione **Enviado** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+## <a name="step-3-add-envoy-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione enviado da galeria de aplicações da AD Azure
 
-    ![Enviado na lista de resultados](common/search-new-app.png)
+Adicione o enviado da galeria de aplicações da AD Azure para começar a gerir o provisionamento ao Enviado. Se já tiver configurado o Enviado para o SSO, pode utilizar a mesma aplicação. No entanto, recomenda-se que crie uma aplicação separada ao testar a integração inicialmente. Saiba mais sobre a adição de uma aplicação na galeria [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app) 
 
-## <a name="assigning-users-to-envoy"></a>Atribuir utilizadores ao Enviado
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4. Definir quem estará no âmbito do provisionamento 
 
-O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que tenham sido atribuídos a uma aplicação em AD Azure são sincronizados.
+O serviço de provisionamento de AD Azure permite-lhe examinar quem será provisionado com base na atribuição à aplicação e ou com base em atributos do utilizador/grupo. Se optar por examinar quem será aprovisionado na sua app com base na atribuição, pode utilizar os [seguintes passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se optar por examinar quem será aprovisionado apenas com base em atributos do utilizador ou do grupo, pode utilizar um filtro de deteção como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Enviado. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos ao Enviado seguindo as instruções aqui:
+* Ao atribuir utilizadores e grupos ao Enviado, deve selecionar uma função diferente do **Acesso Padrão**. Os utilizadores com a função de Acesso Predefinido estão excluídos do fornecimento e serão marcados como não tendo direito efetivamente nos registos de fornecimento. Se a única função disponível na aplicação for a função de acesso padrão, pode [atualizar o manifesto de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar funções adicionais. 
 
-* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+* Comece minúsculo. Teste com um pequeno conjunto de utilizadores e grupos antes de passar para todos. Quando o âmbito de fornecimento for definido para utilizadores e grupos atribuídos, pode controlá-lo atribuindo um ou dois utilizadores ou grupos à aplicação. Quando o âmbito é definido para todos os utilizadores e grupos, pode especificar um filtro de [deteção baseado em atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-### <a name="important-tips-for-assigning-users-to-envoy"></a>Dicas importantes para atribuir utilizadores ao Enviado
 
-* Recomenda-se que um único utilizador da AD Azure seja designado para o Enviado para testar a configuração automática de fornecimento de utilizadores. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
+## <a name="step-5-configure-automatic-user-provisioning-to-envoy"></a>Passo 5. Configure o fornecimento automático de utilizadores ao enviado 
 
-* Ao atribuir um utilizador ao Enviado, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
-
-## <a name="configuring-automatic-user-provisioning-to-envoy"></a>Configurar o fornecimento automático de utilizadores ao enviado 
-
-Esta secção guia-o através dos passos para configurar o serviço de provisionamento da AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Enviado com base em atribuições de utilizador e/ou grupo em Azure AD.
-
-> [!TIP]
-> Também pode optar por ativar um único sinal baseado em SAML para enviado, seguindo as instruções fornecidas no tutorial de [inscrição única](envoy-tutorial.md)do Enviado. O único sinal de inscrição pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
+Esta secção orienta-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no TestApp com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-envoy-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para enviado em Azure AD:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -100,74 +102,80 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
     ![Guia de provisionamento](common/provisioning-automatic.png)
 
-5. No âmbito da secção de `https://app.envoy.com/scim/v2` **Credenciais de Administrador,** insere-se no URL do **Arrendatário**. Para recuperar o **Símbolo Secreto** da sua conta de enviado, siga a passagem como descrito no Passo 6.
+5. No âmbito da secção de `https://app.envoy.com/scim/v2` **Credenciais de Administrador,** insere-se no URL do **Arrendatário**. Insera o valor TOKEN do Portador da **OAUTH** recuperado anteriormente em **Secret Token**. Clique em **Ligação** de Teste para garantir que o Azure AD pode ligar-se ao Enviado. Se a ligação falhar, certifique-se de que a sua conta de enviado tem permissões de administrador e tente novamente.
 
-6. Inscreva-se na sua [Consola De Enviado Admin](https://dashboard.envoy.com/login). Clique em **Integrações**.
+   ![provisionamento](./media/envoy-tutorial/provisioning.png)
 
-    ![Integrações do Enviado](media/envoy-provisioning-tutorial/envoy01.png)
-
-    Clique em **Instalar** para a integração do **Microsoft Azure SCIM**.
-
-    ![Instalação do enviado](media/envoy-provisioning-tutorial/envoy02.png)
-
-    Clique em **Guardar** para **Sincronizar todos os utilizadores**. 
-
-    ![Enviado Salvar](media/envoy-provisioning-tutorial/envoy03.png)
-
-    Recupere o Símbolo Secreto povoado.
-    
-    ![Enviado OAUTH](media/envoy-provisioning-tutorial/envoy04.png)
-
-7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se ao Enviado. Se a ligação falhar, certifique-se de que a sua conta de enviado tem permissões de administrador e tente novamente.
-
-    ![Certificado de](common/provisioning-testconnection-tenanturltoken.png)
-
-8. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
+6. No campo de email de **notificação,** introduza o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e selecione a **notificação de e-mail enviar uma notificação de e-mail quando ocorrer uma falha** verificar a caixa.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-9. Clique em **Guardar**.
+7. Selecione **Guardar**.
 
-10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Envoy**.
-    
-    ![Atributos do Utilizador enviado](media/envoy-provisioning-tutorial/envoy-user-mappings.png)
-    
-11. Reveja os atributos do utilizador que são sincronizados de Azure AD para Enviado na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder às contas de utilizador no Enviado para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+8. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Envoy**.
 
-    ![Atributos do Utilizador enviado](media/envoy-provisioning-tutorial/envoy-user-attribute.png)
+9. Reveja os atributos do utilizador que são sincronizados de Azure AD para Enviado na secção **Attribute-Mapping.** Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder às contas de utilizador no Enviado para operações de atualização. Se optar por alterar o [atributo-alvo correspondente,](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)terá de garantir que o enviado da API suporta filtrar os utilizadores com base nesse atributo. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-12. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to Envoy**.
+   |Atributo|Tipo|
+   |---|---|
+   |userName|String|
+   |id externo|String|
+   |displayName|String|
+   |título|String|
+   |e-mails[tipo eq "work"].valor|String|
+   |língua preferida|String|
+   |departamento|String|
+   |endereços[tipo eq "trabalho"].país|String|
+   |endereços[tipo eq "trabalho"].localidade|String|
+   |endereços[tipo eq "trabalho"].região|String|
+   |endereços[tipo eq "trabalho"].código postal|String|
+   |endereços[tipo eq "trabalho"].formado|String|
+   |endereços[tipo eq "trabalho"].streetAddress|String|
+   |nome.dadoNome|String|
+   |nome.familyName|String|
+   |nome.formatado|String|
+   |telefoneNumbers[tipo eq "mobile"].valor|String|
+   |telefoneNumbers[tipo eq "trabalho"].valor|String|
+   |região|String|
 
-    ![Mapeamento de utilizador enviado](media/envoy-provisioning-tutorial/envoy-group-mapping.png)
+10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to Envoy**.
 
-13. Reveja os atributos do grupo que são sincronizados de Azure AD para enviado na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **correspondentes** são usados para combinar os grupos em Enviado para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+11. Reveja os atributos do grupo que são sincronizados de Azure AD para enviado na secção **Attribute-Mapping.** Os atributos selecionados como propriedades **correspondentes** são usados para combinar os grupos em Enviado para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
 
-    ![Mapeamento de utilizador enviado](media/envoy-provisioning-tutorial/envoy-group-attributes.png)
-    
-14. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+      |Atributo|Tipo|
+      |---|---|
+      |displayName|String|
+      |id externo|String|
+      |membros|Referência|
 
-15. Para ativar o serviço de provisionamento de AD Azure para enviado, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
+12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Para ativar o serviço de provisionamento de AD Azure para enviado, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
 
     ![Estatuto de provisionamento Alternado](common/provisioning-toggle-on.png)
 
-16. Defina os utilizadores e/ou grupos que gostaria de fornecer ao Enviado, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+14. Defina os utilizadores e/ou grupos que gostaria de fornecer ao Enviado, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Âmbito de provisionamento](common/provisioning-scope.png)
 
-17. Quando estiver pronto para fornecer, clique em **Guardar**.
+15. Quando estiver pronto para fornecer, clique em **Guardar**.
 
     ![Configuração de fornecimento de poupança](common/provisioning-configuration-save.png)
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser desempenhada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento AD Azure esteja em funcionamento. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento da AD Azure no Enviado.
+Esta operação inicia o ciclo inicial de sincronização de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições.** O ciclo inicial demora mais tempo a realizar do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento da AD Azure esteja em funcionamento. 
 
-Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
+## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
+Depois de configurar o fornecimento, utilize os seguintes recursos para monitorizar a sua implementação:
+
+* Utilize os registos de [provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram provisionados com sucesso ou sem sucesso
+* Verifique a barra de [progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da conclusão
+* Se a configuração do fornecimento parecer estar num estado pouco saudável, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-
+* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)

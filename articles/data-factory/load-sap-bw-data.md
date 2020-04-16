@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 971871c28bd1b38b134c04b0334fbe99d1d655c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440167"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415846"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse utilizando a Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo mostra como usar a Azure Data Factory para copiar dados do SAP Business Warehouse (BW) via Open Hub para azure Data Lake Storage Gen2. Pode utilizar um processo semelhante para copiar dados para outras lojas de [dados de sink suportados.](copy-activity-overview.md#supported-data-stores-and-formats)
 
@@ -68,7 +69,7 @@ No portal do Azure, aceda à sua fábrica de dados. Selecione **Author & Monitor
 
    3. Selecione a **ligação de teste** para validar as definições e, em seguida, selecione **Terminar**.
 
-   4. Uma nova ligação é criada. Selecione **Next**.
+   4. Uma nova ligação é criada. Selecione **Seguinte**.
 
 5. Na página **Select Open Hub Destinations,** navegue nos Destinos Open Hub que estão disponíveis no seu SAP BW. Selecione o OHD para copiar dados e, em seguida, selecione **Next**.
 

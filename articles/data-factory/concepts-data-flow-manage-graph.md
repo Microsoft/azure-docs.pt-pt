@@ -7,14 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/04/2019
-ms.openlocfilehash: da180bfb1aec29fa15b070fd73ba84d708ada927
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1618011dc3c281cb2ef06ef80cfc7c8e69c4e091
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928312"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415497"
 ---
 # <a name="mapping-data-flow-graphs"></a>Mapeando gráficos de fluxo de dados
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 A superfície de design de fluxos de dados de mapeamento é uma superfície de "construção" onde se constroem fluxos de dados de cima para baixo, da esquerda para a direita. Existe uma caixa de ferramentas anexa a cada transformação com um símbolo mais (+). Concentre-se na sua lógica de negócio em vez de ligar nós através de bordas num ambiente DAG de forma livre.
 
