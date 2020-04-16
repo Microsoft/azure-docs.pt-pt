@@ -14,14 +14,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: c41efc1cbccf546d803e1131405907bf37dcf00c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 91962b578f9620384af86d25a33ba35830abb285
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75496566"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418631"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Prever o tempo de execução de integração Azure-SSIS na Fábrica de Dados Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este tutorial fornece passos para a utilização do portal Azure para fornecer um tempo de execução de integração do Azure-SQL Server Integration Services (SSIS) na Azure Data Factory. Um IR Azure-SSIS suporta:
 
@@ -117,7 +119,7 @@ Depois da sua fábrica de dados ser criada, abra a sua página de visão geral n
 
    1. Para **economizar dinheiro,** selecione a opção Benefício Híbrido Azure para o seu tempo de integração: **Sim** ou **Não**. Selecione **Sim** se quiser trazer a sua própria licença SQL Server com Garantia de Software para beneficiar de economias de custos com uso híbrido. 
 
-   1. Selecione **Next**. 
+   1. Selecione **Seguinte**. 
 
 1. Na secção **Definições SQL,** complete os seguintes passos. 
 

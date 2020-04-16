@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 7ba921656d0dad059b1d15f443bcefeff03ade50
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 77fa8f72d4d4d929d15859fde71f112de1ddd14e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977390"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418733"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Neste tutorial, cria-se um pipeline data factory que mostra algumas funcionalidades de fluxo de controlo. Este gasoduto copia de um contentor em Azure Blob Storage para outro contentor na mesma conta de armazenamento. Se a atividade de cópia for bem sucedida, o pipeline envia detalhes da operação de cópia bem sucedida num e-mail. Essa informação pode incluir a quantidade de dados escritos. Se a atividade da cópia falhar, envia detalhes da falha da cópia, como a mensagem de erro, num e-mail. Ao longo do tutorial, vai ver como passar os parâmetros.
 

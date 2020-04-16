@@ -12,18 +12,20 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: 52ed43277eef84de826d2f4fa41ba860211a1531
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: be9395b908461b54b607fff32747ca0d9f20f45c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78969932"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418665"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiar dados do armazenamento do Azure Blob para uma base de dados SQL utilizando a ferramenta Copy Data
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](tutorial-copy-data-tool.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Neste tutorial, irá utilizar o portal do Azure para criar uma fábrica de dados. Em seguida, utiliza a ferramenta Copy Data para criar um pipeline que copia dados do armazenamento do Azure Blob para uma Base de Dados SQL.
 
@@ -132,7 +134,7 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial execu
 
     b. Clique em **Seguinte** para mover para o passo seguinte.
 
-1. Na página de definições do **formato 'Ficheiro',** ative a caixa de verificação para *a primeira linha como cabeçalho*. Note que a ferramenta deteta automaticamente os delimitadores da coluna e da linha. Selecione **Next**. Também pode pré-visualizar dados e ver o esquema dos dados de entrada nesta página.
+1. Na página de definições do **formato 'Ficheiro',** ative a caixa de verificação para *a primeira linha como cabeçalho*. Note que a ferramenta deteta automaticamente os delimitadores da coluna e da linha. Selecione **Seguinte**. Também pode pré-visualizar dados e ver o esquema dos dados de entrada nesta página.
 
     ![Definições do formato do ficheiro](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. Na página **Arquivo de dados de destino**, conclua os seguintes passos:

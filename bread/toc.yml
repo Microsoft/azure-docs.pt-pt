@@ -105,6 +105,9 @@
     - name: Gateway de Aplicação
       tocHref: /azure/application-gateway/
       topicHref: /azure/application-gateway/
+    - name: Synapse Analytics
+      tocHref: /azure/synapse-analytics/
+      topicHref: /azure/synapse-analytics/
     - name: ASC para IoT
       tocHref: /azure/asc-for-iot/
       topicHref: /azure/asc-for-iot/
@@ -525,7 +528,20 @@
       topicHref: /azure/jenkins/
     - name: Cofre de Chaves
       tocHref: /azure/key-vault/
-      topicHref: /azure/key-vault/
+      topicHref: /azure/key-vault
+      items:
+        - name: Geral
+          tocHref: /azure/key-vault/general/
+          topicHref: /azure/key-vault/general/
+        - name: Certificados
+          tocHref: /azure/key-vault/certificates/
+          topicHref: /azure/key-vault/certificates/
+        - name: Chaves
+          tocHref: /azure/key-vault/keys/
+          topicHref: /azure/key-vault/keys/
+        - name: Segredos
+          tocHref: /azure/key-vault/secrets/
+          topicHref: /azure/key-vault/secrets/
     - name: Azure Kinect DK
       tocHref: /azure/kinect-dk/
       topicHref: /azure/kinect-dk/

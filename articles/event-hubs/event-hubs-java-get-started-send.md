@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 5a34ac2d1b7401d31ae518334aedc15c626b66a3
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 379739533e15e60bc47bfc883a67037d4a58d0e0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529494"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417624"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Use Java para enviar eventos ou receber eventos de Azure Event Hubs (azure-eventhubs)
 
@@ -176,7 +176,7 @@ O código neste tutorial baseia-se no [código EventProcessorSample no GitHub,](
 
 **EventProcessorHost** é uma classe Java que simplifica receber eventos de Event Hubs gerindo pontos de verificação persistentes e recebeções paralelas desses Centros de Eventos. Utilizando o EventProcessorHost, pode dividir eventos em vários recetores, mesmo quando hospedado em diferentes nós. Este exemplo mostra como utilizar o EventProcessorHost para um recetor único.
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Para utilizar o EventProcessorHost, deve ter uma conta [Azure Storage][conta de armazenamento azure]:
 
@@ -314,7 +314,8 @@ Para diferentes tipos de ambientes de construção, pode obter explicitamente os
         
            System.out.println("End of sample");
        }
-    ```
+   }
+   ```
 3. Crie mais `EventProcessor`uma classe chamada, utilizando o seguinte código:
    
     ```java

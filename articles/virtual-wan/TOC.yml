@@ -100,6 +100,8 @@
       href: /rest/api/azure
     - name: CLI do Azure
       href: /cli/azure/ext/virtual-wan
+    - name: SDK Python
+      href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations'
 - name: Recursos
   items:
     - name: FAQ
