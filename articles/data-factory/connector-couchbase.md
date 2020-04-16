@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ac2426bbfa074e58aa5c4a213f3ecbee20052358
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d78d533bc4a863a0a70b1dbb47bdfa85d539884f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444369"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417429"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copiar dados da Couchbase utilizando a Azure Data Factory (Pré-visualização)
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados da Couchbase. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 > [!IMPORTANT]

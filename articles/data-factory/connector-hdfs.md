@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 2cd76afa9412e89c57cfb6c357eb164ce5d3d1c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09c39c41b2d31f88fe2b19d8f20cd19e182c9214
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75830433"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417270"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados do HDFS utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-hdfs-connector.md)
 > * [Versão atual](connector-hdfs.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como copiar dados do servidor HDFS. Para conhecer a Azure Data Factory, leia o [artigo introdutório.](introduction.md)
 

@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 1e1d7cc4bb7762d3ebd29e349467f3e33c0887f9
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4eed79210e3e39f82b892ac0681e161ebb59597e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421229"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418036"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados da Teradata Vantage utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 >
 > * [Versão 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Versão atual](connector-teradata.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a atividade de cópia na Azure Data Factory para copiar dados da Teradata Vantage. Baseia-se na visão geral da atividade da [cópia.](copy-activity-overview.md)
 
@@ -256,7 +258,7 @@ Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contr
 
 | Cenário                                                     | Definições sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Carga completa de mesa grande.                                   | **Opção de partição**: Hash. <br><br/>Durante a execução, a Data Factory deteta automaticamente a coluna PK, aplica um hash contra ela e copia dados por divisórias. |
+| Carga completa de mesa grande.                                   | **Opção de partição**: Hash. <br><br/>Durante a execução, a Data Factory deteta automaticamente a coluna de índice primário, aplica um hash contra ela e copia dados por divisórias. |
 | Carregue uma grande quantidade de dados utilizando uma consulta personalizada.                 | **Opção de partição**: Hash.<br>**Consulta:** `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Coluna de partição**: Especifique a coluna utilizada para a aplicação da partição de hash. Se não especificado, a Data Factory deteta automaticamente a coluna PK da tabela especificada no conjunto de dados teradata.<br><br>Durante a execução, `?AdfHashPartitionCondition` data Factory substitui com a lógica da partição de haxixe, e envia para a Teradata. |
 | Carregue uma grande quantidade de dados utilizando uma consulta personalizada, tendo uma coluna inteiro com valor uniformemente distribuído para a partilha de alcance. | **Opções de partição**: Partição dinâmica.<br>**Consulta:** `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Coluna de partição**: Especifique a coluna utilizada para os dados da partilha. Pode dividir-se contra a coluna com o tipo de dados inteiros.<br>**Divisória superior ligada** e **divisória inferior:** Especifique se pretende filtrar contra a coluna de divisórias para recuperar dados apenas entre a gama inferior e superior.<br><br>Durante a execução, `?AdfRangePartitionColumnName` `?AdfRangePartitionUpbound`a `?AdfRangePartitionLowbound` Data Factory substitui, e com o nome real da coluna e gamas de valor para cada partição, e envia para a Teradata. <br>Por exemplo, se a sua coluna de partição "ID" definida com o limite inferior como 1 e o limite superior como 80, com cópia paralela definida como 4, data Factory recupera dados por 4 divisórias. As suas identificações estão entre [1,20], [21, 40], [41, 60], e [61, 80], respectivamente. |
 
@@ -298,8 +300,8 @@ Quando copia dados da Teradata, aplicam-se os seguintes mapeamentos. Para saber 
 | Blobs |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |Cadeia |
-| Estação Clob |Cadeia |
+| Char |String |
+| Estação Clob |String |
 | Date |DateTime |
 | Decimal |Decimal |
 | Double |Double |
@@ -330,7 +332,7 @@ Quando copia dados da Teradata, aplicam-se os seguintes mapeamentos. Para saber 
 | Carimbo de data/hora |DateTime |
 | Carimbo de tempo com fuso horário |DateTime |
 | Rio VarByte |Byte[] |
-| Rio Varchar |Cadeia |
+| Rio Varchar |String |
 | Vargraphic |Não suportado. Aplicar elenco explícito na consulta de origem. |
 | Xml |Não suportado. Aplicar elenco explícito na consulta de origem. |
 

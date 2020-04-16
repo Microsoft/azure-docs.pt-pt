@@ -10,18 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260582"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418954"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-use-custom-activities.md)
 > * [Versão atual](transform-data-using-dotnet-custom-activity.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Existem dois tipos de atividades que pode utilizar num oleoduto Azure Data Factory.
 
@@ -115,7 +116,7 @@ A tabela seguinte descreve nomes e descrições de propriedades específicas des
 &#42; As `resourceLinkedService` `folderPath` propriedades e devem ser especificadas ou ambas seromitadas.
 
 > [!NOTE]
-> Se estiver a passar por serviços ligados como referênciaObjects in Custom Activity, é uma boa prática de segurança passar um serviço ligado à Chave Azure (uma vez que não contém nenhuma strings segura) e obter as credenciais usando o nome secreto diretamente de Key Cofre do código. Pode encontrar [aqui](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) um exemplo que refere o serviço ligado ao AKV, recupera as credenciais do Key Vault e, em seguida, acede ao armazenamento no código.
+> Se estiver a passar por serviços ligados como referênciaObjects in Custom Activity, é uma boa prática de segurança passar um serviço ligado à Chave Azure (uma vez que não contém nenhuma strings segura) e obter as credenciais usando o nome secreto diretamente do Key Vault a partir do código. Pode encontrar [aqui](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) um exemplo que refere o serviço ligado ao AKV, recupera as credenciais do Key Vault e, em seguida, acede ao armazenamento no código.
 
 ## <a name="custom-activity-permissions"></a>Permissões de atividade personalizadas
 

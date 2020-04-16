@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cb2302637efb16fc31bd420bf8c4ead19d7f598d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a2d79391832bbb5424c6d4096eb5c1a597623367
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384944"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81421838"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O utilizador precisa de ter hub e falou com dispositivos SD-WAN/VPN para utilizar o Azure Virtual WAN?
 
@@ -208,6 +208,13 @@ Sim. Uma ligação à Internet e dispositivo físico que suporta o IPsec, de pre
 ### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Como posso ativar a rota padrão (0.0.0.0/0) numa ligação (VPN, ExpressRoute ou Rede Virtual):
 
 Um hub virtual pode propagar uma rota padrão aprendida para uma ligação VPN/ExpressRoute de rede virtual/local-para-site se a bandeira estiver 'Activada' na ligação. Esta bandeira é visível quando o utilizador edita uma ligação de rede virtual, uma ligação VPN ou uma ligação ExpressRoute. Por predefinição, esta bandeira é desativada quando um local ou um circuito ExpressRoute está ligado a um hub. É ativado por padrão quando uma ligação de rede virtual é adicionada para ligar um VNet a um hub virtual. A rota padrão não tem origem no centro virtual WAN; a rota padrão é propagada se já for aprendida pelo centro virtual WAN como resultado da implantação de uma firewall no centro, ou se outro local conectado tiver um túnel forçado ativado.
+
+### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Como é que o centro virtual num WAN virtual seleciona o melhor caminho para uma rota a partir de vários hubs
+
+Se um Hub Virtual aprender a mesma rota a partir de múltiplos centros remotos, a ordem em que decide é a seguinte
+1) Rota Origin a) Rotas de rede – Prefixos VNET diretamente aprendidos pelos gateways Do Hub Virtual b) BGP c) Hub RouteTable (rotas configuradas estática) d) Rotas InterHub
+2)  Métrica de rota : Virtual WAN prefere ExpressRoute em vez de VPN. Os pares expressRoute têm uma maior ponderação em comparação com o peer VPN
+3)  Comprimento do caminho AS
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quais são as diferenças entre os tipos de WAN virtual (Básico e Standard)?
 

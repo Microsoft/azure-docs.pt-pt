@@ -10,14 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 85b1d6b532ba11819947558226291e62af6b5119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40b1b8d040c4b3ea76372920f88551fba35c5f26
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75690944"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419447"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitor visualmente Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Depois de ter criado e publicado um oleoduto na Azure Data Factory, pode associá-lo a um gatilho ou iniciar manualmente uma corrida ad hoc. Pode monitorizar todas as suas operações de pipeline de forma nativa na experiência do utilizador da Azure Data Factory. Para abrir a experiência de monitorização, selecione o **Monitor & Gerir** o azulejo na lâmina da fábrica de dados do portal [Azure](https://portal.azure.com/). Se já estiver no ADF UX, clique no ícone **Monitor** na barra lateral esquerda.
 

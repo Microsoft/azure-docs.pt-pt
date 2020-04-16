@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 71528385563b29ce70edf396434be0174beac105
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804848"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417186"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade para Cada Pessoa na Fábrica de Dados Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 A Atividade ForEach define um fluxo de controlo repetitivo no seu pipeline. Esta atividade é utilizada para iterar uma coleção e executa atividades especificadas em ciclo. A implementação de ciclo desta atividade é semelhante à estrutura de ciclo Foreach nas linguagens de programação.
 
 ## <a name="syntax"></a>Sintaxe
@@ -490,7 +492,7 @@ Aqui estão algumas limitações da atividade ForEach e suposições sugeridas.
 ## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
-- [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
-- [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
+- [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)
+- [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade Web](control-flow-web-activity.md)

@@ -11,17 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 4d729a0117c7c409d1a3e0c3fd440aed96153203
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce63da745fb84ebccd57b246fc934f595dd7cda1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243591"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418257"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados da Amazon Redshift usando a Fábrica de Dados Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Versão atual](connector-amazon-redshift.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
 Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de um Redshift Amazon. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
@@ -164,7 +166,7 @@ Saiba mais sobre como usar o UNLOAD para copiar dados da Amazon Redshift de form
 
 **Exemplo: copiar dados da Amazon Redshift para O Armazém de Dados Azure SQL utilizando UNLOAD, cópia encenada e PolyBase**
 
-Para este caso de utilização da amostra, a atividade de cópia descarrega dados da Amazon Redshift para a Amazon S3 configuradas em "redshiftUnloadSettings", e depois copia dados da Amazon S3 para o Azure Blob conforme especificado em "stagingSettings", por último, utilizar a PolyBase para carregar dados em Dados SQL O armazém. Todo o formato provisório é manuseado corretamente pela atividade da cópia.
+Para este caso de utilização da amostra, a atividade de cópia descarrega dados da Amazon Redshift para a Amazon S3 configuradas em "redshiftUnloadSettings", e depois copia dados da Amazon S3 para o Azure Blob, conforme especificado em "stagingSettings", utilizar por último a PolyBase para carregar dados no SQL Data Warehouse. Todo o formato provisório é manuseado corretamente pela atividade da cópia.
 
 ![Redshift para SQL DW copy workflow](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
@@ -219,17 +221,17 @@ Ao copiar dados da Amazon Redshift, os seguintes mapeamentos são usados desde t
 | Tipo de dados da Amazon Redshift | Tipo de dados provisórios da fábrica de dados |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |Cadeia |
-| CHAR |Cadeia |
+| BOOLEAN |String |
+| CHAR |String |
 | DATA |DateTime |
 | DECIMAL |Decimal |
 | PRECISÃO DUPLA |Double |
 | INTEGER |Int32 |
 | REAL |Único |
 | SMALLINT |Int16 |
-| TEXT |Cadeia |
+| TEXT |String |
 | CARIMBO TEMPORAL |DateTime |
-| RIO VARCHAR |Cadeia |
+| RIO VARCHAR |String |
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 

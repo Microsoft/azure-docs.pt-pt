@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: 2eb455ba6fa40538bfa03018be47232066036c23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd1342ae5912a9a91f1bd8d1bdacecdb5a2bbdb0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930429"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416517"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Create Azure Data Factory Data Flow (Criar um Fluxo de Dados do Azure Data Factory)
 
-
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Mapeamento de Fluxos de Dados em ADF fornecem uma forma de transformar dados em escala sem qualquer codificação necessária. Você pode projetar um trabalho de transformação de dados no designer de fluxo de dados construindo uma série de transformações. Comece com qualquer número de transformações de origem seguidas por passos de transformação de dados. Em seguida, complete o seu fluxo de dados com pia para aterrar os seus resultados num destino.
 

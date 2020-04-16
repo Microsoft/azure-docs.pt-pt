@@ -12,14 +12,15 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: 9bbd2e3376f1da3fdf5b10d654a331ce258be5cf
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: c891cb4eca2c286b3ac636e5995714accd591772
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422094"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417350"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para a Dynamics 365 (Serviço Comum de Dados) ou O CRM da Dynamics utilizando a Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de e para o Microsoft Dynamics 365 ou microsoft Dynamics CRM. Baseia-se no artigo de visão geral da [Copy Activity](copy-activity-overview.md) que apresenta uma visão geral da Atividade de Cópia.
 
@@ -378,16 +379,16 @@ Configure o tipo de dados correspondente da Data Factory numa estrutura de conju
 | AtributoType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AtributoType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | Cadeia | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ (com um único alvo associado) |
 | AttributeType.ManagedProperty | Booleano | ✓ | |
-| AttributeType.Memo | Cadeia | ✓ | ✓ |
+| AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Proprietário | GUID | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
-| AttributeType.String | Cadeia | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AtributoType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 22ecac12e049e58e533cdde0078f4a25f6bb2aa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c2071e4b2a3daa528c7d01f64e38247b063e6f1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77423832"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417422"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-onprem-db2-connector.md)
 > * [Versão atual](connector-db2.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de uma base de dados DB2. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -194,28 +196,28 @@ Ao copiar dados do DB2, os seguintes mapeamentos são utilizados desde tipos de 
 | BigInt |Int64 |
 | Binário |Byte[] |
 | Blobs |Byte[] |
-| Char |Cadeia |
-| Estação Clob |Cadeia |
+| Char |String |
+| Estação Clob |String |
 | Date |Datetime |
-| DB2DynArray |Cadeia |
-| DbClob |Cadeia |
+| DB2DynArray |String |
+| DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Gráfico |Cadeia |
+| Gráfico |String |
 | Número inteiro |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarchar |Cadeia |
-| Longvargraphic |Cadeia |
+| LongVarchar |String |
+| Longvargraphic |String |
 | Numérico |Decimal |
 | Real |Único |
 | SmallInt |Int16 |
 | Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |
 | VarBinary |Byte[] |
-| Rio Varchar |Cadeia |
-| Vargraphic |Cadeia |
+| Rio Varchar |String |
+| Vargraphic |String |
 | Xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura

@@ -10,14 +10,16 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: b42a7667321215247233776eb0f2d733d67ab945
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 705b2464285b747ea7999b112733b7e99f761f22
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73684443"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419090"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Amostras da Azure PowerShell para a Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 A tabela seguinte inclui links para provar scripts Azure PowerShell para a Azure Data Factory.
 

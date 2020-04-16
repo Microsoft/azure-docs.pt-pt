@@ -9,14 +9,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
-ms.openlocfilehash: b63dcfd6ed293cab9d0107a8b6a35c7ce358d429
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: c18d767afd3721bd6f6250058b9fbe66990133e4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011689"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417747"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON na Fábrica de Dados Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Siga este artigo quando pretender **analisar os ficheiros JSON ou escrever os dados no formato JSON**. 
 

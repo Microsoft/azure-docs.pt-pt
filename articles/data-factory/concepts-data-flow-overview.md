@@ -7,19 +7,21 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 01/28/2020
+ms.openlocfilehash: 39d1f15b771168b618bfbc4951f2036a8b95b027
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243799"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418461"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são fluxos de dados de mapeamento?
 
-Os fluxos de dados de mapeamento são transformações de dados projetadas visualmente na Azure Data Factory. Os fluxos de dados permitem que os engenheiros de dados desenvolvam lógica de transformação gráfica de dados sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro dos oleodutos da Azure Data Factory que utilizam clusters de faíscas escaldados. As atividades de fluxo de dados podem ser operacionalizadas através das capacidades de agendamento, controlo, fluxo e monitorização existentes da Data Factory.
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Os fluxos de dados de mapeamento proporcionam uma experiência totalmente visual, sem necessidade de codificação. Os seus fluxos de dados serão executados no seu próprio cluster de execução para processamento de dados em escala. A Azure Data Factory trata de toda a tradução de código, otimização de caminhos e execução dos seus trabalhos de fluxo de dados.
+Os fluxos de dados de mapeamento são transformações de dados projetadas visualmente na Azure Data Factory. Os fluxos de dados permitem que os engenheiros de dados desenvolvam lógica de transformação gráfica de dados sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro dos oleodutos da Azure Data Factory que utilizam aglomerados de faíscas Apache escalados. As atividades de fluxo de dados podem ser contratadas através das capacidades de agendamento, controlo, fluxo e monitorização existentes da Data Factory.
+
+Os fluxos de dados de mapeamento proporcionam uma experiência totalmente visual, sem necessidade de codificação. Os seus fluxos de dados são executados no seu cluster de execução para processamento de dados em escala. A Azure Data Factory trata de toda a tradução de código, otimização de caminhos e execução dos seus trabalhos de fluxo de dados.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -27,7 +29,7 @@ Para criar um fluxo de dados, selecione o sinal de mais em recursos **de fábric
 
 ![Novo fluxo de dados](media/data-flow/newdataflow2.png "novo fluxo de dados")
 
-Isto leva-o à tela de fluxo de dados onde pode criar a sua lógica de transformação. Selecione **Adicionar fonte** para começar a configurar a sua transformação de origem. Para mais informações, consulte a [transformação de Origem.](data-flow-source.md)
+Esta ação leva-o à tela de fluxo de dados, onde pode criar a sua lógica de transformação. Selecione **Adicionar fonte** para começar a configurar a sua transformação de origem. Para mais informações, consulte a [transformação de Origem.](data-flow-source.md)
 
 ## <a name="data-flow-canvas"></a>Tela de fluxo de dados
 
@@ -45,41 +47,41 @@ O gráfico exibe o fluxo de transformação. Mostra a linhagem dos dados de orig
 
 ![Botão de depuração](media/data-flow/debugbutton.png "Botão de depuração")
 
-Quando começar a trabalhar com fluxos de dados em ADF, vai querer ligar o interruptor "Debug" para fluxos de dados no topo da UI do navegador. Isto irá girar um cluster de Databricks Azure para usar para depuração interativa, pré-visualizações de dados e execuções de depuração de gasodutos. Pode definir o tamanho do cluster que está a ser utilizado escolhendo um Tempo de Execução de [Integração Azure](concepts-integration-runtime.md)personalizado. A sessão de depuração permanecerá viva até 60 minutos após a sua última pré-visualização de dados ou a última execução do gasoduto de depuração.
+Quando começar a trabalhar com fluxos de dados em ADF, pretende ligar o interruptor "Debug" para fluxos de dados no topo da UI do navegador. Este gira-se um cluster Spark para usar para depuração interativa, pré-visualizações de dados e execuções de depuração de gasodutos. Pode definir o tamanho do cluster que está a ser utilizado escolhendo um Tempo de Execução de [Integração Azure](concepts-integration-runtime.md)personalizado. A sessão de depuração permanece viva até 60 minutos após a sua última pré-visualização de dados ou a última execução do gasoduto de depuração.
 
-Quando operacionalizar os seus oleodutos com atividades de fluxo de dados, a ADF utilizará o Tempo de Funcionamento de Integração Azure associado à [atividade](control-flow-execute-data-flow-activity.md) na propriedade "Run On".
+Ao operacionalizar os seus oleodutos com atividades de fluxo de dados, a ADF utiliza o Tempo de Integração Azure associado à [atividade](control-flow-execute-data-flow-activity.md) na propriedade "Run On".
 
-O tempo de execução de integração azure padrão é um pequeno cluster de nó de 4 núcleos single worker destinado a permitir-lhe visualizar dados e executar rapidamente gasodutos de depuração a custos mínimos. Detete uma configuração de IR Azure maior se estiver a realizar operações contra grandes conjuntos de dados.
+O tempo de execução de integração azure padrão é um pequeno cluster de nó de 4 núcleos que permite visualizar dados e executar rapidamente gasodutos de depuração a custos mínimos. Detete uma configuração de IR Azure maior se estiver a realizar operações contra grandes conjuntos de dados.
 
-Pode instruir a ADF a manter um conjunto de recursos de cluster (VMs) através da definição de um TTL nas propriedades de fluxo de dados do Azure IR. Isto resultará numa execução mais rápida do emprego em atividades subsequentes.
+Pode instruir a ADF a manter um conjunto de recursos de cluster (VMs) através da definição de um TTL nas propriedades de fluxo de dados do Azure IR. Esta ação resulta numa execução mais rápida do emprego em atividades subsequentes.
 
 #### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Estratégias de tempo de integração azure e de fluxo de dados
 
 ##### <a name="execute-data-flows-in-parallel"></a>Executar fluxos de dados em paralelo
 
-Se executar fluxos de dados num pipeline em paralelo, a ADF irá girar os clusters separados de Bricks Azure para cada execução de atividade com base nas definições do seu Tempo de Execução de Integração Azure anexado a cada atividade. Para conceber execuções paralelas em pipelines ADF, adicione as suas atividades de fluxo de dados sem restrições de precedência na UI.
+Se executar fluxos de dados num pipeline em paralelo, a ADF gira em conjuntos de Faíscas separados para cada execução de atividade com base nas definições do seu Tempo de Execução de Integração Azure anexado a cada atividade. Para conceber execuções paralelas em pipelines ADF, adicione as suas atividades de fluxo de dados sem restrições de precedência na UI.
 
-Destas três opções, esta opção provavelmente executará no menor espaço de tempo. No entanto, cada fluxo de dados paralelos será executado ao mesmo tempo em clusters separados, pelo que a ordenação de eventos não é determinista.
+Destas três opções, esta opção provavelmente executa no menor espaço de tempo. No entanto, cada fluxo de dados paralelo executa ao mesmo tempo em clusters separados, pelo que a ordenação de eventos não é determinista.
 
-Se estiver a executar as suas atividades de fluxo de dados paralelamente dentro dos seus oleodutos, recomenda-se que não utilize tTL. Isto porque as execuções paralelas de fluxos de dados simultaneamente utilizando o mesmo Tempo de Execução de Integração Azure resultarão em múltiplas instâncias quentes de piscina para a sua fábrica de dados.
+Se estiver a executar as suas atividades de fluxo de dados paralelamente dentro dos seus oleodutos, recomenda-se que não utilize tTL. Esta ação deve-se ao facto de as execuções paralelas dos seus dados fluírem simultaneamente utilizando o mesmo Tempo de Tempo de Integração Azure resulta em múltiplas instâncias quentes de piscina para a sua fábrica de dados.
 
 ##### <a name="overload-single-data-flow"></a>Sobrecarga fluxo de dados únicos
 
-Se colocar toda a sua lógica dentro de um único fluxo de dados, a ADF executará todos no mesmo contexto de execução de emprego numa única instância de cluster Spark.
+Se colocar toda a sua lógica dentro de um único fluxo de dados, a ADF executa esse mesmo contexto de execução de emprego numa única instância de cluster Spark.
 
-Esta opção pode ser mais difícil de seguir e resolver problemas porque as suas regras de negócio e lógica de negócio saem juntas. Esta opção também não proporciona muita reutilização.
+Esta opção pode ser mais desafiante para seguir e resolver problemas porque as suas regras de negócio e lógica de negócio podem ser misturadas. Esta opção também não proporciona muita reutilização.
 
 ##### <a name="execute-data-flows-serially"></a>Executar fluxos de dados em série
 
-Se executar as suas atividades de fluxo de dados em série no pipeline e tiver definido um TTL na configuração Do IR Do Azure, então a ADF reutilizará os recursos de computação (VMs) resultando em tempos de execução posteriores mais rápidos. Ainda receberá um novo contexto spark para cada execução.
+Se executar as suas atividades de fluxo de dados em série no pipeline e tiver definido um TTL na configuração Do IR Do Azure, então a ADF reutiliza os recursos computacionais (VMs), resultando em tempos de execução posteriores mais rápidos. Ainda recebeum novo contexto spark para cada execução.
 
-Destas três opções, esta provavelmente levará mais tempo para executar de ponta a ponta. Mas proporciona uma separação limpa das operações lógicas em cada passo de fluxo de dados.
+Destas três opções, esta ação provavelmente leva mais tempo para executar de ponta a ponta. Mas proporciona uma separação limpa das operações lógicas em cada passo de fluxo de dados.
 
 ### <a name="configuration-panel"></a>Painel de configuração
 
 O painel de configuração mostra as definições específicas da transformação atualmente selecionada. Se não for selecionada nenhuma transformação, mostra o fluxo de dados. Na configuração geral do fluxo de dados, pode editar o nome e a descrição sob o separador **Geral** ou adicionar parâmetros através do separador **Parâmetros.** Para obter mais informações, consulte os parâmetros de fluxo de [dados de mapeamento](parameters-data-flow.md).
 
-Cada transformação tem pelo menos quatro separadores de configuração.
+Cada transformação contém pelo menos quatro separadores de configuração.
 
 #### <a name="transformation-settings"></a>Definições de transformação
 
@@ -99,7 +101,7 @@ Há casos em que talvez queira ajustar a divisão. Por exemplo, se quiser fazer 
 
 Outro caso em que poderá querer controlar os esquemas de partição é otimizar o desempenho. O ajuste da divisória fornece controlo sobre a distribuição dos seus dados através de nós de cálculo e otimizações de localização de dados que podem ter efeitos positivos e negativos no desempenho global do fluxo de dados. Para mais informações, consulte o guia de desempenho do fluxo de [dados](concepts-data-flow-performance.md).
 
-Para alterar a partilha em qualquer transformação, selecione o separador **Otimize** e selecione o botão de rádio **DePartição Definido.** Em seguida, ser-lhe-á apresentada uma série de opções para a partilha. O melhor método de partilha diferirá com base nos volumes de dados, chaves dos candidatos, valores nulos e cardinalidade. 
+Para alterar a partilha em qualquer transformação, selecione o separador **Otimize** e selecione o botão de rádio **DePartição Definido.** É-lhe apresentada uma série de opções para a partilha. O melhor método de partilha difere com base nos volumes de dados, chaves dos candidatos, valores nulos e cardinalidade. 
 
 Uma boa prática é começar com a partilha padrão e, em seguida, tentar diferentes opções de partição. Pode testar utilizando execuções de depuração de gasodutos e visualizar o tempo de execução e o uso da partilha em cada agrupamento de transformação a partir da vista de monitorização. Para obter mais informações, consulte [monitorização dos fluxos](concepts-data-flow-monitoring.md)de dados .
 
@@ -107,23 +109,23 @@ Estão disponíveis as seguintes opções de partição.
 
 ##### <a name="round-robin"></a>Robin redondo 
 
-Robin redondo é uma simples divisória que distribui automaticamente dados igualmente através de divisórias. Use o robin redondo quando não tiver bons candidatos-chave para implementar uma estratégia sólida e inteligente de parto. Pode definir o número de divisórias físicas.
+Robin redondo é uma simples divisória que distribui automaticamente dados igualmente através de divisórias. Use o round-robin quando não tiver bons candidatos-chave para implementar uma estratégia sólida e inteligente de parto. Pode definir o número de divisórias físicas.
 
 ##### <a name="hash"></a>Hash
 
-A Azure Data Factory produzirá um hash de colunas para produzir divisórias uniformes de modo a que as linhas com valores semelhantes caiam na mesma divisória. Quando utilizar a opção Hash, teste para uma possível distorção da divisória. Pode definir o número de divisórias físicas.
+A Azure Data Factory produz um hash de colunas para produzir divisórias uniformes de tal forma que as linhas com valores semelhantes caem na mesma divisória. Quando utilizar a opção Hash, teste para uma possível distorção da divisória. Pode definir o número de divisórias físicas.
 
 ##### <a name="dynamic-range"></a>Gama dinâmica
 
-A gama dinâmica utilizará gamas dinâmicas spark com base nas colunas ou expressões que fornece. Pode definir o número de divisórias físicas. 
+A gama dinâmica utiliza gamas dinâmicas spark baseadas nas colunas ou expressões que fornece. Pode definir o número de divisórias físicas. 
 
 ##### <a name="fixed-range"></a>Gama fixa
 
-Construa uma expressão que forneça uma gama fixa de valores dentro das suas colunas de dados divididas. Para evitar distorções de divisórias, deve ter uma boa compreensão dos seus dados antes de utilizar esta opção. Os valores que introduzir para a expressão serão usados como parte de uma função de partição. Pode definir o número de divisórias físicas.
+Construa uma expressão que forneça uma gama fixa de valores dentro das suas colunas de dados divididas. Para evitar distorções de divisórias, deve ter uma boa compreensão dos seus dados antes de utilizar esta opção. Os valores que introduz para a expressão são usados como parte de uma função de partição. Pode definir o número de divisórias físicas.
 
 ##### <a name="key"></a>Chave
 
-Se tiver uma boa compreensão da cardinalidade dos seus dados, a divisão chave pode ser uma boa estratégia. A partição chave criará divisórias para cada valor único na sua coluna. Não é possível definir o número de divisórias porque o número será baseado em valores únicos nos dados.
+Se tiver uma boa compreensão da cardinalidade dos seus dados, a divisão chave pode ser uma boa estratégia. A partição chave cria divisórias para cada valor único na sua coluna. Não é possível definir o número de divisórias porque o número é baseado em valores únicos nos dados.
 
 #### <a name="inspect"></a>Inspecionar
 

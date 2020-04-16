@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 8325b4ef6b89a76eeec418386cec4922cb5916b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5753336eeef115038de4eb0b5ade0651b1fa293e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979155"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419464"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Alertar e monitorizar as fábricas de dados utilizando o Monitor Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 As aplicações em nuvem são complexas e têm muitas partes móveis. Os monitores fornecem dados para ajudar a garantir que as suas aplicações permanecem a funcionar em estado saudável. Os monitores também ajudam a evitar potenciais problemas e a resolver problemas passados.
 
@@ -114,13 +116,13 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriedade | Tipo | Descrição |
 | --- | --- | --- |
-| **armazenamentoAccountId** |Cadeia | A identificação de recursos da conta de armazenamento para a qual pretende enviar registos de diagnóstico. |
-| **serviçoBusRuleId** |Cadeia | A regra do ônibus de serviço identifica o espaço de nome do ônibus de serviço no qual você quer ter Hubs de evento criados para streaming de registos de diagnóstico. O ID da `{service bus resource ID}/authorizationrules/{key name}`regra tem o formato .|
+| **armazenamentoAccountId** |String | A identificação de recursos da conta de armazenamento para a qual pretende enviar registos de diagnóstico. |
+| **serviçoBusRuleId** |String | A regra do ônibus de serviço identifica o espaço de nome do ônibus de serviço no qual você quer ter Hubs de evento criados para streaming de registos de diagnóstico. O ID da `{service bus resource ID}/authorizationrules/{key name}`regra tem o formato .|
 | **workspaceId** | Tipo complexo | Uma variedade de grãos métricos do tempo e suas políticas de retenção. O valor desta propriedade está vazio. |
 |**métricas**| Valores parâmetros do gasoduto a serem passados para o gasoduto invocado| Um objeto JSON que mapeia nomes de parâmetros para valores de argumento. |
-| **registos**| Tipo complexo| O nome de uma categoria de registo de diagnóstico para um tipo de recurso. Para obter a lista de categorias de registo de diagnóstico para um recurso, execute uma operação de definições de diagnóstico GET. |
-| **categoria**| Cadeia| Uma série de categorias de registos e as suas políticas de retenção. |
-| **timeGrain** | Cadeia | A granularidade das métricas, que são capturadas no formato de duração ISO 8601. O valor do `PT1M`imóvel deve ser, o que especifica um minuto. |
+| **troncos**| Tipo complexo| O nome de uma categoria de registo de diagnóstico para um tipo de recurso. Para obter a lista de categorias de registo de diagnóstico para um recurso, execute uma operação de definições de diagnóstico GET. |
+| **categoria**| String| Uma série de categorias de registos e as suas políticas de retenção. |
+| **timeGrain** | String | A granularidade das métricas, que são capturadas no formato de duração ISO 8601. O valor do `PT1M`imóvel deve ser, o que especifica um minuto. |
 | **habilitado**| Booleano | Especifica se a recolha da métrica ou da categoria de registo está ativada para este recurso. |
 | **retençãoPolítica**| Tipo complexo| Descreve a política de retenção para uma categoria métrica ou de registo. Esta propriedade é usada apenas para contas de armazenamento. |
 |**dias**| int| O número de dias para manter as métricas ou registos. Se o valor da propriedade for 0, os registos são mantidos para sempre. Esta propriedade é usada apenas para contas de armazenamento. |
@@ -289,19 +291,19 @@ Para mais informações, consulte [Definições de Diagnóstico](https://docs.mi
 
 | Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
-| **Nível** |Cadeia | O nível dos registos de diagnóstico. Para registos de execução de atividade, delineie o valor da propriedade para 4. | `4` |
-| **coralaid** |Cadeia | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **tempo** | Cadeia | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z`TIMEPAN UTC . | `2017-06-28T21:00:27.3534352Z` |
-|**atividadeRunId**| Cadeia| A identificação da atividade. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|**pipelineRunId**| Cadeia| A identificação do oleoduto. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|**recursosId**| Cadeia | A identificação associada ao recurso da fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**categoria**| Cadeia | A categoria dos registos de diagnóstico. Desloque `ActivityRuns`o valor da propriedade para . | `ActivityRuns` |
-|**nível**| Cadeia | O nível dos registos de diagnóstico. Desloque `Informational`o valor da propriedade para . | `Informational` |
-|**operaçãoNome**| Cadeia | O nome da atividade com o seu estatuto. Se a atividade for o batimento `MyActivity -`cardíaco inicial, o valor da propriedade é . Se a atividade for o batimento `MyActivity - Succeeded`cardíaco final, o valor da propriedade é . | `MyActivity - Succeeded` |
-|**pipelineName**| Cadeia | O nome do oleoduto. | `MyPipeline` |
-|**atividadeNome**| Cadeia | O nome da atividade. | `MyActivity` |
-|**começar**| Cadeia | O tempo de início da atividade funciona no formato TIMEPAN UTC. | `2017-06-26T20:55:29.5007959Z`|
-|**fim**| Cadeia | O tempo final da atividade é executado no formato TIMEPAN UTC. Se o registo de diagnóstico mostrar que uma atividade começou mas ainda não terminou, o valor da propriedade é `1601-01-01T00:00:00Z`. | `2017-06-26T20:55:29.5007959Z` |
+| **Nível** |String | O nível dos registos de diagnóstico. Para registos de execução de atividade, delineie o valor da propriedade para 4. | `4` |
+| **coralaid** |String | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **tempo** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z`TIMEPAN UTC . | `2017-06-28T21:00:27.3534352Z` |
+|**atividadeRunId**| String| A identificação da atividade. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
+|**pipelineRunId**| String| A identificação do oleoduto. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**recursosId**| String | A identificação associada ao recurso da fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**categoria**| String | A categoria dos registos de diagnóstico. Desloque `ActivityRuns`o valor da propriedade para . | `ActivityRuns` |
+|**nível**| String | O nível dos registos de diagnóstico. Desloque `Informational`o valor da propriedade para . | `Informational` |
+|**operaçãoNome**| String | O nome da atividade com o seu estatuto. Se a atividade for o batimento `MyActivity -`cardíaco inicial, o valor da propriedade é . Se a atividade for o batimento `MyActivity - Succeeded`cardíaco final, o valor da propriedade é . | `MyActivity - Succeeded` |
+|**pipelineName**| String | O nome do oleoduto. | `MyPipeline` |
+|**atividadeNome**| String | O nome da atividade. | `MyActivity` |
+|**começar**| String | O tempo de início da atividade funciona no formato TIMEPAN UTC. | `2017-06-26T20:55:29.5007959Z`|
+|**fim**| String | O tempo final da atividade é executado no formato TIMEPAN UTC. Se o registo de diagnóstico mostrar que uma atividade começou mas ainda não terminou, o valor da propriedade é `1601-01-01T00:00:00Z`. | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>Atributos de registo de pipeline
 
@@ -335,18 +337,18 @@ Para mais informações, consulte [Definições de Diagnóstico](https://docs.mi
 
 | Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
-| **Nível** |Cadeia | O nível dos registos de diagnóstico. Para registos de execução de atividade, delineie o valor da propriedade para 4. | `4` |
-| **coralaid** |Cadeia | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **tempo** | Cadeia | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z`TIMEPAN UTC . | `2017-06-28T21:00:27.3534352Z` |
-|**runId**| Cadeia| A identificação do oleoduto. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|**recursosId**| Cadeia | A identificação associada ao recurso da fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**categoria**| Cadeia | A categoria dos registos de diagnóstico. Desloque `PipelineRuns`o valor da propriedade para . | `PipelineRuns` |
-|**nível**| Cadeia | O nível dos registos de diagnóstico. Desloque `Informational`o valor da propriedade para . | `Informational` |
-|**operaçãoNome**| Cadeia | O nome do oleoduto juntamente com o seu estado. Após a execução do gasoduto, `Pipeline - Succeeded`o valor da propriedade é . | `MyPipeline - Succeeded`. |
-|**pipelineName**| Cadeia | O nome do oleoduto. | `MyPipeline` |
-|**começar**| Cadeia | O tempo de início da atividade funciona no formato TIMEPAN UTC. | `2017-06-26T20:55:29.5007959Z`. |
-|**fim**| Cadeia | O tempo final da atividade é executado no formato TIMEPAN UTC. Se o registo de diagnóstico mostrar que uma atividade `1601-01-01T00:00:00Z`começou mas ainda não terminou, o valor da propriedade é .  | `2017-06-26T20:55:29.5007959Z` |
-|**status**| Cadeia | O estado final da corrida do oleoduto. Os possíveis `Succeeded` `Failed`valores de propriedade são e. | `Succeeded`|
+| **Nível** |String | O nível dos registos de diagnóstico. Para registos de execução de atividade, delineie o valor da propriedade para 4. | `4` |
+| **coralaid** |String | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **tempo** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z`TIMEPAN UTC . | `2017-06-28T21:00:27.3534352Z` |
+|**runId**| String| A identificação do oleoduto. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**recursosId**| String | A identificação associada ao recurso da fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**categoria**| String | A categoria dos registos de diagnóstico. Desloque `PipelineRuns`o valor da propriedade para . | `PipelineRuns` |
+|**nível**| String | O nível dos registos de diagnóstico. Desloque `Informational`o valor da propriedade para . | `Informational` |
+|**operaçãoNome**| String | O nome do oleoduto juntamente com o seu estado. Após a execução do gasoduto, `Pipeline - Succeeded`o valor da propriedade é . | `MyPipeline - Succeeded`. |
+|**pipelineName**| String | O nome do oleoduto. | `MyPipeline` |
+|**começar**| String | O tempo de início da atividade funciona no formato TIMEPAN UTC. | `2017-06-26T20:55:29.5007959Z`. |
+|**fim**| String | O tempo final da atividade é executado no formato TIMEPAN UTC. Se o registo de diagnóstico mostrar que uma atividade `1601-01-01T00:00:00Z`começou mas ainda não terminou, o valor da propriedade é .  | `2017-06-26T20:55:29.5007959Z` |
+|**estado**| String | O estado final da corrida do oleoduto. Os possíveis `Succeeded` `Failed`valores de propriedade são e. | `Succeeded`|
 
 #### <a name="trigger-run-log-attributes"></a>Atributos de registo de execução de gatilho
 
@@ -379,19 +381,19 @@ Para mais informações, consulte [Definições de Diagnóstico](https://docs.mi
 
 | Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
-| **Nível** |Cadeia | O nível dos registos de diagnóstico. Para registos de execução de atividade, delineie o valor da propriedade para 4. | `4` |
-| **coralaid** |Cadeia | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **tempo** | Cadeia | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z`TIMEPAN UTC . | `2017-06-28T21:00:27.3534352Z` |
-|**triggerId**| Cadeia| A identificação do gatilho. | `08587023010602533858661257311` |
-|**recursosId**| Cadeia | A identificação associada ao recurso da fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**categoria**| Cadeia | A categoria dos registos de diagnóstico. Desloque `PipelineRuns`o valor da propriedade para . | `PipelineRuns` |
-|**nível**| Cadeia | O nível dos registos de diagnóstico. Desloque `Informational`o valor da propriedade para . | `Informational` |
-|**operaçãoNome**| Cadeia | O nome do gatilho com o seu estado final, o que indica se o gatilho disparou com sucesso. Se o batimento cardíaco foi `MyTrigger - Succeeded`bem sucedido, o valor da propriedade é. | `MyTrigger - Succeeded` |
-|**nome do gatilho**| Cadeia | O nome do gatilho. | `MyTrigger` |
-|**gatilhoType**| Cadeia | O tipo do gatilho. Os possíveis `Manual Trigger` `Schedule Trigger`valores de propriedade são e. | `ScheduleTrigger` |
-|**triggerEvent**| Cadeia | O caso do gatilho. | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|**começar**| Cadeia | O tempo de início do disparo do gatilho no formato TIMEPAN UTC. | `2017-06-26T20:55:29.5007959Z`|
-|**status**| Cadeia | O estado final mostrando se o gatilho disparou com sucesso. Os possíveis `Succeeded` `Failed`valores de propriedade são e. | `Succeeded`|
+| **Nível** |String | O nível dos registos de diagnóstico. Para registos de execução de atividade, delineie o valor da propriedade para 4. | `4` |
+| **coralaid** |String | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **tempo** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z`TIMEPAN UTC . | `2017-06-28T21:00:27.3534352Z` |
+|**triggerId**| String| A identificação do gatilho. | `08587023010602533858661257311` |
+|**recursosId**| String | A identificação associada ao recurso da fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**categoria**| String | A categoria dos registos de diagnóstico. Desloque `PipelineRuns`o valor da propriedade para . | `PipelineRuns` |
+|**nível**| String | O nível dos registos de diagnóstico. Desloque `Informational`o valor da propriedade para . | `Informational` |
+|**operaçãoNome**| String | O nome do gatilho com o seu estado final, o que indica se o gatilho disparou com sucesso. Se o batimento cardíaco foi `MyTrigger - Succeeded`bem sucedido, o valor da propriedade é. | `MyTrigger - Succeeded` |
+|**nome do gatilho**| String | O nome do gatilho. | `MyTrigger` |
+|**gatilhoType**| String | O tipo do gatilho. Os possíveis `Manual Trigger` `Schedule Trigger`valores de propriedade são e. | `ScheduleTrigger` |
+|**triggerEvent**| String | O caso do gatilho. | `ScheduleTime - 2017-07-06T01:50:25Z` |
+|**começar**| String | O tempo de início do disparo do gatilho no formato TIMEPAN UTC. | `2017-06-26T20:55:29.5007959Z`|
+|**estado**| String | O estado final mostrando se o gatilho disparou com sucesso. Os possíveis `Succeeded` `Failed`valores de propriedade são e. | `Succeeded`|
 
 ### <a name="log-analytics-schema"></a>Esquema de Log Analytics
 
@@ -421,7 +423,7 @@ Com o Monitor, pode ganhar visibilidade no desempenho e saúde das suas cargas d
 
 A versão 2 da Azure Data Factory emite as seguintes métricas.
 
-| **Métricas**           | **Nome de exibição métrica**         | **Unidade** | **Tipo de agregação** | **Descrição**                                       |
+| **Métrica**           | **Nome de exibição métrica**         | **Unidade** | **Tipo de agregação** | **Descrição**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRuns | Gasoduto bem sucedido executa métricas | Contagem    | Total                | O número total de gasodutos que conseguiram dentro de um minuto de janela. |
 | PipelineFailedRuns   | Gasoduto falhado executa métricas    | Contagem    | Total                | O número total de gasodutos que falharam dentro de um minuto de janela.    |

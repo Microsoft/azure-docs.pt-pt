@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2028aac9c01aedc4baa568d370c9f7d21c920647
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256422"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419268"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de Conectividade do SQL do Azure
 > [!NOTE]
@@ -45,7 +45,7 @@ Os seguintes passos descrevem como uma ligação é estabelecida a uma base de d
 A Base de Dados Azure SQL suporta as seguintes três opções para a definição da política de ligação de um servidor de base de dados SQL:
 
 - **Redirecionamento (recomendado):** Os clientes estabelecem ligações diretamente ao nó que acolhe a base de dados, levando à redução da latência e à melhoria da sua contribuição. Para que as ligações utilizem este modo, os clientes precisam de:
-   - Permitir a comunicação de saída do cliente para todos os endereços IP Azure da região em portos na gama 11000 11999. Utilize as etiquetas de serviço para a SQL para facilitar a sua gestão.  
+   - Permitir a comunicação de saída do cliente para todos os endereços IP Azure SQL na região em portos na gama 11000 11999. Utilize as etiquetas de serviço para a SQL para facilitar a sua gestão.  
    - Permitir a comunicação de saída do cliente para os endereços IP de gateway da Base de Dados Azure SQL na porta 1433.
 
 - **Procuração:** Neste modo, todas as ligações são proxidas através dos gateways da Base de Dados Azure SQL, levando a um aumento da latência e à redução da potência. Para que as ligações utilizem este modo, os clientes precisam de permitir a comunicação de saída do cliente para os endereços IP da Base de Dados Azure SQL na porta 1433.

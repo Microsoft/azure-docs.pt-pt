@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 7b7ef3b6f2d400dafb28cfb7a15cf95cbbe2c457
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 76085dc29d40944cf704dbc5efc578b3314f499a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351014"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419243"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra dTU
 
@@ -32,6 +32,9 @@ Para piscinas elásticas SQL Database, as tabelas seguintes mostram os recursos 
 > Para orientação e considerações de escala, consulte [Escala de uma piscina elástica](sql-database-elastic-pool-scale.md)
 > [!NOTE]
 > Os limites de recursos das bases de dados individuais em piscinas elásticas são geralmente os mesmos que para bases de dados individuais fora de piscinas com base em DTUs e no nível de serviço. Por exemplo, os trabalhadores simultâneos máximos para uma base de dados S2 são 120 trabalhadores. Assim, os trabalhadores simultâneos máximos para uma base de dados numa piscina Standard também são 120 trabalhadores se o DTU max por base de dados na piscina for de 50 DTUs (o que equivale a S2).
+
+> [!NOTE]
+> O armazenamento por limite de recursos de piscina em cada uma das tabelas seguintes não inclui o armazenamento temporário e de registo.
 
 ### <a name="basic-elastic-pool-limits"></a>Limites do conjunto elástico básico
 

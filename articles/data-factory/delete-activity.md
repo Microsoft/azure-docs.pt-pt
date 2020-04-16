@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: f265cdc955becd53ae7ba61ad827b2be69b92907
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: d90f38f83bd4d2d5311f277fcc928e442d7ea793
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618271"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416386"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Atividade de Eliminação no Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 Pode utilizar a Atividade de Exclusão na Fábrica de Dados Azure para eliminar ficheiros ou pastas de lojas de armazenamento no local ou lojas de armazenamento em nuvem. Utilize esta atividade para limpar ou arquivar ficheiros quando já não forem necessários.
 
@@ -50,7 +52,7 @@ Aqui ficam algumas recomendações para a utilização da atividade Delete:
 -   [Sistema de Ficheiros](connector-file-system.md)
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
--   [Amazónia S3](connector-amazon-simple-storage-service.md)
+-   [Amazon S3](connector-amazon-simple-storage-service.md)
 -   [Google Cloud Storage](connector-google-cloud-storage.md)
 
 ## <a name="syntax"></a>Sintaxe

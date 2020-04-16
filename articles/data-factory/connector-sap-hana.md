@@ -11,17 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/17/2020
-ms.openlocfilehash: e1a3ff32956e8a8530684ba7f300f06d0c032227
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 74462b68bea38e4d84219adeedb7c3bb0893bbb4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421121"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417226"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados do SAP HANA utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-sap-hana-connector.md)
 > * [Versão atual](connector-sap-hana.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de uma base de dados SAP HANA. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -270,31 +271,31 @@ Ao copiar dados do SAP HANA, os seguintes mapeamentos são utilizados desde tipo
 
 | Tipo de dados SAP HANA | Tipo de dados provisórios da fábrica de dados |
 | ------------------ | ------------------------------ |
-| ALFANUM           | Cadeia                         |
+| ALFANUM           | String                         |
 | BIGINT             | Int64                          |
 | BINÁRIO             | Byte[]                         |
-| BINTEXT            | Cadeia                         |
+| BINTEXT            | String                         |
 | BLOB               | Byte[]                         |
 | BOOL               | Byte                           |
-| CLOB               | Cadeia                         |
+| CLOB               | String                         |
 | DATA               | DateTime                       |
 | DECIMAL            | Decimal                        |
 | DUPLO             | Double                         |
 | BOIA              | Double                         |
 | INTEGER            | Int32                          |
-| NCLOB              | Cadeia                         |
-| NVARCHAR           | Cadeia                         |
+| NCLOB              | String                         |
+| NVARCHAR           | String                         |
 | REAL               | Único                         |
 | SEGUNDO ENCONTRO         | DateTime                       |
-| TEXTO CURTO          | Cadeia                         |
+| TEXTO CURTO          | String                         |
 | PEQUENADECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | STPOINTTYPE        | Byte[]                         |
-| TEXT               | Cadeia                         |
+| TEXT               | String                         |
 | HORA               | TimeSpan                       |
 | TINYINT            | Byte                           |
-| RIO VARCHAR            | Cadeia                         |
+| RIO VARCHAR            | String                         |
 | CARIMBO TEMPORAL          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 

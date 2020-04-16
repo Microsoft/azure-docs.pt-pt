@@ -10,17 +10,19 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/31/2018
-ms.openlocfilehash: eb887a7d9081875c28964ddb1e3d1b2e609862fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c39575e8ea60a091124c633f8958ec36e8a61885
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912959"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418852"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transforme dados utilizando a atividade da Spark na Fábrica de Dados Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-spark.md)
 > * [Versão atual](transform-data-using-spark.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A atividade spark em um [pipeline](concepts-pipelines-activities.md) Data Factory executa um programa Spark por [conta própria](compute-linked-services.md#azure-hdinsight-linked-service) ou a [pedido](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) do cluster HDInsight. Este artigo baseia-se no artigo sobre atividades de transformação de [dados,](transform-data.md) que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas. Quando utiliza um serviço ligado à Spark a pedido, a Data Factory cria automaticamente um cluster Spark para que apenas em tempo para processar os dados e, em seguida, apague o cluster assim que o processamento estiver concluído. 
 

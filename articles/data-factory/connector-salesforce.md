@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: 7d380f34f849eac835abbd295cd1e2d8c17daaef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 184c5f23ae18a58f26f4b18a884209941343e2e1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153863"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418104"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para a Salesforce utilizando a Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-salesforce-connector.md)
 > * [Versão atual](connector-salesforce.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de e para a Salesforce. Baseia-se no artigo de visão geral da [Copy Activity](copy-activity-overview.md) que apresenta uma visão geral da atividade da cópia.
 
@@ -322,25 +324,25 @@ Quando copia dados da Salesforce, os seguintes mapeamentos são utilizados desde
 
 | Tipo de dados salesforce | Data Factory tipo de dados provisórios |
 |:--- |:--- |
-| Número automático |Cadeia |
+| Número automático |String |
 | Caixa de verificação |Booleano |
 | Moeda |Decimal |
 | Date |DateTime |
 | Date/Time |DateTime |
-| Email |Cadeia |
-| Id |Cadeia |
-| Relação de procura |Cadeia |
-| Lista de Picklist multi-selecionada |Cadeia |
+| Email |String |
+| Id |String |
+| Relação de procura |String |
+| Lista de Picklist multi-selecionada |String |
 | Número |Decimal |
 | Percentagem |Decimal |
-| Telefone |Cadeia |
-| Picklist |Cadeia |
-| Texto |Cadeia |
-| Área de Texto |Cadeia |
-| Área de texto (longa) |Cadeia |
-| Área de Texto (Rica) |Cadeia |
-| Texto (Encriptado) |Cadeia |
-| do IdP |Cadeia |
+| Telefone |String |
+| Picklist |String |
+| Texto |String |
+| Área de Texto |String |
+| Área de texto (longa) |String |
+| Área de Texto (Rica) |String |
+| Texto (Encriptado) |String |
+| do IdP |String |
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 

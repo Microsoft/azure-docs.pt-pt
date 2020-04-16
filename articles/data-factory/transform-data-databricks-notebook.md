@@ -11,14 +11,15 @@ manager: shwang
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: c7a2aec35511ef066033c3d6462143ac31660e76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d3c9f0df0d834ffe75d0b56e3c80a432c27ea38
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74923050"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419022"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transforme os dados executando um caderno databricks
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A Atividade do Caderno Azure Databricks num [pipeline data factory](concepts-pipelines-activities.md) executa um caderno databricks no seu espaço de trabalho Azure Databricks. Este artigo baseia-se no artigo sobre [atividades](transform-data.md) de transformação de dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas.A Azure Databricks é uma plataforma gerida para executar a Apache Spark.
 

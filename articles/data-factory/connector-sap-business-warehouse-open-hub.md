@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: b905c75e920577e46017caeb456f8237421086b2
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: ff3b4799f42e85ad3df62ef18469a26120ae3021
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421215"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418087"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse via Open Hub utilizando a Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de um Armazém De Negócios SAP (BW) via Open Hub. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -230,14 +231,14 @@ Ao copiar dados do SAP BW Open Hub, os seguintes mapeamentos são utilizados des
 
 | Tipo SAP ABAP | Tipo de dados provisórios da fábrica de dados |
 |:--- |:--- |
-| C (Corda) | Cadeia |
+| C (Corda) | String |
 | I (inteiro) | Int32 |
 | F (Flutuação) | Double |
-| D (Data) | Cadeia |
-| T (Tempo) | Cadeia |
+| D (Data) | String |
+| T (Tempo) | String |
 | P (BCD Embalado, Moeda, Decimal, Qty) | Decimal |
-| N (Numc) | Cadeia |
-| X (Binário e Cru) | Cadeia |
+| N (Numc) | String |
+| X (Binário e Cru) | String |
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 

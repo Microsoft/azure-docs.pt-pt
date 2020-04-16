@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 38010e3aaa2d0544dfbfe19135d25250d2b021a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e35e4eb750aa2244df920111b201d886599eaf6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929787"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419056"
 ---
 # <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>Migração SSIS com Base de Dados Azure SQL gerida como o destino da carga de trabalho da base de dados
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Ao migrar cargas de trabalho de base de dados do SQL Server nas instalações para a base de dados Azure SQL gerida, deve estar familiarizado com o Serviço de Migração de [Dados Azure](https://docs.microsoft.com/azure/dms/dms-overview)(DMS), e as topoologias de rede para a Base de [Dados Azure SQL geridas por migrações de instâncias utilizando DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies).
 
@@ -34,8 +36,8 @@ A base de dados Azure SQL gerida tem um programador nativo de primeira classe, t
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Fábrica de Dados Azure](https://docs.microsoft.com/azure/data-factory/introduction)
-- [Tempo de execução de integração Azure-SSIS](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
+- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
+- [Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
 - [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)
 - [Topologs de rede para Base de Dados Azure SQL gerida seletiva seletivas usando DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies)
 - [Migrar pacotes do SSIS para uma instância gerida da Base de Dados SQL do Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)

@@ -11,14 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 59cddf04493333b441dcf130d1d99d4fa946748c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f922ada663391cf65a61f4e18bba53668f9c4a1a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73837839"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419413"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - regras de nomeação
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 A tabela seguinte prevê regras de nomeação para artefactos da Fábrica de Dados.
 
 | Nome | Nome Singularidade | Verificações de validação |

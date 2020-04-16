@@ -11,14 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5cdb24a80dcbd95e4ccc59dd55f4acb9ae18060
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260868"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417900"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade web na Fábrica de Dados Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+
 A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir.
 
 > [!NOTE]
@@ -65,8 +68,8 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade web | Cadeia | Sim
-tipo | Deve ser definido para **WebActivity**. | Cadeia | Sim
+nome | Nome da atividade web | String | Sim
+tipo | Deve ser definido para **WebActivity**. | String | Sim
 método | Método API de repouso para o ponto final alvo. | Cadeia. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
 url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). A atividade irá esgotar-se a 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
 cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`e escrever num pedido: . | Corda (ou expressão com resultadoTipo de corda) | Sim, é necessário um cabeçalho do tipo conteúdo. `"headers":{ "Content-Type":"application/json"}`
@@ -254,7 +257,7 @@ public HttpResponseMessage Execute(JObject payload)
 ## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory:
 
-- [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
+- [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para Cada Atividade](control-flow-for-each-activity.md)
-- [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
+- [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)

@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 02/04/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9dfe499a7d6084a23fd71ab98db472befe71fc04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024369"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417000"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
 
@@ -29,7 +29,7 @@ O Time Series Insights Explorer suporta parâmetros de consulta de URL para espe
 
 ## <a name="environment-id"></a>ID do Ambiente
 
-O parâmetro `environmentId=<guid>` especifica o ID do ambiente de destino. É um componente do acesso a dados FQDN, e você pode encontrá-lo no canto superior direito do ambiente visão geral no portal Azure. É tudo o que vem antes de `env.timeseries.azure.com`.
+O parâmetro `environmentId=<guid>` especifica o ID do ambiente de destino. É um componente do acesso a dados FQDN, e você pode encontrá-lo no canto superior direito do ambiente visão geral no portal Azure. É tudo o que `env.timeseries.azure.com`precede.
 
 Um exemplo de parâmetro de ID de ambiente é `?environmentId=10000000-0000-0000-0000-100000000108`.
 

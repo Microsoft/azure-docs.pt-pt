@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
-ms.openlocfilehash: 80c9929f37b4890387a7625f04db6ce3e37f0cdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0263880262da95f4d26ee8388da464e9a59efca
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74922122"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416444"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Utilize a Azure Data Factory para migrar dados de um servidor netezza no local para o Azure 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 A Azure Data Factory fornece um mecanismo performativo, robusto e rentável para migrar dados em escala de um servidor Netezza no local para a sua conta de armazenamento Azure ou base de dados azure SQL Data Warehouse. 
 
@@ -139,7 +141,7 @@ Cada tabela pode utilizar uma coluna de marca de água diferente para identifica
 
 ### <a name="configure-a-self-hosted-integration-runtime"></a>Configure um tempo de execução de integração auto-hospedado
 
-Se estiver a migrar dados do servidor Netezza para o Azure, quer o servidor esteja no local por detrás da firewall da sua corporação ou dentro de um ambiente de rede virtual, precisa de instalar um IR auto-hospedado numa máquina do Windows ou VM, que é o motor que está habituado a mover dados. À medida que está a instalar o IR auto-hospedado, recomendamos a seguinte abordagem:
+Se estiver a migrar dados do servidor Netezza para o Azure, quer o servidor esteja no local por detrás da firewall da sua corporação ou dentro de um ambiente de rede virtual, precisa de instalar um IR auto-hospedado numa máquina do Windows ou VM, que é o motor que é usado para mover dados. À medida que está a instalar o IR auto-hospedado, recomendamos a seguinte abordagem:
 
 - Para cada máquina windows ou VM, comece com uma configuração de 32 vCPU e memória de 128 GB. Pode continuar a monitorizar o CPU e o uso da memória da máquina de INFRAVERMELHOs durante a migração de dados para ver se precisa de aumentar ainda mais a máquina para um melhor desempenho ou reduzir a velocidade da máquina para economizar custos.
 
@@ -151,7 +153,7 @@ Como uma boa prática, realize uma prova de desempenho do conceito (POC) com um 
 
 Para copiar uma tabela, comece com uma única atividade de cópia com uma única máquina de infravermelhos auto-hospedada. Aumente gradualmente `parallelCopies` a definição com base no número de divisórias de fatias de dados na sua tabela. Veja se toda a tabela pode ser carregada para Azure dentro de duas horas, de acordo com a entrada que resulta do trabalho de cópia. 
 
-Se não puder ser carregado para o Azure dentro de duas horas, e a capacidade do nó de IR auto-hospedado e do armazenamento de dados não estiver totalmente utilizado, aumente gradualmente o número de atividades de cópia simultânea até atingir o limite da sua rede ou o limite de largura de banda dos dados lojas. 
+Se não puder ser carregado para o Azure dentro de duas horas, e a capacidade do nó DE IR auto-hospedado e do armazenamento de dados não estiver totalmente utilizado, aumente gradualmente o número de atividades de cópia simultânea até atingir o limite da sua rede ou o limite de largura de banda das lojas de dados. 
 
 Continue a monitorizar o CPU e o uso da memória na máquina de infravermelhos auto-hospedada e esteja pronto para escalar a máquina ou escalar para várias máquinas quando vir que o CPU e a memória estão totalmente utilizados. 
 

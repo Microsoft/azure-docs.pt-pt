@@ -12,17 +12,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 0c37d77ca73ddbe8b79351f90275a1d639757633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2f8406038be10ba3bdc207bf447fecb86a376fe8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74923742"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418070"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Versão atual](connector-sap-business-warehouse.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de um Armazém De Negócios SAP (BW). Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -180,27 +181,27 @@ Ao copiar dados do SAP BW, os seguintes mapeamentos são utilizados desde tipos 
 | Tipo de dados SAP BW | Tipo de dados provisórios da fábrica de dados |
 |:--- |:--- |
 | ACCP | int |
-| CHAR | Cadeia |
-| CLNT | Cadeia |
+| CHAR | String |
+| CLNT | String |
 | CURR | Decimal |
-| CUKY | Cadeia |
+| CUKY | String |
 | DEZ | Decimal |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | int |
-| RIO LANG | Cadeia |
-| LCHR | Cadeia |
+| RIO LANG | String |
+| LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
 | CRU | Byte[] |
 | CADEIA BRUTA | Byte[] |
-| CORDA | Cadeia |
-| UNIDADE | Cadeia |
-| DATS | Cadeia |
-| NUMC | Cadeia |
-| TIMS | Cadeia |
+| CORDA | String |
+| UNIDADE | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura

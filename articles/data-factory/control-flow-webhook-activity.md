@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: ced2279878ee2eb361ec7338647418658e411513
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79213008"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417883"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade webhook na Fábrica de Dados Azure
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Uma atividade de webhook pode controlar a execução de gasodutos através do seu código personalizado. Com a atividade do webhook, o código dos clientes pode ligar para um ponto final e passar-lhe um URL de callback. A execução do gasoduto aguarda a invocação do regresso antes de passar para a próxima atividade.
 
@@ -53,14 +55,14 @@ Uma atividade de webhook pode controlar a execução de gasodutos através do se
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-**nome** | O nome da atividade do webhook. | Cadeia | Sim |
-**tipo** | Deve ser definido para "WebHook". | Cadeia | Sim |
+**nome** | O nome da atividade do webhook. | String | Sim |
+**tipo** | Deve ser definido para "WebHook". | String | Sim |
 **método** | O método REST API para o ponto final do alvo. | Cadeia. O tipo suportado é "POST". | Sim |
 **url** | O ponto final e o caminho do alvo. | Uma corda ou uma expressão com o **valor do tipo de resultado** de uma corda. | Sim |
 **cabeçalhos** | Cabeçalhos que são enviados para o pedido. Aqui está um exemplo que define a linguagem `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`e escreve num pedido: . | Uma corda ou uma expressão com o **valor do tipo de resultado** de uma corda. | Sim. Um `Content-Type` cabeceamento `"headers":{ "Content-Type":"application/json"}` como é necessário. |
 **corpo** | Representa a carga útil que é enviada para o ponto final. | JSON válido ou uma expressão com o **valor tipo de json** resultado. Consulte solicitar esquema de [carga útil](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) para o esquema da carga útil do pedido. | Sim |
 **autenticação** | O método de autenticação usado para chamar o ponto final. Os tipos suportados são "Básico" e "Certificado de Cliente". Para obter mais informações, veja [Autenticação](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Se a autenticação não for necessária, exclua esta propriedade. | Uma corda ou uma expressão com o **valor do tipo de resultado** de uma corda. | Não |
-**tempo limite** | Quanto tempo a atividade aguarda a chamada especificada pela **callBackUri** para ser invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh:**mm*:*ss*. | Cadeia | Não |
+**tempo limite** | Quanto tempo a atividade aguarda a chamada especificada pela **callBackUri** para ser invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh:**mm*:*ss*. | String | Não |
 **Estado do relatório no callback** | Permite que um utilizador reporte o estado falhado de uma atividade de webhook. | Booleano | Não |
 
 ## <a name="authentication"></a>Autenticação
@@ -143,9 +145,9 @@ Quando utilizar o estado do Relatório na propriedade **de callback,** deve adic
 Consulte as seguintes atividades de fluxo de controlo suportadas pela Data Factory:
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
-- [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
+- [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para Cada Atividade](control-flow-for-each-activity.md)
-- [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
+- [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade Web](control-flow-web-activity.md)
-- [Atividade Until](control-flow-until-activity.md)
+- [Até a Atividade](control-flow-until-activity.md)

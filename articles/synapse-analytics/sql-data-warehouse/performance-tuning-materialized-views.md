@@ -10,19 +10,18 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 6e942130d9acf803665e52498ef6a4976cc9ade7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6a3235d5edc5249bbbdc2e79dac8575ad26fd5e1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743169"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417032"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Otimização do desempenho com vistas materializadas
 
 As vistas materializadas na piscina SYnapse SQL fornecem um método de baixa manutenção para consultas analíticas complexas para obter um desempenho rápido sem qualquer alteração de consulta. Este artigo discute a orientação geral sobre a utilização de pontos de vista materializados.
 
-As vistas materializadas no Azure SQL Data Warehouse fornecem um método de baixa manutenção para consultas analíticas complexas para obter um desempenho rápido sem qualquer alteração de consulta. Este artigo discute a orientação geral sobre a utilização de pontos de vista materializados.
+As vistas materializadas na piscina SQL fornecem um método de baixa manutenção para consultas analíticas complexas para obter um desempenho rápido sem qualquer alteração de consulta. Este artigo discute a orientação geral sobre a utilização de pontos de vista materializados.
 
 ## <a name="materialized-views-vs-standard-views"></a>Vistas materializadas vs. vistas padrão
 
@@ -45,7 +44,7 @@ A maioria dos requisitos numa vista padrão ainda se aplicam a uma visão materi
 
 ## <a name="benefits-of-using-materialized-views"></a>Benefícios da utilização de vistas materializadas
 
-Uma vista materializada devidamente concebida pode proporcionar os seguintes benefícios:
+Uma visão materializada devidamente concebida proporciona os seguintes benefícios:
 
 - Reduza o tempo de execução para consultas complexas com JOINs e funções agregadas. Quanto mais complexa a consulta, maior o potencial de poupança de tempo de execução. O maior benefício é obtido quando o custo de cálculo de uma consulta é elevado e o conjunto de dados resultante é pequeno.  
 - O optimizador na piscina SQL pode utilizar automaticamente vistas materializadas para melhorar os planos de execução da consulta.  Este processo é transparente para os utilizadores que fornecem um desempenho de consulta mais rápido e não requer consultas para fazer referência direta às vistas materializadas.
@@ -118,7 +117,7 @@ Opções para reduzir o número de pontos de vista materializados:
 
 - Largue as vistas materializadas que têm baixa utilização ou que já não são necessárias.  Uma vista materializada para deficientes não é mantida, mas continua a incorrer no custo de armazenamento.  
 
-- Combine vistas materializadas criadas nas mesmas tabelas base ou similares, mesmo que os seus dados não se sobreponham.  A pentear vistas materializadas poderia resultar numa visão maior em tamanho do que a soma das vistas separadas, no entanto, o custo de manutenção da vista deve reduzir-se.  Por exemplo:
+- Combine vistas materializadas criadas nas mesmas tabelas base ou similares, mesmo que os seus dados não se sobreponham.  A combinação de vistas materializadas poderia resultar numa visão maior em tamanho do que a soma das vistas separadas, no entanto, o custo de manutenção da vista deve reduzir-se.  Por exemplo:
 
 ```sql
 

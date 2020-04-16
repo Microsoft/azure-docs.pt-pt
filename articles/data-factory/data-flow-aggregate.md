@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: e4b076d96cad280c4da6c2424f056c2216c47602
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 050fcc33f0e3d65ca8e94b3be143c5b1ae77608d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408853"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416561"
 ---
-# <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformação agregada no fluxo de dados de mapeamento 
+# <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformação agregada no fluxo de dados de mapeamento
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 A transformação agregada define agregações de colunas nos seus fluxos de dados. Utilizando o Expression Builder, pode definir diferentes tipos de agregados tais como SUM, MIN, MAX e COUNT agrupados por colunas existentes ou computadas.
 

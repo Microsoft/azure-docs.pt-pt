@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 065610a9de4898d012cef8a16849c09a81f0774c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7470af23059ccd07e48050e6dc34521e299a986f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76841102"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418614"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configure um tempo de integração de serviços de integração de servidores Azure-SQL (SSIS) para aderir a uma rede virtual
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este tutorial fornece passos básicos para a utilização do portal Azure para configurar um tempo de execução de integração do Servidor Azure-SQL (SSIS) para aderir a uma rede virtual.
 
@@ -70,7 +72,7 @@ Utilize o portal Azure para configurar uma rede virtual antes de tentar aderir a
 
 1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, apenas estes navegadores web suportam a UI da Fábrica de Dados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione **Mais serviços**. Filtrar e selecionar **redes virtuais**.
 

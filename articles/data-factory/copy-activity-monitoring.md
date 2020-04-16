@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: jingwang
-ms.openlocfilehash: 6494352bf957af83b45488493bf12a094c730c09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47824095e892ca3c919d2d871feb612758ab2308
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79125761"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417849"
 ---
 # <a name="monitor-copy-activity"></a>Monitorizar a atividade de cópia
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como monitorizar a execução da atividade de cópia na Azure Data Factory. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -153,4 +155,4 @@ Consulte os outros artigos da Atividade cópia:
 
 \- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 
-\-[Copiar desempenho da atividade](copy-activity-performance.md)
+\- [Desempenho da atividade de cópia](copy-activity-performance.md)

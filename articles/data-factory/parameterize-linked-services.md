@@ -10,14 +10,15 @@ ms.date: 12/18/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: acc7284eb607d20ca1d62b478d802be56048bc6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8fa8603f2bee7e42db0f085d78117d61bd14ce5c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440101"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419396"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços ligados na Fábrica de Dados azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Agora pode parametrizar um serviço ligado e passar valores dinâmicos no tempo de execução. Por exemplo, se pretender ligar-se a diferentes bases de dados no mesmo servidor de base de dados Azure SQL, pode agora parametrizar o nome da base de dados na definição de serviço ligada. Isto impede que tenha de criar um serviço ligado para cada base de dados no servidor de base de dados Azure SQL. Também pode parametificar outras propriedades na definição de serviço ligada - por exemplo, *o nome do utilizador.*
 
@@ -37,7 +38,7 @@ Neste momento, a parametrização de serviços ligados é suportada na Data Fact
 - Azure SQL Data Warehouse
 - SQL Server
 - Oracle
-- Cosmos DB
+- BD do Cosmos
 - Amazon Redshift
 - MySQL
 - Base de Dados do Azure para MySQL

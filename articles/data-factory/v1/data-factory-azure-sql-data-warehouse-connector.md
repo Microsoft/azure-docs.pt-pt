@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2df49e65603573e4a3adcdda0635982252e70b18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4335763269f4a39b4893d9022f4789296b178e92
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130825"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419328"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados de e para o Armazém de Dados Azure SQL utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -227,7 +227,7 @@ Se os requisitos não forem cumpridos, a Azure Data Factory verifica as definiç
 Quando os seus dados de origem não satisfazem os critérios introduzidos na secção anterior, pode ativar a cópia de dados através de uma encenação provisória do Armazenamento De Blob (não pode ser Armazenamento Premium). Neste caso, a Azure Data Factory realiza automaticamente transformações nos dados para satisfazer os requisitos de formato de dados da PolyBase, depois utilizar a PolyBase para carregar dados no SQL Data Warehouse e, finalmente, limpar os dados temporários a partir do armazenamento blob. Consulte a [Cópia Encenada](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre como a cópia dos dados através de uma encenação do Azure Blob funciona em geral.
 
 > [!NOTE]
-> Ao copiar dados de uma loja de dados no local para o Armazém de Dados Azure SQL utilizando a PolyBase e a encenação, se a sua versão Gateway de Gestão de Dados for inferior a 2.4, o JRE (Java Runtime Environment) é necessário na sua máquina de gateway que é usada para transformar a sua fonte dados em formato adequado. Sugira que atualize a sua porta de entrada para o mais tardar para evitar tal dependência.
+> Ao copiar dados de uma loja de dados no local para o Azure SQL Data Warehouse utilizando a PolyBase e a encenação, se a sua versão Gateway de Gestão de Dados for inferior a 2.4, o JRE (Java Runtime Environment) é necessário na sua máquina de gateway que é usada para transformar os seus dados de origem em formato adequado. Sugira que atualize a sua porta de entrada para o mais tardar para evitar tal dependência.
 >
 
 Para utilizar esta funcionalidade, crie um serviço ligado ao [Armazenamento Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) que se refira `enableStaging` à `stagingSettings` Conta de Armazenamento Azure que tenha o armazenamento de blob provisório, em seguida, especifique as propriedades e propriedades para a Atividade de Cópia, como mostrado no seguinte código:
@@ -295,7 +295,7 @@ All columns of the table must be specified in the INSERT BULK statement.
 O valor NULO é uma forma especial de valor predefinido. Se a coluna for anulada, os dados de entrada (em blob) para essa coluna podem estar vazios (não pode faltar do conjunto de dados de entrada). PolyBase insere NULL para eles no Armazém de Dados Azure SQL.
 
 ## <a name="auto-table-creation"></a>Criação de mesa auto
-Se estiver a utilizar o Copy Wizard para copiar dados do SQL Server ou da Base de Dados Azure SQL para o Armazém de Dados Azure SQL e a tabela que corresponde à tabela de origem não existe na loja de destino, a Data Factory pode criar automaticamente a tabela no armazém de dados por usando o esquema da mesa de origem.
+Se estiver a utilizar o Copy Wizard para copiar dados do SQL Server ou da Base de Dados Azure SQL para o Azure SQL Data Warehouse e a tabela que corresponde à tabela de origem não existe na loja de destino, a Data Factory pode criar automaticamente a tabela no armazém de dados utilizando o esquema da tabela de origem.
 
 Data Factory cria a tabela na loja de destino com o mesmo nome de tabela na loja de dados de origem. Os tipos de dados para colunas são escolhidos com base no seguinte mapeamento do tipo. Se necessário, executa conversões de tipo para corrigir quaisquer incompatibilidades entre as lojas de origem e destino. Também usa distribuição de mesa Round Robin.
 

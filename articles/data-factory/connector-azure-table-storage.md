@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
-ms.openlocfilehash: cf79a670db4e2729c6e0a5fb7112cdc6114f465a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6edd32f8f3579238d1f08f55ce9fb1528fa5d211
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77460728"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417484"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados de e para o armazenamento da tabela Azure utilizando a Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-azure-table-connector.md)
 > * [Versão atual](connector-azure-table-storage.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de e para o armazenamento da Tabela Azure. Baseia-se no artigo de visão geral da [Copy Activity](copy-activity-overview.md) que apresenta uma visão geral da Atividade de Cópia.
 
@@ -340,7 +342,7 @@ Quando move dados de e para a Tabela Azure, os [seguintes mapeamentos definidos 
 | Edm.Guid |GUID |Um identificador globalmente único de 128 bits. |
 | Edm.Int32 |Int32 |Um inteiro de 32 bits. |
 | Edm.Int64 |Int64 |Um inteiro de 64 bits. |
-| Edm.String |Cadeia |Um valor codificado uTF-16. Os valores das cordas podem chegar a 64 KB. |
+| Edm.String |String |Um valor codificado uTF-16. Os valores das cordas podem chegar a 64 KB. |
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 

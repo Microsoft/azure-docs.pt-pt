@@ -1,22 +1,22 @@
 ---
-title: Como gerir uma conta de mercado comercial no Partner Center
-description: Saiba gerir uma conta de marketplace comercial no Partner Center.
+title: Como gerir uma conta de mercado comercial no Microsoft Partner Center
+description: Saiba como gerir uma conta de marketplace comercial no Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 50ea56a8c743636f9fdd9105e5b07a868e71d3d0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 256ea1a03cd22df443362623177f91893f28b664
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262932"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419158"
 ---
-# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerir a sua conta de mercado comercial no Partner Center
+# <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerencie a sua conta de mercado comercial no Partner Center
 
-Depois de [criar uma conta partner center,](./create-account.md)pode gerir a sua conta e oferecer através do [dashboard do mercado comercial.](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)
+Depois de [criar uma conta partner center,](./create-account.md)pode usar o [dashboard do mercado comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) para gerir a sua conta e ofertas.
 
 Neste artigo, vamos mergulhar em como gerir a sua conta de Partner Center, incluindo como:
 
@@ -35,12 +35,12 @@ Neste artigo, vamos mergulhar em como gerir a sua conta de Partner Center, inclu
 
 Se ainda não o fez, você (ou administrador da sua organização) deve aceder às [definições](https://partner.microsoft.com/dashboard/account/management) da conta para a sua conta Partner Center para:
 - Verifique o estado de verificação da conta da sua empresa
-- Confirme o seu ID Symantec, Id do vendedor, ID MPN, ID da editora e informações de contacto, incluindo o aprovador da empresa e o contacto com o vendedor
+- Confirme o seu ID Symantec, Id do Vendedor, Id da Microsoft Partner Network (MPN), ID da Editora e informações de contacto, incluindo o aprovador da empresa e o contacto com o vendedor
 - Crie contas de utilizador para quem utilizar a sua conta de negócios no Partner Center
 
 ### <a name="open-developer-settings"></a>Configurações de desenvolvedores abertos
 
-As definições de conta estão localizadas no canto superior direito do seu [painel de instrumentos de marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace) no Partner Center. Selecione o ícone de engrenagem (perto do canto superior direito do painel de instrumentos) e, em seguida, selecione **as definições**do Desenvolvedor .
+**As definições** de conta estão localizadas no canto superior direito do seu [painel de instrumentos de marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace) no Partner Center. Selecione o ícone de engrenagem (perto do canto superior direito do painel de instrumentos) e, em seguida, selecione **as definições**do Desenvolvedor .
 
 ![Menu de definições de conta no Partner Center](./media/dashboard-developer-settings.png)
 
@@ -70,7 +70,7 @@ Para configurar a sua conta de pagamento, precisa de associar a **sua Conta Micr
 1. Vá à [página de visão geral](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) do mercado comercial no Partner Center.
 2. Na secção Perfil, selecione Associar a **sua Conta Microsoft**.
 3. Quando solicitado, inscreva-se na sua Conta Microsoft (MSA). Esta conta já não pode estar associada a outra conta do Partner Center.
-4. Para completar a configuração da sua conta de pagamento, faça login completamente fora do Partner Center e, em seguida, faça login na sua Conta Microsoft (em vez da sua conta de trabalho).
+4. Para completar a configuração da sua conta de pagamento, faça login no Partner Center e, em seguida, faça login na sua Conta Microsoft (em vez da sua conta de trabalho).
 
 Agora que a sua Conta Microsoft está associada, para adicionar uma conta de pagamento, terá de:
 - **Escolha um método de pagamento**: Conta Bancária ou PayPal
@@ -124,7 +124,7 @@ Para criar GUIDs para rastreio, deve utilizar um gerador GUID. A equipa de Armaz
 
 Recomendamos que crie um GUID único para cada canal de oferta e distribuição para cada produto. Pode optar por utilizar um único GUID para os múltiplos canais de distribuição do produto se não quiser que o relatório seja dividido.
 
-Se implementar um produto utilizando um modelo e estiver disponível tanto no Azure Marketplace como no GitHub, pode criar e registar 2 GUIDS distintos:
+Se implementar um produto utilizando um modelo e estiver disponível tanto no Azure Marketplace como no GitHub, pode criar e registar dois GUIDS distintos:
 
 *    Produto A no Mercado Azure
 *    Produto A no GitHub
@@ -145,23 +145,20 @@ Partner Center alavanca [o Azure Ative Directory](https://docs.microsoft.com/azu
 
 ## <a name="manage-users"></a>Gerir utilizadores
 
-A secção **de Utilizadores** do Partner Center (em Definições de **Conta)** permite-lhe utilizar o Azure AD para gerir os utilizadores, grupos e aplicações Azure AD que têm acesso à sua conta Partner Center. Para gerir os utilizadores, deve ser inscrito na sua conta de [trabalho](./company-work-accounts.md) (o inquilino da AD Azure associado). Para gerir os utilizadores dentro de uma conta de trabalho/inquilino diferente, terá de assinar e depois voltar a inscrever-se como utilizador com permissões do **Gestor** nessa conta de trabalho/inquilino.
+A secção **de Utilizadores** do Partner Center (em Definições de **Conta)** permite utilizar o Azure AD para gerir os utilizadores, grupos e aplicações Azure AD que têm acesso à sua conta Partner Center. A sua conta deve ter permissões [**de nível de Gestor**](#define-user-roles-and-permissions) para a conta de trabalho [(inquilino DaA Azure)](./company-work-accounts.md) na qual pretende adicionar ou editar utilizadores. Para gerir os utilizadores dentro de uma conta de trabalho/inquilino diferente, terá de assinar e depois voltar a inscrever-se como utilizador com permissões do **Gestor** nessa conta de trabalho/inquilino.
 
 Uma vez que você é inscrito na sua conta de trabalho (inquilino Da AD Azure), você pode:
-- [Adicionar ou remover utilizadores](#add-or-remove-users)
+
+- [Adicionar ou remover utilizadores](#add-existing-users)
 - [Alterar uma palavra-passe do utilizador](#change-a-user-password)
-- [Adicionar ou remover grupos](#add-or-remove-users)
+- [Adicionar ou remover grupos](#manage-groups)
 - [Adicionar ou remover aplicações da AD Azure](#add-new-azure-ad-applications)
 - [Gerir chaves para uma aplicação Azure AD](#manage-keys-for-an-azure-ad-application)
 - [Definir funções e permissões de utilizadores](#define-user-roles-and-permissions)
 
 Tenha em mente que todos os utilizadores do Partner Center (incluindo grupos e aplicações Azure AD) devem ter uma conta de trabalho ativa num [inquilino da Azure AD](#manage-tenants) que esteja associado à sua conta partner Center.
 
-### <a name="add-or-remove-users"></a>Adicionar ou remover utilizadores
-
-A sua conta deve ter permissões [**de nível de Gestor**](#define-user-roles-and-permissions) para a conta de trabalho [(inquilino DaA Azure)](./company-work-accounts.md) na qual pretende adicionar ou editar utilizadores.
-
-#### <a name="add-existing-users"></a>Adicionar utilizadores existentes
+### <a name="add-existing-users"></a>Adicionar utilizadores existentes
 
 Para adicionar utilizadores à sua conta Partner Center que já existem na conta de trabalho da sua empresa [(inquilino da AD Azure)](./company-work-accounts.md):
 
@@ -172,7 +169,7 @@ Para adicionar utilizadores à sua conta Partner Center que já existem na conta
 4. Na secção **Funções,** especifique as funções ou permissões personalizadas para o utilizador ou os utilizadores selecionados.
 5. Selecione **Guardar**.
 
-#### <a name="create-new-users"></a>Criar novos utilizadores
+### <a name="create-new-users"></a>Criar novos utilizadores
 
 Para criar novas contas de utilizador, deve ter uma conta com permissões de [**administrador global.**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 
 
@@ -186,7 +183,7 @@ Para criar novas contas de utilizador, deve ter uma conta com permissões de [**
 
 A criação de um novo utilizador no Partner Center também criará uma conta para esse utilizador na conta de trabalho (inquilino Azure AD) para a qual está inscrito. Fazer alterações no nome de um utilizador no Partner Center fará as mesmas alterações na conta de trabalho da sua organização (inquilino da AD Azure).
 
-#### <a name="invite-new-users-by-email"></a>Convide novos utilizadores por e-mail
+### <a name="invite-new-users-by-email"></a>Convide novos utilizadores por e-mail
 
 Para convidar utilizadores que não fazem parte da sua conta de trabalho da empresa (inquilino da AD Azure) por e-mail, você deve ter uma conta com permissões [**de administrador global.**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
 
@@ -202,11 +199,11 @@ Se precisar de reenviar um convite, visite a página **dos Utilizadores,** encon
 > [!NOTE]
 > Se a sua organização utilizar a integração de [diretórios](https://go.microsoft.com/fwlink/p/?LinkID=724033) para sincronizar o serviço de diretório no local com o seu Anúncio Azure, não poderá criar novos utilizadores, grupos ou aplicações Azure AD no Partner Center. Você (ou outro administrador no seu diretório no local) terá de criá-los diretamente no diretório no local antes de poder vê-los e adicioná-los no Partner Center.
 
-#### <a name="remove-a-user"></a>Remover um utilizador
+### <a name="remove-a-user"></a>Remover um utilizador
 
 Para remover um utilizador da sua conta de trabalho (inquilino da AD Azure), vá para **utilizadores** (segundo **as definições da Conta),** selecione o utilizador que gostaria de remover utilizando a caixa de verificação na coluna extrema-direita e, em seguida, escolha **Remover** das ações disponíveis. Aparecerá uma janela pop-up para confirmar que pretende remover o ou o utilizador selecionado.
 
-#### <a name="change-a-user-password"></a>Alterar uma palavra-passe do utilizador
+### <a name="change-a-user-password"></a>Alterar uma palavra-passe do utilizador
 
 Se um dos seus utilizadores precisar de alterar a sua palavra-passe, pode fazê-lo por si mesmo se forneceu um **e-mail** de recuperação de passwords ao criar a conta de utilizador. Também pode atualizar a palavra-passe de um utilizador seguindo os passos abaixo. Para alterar a palavra-passe de um utilizador na sua conta de trabalho da empresa (inquilino da Azure AD), deve ser inscrito numa conta com permissões de [**administrador global.**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) Note que isso irá alterar a palavra-passe do utilizador no seu inquilino Azure AD, juntamente com a palavra-passe que usam para aceder ao Partner Center.
 
@@ -218,7 +215,7 @@ Se um dos seus utilizadores precisar de alterar a sua palavra-passe, pode fazê-
 
 Os grupos permitem controlar várias funções e permissões de utilizadores em conjunto.
 
-#### <a name="add-an-existing-group"></a>Adicione um grupo existente
+### <a name="add-an-existing-group"></a>Adicione um grupo existente
 
 Para adicionar um grupo que já existe na conta de trabalho da sua organização (inquilino DaA Azure) à sua conta Partner Center:
 
@@ -231,7 +228,7 @@ Se selecionar mais de um grupo para adicionar à sua conta Partner Center, deve 
 
 Quando adicionar um grupo existente, todos os utilizadores que forem membros desse grupo poderão aceder à sua conta Partner Center, com as permissões associadas à função atribuída pelo grupo.
 
-#### <a name="add-a-new-group"></a>Adicionar um novo grupo
+### <a name="add-a-new-group"></a>Adicionar um novo grupo
 
 Para adicionar um novo grupo à sua conta Partner Center:
 
@@ -245,7 +242,7 @@ Para adicionar um novo grupo à sua conta Partner Center:
 
 Note que este novo grupo será criado na conta de trabalho da sua organização (inquilino da Azure AD) também, e não apenas na sua conta partner Center.
 
-#### <a name="remove-a-group"></a>Remover um grupo
+### <a name="remove-a-group"></a>Remover um grupo
 
 Para remover um grupo da sua conta de trabalho (inquilino DaD Azure), vá para **utilizadores** (em definições de **Conta),** selecione o grupo que gostaria de remover usando a caixa de verificação na coluna extrema-direita e, em seguida, escolha **Remover** das ações disponíveis. Aparecerá uma janela pop-up para confirmar que pretende remover os grupos selecionados.
 
@@ -253,7 +250,7 @@ Para remover um grupo da sua conta de trabalho (inquilino DaD Azure), vá para *
 
 Pode permitir aplicações ou serviços que façam parte do Anúncio Azure da sua empresa para aceder à sua conta Partner Center.
 
-#### <a name="add-existing-azure-ad-applications"></a>Adicione as aplicações adad azure existentes
+### <a name="add-existing-azure-ad-applications"></a>Adicione as aplicações adad azure existentes
 
 Para adicionar aplicações que já existem no Diretório Ativo Azure da sua empresa:
 
@@ -263,7 +260,7 @@ Para adicionar aplicações que já existem no Diretório Ativo Azure da sua emp
 4. Na secção **Funções,** especifique as funções ou permissões personalizadas para as aplicações ads do Azure selecionadas.
 5. Selecione **Guardar**.
 
-#### <a name="add-new-azure-ad-applications"></a>Adicione novas aplicações da Azure AD
+### <a name="add-new-azure-ad-applications"></a>Adicione novas aplicações da Azure AD
 
 Se quiser conceder ao Partner Center acesso a uma nova conta de aplicação Azure AD, pode criar uma na secção **Utilizadores.** Note que isto criará uma nova conta na sua conta de trabalho da empresa (inquilino da Azure AD), e não apenas na sua conta partner Center. Se estiver a utilizar principalmente esta aplicação Azure AD para autenticação do Partner Center, e não precisar de utilizadores para aceder diretamente, pode introduzir qualquer endereço válido para o URL de **Resposta** e **Id app URI**, desde que esses valores não sejam utilizados por qualquer outra aplicação Azure AD no seu diretório.
 
@@ -276,11 +273,11 @@ Se quiser conceder ao Partner Center acesso a uma nova conta de aplicação Azur
 
 Depois de adicionar ou criar uma aplicação Azure AD, pode voltar à secção **Utilizadores** e selecionar o nome da aplicação para rever as definições da aplicação, incluindo o ID do Inquilino, ID do Cliente, URL de resposta e ID da aplicação URI.
 
-#### <a name="remove-an-application"></a>Remover uma aplicação
+### <a name="remove-an-azure-ad-application"></a>Remover uma aplicação Azure AD
 
 Para remover uma aplicação da sua conta de trabalho (inquilino da AD Azure), vá para **utilizadores** (segundo **as definições da Conta),** selecione a aplicação que gostaria de remover utilizando a caixa de verificação na coluna extrema-direita e, em seguida, escolha **Remover** das ações disponíveis. Aparecerá uma janela pop-up para confirmar que pretende remover as aplicações selecionadas.
 
-#### <a name="manage-keys-for-an-azure-ad-application"></a>Gerir chaves para uma aplicação Azure AD
+### <a name="manage-keys-for-an-azure-ad-application"></a>Gerir chaves para uma aplicação Azure AD
 
 Se a sua aplicação Azure AD ler e escrever dados no Microsoft Azure AD, precisará de uma chave. Pode criar chaves para uma aplicação Azure AD editando as suas informações no Partner Center. Também pode remover as teclas que já não são necessárias.
 
@@ -350,7 +347,3 @@ Quando você remover um inquilino, todos os utilizadores que foram adicionados �
 A secção de **Acordos** do Partner Center (em Definições de **Conta)** permite-lhe visualizar uma lista dos contratos de publicação que autorizou. Estes acordos estão listados de acordo com o nome e o número da versão, incluindo a data em que foi aceite e o nome do utilizador que aceitou o acordo.
 
 **As ações necessárias** podem aparecer no topo desta página se houver atualizações de acordo que precisem da sua atenção. Para aceitar um acordo atualizado, leia primeiro a versão do Acordo vinculado e, em seguida, **selecione aceitar o acordo**.
-
-## <a name="next-steps"></a>Passos seguintes
-
-- [Criar uma nova oferta SaaS](./create-new-saas-offer.md)

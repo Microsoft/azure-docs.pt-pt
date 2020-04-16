@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 3a16a8263c80852127ca61db3c666ebf0f7f1e4c
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: db55e685fb50c89eb850e1b9ee9dcf13d20fb614
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011706"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417545"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selecione a versão da Azure Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-azure-sql-connector.md)
 > * [Versão atual](connector-azure-sql-database.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de e para a Base de Dados SQL azure, e usar o Fluxo de Dados para transformar dados na Base de Dados Azure SQL. Para conhecer a Azure Data Factory, leia o [artigo introdutório.](introduction.md)
 

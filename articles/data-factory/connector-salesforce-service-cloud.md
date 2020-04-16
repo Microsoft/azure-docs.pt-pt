@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: 4540b27a9241a14b3d1a153d11bf43900e8ae0ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec2aa5b1492534908adb55544623110242717609
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153862"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416679"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce Service Cloud utilizando a Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de e para salesforce Service Cloud. Baseia-se no artigo de visão geral da [Copy Activity](copy-activity-overview.md) que apresenta uma visão geral da atividade da cópia.
 
@@ -312,25 +313,25 @@ Quando copia dados da Cloud de Serviço Salesforce, os seguintes mapeamentos sã
 
 | Tipo de dados da Nuvem de Serviço salesforce | Data Factory tipo de dados provisórios |
 |:--- |:--- |
-| Número automático |Cadeia |
+| Número automático |String |
 | Caixa de verificação |Booleano |
 | Moeda |Decimal |
 | Date |DateTime |
 | Date/Time |DateTime |
-| Email |Cadeia |
-| Id |Cadeia |
-| Relação de procura |Cadeia |
-| Lista de Picklist multi-selecionada |Cadeia |
+| Email |String |
+| Id |String |
+| Relação de procura |String |
+| Lista de Picklist multi-selecionada |String |
 | Número |Decimal |
 | Percentagem |Decimal |
-| Telefone |Cadeia |
-| Picklist |Cadeia |
-| Texto |Cadeia |
-| Área de Texto |Cadeia |
-| Área de texto (longa) |Cadeia |
-| Área de Texto (Rica) |Cadeia |
-| Texto (Encriptado) |Cadeia |
-| do IdP |Cadeia |
+| Telefone |String |
+| Picklist |String |
+| Texto |String |
+| Área de Texto |String |
+| Área de texto (longa) |String |
+| Área de Texto (Rica) |String |
+| Texto (Encriptado) |String |
+| do IdP |String |
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 

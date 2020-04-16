@@ -6,20 +6,27 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/08/2019
+ms.date: 04/10/2020
 ms.custom: include file
-ms.openlocfilehash: 9c6ce482a4f6464008f4be0ecd94455f0239ede2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 4c6e45eaa816499c7e5969e302a036368bea0937
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81274921"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81421816"
 ---
-1. Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azure Cosmos DB. Procure e selecione **Azure Cosmos DB**.
+1. Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azure Cosmos DB. Na sua página inicial escolha **Criar um recurso** do painel de **serviços Azure.**
 
-   ![O painel da base de dados do portal do Azure](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+   ![Criar um recurso](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-resource-1.png)
 
-1. Selecione **Adicionar**.
+1. Procure e selecione **Azure Cosmos DB**.
+
+   ![Os recursos do portal Azure caem](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-updated-1.png)
+
+1. Selecione **Criar**.
+
+   ![Criar recurso DB Azure Cosmos](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-account-1.png)
+
 1. Na página **Criar Conta do Azure Cosmos DB**, introduza as definições básicas da nova conta do Azure Cosmos DB. 
 
     |Definição|Valor|Descrição |
@@ -31,6 +38,7 @@ ms.locfileid: "81274921"
     |Aplicar Desconto de Nível Livre|Aplicar ou não me candidatar|Com o nível gratuito Azure Cosmos DB, você receberá gratuitamente os primeiros 400 RU/s e 5 GB de armazenamento numa conta. Saiba mais sobre [o nível livre.](https://azure.microsoft.com/pricing/details/cosmos-db/)|
     |Localização|A região mais próxima dos seus utilizadores|Selecione a localização geográfica para alojar a sua conta do Azure Cosmos DB. Utilize a localização mais próxima dos utilizadores para lhes dar o acesso mais rápido aos dados.|
     |Tipo de conta|Produção ou Não Produção|Selecione **Produção** se a conta for utilizada para uma carga de trabalho de produção. Selecione **Não Produção** se a conta for utilizada para a não produção, por exemplo, desenvolvimento, teste, QA ou encenação. Trata-se de uma definição de etiqueta de recurso Azure que afina a experiência do Portal, mas não afeta a conta DB do Azure Cosmos subjacente. Pode alterar este valor a qualquer momento.|
+
 
     > [!NOTE]
     > Pode ter até um nível gratuito de conta Azure Cosmos DB por subscrição azure e deve optar por entrar na criação da conta. Se não vir a opção de aplicar o desconto de nível livre, isto significa que outra conta na subscrição já foi ativada com nível livre.

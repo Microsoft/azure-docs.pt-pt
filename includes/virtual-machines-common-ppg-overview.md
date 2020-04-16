@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: 3215f5952daef053c94432bc8fdef15e1775047a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73171096"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422079"
 ---
 A colocação de VMs numa única região reduz a distância física entre as instâncias. Colocá-los dentro de uma única zona de disponibilidade também os aproximará fisicamente. No entanto, à medida que a pegada Azure cresce, uma única zona de disponibilidade pode abranger vários centros de dados físicos, o que pode resultar numa latência da rede que impacta a sua aplicação. 
 
@@ -39,6 +39,13 @@ Você também pode mover um recurso existente para um grupo de colocação de pr
 No caso de conjuntos de disponibilidade e conjuntos de escala de máquinas virtuais, deve definir o grupo de colocação de proximidade ao nível dos recursos e não às máquinas virtuais individuais. 
 
 Um grupo de colocação de proximidade é uma restrição de colocalização em vez de um mecanismo de fixação. Está fixado a um centro de dados específico com a implementação do primeiro recurso para usá-lo. Uma vez que todos os recursos que utilizam o grupo de colocação de proximidade tenham sido interrompidos (deallocated) ou eliminados, este já não está fixado. Portanto, ao utilizar um grupo de colocação de proximidade com várias séries VM, é importante especificar todos os tipos necessários frontalmente num modelo quando possível ou seguir uma sequência de implementação que irá melhorar as suas chances de uma implementação bem sucedida. Se a sua implantação falhar, reinicie a implantação com o tamanho VM que falhou como o primeiro tamanho a ser implantado.
+
+## <a name="what-to-expect-when-using-proximity-placement-groups"></a>O que esperar quando se utilizam os Grupos de Colocação de Proximidade 
+Os grupos de colocação de proximidade oferecem co-localização no mesmo centro de dados. No entanto, uma vez que os grupos de colocação de proximidade representam um constrangimento adicional de implantação, podem ocorrer falhas de atribuição. Existem poucos casos de utilização em que pode ver falhas na atribuição ao utilizar grupos de colocação de proximidade:
+
+- Quando se pede a primeira máquina virtual no grupo de colocação de proximidade, o centro de dados é automaticamente selecionado. Em alguns casos, um segundo pedido de uma máquina virtual diferente SKU, pode falhar se não existir nesse centro de dados. Neste caso, é devolvido um erro **de Alocação Excessiva.** Para evitar isto, tente alterar a ordem em que implementa as suas SKUs ou tem ambos os recursos implantados usando um único modelo ARM.
+-   No caso de cargas elásticas, quando adiciona e remove as instâncias vM, ter uma restrição de grupo de colocação de proximidade na sua implantação pode resultar numa falha no cumprimento do pedido que resulta num erro de **Alocação Falha.** 
+- Parar (desalocar) e iniciar os seus VMs conforme necessário é outra forma de alcançar a elasticidade. Uma vez que a capacidade não é mantida uma vez que pare (desolocar) um VM, reiniciá-lo pode resultar num erro de **Alocação Falha.**
 
 
 ## <a name="best-practices"></a>Melhores práticas 

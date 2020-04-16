@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33b257e9d344fc31df072509f105d2e8fd1bd29b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb9d697c11427c7ebbf811f9cc05740347c74452
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72245178"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417559"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Encriptação de disco azure com AD Azure (versão anterior)
 
@@ -27,7 +27,7 @@ Este artigo complementa a encriptação do [disco Azure para VMs do Windows](dis
   - Para escrever as chaves de encriptação do seu cofre chave, o VM IaaS deve ser capaz de ligar ao ponto final do cofre chave.
   - O IaaS VM deve ser capaz de ligar a um ponto final de armazenamento Azure que acolhe o repositório de extensão Azure e uma conta de armazenamento Azure que acolhe os ficheiros VHD.
   -  Se a sua política de segurança limitar o acesso dos VMs Azure à Internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída aos IPs. Para mais informações, consulte [o Cofre chave Azure atrás de uma firewall](../../key-vault/key-vault-access-behind-firewall.md).
-  - No Windows, se o TLS 1.0 tiver sido explicitamente desativado e a versão .NET não tiver sido atualizada para 4.6 ou superior, a seguinte alteração de registo permitirá à ADE selecionar a versão TLS mais recente:
+  - O VM a encriptar deve ser configurado para utilizar o TLS 1.2 como protocolo predefinido. Se o TLS 1.0 tiver sido explicitamente desativado e a versão .NET não tiver sido atualizada para 4.6 ou superior, a seguinte alteração de registo permitirá à ADE selecionar a versão TLS mais recente:
     
         [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
         "SystemDefaultTlsVersions"=dword:00000001

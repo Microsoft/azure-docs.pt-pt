@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 96d0a5b2fb59e4612107d8ccbf7285fff7576585
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c4c1cfdb927cfd2ee607bfe2a951e06c80f9bfb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128393"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418546"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>O Processo de Ciência de Dados da Equipa em ação: usando a Azure Synapse Analytics
 Neste tutorial, percorremos-lhe a construção e implementação de um modelo de machine learning utilizando o Azure Synapse Analytics para um conjunto de dados disponível publicamente -- o conjunto de dados de Viagens de Táxi de [NYC.](https://www.andresmh.com/nyctaxitrips/) O modelo de classificação binária construído prevê se uma gorjeta é ou não paga por uma viagem.  Os modelos incluem classificação multiclasse (se há ou não uma gorjeta) e regressão (distribuição pelos valores de gorjeta pagos).
@@ -84,7 +84,7 @@ Siga a documentação na Create and consulta de um Armazém de [Dados Azure SQL 
 
 **Instale ferramentas de dados do Estúdio Visual e do Servidor SQL.** Para obter instruções, consulte [Iniciar-se com o Visual Studio 2019 para o SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Ligue-se ao seu Azure Synapse Analytics com o Visual Studio.** Para obter instruções, consulte os passos 1 & 2 em [Connect to Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Ligue-se ao seu Azure Synapse Analytics com o Visual Studio.** Para obter instruções, consulte os passos 1 & 2 em [Connect to SQL Analytics in Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 
 > [!NOTE]
 > Faça a seguinte consulta SQL na base de dados que criou no seu Azure Synapse Analytics (em vez da consulta fornecida no passo 3 do tópico de ligação,) para **criar uma chave mestra**.
@@ -126,7 +126,7 @@ No seu *-DestDir,* execute o seguinte script PowerShell no modo administrador:
 Quando o script PowerShell for executado pela primeira vez, será-lhe pedido que insera as informações a partir do seu Azure Synapse Analytics e da sua conta de armazenamento de blob Azure. Quando este script PowerShell estiver em execução pela primeira vez, as credenciais que insere terão sido escritas para um ficheiro de configuração SQLDW.conf no atual diretório de trabalho. A execução futura deste ficheiro de script PowerShell tem a opção de ler todos os parâmetros necessários deste ficheiro de configuração. Se precisar de alterar alguns parâmetros, pode optar por inserir os parâmetros no ecrã após solicitação, apagando este ficheiro de configuração e inserindo os valores dos parâmetros conforme solicitado ou alterando os valores do parâmetro editando o ficheiro SQLDW.conf no seu diretório *-DestDir.*
 
 > [!NOTE]
-> A fim de evitar conflitos de nome sinuoso com aqueles que já existem no seu Azure Azure Synapse Analytics, ao ler parâmetros diretamente do ficheiro SQLDW.conf, um número aleatório de 3 dígitos é adicionado ao nome schema do ficheiro SQLDW.conf como o esquema padrão nome para cada corrida. O script PowerShell pode pedir-lhe um nome de esquema: o nome pode ser especificado à discrição do utilizador.
+> A fim de evitar conflitos de nome sinuoso com aqueles que já existem no seu Azure Azure Synapse Analytics, ao ler parâmetros diretamente do ficheiro SQLDW.conf, é adicionado um número aleatório de 3 dígitos ao nome schema do ficheiro SQLDW.conf como o nome de esquema padrão para cada execução. O script PowerShell pode pedir-lhe um nome de esquema: o nome pode ser especificado à discrição do utilizador.
 >
 >
 
@@ -310,7 +310,7 @@ Este ficheiro **de script PowerShell** completa as seguintes tarefas:
 A localização geográfica das suas contas de armazenamento afeta os tempos de carga.
 
 > [!NOTE]
-> Dependendo da localização geográfica da sua conta privada de armazenamento blob, o processo de cópia de dados de uma bolha pública para a sua conta de armazenamento privado pode demorar cerca de 15 minutos, ou ainda mais, e o processo de carregamento de dados da sua conta de armazenamento para o seu Azure A Azure Synapse Analytics pode demorar 20 minutos ou mais.
+> Dependendo da localização geográfica da sua conta privada de armazenamento blob, o processo de cópia de dados de uma bolha pública para a sua conta de armazenamento privado pode demorar cerca de 15 minutos, ou ainda mais, e o processo de carregamento de dados da sua conta de armazenamento para o seu Azure Azure Synapse Analytics pode demorar 20 minutos ou mais.
 >
 >
 
@@ -330,7 +330,7 @@ Pode usar os seus próprios dados. Se os seus dados estiverem na sua máquina no
 >
 >
 
-Este script PowerShell também liga as informações do Azure Synapse Analytics nos ficheiros de exemplo de exploração de dados SQLDW_Explorations.sql, SQLDW_Explorations.ipynb e SQLDW_Explorations_Scripts.py para que estes três ficheiros estejam prontos para serem experimentados instantaneamente após o script PowerShell completar.
+Este script PowerShell também liga as informações do Azure Synapse Analytics nos ficheiros de exemplo de exploração de dados SQLDW_Explorations.sql, SQLDW_Explorations.ipynb e SQLDW_Explorations_Scripts.py para que estes três ficheiros estejam prontos para serem experimentados instantaneamente após o script PowerShell estar concluído.
 
 Após uma execução bem sucedida, você verá o ecrã como abaixo:
 
@@ -839,7 +839,7 @@ Neste exercício, já explorámos e concebemos os dados no Azure Synapse Analyti
 5. Introduza o nome de *utilizador SQL* no nome da **conta**do servidor e a *palavra-passe* na **palavra-passe**da conta do servidor .
 7. Na área de edição de consulta de base de **dados,** reexa a consulta que extrai os campos de base de dados necessários (incluindo quaisquer campos computacionais, como as etiquetas) e amostras abaixo dos dados para o tamanho da amostra pretendido.
 
-Um exemplo de uma experiência de classificação binária que lê dados diretamente da base de dados Azure Synapse Analytics está na figura abaixo (lembre-se de substituir os nomes de tabela nyctaxi_trip e nyctaxi_fare pelo nome do esquema e os nomes de tabela que usou no seu walkthrough). Experiências semelhantes podem ser construídas para problemas de classificação multiclasse e regressão.
+Um exemplo de uma experiência de classificação binária que lê dados diretamente da base de dados Azure Synapse Analytics está na figura abaixo (lembre-se de substituir os nomes de tabela nyctaxi_trip e nyctaxi_fare pelo nome do esquema e os nomes de tabela que usou na sua passagem). Experiências semelhantes podem ser construídas para problemas de classificação multiclasse e regressão.
 
 ![Trem Azure ML][10]
 
@@ -875,7 +875,7 @@ Uma experiência de pontuação de amostra é fornecida na figura abaixo. Quando
 ![Publicação Azure ML][11]
 
 ## <a name="summary"></a>Resumo
-Para recapitular o que fizemos neste tutorial de walkthrough, criou um ambiente de ciência de dados Azure, trabalhou com um grande conjunto de dados públicos, levando-o através do Processo de Ciência de Dados da Equipa, desde a aquisição de dados até à formação de modelos, e depois ao implantação de um serviço web Azure Machine Learning.
+Para recapitular o que fizemos neste tutorial de walkthrough, criou um ambiente de ciência de dados Azure, trabalhou com um grande conjunto de dados públicos, levando-o através do Processo de Ciência de Dados da Equipa, desde a aquisição de dados até à formação de modelos, e depois até à implementação de um serviço web Azure Machine Learning.
 
 ### <a name="license-information"></a>Informações de licença
 Esta amostra de passagem e os seus scripts de acompanhamento e os cadernos IPython são partilhados pela Microsoft ao abrigo da licença do MIT. Verifique o ficheiro LICENSE.txt no diretório do código da amostra no GitHub para obter mais detalhes.

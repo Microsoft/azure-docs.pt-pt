@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 079d29c241cfbbdcc991f024c07b07b378670c10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130894"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419311"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregue 1 TB no Armazém de Dados Azure SQL com menos de 15 minutos com data factory
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "80130894"
 
 [O Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é uma base de dados baseada em nuvem, baseada em escala, capaz de processar volumes maciços de dados, tanto relacionais como não relacionais.  Construído com base na arquitetura de processamento massivamente paralelo (MPP), o SQL Data Warehouse está otimizado para cargas de trabalho de armazém de dados empresariais.  Oferece elasticidade em nuvem com a flexibilidade para escalar o armazenamento e calcular de forma independente.
 
-Começar com o Azure SQL Data Warehouse é agora mais fácil do que nunca usando a **Azure Data Factory**.  A Azure Data Factory é um serviço de integração de dados totalmente gerido em nuvem, que pode ser usado para povoar um Armazém de Dados SQL com os dados do seu sistema existente, e economizando-lhe tempo valioso enquanto avalia o Armazém de Dados SQL e constrói a sua análise soluções. Aqui estão os principais benefícios de carregar dados no Armazém de Dados Azure SQL utilizando a Azure Data Factory:
+Começar com o Azure SQL Data Warehouse é agora mais fácil do que nunca usando a **Azure Data Factory**.  A Azure Data Factory é um serviço de integração de dados totalmente gerido em nuvem, que pode ser usado para povoar um Armazém de Dados SQL com os dados do seu sistema existente, e economizando-lhe tempo valioso enquanto avalia o SQL Data Warehouse e constrói as suas soluções de análise. Aqui estão os principais benefícios de carregar dados no Armazém de Dados Azure SQL utilizando a Azure Data Factory:
 
 * **Fácil de configurar**: Assistente intuitivo de 5 passos sem necessidade de scripts.
 * **Suporte rico em lojas**de dados : suporte incorporado para um conjunto rico de lojas de dados no local e baseadas na nuvem.

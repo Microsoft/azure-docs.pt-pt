@@ -3,12 +3,12 @@ title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados da Azure permite uma experiência de gestão de inquilinos cruzados.
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ac5d62fbf6b6ee418cd4b2f2b00dfc12e05f809
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 66e2b2f7fbbae5940b576ead22a416625af3c058
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754143"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418524"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -25,11 +25,7 @@ Normalmente, para gerir os recursos do Azure para um cliente, os prestadores de 
 
 Com a gestão de recursos delegados da Azure, o processo de embarque especifica os utilizadores dentro do inquilino do prestador de serviços que poderão aceder e gerir subscrições, grupos de recursos e recursos no inquilino do cliente. Estes utilizadores podem então iniciar sessão no portal Azure utilizando as suas próprias credenciais. Dentro do portal Azure, podem gerir recursos pertencentes a todos os clientes a que têm acesso. Isto pode ser feito visitando a página [dos meus clientes](../how-to/view-manage-customers.md) no portal Azure, ou trabalhando diretamente no contexto da subscrição desse cliente, seja no portal Azure ou através de APIs.
 
-A gestão de recursos delegados da Azure permite uma maior flexibilidade para gerir recursos para vários clientes sem ter de assinar contas diferentes em diferentes inquilinos. Por exemplo, um prestador de serviços pode ter três clientes, com diferentes responsabilidades e níveis de acesso, como mostra aqui:
-
-![Três inquilinos clientes que mostram responsabilidades do prestador de serviços](../media/azure-delegated-resource-management-customer-tenants.jpg)
-
-Utilizando a gestão de recursos delegados do Azure, os utilizadores autorizados podem inscrever-se no inquilino do prestador de serviços para aceder a estes recursos, como mostra aqui:
+A gestão de recursos delegados da Azure permite uma maior flexibilidade para gerir recursos para vários clientes sem ter de assinar contas diferentes em diferentes inquilinos. Por exemplo, um prestador de serviços pode ter dois clientes com diferentes responsabilidades e níveis de acesso. Utilizando a gestão de recursos delegados do Azure, os utilizadores autorizados podem inscrever-se no inquilino do prestador de serviços para aceder a esses recursos.
 
 ![Recursos do cliente geridos através de um inquilino prestador de serviços](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 

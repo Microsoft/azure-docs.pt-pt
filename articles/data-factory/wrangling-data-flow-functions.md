@@ -7,14 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7235e95e5b33fb931411a51796a8dbec96c46355
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74287032"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417662"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funções de transformação na discussão do fluxo de dados
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 O fluxo de dados em Azure Data Factory permite-lhe fazer a preparação de dados ágeis sem código e a discussão à escala de nuvem. O fluxo de dados de contorcer-se integra-se com a [Power Query Online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) e disponibiliza funções de Power Query M para a disputa de dados através da execução de faíscas. 
 

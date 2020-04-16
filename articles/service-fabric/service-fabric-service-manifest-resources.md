@@ -3,19 +3,23 @@ title: Especificar pontos finais de serviço de tecido de serviço
 description: Como descrever os recursos de ponto final num manifesto de serviço, incluindo como configurar pontos finais HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: cc4eedf5e5fee0bbfa0a763e9b9ec0dd25409afa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282162"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417582"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto de serviço
 ## <a name="overview"></a>Descrição geral
-O manifesto de serviço permite que os recursos utilizados pelo serviço sejam declarados/alterados sem alterar o código compilado. O Tecido de Serviço Azure suporta a configuração de recursos de ponto final para o serviço. O acesso aos recursos especificados no manifesto de serviço pode ser controlado através do SecurityGroup no manifesto de aplicação. A declaração de recursos permite que estes recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa de introduzir um novo mecanismo de configuração. A definição de esquema para o ficheiro ServiceManifest.xml está instalada com o SDK de Tecido de Serviço e ferramentas para *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+O manifesto de serviço permite que os recursos utilizados pelo serviço sejam declarados, ou alterados, sem alterar o código compilado. Serviço Tecido suporta configuração de recursos de ponto final para o serviço. O acesso aos recursos especificados no manifesto de serviço pode ser controlado através do SecurityGroup no manifesto de aplicação. A declaração de recursos permite que estes recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa de introduzir um novo mecanismo de configuração. A definição de esquema para o ficheiro ServiceManifest.xml está instalada com o SDK de Tecido de Serviço e ferramentas para *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Pontos Finais
 Quando um recurso de ponto final é definido no manifesto de serviço, o Tecido de Serviço atribui portas da gama de porta de aplicação reservada quando uma porta não é especificada explicitamente. Por exemplo, veja o ponto final *do serviçoEndpoint1* especificado no manifesto corte fornecido após este parágrafo. Além disso, os serviços também podem solicitar um porto específico num recurso. As réplicas de serviço que correm em diferentes nós de cluster podem ser atribuídas diferentes números de porta, enquanto réplicas de um serviço em funcionamento no mesmo nó partilham a porta. As réplicas de serviço podem então utilizar estas portas conforme necessário para a replicação e audição para pedidos de clientes.
+
+Ao ativar um serviço que especifica um ponto final https, o Service Fabric definirá a entrada de controlo de acesso para a porta, ligará o certificado de servidor especificado à porta, e também concederá a identidade de que o serviço está a funcionar como permissões à chave privada do certificado. O fluxo de ativação é invocado sempre que o Tecido de Serviço começa, ou quando a declaração de certificado da aplicação é alterada através de uma atualização. O certificado de ponto final também será monitorizado para alterações/renovações, e as permissões serão periodicamente reaplicadas, se necessário.
+
+Após a cessação do serviço, o Tecido de Serviço limpará a entrada de controlo de acesso de ponto final e removerá o encadernação do certificado. No entanto, quaisquer permissões aplicadas à chave privada do certificado não serão limpas.
 
 > [!WARNING] 
 > Por desenho, as portas estáticas não devem sobrepor-se à gama de portas de aplicação especificada no ClusterManifest. Se especificar uma porta estática, atribuí-la fora do alcance da porta de aplicação, caso contrário, resultará em conflitos portuários. Com a libertação 6.5CU2 emitiremos um Aviso de **Saúde** quando detetarmos tal conflito, mas deixaremos que a implantação continue em sintonia com o comportamento 6.5 enviado. No entanto, podemos impedir a implementação da aplicação a partir das próximas grandes lançamentos.
@@ -85,6 +89,7 @@ Os pontos finais http são automaticamente ACL'd by Service Fabric.
       <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
       <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
       <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+      <Endpoint Name="ServiceEndpoint4" Protocol="https" Port="14023"/>
 
       <!-- This endpoint is used by the replicator for replicating the state of your service.
            This endpoint is configured through the ReplicatorSettings config section in the Settings.xml
@@ -106,7 +111,7 @@ O protocolo HTTPS fornece a autenticação do servidor e também é utilizado pa
 > Quando utilizar https, não utilize a mesma porta e certificado para diferentes instâncias de serviço (independentes da aplicação) implantadas no mesmo nó. A atualização de dois serviços diferentes utilizando a mesma porta em diferentes instâncias de aplicação resultará numa falha de atualização. Para mais informações, consulte [Atualizar várias aplicações com pontos finais HTTPS ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 >
 
-Aqui está um exemplo ApplicationManifest que precisa definir para HTTPS. A impressão digital do seu certificado deve ser fornecida. O EndpointRef é uma referência ao EndpointResource no ServiceManifest, para o qual definiu o protocolo HTTPS. Pode adicionar mais do que um EndpointCertificate.  
+Aqui está um exemplo ApplicationManifest demonstrando a configuração necessária para um ponto final HTTPS. O certificado servidor/ponto final pode ser declarado por impressão digital ou nome comum do sujeito, devendo ser fornecido um valor. O EndpointRef é uma referência ao EndpointResource no ServiceManifest, e cujo protocolo deve ter sido definido para o protocolo 'https'. Pode adicionar mais do que um EndpointCertificate.  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -127,7 +132,8 @@ Aqui está um exemplo ApplicationManifest que precisa definir para HTTPS. A impr
     <ServiceManifestRef ServiceManifestName="Stateful1Pkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
     <Policies>
-      <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint3"/>
+      <EndpointBindingPolicy CertificateRef="SslCertByTP" EndpointRef="ServiceEndpoint3"/>
+      <EndpointBindingPolicy CertificateRef="SslCertByCN" EndpointRef="ServiceEndpoint4"/>
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
@@ -143,7 +149,8 @@ Aqui está um exemplo ApplicationManifest que precisa definir para HTTPS. A impr
     </Service>
   </DefaultServices>
   <Certificates>
-    <EndpointCertificate Name="TestCert1" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0" X509StoreName="MY" />  
+    <EndpointCertificate Name="SslCertByTP" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0" X509StoreName="MY" />  
+    <EndpointCertificate Name="SslCertByCN" X509FindType="FindBySubjectName" X509FindValue="ServiceFabric-EndpointCertificateBinding-Test" X509StoreName="MY" />  
   </Certificates>
 </ApplicationManifest>
 ```
@@ -170,7 +177,7 @@ Na secção ServiceManifestImport, adicione uma nova secção "ResourceOverrides
       </Endpoints>
     </ResourceOverrides>
         <Policies>
-           <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint"/>
+           <EndpointBindingPolicy CertificateRef="SslCertByTP" EndpointRef="ServiceEndpoint"/>
         </Policies>
   </ServiceManifestImport>
 ```

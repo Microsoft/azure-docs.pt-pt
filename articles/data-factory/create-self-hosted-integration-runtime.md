@@ -11,14 +11,16 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 03/13/2020
-ms.openlocfilehash: 3fe5a58046776d00ce68189cf724a995380869eb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 6bc0f002c6927cfd9a314797663e1dabbac392b6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887313"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416644"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Create and configure a self-hosted integration runtime (Criar e configurar um runtime de integração autoalojado)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 O tempo de integração (IR) é a infraestrutura computacional que a Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para mais detalhes sobre o IR, consulte a visão geral do tempo de [integração.](concepts-integration-runtime.md)
 
@@ -360,7 +362,7 @@ Depois de registar o tempo de execução de integração auto-hospedado, se pret
 1. Abra **o Gestor de Configuração**de Tempo de Execução da Integração da Microsoft .
 1. Selecione o separador **Settings** (Definições).
 1. Em **http proxy,** selecione o link **Alterar** para abrir a caixa de diálogo set **HTTP Proxy.**
-1. Selecione **Next**. Em seguida, consulte um aviso que pede a sua permissão para salvar a definição de procuração e reiniciar o serviço de hospedar tempo de integração.
+1. Selecione **Seguinte**. Em seguida, consulte um aviso que pede a sua permissão para salvar a definição de procuração e reiniciar o serviço de hospedar tempo de integração.
 
 Pode utilizar a ferramenta de gestor de configuração para visualizar e atualizar o proxy HTTP.
 

@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c8ada22b4492bef0239b6f811d5a7bd58e58510
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73679864"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417215"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Atividade de filtro na Fábrica de Dados Azure
 Pode utilizar uma atividade de filtro num oleoduto para aplicar uma expressão de filtro a uma matriz de entrada. 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -38,8 +39,8 @@ Pode utilizar uma atividade de filtro num oleoduto para aplicar uma expressão d
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da `Filter` atividade. | Cadeia | Sim
-tipo | Deve ser programado para **filtrar**. | Cadeia | Sim
+nome | Nome da `Filter` atividade. | String | Sim
+tipo | Deve ser programado para **filtrar**. | String | Sim
 condição | Condição a utilizar para filtrar a entrada. | Expressão | Sim
 itens | Matriz de entrada na qual o filtro deve ser aplicado. | Expressão | Sim
 
@@ -115,9 +116,9 @@ Neste exemplo, o gasoduto tem duas atividades: **Filtro** e **ForEach**. A ativi
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
-- [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
+- [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para Cada Atividade](control-flow-for-each-activity.md)
-- [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
+- [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade Web](control-flow-web-activity.md)
-- [Atividade Until](control-flow-until-activity.md)
+- [Até a Atividade](control-flow-until-activity.md)

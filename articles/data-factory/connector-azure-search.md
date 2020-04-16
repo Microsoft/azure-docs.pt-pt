@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
-ms.openlocfilehash: 418026d5569cd7e4a7c5239f99650833b1b9514d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfa1ad318ccc9e891b646ec050f6a0776e108206
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892928"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418240"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copiar dados para um índice de pesquisa cognitiva Azure usando a Fábrica de Dados Azure
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-azure-search-connector.md)
 > * [Versão atual](connector-azure-search.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados no índice de Pesquisa Cognitiva Azure. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -169,7 +171,7 @@ A tabela seguinte especifica se um tipo de dados de Pesquisa Cognitiva Azure é 
 
 | Tipo de dados de pesquisa cognitiva azure | Suportado em Pia de Pesquisa Cognitiva Azure |
 | ---------------------- | ------------------------------ |
-| Cadeia | S |
+| String | S |
 | Int32 | S |
 | Int64 | S |
 | Double | S |

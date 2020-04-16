@@ -11,23 +11,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 20a5a9c5513c165cd5add2e97f019a741dfd0b03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246204"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418359"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versão atual](concepts-pipeline-execution-triggers.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Uma _execução de pipeline_ do Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, imagine que tem um pipeline que é executado às 8:00, às 9:00 e às 10:00. Neste caso, existem três execuções separadas do pipeline (execuções de pipeline). Cada execução de pipeline tem um ID de execução de pipeline exclusivo. Uma execução é um GUID que define exclusivamente essa execução de pipeline em particular.
+Uma _execução de pipeline_ do Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, imagine que tem um pipeline que é executado às 8:00, às 9:00 e às 10:00. Neste caso, existem três corridas separadas do gasoduto ou do gasoduto. Cada execução de pipeline tem um ID de execução de pipeline exclusivo. Uma execução é um GUID que define exclusivamente essa execução de pipeline em particular.
 
 Normalmente, as execuções de pipeline são instanciadas pela transmissão de argumentos a parâmetros que são definidos no pipeline. Pode executar um pipeline manualmente ou com um _acionador_. Este artigo fornece detalhes sobre ambas a formas de executar um pipeline.
 
 ## <a name="manual-execution-on-demand"></a>Execução manual (a pedido)
+
 À execução manual de um pipeline também se dá o nome de execução _a pedido_.
 
 Por exemplo, digamos que tem um pipeline básico chamado **copyPipeline** e quer executá-lo. O pipeline tem uma única atividade que copia a partir de uma pasta de origem do armazenamento de Blobs do Azure para uma pasta de destino no mesmo armazenamento. A definição JSON que se segue mostra este pipeline de exemplo:
@@ -83,7 +86,8 @@ Pode executar manualmente o pipeline através de um dos métodos que se seguem:
 - SDK Python
 
 ### <a name="rest-api"></a>API REST
-O comando de exemplo que se segue mostra como executar manualmente o pipeline com a API REST:
+
+O comando da amostra seguinte mostra-lhe como executar o seu oleoduto utilizando manualmente a API REST:
 
 ```
 POST
@@ -122,7 +126,8 @@ O payload de resposta é um ID exclusivo da execução de pipeline:
 Para obter um exemplo completo, veja [Início Rápido: criar uma fábrica de dados com o Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="net-sdk"></a>SDK .NET
-A chamada de exemplo que se segue mostra como executar manualmente o pipeline com o SDK de .NET:
+
+A seguinte chamada de amostra mostra-lhe como executar o seu pipeline utilizando manualmente o .NET SDK:
 
 ```csharp
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
@@ -131,9 +136,10 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 Para obter um exemplo completo, veja [Início Rápido: criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
-> Pode utilizar o SDK de .NET para invocar pipelines do Data Factory a partir de Funções do Azure, dos seus próprios serviços Web, etc.
+> Pode utilizar o .NET SDK para invocar os gasodutos da Fábrica de Dados a partir de Funções Azure, a partir dos seus serviços web, e assim por diante.
 
-<h2 id="triggers">Execução de acionadores</h2>
+## <a name="trigger-execution"></a>Execução de acionadores
+
 Os acionadores são outra forma de executar uma execução de pipeline. Representam uma unidade de processamento que determina quando é que uma execução de pipeline tem de arrancar. Atualmente, o Data Factory suporta três tipos de acionadores:
 
 - Acionador de agenda: um acionador que invoca um pipeline com base numa agenda.
@@ -143,7 +149,6 @@ Os acionadores são outra forma de executar uma execução de pipeline. Represen
 - Acionador baseado em eventos: um acionador que responde a um evento.
 
 Os oleodutos e os gatilhos têm uma relação entre muitos a muitos (exceto o gatilho da janela a tropeçar). Vários gatilhos podem iniciar um único oleoduto, ou um único gatilho pode iniciar vários oleodutos. Na definição de acionador que se segue, a propriedade **pipelines** refere-se a uma lista de pipelines que são acionados pelo acionador especificado. A definição da propriedade inclui valores para os parâmetros do pipeline.
-
 ### <a name="basic-trigger-definition"></a>Definição de acionador básica
 
 ```json
@@ -174,7 +179,7 @@ Os oleodutos e os gatilhos têm uma relação entre muitos a muitos (exceto o ga
 ## <a name="schedule-trigger"></a>Acionador de Agenda
 Um acionador de agenda executa pipelines com base numa agenda. Este acionador suporta opções de calendário avançadas e periódicas. Por exemplo, o acionador suporta intervalos como "semanalmente" ou "Segunda-feira às 17:00 e quinta-feira às 21:00". O acionador de agenda é flexível porque o padrão do conjunto de dados é agnóstico e o acionador não distingue entre dados de série de tempo e sem ser de série de tempo.
 
-Para obter mais informações sobre acionadores de agenda e exemplos, veja [Create a schedule trigger](how-to-create-schedule-trigger.md) (Criar um acionador de agenda).
+Para obter mais informações sobre os gatilhos de horário e, por exemplo, consulte [Criar um gatilho](how-to-create-schedule-trigger.md)de horário .
 
 ## <a name="schedule-trigger-definition"></a>Definição de acionador de agenda
 Quando cria um acionador de agenda, o agendamento e a periodicidade são especificados com uma definição JSON.
@@ -235,7 +240,7 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 | **startTime** | Um valor de data/hora. Para agendamentos básicos, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o acionador é iniciado imediatamente a seguir ao valor especificado em **startTime**. |
 | **endTime** | A data e hora de fim do acionador. O acionador não é executado após a data e hora de fim especificadas. O valor da propriedade não pode situar-se no passado. <!-- This property is optional. --> |
 | **timeZone** | O fuso horário. Atualmente, o fuso horário UTC é o único suportado. |
-| **recurrence** | Um objeto de periodicidade que especifica as regras de periodicidade do acionador. O objeto de periodicidade suporta os elementos **frequency**, **interval**, **endTime**, **count** e **schedule**. Quando um objeto de periodicidade é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de periodicidade são opcionais. |
+| **recorrência** | Um objeto de periodicidade que especifica as regras de periodicidade do acionador. O objeto de periodicidade suporta os elementos **frequency**, **interval**, **endTime**, **count** e **schedule**. Quando um objeto de periodicidade é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de periodicidade são opcionais. |
 | **frequência** | A unidade que se refere à frequência com que o acionador voltar a ocorrer. Os valores suportados incluem "minute", "hour", "day", "week" e "month". |
 | **intervalo** | Um valor inteiro positivo que indica o intervalo do valor **frequency**. O valor **frequency** determina o número de vezes que o acionador é executado. Por exemplo, se **interval** for 3 e **frequency** for "week", o acionador repete-se de três em três semanas. |
 | **agenda** | A agenda de periodicidade do acionador. Um acionador que tenha um valor **frequency** especificado modifica a respetiva periodicidade com base numa agenda de periodicidade. A propriedade **schedule** contém modificações da periodicidade baseadas em minutos, horas, dias de semana, dias do mês e número da semana.
@@ -244,33 +249,33 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 
 ```json
 {
-    "properties": {
-        "name": "MyTrigger",
-        "type": "ScheduleTrigger",
-        "typeProperties": {
-            "recurrence": {
-                "frequency": "Hour",
-                "interval": 1,
-                "startTime": "2017-11-01T09:00:00-08:00",
-                "endTime": "2017-11-02T22:00:00-08:00"
-            }
+  "properties": {
+    "name": "MyTrigger",
+    "type": "ScheduleTrigger",
+    "typeProperties": {
+      "recurrence": {
+        "frequency": "Hour",
+        "interval": 1,
+        "startTime": "2017-11-01T09:00:00-08:00",
+        "endTime": "2017-11-02T22:00:00-08:00"
+      }
+    },
+    "pipelines": [{
+        "pipelineReference": {
+          "type": "PipelineReference",
+          "referenceName": "SQLServerToBlobPipeline"
         },
-        "pipelines": [{
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "SQLServerToBlobPipeline"
-                },
-                "parameters": {}
-            },
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "SQLServerToAzureSQLPipeline"
-                },
-                "parameters": {}
-            }
-        ]
-    }
+        "parameters": {}
+      },
+      {
+        "pipelineReference": {
+          "type": "PipelineReference",
+          "referenceName": "SQLServerToAzureSQLPipeline"
+        },
+        "parameters": {}
+      }
+    ]
+  }
 }
 ```
 
@@ -279,7 +284,7 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 | Propriedade JSON | Tipo | Necessário | Valor predefinido | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | string | Sim | Nenhuma | Data-horas no formato ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | objeto | Sim | Nenhuma | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **recorrência** | objeto | Sim | Nenhuma | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **intervalo** | número | Não | 1 | 1 a 1000 | `"interval":10` |
 | **endTime** | string | Sim | Nenhuma | Um valor de data/hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **agenda** | objeto | Não | Nenhuma | Um objeto de agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
@@ -289,7 +294,7 @@ A tabela que se segue mostra o modo como a propriedade **startTime** controla a 
 
 | valor de startTime | Periodicidade sem agenda | Periodicidade com agenda |
 |:--- |:--- |:--- |
-| **A hora de início é no passado** | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução.<br /><br />Veja o exemplo a seguir à tabela. | O gatilho começa _o mais cedo que_ a hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
+| **A hora de início é no passado** | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução.<br /><br />Veja o exemplo a seguir à tabela. | O acionador é iniciado _imediatamente a seguir _ à hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
 | **A hora de início é no futuro ou na hora atual** | É executada uma vez na hora de início especificada.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução. | O gatilho começa _o mais cedo_ que a hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
 
 Vejamos um exemplo do que acontece quando a hora de início (startTime) se situa no passado, com periodicidade, mas sem agenda. Parta do princípio de que a hora atual é 2017-04-08 13:00, a hora de início é 2017-04-07 14:00 e a periodicidade é de dois em dois dias. (O valor **da recorrência** é definido definindo a propriedade de **frequência** para "dia" e a propriedade **de intervalo** para 2.) Note que o valor do tempo de **partida** está no passado e ocorre antes do tempo atual.
@@ -298,14 +303,14 @@ Nestas condições, a primeira execução é 2017-04-09 às 14:00. O motor do Sc
 
 A primeira hora de execução é a mesma, mesmo que **startTime** seja 2017-04-05 14:00 ou 2017-04-01 14:00. Após a primeira execução, as execuções subsequentes são calculadas com base na agenda. Por conseguinte, as próximas execuções são a 2017-04-11 às 14:00 PM, depois a 2017-04-13 às 14:00 PM, depois a 2017-04-15 às 14:00 PM e assim sucessivamente.
 
-Por último, quando as horas ou os minutos não se encontram definidos na agenda para um acionador, as horas ou minutos da primeira execução são utilizados como as predefinições.
+Finalmente, quando horas ou minutos não estão definidos no horário para um gatilho, as horas ou minutos da primeira execução são usados como incumprimentos.
 
 ### <a name="schedule-property"></a>Propriedade schedule
 Pode utilizar **schedule** para *limitar* o número de execuções de acionadores. Por exemplo, se um acionador com uma frequência mensal estiver agendado de modo a ser executado apenas no dia 31, o acionador só é executado nos meses que têm 31 dias.
 
 Também pode utilizar **schedule** para *expandir* o número de execuções de acionadores. Por exemplo, um acionador com uma frequência mensal que esteja agendado de maneira a ser executado nos dias 1 e 2 do mês é executado no primeiro e segundo dias do mês, em vez de uma vez por mês.
 
-Se forem especificados vários elementos de **schedule**, a ordem de avaliação é da definição de agenda maior para a mais pequena – número da semana, dia do mês, dia da semana, hora e minuto.
+Se forem especificados vários elementos de **horário,** a ordem de avaliação é do maior ao mais pequeno horário: número de semana, dia de mês, dia da semana, hora, minuto.
 
 A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 
@@ -313,14 +318,14 @@ A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 |:--- |:--- |:--- |
 | **minutes** | Minutos da hora em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros|
 | **horas** | Horas do dia em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros|
-| **weekDays** | Dias da semana em que o acionador é executado. O valor só pode ser especificado com uma frequência semanal.|<br />- Segunda-feira<br />- Terça-feira<br />- Quarta-feira<br />- Quinta-feira<br />- Sexta-feira<br />- Sábado<br />- Domingo<br />- Matriz de valores de dia (o tamanho máximo da matriz é 7)<br /><br />Os valores de dia não são sensíveis às maiúsculas e minúsculas|
+| **weekDays** | Dias da semana em que o acionador é executado. O valor só pode ser especificado com uma frequência semanal.|<br />- Segunda-feira<br />- Terça-feira<br />- Quarta-feira<br />- Quinta-feira<br />- Sexta-feira<br />- Sábado<br />- Domingo<br />- Matriz de valores de dia (o tamanho máximo da matriz é 7)<br /><br />Os valores do dia não são sensíveis aos casos|
 | **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |- Matriz de objetos **mensais Ocorrência:**`{ "day": day, "occurrence": occurrence }`<br />- O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.<br />- O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.|
 | **monthDays** | Dia do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31<br />- Matriz de valores|
 
 ## <a name="tumbling-window-trigger"></a>Acionador de janela em cascata
 Os acionadores de janela em cascata são um tipo de acionador que é acionado num intervalo de tempo periódico a partir de uma hora de início especificada, mantendo o estado. As janelas em cascata são uma série de intervalos de tempo com tamanho fixo, não sobrepostos e contínuos.
 
-Para obter mais informações sobre acionadores de janela em cascata e exemplos, veja [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md) (Criar um acionador de janela em cascata).
+Para obter mais informações sobre os gatilhos das janelas e, por exemplo, consulte [Criar um gatilho](how-to-create-tumbling-window-trigger.md)de janela caindo .
 
 ## <a name="event-based-trigger"></a>Acionador baseado em eventos
 
@@ -331,7 +336,7 @@ Para obter mais informações sobre acionadores baseados em eventos, veja [Criar
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Exemplos de agendas de periodicidade do acionador
 Esta secção mostra exemplos de agendas de periodicidade. Concentra-se no objeto **schedule** e nos respetivos elementos.
 
-Os exemplos partem do princípio de que o valor **interval** é igual a 1 e que o valor **frequency** está correto de acordo com a definição da agenda. Por exemplo, não pode ter um valor de **frequência** de "dia" e também ter uma modificação **mensal No** objeto de **horário.** Estes tipos de restrições estão descritos na tabela na secção anterior.
+Os exemplos assumem que o valor de **intervalo** é 1 e que o valor **de frequência** está correto de acordo com a definição de horário. Por exemplo, não pode ter um valor de **frequência** de "dia" e também ter uma modificação **mensal No** objeto de **horário.** Estes tipos de restrições estão descritos na tabela na secção anterior.
 
 | Exemplo | Descrição |
 |:--- |:--- |
@@ -371,8 +376,8 @@ A tabela que se segue oferece uma comparação entre o acionador de janela em ca
 |:--- |:--- |:--- |
 | **Cenários de preenchimento** | Suportado. As execuções de pipeline podem ser agendadas para períodos de tempo no passado. | Não suportado. As execuções de pipeline só podem ser executadas em períodos de na hora atual ou numa hora futura. |
 | **Fiabilidade** | 100% de fiabilidade. As execuções de pipeline podem ser agendadas para todos os períodos de tempo a partir de uma data de início especificada sem lacunas. | Menos fiável. |
-| **Capacidade de repetição** | Suportado. As execuções de pipeline com falhas têm uma política de repetição predefinida de 0 ou uma política especificada pelo utilizador na definição do acionador. Repete automaticamente quando as execuções de pipeline falham devido a limites de simultaneidade/servidor/limitação (ou seja, códigos de estado 400: Erro de Utilizador, 429: Demasiados Pedidos e 500: Erro Interno do Servidor). | Não suportado. |
-| **Concurrency** | Suportado. Os utilizadores podem definir explicitamente limites de simultaneidade para o acionador. Permite entre uma e 50 execuções de pipeline acionadas em simultâneo. | Não suportado. |
+| **Capacidade de repetição** | Suportado. As execuções de pipeline com falhas têm uma política de repetição predefinida de 0 ou uma política especificada pelo utilizador na definição do acionador. Tenta automaticamente retentar quando o gasoduto funciona falha devido a limites de concurrency/server/throttling (isto é, códigos de estado 400: Erro do utilizador, 429: Pedidos a mais e 500: Erro do Servidor Interno). | Não suportado. |
+| **Simultaneidade** | Suportado. Os utilizadores podem definir explicitamente limites de simultaneidade para o acionador. Permite entre uma e 50 execuções de pipeline acionadas em simultâneo. | Não suportado. |
 | **Variáveis do sistema** | Suporta a utilização das variáveis do sistema **WindowStart** e **WindowEnd**. Os utilizadores podem aceder a `triggerOutputs().windowStartTime` e `triggerOutputs().windowEndTime` como variáveis do sistema de acionador na definição do acionador. Os valores são utilizados como a hora de início e a hora de fim do período de tempo, respetivamente. Por exemplo, para um acionador de janela em cascata executado de hora a hora, para o período de tempo das 1:00 às 2:00, a definição é `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Não suportado. |
 | **Relação de pipeline para acionador** | Suporta uma relação um para um. Apenas um pipeline pode ser acionado. | Suporta relações muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines. |
 

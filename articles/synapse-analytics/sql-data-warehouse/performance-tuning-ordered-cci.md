@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 2113e5ac3563a22c5f2c6b755230b05fb9a2cb35
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 088a0d10b96a30ef830b4e8a8dc12c19127141db
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583861"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417045"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Otimização do desempenho com índice columnstore em cluster ordenado  
 
@@ -28,7 +28,7 @@ Por predefinição, para cada tabela criada sem uma opção de índice, um compo
 
 Ao criar um CCI ordenado, o motor SQL synapse classifica os dados existentes na memória pela chave de ordem(s) antes que o construtor de índices os comprime em segmentos de índice.  Com os dados classificados, a sobreposição de segmentos é reduzida permitindo que as consultas tenham uma eliminação de segmento mais eficiente e, portanto, um desempenho mais rápido porque o número de segmentos a ler a partir do disco é menor.  Se todos os dados puderem ser classificados na memória de uma só vez, então a sobreposição do segmento pode ser evitada.  Devido a grandes tabelas em armazéns de dados, este cenário não acontece com frequência.  
 
-Para verificar se o segmento varia para uma coluna, execute este comando com o seu nome de mesa e coluna:
+Para verificar as gamas de segmentos para uma coluna, execute o seguinte comando com o nome da tabela e o nome da coluna:
 
 ```sql
 SELECT o.name, pnp.index_id, 

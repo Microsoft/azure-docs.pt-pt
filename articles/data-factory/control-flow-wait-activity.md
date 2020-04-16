@@ -11,15 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: f9dd53fded06eec169219d00993620a0f2aa2bf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6158938d01b6e5da74ed046d2a74e0dfd827f47
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73678247"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417917"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Executar atividade de espera na Fábrica de Dados Azure
 Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de tempo especificado antes de continuar a execução das atividades subsequentes. 
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -38,8 +41,8 @@ Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de t
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da `Wait` atividade. | Cadeia | Sim
-tipo | Deve ser definido para **esperar.** | Cadeia | Sim
+nome | Nome da `Wait` atividade. | String | Sim
+tipo | Deve ser definido para **esperar.** | String | Sim
 waitTimeInSeconds | O número de segundos que o gasoduto espera antes de continuar com o processamento. | Número inteiro | Sim
 
 ## <a name="example"></a>Exemplo
@@ -102,9 +105,9 @@ Neste exemplo, o gasoduto tem duas atividades: **Até** e **esperar**. A ativida
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
-- [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
+- [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para Cada Atividade](control-flow-for-each-activity.md)
-- [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
+- [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade Web](control-flow-web-activity.md)
-- [Atividade Until](control-flow-until-activity.md)
+- [Até a Atividade](control-flow-until-activity.md)

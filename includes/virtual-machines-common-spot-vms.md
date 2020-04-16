@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d56964b7415e4ca5903950cd46c02b3c27f62d5e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4063751a71cd9cecc424dfe3daddaecfd9ea4071
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547417"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422134"
 ---
 A utilização de VMs spot permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. A qualquer momento em que o Azure precise de capacidade de volta, a infraestrutura Azure despejará VMs spot. Por isso, os VMs spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes de v/teste, grandes cargas de trabalho de computação, e muito mais.
 
@@ -88,6 +88,7 @@ Com preços variáveis, você tem opção de definir um preço máximo, em dóla
 | Contrato Enterprise         | Sim                               |
 | Pay As You Go                | Sim                               |
 | Provedor de Serviço sinuoso (CSP) | [Contacte o seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Contrato de Cliente da Microsoft | Sim                               |
 | Vantagens                     | Não disponível                     |
 | Patrocinado                    | Não disponível                     |
 | Avaliação Gratuita                   | Não disponível                     |

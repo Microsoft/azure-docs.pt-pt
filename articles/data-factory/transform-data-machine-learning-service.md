@@ -10,14 +10,16 @@ ms.author: daperlov
 author: djpmsft
 manager: anandsub
 ms.date: 10/10/2019
-ms.openlocfilehash: b54504cf8ca7b32bf14bd4b7e0c561ffd56d4098
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f033651eb7e52ba60cce9b74941a4ef0eb376d2b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76155168"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419005"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Executar oleodutos de aprendizagem automática azure em Fábrica de Dados Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Execute os seus oleodutos Azure Machine Learning como um passo nos seus oleodutos Azure Data Factory. A atividade do Pipeline de Execução de Machine Learning permite cenários de previsão de lotes, tais como identificar possíveis incumprimentos de empréstimos, determinar o sentimento e analisar padrões de comportamento do cliente.
 
@@ -50,8 +52,8 @@ O vídeo abaixo apresenta uma introdução de seis minutos e demonstração dest
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade no oleoduto | Cadeia | Sim
-tipo | Tipo de atividade é 'AzureMLExecutePipeline' | Cadeia | Sim
+nome | Nome da atividade no oleoduto | String | Sim
+tipo | Tipo de atividade é 'AzureMLExecutePipeline' | String | Sim
 linkedServiceName | Serviço Ligado à Aprendizagem automática Azure | Referência de serviço ligada | Sim
 mlPipelineId | ID do oleoduto azure machine learning publicado | Corda (ou expressão com resultadoTipo de corda) | Sim
 experimentoNome | Executar nome da experiência de história da corrida do pipeline machine learning | Corda (ou expressão com resultadoTipo de corda) | Não

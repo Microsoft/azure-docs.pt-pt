@@ -12,14 +12,16 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: 532258cecd823e10057ddc3536cd24071e444581
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 75dd5a917d718f4ccef034e953a415d575d42bd9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992067"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418308"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configure o tempo de execução de integração Azure-SSIS com geo-replicação e failover da Base de Dados Azure SQL
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este artigo descreve como configurar o Tempo de Integração Azure-SSIS com geo-replicação de base de dados Azure SQL para a base de dados SSISDB. Quando ocorre uma falha, pode garantir que o IR Azure-SSIS continue a trabalhar com a base de dados secundária.
 

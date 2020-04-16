@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440389"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418019"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Atividade de switch na Fábrica de Dados Azure
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A atividade da Switch fornece a mesma funcionalidade que uma declaração de switch fornece em linguagens de programação. Avalia um conjunto de atividades correspondentes a um caso que corresponde à avaliação da condição.
 
@@ -67,8 +69,8 @@ A atividade da Switch fornece a mesma funcionalidade que uma declaração de swi
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade da switch. | Cadeia | Sim
-tipo | Deve ser definido para *Switch** | Cadeia | Sim
+nome | Nome da atividade da switch. | String | Sim
+tipo | Deve ser definido para *Switch** | String | Sim
 expression | Expressão que deve avaliar ao valor de cadeia | Expressão com cadeia de tipo de resultado | Sim
 casos | Conjunto de casos que contêm um valor e um conjunto de atividades para executar quando o valor corresponde à avaliação de expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Conjunto de objetos de caso | Sim
 atividades padrão | Conjunto de atividades que são executadas quando a avaliação de expressão não está satisfeita. | Conjunto de Atividades | Sim
@@ -332,8 +334,8 @@ $result.Error -join "`r`n"
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
-- [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
+- [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para Cada Atividade](control-flow-for-each-activity.md)
-- [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
+- [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade Web](control-flow-web-activity.md)

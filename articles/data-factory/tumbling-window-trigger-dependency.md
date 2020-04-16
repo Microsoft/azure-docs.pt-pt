@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 0557c9b9eb65654c4a11c1389ace4776ab60a61d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39ea8dda0fd823d3061b2cb29e1c548f99281c82
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79532575"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418801"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de acionamento de janela em cascata
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo fornece passos para criar uma dependência de um gatilho de janela caindo. Para obter informações gerais sobre os gatilhos da Janela Tumbling, consulte [Como criar](how-to-create-tumbling-window-trigger.md)o gatilho da janela .
 

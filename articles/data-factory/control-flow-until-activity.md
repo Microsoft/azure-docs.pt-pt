@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440377"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417951"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Até a atividade na Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 A atividade Until disponibiliza a mesma funcionalidade que uma estrutura de ciclos do-until fornecem nas linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory. 
 
 ## <a name="syntax"></a>Sintaxe
@@ -53,8 +55,8 @@ A atividade Until disponibiliza a mesma funcionalidade que uma estrutura de cicl
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da `Until` atividade. | Cadeia | Sim
-tipo | Deve ser definido para **Até**. | Cadeia | Sim
+nome | Nome da `Until` atividade. | String | Sim
+tipo | Deve ser definido para **Até**. | String | Sim
 expression | Expressão que deve avaliar a verdade ou falsa | Expressão.  | Sim
 tempo limite | O ciclo de fazer até ao fim após o tempo especificado aqui. | Cadeia. `d.hh:mm:ss`(ou) `hh:mm:ss`. O valor predefinido é 7 dias. O valor máximo é: 90 dias. | Não
 Atividades | Conjunto de atividades que são executadas até que a expressão avalie para `true`. | Várias atividades. |  Sim
@@ -289,8 +291,8 @@ while ($True) {
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
-- [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
+- [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para Cada Atividade](control-flow-for-each-activity.md)
-- [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
+- [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade Web](control-flow-web-activity.md)
