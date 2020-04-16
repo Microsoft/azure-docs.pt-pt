@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
-ms.author: dapine
-ms.openlocfilehash: 327000173b4c5c378f60c76eb1a24bd155901671
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.author: trbye
+ms.openlocfilehash: 924532318fc6638059bbe9eef0065349463523ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666924"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400883"
 ---
 Este guia mostra como instalar o [SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) de Discurso para Python. Se só quer que o nome do pacote `pip install azure-cognitiveservices-speech`seja iniciado por conta própria, corra.
 

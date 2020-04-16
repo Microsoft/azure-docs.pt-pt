@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: e41653e4644b09cc357510223e5ee86c3806ae2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d48f09fe5d5c736f65b6a76211dd3fec85479ea
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74806118"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402188"
 ---
 # <a name="deploy-a-custom-model"></a>Implementar um modelo personalizado
 
@@ -42,7 +42,7 @@ Os dados de registo estão disponíveis para download em **Dados > Endpoint**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Use o seu ponto final personalizado com o [SDK](speech-sdk.md) do Discurso
+* Saiba como usar o seu modelo personalizado [aqui](how-to-specify-source-language.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

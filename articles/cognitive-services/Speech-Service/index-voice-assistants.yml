@@ -1,22 +1,22 @@
 ### YamlMime:Landing
-title: Documentação de assistentes de voz
+title: Documentação dos assistentes de voz
 summary: Assistentes de voz que usam o serviço Speech capacitam os desenvolvedores a criar interfaces de conversação naturais e humanas para as suas aplicações e experiências.
 metadata:
   title: Documentação de assistentes de voz - Tutoriais, Referência API - Serviços Cognitivos Azure [ Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: dapine
-  ms.openlocfilehash: 6ae919317269753cbc3c8bf5b0df11e19a47989f
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.author: trbye
+  ms.openlocfilehash: cbef289ebc79e20b928db684af01a4eaeb1c0ce8
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79415160"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401441"
 landingContent:
 - title: Sobre assistentes de voz
   linkLists:
@@ -42,19 +42,19 @@ landingContent:
       url: quickstart-custom-speech-commands-create-new.md
     - text: Criar um comando personalizado com parâmetros
       url: quickstart-custom-speech-commands-create-parameters.md
-    - text: Use comandos personalizados com voz personalizada
+    - text: Utilizar Comandos Personalizados com Voz Personalizada
       url: quickstart-custom-speech-commands-select-custom-voice.md
-    - text: Use comandos personalizados com o SDK de fala
+    - text: Utilizar Comandos Personalizados com o SDK de Voz
       url: quickstart-custom-speech-commands-speech-sdk.md
   - linkListType: how-to-guide
     links:
-    - text: Cumprir comandos de um cliente
+    - text: Satisfazer comandos de um cliente
       url: how-to-custom-speech-commands-fulfill-sdk.md
     - text: Adicionar validação de parâmetros
       url: how-to-custom-speech-commands-validations.md
-    - text: Adicione uma confirmação
+    - text: Adicionar uma confirmação
       url: how-to-custom-speech-commands-confirmations.md
-    - text: Adicione uma correção de um passo
+    - text: Adicionar uma correção de um passo
       url: how-to-custom-speech-commands-one-step-correction.md
 - title: Desenvolver com discurso de linha direta
   linkLists:

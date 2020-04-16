@@ -3,19 +3,19 @@ title: Texto-a-voz - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: A funcionalidade de texto-a-fala no serviço Da fala permite que as suas aplicações, ferramentas ou dispositivos convertam texto em discurso sintetizado natural como o humano. Escolha vozes predefinidas ou crie a sua própria voz personalizada.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7c7574ee4e9f75b9b650ff63a10666c5e379fca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131567"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399505"
 ---
 # <a name="what-is-text-to-speech"></a>O que é a conversão de texto em voz?
 

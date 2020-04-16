@@ -740,6 +740,8 @@
           href: insights/containers.md
     - name: Monitorizar outros recursos
       items:
+        - name: Cofre de Chaves
+          href: insights/key-vault-insights-overview.md
         - name: Armazenamento
           items:
             - name: Azure Monitor para o Armazenamento
@@ -1075,6 +1077,8 @@
               href: platform/itsmc-connections.md
             - name: Criar aplicação Web do Service Manager
               href: platform/itsmc-service-manager-script.md
+            - name: Corrigir problemas de sincronização do ITSM da ServiceNow
+              href: platform/itsmc-resync-servicenow.md
     - name: Automatizar
       items:
         - name: Dimensionamento Automático

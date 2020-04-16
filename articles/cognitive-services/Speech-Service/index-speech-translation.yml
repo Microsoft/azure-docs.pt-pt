@@ -5,18 +5,18 @@ metadata:
   title: Documentação de tradução da fala - Tutoriais, Referência API - Serviços Cognitivos Azure [ Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 04/13/2020
-  ms.author: dapine
-  ms.openlocfilehash: 346965e4bd8384be93716894a52960b20539d1c3
-  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+  ms.author: trbye
+  ms.openlocfilehash: 5d5c1cdae695b68f45d55b51b76d88c2f93c50d1
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/13/2020
-  ms.locfileid: "81259051"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401426"
 landingContent:
 - title: Sobre a tradução da fala
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
     links:
     - text: O que é a tradução de voz?
       url: speech-translation.md
-    - text: Básicos de tradução da fala
+    - text: Noções básicas de tradução de voz
       url: speech-translation-basics.md
   - linkListType: quickstart
     links:

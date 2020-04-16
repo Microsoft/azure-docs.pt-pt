@@ -5,18 +5,18 @@ metadata:
   title: Documentação texto-a-voz - Tutoriais, Referência API - Serviços Cognitivos Azure [ Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: dapine
-  ms.openlocfilehash: e9fb4f1b26dd8c5a958f8321f8c6fd0def605c93
-  ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+  ms.author: trbye
+  ms.openlocfilehash: 83bf5f9e623d1d777834e5efdd26fa4cdbc42819
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/09/2020
-  ms.locfileid: "80991352"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401473"
 landingContent:
 - title: Sobre texto-a-fala
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
     links:
     - text: O que é a conversão de texto em voz?
       url: text-to-speech.md
-    - text: Básicos da síntese da fala
+    - text: Noções básicas da sintetização de voz
       url: text-to-speech-basics.md
   - linkListType: quickstart
     links:

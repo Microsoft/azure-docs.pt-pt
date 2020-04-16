@@ -3,19 +3,19 @@ title: Linguagem de marcação da síntese da fala (SSML) - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Usando a linguagem de marcação da síntese da fala para controlar a pronúncia e a prosódia no texto-a-fala.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7d5dd79399b15ade90173a55aeb71dacbc61fa78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: dc11d26c73c52b5e6c4d8e05cc27dd6ebce0c5d8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80365812"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399826"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese da fala (SSML)
 
@@ -136,7 +136,7 @@ speechConfig.setProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Para mais informações, consulte <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
 
@@ -196,7 +196,6 @@ Por padrão, o serviço de texto-a-fala sintetiza o texto usando um estilo de fa
 Atualmente, os ajustes de estilo de fala são suportados para estas vozes neurais:
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
-* `pt-BR-FranciscaNeural`
 
 As alterações são aplicadas ao nível da frase, e o estilo varia de acordo com a voz. Se um estilo não for suportado, o serviço devolverá o discurso no estilo de fala neutro padrão.
 
@@ -214,18 +213,17 @@ As alterações são aplicadas ao nível da frase, e o estilo varia de acordo co
 
 Utilize esta tabela para determinar quais os estilos de fala suportados para cada voz neural.
 
-| Voz | Estilo | Descrição |
-|-------|------|-------------|
-| `en-US-AriaNeural` | `style="newscast"` | Expressa um tom formal e profissional para narrar notícias |
-| | `style="customerservice"` | Expressa um tom amigável e útil para o apoio ao cliente |
-| | `style="chat"` | Expressa um tom casual e descontraído |
-| | `style="cheerful"` | Expressa um tom positivo e feliz |
-| | `style="empathetic"` | Expressa uma sensação de carinho e compreensão |
-| `zh-CN-XiaoxiaoNeural` | `style="newscast"` | Expressa um tom formal e profissional para narrar notícias |
-| | `style="customerservice"` | Expressa um tom amigável e útil para o apoio ao cliente |
-| | `style="assistant"` | Expressa um tom quente e descontraído para assistentes digitais  |
-| | `style="lyrical"` | Expressa emoções de uma forma melódica e sentimental |
-| `pt-BR-FranciscaNeural` | `style="cheerful"` | Expressa um tom positivo e feliz |
+| Voz                   | Estilo                     | Descrição                                                 |
+|-------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-AriaNeural`      | `style="newscast"`        | Expressa um tom formal e profissional para narrar notícias |
+|                         | `style="customerservice"` | Expressa um tom amigável e útil para o apoio ao cliente  |
+|                         | `style="chat"`            | Expressa um tom casual e descontraído                         |
+|                         | `style="cheerful"`        | Expressa um tom positivo e feliz                         |
+|                         | `style="empathetic"`      | Expressa uma sensação de carinho e compreensão               |
+| `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expressa um tom formal e profissional para narrar notícias |
+|                         | `style="customerservice"` | Expressa um tom amigável e útil para o apoio ao cliente  |
+|                         | `style="assistant"`       | Expressa um tom quente e descontraído para assistentes digitais    |
+|                         | `style="lyrical"`         | Expressa emoções de uma forma melódica e sentimental         |
 
 **Exemplo**
 
@@ -263,15 +261,14 @@ Utilize `break` o elemento para inserir pausas (ou pausas) entre palavras ou evi
 | `strength` | Especifica a duração relativa de uma pausa utilizando um dos seguintes valores:<ul><li>nenhuma</li><li>x-fraco</li><li>fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são `2s` e`500` | Opcional |
 
-| Força | Descrição |
-|----------|-------------|
-| Nenhum, ou se nenhum valor fornecido | 0 ms |
-| x-fraco | 250 ms |
-| fraco | 500 ms |
-| médio | 750 ms |
-| forte | 1000 ms |
-| x-forte | 1250 ms |
-
+| Força                      | Descrição |
+|-------------------------------|-------------|
+| Nenhum, ou se nenhum valor fornecido | 0 ms        |
+| x-fraco                        | 250 ms      |
+| fraco                          | 500 ms      |
+| médio                        | 750 ms      |
+| forte                        | 1000 ms     |
+| x-forte                      | 1250 ms     |
 
 **Exemplo**
 
@@ -372,9 +369,9 @@ Por vezes, o TTS não consegue pronunciar com precisão uma palavra, por exemplo
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório / Opcional |
-|-----------|-------------|---------------------|
-| `uri` | O endereço do documento PLS externo. | Necessário. |
+| Atributo | Descrição                               | Obrigatório / Opcional |
+|-----------|-------------------------------------------|---------------------|
+| `uri`     | O endereço do documento PLS externo. | Necessário.           |
 
 **Utilização**
 
@@ -614,9 +611,9 @@ Qualquer áudio incluído no documento SSML deve satisfazer estes requisitos:
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório / Opcional |
-|-----------|-------------|---------------------|
-| `src` | Especifica a localização/URL do ficheiro áudio. | Necessário se utilizar o elemento áudio no seu documento SSML. |
+| Atributo | Descrição                                   | Obrigatório / Opcional                                        |
+|-----------|-----------------------------------------------|------------------------------------------------------------|
+| `src`     | Especifica a localização/URL do ficheiro áudio. | Necessário se utilizar o elemento áudio no seu documento SSML. |
 
 **Exemplo**
 

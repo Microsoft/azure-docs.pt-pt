@@ -1,22 +1,22 @@
 ### YamlMime:Landing
-title: Documentação de reconhecimento de intenções
+title: Documentação do reconhecimento de intenção
 summary: O reconhecimento de intenções com os serviços de Compreensão da Fala e da Linguagem (LUIS), permite a transcrição em tempo real de streams de áudio em texto, identificando intenção e entidades.
 metadata:
   title: Documentação de reconhecimento de intenções - Tutoriais, Referência API - Serviços Cognitivos Azure / Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: dapine
-  ms.openlocfilehash: 87e698c2a9b09b54c6015293b5be26ea2006a786
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.author: trbye
+  ms.openlocfilehash: 65b3f2322c4683eedef8cdfbc328664d4597df58
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79415177"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401494"
 landingContent:
 - title: Sobre o reconhecimento de intenções
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 'Reconhecer as intenções de fala com LUIS e C #'
+    - text: Reconhecer intenções de voz com o LUIS e C#
       url: how-to-recognize-intents-from-speech-csharp.md
 - title: Referência
   linkLists:

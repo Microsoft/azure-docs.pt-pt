@@ -1,25 +1,25 @@
 ---
 title: Moderação de vídeo com análise humana - Moderador de Conteúdo
 titleSuffix: Azure Cognitive Services
-description: Utilize ferramentas de moderação de vídeo assistidas por máquinas e ferramentas de revisão humana para moderar conteúdo inadequado
+description: Utilize a moderação de vídeo assistida por máquinae a ferramenta Review para moderar conteúdo inadequado
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: a4e7b079367a4b4dec1d2b3d6c0afde1d8276766
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "72754159"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404244"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderação de vídeo com revisão humana
 
-Utilize a ferramenta de [moderação](video-moderation-api.md) de vídeo assistida por máquina e [análise humana](Review-Tool-User-Guide/human-in-the-loop.md) do Content Moderator para moderar vídeos e transcrições para conteúdos adultos (explícitos) e picantes (sugestivos) para obter os melhores resultados para o seu negócio.
+Utilize a ferramenta de moderação de vídeo assistida por máquina e [análise](Review-Tool-User-Guide/human-in-the-loop.md) assistida por conteúdo para [moderar](video-moderation-api.md) vídeos e transcrições para conteúdos adultos (explícitos) e picantes (sugestivos) para obter os melhores resultados para o seu negócio.
 
 ## <a name="video-trained-classifier-preview"></a>Classificador treinado em vídeo (pré-visualização)
 

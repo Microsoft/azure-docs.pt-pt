@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/13/2020
-ms.author: dapine
-ms.openlocfilehash: 12ab3afed0d1232f126e11d1c227c4c9b50e8ac3
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.author: trbye
+ms.openlocfilehash: e475a58c56a16e984d15f2cc8d06f73268868852
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79372810"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399553"
 ---
 ## <a name="additional-language-and-platform-support"></a>Suporte adicional de linguagem e plataforma
 
@@ -20,7 +20,7 @@ Se clicou neste separador, provavelmente não viu um artigo básico na sua lingu
 | C#          | [.NET Framework][csharp-netframework], [.NET Core,][csharp-netcore] [UWP,][csharp-uwp] [Unidade,][csharp-unity] [Xamarin][csharp-xamarin] |
 | C++         | [Quickstarts][cpp-quickstarts], [Amostras][cpp-samples]                                                                                  |
 | Java        | [Android][java-android], [JRE][java-jre]                                                                                                |
-| Javascript  | [Browser][js-browser]                                                                                                                   |
+| JavaScript  | [Browser][js-browser]                                                                                                                   |
 | Node.js     | [Windows, Linux, macOS][node-js]                                                                                                        |
 | Objective-C | [iOS,][objective-c-ios] [macOS][objective-c-macos]                                                                                      |
 | Python      | [Windows, Linux, macOS][python]                                                                                                         |

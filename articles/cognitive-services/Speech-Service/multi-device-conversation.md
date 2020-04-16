@@ -3,19 +3,19 @@ title: Conversação multi-dispositivo (Pré-visualização) - Serviço de Discu
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: dapine
-ms.openlocfilehash: b3802e66b0ba5a68c898e69ec64b01edce1541c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 7c30ee2ef4a6ab0cd4241cac921a59eeadf5ce17
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371363"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81401050"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>O que é conversação multi-dispositivo (Pré-visualização)?
 

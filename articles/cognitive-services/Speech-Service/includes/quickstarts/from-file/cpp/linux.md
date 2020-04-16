@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
-ms.author: dapine
-ms.openlocfilehash: 76b98df8ce4b25d2effa76c92f0f41ac1e782340
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.author: trbye
+ms.openlocfilehash: ef0ee6047bd23206a2c0122b9409e00cee5f0ddf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81275184"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400578"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

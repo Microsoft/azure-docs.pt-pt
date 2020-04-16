@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/02/2020
-ms.author: dapine
-ms.openlocfilehash: 260e56927e7552cff263b39f0c17cbc9933f03fd
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.author: trbye
+ms.openlocfilehash: 15bb680ddd6a6a3dbabf8a1bb74a4dcf15c774b5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80638111"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400714"
 ---
 Substitua `YourSubscriptionKey` `YourServiceRegion` os valores e valores por valores reais do recurso Da Fala.
 

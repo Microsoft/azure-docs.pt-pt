@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73044107"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404254"
 ---
 # <a name="learn-image-moderation-concepts"></a>Aprenda conceitos de moderação de imagem
 
@@ -139,9 +139,9 @@ Extrato de exemplo:
     ....
     }
 
-## <a name="human-review-tool"></a>Ferramenta de revisão humana
+## <a name="review-tool"></a>Ferramenta de revisão
 
-Para casos mais matizados, utilize a ferramenta de [revisão](Review-Tool-User-Guide/human-in-the-loop.md) do Moderador de Conteúdo e a sua API para emergir os resultados e conteúdos de moderação na revisão para os seus moderadores humanos. Eles revêem as etiquetas atribuídas à máquina e confirmam as suas decisões finais.
+Para casos mais matizados, utilize a ferramenta Content Moderator [Review](Review-Tool-User-Guide/human-in-the-loop.md) e a sua API para emergir os resultados e conteúdos de moderação na revisão para os seus moderadores humanos. Eles revêem as etiquetas atribuídas à máquina e confirmam as suas decisões finais.
 
 ![Revisão de imagem para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
 

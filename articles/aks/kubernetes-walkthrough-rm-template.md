@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: e8117eb1b521dc2e3fa9eaca1316e0b9c14f0e98
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c5ea54a33ee027de0b11c59c53085b9d20ca6a3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80129460"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392841"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Quickstart: Implemente um cluster azure Kubernetes Service (AKS) utilizando um modelo de Gestor de Recursos Azure
 
@@ -30,7 +30,7 @@ Se optar por instalar e utilizar o CLI localmente, este quickstart requer que es
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para criar um cluster AKS utilizando um modelo de Gestor de Recursos, fornece uma chave pública SSH e um diretor de serviço de Diretório Ativo Azure. Se precisar de algum destes recursos, consulte a seguinte secção; caso contrário, salte para a secção [de agrupamento criar uma AKS.](#create-an-aks-cluster)
+Para criar um cluster AKS utilizando um modelo de Gestor de Recursos, fornece uma chave pública SSH e um diretor de serviço de Diretório Ativo Azure.  Em alternativa, pode utilizar uma [identidade gerida](use-managed-identity.md) em vez de um diretor de serviço para permissões. Se precisar de algum destes recursos, consulte a seguinte secção; caso contrário, salte para a secção [de agrupamento criar uma AKS.](#create-an-aks-cluster)
 
 ### <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre a criação de chaves SSH, consulte [Criar e
 
 ### <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-Para permitir que um cluster do AKS interaja com outros recursos do Azure, é utilizado um principal de serviço do Azure Active Directory. Crie um principal de serviço com o comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. O parâmetro `--skip-assignment` limita a atribuição de permissões adicionais. Por predefinição, este diretor de serviço é válido por um ano.
+Para permitir que um cluster do AKS interaja com outros recursos do Azure, é utilizado um principal de serviço do Azure Active Directory. Crie um principal de serviço com o comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. O parâmetro `--skip-assignment` limita a atribuição de permissões adicionais. Por predefinição, este diretor de serviço é válido por um ano. Note que pode usar uma identidade gerida em vez de um diretor de serviço. Para mais informações, consulte [Use identidades geridas](use-managed-identity.md).
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -281,7 +281,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete].
+> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não requer remoção.
 
 ## <a name="get-the-code"></a>Obter o código
 

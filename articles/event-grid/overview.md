@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 65fd9d06c8b25e0aff94429f8eb95bb922da330c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b6f987eb283edea7f2d8e6b207b5b4e5b14f9120
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77505920"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393190"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
 
@@ -32,22 +32,21 @@ Esta imagem mostra como a Rede de Eventos conecta fontes e manipuladores, e não
 
 ## <a name="event-sources"></a>Origens de eventos
 
-Para obter detalhes completos sobre as capacidades de cada origem, bem como artigos relacionados, veja [origens de eventos](event-sources.md). Atualmente, os seguintes serviços do Azure suportam o envio de eventos para o Event Grid:
+Atualmente, os seguintes serviços do Azure suportam o envio de eventos para o Event Grid:
 
-* [Assinaturas Azure (operações de gestão)](event-sources.md#azure-subscriptions)
-* [Registo de Contentores](event-sources.md#container-registry)
-* [Tópicos personalizados](event-sources.md#custom-topics)
-* [Hubs de eventos](event-sources.md#event-hubs)
-* [IoT Hub](event-sources.md#iot-hub)
-* [Cofre de chaves (pré-visualização)](event-sources.md#key-vault-preview)
-* [Serviços de Media](event-sources.md#media-services)
-* [Grupos de recursos (operações de gestão)](event-sources.md#resource-groups)
-* [Service Bus](event-sources.md#service-bus)
-* [Blob de Armazenamento](event-sources.md#storage)
-* [Azure Maps](event-sources.md#maps)
-* [App Configuration](event-sources.md#app-configuration)
-* [Sinal R](event-sources.md#azure-signalr)
-* [Aprendizagem automática](event-sources.md#azure-machine-learning)
+- [Configuração da Aplicação Azure](event-schema-app-configuration.md)
+- [Armazenamento Azure Blob](event-schema-blob-storage.md)
+- [Registo de Contentores Azure](event-schema-container-registry.md)
+- [Azure Event Hubs](event-schema-event-hubs.md)
+- [Azure IoT Hub](event-schema-iot-hub.md)
+- [Azure Key Vault](event-schema-key-vault.md)
+- [Azure Machine Learning](event-schema-machine-learning.md)
+- [Azure Maps](event-schema-azure-maps.md)
+- [Serviços Azure Media](event-schema-media-services.md)
+- [Grupos de recursos azure](event-schema-resource-groups.md)
+- [Service Bus do Azure](event-schema-service-bus.md)
+- [Azure SignalR](event-schema-azure-signalr.md)
+- [Subscrições do Azure](event-schema-subscriptions.md)
 
 ## <a name="event-handlers"></a>Processadores de eventos
 
@@ -55,9 +54,9 @@ Para obter detalhes completos sobre as capacidades de cada processador, bem como
 
 * [Automatização do Azure](event-handlers.md#azure-automation)
 * [Funções do Azure](event-handlers.md#azure-functions)
-* [Hubs de eventos](event-handlers.md#event-hubs)
+* [Hubs de Eventos](event-handlers.md#event-hubs)
 * [Conexões Híbridas](event-handlers.md#hybrid-connections)
-* [Logic Apps](event-handlers.md#logic-apps)
+* [Aplicações Lógicas](event-handlers.md#logic-apps)
 * [Power Automate (anteriormente conhecido como Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Service Bus](event-handlers.md#service-bus)
 * [Armazenamento de filas](event-handlers.md#queue-storage)

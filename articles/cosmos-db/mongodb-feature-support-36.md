@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: fe80b7343f67b06981707081931e35142985688e
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 5df21b2c1926803a65eca911c66b059f36ee18aa
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668786"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393623"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.6): sintaxe e funcionalidades suportadas
 
@@ -95,8 +95,8 @@ A API da Azure Cosmos DB para mongoDB suporta os seguintes comandos de base de d
 |dadosTamanho     |   Não      |
 |dbHash    |    Não     |
 |dbStats     |   Sim      |
-|explicar     | Não        |
-|explicar: execuçãoStats     |     Não    |
+|explicar     |   Sim      |
+|explicar: execuçãoStats     |   Sim      |
 |funcionalidades     |    Não     |
 |hostInfo     |   Não      |
 |listDatabases         |   Sim      |
@@ -331,7 +331,7 @@ A API da Azure Cosmos DB para mongoDB suporta os seguintes comandos de base de d
 |Comando  |Suportado |
 |---------|---------|
 |Double    |Sim    |
-|Cadeia    |Sim    |
+|String    |Sim    |
 |Objeto    |Sim    |
 |Matriz    |Sim    |
 |Dados Binários    |Sim|    

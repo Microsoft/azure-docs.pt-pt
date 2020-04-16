@@ -1,32 +1,32 @@
 ### YamlMime:Landing
-title: Documentação de hospedagem
+title: Documentação do alojamento
 summary: Os recipientes de serviço de fala estão disponíveis para cenários de discurso a texto e texto-a-fala, abrangendo modelos standard ou personalizados.
 metadata:
   title: Documentação de hospedagem - Tutoriais, Referência API - Serviços Cognitivos Azure / Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/23/2020
-  ms.author: dapine
-  ms.openlocfilehash: c342b797dfe21fe4ffbd1bb9bc112e9726cdec42
-  ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+  ms.author: trbye
+  ms.openlocfilehash: 640c1b8e9c51059bc4c296ef93a4e6dd54ea7a42
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/01/2020
-  ms.locfileid: "80529465"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401500"
 landingContent:
 - title: Sobre hospedagem
   linkLists:
   - linkListType: concept
     links:
-    - text: Instale e corra recipientes de discurso
+    - text: Instalar e executar contentores de Voz
       url: speech-container-howto.md
-    - text: Contentores de fala com Kubernetes e Helm
+    - text: Contentores de voz com o Kubernetes e Helm
       url: speech-container-howto-on-premises.md
-    - text: Contentores de fala em instâncias de contentores de Azure
+    - text: Contentores de voz no Azure Container Instances
       url: deploy-speech-on-container-instances.md
 - title: Criar e configurar
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
     links:
     - text: Criar um recurso azure speech
       url: get-started.md#new-resource
-    - text: Configure recipientes de fala
+    - text: Configurar contentores de voz
       url: speech-container-configuration.md
 - title: Referência
   linkLists:
@@ -44,5 +44,5 @@ landingContent:
       url: regions.md
     - text: Clouds soberanas
       url: sovereign-clouds.md
-    - text: Contentores FAQ
+    - text: FAQ de contentores
       url: speech-container-faq.md

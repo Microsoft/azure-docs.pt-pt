@@ -3,19 +3,19 @@ title: 'Quickstart: Discurso sintetizador, Python - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a sintetizar o discurso em Python usando o SDK do Discurso
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
-ms.author: dapine
-ms.openlocfilehash: 6f501ffd7bd9405fb5818c4af06156912021c6e4
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.author: trbye
+ms.openlocfilehash: e6daa0aaaca283dec11937d961886f95f1972b49
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81275237"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400368"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

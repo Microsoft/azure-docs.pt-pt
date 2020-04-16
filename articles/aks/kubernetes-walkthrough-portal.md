@@ -6,12 +6,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: e91e5e2701b02ab4c705cd80117dfc7689c7d054
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: e4ac5a953b5d88d0074c3cfb7f1bd45331577238
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668441"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392792"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Quickstart: Implementar um cluster azure Kubernetes Service (AKS) utilizando o portal Azure
 
@@ -25,7 +25,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
@@ -52,6 +52,8 @@ Para criar um cluster do AKS, execute os passos seguintes:
 5. Na página **de Autenticação,** configure as seguintes opções:
     - Crie um novo diretor de serviço saindo do campo principal de **serviço** com **(novo) principal de serviço predefinido**. Ou pode escolher o diretor de *serviço configure* para utilizar um existente. Se utilizar um existente, terá de fornecer a identificação e segredo do cliente DaSPN.
     - Ative a opção para os controlos de acesso baseado em funções (RBAC) do Kubernetes. Isto proporcionará um controlo mais fino sobre o acesso aos recursos kubernetes implantados no seu cluster AKS.
+
+    Em alternativa, pode utilizar uma identidade gerida em vez de um diretor de serviço. Consulte [as identidades geridas](use-managed-identity.md) para obter mais informações.
 
 Por predefinição, é utilizado o networking *básico* e o Monitor Azure para contentores está ativado. Clique em **Rever + criar** e, em seguida, **criar** quando a validação estiver completa.
 
@@ -250,7 +252,7 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
 > [!NOTE]
-> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete].
+> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não requer remoção.
 
 ## <a name="get-the-code"></a>Obter o código
 

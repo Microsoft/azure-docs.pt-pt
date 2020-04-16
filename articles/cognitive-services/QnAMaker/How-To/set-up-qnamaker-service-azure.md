@@ -3,12 +3,12 @@ title: Criar um serviço QnA Maker - QnA Maker
 description: Antes de poder criar quaisquer bases de conhecimento qnA Maker, tem primeiro de configurar um serviço QnA Maker em Azure. Qualquer pessoa com autorização para criar novos recursos numa subscrição pode criar um serviço QnA Maker.
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 8ec57f441ba58227e45398c35c7931dc75fa658f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563a56fdb288568e7fe667fa54658400064a560f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131722"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402995"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerir os recursos do Fabricante qna
 
@@ -89,7 +89,7 @@ As chaves endpoint podem ser geridas a partir do [portal QnA Maker](https://qnam
     >[!NOTE]
     >Refresque as chaves se achar que foram comprometidas. Isto pode exigir alterações correspondentes à sua aplicação de cliente ou código bot.
 
-### <a name="upgrade-qna-maker-sku"></a>Upgrade QnA Maker SKU
+## <a name="upgrade-qna-maker-sku"></a>Upgrade QnA Maker SKU
 
 Quando quiser ter mais perguntas e respostas na sua base de conhecimentos, para além do seu nível atual, atualize o seu nível de preços de serviço QnA Maker.
 
@@ -103,7 +103,7 @@ Para atualizar a gestão da QnA Maker SKU:
 
     ![Preços do Fabricante qna](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
-### <a name="upgrade-app-service"></a>Upgrade App Service
+## <a name="upgrade-app-service"></a>Upgrade App Service
 
  Quando a sua base de conhecimento precisa de servir mais pedidos da sua aplicação de cliente, atualize o seu nível de preços do Serviço de Aplicações.
 
@@ -113,7 +113,7 @@ Vá ao recurso do Serviço de Aplicações no portal Azure e selecione a opção
 
 ![Escala de serviço de aplicativo sapateiro QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### <a name="upgrade-the-azure-cognitive-search-service"></a>Atualizar o serviço de Pesquisa Cognitiva Azure
+## <a name="upgrade-the-azure-cognitive-search-service"></a>Atualizar o serviço de Pesquisa Cognitiva Azure
 
 Se pretende ter muitas bases de conhecimento, atualize o seu nível de preços do serviço de Pesquisa Cognitiva Azure.
 
@@ -197,7 +197,7 @@ O serviço de aplicações, que serve o tempo de execução da previsão qnA mak
 
 Para manter a aplicação de ponta de previsão carregada mesmo quando não há tráfego, desloque a inatividade para sempre ligado.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure e selecione o serviço de aplicações do seu recurso QnA Maker. Terá o mesmo nome que o recurso QnA Maker, mas terá um **tipo** diferente de Serviço de Aplicações.
 1. Encontre **definições** e, em seguida, **selecione Configuração**.
 1. No painel de configuração, selecione **As definições gerais,** em seguida, encontre **sempre ligado**, e selecione **On** como valor.

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: b9db9daf06b59e1a26a9b03a93aff63984841862
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 8d05f5ad07f9b3affba9442d6caa6e63162b813c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118359"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399409"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Quickstart: Biblioteca de clientes do Reconhecimento de Formulários para .NET
 
@@ -42,7 +42,7 @@ Utilize a biblioteca cliente Do Reconhecimento de Formulários para .NET para:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-Depois de obter uma chave da sua subscrição ou recurso experimental, `FORM_RECOGNIZER_KEY` [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e ponto final, nomeadoe, `FORM_RECOGNIZER_ENDPOINT`respectivamente.
+Depois de obter uma chave e ponto final, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e ponto final, nomeado `FORM_RECOGNIZER_KEY` e, `FORM_RECOGNIZER_ENDPOINT`respectivamente.
 
 ### <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
@@ -99,12 +99,6 @@ As seguintes classes tratam da funcionalidade principal do SDK do Reconhecimento
 |[Página extraída](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.extractedpage?view=azure-dotnet-preview)| Esta classe representa todos os dados extraídos de um único documento de formulário.|
 
 ## <a name="code-examples"></a>Exemplos de código
-
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
-
-    Include links to the service's reference content when introducing a class for the first time
--->
 
 Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a biblioteca de clientes Do Reconhecimento de Formulários para .NET:
 
@@ -184,7 +178,7 @@ dotnet run
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 Além disso, se treinou um modelo personalizado que pretende eliminar da sua conta, execute o método em [Eliminar um modelo personalizado](#delete-a-custom-model).
 
@@ -193,7 +187,7 @@ Além disso, se treinou um modelo personalizado que pretende eliminar da sua con
 Neste arranque rápido, usou a biblioteca de clientes Form Recogniser .NET para formar um modelo personalizado e analisar formulários. Em seguida, aprenda dicas para criar um melhor conjunto de dados de treino e produzir modelos mais precisos.
 
 > [!div class="nextstepaction"]
->[Criar um conjunto de dados de preparação](../build-training-data-set.md)
+> [Criar um conjunto de dados de preparação](../build-training-data-set.md)
 
 * [O que é o Reconhecedor de Formato?](../overview.md)
 * O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer).

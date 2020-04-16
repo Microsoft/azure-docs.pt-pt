@@ -5,18 +5,18 @@ metadata:
   title: Documentação fala-a-texto - Tutoriais, Referência API - Serviços Cognitivos Azure [ Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/19/2020
-  ms.author: dapine
-  ms.openlocfilehash: 28bd088965364411f7943f5bf50b5d245c49668e
-  ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+  ms.author: trbye
+  ms.openlocfilehash: 717c4e0322b48eca0acfacd20ed527a629bd1ff0
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/09/2020
-  ms.locfileid: "80991369"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401412"
 landingContent:
 - title: Sobre o discurso-a-texto
   linkLists:

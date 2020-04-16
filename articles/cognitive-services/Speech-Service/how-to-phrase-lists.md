@@ -3,20 +3,20 @@ title: Listas de Frases - Serviço de Fala
 titleSuffix: Azure Cognitive Services
 description: Aprenda a fornecer o serviço de `PhraseListGrammar` Fala com uma Lista de Frases usando o objeto para melhorar os resultados de reconhecimento de discurso-texto.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: f84ea6b2b0f1e8246e1d765e54f663cd01f29b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a21358edae4c61f35993770c22634da9ac83633
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77560852"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81401975"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listas de frases para discurso-texto
 

@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
-ms.author: dapine
-ms.openlocfilehash: a0746ec73b827756ff47c0dfc010b37ed2b79844
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.author: trbye
+ms.openlocfilehash: 1c58d285e77ace20531912ec150a9d44acde61b8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80501958"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399806"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -234,5 +234,5 @@ phrase_list_grammar.clear()
 
 As listas de frases são apenas uma opção para melhorar a precisão do reconhecimento. Também pode: 
 
-* [Melhorar a precisão com Voz Personalizada](../../../how-to-custom-speech.md)
+* [Melhorar a precisão com Discurso Personalizado](../../../how-to-custom-speech.md)
 * [Melhorar a precisão com modelos de inquilinos](../../../tutorial-tenant-model.md)

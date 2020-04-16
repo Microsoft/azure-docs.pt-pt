@@ -3,19 +3,19 @@ title: Criar palavras-chave personalizadas - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: O seu dispositivo está sempre a ouvir uma palavra-chave (ou frase). Quando o utilizador diz a palavra-chave, o dispositivo envia todo o áudio subsequente para a nuvem, até que o utilizador deixe de falar. Personalizar a sua palavra-chave é uma forma eficaz de diferenciar o seu dispositivo e fortalecer a sua marca.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.author: dapine
-ms.openlocfilehash: 46e9f8e660c3fd62807d630481e6b3057d2351a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 8e67d624c77eb838f7646731bbdedd8f97f81b96
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76717018"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400066"
 ---
 # <a name="create-a-custom-keyword-using-speech-studio"></a>Crie uma palavra-chave personalizada usando o Speech Studio
 

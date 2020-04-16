@@ -3,19 +3,19 @@ title: Discurso ao texto - Serviço de discurso
 titleSuffix: Azure Cognitive Services
 description: A função de fala-a-texto permite a transcrição em tempo real de streams de áudio em texto. As suas aplicações, ferramentas ou dispositivos podem consumir, exibir e tomar medidas sobre esta entrada de texto. Este serviço funciona perfeitamente com as características de texto-a-fala (síntese de fala) e tradução da fala.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.author: dapine
-ms.openlocfilehash: 2854f4e8d91164c8ae1f35761d6f605cae725245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: e0aea7e55381e9571b156701699f5f45315bb384
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80052637"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399684"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
 

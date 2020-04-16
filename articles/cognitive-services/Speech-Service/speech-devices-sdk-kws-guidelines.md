@@ -3,19 +3,19 @@ title: Orientações de nomeação de palavras-chave - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: A criação de uma palavra-chave eficaz é vital para garantir que o seu dispositivo irá responder de forma consistente e precisa.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: dapine
-ms.openlocfilehash: 1d363f9f6f9cb5b1ea28e6ae15a9cef857304cab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: c00d27e5e7b7a8d614ce94ea4024b6093669757c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370683"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399834"
 ---
 # <a name="guidelines-for-creating-an-effective-keyword"></a>Diretrizes para a criação de uma palavra-chave eficaz
 

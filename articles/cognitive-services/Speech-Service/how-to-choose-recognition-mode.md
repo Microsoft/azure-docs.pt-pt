@@ -3,20 +3,20 @@ title: Escolha um modo de reconhecimento de voz com o SDK da fala
 titleSuffix: Azure Cognitive Services
 description: Aprenda a escolher o melhor modo de reconhecimento ao utilizar o SDK do Discurso.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d997cb592d9d648998f2b44d9f61f465f05faeb0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fdca371e9188ef69068ddbcaa416cbb2b44054c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79079824"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402161"
 ---
 # <a name="choose-a-speech-recognition-mode"></a>Escolha um modo de reconhecimento de voz
 

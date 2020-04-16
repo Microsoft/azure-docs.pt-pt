@@ -7,17 +7,18 @@ metadata:
   services: security
   ms.service: security
   ms.subservice: fundamentals
+  ms.custom: security-baselines
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: 114811ded778b2f444c94908d62209947adef735
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: c2b36e098314af78ca3d6f28534c3d3e97697363
+  ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75934772"
+  ms.lasthandoff: 04/15/2020
+  ms.locfileid: "81393842"
 landingContent:
 - title: Acerca da Referência de Segurança do Azure
   linkLists:

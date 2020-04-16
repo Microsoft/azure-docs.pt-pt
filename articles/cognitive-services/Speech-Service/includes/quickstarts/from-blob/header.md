@@ -3,20 +3,20 @@ title: 'Quickstart: Reconhecer discurso armazenado no armazenamento de blob - Se
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 03/13/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 567d8cec10543f233a384635daba1474b41bde9b
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 514d1197c5e6d0f4c0f38faf24c6c2522d489820
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80573145"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400959"
 ---
 Neste arranque rápido, utilizará uma API REST para reconhecer a fala dos ficheiros num processo de lote. Um processo de lote executa a transcrição da fala sem qualquer interação do utilizador. Dá-lhe um modelo de programação simples, sem a necessidade de gerir a concurrency, os modelos de fala personalizados ou outros detalhes. Implica opções de controlo avançadas, ao mesmo tempo que faz uma utilização eficiente dos recursos do serviço de fala Azure.
 

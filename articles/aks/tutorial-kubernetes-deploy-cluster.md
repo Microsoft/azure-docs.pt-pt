@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 72d7d3b8a4dc2831f397326d54560358c19b9b92
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 609ac66ca27d5cad7dd2fb295c3a2a721a1cda16
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616816"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392700"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementar um cluster do Serviço Kubernetes do Azure (AKS)
 
@@ -33,7 +33,7 @@ Este tutorial requer que esteja a executar a versão Azure CLI 2.0.53 ou mais ta
 
 Os clusters do AKS podem utilizar os controlos de acesso baseado em funções (RBAC) do Kubernetes. Estes controlos permitem-lhe definir o acesso a recursos com base nas funções atribuídas a utilizadores. As permissões são combinadas se um utilizador tiver várias funções, e as permissões podem ser consultadas para um único espaço de nome ou em todo o cluster. Por predefinição, a CLI do Azure ativa automaticamente o RBAC quando cria um cluster do AKS.
 
-Crie um cluster do AKS com [az aks create][]. O exemplo seguinte cria um cluster com o nome *myAKSCluster* no grupo de recursos com o nome *myResourceGroup*. Este grupo de recursos foi criado no [tutorial anterior.][aks-tutorial-prepare-acr] Para permitir que um cluster AKS interaja com outros recursos Azure, é criado automaticamente um diretor de serviço de Diretório Ativo Azure, uma vez que não especificou um. Aqui, este diretor de serviço tem o direito de [retirar imagens][container-registry-integration] da instância do Registo de Contentores Azure (ACR) que criou no tutorial anterior.
+Crie um cluster do AKS com [az aks create][]. O exemplo seguinte cria um cluster com o nome *myAKSCluster* no grupo de recursos com o nome *myResourceGroup*. Este grupo de recursos foi criado no [tutorial anterior.][aks-tutorial-prepare-acr] Para permitir que um cluster AKS interaja com outros recursos Azure, é criado automaticamente um diretor de serviço de Diretório Ativo Azure, uma vez que não especificou um. Aqui, este diretor de serviço tem o direito de [retirar imagens][container-registry-integration] da instância do Registo de Contentores Azure (ACR) que criou no tutorial anterior. Note que pode usar uma [identidade gerida](use-managed-identity.md) em vez de um diretor de serviço para uma gestão mais fácil.
 
 ```azurecli
 az aks create \

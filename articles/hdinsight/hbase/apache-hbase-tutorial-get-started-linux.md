@@ -1,20 +1,19 @@
 ---
 title: Tutorial - Use Apache HBase em Azure HDInsight
 description: Siga este tutorial Apache HBase para começar a usar hadoop no HDInsight. Criar tabelas a partir da shell de HBase e fazer consultas utilizando o Hive.
-keywords: hbasecommand, exemplo hbase
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
-ms.date: 06/25/2019
-ms.author: hrasheed
-ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 04/14/2020
+ms.openlocfilehash: a601d54ebda074a25a988ac2a115f6418dd5c7ee
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71077144"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390269"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Use Apache HBase em Azure HDInsight
 
@@ -33,17 +32,17 @@ Neste tutorial, ficará a saber como:
 
 * Um cliente SSH. Para mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando O SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Uma festa. Os exemplos deste artigo usam a concha bash no Windows 10 para os comandos de caracóis. Consulte o Subsistema Windows para obter o Guia de [Instalação do Linux para o Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para obter as etapas de instalação.  Outras [conchas unix](https://www.gnu.org/software/bash/) também funcionarão.  Os exemplos de caracóis, com algumas ligeiras modificações, podem funcionar num pedido de Comando do Windows.  Em alternativa, pode utilizar o cmdlet [Invoca-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod)do Windows PowerShell .
+* Uma festa. Os exemplos deste artigo usam a concha bash no Windows 10 para os comandos de caracóis. Consulte o Subsistema Windows para obter o Guia de [Instalação do Linux para o Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para obter as etapas de instalação.  Outras [conchas unix](https://www.gnu.org/software/bash/) também funcionarão.  Os exemplos de caracóis, com algumas ligeiras modificações, podem funcionar num pedido de Comando do Windows.  Ou pode utilizar o cmdlet [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod)do Windows PowerShell .
 
 ## <a name="create-apache-hbase-cluster"></a>Criar o cluster Apache HBase
 
-O procedimento seguinte utiliza um modelo de Gestor de Recursos Azure para criar um cluster HBase e a conta de armazenamento de armazenamento de corrente de padrão dependente. Para compreender os parâmetros utilizados no procedimento e outros métodos de criação do cluster, consulte o artigo [Criar clusters do Hadoop baseados em Linux no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+O procedimento seguinte utiliza um modelo de Gestor de Recursos Azure para criar um cluster HBase. O modelo também cria a conta de armazenamento de azure padrão dependente. Para compreender os parâmetros utilizados no procedimento e outros métodos de criação do cluster, consulte o artigo [Criar clusters do Hadoop baseados em Linux no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Selecione a seguinte imagem para abrir o modelo no portal Azure. O modelo está localizado em [modelos de quickstart Azure](https://azure.microsoft.com/resources/templates/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. No painel **Implementação personalizada**, introduza os seguintes valores:
+2. A partir do diálogo de **implementação Personalizado,** introduza os seguintes valores:
 
     |Propriedade |Descrição |
     |---|---|
@@ -56,7 +55,7 @@ O procedimento seguinte utiliza um modelo de Gestor de Recursos Azure para criar
 
     Os outros parâmetros são opcionais.  
 
-    Cada cluster tem uma dependência de conta do Armazenamento do Azure. Depois de eliminar um cluster, os dados são mantidos na conta do Storage. O nome da conta do Storage predefinida do cluster é o nome do cluster com "store" anexado. É codificado na secção de variáveis de modelo.
+    Cada cluster tem uma dependência de conta do Armazenamento do Azure. Depois de eliminar um cluster, os dados permanecem na conta de armazenamento. O nome da conta do Storage predefinida do cluster é o nome do cluster com "store" anexado. É codificado na secção de variáveis do modelo.
 
 3. Selecione **Concordo com os termos e condições acima indicados,** e depois selecione **Comprar**. A criação de um cluster demora cerca de 20 minutos.
 
@@ -203,7 +202,7 @@ Pode consultar dados nas tabelas HBase utilizando [a Hive Apache](https://hive.a
 
 A API de REST está protegida por [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Deve sempre efetuar pedidos com HTTP Secure (HTTPS) para ajudar a garantir que as credenciais são enviadas de forma segura para o servidor.
 
-1. Inicie a variável ambiental para facilitar o uso. Editar os comandos abaixo `MYPASSWORD` substituindo pela senha de login do cluster. Substitua-o `MYCLUSTERNAME` pelo nome do seu cluster HBase. Em seguida, insira os comandos.
+1. Definir variável ambiente para facilitar a utilização. Editar os comandos abaixo `MYPASSWORD` substituindo pela senha de login do cluster. Substitua-o `MYCLUSTERNAME` pelo nome do seu cluster HBase. Em seguida, insira os comandos.
 
     ```bash
     export password='MYPASSWORD'
@@ -240,10 +239,10 @@ A API de REST está protegida por [autenticação básica](https://en.wikipedia.
     -v
     ```
 
-    Terá de codificar em base64 os valores especificados no comutador -d. No exemplo:
+    A Base64 codifica os valores especificados no interruptor-d. No exemplo:
 
    * MTAwMA==: 1000
-   * UGVyc29uYWw6TmFtZQ==: Personal:Name
+   * UGVyc29uYWw6TmFtZQ==: Pessoal: Nome
    * Sm9obiBEb2xl: João Dinis
 
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) permite-lhe inserir múltiplos valores (em lote).
@@ -298,7 +297,7 @@ O HBase em HDInsight é fornecido com uma interface de utilizador da Web para mo
 
 Para evitar inconsistências, recomendamos que desative as tabelas do HBase antes de eliminar o cluster. Pode utilizar o comando `disable 'Contacts'`HBase . Se não vai continuar a utilizar esta aplicação, elimine o cluster HBase que criou com os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Na caixa **de pesquisa** na parte superior, digite **HDInsight**.
 1. Selecione **clusters HDInsight** em **Serviços**.
 1. Na lista de clusters HDInsight que aparece, clique no **...** ao lado do cluster que criou para este tutorial.
@@ -306,7 +305,7 @@ Para evitar inconsistências, recomendamos que desative as tabelas do HBase ante
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a criar um cluster Apache HBase e como criar tabelas e ver os dados nessas tabelas a partir da concha HBase. Também aprendeu como utilizar uma consulta Hive nos dados de tabelas de HBase e como utilizar as APIs REST C# para criar uma tabela de HBase e recuperar os dados da tabela. Para saber mais, consulte:
+Neste tutorial, aprendeu a criar um cluster Apache HBase. E como criar tabelas e ver os dados nessas tabelas a partir da concha HBase. Também aprendeu a usar uma consulta da Hive sobre dados em tabelas HBase. E como usar as APIs de REPOUSO HBase C# REST para criar uma tabela HBase e recuperar dados da tabela. Para saber mais, consulte:
 
 > [!div class="nextstepaction"]
 > [Visão geral hdInsight HBase](./apache-hbase-overview.md)
