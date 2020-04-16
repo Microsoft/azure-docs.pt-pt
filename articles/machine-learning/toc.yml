@@ -264,13 +264,13 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
-    - name: Interpretar modelos
+    - name: Explicar modelos
       displayName: interpretability
       items:
-        - name: Interpretar modelos locais e remotos
+        - name: Explicar modelos de ML
           displayName: 'SDK, interpret'
           href: how-to-machine-learning-interpretability-aml.md
-        - name: Interpretar modelos de ML automatizados
+        - name: Explicar modelos de ML automatizados
           displayName: 'SDK, interpret, automl'
           href: how-to-machine-learning-interpretability-automl.md
     - name: Automatizar a aprendizagem automática
@@ -310,34 +310,36 @@
         - name: Onde e como implementar
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
-        - name: Azure Kubernetes Service
-          displayName: 'aks, aad, authentication, azure active directory'
-          href: how-to-deploy-azure-kubernetes-service.md
-        - name: Azure Container Instances
-          displayName: aci
-          href: how-to-deploy-azure-container-instance.md
-        - name: IoT Edge
-          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-        - name: Inferência de FPGA
-          href: how-to-deploy-fpga-web-service.md
-        - name: Inferência de GPU
-          href: how-to-deploy-inferencing-gpus.md
-        - name: Serviço de Aplicações do Azure
-          displayName: web app
-          href: how-to-deploy-app-service.md
-        - name: Funções do Azure
-          displayName: functions app
-          href: how-to-deploy-functions.md
-        - name: Instâncias de computação
-          href: how-to-deploy-local-container-notebook-vm.md
-        - name: Utilizar uma imagem personalizada do Docker
-          href: how-to-deploy-custom-docker-image.md
-        - name: Utilizar os modelos existentes
-          displayName: publish existing model
-          href: how-to-deploy-existing-model.md
+        - name: Cenários de implementação
+          items:
+            - name: Instâncias de computação do Azure ML
+              href: how-to-deploy-local-container-notebook-vm.md
+            - name: Azure Kubernetes Service
+              displayName: 'aks, aad, authentication, azure active directory'
+              href: how-to-deploy-azure-kubernetes-service.md
+            - name: Azure Container Instances
+              displayName: aci
+              href: how-to-deploy-azure-container-instance.md
+            - name: Inferência de GPU
+              href: how-to-deploy-inferencing-gpus.md
+            - name: Serviço de Aplicações do Azure
+              displayName: web app
+              href: how-to-deploy-app-service.md
+            - name: Funções do Azure
+              displayName: functions app
+              href: how-to-deploy-functions.md
+            - name: Dispositivos Azure IoT Edge
+              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+            - name: Inferência de FPGA
+              href: how-to-deploy-fpga-web-service.md
+            - name: Imagens personalizadas do Docker
+              href: how-to-deploy-custom-docker-image.md
+            - name: Modelos de ML não Azure
+              displayName: publish existing model
+              href: how-to-deploy-existing-model.md
         - name: Resolução de problemas e depuração
           href: how-to-troubleshoot-deployment.md
-        - name: Criar clientes
+        - name: Chamar o ponto final de serviço
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
         - name: Monitorizar modelos

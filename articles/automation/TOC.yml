@@ -10,30 +10,30 @@
   items:
     - name: Criar uma conta de Automatização
       href: automation-quickstart-create-account.md
-    - name: Criar conta de Automatização autónoma
+    - name: Criar uma conta de Automatização autónoma
       href: automation-create-standalone-account.md
-    - name: Gerir conta Run As de Automatização
+    - name: Gerir uma conta Run As de Automatização
       href: manage-runas-account.md
       displayName: certificate renewal
     - name: Gerir controlo de acesso baseado em funções
       href: automation-role-based-access-control.md
       displayName: RBAC
-    - name: Utilizar o Azure AD na Automatização do Azure para autenticar para o Azure
+    - name: Utilizar o Azure AD para autenticar no Azure
       href: automation-use-azure-ad.md
-    - name: Gerir os serviços do Office 365 com a Automatização do Azure
+    - name: Gerir os serviços do Office 365
       href: manage-office-365.md
-    - name: Configurar a autenticação com o AWS
+    - name: Autenticar runbooks da Automatização do Azure com o Amazon Web Services
       href: automation-config-aws-account.md
     - name: Encriptar recursos seguros na Automatização do Azure
       href: automation-secure-asset-encryption.md
-    - name: Mover a sua Conta de Automatização para outra Subscrição
+    - name: Mover a sua Conta de Automatização para outra subscrição
       href: how-to/move-account.md
-    - name: Automatizar a integração dos Serviços de Automatização
+    - name: Automatizar a integração dos serviços de Automatização
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
     - name: Gerir os dados da Automatização do Azure
       href: automation-managing-data.md
       displayName: backup
-    - name: Regiões suportadas para mapeamentos de área de trabalho do Log Analytics
+    - name: Regiões suportadas para os mapeamentos da área de trabalho do Log Analytics
       href: how-to/region-mappings.md
     - name: Resolução de problemas
       items:
@@ -42,6 +42,9 @@
           displayName: troubleshoot
 - name: Automatização de Processos
   items:
+    - name: Execução de runbooks na Automatização do Azure
+      href: automation-runbook-execution.md
+      displayName: 'fair share, activity log'
     - name: Descrição Geral da Função de Trabalho de Runbook Híbrida
       href: automation-hybrid-runbook-worker.md
     - name: Galeria de runbooks
@@ -111,9 +114,6 @@
             - name: Resultado do runbook
               href: automation-runbook-output-and-messages.md
               displayName: 'message streams, progress records, preference'
-            - name: Controlar um trabalho de runbook
-              href: automation-runbook-execution.md
-              displayName: 'fair share, activity log'
             - name: Processamento de erros em runbooks gráficos
               href: automation-runbook-graphical-error-handling.md
         - name: Função de Trabalho de Runbook Híbrida

@@ -83,10 +83,12 @@
           href: logic-apps-author-definitions.md
         - name: Lidar com tipos de conteúdo
           href: logic-apps-content-type.md
-        - name: Lidar com erros e exceções
+        - name: Processar exceções
           href: logic-apps-exception-handling.md
         - name: Processar mensagens grandes
           href: logic-apps-handle-large-messages.md
+        - name: Processar problemas de limitação ou erros 429
+          href: handle-throttling-problems-429-errors.md
         - name: Proteger
           items:
             - name: Melhorar a segurança para aplicações lógicas
