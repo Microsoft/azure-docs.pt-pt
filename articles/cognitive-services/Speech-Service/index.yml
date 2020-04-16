@@ -7,18 +7,18 @@ metadata:
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   description: Reconheça e sintetize voz, obtenha traduções em tempo real, transcreva conversas ou integre voz nas experiências que o seu bot oferece.
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
   ms.date: 03/24/2020
-  ms.author: dapine
-  ms.openlocfilehash: ea3090a518721c7b85880675b943726217067fbe
-  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+  ms.author: trbye
+  ms.openlocfilehash: 4b9b447ce06e0316cf229fc9a064bfded7411abf
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/13/2020
-  ms.locfileid: "81259052"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401396"
 highlightedContent:
   items:
   - title: O que é o serviço de Voz?

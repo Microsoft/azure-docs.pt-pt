@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 70d5481c37777150927914042133286a77f53b89
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 15140ef392d8108b59bf50c396e529dc15951232
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76514413"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410915"
 ---
 ::: zone target = "docs"
 
@@ -39,11 +39,7 @@ Antes de começar, certifique-se de que:
 
 ### <a name="for-service"></a>Para o serviço
 
-Antes de começar, certifique-se de que:
-
-- Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
-- A subscrição utilizada para o serviço Data Box é uma das seguintes: [Contrato Enterprise (EA) da Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/), [Fornecedor de Soluções Cloud (CSP)](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-- Tem acesso de proprietário ou de contribuinte à subscrição para criar uma encomenda do Data Box Heavy.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>Para o dispositivo
 
@@ -57,7 +53,6 @@ Antes de começar, certifique-se de que:
     - Para o cabo de 40 Gbps, a extremidade do cabo que liga ao dispositivo tem de ser QSFP+.
     - Para o cabo de 10 Gbps, precisa de um cabo SFP+ que se ligue a um comutador de 10 G numa extremidade, com um adaptador QSFP+ para SFP+ (ou o adaptador QSA) para a extremidade que liga ao dispositivo.
 - Os cabos de alimentação estão incluídos numa bandeja na parte traseira do dispositivo.
-
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
