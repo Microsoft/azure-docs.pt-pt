@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: dce3549bde4c62245e1d2b1f8ac0c88c0b70260c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4e9077d06341ce5ecf6b2238374ce1ac8e13dca3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70241395"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415151"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Tutorial: Encomendar o Azure Data Box Heavy
 
@@ -41,17 +41,9 @@ Antes de começar, certifique-se de que:
 - Se pretender instalar o dispositivo num piso que não seja o rés-do-chão, necessitará de um elevador ou de uma rampa. O dispositivo pesa aproximadamente 226 kg.
 - Confirme que possui um local plano no datacenter próximo de uma ligação de rede disponível que possa acomodar um dispositivo com estas dimensões.
 
-
 ### <a name="for-service"></a>Para o serviço
 
-Antes de começar, certifique-se de que:
-- Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
-- Certifique-se de que a subscrição que utiliza para o serviço Data Box é de um dos tipos seguintes:
-    - Microsoft Enterprise Agreement (EA). Leia mais sobre as [Subscrições EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Fornecedor de Soluções Cloud (CSP). Saiba mais sobre o [Programa CSP do Azure](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure Sponsorship. Saiba mais sobre o [programa Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-
-- Confirme que tem acesso de proprietário ou de contribuinte à subscrição para criar uma encomenda do Data Box Heavy.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>Para o dispositivo
 
