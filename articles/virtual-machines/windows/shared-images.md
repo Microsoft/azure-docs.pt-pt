@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: db877c96167fc011c1a8bd52cc1d0b63260007c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cfaf545ad2388688666a04076559ff82b7a5d120
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74066246"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458067"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Crie uma galeria de imagens partilhada com a Azure PowerShell 
 

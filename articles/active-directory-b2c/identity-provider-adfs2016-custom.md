@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bfe39d9528927f995d14772e07e02b2a0528e5e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 000f63ef5f73e77eb22fb539fc6736b929ac6bcc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188533"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451572"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicione a ADFS como fornecedor de identidade SAML utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -34,7 +34,7 @@ Este artigo mostra-lhe como ativar o início de sessão para uma conta de utiliz
 
 Você precisa armazenar seu certificado no seu inquilino Azure AD B2C.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
@@ -169,7 +169,7 @@ Agora que tens um botão no lugar, tens de ligá-lo a uma ação. Neste caso, a 
 Para utilizar o ADFS como fornecedor de identidade no Azure AD B2C, é necessário criar um ADFS Relying Party Trust com os metadados Azure AD B2C SAML. O exemplo seguinte mostra um endereço URL para os metadados SAML de um perfil técnico Azure AD B2C:
 
 ```
-https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Substitua os seguintes valores:

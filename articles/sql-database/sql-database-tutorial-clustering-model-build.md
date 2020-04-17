@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: 0a73a2bc3fa76c945cf699133a41b38a9983a234
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: ebea6117420ee6de67025dfd4cfba71e905cb9ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345814"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453102"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Construa um modelo de clustering em R com Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)
 
@@ -36,8 +37,6 @@ Neste artigo, aprenderá a:
 Na [primeira parte,](sql-database-tutorial-clustering-model-prepare-data.md)aprendeu a preparar os dados a partir de uma base de dados Azure SQL para realizar o agrupamento.
 
 Na [terceira parte,](sql-database-tutorial-clustering-model-deploy.md)aprenderá a criar um procedimento armazenado numa base de dados Azure SQL que pode realizar clustering em R com base em novos dados.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

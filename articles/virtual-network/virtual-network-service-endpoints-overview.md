@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 72c2c90f7a71bd9bf251adb492168fa5d2baa60a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b75e0c1e53f1e00579de73897197cdd2f14d79af
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244787"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455415"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
@@ -35,7 +35,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões azu
 - **[Base de Dados Azure para servidor MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível nas regiões do Azure onde o serviço de base de dados está disponível.
 - **[Base de Dados Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** *(Microsoft.Sql*): Geralmente disponível nas regiões do Azure onde o serviço de base de dados está disponível.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureCosmosDB*): Geralmente disponível em todas as regiões do Azure.
-- **[Cofre chave Azure](../key-vault/key-vault-overview-vnet-service-endpoints.md)** *(Microsoft.KeyVault*): Geralmente disponível em todas as regiões do Azure.
+- **[Cofre chave Azure](../key-vault/general/overview-vnet-service-endpoints.md)** *(Microsoft.KeyVault*): Geralmente disponível em todas as regiões do Azure.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.ServiceBus*): Geralmente disponível em todas as regiões do Azure.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.EventHub*): Geralmente disponível em todas as regiões do Azure.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*): Geralmente disponível em todas as regiões do Azure onde a ADLS Gen1 está disponível.
@@ -145,7 +145,7 @@ Para perguntas frequentes, consulte [FAQs finais](https://docs.microsoft.com/azu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Configure pontos finais do serviço de rede virtual](tutorial-restrict-network-access-to-resources.md)
+- [Configurar pontos finais de serviço de rede virtual](tutorial-restrict-network-access-to-resources.md)
 - [Garanta uma conta de Armazenamento Azure a uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Proteja uma Base de Dados Azure SQL para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Proteja um Armazém de Dados Azure SQL para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)

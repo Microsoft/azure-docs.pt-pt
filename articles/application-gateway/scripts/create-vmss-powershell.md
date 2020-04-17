@@ -4,7 +4,6 @@ description: Exemplo de Script do Azure PowerShell - gerir o tráfego da Web com
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: sample
@@ -13,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 89915cdd4ae88f1092c45e1d428679a99f1ac906
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5dc840c553e85499f23d553e189a20e1812241b4
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76273390"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457795"
 ---
 # <a name="manage-web-traffic-with-azure-powershell"></a>Gerir o tráfego da Web com o Azure PowerShell
 

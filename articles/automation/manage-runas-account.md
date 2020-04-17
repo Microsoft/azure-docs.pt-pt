@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d7d0baacd5f702e8f435ab440eaf0338a60f4cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a043bcc2f81214b68b166d443baead6cd230184
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500768"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457506"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir a execução de automação azure como contas
 
@@ -66,7 +66,7 @@ Para criar ou atualizar uma conta Run As, você deve ter privilégios e permiss�
 |Criar aplicação ad azure|[Nova AzADApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication?view=azps-3.5.0)     | Papel de desenvolvedor de aplicações<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Registos de aplicações da > Azure AD > |
 |Adicione uma credencial à aplicação.|[Novo AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential?view=azps-3.5.0)     | Administrador de Aplicação ou Administrador Global<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Registos de aplicações da > Azure AD >|
 |Criar e obter um diretor de serviço azure AD|[Novo AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-3.5.0)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal?view=azps-3.5.0)     | Administrador de Aplicação ou Administrador Global<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Registos de aplicações da > Azure AD >|
-|Atribuir ou obter o papel RBAC para o principal especificado|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment?view=azps-3.5.0)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment?view=azps-3.5.0)      | Administrador ou Proprietário de Acesso ao Utilizador, ou tem as seguintes permissões:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Assinatura](../role-based-access-control/role-assignments-portal.md)</br>Assinaturas de \<>\> > nome de subscrição - Controlo de Acesso (IAM)|
+|Atribuir ou obter o papel RBAC para o principal especificado|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment?view=azps-3.5.0)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment?view=azps-3.5.0)      | Administrador ou Proprietário de Acesso ao Utilizador, ou tem as seguintes permissões:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Subscrição](../role-based-access-control/role-assignments-portal.md)</br>Assinaturas de \<>\> > nome de subscrição - Controlo de Acesso (IAM)|
 |Criar ou remover um certificado de Automação|[Novo Certificado de Automação](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.5.0)</br>[Remover-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationcertificate?view=azps-3.5.0)     | Contribuinte no grupo de recursos         |Grupo de recursos de conta de automação|
 |Criar ou remover uma ligação automação|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.5.0)</br>[Remover-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationconnection?view=azps-3.5.0)|Contribuinte no grupo de recursos |Grupo de recursos de conta de automação|
 
@@ -464,7 +464,7 @@ Pode permitir que a Automação Azure verifique se o Key Vault e o seu diretor d
 * Conceda permissões ao Cofre chave.
 * Desestabeleça a política de acesso.
 
-Pode utilizar o script [Extend-AutomationRunAsAccountRoleRoleToKeyVault.ps1](https://aka.ms/AA5hugb) na PowerShell Gallery para dar ao seu Run As permissões de conta para o Cofre de Chaves. Consulte o [acesso dos pedidos grant a um cofre chave](../key-vault/key-vault-group-permissions-for-apps.md) para obter mais detalhes sobre a definição de permissões no Key Vault.
+Pode utilizar o script [Extend-AutomationRunAsAccountRoleRoleToKeyVault.ps1](https://aka.ms/AA5hugb) na PowerShell Gallery para dar ao seu Run As permissões de conta para o Cofre de Chaves. Consulte o [acesso dos pedidos grant a um cofre chave](../key-vault/general/group-permissions-for-apps.md) para obter mais detalhes sobre a definição de permissões no Key Vault.
 
 ## <a name="resolving-misconfiguration-issues-for-run-as-accounts"></a>Resolução de problemas de configuração errada para Executar Como contas
 

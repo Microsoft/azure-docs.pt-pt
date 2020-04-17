@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 626302845dfb4b19deb921675601818b35ab8edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 572147ca43e9a4dea9d9601dfa1dac8ba1c97ed0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74083553"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458237"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configure MACsec nas portas ExpressRoute Direct
 
@@ -47,7 +47,7 @@ Para iniciar a configuração, inicie o sessão na sua conta Azure e selecione a
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    Se já tem um cofre chave ou um grupo de recursos, pode reutilizá-los. No entanto, é fundamental que ative a funcionalidade [ **de eliminação suave** ](../key-vault/key-vault-ovw-soft-delete.md) no seu cofre chave existente. Se o soft-delete não estiver ativado, pode utilizar os seguintes comandos para o ativar:
+    Se já tem um cofre chave ou um grupo de recursos, pode reutilizá-los. No entanto, é fundamental que ative a funcionalidade [ **de eliminação suave** ](../key-vault/general/overview-soft-delete.md) no seu cofre chave existente. Se o soft-delete não estiver ativado, pode utilizar os seguintes comandos para o ativar:
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"

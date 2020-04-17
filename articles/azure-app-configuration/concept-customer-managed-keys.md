@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5749b2fc58c4e1c5c75142f85a5132946714e25b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472638"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457438"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Utilize chaves geridas pelo cliente para encriptar os dados de configuração da aplicação
 A Configuração da Aplicação Azure [encripta informações confidenciais no repouso](../security/fundamentals/encryption-atrest.md). A utilização de chaves geridas pelo cliente fornece uma proteção de dados melhorada, permitindo-lhe gerir as suas chaves de encriptação.  Quando a encriptação de chaves gerida é utilizada, todas as informações sensíveis na Configuração da App são encriptadas com uma chave Azure Key Vault fornecida pelo utilizador.  Isto fornece a capacidade de rodar a chave de encriptação a pedido.  Também fornece a capacidade de revogar o acesso da Configuração de Aplicações Azure a informações sensíveis, revogando o acesso da instância de Configuração da Aplicação à chave.
@@ -20,7 +20,7 @@ A Configuração da Aplicação Azure [encripta informações confidenciais no r
 A Configuração de Aplicações Azure encripta informações confidenciais em repouso utilizando uma chave de encriptação AES de 256 bits fornecida pela Microsoft. Cada instância de Configuração de Aplicações tem a sua própria chave de encriptação gerida pelo serviço e usada para encriptar informações sensíveis. Informações sensíveis incluem os valores encontrados em pares de valor-chave.  Quando a capacidade de chave gerida pelo cliente está ativada, a Configuração da Aplicação utiliza uma identidade gerida atribuída à instância de Configuração de Aplicações para autenticar com o Diretório Ativo Azure. A identidade gerida chama então o Cofre chave azure e envolve a chave de encriptação da instância de configuração da aplicação. A chave de encriptação embrulhada é então armazenada e a chave de encriptação desembrulhada está em cache dentro da Configuração da App durante uma hora. A Configuração da Aplicação atualiza a versão desembrulhada da chave de encriptação da instância de configuração da aplicação de hora a hora. Isto garante disponibilidade em condições normais de funcionamento. 
 
 >[!IMPORTANT]
-> Se a identidade atribuída à instância de Configuração da Aplicação já não estiver autorizada a desembrulhar a chave de encriptação da instância, ou se a chave gerida for permanentemente eliminada, então deixará de ser possível desencriptar informações sensíveis armazenadas na App Exemplo de configuração. A utilização da função [de eliminação suave](../key-vault/key-vault-ovw-soft-delete.md) do Azure Key Vault atenua a possibilidade de eliminar acidentalmente a sua chave de encriptação.
+> Se a identidade atribuída à instância de Configuração da Aplicação já não estiver autorizada a desembrulhar a chave de encriptação da instância, ou se a chave gerida for permanentemente eliminada, deixará de ser possível desencriptar informações sensíveis armazenadas na instância de Configuração da Aplicação. A utilização da função [de eliminação suave](../key-vault/general/overview-soft-delete.md) do Azure Key Vault atenua a possibilidade de eliminar acidentalmente a sua chave de encriptação.
 
 Quando os utilizadores permitem que o cliente gere a capacidade de chave na sua instância de Configuração de Aplicações Azure, eles controlam a capacidade do serviço de aceder às suas informações sensíveis. A chave gerida serve como uma chave de encriptação de raiz. Um utilizador pode revogar o acesso da sua instância de Configuração de Aplicações à sua chave gerida alterando a sua política de acesso ao cofre chave. Quando este acesso for revogado, a Configuração da Aplicação perderá a capacidade de desencriptar os dados dos utilizadores dentro de uma hora. Neste ponto, a instância de Configuração da Aplicação proibirá todas as tentativas de acesso. Esta situação é recuperável, concedendo mais uma vez acesso ao serviço à chave gerida.  Dentro de uma hora, a Configuração da Aplicação será capaz de desencriptar os dados dos utilizadores e operar em condições normais.
 

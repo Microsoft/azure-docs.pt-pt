@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 7ac657e6627aff4eb588506118e5eeeaef70efba
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548613"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454650"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da encriptação azure
 
@@ -61,7 +61,7 @@ Os três modelos de encriptação do lado do servidor oferecem diferentes caract
 
 Pode proteger as máquinas virtuais Windows e Linux utilizando encriptação de [disco Azure](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), que utiliza a tecnologia [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) e O [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) linux para proteger tanto os discos do sistema operativo como os discos de dados com encriptação de volume completo.
 
-As chaves e segredos de encriptação são salvaguardados na subscrição do [Cofre de Chaves Azure.](../../key-vault/key-vault-overview.md) Ao utilizar o serviço de backup Azure, pode fazer backup e restaurar máquinas virtuais encriptadas (VMs) que utilizam a configuração da Chave de Encriptação (KEK).
+As chaves e segredos de encriptação são salvaguardados na subscrição do [Cofre de Chaves Azure.](../../key-vault/general/overview.md) Ao utilizar o serviço de backup Azure, pode fazer backup e restaurar máquinas virtuais encriptadas (VMs) que utilizam a configuração da Chave de Encriptação (KEK).
 
 ### <a name="azure-storage-service-encryption"></a>Encriptação do serviço de armazenamento Azure
 

@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: f434ad6e19c89f248fec948c0a049fabb0f7c476
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248440"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458288"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Aceder ao segredo do cofre chave ao implementar aplicações geridas pelo Azure
 
-Quando precisa passar um valor seguro (como uma palavra-passe) como parâmetro durante a implantação, pode recuperar o valor de um [Cofre de Chave Azure](../../key-vault/key-vault-overview.md). Para aceder ao Cofre chave ao implementar aplicações geridas, deve conceder acesso ao principal serviço do Fornecedor de Recursos de **Eletrodomésticos.** O serviço De Aplicações Geridas utiliza esta identidade para executar operações. Para obter com sucesso um valor de um Cofre chave durante a implantação, o diretor de serviço deve ser capaz de aceder ao Cofre chave.
+Quando precisa passar um valor seguro (como uma palavra-passe) como parâmetro durante a implantação, pode recuperar o valor de um [Cofre de Chave Azure](../../key-vault/general/overview.md). Para aceder ao Cofre chave ao implementar aplicações geridas, deve conceder acesso ao principal serviço do Fornecedor de Recursos de **Eletrodomésticos.** O serviço De Aplicações Geridas utiliza esta identidade para executar operações. Para obter com sucesso um valor de um Cofre chave durante a implantação, o diretor de serviço deve ser capaz de aceder ao Cofre chave.
 
 Este artigo descreve como configurar o Cofre chave para trabalhar com aplicações geridas.
 

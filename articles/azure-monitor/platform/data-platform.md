@@ -4,18 +4,17 @@ description: Os dados de monitorização recolhidos pelo Azure Monitor são sepa
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: a1b5859341237c1b177ee8deaf636a67f4824948
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666552"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457268"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados Azure Monitor
 
@@ -72,7 +71,7 @@ A tabela seguinte compara métricas e registos no Monitor Azure.
 | Dados | Apenas valores numéricos | Texto ou dados numéricos |
 | Estrutura | Conjunto padrão de propriedades, incluindo tempo de amostra, recurso a ser monitorizado, um valor numérico. Algumas métricas incluem múltiplas dimensões para mais definição. | Conjunto único de propriedades dependendo do tipo de log. |
 | Coleção | Recolhidos em intervalos regulares. | Pode ser recolhido esporadicamente à medida que os eventos desencadeiam um registo a ser criado. |
-| Vista no portal Azure | Explorador de Métricas | Log Analytics |
+| Ver no portal do Azure | Explorador de Métricas | Log Analytics |
 | Fontes de dados incluem | Métricas da plataforma recolhidas a partir de recursos Azure.<br>Aplicações monitorizadas por Insights de Aplicação.<br>Personalizado definido por aplicação ou API. | Registos de aplicação e recursos.<br>Soluções de monitorização.<br>Agentes e extensões VM.<br>Pedidos de candidatura e exceções.<br>Centro de Segurança Azure.<br>Data Collector API. |
 
 ## <a name="collect-monitoring-data"></a>Recolher dados de monitorização

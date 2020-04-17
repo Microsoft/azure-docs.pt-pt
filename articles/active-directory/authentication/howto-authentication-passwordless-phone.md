@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 853e7143834a340b870b71ef1a287dab136e2783
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654059"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450977"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Ativar o acesso sem palavras-passe com a aplicação Microsoft Authenticator (pré-visualização)
 
@@ -41,7 +41,7 @@ Em vez de ver um pedido de senha depois de introduzir um nome de utilizador, uma
 
 ### <a name="enable-the-combined-registration-experience"></a>Ativar a experiência de registo combinado
 
-As funcionalidades de registo dos métodos de autenticação sem palavras-passe baseiam-se na pré-visualização combinada do registo. Siga os passos do artigo Enable registo combinado de informações de [segurança (pré-visualização)](howto-registration-mfa-sspr-combined.md), para permitir a pré-visualização do registo combinado.
+As funcionalidades de registo dos métodos de autenticação sem palavras-passe dependem da funcionalidade de registo combinado. Siga os passos do artigo Permitir o registo combinado de informações de [segurança,](howto-registration-mfa-sspr-combined.md)para permitir o registo combinado.
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Ativar métodos de autenticação de acesso telefónico sem palavras-passe
 

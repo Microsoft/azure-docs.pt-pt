@@ -3,12 +3,12 @@ title: Use parâmetros para criar plantas dinâmicas
 description: Aprenda sobre parâmetros estáticos e dinâmicos e como usá-los para criar plantas seguras e dinâmicas.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: ed596db2050ac788c2d98c63cb7314de473b5f4e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e5953617d5fa27098380f3f0e95843c69800f823
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383604"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458493"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de plantas dinâmicas através de parâmetros
 
@@ -41,7 +41,7 @@ Se a atribuição da planta utilizar uma identidade gerida atribuída pelo **uti
 > [!IMPORTANT]
 > Em ambos os casos, o Cofre chave deve ter acesso ao Gestor de **Recursos Azure para implementação** de modelos configurado na página de políticas de **acesso.** Para obter instruções sobre como ativar esta funcionalidade, consulte o Cofre chave - Ativar a [implementação do modelo](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
-Para mais informações sobre o Cofre de Chaves Azure, consulte a [visão geral do Cofre chave](../../../key-vault/key-vault-overview.md).
+Para mais informações sobre o Cofre de Chaves Azure, consulte a [visão geral do Cofre chave](../../../key-vault/general/overview.md).
 
 ## <a name="parameter-types"></a>Tipos de parâmetros
 
@@ -234,7 +234,7 @@ A definição de **parâmetros dinâmicos** durante a atribuição é feita atra
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a lista de [funções](../reference/blueprint-functions.md)de plantas .
-- Conheça o ciclo de vida da [planta.](lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).

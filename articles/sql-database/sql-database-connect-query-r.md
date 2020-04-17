@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 7103afc29e4021d950d9a3634b190f4439ecfe8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 23dc784586e85b8cbdc816ac5f4d54556fc1ffb7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76768519"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456996"
 ---
 # <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Quickstart: Use R com Serviços de Aprendizagem Automática para consultar uma base de dados Azure SQL (pré-visualização)
 
@@ -30,22 +31,19 @@ Neste arranque rápido, utiliza R com Serviços de Aprendizagem Automática para
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Uma [base de dados Azure SQL](sql-database-single-database-get-started.md)
-- [Serviços de Aprendizagem automática](sql-database-machine-learning-services-overview.md) com R ativado. [Inscreva-se para a pré-visualização](sql-database-machine-learning-services-overview.md#signup).
+- [Serviços de Aprendizagem automática](sql-database-machine-learning-services-overview.md) com R ativado.
 - [Estúdio de Gestão de Servidores SQL](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 > [!IMPORTANT]
 > Os scripts deste artigo são escritos para usar a base de dados **Adventure Works.**
 
-> [!NOTE]
-> Durante a pré-visualização pública, a Microsoft irá embarcar e ativar o machine learning para a sua base de dados existente ou nova, no entanto a opção de implementação de instânciagerida não é suportada atualmente.
-
-Serviços de Aprendizagem automática com R é uma característica da base de dados Azure SQL utilizada para executar scripts R na base de dados. Para mais informações, consulte o [Projeto R.](https://www.r-project.org/)
+Serviços de Aprendizagem automática com R é uma característica da Base de Dados Azure SQL utilizada para executar scripts R na base de dados. Para mais informações, consulte o [Projeto R.](https://www.r-project.org/)
 
 ## <a name="get-sql-server-connection-information"></a>Obtenha informações de ligação ao servidor SQL
 
 Obtenha as informações de ligação que precisa para ligar à base de dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue para as bases de **dados SQL** ou página de **instâncias geridas pela SQL.**
 

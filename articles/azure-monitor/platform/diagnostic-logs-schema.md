@@ -4,12 +4,12 @@ description: Compreenda os serviços suportados e o esquema de eventos para os r
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: 8abd8767d9bb7e3c4336f6600b94f6b3f4ea48f1
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 352310a6e489a96c38e85b16e9504d8eb9be38b1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380527"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457251"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Serviços suportados, schemas e categorias para Registos de Recursos Azure
 
@@ -66,7 +66,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante o recurso
 | ExpressRoute | Schema não está disponível. |
 | Azure Firewall | Schema não está disponível. |
 | IoT Hub | [Operações do Hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Cofre de Chaves |[Exploração do cofre de chaves azure](../../key-vault/key-vault-logging.md) |
+| Cofre de Chaves |[Exploração do cofre de chaves azure](../../key-vault/general/logging.md) |
 | Serviço Kubernetes |[Exploração Madeireira Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
 | Load balancer |[Análise de registos para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Aplicações Lógicas |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |

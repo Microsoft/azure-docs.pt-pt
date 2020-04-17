@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f69a94e17155ff93510d09f666bce12f628274f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c8081bb8145a6654c168fb2d664e1666b32dc18
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295162"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457914"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acesso Condicional: Assegurar o registo de informações de segurança
 
@@ -32,9 +32,9 @@ A seguinte política aplica-se a todos os utilizadores selecionados, que tentam 
 1. Em **Atribuições**, selecione **Utilizadores e grupos**, e selecione os utilizadores e grupos a que pretende que esta política se aplique.
 
    > [!WARNING]
-   > Os utilizadores devem estar ativados para a [pré-visualização combinada](../authentication/howto-registration-mfa-sspr-combined.md)do registo .
+   > Os utilizadores devem estar habilitados para o [registo combinado](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. Em **aplicações ou ações cloud**, selecione as ações do **Utilizador,** verifique **registar informações de segurança (pré-visualização)**.
+1. Em **aplicações ou ações cloud**, selecione as ações do **Utilizador,** verifique **registar informações de segurança**.
 1. Em **condições** > **locais**.
    1. Configurar **Sim.**
    1. Incluir **qualquer local**.

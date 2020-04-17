@@ -4,18 +4,17 @@ description: Descreve os registos no Monitor Azure que são utilizados para uma 
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: dd499a82ba1011d96772d6722e25a434d43a6bf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b288bf6d987b9db682c8d1439879cf6b499f213
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480203"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457336"
 ---
 # <a name="logs-in-azure-monitor"></a>Registos no Azure Monitor
 
@@ -89,7 +88,7 @@ O Azure Monitor pode recolher dados de registo de uma variedade de fontes dentro
 | Métricas | Envie métricas de plataforma para os recursos do Azure Monitor para um espaço de trabalho de Log Analytics para reter dados de registo por períodos mais longos e realizar análises complexas com outros tipos de dados usando a [linguagem de consulta Kusto](/azure/kusto/query/). Consulte os registos de [recursos do Stream Azure para registar o Analytics](resource-logs-collect-storage.md). |
 | Armazenamento de tabelas do Azure | Recolha dados do armazenamento do Azure onde alguns recursos do Azure escrevem dados de monitorização. Consulte o armazenamento de [blob Azure para armazenamento de mesa IIS e Azure para eventos com Log Analytics](diagnostics-extension-logs.md). |
 
-### <a name="virtual-machines"></a>Máquinas Virtuais
+### <a name="virtual-machines"></a>Virtual Machines
 
 | Dados | Descrição |
 |:---|:---|

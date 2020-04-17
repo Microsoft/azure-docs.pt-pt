@@ -4,12 +4,12 @@ description: Aprenda a criar uma função a partir da linha de comando e, em seg
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 1e3ce26894e9e89d196c068bd32245c8c891b2e2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: eb893491310850b141a0d68cb7a74041411843a9
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255554"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457455"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função em Azure que responda aos pedidos do HTTP
 
@@ -222,9 +222,9 @@ Utilize os seguintes comandos Azure CLI para criar estes itens. Cada comando for
 
 Se ainda não o fez, inicie sessão no Azure com o comando [de login az:](/cli/azure/reference-index#az-login)
 
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
     
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria `AzureFunctionsQuickstart-rg` um `westeurope` grupo de recursos nomeado na região. (Geralmente cria o seu grupo de recursos e recursos numa `az account list-locations` região próxima de si, utilizando uma região disponível a partir do comando.)
 

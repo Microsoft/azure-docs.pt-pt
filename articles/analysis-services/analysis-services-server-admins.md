@@ -4,21 +4,21 @@ description: Este artigo descreve como gerir os administradores de servidores pa
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f7c57a5751f2ff34abb26b7653070ce4ee5010fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 944a84405bd7e03b72b2610278f9f0e4d3cfaf38
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73572614"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454242"
 ---
 # <a name="manage-server-administrators"></a>Gerir administradores de servidor
 
 Os administradores do servidor devem ser um utilizador ou grupo de segurança válido no Diretório Ativo Azure (Azure AD) para o inquilino em que o servidor reside. Pode utilizar administradores de **serviços** de análise para o seu servidor no portal Azure, Propriedades do Servidor em SSMS, PowerShell ou REST API para gerir administradores de servidores. 
 
-**Os grupos** de segurança devem `MailEnabled` ser `True` [ativados por correio](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a propriedade definida para . Ao especificar um grupo por `obj:groupid@tenantid`e-mail a utilizar .
+Ao adicionar um grupo `obj:groupid@tenantid`de **segurança,** utilize .
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Para adicionar administradores de servidores utilizando o portal Azure
 

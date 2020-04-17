@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a7077b5e94800d93833f259fefd0cd4c168ec867
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: ddcb47bfe8ba2b77efd8ff0aed52f1412107f0c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811441"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456503"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Utilize chaves geridas pelo cliente no Cofre chave Azure para serviço de importação/exportação
 
 A Azure Import/Export protege as teclas BitLocker utilizadas para bloquear as unidades através de uma chave de encriptação. Por predefinição, as teclas BitLocker são encriptadas com chaves geridas pela Microsoft. Para um controlo adicional sobre as chaves de encriptação, também pode fornecer chaves geridas pelo cliente.
 
-As chaves geridas pelo cliente devem ser criadas e armazenadas num Cofre de Chaves Azure. Para mais informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre chave Azure?](../../key-vault/key-vault-overview.md)
+As chaves geridas pelo cliente devem ser criadas e armazenadas num Cofre de Chaves Azure. Para mais informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre chave Azure?](../../key-vault/general/overview.md)
 
 Este artigo mostra como utilizar chaves geridas pelo cliente com o serviço de importação/exportação no [portal Azure](https://portal.azure.com/).
 
@@ -33,12 +33,12 @@ Antes de começar, confirme que:
     - [Criar um trabalho de importação para ficheiros.](storage-import-export-data-to-files.md)
     - [Criar um trabalho de exportação para bolhas](storage-import-export-data-from-blobs.md)
 
-2. Tem um Cofre de Chave Azure existente com uma chave que pode usar para proteger a sua chave BitLocker. Para aprender a criar um cofre chave utilizando o portal Azure, consulte [Quickstart: set and retrieve a secret from Azure Key Vault utilizando o portal Azure](../../key-vault/quick-create-portal.md).
+2. Tem um Cofre de Chave Azure existente com uma chave que pode usar para proteger a sua chave BitLocker. Para aprender a criar um cofre chave utilizando o portal Azure, consulte [Quickstart: set and retrieve a secret from Azure Key Vault utilizando o portal Azure](../../key-vault/secrets/quick-create-portal.md).
 
     - **Elimine suavemente** e **não expurgar** estão definidos no cofre de chaves existente. Estas propriedades não são ativadas por defeito. Para ativar estas propriedades, consulte as secções intituladas **Enableing soft-delete** and **Enableing Purge Protection** num dos seguintes artigos:
 
-        - [Como utilizar soft-delete com powerShell](../../key-vault/key-vault-soft-delete-powershell.md).
-        - Como utilizar o [soft-delete com o CLI](../../key-vault/key-vault-soft-delete-cli.md).
+        - [Como utilizar soft-delete com powerShell](../../key-vault/general/soft-delete-powershell.md).
+        - Como utilizar o [soft-delete com o CLI](../../key-vault/general/soft-delete-cli.md).
     - O cofre-chave existente deve ter uma chave RSA de tamanho 2048 ou mais. Para mais informações sobre as chaves, consulte **as chaves do Cofre chave** em [Chaves, Segredos e Certificados do Cofre de Chaves do Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
     - O cofre deve estar na mesma região que a conta de armazenamento dos seus dados.  
     - Se não tiver um Cofre chave Azure existente, também pode criá-lo em linha, como descrito na secção seguinte.

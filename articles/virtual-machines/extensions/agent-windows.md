@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: mimckitt
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
 ms.service: virtual-machines-windows
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 3d9c178201ab0c22ed4eab9cf65f7d48e59e1359
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f29a20ddeb93ec3d4aa98bbcb36f50456b543667
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246129"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452575"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Descrição geral do Agente da Máquina Virtual do Azure
 O Agente da Máquina Virtual do Microsoft Azure (Agente da VM) é um processo leve e seguro que gere a interação da máquina virtual (VM) com o Controlador de Recursos de Infraestrutura do Microsoft Azure. O Agente da VM tem uma função primária na ativação e na execução de extensões de máquina virtual do Azure. As extensões de VM permitem a configuração pós-implementação da VM, por exemplo, instalar e configurar o software. As extensões de VM também permitem funcionalidades de recuperação, como a reposição da palavra-passe administrativa de uma VM. Sem o Agente da VM do Azure, as extensões de VM não podem ser executadas.

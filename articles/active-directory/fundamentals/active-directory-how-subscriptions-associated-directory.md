@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f44e9a1e43da2b9ce6c817898c1722fba715c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 104bf51fb03d88ab0e5efd25ebebb0e3060bc264
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262181"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457931"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory
 
@@ -85,7 +85,7 @@ Mudar o diretório de subscrição é uma operação de nível de serviço, por 
 
 Depois de associar uma subscrição a um diretório diferente, poderá ter de fazer as seguintes tarefas para retomar as operações:
 
-- Se tiver cofres chave, tem de mudar a identificação do inquilino do cofre. Para mais informações, consulte Alterar um ID de [inquilino chave cofre após um movimento de subscrição](../../key-vault/key-vault-subscription-move-fix.md).
+- Se tiver cofres chave, tem de mudar a identificação do inquilino do cofre. Para mais informações, consulte Alterar um ID de [inquilino chave cofre após um movimento de subscrição](../../key-vault/general/subscription-move-fix.md).
 
 - Se utilizou identidades geridas atribuídas pelo sistema para recursos, deve reativar essas identidades. Se utilizou identidades geridas atribuídas ao utilizador, tem de recriar estas identidades. Depois de reativar ou recriar as Identidades Geridas, deve restabelecer as permissões atribuídas a essas identidades. Para mais informações, veja [o que é gerida identidades para os recursos do Azure?](../managed-identities-azure-resources/overview.md)
 

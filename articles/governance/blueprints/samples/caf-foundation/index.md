@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema Fundação do CAF
 description: Descrição geral e arquitetura do exemplo de esquema da Fundação do Framework de Adoção da Cloud (CAF) para o Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: a5616667ae909b63f406e399a23bdf568089bf52
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 1f14b4d4811b9bdcb64f3860b2cf25b82825d5c4
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383582"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458476"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Descrição geral do exemplo de esquema Fundação do Microsoft Cloud Adoption Framework para o Azure
 
@@ -22,7 +22,7 @@ O exemplo de esquema Fundação do CAF implementa recursos de infraestrutura rec
 
 Esta implementação incorpora vários serviços do Azure utilizados para fornecer uma fundação segura, totalmente monitorizada e pronta para empresas. Este ambiente é composto por:
 
-- Uma instância do [Azure Key Vault](../../../../key-vault/key-vault-overview.md) utilizada para alojar segredos utilizados para as VMs implementadas no ambiente de serviços partilhados
+- Uma instância do [Azure Key Vault](../../../../key-vault/general/overview.md) utilizada para alojar segredos utilizados para as VMs implementadas no ambiente de serviços partilhados
 - Uma implementação do [Log Analytics](../../../../azure-monitor/overview.md) para garantir que todos os serviços e ações são registados numa localização central desde o momento em que inicia a implementação segura em [Contas de Armazenamento](../../../../storage/common/storage-introduction.md) para registo de diagnósticos
 - Uma implementação do [Centro de Segurança do Azure](../../../../security-center/security-center-intro.md) (versão standard) que fornece proteção contra ameaças para as suas cargas de trabalho migradas
 - O esquema também define e implementa [Políticas do Azure](../../../policy/overview.md) para 

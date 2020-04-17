@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c9933e75a39af43af9e2745d5f7732d40027b34
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582478"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451436"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeie uma implementação de autenticação sem palavras-passe no Diretório Ativo do Azure
 
@@ -67,7 +67,7 @@ As organizações devem cumprir os seguintes pré-requisitos antes de iniciar um
 
 | Pré-requisito | Aplicação de autenticação | Chaves de segurança FIDO2 |
 | --- | --- | --- |
-| O registo combinado para a autenticação de [multifactores Azure e o reset de palavra-passe self-service (SSPR)](howto-registration-mfa-sspr-combined.md) está ativado (função de pré-visualização) | √ | √ |
+| O registo combinado para a autenticação de [multifactores Azure e o reset da palavra-passe self-service (SSPR)](howto-registration-mfa-sspr-combined.md) está ativado | √ | √ |
 | [Os utilizadores podem realizar a autenticação de multifactor Azure](howto-mfa-getstarted.md) | √ | √ |
 | [Os utilizadores registaram-se para autenticação multifactor Azure e SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Os utilizadores registaram os seus dispositivos móveis no Azure Ative Directory](../devices/overview.md) | √ |   |

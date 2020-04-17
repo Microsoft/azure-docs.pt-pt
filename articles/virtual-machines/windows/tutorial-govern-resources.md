@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
 manager: gwallace
-editor: tysonn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
@@ -13,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: fd7e7f14d076a6a9652e902c4dc0ec41665735ee
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d8cb1895c980fa9f84983ea8364cb2f0f5dcb982
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75981746"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456027"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutorial: Conheça a gestão de máquinas virtuais do Windows com a Azure PowerShell
 

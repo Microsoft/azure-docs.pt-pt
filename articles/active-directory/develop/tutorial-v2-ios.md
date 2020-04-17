@@ -12,12 +12,12 @@ ms.date: 08/30/2019
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0c807390f043527aa721e9c1c2a9269ff0dee6b9
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 1251049add8c9d3c71b6ba13aff24e086613e84b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990978"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450960"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação iOS ou macOS
 
@@ -388,7 +388,7 @@ Adicione o `initMSAL` seguinte método `ViewController` após a aula.
 
 ```swift
 func initWebViewParams() {
-        self.webViewParameters = MSALWebviewParameters(parentViewController: self)
+        self.webViewParameters = MSALWebviewParameters(authPresentationViewController: self)
     }
 ```
 

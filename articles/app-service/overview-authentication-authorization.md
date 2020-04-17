@@ -3,23 +3,20 @@ title: Autenticação e autorização
 description: Saiba mais sobre a autenticação incorporada e suporte de autorização no Azure App Service e funções Azure, e como pode ajudar a proteger a sua aplicação contra acesso não autorizado.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 04/15/2020
 ms.reviewer: mahender
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: 0fe436b1da551bbc8a0064cb3cfdff864d8f9eb8
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: a4ceed0d897f069a7895a3eb6b10c327566afbe5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520682"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457863"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no Serviço de Aplicações Azure e Funções Azure
 
-> [!NOTE]
-> Neste momento, o [Azure Ative Directory v2.0](../active-directory/develop/v2-overview.md) (incluindo [mSAL)](../active-directory/develop/msal-overview.md)não é suportado para o Azure App Service e funções Azure. Por favor, verifique se há novidades.
->
 > [!NOTE]
 > Neste momento, ASP.NET Core não suporta atualmente a população do utilizador atual com a funcionalidade de Autenticação/Autorização.
 >

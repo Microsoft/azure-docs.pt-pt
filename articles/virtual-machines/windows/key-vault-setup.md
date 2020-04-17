@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: 3dcf82a8d4bc698c1900903649a2dd5a383f64b4
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 098d4df3938f591cb72b3bfd59b7a5549469785c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878413"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451742"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configurar o cofre chave para máquinas virtuais no Gestor de Recursos Azure
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Na pilha de Gestor de Recursos Azure, segredos/certificados são modelados como recursos fornecidos pelo fornecedor de recursos da Key Vault. Para saber mais sobre o Cofre chave, veja [o que é o Cofre chave Azure?](../../key-vault/key-vault-overview.md)
+Na pilha de Gestor de Recursos Azure, segredos/certificados são modelados como recursos fornecidos pelo fornecedor de recursos da Key Vault. Para saber mais sobre o Cofre chave, veja [o que é o Cofre chave Azure?](../../key-vault/general/overview.md)
 
 > [!NOTE]
 > 1. Para que o Cofre chave seja utilizado com máquinas virtuais do Gestor de Recursos Azure, a propriedade **EnabledForDeployment** no Key Vault deve ser definida como verdadeira. Pode fazer isso em vários clientes.
@@ -34,7 +34,7 @@ Na pilha de Gestor de Recursos Azure, segredos/certificados são modelados como 
 >
 
 ## <a name="use-powershell-to-set-up-key-vault"></a>Use powerShell para configurar o cofre chave
-Para criar um cofre chave utilizando powerShell, consulte [set e recupere um segredo do Cofre de Chaves Azure utilizando powerShell](../../key-vault/quick-create-powershell.md).
+Para criar um cofre chave utilizando powerShell, consulte [set e recupere um segredo do Cofre de Chaves Azure utilizando powerShell](../../key-vault/secrets/quick-create-powershell.md).
 
 Para novos cofres chave, pode utilizar este cmdlet PowerShell:
 
@@ -45,7 +45,7 @@ Para os cofres-chave existentes, pode utilizar este cmdlet PowerShell:
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 ## <a name="use-cli-to-set-up-key-vault"></a>Use o CLI para configurar o Cofre chave
-Para criar um cofre chave utilizando a interface de linha de comando (CLI), consulte Gerir o Cofre de [Chaves utilizando CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
+Para criar um cofre chave utilizando a interface de linha de comando (CLI), consulte Gerir o Cofre de [Chaves utilizando CLI](../../key-vault/general/manage-with-cli2.md#create-a-key-vault).
 
 Para o CLI, tem de criar o cofre-chave antes de atribuir a política de implantação. Pode fazê-lo utilizando o comando seguinte:
 

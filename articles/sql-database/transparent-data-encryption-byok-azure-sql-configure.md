@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 81927575b99604e71f7b0920bc3a448f7796f565
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b1c985eeec9af25ec576f4e2375c417dc376f95
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067195"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452762"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e CLI: Ativar encriptação de dados transparentes com chave gerida pelo cliente a partir do Cofre chave Azure
 
@@ -28,9 +28,9 @@ Este artigo passa por como usar uma chave do Cofre de Chaves Azure para encripta
 - [Recomendado, mas opcional] Dispor de um módulo de segurança de hardware (HSM) ou de uma loja-chave local para criar uma cópia local do material-chave Do Protetor TDE.
 - Tem de ter o Azure PowerShell instalado e em funcionamento.
 - Crie um Cofre de Chave Azure e uma chave para usar para TDE.
-  - [Instruções para a utilização de um módulo de segurança de hardware (HSM) e key vault](../key-vault/key-vault-hsm-protected-keys.md)
+  - [Instruções para a utilização de um módulo de segurança de hardware (HSM) e key vault](../key-vault/keys/hsm-protected-keys.md)
     - O cofre-chave deve ter a seguinte propriedade a ser utilizada para TDE:
-  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md) e purga proteção
+  - [soft-delete](../key-vault/general/overview-soft-delete.md) e purga proteção
 - A chave deve ter os seguintes atributos a utilizar para tde:
    - Sem data de validade
    - Não incapacitado
@@ -40,7 +40,7 @@ Este artigo passa por como usar uma chave do Cofre de Chaves Azure para encripta
 
 Para obter instruções de instalação do módulo Az, veja [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para obter cmdlets específicos, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
-Para obter detalhes no Cofre de Chaves, consulte [as instruções da PowerShell do Key Vault](../key-vault/quick-create-powershell.md) e como utilizar o [Soft-delete key Vault com powerShell](../key-vault/key-vault-soft-delete-powershell.md).
+Para obter detalhes no Cofre de Chaves, consulte [as instruções da PowerShell do Key Vault](../key-vault/secrets/quick-create-powershell.md) e como utilizar o [Soft-delete key Vault com powerShell](../key-vault/general/soft-delete-powershell.md).
 
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager (RM) ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para mais informações sobre a sua compatibilidade, consulte [A introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
@@ -119,11 +119,11 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
    -ServerName <LogicalServerName> -DatabaseName <DatabaseName>  
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para instalar a necessária interface de linha de comando 2.0 ou posteriormente e ligar-se à sua subscrição Azure, consulte Instalar e Configurar a Interface de [Linha de Comando de Plataforma Cruzada Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Para obter detalhes no Cofre de Chaves, consulte [Gerir o Cofre de Chaves utilizando cli 2.0](../key-vault/key-vault-manage-with-cli2.md) e como utilizar o [soft-delete key vault com CLI](../key-vault/key-vault-soft-delete-cli.md).
+Para obter detalhes no Cofre de Chaves, consulte [Gerir o Cofre de Chaves utilizando cli 2.0](../key-vault/general/manage-with-cli2.md) e como utilizar o [soft-delete key vault com CLI](../key-vault/general/soft-delete-cli.md).
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Atribuir uma identidade Azure AD ao seu servidor
 
@@ -205,7 +205,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
    Remove-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 - Para obter configurações gerais de base de dados, consulte [az sql](/cli/azure/sql).
 
@@ -227,7 +227,7 @@ Verifique se ocorre um problema:
    Get-AzSubscription -SubscriptionId <SubscriptionId>
    ```
 
-   # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+   # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
    ```powershell
    az account show - s <SubscriptionId>

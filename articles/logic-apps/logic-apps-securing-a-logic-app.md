@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 4fc4960eb3af8a3d3c9902c9b24505bb5610b709
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e591a7035db82425952a16f5c4c220e25d8517fe
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657166"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457183"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Aplicações Lógicas Azure
 
@@ -182,7 +182,7 @@ Para evitar que outros mudem ou abatam a sua aplicação lógica, pode utilizar 
 
 Durante uma execução de aplicações lógicas, todos os dados são [encriptados durante](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) o trânsito utilizando a Transport Layer Security (TLS) e [em repouso](../security/fundamentals/encryption-atrest.md). Quando a sua aplicação lógica terminar de funcionar, pode ver a história para essa execução, incluindo os passos que correram juntamente com o estado, duração, inputs e saídas para cada ação. Este detalhe rico fornece uma visão de como a sua aplicação lógica funcionava e onde você pode começar a resolver problemas que surjam.
 
-Ao visualizar o histórico de execução da sua aplicação lógica, as Aplicações Lógicas autenticam o seu acesso e, em seguida, fornece links para as inputs e saídas para os pedidos e respostas para cada execução. No entanto, para ações que lidam com quaisquer palavras-passe, segredos, chaves ou outras informações sensíveis, pretende impedir que outros possam visualizar e aceder a esses dados. Por exemplo, se a sua aplicação lógica obtém um segredo do [Azure Key Vault](../key-vault/key-vault-overview.md) para usar ao autenticar uma ação HTTP, você quer esconder esse segredo da vista.
+Ao visualizar o histórico de execução da sua aplicação lógica, as Aplicações Lógicas autenticam o seu acesso e, em seguida, fornece links para as inputs e saídas para os pedidos e respostas para cada execução. No entanto, para ações que lidam com quaisquer palavras-passe, segredos, chaves ou outras informações sensíveis, pretende impedir que outros possam visualizar e aceder a esses dados. Por exemplo, se a sua aplicação lógica obtém um segredo do [Azure Key Vault](../key-vault/general/overview.md) para usar ao autenticar uma ação HTTP, você quer esconder esse segredo da vista.
 
 Para controlar o acesso às inputs e saídas no histórico de execução da sua aplicação lógica, tem estas opções:
 
@@ -370,7 +370,7 @@ Para mais informações, consulte estas secções neste tópico:
 
 Se [automatizar a implementação de aplicações lógicas utilizando modelos](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)de Gestor de Recursos, pode `securestring` definir `secureobject` [parâmetros](../azure-resource-manager/templates/template-parameters.md)de modelo seguros , que são avaliados na implementação, utilizando os e tipos. Para definir parâmetros de modelo, utilize `parameters` a secção de nível superior do `parameters` seu modelo, que é separada e diferente da secção da definição de fluxo de trabalho. Para fornecer os valores para parâmetros de modelo, utilize um [ficheiro de parâmetro](../azure-resource-manager/templates/parameter-files.md)separado .
 
-Por exemplo, se utilizar segredos, pode definir e usar parâmetros de modelo seguros que recuperam esses segredos do [Cofre chave Azure](../key-vault/key-vault-overview.md) na implantação. Pode então fazer referência ao cofre da chave e ao segredo no seu ficheiro de parâmetros. Para obter mais informações, veja estes tópicos:
+Por exemplo, se utilizar segredos, pode definir e usar parâmetros de modelo seguros que recuperam esses segredos do [Cofre chave Azure](../key-vault/general/overview.md) na implantação. Pode então fazer referência ao cofre da chave e ao segredo no seu ficheiro de parâmetros. Para obter mais informações, veja estes tópicos:
 
 * [Passe valores sensíveis na implantação utilizando o Cofre chave Azure](../azure-resource-manager/templates/key-vault-parameter.md)
 * [Parâmetros seguros em modelos de Gestor de Recursos Azure](#secure-parameters-deployment-template) mais tarde neste tópico
@@ -425,7 +425,7 @@ Para proteger informações sensíveis na definição de fluxo de trabalho da su
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Parâmetros seguros nos modelos do Gestor de Recursos Azure
 
-Um [modelo de Gestor de](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) `parameters` Recursos para uma aplicação lógica tem várias secções. Para proteger palavras-passe, chaves, segredos e outras informações sensíveis, defina `securestring` parâmetros seguros ao nível do modelo e nível de definição de fluxo de trabalho utilizando o ou `secureobject` o tipo. Em seguida, pode armazenar estes valores no [Cofre de Chaves Azure](../key-vault/key-vault-overview.md) e utilizar o ficheiro de [parâmetro](../azure-resource-manager/templates/parameter-files.md) para fazer referência ao cofre e segredo da chave. O seu modelo recupera então essa informação na implantação. Para mais informações, consulte [os valores sensíveis do Passe na implementação utilizando](../azure-resource-manager/templates/key-vault-parameter.md)o Cofre de Chaves Azure .
+Um [modelo de Gestor de](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) `parameters` Recursos para uma aplicação lógica tem várias secções. Para proteger palavras-passe, chaves, segredos e outras informações sensíveis, defina `securestring` parâmetros seguros ao nível do modelo e nível de definição de fluxo de trabalho utilizando o ou `secureobject` o tipo. Em seguida, pode armazenar estes valores no [Cofre de Chaves Azure](../key-vault/general/overview.md) e utilizar o ficheiro de [parâmetro](../azure-resource-manager/templates/parameter-files.md) para fazer referência ao cofre e segredo da chave. O seu modelo recupera então essa informação na implantação. Para mais informações, consulte [os valores sensíveis do Passe na implementação utilizando](../azure-resource-manager/templates/key-vault-parameter.md)o Cofre de Chaves Azure .
 
 Aqui está mais `parameters` informações sobre estas secções:
 

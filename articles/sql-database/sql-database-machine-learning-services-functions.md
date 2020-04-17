@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 939798d5d9eb2843d7bbbbe74680342e4ce6ce95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ROBOTS: NOINDEX
+ms.openlocfilehash: ba78267b1c6dc8f0e1bd25bb8ecdb1d8d344d03e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60702457"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453119"
 ---
 # <a name="write-advanced-r-functions-in-azure-sql-database-using-machine-learning-services-preview"></a>Escreva funções R avançadas na Base de Dados Azure SQL utilizando serviços de aprendizagem automática (pré-visualização)
 
@@ -30,7 +31,7 @@ Este artigo descreve como incorporar funções matemáticas e de utilidade R num
 
 - Se não tiver uma subscrição Azure, [crie uma conta](https://azure.microsoft.com/free/) antes de começar.
 
-- Para executar o código de exemplo nestes exercícios, tem primeiro de ter uma base de dados Azure SQL com Serviços de Aprendizagem Automática (com R) ativados. Durante a pré-visualização pública, a Microsoft irá embarcar e ativar o machine learning para a sua base de dados existente ou nova. Siga os passos em [Inscreva-se para a pré-visualização](sql-database-machine-learning-services-overview.md#signup).
+- Para executar o código de exemplo nestes exercícios, tem primeiro de ter a Base de [Dados Azure SQL com serviços de aprendizagem automática (com R)](sql-database-machine-learning-services-overview.md) ativados.
 
 - Certifique-se de que instalou o mais recente Estúdio de Gestão de [Servidores SQL](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Pode executar scripts R utilizando outras ferramentas de gestão de bases de dados ou consultas, mas neste arranque rápido irá utilizar SSMS.
 

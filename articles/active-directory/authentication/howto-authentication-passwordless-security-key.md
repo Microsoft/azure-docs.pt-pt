@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8574fcdff12e61f7039174ed6297d0558a66dc4
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653942"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450926"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Ativar o sinal de entrada da chave de segurança sem palavras-passe (pré-visualização)
 
@@ -48,11 +48,11 @@ Os dispositivos híbridos Azure AD devem executar o Windows 10 Insider Build 189
 
 ### <a name="enable-the-combined-registration-experience"></a>Ativar a experiência de registo combinado
 
-As funcionalidades de registo dos métodos de autenticação sem palavras-passe baseiam-se na pré-visualização combinada do registo. Siga os passos do artigo Enable registo combinado de informações de [segurança (pré-visualização)](howto-registration-mfa-sspr-combined.md), para permitir a pré-visualização do registo combinado.
+As funcionalidades de registo dos métodos de autenticação sem palavras-passe dependem da funcionalidade de registo combinado. Siga os passos do artigo Enable registo combinado de informações de [segurança (pré-visualização)](howto-registration-mfa-sspr-combined.md), para permitir o registo combinado.
 
 ### <a name="enable-fido2-security-key-method"></a>Ativar o método da chave de segurança FIDO2
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue > nos métodos de autenticação de**autenticação** > de segurança **do Diretório** > Ativo Azure **(Pré-visualização)**.**Authentication methods**
 1. No método **FIDO2 Security Key,** escolha as seguintes opções:
    1. **Habilitar** - Sim ou Não

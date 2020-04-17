@@ -1,24 +1,24 @@
 ---
-title: Configurar as suas informações de Segurança (pré-visualização) a partir de um pedido de entrada - Azure AD
-description: Como configurar o seu info de Segurança (pré-visualização) para o seu trabalho ou conta escolar, depois de ter sido solicitado a partir da página de inscrição da sua organização.
+title: Configurar as suas informações de Segurança a partir de um pedido de entrada - Azure AD
+description: Como configurar as suas informações de Segurança para o seu trabalho ou conta escolar, depois de ter sido solicitada a partir da página de inscrição da sua organização.
 services: active-directory
 author: curtand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 08/05/2019
+ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: c216dbfef99422fc49fde774dc57d5cbcc9f879a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77063990"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454490"
 ---
-# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configurar as suas informações de Segurança (pré-visualização) a partir de um pedido de início de sessão
+# <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Configurar as suas informações de Segurança a partir de um pedido de início de sessão
 
 Pode seguir estes passos se for solicitado a configurar as suas informações de segurança imediatamente após a sua inscrição no seu trabalho ou na sua conta escolar.
 
@@ -122,7 +122,7 @@ Siga estes passos para configurar a sua informação de segurança para o seu tr
 Algumas aplicações, como o Outlook 2010, não suportam a verificação em duas etapas. Esta falta de suporte significa que se estiver a usar uma verificação em duas etapas na sua organização, a aplicação não funcionará. Para contornar este problema, pode criar uma senha autogerada para usar em cada aplicação não-navegador, separada da sua senha normal.
 
 >[!Note]
->Se não vir esta opção no assistente, significa que o seu administrador não a montou. Se isto não estiver configurado, mas sabe que precisa de usar palavras-passe de aplicação, pode seguir os passos nas [palavras-passe da aplicação Configurar a partir da página informação de Segurança (pré-visualização).](security-info-app-passwords.md)
+>Se não vir esta opção no assistente, significa que o seu administrador não a montou. Se isto não estiver configurado, mas sabe que precisa de usar palavras-passe de aplicação, pode seguir os passos nas [palavras-passe da aplicação Configurar a partir da página de informações de Segurança](security-info-app-passwords.md).
 
 Ao utilizar palavras-passe de aplicativos, é importante lembrar:
 

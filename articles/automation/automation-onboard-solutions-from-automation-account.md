@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57378005bd668fa9c0f2aea70c411bbf911130db
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278678"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457659"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Soluções de Gestão de Atualização a bordo, Rastreio de Alterações e Inventário
 
@@ -18,7 +18,7 @@ A Azure Automation fornece soluções para gerir atualizações de segurança do
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Azure a https://portal.azure.com
+Inscreva-se no https://portal.azure.comAzure em .
 
 ## <a name="enable-solutions"></a>Ativar soluções
 
@@ -82,7 +82,7 @@ Clique **em + Adicionar VMs Azure,** selecione um ou mais VMs da lista. As máqu
 
 As máquinas que não estão em Azure precisam de ser adicionadas manualmente. A partir da sua conta de Automação selecione **Inventário** ou **Alterar rastreio** sob gestão de **configuração**, ou **gestão de atualização** sob gestão de **atualização**.
 
-Clique **em Adicionar máquina não Azure**. Esta ação abre uma nova janela do navegador com as [instruções sobre como instalar e configurar o Agente de Monitorização da Microsoft na máquina](../azure-monitor/platform/log-analytics-agent.md) para que a máquina possa começar a reportar à solução. Se estiver a embarcar numa máquina que atualmente é gerida pelo System Center Operations Manager, não é necessário um novo agente, a informação do espaço de trabalho é inserida no agente existente.
+Clique **em Adicionar máquina não Azure**. Esta ação abre uma nova janela do navegador com [instruções para instalar e configurar o agente Log Analytics para windows](../azure-monitor/platform/log-analytics-agent.md) para que a máquina possa começar a reportar à solução. Se estiver a embarcar numa máquina que é gerida atualmente pelo System Center Operations Manager, não é necessário um novo agente e a informação do espaço de trabalho é inserida no agente existente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Máquinas de bordo no espaço de trabalho
 
@@ -150,7 +150,7 @@ Em alternativa, também pode desligar o seu espaço de trabalho a partir da sua 
 Para remover um VM da Atualização:
 
 * No seu espaço de trabalho Log Analytics, retire o `MicrosoftDefaultScopeConfig-Updates`VM da pesquisa guardada para a Configuração scope . Pesquisas guardadas podem ser encontradas sob **o General** no seu espaço de trabalho.
-* Remova o agente de [monitorização](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) da Microsoft ou o [agente Log Analytics para o Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Remova o [agente Log Analytics para Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o agente Log Analytics para o [Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes
 

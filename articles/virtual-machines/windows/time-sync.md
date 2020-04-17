@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: dd2ae2159c43da6a049d67cae739f111eba682c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33c8d58877a73c1ea3055fe52ef8470d8775b6e3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74534460"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458033"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronização de tempo para VMs windows em Azure
 

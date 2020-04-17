@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 22bd3afcf30b8b8ebce18b22d5419d49ec8c3b4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04a8a8d2520376931f2bb7727c1e751b83f6315f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053613"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455262"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente com o Cofre chave Azure utilizando o portal Azure
 
 Você deve usar o Cofre chave Azure para armazenar as suas chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. O recurso Dos Serviços Cognitivos e o cofre-chave devem estar na mesma região e no mesmo inquilino azure Ative Directory (Azure AD), mas podem estar em diferentes subscrições. Para mais informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre de Chaves Azure?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 
-Este artigo mostra como configurar um Cofre chave Azure com chaves geridas pelo cliente usando o [portal Azure](https://portal.azure.com/). Para aprender a criar um cofre chave utilizando o portal Azure, consulte [Quickstart: set and retrieve a secret from Azure Key Vault utilizando o portal Azure](../../key-vault/quick-create-portal.md).
+Este artigo mostra como configurar um Cofre chave Azure com chaves geridas pelo cliente usando o [portal Azure](https://portal.azure.com/). Para aprender a criar um cofre chave utilizando o portal Azure, consulte [Quickstart: set and retrieve a secret from Azure Key Vault utilizando o portal Azure](../../key-vault/secrets/quick-create-portal.md).
 
 ## <a name="configure-azure-key-vault"></a>Configurar o Azure Key Vault
 

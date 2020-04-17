@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema dos Serviços Partilhados ISO 270
 description: Descrição geral e arquitetura do exemplo de esquema Serviços Partilhados ISO 27001. Este exemplo de esquema ajuda os clientes a avaliar controlos ISO 27001 específicos.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 5a18af942e1d1088b681712f7035f57d354ecb19
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381577"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458459"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Descrição geral do exemplo de esquema dos Serviços Partilhados ISO 27001
 
@@ -34,7 +34,7 @@ Este ambiente é composto por vários serviços do Azure utilizados para fornece
   - Um anfitrião jumpbox ou bastion utilizado para fins de gestão, ao qual só é possível aceder através de uma [Azure Firewall](../../../../firewall/overview.md) implementada na sub-rede da pilha de entrada
   - Duas máquinas virtuais com o Active Directory Domain Services (AD DS) e DNS acessíveis apenas através da jumpbox e que só podem ser configurada para replicar o AD através de uma ligação VPN ou [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (não implementada pelo esquema)
   - Utilização do [Observador de Rede do Azure](../../../../network-watcher/network-watcher-monitoring-overview.md) e de proteção contra DDoS padrão
-- Uma instância do [Azure Key Vault](../../../../key-vault/key-vault-overview.md) utilizada para alojar segredos utilizados para as VMs implementadas no ambiente de serviços partilhados
+- Uma instância do [Azure Key Vault](../../../../key-vault/general/overview.md) utilizada para alojar segredos utilizados para as VMs implementadas no ambiente de serviços partilhados
 
 Todos estes elementos obedecem às práticas comprovadas publicados no [Centro de Arquitetura do Azure - Arquiteturas de Referência](/azure/architecture/reference-architectures/).
 

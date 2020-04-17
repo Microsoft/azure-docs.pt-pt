@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 4edf710e575bbb26fb0e247e59ff5c796f16226e
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 9f9fcc0b3d8dfe19961668e77da91bc9f14ff2d1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810586"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453902"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicione um certificado TLS/SSL no Serviço de Aplicações Azure
 
@@ -94,7 +94,7 @@ Se comprar um Certificado de Serviço de Aplicações à Azure, o Azure gere as 
 
 - Cuida do processo de compra do GoDaddy.
 - Realiza verificação de domínio do certificado.
-- Mantém o certificado no [Cofre de Chaves Azure.](../key-vault/key-vault-overview.md)
+- Mantém o certificado no [Cofre de Chaves Azure.](../key-vault/general/overview.md)
 - Gere a renovação do certificado (ver [Certificado Renovar).](#renew-certificate)
 - Sincronizar automaticamente o certificado com as cópias importadas nas aplicações do App Service.
 
@@ -140,8 +140,8 @@ Na página **key vault status,** clique no **Repositório key vault** para criar
 | Grupo de recursos | Como recomendação, selecione o mesmo grupo de recursos que o seu certificado de Serviço de Aplicações. |
 | Localização | Selecione o mesmo local que a sua aplicação App Service. |
 | Escalão de preço | Para obter informações, consulte os detalhes dos [preços do Cofre chave Azure](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Políticas de acesso| Define as aplicações e o acesso permitido aos recursos do cofre. Pode configurá-lo mais tarde, seguindo os passos da [Grant várias aplicações acesso a um cofre chave](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Acesso à Rede Virtual | Restringir o acesso ao cofre a certas redes virtuais azure. Pode configurá-lo mais tarde, seguindo os passos em [Configurar Firewalls e Redes Virtuais](../key-vault/key-vault-network-security.md) |
+| Políticas de acesso| Define as aplicações e o acesso permitido aos recursos do cofre. Pode configurá-lo mais tarde, seguindo os passos da [Grant várias aplicações acesso a um cofre chave](../key-vault/general/group-permissions-for-apps.md). |
+| Acesso à Rede Virtual | Restringir o acesso ao cofre a certas redes virtuais azure. Pode configurá-lo mais tarde, seguindo os passos em [Configurar Firewalls e Redes Virtuais](../key-vault/general/network-security.md) |
 
 Assim que escolhero cofre, feche a página de **Repositório do Cofre chave.** O **passo 1: A** opção loja deve mostrar uma marca de verificação verde para o sucesso. Mantenha a página aberta para o próximo passo.
 

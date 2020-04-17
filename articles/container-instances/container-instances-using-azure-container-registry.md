@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 50c209483a12adc3545b63fb66685e386d9ad10a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252143"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453528"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Desdobre para as instâncias de contentores azure do registo de contentores de Azure
 
@@ -36,7 +36,7 @@ Na secção seguinte, cria-se um cofre chave Azure e um diretor de serviço, e a
 
 ### <a name="create-key-vault"></a>Criar o cofre de chaves
 
-Se ainda não tiver um cofre no [Azure Key Vault](../key-vault/key-vault-overview.md), crie um com a CLI do Azure através dos comandos seguintes.
+Se ainda não tiver um cofre no [Azure Key Vault](../key-vault/general/overview.md), crie um com a CLI do Azure através dos comandos seguintes.
 
 Atualize `RES_GROUP` a variável com o nome de um grupo de `ACR_NAME` recursos existente para criar o cofre chave, e com o nome do seu registo de contentores. Para a brevidade, os comandos neste artigo assumem que o seu registo, cofre chave e instâncias de contentores são todos criados no mesmo grupo de recursos.
 

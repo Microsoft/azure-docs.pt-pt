@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 970701606811cbd61a9bfebe39ff82cdc91d5693
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4f6de807628704051cdddf74bcefbed678f8fcd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80245842"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457897"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar uma aplicação Java do Linux para o Serviço de Aplicações do Azure
 
@@ -230,7 +230,7 @@ Siga as instruções no [nome 'Secure' um DNS personalizado com uma ligação SS
 
 ### <a name="use-keyvault-references"></a>Utilizar referências keyVault
 
-[O Azure KeyVault](../../key-vault/key-vault-overview.md) fornece uma gestão secreta centralizada com políticas de acesso e histórico de auditoria. Pode armazenar segredos (como palavras-passe ou cordas de ligação) no KeyVault e aceder a estes segredos na sua aplicação através de variáveis ambientais.
+[O Azure KeyVault](../../key-vault/general/overview.md) fornece uma gestão secreta centralizada com políticas de acesso e histórico de auditoria. Pode armazenar segredos (como palavras-passe ou cordas de ligação) no KeyVault e aceder a estes segredos na sua aplicação através de variáveis ambientais.
 
 Em primeiro lugar, siga as instruções para [conceder o acesso da sua aplicação ao Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) e fazer uma referência ao [KeyVault ao seu segredo numa Definição](../app-service-key-vault-references.md#reference-syntax)de Aplicação . Pode validar que a referência resolve o segredo imprimindo a variável ambiental ao aceder remotamente ao terminal do Serviço de Aplicações.
 
@@ -277,7 +277,7 @@ Esta secção mostra como ligar as aplicações java implantadas no Serviço de 
 ### <a name="configure-new-relic"></a>Configurar nova relíquia
 
 1. Criar uma conta NewRelic em [NewRelic.com](https://newrelic.com/signup)
-2. Download the Java agent from NewRelic, it will have a file name similar to *newrelic-java-x.x.x.zip*.
+2. Descarregue o agente Java da NewRelic, terá um nome de ficheiro semelhante ao *newrelic-java-x.x.x.x.zip*.
 3. Copie a chave da sua licença, terá de a configurar para configurar o agente mais tarde.
 4. [SSH na sua instância](app-service-linux-ssh-support.md) de Serviço de Aplicações e crie um novo diretório */home/site/wwwroot/apm*.
 5. Faça upload dos ficheiros do agente NewRelic Java desembalados num diretório em */home/site/wwwroot/apm*. Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/newrelic*.

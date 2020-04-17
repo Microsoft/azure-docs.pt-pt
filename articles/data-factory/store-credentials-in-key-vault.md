@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: b5a181625488a57de4b878d13c01a8c90bf8785a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 22ab4433d84db926733fd0b18035875e63322dda
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414670"
+ms.locfileid: "81451691"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Credencial de loja em Cofre chave Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Pode armazenar credenciais para lojas de dados e cálculos num [Cofre de Chaves Azure.](../key-vault/key-vault-overview.md) A Azure Data Factory recupera as credenciais ao executar uma atividade que utiliza a loja de dados/computação.
+Pode armazenar credenciais para lojas de dados e cálculos num [Cofre de Chaves Azure.](../key-vault/general/overview.md) A Azure Data Factory recupera as credenciais ao executar uma atividade que utiliza a loja de dados/computação.
 
 Atualmente, todos os tipos de atividade, exceto atividade personalizada suportam esta funcionalidade. Para obter especificamente a configuração do conector, verifique especificamente a secção "propriedades de serviço ligadas" em cada tópico do [conector](copy-activity-overview.md#supported-data-stores-and-formats) para obter mais detalhes.
 

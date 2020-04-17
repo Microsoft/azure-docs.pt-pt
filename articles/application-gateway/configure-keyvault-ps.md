@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 1979f759f5a1b037adfd7b67a7be50cbba0f596f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: ffda4b41497a9fd84db5fcee36202eb1c1dca2c0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312219"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457846"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configure a rescisão de TLS com certificados key vault utilizando o Azure PowerShell
 
-[O Azure Key Vault](../key-vault/key-vault-overview.md) é uma loja secreta gerida pela plataforma que pode usar para salvaguardar segredos, chaves e certificados TLS/SSL. O Portal de Aplicações Azure suporta a integração com o Key Vault para certificados de servidor que estão ligados a ouvintes com SUPORTE HTTPS. Este suporte está limitado ao Gateway de aplicação v2 SKU.
+[O Azure Key Vault](../key-vault/general/overview.md) é uma loja secreta gerida pela plataforma que pode usar para salvaguardar segredos, chaves e certificados TLS/SSL. O Portal de Aplicações Azure suporta a integração com o Key Vault para certificados de servidor que estão ligados a ouvintes com SUPORTE HTTPS. Este suporte está limitado ao Gateway de aplicação v2 SKU.
 
 Para mais informações, consulte a [rescisão de TLS com certificados key vault](key-vault-certs.md).
 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> A bandeira -EnableSoftDelete deve ser utilizada para que a terminação do TLS funcione corretamente. Se estiver a configurar o [soft-delete do Key Vault através do Portal,](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior)o período de retenção deve ser mantido em 90 dias, o valor predefinido. O Application Gateway ainda não suporta um período de retenção diferente. 
+> A bandeira -EnableSoftDelete deve ser utilizada para que a terminação do TLS funcione corretamente. Se estiver a configurar o [soft-delete do Key Vault através do Portal,](../key-vault/general/overview-soft-delete.md#soft-delete-behavior)o período de retenção deve ser mantido em 90 dias, o valor predefinido. O Application Gateway ainda não suporta um período de retenção diferente. 
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 

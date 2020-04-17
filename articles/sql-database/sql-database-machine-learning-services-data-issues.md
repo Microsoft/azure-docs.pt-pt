@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 0bb3abc7b7102da55c9ededcadd7a301f74065ab
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: e81cca3e20d5b6c050489e80b91d013d5e934cce
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349328"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453204"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Trabalhar com dados R e SQL nos Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)
 
@@ -37,7 +38,7 @@ Questões comuns que pode encontrar incluem:
 
 - Se não tiver uma subscrição Azure, [crie uma conta](https://azure.microsoft.com/free/) antes de começar.
 
-- Para executar o código de exemplo nestes exercícios, tem primeiro de ter uma base de dados Azure SQL com Serviços de Aprendizagem Automática (com R) ativados. Durante a pré-visualização pública, a Microsoft irá embarcar e ativar o machine learning para a sua base de dados existente ou nova. Siga os passos em [Inscreva-se para a pré-visualização](sql-database-machine-learning-services-overview.md#signup).
+- Para executar o código de exemplo nestes exercícios, tem primeiro de ter a Base de [Dados Azure SQL com serviços de aprendizagem automática (com R)](sql-database-machine-learning-services-overview.md) ativados.
 
 - Certifique-se de que instalou o mais recente Estúdio de Gestão de [Servidores SQL](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Pode executar scripts R utilizando outras ferramentas de gestão de bases de dados ou consultas, mas neste arranque rápido irá utilizar SSMS.
 

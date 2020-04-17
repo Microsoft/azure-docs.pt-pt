@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: genlin
 manager: dcscontentpm
-editor: tysonn
 tags: azure-service-management
 ms.assetid: b8ef8367-58b2-42df-9f26-3269980950b8
 ms.service: virtual-network
@@ -16,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9de9fd2eb7a46719b841a885ac173f8d9c1271c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bc080ed41f32ae2af018e9316e67ab38c2d0650
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71059113"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81449906"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Configure endereços IP privados para uma máquina virtual (Clássico) utilizando o portal Azure
 

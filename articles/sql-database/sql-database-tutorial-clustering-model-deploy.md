@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: d67f007ac91d4830557a2cae646698b130b02314
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: ef478246108d40a0c97d7dab03ecf1e5b474410b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345794"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452898"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implementar um modelo de clustering em R com Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)
 
@@ -38,8 +39,6 @@ Neste artigo, aprenderá a:
 Na [primeira parte,](sql-database-tutorial-clustering-model-prepare-data.md)aprendeu a preparar os dados a partir de uma base de dados Azure SQL para realizar o agrupamento.
 
 Na [segunda parte,](sql-database-tutorial-clustering-model-build.md)aprendeste a criar e treinar um modelo de agrupamento K-Means em R.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

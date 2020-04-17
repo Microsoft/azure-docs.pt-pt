@@ -4,12 +4,12 @@ description: Recomendações para garantir imagens e segredos para as instância
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: b5f2c4d9ca80318574e288110fd4ce7f490af00d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87fa28cf9bdb546a5f108284023a9f787645a1fd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76260502"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457999"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Considerações de segurança para instâncias de contentores azure
 
@@ -37,7 +37,7 @@ Soluções de monitorização de segurança e digitalização de imagens, como [
 
 ### <a name="protect-credentials"></a>Proteger credenciais
 
-Os contentores podem espalhar-se por vários aglomerados e regiões de Azure. Por isso, deve assegurar as credenciais necessárias para logins ou acesso a API, tais como senhas ou fichas. Certifique-se de que apenas os utilizadores privilegiados podem aceder a esses contentores em trânsito e em repouso. Inventarie todos os segredos credenciais e, em seguida, exija que os desenvolvedores utilizem ferramentas emergentes de gestão de segredos que são projetadas para plataformas de contentores.  Certifique-se de que a sua solução inclui bases de dados encriptadas, encriptação TLS para dados de segredos em trânsito e controlo de [acesso baseado em papéis](../role-based-access-control/overview.md)de menor privilégio . [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) é um serviço na nuvem que salvaguarda chaves e segredos de encriptação (tais como certificados, cordas de ligação e senhas) para aplicações contentorizadas. Como estes dados são sensíveis e empresariais críticos, o acesso seguro aos seus cofres chave para que apenas as aplicações autorizadas e os utilizadores possam aceder aos mesmos.
+Os contentores podem espalhar-se por vários aglomerados e regiões de Azure. Por isso, deve assegurar as credenciais necessárias para logins ou acesso a API, tais como senhas ou fichas. Certifique-se de que apenas os utilizadores privilegiados podem aceder a esses contentores em trânsito e em repouso. Inventarie todos os segredos credenciais e, em seguida, exija que os desenvolvedores utilizem ferramentas emergentes de gestão de segredos que são projetadas para plataformas de contentores.  Certifique-se de que a sua solução inclui bases de dados encriptadas, encriptação TLS para dados de segredos em trânsito e controlo de [acesso baseado em papéis](../role-based-access-control/overview.md)de menor privilégio . [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) é um serviço na nuvem que salvaguarda chaves e segredos de encriptação (tais como certificados, cordas de ligação e senhas) para aplicações contentorizadas. Como estes dados são sensíveis e empresariais críticos, o acesso seguro aos seus cofres chave para que apenas as aplicações autorizadas e os utilizadores possam aceder aos mesmos.
 
 ## <a name="considerations-for-the-container-ecosystem"></a>Considerações para o ecossistema de contentores
 

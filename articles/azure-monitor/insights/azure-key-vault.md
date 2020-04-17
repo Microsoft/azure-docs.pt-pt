@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 7a2becf8cb43568383c324bb9f4f5b2e7b844268
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7da2fa2ddfbd9c71563dd8bd2e17b14c6dee62b3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77667148"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455467"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução azure key vault Analytics no Monitor Azure
 
@@ -94,7 +94,7 @@ Depois de clicar no azulejo **Key Vault Analytics,** pode ver resumos dos seus r
     Em qualquer uma das páginas de pesquisa de registo, pode visualizar resultados por tempo, resultados detalhados e o seu histórico de pesquisa de registo. Também pode filtrar por facetas para reduzir os resultados.
 
 ## <a name="azure-monitor-log-records"></a>Registos de registos do Monitor Azure
-A solução Azure Key Vault analisa registos que têm um tipo de **KeyVaults** que são recolhidos a partir de [registos de AuditEvent](../../key-vault/key-vault-logging.md) em Diagnósticos Azure.  As propriedades para estes registos estão na tabela seguinte:  
+A solução Azure Key Vault analisa registos que têm um tipo de **KeyVaults** que são recolhidos a partir de [registos de AuditEvent](../../key-vault/general/logging.md) em Diagnósticos Azure.  As propriedades para estes registos estão na tabela seguinte:  
 
 | Propriedade | Descrição |
 |:--- |:--- |
@@ -107,7 +107,7 @@ A solução Azure Key Vault analisa registos que têm um tipo de **KeyVaults** q
 | `httpStatusCode_d` |Código de estado HTTP devolvido pelo pedido (por exemplo, *200*) |
 | `id_s` |Identificação única do pedido |
 | `identity_claim_appid_g` | GUID para o ID de aplicação |
-| `OperationName` |Nome da operação, como documentado na [Exploração do Cofre](../../key-vault/key-vault-logging.md) de Chaves Azure |
+| `OperationName` |Nome da operação, como documentado na [Exploração do Cofre](../../key-vault/general/logging.md) de Chaves Azure |
 | `OperationVersion` |Versão REST API solicitada pelo cliente (por exemplo *2015-06-01*) |
 | `requestUri_s` |Uri do pedido |
 | `Resource` |Nome do cofre da chave |

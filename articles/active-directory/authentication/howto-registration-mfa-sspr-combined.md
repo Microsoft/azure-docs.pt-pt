@@ -1,38 +1,30 @@
 ---
 title: Começar com inscrição combinada - Diretório Ativo Azure
-description: Ativar a autenticação combinada de Multi-Factore AD AD e o registo de redefinição de senha de autosserviço (pré-visualização)
+description: Ativar a autenticação combinada de Multi-Factor e o registo de palavra-passe de autosserviço Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry, calebb
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e22871114f260417e8a1514546c88ec4541064a4
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 5d9544b1f4dd5ecbf66493f26c373c5502dce68a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309753"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451091"
 ---
-# <a name="enable-combined-security-information-registration-preview"></a>Ativar o registo combinado de informações de segurança (pré-visualização)
+# <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Permitir o registo combinado de informações de segurança no Diretório Ativo do Azure
 
-Antes de permitir a nova experiência, reveja o artigo Registo combinado de informações de [segurança (pré-visualização)](concept-registration-mfa-sspr-combined.md) para garantir que compreende a funcionalidade e os efeitos desta funcionalidade.
+Antes do registo combinado, os utilizadores registaram métodos de autenticação para a autenticação de multi-factores Azure e reset de palavra-passe self-service (SSPR) separadamente. As pessoas estavam confusas de que métodos semelhantes eram usados para a autenticação multi-factor e SSPR, mas tinham de se registar para ambas as funcionalidades. Agora, com o registo combinado, os utilizadores podem registar-se uma vez e obter os benefícios tanto da Autenticação Multi-Factor como do SSPR.
+
+Antes de permitir a nova experiência, reveja o artigo Registo combinado de [informações](concept-registration-mfa-sspr-combined.md) de segurança para garantir que compreende a funcionalidade e os efeitos desta funcionalidade.
 
 ![Experiência melhorada do registo combinado de informações de segurança](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
-
-|     |
-| --- |
-| O registo combinado de informações de segurança para a autenticação de multi-factores Azure e o reset de senha de autosserviço azure Ative (Azure AD) é uma funcionalidade de pré-visualização pública da Azure AD. Para mais informações sobre pré-visualizações, consulte [Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .|
-|     |
-
-> [!NOTE]
-> As organizações que permitiram a pré-visualização anterior para registar e gerir informações de segurança devem completar os passos abaixo para permitir a experiência de pré-visualização melhorada. Para as organizações que não fizerem a troca, a 8 de outubro de 2019, a Microsoft irá trocar os utilizadores da pré-visualização anterior para registar e gerir informações de segurança para a experiência melhorada. 
-> 
-> Se não tiver ativado nenhuma versão da pré-visualização, a sua organização não será impactada.
 
 ## <a name="enable-combined-registration"></a>Permitir o registo combinado
 
@@ -43,9 +35,6 @@ Complete estas etapas para permitir o registo combinado:
 3. No âmbito do Utilizador pode utilizar funcionalidades de **pré-visualização para registar e gerir informações**de segurança, opte por ativar para um grupo de utilizadores **Selecionados** ou para **Todos os** utilizadores.
 
    ![Ativar a experiência combinada de pré-visualização de informações de segurança para todos os utilizadores](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
-
-> [!IMPORTANT]
-> A partir de março de 2019, as opções de chamada telefónica não estarão disponíveis para utilizadores de Multi-Factor autenticação e SSPR em inquilinos ad's free/trial Azure. As mensagens SMS não são afetadas por esta alteração. As opções de chamada telefónica ainda estarão disponíveis para os utilizadores em inquilinos da Azure AD pagos.
 
 > [!NOTE]
 > Depois de ativar o registo combinado, os utilizadores que se registem ou confirmem o seu número de telefone ou aplicação móvel através da nova experiência podem utilizá-los para autenticação multi-factor e SSPR, se esses métodos estiverem ativados nas políticas de Autenticação multi-Factor e SSPR. Se, em seguida, desativar esta experiência, os `https://aka.ms/ssprsetup` utilizadores que acederem à página de registo sSPR anterior serão obrigados a efetuar a autenticação de vários fatores antes de poderem aceder à página.
@@ -58,7 +47,7 @@ Se configurar a Lista de Atribuição de Zonas no Internet Explorer, os seguinte
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Políticas de acesso condicional para registo combinado
 
-A segurança quando e como os utilizadores se registam para a Autenticação multi-factor Do Azure e o reset de palavra-passe self-service é agora possível com as ações do utilizador na política de Acesso Condicional. Esta funcionalidade de pré-visualização está disponível para organizações que permitiram a [pré-visualização](../authentication/concept-registration-mfa-sspr-combined.md)combinada do registo. Esta funcionalidade pode ser ativada em organizações onde pretendem que os utilizadores se registem para a Autenticação Multi-Factor E SSPR azure a partir de um local central, como uma localização de rede confiável durante o embarque em RH. Para obter mais informações sobre a criação de localizações fidedignas no Acesso Condicional, consulte o artigo Qual é a condição de localização no Acesso Condicional do [Diretório Ativo azure?](../conditional-access/location-condition.md#named-locations)
+A segurança quando e como os utilizadores se registam para a Autenticação multi-factor Do Azure e o reset de palavra-passe self-service é agora possível com as ações do utilizador na política de Acesso Condicional. Esta funcionalidade está disponível para organizações que permitiram a funcionalidade de [registo combinado.](../authentication/concept-registration-mfa-sspr-combined.md) Esta funcionalidade pode ser ativada em organizações onde pretendem que os utilizadores se registem para a Autenticação Multi-Factor E SSPR azure a partir de um local central, como uma localização de rede confiável durante o embarque em RH. Para obter mais informações sobre a criação de localizações fidedignas no Acesso Condicional, consulte o artigo Qual é a condição de localização no Acesso Condicional do [Diretório Ativo azure?](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Criar uma política para exigir o registo a partir de um local de confiança
 
@@ -72,7 +61,7 @@ A seguinte política aplica-se a todos os utilizadores selecionados, que tentam 
 1. Em **Atribuições,** clique em **Utilizadores e grupos,** e selecione os utilizadores e grupos que pretende que esta política se aplique
 
    > [!WARNING]
-   > Os utilizadores devem estar ativados para a [pré-visualização combinada](../authentication/howto-registration-mfa-sspr-combined.md)do registo .
+   > Os utilizadores devem estar habilitados para o [registo combinado.](../authentication/howto-registration-mfa-sspr-combined.md)
 
 1. Em **aplicações ou ações cloud**, selecione as ações do **Utilizador,** verifique **registar informações de segurança (pré-visualização)**
 1. Em **condições** > **locais**
@@ -89,14 +78,10 @@ A seguinte política aplica-se a todos os utilizadores selecionados, que tentam 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Forçar os utilizadores a reregistar métodos de autenticação](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
+Se precisar de ajuda, veja como resolver o registo combinado de [informações](howto-registration-mfa-sspr-combined-troubleshoot.md) de segurança ou saiba Qual é a condição de localização no Acesso Condicional do [Diretório Ativo Azure?](../conditional-access/location-condition.md)
 
-[Métodos disponíveis para autenticação multi-factor e SSPR](concept-authentication-methods.md)
+Para ativar as funcionalidades do seu inquilino Azure AD, consulte os tutoriais para permitir a [redefinição da palavra-passe de self-service](tutorial-enable-sspr.md) e ativar a [autenticação de multi-factores Azure](tutorial-enable-azure-mfa.md).
 
-[Configurar o reset da palavra-passe de autosserviço](howto-sspr-deployment.md)
+Saiba como permitir o [registo combinado no seu inquilino](howto-registration-mfa-sspr-combined.md) ou force os utilizadores a [reregistar métodos de autenticação](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-[Configurar o Multi-Factor Authentication do Azure](howto-mfa-getstarted.md)
-
-[Registo combinado de informações de segurança combinadas de resolução de problemas](howto-registration-mfa-sspr-combined-troubleshoot.md)
-
-[Qual é a condição de localização no Acesso Condicional do Diretório Ativo Azure?](../conditional-access/location-condition.md)
+Também pode rever os [métodos disponíveis para autenticação de multi-factores Azure e SSPR](concept-authentication-methods.md).

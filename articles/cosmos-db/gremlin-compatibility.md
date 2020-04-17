@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
-ms.openlocfilehash: 581bc813ca27067b1f27ab9866a45df3084dbbcc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 989a033a843b861c34dc9dbdbced50399f8e5cd7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75644737"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81449889"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilidade Azure Cosmos DB Gremlin
 O motor Azure Cosmos DB Graph segue de perto a especificação de passos de passagem [do Apache TinkerPop,](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) mas existem diferenças.
@@ -35,7 +35,7 @@ O motor Azure Cosmos DB Graph segue de perto a especificação de passos de pass
 
 * ***Os tipos jSON não primitivos*** não são suportados. `string`Utilizar, `number`ou `true` / `false` tipos. `null`valores não são suportados. 
 
-* O serializador ***GraphSONv3*** não é atualmente suportado. Utilize `GraphSONv2` aulas de Serializer, Reader e Writer na configuração de ligação.
+* O serializador ***GraphSONv3*** não é atualmente suportado. Utilize `GraphSONv2` aulas de Serializer, Reader e Writer na configuração de ligação. Os resultados devolvidos pela API Azure Cosmos DB Gremlin não têm o mesmo formato que o formato GraphSON. 
 
 * **Expressões e funções lambda** não são atualmente suportadas. Isto inclui `.map{<expression>}`as `.by{<expression>}` `.filter{<expression>}` funções. Para saber mais, e para aprender a reescrevê-los usando passos Gremlin, consulte [A Note on Lambdas](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
 

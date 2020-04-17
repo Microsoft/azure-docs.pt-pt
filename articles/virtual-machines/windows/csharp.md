@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
 ms.service: virtual-machines-windows
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 3930e51f63615abd21a7b04199a0f4767925792a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b873ce9e9b203c6999f93adc8fcd96de3dbf362
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944502"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452065"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerir VMs windows em Azure usando C # #
 

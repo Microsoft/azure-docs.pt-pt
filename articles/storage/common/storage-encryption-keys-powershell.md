@@ -10,18 +10,18 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f24c89a53af5e618d64b78d6001040190c1f339c
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: bfc2e256396904456a7ee0fd8b6173c00a5f53d7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618338"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456401"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configure as chaves geridas pelo cliente com o Cofre de Chaves Azure utilizando a PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Este artigo mostra como configurar um Cofre de Chave Azure com chaves geridas pelo cliente usando o PowerShell. Para aprender a criar um cofre chave usando o Azure CLI, consulte [Quickstart: set and retrieve a secret from Azure Key Vault usando powerShell](../../key-vault/quick-create-powershell.md).
+Este artigo mostra como configurar um Cofre de Chave Azure com chaves geridas pelo cliente usando o PowerShell. Para aprender a criar um cofre chave usando o Azure CLI, consulte [Quickstart: set and retrieve a secret from Azure Key Vault usando powerShell](../../key-vault/secrets/quick-create-powershell.md).
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Atribuir uma identidade à conta de armazenamento
 
@@ -51,7 +51,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-Para aprender a ativar o **Soft Delete** e **não purgar** num cofre de chaves existente com a PowerShell, consulte as secções intituladas **Enableing soft-delete** e **Enableing Purge Protection** in How to use [soft-delete with PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
+Para aprender a ativar o **Soft Delete** e **não purgar** num cofre de chaves existente com a PowerShell, consulte as secções intituladas **Enableing soft-delete** e **Enableing Purge Protection** in How to use [soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md).
 
 ## <a name="configure-the-key-vault-access-policy"></a>Configure a política de acesso ao cofre chave
 

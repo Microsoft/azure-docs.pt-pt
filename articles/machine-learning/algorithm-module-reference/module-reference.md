@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: peterclu
-ms.author: peterlu
-ms.date: 02/22/2020
-ms.openlocfilehash: 7fcfc7c15f94d7b569629e53534d731126172260
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+author: likebupt
+ms.author: keli19
+ms.date: 04/13/2020
+ms.openlocfilehash: c46c21b5662b924552f850f226a12c7350b4625a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399068"
+ms.locfileid: "81458205"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritmo & referência do módulo para designer de machine learning azure (pré-visualização)
 
@@ -59,6 +59,10 @@ Para ajuda na escolha de algoritmos, consulte
 | Recomendação | Construir modelos de recomendação. | [Avaliar Recomendador](evaluate-recommender.md) <br/> [Classificar Recomendador SVD](score-svd-recommender.md) <br/> [Preparar Recomendador SVD](train-SVD-recommender.md) |
 | Deteção de Anomalias | Construir modelos de deteção de anomalias. | [Deteção de anomalias baseada em PCA](pca-based-anomaly-detection.md) <br/> [Modelo de deteção de anomalias do comboio](train-anomaly-detection-model.md) |
 
+
+## <a name="web-service"></a>Serviço Web
+
+Conheça os módulos de serviço web que são [necessários](web-service-input-output.md) para inferência em tempo real no designer de Machine Learning Azure.
 
 ## <a name="error-messages"></a>Mensagens de erro
 

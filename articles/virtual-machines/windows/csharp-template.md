@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
 ms.service: virtual-machines-windows
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 6d99c5ae91b80b9b6b9af08001b3a7c57bc7ca8f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f636af911b3c6eb7d40a5ce5052bf17ae5d10f01
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944535"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452201"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementar uma máquina virtual Azure usando C# e um modelo de Gestor de Recursos
 
@@ -252,7 +251,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 O modelo e os parâmetros são implantados a partir de uma conta de armazenamento em Azure. Neste passo, cria-se a conta e faz o upload dos ficheiros. 
 

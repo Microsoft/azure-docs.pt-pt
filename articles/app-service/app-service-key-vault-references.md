@@ -6,32 +6,32 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd0a03ea76d517486bb9bda6d9628fb529166dd8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280342"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453732"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utilize referências chave vault para serviço de aplicações e funções azure
 
-Este tópico mostra-lhe como trabalhar com segredos do Cofre de Chaves Azure na sua aplicação App Service ou Azure Functions sem exigir alterações de código. [Azure Key Vault](../key-vault/key-vault-overview.md) é um serviço que fornece gestão centralizada de segredos, com total controlo sobre políticas de acesso e histórico de auditoria.
+Este tópico mostra-lhe como trabalhar com segredos do Cofre de Chaves Azure na sua aplicação App Service ou Azure Functions sem exigir alterações de código. [Azure Key Vault](../key-vault/general/overview.md) é um serviço que fornece gestão centralizada de segredos, com total controlo sobre políticas de acesso e histórico de auditoria.
 
 ## <a name="granting-your-app-access-to-key-vault"></a>Concedendo o acesso da sua aplicação ao Key Vault
 
 Para ler segredos do Key Vault, precisa de ter um cofre criado e dar permissão à sua aplicação para aceder ao mesmo.
 
-1. Crie um cofre chave seguindo o [quickstart do Key Vault](../key-vault/quick-create-cli.md).
+1. Crie um cofre chave seguindo o [quickstart do Key Vault](../key-vault/secrets/quick-create-cli.md).
 
 1. Crie uma [identidade gerida atribuída](overview-managed-identity.md) ao sistema para a sua aplicação.
 
    > [!NOTE] 
    > Atualmente, as referências chave vault apenas suportam identidades geridas atribuídas pelo sistema. As identidades atribuídas ao utilizador não podem ser utilizadas.
 
-1. Crie uma política de [acesso no Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para a identidade de aplicação que criou anteriormente. Ative a permissão secreta "Obter" nesta política. Não configure a "aplicação `applicationId` autorizada" ou as definições, uma vez que esta não é compatível com uma identidade gerida.
+1. Crie uma política de [acesso no Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) para a identidade de aplicação que criou anteriormente. Ative a permissão secreta "Obter" nesta política. Não configure a "aplicação `applicationId` autorizada" ou as definições, uma vez que esta não é compatível com uma identidade gerida.
 
     > [!NOTE]
-    > As referências key Vault não são atualmente capazes de resolver segredos armazenados num cofre chave com [restrições](../key-vault/key-vault-overview-vnet-service-endpoints.md)de rede .
+    > As referências key Vault não são atualmente capazes de resolver segredos armazenados num cofre chave com [restrições](../key-vault/general/overview-vnet-service-endpoints.md)de rede .
 
 ## <a name="reference-syntax"></a>Sintaxe de referência
 

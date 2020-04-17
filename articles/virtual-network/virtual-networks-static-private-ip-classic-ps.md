@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: genlin
 manager: dcscontentpm
-editor: tysonn
 tags: azure-service-management
 ms.assetid: 60c7b489-46ae-48af-a453-2b429a474afd
 ms.service: virtual-network
@@ -16,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00a4f282da3a943516ffce584247ac20935526b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9255ca3a2ed7e446c60a269deef61372955c25f4
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71058712"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458510"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>Configure endereços IP privados para uma máquina virtual (Clássica) usando powerShell
 

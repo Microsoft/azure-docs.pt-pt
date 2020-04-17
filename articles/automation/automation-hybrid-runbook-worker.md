@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1e4470ce5ac69390cf8d361577b9ebf0013e4e51
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 861c7ffa647c8d2f37b32c359253ca991eeb314f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405792"
+ms.locfileid: "81457710"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizar recursos no seu datacenter ou nuvem utilizando o Trabalhador do Livro de Corridas Híbrido
 
@@ -68,7 +68,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 ```
 
 > [!NOTE]
-> Este código não remove o Agente de Monitorização da Microsoft do computador. Apenas remove a funcionalidade e configuração da função Hybrid Runbook Worker.
+> Este código não remove o agente Log Analytics para o Linux do computador. Apenas remove a funcionalidade e configuração da função Hybrid Runbook Worker.
 
 ## <a name="remove-a-hybrid-worker-group"></a>Remove a Hybrid Worker group (Remover um grupo de Função de Trabalho Híbrida)
 
@@ -89,7 +89,7 @@ Para remover um grupo híbrido runbook worker, você primeiro precisa remover o 
 
 ### <a name="hybrid-worker-role"></a>Papel do Trabalhador Híbrido
 
-Para que o Trabalhador do Livro Híbrido se ligue e registe-se com a Automação Azure, deve ter acesso ao número de porta e aos URLs descritos nesta secção. Este acesso está em cima das [portas e URLs necessários para](../azure-monitor/platform/agent-windows.md) que o Microsoft Monitoring Agent se conectem aos registos do Monitor Azure.
+Para que o Trabalhador do Livro Híbrido se ligue e registe-se com a Automação Azure, deve ter acesso ao número de porta e aos URLs descritos nesta secção. Este acesso está em cima das [portas e URLs necessários para](../azure-monitor/platform/agent-windows.md) que o agente Log Analytics se ligue aos registos do Monitor Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

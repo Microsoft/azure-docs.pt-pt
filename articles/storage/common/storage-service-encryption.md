@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ff9191c0994d4e26da69e1c4ceaf7ef6c93e9960
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c737ccf83dae0cc4b198b9cd708a55b988e6593b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81253157"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457948"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Encriptação azure storage para dados em repouso
 
@@ -54,7 +54,7 @@ A tabela seguinte compara as principais opções de gestão para encriptação d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o cofre de chave do Azure?](../../key-vault/key-vault-overview.md)
+- [O que é o cofre de chave do Azure?](../../key-vault/general/overview.md)
 - [Configurar chaves geridas pelo cliente para a encriptação do Armazenamento do Microsoft Azure no portal do Azure](storage-encryption-keys-portal.md)
 - [Configurar chaves geridas pelo cliente para a encriptação do Armazenamento do Microsoft Azure no PowerShell](storage-encryption-keys-powershell.md)
 - [Configurar chaves geridas pelo cliente para a encriptação do Armazenamento do Microsoft Azure na CLI do Azure](storage-encryption-keys-cli.md)

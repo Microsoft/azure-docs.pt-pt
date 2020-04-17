@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9dc4dce5a7af49529924881321b1a5080293a585
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f2584a8d4e68b7c16b3acdc29f64f0a19d83d735
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405616"
+ms.locfileid: "81457676"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implante um trabalhador de runbook híbrido Linux
 
@@ -76,7 +76,7 @@ Antes de proceder, note o espaço de trabalho log Analytics a que a sua conta De
 
 1. Ativar a solução Automation Hybrid Worker em Azure utilizando um dos seguintes métodos:
 
-   * Adicione a solução Automation Hybrid Worker à sua subscrição utilizando o procedimento no [Add Azure Monitor soluçãos de logs para o seu espaço de trabalho](../log-analytics/log-analytics-add-solutions.md).
+   * Adicione a solução Automation Hybrid Worker à sua subscrição utilizando o procedimento em Soluções de [registo Add Azure Monitor para o seu espaço de trabalho](../log-analytics/log-analytics-add-solutions.md).
    * Execute o seguinte cmdlet:
 
         ```azurepowershell-interactive

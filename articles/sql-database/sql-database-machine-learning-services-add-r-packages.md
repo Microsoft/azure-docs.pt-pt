@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
-ms.openlocfilehash: ce85f45d823df42e70af53824e175968439621d3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ROBOTS: NOINDEX
+ms.openlocfilehash: ab066609bff773ceacb06be604e386eed5cdf7ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73819867"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453341"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Adicione um pacote R aos Serviços de Machine Learning de Máquinas de Base de Dados Azure SQL (pré-visualização)
 

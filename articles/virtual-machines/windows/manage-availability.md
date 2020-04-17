@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 02351953-7b6a-4657-b9e1-de2ea8f6aa05
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae5d60f77319a6590807ae0b18a0c07c116e128b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02dec02664cc82392ece49d1c5bd08834c3b9af3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79267446"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451776"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gerir a disponibilidade das máquinas virtuais do Windows no Azure 
 

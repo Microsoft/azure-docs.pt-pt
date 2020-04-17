@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: c1b48ae8191e2e5313d9037c791eca73c8a55691
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77191389"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450145"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Melhorar a segurança das mensagens B2B utilizando certificados
 
@@ -34,7 +34,7 @@ Pode utilizar estes certificados nas suas aplicações de integração empresari
 
 Para utilizar um *certificado público* em aplicações lógicas que possuam capacidades B2B, tem primeiro de fazer o upload do certificado para a sua conta de integração. Depois de definir as propriedades nos [acordos](logic-apps-enterprise-integration-agreements.md) que cria, o certificado está disponível para o ajudar a garantir as suas mensagens B2B.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). No menu Azure principal, selecione **Todos os recursos.** Na caixa de pesquisa, introduza o nome da sua conta de integração e, em seguida, selecione a conta de integração que deseja.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). No menu Azure principal, selecione **Todos os recursos.** Na caixa de pesquisa, introduza o nome da sua conta de integração e, em seguida, selecione a conta de integração que deseja.
 
    ![Encontre e selecione a sua conta de integração](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
 
@@ -66,14 +66,14 @@ Depois de definir as propriedades nos [acordos](logic-apps-enterprise-integratio
 > [!NOTE]
 > Para certificados privados, certifique-se de que adiciona um certificado público correspondente que aparece nas definições de **Envio e Receção** [do acordo AS2](logic-apps-enterprise-integration-as2.md) para a assinatura e encriptação de mensagens.
 
-1. [Adicione a sua chave privada ao Cofre de Chaves Azure](../key-vault/certificate-scenarios.md#import-a-certificate) e forneça um **nome chave**.
+1. [Adicione a sua chave privada ao Cofre de Chaves Azure](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) e forneça um **nome chave**.
    
 2. Autorize as Aplicações Lógicas Azure a realizar operações no Cofre chave Azure. Para garantir o acesso ao diretor de serviço de Aplicações Lógicas, utilize o comando PowerShell, [Set-AzKeyVaultAccessPolicy,](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)por exemplo:
 
    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
-3. Inicie sessão no [Portal do Azure](https://portal.azure.com). No menu Azure principal, selecione **Todos os recursos.** Na caixa de pesquisa, introduza o nome da sua conta de integração e, em seguida, selecione a conta de integração que deseja.
+3. Inicie sessão no [portal do Azure](https://portal.azure.com). No menu Azure principal, selecione **Todos os recursos.** Na caixa de pesquisa, introduza o nome da sua conta de integração e, em seguida, selecione a conta de integração que deseja.
 
    ![Encontre a sua conta de integração](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
 

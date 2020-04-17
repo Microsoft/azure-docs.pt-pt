@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f105eac0f6f21ea3358340a4e2aaec7d1f1a95ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 569c989e8876bb7213d1469c7a70da99aa0b1e9c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190552"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455347"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Controlos de segurança para máquinas virtuais do Windows
 
@@ -50,7 +50,7 @@ Este artigo documenta os controlos de segurança incorporados nas Máquinas Virt
 
 | Controlo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Encriptação do lado do servidor em repouso: Chaves geridas pela Microsoft | Sim | Ver [encriptar discos virtuais num VM do Windows](/azure/virtual-machines/windows/encrypt-disks). |
+| Encriptação do lado do servidor em repouso: Chaves geridas pela Microsoft | Sim | Ver [encriptar discos virtuais num VM do Windows](/azure/virtual-machines/windows/disk-encryption-overview). |
 | Encriptação em trânsito (como encriptação ExpressRoute, na encriptação VNet e encriptação VNet-VNet)| Sim | As Máquinas Virtuais Azure suportam a encriptação [ExpressRoute](/azure/expressroute) e VNet. Ver [encriptação em trânsito em VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Encriptação do lado do servidor em repouso: chaves geridas pelo cliente (BYOK) | Sim | As chaves geridas pelo cliente são um cenário de encriptação Azure suportada; ver [visão geral da encriptação Azure.](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)|
 | Encriptação de nível de coluna (Serviços de Dados Azure)| N/D | |

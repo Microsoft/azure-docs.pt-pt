@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 3f4f1f5e163dfed9f356aed538d934d0e4258790
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: c1d26fda57d665cc8d83f594f4efeebebc7bf139
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618890"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456894"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial - Criptografar e desencriptar bolhas usando o Cofre de Chaves Azure
 
@@ -23,7 +23,7 @@ Este tutorial cobre como fazer uso da encriptação de armazenamento do lado do 
 
 **Tempo estimado para concluir:** 20 minutos
 
-Para obter informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre de Chaves Azure?](../../key-vault/key-vault-overview.md)
+Para obter informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre de Chaves Azure?](../../key-vault/general/overview.md)
 
 Para obter informações sobre encriptação do lado do cliente para o Armazenamento Azure, consulte a encriptação do lado do cliente e o [Cofre de Chaves Azure para o Armazenamento Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -48,7 +48,7 @@ Aqui está uma breve descrição de como a encriptação do lado do cliente func
 
 ## <a name="set-up-your-azure-key-vault"></a>Instale o seu Cofre de Chave Azure
 
-Para prosseguir com este tutorial, é necessário fazer os seguintes passos, que estão delineados no tutorial [Quickstart: Definir e recuperar um segredo do Azure Key Vault utilizando uma aplicação web .NET:](../../key-vault/quick-create-net.md)
+Para prosseguir com este tutorial, é necessário fazer os seguintes passos, que estão delineados no tutorial [Quickstart: Definir e recuperar um segredo do Azure Key Vault utilizando uma aplicação web .NET:](../../key-vault/secrets/quick-create-net.md)
 
 * Criar um cofre de chaves.
 * Adicione uma chave ou segredo ao cofre da chave.

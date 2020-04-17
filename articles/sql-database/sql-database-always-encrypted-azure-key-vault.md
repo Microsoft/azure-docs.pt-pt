@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 006c780aeb3db813c8fdfb5da0b5c13fc4dcfebc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1d08581c5d29fc41fb33541d766af7cece88cdc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067419"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451674"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Sempre Encriptado: Proteja dados sensíveis e guarde chaves de encriptação no Cofre de Chaves Azure
 
@@ -55,7 +55,7 @@ Para obter o ID de *aplicação* e *chave,* siga os passos na criação de uma a
 
 Agora que a sua aplicação de cliente está configurada e tem o seu ID de aplicação, é hora de criar um cofre chave e configurar a sua política de acesso para que você e a sua aplicação possam aceder aos segredos do cofre (as chaves Sempre Encriptadas). As permissões de *criação,* *get*, *list*, *sign*, *check,* *wrapKey*e *desembrulhar* As permissões chave são necessárias para criar uma nova chave master de colunas e para configurar encriptação com o SQL Server Management Studio.
 
-Você pode rapidamente criar um cofre chave executando o seguinte script. Para uma explicação detalhada destes comandos e mais informações sobre a criação e configuração de um cofre chave, veja [o que é o Cofre chave Azure?](../key-vault/key-vault-overview.md)
+Você pode rapidamente criar um cofre chave executando o seguinte script. Para uma explicação detalhada destes comandos e mais informações sobre a criação e configuração de um cofre chave, veja [o que é o Cofre chave Azure?](../key-vault/general/overview.md)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -81,7 +81,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGro
 Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 $subscriptionName = '<subscriptionName>'
@@ -106,7 +106,7 @@ az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwr
 
 ## <a name="create-a-blank-sql-database"></a>Criar uma base de dados SQL vazia
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Vá para **criar uma** > base de**dados** > **SQL**de recursos .
 3. Crie uma base de dados **em branco** chamada **Clinic** num servidor novo ou existente. Para obter instruções detalhadas sobre como criar uma base de dados no portal Azure, consulte a sua primeira base de [dados Azure SQL](sql-database-single-database-get-started.md).
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d4e76f4d02b0287770243bfddf995a19f90d232
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fafe4a9ef78a92595eaae942fa5d7cbeb2c07189
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73749443"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458220"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de resolução de problemas de encriptação de disco azure
 
@@ -35,7 +35,7 @@ Quaisquer definições do grupo de segurança da rede que são aplicadas devem a
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Cofre chave azure atrás de uma firewall
 
-Quando a encriptação está a ser ativada com [credenciais De AD Azure,](disk-encryption-windows-aad.md#)o VM alvo deve permitir a conectividade tanto aos pontos finais do Diretório Ativo Azure como aos pontos finais do Cofre chave. Os pontos finais de autenticação do Diretório Ativo Azure atuais são mantidos nas secções 56 e 59 do [Office 365 URLs e](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentação de endereços IP. As instruções do cofre chave são fornecidas na documentação sobre como aceder ao [Cofre chave Azure atrás de uma firewall](../../key-vault/key-vault-access-behind-firewall.md).
+Quando a encriptação está a ser ativada com [credenciais De AD Azure,](disk-encryption-windows-aad.md#)o VM alvo deve permitir a conectividade tanto aos pontos finais do Diretório Ativo Azure como aos pontos finais do Cofre chave. Os pontos finais de autenticação do Diretório Ativo Azure atuais são mantidos nas secções 56 e 59 do [Office 365 URLs e](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentação de endereços IP. As instruções do cofre chave são fornecidas na documentação sobre como aceder ao [Cofre chave Azure atrás de uma firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância Azure 
 O VM deve poder aceder ao ponto final do [serviço de metadados de instância](../windows/instance-metadata-service.md) `169.254.169.254`seletiva, que utiliza um endereço IP não resaída conhecido ( ) que só pode ser acedido a partir do VM.  As configurações proxy que alteram o tráfego local http para este endereço (por exemplo, adicionar um cabeçalho X-Forwarded-For) não são suportadas.

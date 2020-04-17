@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 487559aaf632a30b7efcda490f92a90d4f59b8f5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 9f2ed6ea8cc75e2ee72f15c14f3de7bb8bf8cef6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883479"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450891"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto de aplicativo sony Azure Ative Diretório
 
-O manifesto de aplicação contém uma definição de todos os atributos de um objeto de aplicação na plataforma de identidade da Microsoft. Também serve como um mecanismo para atualizar o objeto de aplicação. Para obter mais informações sobre a entidade aplicação e o seu esquema, consulte a documentação da [entidade da Aplicação API graph.](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)
+O manifesto de aplicação contém uma definição de todos os atributos de um objeto de aplicação na plataforma de identidade da Microsoft. Também serve como um mecanismo para atualizar o objeto de aplicação. Para obter mais informações sobre a entidade aplicação e o seu esquema, consulte a documentação da [entidade da Aplicação API graph.](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
 
 Pode configurar os atributos de uma aplicação através do portal Azure ou utilizar programáticamente a [REST API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) ou [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). No entanto, existem alguns cenários em que terá de editar o manifesto da aplicação para configurar o atributo de uma aplicação. Os cenários incluem:
 
@@ -40,6 +40,20 @@ Para configurar o manifesto de candidatura:
 ## <a name="manifest-reference"></a>Referência manifesta
 
 Esta secção descreve os atributos encontrados no manifesto de aplicação.
+
+### <a name="id-attribute"></a>atributo id
+
+| Chave | Tipo de valor |
+| :--- | :--- |
+| ID | String |
+
+O identificador único para a app no diretório. Este ID não é o identificador utilizado para identificar a aplicação em qualquer transação de protocolo. É usado para referenciar o objeto em consultas de diretório.
+
+Exemplo:
+
+```json
+    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
+```
 
 ### <a name="accesstokenacceptedversion-attribute"></a>atributo de versão TokenAccepted
 
@@ -230,19 +244,7 @@ Exemplo:
     "optionalClaims": null,
 ```
 
-### <a name="id-attribute"></a>atributo id
 
-| Chave | Tipo de valor |
-| :--- | :--- |
-| ID | String |
-
-O identificador único para a app no diretório. Este ID não é o identificador utilizado para identificar a aplicação em qualquer transação de protocolo. É usado para referenciar o objeto em consultas de diretório.
-
-Exemplo:
-
-```json
-    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
 
 ### <a name="identifieruris-attribute"></a>identificadorAtributoUris
 

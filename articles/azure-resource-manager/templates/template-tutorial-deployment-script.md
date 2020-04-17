@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 94b351ddb18ca596f47e8ef40cff8229c838d7bd
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: f369eb54dc92a29ba122a8a645262dc085b1ed36
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239213"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80930040"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Utilize scripts de implementação para criar um certificado auto-assinado (Pré-visualização)
 
@@ -48,13 +48,12 @@ Para concluir este artigo, precisa de:
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  Utilize o seguinte script PowerShell para obter o ID fornecendo o nome do grupo de recursos e o nome de identidade.
+  Utilize o seguinte script CLI para obter o ID fornecendo o nome do grupo de recursos e o nome de identidade.
 
-  ```azurepowershell-interactive
-  $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
-  $idName = Read-Host -Prompt "Enter the name of the managed identity"
-
-  $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
+  ```azurecli-interactive
+  echo "Enter the Resource Group name:" &&
+  read resourceGroupName &&
+  az identity list -g $resourceGroupName
   ```
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
@@ -317,7 +316,7 @@ O resultado da execução do script de implementação é armazenado nos recurso
 
 ## <a name="debug-the-failed-script"></a>Depurar o guião falhado
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Abra o grupo de recursos. É o nome do projeto com **rg** anexado. Verá dois recursos adicionais no grupo de recursos. Estes recursos são referidos como recursos de script de *implantação.*
 
     ![Recursos de script de implementação de modelo de gestor de recursos de gestor de recursos](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)

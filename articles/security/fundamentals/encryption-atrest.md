@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3491a54682e8f2b244c0400480a69e083335f5c
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81008394"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454684"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados azure-at-rest
 
@@ -163,7 +163,7 @@ Para operações utilizando chaves de encriptação, uma identidade de serviço 
 Para obter uma chave para utilização na encriptação ou desencriptação de dados no resto da identidade de serviço que a instância de serviço do Gestor de Recursos funcionará como deve ter UnwrapKey (para obter a chave para desencriptação) e WrapKey (para inserir uma chave no cofre chave ao criar uma nova chave).
 
 >[!NOTE]
->Para obter mais detalhes sobre a autorização do Cofre chave, consulte a página segura do cofre na documentação do [Cofre de Chaves Azure](../../key-vault/key-vault-secure-your-key-vault.md).
+>Para obter mais detalhes sobre a autorização do Cofre chave, consulte a página segura do cofre na documentação do [Cofre de Chaves Azure](../../key-vault/general/secure-your-key-vault.md).
 
 **Vantagens**
 
@@ -282,7 +282,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  |
 | Azure HDInsight                  | Sim                | Todos                | -                  |
 | Insights de aplicação do Monitor Azure | Sim                | Sim                | -                  |
-| Análise de log do Monitor Azure | Sim                | Sim                | -                  |
+| Análise de log do Monitor Azure      | Sim                | Sim                | -                  |
 | Azure Data Explorer              | Sim                | Sim                | -                  |
 | Azure Data Factory               | Sim                | Sim                | -                  |
 | Azure Data Lake Store            | Sim                | Sim, RSA 2048-bit  | -                  |
@@ -294,11 +294,12 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Virtual Machines                 | Sim                | Sim, RSA 2048-bit  | -                  |
 | Conjunto de escala de máquina virtual        | Sim                | Sim, RSA 2048-bit  | -                  |
 | SAP HANA                         | Sim                | Sim, RSA 2048-bit  | -                  |
-| Serviço de Aplicações                      | Sim                | Sim                | -                  |
-| Automatização                       | Sim                | Sim                | -                  |
-| Portal do Azure                     | Sim                | Sim                | -                  |
+| Serviço de Aplicações                      | Sim                | Sim, é o que\*\*            | -                  |
+| Automatização                       | Sim                | Sim, é o que\*\*            | -                  |
+| Funções do Azure                  | Sim                | Sim, é o que\*\*            | -                  |
+| Portal do Azure                     | Sim                | Sim, é o que\*\*            | -                  |
 | Aplicações Lógicas                       | Sim                | Sim                | -                  |
-| Aplicações Geridas do Azure       | Sim                | Sim                | -                  |
+| Aplicações Geridas do Azure       | Sim                | Sim, é o que\*\*            | -                  |
 | Service Bus                      | Sim                | Sim                | -                  |
 | Site Recovery                    | Sim                | Sim                | -                  |
 | **Bases de Dados**                    |                    |                    |                    |
@@ -312,6 +313,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Armazenamento de Tabelas                    | Sim                | Sim                | Sim                |
 | Azure Cosmos DB                  | Sim                | Sim                | -                  |
 | Azure Databricks                 | Sim                | Sim                | -                  |
+| Azure Database Migration Service | Sim                | N/D\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Serviços de DevOps do Azure            | Sim                | -                  | Sim                |
 | Repositórios do Azure                      | Sim                | -                  | Sim                |
@@ -328,7 +330,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | **Gestão e Governação**    |                    |                    |                    |
 | Azure Site Recovery              | Sim                | -                  | -                  |
 | Azure Migrate                    | Sim                | Sim                | -                  |
-| **Meios de comunicação social**                        |                    |                    |                    |
+| **Media**                        |                    |                    |                    |
 | Serviços de Multimédia                   | Sim                | -                  | Sim                |
 | **Segurança**                     |                    |                    |                    |
 | Centro de Segurança do Azure para IoT    | Sim                | Sim                | -                  |
@@ -344,6 +346,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | File Sync                         | Sim                | Sim, RSA 2048-bit  | -                  |
 | Armazenamento de filas                    | Sim                | Sim                | Sim                |
 | Avere vFXT                       | Sim                | -                  | -                  |
+| Cache do Azure para Redis            | Sim                | N/D\*              | -                  |
 | Azure NetApp Files               | Sim                | Sim                | -                  |
 | Armazenamento de Arquivo                  | Sim                | Sim, RSA 2048-bit  | -                  |
 | StorSimple                       | Sim                | Sim, RSA 2048-bit  | Sim                |
@@ -352,6 +355,8 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Data Box Edge                    | Sim                | Sim                | -                  |
 
 \*Este serviço não persiste de dados. Os caches transitórios, caso existam, são encriptados com uma chave Microsoft.
+
+\*\*Este serviço suporta armazenar dados no seu próprio Cofre de Chaves, Conta de Armazenamento ou outros dados que persistem no serviço que já suporta encriptação do lado do servidor com chave gerida pelo cliente.
 
 ## <a name="conclusion"></a>Conclusão
 

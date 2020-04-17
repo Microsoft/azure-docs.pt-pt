@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aeffa0bb736f03403bf483b22775ef468bbcb2bd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f0034d06c852d4d71284093879a456d296d98715
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405471"
+ms.locfileid: "81457472"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Problemas de resolução de problemas com a Configuração do Estado Desejada pela Automação Azure (DSC)
 
@@ -113,7 +113,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>Causa
 
-Esta questão é causada por um certificado mau ou caducado.  Para mais informações, consulte a [caducidade do certificado e o reregisto](../automation-dsc-onboarding.md#re-register-a-node).
+Esta questão é causada por um certificado mau ou caducado.  Para mais informações, consulte a [caducidade do certificado e o reregisto](../automation-dsc-onboarding.md#re-registering-a-node).
 
 Este problema também pode ser causado por uma configuração de procuração que não permite o acesso a ***.azure-automation.net**. Para mais informações, consulte [Configuração de redes privadas.](../automation-dsc-overview.md#network-planning) 
 
@@ -135,7 +135,7 @@ Em segundo lugar, desinstale a extensão DSC do nó.
 
 Terceiro, retire todos os certificados maus ou caducados do nó.
 
-No nó falhado de um Powershell Prompt elevado, execute o seguinte:
+No nó falhado de um pedido elevado da PowerShell, execute o seguinte:
 
 ```powershell
 $certs = @()
@@ -279,8 +279,8 @@ Trate o nó de subscrição cruzada como se vivesse numa nuvem separada, ou no l
 
 Siga os passos abaixo para registar o nó.
 
-* Windows - [Máquinas de Janelas Físicas/Virtuais no local, ou numa nuvem diferente do Azure/AWS](../automation-dsc-onboarding.md#onboard-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure).
-* Linux - [Máquinas linux físicas/virtuais no local, ou numa nuvem diferente do Azure.](../automation-dsc-onboarding.md#onboard-physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure)
+* Windows - [Máquinas de Janelas Físicas/Virtuais no local, ou numa nuvem diferente do Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
+* Linux - [Máquinas linux físicas/virtuais no local, ou numa nuvem diferente do Azure.](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines)
 
 ### <a name="scenario-error-message---provisioning-failed"></a><a name="agent-has-a-problem"></a>Cenário: Mensagem de erro - "Provisioning Failed"
 

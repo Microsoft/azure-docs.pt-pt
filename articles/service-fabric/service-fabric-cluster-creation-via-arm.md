@@ -3,17 +3,17 @@ title: Criar um cluster de tecido de serviço Azure
 description: Aprenda a configurar um cluster de tecido de serviço seguro em Azure utilizando o Gestor de Recursos Azure.  Pode criar um cluster usando um modelo predefinido ou usando o seu próprio modelo de cluster.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: 8cf14230f3abd37d91f1ec369f597ee594876100
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77624117"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458305"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Criar um cluster de tecido de serviço usando o Gestor de Recursos Azure 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portal Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -251,7 +251,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>Use um ponteiro para um segredo enviado para um cofre chave
 
-Para utilizar um cofre chave existente, o cofre-chave deve ser [ativado para a implantação para](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI) permitir que o fornecedor de recursos computacionais obtenha certificados do mesmo e instale-o em nós de cluster.
+Para utilizar um cofre chave existente, o cofre-chave deve ser [ativado para a implantação para](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI) permitir que o fornecedor de recursos computacionais obtenha certificados do mesmo e instale-o em nós de cluster.
 
 Implementar o cluster utilizando o PowerShell:
 

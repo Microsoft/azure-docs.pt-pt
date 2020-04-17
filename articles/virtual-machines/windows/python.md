@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: a85a9c28acd2d50d95159883a01b27c8ed1d2f1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 670c369e25639c859f6a8d8b3c65e329b5cf7f04
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75461087"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458186"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerir VMs windows em Azure usando Python
 

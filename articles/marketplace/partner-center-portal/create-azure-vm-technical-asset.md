@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: eb885d0e965579b1ab2d66395f9f96eab0845bae
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 46c59e8b4e60fbe17887ea0fc375b6da758ebf50
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266503"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457404"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Crie os seus ativos técnicos da Máquina Virtual Azure
 
@@ -281,8 +281,8 @@ O processo seguinte generaliza um VM Linux e reimplanta-o como um VM separado. P
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se encontrou dificuldades em criar o seu novo VHD baseado em Azure, consulte [questões comuns durante a criação de VHD](https://aka.ms/AzureVM_VHDCreationFAQ).
+Se encontrou dificuldades em criar o seu novo VHD baseado em Azure, consulte [questões comuns durante a criação de VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues).
 
 Caso contrário:
 
-* [Certifica a sua imagem VM](https://aks.ms/CertifyVMimage) explica como testar e submeter uma imagem VM para certificação Azure Marketplace, incluindo onde obter a ferramenta de teste de certificação para a ferramenta *Azure Certified* e como usá-la para certificar a sua imagem VM.
+* [Certifica a sua imagem VM](https://docs.microsoft.com/azure/marketplace/partner-center-portal/get-sas-uri) explica como testar e submeter uma imagem VM para certificação Azure Marketplace, incluindo onde obter a ferramenta de teste de certificação para a ferramenta *Azure Certified* e como usá-la para certificar a sua imagem VM.

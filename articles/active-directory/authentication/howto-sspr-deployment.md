@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c11521ec074b63843b873c39102b68bf185d2821
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8bec28b98a8d2640b5a8034569d49077ce6b4177
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676733"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450994"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de senha de autosserviço do Azure Ative Diretório
 
@@ -115,7 +115,7 @@ Antes de implementar o SSPR, pode optar por determinar o número e o custo médi
 
 A Microsoft recomenda que as organizações permitam a experiência de registo combinado para SSPR e autenticação de vários fatores. Quando ativar esta experiência de registo combinado, os utilizadores só precisam de selecionar as suas informações de registo uma vez para ativar ambas as funcionalidades.
 
-A experiência de registo combinado não requer que as organizações permitam tanto a Autenticação Multi-Factor SSPR como a Azure. O registo combinado proporciona às organizações uma melhor experiência de utilizador. Para mais informações, consulte o registo combinado de informações de [segurança (pré-visualização)](concept-registration-mfa-sspr-combined.md)
+A experiência de registo combinado não requer que as organizações permitam tanto a Autenticação Multi-Factor SSPR como a Azure. O registo combinado proporciona às organizações uma melhor experiência de utilizador. Para mais informações, consulte o registo combinado de [informações](concept-registration-mfa-sspr-combined.md) de segurança
 
 ## <a name="plan-the-deployment-project"></a>Planear o projeto de implantação
 

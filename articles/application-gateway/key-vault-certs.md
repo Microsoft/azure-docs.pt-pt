@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 26093d051da8f2182a40f80837acbd9ef7dd008f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: be558c3e3a68ce6c194dcf98d8f5ff92c4c14edb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312077"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457829"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>TLS terminação com certificados key vault
 
-[O Azure Key Vault](../key-vault/key-vault-overview.md) é uma loja secreta gerida pela plataforma que pode usar para salvaguardar segredos, chaves e certificados TLS/SSL. O Portal de Aplicações Azure suporta a integração com o Key Vault para certificados de servidor que estão ligados a ouvintes com SUPORTE HTTPS. Este suporte está limitado ao v2 SKU do Application Gateway.
+[O Azure Key Vault](../key-vault/general/overview.md) é uma loja secreta gerida pela plataforma que pode usar para salvaguardar segredos, chaves e certificados TLS/SSL. O Portal de Aplicações Azure suporta a integração com o Key Vault para certificados de servidor que estão ligados a ouvintes com SUPORTE HTTPS. Este suporte está limitado ao v2 SKU do Application Gateway.
 
 A integração do Key Vault oferece dois modelos para a rescisão de TLS:
 

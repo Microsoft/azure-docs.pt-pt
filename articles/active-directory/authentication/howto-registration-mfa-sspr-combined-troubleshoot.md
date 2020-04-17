@@ -1,31 +1,26 @@
 ---
 title: Registo combinado de troubleshoot - Diretório Ativo Azure
-description: Troubleshoot Azure AD Multi-Factor Authentication e auto-service password reset registo combinado (pré-visualização)
+description: Troubleshoot Azure AD Multi-Factor Authentication e auto-service password reset registo combinado
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74847393"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450943"
 ---
-# <a name="troubleshooting-combined-security-information-registration-preview"></a>Registo combinado de informações de segurança (pré-visualização)
+# <a name="troubleshooting-combined-security-information-registration"></a>Registo combinado de informações de segurança de resolução de problemas
 
 A informação neste artigo destina-se a orientar os administradores que estão a resolver problemas relatados pelos utilizadores da experiência de registo combinado.
-
-|     |
-| --- |
-| O registo combinado de informações de segurança para a autenticação de multi-factores Azure e o reset de senha de autosserviço azure Ative (Azure AD) é uma funcionalidade de pré-visualização pública da Azure AD. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
 
 ## <a name="audit-logs"></a>Registos de auditoria
 
@@ -150,16 +145,16 @@ Numa janela PowerShell, execute o seguinte comando, fornecendo as localizações
 
 `<script location> -path <user file location>`
 
-### <a name="disable-the-preview-experience"></a>Desativar a experiência de pré-visualização
+### <a name="disable-the-updated-experience"></a>Desativar a experiência atualizada
 
-Para desativar a experiência de pré-visualização para os seus utilizadores, complete estes passos:
+Para desativar a experiência atualizada para os seus utilizadores, complete estas etapas:
 
 1. Inscreva-se no portal Azure como administrador de utilizador.
 2. Aceda às > **definições** > do **utilizador do Diretório Ativo do Azure****Gerir as definições para visualizações**do painel de acesso .
 3. Em **'Utilizadores' podem utilizar funcionalidades de pré-visualização para registar e gerir informações**de segurança, definir o seletor para **Nenhum**, e, em seguida, selecionar **Guardar**.
 
-Os utilizadores deixarão de ser solicitados a registarem-se utilizando a experiência de pré-visualização.
+Os utilizadores deixarão de ser solicitados a registarem-se utilizando a experiência atualizada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre a pré-visualização pública do registo combinado para reset de senha de autosserviço e autenticação de multi-fatores Azure](concept-registration-mfa-sspr-combined.md)
+* [Saiba mais sobre o registo combinado para reset de senha de autosserviço e autenticação de multifactor Azure](concept-registration-mfa-sspr-combined.md)

@@ -4,15 +4,15 @@ description: Saiba como gerir funções de base de dados e utilizadores num serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273707"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454208"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir funções de base de dados e utilizadores
 
@@ -25,10 +25,9 @@ As permissões de funções incluem:
 *  **Processo** - Os utilizadores podem ligar e executar operações de processo na base de dados e analisar dados de base de dados de modelos.
 *  **Ler** - Os utilizadores podem usar uma aplicação do cliente para conectar e analisar dados de base de dados de modelos.
 
-Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou grupos a essas funções utilizando o Role Manager em Visual Studio com projetos de Serviços de Análise. Quando implantado num servidor, utiliza o Estúdio de Gestão de Servidores SQL (SSMS), serviços de [análise PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou Linguagem de [Scripts de Modelo Tabular](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para adicionar ou remover funções e membros do utilizador.
+Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou grupos a essas funções utilizando o Role Manager em Visual Studio com projetos de Serviços de Análise. Quando implantado num servidor, utilize o SQL Server Management Studio (SSMS), os serviços de [análise PowerShell cmdlets,](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou o Idioma de [Scripts de Modelo Tabular](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para adicionar ou remover funções e membros do utilizador.
 
-**Os grupos** de segurança devem `MailEnabled` ser `True` [ativados por correio](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a propriedade definida para . Ao especificar um grupo por `obj:groupid@tenantid`e-mail a utilizar .
-
+Ao adicionar um grupo `obj:groupid@tenantid`de **segurança,** utilize .
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Para adicionar ou gerir papéis e utilizadores no Estúdio Visual  
   

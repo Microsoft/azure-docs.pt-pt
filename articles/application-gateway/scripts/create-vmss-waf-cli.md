@@ -4,7 +4,6 @@ description: Exemplo de Script da CLI do Azure – Criar um gateway de aplicaç�
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: sample
@@ -13,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e9d2a8a8d47128161c10e81fe70a950f1ed81e1e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7fb66c54b13581b9afc516067c1450a154699bb5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76273386"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457778"
 ---
 # <a name="restrict-web-traffic-using-the-azure-cli"></a>Restringir o tráfego da Web com a CLI do Azure
 

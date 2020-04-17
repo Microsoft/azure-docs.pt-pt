@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: b4e91aa59168deb18375bf86ae77f655ca3dab47
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 50c0980800bbc9b2951bf9107114c1a4d9265558
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521273"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454667"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gerir as chaves de acesso à conta de armazenamento
 
@@ -31,8 +31,8 @@ A Microsoft recomenda que utilize o Cofre de Chaves Azure para gerir as suas tec
 
 A Microsoft recomenda a utilização do Cofre de Chaves Azure para gerir e rodar as suas teclas de acesso. A sua aplicação pode aceder de forma segura às suas chaves no Cofre de Chaves, para que possa evitar armazená-las com o seu código de aplicação. Para obter mais informações sobre a utilização do Key Vault para gestão de chaves, consulte os seguintes artigos:
 
-- [Gerir as chaves da conta de armazenamento com o Cofre de Chaves Azure e a PowerShell](../../key-vault/key-vault-overview-storage-keys-powershell.md)
-- [Gerir as chaves da conta de armazenamento com o Cofre de Chaves Azure e o Azure CLI](../../key-vault/key-vault-ovw-storage-keys.md)
+- [Gerir as chaves da conta de armazenamento com o Cofre de Chaves Azure e a PowerShell](../../key-vault/secrets/overview-storage-keys-powershell.md)
+- [Gerir as chaves da conta de armazenamento com o Cofre de Chaves Azure e o Azure CLI](../../key-vault/secrets/overview-storage-keys.md)
 
 ## <a name="manually-rotate-access-keys"></a>Manualmente, roda manuais chaves de acesso
 

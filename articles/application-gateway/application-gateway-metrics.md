@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: abff2f16d9559f015417711820a993badd636f7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ebbdda39f019f374f8e5abe951d0180c0dd453f6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133082"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457880"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Gateway de Aplicação
 
@@ -102,7 +102,7 @@ Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
 - **Pedidos com Falhas**
 
-  Contagem de pedidos falhados que o Application Gateway serviu. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
+  Número de pedidos que o Application Gateway serviu com códigos de erro de servidor 5xx. Isto inclui os códigos 5xx que são gerados a partir do Gateway de Aplicação, bem como os códigos 5xx que são gerados a partir do backend. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
    
 - **Unidades de Capacidade Facturaveta Fixa**
 
@@ -162,7 +162,7 @@ Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
 - **Pedidos com Falhas**
 
-  Contagem de pedidos falhados que o Application Gateway serviu. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
+  Número de pedidos que o Application Gateway serviu com códigos de erro de servidor 5xx. Isto inclui os códigos 5xx que são gerados a partir do Gateway de Aplicação, bem como os códigos 5xx que são gerados a partir do backend. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
 
 - **Estado de Resposta**
 

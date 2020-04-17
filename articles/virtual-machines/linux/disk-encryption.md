@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: f7eb63d0bbdce86f4a7195430dc15d6873e9f6e6
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 68341de82ae15df91477947664c500caaa96a09a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754310"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452728"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
@@ -34,7 +34,7 @@ Por padrão, os discos geridos utilizam chaves de encriptação geridas pela pla
 
 ## <a name="customer-managed-keys"></a>Chaves geridas pelo cliente
 
-Pode optar por gerir a encriptação ao nível de cada disco gerido, com as suas próprias chaves. A encriptação do lado do servidor para discos geridos com chaves geridas pelo cliente oferece uma experiência integrada com o Azure Key Vault. Pode importar [as suas chaves RSA](../../key-vault/key-vault-hsm-protected-keys.md) para o seu Cofre chave ou gerar novas chaves RSA no Cofre de Chaves Azure. 
+Pode optar por gerir a encriptação ao nível de cada disco gerido, com as suas próprias chaves. A encriptação do lado do servidor para discos geridos com chaves geridas pelo cliente oferece uma experiência integrada com o Azure Key Vault. Pode importar [as suas chaves RSA](../../key-vault/keys/hsm-protected-keys.md) para o seu Cofre chave ou gerar novas chaves RSA no Cofre de Chaves Azure. 
 
 Os discos geridos pelo Azure tratam da encriptação e da desencriptação de uma forma totalmente transparente usando [encriptação](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique)de envelopes. Encripta dados utilizando uma chave de encriptação de dados baseada em [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 (DEK), que está, por sua vez, protegida usando as suas chaves. O serviço de Armazenamento gera chaves de encriptação de dados e encripta-as com chaves geridas pelo cliente utilizando encriptação RSA. A encriptação do envelope permite-lhe rodar (alterar) as suas chaves periodicamente de acordo com as suas políticas de conformidade sem afetar os seus VMs. Quando roda as chaves, o serviço de armazenamento encripta as chaves de encriptação de dados com as novas chaves geridas pelo cliente. 
 
@@ -238,7 +238,7 @@ az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Explore os modelos do Gestor de Recursos Azure para criar discos encriptados com chaves geridas pelo cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
-- [O que é o cofre de chave do Azure?](../../key-vault/key-vault-overview.md)
+- [O que é o cofre de chave do Azure?](../../key-vault/general/overview.md)
 - [Replicar máquinas com chaves geridas pelo cliente discos habilitados](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [Configurar a recuperação de desastres de VMware VMs para Azure com powerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [Configurar a recuperação de desastres para o Azure para VMs hiper-V utilizando o PowerShell e o Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)
