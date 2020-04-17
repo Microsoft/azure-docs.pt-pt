@@ -7,16 +7,16 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: banders
-ms.openlocfilehash: 97bd03fb2aa8f5b486ef87a04f260fec43eb81bd
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 4baa06ad0011b06da50fd7a83aaa3e87db62c6ac
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396705"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417515"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
-O Azure Reservations ajuda-o a poupar ao subscrever planos de um ou três anos de vários produtos. A subscrição permite-lhe obter um desconto nos recursos que utiliza. As reservas podem reduzir significativamente os custos dos recursos até 72% nos preços pay as you go. O Reservations oferece um desconto de faturação e não afeta o estado de atividade dos seus recursos. Depois de comprar uma reserva, o desconto é aplicado automaticamente aos recursos correspondentes.
+As Reservas do Azure ajudam-no a poupar ao subscrever planos de um ou três anos de vários produtos. A subscrição permite-lhe obter um desconto nos recursos que utiliza. As reservas podem reduzir significativamente os custos dos recursos até 72% nos preços pay as you go. O Reservations oferece um desconto de faturação e não afeta o estado de atividade dos seus recursos. Depois de comprar uma reserva, o desconto é aplicado automaticamente aos recursos correspondentes.
 
 Pode pagar uma reserva em adiantado ou mensalmente. O custo total de reservas pagas em adiantado ou mensalmente é o mesmo e não pagará qualquer taxa adicional ao optar por pagamentos mensais. O pagamento mensal está disponível para as reservas do Azure, não para produtos de terceiros.
 

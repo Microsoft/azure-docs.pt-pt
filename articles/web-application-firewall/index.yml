@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 03/27/2020
-  ms.openlocfilehash: 89dde5fdc9ee20f6a8687ee88359a3cfe453f5e9
-  ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+  ms.openlocfilehash: 023755687ccee87a3e08cb3a089ad56f196bcbff
+  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/27/2020
-  ms.locfileid: "80366454"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81536561"
 landingContent:
 - title: Descrição geral
   linkLists:
@@ -37,6 +37,8 @@ landingContent:
       url: ./ag/application-gateway-web-application-firewall-portal.md
     - text: Firewall de Aplicações Web no Front Door
       url: ./afds/waf-front-door-create-portal.md
+    - text: Política WAF no CDN do Azure
+      url: ./cdn/waf-cdn-create-portal.md
 - title: Gerir regras da WAF no Gateway de Aplicação
   linkLists:
   - linkListType: how-to-guide

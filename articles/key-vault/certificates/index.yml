@@ -1,0 +1,64 @@
+### YamlMime:Landing
+title: Certificados
+summary: O Azure Key Vault permite às aplicações e utilizadores do Microsoft Azure armazenar e utilizar certificados, criados com base em chaves e segredos, e adicionar uma funcionalidade de renovação automatizada.
+metadata:
+  title: Documentação do Azure Key Vault - Certificados
+  description: O Azure Key Vault permite às aplicações e utilizadores do Microsoft Azure armazenar e utilizar certificados, criados com base em chaves e segredos, e adicionar uma funcionalidade de renovação automatizada.
+  services: key-vault
+  ms.service: key-vault
+  ms.subservice: certificates
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 04/07/2020
+  ms.openlocfilehash: 78963c02d35d93b4756c12f948c5ba214fb23e90
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81423535"
+landingContent:
+- title: Certificados
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são certificados do Key Vault?
+      url: about-certificates.md
+    - text: Introdução aos certificados do Key Vault
+      url: certificate-scenarios.md
+    - text: Métodos de criação de certificados
+      url: create-certificate.md
+    - text: Monitorizar e gerir a criação do certificados
+      url: create-certificate-scenarios.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: CLI do Azure
+      url: quick-create-cli.md
+    - text: Azure PowerShell
+      url: quick-create-powershell.md
+    - text: Portal
+      url: quick-create-portal.md
+    - text: Python
+      url: quick-create-python.md
+    - text: Importar um certificado no Key Vault
+      url: tutorial-import-certificate.md
+- title: Mais sobre o Key Vault
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral do Key Vault
+      url: ../general/overview.md
+    - text: Conceitos básicos
+      url: ../general/basic-concepts.md
+    - text: Descrição geral da eliminação recuperável
+      url: ../general/overview-soft-delete.md
+    - text: Descrição geral da segurança
+      url: ../general/overview-security.md
+- title: Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Gerir segredos nas suas aplicações de servidor com o Azure Key Vault
+      url: /learn/modules/manage-secrets-with-azure-key-vault/

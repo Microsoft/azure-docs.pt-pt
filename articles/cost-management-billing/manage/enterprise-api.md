@@ -5,14 +5,14 @@ author: mumami
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 02/14/2020
+ms.date: 04/14/2020
 ms.author: banders
-ms.openlocfilehash: 10275bac8cd9363939f9b6f298c49d7ef08ab7bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aeca9aede4c1b2d8c27de749c7e07c0153000825
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202918"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383173"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Descrição geral das APIs de Relatórios para clientes Enterprise
 As APIs de Relatórios permitem que os clientes Enterprise do Azure extraiam programaticamente dados de consumo e de faturação para as ferramentas de análise de dados preferidas. Os clientes Enterprise assinaram um [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para fazer alocações monetárias negociadas e aceder a preços personalizados para os recursos do Azure.
@@ -41,7 +41,7 @@ Um ponto final do Swagger está disponível [aqui](https://consumption.azure.com
 * **Detalhes da Instância Reservada** – a [API de utilização da Instância Reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) devolve a utilização das compras da Instância Reservada. A [API de encargos da Instância Reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) mostra as transações de faturação realizadas.
 
 ## <a name="data-freshness"></a>Atualização de Dados
-Serão devolvidas Etags na resposta de todas as APIs acima. Uma alteração na ETag indica que os dados foram atualizados.  Nas chamadas subsequentes para a mesma API com os mesmos parâmetros, transmita a Etag capturada com a chave “If-None-Match” no cabeçalho do pedido HTTP. O código de estado da resposta será “NotModified” se os dados não tiverem sido atualizados. Não serão devolvidos dados. A API devolverá o conjunto de dados total para o período necessário sempre que se verificar uma alteração da Etag.
+Serão devolvidas Etags na resposta de todas as APIs acima. Uma alteração na ETag indica que os dados foram atualizados.  Nas chamadas subsequentes para a mesma API com os mesmos parâmetros, transmita a Etag capturada com a chave "If-None-Match" no cabeçalho do pedido HTTP. O código de estado da resposta será “NotModified” se os dados não tiverem sido atualizados. Não serão devolvidos dados. A API devolverá o conjunto de dados total para o período necessário sempre que se verificar uma alteração da Etag.
 
 ## <a name="helper-apis"></a>APIs Auxiliares
  **Lista de Períodos de Faturação** – a [API de Períodos de Faturação](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) devolve uma lista de períodos de faturação que têm dados de consumo para a Inscrição especificada por ordem cronológica inversa. Cada período contém uma propriedade que aponta para a rota da API para os quatro conjuntos de dados: Saldo/Resumo, DetalhesUtilização, Encargos do Marketplace e Folha de Preços.
@@ -51,7 +51,9 @@ Serão devolvidas Etags na resposta de todas as APIs acima. Uma alteração na E
 |Código de Estado da Resposta|Mensagem|Descrição|
 |-|-|-|
 |200| OK|Sem erros|
+|400| Pedido Incorreto| Parâmetros inválidos – intervalos de datas, números de EA, etc.|
 |401| Não autorizado| Chave de API não encontrada, Inválida, Expirada, etc.|
 |404| Indisponível| Ponto final do relatório não encontrado|
-|400| Pedido Incorreto| Parâmetros inválidos – intervalos de datas, números de EA, etc.|
+|429 | TooManyRequests | O pedido foi limitado. Tente novamente depois de esperar pelo tempo especificado no cabeçalho <code>x-ms-ratelimit-microsoft.consumption-retry-after</code>.|
 |500| Erro do Servidor| Erro inesperado ao processar o pedido|
+| 503 | ServiceUnavailable | O serviço está temporariamente indisponível. Tente novamente depois de esperar pelo tempo especificado no cabeçalho <code>Retry-After</code>.|

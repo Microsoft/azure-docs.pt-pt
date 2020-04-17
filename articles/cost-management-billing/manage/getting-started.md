@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 3/30/2020
+ms.date: 04/10/2020
 ms.author: banders
-ms.openlocfilehash: 79af6f78e8e9bf93c49deafe79f6a421cbb77d1a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b1986a4cb59e0f276ba59eb99acfb459b48615d8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475258"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262106"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar custos inesperados com a faturação do Azure e a gestão de custos
 
@@ -193,6 +193,17 @@ A fatura do Azure agrega os custos do mês por _medidor_. Os medidores são util
 Filtre o ficheiro CSV de utilização de acordo com _MeterName_, conforme mostrado na fatura que pretende analisar para ver todos os itens de linha que se aplicam ao medidor. O _InstanceID_ do item de linha corresponde ao recurso do Azure real que gerou o custo.
 
 Depois de identificar o recurso em causa, pode utilizar a Análise de custos no Azure Cost Management para fazer mais análises aos custos relacionados com o mesmo. Para saber mais sobre como utilizar a Análise de custos, veja [Começar a analisar os custos](../costs/quick-acm-cost-analysis.md).
+
+### <a name="review-invoiced-charges-in-cost-analysis"></a>Consultar as cobranças faturadas na Análise de custos
+
+Para ver os detalhes da sua fatura no portal do Azure, navegue para a Análise de custos para consultar o âmbito associado à fatura que está a analisar. Selecione a vista **Detalhes da fatura**. Os detalhes da fatura mostram-lhe as cobranças conforme apresentadas na fatura.
+
+[![Exemplo a mostrar os detalhes da fatura](./media/getting-started/invoice-details.png)](./media/getting-started/invoice-details.png#lightbox)
+
+Quando vê os detalhes da fatura, pode identificar o serviço que apresenta custos inesperados e determinar que recursos estão diretamente associados ao recurso na Análise de custos. Por exemplo, se quiser analisar as cobranças associadas ao serviço Máquinas Virtuais, navegue para a vista **Custos acumulados**. Em seguida, defina a granularidade para **Diário** e filtre as cobranças **Nome do serviço: Máquinas virtuais** e agrupe as cobranças por **Recurso**.
+
+[![Exemplo a mostrar os custos acumulados para as máquinas virtuais](./media/getting-started/virtual-machines.png)](./media/getting-started/virtual-machines.png#lightbox)
+
 
 ### <a name="identify-spikes-in-cost-over-time"></a>Identificar picos no custo ao longo do tempo
 

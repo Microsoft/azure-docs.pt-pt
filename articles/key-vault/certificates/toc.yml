@@ -1,0 +1,68 @@
+- name: Certificados
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: Acerca de certificados
+      href: about-certificates.md
+- name: Guias de Início Rápido
+  expanded: true
+  items:
+    - name: CLI
+      href: quick-create-cli.md
+    - name: PowerShell
+      href: quick-create-powershell.md
+    - name: Portal
+      href: quick-create-portal.md
+    - name: Python
+      href: quick-create-python.md
+- name: Tutoriais
+  items:
+    - name: Importar um certificado
+      href: tutorial-import-certificate.md
+- name: Conceitos
+  items:
+    - name: Introdução aos certificados do Key Vault
+      href: certificate-scenarios.md
+    - name: Monitorizar e gerir a criação do certificados
+      href: create-certificate-scenarios.md
+    - name: Métodos de criação de certificados
+      href: create-certificate.md
+- name: Referência
+  items:
+    - name: Azure PowerShell
+      href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
+    - name: CLI do Azure
+      href: /cli/azure/keyvault
+    - name: .NET
+      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    - name: Java
+      href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    - name: Node.js
+      href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+    - name: Python
+      href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST
+      href: /rest/api/keyvault
+    - name: Modelo do Resource Manager
+      href: /azure/templates/microsoft.keyvault/allversions
+      displayName: ARM
+- name: Recursos
+  items:
+    - name: Desenvolva as suas competências com o Microsoft Learn
+      href: /learn/browse/?products=azure-key-vault
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/key-vault/'
+    - name: Disponibilidade de região
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'
+    - name: Contrato de Nível de Serviço (SLA)
+      href: 'https://azure.microsoft.com/support/legal/sla/key-vault/'
+    - name: Limites do serviço
+      href: ../general/service-limits.md
+    - name: Estado do serviço
+      href: 'https://azure.microsoft.com/status/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=key-vault'
+    - name: Blogue
+      href: 'https://blogs.technet.com/b/kv/'
+    - name: Comentários sobre o Produto
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

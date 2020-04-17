@@ -1,5 +1,7 @@
 - name: Cortar planos
   href: cut-planes.md
+- name: Composição de Depuração
+  href: debug-rendering.md
 - name: Substituição do estado hierárquico
   href: override-hierarchical-state.md
 - name: Reprojeção da última fase

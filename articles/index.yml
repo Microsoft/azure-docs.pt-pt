@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 2514c6a6cfadd7b864d8eb14db99ba5c83c81c1a
-  ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+  ms.openlocfilehash: 245a9c58bf91dd42caa5cf3c60d05c520f494bea
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/14/2020
-  ms.locfileid: "81383022"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81417154"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -198,7 +198,7 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/luis/index.yml
-  - title: Machine Learning Studio
+  - title: ML Studio (Clássico)
     summary: Crie, implemente e faça a gestão facilmente de soluções de análise preditiva
     imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning-studio-service.svg
     azureCategories:

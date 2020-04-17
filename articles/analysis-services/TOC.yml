@@ -39,6 +39,8 @@
       href: analysis-services-connect.md
     - name: Elevada disponibilidade
       href: analysis-services-bcdr.md
+    - name: Operações de execução prolongada
+      href: analysis-services-long-operations.md
     - name: Origens de dados suportadas
       href: analysis-services-datasource.md
 - name: Procedimentos
