@@ -4,18 +4,16 @@ description: Aprenda a executar uma migração baseada em agentes de VMware VMs 
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 64873c5185660c58cd4d07d60df3d086364d6288
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6855c3e81aece0358146608b6cf179fb923c54c8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238441"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535337"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMs migratórios para Azure (baseado em agente)
 
 Este artigo mostra-lhe como migrar vMs no local para Azure, utilizando a migração baseada em agentes com a ferramenta migração do servidor de migração do servidor migratório Azure Migrate.
-
-[A Azure Migrate](migrate-services-overview.md) fornece um centro central para acompanhar a descoberta, avaliação e migração das suas aplicações e cargas de trabalho no local, e instâncias de VM AWS/GCP, para o Azure. O hub fornece ferramentas azure migrate para avaliação e migração, bem como ofertas de fornecedores de software independentes de terceiros (ISV).
 
 
 Neste tutorial, ficará a saber como:
@@ -78,7 +76,7 @@ Se já fez uma avaliação com a Avaliação do Servidor Migratório Azure, pode
 Se ainda não fez uma avaliação, precisa de configurar permissões Azure antes de poder migrar com a Migração do Servidor Migratório Migratório Azure Migrate.
 
 - **Crie um projeto**: A sua conta Azure precisa de permissões para criar um projeto Azure Migrate. 
-- **Registe o aparelho de replicação Azure Migrate**: O aparelho de replicação cria e regista uma aplicação azure ative directory na sua conta Azure. Precisa delegar permissões para isto.
+- **Registe o aparelho de replicação Azure Migrate**: O aparelho de replicação cria e regista uma aplicação azure ative directory na sua conta Azure. Delegado permissões para isto.
 - **Create Key Vault**: Para migrar VMware VMware utilizando a Migração do Servidor Migratório Migratório Migratório Azure Migração, a Azure Migrate cria um Cofre chave no grupo de recursos, para gerir as chaves de acesso da conta de armazenamento de replicação na sua subscrição. Para criar o cofre, você precisa de permissões de atribuição de papéis no grupo de recursos em que o projeto Azure Migrate reside. 
 
 
@@ -147,8 +145,8 @@ Crie a conta da seguinte forma:
 
 **Tarefa** | **Função/Permissões** | **Detalhes**
 --- | --- | ---
-**Deteção de VMs** | Pelo menos um utilizador só de leitura<br/><br/> Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribuir a função **De acesso com** o Propagate ao objeto **infantil,** aos objetos infantis (hospedeiros vSphere, datastores, VMs e redes).
-**Replicação, ativação pós-falha e reativação pós-falha completas** |  Criar uma função (Azure_Site_Recovery) com as permissões necessárias e, em seguida, atribuir a função a um grupo ou utilizador de VMware<br/><br/> Objeto Data Center –> Propagar ao Objeto Subordinado, função=Azure_Site_Recovery<br/><br/> Arquivo de Dados -> Alocar espaço, navegar no arquivo de dados, operações de ficheiro de baixo nível, remover ficheiros, atualizar ficheiros de máquinas virtuais<br/><br/> Rede -> Atribuição de rede<br/><br/> Recursos -> Atribuir VM a agrupamento de recursos, migrar VMs desligadas, migrar VMs ligadas<br/><br/> Tarefas -> Criar tarefa, atualizar tarefa<br/><br/> Máquina virtual -> Configuração<br/><br/> Máquina virtual -> Interagir -> responder a perguntas, ligação de dispositivos, configurar suportes de dados em CD, configurar suportes de dados em disquete, desligar, ligar, instalação de ferramentas de VMware<br/><br/> Máquina virtual -> Inventário -> Criar, registar, anular o registo<br/><br/> Máquina virtual -> Aprovisionamento -> Permitir transferência de máquinas virtuais, permitir carregamento de ficheiros de máquinas virtuais<br/><br/> Máquina virtual -> Instantâneos -> Remover instantâneos | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribuir a função **De acesso com** o Propagate ao objeto **infantil,** aos objetos infantis (hospedeiros vSphere, datastores, VMs e redes).
+**Deteção de VMs** | Pelo menos um utilizador só de leitura<br/><br/> Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribuir a função **De acesso com** o Propagate ao objeto **infantil,** aos objetos infantis (hospedeiros vSphere, lojas de dados, VMs e redes).
+**Replicação, ativação pós-falha e reativação pós-falha completas** |  Criar uma função (Azure_Site_Recovery) com as permissões necessárias e, em seguida, atribuir a função a um grupo ou utilizador de VMware<br/><br/> Objeto Data Center –> Propagar ao Objeto Subordinado, função=Azure_Site_Recovery<br/><br/> Arquivo de Dados -> Alocar espaço, navegar no arquivo de dados, operações de ficheiro de baixo nível, remover ficheiros, atualizar ficheiros de máquinas virtuais<br/><br/> Rede -> Atribuição de rede<br/><br/> Recursos -> Atribuir VM a agrupamento de recursos, migrar VMs desligadas, migrar VMs ligadas<br/><br/> Tarefas -> Criar tarefa, atualizar tarefa<br/><br/> Máquina virtual -> Configuração<br/><br/> Máquina virtual -> Interagir -> responder a perguntas, ligação de dispositivos, configurar suportes de dados em CD, configurar suportes de dados em disquete, desligar, ligar, instalação de ferramentas de VMware<br/><br/> Máquina virtual -> Inventário -> Criar, registar, anular o registo<br/><br/> Máquina virtual -> Aprovisionamento -> Permitir transferência de máquinas virtuais, permitir carregamento de ficheiros de máquinas virtuais<br/><br/> Máquina virtual -> Instantâneos -> Remover instantâneos | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribuir a função **De acesso com** o **Propagate a objetos infantis,** aos objetos infantis (vSphere hosts, datastores, VMsa, nd networks).
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>Preparar uma conta para a instalação do serviço de Mobilidade
 
@@ -191,26 +189,18 @@ Se não seguiu o tutorial para avaliar vMware VMs, criou um projeto Azure Migrat
 3. Em **Descrição geral**, clique em **Avaliar e migrar servidores**.
 4. Em **Discover, avalie e emigra os servidores,** clique em **avaliar e migrar servidores**.
 
-    ![Descubra e avalie servidores](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
+    ! [Descubra e avalie servidores] (./media/tutorial-migrate-vmware-agent/assess-migrate.png
 
 1. Em **Detetar, avaliar e migrar servidores**, clique em **Adicionar ferramentas**.
 2. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.
-3. Em Detalhes do **Projeto,** especifique o nome do projeto e geografia em que pretende criar o projeto, e clique em **Next**
+3. Em **Detalhes do Projeto**, especifique o nome do projeto e a geografia na qual pretende criar o projeto e clique em **Seguinte**. Rever geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
 
     ![Criar um projeto Azure Migrate](./media/tutorial-migrate-vmware-agent/migrate-project.png)
 
-    Você pode criar um projeto Azure Migrate em qualquer uma destas geografias.
 
-    **Geografia** | **Região**
-    --- | ---
-    Ásia | Ásia Sudeste
-    Europa | Norte da Europa ou Europa Ocidental
-    Estados Unidos | Leste dos EUA ou Centro-Oeste dos EUA
-
-    A geografia especificada para o projeto só é utilizada para armazenar os metadados recolhidos das VMs no local. Pode selecionar qualquer região-alvo para a migração real.
 4. Na ferramenta de **avaliação Select,** selecione **Skip adicionando uma ferramenta de avaliação para já** > **Seguinte**.
 5. Na **ferramenta de migração Select,** selecione **Azure Migrate: Server Migration** > **Next**.
-6. Em **Rever + adicionar ferramentas,** reveja as definições e clique em Adicionar **ferramentas**
+6. Em **Analisar + adicionar ferramentas**, analise as definições e clique em **Adicionar ferramentas**
 7. Depois de adicionar a ferramenta, aparece no projeto Azure Migrate > ferramentas de**migração**de **servidores.** > 
 
 ## <a name="set-up-the-replication-appliance"></a>Configurar o aparelho de replicação
@@ -221,7 +211,10 @@ O primeiro passo da migração é a instalação do aparelho de replicação. O 
 - **Servidor de processos**: O servidor de processo funciona como um portal de replicação. Recebe dados de replicação; otimiza-o com cache, compressão e encriptação, e envia-o para uma conta de armazenamento em cache em Azure. O servidor de processo saque também o agente do Serviço de Mobilidade em VMs que pretende replicar e realiza a descoberta automática de VMware vMware no local.
 
 
-Para configurar o aparelho de replicação, faça o download de um modelo preparado de aplicação de virtualização aberta (OVA). Importa-se o modelo em VMware e cria-se o vM do aparelho de replicação. 
+Pode configurar o aparelho de replicação de várias maneiras.
+
+- Configurar com um modelo de aplicação de virtualização aberta (OVA) descarregado. Importa-se o modelo em VMware e cria-se o vM do aparelho de replicação. Este é o método usado neste tutorial.
+- Prepara-te com um guião.
 
 ### <a name="download-the-replication-appliance-template"></a>Descarregue o modelo do aparelho de replicação
 

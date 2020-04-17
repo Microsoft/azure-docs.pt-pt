@@ -13,12 +13,12 @@ ms.date: 04/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: d59819c0ab614b0f6cc102c7ebe8c760fb851599
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c3292a31e5f750c16933acf94509e0ad226080a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77084129"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534317"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Pedidos de cliente público e confidenciais
 A Microsoft Authentication Library (MSAL) define dois tipos de clientes: clientes públicos e clientes confidenciais. Os dois tipos de clientes distinguem-se pela sua capacidade de autenticar de forma segura com o servidor de autorização e manter a confidencialidade das suas credenciais de cliente. Em contraste, a Biblioteca de Autenticação AD Azure (ADAL) utiliza o chamado contexto de *autenticação* (que é uma ligação ao Azure AD).
@@ -28,7 +28,7 @@ A Microsoft Authentication Library (MSAL) define dois tipos de clientes: cliente
     Aplicativos confidenciais de clientes: <BR>
     ![Web](media/msal-client-applications/web-app.png) ![app Web](media/msal-client-applications/web-api.png) ![API Daemon/serviço](media/msal-client-applications/daemon-service.png)
 
-- **As aplicações públicas** do cliente são aplicações que funcionam em dispositivos ou computadores de secretária ou num navegador web. Não são de confiança para guardar em segurança os segredos da aplicação, pelo que apenas acedem a APIs web em nome do utilizador. (Apoiam apenas os fluxos públicos de clientes.) Os clientes públicos não podem guardar segredos de tempo de configuração, por isso não têm segredos de clientes.
+- **As aplicações públicas** do cliente são aplicações que funcionam em dispositivos ou computadores de secretária ou num navegador web. Não são de confiança para guardar em segurança os segredos da aplicação, por isso só acedem a APIs web em nome do utilizador. (Apoiam apenas os fluxos públicos de clientes.) Os clientes públicos não podem guardar segredos de tempo de configuração, por isso não têm segredos de clientes.
 
     Aplicativos de clientes públicos: <BR>
     ![Aplicativo](media/msal-client-applications/desktop-app.png) ![de ambiente](media/msal-client-applications/browserless-app.png) ![de trabalho Aplicação API Mobile sem navegador](media/msal-client-applications/mobile-app.png)

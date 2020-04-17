@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
-ms.openlocfilehash: 2929b94a2cb624b96649292714fe93dea09a2085
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7ba845e79074313f0ccf2c066ba016bd72d46efe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886505"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534572"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração DaAL para Java
 
@@ -82,7 +82,7 @@ Se utilizar `https://login.microsoftonline.com/common` a autoridade em v2.0, os 
 
 O ponto final v1.0 (utilizado pela ADAL) apenas emite fichas v1.0.
 
-O ponto final v2.0 (utilizado pela MSAL) pode emitir fichas v1.0 e v2.0. Uma propriedade do manifesto de aplicação da Web API permite que os desenvolvedores escolham qual a versão do token que é aceite. Consulte `accessTokenAcceptedVersion` a documentação de referência manifesto da [aplicação.](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+O ponto final v2.0 (utilizado pela MSAL) pode emitir fichas v1.0 e v2.0. Uma propriedade do manifesto de aplicação da Web API permite que os desenvolvedores escolham qual versão do token é aceite. Consulte `accessTokenAcceptedVersion` a documentação de referência manifesto da [aplicação.](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 
 Para mais informações sobre as fichas v1.0 e v2.0, consulte as fichas de acesso ao [Diretório Ativo azure](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
 
@@ -109,7 +109,8 @@ PublicClientApplication app = PublicClientApplication.builder(CLIENT_ID) // Clie
 IAuthenticationResult result = app.acquireToken(parameters);
 ```
 
-O `IAuthenticationResult` retorna um token de acesso e ficha de identificação, enquanto o seu novo token de atualização é armazenado na cache. O pedido também irá agora conter um IAccount:
+O `IAuthenticationResult` retorna um token de acesso e ficha de identificação, enquanto o seu novo token de atualização é armazenado na cache.
+O pedido também irá agora conter um IAccount:
 
 ```java
 Set<IAccount> accounts =  app.getAccounts().join();
@@ -118,6 +119,6 @@ Set<IAccount> accounts =  app.getAccounts().join();
 Para usar as fichas que estão agora na cache, ligue:
 
 ```java
-SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build(); 
+SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build();
 IAuthenticationResult result = app.acquireToken(parameters);
 ```

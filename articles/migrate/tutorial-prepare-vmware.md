@@ -2,14 +2,14 @@
 title: Prepare VMware VMs para avaliação/migração com a Migração Azure
 description: Saiba como se preparar para avaliação/migração de VMware VMs com Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 2e8aa72300c840832168138015e0a01ab054f954
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 9f0729a3ddb2d8196a855557a6b8587940563984
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619434"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535269"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs VMware para avaliação e migração para o Azure
 
@@ -39,7 +39,7 @@ Precisa destas permissões para estas tarefas em Azure, antes de poder avaliar o
 **Criar um projeto Azure Migrate** | A sua conta Azure necessita de permissões do Colaborador ou proprietário para criar um projeto. 
 **Registe os fornecedores de recursos** | A Azure Migrate utiliza um aparelho azure migratório leve para descobrir e avaliar VMware VMs, e migrar para Azure com Azure Migrate:Server Assessment.<br/><br/> Durante o registo do aparelho, os fornecedores de recursos são registados com a assinatura escolhida no aparelho. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Para registar os fornecedores de recursos, necessita de uma função de Colaborador ou Proprietário na subscrição.
 **Criar aplicativos Azure AD** | Ao registar o aparelho, a Azure Migrate cria aplicações azure Ative Directory (Azure AD). <br/><br/> - A primeira aplicação é utilizada para a comunicação entre os agentes que estão a trabalhar no aparelho e os respetivos serviços em funcionamento no Azure.<br/><br/> - A segunda aplicação é utilizada exclusivamente para aceder ao KeyVault criado na subscrição do utilizador para a migração VMware VM sem agente. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Precisa de permissões para criar aplicações Azure AD (disponíveis no Desenvolvedor de Aplicações).
-**Criar um cofre chave** | Para migrar VMware VMs usando migração sem agente, a Azure Migrate cria um Cofre chave para gerir as chaves de acesso da conta de armazenamento de replicação na sua subscrição.<br/><br/> Para criar o cofre, você precisa de permissões de atribuição de papéis no grupo de recursos em que o projeto Azure Migrate reside.
+**Criar um Key Vault** | Para migrar VMware VMs usando migração sem agente, a Azure Migrate cria um Cofre chave para gerir as chaves de acesso da conta de armazenamento de replicação na sua subscrição.<br/><br/> Para criar o cofre, você precisa de permissões de atribuição de papéis no grupo de recursos em que o projeto Azure Migrate reside.
 
 
 
@@ -123,7 +123,7 @@ A Azure Migrate precisa de aceder ao vCenter Server para descobrir VMs para aval
 Antes de configurar o aparelho Azure Migrate e iniciar a avaliação no próximo tutorial, prepare-se para a colocação do aparelho.
 
 1. [Verificar](migrate-appliance.md#appliance---vmware) Requisitos do aparelho Azure Migrate.
-2. [Reveja](migrate-appliance.md#url-access) os URLs Azure a que o aparelho terá de aceder. Se estiver a utilizar uma firewall ou procuração baseada em URL, certifique-se de que permite o acesso aos URLs necessários.
+2. Reveja os URLs Azure que o aparelho terá de aceder nas nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
 3. [Reveja os dados](migrate-appliance.md#collected-data---vmware) que o aparelho recolhe durante a descoberta e avaliação.
 4. [Note](migrate-support-matrix-vmware.md#port-access) os requisitos de acesso à porta do aparelho.
 
@@ -138,7 +138,8 @@ Reveja os requisitos para a [migração sem agente](server-migrate-overview.md) 
 2. [Reveja as permissões](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) que o Azure Migrate precisa para aceder ao vCenter Server.
 3. [Revisão](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) Requisitos vMs VMware.
 4. [Reveja](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) os requisitos do aparelho Azure Migrate.
-5. Note os requisitos de [acesso url](migrate-appliance.md#url-access) e acesso à [porta.](migrate-support-matrix-vmware-migration.md#agentless-ports)
+5. Note o acesso url necessário para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
+6. Rever os requisitos de [acesso à porta.](migrate-support-matrix-vmware-migration.md#agentless-ports)
 
 ## <a name="prepare-for-agent-based-vmware-migration"></a>Prepare-se para a migração vmware baseada em agente
 
@@ -150,7 +151,8 @@ Reveja os requisitos para a [migração baseada em agentes](server-migrate-overv
 3. A migração baseada no agente utiliza um aparelho de replicação:
     - [Reveja](migrate-replication-appliance.md#appliance-requirements) os requisitos de implantação do aparelho de replicação.
     - [Reveja as opções](migrate-replication-appliance.md#mysql-installation) para instalar o MySQL no aparelho.
-    - Reveja os requisitos [de URL](migrate-replication-appliance.md#url-access) e de acesso à [porta](migrate-replication-appliance.md#port-access) para o aparelho de replicação.
+    - Note o acesso url [necessário](migrate-replication-appliance.md#url-access).
+    - Reveja os requisitos de acesso à [porta](migrate-replication-appliance.md#port-access) para o aparelho de replicação.
     
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: e73da5e7b440a216841fffd65ca2e1b95de7a609
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf47a352542be0ad4467ed420cc38f62da0d47dc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480934"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534892"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Fluxos de autenticação e cenários de aplicação
 
@@ -172,13 +172,13 @@ Para mais informações, consulte a [aplicação Mobile que liga para a web APIs
 
 Pode utilizar o ponto final da plataforma de identidade da Microsoft para garantir serviços web como a API web RESTful da sua aplicação. Uma API web protegida é chamada usando um símbolo de acesso. O símbolo assegura os dados da API e autentica os pedidos de entrada. O autor de uma API web anexa um sinal de acesso no cabeçalho de autorização de um pedido HTTP.
 
-Se quiser proteger o seu ASP.NET ou ASP.NET Core Web API, tem de validar o token de acesso. Para esta validação, utiliza o ASP.NET jWT middleware. A validação é feita pelas [extensões Do IdentityModel para](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) a biblioteca .NET e não por MSAL.NET.
+Se quiser proteger o seu ASP.NET ou ASP.NET API web Core, tem de validar o token de acesso. Para esta validação, utiliza o ASP.NET jWT middleware. A validação é feita pelas [extensões Do IdentityModel para](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) a biblioteca .NET e não por MSAL.NET.
 
 Para mais informações, consulte [API da web protegida](scenario-protected-web-api-overview.md).
 
 ### <a name="a-web-api-calling-another-web-api-on-behalf-of-a-user"></a>Uma API web chamando outra Web API em nome de um utilizador
 
-Para que a sua ASP.NET ou ASP.NET Core a Web API protegida para ligar para outra Web API em nome de um utilizador, a sua aplicação precisa de adquirir um símbolo para a Web API a jusante. Para adquirir um símbolo, a sua aplicação chama o método [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) da classe **ConfidentialClientApplication.** Estas chamadas também são chamadas de *serviço a serviço.* As APIs web que chamam outras APIs web precisam fornecer serialização de cache personalizada.
+Para que a sua ASP.NET ou ASP.NET Core web protected API para ligar para outra Web API em nome de um utilizador, a sua aplicação precisa de adquirir um símbolo para a Web API a jusante. Para adquirir um símbolo, a sua aplicação chama o método [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) da classe **ConfidentialClientApplication.** Estas chamadas também são chamadas de *serviço a serviço.* As APIs web que chamam outras APIs web precisam fornecer serialização de cache personalizada.
 
   ![Um API web chamando outra Web API](media/scenarios/web-api.svg)
 
@@ -211,14 +211,14 @@ Cenários que envolvem a aquisição de fichas também mapeiam para os fluxos de
  </tr>
 
   <tr>
-   <td><a href="scenario-web-app-sign-user-overview.md"><img alt="Web App that signs in users" src="media/scenarios/scenario-webapp-signs-in-users.svg"></a></td>
+   <td><a href="scenario-web-app-sign-user-overview.md"><img alt="Web app that signs in users" src="media/scenarios/scenario-webapp-signs-in-users.svg"></a></td>
    <td><a href="scenario-web-app-sign-user-overview.md">Uma aplicação web que assina nos utilizadores</a></td>
    <td><a href="v2-oauth2-auth-code-flow.md">Código de Autorização</a></td>
    <td>Trabalho ou contas escolares, contas pessoais e Azure AD B2C</td>
  </tr>
 
   <tr>
-   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web App that signs in users" src="media/scenarios/web-app.svg"></a></td>
+   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web app that signs in users" src="media/scenarios/web-app.svg"></a></td>
    <td><a href="scenario-web-app-call-api-overview.md">Uma aplicação web que chama APIs web</a></td>
    <td><a href="v2-oauth2-auth-code-flow.md">Código de Autorização</a></td>
    <td>Trabalho ou contas escolares, contas pessoais e Azure AD B2C</td>
@@ -280,7 +280,7 @@ Cenários que envolvem a aquisição de fichas também mapeiam para os fluxos de
 
 As bibliotecas de autenticação da Microsoft suportam várias plataformas:
 
-- Javascript
+- JavaScript
 - .NET Framework
 - .NET Core
 - Windows 10/UWP
@@ -302,12 +302,12 @@ Na coluna Windows da tabela seguinte, cada vez que é mencionado .NET Core, .NET
 |Cenário  | Windows | Linux | Mac | iOS | Android
 |--|--|--|--|--|--|--|
 | [Aplicação de página única](scenario-spa-overview.md) <br/>[![Aplicativo de página única](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
-| [Web App que assina nos utilizadores](scenario-web-app-sign-user-overview.md) <br/>[![Web App que inscreve utilizadores](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>Núcleo de ASP.NET | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>Núcleo de ASP.NET | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>Núcleo de ASP.NET
-| [Web App que chama APIs web](scenario-web-app-call-api-overview.md) <br/> <br/>[![Web App que chama APIs web](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python| ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python| ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python
+| [Aplicação web que inicia a sessão de utilizadores](scenario-web-app-sign-user-overview.md) <br/>[![Aplicação web que inscreve utilizadores](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>Núcleo de ASP.NET | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>Núcleo de ASP.NET | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>Núcleo de ASP.NET
+| [Aplicação Web que chama as APIs Web](scenario-web-app-call-api-overview.md) <br/> <br/>[![Aplicação Web que chama as APIs Web](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python| ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python| ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python
 | [Aplicação de ambiente de trabalho que chama APIs Web](scenario-desktop-overview.md) <br/> <br/>Aplicação de desktop que chama fluxo de código do dispositivo ![APIs web [ ![](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md)](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python <br/> ![iOS / Objetivo C ou rápido](media/sample-v2-code/small_logo_iOS.png) MSAL.objc |
 | [Aplicação móvel que chama as APIs Web](scenario-mobile-overview.md) <br/> [![Aplicação móvel que chama as APIs Web](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/small_logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/small_logo_xamarin.png) MSAL.NET | | | ![iOS / Objetivo C ou rápido](media/sample-v2-code/small_logo_iOS.png) MSAL.objc | ![Android](media/sample-v2-code/small_logo_Android.png) MSAL. Android
 | [Aplicações daemon](scenario-daemon-overview.md) <br/> [![Aplicações daemon](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
-| [API Web que chama APIs Web](scenario-web-api-call-api-overview.md) <br/><br/> [![Web API que chama APIs web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
+| [API Web que chama APIs Web](scenario-web-api-call-api-overview.md) <br/><br/> [![API Web que chama APIs Web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![Núcleo de ASP.NET](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 
 Para mais informações, consulte [bibliotecas apoiadas pela Microsoft por OS/idioma](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
 

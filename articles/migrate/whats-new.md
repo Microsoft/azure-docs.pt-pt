@@ -2,18 +2,20 @@
 title: O que há de novo em Azure Migrate
 description: Saiba quais são as novidades e as novidades recentes no serviço Azure Migrate.
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 04/16/2020
 ms.custom: mvc
-ms.openlocfilehash: 9767f3ea31b57d23c8a6772ff5eb6500f7550802
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1b0221f497ae7bbf84f163eef1ddb862d8de2951
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80127594"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535252"
 ---
 # <a name="whats-new-in-azure-migrate"></a>O que há de novo em Azure Migrate
 
 [A Azure Migrate](migrate-services-overview.md) ajuda-o a descobrir, avaliar e migrar no local servidores, apps e dados para a nuvem do Microsoft Azure. Este artigo resume novos lançamentos e funcionalidades no Azure Migrate.
+
+
 
 ## <a name="update-march-2020"></a>Atualização (março de 2020)
 
@@ -58,7 +60,7 @@ A versão atual do Azure Migrate (lançado em julho de 2019) fornece uma série 
 
 ## <a name="azure-migrate-previous-version"></a>Versão anterior do Azure Migrate
 
-Se estava a utilizar a versão anterior do Azure Migrate (apenas foi suportada a avaliação dos VMware VMno no local), deverá agora utilizar a versão atual. Na versão anterior, já não é possível criar novos projetos azure migrate, ou realizar novas descobertas. Ainda pode aceder a projetos existentes. Para isso no portal Azure > **Todos os serviços,** procure o **Azure Migrate.** Nas notificações do Azure Migrate, há uma ligação para aceder a antigos projetos do Azure Migrate.
+Se estiver a utilizar a versão anterior do Azure Migrate (apenas foi suportada a avaliação dos VMware VMno no local), deverá agora utilizar a versão atual. Na versão anterior, já não é possível criar novos projetos azure migrate, ou realizar novas descobertas. Ainda pode aceder a projetos existentes. Para isso no portal Azure > **Todos os serviços,** procure o **Azure Migrate.** Nas notificações do Azure Migrate, há uma ligação para aceder a antigos projetos do Azure Migrate.
 
 
 

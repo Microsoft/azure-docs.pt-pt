@@ -3,15 +3,15 @@ title: Limites e configuração
 description: Limites de serviço, tais como duração, entrada e capacidade, mais valores de configuração, como endereços IP para permitir, para Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 4359c5581d14f4a918a49cf2b91ac58561ea93d3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/17/2020
+ms.openlocfilehash: 40950be2e5caeb17d20086720a7b65c15147c2f5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257458"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535116"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -112,7 +112,7 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 
 ### <a name="integration-service-environment-ise"></a>Ambiente de serviço de integração (ISE)
 
-Aqui estão os limites de entrada para o SKU Premium:
+Aqui estão os limites de entrada para o [Premium ISE SKU:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
 
 | Nome | Limite | Notas |
 |------|-------|-------|
@@ -124,8 +124,7 @@ Aqui estão os limites de entrada para o SKU Premium:
 Para ultrapassar estes limites no processamento normal, ou executar testes de carga que possam ultrapassar estes limites, [contacte a equipa de Aplicações Lógicas](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
 
 > [!NOTE]
-> O [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) não tem limites publicados, uma vez que este SKU não tem qualquer acordo de nível de serviço (SLA) ou capacidades para escalar.
-> Utilize este SKU apenas para experimentação, desenvolvimento e teste, não para testes de produção ou desempenho.
+> O [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) não tem limites publicados, não tem capacidades para escalar, nem acordo de nível de serviço (SLA). Utilize este SKU apenas para experimentação, desenvolvimento e teste, não para testes de produção ou desempenho.
 
 <a name="gateway-limits"></a>
 
@@ -281,12 +280,9 @@ Aqui estão os limites de tamanho da mensagem que se aplicam aos protocolos B2B:
 
 ## <a name="disabling-or-deleting-logic-apps"></a>Desativar ou apagar aplicações lógicas
 
-Quando desativa uma aplicação lógica, não são instantâneas novas execuções.
-Todas as corridas em curso e pendentes continuam até terminarem, o que pode levar tempo a concluir.
+Quando desativa uma aplicação lógica, não são instantâneas novas execuções. Todas as corridas em curso e pendentes continuam até terminarem, o que pode levar tempo a concluir.
 
-Quando elimina uma aplicação lógica, não são instanciadas novas execuções.
-Todas as execuções em curso e pendentes são canceladas.
-Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir.
+Quando elimina uma aplicação lógica, não são instanciadas novas execuções. Todas as execuções em curso e pendentes são canceladas. Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir.
 
 <a name="configuration"></a>
 
@@ -300,17 +296,17 @@ Os endereços IP que as Apps Lógicas Azure usam para chamadas recebidas e saíd
 > * **LogicAppsManagement**: Representa os prefixos de endereço IP de entrada para o serviço de Aplicações Lógicas.
 > * **LogicApps**: Representa os prefixos de endereço IP de saída para o serviço de Aplicações Lógicas.
 
+* Para [o Azure China 21Vianet,](https://docs.microsoft.com/azure/china/)os endereços IP fixos ou reservados não estão disponíveis para [conectores personalizados](../logic-apps/custom-connector-overview.md) e [conectores geridos,](../connectors/apis-list.md#managed-api-connectors)por exemplo, Armazenamento Azure, SQL Server, Office 365 Outlook, e assim por diante.
+
 * Para suportar as chamadas que as suas aplicações lógicas fazem diretamente com [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), e outros pedidos HTTP, configurar a sua firewall com todos os endereços IP de [entrada](#inbound) *e* [saída](#outbound) que são usados pelo serviço De Aplicações Lógicas, com base nas regiões onde existem as suas aplicações lógicas. Estes endereços aparecem sob as rubricas **de entrada** e **saída** nesta secção, e são classificados por região.
 
-* Para suportar as chamadas que os [conectores geridos pela Microsoft](../connectors/apis-list.md) fazem, configura a sua firewall com *todos os* endereços IP de [saída](#outbound) utilizados por estes conectores, com base nas regiões onde existem as suas aplicações lógicas. Estes endereços aparecem sob a rubrica **Outbound** nesta secção, e são classificados por região.
+* Para suportar as chamadas que [os conectores geridos](../connectors/apis-list.md#managed-api-connectors) fazem, instale a sua firewall com *todos os* endereços IP de [saída](#outbound) utilizados por estes conectores, com base nas regiões onde existem as suas aplicações lógicas. Estes endereços aparecem sob a rubrica **Outbound** nesta secção, e são classificados por região.
 
 * Para permitir a comunicação de aplicações lógicas que funcionam num ambiente de serviço de integração (ISE), certifique-se de que [abre estas portas.](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise)
 
 * Se as suas aplicações lógicas tiverem problemas em aceder a contas de armazenamento do Azure que utilizam [firewalls e regras de firewall,](../storage/common/storage-network-security.md)tem [várias opções para permitir o acesso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   Por exemplo, as aplicações lógicas não podem aceder diretamente a contas de armazenamento que usam regras de firewall e existem na mesma região. No entanto, se autorizar os endereços IP de [saída para conectores geridos na sua região,](../logic-apps/logic-apps-limits-and-config.md#outbound)as suas aplicações lógicas podem aceder a contas de armazenamento que se encontram numa região diferente, exceto quando utiliza os conectores azure table storage ou azure queue Storage. Para aceder ao armazenamento de mesa ou armazenamento de fila, pode utilizar o gatilho http e as ações. Para outras opções, consulte contas de armazenamento de [acesso atrás de firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
-
-* Para conectores personalizados, [o Governo Azure](../azure-government/documentation-government-overview.md), e [o Azure China 21Vianet,](https://docs.microsoft.com/azure/china/)não estão disponíveis endereços IP fixos ou reservados.
 
 <a name="inbound"></a>
 

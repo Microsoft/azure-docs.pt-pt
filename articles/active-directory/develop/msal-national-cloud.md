@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: dfca2b1311f1b55f19d5709f7c9ca7c3e366769c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76695743"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533994"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Use mSAL em um ambiente de nuvem nacional
 
@@ -62,7 +62,7 @@ Pode usar MSAL.NET para assinar em utilizadores, adquirir fichas e ligar para a 
 Os seguintes tutoriais demonstram como construir uma aplicação Web .NET Core 2.2 MVC. A aplicação utiliza o OpenID Connect para assinar em utilizadores com uma conta de trabalho e escola numa organização que pertence a uma nuvem nacional.
 
 - Para iniciar sessão nos utilizadores e adquirir fichas, siga este tutorial: [Construa uma ASP.NET utilizadores de sessão de sessão de aplicações Core Web em nuvens soberanas com a plataforma de identidade da Microsoft](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
-- Para ligar para o Microsoft Graph API, siga este tutorial: [Utilizando a plataforma de identidade da Microsoft para ligar para o Microsoft Graph API a partir de uma Aplicação Web An ASP.NET Core 2.x, em nome de um utilizador que inscreveu o seu trabalho e conta escolar no Microsoft National Cloud](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
+- Para ligar para o Microsoft Graph API, siga este tutorial: [Utilizando a plataforma de identidade da Microsoft para ligar para o Microsoft Graph API a partir de uma aplicação web core 2.x ASP.NET, em nome de um utilizador que inscreveu usando o seu trabalho e conta escolar no Microsoft National Cloud](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -70,8 +70,8 @@ Para permitir a sua aplicação MSAL.js para nuvens soberanas:
 
 ### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.us/).
-    
+1. Inicie sessão no [portal do Azure](https://portal.azure.us/).
+
    Para encontrar pontos finais do portal Azure para outras nuvens nacionais, consulte [os pontos finais](authentication-national-cloud.md#app-registration-endpoints)do registo da App.
 
 1. Se a sua conta lhe der acesso a mais de um inquilino, selecione a sua conta no canto superior direito e detete a sua sessão do portal para o desejado inquilino da AD Azure.
@@ -126,17 +126,17 @@ Nesse código:
 - `Enter_the_Tenant_Info_Here`é definido para uma das seguintes opções:
     - Se a sua candidatura apoiar **Contas neste diretório organizacional,** substitua este valor pelo nome de iD do arrendatário ou inquilino (por exemplo, contoso.microsoft.com).
     - Se a sua aplicação apoiar **Contas em qualquer diretório organizacional,** substitua este valor por `organizations`.
-    
+
     Para encontrar pontos finais de autenticação para todas as nuvens nacionais, consulte [os pontos finais de autenticação da Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 
     > [!NOTE]
     > As contas pessoais da Microsoft não são suportadas nas nuvens nacionais.
-  
+
 - `graphEndpoint`é o ponto final do Microsoft Graph para a nuvem da Microsoft para o governo dos EUA.
 
    Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte [os pontos finais do Microsoft Graph nas nuvens nacionais](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-## <a name="python"></a>[Pitão](#tab/python)
+## <a name="python"></a>[Python](#tab/python)
 
 Para permitir a sua aplicação MSAL Python para nuvens soberanas:
 
@@ -149,16 +149,16 @@ Para permitir a sua aplicação MSAL Python para nuvens soberanas:
     ```json
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
-    
+
 - Para ligar para o gráfico da Microsoft requer um URL de ponto final de gráfico específico que dependa da nuvem que está a usar. Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte os [pontos finais](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)do serviço Microsoft Graph e Graph Explorer .
 
     Aqui está um exemplo de um ponto final gráfico, com âmbito:
-    
+
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
     "scope": "User.Read"
     ```
-    
+
 ## <a name="java"></a>[Java](#tab/java)
 
 Para permitir o seu pedido de MSAL para java para nuvens soberanas:
@@ -194,12 +194,12 @@ MSALAADAuthority *aadAuthority =
                                                    audienceType:MSALAzureADMultipleOrgsAudience
                                                       rawTenant:nil
                                                           error:nil];
-                                                          
+
 MSALPublicClientApplicationConfig *config =
                 [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
                                                                 redirectUri:@"<your-redirect-uri-here>"
                                                                   authority:aadAuthority];
-                                                                  
+
 NSError *applicationError = nil;
 MSALPublicClientApplication *application =
                 [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
@@ -213,7 +213,7 @@ Por exemplo, se quiser que a sua candidatura seja uma aplicação multi-arrendat
 
 ```swift
 let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
-        
+
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
 if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```

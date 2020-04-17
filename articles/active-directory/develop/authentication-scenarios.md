@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: e78f822a88b093992f065a509c2250e6a5c0dec2
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5252fdbbaf425662fc9725e618f8fc450b435722
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885570"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534657"
 ---
 # <a name="authentication-basics"></a>Noções básicas sobre autenticação
 
@@ -80,16 +80,16 @@ As fichas de acesso são passadas para uma `Authorization` API web como o símbo
 
 Dependendo da forma como o seu cliente é construído, pode utilizar um (ou vários) dos fluxos de autenticação suportados pela Azure AD. Estes fluxos podem produzir uma variedade de tokens (id_tokens, fichas de atualização, fichas de acesso) bem como códigos de autorização, e requerem diferentes fichas para fazê-los funcionar. Este gráfico fornece uma visão geral:
 
-|Fluxo | Requer | id_token | ficha de acesso | ficha refrescante | código de autorização | 
+|Fluxo | Requer | id_token | ficha de acesso | ficha refrescante | código de autorização |
 |-----|----------|----------|--------------|---------------|--------------------|
-|[Fluxo de código de autorização](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Fluxo de código de autorização](v2-oauth2-auth-code-flow.md) | | x | x | x | x|
 |[Fluxo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Fluxo híbrido oIDC](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
 |[Refrescar redenção de token](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | ficha refrescante | x | x | x| |
 |[Fluxo em-nome-de](v2-oauth2-on-behalf-of-flow.md) | ficha de acesso| x| x| x| |
 |[Credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (apenas app)| | |
 
-Os tokens emitidos através do modo implícito têm uma limitação de `response_mode` comprimento `query` `fragment`devido a ser passado de volta para o navegador através do URL (onde está ou ).  Alguns navegadores têm um limite no tamanho do URL que pode ser colocado na barra do navegador e falhar quando é muito longo.  Assim, estas fichas não `groups` `wids` têm nem reclamam. 
+Os tokens emitidos através do modo implícito têm uma limitação de `response_mode` comprimento `query` `fragment`devido a ser passado de volta para o navegador através do URL (onde está ou ).  Alguns navegadores têm um limite no tamanho do URL que pode ser colocado na barra do navegador e falhar quando é muito longo.  Assim, estas fichas não `groups` `wids` têm nem reclamam.
 
 Agora que tem uma visão geral do básico, leia para entender o modelo de aplicação de identidade e API, saiba como funciona o provisionamento em Azure AD, e obtenha links para informações detalhadas sobre cenários comuns suportes da AD Azure.
 
@@ -126,7 +126,7 @@ O consentimento é o processo de um proprietário de recursos que concede autori
 
 Na plataforma de identidade da Microsoft, um objeto de [aplicação](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-object) descreve uma aplicação. No momento da implementação, a plataforma de identidade da Microsoft utiliza o objeto de aplicação como um plano para criar um principal de [serviço](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#service-principal-object), o que representa uma instância concreta de uma aplicação dentro de um diretório ou inquilino. O diretor de serviço define o que a app pode realmente fazer num diretório de destino específico, que pode usá-la, a que recursos tem acesso, e assim por diante. A plataforma de identidade da Microsoft cria um principal de serviço a partir de um objeto de aplicação através **do consentimento**.
 
-O diagrama seguinte mostra um fluxo simplificado de plataforma de identidade da Microsoft impulsionado pelo consentimento. Mostra dois inquilinos: A e B. Tenant A é o dono da candidatura. O inquilino B está a instantaneamente a aplicação através de um diretor de serviço.  
+O diagrama seguinte mostra um fluxo simplificado de plataforma de identidade da Microsoft impulsionado pelo consentimento. Mostra dois inquilinos: A e B. Tenant A é o dono da candidatura. O inquilino B está a instantaneamente a aplicação através de um diretor de serviço.
 
 ![Fluxo de aprovisionamento simplificado orientado por consentimento](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
@@ -160,7 +160,7 @@ O diagrama de sequência seguinte resume esta interação:
 
 ### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>Como uma aplicação web determina se o utilizador é autenticado
 
-Os desenvolvedores de aplicações web podem indicar se todas ou apenas determinadas páginas requerem autenticação. Por exemplo, em ASP.NET/ASP.NET Core, isto `[Authorize]` é feito adicionando o atributo às ações do controlador. 
+Os desenvolvedores de aplicações web podem indicar se todas ou apenas determinadas páginas requerem autenticação. Por exemplo, em ASP.NET/ASP.NET Core, isto `[Authorize]` é feito adicionando o atributo às ações do controlador.
 
 Este atributo faz com que ASP.NET verifique a presença de um cookie de sessão contendo a identidade do utilizador. Se um cookie não estiver presente, ASP.NET redireciona a autenticação para o fornecedor de identidade especificado. Se o fornecedor de identidade for Azure AD, `https://login.microsoftonline.com`a aplicação web redireciona a autenticação para , que apresenta um diálogo de entrada.
 

@@ -13,12 +13,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: e414e5cb7ad9097eb815240f83d9f529f839b6b4
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: f28d3722d56582bd925d31b43b4a0219bca2ae30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80884006"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534606"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Processar as alterações de cookies do SameSite no browser do Chrome
 
@@ -53,8 +53,8 @@ A tabela abaixo apresenta os pedidos de pull que funcionaram em torno das altera
 
 | Sample | Pedido Pull |
 | ------ | ------------ |
-|  [tutoriatutorial incremental da Web App ASP.NET](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)  |  [Conserção de cookies do mesmo site #261](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/pull/261)  |
-|  [ASP.NET amostra da Aplicação Web do MVC](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)  |  [Mesma #35 de correção de cookies do mesmo site](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/pull/35)  |
+|  [tutoriatutorial incremental da aplicação web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)  |  [Conserção de cookies do mesmo site #261](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/pull/261)  |
+|  [ASP.NET amostra de aplicativo web MVC](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)  |  [Mesma #35 de correção de cookies do mesmo site](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/pull/35)  |
 |  [activo-directório-dotnet-admin-restrito-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2)  |  [Mesmo site cookie corrigir #28](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2/pull/28)  |
 
 para mais detalhes sobre como lidar com cookies do SameSite em ASP.NET e ASP.NET Core, consulte também:

@@ -3,12 +3,12 @@ title: Aplicação de replicação do Azure Migrate
 description: Saiba mais sobre o aparelho de replicação Azure Migrate para migração VMWare baseada em agente.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245866"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535218"
 ---
 # <a name="replication-appliance"></a>Aparelho de replicação
 
@@ -28,8 +28,11 @@ O aparelho de replicação é implantado quando configura a migração baseada e
 
 **Utilizado para** | **Detalhes**
 --- |  ---
-Migração baseada em vmware vm | Você descarrega o modelo OVA do hub De migração Azure, e importa para vCenter Server para criar o vM do aparelho.
-Migração baseada em máquinas físicas | Se não tiver uma infraestrutura VMware, ou se não conseguir criar um VMware VMM utilizando um modelo OVA, descarregue um instalador de software a partir do hub Da Migração Azure e execute-o para configurar a máquina do aparelho.
+**Migração baseada em vmware vm** | Você descarrega o modelo OVA do hub De migração Azure, e importa para vCenter Server para criar o vM do aparelho.
+**Migração baseada em máquinas físicas** | Se não tiver uma infraestrutura VMware, ou se não conseguir criar um VMware VMM utilizando um modelo OVA, descarregue um instalador de software a partir do hub Da Migração Azure e execute-o para configurar a máquina do aparelho.
+
+> [!NOTE]
+> Se estiver a implantar no Governo Azure, utilize o ficheiro de instalação para implantar o aparelho de replicação.
 
 ## <a name="appliance-requirements"></a>Requisitos do aparelho
 
@@ -74,7 +77,7 @@ Descarregue e instale em Azure Migrate | Quando instalar o aparelho e for solici
 
 ## <a name="url-access"></a>Acesso url
 
-O aparelho de replicação precisa de acesso a estes URLs.
+O aparelho de replicação precisa de acesso a estes URLs na nuvem pública de Azure.
 
 **URL** | **Detalhes**
 --- | ---
@@ -84,10 +87,26 @@ O aparelho de replicação precisa de acesso a estes URLs.
 \*.hypervrecoverymanager.windowsazure.com | Utilizado para operações de gestão de replicação e coordenação
 https:\//management.azure.com | Utilizado para operações de gestão de replicação e coordenação
 *.services.visualstudio.com | Usado para efeitos de telemetria (é opcional)
-time.nist.gov | Utilizados para verificar a sincronização da hora entre o sistema e a hora global.
 time.windows.com | Utilizados para verificar a sincronização da hora entre o sistema e a hora global.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | A configuração ovf precisa de acesso a estes URLs. São utilizados para controlo de acesso e gestão de identidade pela Azure Ative Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para completar o download do MySQL
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | A configuração do aparelho precisa de acesso a estes URLs. São utilizados para controlo de acesso e gestão de identidade pela Azure Ative Directory
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para completar o download do MySQL. Em algumas regiões, o download pode ser redirecionado para o URL da CDN. Certifique-se de que o URL do CDN também é permitido, se necessário.
+
+
+## <a name="azure-government-url-access"></a>Acesso url do Governo azure
+
+O aparelho de replicação precisa de acesso a estes URLs no Governo Azure.
+
+**URL** | **Detalhes**
+--- | ---
+\*.backup.windowsazure.us | Utilizado para transferência e coordenação de dados replicados
+\*.store.core.windows.net | Utilizado para transferência e coordenação de dados replicados
+\*.blob.core.windows.net | Usado para aceder à conta de armazenamento que armazena dados replicados
+\*.hypervrecoverymanager.windowsazure.us | Utilizado para operações de gestão de replicação e coordenação
+https:\//management.usgovcloudapi.net | Utilizado para operações de gestão de replicação e coordenação
+*.services.visualstudio.com | Usado para efeitos de telemetria (é opcional)
+time.nist.gov | Utilizados para verificar a sincronização da hora entre o sistema e a hora global.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | A configuração do aparelho com OVA precisa de acesso a estes URLs. São utilizados para o controlo de acesso e gestão de identidade pela Azure Ative Directory.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para completar o download do MySQL. Em algumas regiões, o download pode ser redirecionado para o URL da CDN. Certifique-se de que o URL do CDN também é permitido, se necessário.
 
 ## <a name="port-access"></a>Acesso portuário
 

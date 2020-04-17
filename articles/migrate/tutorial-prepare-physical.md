@@ -1,19 +1,15 @@
 ---
 title: Preparar servidores físicos para avaliação/migração com a Migração Azure
 description: Saiba como se preparar para avaliação/migração de servidores físicos com o Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/19/2019
-ms.author: raynew
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 5f9048b08b3e77a0c8d5ae9a9d10c614a4e0af61
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 539e25f8b6cc92674fef567de6e6de16d0a9394a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336691"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535286"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para avaliação e migração de servidores físicos para OTE
 
@@ -35,21 +31,18 @@ Este tutorial é o primeiro de uma série que mostra como avaliar servidores fí
 Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
-## <a name="prepare-azure"></a>Preparar o Azure
+## <a name="prepare-azure-for-server-assessment"></a>Prepare o Azure para avaliação do servidor
 
-### <a name="azure-permissions"></a>Permissões azure
-
-Precisa de permissões para a implantação do Azure Migrate.
+Instale o Azure para trabalhar com a Azure Migrate. 
 
 **Tarefa** | **Detalhes** 
 --- | --- 
-**Criar um projeto Azure Migrate** | A sua conta Azure necessita de permissões do Contributer ou do Proprietário para criar um projeto. | 
-**Registe os fornecedores de recursos** | A Azure Migrate utiliza um aparelho azure migratório leve para descobrir e avaliar vMs Hiper-V com avaliação do servidor migratório Azure.<br/><br/> Durante o registo do aparelho, os fornecedores de recursos são registados com a assinatura escolhida no aparelho. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Para registar os fornecedores de recursos, necessita de uma função de Colaborador ou Proprietário na subscrição.
-**Criar aplicação do Azure AD** | Ao registar o aparelho, a Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD) que é utilizada para a comunicação entre os agentes que estão a trabalhar no aparelho com os respetivos serviços em funcionamento no Azure. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Precisa de permissões para criar aplicações Azure AD (disponíveis no Desenvolvedor de Aplicações).
+**Criar um projeto Azure Migrate** | A sua conta Azure necessita de permissões do Colaborador ou proprietário para criar um projeto. 
+**Registar fornecedores de recursos (apenas avaliação)** | A Azure Migrate utiliza um aparelho azure migratório leve para descobrir e avaliar máquinas com a Avaliação do Servidor Azure Migrate.Server.<br/><br/> Durante o registo do aparelho, os fornecedores de recursos são registados com a assinatura escolhida no aparelho. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Para registar os fornecedores de recursos, necessita de uma função de Colaborador ou Proprietário na subscrição.
+**Criar app Azure AD (apenas avaliação)** | Ao registar o aparelho, a Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD) que é utilizada para a comunicação entre os agentes que estão a trabalhar no aparelho com os respetivos serviços em funcionamento no Azure. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Precisa de permissões para criar aplicações Azure AD (disponíveis no Desenvolvedor de Aplicações).
 
 
-
-### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar projeto
+### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar projeto 
 
 Verifique se tem permissões para criar um projeto Azure Migrate.
 
@@ -60,7 +53,7 @@ Verifique se tem permissões para criar um projeto Azure Migrate.
     - Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir o papel.
 
 
-### <a name="assign-permissions-to-register-the-appliance"></a>Atribuir permissões para registar o aparelho
+### <a name="assign-permissions-to-register-the-appliance"></a>Atribuir permissões para registar o aparelho 
 
 Pode atribuir permissões para a Azure Migrate criar a aplicação Azure AD durante o registo do aparelho, utilizando um dos seguintes métodos:
 
@@ -89,6 +82,39 @@ O inquilino/administrador global pode conceder permissões da seguinte forma:
 O inquilino/administrador global pode atribuir a função de Desenvolvedor de Aplicações a uma conta. [Saiba mais](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
+## <a name="prepare-azure-for-physical-server-migration"></a>Prepare o Azure para a migração de servidores físicos
+
+Prepare o Azure para migrar servidores físicos, utilizando a Migração do Servidor.
+
+**Tarefa** | **Detalhes**
+--- | ---
+**Criar um projeto Azure Migrate** | A sua conta Azure necessita de permissões do Contributer ou do Proprietário para criar um projeto.
+**Verifique as permissões da sua conta Azure** | A sua conta Azure precisa de permissões para criar um VM e escrever para um disco gerido pelo Azure.
+**Criar uma rede Azure** | Criar uma rede em Azure.
+
+
+### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar projeto
+
+1. No portal Azure, abra a subscrição e selecione controlo de **acesso (IAM)**.
+2. No **Check access,** encontre a conta relevante e clique nela para visualizar permissões.
+3. Deve ter permissões de **Contribuinte** ou **Proprietário.**
+    - Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscrição.
+    - Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir o papel.
+
+
+### <a name="assign-azure-account-permissions"></a>Atribuir permissões de conta Azure
+
+Atribuir a função de Colaborador de Máquina Virtual à conta Azure. Isto fornece permissões para:
+
+    - Criar uma VM no grupo de recursos selecionado.
+    - Criar uma VM na rede virtual selecionada.
+    - Escreva para um disco gerido pelo Azure. 
+
+### <a name="create-an-azure-network"></a>Criar uma rede Azure
+
+[Criar](../virtual-network/manage-virtual-network.md#create-a-virtual-network) uma rede virtual Azure (VNet). Quando se replica para o Azure, os VMs Azure são criados e unidos ao Azure VNet que especifica quando configura a migração.
+
+
 ## <a name="prepare-for-physical-server-assessment"></a>Preparar para avaliação do servidor físico
 
 Para se preparar para a avaliação física do servidor, tem de verificar as definições físicas do servidor e verificar as definições para a implementação do aparelho:
@@ -104,8 +130,8 @@ Para se preparar para a avaliação física do servidor, tem de verificar as def
 Antes de configurar o aparelho Azure Migrate e iniciar a avaliação no próximo tutorial, prepare-se para a colocação do aparelho.
 
 1. [Verifique os](migrate-appliance.md#appliance---physical) requisitos do aparelho para servidores físicos.
-2. [Reveja](migrate-appliance.md#url-access) os URLs Azure a que o aparelho terá de aceder.
-3. [Reveja](migrate-appliance.md#collected-data---vmware) se o aparelho irá recolher durante a descoberta e avaliação.
+2. Reveja os URLs Azure que o aparelho precisa de aceder nas nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
+3. [Reveja](migrate-appliance.md#collected-data---vmware) que o aparelho irá recolher durante a descoberta e avaliação.
 4. [Note que](migrate-support-matrix-physical.md#port-access) o acesso à porta requer a avaliação física do servidor.
 
 
@@ -120,10 +146,16 @@ A Azure Migrate precisa de permissões para descobrir servidores no local.
 
 Reveja os requisitos para a migração de servidores físicos.
 
+> [!NOTE]
+> Ao migrar máquinas físicas, o Azure Migrate:Server Migration usa a mesma arquitetura de replicação que a recuperação de desastres baseada em agentes no serviço de Recuperação de Sítios Azure, e alguns componentes partilham a mesma base de código. Alguns conteúdos podem ligar-se à documentação de Recuperação do Site.
+
 - [Reveja](migrate-support-matrix-physical-migration.md#physical-server-requirements) os requisitos do servidor físico para a migração.
-- Azure Migrate: Server Migration usa um servidor de replicação para migração física do servidor:
+- Azure Migrate:Server Migration usa um servidor de replicação para migração física do servidor:
     - [Reveja](migrate-replication-appliance.md#appliance-requirements) os requisitos de implantação do aparelho de replicação e as [opções](migrate-replication-appliance.md#mysql-installation) para instalar o MySQL no aparelho.
-    - Reveja os requisitos de acesso ao [URL](migrate-replication-appliance.md#url-access) e [porta] (migração-replicação-aparelho.md#port-access) para o aparelho de replicação.
+    - Reveja os [URLs Azure necessários](migrate-appliance.md#url-access) para que o aparelho de replicação aceda às nuvens públicas e governamentais.
+    - Reveja os requisitos de acesso [porta] (migrate-replication-appliance.md#port-access) para o aparelho de replicação.
+
+
 
 
 ## <a name="next-steps"></a>Passos seguintes

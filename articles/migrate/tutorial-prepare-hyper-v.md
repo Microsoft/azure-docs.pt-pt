@@ -2,14 +2,14 @@
 title: Prepare VMs Hiper-V para avaliação/migração com Azure Migrate
 description: Saiba como se preparar para avaliação/migração de VMs Hiper-V com Migração Azure.
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: d14ae4282afb610d025d08419a69c6d10c2f1d08
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: e86e634812e9f2782a003a11b48cfecf91d95359
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436234"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535303"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para avaliação e migração de VMs Hiper-V para Azure
 
@@ -214,9 +214,11 @@ Quando montar o aparelho, termine de configurar o CredSSP, [ativando-o no aparel
 Antes de configurar o aparelho Azure Migrate e iniciar a avaliação no próximo tutorial, prepare-se para a colocação do aparelho.
 
 1. [Verifique os](migrate-appliance.md#appliance---hyper-v) requisitos do aparelho.
-2. [Reveja](migrate-appliance.md#url-access) os URLs Azure a que o aparelho terá de aceder.
+2. Reveja os URLs Azure que o aparelho terá de aceder nas nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls) Se estiver a utilizar uma firewall ou procuração baseada em URL, certifique-se de que permite o acesso aos URLs necessários.
 3. Reveja os dados que o aparelho recolherá durante a descoberta e avaliação.
-4. [Note](migrate-appliance.md#collected-data---hyper-v) os requisitos de acesso à porta do aparelho.
+4. [Reveja](migrate-appliance.md#collected-data---hyper-v) os requisitos de acesso à porta do aparelho.
+
+
 
 
 ## <a name="prepare-for-hyper-v-migration"></a>Prepare-se para a migração Hyper-V

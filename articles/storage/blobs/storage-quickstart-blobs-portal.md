@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 12/04/2019
+ms.date: 04/16/2020
 ms.author: tamram
-ms.openlocfilehash: 3ceeb878121782ea3664e1ed62d5d632b606f08e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a9a048801c6bea74e6b5318eeedf76f92709bee6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061383"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535179"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Início Rápido: carregar, transferir e listar blobs com o portal do Azure
 
@@ -39,27 +39,25 @@ Para criar um contentor no portal do Azure, siga estes passos:
 
 ## <a name="upload-a-block-blob"></a>Carregar um blob de blocos
 
-Os blobs de blocos são compostos por blocos de dados reunidos para criar um blob. A maioria dos cenários com o armazenamento de Blobs emprega blobs de blocos. Os blobs de blocos são ideais para armazenar dados de texto e binários na cloud, como ficheiros, imagens e vídeos. Este guia de introdução mostra como trabalhar com blobs de blocos. 
+Os blobs de blocos são compostos por blocos de dados reunidos para criar um blob. A maioria dos cenários com o armazenamento de Blobs emprega blobs de blocos. Os blobs de blocos são ideais para armazenar dados de texto e binários na cloud, como ficheiros, imagens e vídeos. Este guia de introdução mostra como trabalhar com blobs de blocos.
 
 Para carregar um blob de blocos para o novo contentor no portal do Azure, siga estes passos:
 
 1. No portal do Azure, navegue para o contentor que criou na secção anterior.
-2. Selecione o contentor para mostrar uma lista dos blobs que ele contém. Uma vez que este contentor é novo, ainda não contém blobs.
-3. Selecione o botão **upload** para abrir a lâmina de upload
-4. Navegue no seu sistema de ficheiros local para encontrar um ficheiro para carregar como uma bolha de bloco
-     
+1. Selecione o contentor para mostrar uma lista dos blobs que ele contém. Este contentor é novo, por isso ainda não conterá bolhas.
+1. Selecione o botão **Upload** para abrir a lâmina de upload e navegue no seu sistema de ficheiros local para encontrar um ficheiro para carregar como uma bolha de bloco. Pode expandir opcionalmente a secção avançada para configurar outras definições para o funcionamento do upload.
+
     ![A captura de ecrã mostra como carregar um blob a partir do disco local](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-5. Opcionalmente, expanda a secção avançada para definir outras definições, como tipo de autenticação, nível de acesso ou caminho de pasta virtual.
-6. Selecione o botão **Upload** para comprometer o upload
-7. Carregue os blobs que quiser desta forma. Verá que os novos blobs estão agora listados no contentor.
+1. Selecione o botão **Upload** para carregar a bolha.
+1. Carregue os blobs que quiser desta forma. Verá que os novos blobs estão agora listados no contentor.
 
 ## <a name="download-a-block-blob"></a>Transferir um blob de blocos
 
 Pode transferir um blob de blocos para apresentar no browser ou guardar no seu sistema de ficheiros local. Para transferir um blob de blocos, siga estes passos:
 
-1. Navegue para a lista de blobs que carregou na secção anterior. 
-2. Clique com o botão direito do rato no blob que pretende transferir e selecione **Transferir**. 
+1. Navegue para a lista de blobs que carregou na secção anterior.
+1. Clique com o botão direito do rato no blob que pretende transferir e selecione **Transferir**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -68,9 +66,9 @@ Para remover os recursos que criou neste início rápido, pode eliminar o conten
 Para eliminar o contentor:
 
 1. No portal do Azure, navegue para a lista de contentores na sua conta de armazenamento.
-2. Selecione o contentor a eliminar.
-3. Selecione o botão **Mais** (**... **) e selecione **Eliminar**.
-4. Certifique-se de que pretende eliminar o contentor.
+1. Selecione o contentor a eliminar.
+1. Selecione o botão **Mais** (**... **) e selecione **Eliminar**.
+1. Certifique-se de que pretende eliminar o contentor.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -78,4 +76,3 @@ Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o 
 
 > [!div class="nextstepaction"]
 > [Procedimentos de Operações de Armazenamento de Blobs](storage-dotnet-how-to-use-blobs.md)
-

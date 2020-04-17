@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043e0f3a0ff2c1c642c63a387c571b575f77cf7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0645807aa40557c163643f1393c310668518f9be
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050840"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535145"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Redenção do convite de colaboração Azure Ative Directory B2B
 
@@ -52,6 +52,36 @@ Há alguns casos em que o e-mail de convite é recomendado por um link direto. S
  - Por vezes, o objeto de utilizador convidado pode não ter um endereço de e-mail devido a um conflito com um objeto de contacto (por exemplo, um objeto de contacto do Outlook). Neste caso, o utilizador deve clicar no URL de resgate no e-mail de convite.
  - O utilizador pode iniciar sessão com um pseudónimo do endereço de e-mail que foi convidado. (Um pseudónimo é um endereço de e-mail adicional associado a uma conta de e-mail.) Neste caso, o utilizador deve clicar no URL de resgate no e-mail de convite.
 
+## <a name="invitation-redemption-flow"></a>Fluxo de redenção de convite
+
+Quando um utilizador clica no link **de convite Aceitar** num [e-mail](invitation-email-elements.md)de convite, a Azure AD resgata automaticamente o convite com base no fluxo de resgate, como mostrado abaixo:
+
+![Screenshot mostrando o diagrama de fluxo de redenção](media/redemption-experience/invitation-redemption-flow.png)
+
+1. O processo de resgate verifica se o utilizador tem uma conta pessoal da [Microsoft (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create)existente.
+
+2. Se um administrador tiver ativado a [federação direta,](direct-federation.md)o Azure AD verifica se o sufixo de domínio do utilizador corresponde ao domínio de um fornecedor de identidade SAML/WS-Fed configurado e redireciona o utilizador para o fornecedor de identidade pré-configurado.
+
+3. Se um administrador tiver ativado a [federação da Google,](google-federation.md)o Azure AD verifica se o sufixo de domínio do utilizador é gmail.com ou googlemail.com e redireciona o utilizador para a Google.
+
+4. A Azure AD realiza a descoberta baseada no utilizador para determinar se o utilizador existe num [inquilino Azure AD existente.](what-is-b2b.md#easily-add-guest-users-in-the-azure-ad-portal)
+
+5. Uma vez identificado o **diretório inicial** do utilizador, o utilizador é enviado ao fornecedor de identidade correspondente para iniciar sessão.  
+
+6. Se os passos 1 a 4 não encontrarem um diretório para o utilizador convidado, a Azure AD determina se o inquilino convidado permitiu a funcionalidade de [senha de e-mail única (OTP)](one-time-passcode.md) para os hóspedes.
+
+7. Se [estiver ativada uma senha única por e-mail para os hóspedes,](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode)é enviada uma senha para o utilizador através do e-mail convidado. O utilizador irá recuperar e introduzir esta senha na página de entrada da AD Azure.
+
+8. Se a senha de e-mail para hóspedes for desativada, a AD Azure verifica o sufixo de domínio contra uma lista de domínio de consumo mantida pela Microsoft. Se o domínio corresponder a qualquer domínio na lista de domíniodo consumidor, o utilizador é solicitado a criar uma conta pessoal da Microsoft. Caso contrário, o utilizador é solicitado a criar uma [conta de self-service Azure AD](../users-groups-roles/directory-self-service-signup.md) (conta viral).
+
+9. A Azure AD tenta criar uma conta de self-service Azure AD (conta viral) verificando o acesso ao e-mail. A verificação da conta é feita enviando um código para o e-mail, e fazendo com que o utilizador recupere e envie-o para a AD Azure. No entanto, se o inquilino do utilizador convidado for federado ou se o campo AllowEmailVerifiedUsers estiver definido como falso no inquilino do utilizador convidado, o utilizador não pode completar o resgate e o fluxo resulta num erro. Para mais informações, consulte a colaboração de [Troubleshooting Azure Ative Directory B2B](troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+
+10. O utilizador é solicitado a criar uma conta pessoal da Microsoft (MSA).
+
+11. Depois de autenticar o fornecedor de identidade certo, o utilizador é redirecionado para a Azure AD para completar a experiência de [consentimento](redemption-experience.md#consent-experience-for-the-guest).  
+
+Para os resgates just-in-time (JIT), onde o resgate é através de uma ligação de candidatura arrendada, os passos 8 a 10 não estão disponíveis. Se um utilizador chegar ao passo 6 e a funcionalidade de senha de um e-mail não estiver ativada, o utilizador recebe uma mensagem de erro e não pode resgatar o convite. Para evitar isto, os administradores devem ativar a [senha de um e-mail](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) de uma vez ou garantir que o utilizador clica num link de convite.
+
 ## <a name="consent-experience-for-the-guest"></a>Experiência de consentimento para o hóspede
 
 Quando um hóspede entra para aceder a recursos numa organização parceira pela primeira vez, são guiados pelas páginas seguintes. 
@@ -67,8 +97,7 @@ Quando um hóspede entra para aceder a recursos numa organização parceira pela
 
    ![Screenshot mostrando novos termos de uso](media/redemption-experience/terms-of-use-accept.png) 
 
-   > [!NOTE]
-   > Pode configurar [os termos de utilização](../governance/active-directory-tou.md) em **Gerir** >  > **relações organizacionais****Termos de utilização**.
+   Pode configurar [os termos de utilização](../governance/active-directory-tou.md) em **Gerir** >  > **relações organizacionais****Termos de utilização**.
 
 3. Salvo especificação em contrário, o hóspede é redirecionado para o painel de acesso apps, que lista as aplicações a que o hóspede pode aceder.
 

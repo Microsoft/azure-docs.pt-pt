@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4d2c0a02a48c0e04b501f136f66c28b3f532e2a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83c391c0d92f8d4a0ed4b44bc3a90273db51b412
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79486035"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81539386"
 ---
 Os instantâneos incrementais são cópias de segurança pontual para discos geridos que, quando tirados, consistem apenas em todas as alterações desde o último instantâneo. Quando tenta descarregar ou utilizar um instantâneo incremental, o VHD completo é utilizado. Esta nova capacidade para instantâneos de disco geridos potencialmente permite que sejam mais rentáveis, uma vez que, a menos que escolha, não precisa de armazenar todo o disco com cada instantâneo individual. Tal como as imagens regulares, as imagens incrementais podem ser usadas para criar um disco gerido completo ou para fazer uma imagem instantânea regular.
 
@@ -22,3 +22,5 @@ Existem algumas diferenças entre um instantâneo incremental e um instantâneo 
 Os instantâneos incrementais também oferecem uma capacidade diferencial, apenas disponível para discos geridos. Permitem-lhe obter as alterações entre duas imagens incrementais dos mesmos discos geridos, até ao nível do bloco. Pode utilizar esta capacidade para reduzir a sua pegada de dados ao copiar instantâneos em todas as regiões.  Por exemplo, você pode baixar o primeiro instantâneo incremental como uma bolha base em outra região. Para as imagens posteriores incrementais, só pode copiar as alterações desde o último instantâneo para a bolha base. Depois de copiar as alterações, pode tirar fotografias na bolha base que representam o seu ponto de apoio no tempo do disco noutra região. Pode restaurar o disco a partir da bolha base ou a partir de um instantâneo na bolha base em outra região.
 
 :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-description/incremental-snapshot-diagram.png" alt-text="Diagrama que retrata imagens incrementais copiadas em regiões. As imagens fazem várias chamadas API até eventualmente formar bolhas de página por cada instantâneo.":::
+
+Pode ver o tamanho usado das suas fotos olhando para o relatório de utilização do [Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). Por exemplo, se o tamanho dos dados utilizados de um instantâneo for de 10 GiB, o relatório de utilização **diária** mostrará 10 GiB/(31 dias) = 0,3226 como quantidade consumida.

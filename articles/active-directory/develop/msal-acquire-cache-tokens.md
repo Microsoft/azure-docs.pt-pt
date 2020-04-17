@@ -13,16 +13,16 @@ ms.date: 11/07/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c1f1cbf85b96aade745cc4248aed4bc89e41b450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 647dff9e6401322371ef795a25ca5ced2b517e9c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085163"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534589"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e cache tokens utilizando a biblioteca de autenticação da Microsoft (MSAL)
 
-[Os tokens](access-tokens.md) de acesso permitem que os clientes liguem de forma segura para as APIs web protegidas pelo Azure. Existem muitas formas de adquirir um símbolo usando a Microsoft Authentication Library (MSAL). Algumas formas requerem interações do utilizador através de um navegador web. Alguns não requerem interações do utilizador. Em geral, a forma de adquirir um símbolo depende de se a aplicação for uma aplicação de cliente público (desktop ou aplicação móvel) ou uma aplicação confidencial do cliente (Web App, Web API ou aplicação daemon como um serviço Windows).
+[Os tokens](access-tokens.md) de acesso permitem que os clientes liguem de forma segura para as APIs web protegidas pelo Azure. Existem muitas formas de adquirir um símbolo usando a Microsoft Authentication Library (MSAL). Algumas formas requerem interações do utilizador através de um navegador web. Alguns não requerem interações do utilizador. Em geral, a forma de adquirir um símbolo depende de se a aplicação for uma aplicação de cliente público (desktop ou aplicação móvel) ou uma aplicação confidencial do cliente (aplicação web, Web API ou aplicação daemon como um serviço Windows).
 
 A MSAL caches um símbolo depois de ter sido adquirido.  O código de aplicação deve tentar obter um símbolo silenciosamente (a partir da cache), primeiro, antes de adquirir um símbolo por outros meios.
 
@@ -63,18 +63,18 @@ A MSAL mantém uma cache simbólica (ou duas caches para aplicações confidenci
 
 ### <a name="recommended-call-pattern-for-public-client-applications"></a>Padrão de chamada recomendado para aplicações de clientes públicos
 
-O código de aplicação deve tentar obter um símbolo silenciosamente (a partir da cache), primeiro.  Se a chamada do método devolver um erro ou exceção "UI exigido", tente adquirir um símbolo por outros meios. 
+O código de aplicação deve tentar obter um símbolo silenciosamente (a partir da cache), primeiro.  Se a chamada do método devolver um erro ou exceção "UI exigido", tente adquirir um símbolo por outros meios.
 
 No entanto, há dois fluxos antes dos quais **não deve** tentar adquirir silenciosamente um símbolo:
 
 - fluxo de [credenciais](msal-authentication-flows.md#client-credentials)de cliente , que não utiliza a cache token do utilizador, mas uma cache simbólica de aplicação. Este método trata de verificar esta cache token de aplicação antes de enviar um pedido para o STS.
-- [fluxo](msal-authentication-flows.md#authorization-code) de código de autorização em Aplicações Web, uma vez que resgata um código que a aplicação obteve através da assinatura do utilizador, e tendo-lhes o consentimento para mais âmbitos. Uma vez que um código é passado como parâmetro, e não como uma conta, o método não pode olhar para a cache antes de resgatar o código, que requer, de qualquer forma, uma chamada para o serviço.
+- [fluxo](msal-authentication-flows.md#authorization-code) de código de autorização em aplicações web, uma vez que resgata um código que a aplicação obteve através da assinatura do utilizador, e tendo-lhes o consentimento para mais âmbitos. Uma vez que um código é passado como parâmetro, e não como uma conta, o método não pode olhar para a cache antes de resgatar o código, que requer, de qualquer forma, uma chamada para o serviço.
 
-### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Padrão de chamada recomendado em Aplicações Web usando o fluxo do Código de Autorização
+### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Padrão de chamada recomendado em aplicações web usando o fluxo do Código de Autorização
 
 Para aplicações Web que utilizem o fluxo de código de [autorização OpenID Connect,](v2-protocols-oidc.md)o padrão recomendado nos controladores é:
 
-- Instantiate uma aplicação cliente confidencial com uma cache simbólica com serialização personalizada. 
+- Instantiate uma aplicação cliente confidencial com uma cache simbólica com serialização personalizada.
 - Adquirir o símbolo utilizando o fluxo de código de autorização
 
 ## <a name="acquiring-tokens"></a>Aquisição de fichas
@@ -91,8 +91,8 @@ Para aplicações de clientes públicos (desktop ou aplicativo móvel), você:
 
 ### <a name="confidential-client-applications"></a>Aplicações confidenciais de clientes
 
-Para aplicações confidenciais de clientes (Web App, Web API ou aplicação daemon como um serviço Windows), você:
-- Adquirir fichas **para a própria aplicação** e não para um utilizador, utilizando o fluxo de [credenciais](msal-authentication-flows.md#client-credentials)do cliente . Isto pode ser usado para sincronizar ferramentas, ou ferramentas que processam os utilizadores em geral e não um utilizador específico. 
+Para aplicações confidenciais de clientes (aplicação web, Web API ou aplicação daemon como um serviço Windows), você:
+- Adquirir fichas **para a própria aplicação** e não para um utilizador, utilizando o fluxo de [credenciais](msal-authentication-flows.md#client-credentials)do cliente . Isto pode ser usado para sincronizar ferramentas, ou ferramentas que processam os utilizadores em geral e não um utilizador específico.
 - Utilize o [fluxo em nome de](msal-authentication-flows.md#on-behalf-of) um API web para chamar uma API em nome do utilizador. A aplicação é identificada com credenciais de cliente para adquirir um símbolo com base numa afirmação do utilizador (SAML, por exemplo, ou um símbolo JWT). Este fluxo é utilizado por aplicações que precisam de aceder a recursos de um determinado utilizador em chamadas de serviço a serviço.
 - Adquira fichas utilizando o fluxo de código de [autorização](msal-authentication-flows.md#authorization-code) em aplicações web após o utilizador assinar através do URL de pedido de autorização. A aplicação OpenID Connect utiliza normalmente este mecanismo, que permite ao utilizador iniciar sessão utilizando o open ID connect e, em seguida, aceder a APIs web em nome do utilizador.
 

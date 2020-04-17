@@ -2,14 +2,14 @@
 title: Migração de VMware Migratório Migratório Migratório Migratório Migratório Migratório Imware
 description: Aprenda a executar uma migração sem agente de VMware VMs com Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 825d6ff16a1f51fa476541ee10fea5f8a1c2972e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4612c9b0ea2ef8d53b0c04f47628f3789705d833
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78304213"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535320"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMs migratórios para Azure (sem agente)
 
@@ -49,15 +49,18 @@ Antes de começar este tutorial, tem de:
     - [Prepare Azure](tutorial-prepare-vmware.md#prepare-azure) para a migração.
     - [Prepare o ambiente no local](tutorial-prepare-vmware.md#prepare-for-agentless-vmware-migration) para a migração.
     
-2. Recomendamos que tente avaliar vMware VMs com Avaliação de Servidor esmigrado Azure antes de os migrar para o Azure. Para configurar a avaliação, [complete o segundo tutorial](tutorial-assess-vmware.md) desta série. Se não quiser avaliar os VMs, pode ignorar este tutorial. Embora recomendemos que experimente uma avaliação, mas não precisa fazer uma avaliação antes de tentar uma migração.
+2. Recomendamos que tente avaliar vMware VMs com Avaliação de Servidor esmigrado Azure antes de os migrar para o Azure. Para configurar a avaliação, [complete o segundo tutorial](tutorial-assess-vmware.md) desta série. Se não quiser avaliar os VMs, pode saltar este tutorial. Embora recomendemos que experimente uma avaliação, mas não precisa fazer uma avaliação antes de tentar uma migração.
 
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Adicione a ferramenta de migração do servidor migratório Azure Migrate
 
-Se não seguiu o segundo tutorial para avaliar vMware VMs, precisa [seguir estas instruções](how-to-add-tool-first-time.md) configurar um projeto Azure Migrate e selecionar a ferramenta de migração do servidor de migração do Servidor Migratório Azure Migrate. 
+Adicione a ferramenta de migração De migração Azure Migrate:Server.
 
-Se seguiu o segundo tutorial e já tiver um projeto Azure Migrate criado, adicione a ferramenta de migração do servidor migratório Azure da seguinte forma:
+- Se seguiu o segundo tutorial para [avaliar VMware VMs,](/tutorial-assess-vmware.md)pode adicionar a ferramenta.
+- Se não seguiu o segundo tutorial, [siga estas instruções](how-to-add-tool-first-time.md) para criar um projeto Azure Migrate.  Adicione a ferramenta de migração De migração Azure Migrate:Server quando criar o projeto.
+
+Se tiver um projeto configurado, adicione a ferramenta da seguinte forma:
 
 1. No projeto Azure Migrate, clique em **Visão Geral**. 
 2. No **Discover, avaliar e migrar servidores,** clique em **avaliar e migrar servidores**.
@@ -70,19 +73,18 @@ Se seguiu o segundo tutorial e já tiver um projeto Azure Migrate criado, adicio
 
 4. Na lista de ferramentas, selecione **Azure Migrate: Server Migration** > **Add tool**
 
-    ![Ferramenta de migração do servidor](./media/tutorial-migrate-vmware/server-migration-tool.png)
+    ![Ferramenta de Migração do Servidor](./media/tutorial-migrate-vmware/server-migration-tool.png)
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Instale o aparelho Migratório Azure
 
-A Migração do Servidor Migratório Azure tem um aparelho VMware VM leve. O aparelho realiza a descoberta de VM e envia metadados VM e dados de desempenho para a Migração do Servidor Migratório Migratório Migratório Migratório Migratório Migratório Migratório Migratório Migratório Migratório Azure. O mesmo aparelho também é utilizado pela ferramenta de avaliação do servidor de migração Azure.
+A Migração do Servidor Migratório Azure tem um aparelho VMware VM leve. O aparelho realiza a descoberta de VM e envia metadados VM e dados de desempenho para a Migração de Migração de Migração de Migração de Emigrantes Azure. O mesmo aparelho também é utilizado pela ferramenta Azure Migrate:Server Assessment, para realizar uma migração sem agente de VMware VMs.
 
-Se seguiu o segundo tutorial para avaliar vMware VMs, já montou o aparelho durante esse tutorial. Se não seguiu o tutorial, tem de montar o aparelho agora. Para fazer isto, tu: 
+- Se seguiu o [tutorial para avaliar vMware VMs,](tutorial-assess-vmware.md)já instalou o aparelho durante esse tutorial.
+- Se não seguiu o tutorial, pode configurar o aparelho agora, utilizando um destes métodos:
+    - [Configurar](how-to-set-up-appliance-vmware.md) num VMware VM utilizando um modelo OVA descarregado.
+    - Instale-se num VM ou numa máquina física VMware com um script de instalação PowerShell. [Este método](deploy-appliance-script.md) deve ser usado se não conseguir configurar um VM usando um modelo DEOVA, ou se estiver no governo de Azure.
 
-- Descarregue um ficheiro de modelo OVA e importe-o para vCenter Server.
-- Crie o aparelho e verifique se pode ligar-se à Avaliação do Servidor Migratório Azure. 
-- Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate.
-
-Siga as instruções [deste artigo](how-to-set-up-appliance-vmware.md) para configurar o aparelho.
+Depois de criar o aparelho, verifique se pode ligar-se à Avaliação do Servidor Azure Migrate:Server, configurá-lo pela primeira vez e registá-lo com o projeto Azure Migrate.
 
 
 ## <a name="prepare-vms-for-migration"></a>Prepare VMs para migração
