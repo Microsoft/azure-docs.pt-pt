@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 2d6b5f07cdefe874a8c25338e5c31664fccb8055
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 47944b573cdc2a8121c525c7750aa868d4a4e696
+  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "79415735"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81529807"
 landingContent:
 - title: Tradutor
   linkLists:
@@ -64,7 +64,7 @@ landingContent:
       url: reference/v3-0-reference.md
     - text: Limites de pedidos
       url: request-limits.md
-    - text: Suporte de idioma e região
+    - text: Suporte de idiomas
       url: language-support.md
 - title: Custom Translator
   linkLists:

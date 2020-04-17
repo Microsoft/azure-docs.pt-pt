@@ -42,6 +42,6 @@
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Suporte de idiomas
-      href: 'https://aka.ms/ltlangsupport'
+      href: language-support.md
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

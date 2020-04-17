@@ -48,7 +48,7 @@
   items:
     - name: Tipos de entidade nomeados
       href: named-entity-types.md
-    - name: Suporte de idioma e região
+    - name: Suporte de idiomas
       href: language-support.md
     - name: Desvios de texto
       href: concepts/text-offsets.md

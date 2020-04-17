@@ -107,7 +107,7 @@
       href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
     - name: Pontos finais de Pesquisa de Imagens do Bing
       href: image-search-endpoint.md
-    - name: Suporte de idioma e região
+    - name: Suporte de idiomas
       href: language-support.md
     - name: Análise da API de Pesquisa de Imagens do Bing
       maintainContext: true
