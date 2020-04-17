@@ -3,12 +3,12 @@ title: Criar um novo recurso Azure Application Insights [ Microsoft Docs
 description: Configurar manualmente a monitorização de Insights de Aplicação para uma nova aplicação ao vivo.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: c1b3a6920723ad59b714cce4bd69e1b95fe1995f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c8b9ccaa70a2fd1bf46c6f4537f54d702ecc48f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132408"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537581"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -153,12 +153,12 @@ Para obter toda a documentação do Azure CLI para este comando, e para aprender
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md)
-* [Explorar métricas](../../azure-monitor/app/metrics-explorer.md)
+* [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)
 * [Escrever consultas da Análise](../../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

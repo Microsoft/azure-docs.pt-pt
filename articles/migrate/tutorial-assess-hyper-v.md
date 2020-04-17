@@ -2,14 +2,14 @@
 title: Avaliar Os VMs Hiper-V para migração para Azure com o Azure Migrate Microsoft Docs
 description: Descreve como avaliar no local os VMs hiper-V para migração para Azure usando a Avaliação do Servidor Migratório Azure.
 ms.topic: tutorial
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: cb3c29e01b7917a6d639b6b2a53fc2842efc2172
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c627902268af3a91e172223c1741dd24ea21fa92
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336780"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535456"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs hiper-V com avaliação do servidor migratório Azure
 
@@ -49,7 +49,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 4. Em **Introdução**, clique em **Adicionar ferramentas**.
 5. No **separador de projeto Migrate,** selecione a sua subscrição Azure e crie um grupo de recursos se não tiver um.
-6. Em Detalhes do **Projeto,** especifique o nome do projeto e a região em que pretende criar o projeto. [Reveja](migrate-support-matrix.md#supported-geographies) as regiões em que pode criar o projeto Azure Migrate.
+6. Em Detalhes do **Projeto,** especifique o nome do projeto e a região em que pretende criar o projeto. Rever geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
 
     - A região do projeto é usada apenas para armazenar os metadados recolhidos a partir de VMs no local.
     - Pode selecionar uma região-alvo azure diferente quando migrar os VMs. Todas as regiões de Azure são apoiadas para o objetivo de migração.
@@ -67,9 +67,11 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Instale o aparelho Migratório Azure
 
-Azure Migrate:server Assessment usa um aparelho ligeiro de migração Azure. O aparelho realiza a descoberta de VM e envia metadados VM e dados de desempenho para a Migração Azure.
-- O aparelho pode ser instalado num VM Hiper-V utilizando um VHD Hiper-V descarregado. Em alternativa, pode configurar o aparelho numa VM ou numa máquina física com um script de instalação PowerShell.
-- Este tutorial usa o VHD. Reveja [este artigo](deploy-appliance-script.md) se quiser configurar o aparelho com um script.
+
+Azure Migrate:Server Assessment usa um aparelho ligeiro de migração Azure. O aparelho realiza a descoberta de VM e envia metadados VM e dados de desempenho para a Migração Azure. O aparelho pode ser montado de várias maneiras.
+
+- Instale-se num VM Hiper-V utilizando um VHD Hiper-V descarregado. Este é o método usado neste tutorial.
+- Instale-se num VM Hiper-V ou numa máquina física com um script de instalação PowerShell. [Este método](deploy-appliance-script.md) deve ser usado se não conseguir configurar um VM usando o VHD, ou se estiver no Governo Azure.
 
 Depois de criar o aparelho, verifique se pode ligar-se à Avaliação do Servidor Azure Migrate:Server, configurá-lo pela primeira vez e registá-lo com o projeto Azure Migrate.
 
@@ -125,9 +127,9 @@ Importe o ficheiro descarregado e crie o VM.
 7. Em Hyper-V Manager > **Máquinas Virtuais,** inicie o VM.
 
 
-### <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
+## <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
 
-Certifique-se de que o VM do aparelho pode ligar-se a [URLs Azure](migrate-appliance.md#url-access).
+Certifique-se de que o vM do aparelho pode ligar-se a URLs Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
 
 ### <a name="configure-the-appliance"></a>Configure o aparelho
 

@@ -12,12 +12,12 @@ ms.date: 04/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 143a2ec0bfbcc6997eb6d8b2599b848a509ee773
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: bdbda8bed38819ca2b4d2fb1ef3d9bf591269890
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309499"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535915"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicação para plataforma de identidade Microsoft
 
@@ -80,11 +80,11 @@ Pode garantir a identidade do utilizador validando o token de identificação co
 
 Para ver este cenário em ação, experimente uma das amostras de código de início da aplicação web na [plataforma de identidade da Microsoft.](v2-overview.md#getting-started)
 
-Além de um simples sessão, uma aplicação de servidor web pode precisar de aceder a outro serviço web, como um REST API. Neste caso, a aplicação do servidor web envolve-se num fluxo combinado openID Connect e OAuth 2.0, utilizando o fluxo de código de [autorização OAuth 2.0](active-directory-v2-protocols.md). Para mais informações sobre este cenário, leia sobre [começar com aplicações web e APIs Web.](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
+Além de um simples sessão, uma aplicação de servidor web pode precisar de aceder a outro serviço web, como um REST API. Neste caso, a aplicação do servidor web envolve-se num fluxo combinado openID Connect e OAuth 2.0, utilizando o fluxo de código de [autorização OAuth 2.0](active-directory-v2-protocols.md). Para mais informações sobre este cenário, leia sobre [começar com aplicações web e APIs web.](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
 ## <a name="web-apis"></a>APIs da Web
 
-Pode utilizar o ponto final da plataforma de identidade da Microsoft para garantir serviços web, como a API Web RESTful da sua aplicação. As APIs web podem ser implementadas em inúmeras plataformas e idiomas. Também podem ser implementados utilizando gatilhos HTTP em funções Azure. Em vez de tokens de ID e cookies de sessão, um API web usa um token de acesso OAuth 2.0 para proteger os seus dados e autenticar pedidos de entrada. O autor de uma API web anexa um sinal de acesso no cabeçalho de autorização de um pedido HTTP, como este:
+Pode utilizar o ponto final da plataforma de identidade da Microsoft para garantir serviços web, como a API web RESTful da sua aplicação. As APIs web podem ser implementadas em inúmeras plataformas e idiomas. Também podem ser implementados utilizando gatilhos HTTP em funções Azure. Em vez de tokens de ID e cookies de sessão, uma API web usa um token de acesso OAuth 2.0 para proteger os seus dados e autenticar pedidos de entrada. O chamador de uma API web anexa um sinal de acesso no cabeçalho de autorização de um pedido HTTP, como este:
 
 ```HTTP
 GET /api/items HTTP/1.1
@@ -96,13 +96,13 @@ Accept: application/json
 
 A Web API utiliza o sinal de acesso para verificar a identidade do chamador da API e para extrair informações sobre o chamador de reclamações codificadas no token de acesso. Mais detalhes sobre diferentes tipos de fichas utilizadas no ponto final da plataforma de identidade da Microsoft estão disponíveis na referência de [acesso e](access-tokens.md) [referência id_token.](id-tokens.md)
 
-Uma API Web pode dar aos utilizadores o poder de optar ou optar por funcionalidades ou dados específicos expondo permissões, também conhecidas como [âmbitos.](v2-permissions-and-consent.md) Para que uma aplicação de chamada adquira permissão a um âmbito, o utilizador deve consentir com o âmbito durante um fluxo. O ponto final da plataforma de identidade da Microsoft pede permissão ao utilizador e, em seguida, regista permissões em todas as fichas de acesso que a Web API recebe. A Web API valida as fichas de acesso que recebe em cada chamada e realiza verificações de autorização.
+Uma API web pode dar aos utilizadores o poder de optar ou optar por funcionalidades ou dados específicos expondo permissões, também conhecidas como [âmbitos.](v2-permissions-and-consent.md) Para que uma aplicação de chamada adquira permissão a um âmbito, o utilizador deve consentir com o âmbito durante um fluxo. O ponto final da plataforma de identidade da Microsoft pede permissão ao utilizador e, em seguida, regista permissões em todas as fichas de acesso que a Web API recebe. A Web API valida as fichas de acesso que recebe em cada chamada e realiza verificações de autorização.
 
-Um API web pode receber tokens de acesso de todos os tipos de aplicações, incluindo aplicações de servidores web, aplicações de desktop e mobile, aplicações de uma página única, daemons do lado do servidor e até mesmo outras APIs web. O fluxo de alto nível para uma API web é assim:
+Um API web pode receber tokens de acesso de todos os tipos de aplicações, incluindo aplicações de servidores web, aplicações de desktop e mobile, aplicações de página única, daemons do lado do servidor e até mesmo outras APIs web. O fluxo de alto nível para uma API web é assim:
 
 ![Mostra o fluxo de autenticação api web](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-Para aprender a garantir um API Web utilizando fichas de acesso OAuth2, consulte as amostras de código Web API na plataforma de identidade da [Microsoft a iniciar a](v2-overview.md#getting-started) secção.
+Para aprender a garantir uma API web utilizando fichas de acesso OAuth2, confira as amostras de código API web na plataforma de identidade da [Microsoft que inicia a](v2-overview.md#getting-started) secção.
 
 Em muitos casos, as APIs web também precisam de fazer pedidos de saída para outras APIs web a jusante protegidas pela plataforma de identidade microsoft. Para tal, as APIs web podem tirar partido do fluxo **On-Behalf-Of,** que permite à Web API trocar um sinal de acesso de entrada para outro token de acesso a ser usado em pedidos de saída. Para mais informações, consulte a [plataforma de identidade da Microsoft e o OAuth 2.0 On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md).
 
@@ -110,7 +110,7 @@ Em muitos casos, as APIs web também precisam de fazer pedidos de saída para ou
 
 As aplicações instaladas por dispositivos, como aplicações móveis e de desktop, muitas vezes precisam de aceder a serviços de back-end ou APIs web que armazenam dados e desempenham funções em nome de um utilizador. Estas aplicações podem adicionar entrada e autorização para serviços back-end utilizando o fluxo de código de [autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
-Neste fluxo, a aplicação recebe um código de autorização a partir do ponto final da plataforma de identidade da Microsoft quando o utilizador faz a entrada. O código de autorização representa a permissão da app para chamar os serviços back-end em nome do utilizador que está inscrito. A aplicação pode trocar o código de autorização em segundo plano por um token de acesso OAuth 2.0 e um token de atualização. A aplicação pode usar o sinal de acesso para autenticar apis web em pedidos HTTP, e usar o token de atualização para obter novos tokens de acesso quando fichas de acesso mais antigas expirarem.
+Neste fluxo, a aplicação recebe um código de autorização a partir do ponto final da plataforma de identidade da Microsoft quando o utilizador faz a entrada. O código de autorização representa a permissão da app para chamar os serviços back-end em nome do utilizador que está inscrito. A aplicação pode trocar o código de autorização em segundo plano por um token de acesso OAuth 2.0 e um token de atualização. A aplicação pode usar o sinal de acesso para autenticar apis web em pedidos HTTP, e usar o token de atualização para obter novos tokens de acesso quando os tokens de acesso mais antigos expirarem.
 
 ![Mostra o fluxo de autenticação de aplicações nativas](./media/v2-app-types/convergence-scenarios-native.svg)
 

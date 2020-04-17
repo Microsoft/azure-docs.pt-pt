@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 82c516eeac6d3e88ca7b6ac1c97ebb638ba27979
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 01b5f87c2557e2195573b90766ee45e001798cca
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383917"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537700"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece partilhas de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de Mensagens de [Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)padrão da indústria. Pode montar partilhas de ficheiros Azure simultaneamente em implementações em nuvem ou no local de implementações de Windows, Linux e macOS. Também pode cache as partilhas de ficheiros Azure nas máquinas do Windows Server utilizando o Azure File Sync para acesso rápido perto do local onde os dados são utilizados.
@@ -164,7 +164,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="ad-support"></a>
 **A autenticação baseada na identidade e o controlo de acesso são suportados por Ficheiros Azure?**  
     
-    Sim, o Azure Files suporta a autenticação baseada na identidade e o controlo de acesso. Pode escolher uma de duas formas de utilizar o controlo de acesso baseado na identidade: Diretório Ativo (AD) (pré-visualização) ou Serviços de Domínio de Diretório Ativo Azure (Azure AD DS) (GA). A AD suporta a autenticação utilizando máquinas adentivas, quer no local quer no Azure, para aceder a partilhas de ficheiros Azure sobre SMB. A autenticação Azure AD DS sobre SMB para Ficheiros Azure permite que os VMs do Windows filiados no domínio Azure AD DS acedam a partilhas, diretórios e ficheiros utilizando credenciais Azure AD. Para mais detalhes, consulte o suporte de [autenticação baseado na identidade do Azure Files para acesso](storage-files-active-directory-overview.md)a SMB . 
+    Sim, o Azure Files suporta a autenticação baseada na identidade e o controlo de acesso. Pode escolher uma de duas formas de utilizar o controlo de acesso baseado na identidade: serviços de domínio ativo de diretório ativo (pré-visualização) ou Serviços de Domínio de Diretório Ativo Azure (Azure AD DS). No local, os Serviços de Domínio ativo do Diretório Ativo (AD DS) suportam a autenticação utilizando máquinas ad ds filiadas no domínio, quer no local quer no Azure, para aceder a ações de ficheiros Azure sobre sMB. A autenticação Azure AD DS sobre SMB para Ficheiros Azure permite que os VMs do Windows filiados no domínio Azure AD DS acedam a partilhas, diretórios e ficheiros utilizando credenciais Azure AD. Para mais detalhes, consulte o suporte de [autenticação baseado na identidade do Azure Files para acesso](storage-files-active-directory-overview.md)a SMB . 
 
     O Azure Files oferece duas formas adicionais de gerir o controlo de acesso:
 
@@ -185,30 +185,30 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
     Sim, apoiamos APIs REST que obtêm, set ou copiam NTFS ACLs para diretórios ou ficheiros ao utilizar a API REST [2019-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou posterior).
 
 * <a id="ad-vm-subscription"></a>
-**Posso aceder a Ficheiros Azure com credenciais AD Azure de um VM sob uma subscrição diferente?**
+**Posso aceder a ações de ficheiros Azure com credenciais Azure AD de um VM sob uma subscrição diferente?**
 
-    Se a subscrição sob a qual a parte de ficheiro é implantada estiver associada ao mesmo inquilino Azure AD que a implantação de Serviços de Domínio Azure AD para a qual o VM é associado ao domínio, então poderá aceder aos Ficheiros Azure utilizando as mesmas credenciais De AD Azure. A limitação é imposta não à subscrição, mas ao inquilino da AD Azure associado.
+    Se a subscrição sob a qual a parte de ficheiro é implantada estiver associada ao mesmo inquilino Azure AD que a implantação azure AD DS à qual o VM é associado ao domínio, poderá aceder às ações de ficheiros Azure utilizando as mesmas credenciais Azure AD. A limitação é imposta não à subscrição, mas ao inquilino da AD Azure associado.
     
 * <a id="ad-support-subscription"></a>
-**Posso permitir a autenticação Azure Files Azure AD DS ou AD com um inquilino DaD Azure diferente do inquilino primário a que a parte do ficheiro está associada?**
+**Posso ativar a autenticação Azure AD DS ou no local para ações de ficheiros Azure utilizando um inquilino da Azure AD que é diferente do inquilino principal da partilha de ficheiros Azure?**
 
-    Não, o Azure Files apenas suporta a integração de AD Azure ou AD com um inquilino Azure AD que reside na mesma subscrição que a partilha de ficheiros. Apenas uma subscrição pode ser associada a um inquilino da AD Azure. Esta limitação aplica-se tanto aos métodos de autenticação Azure AD DS como AD. Ao utilizar a AD para autenticação, a credencial ad deve ser sincronizada com a AD Azure a que a conta de armazenamento está associada.
+    Não, o Azure Files apenas suporta a integração da Azure AD DS ou no local ad dS com um inquilino Azure AD que reside na mesma subscrição que a partilha de ficheiros. Apenas uma subscrição pode ser associada a um inquilino da AD Azure. Esta limitação aplica-se tanto aos métodos de autenticação AD DS azure como no local. Ao utilizar a AD DS no local para autenticação, [a credencial AD DS deve ser sincronizada com o Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) a que a conta de armazenamento está associada.
 
 * <a id="ad-linux-vms"></a>
-**O Azure Files Azure AD DS ou a autenticação AD suporta mDs Linux?**
+**A Autenticação AD DS da Azure AD ou no local para ações de ficheiroS Azure suporta MD linux?**
 
     Não, a autenticação dos VMs Linux não é suportada.
 
 * <a id="ad-aad-smb-afs"></a>
-**Posso alavancar a autenticação Azure Files Azure AD DS ou autenticação de Diretório Ativo (AD) em ações de ficheiro geridas pelo Azure File Sync?**
+**As ações de ficheiro geridas pelo Azure File Sync suportam a autenticação Azure AD DS ou no local AD DS (pré-visualização).**
 
-    Sim, pode ativar a autenticação Azure AD DS ou AD numa partilha de ficheiro gerida pela sincronização de ficheiros Azure. As alterações aos NTFS ACLs de diretório/ficheiro nos servidores de ficheiros locais serão nivelado para Ficheiros Azure e vice-versa.
+    Sim, pode ativar a autenticação AD DS azure ou no local no local numa partilha de ficheirogerida pelo Azure File Sync. As alterações aos NTFS ACLs de diretório/ficheiro nos servidores de ficheiros locais serão nivelado para Ficheiros Azure e vice-versa.
 
 * <a id="ad-aad-smb-files"></a>
-**Como posso verificar se permiti a autenticação da AD na minha conta de armazenamento e nas informações de domínio da AD?**
+**Como posso verificar se permiti a autenticação aD DS na minha conta de armazenamento e recuperar as informações de domínio?**
 
-    Pode consultar as instruções [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account) fornecidas para validar se a Autenticação AD dos Ficheiros Azure estiver ativada na sua conta de armazenamento e recuperar as informações de domínio aD.
-
+    Para obter instruções, consulte [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account).
+    
 * <a id="encryption-at-rest"></a>
 **Como posso garantir que a minha partilha de ficheiros Azure esteja encriptada em repouso?**  
 
@@ -241,15 +241,15 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
     Não, a autenticação dos VMs Linux não é suportada.
 
 * <a id="ad-multiple-forest"></a>
-**A autenticação ad-ad azure files suporta a integração com um ambiente ad usando várias florestas?**    
+**A autenticação AD DS no local para as partilhas de ficheiros Azure suporta a integração com um ambiente AD DS utilizando múltiplas florestas?**    
 
-    A autenticação ad-ad-arquivos Azure apenas se integra com a floresta do serviço de domínio AD a que a conta de armazenamento está registada. Para apoiar a autenticação de outra floresta ad, o seu ambiente deve ter a confiança florestal configurada corretamente. A forma como o Azure Files se regista num serviço de domínio AD é maioritariamente a mesma que um servidor de ficheiros regular, onde cria uma identidade (conta de logon de computador ou de serviço) em AD para autenticação. A única diferença é que o SPN registado da conta de armazenamento termina com "file.core.windows.net" que não corresponde ao sufixo de domínio. Consulte o seu administrador de domínio para ver se é necessária alguma atualização à sua política de encaminhamento DNS para permitir a autenticação múltipla da floresta devido ao sufixo de domínio diferente.
+    A autenticação AD DS do Azure Files no local apenas se integra com a floresta do serviço de domínio a que a conta de armazenamento está registada. Para apoiar a autenticação de outra floresta, o seu ambiente deve ter um fundo florestal configurado corretamente. A forma como o Azure Files se regista no AD DS é quase o mesmo que um servidor de ficheiros regular, onde cria uma identidade (conta de logon de computador ou de serviço) em DS AD para autenticação. A única diferença é que o SPN registado da conta de armazenamento termina com "file.core.windows.net" que não corresponde ao sufixo de domínio. Consulte o seu administrador de domínio para ver se é necessária alguma atualização à sua política de encaminhamento DNS para permitir a autenticação múltipla da floresta devido ao sufixo de domínio diferente.
 
 * <a id=""></a>
-**Que regiões estão disponíveis para autenticação AD de Ficheiros Azure (pré-visualização)?**
+**Que regiões estão disponíveis para autenticação AD DS de Ficheiros Azure (pré-visualização)?**
 
-    Consulte a disponibilidade regional da [AD](storage-files-identity-auth-active-directory-enable.md#regional-availability) para mais detalhes.
-
+    Consulte a disponibilidade regional da [AD DS](storage-files-identity-auth-active-directory-enable.md#regional-availability) para mais detalhes.
+    
 * <a id="ad-aad-smb-afs"></a>
 **Posso alavancar a autenticação do Diretório Ativo do Azure Files (AD) (pré-visualização) em ações de ficheirogeridas pelo Azure File Sync?**
 

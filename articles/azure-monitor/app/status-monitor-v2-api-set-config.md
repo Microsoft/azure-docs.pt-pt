@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 1226b3e10adf786ed3335844a5d3f4e530911705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c47b9b5f297fa62c474e6c29737d6d11b887130d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671244"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537479"
 ---
 # <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>Agente de Insights de Aplicação API: Set-ApplicationInsightsMonitoringConfig
 
@@ -113,7 +113,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 ## <a name="next-steps"></a>Passos seguintes
 
   Ver a telemetria:
- - [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorizar o desempenho e o uso.
+ - [Explore as métricas](../../azure-monitor/platform/metrics-charts.md) para monitorizar o desempenho e o uso.
 - [Pesquisar eventos e registos](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
 - [Use o Analytics](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
 - [Criar dashboards](../../azure-monitor/app/overview-dashboard.md).

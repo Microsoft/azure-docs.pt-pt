@@ -10,16 +10,16 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: b3d068a8100cf78ccffac6d537fe71942239f383
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: d5b6452684757aead684356fd9bb032b90c58c4a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886165"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535830"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicione um Diretório Ativo Azure utilizando serviços conectados em estúdio visual
 
-Utilizando o Azure Ative Directory (Azure AD), pode apoiar o Single Sign-On (SSO) para aplicações web ASP.NET MVC ou autenticação de diretório ativo nos serviços Web API. Com a Autenticação AD Azure, os seus utilizadores podem utilizar as suas contas a partir do Diretório Ativo Azure para se conectarem às suas aplicações web. As vantagens da Autenticação AD Azure com API web incluem uma maior segurança de dados ao expor uma API de uma aplicação web. Com a Azure AD, não é necessário gerir um sistema de autenticação separado com a sua própria conta e gestão de utilizadores.
+Utilizando o Azure Ative Directory (Azure AD), pode apoiar o Single Sign-On (SSO) para aplicações web ASP.NET MVC ou autenticação de diretório ativo nos serviços web API. Com a Autenticação AD Azure, os seus utilizadores podem utilizar as suas contas a partir do Diretório Ativo Azure para se conectarem às suas aplicações web. As vantagens da Autenticação AD Azure com API web incluem uma maior segurança de dados ao expor uma API de uma aplicação web. Com a Azure AD, não é necessário gerir um sistema de autenticação separado com a sua própria conta e gestão de utilizadores.
 
 Este artigo e os seus artigos de companhia fornecem detalhes sobre a utilização da funcionalidade Visual Studio Connected Service para Ative Directory. A capacidade está disponível no Visual Studio 2015 e mais tarde.
 

@@ -2,20 +2,20 @@
 title: Use cofre de chave azure em modelos
 description: Saiba como utilizar o Azure Key Vault para transmitir valores de parâmetros seguros durante a implementação de modelos do Resource Manager
 author: mumian
-ms.date: 05/23/2019
+ms.date: 04/16/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 440835f50d2ef9c03dabc7a66e8f162e3fa15b2f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c33ad17927dae701e4201e76b7a75690c59dc374
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260705"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536709"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integrar o cofre de chaves azure na implementação do modelo ARM
 
-Aprenda a recuperar segredos de um cofre de chaves Azure e passe os segredos como parâmetros quando implementar um modelo de Gestor de Recursos Azure (ARM). O valor do parâmetro nunca é exposto, porque refere apenas o seu ID chave do cofre. Para mais informações, consulte [o Cofre chave Azure para passar](./key-vault-parameter.md)o valor do parâmetro seguro durante a implementação .
+Aprenda a recuperar segredos de um cofre de chaves Azure e passe os segredos como parâmetros quando implementar um modelo de Gestor de Recursos Azure (ARM). O valor do parâmetro nunca é exposto, porque refere apenas o seu ID chave do cofre. Pode fazer referência ao segredo do cofre chave utilizando uma identificação estática ou uma identificação dinâmica. Este tutorial usa uma identificação estática. Com a abordagem id estática, você referencia o cofre chave no ficheiro de parâmetro do modelo, não o ficheiro do modelo. Para obter mais informações sobre ambas as abordagens, consulte [o Cofre chave Azure para passar o valor seguro](./key-vault-parameter.md)do parâmetro durante a implementação .
 
 No tutorial de encomenda de [recursos set,](./template-tutorial-create-templates-with-dependent-resources.md) cria-se uma máquina virtual (VM). Tem de fornecer o nome de utilizador e senha do administrador VM. Em vez de fornecer a palavra-passe, pode pré-armazenar a palavra-passe num cofre de chaves Azure e, em seguida, personalizar o modelo para recuperar a palavra-passe do cofre da chave durante a implementação.
 
@@ -33,8 +33,6 @@ Este tutorial abrange as seguintes tarefas:
 
 Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, precisa de:
@@ -49,7 +47,7 @@ Para concluir este artigo, precisa de:
 
 ## <a name="prepare-a-key-vault"></a>Prepare um cofre chave
 
-Nesta secção, cria-se um cofre chave e adiciona-lhe um segredo, para que possa recuperar o segredo quando implementar o seu modelo. Há muitas maneiras de criar um cofre chave. Neste tutorial, utiliza-se o Azure PowerShell para implementar um [modelo ARM](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Este modelo faz o seguinte:
+Nesta secção, cria-se um cofre chave e adiciona-lhe um segredo, para que possa recuperar o segredo quando implementar o seu modelo. Há muitas maneiras de criar um cofre chave. Neste tutorial, utiliza-se o Azure PowerShell para implementar um [modelo ARM](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Este modelo faz duas coisas:
 
 * Cria um cofre `enabledForTemplateDeployment` chave com a propriedade ativada. Esta propriedade deve ser *verdadeira* antes que o processo de implementação do modelo possa aceder aos segredos que são definidos no cofre chave.
 * Acrescenta um segredo ao cofre da chave. O segredo armazena a senha do administrador vM.
@@ -72,14 +70,16 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 > [!IMPORTANT]
 > * O nome do grupo de recursos é o nome do projeto, mas com **rg** anexado a ele. Para facilitar a [limpeza dos recursos que criou neste tutorial,](#clean-up-resources)use o mesmo nome de projeto e nome de grupo de recursos quando implementar o próximo [modelo](#deploy-the-template).
 > * O nome predefinido para o segredo é **vmAdminPassword**. Está codificado no modelo.
-> * Para permitir que o modelo recupere o segredo, deve ativar uma política de acesso chamada "Habilitar o acesso ao Gestor de Recursos Azure para a implementação do modelo" para o cofre chave. Esta política está ativada no modelo. Para obter mais informações sobre a política de acesso, consulte [Implementar cofres e segredos chave.](./key-vault-parameter.md#deploy-key-vaults-and-secrets)
+> * Para permitir que o modelo recupere o segredo, deve ativar uma política de acesso chamada **Enable access to Azure Resource Manager para a implementação** do modelo para o cofre chave. Esta política está ativada no modelo. Para obter mais informações sobre a política de acesso, consulte [Implementar cofres e segredos chave.](./key-vault-parameter.md#deploy-key-vaults-and-secrets)
 
-O modelo tem um valor de saída, chamado *keyVaultId*. Anote o valor de identificação para posterior utilização, quando implementar a máquina virtual. O formato ID do recurso é:
+O modelo tem um valor de saída, chamado *keyVaultId*. Você usará esta identificação juntamente com o nome secreto para recuperar o valor secreto mais tarde no tutorial. O formato ID do recurso é:
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -108,13 +108,14 @@ Os modelos Azure Quickstart é um repositório para modelos ARM. Em vez de criar
     ```
 
 1. Selecione **Abrir** para abrir o ficheiro. O cenário é o mesmo que é usado no [Tutorial: Criar modelos ARM com recursos dependentes](./template-tutorial-create-templates-with-dependent-resources.md).
-   O modelo define cinco recursos:
+   O modelo define seis recursos:
 
-   * `Microsoft.Storage/storageAccounts`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresss**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
    É útil ter alguma compreensão básica do modelo antes de personalizá-lo.
 
@@ -128,7 +129,7 @@ Os modelos Azure Quickstart é um repositório para modelos ARM. Em vez de criar
 
 ## <a name="edit-the-parameters-file"></a>Editar o ficheiro de parâmetros
 
-Não precisa de fazer quaisquer alterações ao ficheiro de modelo.
+Ao utilizar o método de ID estático, não precisa de fazer alterações no ficheiro do modelo. Recuperar o valor secreto é feito configurando o ficheiro de parâmetro do modelo.
 
 1. No Visual Studio Code, abra *azuredeploy.parameters.json* se ainda não estiver aberto.
 1. Atualize `adminPassword` o parâmetro para:
@@ -145,7 +146,7 @@ Não precisa de fazer quaisquer alterações ao ficheiro de modelo.
     ```
 
     > [!IMPORTANT]
-    > Substitua o valor por **ID** com a identificação de recursos do cofre chave que criou no procedimento anterior.
+    > Substitua o valor por **ID** com a identificação de recursos do cofre chave que criou no procedimento anterior. O secretName é codificado como **vmAdminPassword**.  Ver [Preparar um cofre de chaves.](#prepare-a-key-vault)
 
     ![Integrar o cofre chave e o modelo de dispositivode dispositivos de implementação de máquinas virtuais](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 

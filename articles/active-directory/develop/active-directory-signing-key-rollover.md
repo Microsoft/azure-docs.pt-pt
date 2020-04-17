@@ -12,12 +12,12 @@ ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f3585cfa7ea6f0d8afc61e899f9641d415a2e354
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0a38eb03df3d1da64172842fb6eca3cd762f9cd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77161193"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537241"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Assinatura de capotamento de chave no Diretório Ativo do Azure
 Este artigo discute o que precisa de saber sobre as chaves públicas que são usadas no Azure Ative Directory (Azure AD) para assinar fichas de segurança. É importante notar que estas chaves rolam periodicamente e, em caso de emergência, podem ser imediatamente revestidas. Todas as aplicações que utilizem a AD Azure devem ser capazes de lidar programáticamente com o processo de capotamento da chave ou estabelecer um processo de capotamento manual periódico. Continuar a ler Para perceber como funcionam as chaves, como avaliar o impacto do capotamento na sua aplicação e como atualizar a sua aplicação ou estabelecer um processo de capotamento manual periódico para lidar com o capotamento da chave, se necessário.
@@ -146,7 +146,7 @@ Os seguintes passos irão ajudá-lo a verificar se a lógica está a funcionar c
 ### <a name="web-apis-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>ApIs web protegendo recursos e criado com Visual Studio 2013
 Se criou uma aplicação Web API no Visual Studio 2013 utilizando o modelo Web API e, em seguida, selecionou **Contas Organizacionais** do menu **'Change Authentication',** já tem a lógica necessária na sua aplicação.
 
-Se configurar manualmente a autenticação, siga as instruções abaixo para saber como configurar a Sua API Web para atualizar automaticamente as suas informações-chave.
+Se configurar manualmente a autenticação, siga as instruções abaixo para saber como configurar a Sua API web para atualizar automaticamente as suas informações-chave.
 
 O seguinte código de snippet demonstra como obter as chaves mais recentes do documento de metadados da federação, e depois usar o [JWT Token Handler](https://msdn.microsoft.com/library/dn205065.aspx) para validar o símbolo. O código snippet pressupõe que você usará o seu próprio mecanismo de cache para persistir a chave para validar futuras fichas da Azure AD, seja numa base de dados, ficheiro de configuração ou em qualquer outro lugar.
 
@@ -239,7 +239,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Aplicações web que protegem recursos e criadas com o Visual Studio 2012
-Se a sua aplicação foi construída no Visual Studio 2012, provavelmente usou a Ferramenta de Identidade e Acesso para configurar a sua aplicação. Também é provável que esteja a utilizar o Registo de Nomes do [Emitente de Validação (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). O VINR é responsável pela manutenção de informações sobre fornecedores de identidade fidedignos (Azure AD) e as chaves utilizadas para validar fichas emitidas por eles. O VINR também facilita a atualização automática das informações-chave armazenadas num ficheiro Web.config, descarregando o mais recente documento de metadados da federação associado ao seu diretório, verificando se a configuração está desatualizada com o documento mais recente, e atualizar a aplicação para utilizar a nova chave, se necessário.
+Se a sua aplicação foi construída no Visual Studio 2012, provavelmente usou a Ferramenta de Identidade e Acesso para configurar a sua aplicação. Também é provável que esteja a utilizar o Registo de Nomes do [Emitente de Validação (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). O VINR é responsável pela manutenção de informações sobre fornecedores de identidade fidedignos (Azure AD) e as chaves utilizadas para validar fichas emitidas por eles. O VINR também facilita a atualização automática das informações-chave armazenadas num ficheiro Web.config, descarregando o mais recente documento de metadados da federação associado ao seu diretório, verificando se a configuração está desatualizada com o documento mais recente e atualizando a aplicação para utilizar a nova chave conforme necessário.
 
 Se criou a sua aplicação utilizando alguma das amostras de código ou documentação de passagem fornecida pela Microsoft, a lógica de capotamento chave já está incluída no seu projeto. Você vai notar que o código abaixo já existe no seu projeto. Se a sua aplicação ainda não tiver esta lógica, siga os passos abaixo para adicioná-la e verificar se está a funcionar corretamente.
 
@@ -299,7 +299,7 @@ Instruções para utilizar o FedUtil para atualizar a sua configuração:
 4. Clique em **Terminar** para completar o processo de atualização.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Aplicações web / APIs protegendo recursos usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos suportados
-Se estiver a utilizar alguma outra biblioteca ou implementado manualmente algum dos protocolos suportados, terá de rever a biblioteca ou a sua implementação para garantir que a chave está a ser recuperada do documento de descoberta OpenID Connect ou dos metadados da federação documento. Uma maneira de verificar isto é fazer uma pesquisa no seu código ou o código da biblioteca para quaisquer chamadas para o documento de descoberta OpenID ou o documento de metadados da federação.
+Se estiver a utilizar alguma outra biblioteca ou tiver implementado manualmente algum dos protocolos suportados, terá de rever a biblioteca ou a sua implementação para garantir que a chave está a ser recuperada do documento de descoberta openID Connect ou do documento de metadados da federação. Uma maneira de verificar isto é fazer uma pesquisa no seu código ou o código da biblioteca para quaisquer chamadas para o documento de descoberta OpenID ou o documento de metadados da federação.
 
 Se a chave estiver a ser armazenada em algum lugar ou codificada na sua aplicação, pode recuperar manualmente a chave e atualizá-la em conformidade, executando um capotamento manual de acordo com as instruções no final deste documento de orientação. **É fortemente encorajado que você melhore a sua aplicação para apoiar** o capotamento automático usando qualquer uma das abordagens delineadas neste artigo para evitar futuras perturbações e sobrecargase se a Azure AD aumentar a sua cadência de capotamento ou tiver um capotamento de emergência fora da banda.
 
@@ -308,4 +308,3 @@ Pode validar se a sua aplicação suporta o capotamento automático da chave, ba
 
 ## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Como realizar uma capotamento manual se a sua aplicação não suportar capotamento automático
 Se a sua aplicação **não** suportar o capotamento automático, terá de estabelecer um processo que monitorize periodicamente as chaves de assinatura da Azure AD e realize uma capotamento manual em conformidade. [Este repositório GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contém scripts e instruções sobre como fazê-lo.
-

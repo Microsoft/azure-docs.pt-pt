@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 457b2d2211ea1ba5fa36cec4b7e9a214f5bcad77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92b6378b00e12f618d07798b5ce789cbd9971544
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367096"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535541"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída de livro de execução e mensagens na Automação Azure
 
@@ -18,7 +18,7 @@ A maioria dos livros de automação Azure têm alguma forma de saída. Esta saí
 
 A tabela seguinte descreve brevemente cada stream com o seu comportamento no portal Azure para livros publicados e durante o [teste de um livro de execução](automation-testing-runbook.md). O fluxo de saída é o fluxo principal utilizado para a comunicação entre os livros de execução. Os outros fluxos são classificados como fluxos de mensagens, destinados a comunicar informações ao utilizador. 
 
-| Transmitir em fluxo | Descrição | Publicado | Test |
+| Transmitir em fluxo | Descrição | Publicado | Teste |
 |:--- |:--- |:--- |:--- |
 | Erro |Mensagem de erro para o utilizador. Ao contrário de uma exceção, o livro de execução continua após uma mensagem de erro por padrão. |Escrito para a história do trabalho |Exibido no painel de saída do teste |
 | Depurar |Mensagens destinadas a um utilizador interativo. Não deve ser usado em livros de corridas. |Não escrito para a história do trabalho |Não exibido no painel de saída do teste |
@@ -240,7 +240,7 @@ No entanto, a menos que necessite desta informação para acompanhar o progresso
 **Para permitir o rastreio ao nível da atividade:**
 
 1. No portal do Azure, abra a sua conta da Automatização.
-2. Selecione **Runbooks** na secção **De automatização** de processos para abrir a lista de livros de execução.
+2. Selecione **Runbooks** em **Process Automation** para abrir a lista de livros de execução.
 3. Na página Runbooks, selecione um livro de execução gráfico da sua lista de livros de execução.
 4. Em **Definições,** clique em **Registar e rastrear**.
 5. Na página Logging and Tracing, sob **registos verbosos**de Log, clique **em On** para ativar a exploração verbosa.
@@ -253,7 +253,7 @@ No entanto, a menos que necessite desta informação para acompanhar o progresso
 A Azure Automation pode enviar o estado de trabalho do livro de recortes e os fluxos de trabalho para o seu espaço de trabalho Log Analytics. O Monitor Azure suporta registos que lhe permitem:
 
 * Obtenha informações sobre os seus trabalhos de Automação.
-* Desencadeie um e-mail ou alerta com base no estado do seu trabalho no livro de recortes, por exemplo, falhado ou suspenso.
+* Desencadeie um e-mail ou alerta com base no estado do seu trabalho no livro de recortes, por exemplo, Falhado ou Suspenso.
 * Escreva consultas avançadas através de fluxos de emprego.
 * Correlacionar os empregos através das contas da Automação.
 * Visualizar o histórico de emprego.

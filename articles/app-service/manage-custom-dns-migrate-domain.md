@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5c1760c746aca439e19ab5727e5be02f6dbad3cb
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74672364"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535694"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome dNS ativo para o Serviço de Aplicações Azure
 
@@ -129,7 +129,7 @@ Pode encontrar a unidade de implantação da sua aplicação olhando `<deploymen
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como ligar um certificado SSL personalizado ao Serviço de Aplicações.
+Saiba como ligar um certificado Personalizado TLS/SSL ao Serviço de Aplicações.
 
 > [!div class="nextstepaction"]
-> [Ligue um certificado SSL ao Serviço de Aplicações Azure](configure-ssl-bindings.md)
+> [Proteja um nome DNS personalizado com uma ligação TLS no Serviço de Aplicações Azure](configure-ssl-bindings.md)

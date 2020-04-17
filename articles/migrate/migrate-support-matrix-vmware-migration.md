@@ -2,13 +2,13 @@
 title: Apoio à migração de VMware em Azure Migrate
 description: Conheça o suporte à migração VMware VM em Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: bf9cc471eef31edd513358a97d2ece17015ba781
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.date: 04/15/2020
+ms.openlocfilehash: eee16b244ae4f9d517bdd42a0b7f37b1494ac480
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314000"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538142"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração vMware
 
@@ -64,10 +64,12 @@ Reveja [este artigo](server-migrate-overview.md) para descobrir qual o método q
 
 
 ## <a name="agentless-azure-migrate-appliance"></a>Aparelho migratório Agenteless-Azure 
-A migração sem agente utiliza o aparelho Azure Migrate, implantado num VMware VM.
+
+A migração sem agente utiliza o [aparelho Migratório Azure](migrate-appliance.md). Pode implantar o aparelho como VMWare VM utilizando um modelo OVA, importado para o VCenter Server, ou utilizando um [script PowerShell](deploy-appliance-script.md).
 
 - Conheça os [requisitos](migrate-appliance.md#appliance---vmware) do aparelho para vMware.
-- Saiba mais sobre [os URLs](migrate-appliance.md#url-access) a que o aparelho precisa de aceder.
+- Saiba mais sobre os URLs que o aparelho precisa de aceder em nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
+- No Governo Azure, deve utilizar o aparelho utilizando o script.
 
 ## <a name="agentless-ports"></a>Portas sem agente
 
@@ -123,7 +125,8 @@ Quando configura o aparelho de replicação utilizando o modelo OVA fornecido no
 
 - Conheça os [requisitos do aparelho](migrate-replication-appliance.md#appliance-requirements) de replicação para vMware.
 - O MySQL deve ser instalado no aparelho. Saiba mais sobre as opções de [instalação.](migrate-replication-appliance.md#mysql-installation)
-- Saiba mais sobre [URLs](migrate-replication-appliance.md#url-access) e [portas](migrate-replication-appliance.md#port-access) que o aparelho de replicação precisa de aceder.
+- Saiba sobre os URLs que o aparelho de replicação precisa de ter acesso em nuvens [públicas](migrate-replication-appliance.md#url-access) e [governamentais.](migrate-replication-appliance.md#azure-government-url-access)
+- Reveja as [portas](migrate-replication-appliance.md#port-access) a que o aparelho de replicação precisa de aceder.
 
 ## <a name="agent-based-ports"></a>Portas baseadas em agentes
 

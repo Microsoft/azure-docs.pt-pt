@@ -12,18 +12,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a6c9ccb3dc29865c790e5d8cc9cfc35e68f5561d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b0114bb5d545755fe59c49605d6def341d2275
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886148"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535779"
 ---
 # <a name="supported-account-types"></a>Tipos de conta suportados
 
 Este artigo explica quais os tipos de contas (às vezes nomeados audiências) são suportados em aplicações.
 
-<!-- This section can be in an include for many of the scenarios (SPA, Web App signing-in users, protecting a Web API, Desktop (depending on the flows), Mobile -->
+<!-- This section can be in an include for many of the scenarios (SPA, web app signing-in users, protecting a web API, Desktop (depending on the flows), Mobile -->
 
 ## <a name="supported-accounts-types-in-microsoft-identity-platform-applications"></a>Tipos de contas suportadas nas aplicações da plataforma Microsoft Identity
 
@@ -44,7 +44,7 @@ Na Cloud pública do Microsoft Azure, a maioria dos tipos de aplicações podem 
 
 Alguns tipos de conta não podem ser usados com certos fluxos de autenticação. Por exemplo, em desktop, aplicações UWP ou aplicações daemon:
 
-- As aplicações Daemon só podem ser usadas com organizações de Diretórios Ativos Azure. Não faz sentido tentar usar aplicações daemon para manipular contas pessoais da Microsoft (o consentimento do administrador nunca será concedido).  
+- As aplicações Daemon só podem ser usadas com organizações de Diretórios Ativos Azure. Não faz sentido tentar usar aplicações daemon para manipular contas pessoais da Microsoft (o consentimento do administrador nunca será concedido).
 - Só pode utilizar o fluxo integrado de autenticação do Windows com contas de trabalho ou escola (na sua organização ou em qualquer organização). Na verdade, a Autenticação Integrada do Windows funciona com contas de domínio, e requer que as máquinas sejam unidas ao domínio ou a AD Azure aderiu. Este fluxo não faz sentido para contas pessoais da Microsoft.
 - A Bolsa de [Palavra-passe do Proprietário](./v2-oauth-ropc.md) de Recursos (Username/Password), não pode ser utilizada com contas pessoais da Microsoft. Na verdade, as contas pessoais da Microsoft exigem que o utilizador autorize o acesso a recursos pessoais em cada sessão de início de sessão de sessão de sessão de acesso. É por isso que este comportamento não é compatível com fluxos não interativos.
 - O fluxo de código do dispositivo ainda não funciona com contas pessoais da Microsoft.

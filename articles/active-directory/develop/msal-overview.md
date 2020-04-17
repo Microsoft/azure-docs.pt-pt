@@ -1,7 +1,7 @@
 ---
 title: Saiba mais sobre o MSAL Azure
 titleSuffix: Microsoft identity platform
-description: A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicações adquiram fichas para ligar para APIs web seguros. Estas APIs web podem ser o Microsoft Graph, outros APIS microsoft, APIs web de terceiros ou a sua própria Web API. A MSAL suporta múltiplas arquiteturas e plataformas de aplicações.
+description: A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicações adquiram fichas para ligar para APIs web seguros. Estas APIs web podem ser o Microsoft Graph, outras APIs da Microsoft, APIs web de terceiros ou a sua própria API web. A MSAL suporta múltiplas arquiteturas e plataformas de aplicações.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c20d93c70484dc7ea800898da4309af2699c718e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89c5117e59f7856c3bd572bbea297a836b5ad589
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085730"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536221"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Visão geral da Biblioteca de Autenticação da Microsoft (MSAL)
-A Microsoft Authentication Library (MSAL) permite que os desenvolvedores adquiram [fichas](developer-glossary.md#security-token) do ponto final da plataforma de identidade da Microsoft para aceder a APIs web seguras. Estas APIs web podem ser o Microsoft Graph, outros APIS microsoft, APIs web de terceiros ou a sua própria Web API. O MSAL está disponível para .NET, JavaScript, Android e iOS, que suportam muitas arquiteturas e plataformas de aplicações diferentes.
+A Microsoft Authentication Library (MSAL) permite que os desenvolvedores adquiram [fichas](developer-glossary.md#security-token) do ponto final da plataforma de identidade da Microsoft para aceder a APIs web protegidos. Estas APIs web podem ser o Microsoft Graph, outras APIs da Microsoft, APIs web de terceiros ou a sua própria API web. O MSAL está disponível para .NET, JavaScript, Android e iOS, que suportam muitas arquiteturas e plataformas de aplicações diferentes.
 
 A MSAL dá-lhe muitas formas de obter fichas, com uma API consistente para várias plataformas. A utilização do MSAL proporciona os seguintes benefícios:
 
@@ -43,7 +43,7 @@ O MSAL pode ser utilizado em muitos cenários de aplicação, incluindo o seguin
 * [Proteger uma API web para que apenas os utilizadores autenticados possam aceder a ela](scenario-protected-web-api-overview.md)
 * [Web API chamando outra API web a jusante em nome do utilizador inscrito](scenario-web-api-call-api-overview.md)
 * [Aplicação de ambiente de trabalho chamando uma API web em nome do utilizador inscrito](scenario-desktop-overview.md)
-* [Aplicação móvel chamando uma API Web em nome do utilizador que assinou interactivamente](scenario-mobile-overview.md).
+* [Aplicação móvel chamando uma API web em nome do utilizador que assinou interativamente](scenario-mobile-overview.md).
 * [Aplicação de daemon de desktop/serviço chamando web API em nome de si mesma](scenario-daemon-overview.md)
 
 ## <a name="languages-and-frameworks"></a>Línguas e quadros

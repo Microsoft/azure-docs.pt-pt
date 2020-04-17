@@ -1,6 +1,6 @@
 ---
 title: Adicione o sessão com a Microsoft para ASP.NET aplicações web Core - plataforma de identidade Microsoft / Azure
-description: Saiba como implementar o Microsoft Sign-In numa ASP.NET Core Web App utilizando o OpenID Connect
+description: Saiba como implementar o Microsoft Sign-In numa aplicação web ASP.NET Core utilizando o OpenID Connect
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: ac53a6cf6953255f51a6b586703147c5ce2338b6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a34264870ce812da5d7e7c790a1482d90b33d06a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81407145"
+ms.locfileid: "81536170"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sessão com a Microsoft a uma aplicação web ASP.NET Core
 Neste arranque rápido, você usa uma amostra de código para saber como uma aplicação web ASP.NET Core pode assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD). (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
@@ -71,15 +71,15 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passo 3: A sua aplicação está configurada e pronta para ser executada
-> Configurámos o seu projeto com valores das propriedades da sua aplicação e está pronto para ser executado. 
+> Configurámos o seu projeto com valores das propriedades da sua aplicação e está pronto para ser executado.
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>Passo 3: Executar o seu projeto Estúdio Visual
 > 1. Extrair o ficheiro zip para uma pasta local dentro da pasta raiz - por exemplo, **C:\Azure-Samples**
-> 1. Abra a solução no Estúdio Visual 
-> 1. Editar o ficheiro **appsettings.json.** Encontre `ClientId` e atualize `ClientId` o valor da **Aplicação (cliente) o** valor de ID da aplicação que registou. 
+> 1. Abra a solução no Estúdio Visual
+> 1. Editar o ficheiro **appsettings.json.** Encontre `ClientId` e atualize `ClientId` o valor da **Aplicação (cliente) o** valor de ID da aplicação que registou.
 >
 >    ```json
 >    "ClientId": "Enter_the_Application_Id_here"
@@ -141,7 +141,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-O `AddAuthentication` método configura o serviço para adicionar autenticação baseada em cookies, que é usado em cenários de navegador e para definir o desafio para OpenID Connect. 
+O `AddAuthentication` método configura o serviço para adicionar autenticação baseada em cookies, que é usado em cenários de navegador e para definir o desafio para OpenID Connect.
 
 A linha `.AddAzureAd` que contém adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. É configurado para iniciar sessão utilizando o ponto final da plataforma de identidade da Microsoft.
 
@@ -167,4 +167,4 @@ Pode proteger um controlador ou `[Authorize]` métodos controladores utilizando 
 Consulte o repo do GitHub para este ASP.NET tutorial Core para mais informações, incluindo instruções sobre como adicionar autenticação a uma nova aplicação core Web ASP.NET, como ligar para o Microsoft Graph, e outras APIs da Microsoft, como ligar para as suas próprias APIs, como adicionar autorização, como assinar utilizadores em nuvens nacionais, ou com identidades sociais e muito mais :
 
 > [!div class="nextstepaction"]
-> [tutorial da Web App ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
+> [tutorial de aplicação web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

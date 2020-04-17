@@ -3,12 +3,12 @@ title: Avaliações na Avaliação do Servidor Migratório Azure
 description: Conheça avaliações na Avaliação do Servidor Migratório Azure
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: ae55686f0152d9c2b170ae1b34d7493ed7ac8d94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1f32eea0ec6a8a4877fd1dc134344cfe68dcaba
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127777"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537768"
 ---
 # <a name="assessments-in-azure-migrateserver-assessment"></a>Avaliações em Azure Migrate:Avaliação do Servidor
 
@@ -17,6 +17,9 @@ Este artigo fornece uma visão geral das avaliações na ferramenta de avaliaç�
 ## <a name="whats-an-assessment"></a>O que é uma avaliação?
 
 Uma avaliação com a ferramenta de avaliação do servidor mede a prontidão, e estima o impacto, de migrar em servidores no local para O Azure.
+
+> [!NOTE]
+> No Governo de Azure, reveja os locais de avaliação [de alvos apoiados.](migrate-support-matrix.md#supported-geographies-azure-government) Note que as recomendações de tamanho VM em avaliações usarão a série VM especificamente para as regiões da Nuvem governamental. [Saiba mais](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) sobre os tipos de VM.
 
 ## <a name="types-of-assessments"></a>Tipos de avaliações
 
@@ -77,7 +80,7 @@ Se utilizar o aparelho para ser descoberto, os dados de desempenho para as defin
     - O valor do percentil 95 garante que ignora qualquer fora-de-série, que pode ser incluído se escolher o percentil 99.
     - Se quiser escolher o pico de utilização para o período e não quiser perder nenhum outliers, deve selecionar o percentil 99 para utilização do percentil.
 
-5. Este valor é multiplicado pelo fator de conforto para obter os dados eficazes de utilização do desempenho para cada métrica (utilização de CPU, utilização da memória, IOPS do disco (ler e escrever), entrada de disco (ler e escrever) e entrada de rede (dentro e fora) que o recolhas de aparelhos.
+5. Este valor é multiplicado pelo fator de conforto para obter os dados eficazes de utilização do desempenho para cada métrica (utilização de CPU, utilização da memória, IOPS do disco (ler e escrever), entrada de disco (ler e escrever) e entrada de rede (dentro e fora) que o aparelho recolhe.
 
 
 
@@ -98,7 +101,7 @@ Aqui está o que incluído numa avaliação na Avaliação do Servidor.
 
 **Propriedade** | **Detalhes**
 --- | ---
-**Localização de destino** | O local para onde quer migrar. A Avaliação do Servidor suporta atualmente estas regiões-alvo do Azure:<br/><br/> Austrália Leste, Austrália Sudeste, Brasil Sul, Canadá Central, Canadá Leste, Índia Central, Eua Central, China Leste, China Norte, Leste dos EUA, Leste DOS 2,00, Alemanha Central, Alemanha Nordeste, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Norte Centro dos EUA, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Índia do Sul, Reino Unido Sul, Reino Unido Oeste, US Gov Arizona, EUA Gov Texas, EUA Gov Virginia, West Central US, West Europe, West India, West US, e West US2.
+**Localização de destino** | O local para onde quer migrar. A Avaliação do Servidor suporta atualmente estas regiões-alvo do Azure:<br/><br/> Austrália Leste, Austrália Sudeste, Brasil Sul, Canadá Central, Canadá Leste, Índia Central, Eua Central, China Leste, China Norte, Leste dos EUA, Leste DOS 2,00, Alemanha Central, Alemanha Nordeste, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Norte-Central EUA, Norte Da Europa, Centro-Sul dos EUA, Sudeste Asiático, Índia do Sul, Reino Unido Sul, Reino Unido Ocidental, EUA Gov Arizona, EUA Gov , West Central US, West Europe, West India, West US, e West US2.
 *Disco de armazenamento de alvo (as-is dimensionamento)** | O tipo de discos a utilizar para armazenamento em Azure. <br/><br/> Especifique o disco de armazenamento-alvo como gerido por prémio, gerido por Norma sSD ou hDD padrão gerido.
 **Disco de armazenamento de alvo (tamanho baseado no desempenho)** | Especifique o tipo de disco de armazenamento alvo como gerido automaticamente, gerido por prémios, gerido sem medidas normais ou geridas por SSD padrão.<br/><br/> **Automática**: A recomendação do disco baseia-se nos dados de desempenho dos discos (as operações de entrada/saída por segundo (IOPS) e a produção).<br/><br/>**Premium/standard**: A avaliação recomenda um SKU de disco dentro do tipo de armazenamento selecionado.<br/><br/> Se quiser atingir uma única instância VM SLA de 99,9%, considerando a utilização de discos geridos por prémios. Isto garante que todos os discos da avaliação são recomendados como discos geridos por prémios.<br/><br/> O Azure Migrate só suporta discos geridos para avaliação de migrações.
 **Instâncias Reservadas (RIs)** | Especifique [as instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) em Azure, de modo a que as estimativas de custos na avaliação tomem em consideração os descontos ri.<br/><br/> Atualmente, as RIs são suportadas apenas para ofertas pay-As-You-Go em Azure Migrate.
@@ -182,7 +185,7 @@ Depois de a máquina estar marcada como pronta para o Azure, a Avaliação do Se
 Se utilizar o dimensionamento de base de desempenho, a Avaliação do Servidor faz recomendações de dimensionamento da seguinte forma:
 
 - A Avaliação do Servidor considera o histórico de desempenho da máquina para identificar o tamanho VM e o tipo de disco em Azure.
-- Se os servidores tiverem sido importados utilizando um ficheiro CSV, os valores que especifica são utilizados. Este método é especialmente útil se tiver alocada excessivamente a máquina no local, a utilização é na verdade baixa, e você quer tamanho direito o VM em Azure para economizar custos. 
+- Se os servidores tiverem sido importados utilizando um ficheiro CSV, os valores que especifica são utilizados. Este método é especialmente útil se tiver alocada excessivamente a máquina no local, a utilização é baixa e você quer tamanho direito o VM em Azure para economizar custos. 
 - Se não quiser utilizar os dados de desempenho, redefinir os critérios de dimensionamento para as-is no local, como descrito na secção anterior.
 
 #### <a name="calculate-storage-sizing"></a>Calcular o tamanho do armazenamento

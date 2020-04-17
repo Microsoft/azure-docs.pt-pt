@@ -3,12 +3,12 @@ title: Informações de aplicação para serviços de nuvem Azure / Microsoft Do
 description: Monitorizar as funções Web e de trabalho eficazmente com o Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276195"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537598"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Informações de aplicação para serviços de nuvem Azure
 Application Insights pode monitorizar aplicações de serviço de [nuvem Azure](https://azure.microsoft.com/services/cloud-services/) para disponibilidade, desempenho, falhas e uso, combinando dados de SDKs de [Aplicação][start] Insights com dados de [Diagnóstico Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dos seus serviços na nuvem. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -31,7 +31,7 @@ Esta opção instrumentou a sua aplicação em tempo de execução, dando-lhe to
 
 Se esta opção é tudo o que precisa, está feito. 
 
-Os seus próximos passos são [visualizar métricas da sua app,](../../azure-monitor/app/metrics-explorer.md) [consultando os seus dados com o Analytics.](../../azure-monitor/app/analytics.md) 
+Os seus próximos passos são [visualizar métricas da sua app,](../../azure-monitor/platform/metrics-charts.md) [consultando os seus dados com o Analytics.](../../azure-monitor/app/analytics.md) 
 
 Para monitorizar o desempenho no navegador, também poderá querer configurar testes de [disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) e [adicionar código às suas páginas web](../../azure-monitor/app/javascript.md).
 
@@ -165,7 +165,7 @@ Este passo só é necessário se quiser capturar consultas SQL completas em .NET
 
 1. Abra os recursos da Application Insights que criou.
 
-   Os pontos de dados individuais são apresentados em [Search][diagnostic], e os dados agregados são apresentados no [Metric Explorer](../../azure-monitor/app/metrics-explorer.md).
+   Os pontos de dados individuais são apresentados em [Search][diagnostic], e os dados agregados são apresentados no [Metric Explorer](../../azure-monitor/platform/metrics-charts.md).
 
 1. Adicione mais telemetria (ver as secções seguintes) e, em seguida, publique a sua aplicação para obter diagnósticos ao vivo e feedback de utilização. 
 
@@ -184,7 +184,7 @@ Pode encontrar as informações de [Diagnóstico sinuoso](https://docs.microsoft
 * Os registos de eventos do Windows são mostrados como rastreios e eventos personalizados.
 * Os registos de aplicações, os registos ETW e eventuais registos de infraestrutura de diagnósticos aparecem como rastreios.
 
-Para ver contadores de desempenho e contagens de eventos, abra [o Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) e adicione o seguinte gráfico:
+Para ver contadores de desempenho e contagens de eventos, abra [o Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) e adicione o seguinte gráfico:
 
 ![Dados de Diagnóstico Azure](./media/cloudservices/23-wad.png)
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2cdf3ff45a400d4b8d0b2605bf7ddc364aff1fe6
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 997dd98d35b74effe5d195f9a781fa0935286ee9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882391"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537224"
 ---
 # <a name="protected-web-api-app-registration"></a>API da web protegida: Registo de aplicativos
 
@@ -82,9 +82,9 @@ Os âmbitos também aparecem na janela de consentimento que é apresentada aos u
     - Selecione **o nome Scope** e introduza **access_as_user**.
     - Selecione **Quem pode consentir** e certificar-se de que **os Administradores e utilizadores** são selecionados.
     - Selecione o nome do **ecrã de consentimento do Administrador** e introduza o Access **TodoListService como utilizador**.
-    - Selecione **descrição** de consentimento do Administrador e **introduza acessos à API Web TodoListService como utilizador**.
+    - Selecione **descrição** de consentimento do Administrador e **introduza acessos à API web TodoListService como utilizador**.
     - Selecione **o nome** do ecrã de consentimento do utilizador e introduza o Access **TodoListService como utilizador**.
-    - Selecione **a descrição do consentimento** do utilizador e **introduza a API Web TodoListService como utilizador**.
+    - Selecione **a descrição do consentimento** do utilizador e **introduza a API web TodoListService como utilizador**.
     - Mantenha o valor **do Estado** definido para **Ativado**.
  1. **Selecione Adicionar âmbito**.
 

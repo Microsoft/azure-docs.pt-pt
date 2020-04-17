@@ -10,101 +10,18 @@ ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: f335b0fb3396103c321d740bcf6d125e60e95086
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e73ef75b3313656b45d29270d9996c3ad17c630
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78274817"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538074"
 ---
-# <a name="preview-automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Pré-visualização: Reparações automáticas de instâncias para conjuntos de escala de máquinas virtuais Azure
+# <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparações automáticas de exemplo para conjuntos de escala de máquinas virtuais Azure
 
 Permitir reparações automáticas de instâncias para conjuntos de escala de máquinas virtuais Azure ajuda a alcançar uma elevada disponibilidade para aplicações mantendo um conjunto de instâncias saudáveis. Se uma instância no conjunto de escala for considerada insalubre como relatado pela extensão da [aplicação saúde](./virtual-machine-scale-sets-health-extension.md) ou sondas de saúde de [balancer](../load-balancer/load-balancer-custom-probe-overview.md)de carga , então esta função executa automaticamente a reparação de instâncias, apagando a instância pouco saudável e criando uma nova para substituí-la.
 
-> [!NOTE]
-> Esta função de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção.
-
 ## <a name="requirements-for-using-automatic-instance-repairs"></a>Requisitos para a utilização de reparações automáticas por exemplo
-
-**Opte pela pré-visualização de reparações automáticas de instâncias**
-
-Utilize a API REST ou a Azure PowerShell para optar pela pré-visualização de reparações automáticas por exemplo. Estes passos irão registar a sua subscrição para a funcionalidade de pré-visualização. Note que esta é apenas uma configuração única necessária para a utilização desta funcionalidade. Se a sua subscrição já estiver registada para pré-visualização automática de reparações por exemplo, então não precisa de voltar a registar-se. 
-
-Com a API REST 
-
-1. Registe-se na funcionalidade utilizando [Funcionalidades - Registar](/rest/api/resources/features/register) 
-
-```
-POST on '/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/RepairVMScaleSetInstancesPreview/register?api-version=2015-12-01'
-```
-
-```json
-{
-  "properties": {
-    "state": "Registering"
-  },
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/RepairVMScaleSetInstancesPreview",
-  "type": "Microsoft.Features/providers/features",
-  "name": "Microsoft.Compute/RepairVMScaleSetInstancesPreview"
-}
-```
-
-2. Aguarde alguns minutos para que o *Estado* mude para *o Registo.* Pode utilizar a seguinte API para confirmar isto.
-
-```
-GET on '/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/RepairVMScaleSetInstancesPreview?api-version=2015-12-01'
-```
-
-```json
-{
-  "properties": {
-    "state": "Registered"
-  },
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/RepairVMScaleSetInstancesPreview",
-  "type": "Microsoft.Features/providers/features",
-  "name": "Microsoft.Compute/RepairVMScaleSetInstancesPreview"
-}
-```
-
-3. Uma vez que o *Estado* tenha mudado para *Registro,* então executar o seguinte.
-
-```
-POST on '/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2015-12-01'
-```
-
-Utilizar o Azure PowerShell
-
-1. Registe-se na funcionalidade utilizando cmdlet [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider) seguido do [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature)
-
-```azurepowershell-interactive
-Register-AzureRmResourceProvider `
- -ProviderNamespace Microsoft.Compute
-
-Register-AzureRmProviderFeature `
- -ProviderNamespace Microsoft.Compute `
- -FeatureName RepairVMScaleSetInstancesPreview
-```
-
-2. Aguarde alguns minutos para que o *Estado de Registo* mude para *Registro*. Pode utilizar o seguinte cmdlet para confirmar isto.
-
-```azurepowershell-interactive
-Get-AzureRmProviderFeature `
- -ProviderNamespace Microsoft.Compute `
- -FeatureName RepairVMScaleSetInstancesPreview
- ```
-
- A resposta deve ser a seguinte.
-
-| Nome de características                           | ProviderName            | Estado de Registos       |
-|---------------------------------------|-------------------------|-------------------------|
-| ReparaçãoVMScaleSetInstancesPreview      | Microsoft.Compute       | Registado              |
-
-3. Uma vez que o *Estado de Registo* para mudar para *Registro,* em seguida, executar o seguinte cmdlet.
-
-```azurepowershell-interactive
-Register-AzureRmResourceProvider `
- -ProviderNamespace Microsoft.Compute
-```
 
 **Ativar a monitorização da saúde da aplicação para o conjunto de escala**
 
@@ -122,7 +39,7 @@ Por exemplo, marcados como "Insalubres", as reparações automáticas são desen
 
 **Ativar um único grupo de colocação**
 
-Esta pré-visualização está atualmente disponível apenas para conjuntos de escala implantados como grupo de colocação único. O *singlePlacementGroup da* propriedade deve ser definido como *verdadeiro* para a sua balança definida para usar a função de reparação automática de instâncias. Saiba mais sobre grupos de [colocação.](./virtual-machine-scale-sets-placement-groups.md#placement-groups)
+Esta funcionalidade encontra-se atualmente disponível apenas para conjuntos de escala implantados como grupo de colocação único. O *singlePlacementGroup da* propriedade deve ser definido como *verdadeiro* para a sua balança definida para usar a função de reparação automática de instâncias. Saiba mais sobre grupos de [colocação.](./virtual-machine-scale-sets-placement-groups.md#placement-groups)
 
 **Versão API**
 
@@ -130,15 +47,15 @@ A política de reparações automáticas é suportada para a versão api da comp
 
 **Restrições aos movimentos de recursos ou subscrições**
 
-Como parte desta pré-visualização, os movimentos de recursos ou subscrições não são atualmente suportados para conjuntos de escala quando a política de reparações automáticas está ativada.
+Os movimentos de recursos ou subscrições não são atualmente suportados para conjuntos de escala quando a função de reparação automática está ativada.
 
 **Restrição para conjuntos de balança de tecido de serviço**
 
-Esta função de pré-visualização não é suportada atualmente para conjuntos de balança de tecido de serviço.
+Esta funcionalidade não é suportada atualmente para conjuntos de balança de tecido de serviço.
 
 ## <a name="how-do-automatic-instance-repairs-work"></a>Como funcionam as reparações automáticas de instâncias?
 
-A função automática de reparação por exemplo baseia-se na monitorização da saúde de instâncias individuais num conjunto de escala. As instâncias vM num conjunto de escala podem ser configuradas para emitir o estado de saúde da aplicação utilizando a extensão da [aplicação Saúde](./virtual-machine-scale-sets-health-extension.md) ou as sondas de saúde do [equilibrador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Se uma instância não for saudável, então o conjunto de escala executa uma ação de reparação, apagando a instância pouco saudável e criando uma nova para substituí-la. Esta função pode ser ativada no modelo de conjunto de escala de máquina virtual utilizando o objeto *Reparação automática.*
+A função automática de reparação por exemplo baseia-se na monitorização da saúde de instâncias individuais num conjunto de escala. As instâncias vM num conjunto de escala podem ser configuradas para emitir o estado de saúde da aplicação utilizando a extensão da [aplicação Saúde](./virtual-machine-scale-sets-health-extension.md) ou as sondas de saúde do [equilibrador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Se uma instância não for saudável, então o conjunto de escala executa uma ação de reparação, apagando a instância pouco saudável e criando uma nova para substituí-la. O mais recente modelo de conjunto de escala de máquina virtual é usado para criar a nova instância. Esta função pode ser ativada no modelo de conjunto de escala de máquina virtual utilizando o objeto *Reparação automática.*
 
 ### <a name="batching"></a>Lotes
 
@@ -147,6 +64,12 @@ As operações automáticas de reparação de instâncias são realizadas em lot
 ### <a name="grace-period"></a>Período de tolerância
 
 Quando uma instância passa por uma operação de mudança de estado por causa de uma ação DE PUT, PATCH ou POST realizada na balança definida (por exemplo, reimagem, reimplantação, atualização, etc.), então qualquer ação de reparação nessa instância só é realizada após a espera do período de carência. O período de graça é a quantidade de tempo para permitir que a instância regresse a um estado saudável. O período de carência começa após a mudança de estado ter terminado. Isto ajuda a evitar quaisquer operações de reparação prematuras ou acidentais. O período de carência é honrado por qualquer instância recém-criada no conjunto de escala (incluindo o criado em resultado da operação de reparação). O período de graça é especificado em minutos no formato ISO 8601 e pode ser definido utilizando a propriedade *automáticaRepairsPolicy.gracePeriod*. O período de graça pode variar entre 30 minutos e 90 minutos, e tem um valor padrão de 30 minutos.
+
+### <a name="suspension-of-repairs"></a>Suspensão de Reparações 
+
+Os conjuntos de escala de máquina virtual fornecem a capacidade de suspender temporariamente as reparações automáticas de instâncias, se necessário. O *serviçoEstado* para reparações automáticas sob a orquestração de *propriedadeServiços* em exemplo vista de conjunto de escala de máquina virtual mostra o estado atual das reparações automáticas. Quando um conjunto de escala é optado em reparações automáticas, o valor do serviço de *parâmetros Estado* está definido para *Executar*. Quando as reparações automáticas são suspensas por um conjunto de escala, o serviço de *parâmetros Estado* está *programado*para suspenso . Se a política *automática DeReparos* for definida num conjunto de escala, mas a função de reparação automática não estiver ativada, então o serviço de *parâmetros State* is set to *Not Running*.
+
+Se os casos recém-criados para substituir os não saudáveis num conjunto de escala continuam a não ser saudáveis mesmo depois de realizarem repetidamente operações de reparação, então, como medida de segurança, a plataforma atualiza o *serviço Estado* para reparações automáticas a *Suspensas*. Pode retomar as reparações automáticas, definindo o valor do *serviçoState* para reparações automáticas em *Execução*. Instruções detalhadas são fornecidas na secção sobre [visualização e atualização do estado de serviço da política de reparações automáticas](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) para o seu conjunto de escala. 
 
 O processo de reparação automática de instâncias funciona da seguinte forma:
 
@@ -158,11 +81,29 @@ O processo de reparação automática de instâncias funciona da seguinte forma:
 
 ## <a name="instance-protection-and-automatic-repairs"></a>Proteção de exemplos e reparações automáticas
 
-Se uma instância num conjunto de escala for protegida aplicando a *[proteção contra a política de proteção das ações](./virtual-machine-scale-sets-instance-protection.md#protect-from-scale-set-actions)* definidas à escala, então não são efetuadas reparações automáticas nesse caso.
+Se uma instância num conjunto de escala for protegida aplicando uma das políticas de [proteção,](./virtual-machine-scale-sets-instance-protection.md)não são efetuadas reparações automáticas nesse caso. Isto aplica-se tanto às políticas de proteção: *Proteger contra* a escala e proteger contra ações *de escala.* 
+
+## <a name="terminatenotificationandautomaticrepairs"></a>Encerrar notificação e reparações automáticas
+
+Se a funcionalidade de [notificação de fim](./virtual-machine-scale-sets-terminate-notification.md) estiver ativada num conjunto de escala, então durante o funcionamento de reparação automática, a eliminação de uma instância pouco saudável segue a configuração de notificação de fim. Uma notificação de rescisão é enviada através do serviço de metadados Azure – eventos agendados – e a eliminação por exemplo é adiada durante a duração do tempo de atraso configurado. No entanto, a criação de um novo exemplo para substituir o insalubre não aguarda que o tempo de atraso esteja concluído.
 
 ## <a name="enabling-automatic-repairs-policy-when-creating-a-new-scale-set"></a>Ativar a política de reparações automáticas ao criar um novo conjunto de escala
 
 Para permitir a política de reparações automáticas, ao mesmo tempo que cria um novo conjunto de escala, certifique-se de que todos os [requisitos](#requirements-for-using-automatic-instance-repairs) para optar por esta funcionalidade são cumpridos. O ponto final da aplicação deve ser corretamente configurado para as instâncias de conjunto de escala para evitar o desencadeamento de reparações não intencionais enquanto o ponto final está a ser configurado. Para conjuntos de escala recém-criados, quaisquer reparações por exemplo são efetuadas apenas após a espera da duração do período de carência. Para permitir a reparação automática da instância num conjunto de escala, utilize o objeto *Reparose automático* no modelo conjunto de conjuntos de máquinas virtuais.
+
+### <a name="azure-portal"></a>Portal do Azure
+ 
+Os seguintes passos permitem a política de reparações automáticas ao criar um novo conjunto de escala.
+ 
+1. Vá a conjuntos de **escala de máquinas virtuais.**
+1. Selecione **+ Adicione** para criar um novo conjunto de escala.
+1. Vá ao separador **Saúde.** 
+1. Localize a secção **de Saúde.**
+1. Ativar a opção de saúde da **aplicação Monitor.**
+1. Localize a secção de política de **reparação automática.**
+1. Ligue **On** a opção **de reparação automática.**
+1. No **período Grace (min)**, especifique o período de graça em minutos, os valores permitidos são entre 30 e 90 minutos. 
+1. Quando terminar de criar o novo conjunto de escala, selecione **Review + crie** o botão.
 
 ### <a name="rest-api"></a>API REST
 
@@ -197,9 +138,42 @@ New-AzVmssConfig `
  -AutomaticRepairGracePeriod "PT30M"
 ```
 
+### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+
+O exemplo seguinte permite a política de reparações automáticas, ao mesmo tempo que cria um novo conjunto de escala utilizando a *[z vmss criar](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. Primeiro crie um grupo de recursos, em seguida, crie um novo conjunto de escala com período de carência de política de reparações automáticas definido para 30 minutos.
+
+```azurecli-interactive
+az group create --name <myResourceGroup> --location <VMSSLocation>
+az vmss create \
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --image UbuntuLTS \
+  --admin-username <azureuser> \
+  --generate-ssh-keys \
+  --load-balancer <existingLoadBalancer> \
+  --health-probe <existingHealthProbeUnderLoaderBalancer> \
+  --automatic-repairs-period 30
+```
+
+O exemplo acima utiliza um equilibrador de carga existente e uma sonda de saúde para monitorizar o estado de saúde das aplicações de instâncias. Se preferir utilizar uma extensão de saúde de aplicação para monitorização, pode criar um conjunto de escala, configurar a extensão de saúde da aplicação e, em seguida, ativar a política de reparação automática de instâncias utilizando a *atualização az vmss,* como explicado na secção seguinte.
+
 ## <a name="enabling-automatic-repairs-policy-when-updating-an-existing-scale-set"></a>Ativar a política de reparações automáticas ao atualizar um conjunto de escala existente
 
 Antes de permitir a política de reparações automáticas num conjunto de escala existente, certifique-se de que todos os [requisitos](#requirements-for-using-automatic-instance-repairs) para a adoção desta funcionalidade são cumpridos. O ponto final da aplicação deve ser corretamente configurado para as instâncias de conjunto de escala para evitar o desencadeamento de reparações não intencionais enquanto o ponto final está a ser configurado. Para permitir a reparação automática da instância num conjunto de escala, utilize o objeto *Reparose automático* no modelo conjunto de conjuntos de máquinas virtuais.
+
+Depois de atualizar o modelo de um conjunto de escala existente, certifique-se de que o modelo mais recente é aplicado a todas as instâncias da escala. Consulte as instruções sobre como aproximar os [VMs com o modelo mais recente](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)de conjunto de escala .
+
+### <a name="azure-portal"></a>Portal do Azure
+
+Pode modificar a política de reparações automáticas de uma escala existente definida através do portal Azure. 
+ 
+1. Vá a um conjunto de máquinas virtuais existente.
+1. Em **Definições** no menu à esquerda, selecione **Saúde e reparação**.
+1. Ativar a opção de saúde da **aplicação Monitor.**
+1. Localize a secção de política de **reparação automática.**
+1. Ligue **On** a opção **de reparação automática.**
+1. No **período Grace (min)**, especifique o período de graça em minutos, os valores permitidos são entre 30 e 90 minutos. 
+1. Quando tiver terminado, selecione **Guardar**. 
 
 ### <a name="rest-api"></a>API REST
 
@@ -232,6 +206,96 @@ Update-AzVmss `
  -AutomaticRepairGracePeriod "PT40M"
 ```
 
+### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+
+Segue-se um exemplo para a atualização da política de reparação automática por exemplo de um conjunto de escala existente, utilizando a *[atualização az vmss](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
+
+```azurecli-interactive
+az vmss update \  
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --enable-automatic-repairs true \
+  --automatic-repairs-period 30
+```
+
+## <a name="viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy"></a>Visualização e atualização do estado de serviço da política de reparação automática de instâncias
+
+### <a name="rest-api"></a>API REST 
+
+Use [Get Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview) com a versão API 2019-12-01 ou superior para a escala de máquina virtual definida para ver o *serviçoEstado* para reparações automáticas sob a orquestração de *propriedadeServices*. 
+
+```http
+GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
+```
+
+```json
+{
+  "orchestrationServices": [
+    {
+      "serviceName": "AutomaticRepairs",
+      "serviceState": "Running"
+    }
+  ]
+}
+```
+
+Utilizar *setOrchestrationServiceState* API com a versão API 2019-12-01 ou superior numa escala de máquina virtual definida para definir o estado das reparações automáticas. Uma vez que o conjunto de escala é optado pela função de reparação automática, pode utilizar esta API para suspender ou retomar as reparações automáticas para o seu conjunto de escala. 
+
+ ```http
+ POST '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/setOrchestrationServiceState?api-version=2019-12-01'
+ ```
+
+```json
+{
+  "orchestrationServices": [
+    {
+      "serviceName": "AutomaticRepairs",
+      "serviceState": "Suspend"
+    }
+  ]
+}
+```
+
+### <a name="azure-cli"></a>CLI do Azure 
+
+Utilize cmdlet [de visualização get-instance](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-get-instance-view) para visualizar o estado de *serviço* para reparações automáticas por exemplo. 
+
+```azurecli-interactive
+az vmss get-instance-view \
+    --name MyScaleSet \
+    --resource-group MyResourceGroup
+```
+
+Utilize cmdlet de [serviço de set-orchestration-service-service](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-set-orchestration-service-state) para atualizar o *serviço Estado* para reparações automáticas por exemplo. Uma vez que o conjunto de calcário é optado pela função de reparação automática, pode utilizar este cmdlet para suspender ou retomar as reparações automáticas para o seu conjunto de escala. 
+
+```azurecli-interactive
+az vmss set-orchestration-service-state \
+    --service-name AutomaticRepairs \
+    --action Resume \
+    --name MyScaleSet \
+    --resource-group MyResourceGroup
+```
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Utilize [o Cmdlet Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) com parâmetro *InstanceView* para visualizar o *ServiceState* para reparações automáticas por exemplo.
+
+```azurepowershell-interactive
+Get-AzVmss `
+    -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet" `
+    -InstanceView
+```
+
+Utilize set-AzVmssOrchestrationServiceState cmdlet para atualizar o *serviçoState* para reparações automáticas por exemplo. Uma vez que o conjunto de calcário é optado pela função de reparação automática, pode utilizar este cmdlet para suspender ou retomar as reparações automáticas para o seu conjunto de escala.
+
+```azurepowershell-interactive
+Set-AzVmssOrchestrationServiceState `
+    -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet" `
+    -ServiceName "AutomaticRepairs" `
+    -Action "Suspend"
+```
+
 ## <a name="troubleshoot"></a>Resolução de problemas
 
 **Falha na política de reparações automáticas**
@@ -245,6 +309,8 @@ O caso pode estar em período de graça. Este é o tempo para esperar depois de 
 **Ver o estado de saúde da aplicação para casos de conjunto de escala**
 
 Pode utilizar a [API Get Instance View,](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) por exemplo, numa escala de máquina virtual para ver o estado de saúde da aplicação. Com o Azure PowerShell, pode utilizar o cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) com a bandeira *-InstanceView.* O estado de saúde da aplicação é fornecido no âmbito da propriedade *vmHealth*.
+
+No portal Azure, pode ver também o estado de saúde. Vá a um conjunto de escala existente, selecione **Instâncias** do menu à esquerda, e olhe para a coluna do Estado de **Saúde** para o estado de saúde de cada instância definida por escala. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

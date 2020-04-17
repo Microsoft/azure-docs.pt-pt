@@ -2,13 +2,13 @@
 title: Apoio à migração hyper-V em Migração Azure
 description: Saiba mais sobre o apoio à migração hyper-V com a Migração Azure.
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: 1eab96df7ee58a8170f75b41c5a2a06f033ced19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 8ec0b72cac75518ac938faa202b28d055409e8dc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245827"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538193"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de suporte para migração Hyper-V
 
@@ -23,18 +23,44 @@ Pode selecionar até 10 VMs de uma só vez para replicação. Se quiser migrar m
 
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
-| **Implantação**       | O hospedeiro Hyper-V pode ser autónomo ou implantado num aglomerado. <br/>O software de replicação da Migração Azure (fornecedor de replicação Hyper-V) precisa de ser instalado nos anfitriões Hyper-V.|
+| **Implementação**       | O hospedeiro Hyper-V pode ser autónomo ou implantado num aglomerado. <br/>O software de replicação da Migração Azure (fornecedor de replicação Hyper-V) está instalado nos anfitriões Hyper-V.|
 | **Permissões**           | Precisa de permissões de administrador no hospedeiro hyper-V. |
 | **Sistema operativo anfitrião** | Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2. |
-| **Acesso url** | O software do fornecedor de replicação nos anfitriões hyper-V precisará de acesso a estes URLS:<br/><br/> - login.microsoftonline.com: Controlo de acesso e gestão de identidade utilizando o Ative Directory.<br/><br/> - *.backup.windowsazure.com: Transferência e coordenação de dados de replicação. UrLs de serviço migratório.<br/><br/> - *.blob.core.windows.net: Fazer o upload de dados para contas de armazenamento.<br/><br/> - dc.services.visualstudio.com: Carregar os registos de aplicações utilizados para monitorização interna.<br/><br/> - time.windows.com: Verifica a sincronização do tempo entre o sistema e o tempo global.
 | **Acesso portuário** |  Ligações de saída na porta HTTPS 443 para enviar dados de replicação VM.
+
+### <a name="url-access-public-cloud"></a>Acesso url (nuvem pública)
+
+O software do fornecedor de replicação nos anfitriões hyper-V precisará de acesso a estes URLs.
+
+**URL** | **Detalhes**
+--- | ---
+login.microsoftonline.com | Controlo de acesso e gestão de identidade utilizando o Ative Directory.
+backup.windowsazure.com | Transferência e coordenação de dados de replicação.
+*.hypervrecoverymanager.windowsazure.com | Usado para migração.
+*.blob.core.windows.net | Faça upload de dados para contas de armazenamento. 
+dc.services.visualstudio.com | Faça upload dos registos de aplicativos utilizados para monitorização interna.
+time.windows.com | Verifica a sincronização do tempo entre o sistema e o tempo global.
+
+### <a name="url-access-azure-government"></a>Acesso url (Governo Azure)
+
+O software do fornecedor de replicação nos anfitriões hyper-V precisará de acesso a estes URLs.
+
+**URL** | **Detalhes**
+--- | ---
+login.microsoftonline.us | Controlo de acesso e gestão de identidade utilizando o Ative Directory.
+backup.windowsazure.us | Transferência e coordenação de dados de replicação.
+*.hypervrecoverymanager.windowsazure.us | Usado para migração.
+*.blob.core.usgovcloudapi.net | Faça upload de dados para contas de armazenamento.
+dc.services.visualstudio.com | Faça upload dos registos de aplicativos utilizados para monitorização interna.
+time.nist.gov | Verifica a sincronização do tempo entre o sistema e o tempo global.
+
 
 ## <a name="hyper-v-vms"></a>VMs Hyper-V
 
 | **Suporte**                  | **Detalhes**               
 | :----------------------------- | :------------------- |
 | **Sistema Operativo** | Todos os sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) que são suportados pelo Azure. |
-| **Alterações necessárias para O Azure** | Alguns VMs podem exigir alterações para que possam correr em Azure. Tens de fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazê-lo. |
+| **Alterações necessárias para O Azure** | Alguns VMs podem exigir alterações para que possam correr em Azure. Faça ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazê-lo. |
 | **Bota Linux**                 | Se /boot estiver numa divisória dedicada, deve residir no disco OS e não ser espalhado por vários discos.<br/> Se a /bota fizer parte da partição raiz (/), então a partição '/' deve estar no disco OS e não abranger outros discos. |
 | **Bota UEFI**                  | O VM migrado em Azure será automaticamente convertido para um VM de arranque BIOS. O VM deve estar a executar o Windows Server 2012 e mais tarde apenas. O disco OS deve ter até cinco divisórias ou menos e o tamanho do disco OS deve ser inferior a 300 GB.
   |
@@ -48,7 +74,7 @@ Pode selecionar até 10 VMs de uma só vez para replicação. Se quiser migrar m
 | **Disco-alvo**                | Pode migrar para VMs Azure apenas com discos geridos. |
 | **IPv6** | Não suportado.
 | **Equipa NIC** | Não suportado.
-| **Recuperação do site azure** | Não é possível replicar usando a Migração do Servidor Migratório Migratório De Migração de Migração de Migração de Migração de Migração de Migração de Migração de Migração de Migração de Migração de Migrações Azure se o VM estiver habilitado para a replicação com a Recuperação do Site Azure.
+| **Azure Site Recovery** | Não é possível replicar usando a Migração do Servidor Migratório Migratório De Migração de Migração de Migração de Migração de Migração de Migração de Migração de Migração de Migração de Migração de Migrações Azure se o VM estiver habilitado para a replicação com a Recuperação do Site Azure.
 | **Portas** | Ligações de saída na porta HTTPS 443 para enviar dados de replicação VM.
 
 ## <a name="azure-vm-requirements"></a>Requisitos da VM do Azure

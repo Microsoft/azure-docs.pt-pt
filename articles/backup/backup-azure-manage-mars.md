@@ -4,12 +4,12 @@ description: Saiba como gerir e monitorizar as cópias de segurança do Agente M
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: c11d73edd32c197aac2cec58eeb1cc20e5c6a339
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 404341c8324d9e127e8d8e6bc8083926c0d3106f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673255"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537360"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerir cópias de segurança do Microsoft Azure Recovery Services (MARS) utilizando o serviço de backup Azure
 
@@ -90,7 +90,7 @@ Existem duas formas de parar de proteger a cópia de segurança de Ficheiros e P
 
 - **Pare a proteção e guarde os dados de backup**.
   - Esta opção impedirá todos os futuros trabalhos de reserva da proteção.
-  - O serviço Azure Backup manterá os pontos de recuperação que foram apoiados com base na política de retenção.
+  - O serviço Azure Backup manterá indefinidamente todos os pontos de recuperação existentes. Os pontos de recuperação não serão verificados para caducidade até que a proteção seja retomada.
   - Poderá restaurar os dados de back-up para pontos de recuperação não expirados.
   - Se decidir retomar a proteção, poderá utilizar a opção de *programação de backup reativar.* Depois disso, os dados seriam mantidos com base na nova política de retenção.
 - **Pare a proteção e elimine os dados de backup**.

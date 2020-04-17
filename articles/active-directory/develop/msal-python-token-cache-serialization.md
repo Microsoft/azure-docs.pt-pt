@@ -13,12 +13,12 @@ ms.date: 11/13/2019
 ms.author: rayluo
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2593cc856afb98cf5186c4e33032c5e9151614f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c6edd0b3cfd6620f04553f9f6dfe89f1c7b7024
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76704396"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536204"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-python"></a>Serialização personalizada de cache em MSAL para Python
 
@@ -26,7 +26,7 @@ Na MSAL Python, uma cache de token na memória que persiste durante a duração 
 
 A serialização da cache simbólica, para que diferentes sessões da sua aplicação possam aceder a ela, não é fornecida "fora da caixa". Isto porque o MSAL Python pode ser usado em tipos de aplicações que não têm acesso ao sistema de ficheiros - como aplicações Web. Para ter uma cache de token persistente numa aplicação MSAL Python, você deve fornecer serialização de cache token personalizada.
 
-As estratégias para serializar a cache simbólica diferem consoante esteja a escrever uma aplicação de cliente público (Desktop), ou uma aplicação confidencial do cliente (Web App, Web API ou app Daemon).
+As estratégias para serializar a cache simbólica diferem consoante esteja a escrever uma aplicação de cliente público (Desktop), ou uma aplicação confidencial do cliente (aplicação web, Web API ou app daemon).
 
 ## <a name="token-cache-for-a-public-client-application"></a>Cache token para uma aplicação de cliente público
 
@@ -34,8 +34,8 @@ As aplicações de clientes públicos funcionam no dispositivo de um utilizador 
 
 ## <a name="token-cache-for-a-web-app-confidential-client-application"></a>Cache token para uma aplicação Web (aplicação confidencial do cliente)
 
-Para Aplicações Web ou APIs web, pode utilizar a sessão, ou uma cache Redis, ou uma base de dados para armazenar a cache token. Deve haver uma cache simbólica por utilizador (por conta) para garantir que serialize a cache simbólica por conta.
+Para aplicações web ou APIs web, você pode usar a sessão, ou uma cache Redis, ou uma base de dados para armazenar o cache token. Deve haver uma cache simbólica por utilizador (por conta) para garantir que serialize a cache simbólica por conta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py#L64-L72) para um exemplo de como usar o cache simbólico para uma aplicação Web Windows ou Linux ou Web API. O exemplo é para uma aplicação web que chama a API do Microsoft Graph.
+Consulte [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py#L64-L72) para um exemplo de como usar o cache simbólico para uma aplicação Web Windows ou Linux ou Web. O exemplo é para uma aplicação web que chama a API do Microsoft Graph.

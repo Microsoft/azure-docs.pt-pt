@@ -3,12 +3,12 @@ title: Monitorizar uma aplicação Web ASP.NET com o Application Insights do Azu
 description: Monitorize o desempenho de um site sem o reimplementar. Trabalha com ASP.NET aplicações web hospedadas no local ou em VMs.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670054"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536833"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicativos web de instrumentos em execução com Aplicação Insights Codeless Attach
 
@@ -314,7 +314,7 @@ Para aplicações já instrumentadas no momento da compilação:
 
 Ver a telemetria:
 
-* [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorizar o desempenho e a utilização
+* [Explore as métricas](../../azure-monitor/platform/metrics-charts.md) para monitorizar o desempenho e a utilização
 * [Pesquise eventos e registos][diagnostic] para diagnosticar problemas
 * [Análise](../../azure-monitor/app/analytics.md) para obter mais informações avançadas consultas
 

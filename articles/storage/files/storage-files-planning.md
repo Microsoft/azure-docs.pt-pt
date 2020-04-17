@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76a96d36387f55889b65f16ea1ca6ec07359c377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5bf3a6df9d7292c18a93737fb7dea5d8c91f984
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502429"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536502"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas formas principais: montando diretamente as ações de ficheiros Azure sem servidor ou por cache ingequedem ações de ficheiros Azure no local utilizando o Azure File Sync. Qual a opção de implementação que escolher altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -28,7 +28,7 @@ Este artigo aborda principalmente considerações de implantação para a implem
 
 Ao implantar as ações de ficheiros Azure em contas de armazenamento, recomendamos:
 
-- Apenas a implantação de ações de ficheiros Azure em contas de armazenamento com outras ações de ficheiros da Azure. Embora as contas de armazenamento GPv2 lhe permitam ter contas mistas de armazenamento, uma vez que recursos de armazenamento como ações de ficheiros Azure e contentores blob partilham os limites da conta de armazenamento, misturar recursos em conjunto pode dificultar a resolução de problemas problemas de desempenho mais tarde. 
+- Apenas a implantação de ações de ficheiros Azure em contas de armazenamento com outras ações de ficheiros da Azure. Embora as contas de armazenamento GPv2 lhe permitam ter contas de armazenamento mistos, uma vez que recursos de armazenamento como ações de ficheiros Azure e contentores blob partilham os limites da conta de armazenamento, misturar recursos em conjunto pode dificultar a resolução de problemas de desempenho mais tarde. 
 
 - Prestando atenção às limitações iops de uma conta de armazenamento ao implementar ações de ficheiros Azure. Idealmente, você mapearia as partilhas de ficheiros 1:1 com contas de armazenamento, no entanto isso pode nem sempre ser possível devido a vários limites e restrições, tanto da sua organização como do Azure. Quando não for possível ter apenas uma parte de ficheiro implantada numa conta de armazenamento, considere quais as ações que serão altamente ativas e quais as ações que serão menos ativas para garantir que as ações de ficheiro mais quentes não sejam colocadas na mesma conta de armazenamento em conjunto.
 
@@ -36,8 +36,8 @@ Ao implantar as ações de ficheiros Azure em contas de armazenamento, recomenda
 
 ## <a name="identity"></a>Identidade
 Para aceder a uma partilha de ficheiros Azure, o utilizador da parte do ficheiro deve ser autenticado e ter autorização para aceder à partilha. Isto é feito com base na identidade do utilizador que acede à partilha de ficheiros. A Azure Files integra-se com três principais fornecedores de identidade:
-- **Ative Directory** (pré-visualização): As contas de armazenamento do Azure podem ser unidas ao domínio de um Diretório Ativo do Windows Server, propriedade do Windows Server, tal como um servidor de ficheiros do Windows Server ou um dispositivo NAS. O seu Controlador de Domínio de Diretório Ativo pode ser implantado no local, num VM Azure, ou mesmo como VM noutro fornecedor de nuvem; O Azure Files é agnóstico onde o seu DC está hospedado. Uma vez que uma conta de armazenamento é unida, o utilizador final pode montar uma partilha de ficheiros com a conta de utilizador com a que assinou no seu PC. A autenticação baseada em AD utiliza o protocolo de autenticação Kerberos.
-- **Azure Ative Directory Domain Services (Azure AD DS)**: O Azure AD DS fornece um controlador de domínio de diretório ativo gerido pela Microsoft que pode ser utilizado para recursos Azure. O domínio que une a sua conta de armazenamento ao Azure AD DS proporciona benefícios semelhantes ao domínio que a une a um Diretório Ativo propriedade do cliente. Esta opção de implementação é mais útil para cenários de elevação e mudança de aplicações que requerem permissões baseadas em AD. Uma vez que o Azure AD DS fornece autenticação baseada em AD, esta opção também utiliza o protocolo de autenticação Kerberos.
+- **No local, Ative Directory Domain Services (AD DS, ou no local AD DS)** (pré-visualização): As contas de armazenamento Azure podem ser de domínio unidas a um cliente, Ative Directory Domain Services, tal como um servidor de ficheiros do Windows Server ou um dispositivo NAS. Pode implantar um controlador de domínio no local, num VM Azure, ou mesmo como VM noutro fornecedor de nuvem; O Azure Files é agnóstico para onde o seu controlador de domínio está hospedado. Uma vez que uma conta de armazenamento é unida pelo domínio, o utilizador final pode montar uma partilha de ficheiros com a conta de utilizador com a que assinou no seu PC. A autenticação baseada em AD utiliza o protocolo de autenticação Kerberos.
+- **Azure Ative Directory Domain Services (Azure AD DS)**: O Azure AD DS fornece um controlador de domínio gerido pela Microsoft que pode ser utilizado para recursos Azure. O domínio que une a sua conta de armazenamento ao Azure AD DS proporciona benefícios semelhantes ao domínio que a une a um Diretório Ativo propriedade do cliente. Esta opção de implementação é mais útil para cenários de elevação e mudança de aplicações que requerem permissões baseadas em AD. Uma vez que o Azure AD DS fornece autenticação baseada em AD, esta opção também utiliza o protocolo de autenticação Kerberos.
 - Chave da conta de **armazenamento Azure:** As ações de ficheiros Azure também podem ser montadas com uma chave de conta de armazenamento Azure. Para montar uma partilha de ficheirodesta forma, o nome da conta de armazenamento é usado como nome de utilizador e a chave da conta de armazenamento é usada como senha. A utilização da chave da conta de armazenamento para montar a parte do ficheiro Azure é efetivamente uma operação de administrador, uma vez que a parte de ficheiro montada terá permissões completas para todos os ficheiros e pastas da parte, mesmo que tenham ACLs. Ao utilizar a chave da conta de armazenamento para montar sobre SMB, é utilizado o protocolo de autenticação NTLMv2.
 
 Para os clientes que migram de servidores de ficheiros no local ou para criar novas ações de ficheiros em Ficheiros Azure destinados a comportar-se como servidores de ficheiros Windows ou aparelhos NAS, a junção do domínio à sua conta de armazenamento para o **Ative Directory, propriedade do Cliente,** é a opção recomendada. Para saber mais sobre a adesão ao domínio da sua conta de armazenamento a um Diretório Ativo propriedade do cliente, consulte a [visão geral do Diretório Ativo dos Ficheiros Azure.](storage-files-active-directory-overview.md)
@@ -49,7 +49,7 @@ As ações de ficheiros Azure são acessíveis a partir de qualquer lugar atrav�
 
 Para desbloquear o acesso à sua partilha de ficheiros Azure, tem duas opções principais:
 
-- Desbloqueie a porta 445 para a rede de instalações da sua organização. As ações de ficheiros Azure só podem ser acedidas externamente através do ponto final do público utilizando protocolos de segurança na Internet, tais como o SMB 3.0 e a API FileREST. Esta é a forma mais fácil de aceder à sua partilha de ficheiros Azure a partir do local, uma vez que não requer uma configuração avançada de networking para além de alterar as regras de saída da sua organização, no entanto, recomendamos que remova o legado e versões depreciadas do SMB protocolo, nomeadamente SMB 1.0. Para aprender a fazê-lo, consulte [a fixação do Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) e [a fixação do Linux](storage-how-to-use-files-linux.md#securing-linux).
+- Desbloqueie a porta 445 para a rede de instalações da sua organização. As ações de ficheiros Azure só podem ser acedidas externamente através do ponto final do público utilizando protocolos de segurança na Internet, tais como o SMB 3.0 e a API FileREST. Esta é a forma mais fácil de aceder à sua partilha de ficheiros Azure a partir do local, uma vez que não requer uma configuração avançada de networking para além de alterar as regras de saída da sua organização, no entanto, recomendamos que remova as versões legacy e depreciadas do protocolo SMB, nomeadamente SMB 1.0. Para aprender a fazê-lo, consulte [a fixação do Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) e [a fixação do Linux](storage-how-to-use-files-linux.md#securing-linux).
 
 - Aceda às ações de ficheiros Azure através de uma ligação ExpressRoute ou VPN. Ao aceder à sua partilha de ficheiros Azure através de um túnel de rede, é possível montar a sua partilha de ficheiros Azure como uma partilha de ficheiros no local, uma vez que o tráfego de SMB não atravessa o limite organizacional.   
 
@@ -153,7 +153,7 @@ As novas ações começam com o número total de créditos no balde de rutura. O
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Ativar as ações de ficheiro padrão até 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
-#### <a name="regional-availability"></a>Disponibilidade regional
+#### <a name="limitations"></a>Limitações
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="redundancy"></a>Redundância

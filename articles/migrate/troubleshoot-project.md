@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: 3b8c2f6ec33965317d2aaa23a36b6becff11a54a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75725731"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535405"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Resolver problemas relacionados com projetos do Azure Migrate
 
@@ -32,7 +32,7 @@ Encontrar um projeto Azure Migrate existente depende se está a usar a versão a
 
 ## <a name="cant-find-a-geography"></a>Não consigo encontrar uma geografia
 
-Pode criar um projeto Azure Migrate em [geografias apoiadas.](migrate-support-matrix.md#supported-geographies) Note que a geografia do projeto é usada para armazenar metadados de máquinas descobertos. Também pode avaliar ou migrar máquinas noutros locais.
+Você pode criar um projeto Azure Migrate em geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
 
 ## <a name="what-are-vm-limits"></a>O que são os limites vm?
 

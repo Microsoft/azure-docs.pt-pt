@@ -3,12 +3,12 @@ title: Gerir e monitorizar dBs do Servidor SQL num VM Azure
 description: Este artigo descreve como gerir e monitorizar as bases de dados do SQL Server que estão a funcionar num VM Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 4daf068e97a08d1a611ef64cb64569cacd5d7420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172164"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537309"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerir e monitorizar bases de dados do SQL Server guardadas em cópia de segurança
 
@@ -38,7 +38,7 @@ Como as cópias de segurança de registo ocorrem a cada 15 minutos, monitorizar 
 
 Para monitorizar os alertas de backup da base de dados:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No painel do cofre, selecione **Alertas e Eventos**.
 
@@ -59,7 +59,7 @@ Se optar por deixar pontos de recuperação, tenha em mente estes detalhes:
 
 - Todos os pontos de recuperação permanecerão intactos para sempre, todas as podas devem parar na proteção stop com dados de retenção.
 - Será cobrado pela instância protegida e pelo armazenamento consumido. Para mais informações, consulte o preço de [Backup Azure](https://azure.microsoft.com/pricing/details/backup/).
-- Se eliminar uma fonte de dados sem parar cópias de segurança, novas cópias de segurança falharão.
+- Se eliminar uma fonte de dados sem parar cópias de segurança, novas cópias de segurança falharão. Os antigos pontos de recuperação expirarão de acordo com a apólice, mas um último ponto de recuperação será mantido sempre até parar as cópias de segurança e apagar os dados.
 
 Para parar a proteção de uma base de dados:
 

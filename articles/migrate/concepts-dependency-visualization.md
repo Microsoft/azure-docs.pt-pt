@@ -2,13 +2,13 @@
 title: Análise de dependência na Avaliação do Servidor Migratório Azure
 description: Descreve como usar a análise de dependência para avaliação usando a Avaliação do Servidor Migratório Azure.
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f96496b66d6bcfd397fb0a7303d3dbfb4fd6f6b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: b11796f2c5d7c1d87f383e6780444e572352eff5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455643"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537751"
 ---
 # <a name="dependency-analysis"></a>Análise de dependência
 
@@ -30,7 +30,7 @@ Existem duas opções para implementar a análise da dependência
 - **Agente:** Com análises sem agente, não precisa de instalar agentes em máquinas que pretende cruzar. Esta opção encontra-se atualmente em pré-visualização e só está disponível para VMware VMs.
 
 > [!NOTE]
-> A análise da dependência não está disponível no Governo de Azure.
+> A análise da dependência baseada em agentes não está disponível no Governo de Azure. Podeusar a análise de dependência sem agente.
 
 ## <a name="agentless-analysis"></a>Análise sem agente
 

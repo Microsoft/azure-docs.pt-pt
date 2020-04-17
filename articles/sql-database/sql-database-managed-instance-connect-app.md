@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 9f592c345b7cfcf5f21d816fde1fae6b8e6b98c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d920fb7815e5a9fe30d8f3b4e40f36133d83222
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73823388"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538091"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a aplicação à instância gerida de Base de Dados SQL do Azure
 
@@ -132,6 +132,8 @@ Para problemas de resolução de problemas de conectividade, reveja o seguinte:
    ```
 
 - Se utilizar o peering VNet, certifique-se de que seguiu as instruções para a definição [Permitir o trânsito de gateway e utilizar gateways remotos](#connect-from-on-premises-with-vnet-peering).
+
+- Se utilizar o VNet a procurar ligar uma aplicação hospedada no Serviço de Aplicações Azure, e o VNet de Instância Gerida tiver uma gama pública de endereços IP, certifique-se de que as definições de aplicação hospedadas permitem que o seu tráfego de saída seja encaminhado para redes IP públicas. Siga as instruções de [Integração Regional vNet](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versões necessárias de condutores e ferramentas
 

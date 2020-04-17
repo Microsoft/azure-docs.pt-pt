@@ -1,17 +1,15 @@
 ---
 title: Instale um aparelho Azure Migrate para servidores físicos
 description: Aprenda a configurar um aparelho Azure Migrate para avaliação física do servidor.
-author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: ddc70ee9430d3a767ce01191824c150a4dbd5e6f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598175"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538278"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um aparelho para servidores físicos
 
@@ -49,11 +47,24 @@ Descarregue o ficheiro zipped para o aparelho.
 Verifique se o ficheiro com fecho está seguro, antes de o implantar.
 
 1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
-2. Executar o seguinte comando para gerar o hash para o VHD
+2. Executar o seguinte comando para gerar o haxixe para o ficheiro zipped:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Para a versão mais recente do aparelho, o hash gerado deve coincidir com estas [definições](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
+    - Exemplo de utilização para nuvem pública:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Exemplo de utilização para a nuvem do governo:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+3.  Verifique os valores de hash:
+ 
+    - Para a nuvem pública (para a versão mais recente do aparelho):
 
+        **Algoritmo** | **Valor de hash**
+          --- | ---
+          MD5 | 1e92ede3e87c03bd148e56a708cd33f
+          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+
+    - Para o governo Azure (para a versão mais recente do aparelho):
+
+        **Algoritmo** | **Valor de hash**
+          --- | ---
+          MD5 | f81c155fc4a1409901caea948713913f
 
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalação Azure Migrate
@@ -69,23 +80,23 @@ O script do instalador faz o seguinte:
 
 Executar o guião da seguinte forma:
 
-1. Extraio o ficheiro com fecho numa pasta no servidor que irá alojar o aparelho.
+1. Extraio o ficheiro com fecho numa pasta no servidor que irá alojar o aparelho.  Certifique-se de que não executa o guião numa máquina num aparelho de migração Azure existente.
 2. Lance powerShell no servidor acima com privilégio administrativo (elevado).
 3. Mude o diretório PowerShell para a pasta onde os conteúdos foram extraídos do ficheiro com fecho descarregado.
 4. Executar o script chamado **AzureMigrateInstaller.ps1** executando o seguinte comando:
-    ```
-    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
-    ```
-O script lançará a aplicação web do aparelho quando terminar com sucesso.
 
-Em caso de problemas, pode aceder aos registos de scripts em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+    - Para a nuvem pública:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - Para o Governo azure:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
-> [!NOTE]
-> Por favor, não execute o script do instalador Azure Migrate num aparelho de migração Azure existente.
+    O script lançará a aplicação web do aparelho quando terminar com sucesso.
+
+Se encontrar algum problema, pode aceder aos registos de scripts em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para resolução de problemas.
+
+
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
 
-Certifique-se de que o VM do aparelho pode ligar-se aos [URLs Azure necessários](migrate-appliance.md#url-access).
+Certifique-se de que o vM do aparelho pode ligar-se a URLs Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
 
 ## <a name="configure-the-appliance"></a>Configure o aparelho
 
@@ -120,7 +131,7 @@ Instale o aparelho pela primeira vez.
 Ligue-se do aparelho aos servidores físicos e inicie a descoberta.
 
 1. Clique em **Adicionar Credenciais** para especificar as credenciais de conta que o aparelho utilizará para descobrir servidores.  
-2. Especifique o **Sistema Operativo**, nome amigável para as credenciais, **nome de utilizador** e **palavra-passe** e clique em **Adicionar**.
+2. Especifique o **Sistema Operativo,** um nome amigável para as credenciais e o nome de utilizador e senha. Em seguida, clique em **Adicionar**.
 Pode adicionar um conjunto de credenciais cada um para servidores Windows e Linux.
 4. Clique em **Adicionar servidor**, e especifique os detalhes do servidor - endereço FQDN/IP e nome amigável de credenciais (uma entrada por linha) para ligar ao servidor.
 3. Clique em **Validar**. Após validação, a lista de servidores que podem ser descobertos é mostrada.

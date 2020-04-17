@@ -3,12 +3,12 @@ title: Configurar a análise de aplicações Web para ASP.NET com o Azure Applic
 description: Configure ferramentas de análise de desempenho, disponibilidade e comportamento do utilizador para o seu site ASP.NET, hospedado no local ou no Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 0843d6c04bf6fc9bab07207072990fb3fb8f1844
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdd5b1131a0d2d3e2f53840d21cedce1577fde03
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665923"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536901"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para o seu site ASP.NET
 
@@ -93,7 +93,7 @@ O portal é aberto na vista da telemetria da sua aplicação.
 No portal, clique em qualquer gráfico ou mosaico para ver mais detalhes.
 
 ## <a name="step-4-publish-your-app"></a>Passo 4: Publicar a aplicação
-Publique a sua aplicação no seu servidor IIS ou no Azure. Veja o [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) para garantir que não existem problemas.
+Publique a sua aplicação no seu servidor IIS ou no Azure. Veja o [Live Metrics Stream](../../azure-monitor/app/live-stream.md) para garantir que não existem problemas.
 
 A sua telemetria acumula-se no portal Application Insights, onde pode monitorizar métricas, pesquisar a sua telemetria. Você também pode usar a poderosa [linguagem de consulta Kusto](/azure/kusto/query/) para analisar o uso e desempenho, ou para encontrar eventos específicos.
 
@@ -125,7 +125,7 @@ Se tiver realizado personalizações no ApplicationInsights.config, guarde uma c
 Existem tópicos alternativos que pode ver se estiver interessado em:
 
 * [Instrumentar aplicações Web no runtime](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Serviços Cloud do Azure](../../azure-monitor/app/cloudservices.md)
+* [Cloud Services do Azure](../../azure-monitor/app/cloudservices.md)
 
 ### <a name="more-telemetry"></a>Mais telemetria
 

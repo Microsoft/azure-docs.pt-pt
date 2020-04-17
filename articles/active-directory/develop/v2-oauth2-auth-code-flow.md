@@ -12,12 +12,12 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5241089ff3cc7826216fcadd6fd94116ee4a2c89
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: ac630c4901c126ed883adbdc7efb03f36372e6ff
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309441"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535881"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização OAuth 2.0
 
@@ -232,11 +232,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ## <a name="refresh-the-access-token"></a>Refrescar o sinal de acesso
 
-Access_tokens são de curta duração, e deve refreá-los depois de expirarem para continuar a aceder aos recursos. Pode fazê-lo submetendo `POST` outro `/token` pedido ao ponto final, `refresh_token` desta `code`vez fornecendo o em vez do .  Os tokens de atualização são válidos para todas as permissões para as as `scope=mail.read` que o seu cliente já `scope=api://contoso.com/api/UseResource`recebeu o consentimento - assim, um token de atualização emitido sobre um pedido para pode ser usado para solicitar um novo sinal de acesso para .  
+Access_tokens são de curta duração, e deve refreá-los depois de expirarem para continuar a aceder aos recursos. Pode fazê-lo submetendo `POST` outro `/token` pedido ao ponto final, `refresh_token` desta `code`vez fornecendo o em vez do .  Os tokens de atualização são válidos para todas as permissões para as as `scope=mail.read` que o seu cliente já `scope=api://contoso.com/api/UseResource`recebeu o consentimento - assim, um token de atualização emitido sobre um pedido para pode ser usado para solicitar um novo sinal de acesso para .
 
-As fichas de atualização não têm uma vida útil especificada. Tipicamente, as vidas de tokens refrescantes são relativamente longas. No entanto, em alguns casos, as fichas de atualização expiram, são revogadas ou carecem de privilégios suficientes para a ação desejada. A sua aplicação precisa de esperar e lidar [com erros devolvidos corretamente pelo ponto final da emissão](#error-codes-for-token-endpoint-errors) de fichas. 
+As fichas de atualização não têm uma vida útil especificada. Tipicamente, as vidas de tokens refrescantes são relativamente longas. No entanto, em alguns casos, as fichas de atualização expiram, são revogadas ou carecem de privilégios suficientes para a ação desejada. A sua aplicação precisa de esperar e lidar [com erros devolvidos corretamente pelo ponto final da emissão](#error-codes-for-token-endpoint-errors) de fichas.
 
-Embora os tokens de atualização não sejam revogados quando usados para adquirir novos tokens de acesso, espera-se que você deite fora o antigo token de atualização. A [especificação OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) diz: "O servidor de autorização MAY emite um novo token de atualização, caso em que o cliente deve descartar o antigo token de atualização e substituí-lo pelo novo token de atualização. O servidor de autorização MAY revoga o antigo token de atualização depois de emitir um novo token de atualização para o cliente."  
+Embora os tokens de atualização não sejam revogados quando usados para adquirir novos tokens de acesso, espera-se que você deite fora o antigo token de atualização. A [especificação OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) diz: "O servidor de autorização MAY emite um novo token de atualização, caso em que o cliente deve descartar o antigo token de atualização e substituí-lo pelo novo token de atualização. O servidor de autorização MAY revoga o antigo token de atualização depois de emitir um novo token de atualização para o cliente."
 
 ```
 // Line breaks for legibility only
@@ -254,7 +254,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Tente executar este pedido no Carteiro! (Não se esqueça de `refresh_token`substituir o) [Tente executar este pedido no Carteiro ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-> 
+>
 
 | Parâmetro     |                | Descrição        |
 |---------------|----------------|--------------------|

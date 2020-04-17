@@ -3,21 +3,25 @@ title: Instale um aparelho Azure Migrate para Hyper-V
 description: Aprenda a montar um aparelho Azure Migrate para avaliar e migrar VMs Hiper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 80db2c1d4f5482604ca1507174b127c150f76044
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336800"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538295"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurar um aparelho para VMs hiper-V
 
-Este artigo descreve como configurar o aparelho Migratório Azure para avaliação de VMs Hiper-V com a ferramenta de avaliação do [servidor Azure Migrate:Server.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
+Siga este artigo para configurar o aparelho Azure Migrate para avaliação de VMs Hiper-V com a ferramenta de avaliação de [migração Azure:Servidor.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
 
 O [aparelho Azure Migrate](migrate-appliance.md) é um aparelho leve utilizado pela Azure Migrate:Server Assessment/Migration para descobrir no local hiper-V V Ms e enviar metadados/dados de desempenho VM para o Azure.
 
-Pode configurar o aparelho Azure Migrate para avaliação de VM Hiper-V utilizando um modelo VHD que você descarrega, ou usando um script de instalação PowerShell. Este artigo descreve como configurar o aparelho utilizando o modelo VHD. Se pretender configurar o aparelho utilizando o script, siga as instruções [deste artigo](deploy-appliance-script.md).
+Pode utilizar o aparelho utilizando um par de métodos:
 
+- Instale-se num VM Hiper-V utilizando um VHD descarregado. Este é o método descrito neste artigo.
+- Instale-se num VM Hiper-V ou numa máquina física com um script de instalação PowerShell. [Este método](deploy-appliance-script.md) deve ser usado se não conseguir configurar um VM usando um VHD, ou se estiver no Governo Azure.
+
+Depois de criar o aparelho, verifique se pode ligar-se à Avaliação do Servidor Azure Migrate:Server, configurá-lo pela primeira vez e registá-lo com o projeto Azure Migrate.
 
 ## <a name="appliance-deployment-vhd"></a>Implantação de aparelhos (VHD)
 
@@ -73,7 +77,7 @@ Importe o ficheiro descarregado e crie o VM.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
 
-Certifique-se de que o VM do aparelho pode ligar-se a [URLs Azure](migrate-appliance.md#url-access).
+Certifique-se de que o vM do aparelho pode ligar-se a URLs Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
 
 ## <a name="configure-the-appliance"></a>Configure o aparelho
 

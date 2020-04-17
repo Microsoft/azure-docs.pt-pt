@@ -3,12 +3,12 @@ title: Monitorização de utilização e desempenho de aplicações de ambiente 
 description: Analise a utilização e o desempenho da sua aplicação de ambiente de trabalho do Windows com o Application Insights.
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.openlocfilehash: 8234b9ba2c92fc64cfa8f598db99954e00caab45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb9e0fc480098478a3a68265ac85e0d5450e27fe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670836"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537394"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorização de utilização e desempenho de aplicações de Ambiente de Trabalho do Windows Clássico
 
@@ -109,6 +109,6 @@ Instantie o inicializador no `Program.cs` `Main()` método abaixo, definindo a c
 ## <a name="next-steps"></a>Passos seguintes
 * [Criar um dashboard](../../azure-monitor/app/overview-dashboard.md)
 * [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md)
-* [Explorar métricas](../../azure-monitor/app/metrics-explorer.md)
+* [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)
 * [Escrever consultas da Análise](../../azure-monitor/app/analytics.md)
 

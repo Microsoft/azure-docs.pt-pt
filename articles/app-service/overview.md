@@ -5,18 +5,18 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 01/04/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b385136183fba5d1e64db3763453d2f4b23d4d96
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f8449c516bce3f3ab949e88808f73c7240995f99
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80045177"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535643"
 ---
 # <a name="app-service-overview"></a>Descrição geral do Serviço de Aplicações
 
 *O Azure App Service* é um serviço baseado em HTTP para hospedar aplicações web, APIs REST e back ends móveis. Pode desenvolver no seu idioma favorito, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. As aplicações funcionam e escalam com facilidade tanto em ambientes baseados em Windows como em Linux. Para ambientes baseados em Linux, veja [Serviço de Aplicações no Linux](containers/app-service-linux-intro.md). 
 
-O Serviço de Aplicações não só adiciona a potência do Microsoft Azure à sua aplicação, como segurança, equilíbrio de carga, autoscalcificação e gestão automatizada. Também pode tirar partido das respetivas capacidades do DevOps, como a implementação contínua do Azure DevOps, do GitHub, do Docker Hub e de outras origens, gestão de pacotes, ambientes de teste, domínio personalizado e certificados SSL. 
+O Serviço de Aplicações não só adiciona a potência do Microsoft Azure à sua aplicação, como segurança, equilíbrio de carga, autoscalcificação e gestão automatizada. Também pode tirar partido das suas capacidades de DevOps, tais como a implantação contínua da Azure DevOps, GitHub, Docker Hub, e outras fontes, gestão de pacotes, ambientes de encenação, domínio personalizado e certificados TLS/SSL. 
 
 Com o Serviço de Aplicações, paga pelos recursos de computação do Azure que utilizar. Os recursos computacionais que utiliza são determinados pelo plano de Serviço de _Aplicações_ em que executa as suas aplicações. Para mais informações, consulte a visão geral dos planos do [Azure App Service.](overview-hosting-plans.md)
 
@@ -53,7 +53,7 @@ Crie a sua primeira aplicação Web.
 > [Ruby (no Linux)](containers/quickstart-ruby.md)
 
 > [!div class="nextstepaction"]
-> [Nó.js](app-service-web-get-started-nodejs.md)
+> [Node.js](app-service-web-get-started-nodejs.md)
 
 > [!div class="nextstepaction"]
 > [Java](app-service-web-get-started-java.md)

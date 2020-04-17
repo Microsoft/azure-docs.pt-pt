@@ -6,37 +6,44 @@ ms.date: 04/04/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 92b49197cc18133c9b67222a90546776f050163b
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 7704f080b7c1878f2fa2b079a1f242c8c2cc87a9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437912"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536986"
 ---
 # <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 
-As contas de Automatização do Azure podem ser criadas através do Azure. Este método fornece uma interface de utilizador baseada no browser para criar e configurar contas de Automatização e os recursos relacionados. Este início rápido analisa a criação de uma conta de Automatização e a execução um runbook na conta.
+Pode criar uma conta Azure Automation através do Azure, utilizando o portal Azure, uma interface de utilizador baseada no navegador que permite o acesso a uma série de recursos. Uma conta de Automação pode gerir recursos em todas as regiões e subscrições para um determinado inquilino. 
 
-Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Este quickstart guia-o na criação de uma conta De automação e na execução de um livro de execução na conta. Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-[Inscreva-se no Azure](https://portal.azure.com)
+[Inscreva-se no Azure.](https://portal.azure.com)
 
 ## <a name="create-automation-account"></a>Criar conta de Automatização
 
-1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Azure.
+1. Escolha um nome para a sua conta Azure. Os nomes das contas de automação são únicos por região e grupo de recursos. Os nomes das contas de Automação que foram eliminadas podem não estar imediatamente disponíveis.
 
-1. Selecione **ferramentas de gestão de TI &** e, em seguida, selecione **Automation**.
+    > [!NOTE]
+    > Não é possível alterar o nome da conta depois de ter sido introduzido na interface de utilizador. 
 
-1. Introduza as informações da conta. Para **Criar uma conta Run As do Azure**, escolha **Sim** para que os artefactos para simplificar a autenticação no Azure sejam ativados automaticamente. É importante ter em atenção que ao criar uma Conta de Automatização, o nome não pode ser alterado depois de ser escolhido. *Os nomes da Conta de Automação são únicos por região e grupo de recursos. Os nomes das Contas de Automação que foram eliminadas podem não estar imediatamente disponíveis.* Uma Conta de Automatização pode gerir os recursos entre todas as regiões e subscrições para um determinado inquilino. Quando terminar, clique em **Criar**, para iniciar a implementação da conta de Automatização.
+2. Clique no botão **Criar um botão de recurso** encontrado no canto superior esquerdo do portal Azure.
+
+3. Selecione **ferramentas de gestão de TI &** e, em seguida, selecione **Automation**.
+
+4. Insira as informações da conta, incluindo o nome da conta selecionada. Para **Criar uma conta Run As do Azure**, escolha **Sim** para que os artefactos para simplificar a autenticação no Azure sejam ativados automaticamente. Quando a informação estiver completa, clique em **Criar** para iniciar a implementação da conta Automation.
 
     ![Introduza as informações sobre a conta de Automatização na página](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
-    > Para obter uma lista de localizações nas quais pode implementar uma Conta de Automatização, veja [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
+    > Para obter uma lista atualizada de locais para os quais pode implementar uma conta de Automação, consulte [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 
-1. Quando a implementação estiver concluída, clique em **Todos os Serviços,** selecione **Contas de Automação** e selecione a Conta de Automação que criou.
+5. Quando a implementação estiver concluída, clique em **Todos os Serviços**.
+
+6. Selecione **Contas de Automação** e, em seguida, escolha a conta De automatização que criou.
 
     ![Descrição geral da conta de Automatização](./media/automation-quickstart-create-account/automation-account-overview.png)
 
@@ -44,7 +51,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 Execute um dos runbooks do tutorial.
 
-1. Clique em **Runbooks** em **AUTOMATIZAÇÃO DE PROCESSOS**. A lista de runbooks é apresentada. Vários runbooks do tutorial são ativados por predefinição na conta.
+1. Clique em **Runbooks** em **Automação de Processos**. A lista de runbooks é apresentada. Por padrão, vários livros de execução tutoriais estão ativados na conta.
 
     ![Lista de runbooks da conta de Automatização](./media/automation-quickstart-create-account/automation-runbooks-overview.png)
 
@@ -52,11 +59,11 @@ Execute um dos runbooks do tutorial.
 
     ![Descrição geral do runbook](./media/automation-quickstart-create-account/automation-tutorial-script-runbook-overview.png)
 
-1. Clique em **Iniciar**e na página **Iniciar Runbook**, clique em **OK** para iniciar o runbook.
+1. Clique em **Iniciar**e na página Iniciar Runbook, clique em **OK** para iniciar o runbook.
 
     ![Página de tarefa do runbook](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
-1. Depois do **Estado da tarefa** passar a **Em execução**, clique em **Resultado** ou **Todos os Registos** para ver o resultado da tarefa de runbook. Para este runbook do tutorial, o resultado é uma lista dos seus recursos Azure.
+1. Depois de se `Running`tornar o estado de trabalho , clique em **Output** ou **All Logs** para visualizar a saída do livro de trabalho. Para este runbook do tutorial, o resultado é uma lista dos seus recursos Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

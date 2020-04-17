@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 0b3acb1b421962cde7d90398f42bdfeefda578e3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 499bf25f06030ae9fc5c1f8381ef4cd6ff6873dc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74971507"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535626"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Amostras cli para serviço de aplicações Azure
 
@@ -28,7 +28,7 @@ A tabela seguinte inclui ligações para scripts bash criados com a CLI do Azure
 | [Crie uma aplicação ASP.NET Core num recipiente Dodocker](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma aplicação de Serviço de Aplicações no Linux e carrega uma imagem do Docker do Docker Hub. |
 |**Configurar aplicação**||
 | [Mapear um domínio personalizado para uma aplicação](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma aplicação de Serviço de Aplicações e mapeia-lhe um nome de domínio personalizado. |
-| [Ligue um certificado SSL personalizado a uma aplicação](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Cria-lhe uma aplicação de Serviço de Aplicações e liga-lhe o certificado SSL de um nome de domínio personalizado. |
+| [Ligue um certificado Personalizado TLS/SSL a uma aplicação](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Cria-lhe uma aplicação de Serviço de Aplicações e liga-lhe o certificado TLS/SSL de um nome de domínio personalizado. |
 |**Dimensionar aplicação**||
 | [Escala risadamente uma aplicação](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma aplicação de Serviço de Aplicações e escala-a em 2 instâncias. |
 | [Escala uma app em todo o mundo com uma arquitetura de alta disponibilidade](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Cria duas aplicações do App Service em duas regiões geográficas diferentes e disponibiliza-as através de um único ponto final usando o Azure Traffic Manager. |

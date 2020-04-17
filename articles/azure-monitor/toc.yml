@@ -318,8 +318,6 @@
               href: app/pre-aggregated-metrics-log-metrics.md
             - name: Definições de métricas com base em registos
               href: platform/app-insights-metrics.md
-            - name: Explorador de métricas clássico
-              href: app/metrics-explorer.md
         - name: Pesquisa
           href: app/diagnostic-search.md
         - name: Gerador de perfis

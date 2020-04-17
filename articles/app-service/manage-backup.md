@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b812ae10b3462dbeff05c8a67e7ebb725281e7e8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259334"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535762"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 A funcionalidade de backup e restauro no [Serviço de Aplicações Azure](overview.md) permite-lhe facilmente criar backups de aplicações manualmente ou em horário. Pode configurar as cópias de segurança a reter até um período de tempo indefinido. Pode restaurar a aplicação a uma imagem instantânea de um estado anterior, sobrecarregando a app existente ou restaurando para outra aplicação.
@@ -44,8 +44,8 @@ As seguintes soluções de base de dados são suportadas com recurso de backup:
 * A funcionalidade Backup and Restore requer que o plano do Serviço de Aplicações esteja no nível **Standard** ou **Premium.** Para obter mais informações sobre a escala do seu plano de Serviço de Aplicações para utilizar um nível mais elevado, consulte [Scale up uma app em Azure](manage-scale-up.md). **O** nível premium permite um maior número de back ups diários do que o **nível Standard.**
 * Precisa de uma conta de armazenamento Azure e um contentor na mesma subscrição que a app que pretende fazer apoio. Para obter mais informações sobre as contas de armazenamento do Azure, consulte a visão geral da conta de [armazenamento do Azure.](https://docs.microsoft.com/azure/storage/common/storage-account-overview)
 * As cópias de segurança podem chegar a 10 GB de conteúdo de aplicação e base de dados. Se o tamanho da cópia de segurança exceder este limite, terá um erro.
-* As cópias de segurança da Base de Dados Azure ativada pela SSL para o MySQL não são suportadas. Se uma cópia de segurança estiver configurada, obterá cópias de segurança falhadas.
-* As cópias de segurança da Base de Dados Azure ativada pela SSL para postgreSQL não são suportadas. Se uma cópia de segurança estiver configurada, obterá cópias de segurança falhadas.
+* As cópias de segurança da Base de Dados Azure ativada por TLS para o MySQL não são suportadas. Se uma cópia de segurança estiver configurada, obterá cópias de segurança falhadas.
+* As cópias de segurança da Base de Dados Azure ativada por TLS para PostgreSQL não são suportadas. Se uma cópia de segurança estiver configurada, obterá cópias de segurança falhadas.
 * As bases de dados MySQL in-app são automaticamente apoiadas sem qualquer configuração. Se fizer configurações manualmente para bases de dados MySQL in-app, tais como adicionar cordas de ligação, as cópias de segurança podem não funcionar corretamente.
 * A utilização de uma conta de armazenamento ativada por firewall, uma vez que o destino das suas cópias de segurança não é suportado. Se uma cópia de segurança estiver configurada, obterá cópias de segurança falhadas.
 

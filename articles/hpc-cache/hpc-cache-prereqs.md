@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ab342dba5c8be2ff3793c0eb36926969b3e364e5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655648"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537292"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para Cache Azure HPC
 
@@ -20,9 +20,6 @@ Antes de utilizar o portal Azure para criar um novo Azure HPC Cache, certifique-
 ## <a name="azure-subscription"></a>Subscrição do Azure
 
 Recomenda-se uma subscrição paga.
-
-> [!NOTE]
-> Durante os primeiros meses do lançamento da GA, a equipa azure HPC Cache deve adicionar a sua subscrição à lista de acesso antes de poder ser usada para criar uma instância de cache. Este procedimento ajuda a garantir que cada cliente obtém uma capacidade de resposta de alta qualidade a partir dos seus caches. Preencha [este formulário](https://aka.ms/onboard-hpc-cache) para solicitar acesso.
 
 ## <a name="network-infrastructure"></a>Infraestrutura de rede
 
@@ -84,11 +81,11 @@ Para criar uma conta de armazenamento compatível, utilize estas definições:
 * Nível de acesso (padrão): **Quente**
 
 É uma boa prática usar uma conta de armazenamento no mesmo local que a sua cache.
-<!-- clarify location - same region or same resource group or same virtual network? -->
 
 Também deve dar à aplicação cache acesso à sua conta de armazenamento Azure, conforme mencionado em [Permissões,](#permissions)acima. Siga o procedimento em [Adicionar alvos](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) de armazenamento para dar à cache as funções de acesso necessárias. Se não é o proprietário da conta de armazenamento, mande o proprietário fazer este passo.
 
 ### <a name="nfs-storage-requirements"></a>Requisitos de armazenamento nFS
+<!-- linked from configuration.md -->
 
 Se utilizar um sistema de armazenamento NFS (por exemplo, um sistema NAS de hardware no local), certifique-se de que satisfaz estes requisitos. Poderá ter de trabalhar com os administradores de rede ou gestores de firewall para o seu sistema de armazenamento (ou data center) para verificar estas definições.
 

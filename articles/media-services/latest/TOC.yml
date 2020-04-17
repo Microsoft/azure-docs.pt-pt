@@ -98,6 +98,7 @@
           href: live-events-outputs-concept.md
           displayName: 'vanity, ingest'
         - name: Codificadores em direto testados no local
+          displayName: recommended
           href: recommended-on-premises-live-encoders.md
         - name: Mudança de tempo e Direto para VOD
           displayName: 'archive, dvr'

@@ -1,16 +1,16 @@
 ---
 title: Segurança
 description: Saiba como o App Service ajuda a proteger a sua aplicação e como pode bloquear ainda mais a sua aplicação a partir de ameaças.
-keywords: Serviço de aplicações azure, aplicação web, aplicação móvel, aplicação api, app de função, segurança, seguro, seguro, conformidade, conformidade, certificado, certificados, https, ftps, tls, trust, encriptação, encriptação, encriptação, encriptação, encriptação, encriptação, encriptação, restrição ip, autenticação, autorização, authn, autho, msi, identidade de serviço gerida, identidade gerida, segredos, segredo, patching, patch, patches, versão, isolamento, isolamento da rede, ddos, mitm
+keywords: Serviço de aplicações azure, web app, aplicação móvel, app api, app de função, segurança, seguro, seguro, conformidade, conformidade, certificado, certificados, https, ftps, tls, trust, encriptação, encriptação, encriptação, encriptação, encriptação, encriptação, encriptação, autação, autorização, authn, autho, msi, identidade de serviço gerida, identidade gerida, segredos, segredos, segredos, patching, patch, versão, isolamento,
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: e28935f73511e5ad973929517658cc626b5a6ea2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a098b1924bf7c2866f6afd7452b8dd3b93f3109
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475379"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535660"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no Serviço de Aplicações Azure
 
@@ -31,14 +31,14 @@ As seguintes secções mostram-lhe como proteger ainda mais a sua aplicação de
 
 ## <a name="https-and-certificates"></a>HTTPS e Certificados
 
-O Serviço de Aplicações permite-lhe proteger as suas aplicações com [HTTPS](https://wikipedia.org/wiki/HTTPS). Quando a sua aplicação é\<criada, o seu nome de domínio padrão (app_name>.azurewebsites.net) já está acessível através do HTTPS. Se [configurar um domínio personalizado para a sua aplicação,](app-service-web-tutorial-custom-domain.md)também deve [alterá-lo com um certificado SSL](configure-ssl-bindings.md) para que os navegadores de clientes possam fazer ligações HTTPS seguras ao seu domínio personalizado. Existem vários tipos de certificados suportados pelo App Service:
+O Serviço de Aplicações permite-lhe proteger as suas aplicações com [HTTPS](https://wikipedia.org/wiki/HTTPS). Quando a sua aplicação é\<criada, o seu nome de domínio padrão (app_name>.azurewebsites.net) já está acessível através do HTTPS. Se [configurar um domínio personalizado para a sua aplicação,](app-service-web-tutorial-custom-domain.md)também deve [alterá-lo com um certificado TLS/SSL](configure-ssl-bindings.md) para que os navegadores de clientes possam fazer ligações HTTPS seguras ao seu domínio personalizado. Existem vários tipos de certificados suportados pelo App Service:
 
 - Certificado gerido pelo serviço de aplicações gratuito
 - Certificado de serviço de aplicações
 - Certificado de terceiros
 - Certificado importado do Cofre-Chave Azure
 
-Para mais informações, consulte [Adicionar um certificado SSL no Serviço de Aplicações Azure](configure-ssl-certificate.md).
+Para mais informações, consulte [Adicionar um certificado TLS/SSL no Serviço de Aplicações Azure](configure-ssl-certificate.md).
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>Protocolos inseguros (HTTP, TLS 1.0, FTP)
 
@@ -103,7 +103,7 @@ Não guarde segredos de aplicação, tais como credenciais de base de dados, fic
 
 Em alternativa, pode integrar a sua app App Service com [o Azure Key Vault](/azure/key-vault/) para uma gestão avançada de segredos. Ao [aceder ao Key Vault com uma identidade gerida,](../key-vault/tutorial-web-application-keyvault.md)a sua aplicação App Service pode aceder de forma segura aos segredos de que necessita.
 
-## <a name="network-isolation"></a>Isolamento de rede
+## <a name="network-isolation"></a>Isolamento da rede
 
 Com exceção do nível de preços **isolados,** todos os níveis executam as suas aplicações na infraestrutura de rede partilhada no Serviço de Aplicações. Por exemplo, os endereços IP públicos e os equilibradores de carga front-end são partilhados com outros inquilinos. O nível **Isolado** dá-lhe o isolamento total da rede executando as suas aplicações dentro de um ambiente dedicado ao Serviço de [Aplicações.](environment/intro.md) Um ambiente de serviço de aplicações funciona no seu próprio exemplo de [Rede Virtual Azure](/azure/virtual-network/). Permite-lhe: 
 

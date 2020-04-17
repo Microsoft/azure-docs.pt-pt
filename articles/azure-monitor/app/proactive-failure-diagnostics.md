@@ -4,12 +4,12 @@ description: Alerta-o para alterações invulgares na taxa de pedidos falhados n
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: e1c07fca3a4eee19e56c313a889e5b86ce2b4c42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1bce3ab86748d8247a72da3bd70e0f2e8155dbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671754"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536816"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Deteção Inteligente - Anomalias de Falha
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) alerta-o automaticamente em tempo real se a sua aplicação da Web experimentar um aumento anormal na taxa de pedidos falhados. Deteta um aumento invulgar na taxa de pedidos de HTTP ou chamadas de dependência que são reportadas como falhadas. Para pedidos, os pedidos falhados geralmente têm códigos de resposta de 400 ou mais. Para ajudá-lo a triagem e diagnosticar o problema, uma análise das características das falhas e dados de aplicação relacionados é fornecida nos detalhes de alerta. Há também ligações com o portal Application Insights para mais diagnóstico. A funcionalidade não necessita de configuração nem configuração, uma vez que utiliza algoritmos de aprendizagem automática para prever a taxa normal de falha.
@@ -353,7 +353,7 @@ Deteção Inteligente de anomalias de falha complementa outras características 
 ## <a name="next-steps"></a>Passos seguintes
 Estas ferramentas de diagnóstico ajudam-no a inspecionar os dados da sua aplicação:
 
-* [Explorador métrico](../../azure-monitor/app/metrics-explorer.md)
+* [Explorador métrico](../../azure-monitor/platform/metrics-charts.md)
 * [Explorador de pesquisa](../../azure-monitor/app/diagnostic-search.md)
 * [Analytics - linguagem de consulta poderosa](../../azure-monitor/log-query/get-started-portal.md)
 

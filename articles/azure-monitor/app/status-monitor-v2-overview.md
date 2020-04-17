@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 4a240bc62816a46bc37108777a8b081b74047738
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4042fc05f278915fe72bf8fc4e6afd69a5bbb4b9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275714"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537428"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implementar o Agente de Insights de Aplicação do Monitor Azure para servidores no local
 
@@ -76,7 +76,7 @@ Cada uma destas opções é descrita nas [instruções detalhadas](status-monito
 
 Ver a telemetria:
 
-* [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorizar o desempenho e o uso.
+* [Explore as métricas](../../azure-monitor/platform/metrics-charts.md) para monitorizar o desempenho e o uso.
 * [Pesquisar eventos e registos](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
 * [Use o Analytics](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
 * [Criar dashboards](../../azure-monitor/app/overview-dashboard.md).

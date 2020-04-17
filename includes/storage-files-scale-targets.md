@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 8a8619da831dfa5b240bd93d3a046c49cc30affa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cf9be653da2dd587b93724b6e319dc4d20686c2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76901403"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536450"
 ---
 | Recurso | Ações de ficheiros padrão | Ações de ficheiropremium |
 |----------|---------------|------------------------------------------|
@@ -27,4 +27,4 @@ ms.locfileid: "76901403"
 | Comprimento máximo do objeto (diretórios e ficheiros) | 2.048 caracteres | 2.048 caracteres |
 | Componente máximo do nome do caminho (no caminho \A\B\C\D, cada letra é um componente) | 255 caracteres | 255 caracteres |
 
-\*Disponível na maioria das regiões, consulte disponibilidade [regional](../articles/storage/files/storage-files-planning.md#regional-availability) para obter informações sobre as regiões disponíveis.
+\*O padrão nas ações de ficheiros padrão é 5 TiB, consulte [Enable e crie grandes partilhas](../articles/storage/files/storage-files-how-to-create-large-file-share.md) de ficheiros para os detalhes sobre como aumentar a escala de ações de ficheiro padrão até 100 TiB.

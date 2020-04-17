@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 621b429f5dc3a6b6620e4d41ad46763e1d4fa226
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f33f829b6cb86cb01c848e5fc48e1618a3e00a2c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299536"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537037"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Soluções de Gestão de Atualização a bordo, Rastreio de Alterações e Inventário de uma máquina virtual Azure
 
@@ -24,38 +24,38 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 Em primeiro lugar, ative uma ou todas as três soluções no seu VM:
 
-1. No [portal Azure,](https://portal.azure.com)a partir do painel à esquerda selecione **máquinas virtuais** ou procure e selecione **máquinas Virtuais** a partir da página **Inicial.**
+1. No [portal Azure, selecione](https://portal.azure.com) **máquinas Virtuais** ou procure e selecione **máquinas Virtuais** a partir da página Inicial.
 2. Selecione o VM para o qual pretende ativar uma solução.
-3. Na página VM, em **Operações,** selecione **Gestão de Atualização,** **Inventário**ou **Rastreio de Alterações**. A máquina virtual pode existir em qualquer região, independentemente da localização da sua conta Deautomação. Ao embarcar numa solução de um VM, precisa de ter a `Microsoft.OperationalInsights/workspaces/read` permissão para determinar se o VM está a bordo de um espaço de trabalho. Para conhecer as permissões adicionais necessárias, consulte [as permissões necessárias às máquinas](automation-role-based-access-control.md#onboarding)a bordo .
+3. Na página VM, em **Operações,** selecione **Gestão de Atualização,** **Inventário**ou **Rastreio de Alterações**. A máquina virtual pode existir em qualquer região, independentemente da localização da sua conta Deautomação. Ao embarcar numa solução de um VM, precisa de ter a `Microsoft.OperationalInsights/workspaces/read` permissão para determinar se o VM está a bordo de um espaço de trabalho. Para conhecer as permissões adicionais necessárias, consulte [as permissões necessárias às máquinas](automation-role-based-access-control.md#onboarding-permissions)a bordo . Para aprender a bordo várias máquinas ao mesmo tempo, consulte soluções de Gestão de Atualização de [Bordo, Deslocalização e Inventário](automation-onboard-solutions-from-automation-account.md).
 
-Para aprender a bordo várias máquinas ao mesmo tempo, consulte soluções de Gestão de Atualização de [Bordo, Deslocalização e Inventário](automation-onboard-solutions-from-automation-account.md).
-
-Selecione o espaço de trabalho azure Log Analytics e a conta De automação e, em seguida, selecione **Enable** para ativar a solução. A solução demora até 15 minutos a ativar.
+4. Selecione o espaço de trabalho e a conta de Automação do Azure Log Analytics e, em seguida, clique em **Ativar** a solução. A solução demora até 15 minutos a ativar.
 
 ![A bordo da solução de Gestão de Atualização](media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-Vá para as outras soluções e, em seguida, selecione **Enable**. As listas de drop-down do espaço de trabalho log Analytics e da conta Automation são desativadas porque estas soluções utilizam a mesma conta de espaço de trabalho e automação que a solução previamente ativada.
+5. Vá para as outras soluções e, em seguida, selecione **Enable**. As listas de drop-down do espaço de trabalho log Analytics e da conta Automation são desativadas porque estas soluções utilizam a mesma conta de espaço de trabalho e automação que a solução previamente ativada.
 
 > [!NOTE]
-> **Alterar o rastreio** e **o inventário** utilize a mesma solução. Quando uma destas soluções está ativada, a outra também está ativada.
+> Alterar o rastreio e o inventário utilize a mesma solução. Quando uma destas soluções está ativada, a outra também está ativada.
 
 ## <a name="scope-configuration"></a>Configuração de âmbito
 
-Cada solução utiliza uma configuração de âmbito no espaço de trabalho para direcionar os computadores que obtêm a solução. A configuração de âmbito é um grupo de uma ou mais pesquisas guardadas que são usadas para limitar o âmbito da solução a computadores específicos. Para aceder às configurações de âmbito, na sua conta De automação, sob **recursos relacionados,** selecione **Workspace**. No espaço de trabalho, sob fontes de **dados do Espaço de Trabalho,** selecione **Configurações**de Âmbito .
+Cada solução utiliza uma configuração de âmbito no espaço de trabalho para direcionar os computadores que obtêm a solução. A configuração de âmbito é um grupo de uma ou mais pesquisas guardadas que são usadas para limitar o âmbito da solução a computadores específicos. Para aceder às configurações de âmbito:
 
-Se o espaço de trabalho selecionado ainda não tiver as soluções de Gestão de Atualização ou de Rastreio de Alterações, são criadas as seguintes configurações de âmbito:
+1. Na sua conta de Automação, sob **recursos Relacionados,** selecione **Workspace**. 
+2. No espaço de trabalho, sob fontes de **dados do Espaço de Trabalho,** selecione **Configurações**de Âmbito .
+3. Se o espaço de trabalho selecionado ainda não tiver a solução de Gestão de Atualização ou Deslocalização, são criadas as seguintes configurações de âmbito:
 
-* **MicrosoftDefaultScopeConfig-ChangeTracking**
+    * `MicrosoftDefaultScopeConfig-ChangeTracking`
+    * `MicrosoftDefaultScopeConfig-Updates`
 
-* **MicrosoftDefaultScopeConfig-Updates**
+    Se o espaço de trabalho selecionado já tiver a solução, a solução não é reimplantada e a configuração de âmbito não é adicionada.
 
-Se o espaço de trabalho selecionado já tiver a solução, a solução não é reimplantada e a configuração de âmbito não é adicionada.
-
-Selecione as elipses **(...**) em qualquer uma das configurações e, em seguida, **selecione Editar**. No painel de configuração de **abrangência editar,** selecione **Select Computer Groups**. O painel de Grupos de **Computadores** mostra as pesquisas guardadas que são usadas para criar a configuração de âmbito.
+4. Selecione as elipses **(...**) em qualquer uma das configurações e, em seguida, clique em **Editar**. 
+5. No painel de configuração de **abrangência editar,** selecione **Select Computer Groups**. O painel de Grupos de **Computadores** mostra as pesquisas guardadas que são usadas para criar a configuração de âmbito.
 
 ## <a name="saved-searches"></a>Pesquisas guardadas
 
-Quando um computador é adicionado às soluções de Gestão de Atualização, Deslocalização ou Inventário, o computador é adicionado a uma das duas pesquisas guardadas no seu espaço de trabalho. As pesquisas guardadas são consultas que contêm os computadores que são direcionados para estas soluções.
+Quando um computador é adicionado à solução de Gestão de Atualização, Deslocalização ou Inventário, o computador é adicionado a uma das duas pesquisas guardadas no seu espaço de trabalho. As pesquisas guardadas são consultas que contêm os computadores que são direcionados para estas soluções.
 
 Vá para a área de trabalho. Em **Geral,** selecione **Pesquisas Guardadas**. As duas pesquisas guardadas que são utilizadas por estas soluções são mostradas na tabela seguinte:
 
@@ -83,7 +83,7 @@ Depois de remover estas soluções, pode executar os seguintes passos para desli
 > [!NOTE]
 > Algumas soluções, incluindo versões anteriores da solução de monitorização Azure SQL, podem ter criado ativos de automação e podem também ter de ser removidas antes de desvincular o espaço de trabalho.
 
-1. A partir do portal Azure, abra a sua conta de Automação e na página da conta Automation selecione **Linked workspace** sob a secção **Recursos Relacionados** à esquerda.
+1. A partir do portal Azure, abra a sua conta de Automação e selecione **Linked workspace** sob a secção **Recursos Relacionados** à esquerda.
 
 2. Na página de espaço de trabalho Unlink, clique em **Unlink espaço de trabalho**.
 
@@ -112,7 +112,7 @@ Em alternativa, também pode desligar o seu espaço de trabalho a partir da sua 
 Para remover um VM da Atualização:
 
 * No seu espaço de trabalho Log Analytics, retire o `MicrosoftDefaultScopeConfig-Updates`VM da pesquisa guardada para a Configuração scope . Pesquisas guardadas podem ser encontradas sob **o General** no seu espaço de trabalho.
-* Remova o agente de [monitorização](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) da Microsoft ou o [agente Log Analytics para o Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Remova o [agente Log Analytics para Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o agente Log Analytics para o [Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes
 

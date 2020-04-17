@@ -2,13 +2,13 @@
 title: Configure Monitor Azure para recipientes Integração Prometheus [ Microsoft Docs
 description: Este artigo descreve como pode configurar o Monitor Azure para o agente de contentores para raspar métricas de Prometeu com o seu cluster Kubernetes.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: b774bf042778ca9118a7bc9f051655b200d87659
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 7fcf52cceb69834f68f8e4ce7a2674972a6430fd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931429"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537377"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configure a raspagem das métricas prometheus com o Monitor Azure para contentores
 
@@ -22,7 +22,6 @@ ms.locfileid: "75931429"
 A raspagem das métricas de Prometeu é suportada com aglomerados kubernetes hospedados em:
 
 - Serviço de Kubernetes do Azure (AKS)
-- Azure Container Instances
 - Pilha Azure ou no local
 - Azure Red Hat OpenShift
 
@@ -76,17 +75,17 @@ Quando um URL é especificado, o Monitor Azure para recipientes apenas raspa o p
 |Âmbito | Chave | Tipo de dados | Valor | Descrição |
 |------|-----|-----------|-------|-------------|
 | Em todo o aglomerado | | | | Especifique qualquer um dos três métodos seguintes para raspar pontos finais para métricas. |
-| | `urls` | Cadeia | Matriz separada de vírina | Ponto final http (endereço IP ou endereço URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um monitor azure específico para parâmetros de contentores e pode ser utilizado em vez de endereço IP do nó. Deve ser toda maiúscula.) |
-| | `kubernetes_services` | Cadeia | Matriz separada de vírina | Uma série de serviços kubernetes para raspar métricas de kube-state-metrics. Por exemplo,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `urls` | String | Matriz separada de vírina | Ponto final http (endereço IP ou endereço URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um monitor azure específico para parâmetros de contentores e pode ser utilizado em vez de endereço IP do nó. Deve ser toda maiúscula.) |
+| | `kubernetes_services` | String | Matriz separada de vírina | Uma série de serviços kubernetes para raspar métricas de kube-state-metrics. Por exemplo,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Booleano | true ou false | Quando definido `true` nas configurações em todo o cluster, o Monitor Azure para o agente de contentores irá raspar cápsulas Kubernetes em todo o cluster para as seguintes anotações Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Booleano | true ou false | Permite raspar a cápsula. `monitor_kubernetes_pods`deve ser `true`definido para . |
-| | `prometheus.io/scheme` | Cadeia | http ou https | Incumprimentos para raspar http. Se necessário, `https`definido para . | 
-| | `prometheus.io/path` | Cadeia | Matriz separada de vírina | O caminho dos recursos HTTP para recolher métricas. Se o caminho das `/metrics`métricas não for, defina-o com esta anotação. |
-| | `prometheus.io/port` | Cadeia | 9102 | Especifique uma porta para raspar. Se a porta não estiver definida, será deprecinada para 9102. |
-| | `monitor_kubernetes_pods_namespaces` | Cadeia | Matriz separada de vírina | Uma lista de espaços de nome para raspar métricas de cápsulas Kubernetes.<br> Por exemplo, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| Node-to-wide | `urls` | Cadeia | Matriz separada de vírina | Ponto final http (endereço IP ou endereço URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um monitor azure específico para parâmetros de contentores e pode ser utilizado em vez de endereço IP do nó. Deve ser toda maiúscula.) |
-| Node-wide ou Cluster-wide | `interval` | Cadeia | Anos 60 | O intervalo de recolha é de um minuto (60 segundos). Pode modificar a coleção para o *[prometheus_data_collection_settings.nó]* e/ou *[prometheus_data_collection_settings.cluster]* para unidades temporais como s, m, h. |
-| Node-wide ou Cluster-wide | `fieldpass`<br> `fielddrop`| Cadeia | Matriz separada de vírina | Pode especificar certas métricas a serem recolhidas ou não`fieldpass`a partir do`fielddrop`ponto final, definindo a listagem de permitir ( e não permitir ). Tem de definir a lista de autorizações primeiro. |
+| | `prometheus.io/scheme` | String | http ou https | Incumprimentos para raspar http. Se necessário, `https`definido para . | 
+| | `prometheus.io/path` | String | Matriz separada de vírina | O caminho dos recursos HTTP para recolher métricas. Se o caminho das `/metrics`métricas não for, defina-o com esta anotação. |
+| | `prometheus.io/port` | String | 9102 | Especifique uma porta para raspar. Se a porta não estiver definida, será deprecinada para 9102. |
+| | `monitor_kubernetes_pods_namespaces` | String | Matriz separada de vírina | Uma lista de espaços de nome para raspar métricas de cápsulas Kubernetes.<br> Por exemplo, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
+| Node-to-wide | `urls` | String | Matriz separada de vírina | Ponto final http (endereço IP ou endereço URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um monitor azure específico para parâmetros de contentores e pode ser utilizado em vez de endereço IP do nó. Deve ser toda maiúscula.) |
+| Node-wide ou Cluster-wide | `interval` | String | Anos 60 | O intervalo de recolha é de um minuto (60 segundos). Pode modificar a coleção para o *[prometheus_data_collection_settings.nó]* e/ou *[prometheus_data_collection_settings.cluster]* para unidades temporais como s, m, h. |
+| Node-wide ou Cluster-wide | `fieldpass`<br> `fielddrop`| String | Matriz separada de vírina | Pode especificar certas métricas a serem recolhidas ou não`fieldpass`a partir do`fielddrop`ponto final, definindo a listagem de permitir ( e não permitir ). Tem de definir a lista de autorizações primeiro. |
 
 ConfigMaps é uma lista global e só pode haver um ConfigMap aplicado ao agente. Não pode ter outro ConfigMaps a anular as coleções.
 

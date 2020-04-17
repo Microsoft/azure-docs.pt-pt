@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 582afef8929da2ba75aab70c1ed0fa9e57fd3f19
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 084083a704a007e6675234883c62350d1d9a0849
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76703478"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536153"
 ---
-# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Quickstart: Ligue para uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft
+# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Quickstart: Ligue para um ASP.NET Web API protegido pela plataforma de identidade da Microsoft
 
-Neste arranque rápido, expõe uma API Web e protege-a para que apenas o utilizador autenticado possa aceder a ela. Esta amostra mostra como expor uma ASP.NET Web API para que possa aceitar fichas emitidas por contas pessoais (incluindo outlook.com, live.com e outras) bem como contas de trabalho e escola de qualquer empresa ou organização que tenha integrado com a identidade da Microsoft plataforma.
+Neste arranque rápido, expõe uma API web e protege-a para que apenas o utilizador autenticado possa aceder a ela. Esta amostra mostra como expor uma ASP.NET Web API para que possa aceitar fichas emitidas por contas pessoais (incluindo outlook.com, live.com e outras) bem como contas de trabalho e escolas de qualquer empresa ou organização que tenha integrado com a plataforma de identidade da Microsoft.
 
-A amostra também inclui um cliente da aplicação Windows Desktop (WPF) que demonstra como pode solicitar um sinal de acesso para aceder a uma API Web.
+A amostra também inclui um cliente da aplicação Windows Desktop (WPF) que demonstra como pode solicitar um sinal de acesso para aceder a uma API web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Pode clonar esta amostra a partir da sua concha ou linha de comando:
 
 Ou, pode [descarregar a amostra como ficheiro ZIP.](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip)
 
-## <a name="register-your-web-api-in-the-application-registration-portal"></a>Registe a sua API Web no portal de registo de candidaturas
+## <a name="register-your-web-api-in-the-application-registration-portal"></a>Registe a sua API web no portal de registo de candidaturas
 
 ### <a name="choose-the-azure-ad-tenant-where-you-want-to-create-your-applications"></a>Escolha o inquilino da AD Azure onde pretende criar as suas aplicações
 
@@ -69,13 +69,13 @@ Se quiser registar as suas aplicações manualmente, como primeiro passo terá d
      - para a utilização do **nome Scope**`access_as_user`
      - Certifique-se de que a opção **de Administradores e utilizadores** é selecionada para Quem pode **consentir**
      - no tipo de nome de **exibição de consentimento do Administrador**`Access TodoListService as a user`
-     - no tipo de descrição de **consentimento da Admin**`Accesses the TodoListService Web API as a user`
+     - no tipo de descrição de **consentimento da Admin**`Accesses the TodoListService web API as a user`
      - no tipo de nome de **exibição** de consentimento do utilizador`Access TodoListService as a user`
-     - no tipo de **descrição** do consentimento do utilizador`Accesses the TodoListService Web API as a user`
+     - no tipo de **descrição** do consentimento do utilizador`Accesses the TodoListService web API as a user`
      - Manter **o Estado** como **habilitado**
      - **Selecione adicionar âmbito**
 
-### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Configure o projeto de serviço para corresponder à Web API registada 
+### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Configure o projeto de serviço para corresponder à API web registada
 
 1. Abra a solução no Estúdio Visual e abra o ficheiro **Web.config** sob a raiz do projeto **TodoListService.**
 1. Substitua o `ida:ClientId` valor do parâmetro pelo ID do Cliente (ID de **aplicação)** da aplicação que acabou de registar no Portal de Registo de Aplicações.
@@ -86,7 +86,7 @@ Se quiser registar as suas aplicações manualmente, como primeiro passo terá d
 
    > Nota: Certifique-se de que utiliza o seguinte formato:
    >
-   > `api://{TodoListService-Application-ID}/access_as_user` 
+   > `api://{TodoListService-Application-ID}/access_as_user`
    >
    >(onde {TodoListService-Application-ID} é o GUID que representa o ID de aplicação para o seu TodoListService).
 
@@ -126,7 +126,7 @@ Neste passo, configura o seu projeto *TodoListClient* registando uma nova aplica
 
 ## <a name="pre-authorize-your-client-application"></a>Pré-autorizar o seu pedido de cliente
 
-Uma das formas de permitir que os utilizadores de outras diretórios acedam à sua Web API é *autorizando as* aplicações do cliente a aceder à sua Web API, adicionando os IDs de aplicação a partir de aplicações de clientes na lista de aplicações *pré-autorizadas* para a sua Web API. Ao adicionar um cliente pré-autorizado, não exigirá que o utilizador consinta em utilizar a sua API Web. Siga os passos abaixo para pré-autorizar a sua Aplicação Web::
+Uma das formas de permitir que os utilizadores de outras diretórios acedam à sua Web API é *autorizando as* aplicações do cliente a aceder à sua Web API, adicionando os IDs de aplicação a partir de aplicações de clientes na lista de aplicações *pré-autorizadas* para a sua Web API. Ao adicionar um cliente pré-autorizado, não exigirá que o utilizador consinta em utilizar a sua API web. Siga os passos abaixo para pré-autorizar a sua Aplicação Web::
 
 1. Volte ao portal de registo de *aplicações* e abra as propriedades do seu **TodoListService.**
 1. Na secção **Expor uma API,** clique em **Adicionar uma aplicação de cliente** ao abrigo da secção de *aplicações autorizadas* do cliente.
@@ -141,7 +141,7 @@ Uma das formas de permitir que os utilizadores de outras diretórios acedam à s
 
 ## <a name="optional-restrict-sign-in-access-to-your-application"></a>Opcional: Restringir o acesso ao acesso à sua aplicação
 
-Por predefinição, ao descarregar esta amostra de código e configurar a aplicação para utilizar o ponto final do Azure Ative Directory v2 seguindo os passos anteriores, ambas as contas pessoais - como outlook.com, live.com e outras - bem como contas de Trabalho ou escola de qualquer as organizações integradas com a Azure AD podem solicitar fichas e aceder à sua Web API. 
+Por padrão, ao descarregar esta amostra de código e configurar a aplicação para utilizar o ponto final do Azure Ative Directory v2 seguindo os passos anteriores, ambas as contas pessoais - como outlook.com, live.com e outras - bem como contas de trabalho ou escola de quaisquer organizações integradas com a Azure AD podem solicitar fichas e aceder à sua Web API.
 
 Para restringir quem pode iniciar sessão na sua candidatura, utilize uma das opções:
 

@@ -3,12 +3,12 @@ title: Funções Duráveis publicação na Grelha de Eventos Azure (pré-visuali
 description: Saiba como configurar a publicação automática da Rede de Eventos Azure para Funções Duráveis.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 52ffcd4eb81936ffcfa61580288c60bd59ffb744
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 671f7bd5221a936ea9dad0f0cece895bdbe9512f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78249767"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535490"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Funções Duráveis publicação na Grelha de Eventos Azure (pré-visualização)
 
@@ -68,14 +68,36 @@ Agora pode enviar eventos para o tema.
 
 No seu projeto DeFunções `host.json` Duráveis, encontre o ficheiro.
 
+### <a name="durable-functions-1x"></a>Funções Duráveis 1.x
+
 Adicione `eventGridTopicEndpoint` `eventGridKeySettingName` e `durableTask` em uma propriedade.
 
 ```json
 {
+  "durableTask": {
+    "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+    "eventGridKeySettingName": "EventGridKey"
+  }
+}
+```
+
+### <a name="durable-functions-2x"></a>Funções Duráveis 2.x
+
+Adicione `notifications` uma secção `durableTask` à propriedade do `<topic_name>` ficheiro, substituindo pelo nome que escolheu. Se `durableTask` as `extensions` propriedades ou propriedades não existirem, crie-as como este exemplo:
+
+```json
+{
+  "version": "2.0",
+  "extensions": {
     "durableTask": {
-        "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
-        "eventGridKeySettingName": "EventGridKey"
+      "notifications": {
+        "eventGrid": {
+          "topicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+          "keySettingName": "EventGridKey"
+        }
+      }
     }
+  }
 }
 ```
 

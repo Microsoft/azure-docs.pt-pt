@@ -12,12 +12,12 @@ ms.date: 12/17/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c6113490cf7d754a9e45638e4a0bfa588f1942ca
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 6021348160b338bc3a153764968f6c846a644cd1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309421"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535864"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade microsoft e o fluxo de credenciais de clientes OAuth 2.0
 
@@ -70,7 +70,7 @@ Para utilizar permissões de aplicação na sua aplicação, siga os passos disc
 
 
 > [!NOTE]
-> Ao autenticar como aplicação, ao contrário de um utilizador, não é possível utilizar "permissões delegadas" (âmbitos concedidos por um utilizador).  Deve utilizar "permissões de pedido", também conhecidas como "funções", que são concedidas por um administrador para o pedido (ou através de pré-autorização pela Web API).    
+> Ao autenticar como aplicação, ao contrário de um utilizador, não é possível utilizar "permissões delegadas" (âmbitos concedidos por um utilizador).  Deve utilizar "permissões de pedido", também conhecidas como "funções", que são concedidas por um administrador para o pedido (ou através de pré-autorização pela Web API).
 
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicite as permissões no portal de registo da aplicação
@@ -169,7 +169,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ```
 
 ```
-// Replace {tenant} with your tenant! 
+// Replace {tenant} with your tenant!
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
@@ -220,7 +220,7 @@ Uma resposta com êxito tem o seguinte aspeto:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `access_token` | O sinal de acesso solicitado. A aplicação pode usar este símbolo para autenticar o recurso seguro, como por exemplo a uma API Web. |
+| `access_token` | O sinal de acesso solicitado. A aplicação pode usar este símbolo para autenticar o recurso seguro, como por exemplo a uma API web. |
 | `token_type` | Indica o valor do tipo simbólico. O único tipo que a `bearer`plataforma de identidade da Microsoft suporta é . |
 | `expires_in` | O tempo que um token de acesso é válido (em segundos). |
 

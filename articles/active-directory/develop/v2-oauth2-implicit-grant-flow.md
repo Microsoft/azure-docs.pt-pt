@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0a884850d57418e9daafba980d0a08dc86fc0974
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: b946ab6157ba63213a4c140221d36f231aa62f0d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309397"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535847"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de subvenção implícita
 
@@ -38,16 +38,16 @@ No entanto, se preferir não usar uma biblioteca na sua aplicação de uma pági
 
 ## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Cenários adequados para a subvenção implícita OAuth2
 
-A especificação OAuth2 declara que a subvenção implícita foi concebida para permitir aplicações de agente de utilizador – ou seja, aplicações JavaScript executadas dentro de um browser. A característica determinante de tais aplicações é que o código JavaScript é usado para aceder aos recursos do servidor (tipicamente um API Web) e para atualizar a experiência do utilizador da aplicação em conformidade. Pense em aplicações como o Gmail ou o Outlook Web Access: quando selecionar uma mensagem da sua caixa de entrada, apenas o painel de visualização de mensagens muda para exibir a nova seleção, enquanto o resto da página permanece inalterado. Esta característica contrasta com as aplicações Web tradicionais baseadas em redireciones, onde cada interação do utilizador resulta num postback de página inteira e numa renderização de página inteira da nova resposta do servidor.
+A especificação OAuth2 declara que a subvenção implícita foi concebida para permitir aplicações de agente de utilizador – ou seja, aplicações JavaScript executadas dentro de um browser. A característica determinante de tais aplicações é que o código JavaScript é usado para aceder aos recursos do servidor (tipicamente uma API web) e para atualizar a experiência do utilizador da aplicação em conformidade. Pense em aplicações como o Gmail ou o Outlook Web Access: quando selecionar uma mensagem da sua caixa de entrada, apenas o painel de visualização de mensagens muda para exibir a nova seleção, enquanto o resto da página permanece inalterado. Esta característica contrasta com as aplicações Web tradicionais baseadas em redireciones, onde cada interação do utilizador resulta num postback de página inteira e numa renderização de página inteira da nova resposta do servidor.
 
-As aplicações que tomam a abordagem baseada no JavaScript ao seu extremo são chamadas aplicações de página única, ou SPAs. A ideia é que estas aplicações apenas sirvam uma página inicial de HTML e javaScript associado, com todas as interações subsequentes sendo conduzidas por chamadas Web API realizadas via JavaScript. No entanto, as abordagens híbridas, em que a aplicação é maioritariamente orientada para o pós-recuo, mas executam chamadas js ocasionais, não são incomuns – a discussão sobre o uso implícito do fluxo também é relevante para aqueles.
+As aplicações que tomam a abordagem baseada no JavaScript ao seu extremo são chamadas aplicações de página única, ou SPAs. A ideia é que estas aplicações apenas sirvam uma página inicial de HTML e javaScript associados, com todas as interações subsequentes sendo conduzidas por chamadas Web API realizadas via JavaScript. No entanto, as abordagens híbridas, em que a aplicação é maioritariamente orientada para o pós-recuo, mas executam chamadas js ocasionais, não são incomuns – a discussão sobre o uso implícito do fluxo também é relevante para aqueles.
 
 As aplicações baseadas em redirecionamento normalmente asseguram os seus pedidos através de cookies, no entanto, essa abordagem não funciona tão bem para aplicações JavaScript. Os cookies só funcionam contra o domínio para o que foram gerados, enquanto as chamadas JavaScript podem ser direcionadas para outros domínios. De facto, isso será frequentemente o caso: pense em aplicações que invocam a Microsoft Graph API, Office API, Azure API – todos residentes fora do domínio de onde a aplicação é servida. Uma tendência crescente para as aplicações JavaScript é não ter qualquer backend, confiando 100% em APIs web de terceiros para implementar a sua função de negócio.
 
-Atualmente, o método preferido de proteger chamadas para uma API Web é usar a abordagem token do portador OAuth2, onde cada chamada é acompanhada por um sinal de acesso OAuth2. A Web API examina o sinal de acesso de entrada e, se encontrar nele os âmbitos necessários, dá acesso à operação solicitada. O fluxo implícito fornece um mecanismo conveniente para as aplicações JavaScript obterem fichas de acesso para uma API Web, oferecendo inúmeras vantagens em relação aos cookies:
+Atualmente, o método preferido de proteger chamadas para uma API web é usar a abordagem token do portador OAuth2, onde cada chamada é acompanhada por um sinal de acesso OAuth2. A Web API examina o sinal de acesso de entrada e, se encontrar nela os âmbitos necessários, dá acesso à operação solicitada. O fluxo implícito fornece um mecanismo conveniente para as aplicações JavaScript obterem fichas de acesso para uma API web, oferecendo inúmeras vantagens em relação aos cookies:
 
 * Os tokens podem ser obtidos de forma fiável sem qualquer necessidade de chamadas de origem cruzada – registo obrigatório do URI redirecionado para o qual as fichas são de retorno garante que as fichas não são deslocadas
-* As aplicações JavaScript podem obter o máximo de fichas de acesso que precisarem, para o maior número de APIs web que visam – sem restrições em domínios
+* As aplicações JavaScript podem obter o máximo de fichas de acesso que precisarem, para o maior número de APIs web que visam – sem restrições aos domínios
 * Características HTML5 como sessão ou bolsa de armazenamento local concedem controlo total sobre o caching simbólico e a gestão vitalícia, enquanto a gestão de cookies é opaca para a app
 * Fichas de acesso não são suscetíveis a ataques de falsificação de pedido de cross-site (CSRF)
 
@@ -59,7 +59,7 @@ Este modelo concede à aplicação JavaScript a capacidade de renovar independen
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>A subvenção implícita é adequada para a minha aplicação?
 
-A subvenção implícita apresenta mais riscos do que outras subvenções, e as áreas a que precisa de estar atento estão bem documentadas (por exemplo, [utilização indevida de acesso ao Proprietário de Recursos Imitadores em Fluxo Implícito][OAuth2-Spec-Implicit-Misuse] e [OAuth 2.0 Modelo][OAuth2-Threat-Model-And-Security-Implications]de Ameaça e Considerações de Segurança). No entanto, o perfil de risco mais elevado deve-se, em grande parte, ao facto de se destinar a ativar aplicações que executam código ativo, servidos por um recurso remoto para um navegador. Se estiver a planear uma arquitetura SPA, não tenha componentes de backend ou pretenda invocar um Web API via JavaScript, recomenda-se a utilização do fluxo implícito para aquisição de fichas.
+A subvenção implícita apresenta mais riscos do que outras subvenções, e as áreas a que precisa de estar atento estão bem documentadas (por exemplo, [utilização indevida de acesso ao Proprietário de Recursos Imitadores em Fluxo Implícito][OAuth2-Spec-Implicit-Misuse] e [OAuth 2.0 Modelo][OAuth2-Threat-Model-And-Security-Implications]de Ameaça e Considerações de Segurança). No entanto, o perfil de risco mais elevado deve-se, em grande parte, ao facto de se destinar a ativar aplicações que executam código ativo, servidos por um recurso remoto para um navegador. Se estiver a planear uma arquitetura SPA, não tenha componentes de backend ou pretenda invocar uma API web via JavaScript, recomenda-se a utilização do fluxo implícito para aquisição de fichas.
 
 Se a sua aplicação é um cliente nativo, o fluxo implícito não é um grande ajuste. A ausência do cookie de sessão Azure AD no contexto de um cliente nativo priva a sua aplicação dos meios de manter uma sessão de longa duração. O que significa que a sua aplicação irá incitar repetidamente o utilizador a obter fichas de acesso para novos recursos.
 

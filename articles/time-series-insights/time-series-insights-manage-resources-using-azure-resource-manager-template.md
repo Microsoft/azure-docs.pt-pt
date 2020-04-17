@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 04/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1caa80469504d52d3103fb2776fb3e7210971690
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a670e32058794daeaa233464ba7d054f45ef25e3
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024403"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536323"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar recursos de Insights da Série de Tempo usando modelos de Gestor de Recursos Azure
 
@@ -43,7 +43,7 @@ O modelo de quickstart quickstart [de 201 timeseries-environment-with-eventhub](
 
 ## <a name="specify-deployment-template-and-parameters"></a>Especificar modelo e parâmetros de implementação
 
-O seguinte procedimento descreve como usar o PowerShell para implementar um modelo de Gestor de Recursos Azure que cria um ambiente Time Series Insights, uma fonte de evento infantil configurada para consumir eventos de um Hub de Eventos, e políticas de acesso que dão acesso ao dados ambientais. Se um Hub de Eventos existente não for especificado, um será criado com a implementação.
+O procedimento seguinte descreve como usar o PowerShell para implementar um modelo de Gestor de Recursos Azure que cria um ambiente Time Series Insights, uma fonte de evento infantil configurada para consumir eventos a partir de um Hub de Eventos, e políticas de acesso que dão acesso aos dados do ambiente. Se um Hub de Eventos existente não for especificado, um será criado com a implementação.
 
 1. Instale o Azure PowerShell seguindo as instruções em [Iniciar-se com a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 

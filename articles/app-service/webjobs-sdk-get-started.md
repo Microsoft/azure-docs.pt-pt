@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: bfbae282f9c383c19aae84a70dfc53f754bd9367
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4976be485a9b7609c6e8d23f6b897092217663fc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77592616"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535677"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Introdução ao SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -37,28 +37,31 @@ Este artigo mostra-lhe como implementar webJobs como uma aplicação de consola 
 
 ## <a name="webjobs-nuget-packages"></a>Pacotes WebJobs NuGet
 
-1. Instale a mais recente versão `Microsoft.Azure.WebJobs.Extensions` estável 3.x `Microsoft.Azure.WebJobs`do pacote NuGet, que inclui .
+1. Instale a mais recente versão estável 3.x `Microsoft.Azure.WebJobs`do [ `Microsoft.Azure.WebJobs.Extensions` pacote NuGet,](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/)que inclui .
 
-     Aqui está o comando de consola do Gestor de **Pacotes** para a versão 3.0.2:
+     Aqui está o comando de **consola do gestor** de pacotes:
 
      ```powershell
-     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.2
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version <3_X_VERSION>
      ```
+
+    Neste comando, `<3_X_VERSION>` substitua-o por uma versão suportada do pacote. 
 
 ## <a name="create-the-host"></a>Criar o Anfitrião
 
 O hospedeiro é o recipiente de tempo de funcionamento para funções que ouvem os gatilhos e as funções de chamadas. Os seguintes passos criam [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost)um hospedeiro que implementa , que é o Anfitrião Genérico em ASP.NET Core.
 
-1. Em *Program.cs,* `using` adicione um comunicado:
+1. Em *Program.cs,* `using` adicione estas declarações:
 
     ```cs
+    using System.Threading.Tasks;
     using Microsoft.Extensions.Hosting;
     ```
 
 1. Substitua o método `Main` pelo código abaixo:
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.ConfigureWebJobs(b =>
@@ -68,7 +71,7 @@ O hospedeiro é o recipiente de tempo de funcionamento para funções que ouvem 
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
@@ -79,12 +82,12 @@ Em ASP.NET Core, as configurações do [`HostBuilder`](/dotnet/api/microsoft.ext
 
 Nesta secção, configura o registo de consolas que utiliza a [estrutura de registo do Núcleo de ASP.NET](/aspnet/core/fundamentals/logging).
 
-1. Instale a versão `Microsoft.Extensions.Logging.Console` mais recente estável `Microsoft.Extensions.Logging`do pacote NuGet, que inclui .
+1. Instale a versão mais recente estável `Microsoft.Extensions.Logging`do [ `Microsoft.Extensions.Logging.Console` pacote NuGet,](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/)que inclui .
 
-   Aqui está o comando de consola do Gestor de **Pacotes** para a versão 2.2.0:
+   Aqui está o comando de **consola do gestor** de pacotes:
 
    ```powershell
-   Install-Package Microsoft.Extensions.Logging.Console -version 2.2.0
+   Install-Package Microsoft.Extensions.Logging.Console -version <3_X_VERSION>
    ```
 
 1. Em *Program.cs,* `using` adicione um comunicado:
@@ -92,6 +95,8 @@ Nesta secção, configura o registo de consolas que utiliza a [estrutura de regi
    ```cs
    using Microsoft.Extensions.Logging;
    ```
+
+    Neste comando, `<3_X_VERSION>` substitua-o por uma versão 3.x suportada da embalagem.
 
 1. Ligue [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) para [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder)o método. O [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) método adiciona o registo da consola à configuração.
 
@@ -105,7 +110,7 @@ Nesta secção, configura o registo de consolas que utiliza a [estrutura de regi
     O `Main` método agora é assim:
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.ConfigureWebJobs(b =>
@@ -119,7 +124,7 @@ Nesta secção, configura o registo de consolas que utiliza a [estrutura de regi
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
@@ -137,11 +142,13 @@ A partir da versão 3.x, deve instalar explicitamente a extensão de encadernaç
 
 1. Instale a versão mais recente estável do [microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet, versão 3.x. 
 
-    Aqui está o comando de consola do Gestor de **Pacotes** para a versão 3.0.4:
+    Aqui está o comando de **consola do gestor** de pacotes:
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.4
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version <3_X_VERSION>
     ```
+    
+    Neste comando, `<3_X_VERSION>` substitua-o por uma versão suportada do pacote. 
 
 2. No `ConfigureWebJobs` método de extensão, ligue para o `AddAzureStorage` método da [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instância para inicializar a extensão de armazenamento. Neste ponto, `ConfigureWebJobs` o método parece ser o seguinte exemplo:
 
@@ -158,28 +165,28 @@ A partir da versão 3.x, deve instalar explicitamente a extensão de encadernaç
 1. Clique no projeto, selecione **Adicionar** > **Novo Item...** escolha **Classe,** nomeie o novo ficheiro de classe C# *Functions.cs*, e selecione **Adicionar**.
 
 1. Em Functions.cs, substitua o modelo gerado pelo seguinte código:
-
-   ```cs
-   using Microsoft.Azure.WebJobs;
-   using Microsoft.Extensions.Logging;
-
-   namespace WebJobsSDKSample
-   {
-       public class Functions
-       {
-           public static void ProcessQueueMessage([QueueTrigger("queue")] string message, ILogger logger)
-           {
-               logger.LogInformation(message);
-           }
-       }
-   }
-   ```
+    
+    ```cs
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Extensions.Logging;
+    
+    namespace WebJobsSDKSample
+    {
+        public class Functions
+        {
+            public static void ProcessQueueMessage([QueueTrigger("queue")] string message, ILogger logger)
+            {
+                logger.LogInformation(message);
+            }
+        }
+    }
+    ```
 
    O `QueueTrigger` atributo diz o tempo de funcionamento para chamar esta função `queue`quando uma nova mensagem é escrita numa fila de Armazenamento Azure chamada . O conteúdo da mensagem de fila é `message` fornecido ao código do método no parâmetro. O corpo do método é onde processa os dados do gatilho. Neste exemplo, o código apenas regista a mensagem.
 
    O `message` parâmetro não tem de ser uma corda. Também pode ligar-se a um objeto JSON, uma matriz de byte ou um objeto [CloudQueueMessage.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) Consulte a [utilização do gatilho](../azure-functions/functions-bindings-storage-queue-trigger.md#usage)da fila . Cada tipo de encadernação (como filas, bolhas ou mesas) tem um conjunto diferente de tipos de parâmetros a que se pode ligar.
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 O emulador de armazenamento Azure que funciona localmente não tem todas as funcionalidades de que o WebJobs SDK necessita. Assim, nesta secção, cria-se uma conta de armazenamento no Azure e configura o projeto para o utilizar. Se já tem uma conta de armazenamento, salte para o passo 6.
 
@@ -351,21 +358,22 @@ Nesta secção, você faz as seguintes tarefas para configurar a registo de Insi
 
 Para tirar partido da registo de Informação sobre [a Aplicação](../azure-monitor/app/app-insights-overview.md) Insights, atualize o seu código de registo para fazer o seguinte:
 
-* Adicione um fornecedor de registo de Insights de Aplicação com [filtragem](webjobs-sdk-how-to.md#log-filtering)por defeito; todas as informações e registos de alto nível vão para a consola e para os Insights de Aplicação quando estiveres a executar localmente.
+* Adicione um fornecedor de registo de Insights de Aplicação com [filtragem](webjobs-sdk-how-to.md#log-filtering)por defeito . Ao executar localmente, todas as Informações e registos de alto nível são escritos tanto para a consola como para os Insights de Aplicação.
 * Coloque o objeto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) num `using` bloco para garantir que a saída de registo é lavada quando o hospedeiro sair.
 
-1. Instale a mais recente versão estável 3.x do pacote `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`NuGet para o fornecedor de registo de Insights de Aplicação: .
+1. Instale a mais recente versão estável 3.x do [ `Microsoft.Azure.WebJobs.Logging.ApplicationInsights` pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
-   Aqui está o comando de consola do Gestor de **Pacotes** para a versão 3.0.2:
+   Aqui está o comando de **consola do gestor** de pacotes:
 
    ```powershell
-   Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version 3.0.2
+   Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <3_X_VERSION>
    ```
+    Neste comando, `<3_X_VERSION>` substitua-o por uma versão suportada do pacote.
 
 1. Abra *Program.cs* e substitua `Main` o código no método pelo seguinte código:
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.UseEnvironment(EnvironmentName.Development);
@@ -388,7 +396,7 @@ Para tirar partido da registo de Informação sobre [a Aplicação](../azure-mon
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
@@ -421,7 +429,7 @@ Nesta secção, corre novamente localmente para verificar se os dados de registo
 
 1. Feche a janela da consola.
 
-## <a name="deploy-to-azure"></a><a name="deploy-as-a-webjob"></a>Desdobre para Azure
+## <a name="deploy-to-azure"></a><a name="deploy-as-a-webjob"></a>Implementar no Azure
 
 Durante a implementação, cria uma instância de serviço de aplicações para executar as suas funções. Quando publica uma aplicação de consola .NET Core para o App Service em Azure, é executada automaticamente como Um WebJob. Para saber mais sobre a publicação, consulte [Desenvolver e implementar WebJobs usando o Visual Studio](webjobs-dotnet-deploy-vs.md).
 

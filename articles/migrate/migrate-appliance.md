@@ -3,12 +3,12 @@ title: Aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: bccf4738d46b65f2d149eafc8e69591141d7d073
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 130de0824a1671fb0b0e3e980f06f4c3abc689d2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437597"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538227"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -24,6 +24,17 @@ O aparelho Azure Migrate é utilizado nos seguintes cenários.
 **Migração sem agente VMware VM** | Migração Azure:Migração do servidor | Descubra VMware VMs <br/><br/> Replicar VMware VMs com migração sem agente.
 **Avaliação de VM hiper-V** | Azure Migrate:Avaliação do Servidor | Descubra VMs hiper-V<br/><br/> Recolher metadados de máquinas e metadados de desempenho para avaliações.
 **Avaliação física da máquina** |  Azure Migrate:Avaliação do Servidor |  Descubra servidores físicos (ou VMs que trate como servidores físicos).<br/><br/> Recolher metadados de máquinas e metadados de desempenho para avaliações.
+
+## <a name="deployment-methods"></a>Métodos de implantação
+
+O aparelho pode ser acionado com um par de métodos:
+
+- O aparelho pode ser implantado utilizando um modelo para VMware VMs e VMs Hiper-V (modelo OVA para VMware ou VHD para Hyper-V).
+- Se não quiser utilizar um modelo, pode utilizar o aparelho para VMware ou Hyper-V utilizando um script PowerShell.
+- No Governo Azure, deve utilizar o aparelho utilizando um guião.
+- Para servidores físicos, utilize sempre o aparelho utilizando um script.
+- Os links de descarregamento estão disponíveis nas tabelas abaixo.
+
 
 ## <a name="appliance---vmware"></a>Aparelho - VMware 
 
@@ -67,7 +78,7 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para vMware
 **Requisito** | **Físico** 
 --- | ---
 **Componentes de aparelhos** | O aparelho tem os seguintes componentes: <br/><br/> - **Aplicativo de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Discovery agent**: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de avaliação**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
-**Implantação apoiada** | Desloque-se como uma máquina física dedicada, ou um VM, utilizando um script de instalação PowerShell.
+**Implantação apoiada** | Desloque-se como uma máquina física dedicada, ou um VM, utilizando um script de instalação PowerShell. O script está disponível para download a partir do portal.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 250 servidores físicos.
 **Script do PowerShell** | Descarregue o script (AzureMigrateInstaller.ps1) numa pasta com fecho a partir do portal. [Saiba mais](tutorial-assess-physical.md#set-up-the-appliance). Em alternativa, [baixe diretamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> O tamanho do download é de 59,7 MB.
@@ -78,8 +89,10 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para vMware
 
 O aparelho Azure Migrate precisa de conectividade com a internet.
 
-- Quando implanta o aparelho, a Azure Migrate faz uma verificação de conectividade aos URLs resumidos na tabela abaixo.
+- Quando implanta o aparelho, a Azure Migrate faz uma verificação de conectividade aos URLs necessários.
 - Se estiver a usar um proxy baseado em URL para se ligar à internet, tem de permitir o acesso a estes URLs, certificando-se de que o proxy resolve quaisquer registos CNAME recebidos enquanto procura os URLs.
+
+### <a name="public-cloud-urls"></a>URLs de nuvem pública
 
 **URL** | **Detalhes**  
 --- | --- |
@@ -95,6 +108,25 @@ download.microsoft.com/download | Permitir transferências a partir do download 
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Ligue-se aos URLs de serviço Azure Migrate.
 *.hypervrecoverymanager.windowsazure.com | **Usado para migração sem agente VMware**<br/><br/> Ligue-se aos URLs de serviço Azure Migrate.
 *.blob.core.windows.net |  **Usado para migração sem agente VMware**<br/><br/>Faça upload de dados para armazenamento para migração.
+
+### <a name="government-cloud-urls"></a>URLs de nuvem do governo
+
+**URL** | **Detalhes**  
+--- | --- |
+*.portal.azure.us  | Navegue para o portal do Azure.
+graph.windows.net | Inscreva-se na sua assinatura Azure.
+login.microsoftonline.us  | Crie aplicativos azure Ative Directory (AD) para que o aparelho se comunique com a Azure Migrate.
+management.usgovcloudapi.net | Crie aplicativos Azure AD para o aparelho comunicar com o serviço Azure Migrate.
+dc.services.visualstudio.com | Faça upload dos registos de aplicativos utilizados para monitorização interna.
+*.vault.usgovcloudapi.net | Gerencie segredos no Cofre de Chaves Azure.
+aka.ms/* | Permitir o acesso a links aka. Utilizado para atualizações de aparelhos Azure Migrate.
+download.microsoft.com/download | Permitir transferências a partir do download da Microsoft.
+*.servicebus.usgovcloudapi.net  | Comunicação entre o aparelho e o serviço Azure Migrate.
+*.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Ligue-se aos URLs de serviço Azure Migrate.
+*.hypervrecoverymanager.windowsazure.us | **Usado para migração sem agente VMware**<br/><br/> Ligue-se aos URLs de serviço Azure Migrate.
+*.blob.core.usgovcloudapi.net  |  **Usado para migração sem agente VMware**<br/><br/>Faça upload de dados para armazenamento para migração.
+*.applicationinsights.us | Utilizado pelo agente Gateway no aparelho para aceder ao ponto final da Aplicação Insights para monitorização de diagnóstico.
+
 
 
 

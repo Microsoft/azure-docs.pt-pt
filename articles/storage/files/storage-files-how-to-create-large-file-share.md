@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c683e9847864de4e3409fb6dbd533497a5ae3cea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061003"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537683"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Ativar e criar grandes partilhas de ficheiros
 
@@ -33,7 +33,7 @@ Permitir grandes ações de ficheiros numa conta é um processo irreversível. D
 
 ### <a name="portal"></a>Portal
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No portal Azure, selecione **Todos os serviços.** 
 1. Na lista de recursos, insira Contas de **Armazenamento.** À medida que escreve, a lista filtra com base na sua entrada. Selecione **Contas de Armazenamento**.
 1. Na janela Contas de **Armazenamento** que aparece, selecione **Adicionar**.
@@ -43,7 +43,7 @@ Permitir grandes ações de ficheiros numa conta é um processo irreversível. D
     ![Captura de ecrã que mostra como criar um grupo de recursos no portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. A seguir, introduza um nome para a sua conta de armazenamento. O nome deve ser único em Azure. O nome também deve ter 3 a 24 caracteres de comprimento, e só pode ter números e letras minúsculas.
-1. Selecione uma localização para a sua conta de armazenamento e certifique-se de que é [uma das réplicas suportadas para grandes partilhas](storage-files-planning.md#regional-availability)de ficheiros .
+1. Selecione um local para a sua conta de armazenamento.
 1. Delineie a replicação para **armazenamento localmente redundante** ou **armazenamento redundante**da zona .
 1. Deixe estes campos nos seus valores padrão:
 

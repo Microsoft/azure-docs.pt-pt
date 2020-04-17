@@ -3,12 +3,12 @@ title: O que há de novo - Compreensão da Linguagem (LUIS)
 description: Este artigo é regularmente atualizado com notícias sobre a API de Compreensão da Linguagem dos Serviços Cognitivos Do Azure.
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 562f7f8b4974363daab91991e6a8219b352432fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6334b157f68f09f2b165c6073ba63f45a0caf3c4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156009"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538023"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo na compreensão da linguagem
 
@@ -16,7 +16,7 @@ Saiba o que há de novo no serviço. Estes itens incluem notas de lançamento, v
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="march-2020"></a>março de 2020
+### <a name="march-2020"></a>Março de 2020
 
 * TLS 1.2 é agora aplicado para todos os pedidos http para este serviço. Para mais informações, consulte a [segurança dos Serviços Cognitivos Azure.](../cognitive-services-security.md)
 
@@ -73,8 +73,8 @@ As seguintes características foram lançadas na Conferência Build 2019:
 * [Pré-visualização do guia de migração V3 API](luis-migration-api-v3.md)
 * [Painel de análise melhorado](luis-how-to-use-dashboard.md)
 * [Domínios pré-construídos melhorados](luis-reference-prebuilt-domains.md)
-* [Entidades de lista dinâmica](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
-* [Entidades externas](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+* [Entidades de lista dinâmica](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
+* [Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time)
 
 ## <a name="blogs"></a>Blogues
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: rohogue
-ms.openlocfilehash: da260074fc69fac9e98d3698bb2d40fdf80d7118
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57d6a2024cd6fd979426ca5de5e261f110f6156f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77252047"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537955"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gerencie a sua cache a partir do portal Azure
 
@@ -88,13 +88,6 @@ Os volumes de armazenamento traseiroutilizados como alvos de armazenamento não 
 > A Cache Azure HPC não escreve automaticamente dados alterados da cache para os sistemas de armazenamento traseiros antes de apagar a cache.
 >
 > Para se certificar de que todos os dados da cache foram escritos para armazenamento a longo prazo, [pare a cache](#stop-the-cache) antes de o apagar. Certifique-se de que mostra o estado **parado** antes de clicar no botão de apagar.
-<!--... written to long-term storage, follow this procedure:
->
-> 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
-> 1. Wait for the storage target to be completely removed. The process can take an hour or longer if there is a lot of data to write from the cache. When it is done, a portal notification says that the delete operation was successful, and the storage target disappears from the list.
-> 1. After all affected storage targets have been deleted, it is safe to delete the cache.
->
-> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.-->
 
 ## <a name="cache-metrics-and-monitoring"></a>Métricas de cache e monitorização
 
@@ -106,6 +99,5 @@ Estes gráficos fazem parte das ferramentas de monitorização e análise incorp
 
 ## <a name="next-steps"></a>Passos seguintes
 
-<!-- * Learn more about metrics and statistics for hpc cache -->
 * Saiba mais sobre [métricas azure e ferramentas estatísticas](../azure-monitor/index.yml)
 * Obtenha [ajuda com o seu Cache Azure HPC](hpc-cache-support-ticket.md)

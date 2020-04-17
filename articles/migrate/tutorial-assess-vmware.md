@@ -1,16 +1,17 @@
 ---
-title: Avaliar VMs VMware para migração para o Azure
+title: Avaliar VMware VMs com avaliação do servidor migratório Azure
 description: Descreve como avaliar os VMs no local para migração para Azure usando a Avaliação do Servidor Migratório Azure.
 ms.topic: tutorial
-ms.date: 03/23/2019
-ms.openlocfilehash: 944b7c12a353a29a172576974261eece63ebf668
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.custom: mvc
+ms.openlocfilehash: bd9e6b5923207297b1aa70a67052a7796b901781
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548749"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535371"
 ---
-# <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Avaliar VMware VMs utilizando a avaliação do servidor migratório Azure
+# <a name="assess-vmware-vms-with-server-assessment"></a>Avaliar VMs VMware com Avaliação do Servidor
 
 Este artigo mostra-lhe como avaliar no local máquinas virtuais VMware (VMs), utilizando a ferramenta de avaliação de [migração de migrantes Azure:Server.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
 
@@ -48,13 +49,11 @@ Criar um novo projeto Azure Migrate da seguinte forma:
 
 1. Em **Getting started,** selecione **Adicionar ferramentas**.
 1. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.     
-1. Em Detalhes do **Projeto,** especifique o nome do projeto e a geografia em que pretende criar o projeto. A Ásia, a Europa, o Reino Unido e os Estados Unidos são apoiados.
-
-   A geografia do projeto só é utilizada para armazenar os metadados recolhidos das VMs no local. Pode selecionar qualquer região de destino ao executar uma migração.
+1. Em Detalhes do **Projeto,** especifique o nome do projeto e a geografia em que pretende criar o projeto. Rever geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
 
    ![Caixas para nome e região do projeto](./media/tutorial-assess-vmware/migrate-project.png)
 
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 1. Na **ferramenta de avaliação Select,** selecione **Azure Migrate: Server Assessment** > **Next**.
 
    ![Seleção para a ferramenta de avaliação do servidor](./media/tutorial-assess-vmware/assessment-tool.png)
@@ -65,12 +64,12 @@ Criar um novo projeto Azure Migrate da seguinte forma:
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Instale o aparelho Migratório Azure
 
-Azure Migrate:Server Assessment usa um aparelho ligeiro de migração Azure. O aparelho realiza a descoberta de VM e envia metadados VM e dados de desempenho para a Migração Azure.
-- O aparelho pode ser configurado num VMware VM utilizando um modelo OVA descarregado. Em alternativa, pode configurar o aparelho numa VM ou numa máquina física com um script de instalação PowerShell.
-- Este tutorial usa o modelo OVA. Reveja [este artigo](deploy-appliance-script.md) se quiser configurar o aparelho com um script.
+Azure Migrate:Server Assessment usa um aparelho ligeiro de migração Azure. O aparelho realiza a descoberta de VM e envia metadados VM e dados de desempenho para a Migração Azure. O aparelho pode ser montado de várias maneiras.
+
+- Configurar num VMware VM utilizando um modelo OVA descarregado. Este é o método usado neste tutorial.
+- Instale-se num VM ou numa máquina física VMware com um script de instalação PowerShell. [Este método](deploy-appliance-script.md) deve ser usado se não conseguir configurar um VM usando um modelo DEOVA, ou se estiver no Governo Azure.
 
 Depois de criar o aparelho, verifique se pode ligar-se à Avaliação do Servidor Azure Migrate:Server, configurá-lo pela primeira vez e registá-lo com o projeto Azure Migrate.
-
 
 
 ### <a name="download-the-ova-template"></a>Descarregue o modelo OVA
@@ -115,9 +114,9 @@ Importar o ficheiro descarregado e criar um VM:
 1. No **Mapeamento da Rede,** especifique a rede à qual o VM irá ligar. A rede precisa de conectividade de internet para enviar metadados para a Avaliação do Servidor Migratório Azure.
 1. Reveja e confirme as definições e, em seguida, selecione **Terminar**.
 
-### <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
+## <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
 
-Certifique-se de que o VM do aparelho pode ligar-se a [URLs Azure](migrate-appliance.md#url-access).
+Certifique-se de que o vM do aparelho pode ligar-se a URLs Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
 
 ### <a name="configure-the-appliance"></a>Configure o aparelho
 
@@ -136,7 +135,7 @@ Instale o aparelho pela primeira vez.
    - **Conectividade**: A aplicação verifica se o VM tem acesso à Internet. Se o VM utilizar um proxy:
      - Selecione **definições de Proxy**, e http://ProxyIPAddress especifique o endereço proxy e a porta de escuta no formulário ou http://ProxyFQDN.
      - Especifique as credenciais se o proxy precisar de autenticação.
-     - Note que apenas http proxy é suportado.
+     - Apenas é suportado o proxy HTTP.
    - **Sincronização de tempo**: O tempo no aparelho deve estar sincronizado com o tempo de internet para que a descoberta funcione corretamente.
    - **Instalar atualizações**: O aparelho garante que as últimas atualizações estão instaladas.
    - **Instalação VDDK**: O aparelho verifica se o VMWare vSphere Virtual Disk Development Kit (VDDK) está instalado. Se não estiver instalado, baixe o VDDK 6.7 da VMware e extraa o conteúdo de zip descarregado para o local especificado no aparelho.
@@ -167,7 +166,7 @@ O aparelho precisa de se ligar ao VCenter Server para descobrir os dados de conf
     - Se pretender analisar a descoberta de objetos VMware específicos (centros de dados vCenter Server, clusters, uma pasta de clusters, anfitriões, uma pasta de anfitriões ou VMs individuais),reveja as instruções [deste artigo](set-discovery-scope.md) para restringir a conta utilizada pela Azure Migrate.
 
 3. Selecione **validate a ligação** para se certificar de que o aparelho pode ligar-se ao VCenter Server.
-4. No **Discover aplicações e dependências em VMs,** clique opcionalmente em **Adicionar credenciais,** e especifique o sistema operativo para o qual as credenciais são relevantes, e o nome de utilizador e senha de credenciais. Em seguida, clique em **Adicionar**..
+4. No **Discover aplicações e dependências em VMs,** clique opcionalmente em **Adicionar credenciais,** e especifique o sistema operativo para o qual as credenciais são relevantes, e o nome de utilizador e senha de credenciais. Em seguida, clique em **Adicionar**.
 
     - Você opcionalmente adiciona credenciais aqui se criou uma conta para usar para a funcionalidade de descoberta de [aplicações](how-to-discover-applications.md), ou a funcionalidade de análise de [dependência sem agente](how-to-create-group-machine-dependencies-agentless.md).
     - Se não estiver a utilizar estas funcionalidades, pode saltar esta definição.
@@ -255,7 +254,7 @@ Os custos de armazenamento agregados para o grupo avaliado são divididos em dif
 
 ### <a name="review-confidence-rating"></a>Rever a classificação de confiança
 
-A Avaliação do Servidor Migrado Azure atribui uma classificação de confiança a uma avaliação baseada no desempenho, de 1 estrela (mais baixa) a 5 estrelas (mais alta).
+A Avaliação do Servidor Migrado Azure atribui uma classificação de confiança a uma avaliação baseada no desempenho, de uma estrela (mais baixa) a cinco estrelas (mais alta).
 
 ![Classificação de confiança](./media/tutorial-assess-vmware/confidence-rating.png)
 

@@ -2,21 +2,26 @@
 title: Instale um aparelho Azure Migrate para VMware
 description: Aprenda a configurar um aparelho Azure Migrate para avaliar e migrar VMware VMware VMs.
 ms.topic: article
-ms.date: 03/23/2020
-ms.openlocfilehash: 7a7d0007d2824abc781411f9529f9fa4ac89e55c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336783"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538261"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um aparelho para VMware VMs
 
-Este artigo descreve como configurar o aparelho Migratório Azure para avaliação com a ferramenta De avaliação de [migração de emigração Azure e](migrate-services-overview.md#azure-migrate-server-assessment-tool) para migração sem agente utilizando a ferramenta de [migração Azure Migrate:Server.](migrate-services-overview.md#azure-migrate-server-migration-tool)
+Siga este artigo para configurar o aparelho Azure Migrate para avaliação com a ferramenta De avaliação do servidor [Azure Migrate](migrate-services-overview.md#azure-migrate-server-assessment-tool) e para migração sem agente utilizando a ferramenta [de migração Azure Migrate:Server.](migrate-services-overview.md#azure-migrate-server-migration-tool)
 
 O [aparelho Azure Migrate](migrate-appliance.md) é um aparelho leve utilizado pela Azure Migrate:Server Assessment e Server Migration para descobrir VMware VMware no local, enviar metadados/dados de desempenho VM para o Azure e para replicação de VMware VMware VMware durante a migração sem agente.
 
-Pode configurar o aparelho Azure Migrate para avaliação VMware VM utilizando um modelo OVA que descarrega ou utilizando um script de instalação PowerShell. Este artigo descreve como configurar o aparelho utilizando o modelo OVA. Se pretender configurar o aparelho utilizando o script, siga as instruções [deste artigo](deploy-appliance-script.md).
+Pode utilizar o aparelho utilizando um par de métodos:
+
+- Configurar num VMware VM utilizando um modelo OVA descarregado. Este é o método descrito neste artigo.
+- Instale-se num VM ou numa máquina física VMware com um script de instalação PowerShell. [Este método](deploy-appliance-script.md) deve ser usado se não conseguir configurar um VM usando um modelo DEOVA, ou se estiver no governo de Azure.
+
+Depois de criar o aparelho, verifique se pode ligar-se à Avaliação do Servidor Azure Migrate:Server, configurá-lo pela primeira vez e registá-lo com o projeto Azure Migrate.
 
 
 ## <a name="appliance-deployment-ova"></a>Implantação de aparelhos (OVA)
@@ -62,9 +67,9 @@ Importe o ficheiro descarregado e crie um VM.
 9. Reveja e confirme as definições e, em seguida, clique em **Concluir**.
 
 
-### <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
+## <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
 
-Certifique-se de que o VM do aparelho pode ligar-se a [URLs Azure](migrate-appliance.md#url-access).
+Certifique-se de que o vM do aparelho pode ligar-se a URLs Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
 
 
 ## <a name="configure-the-appliance"></a>Configure o aparelho

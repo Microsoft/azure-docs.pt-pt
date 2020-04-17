@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 8bbdc96a49fffc91f80d24a9eb0926766f86ee16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5d66c5c21f7491e3bdc6bb70f693c3b98bf62dd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671312"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536748"
 ---
 # <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>Agente de Insights de Aplicação API: Monitorização de Insights de aplicação de ativação
 
@@ -147,7 +147,7 @@ Successfully enabled Application Insights Status Monitor
 ## <a name="next-steps"></a>Passos seguintes
 
   Ver a telemetria:
- - [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorizar o desempenho e o uso.
+ - [Explore as métricas](../../azure-monitor/platform/metrics-charts.md) para monitorizar o desempenho e o uso.
 - [Pesquisar eventos e registos](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
 - [Use o Analytics](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
 - [Criar dashboards](../../azure-monitor/app/overview-dashboard.md).

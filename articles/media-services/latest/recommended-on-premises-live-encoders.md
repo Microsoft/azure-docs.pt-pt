@@ -6,15 +6,15 @@ keywords: codificação;codificadores;meios
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 5e16f1fb948ddb435c5002c16125b36fa61d50a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbd2929e245fa5fc01245e7bd02e537db8d5ef36
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336253"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536340"
 ---
 # <a name="tested-on-premises-live-streaming-encoders"></a>Codificadores de streaming ao vivo testados no local
 
@@ -58,7 +58,6 @@ Ao transmitir em fluxo através de RTMPS, verifique as definições da firewall 
 - Telestream Wirecast S (apenas o RTMP é suportado)
 - Teradek Slice 756
 - TriCaster 8000
-- Tricaster Mini HD-4
 - VMIX
 - xStream
 - [Estação Ffmpeg](https://www.ffmpeg.org)

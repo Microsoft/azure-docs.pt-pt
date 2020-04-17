@@ -6,14 +6,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: 809274aba35e9607aeacf7c6483ec3d10f899667
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: df21a2c40dd532ac1ff321638099ceee8a2b3e53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312358"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535609"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configure um gateway de aplicação com um ponto final de equilíbrio de carga interna (ILB)
 
@@ -95,8 +95,8 @@ Para fazer isto, tu:
    - selecione *myResourceGroupAG* para **o grupo de recursos**.
    - *myVM* - para nome de **máquina virtual**.
    - Selecione **Windows Server 2019 Datacenter** para **Imagem**.
-   - *azureadmin* - para o **nome de utilizador**.
-   - *Azure123456!* para a **Palavra-passe**.
+   - um **nome de utilizador**válido.
+   - uma **palavra-passe**válida.
 5. Aceite as restantes predefinições e selecione **Seguinte: Discos**.
 6. Aceite as predefinições e selecione **Seguinte : Networking**.
 7. Certifique-se de que **myVNet** está selecionado para a rede virtual e que a sub-rede é **myBackendSubnet**.

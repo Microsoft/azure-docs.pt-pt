@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5f18e9365b09f06c1bd4f25a8efe909cc308dad
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979479"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537020"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Ativar soluções de Gestão de Atualização, Rastreio de Alterações e Inventário em vários VMs
 
@@ -33,7 +33,7 @@ Utilizando as caixas de verificação, selecione as máquinas virtuais que desej
 A partir da barra de comando, clique em **Serviços** e selecione **o rastreio de alteração,** **inventário**ou **Gestão de Atualizações**.
 
 > [!NOTE]
-> **Alterar o rastreio** e o **inventário** utilizar a mesma solução, quando um está ativado, o outro também está ativado.
+> Alterar o rastreio e o inventário utilizar a mesma solução. Quando um está ativado, o outro também está ativado.
 
 A imagem que se segue é para Gestão de Atualizações. Alterar o rastreio e o inventário têm o mesmo layout e comportamento.
 
@@ -107,13 +107,13 @@ Em alternativa, também pode desligar o seu espaço de trabalho a partir da sua 
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Ao embarcar em várias máquinas, pode haver máquinas que mostram como **não posso ativar**. Existem diferentes razões pelas quais algumas máquinas podem não estar ativadas. As seguintes secções mostram possíveis razões para o **não permitir o** estado num VM ao tentar embarcar.
+Ao embarcar em várias máquinas, pode `Cannot enable`haver máquinas que mostram como . Existem diferentes razões pelas quais algumas máquinas podem não estar ativadas. As seguintes secções mostram `Cannot enable` possíveis razões para o estado num VM ao tentar embarcar.
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>VM reporta a um\<espaço de\>trabalho diferente: ' workspaceName '.  Alterar a configuração para usá-lo para permitir
 
 **Causa**: Este erro mostra que o VM que está a tentar embarcar reporta para outro espaço de trabalho.
 
-**Solução**: Clique **em utilizar como configuração** para alterar a conta de automação específica e o espaço de trabalho do Log Analytics.
+**Solução**: Clique **em utilizar como configuração** para alterar a conta de Automação direcionada e o espaço de trabalho do Log Analytics.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>VM reporta a um espaço de trabalho que não está disponível nesta subscrição
 
@@ -148,7 +148,7 @@ Ao embarcar em várias máquinas, pode haver máquinas que mostram como **não p
 Para remover um VM da Atualização:
 
 * No seu espaço de trabalho Log Analytics, retire o `MicrosoftDefaultScopeConfig-Updates`VM da pesquisa guardada para a Configuração scope . Pesquisas guardadas podem ser encontradas sob **o General** no seu espaço de trabalho.
-* Remova o agente de [monitorização](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) da Microsoft ou o [agente Log Analytics para o Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Remova o [agente Log Analytics para Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o agente Log Analytics para o [Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes
 

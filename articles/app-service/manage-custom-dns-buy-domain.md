@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: afb40d0f3681bc02351e43166fccfaafe7741128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259282"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535711"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Buy a custom domain name for Azure App Service (Comprar um nome de domínio personalizado para o Serviço de Aplicações do Azure)
 
@@ -137,7 +137,7 @@ Também vê os nomes de anfitriões selecionados na página de **domínios Perso
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> Uma etiqueta **Não Segura** para o seu domínio personalizado significa que ainda não está ligado a um certificado SSL, e qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para configurar a ligação SSL, consulte [Proteja um nome DNS personalizado com uma ligação SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md).
+> Uma etiqueta **Não Segura** para o seu domínio personalizado significa que ainda não está ligada a um certificado TLS/SSL, e qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para configurar a ligação TLS, consulte [Proteja um nome DNS personalizado com uma ligação TLS/SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md).
 >
 
 Para testar os nomes de anfitriões, navegue para os nomes de anfitriões listados no navegador. No exemplo da imagem anterior, tente navegar para _kontoso.net_ e _www\.kontoso.net_.

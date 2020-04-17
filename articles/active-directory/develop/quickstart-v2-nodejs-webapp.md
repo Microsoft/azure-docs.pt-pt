@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4aa0cce83f9adc8c648656899ec6dc12d498e26b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1ff92b8a9477800477ebb2d79145ddaa78831f30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77160453"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536068"
 ---
-# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Quickstart: Adicione o sinal na utilização do OpenID Connect para uma Aplicação Web Node.js
+# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Quickstart: Adicione o sinal na utilização do OpenID Connect para uma aplicação web Node.js
 
 Neste arranque rápido, aprenderá a configurar a autenticação OpenID Connect numa aplicação web construída com o Node.js com express. A amostra foi concebida para ser executada em qualquer plataforma.
 
@@ -30,7 +30,7 @@ Para executar esta amostra, você precisará:
 
 * Ou uma [conta Microsoft](https://www.outlook.com) ou programa de [desenvolvedores do Office 365](/office/developer-program/office-365-developer-program)
 
-## <a name="register-your-application"></a>Registar a sua aplicação 
+## <a name="register-your-application"></a>Registar a sua aplicação
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. Se a sua conta estiver presente em mais de um inquilino da AD Azure:
     - Selecione o seu perfil a partir do menu no canto superior direito da página e, em seguida, **mude de diretório**.
@@ -78,7 +78,7 @@ ou
 
 A partir do diretório raiz do projeto, executar o comando:
 
-`$ npm install`  
+`$ npm install`
 
 ## <a name="configure-the-application"></a>Configurar a aplicação
 

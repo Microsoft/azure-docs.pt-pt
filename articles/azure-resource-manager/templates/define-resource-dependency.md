@@ -3,12 +3,12 @@ title: Definir ordem de implantação de recursos
 description: Descreve como definir um recurso como dependente de outro recurso durante a implantação para garantir que os recursos são implantados na ordem correta.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: f11f79df875492a568a76f494dfffb4a163f64cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764b718416e1185f56c7eb6b8335792a5822f212
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153289"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535473"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Defina a ordem para a implantação de recursos em modelos ARM
 
@@ -18,7 +18,7 @@ O Resource Manager avalia as dependências entre os recursos e implementa-os por
 
 ## <a name="dependson"></a>dependsOn
 
-Dentro do seu modelo, o elemento dependsOn permite definir um recurso como dependente de um ou mais recursos. O seu valor é uma lista separada de nomes de recursos. A lista pode incluir recursos que são [implantados condicionalmente.](conditional-resource-deployment.md) Quando um recurso condicional não é implantado, o Gestor de Recursos Azure remove-o automaticamente das dependências necessárias.
+Dentro do seu modelo, o elemento dependsOn permite definir um recurso como dependente de um ou mais recursos. O seu valor é uma gama de cordas JSON, cada uma das quais é um nome de recurso. A matriz pode incluir recursos que são [implantados condicionalmente.](conditional-resource-deployment.md) Quando um recurso condicional não é implantado, o Gestor de Recursos Azure remove-o automaticamente das dependências necessárias.
 
 O exemplo seguinte mostra um conjunto de escala de máquina virtual que depende de um equilibrador de carga, rede virtual e um loop que cria várias contas de armazenamento. Estes outros recursos não são mostrados no exemplo seguinte, mas teriam de existir em outro lugar no modelo.
 

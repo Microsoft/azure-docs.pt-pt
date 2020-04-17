@@ -3,12 +3,12 @@ title: Matriz de suporte do Azure Backup
 description: Fornece um resumo das definições de suporte e limitações para o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878957"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537326"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para Backup Azure
 
@@ -90,7 +90,7 @@ O Azure Backup não suporta o ajuste automático do relógio para o horário de 
 
 O suporte de desduplicação do disco é o seguinte:
 
-- A duplicação do disco é suportada no local quando utiliza DPM ou MABs para fazer cópias de hiper-V V V que estão a executar windows. O Windows Server realiza a desduplicação de dados (ao nível do anfitrião) em discos rígidos virtuais (VHDs) que estão ligados ao VM como armazenamento de cópia de segurança.
+- A duplicação do disco é suportada no local quando utiliza DPM ou MABS para fazer cópias de hiper-V V V Que estão a executar o Windows. O Windows Server realiza a desduplicação de dados (ao nível do anfitrião) em discos rígidos virtuais (VHDs) que estão ligados ao VM como armazenamento de cópia de segurança.
 - A duplicação não é suportada em Azure para qualquer componente de backup. Quando o DPM e o MABS são implantados em Azure, os discos de armazenamento ligados ao VM não podem ser duplicados.
 
 ## <a name="security-and-encryption-support"></a>Suporte de segurança e encriptação

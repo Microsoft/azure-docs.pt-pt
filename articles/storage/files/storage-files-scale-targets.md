@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255135"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536451"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de escalabilidade e desempenho de Ficheiros do Azure
 
@@ -51,8 +51,7 @@ Consulte a secção de metas de escala de conta de [armazenamento Azure](#azure-
 ### <a name="file-share-and-file-scale-targets"></a>Alvos de partilha de ficheiros e escala de ficheiros
 
 > [!NOTE]
-> As ações de ficheiros standard superiores a 5 TiB têm certas limitações e restrições regionais.
-> Para obter uma lista de limitações, informações regionais e instruções para permitir estes tamanhos maiores de partilha de ficheiros, consulte o [Bordo para maiores partilhas](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) de ficheiros do guia de planeamento.
+> As ações de ficheiros padrão superiores a 5 TiB têm certas limitações. Para obter uma lista de limitações e instruções para permitir tamanhos maiores de partilha de ficheiros, consulte as [maiores partilhas de ficheiros ativadas na](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) secção de partilhas de ficheiros padrão do guia de planeamento.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -66,7 +65,7 @@ O Azure File Sync foi concebido com o objetivo de utilização ilimitada, mas ne
 
 ### <a name="azure-file-sync-performance-metrics"></a>Métricas de desempenho do Azure File Sync
 
-Uma vez que o agente Dessincronização de ficheiros Azure funciona numa máquina do Windows Server que se conecta às partilhas de ficheiros Azure, o desempenho de sincronização eficaz depende de uma série de fatores na sua infraestrutura: Windows Server e a configuração subjacente ao disco, largura de banda da rede entre o servidor e o armazenamento Azure, o tamanho do ficheiro, o tamanho total do conjunto de dados e a atividade no conjunto de dados. Uma vez que o Azure File Sync funciona a nível de ficheiros, as características de desempenho de uma solução baseada em Sincronização de Ficheiros Azure são mais bem medidas no número de objetos (ficheiros e diretórios) processados por segundo.
+Uma vez que o agente Dessincronização de ficheiros Azure funciona numa máquina do Windows Server que se conecta às partilhas de ficheiros Azure, o desempenho de sincronização eficaz depende de uma série de fatores na sua infraestrutura: Windows Server e configuração de disco subjacente, largura de banda da rede entre o servidor e o armazenamento Azure, tamanho de ficheiro, tamanho total do conjunto de dados e atividade no conjunto de dados. Uma vez que o Azure File Sync funciona a nível de ficheiros, as características de desempenho de uma solução baseada em Sincronização de Ficheiros Azure são mais bem medidas no número de objetos (ficheiros e diretórios) processados por segundo.
 
 Para o Azure File Sync, o desempenho é crítico em duas fases:
 
@@ -114,4 +113,4 @@ Como guia geral para a sua implantação, deve ter algumas coisas em mente:
 ## <a name="see-also"></a>Consulte também
 
 - [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
-- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
+- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)

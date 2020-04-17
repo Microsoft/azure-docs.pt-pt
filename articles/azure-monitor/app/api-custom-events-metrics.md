@@ -3,12 +3,12 @@ title: Aplicação Insights API para eventos e métricas personalizados / Micros
 description: Insira algumas linhas de código no seu dispositivo ou na aplicação de desktop, página web ou serviço, para rastrear problemas de utilização e diagnóstico.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 06bd8bd0958afd26e1256a010b08c908c59aaf7d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d6cb2f5ab418e8d3b5935fef535565ccf55a3906
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585867"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536952"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -107,7 +107,7 @@ Nos projetos Node.js, `new applicationInsights.TelemetryClient(instrumentationKe
 
 ## <a name="trackevent"></a>TrackEvent
 
-Em Application Insights, um *evento personalizado* é um ponto de dados que pode exibir no [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) como uma contagem agregada, e em Pesquisa de [Diagnóstico](../../azure-monitor/app/diagnostic-search.md) como ocorrências individuais. (Não está relacionado com MVC ou outros "eventos" de "eventos.")
+Em Application Insights, um *evento personalizado* é um ponto de dados que pode exibir no [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) como uma contagem agregada, e em Pesquisa de [Diagnóstico](../../azure-monitor/app/diagnostic-search.md) como ocorrências individuais. (Não está relacionado com MVC ou outros "eventos" de "eventos.")
 
 Insira `TrackEvent` chamadas no seu código para contar vários eventos. Quantas vezes os utilizadores escolhem uma determinada funcionalidade, quantas vezes alcançam determinados objetivos, ou talvez com que frequência cometem erros específicos.
 
@@ -443,7 +443,7 @@ requests
 
 Enviar exceções aos Insights de Aplicação:
 
-* Para [contá-las,](../../azure-monitor/app/metrics-explorer.md)como indicação da frequência de um problema.
+* Para [contá-las,](../../azure-monitor/platform/metrics-charts.md)como indicação da frequência de um problema.
 * Para [examinar as ocorrências individuais.](../../azure-monitor/app/diagnostic-search.md)
 
 Os relatórios incluem os vestígios da pilha.
@@ -774,7 +774,7 @@ Se a sua aplicação agrupa os utilizadores em contas, também pode passar um id
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-No [Metrics Explorer,](../../azure-monitor/app/metrics-explorer.md)pode criar um gráfico que conta com contas de **Utilizadores, Autenticados**e **Utilizadores.**
+No [Metrics Explorer,](../../azure-monitor/platform/metrics-charts.md)pode criar um gráfico que conta com contas de **Utilizadores, Autenticados**e **Utilizadores.**
 
 Também pode [pesquisar](../../azure-monitor/app/diagnostic-search.md) pontos de dados do cliente com nomes e contas de utilizadores específicos.
 

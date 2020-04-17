@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: c606f6e60b1c906a0d5c29992287d126aaa37b7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1fd22772e72cba4cce3f9fa2751dc0df0e15bb9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77602932"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535603"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>How to use the Azure WebJobs SDK for event-driven background processing (Como utilizar o SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -155,14 +155,14 @@ Os gatilhos automáticos chamam uma função em resposta a um evento. Considere 
 ```cs
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
-    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
     ILogger log)
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
-O `QueueTrigger` atributo diz o tempo de funcionamento para ligar `myqueue-items` para a função sempre que uma mensagem de fila aparece na fila. O `Blob` atributo diz o tempo de funcionao para usar a mensagem de fila para ler uma bolha no recipiente *de trabalhos de amostra.* O conteúdo da mensagem de fila, transmitida `myQueueItem` para a função no parâmetro, é o nome da bolha.
+O `QueueTrigger` atributo diz o tempo de funcionamento para ligar `myqueue-items` para a função sempre que uma mensagem de fila aparece na fila. O `Blob` atributo diz o tempo de funcionao para usar a mensagem de fila para ler uma bolha no recipiente *de trabalhos de amostra.* O nome do item de `samples-workitems` bolha no recipiente é obtido diretamente a`{queueTrigger}`partir do gatilho da fila como expressão de ligação ( ).
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 

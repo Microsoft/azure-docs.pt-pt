@@ -4,14 +4,14 @@ description: Descreve o Azure HPC Cache, uma solução aceleradora de acesso a f
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/15/2020
+ms.author: v-erkel
+ms.openlocfilehash: 084c33874b474fc1789df93e088d3cec4263eac9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241193"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536646"
 ---
 # <a name="what-is-azure-hpc-cache"></a>O que é o Azure HPC Cache?
 
@@ -49,22 +49,20 @@ Uma implantação de Cache Azure HPC pode ajudar a acelerar os cálculos de aná
 
 Azure HPC Cache está disponível nestas regiões azure:
 
+| América do Norte      | Europa         | Ásia            | Austrália      |
+|--------------------|----------------|-----------------|----------------|
+| E.U.A. Leste            | Europa do Norte   | Coreia do Sul Central   | Leste da Austrália |
+| E.U.A. Leste 2          | Europa ocidental    | Ásia Sudeste  |               |
+| E.U.A. Centro-Sul | | | |
+| E.U.A.Oeste 2        | | | |
+
+A [função de chaves gerida pelo cliente](customer-keys.md) é suportada apenas nestas regiões:
+
 * E.U.A. Leste
-* E.U.A. Leste 2
-* Europa do Norte
-* Europa ocidental
-* Ásia Sudeste
-* Sydney
+* E.U.A. Centro-Sul
 * E.U.A.Oeste 2
-* Coreia do Sul Central
 
 Consulte a página do [produto Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para obter as informações mais recentes sobre a disponibilidade.
-
-## <a name="service-availability"></a>Disponibilidade de serviço
-
-Tem de solicitar acesso para cada subscrição que utilizará com o Azure HPC Cache. Esta restrição ajuda a garantir a qualidade do serviço nos primeiros meses de disponibilidade geral.
-
-Solicite acesso preenchendo [este formulário](https://aka.ms/onboard-hpc-cache). Depois de a sua subscrição ser adicionada à lista de acesso, pode criar caches.
 
 ## <a name="next-steps"></a>Passos seguintes
 

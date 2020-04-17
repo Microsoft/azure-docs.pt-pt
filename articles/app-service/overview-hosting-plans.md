@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: f1012f8c00de4b19bbf6206408ec1a806e09e54f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482348"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537649"
 ---
 # <a name="azure-app-service-plan-overview"></a>Descrição Geral do plano do Serviço de Aplicações do Azure
 
@@ -32,7 +32,7 @@ O _nível de preços_ de um plano de Serviço de Aplicações determina quais as
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Cada nível também fornece um subconjunto específico de funcionalidades do Serviço de Aplicações. Estas funcionalidades incluem domínios personalizados e certificados SSL, autoscalcificação, slots de implementação, backups, integração do Gestor de Tráfego, e muito mais. Quanto maior for o nível, mais funcionalidades estão disponíveis. Para saber quais as funcionalidades suportadas em cada nível de preços, consulte [os detalhes do plano do App Service.](https://azure.microsoft.com/pricing/details/app-service/plans/)
+Cada nível também fornece um subconjunto específico de funcionalidades do Serviço de Aplicações. Estas funcionalidades incluem domínios personalizados e certificados TLS/SSL, autoscalcificação, slots de implementação, backups, integração do Gestor de Tráfego e muito mais. Quanto maior for o nível, mais funcionalidades estão disponíveis. Para saber quais as funcionalidades suportadas em cada nível de preços, consulte [os detalhes do plano do App Service.](https://azure.microsoft.com/pricing/details/app-service/plans/)
 
 <a name="new-pricing-tier-premiumv2"></a>
 
@@ -71,11 +71,11 @@ Com exceção **do** free tier, um plano de Serviço de Aplicações transporta 
 - Nos níveis de cálculo dedicados (**Basic,** **Standard,** **Premium,** **PremiumV2**), o plano de Serviço de Aplicações define o número de casos vm a que as aplicações são dimensionadas, pelo que _cada instância VM_ no plano de Serviço de Aplicações tem uma carga horária. Estes casos de VM são cobrados da mesma forma, independentemente do número de aplicações que estão a ser em execução. Para evitar cargas inesperadas, consulte A Limpeza de um plano de Serviço de [Aplicações](app-service-plan-manage.md#delete).
 - No nível **Isolado,** o Ambiente de Serviço de Aplicações define o número de trabalhadores isolados que executam as suas apps, e _cada trabalhador_ é cobrado de hora em hora. Além disso, há uma taxa base de hora em hora para a execução do próprio App Service Environment.
 
-Não é cobrado por utilizar as funcionalidades do Serviço de Aplicações que estão disponíveis para si (configurar domínios personalizados, certificados SSL, ranhuras de implementação, backups, etc.). As exceções são:
+Não é cobrado por utilizar as funcionalidades do Serviço de Aplicações que estão disponíveis para si (configurar domínios personalizados, certificados TLS/SSL, slots de implementação, backups, etc.). As exceções são:
 
 - Domínios de Serviço de Aplicações - paga-se quando compra um em Azure e quando o renova todos os anos.
 - Certificados de Serviço de Aplicações - paga-se quando compra um em Azure e quando o renova todos os anos.
-- Ligações SSL baseadas em IP - Há uma taxa horária para cada ligação SSL baseada em IP, mas algum nível **Standard** ou acima dá-lhe uma ligação SSL baseada em IP gratuitamente. As ligações SSL baseadas em SNI são gratuitas.
+- Ligações TLS baseadas em IP - Há uma taxa horária para cada ligação TLS baseada em IP, mas algum nível **Standard** ou acima dá-lhe uma ligação TLS baseada em IP gratuitamente. As ligações TLS baseadas em SNI são gratuitas.
 
 > [!NOTE]
 > Se integrar o Serviço de Aplicações com outro serviço Azure, poderá ter de considerar os encargos destes outros serviços. Por exemplo, se utilizar o Gestor de Tráfego Azure para escalar a sua aplicação geograficamente, o Azure Traffic Manager também o cobra com base no seu uso. Para estimar o seu custo de serviços transversais em Azure, consulte [a calculadora de preços](https://azure.microsoft.com/pricing/calculator/). 
@@ -86,7 +86,7 @@ Não é cobrado por utilizar as funcionalidades do Serviço de Aplicações que 
 
 O seu plano do Serviço de Aplicações pode ser aumentado e reduzido verticalmente em qualquer altura. É tão simples como alterar o nível de preços do plano. Pode escolher um escalão de preço mais baixo inicialmente e aumentar verticalmente mais tarde quando precisar de mais funcionalidades do Serviço de Aplicações.
 
-Por exemplo, pode começar a testar a sua aplicação web num plano de Serviço de Aplicações **Gratuito** e não pagar nada. Quando quiser adicionar o seu [nome DNS personalizado](app-service-web-tutorial-custom-domain.md) à aplicação web, basta escalar o seu plano até ao nível **De partilha.** Mais tarde, quando quiser [criar uma ligação SSL,](configure-ssl-bindings.md)dimensione o seu plano até ao nível **Básico.** Quando quiser ter ambientes de [encenação,](deploy-staging-slots.md)escale até o nível **Standard.** Quando você precisa de mais núcleos, memória ou armazenamento, escala até um tamanho VM maior no mesmo nível.
+Por exemplo, pode começar a testar a sua aplicação web num plano de Serviço de Aplicações **Gratuito** e não pagar nada. Quando quiser adicionar o seu [nome DNS personalizado](app-service-web-tutorial-custom-domain.md) à aplicação web, basta escalar o seu plano até ao nível **De partilha.** Mais tarde, quando quiser [criar uma ligação TLS,](configure-ssl-bindings.md)escale o seu plano até ao nível **Básico.** Quando quiser ter ambientes de [encenação,](deploy-staging-slots.md)escale até o nível **Standard.** Quando você precisa de mais núcleos, memória ou armazenamento, escala até um tamanho VM maior no mesmo nível.
 
 O mesmo funciona ao contrário. Quando sente que já não precisa das capacidades ou características de um nível mais alto, pode descer para um nível mais baixo, o que poupa dinheiro.
 

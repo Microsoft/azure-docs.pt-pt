@@ -4,12 +4,12 @@ description: Saiba como os endereços IP de entrada e saída são usados no Serv
 ms.topic: article
 ms.date: 06/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: aebce04fe2f1b055a4d498021dcd25144cd122a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bcd80fde95e467513590f3ed09b1dadd2646aee
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279211"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537632"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Endereços IP de entrada e saída no Serviço de Aplicações Azure
 
@@ -23,7 +23,7 @@ Independentemente do número de instâncias escalonadas, cada aplicação tem um
 
 - Elimine uma aplicação e recrie-a num grupo de recursos diferente.
 - Elimine a última aplicação numa combinação de grupo de recursos _e_ região e recrie-a.
-- Eliminar uma ligação SSL existente, como durante a renovação do certificado (ver [certificado Renovar).](configure-ssl-certificate.md#renew-certificate)
+- Eliminar uma ligação TLS existente, como durante a renovação do certificado (ver [certificado Renovar).](configure-ssl-certificate.md#renew-certificate)
 
 ## <a name="find-the-inbound-ip"></a>Encontre o IP de entrada
 
@@ -35,7 +35,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## <a name="get-a-static-inbound-ip"></a>Obtenha um IP estático de entrada
 
-Às vezes, pode querer um endereço IP dedicado e estático para a sua aplicação. Para obter um endereço IP de entrada estático, é necessário configurar uma [ligação SSL baseada em IP](configure-ssl-bindings.md#secure-a-custom-domain). Se não necessitar de funcionalidade SSL para proteger a sua aplicação, pode até fazer o upload de um certificado auto-assinado para esta ligação. Numa ligação SSL baseada em IP, o certificado está vinculado ao próprio endereço IP, pelo que o Serviço de Aplicações prevê um endereço IP estático para que isso aconteça. 
+Às vezes, pode querer um endereço IP dedicado e estático para a sua aplicação. Para obter um endereço IP de entrada estático, precisa [de garantir um domínio personalizado](configure-ssl-bindings.md#secure-a-custom-domain). Se não necessitar de funcionalidade TLS para proteger a sua aplicação, pode até fazer o upload de um certificado auto-assinado para esta ligação. Numa ligação ip-based TLS, o certificado está ligado ao próprio endereço IP, pelo que o Serviço de Aplicações prevê um endereço IP estático para que isso aconteça. 
 
 ## <a name="when-outbound-ips-change"></a>Quando os IPs de saída mudam
 

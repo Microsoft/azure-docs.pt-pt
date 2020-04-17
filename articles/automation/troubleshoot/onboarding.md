@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae359e5210a9a11c33dd3ff9b474e28aa2548c57
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75889339"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536969"
 ---
 # <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Erros de resolução de problemas ao embarcar na Gestão de Atualizações, Rastreio de Alterações e Inventário
 
@@ -72,7 +72,7 @@ Este erro é causado por permissões incorretas ou em falta na máquina virtual,
 
 #### <a name="resolution"></a>Resolução
 
-Certifique-se de que tem permissões corretas para embarcar na máquina virtual. Reveja as [permissões necessárias para a bordo das máquinas](../automation-role-based-access-control.md#onboarding) e tente voltar a bordo da solução. Se receber o `The solution cannot be enabled on this VM because the permission to read the workspace is missing`erro, certifique-se de que tem a `Microsoft.OperationalInsights/workspaces/read` permissão para poder descobrir se o VM está a bordo de um espaço de trabalho.
+Certifique-se de que tem permissões corretas para embarcar na máquina virtual. Reveja as [permissões necessárias para a bordo das máquinas](../automation-role-based-access-control.md#onboarding-permissions) e tente voltar a bordo da solução. Se receber o `The solution cannot be enabled on this VM because the permission to read the workspace is missing`erro, certifique-se de que tem a `Microsoft.OperationalInsights/workspaces/read` permissão para poder descobrir se o VM está a bordo de um espaço de trabalho.
 
 ### <a name="scenario-onboarding-fails-with-the-message---failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Cenário: O embarque falha com a mensagem - Falha na configuração da Conta de Automação para o registo de diagnóstico
 
@@ -162,7 +162,7 @@ Assim que remover as soluções, pode desligar o seu espaço de trabalho. É imp
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Ao implementar uma solução, são implantados vários recursos conexos. Um desses recursos é a extensão do agente de monitorização da Microsoft ou o agente Log Analytics para o Linux. Estas são extensões de máquina virtual instaladas pelo Agente Convidado da máquina virtual que é responsável pela comunicação com o espaço de trabalho configurado Log Analytics, com o propósito de posterior coordenação do download de binários e outros ficheiros que o a solução de que está a embarcar dependem assim que começar a execução.
+Ao implementar uma solução, são implantados vários recursos conexos. Um desses recursos é a extensão do agente de monitorização da Microsoft ou o agente Log Analytics para o Linux. Estas são extensões de máquina virtual instaladas pelo Agente Convidado da máquina virtual que é responsável pela comunicação com o espaço de trabalho configurado Log Analytics, com o propósito de posterior coordenação do download de binários e outros ficheiros de que a solução de que está a embarcar dependem assim que começa a execução.
 Normalmente, fica a tomar conhecimento do MMA ou do agente Log Analytics para falhas de instalação do Linux a partir de uma notificação que aparece no Centro de Notificações. Clicar nessa notificação dá mais informações sobre a falha específica. A navegação para o recurso dos Grupos de Recursos e, em seguida, para o elemento Deimplantação no seu interior também fornece detalhes sobre as falhas de implantação que ocorreram.
 A instalação do agente MMA ou Log Analytics para o Linux pode falhar por uma variedade de razões, e as medidas a tomar para resolver estas falhas variam, dependendo do problema. Seguir-se-ão passos específicos de resolução de problemas.
 

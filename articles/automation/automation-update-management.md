@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: c76b14e4f08ec930159498da4a35fdad0341929e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eaba4bf7760e150f2477ee743c797f94784b8506
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278509"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535507"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de Gestão de Atualização em Azure
 
@@ -127,7 +127,7 @@ Os VMs que foram criados a partir das imagens a pedido da Red Hat Enterprise Lin
 
 ## <a name="permissions"></a>Permissões
 
-Para criar e gerir as implementações de atualizações, necessita de permissões específicas. Para conhecer estas permissões, consulte [o acesso baseado em Funções – Gestão de Atualizações.](automation-role-based-access-control.md#update-management)
+Para criar e gerir as implementações de atualizações, necessita de permissões específicas. Para conhecer estas permissões, consulte [o acesso baseado em Funções – Gestão de Atualizações.](automation-role-based-access-control.md#update-management-permissions)
 
 ## <a name="solution-components"></a>Componentes da solução
 

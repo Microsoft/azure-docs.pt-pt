@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 317ca55adb9f680dc93343a185395abad08889da
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 2ab5697ceff612e65174fdb7f9ef6137e2c8b9a5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881320"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537071"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicação web que assina nos utilizadores: Iniciar sessão e iniciar sessão
 
@@ -205,7 +205,7 @@ Depois de o utilizador ter assinado a sua aplicação, deverá permitir que assi
 ## <a name="sign-out"></a>Terminar sessão
 
 A assinatura de uma aplicação web envolve mais do que remover a informação sobre a conta de inscrição do estado da aplicação web.
-A aplicação web também deve redirecionar `logout` o utilizador para o ponto final da plataforma de identidade da Microsoft para assinar. 
+A aplicação web também deve redirecionar `logout` o utilizador para o ponto final da plataforma de identidade da Microsoft para assinar.
 
 Quando a sua aplicação web `logout` redireciona o utilizador para o ponto final, este ponto final iliba a sessão do utilizador a partir do navegador. Se a sua aplicação `logout` não for para o ponto final, o utilizador reapagará na sua aplicação sem voltar a introduzir as suas credenciais. A razão é que eles terão uma sessão de inscrição única válida com o ponto final da plataforma de identidade da Microsoft.
 
@@ -306,7 +306,7 @@ No quickstart Python, o botão de saída está localizado no ficheiro [templates
     <meta charset="UTF-8">
 </head>
 <body>
-    <h1>Microsoft Identity Python Web App</h1>
+    <h1>Microsoft Identity Python web app</h1>
     Welcome {{ user.get("name") }}!
     <li><a href='/graphcall'>Call Microsoft Graph API</a></li>
     <li><a href="/logout">Logout</a></li>
