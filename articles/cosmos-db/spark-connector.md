@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: bbc97489f0c7045040dd0189b97946c2bd8fb3c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: edfaf50b701f64b12f9cf5fcc9ab8d2c6d241d0a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481641"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482179"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Acelere a análise de big data usando o conector Apache Spark para Azure Cosmos DB
 
@@ -109,7 +109,7 @@ val writeConfig = Config(Map(
   "Masterkey" -> "YOUR-KEY-HERE",
   "Database" -> "DepartureDelays",
   "Collection" -> "flights_fromsea",
-  "Upsert" : "true"
+  "Upsert" -> "true"
 ))
 
 // Write to Cosmos DB from the flights DataFrame

@@ -4,12 +4,12 @@ description: Este artigo contém respostas a perguntas frequentes sobre compreen
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 235eba7f80778b8a60ba880616cf80f2c14ccba1
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 59d9b1f21e1936b7d03293ec3d338677380a7c99
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382191"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530271"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão da linguagem Perguntas Frequentes (FAQ)
 
@@ -322,7 +322,7 @@ As seguintes características foram lançadas na Conferência Build 2019:
 * [Pré-visualização do guia de migração V3 API](luis-migration-api-v3.md)
 * [Painel de análise melhorado](luis-how-to-use-dashboard.md)
 * [Domínios pré-construídos melhorados](luis-reference-prebuilt-domains.md)
-* [Entidades de lista dinâmica](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [Entidades de lista dinâmica](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entidades externas](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 Vídeos:

@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 09/11/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b08e807e179270b63ca81d3777c230c3e129c3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59983678c1b14d6aa87a7b500605e3abeb6a9b85
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72517147"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533548"
 ---
-# <a name="bulk-download-a-list-of-groups-preview-in-azure-active-directory"></a>A granel, descarregue uma lista de grupos (pré-visualização) no Diretório Ativo do Azure
+# <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>A granel, descarregue uma lista de grupos no Diretório Ativo do Azure
 
 Utilizando o portal Azure Ative Directory (Azure AD), pode transferir em massa a lista de todos os grupos da sua organização para um ficheiro de valores separados (CSV) separados pela vírda.
 
@@ -34,9 +34,9 @@ Utilizando o portal Azure Ative Directory (Azure AD), pode transferir em massa a
 
 ## <a name="check-download-status"></a>Verifique o estado do download
 
-Pode ver o estado de todos os seus pedidos a granel pendentes na página de resultados da **operação Bulk (pré-visualização).**
+Pode ver o estado de todos os seus pedidos a granel pendentes na página de resultados da **operação Bulk.**
 
-   ![A página de resultados das operações a granel mostra o seu estado de pedido em massa](./media/groups-bulk-download/bulk-center.png)
+[![](media/groups-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-download/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>Limites de serviço de descarregamento a granel
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7f20244906581dd2869bbc7fcd997d5245540eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f8c66db491b93278fedf1378d3df86e7ce5fdbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155176"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531087"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -23,50 +23,48 @@ O serviço 'Reconhecimento de Formulários' é atualizado de forma contínua. Ut
 > [!NOTE]
 > Os quickstarts e guias para reconhecimento de formulários usam sempre a versão mais recente da API, salvo especificação.
 
-## <a name="march-2020"></a>março de 2020 
+## <a name="march-2020"></a>Março de 2020 
+
+### <a name="new-features"></a>Novas funcionalidades
+
+* **Tipos de valor para rotulagem** Agora pode especificar os tipos de valores que está a rotular com a ferramenta de rotulagem da amostra 'Reconhecimento de Formulários'. Os seguintes tipos de valor e variações são atualmente suportados:
+  * `string`
+    * padrão, `no-whitespaces`,`alphanumeric`
+  * `number`
+    * padrão,`currency`
+  * `date` 
+    * padrão, `dmy` `mdy`,`ymd`
+  * `time`
+  * `integer`
+
+  Consulte o guia da [ferramenta de rotulagem sample](./quickstarts/label-tool.md#specify-tag-value-types) para aprender a utilizar esta funcionalidade.
+
+
+* **Visualização de mesa** A ferramenta de rotulagem da amostra apresenta agora tabelas que foram reconhecidas no documento. Isto permite-lhe visualizar as tabelas que foram reconhecidas e extraídas do documento, antes da rotulagem e análise. Esta função pode ser realternada utilizando a opção layers.
+
+  Este é um exemplo de como as tabelas são reconhecidas e extraídas:
+
+  > [!div class="mx-imgBorder"]
+  > ![Visualização de tabelas utilizando a ferramenta de rotulagem da amostra](./media/whats-new/formre-table-viz.png)
+
+    As tabelas extraídas estão disponíveis `"pageResults"`na saída JSON em .
+
+  > [!IMPORTANT]
+  > As mesas de rotulagem não são suportadas. Se as tabelas não forem reconhecidas e extratadas automaticamente, só pode rotulá-las como pares chave/valor. Ao rotular tabelas como par de chaves/valor, rotule cada célula como um valor único.
 
 ### <a name="extraction-enhancements"></a>Melhorias de extração
 
 Esta versão inclui melhorias de extração e melhorias de precisão, especificamente, a capacidade de rotular e extrair múltiplos pares de chaves/valor na mesma linha de texto. 
  
-### <a name="form-recognizer-sample-labeling-tool-is-now-open-source"></a>Ferramenta de rotulagem de amostra de reconhecimento de formulário seleção já é de código aberto
+### <a name="sample-labeling-tool-is-now-open-source"></a>A ferramenta de rotulagem de amostras é agora de código aberto
 
-A ferramenta de rotulagem de amostra sinuosa está agora disponível como um projeto de código aberto. Pode integrá-lo dentro das suas soluções e fazer alterações específicas para o cliente para atender às suas necessidades.
+A ferramenta de rotulagem da amostra 'Reconhecimento de Formulários' está agora disponível como um projeto de código aberto. Pode integrá-lo dentro das suas soluções e fazer alterações específicas para o cliente para atender às suas necessidades.
 
-Para obter mais informações sobre a ferramenta de rotulagem de amostras do reconhecimento de formulários, reveja a documentação disponível no [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
-
-### <a name="labeling-value-types"></a>Tipos de valor de rotulagem
-
-Os tipos de valor estão agora disponíveis para utilização com a ferramenta de rotulagem de amostra sinuosa. Estes tipos de valor são atualmente suportados: 
-
-* Cadeia
-* Número 
-* Número inteiro
-* Date 
-* Hora
-
-Esta imagem mostra como é a seleção do tipo de valor dentro da ferramenta de rotulagem de amostra sinuosa:
-
-> [!div class="mx-imgBorder"]
-> ![Seleção de tipos de valor com ferramenta de rotulagem de amostra](./media/whats-new/formre-value-type.png)
-
-A tabela extraída está disponível `pageResults`na saída JSON em .
-
-### <a name="table-visualization"></a>Visualização de mesa 
-
-A Ferramenta de Rotulagem do Reconhecimento de Formulários apresenta agora tabelas que foram reconhecidas no documento. Isto permite-lhe visualizar as tabelas que foram reconhecidas e extraídas do documento, antes da rotulagem e análise com a Ferramenta de Rotulagem de Amostras do Reconhecimento de Formulários. Esta função pode ser realternada utilizando a opção layers. 
-
-Este é um exemplo de como as tabelas são reconhecidas e extraídas:
-
-> [!div class="mx-imgBorder"]
-> ![Visualização de tabelas utilizando a ferramenta de rotulagem da amostra](./media/whats-new/formre-table-viz.png)
-
-> [!IMPORTANT]
-> As mesas de rotulagem não são suportadas. Se as tabelas não forem reconhecidas e extratadas automaticamente, só pode rotulá-las como pares chave/valor. Ao rotular as tabelas como par de chaves/valor, rotule cada célula como um valor.
+Para obter mais informações sobre a ferramenta de rotulagem da amostra Do Reconhecimento de Formulários, reveja a documentação disponível no [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ### <a name="tls-12-enforcement"></a>Imposição de TLS 1.2
 
-* TLS 1.2 é agora aplicado para todos os pedidos http para este serviço. Para mais informações, consulte a [segurança dos Serviços Cognitivos Azure.](../cognitive-services-security.md)
+TLS 1.2 é agora aplicado para todos os pedidos http para este serviço. Para mais informações, consulte a [segurança dos Serviços Cognitivos Azure.](../cognitive-services-security.md)
 
 ## <a name="january-2020"></a>Janeiro de 2020
 

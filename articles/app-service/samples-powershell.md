@@ -6,12 +6,12 @@ ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
 ms.date: 03/08/2017
 ms.custom: mvc
-ms.openlocfilehash: f32db2a4dda0ceb69644b64a5c76155b448c5a28
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f289bd453f2387282402394c807fe9700151f221
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74687018"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532430"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Amostras powerShell para serviço de aplicações Azure
 
@@ -27,7 +27,7 @@ A tabela seguinte inclui links para scripts PowerShell construídos com o Azure 
 | [Criar uma app e implementar código para um ambiente de encenação](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria uma aplicação de Serviço de Aplicações com uma ranhura de implementação para a realização de alterações de código. |
 |**Configurar aplicação**||
 | [Mapear um domínio personalizado para uma aplicação](./scripts/powershell-configure-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma aplicação de Serviço de Aplicações e mapeia-lhe um nome de domínio personalizado. |
-| [Ligue um certificado SSL personalizado a uma aplicação](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria-lhe uma aplicação de Serviço de Aplicações e liga-lhe o certificado SSL de um nome de domínio personalizado. |
+| [Ligue um certificado Personalizado TLS/SSL a uma aplicação](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria-lhe uma aplicação de Serviço de Aplicações e liga-lhe o certificado TLS/SSL de um nome de domínio personalizado. |
 |**Dimensionar aplicação**||
 | [Escala risadamente uma aplicação](./scripts/powershell-scale-manual.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria uma aplicação de Serviço de Aplicações e escala-a em 2 instâncias. |
 | [Escala uma app em todo o mundo com uma arquitetura de alta disponibilidade](./scripts/powershell-scale-high-availability.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria duas aplicações do App Service em duas regiões geográficas diferentes e disponibiliza-as através de um único ponto final usando o Azure Traffic Manager. |

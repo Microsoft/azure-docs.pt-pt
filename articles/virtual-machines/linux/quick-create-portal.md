@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: quickstart
@@ -14,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bc1dd56cd024ee65e29f227f4ec11cde436e388d
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 7642257ef9b66889c7fb2ef585f63b02d30a425e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80294783"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459003"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
 
@@ -34,7 +33,7 @@ Precisa de um par de chaves SSH para concluir este início rápido. Se já tiver
 Abra uma shell do Bash e utilize [ssh-keygen](https://www.ssh.com/ssh/keygen/) para criar um par de chaves SSH. Se não tiver uma shell do Bash no computador local, pode utilizar o [Azure Cloud Shell](https://shell.azure.com/bash).
 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No menu no topo da página, `>_` selecione o ícone para abrir cloud shell.
 1. Certifique-se de que a CloudShell diz **"Bash"** na parte superior esquerda. Se disser PowerShell, use a gota para selecionar **Bash** e selecione **Confirmar** para mudar para a concha bash.
 1. Digite `ssh-keygen -t rsa -b 2048` para criar a chave ssh. 

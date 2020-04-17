@@ -5,7 +5,6 @@ services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
 manager: twooley
-editor: tysonn
 tags: azure-infrastructure
 ms.assetid: ''
 ms.service: traffic-manager
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: rohink
-ms.openlocfilehash: e4912e0e285d41bf2de4cf439788a943251cfae8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e108fbe54ce67d4eb354319450259fc410462c53
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934782"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460618"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Tráfego de rota para alta disponibilidade de aplicações usando O ClI Azure
 

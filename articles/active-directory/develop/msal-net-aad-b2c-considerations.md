@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 697b4bc8e3a25085ac6f7d600ea2227dd30a6624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d31cf3a4e024dc59b865d096cbd0829d50f61a1a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262818"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533960"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Use MSAL.NET para assinar em utilizadores com identidades sociais
 
@@ -34,7 +34,7 @@ Esta página é para MSAL 3.x. Se estiver interessado em MSAL 2.x, consulte [as 
 A autoridade a `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}` utilizar é onde:
 
 - `azureADB2CHostname`é o nome do inquilino Azure AD B2C `{your-tenant-name}.b2clogin.com`mais o hospedeiro (por exemplo),
-- `tenant`é o nome completo do inquilino Azure AD `{your-tenant-name}.onmicrosoft.com`B2C (por exemplo, ) ou do GUID para o inquilino, 
+- `tenant`é o nome completo do inquilino Azure AD `{your-tenant-name}.onmicrosoft.com`B2C (por exemplo, ) ou do GUID para o inquilino,
 - `policyName`o nome da política ou fluxo de utilizador a aplicar (por exemplo, "b2c_1_susi" para o sign-up/inscrição).
 
 Para obter mais informações sobre as autoridades do Azure AD B2C, consulte esta [documentação](/azure/active-directory-b2c/b2clogin).
@@ -121,7 +121,7 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 ## <a name="resource-owner-password-credentials-ropc-with-azure-ad-b2c"></a>Credenciais de senha do proprietário de recursos (ROPC) com Azure AD B2C
 Para mais detalhes sobre o fluxo ropc, consulte esta [documentação](v2-oauth-ropc.md).
 
-Este fluxo não é **recomendado** porque a sua aplicação que pede a um utilizador a sua palavra-passe não é segura. Para mais informações sobre este problema, consulte [este artigo.](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) 
+Este fluxo não é **recomendado** porque a sua aplicação que pede a um utilizador a sua palavra-passe não é segura. Para mais informações sobre este problema, consulte [este artigo.](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)
 
 Ao utilizar o nome de utilizador/palavra-passe, está a abdicar de uma série de coisas:
 - Princípios fundamentais da identidade moderna: a palavra-passe é pescada, reproduzida. Porque temos este conceito de segredo de partilha que pode ser intercetado. Isto é incompatível com sem palavras-passe.
@@ -155,15 +155,15 @@ Se é um desenvolvedor de Azure AD B2C usando o Google como fornecedor de identi
 
 Forneceremos uma atualização para este [problema](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) se as coisas mudarem.
 
-## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>Caching com Azure AD B2C em MSAL.Net 
+## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>Caching com Azure AD B2C em MSAL.Net
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Problema conhecido com Azure AD B2C
 
-MSAL.Net suporta uma [cache simbólica.](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet) A chave de cache token baseia-se nos créditos devolvidos pelo Fornecedor de Identidade. Atualmente MSAL.Net precisa de duas reivindicações para construir uma chave de cache simbólica:  
-- `tid`que é o Azure AD Tenant ID, e 
-- `preferred_username` 
+MSAL.Net suporta uma [cache simbólica.](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet) A chave de cache token baseia-se nos créditos devolvidos pelo Fornecedor de Identidade. Atualmente MSAL.Net precisa de duas reivindicações para construir uma chave de cache simbólica:
+- `tid`que é o Azure AD Tenant ID, e
+- `preferred_username`
 
-Ambas as alegações estão em falta em muitos dos cenários Do Azure AD B2C. 
+Ambas as alegações estão em falta em muitos dos cenários Do Azure AD B2C.
 
 O impacto do cliente é que ao tentar exibir o campo de nome de utilizador, está a receber "Missing from the token response" como o valor? Em caso afirmativo, isto deve-se ao facto de o Azure AD B2C não devolver um valor no IdToken para o preferred_username devido a limitações com as contas sociais e fornecedores de identidade externa (IDPs). A Azure AD devolve um valor para preferred_username porque sabe quem é o utilizador, mas para o Azure AD B2C, porque o utilizador pode iniciar sessão com uma conta local, Facebook, Google, GitHub, etc. não existe um valor consistente para o Azure AD B2C utilizar para preferred_username. Para desbloquear a MSAL de lançar a compatibilidade com a ADAL, decidimos usar "Missing from the token response" do nosso lado ao lidar com as contas Azure AD B2C quando o IdToken não devolve nada para preferred_username. A MSAL deve devolver um valor para preferred_username manter a compatibilidade do cache entre bibliotecas.
 
@@ -178,10 +178,10 @@ Em alternativa, pode `tid` utilizar a reclamação, se estiver a utilizar as [po
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigação para "Desaparecido da resposta simbólica"
 Uma opção é utilizar a alegação de "nome" como nome de utilizador preferido. O processo é mencionado neste [doc-> B2C](../../active-directory-b2c/user-flow-overview.md) "Na coluna de reclamação de retorno, escolha as reclamações que deseja devolvidas nas fichas de autorização enviadas de volta para a sua aplicação após uma experiência de edição de perfil bem sucedida. Por exemplo, selecione 'Nome de exibição, Código Postal'."
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos seguintes
 
 Mais detalhes sobre a aquisição de fichas interactivamente com MSAL.NET para aplicações Azure AD B2C são fornecidos na amostra seguinte.
 
 | Sample | Plataforma | Descrição|
 |------ | -------- | -----------|
-|[active-directy-b2c-xamarin-nativo](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Uma simples aplicação Xamarin Forms que mostra como usar MSAL.NET para autenticar os utilizadores através do Azure AD B2C, e aceder a uma API Web com as fichas resultantes.|
+|[active-directy-b2c-xamarin-nativo](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Uma simples aplicação Xamarin Forms que mostra como usar MSAL.NET para autenticar os utilizadores através do Azure AD B2C, e aceder a uma API web com as fichas resultantes.|

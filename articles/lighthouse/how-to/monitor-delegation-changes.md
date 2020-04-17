@@ -3,12 +3,12 @@ title: Monitorize as mudanças de delegação no seu inquilino gerente
 description: Saiba como monitorizar a atividade da delegação, desde os inquilinos dos clientes até ao seu inquilino gerente.
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 322580cc3d0246f7a34e28cdae94da57fda070b5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985155"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458816"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorize as mudanças de delegação no seu inquilino gerente
 
@@ -44,7 +44,7 @@ Como este é um amplo nível de acesso, recomendamos que atribua esta função a
 
 - [Crie uma nova conta principal](../../active-directory/develop/howto-create-service-principal-portal.md) de serviço a ser utilizada apenas para esta função, em vez de atribuir esta função a um principal de serviço existente utilizado para outra automatização.
 - Certifique-se de que este diretor de serviço não tem acesso a quaisquer recursos de clientes delegados.
-- [Utilize um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) e [armazená-lo de forma segura no Cofre de Chaves Azure](../../key-vault/key-vault-best-practices.md).
+- [Utilize um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) e [armazená-lo de forma segura no Cofre de Chaves Azure](../../key-vault/general/best-practices.md).
 - Limite os utilizadores que tenham acesso a agir em nome do diretor de serviço.
 
 Utilize um dos seguintes métodos para efetuar as atribuições de âmbito de raiz.

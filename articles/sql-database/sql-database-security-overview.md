@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 2a4c6dd3dd6f1bb2f15e31226086c73fb8e63521
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124837"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461400"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma visão geral das capacidades de segurança da Base de Dados Azure SQL
 
@@ -112,11 +112,11 @@ Por exemplo, ao utilizar o ADO.NET controlador, este é realizado através de **
 
 [A Encriptação transparente de dados (TDE) para a Base de Dados SQL azure](transparent-data-encryption-azure-sql.md) adiciona uma camada de segurança para ajudar a proteger os dados em repouso do acesso não autorizado ou offline a ficheiros ou backups brutos. Os cenários comuns incluem roubo de datacenter ou eliminação não segura de hardware ou meios, tais como discos e fitas de backup.O TDE encripta toda a base de dados usando um algoritmo de encriptação AES, que não requer que os desenvolvedores de aplicações façam alterações nas aplicações existentes.
 
-No Azure, todas as bases de dados SQL recém-criadas são encriptadas por padrão e a chave de encriptação da base de dados está protegida por um certificado de servidor incorporado.  A manutenção e rotação do certificado são geridas pelo serviço e não requerem nenhuma entrada do utilizador. Os clientes que preferem assumir o controlo das chaves de encriptação podem gerir as chaves no [Cofre de Chaves Azure](../key-vault/key-vault-secure-your-key-vault.md).
+No Azure, todas as bases de dados SQL recém-criadas são encriptadas por padrão e a chave de encriptação da base de dados está protegida por um certificado de servidor incorporado.  A manutenção e rotação do certificado são geridas pelo serviço e não requerem nenhuma entrada do utilizador. Os clientes que preferem assumir o controlo das chaves de encriptação podem gerir as chaves no [Cofre de Chaves Azure](../key-vault/general/secure-your-key-vault.md).
 
 ### <a name="key-management-with-azure-key-vault"></a>Gestão chave com cofre de chave Azure
 
-[O](transparent-data-encryption-byok-azure-sql.md) suporte bring Your Own Key (BYOK) para [encriptação de dados transparente](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) permite que os clientes se adequem à gestão e rotação de chaves utilizando o Azure Key Vault , o sistema de gestão de chaves externas baseado na nuvem do [Azure.](../key-vault/key-vault-secure-your-key-vault.md) Se o acesso da base de dados ao cofre da chave for revogado, uma base de dados não pode ser desencriptada e lida na memória. O Azure Key Vault fornece uma plataforma central de gestão de chaves, aproveita módulos de segurança de hardware monitorizados de forma rigorosa (HSMs), e permite a separação de deveres entre a gestão de chaves e dados para ajudar a satisfazer os requisitos de conformidade de segurança.
+[O](transparent-data-encryption-byok-azure-sql.md) suporte bring Your Own Key (BYOK) para [encriptação de dados transparente](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) permite que os clientes se adequem à gestão e rotação de chaves utilizando o Azure Key Vault , o sistema de gestão de chaves externas baseado na nuvem do [Azure.](../key-vault/general/secure-your-key-vault.md) Se o acesso da base de dados ao cofre da chave for revogado, uma base de dados não pode ser desencriptada e lida na memória. O Azure Key Vault fornece uma plataforma central de gestão de chaves, aproveita módulos de segurança de hardware monitorizados de forma rigorosa (HSMs), e permite a separação de deveres entre a gestão de chaves e dados para ajudar a satisfazer os requisitos de conformidade de segurança.
 
 ### <a name="always-encrypted-encryption-in-use"></a>Sempre Encriptado (Encriptação em uso)
 

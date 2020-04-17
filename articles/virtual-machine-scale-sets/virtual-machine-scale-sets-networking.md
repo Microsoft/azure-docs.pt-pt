@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mimckitt
-ms.openlocfilehash: 9f048c7d89da0ab75c321cd8e3932ea97c7ed09c
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: efe3a39008361fdf76d80a0c8e7e2e30b061117d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310018"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461361"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -41,42 +41,27 @@ As Redes Aceleradas do Azure melhoram o desempenho da rede ao permitirem a virtu
 }
 ```
 
-## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Criar um conjunto de dimensionamento que faça referência a um balanceador de carga do Azure existente
-Quando um conjunto de dimensionamento é criado no portal do Azure, é criado um novo balanceador de carga para a maioria das opções de configuração. Se criar um conjunto de dimensionamento que tenha de referenciar um balanceador de carta existente, poderá utilizar a CLI para o fazer. O script de exemplo seguinte cria um balanceador de carta e, depois, um conjunto de dimensionamento, que o referencia:
+## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de escala de máquina seleção azul com equilíbrio de carga Azure
 
-```azurecli
-az network lb create \
-    -g lbtest \
-    -n mylb \
-    --vnet-name myvnet \
-    --subnet mysubnet \
-    --public-ip-address-allocation Static \
-    --backend-pool-name mybackendpool
+Ao trabalhar com conjuntos de escala de máquina virtual e equilibrador de carga, deve considerar-se o seguinte:
 
-az vmss create \
-    -g lbtest \
-    -n myvmss \
-    --image Canonical:UbuntuServer:16.04-LTS:latest \
-    --admin-username negat \
-    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
-    --upgrade-policy-mode Automatic \
-    --instance-count 3 \
-    --vnet-name myvnet \
-    --subnet mysubnet \
-    --lb mylb \
-    --backend-pool-name mybackendpool
-```
+* **Vários conjuntos**de escala de máquina virtual não podem usar o mesmo equilíbrio de carga .
+* **Regras de Encaminhamento portuário e regras nat de entrada:**
+  * Cada conjunto de escala de máquina virtual deve ter uma regra NAT de entrada.
+  * Após a criação do conjunto de calcário, a porta de backend não pode ser modificada para uma regra de equilíbrio de carga utilizada por uma sonda de saúde do equilibrador de carga. Para alterar a porta, pode remover a sonda de saúde atualizando o conjunto de escala de máquina virtual Azure, atualizar a porta e, em seguida, configurar novamente a sonda de saúde.
+  * Ao utilizar a balança de máquinavirtual definida na piscina de backend do equilibrador de carga, as regras de entrada padrão na NAT são criadas automaticamente.
+* **Regras de equilíbrio de carga:**
+  * Ao utilizar a balança de máquinavirtual definida na piscina de backend do equilibrador de carga, a regra de equilíbrio de carga predefinida é criada automaticamente.
+* **Regras de saída:**
+  *  Para criar uma regra de saída para um pool backend que já é referenciado por uma regra de equilíbrio de carga, você precisa primeiro marcar **"Criar regras implícitas** de saída" como **Não** no portal quando a regra de equilíbrio de carga de entrada é criada.
 
->[!NOTE]
-> Após a criação do conjunto de calcário, a porta de backend não pode ser modificada para uma regra de equilíbrio de carga utilizada por uma sonda de saúde do equilibrador de carga. Para alterar a porta, pode remover a sonda de saúde atualizando o conjunto de escala de máquina virtual Azure, atualizar a porta e, em seguida, configurar novamente a sonda de saúde. 
-
-Para obter mais informações sobre o equilíbrio de carga e conjuntos de escala de máquinas virtuais, consulte [redes virtuais e máquinas virtuais em Azure](../../articles/virtual-machines/windows/network-overview.md).
+  :::image type="content" source="./media/vmsslb.png" alt-text="Criação de regras de equilíbrio de carga" border="true":::
 
 Os seguintes métodos podem ser utilizados para implantar um conjunto de escala de máquina virtual com um equilibrador de carga Azure existente.
 
-* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o portal Azure](../../articles/load-balancer/configure-vm-scale-set-portal.md).
-* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o Azure PowerShell](../../articles/load-balancer/configure-vm-scale-set-powershell.md).
-* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o Azure CLI](../../articles/load-balancer/configure-vm-scale-set-cli.md).
+* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o portal Azure](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
+* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
+* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o Azure CLI](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencie um Gateway de Aplicação
 Para criar um conjunto de dimensionamento que utiliza um gateway de aplicação, referencie o conjunto de endereços de back-end do gateway de aplicação na secção ipConfigurations do seu conjunto de dimensionamento como nesta configuração de modelo ARM:

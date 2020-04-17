@@ -5,15 +5,15 @@ services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 04/15/2020
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5b6389491fd91b716a05e7c57c98addb6352bd9
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67440195"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461853"
 ---
 1. Descarregue os quickstarts sdK do cliente para as seguintes plataformas:
     
@@ -69,23 +69,13 @@ ms.locfileid: "67440195"
    - **Node.js backend**
     
      Se vai utilizar a aplicação Node.js quickstart, siga as instruções abaixo.
-
-     1. No portal Azure, vá a **Easy Tables,** verá este ecrã.
-      
-        ![Mesas fáceis do nó](./media/app-service-mobile-configure-new-backend/node-easy-tables.png)
-
-     2. Certifique-se de que a cadeia de ligação SQL já está adicionada no separador **Configuração.** Em seguida, verifique a caixa de **i reconheço que isto irá sobrepor todos os conteúdos** do site e clicar no botão de tabela Create **TodoItem.**
      
-        ![Configuração de tabelas fáceis do nó](./media/app-service-mobile-configure-new-backend/node-easy-tables-configuration.png)
-
-     3. Em **Tabelas**Fáceis, clique no botão **+ Adicionar.**
-    
-        ![Node tabelas fáceis adicionar botão](./media/app-service-mobile-configure-new-backend/node-easy-tables-add.png)
-
-     4. Crie `TodoItem` uma mesa com acesso anónimo.
-      
-        ![Mesas fáceis do nó adicionar tabela](./media/app-service-mobile-configure-new-backend/node-easy-tables-table-add.png)
-
+        1. Crie uma nova API - Pode fazer alterações no portal Azure ou modificar o código localmente no seu ambiente de desenvolvimento e depois publicar no Azure. Clique no `App Service Editor (Preview)` `Development Tools` menu abaixo que fornece uma experiência de edição no navegador para o seu código de aplicações.
+        
+        2. Clique `Go` e assim que o Editor de Serviço de Aplicações abrir, tem controlo total sobre o código fonte. Assumindo que já instalou pacote de aplicações expressas e azure-mobile com comando de instalação npm, clique na pasta API em WWWROOT para criar ou editar API personalizada. Faça as alterações no ficheiro de código e as alterações são guardadas automaticamente.
+        
+        3. Tem controlo total sobre a Base de Dados Azure SQL utilizada para armazenar os dados da aplicação. Pode criar facilmente novas tabelas na base de dados.
+ 
    - **.NET backend**
     
         Se vai utilizar a aplicação .NET quickstart, siga as instruções abaixo.

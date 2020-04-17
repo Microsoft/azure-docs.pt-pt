@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 795d21e05ade652b52c06d597ca4c5fef85e7245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ddb4b2cd465b5e9542d777d33b9bd8cb952becd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80152857"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531342"
 ---
-# <a name="deploy-the-sample-labeling-tool"></a>Implementar a ferramenta de rotulagem da amostra
+# <a name="deploy-the-sample-labeling-tool"></a>Implementar a ferramenta de etiquetagem de exemplo
 
 A ferramenta de rotulagem da amostra 'Reconhecimento de Formulários' é uma aplicação que fornece uma interface simples de utilizador (UI), que pode utilizar para rotular manualmente formulários (documentos) para fins de aprendizagem supervisionada. Neste artigo, forneceremos links e instruções que o ensinam a:
 
@@ -34,14 +34,14 @@ A forma mais rápida de começar a rotular os dados é executar a ferramenta de 
 
 Antes de começarmos, é importante notar que existem duas maneiras de implementar a ferramenta de rotulagem de amostras para um Caso de Contentores Azure (ACI). Ambas as opções são utilizadas para executar a ferramenta de rotulagem de amostras com ACI: 
 
-* [Usando o portal Azure](#azure-portal)
+* [Utilizar o portal do Azure](#azure-portal)
 * [Com a CLI do Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Portal do Azure
 
 Siga estes passos para criar um novo recurso utilizando o portal Azure: 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/signin/index/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/signin/index/).
 2. Selecione **Criar um recurso**. 
 3. Em seguida, selecione **Web App**. 
 
@@ -76,6 +76,7 @@ Siga estes passos para criar um novo recurso utilizando o portal Azure:
    * Nome de utilizador (Opcional) - Crie um nome de utilizador. 
    * Palavra-passe (Opcional) - Crie uma palavra-passe segura de que se lembrará.
    * Imagem e etiqueta - Definir isto para`mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * Implementação Contínua - Desloque-o para **Ligar** se pretender receber atualizações automáticas quando a equipa de desenvolvimento fizer alterações na ferramenta de rotulagem da amostra.
    * Comando de arranque - Definir isto para`./run.sh eula=accept`
 
    > [!div class="mx-imgBorder"]

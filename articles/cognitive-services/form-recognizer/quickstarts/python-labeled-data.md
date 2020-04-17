@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 36ded3bd85cd7acdffbfe46b9e931a811994fa30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482306"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531105"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Treine um modelo de reconhecimento de formulário com etiquetas usando REST API e Python
 
@@ -40,7 +40,7 @@ Certifique-se de que todos os documentos de treino são do mesmo formato. Se tiv
 
 Para treinar um modelo utilizando dados rotulados, necessitará dos seguintes ficheiros como inputs na subpasta. Você vai aprender a criar estes ficheiros abaixo.
 
-* **Formulários** de origem – os formulários para extrair dados de. Os tipos suportados são JPEG, PNG, BMP, PDF ou TIFF.
+* **Formulários** de origem – os formulários para extrair dados de. Os tipos suportados são JPEG, PNG, PDF ou TIFF.
 * **Ficheiros** de layout OCR - ficheiros JSON que descrevem os tamanhos e posições de todo o texto legível em cada formato de origem. Utilizará a API do Layout do Reconhecimento de Formulários para gerar estes dados. 
 * **Ficheiros de etiquetagem** - Ficheiros JSON que descrevem as etiquetas de dados que um utilizador introduziu manualmente.
 
@@ -219,7 +219,7 @@ headers = {
     'Ocp-Apim-Subscription-Key': '<subsription key>',
 }
 
-body =  {
+body =     {
     "source": source,
     "sourceFilter": {
         "prefix": prefix,
@@ -455,7 +455,7 @@ Quando o processo estiver concluído, receberá `202 (Success)` uma resposta com
                     "#/readResults/0/lines/8/words/1"
                   ]
                 },
-                ...     
+                ...        
               ]
             }
           ]

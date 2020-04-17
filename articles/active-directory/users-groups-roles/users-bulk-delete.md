@@ -1,11 +1,11 @@
 ---
-title: A granel apaga os utilizadores (pré-visualização) no portal de Diretório Ativo Azure [ Microsoft Docs
+title: A granel apaga utilizadores no portal de Diretório Ativo Azure [ Microsoft Docs
 description: Eliminar utilizadores a granel no centro de administração Azure em Azure Ative Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/15/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7c47887c12c8bf9be7a0c5b11dfb3f099965cb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: beb8b4f35dc5f02e59cced05a6bcfc235d42f996
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174394"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532828"
 ---
-# <a name="bulk-delete-users-preview-in-azure-active-directory"></a>A granel, apague os utilizadores (pré-visualização) no Diretório Ativo do Azure
+# <a name="bulk-delete-users-in-azure-active-directory"></a>Granel apaga utilizadores no Diretório Ativo do Azure
 
 Utilizando o portal Azure Ative Directory (Azure AD), pode remover um grande número de membros para um grupo utilizando um ficheiro de valores separados de vírem (CSV) para eliminar os utilizadores em massa.
 
@@ -36,7 +36,7 @@ Utilizando o portal Azure Ative Directory (Azure AD), pode remover um grande nú
 
    ![O ficheiro CSV contém nomes e IDs dos utilizadores para eliminar](./media/users-bulk-delete/delete-csv-file.png)
 
-1. Na página de apagar o **utilizador (Pré-visualização)** a granel, sob o **upload do ficheiro CSV,** navegue para o ficheiro. Quando selecionar o ficheiro e clicar em submeter, a validação do ficheiro CSV começa.
+1. Na página **de eliminação** a granel, sob **o upload do ficheiro CSV,** navegue para o ficheiro. Quando selecionar o ficheiro e clicar em submeter, a validação do ficheiro CSV começa.
 1. Quando o conteúdo do ficheiro for validado, verá o **Ficheiro carregado com sucesso**. Se houver erros, tem de os corrigir antes de poder submeter o trabalho.
 1. Quando o seu ficheiro passar a validação, selecione **Enviar** para iniciar a operação a granel Azure que elimina os utilizadores.
 1. Quando a operação de eliminação estiver concluída, verá uma notificação de que a operação a granel foi bem sucedida.
@@ -45,9 +45,9 @@ Se houver erros, pode descarregar e ver o ficheiro de resultados na página de r
 
 ## <a name="check-status"></a>Verificar o estado
 
-Pode ver o estado de todos os seus pedidos a granel pendentes na página de resultados da **operação Bulk (pré-visualização).**
+Pode ver o estado de todos os seus pedidos a granel pendentes na página de resultados da **operação Bulk.**
 
-   ![Verifique o estado de upload na página resultados das operações a granel](./media/users-bulk-delete/bulk-center.png)
+   [![](media/users-bulk-delete/bulk-center.png "Check delete status in the Bulk Operations Results page")](media/users-bulk-delete/bulk-center.png#lightbox)
 
 Em seguida, pode verificar se os utilizadores que eliminou existem na organização Azure AD, quer no portal Azure, quer através da utilização do PowerShell.
 

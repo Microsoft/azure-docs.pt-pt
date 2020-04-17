@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a3b738d95b5b777f1cf0329fb3c1bc3e2860421e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: a7957c7cbcfa511ea441d8c7bd4371f56ab87560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545977"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461689"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -295,7 +295,7 @@ A secção fornece informações adicionais sobre as principais funcionalidades 
 Com o Azure IaaS, pode utilizar software antimalware de fornecedores de segurança como microsoft, Symantec, Trend Micro, McAfee e Kaspersky para proteger as suas máquinas virtuais de ficheiros maliciosos, adware e outras ameaças. O [Microsoft Antimalware](antimalware.md) para Serviços de Nuvem Azure e Máquinas Virtuais é uma capacidade de proteção que ajuda a identificar e remover vírus, spyware e outros softwares maliciosos. O Microsoft Antimalware fornece alertas configuráveis quando conhecidos software malicioso ou indesejado tenta instalar-se ou funcionar nos seus sistemas Azure. O Microsoft Antimalware também pode ser implementado usando o Azure Security Center
 
 ### <a name="hardware-security-module"></a>Módulo de Segurança de Hardware
-A encriptação e a autenticação não melhoram a segurança a menos que as chaves estejam protegidas. Pode simplificar a gestão e segurança dos seus segredos e chaves críticos armazenando-os no [Cofre de Chaves Azure.](../../key-vault/key-vault-overview.md) A Key Vault oferece a opção de armazenar as suas chaves em módulos de segurança de hardware (HSMs) certificados para os padrões FIPS 140-2 Level 2. As chaves de encriptação do SQL Server para [encriptação](https://msdn.microsoft.com/library/bb934049.aspx) de dados de backup ou transparente podem ser armazenadas no Key Vault com quaisquer chaves ou segredos das suas aplicações. As permissões e o acesso a estes itens protegidos são geridos através do [Diretório Ativo Azure.](https://azure.microsoft.com/documentation/services/active-directory/)
+A encriptação e a autenticação não melhoram a segurança a menos que as chaves estejam protegidas. Pode simplificar a gestão e segurança dos seus segredos e chaves críticos armazenando-os no [Cofre de Chaves Azure.](../../key-vault/general/overview.md) A Key Vault oferece a opção de armazenar as suas chaves em módulos de segurança de hardware (HSMs) certificados para os padrões FIPS 140-2 Level 2. As chaves de encriptação do SQL Server para [encriptação](https://msdn.microsoft.com/library/bb934049.aspx) de dados de backup ou transparente podem ser armazenadas no Key Vault com quaisquer chaves ou segredos das suas aplicações. As permissões e o acesso a estes itens protegidos são geridos através do [Diretório Ativo Azure.](https://azure.microsoft.com/documentation/services/active-directory/)
 
 ### <a name="virtual-machine-backup"></a>Backup de máquina virtual
 [A Azure Backup](../../backup/backup-overview.md) é uma solução que protege os dados da sua aplicação com investimento de capital zero e custos operacionais mínimos. Erros de aplicação podem corromper os seus dados, e erros humanos podem introduzir bugs nas suas aplicações que podem levar a problemas de segurança. Com o Azure Backup, as suas máquinas virtuais que executam windows e Linux estão protegidas.

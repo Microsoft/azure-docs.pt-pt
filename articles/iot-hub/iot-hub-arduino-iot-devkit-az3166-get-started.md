@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 631a20c7bf73aa2af363fdc0019ef24cccc58f9e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 0c7566df870b3c41b1f1dd7d4a4129ff9d9d9407
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258614"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481744"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ligue IoT DevKit AZ3166 ao Hub Azure IoT
 
@@ -175,9 +175,7 @@ Siga estes passos para preparar o ambiente de desenvolvimento para o DevKit:
 
     ![Instalar ferramentas Azure IoT](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    Ou utilize esta ligação direta:
-    > [!div class="nextstepaction"]
-    > [Instale pacote de extensão de ferramentas Azure IoT](vscode:extension/vsciot-vscode.azure-iot-tools)
+    Ou use este URL direto:`vscode:extension/vsciot-vscode.azure-iot-tools`
 
     > [!NOTE]
     > O pacote de extensão Azure IoT Tools contém a bancada de trabalho do [dispositivo Azure IoT](https://aka.ms/iot-workbench) que é usada para desenvolver e depurar em vários dispositivos ioT devkit. A [extensão Azure IoT Hub,](https://aka.ms/iot-toolkit)também incluída no pacote de extensão Azure IoT Tools, é usada para gerir e interagir com hubs Azure IoT.

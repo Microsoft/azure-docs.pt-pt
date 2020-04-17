@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 89de6bf80d14ec77fe6b1f98b6e1d15c6e573fbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46a1db94d576174b837a40c646fcf9e082e339c8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756288"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461621"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerida com o Diretório Ativo Azure para aceder aos recursos do Azure Service Bus
 [Identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) é uma funcionalidade cross-Azure que lhe permite criar uma identidade segura associada à implementação sob a qual o seu código de aplicação é executado. Pode então associar essa identidade a funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure de que a sua aplicação necessita.
@@ -75,9 +75,9 @@ Para obter mais informações sobre como os papéis incorporados são definidos,
 ## <a name="enable-managed-identities-on-a-vm"></a>Ativar identidades geridas num VM
 Antes de poder utilizar identidades geridas para a Azure Resources para autorizar recursos de ônibus de serviço a partir do seu VM, você deve primeiro ativar identidades geridas para os Recursos Azure no VM. Para aprender a ativar identidades geridas para os Recursos Azure, consulte um destes artigos:
 
-- [Portal Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Portal do Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-- [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modelo Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Bibliotecas de clientes do Gestor de Recursos Azure](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
@@ -140,7 +140,7 @@ Para enviar ou receber mensagens, insira o nome do espaço de nome e o nome da e
 
 
 > [!NOTE]
-> - A identidade gerida funciona apenas dentro do ambiente Azure, em serviços de Aplicações, VMs Azure e conjuntos de escala. Para aplicações .NET, a biblioteca Microsoft.Azure.Services.Services.AppAuthentication, que é utilizada pelo pacote NuGet de Ônibus de Serviço, fornece uma abstração sobre este protocolo e suporta uma experiência de desenvolvimento local. Esta biblioteca também permite testar o seu código localmente na sua máquina de desenvolvimento, utilizando a sua conta de utilizador do Visual Studio, Azure CLI 2.0 ou Ative Directory Integrated Authentication. Para mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte a [autenticação Service-to-service para o Azure Key Vault utilizando .NET](../key-vault/service-to-service-authentication.md).  
+> - A identidade gerida funciona apenas dentro do ambiente Azure, em serviços de Aplicações, VMs Azure e conjuntos de escala. Para aplicações .NET, a biblioteca Microsoft.Azure.Services.Services.AppAuthentication, que é utilizada pelo pacote NuGet de Ônibus de Serviço, fornece uma abstração sobre este protocolo e suporta uma experiência de desenvolvimento local. Esta biblioteca também permite testar o seu código localmente na sua máquina de desenvolvimento, utilizando a sua conta de utilizador do Visual Studio, Azure CLI 2.0 ou Ative Directory Integrated Authentication. Para mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte a [autenticação Service-to-service para o Azure Key Vault utilizando .NET](../key-vault/general/service-to-service-authentication.md).  
 > 
 > - Atualmente, as identidades geridas não funcionam com ranhuras de implementação do Serviço de Aplicações.
 

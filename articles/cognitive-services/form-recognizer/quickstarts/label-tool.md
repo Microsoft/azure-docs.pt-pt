@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0cfe58ab0d161019d5f53d9135c65db7beff2bb4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 790e2a148385f9da54df82f597c2ca52124dc2be
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398000"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529876"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulário com etiquetas utilizando a ferramenta de rotulagem da amostra
 
@@ -104,7 +104,7 @@ Preencha os campos com os seguintes valores:
 Na ferramenta de rotulagem de amostras, os projetos armazenam as suas configurações e configurações. Criar um novo projeto e preencher os campos com os seguintes valores:
 
 * **Nome** do ecrã - o nome do display do projeto
-* **Security Token** - Algumas configurações do projeto podem incluir valores sensíveis, tais como chaves API ou outros segredos partilhados. Cada projeto gerará um token de segurança que pode ser usado para encriptar/desencriptar configurações sensíveis do projeto. Pode encontrar fichas de segurança nas Definições de Aplicação clicando no ícone da engrenagem no canto inferior da barra de navegação esquerda.
+* **Security Token** - Algumas configurações do projeto podem incluir valores sensíveis, tais como chaves API ou outros segredos partilhados. Cada projeto gerará um token de segurança que pode ser usado para encriptar/desencriptar configurações sensíveis do projeto. Pode encontrar fichas de segurança nas Definições de Aplicação clicando no ícone da engrenagem na parte inferior da barra de navegação esquerda.
 * **Source Connection** - A ligação de armazenamento De Blob Azure que criou no passo anterior que gostaria de utilizar para este projeto.
 * **Caminho da Pasta** - Opcional - Se os formulários de origem estiverem localizados numa pasta no recipiente blob, especifique o nome da pasta aqui
 * Serviço de Reconhecimento de **FormulárioS Uri** - Url final do ponto final do reconhecimento de formulários.
@@ -130,9 +130,9 @@ Clique **em Executar OCR em todos os ficheiros** do painel esquerdo para obter a
 Em seguida, irá criar tags (etiquetas) e aplicá-las nos elementos de texto que pretende que o modelo reconheça.
 
 1. Primeiro, use o painel de editor de etiquetas para criar as etiquetas que gostaria de identificar.
-  1. Clique **+** para criar uma nova etiqueta.
-  1. Insira o nome da etiqueta.
-  1. Pressione Entrar para guardar a etiqueta.
+   1. Clique **+** para criar uma nova etiqueta.
+   1. Insira o nome da etiqueta.
+   1. Pressione Entrar para guardar a etiqueta.
 1. No editor principal, clique e arraste para selecionar uma ou várias palavras dos elementos de texto destacados.
 1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas de número são atribuídas como chaves de acesso para as primeiras 10 etiquetas. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel do editor de etiquetas.
     > [!Tip]
@@ -144,15 +144,30 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las nos elementos de texto que
     > * Não inclua chaves nos seus&mdash;campos marcados apenas os valores.
     > * Os dados da tabela devem ser detetados automaticamente e estarão disponíveis no ficheiro JSON de saída final. No entanto, se o modelo não detetar todos os dados da sua tabela, também pode marcar manualmente estes campos. Marque cada célula na mesa com um rótulo diferente. Se os seus formulários tiverem tabelas com um número variado de linhas, certifique-se de que marca pelo menos um formulário com a maior tabela possível.
 
-
-Siga os passos acima para rotular cinco dos seus formulários e, em seguida, passe para o passo seguinte.
-
 ![Janela principal do editor da ferramenta de rotulagem de amostra](../media/label-tool/main-editor.png)
 
+Siga os passos acima para rotular pelo menos cinco dos seus formulários.
+
+### <a name="specify-tag-value-types"></a>Especificar tipos de valor de etiqueta
+
+Opcionalmente, pode definir o tipo de dados esperado para cada etiqueta. Abra o menu de contexto à direita de uma etiqueta e selecione um tipo a partir do menu. Esta funcionalidade permite que o algoritmo de deteção faça certos pressupostos que melhorarão a precisão de deteção de texto. Também garante que os valores detetados serão devolvidos num formato padronizado na saída json final. 
+
+> [!div class="mx-imgBorder"]
+> ![Seleção de tipos de valor com ferramenta de rotulagem de amostra](../media/whats-new/formre-value-type.png)
+
+Os seguintes tipos de valor e variações são atualmente suportados:
+* `string`
+    * padrão, `no-whitespaces`,`alphanumeric`
+* `number`
+    * padrão,`currency`
+* `date` 
+    * padrão, `dmy` `mdy`,`ymd`
+* `time`
+* `integer`
 
 ## <a name="train-a-custom-model"></a>Preparar um modelo personalizado
 
-Clique no ícone do comboio (o vagão de comboio) no painel esquerdo para abrir a página de Treino. Em seguida, clique no botão **Train** para começar a treinar o modelo. Assim que o processo de treino estiver concluído, verá as seguintes informações:
+Clique no ícone do Comboio no painel esquerdo para abrir a página de Treino. Em seguida, clique no botão **Train** para começar a treinar o modelo. Assim que o processo de treino estiver concluído, verá as seguintes informações:
 
 * **Id** modelo - A identificação do modelo que foi criado e treinado. Cada chamada de treino cria um novo modelo com a sua própria identificação. Copiar esta cadeia para um local seguro; Vai precisar se quiser fazer chamadas de previsão através da API REST.
 * **Precisão média** - A precisão média do modelo. Pode melhorar a precisão do modelo rotulando novamente formas adicionais e treino para criar um novo modelo. Recomendamos começar por rotular cinco formulários e adicionar mais formulários, se necessário.
@@ -167,7 +182,7 @@ Após o treino terminar, examine o valor de **precisão média.** Se for baixo, 
 
 ## <a name="analyze-a-form"></a>Analisar um formulário
 
-Clique no ícone Previsão (retângulos) à esquerda para testar o seu modelo. Faça upload de um documento de formulário que não usou no processo de treino. Em seguida, clique no botão **Previsão** à direita para obter previsões de chave/valor para o formulário. A ferramenta aplicará etiquetas em caixas de delimitação e reportará a confiança de cada etiqueta.
+Clique no ícone Previsão (lâmpada) à esquerda para testar o seu modelo. Faça upload de um documento de formulário que não usou no processo de treino. Em seguida, clique no botão **Previsão** à direita para obter previsões de chave/valor para o formulário. A ferramenta aplicará etiquetas em caixas de delimitação e reportará a confiança de cada etiqueta.
 
 > [!TIP]
 > Também pode executar a API de análise com uma chamada REST. Para aprender a fazer isto, consulte [O Comboio com rótulos usando Python](./python-labeled-data.md).

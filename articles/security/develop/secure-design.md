@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299419"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461723"
 ---
 # <a name="design-secure-applications-on-azure"></a>Aplicações seguras de design no Azure
 Neste artigo apresentamos atividades e controlos de segurança a considerar quando projeta aplicações para a nuvem. Os recursos de formação, juntamente com questões de segurança e conceitos a considerar durante os requisitos e fases de design do Microsoft [Security Development Lifecycle (SDL).](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para projetar uma aplicação mais segura.
@@ -242,7 +242,7 @@ A melhor maneira de se defender deste tipo de ataque é pedir ao utilizador algo
 
 Perder chaves e credenciais é um problema comum. A única coisa pior do que perder as chaves e as credenciais é ter uma parte não autorizada a ter acesso a elas. Os atacantes podem aproveitar as técnicas automatizadas e manuais para encontrar chaves e segredos que são armazenados em repositórios de código como o GitHub. Não coloque chaves e segredos nestes repositórios de código público ou em qualquer outro servidor.
 
-Coloque sempre as chaves, certificados, segredos e cordas de ligação numa solução de gestão chave. Pode utilizar uma solução centralizada na qual chaves e segredos são armazenados em módulos de segurança de hardware (HSMs). O Azure fornece-lhe um HSM na nuvem com [o Cofre de Chaves Azure.](../../key-vault/key-vault-overview.md)
+Coloque sempre as chaves, certificados, segredos e cordas de ligação numa solução de gestão chave. Pode utilizar uma solução centralizada na qual chaves e segredos são armazenados em módulos de segurança de hardware (HSMs). O Azure fornece-lhe um HSM na nuvem com [o Cofre de Chaves Azure.](../../key-vault/general/overview.md)
 
 Key Vault é uma *loja secreta:* é um serviço de nuvem centralizado para armazenar segredos de aplicação. O Key Vault mantém os seus dados confidenciais seguros, mantendo os segredos da aplicação num único local central e fornecendo acesso seguro, controlo de permissões e registo de acesso.
 
@@ -273,11 +273,11 @@ Se os seus dados forem armazenados numa base de dados ou se se deslocarem para t
 
 Algumas coisas nunca devem ser codificadas no seu software. Alguns exemplos são nomes de anfitriões ou endereços IP, URLs, endereços de e-mail, nomes de utilizador, palavras-passe, chaves de conta de armazenamento e outras chaves criptográficas. Considere implementar requisitos em torno do que pode ou não ser codificado no seu código, incluindo nas secções de comentários do seu código.
 
-Quando colocar comentários no seu código, certifique-se de que não guarda nenhuma informação sensível. Isto inclui o seu endereço de e-mail, palavras-passe, cordas de ligação, informações sobre a sua aplicação que só seriam conhecidas por alguém da sua organização, e qualquer outra coisa que possa dar a um intruso uma vantagem em atacar a sua aplicação ou organização .
+Quando colocar comentários no seu código, certifique-se de que não guarda nenhuma informação sensível. Isto inclui o seu endereço de e-mail, palavras-passe, cordas de ligação, informações sobre a sua aplicação que só seriam conhecidas por alguém da sua organização, e qualquer outra coisa que possa dar a um intruso uma vantagem em atacar a sua aplicação ou organização.
 
 Basicamente, assuma que tudo no seu projeto de desenvolvimento será do conhecimento público quando for implementado. Evite incluir dados sensíveis de qualquer tipo no projeto.
 
-Há pouco, discutimos [o Cofre chave Azure.](../../key-vault/key-vault-overview.md) Podes usar o Key Vault para guardar segredos como chaves e senhas em vez de os codificares. Quando utiliza o Key Vault em combinação com identidades geridas para recursos Azure, a sua aplicação web Azure pode aceder a valores de configuração secretos de forma fácil e segura sem guardar quaisquer segredos no seu controlo ou configuração de origem. Para saber mais, consulte [Gerir segredos nas suas aplicações de servidor com o Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+Há pouco, discutimos [o Cofre chave Azure.](../../key-vault/general/overview.md) Podes usar o Key Vault para guardar segredos como chaves e senhas em vez de os codificares. Quando utiliza o Key Vault em combinação com identidades geridas para recursos Azure, a sua aplicação web Azure pode aceder a valores de configuração secretos de forma fácil e segura sem guardar quaisquer segredos no seu controlo ou configuração de origem. Para saber mais, consulte [Gerir segredos nas suas aplicações de servidor com o Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
 
 ### <a name="implement-fail-safe-measures"></a>Implementar medidas de segurança de falha
 

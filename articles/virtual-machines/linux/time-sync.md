@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c3571d9ba94e1803259457d473ed3f1669ea67ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c93c1f525713a90abd71c30a21401b9d1cfcb9f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80330586"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460907"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de tempo para VMs Linux em Azure
 

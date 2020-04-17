@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: 2ae389be25cd8633a53a49cf000796c1510733a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76965167"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461536"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Cenário: Clusters Azure HDInsight com encriptação de disco perdem acesso ao Cofre chave
 
@@ -32,7 +32,7 @@ Navegue até à Apache Ambari UI para encontrar mais informações sobre o alert
 
 ### <a name="kvaad-outage"></a>Interrupção de KV/AAD
 
-Veja a [disponibilidade do Cofre chave azure e a página](../../key-vault/key-vault-disaster-recovery-guidance.md) de estado de Azure para mais detalheshttps://status.azure.com/
+Veja a [disponibilidade do Cofre chave azure e a página](../../key-vault/general/disaster-recovery-guidance.md) de estado de Azure para mais detalheshttps://status.azure.com/
 
 ### <a name="kv-accidental-deletion"></a>Eliminação acidental de KV
 

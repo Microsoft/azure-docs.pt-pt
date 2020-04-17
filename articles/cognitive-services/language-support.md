@@ -10,54 +10,58 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4944fd36359f35ff516aa149b357a7cda042fdae
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: d103b22338672f031fa4f91349a8376f86b703c8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477042"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530980"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Apoio linguístico natural para serviços cognitivos azure
 
 Os Serviços Cognitivos Azure permitem-lhe construir aplicações que vejam, ouçam, falem e compreendam os seus utilizadores. Entre estes serviços, são suportados mais de três dezenas de idiomas, permitindo aos utilizadores comunicarem com a sua aplicação de forma natural. Utilize os links abaixo para ver a disponibilidade de idiomas por serviço.
 
-Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitações baseadas na linguagem.
+Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitações baseadas na linguagem humana.
 
-* [Personalizador](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
-* [Detetor de Anomalias (Pré-visualização)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
+* [Detetor de Anomalias (Pré-visualização)](./anomaly-detector/index.yml)
+* [Visão Personalizada](./Custom-Vision-Service/index.yml)
+* [Rostos](./face/index.yml)
+* [Personalizador](./personalizer/index.yml)
 
 ## <a name="vision"></a>Visão
 
-* [Imagem Digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq)
-* [Indexador de Vídeos](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
-* [Reconhecedor de Tinta Digital](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/language-support)
-## <a name="speech"></a>Voz
-
-* [Discurso Personalizado](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/customspeech-how-to-topics/cognitive-services-custom-speech-change-locale)
-* [Discurso: Discurso ao Texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#speech-to-text)
-* [Serviço de Discurso:Texto-a-Discurso](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech)
-* [Serviço de Discurso: Tradução da Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#speech-translation)
+* [Imagem Digitalizada](./computer-vision/language-support.md)
+* [Reconhecedor de Formato (Pré-visualização)](./form-recognizer/language-support.md)
+* [Reconhecedor de Tinta Digital (Pré-visualização)](./ink-recognizer/language-support.md)
+* [Indexador de Vídeos](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
 
 ## <a name="language"></a>Idioma
 
-* [Verificação Ortográfica do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)
-* [Compreensão de Idiomas (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages)
-* [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
-* [Texto do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
-* [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)
+* [Leitura Avançada (Pré-visualização)](./immersive-reader/language-support.md)
+* [Compreensão de Idiomas (LUIS)](./luis/luis-supported-languages.md)
+* [QnA Maker](./qnamaker/overview/languages-supported.md)
+* [Análise de Texto](./text-analytics/text-analytics-supported-languages.md)
+* [Texto do Tradutor](./translator/languages.md)
+
+## <a name="speech"></a>Voz
+
+* [Discurso: Discurso ao Texto](./speech-service/supported-languages.md#speech-to-text)
+* [Serviço de Discurso:Texto-a-Discurso](./speech-service/supported-languages.md#text-to-speech)
+* [Serviço de Discurso: Tradução da Fala](./speech-service/supported-languages.md#speech-translation)
 
 ## <a name="search"></a>Pesquisa
 
-* [Pesquisa Web do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/supported-countries-markets)
-* [Pesquisa de Imagens do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/supported-countries-markets)
-* [Pesquisa do Bing Notícias](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/supported-countries-markets)
-* [Sugestão Automática do Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest/bing-autosuggest-supported-languages)
-* [Pesquisa Visual do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/supported-countries-markets)
-* [Pesquisa Personalizada do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/supported-countries-markets)
+* [Pesquisa Personalizada do Bing](./bing-custom-search/supported-countries-markets.md)
+* [Pesquisa de Imagens do Bing](./bing-image-search/supported-countries-markets.md)
+* [Pesquisa do Bing Notícias](./bing-news-search/supported-countries-markets.md)
+* [Sugestão Automática do Bing](./Bing-Autosuggest/bing-autosuggest-supported-languages.md)
+* [Verificação Ortográfica do Bing](./bing-spell-check/bing-spell-check-supported-languages.md)
+* [Pesquisa Visual do Bing](./bing-visual-search/supported-countries-markets.md)
+* [Pesquisa Web do Bing](./bing-web-search/supported-countries-markets.md)
 
 ## <a name="decision"></a>Decisão
 
-* [Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages)
+* [Content Moderator](./content-moderator/text-moderation-api-languages.md)
 
 ## <a name="see-also"></a>Consulte também
 

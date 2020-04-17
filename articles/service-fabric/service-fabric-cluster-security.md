@@ -4,12 +4,12 @@ description: Conheça os cenários de segurança para um cluster Azure Service F
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 5912f98f6a1c82250a66ec4d9fe39f2f69b1cc8f
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80753789"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461587"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster de tecido de serviço
 
@@ -90,7 +90,7 @@ Detete as funções de Cliente do Administrador e do Utilizador quando criar o c
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509 certificados e tecido de serviço
 
-Os certificados digitais X.509 são geralmente usados para autenticar clientes e servidores. Também são usados para encriptar e assinar mensagens digitalmente. Service Fabric utiliza certificados X.509 para garantir um cluster e fornecer funcionalidades de segurança da aplicação. Para obter mais informações sobre os certificados digitais X.509, consulte [Trabalhar com certificados](https://msdn.microsoft.com/library/ms731899.aspx). Usa [o Key Vault](../key-vault/key-vault-overview.md) para gerir certificados para clusters de tecido de serviço em Azure.
+Os certificados digitais X.509 são geralmente usados para autenticar clientes e servidores. Também são usados para encriptar e assinar mensagens digitalmente. Service Fabric utiliza certificados X.509 para garantir um cluster e fornecer funcionalidades de segurança da aplicação. Para obter mais informações sobre os certificados digitais X.509, consulte [Trabalhar com certificados](https://msdn.microsoft.com/library/ms731899.aspx). Usa [o Key Vault](../key-vault/general/overview.md) para gerir certificados para clusters de tecido de serviço em Azure.
 
 Algumas coisas importantes a considerar:
 

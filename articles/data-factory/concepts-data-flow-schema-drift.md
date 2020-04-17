@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/12/2019
-ms.openlocfilehash: a6b3b1d11242434088c138460d968f39d5273e4f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/15/2020
+ms.openlocfilehash: 4c510cae7ba5a952e6dc7f7cb7ae7591fe801560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418427"
+ms.locfileid: "81461298"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Deriva de schema no fluxo de dados de mapeamento
 
@@ -30,6 +30,10 @@ Para proteger contra a deriva de esquemas, é importante ter as instalações nu
 A Azure Data Factory suporta de forma nativa esquemas flexíveis que mudam da execução para a execução para que possa construir uma lógica genérica de transformação de dados sem a necessidade de recompilar os seus fluxos de dados.
 
 Você precisa tomar uma decisão arquitetônica no seu fluxo de dados para aceitar a deriva de esquemas em todo o seu fluxo. Quando o fizer, pode proteger-se contra alterações de esquemas a partir das fontes. No entanto, perderá a ligação precoce das suas colunas e tipos em todo o seu fluxo de dados. A Azure Data Factory trata os fluxos de deriva de esquemas como fluxos de ligação tardia, por isso, quando constrói as suas transformações, os nomes de colunas à deriva não estarão disponíveis nas vistas do esquema durante todo o fluxo.
+
+Este vídeo fornece uma introdução a algumas das soluções complexas que você pode construir facilmente em ADF com a funcionalidade de deriva de esquemas do fluxo de dados. Neste exemplo, construímos padrões reutilizáveis baseados em schemas de base de dados flexíveis:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tyx7]
 
 ## <a name="schema-drift-in-source"></a>Deriva de schema na fonte
 

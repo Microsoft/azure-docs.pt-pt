@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: acf3e6273f98d98d5da55cfb5b044677116c44dc
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 9d1e89919647d9d94b287618da2f9a77278425a5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520817"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459088"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Encriptação de dados para Base de Dados Azure para MySQL utilizando o portal Azure
 
@@ -22,13 +22,13 @@ Aprenda a usar o portal Azure para configurar e gerir a encriptação de dados p
 * Você deve ter uma assinatura Azure e ser um administrador nessa subscrição.
 * No Cofre de Chaves Azure, crie um cofre chave e uma chave para usar para uma chave gerida pelo cliente.
 * O cofre-chave deve ter as seguintes propriedades para usar como chave gerida pelo cliente:
-  * [Eliminação suave](../key-vault/key-vault-ovw-soft-delete.md)
+  * [Eliminação suave](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Purga protegida](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
+  * [Purga protegida](../key-vault/general/overview-soft-delete.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true

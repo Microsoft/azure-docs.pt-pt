@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b5d46caa80f3f0aaeeb18bd919dafccf628c5faf
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4559a49a64688545e519f6172798997c2d695672
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384979"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461981"
 ---
 Quando cria uma máquina virtual (VM) do Azure, tem de criar uma [rede virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) ou de utilizar uma VNet já existente. Também tem de decidir como pretende que se faça o acesso às VMs na VNet. É importante [planear antes de criar recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e ter a certeza de que compreende os [limites dos recursos de rede](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
@@ -148,24 +148,7 @@ Esta tabela lista os métodos que pode utilizar para criar um balanceador de car
 
 ### <a name="virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de máquinas virtuais
 
-Ao trabalhar com conjuntos de escala de máquina virtual e equilibrador de carga, deve considerar-se o seguinte:
-
-* **Vários conjuntos**de escala de máquina virtual não podem usar o mesmo equilíbrio de carga .
-* **Regras de Encaminhamento portuário e regras nat de entrada:**
-  * Cada conjunto de escala de máquina virtual deve ter uma regra NAT de entrada.
-  * Ao utilizar a balança de máquinavirtual definida na piscina de backend do equilibrador de carga, as regras de entrada padrão na NAT são criadas automaticamente, isto é por design.
-* **Regras de equilíbrio de carga:**
-  * Ao utilizar a balança de máquinavirtual definida na piscina de backend do equilibrador de carga, a regra de equilíbrio de carga predefinida é criada automaticamente, isto é por design.
-* **Regras de saída:**
-  *  Para criar uma regra de saída para um pool backend que já é referenciado por uma regra de equilíbrio de carga, você precisa primeiro marcar **"Criar regras implícitas** de saída" como **Não** no portal quando a regra de equilíbrio de carga de entrada é criada.
-
-  :::image type="content" source="./media/virtual-machines-common-network-overview/vmsslb.png" alt-text="Criação de regras de equilíbrio de carga" border="true":::
-
-Os seguintes métodos podem ser utilizados para implantar um conjunto de escala de máquina virtual com um equilibrador de carga Azure existente.
-
-* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o portal Azure](../articles/load-balancer/configure-vm-scale-set-portal.md).
-* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o Azure PowerShell](../articles/load-balancer/configure-vm-scale-set-powershell.md).
-* Configure um conjunto de escala de máquina virtual com um equilíbrio de [carga Azure existente utilizando o Azure CLI](../articles/load-balancer/configure-vm-scale-set-cli.md).
+Para obter mais informações sobre os conjuntos de balançadores de carga e de escala de máquina virtual, consulte [o Networking para conjuntos](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking)de escala de máquinas virtuais Azure .
 
 ## <a name="vms"></a>VMs
 

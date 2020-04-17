@@ -4,12 +4,12 @@ description: Saiba usar identidades geridas para Azure com Tecido de Serviço.
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: f6f3736bed4d3d59bce08d4df3ee0aa164a0a764
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a26f188ed2f5e18bdf775cd1fb21001495ffdc89
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415102"
+ms.locfileid: "81461451"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Utilização de identidades geridas para Azure com tecido de serviço
 
@@ -57,7 +57,7 @@ Os seguintes cenários não são suportados ou não são recomendados; Note que 
 
 - Remover ou alterar as identidades atribuídas a um pedido; se tiver de fazer alterações, submeta-se a uma nova atribuição de identidade e, em seguida, a remover uma anteriormente atribuída. A remoção de uma identidade de uma aplicação existente pode ter efeitos indesejáveis, incluindo deixar a sua aplicação num estado que não é atualizável. É seguro suprimir completamente o pedido se for necessária a remoção de uma identidade; Note que eliminará a identidade atribuída pelo sistema (se tal for definida) associada à aplicação, e removerá quaisquer associações com as identidades atribuídas ao utilizador atribuídas à aplicação.
 
-- O suporte do Serviço Tecido para identidades geridas não está integrado neste momento no [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md).
+- O suporte do Serviço Tecido para identidades geridas não está integrado neste momento no [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 1961797f37a760fe3a31dc8aa3830889965b69b5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 78f7c935e64276e7f4862dad966b99bff6bd246d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81379946"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481948"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento azure
 
@@ -160,7 +160,7 @@ O quadro seguinte mostra o quão duradouros e disponíveis os seus dados estão 
 
 <sup>2</sup> Para obter informações sobre os tipos de conta de armazenamento, consulte a [visão geral da conta](storage-account-overview.md)de armazenamento .
 
-Todos os dados relativos a todos os tipos de contas de armazenamento são copiados de acordo com a opção de despedimento para a conta de armazenamento. Objetos incluindo bolhas de blocos, bolhas de apêndice, bolhas de página, filas, mesas e ficheiros são copiados.
+Todos os dados relativos a todos os tipos de contas de armazenamento e [a todos os níveis (incluindo o arquivo)](../blobs/storage-blob-storage-tiers.md) são copiados de acordo com a opção de despedimento para a conta de armazenamento. Objetos incluindo bolhas de blocos, bolhas de apêndice, bolhas de página, filas, mesas e ficheiros são copiados.
 
 Para obter informações sobre preços para cada opção de despedimento, consulte o preço do [Armazenamento Azure](https://azure.microsoft.com/pricing/details/storage/).
 

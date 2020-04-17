@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8578c518ac45bea147790028c2904c7ce36fffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73838711"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459037"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mova uma conta de Armazenamento Azure para outra região
 
@@ -51,7 +51,7 @@ Este modelo contém configurações que descrevem a sua conta de armazenamento.
 
 Para exportar um modelo utilizando o portal Azure:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. **Selecione Todos os recursos** e, em seguida, selecione a sua conta de armazenamento.
 
@@ -221,7 +221,7 @@ A tabela seguinte lista estas funcionalidades juntamente com orientações para 
 
 | Funcionalidade    | Orientação    |
 |--------|-----------|
-| **Políticas de gestão do ciclo de vida** | [Gerir o ciclo de vida do Armazenamento de blobs do Azure](../blobs/storage-lifecycle-management-concepts.md) |
+| **Políticas de gestão do ciclo de vida** | [Gerir o ciclo de vida do Armazenamento de Blobs do Azure](../blobs/storage-lifecycle-management-concepts.md) |
 | **Web sites estáticos** | [Hospedar um site estático no Armazenamento Azure](../blobs/storage-blob-static-website-how-to.md) |
 | **Subscrições de eventos** | [Reagir aos eventos de armazenamento de Blobs](../blobs/storage-blob-event-overview.md) |
 | **Alertas** | [Criar, visualizar e gerir alertas de registo de atividade utilizando o Monitor Azure](../../azure-monitor/platform/alerts-activity-log.md) |
@@ -276,7 +276,7 @@ Para remover uma conta de armazenamento utilizando o portal Azure:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para remover o grupo de recursos e os seus recursos associados, incluindo a nova conta de armazenamento, utilize o comando [Remove-AzStorageAccount:](/powershell/module/az.resources/remove-azstorageaccount)
+Para remover o grupo de recursos e os seus recursos associados, incluindo a nova conta de armazenamento, utilize o comando [Remove-AzStorageAccount:](/powershell/module/az.storage/remove-azstorageaccount)
 
 ```powershell
 Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount

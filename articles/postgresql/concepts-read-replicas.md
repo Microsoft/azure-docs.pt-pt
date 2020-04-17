@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.openlocfilehash: fd6d3e24adfc22d2f6ea17f09b8dea4638a054b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 545d04bdede76a6ce25c9e4665f39c01ff6caa73
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76769031"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531988"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -98,14 +98,14 @@ Para obter informações adicionais, consultar o servidor principal diretamente 
 Na versão PostgreSQL 10:
 
 ```SQL
-select pg_wal_lsn_diff(pg_current_wal_lsn(), stat.replay_lsn) 
+select pg_wal_lsn_diff(pg_current_wal_lsn(), replay_lsn) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 
 Na versão 9.6 e anterior do PostgreSQL:
 
 ```SQL
-select pg_xlog_location_diff(pg_current_xlog_location(), stat.replay_location) 
+select pg_xlog_location_diff(pg_current_xlog_location(), replay_location) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 

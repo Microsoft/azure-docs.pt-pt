@@ -7,12 +7,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mimckitt
-ms.openlocfilehash: ee6a25ac5a4cc7de8b8340afb186d170cc147a38
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 70810b21def1672758683abd49f92b86776c9d7b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393778"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458986"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>A escala de máquina virtual Azure define atualizações automáticas de imagem de OS
 
@@ -158,7 +158,7 @@ az provider register --namespace Microsoft.Compute
 - A nova versão de imagem não deve ser excluída da versão mais recente para aquela imagem da galeria. As versões de imagem excluídas da versão mais recente da imagem da galeria não são lançadas para a escala definida através de atualização automática de imagem do OS.
 
 > [!NOTE]
->Pode levar até 2 horas para que uma escala definida obtenha o primeiro lançamento de imagem após o conjunto de escala estar configurado para atualizações automáticas de SO. Este é um atraso único por conjunto de escala. Os lançamentos de imagem subsequentes são aplicados à escala definida sem este atraso.
+>Pode levar até 3 horas para uma escala definida para desencadear o lançamento da primeira atualização de imagem após o conjunto de escala estar configurado para atualizações automáticas de SO. Este é um atraso único por conjunto de escala. Os lançamentos de imagem subsequentes são ativados na balança definida dentro de 30 minutos.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Configure atualização automática de imagem do OS

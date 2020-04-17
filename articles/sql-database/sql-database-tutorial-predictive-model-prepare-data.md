@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
-ms.openlocfilehash: 505f58f13a7186948a228fefe872d74fb98eba33
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: bf69d2963c74723cb3fea542e28288e4f136d5c3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345782"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458765"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Prepare dados para treinar um modelo preditivo em R com serviços de machine learning de base de dados Azure SQL (pré-visualização)
 
@@ -41,13 +42,11 @@ Na [segunda parte,](sql-database-tutorial-predictive-model-build-compare.md)apre
 
 Na [terceira parte,](sql-database-tutorial-predictive-model-deploy.md)aprenderá a armazenar o modelo numa base de dados e, em seguida, criará procedimentos armazenados a partir dos scripts R que desenvolveu nas partes um e dois. Os procedimentos armazenados serão executados numa base de dados SQL para fazer previsões com base em novos dados.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição Azure - Se não tiver uma subscrição Azure, [crie uma conta](https://azure.microsoft.com/free/) antes de começar.
 
-* Servidor de base de dados Azure SQL com serviços de aprendizagem automática ativados - Durante a pré-visualização pública, a Microsoft irá embarcar-lhe e ativar o machine learning para as suas bases de dados existentes ou novas. Siga os passos em [Inscreva-se para a pré-visualização](sql-database-machine-learning-services-overview.md#signup).
+* [Base de dados Azure SQL com Serviços de Aprendizagem Automática (com R)](sql-database-machine-learning-services-overview.md) ativados.
 
 * Pacote RevoScaleR - Consulte [o RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) para obter opções para instalar este pacote localmente.
 
@@ -57,7 +56,7 @@ Na [terceira parte,](sql-database-tutorial-predictive-model-deploy.md)aprenderá
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="import-the-sample-database"></a>Importar a base de dados da amostra
 

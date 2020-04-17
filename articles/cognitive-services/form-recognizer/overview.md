@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6919849d28573ad7388a7f2e317d2b8433f35559
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5b7a060aa2313902e4644fdd15068e06816e3f58
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399455"
+ms.locfileid: "81529897"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -92,7 +92,7 @@ Explore a documentação de referência rest [API](https://westus2.dev.cognitive
 
 Os requisitos de entrada para o modelo de recibo são ligeiramente diferentes.
 
-* O formato deve ser JPEG, PNG, BMP, PDF (texto ou digitalizado) ou TIFF.
+* O formato deve ser JPEG, PNG, PDF (texto ou digitalizado) ou TIFF.
 * O tamanho do ficheiro deve ser inferior a 20 MB.
 * As dimensões de imagem devem estar entre 50 x 50 pixels e 10000 x 10000 pixels.
 * As dimensões pdf devem ser no máximo 17 x 17 polegadas, correspondentes aos tamanhos legais ou a3 e menores.

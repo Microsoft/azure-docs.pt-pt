@@ -1,11 +1,11 @@
 ---
-title: Restaurar a granel utilizadores eliminados (pré-visualização) no portal de Diretório Ativo Azure [ Microsoft Docs
+title: A granel restaure utilizadores apagados no portal de Diretório Ativo Azure [ Microsoft Docs
 description: Restaurar utilizadores apagados a granel no centro de administração da AD Azure em Azure Ative Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/15/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d392ae97a8325dd4a56acd807ebfb2b951216eae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f75fe224491c2853f819a45db678e87849dc72d1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174264"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532726"
 ---
-# <a name="bulk-restore-deleted-users-preview-in-azure-active-directory"></a>Restaurar a granel utilizadores eliminados (pré-visualização) no Diretório Ativo do Azure
+# <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>A granel restaura utilizadores eliminados no Diretório Ativo do Azure
 
 O Azure Ative Directory (Azure AD) suporta a criação e eliminação de operações em massa do utilizador, convite a granel para hóspedes e suporta o download de listas de utilizadores, grupos e membros do grupo.
 
@@ -36,7 +36,7 @@ O Azure Ative Directory (Azure AD) suporta a criação e eliminação de operaç
 
    ![Selecione um ficheiro CSV local no qual lista os utilizadores que pretende adicionar](./media/users-bulk-restore/upload-button.png)
 
-1. Na página **de restauro a granel (Pré-visualização),** sob o upload do ficheiro **CSV,** navegue para o ficheiro. Quando selecionar o ficheiro e clicar **em Submeter,** a validação do ficheiro CSV começa.
+1. Na página **de restauro a granel,** sob **o upload do seu ficheiro CSV,** navegue para o ficheiro. Quando selecionar o ficheiro e clicar **em Submeter,** a validação do ficheiro CSV começa.
 1. Quando o conteúdo do ficheiro for validado, verá o **Ficheiro carregado com sucesso**. Se houver erros, tem de os corrigir antes de poder submeter o trabalho.
 1. Quando o seu ficheiro passar a validação, selecione **Enviar** para iniciar a operação a granel Azure que restaura os utilizadores.
 1. Quando a operação de restauro terminar, verá uma notificação de que a operação a granel foi bem sucedida.
@@ -45,9 +45,9 @@ Se houver erros, pode descarregar e ver o ficheiro de resultados na página de r
 
 ## <a name="check-status"></a>Verificar o estado
 
-Pode ver o estado de todos os seus pedidos a granel pendentes na página de resultados da **operação Bulk (pré-visualização).**
+Pode ver o estado de todos os seus pedidos a granel pendentes na página de resultados da **operação Bulk.**
 
-   ![Verifique o estado de upload na página resultados das operações a granel](./media/users-bulk-restore/bulk-center.png)
+[![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
 
 Em seguida, pode verificar se os utilizadores restaurados existem na organização Azure AD, quer no portal Azure, quer através da utilização do PowerShell.
 

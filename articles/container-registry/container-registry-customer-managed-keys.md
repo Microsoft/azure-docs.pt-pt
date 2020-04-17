@@ -4,18 +4,18 @@ description: Saiba sobre encriptação no resto do seu registo de contentores Az
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: fe0736f83db2ba5b872d50bcf1262ca423de9f09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d5561998cf0b19698c8059a861a4014a171a7e7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498959"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461757"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Encriptação usando chaves geridas pelo cliente
 
 Quando armazena imagens e outros artefactos num registo de contentores Azure, o Azure encripta automaticamente o conteúdo do registo em repouso com [chaves geridas pelo serviço](../security/fundamentals/encryption-atrest.md#data-encryption-models). Pode complementar a encriptação padrão com uma camada de encriptação adicional utilizando uma chave que cria e gere no Cofre de Chaves Azure. Este artigo percorre-o através dos degraus utilizando o Azure CLI e o portal Azure.
 
-A encriptação do lado do servidor com chaves geridas pelo cliente é suportada através da integração com [o Cofre de Chaves Azure](../key-vault/key-vault-overview.md). Pode criar as suas próprias chaves de encriptação e armazená-las num cofre de chaves, ou pode usar as APIs do Azure Key Vault para gerar chaves de encriptação. Com o Azure Key Vault, também pode auditar o uso da chave.
+A encriptação do lado do servidor com chaves geridas pelo cliente é suportada através da integração com [o Cofre de Chaves Azure](../key-vault/general/overview.md). Pode criar as suas próprias chaves de encriptação e armazená-las num cofre de chaves, ou pode usar as APIs do Azure Key Vault para gerar chaves de encriptação. Com o Azure Key Vault, também pode auditar o uso da chave.
 
 Esta funcionalidade está disponível no nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites de serviço de registo, consulte o [Registo de Contentores Azure SKUs](container-registry-skus.md).
 
@@ -176,7 +176,7 @@ Tome nota do Nome de **Recurso** da identidade gerida. Precisa deste nome em pas
 
 ### <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
-Para obter passos para criar um cofre chave, consulte [Quickstart: set and retrieve a secret from Azure Key Vault usando o portal Azure](../key-vault/quick-create-portal.md).
+Para obter passos para criar um cofre chave, consulte [Quickstart: set and retrieve a secret from Azure Key Vault usando o portal Azure](../key-vault/secrets/quick-create-portal.md).
 
 Ao criar um cofre chave para uma chave gerida pelo cliente, no separador **Basics,** deve ativar as seguintes definições de proteção: **Eliminação suave** e **proteção de purga**. Estas definições ajudam a prevenir a perda de dados causada por eliminações acidentais de chave ou chave do cofre.
 
@@ -392,7 +392,7 @@ Revogar a chave bloqueia efetivamente o acesso a todos os dados do registo, uma 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [encriptação em repouso em Azure.](../security/fundamentals/encryption-atrest.md)
-* Saiba mais sobre as políticas de acesso e como [garantir o acesso a um cofre chave.](../key-vault/key-vault-secure-your-key-vault.md)
+* Saiba mais sobre as políticas de acesso e como [garantir o acesso a um cofre chave.](../key-vault/general/secure-your-key-vault.md)
 * Para fornecer feedback sobre as chaves geridas pelo cliente para o Registo de Contentores Azure, visite o [site aCR GitHub](https://aka.ms/acr/issues).
 
 

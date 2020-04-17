@@ -3,12 +3,12 @@ title: Versões de cluster suportadas em Tecido de Serviço Azure
 description: Conheça as versões de cluster no Azure Service Fabric, incluindo um link para os mais recentes lançamentos do blog da equipa service Fabric.
 ms.topic: troubleshooting
 ms.date: 03/02/2020
-ms.openlocfilehash: 1158266857f0864ed2f442edb100032c70063719
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: b76e498926492ce7acaa696dfe9a0299fb5573e0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385049"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460533"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões de Tecido de Serviço Suportado
 
@@ -37,10 +37,10 @@ A tabela seguinte lista as versões do Tecido de Serviço e as suas datas finais
 | 6.3.* | 6.1.480.* |Menos ou igual à versão 3.2 |31 de março de 2019  |
 | 6.4.* | 6.2.301.* |Menos ou igual à versão 3.3 |15 de setembro de 2019 |
 | 6.5.* | 6.4.617.* |Menos ou igual à versão 3.4 |1 de agosto de 2020 |
-| 7.0.466.* | 6.4.664.* |Menos ou igual à versão 4.0|Versão atual, por isso não há data de fim |
-| 7.0.466.* | 6.5.* |Menos ou igual à versão 4.0|Versão atual, por isso não há data de fim |
-| 7.0.470.* | 7.0.466.* |Menos ou igual à versão 4.0 |Versão atual, por isso não há data de fim |
-
+| 7.0.466.* | 6.4.664.* |Menos ou igual à versão 4.0|1 de agosto de 2020  |
+| 7.0.466.* | 6.5.* |Menos ou igual à versão 4.0|1 de agosto de 2020 |
+| 7.0.470.* | 7.0.466.* |Menos ou igual à versão 4.0 |1 de agosto de 2020  |
+| 7.1.409.* | 7.0.466.* |Menos ou igual à versão 4.0 |Versão atual, por isso não há data de fim |
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
 A tabela seguinte lista os sistemas operativos suportados para as versões de Tecido de Serviço suportado.

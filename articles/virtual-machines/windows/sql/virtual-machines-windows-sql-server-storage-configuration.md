@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93f01b3c23e08e7f432841d8a77cbe3602bff1c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243201"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482145"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento das VMs do SQL Server
 
@@ -56,7 +56,7 @@ Além disso, tem a capacidade de definir o cache para os discos. Os VMs Azure t�
 
 O caching de disco para SSD Premium pode ser *ReadOnly*, *ReadWrite* ou *None*. 
 
-- O caching *ReadOnly* é altamente benéfico para os ficheiros de dados do SQL Server que são armazenados no Armazenamento Premium. *ReadOnly* caching traz baixa latência lida, IOPS de leitura alta, e a entrada como, leituras são realizadas a partir de cache, que os dentro da memória VM e SSD local. Estas leituras são muito mais rápidas do que as leituras do disco de dados, que é do armazenamento de blob Azure. O armazenamento premium não conta as leituras servidas da cache para o iOPS do disco e a entrada. Portanto, o seu aplicável é capaz de obter uma maior produção total de formigas IOPS. 
+- O caching *ReadOnly* é altamente benéfico para os ficheiros de dados do SQL Server que são armazenados no Armazenamento Premium. *ReadOnly* caching traz baixa latência lida, IOPS de leitura alta, e a entrada como, lê-se são realizadas a partir de cache, que está dentro da memória VM e SSD local. Estas leituras são muito mais rápidas do que as leituras do disco de dados, que é do armazenamento de blob Azure. O armazenamento premium não conta as leituras servidas da cache para o iOPS do disco e a entrada. Portanto, o seu aplicável é capaz de alcançar iOPS totais mais elevados e produção. 
 - *Nenhuma* configuração de cache deve ser utilizada para os discos que hospedam o ficheiro SQL Server Log, uma vez que o ficheiro de registo é escrito sequencialmente e não beneficia do cache *do ReadOnly.* 
 - *ReadWrite* caching não deve ser usado para hospedar ficheiros SQL Server, uma vez que o SQL Server não suporta a consistência dos dados com a cache *ReadWrite.* Escreve que a capacidade de resíduos da cache e das latenciências de blob *ReadOnly* aumenta ligeiramente se os escritos passarem pelas camadas de cache *de blob ReadOnly.* 
 
@@ -126,7 +126,7 @@ O Azure utiliza as seguintes definições para criar o pool de armazenamento em 
 | Definição | Valor |
 | --- | --- |
 | Tamanho da risca |256 KB (Armazenagem de dados); 64 KB (Transacional) |
-| Tamanhos do disco |1 TB cada |
+| Tamanhos de disco |1 TB cada |
 | Cache |Leitura |
 | Tamanho da atribuição |Tamanho da unidade de atribuição de NTFS de 64 KB |
 | Recuperação | Recuperação simples (sem resiliência) |

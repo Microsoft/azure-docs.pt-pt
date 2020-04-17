@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
 ms.service: virtual-machines-linux
@@ -15,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: bc90a409dd2695ce16f8c7d5909f8e2d7867673c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62855d943dae2e03cefff64710ce23ff0e0a0567
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060246"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458714"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Faça upload e crie um VM Linux a partir de disco personalizado com o Azure CLI
 
@@ -130,7 +129,7 @@ O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na loc
 az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Crie uma conta de armazenamento para o seu disco personalizado e VMs com a conta de [armazenamento az criar](/cli/azure/storage/account). Quaisquer VMs com discos não geridos que crie a partir do seu disco personalizado precisam estar na mesma conta de armazenamento que esse disco. 
 

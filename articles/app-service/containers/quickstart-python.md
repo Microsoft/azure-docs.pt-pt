@@ -6,12 +6,12 @@ ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 63daecca710e0e4d7b3326cea59c0c025c24f619
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: ea5df6a2d4a972638b52587f9edc868f65e25df5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811151"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532753"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Quickstart: Criar uma app Python no Azure App Service no Linux
 
@@ -227,6 +227,9 @@ az group delete -n <resource-group-name>
 
 > [!div class="nextstepaction"]
 > [Tutorial: App web Python (Django) com PostgreSQL](tutorial-python-postgresql-app.md)
+
+> [!div class="nextstepaction"]
+> [Adicione o sessão de sessão do utilizador a uma aplicação web Python](../../active-directory/develop/quickstart-v2-python-webapp.md)
 
 > [!div class="nextstepaction"]
 > [App Configure Python](how-to-configure-python.md)

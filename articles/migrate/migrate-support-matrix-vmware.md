@@ -2,13 +2,13 @@
 title: Suporte de avaliação vmware em Azure Migrate
 description: Saiba mais sobre o suporte para avaliação vmware VM com avaliação do servidor de migração Azure.
 ms.topic: conceptual
-ms.date: 03/29/2020
-ms.openlocfilehash: e0172656d06075f89a7c3a06e8d4e9be94e6f5d0
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 04/15/2020
+ms.openlocfilehash: 8a09562f14b95256ee9c2b5ba7d9c308cde66397
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389312"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532209"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação vmware 
 
@@ -61,7 +61,9 @@ Além de descobrir máquinas, a Server Assessment pode descobrir aplicações, p
 A Azure Migrate utiliza o [aparelho Migratório Azure](migrate-appliance.md) para descoberta e avaliação. Pode implantar o aparelho como VMWare VM utilizando um modelo OVA, importado para o VCenter Server, ou utilizando um [script PowerShell](deploy-appliance-script.md).
 
 - Conheça os [requisitos](migrate-appliance.md#appliance---vmware) do aparelho para vMware.
-- Saiba mais sobre [os URLs](migrate-appliance.md#url-access) a que o aparelho precisa de aceder.
+- Saiba mais sobre os URLs que o aparelho precisa de aceder em nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
+- No Governo Azure, deve utilizar o aparelho utilizando o script.
+
 
 ## <a name="port-access"></a>Acesso portuário
 
@@ -89,6 +91,7 @@ Anfitriões ESXi (análise de dependência sem agente/descoberta de aplicativos)
 **PowerShell** | Os VMs devem ter a versão PowerShell 2.0 ou superior instalada.
 **Acesso portuário** | Nos anfitriões ESXi que executam VMs que pretende analisar, o aparelho Azure Migrate deve poder ligar-se à porta 443 do TCP.
 
+
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisitos de análise da dependência baseados em agentes
 
 [A análise da dependência](concepts-dependency-visualization.md) ajuda-o a identificar dependências entre máquinas no local que pretende avaliar e migrar para Azure. A tabela resume os requisitos para a criação de uma análise de dependência baseada no agente. 
@@ -103,6 +106,7 @@ Anfitriões ESXi (análise de dependência sem agente/descoberta de aplicativos)
 **Custos** | A solução Service Map não incorre em quaisquer encargos nos primeiros 180 dias (a partir do dia em que associa o espaço de trabalho log Analytics ao projeto Azure Migrate)/<br/><br/> Após 180 dias, aplicar-se-ão as cobranças padrão do Log Analytics.<br/><br/> A utilização de qualquer outra solução que não o Mapa de Serviço sintetizado no espaço de trabalho associado do Log Analytics incorrerá em [encargos padrão](https://azure.microsoft.com/pricing/details/log-analytics/) para o Log Analytics.<br/><br/> Quando o projeto Azure Migrate é eliminado, o espaço de trabalho não é eliminado juntamente com ele. Após a exclusão do projeto, o uso do Mapa de Serviço sem graça, e cada nó será cobrado de acordo com o nível pago do espaço de trabalho Log Analytics/<br/><br/>Se tiver projetos que criou antes da disponibilidade geral da Azure Migrate (GA- 28 de fevereiro de 2018), poderá ter incorrido em custos adicionais do Mapa de Serviços. Para garantir o pagamento após 180 dias, recomendamos que crie um novo projeto, uma vez que os espaços de trabalho existentes antes da GA ainda são responsáveis.
 **Gestão** | Quando regista agentes no espaço de trabalho, utiliza a identificação e a chave fornecidas pelo projeto Azure Migrate.<br/><br/> Pode utilizar o espaço de trabalho log Analytics fora do Azure Migrate.<br/><br/> Se eliminar o projeto azure migrate associado, o espaço de trabalho não é eliminado automaticamente. [Elimine-o manualmente](../azure-monitor/platform/manage-access.md).<br/><br/> Não elimine o espaço de trabalho criado pela Azure Migrate, a menos que apague o projeto Azure Migrate. Se o fizer, a funcionalidade de visualização da dependência não funcionará como esperado.
 **Conectividade Internet** | Se as máquinas não estiverem ligadas à internet, é necessário instalar a porta de entrada log analytics.
+**Azure Government** | A análise da dependência baseada no agente não é apoiada.
 
 
 ## <a name="next-steps"></a>Passos seguintes

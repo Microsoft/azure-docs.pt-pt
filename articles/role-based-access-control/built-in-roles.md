@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 03/22/2020
+ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 2fe3b94463da07304f2c853910ac5d2a6771d070
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 14ff86bc47ab6de55d840c4b986c99caf2d4e99c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545645"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482033"
 ---
 # <a name="azure-built-in-roles"></a>Papéis azure embutidos
 
@@ -2071,6 +2071,7 @@ Leia, escreva e elimine os recipientes de armazenamento e bolhas do Azure. Para 
 > | **Ações de Dados** |  |
 > | Microsoft.Armazenamento/armazenamentoContas/blobServices/contentores/blobs/delete | Apague uma bolha. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devolva uma bolha ou uma lista de bolhas. |
+> | Microsoft.Armazenamento/armazenamentoContas/blobServices/contentores/blobs/move/action | Move a bolha de um caminho para outro |
 > | Microsoft.Armazenamento/armazenamentoContas/blobServices/contentores/blobs/write | Escreva para uma bolha. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
@@ -2095,6 +2096,7 @@ Leia, escreva e elimine os recipientes de armazenamento e bolhas do Azure. Para 
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
       ],
       "notDataActions": []
@@ -4099,6 +4101,7 @@ O Log Analytics Contributor pode ler todos os dados de monitorização e editar 
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lista as chaves de acesso das contas de armazenamento. |
 > | Microsoft.Compute/virtualMachines/extensions/* |  |
+> | Microsoft.HybridCompute/machines/extensões/write | Instala ou atualiza uma extensão Azure Arc |
 > | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
 > | Microsoft.Insights/diagnósticoDefinições/* | Cria, atualiza ou lê a definição de diagnóstico para o Servidor de Análise |
 > | Microsoft.OperationalInsights/* |  |
@@ -4130,6 +4133,7 @@ O Log Analytics Contributor pode ler todos os dados de monitorização e editar 
         "Microsoft.ClassicCompute/virtualMachines/extensions/*",
         "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
         "Microsoft.Compute/virtualMachines/extensions/*",
+        "Microsoft.HybridCompute/machines/extensions/write",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Insights/diagnosticSettings/*",
         "Microsoft.OperationalInsights/*",
@@ -5515,6 +5519,7 @@ Leitor de Sentinela Azure
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Verifique a autorização e a licença do utilizador |
 > | Microsoft.OperationalInsights/workspaces/analytics/consulta/ação | Procure usando um motor novo. |
 > | Microsoft.OperationalInsights/workspaces/*/read | Ver dados de análise de registo |
 > | Microsoft.OperationalInsights/workspaces/LinkedServices/read | Obtenha serviços ligados sob um determinado espaço de trabalho. |
@@ -5548,6 +5553,7 @@ Leitor de Sentinela Azure
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
@@ -5583,6 +5589,7 @@ Resposta Sentinela Azure
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Verifique a autorização e a licença do utilizador |
 > | Microsoft.SecurityInsights/cases/* |  |
 > | Microsoft.SecurityInsights/incidents/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/consulta/ação | Procure usando um motor novo. |
@@ -5618,6 +5625,7 @@ Resposta Sentinela Azure
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",

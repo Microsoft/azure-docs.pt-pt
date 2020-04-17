@@ -8,23 +8,25 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 12/03/2019
-ms.openlocfilehash: cda499b81a61a5b78ca86a96372640e368f90357
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.date: 04/16/2020
+ms.openlocfilehash: cc04d11475568af92ba6a617a1eb6b2b51accb45
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80364196"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481674"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (pré-visualização)
 
 Este artigo descreve as mensagens de erro e códigos de exceção no designer de Machine Learning Azure (pré-visualização) para ajudá-lo a resolver os seus oleodutos de aprendizagem automática.
 
-Há duas maneiras de obter o texto completo de uma mensagem de erro no designer:  
+Pode encontrar a mensagem de erro no designer seguindo estes passos:  
 
-- Clique no link, Ver Registo de **Saída,** no painel direito e rolar para baixo. A mensagem de erro detalhada é exibida nas duas últimas linhas da janela.  
-  
-- Selecione o módulo que tem o erro e clique no X vermelho. Apenas é apresentado o texto de erro pertinente.
+- Selecione o módulo falhado, vá ao separador **de registos Outputs+,** pode encontrar o registo detalhado no ficheiro **70_driver_log.txt** na categoria de **registos em azul.**
+
+- Para um erro detalhado do módulo, pode verificar na categoria error_info.json na categoria **module_statistics.**
+
+Seguem-se códigos de erro de módulos no designer.
 
 ## <a name="error-0001"></a>Erro 0001  
  A exceção ocorre se uma ou mais colunas especificadas do conjunto de dados não puderem ser encontradas.  
@@ -326,7 +328,7 @@ Para colunas que pretende utilizar para agrupamento ou categorização, tome med
 ## <a name="error-0017"></a>Erro 0017  
  A exceção ocorre se uma coluna selecionada utilizar um tipo de dados que não seja suportado pelo módulo atual.  
 
- Por exemplo, poderá receber este erro no Azure Machine Learning se a seleção da coluna incluir uma coluna com um tipo de dados que não pode ser processado pelo módulo, como uma coluna de cordas para uma operação matemática, ou uma coluna de pontuação onde uma coluna de características categórica é Necessário.  
+ Por exemplo, poderá receber este erro no Azure Machine Learning se a seleção da coluna incluir uma coluna com um tipo de dados que não possa ser processado pelo módulo, como uma coluna de cordas para uma operação matemática, ou uma coluna de pontuação onde seja necessária uma coluna de características categórica.  
 
 **Resolução:**
  1. Identifique a coluna que é o problema.
@@ -656,7 +658,7 @@ Também pode acontecer que uma coluna de etiquetas esteja presente no conjunto d
 
 O recomendador Matchbox tem determinados requisitos que devem ser cumpridos quando utilizar as funcionalidades do item ou as funcionalidades do utilizador.  Este erro indica que falta um vetor de funcionalidade para um utilizador ou item que forneceu como entrada. Certifique-se de que um vetor de funcionalidades está disponível nos dados de cada utilizador ou item.  
 
- Por exemplo, se treinou um modelo de recomendação usando funcionalidades como a idade, localização ou rendimento do utilizador, mas agora quer criar pontuações para novos utilizadores que não foram vistos durante o treino, você deve fornecer algum conjunto equivalente de funcionalidades (nomeadamente, idade, localização e valores de rendimento) para os novos utilizadores, a fim de fazer previsões adequadas para os mesmos. 
+ Por exemplo, se treinou um modelo de recomendação utilizando funcionalidades como a idade, localização ou rendimento do utilizador, mas agora quer criar pontuações para novos utilizadores que não foram vistos durante o treino, deve fornecer algum conjunto equivalente de funcionalidades (nomeadamente, idade, localização e valores de rendimento) para os novos utilizadores, de forma a fazer previsões adequadas para os mesmos. 
 
  Caso não possua quaisquer funcionalidades para estes utilizadores, considere a engenharia de funcionalidades para gerar funcionalidades apropriadas.  Por exemplo, se não tiver valores individuais de idade de utilizador ou rendimento, poderá gerar valores aproximados para utilizar para um grupo de utilizadores. 
 

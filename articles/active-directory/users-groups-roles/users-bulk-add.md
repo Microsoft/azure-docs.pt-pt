@@ -1,11 +1,11 @@
 ---
-title: A granel cria utentes (pré-visualização) no portal de Diretório Ativo Azure [ Microsoft Docs
+title: A granel cria utentes no portal de Diretório Ativo Azure [ Microsoft Docs
 description: Adicione utilizadores a granel no centro de administração da Azure AD no Diretório Ativo Azure
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/30/2019
+ms.date: 04/16/2020
 ms.topic: article
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a10dfffa69652ee2b75053c04b97f6492c46811e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c3a8b9cb9701288d24534ab08940f6dbd4a698ad
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174322"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532948"
 ---
-# <a name="bulk-create-users-preview-in-azure-active-directory"></a>A granel cria monsécção de utilizadores (pré-visualização) no Diretório Ativo do Azure
+# <a name="bulk-create-users-in-azure-active-directory"></a>Granel cria utilizadores no Diretório Ativo do Azure
 
 O Azure Ative Directory (Azure AD) suporta a criação e eliminação de operações em massa do utilizador, convite a granel para hóspedes e suporta o download de listas de utilizadores, grupos e membros do grupo.
 
@@ -40,7 +40,7 @@ Para criar utilizadores em massa no portal da administração, deve ser inscrito
 
    ![O ficheiro CSV contém nomes e IDs dos utilizadores para criar](./media/users-bulk-add/add-csv-file.png)
 
-1. Na página **De criar o utilizador (Pré-visualização)** a granel, sob o upload do ficheiro CSV, navegue para o ficheiro. Quando selecionar o ficheiro e clicar **em Submeter,** a validação do ficheiro CSV começa.
+1. Na página **de criação de granel,** sob o upload do seu ficheiro CSV, navegue para o ficheiro. Quando selecionar o ficheiro e clicar **em Submeter,** a validação do ficheiro CSV começa.
 1. Após a validação do conteúdo do ficheiro, verá o **Ficheiro carregado com sucesso**. Se houver erros, tem de os corrigir antes de poder submeter o trabalho.
 1. Quando o seu ficheiro passar a validação, selecione **Submeter** para iniciar a operação a granel Do Azure que importa os novos utilizadores.
 1. Quando a operação de importação estiver concluída, verá uma notificação do estado de trabalho da operação a granel.
@@ -49,9 +49,9 @@ Se houver erros, pode descarregar e ver o ficheiro de resultados na página de r
 
 ## <a name="check-status"></a>Verificar o estado
 
-Pode ver o estado de todos os seus pedidos a granel pendentes na página de resultados da **operação Bulk (pré-visualização).**
+Pode ver o estado de todos os seus pedidos a granel pendentes na página de resultados da **operação Bulk.**
 
-   ![Verifique o estado de upload na página resultados das operações a granel](./media/users-bulk-add/bulk-center.png)
+   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
 
 Em seguida, pode verificar se os utilizadores que criou existem na organização Azure AD, quer no portal Azure, quer através da utilização do PowerShell.
 

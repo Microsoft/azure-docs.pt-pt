@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: 06d05d6d410af13bfbe85f3cb66523c1d48cb77c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1f3a24afb2238c2448cb19b3889467a1b1819724
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70195659"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460550"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Análise de equipa baseada em máquinas virtuais de ciência de dados e ambiente de IA 
 A [Máquina Virtual](overview.md) de Ciência de Dados (DSVM) proporciona um ambiente rico na plataforma Azure, com software pré-construído para inteligência artificial (IA) e análise de dados.
@@ -37,13 +37,13 @@ Os principais blocos de construção de um ambiente de análise de equipas empre
 
 Esta série fornece orientações e indicações para cada um dos tópicos anteriores. Não cobre todas as considerações e requisitos para a implementação de DSVMs em grandes configurações empresariais. Aqui estão outros recursos Azure que pode utilizar durante a implementação de instâncias de DSVM na sua empresa:
 
-* [Segurança de rede](https://docs.microsoft.com/azure/security/fundamentals/network-security)
+* [Segurança da rede](https://docs.microsoft.com/azure/security/fundamentals/network-security)
 * [Monitorização](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) e [gestão](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
 * [Registo e auditoria](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
 * [Controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Definição e execução de políticas](../../governance/policy/overview.md)
 * [Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
-* [Encriptação](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
+* [Encriptação](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview.md)
 * [Descoberta e governação de dados](https://docs.microsoft.com/azure/data-catalog/)
 
 Finalmente, o [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) oferece uma arquitetura e modelos detalhados de ponta a ponta para construir e gerir a sua infraestrutura de análise baseada em nuvem.

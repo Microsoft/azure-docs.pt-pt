@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 9403cc05ed5b31f3b76c16c4232506e2ddc5da2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 457979837b1c56eb85fc19c9a1fce5dc7df8c23b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78402920"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481993"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
@@ -256,7 +256,7 @@ O seguinte modelo de exemplo demonstra como criar um espa√ßo de trabalho com tr√
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-        "hbi_workspace": "[parameters('hbi_workspace')]"
+        "hbiWorkspace": "[parameters('hbi_workspace')]"
       }
     }
   ]

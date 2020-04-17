@@ -5,7 +5,6 @@ services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -16,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a7be615584c4994619683a3670898d4c47c91d25
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 46f630dc1b700659d047a31b5aa5905ef99d9cd0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74039896"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459462"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Criar Rapidamente uma máquina virtual com a CLI do Azure
 

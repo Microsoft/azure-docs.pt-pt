@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: gbowerman
 manager: gwallace
-editor: tysonn
 tags: azure-service-management,azure-resource-manager
 ms.assetid: dd96f771-26eb-4391-9a89-8c8b6d691822
 ms.service: virtual-machines-linux
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: guybo
-ms.openlocfilehash: 784d6c01125a9fd6ec291f32e989e4b22e7607af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d1e0eacb3d0a2327b8b26ca480b80f957838543
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066585"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459768"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Prepare uma máquina virtual Oracle Linux para o Azure
 

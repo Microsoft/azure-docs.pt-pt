@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: eac195babebf300aa9770d35b7b98eba29c234cf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529427"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460992"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configure o seu laboratório em Azure DevTest Labs para usar um gateway remoto de ambiente de trabalho
 No Azure DevTest Labs, pode configurar uma porta remota de ambiente de trabalho para o seu laboratório para garantir o acesso seguro às máquinas virtuais do laboratório (VMs) sem ter de expor a porta RDP. O laboratório fornece um lugar central para os utilizadores do laboratório verem e ligarem-se a todas as máquinas virtuais a que têm acesso. O botão **Connect** na página **Máquina Virtual** cria um ficheiro RDP específico da máquina que pode abrir para ligar à máquina. Pode ainda personalizar e fixar a ligação RDP ligando o seu laboratório a um gateway remoto de ambiente de trabalho. 
@@ -64,7 +64,7 @@ A função Azure trata `https://{function-app-uri}/app/host/{lab-machine-name}/p
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Configure o laboratório para usar a autenticação simbólica 
 Esta secção mostra como configurar um laboratório para utilizar uma máquina remota de gateway de ambiente de trabalho que suporta a autenticação simbólica. Esta secção não cobre como configurar uma quinta remota de gateways de ambiente de trabalho. Para obter essa informação, consulte a [Amostra para criar uma](#sample-to-create-a-remote-desktop-gateway) secção remota de gateway no final deste artigo. 
 
-Antes de atualizar as definições do laboratório, guarde a chave necessária para executar com sucesso a função para devolver um símbolo de autenticação no cofre chave do laboratório. Pode obter o valor chave da função na página **Gerir** para a função no portal Azure. Para obter mais informações sobre como guardar um segredo num cofre chave, consulte [Adicionar um segredo ao Cofre chave.](../key-vault/quick-create-portal.md#add-a-secret-to-key-vault) Guarde o nome do segredo para uso posterior.
+Antes de atualizar as definições do laboratório, guarde a chave necessária para executar com sucesso a função para devolver um símbolo de autenticação no cofre chave do laboratório. Pode obter o valor chave da função na página **Gerir** para a função no portal Azure. Para obter mais informações sobre como guardar um segredo num cofre chave, consulte [Adicionar um segredo ao Cofre chave.](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) Guarde o nome do segredo para uso posterior.
 
 Para encontrar a identificação do cofre chave do laboratório, execute o seguinte comando Azure CLI: 
 
@@ -74,7 +74,7 @@ az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' -
 
 Configure o laboratório para utilizar a autenticação simbólica utilizando estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Da lista de laboratórios, selecione o seu **laboratório.**
 1. Na página do laboratório, selecione **Configuração e políticas.**

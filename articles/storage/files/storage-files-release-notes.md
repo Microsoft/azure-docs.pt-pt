@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: c6455930f88d02e11cb0c45d29594ae40eaad9e3
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 82d8c8ca94f3d0f4289902ae40928ff507e2d1ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113296"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460669"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -63,9 +63,6 @@ As seguintes notas de lançamento são para a versão 10.0.0.0 do agente Azure F
 - Suporte para a mudança do Serviço de Sincronização de Armazenamento e/ou conta de armazenamento para um inquilino azure Ative Directory (AAD)
     - O Azure File Sync suporta agora a deslocação do Serviço de Sincronização de Armazenamento e/ou da conta de armazenamento para um grupo de recursos diferente, subscrição ou inquilino da AD Azure.
     
-- Ferramenta de avaliação agora identifica ficheiros ou diretórios que terminam com um período
-    - A [ferramenta de Avaliação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) foi atualizada para identificar ficheiros ou diretórios que terminam com um período. Os ficheiros ou diretórios que terminam com um período não são atualmente suportados pelo Azure File Sync. Para utilizar a versão atualizada da [ferramenta de avaliação,](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)instale a versão mais recente do [módulo PowerShell Do Azure](https://docs.microsoft.com/powershell/azure/install-az-ps).
- 
 - Melhorias no desempenho e na fiabilidade diversas
     - A deteção de alterações na parte de ficheiro sinuosa do Azure pode falhar se as regras de rede virtual (VNET) e firewall estiverem configuradas na conta de armazenamento.
     - Redução do consumo de memória associado à recordação. 

@@ -5,7 +5,6 @@ services: azure-portal
 documentationcenter: ''
 author: sewatson
 manager: mtillman
-editor: tysonn
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
 ms.devlang: NA
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 4c01321662b302103cdedfb5b78dadf89860fb8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6eda3b522a5b46cd82ef29ae493891a624d3272
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132077"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459292"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e partilhar dashboards no portal do Azure
 
@@ -31,7 +30,7 @@ O portal Azure fornece um dashboard padrão como ponto de partida. Pode editar o
 
 Neste exemplo, criamos um novo painel privado e atribuímos um nome. Siga estes passos para começar:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. A partir do menu do portal Azure, selecione **Dashboard**. A sua vista padrão pode já estar definida para o painel de instrumentos.
 

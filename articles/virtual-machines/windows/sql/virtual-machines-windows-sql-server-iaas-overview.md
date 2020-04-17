@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7d8d1505a268976161636abd0ed2d24398978284
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4186a4ed369eb289360b74c0758e5ce3f7eca929
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75374315"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482162"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server nas Máquinas Virtuais do Azure? (Windows)
 
@@ -38,6 +38,9 @@ As VMs do SQL Server do Azure podem utilizar a [ Aplicação Automatizada de Pat
 ## <a name="automated-backups"></a>Cópias de segurança automatizadas
 
 As VMs do SQL Server do Azure podem tirar partido da [Cópia de Segurança Automatizada](virtual-machines-windows-sql-automated-backup-v2.md), que cria regularmente cópias de segurança da sua base de dados para o armazenamento de blobs. Pode também utilizar esta técnica manualmente. Para obter mais informações, consulte o artigo [Utilizar o Storage do Azure para o Restauro e a Cópia de Segurança do SQL Server](virtual-machines-windows-use-storage-sql-server-backup-restore.md).
+
+O Azure também oferece uma solução de backup de classe empresarial para o SQL Server em execução em VMs Azure. Uma solução de backup totalmente gerida, suporta sempre em grupos de disponibilidade, retenção a longo prazo, recuperação pontual ponto-a-longo, gestão e monitorização central. Para mais informações, consulte [o Azure Backup para O Servidor SQL em Azure VM](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+  
 
 ## <a name="high-availability"></a>Elevada disponibilidade
 
@@ -135,7 +138,7 @@ O Programa de Melhoramento da Experiência do Cliente (PMEC) está ativado por p
 ### <a name="windows-virtual-machines"></a>Máquinas Virtuais do Windows
 * [Descrição Geral das Máquinas Virtuais](../overview.md)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 * [Introdução ao Storage do Microsoft Azure](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Redes

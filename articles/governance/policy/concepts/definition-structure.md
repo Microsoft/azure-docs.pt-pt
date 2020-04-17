@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições políticas são usadas para estabelecer convenções para os recursos azure na sua organização.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 017878c4c47a5645ea8815580d2176c7a2ff5d66
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 0a7c4e05270ff242fa97b253b27a5de92895368a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314021"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461009"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -89,7 +89,7 @@ Os seguintes modos de Fornecedor de Recursos são atualmente suportados durante 
 - `Microsoft.ContainerService.Data`para a gestão das regras do controlador de admissão no [Serviço Azure Kubernetes.](../../../aks/intro-kubernetes.md) As políticas que utilizam este modo de Fornecedor de Recursos **devem** utilizar o efeito [EnforceRegoPolicy.](./effects.md#enforceregopolicy)
 - `Microsoft.Kubernetes.Data`para gerir clusters de kubernetes de motor AKS autogeridos em Azure.
   As políticas que utilizam este modo de fornecedor de recursos **devem** utilizar o efeito [EnforceOPAConstraint.](./effects.md#enforceopaconstraint)
-- `Microsoft.KeyVault.Data`para gestão de cofres e certificados no [Cofre de Chaves Azure.](../../../key-vault/key-vault-overview.md)
+- `Microsoft.KeyVault.Data`para gestão de cofres e certificados no [Cofre de Chaves Azure.](../../../key-vault/general/overview.md)
 
 > [!NOTE]
 > Os modos de Fornecedor de Recursos apenas suportam definições políticas incorporadas e não suportam iniciativas durante a pré-visualização.

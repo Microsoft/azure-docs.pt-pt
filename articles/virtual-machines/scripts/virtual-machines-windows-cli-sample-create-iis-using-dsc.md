@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rickstercdn
 manager: gwallace
-editor: tysonn
 tags: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -16,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: 60f4447015e43d02048afd19504be0e758a56e86
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ac0c895f471a6d201c51e2c75ba938dc3b15c3a8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74040065"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459564"
 ---
 # <a name="create-a-vm-with-iis-using-dsc"></a>Criar uma VM com o IIS através do DSC
 

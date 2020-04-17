@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 2a30222902fd8797908202562a04018209842af2
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 9e6b451901da00243c458c06d51ba19fb64c0fdc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115064"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530458"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Avaliar servidores utilizando dados importados
 
@@ -68,12 +68,12 @@ Para criar um novo projeto Azure Migrate:
 5. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.
 6. Em DETALHES DO **PROJETO,** especifique o nome do projeto e a geografia em que pretende criar o projeto. Para obter mais informações:
 
-    - Rever [geografias apoiadas.](migrate-support-matrix.md#supported-geographies) A geografia do projeto só é utilizada para armazenar os metadados recolhidos das VMs no local.
+    - Reveja as geografias apoiadas para as nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
     - Pode selecionar qualquer região de destino ao executar uma migração.
 
     ![Criar um projeto Azure Migrate](./media/tutorial-assess-import/migrate-project.png)
 
-7. Selecione **Next**.
+7. Selecione **Seguinte**.
 8. Na **ferramenta de avaliação Select,** selecione **Azure Migrate: Server Assessment** > **Next**.
 
     ![Criar uma avaliação de Migração Azure](./media/tutorial-assess-import/assessment-tool.png)

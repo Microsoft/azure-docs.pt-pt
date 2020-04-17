@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: aa0dc204a017e2d40eb3952a9ede0755127f8de2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2b84427b9aad2d18368d808fc618f3bfbe774ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970663"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460125"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Encriptação de disco azure em uma rede isolada
 
@@ -43,7 +43,7 @@ Quaisquer definições do grupo de segurança da rede que são aplicadas devem a
 
 Se utilizar encriptação de [disco azure com AD Azure (versão anterior),](disk-encryption-overview-aad.md)a Biblioteca de [Diretórios Ativos Azure](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) terá de ser instalada manualmente para todos os distros (além das embalagens adequadas para o distro, tal como [listado acima).](#package-management)
 
-Quando a encriptação está a ser ativada com [credenciais De AD Azure,](disk-encryption-linux-aad.md)o VM alvo deve permitir a conectividade tanto aos pontos finais do Diretório Ativo Azure como aos pontos finais do Cofre chave. Os pontos finais de autenticação do Diretório Ativo Azure atuais são mantidos nas secções 56 e 59 do [Office 365 URLs e](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentação de endereços IP. As instruções do cofre chave são fornecidas na documentação sobre como aceder ao [Cofre chave Azure atrás de uma firewall](../../key-vault/key-vault-access-behind-firewall.md).
+Quando a encriptação está a ser ativada com [credenciais De AD Azure,](disk-encryption-linux-aad.md)o VM alvo deve permitir a conectividade tanto aos pontos finais do Diretório Ativo Azure como aos pontos finais do Cofre chave. Os pontos finais de autenticação do Diretório Ativo Azure atuais são mantidos nas secções 56 e 59 do [Office 365 URLs e](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentação de endereços IP. As instruções do cofre chave são fornecidas na documentação sobre como aceder ao [Cofre chave Azure atrás de uma firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância Azure 
 

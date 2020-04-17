@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema Zona de destino de migração do 
 description: Descrição geral e arquitetura do exemplo de esquema da zona de destino da Migração do Framework de Adoção da Cloud (CAF) para o Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: d0328a590d86677e098504a7498a696697fc38c8
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: c4720ec3e94ee928553cd62017831e5158ac9b97
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383547"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459870"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Descrição geral do exemplo de esquema Zona de destino de migração do Microsoft Cloud Adoption Framework para o Azure
 
@@ -24,7 +24,7 @@ O exemplo de esquema Zona de destino de migração do CAF implementa recursos de
 
 Este ambiente é composto por vários serviços do Azure utilizados para fornecer uma governação segura, completamente monitorizada e preparada para empresas. Este ambiente é composto por:
 
-- Uma instância do [Azure Key Vault](../../../../key-vault/key-vault-overview.md) utilizada para alojar segredos utilizados para os Certificados, Chaves e Segredos implementados no ambiente de serviços partilhados
+- Uma instância do [Azure Key Vault](../../../../key-vault/general/overview.md) utilizada para alojar segredos utilizados para os Certificados, Chaves e Segredos implementados no ambiente de serviços partilhados
 - Uma implementação do [Log Analytics](../../../../azure-monitor/overview.md) para garantir que todos os serviços e ações são registados numa localização central desde o momento em que inicia a sua migração
 - Uma implementação do [Centro de Segurança do Azure](../../../../security-center/security-center-intro.md) (versão standard) que fornece proteção contra ameaças para as suas cargas de trabalho migradas.
 - Uma implementação da [Rede Virtual do Azure](../../../../virtual-network/virtual-networks-overview.md) para fornecer uma rede isolada e sub-redes para a sua máquina virtual.

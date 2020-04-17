@@ -5,7 +5,6 @@ services: azure-portal
 documentationcenter: ''
 author: adamabmsft
 manager: mtillman
-editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
 ms.topic: conceptual
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: 18125e119e7ffdd2f8fa8ca3c5c1b12c8c9a94e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75640368"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459224"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura dos Dashboards do Azure
 Este documento percorre a estrutura de um painel de instrumentos Azure, utilizando o seguinte painel de instrumentos como exemplo:

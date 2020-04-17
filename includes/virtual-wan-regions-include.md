@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 757367e2b9773908b81ad35615a23b1b5c67aa3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c822e8af076f74e1bccc46b7a71717d9631de0a1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80117123"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461868"
 ---
 ### <a name="azure-regions-within-a-geopolitical-region"></a>Regiões de Azure dentro de uma região geopolítica
 
@@ -42,5 +42,5 @@ A conectividade VPN baseada no local e a arquitetura Virtual WAN estão disponí
 |Região geopolítica | Regiões do Azure|
 |---|---|
 | Nuvem do US Gov | US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East |
-| Leste da China | Leste da China, Leste da China 2|
-| Norte da China | Norte da China, Norte da China 2 |
+| Leste da China | China Leste2|
+| Norte da China | China Norte2 |

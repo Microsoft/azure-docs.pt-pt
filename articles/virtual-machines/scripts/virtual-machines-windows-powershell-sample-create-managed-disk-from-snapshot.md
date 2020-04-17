@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: e6652f8ab8e1134d7f348eaa7c8fc20f1a41a46f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5758e31fc24d366479cbebb139f1a8376330b397
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75368558"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459326"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>Criar um disco gerido a partir de um instantâneo com o PowerShell
 

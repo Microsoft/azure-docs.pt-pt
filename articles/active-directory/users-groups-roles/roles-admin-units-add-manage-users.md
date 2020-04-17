@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92d96abd343266372984918fd0c942ec1cae865f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2b2b901f652564c47ca35cb0f75a69f26fa2fa71
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428306"
+ms.locfileid: "81533229"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerir utilizadores numa unidade administrativa no Diretório Ativo do Azure
 
@@ -51,11 +51,11 @@ Pode atribuir utilizadores a unidades administrativas de duas formas.
 
 ### <a name="powershell"></a>PowerShell
 
-    $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+    $administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
     $UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
-    Add-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $UserObj.ObjectId
+    Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
 
-No exemplo acima, o cmdlet Add-AzureADAdministrativeUnitMember é utilizado para adicionar o utilizador à unidade administrativa. O ID do objeto da Unidade Administrativa onde o utilizador deve ser adicionado e o ID do objeto que deve ser adicionado são tomados como argumento. A secção realçada pode ser alterada conforme necessário para o ambiente específico.
+No exemplo acima, o cmdlet Add-AzureADAdministrativeUnitMember é utilizado para adicionar o utilizador à unidade administrativa. O ID do objeto da unidade administrativa onde o utilizador deve ser adicionado e o ID do objeto que deve ser adicionado são tomados como argumento. A secção realçada pode ser alterada conforme necessário para o ambiente específico.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 

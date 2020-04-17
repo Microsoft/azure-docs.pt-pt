@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f38fd7c8e14f58052912f68a277f194fd3866f2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 029743dbb44ab0ebb6ab8f695c0c966137c45107
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970585"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459802"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Encriptação de disco azure com AD Azure (versão anterior)
 
@@ -35,7 +35,7 @@ Para ativar a funcionalidade de encriptação do disco Azure utilizando a sintax
   - Para obter um símbolo para ligar ao seu cofre chave, o VM IaaS deve \[ser\]capaz de ligar a um ponto final da AD Azure, login.microsoftonline.com .
   - Para escrever as chaves de encriptação do seu cofre chave, o VM IaaS deve ser capaz de ligar ao ponto final do cofre chave.
   - O IaaS VM deve ser capaz de ligar a um ponto final de armazenamento Azure que acolhe o repositório de extensão Azure e uma conta de armazenamento Azure que acolhe os ficheiros VHD.
-  -  Se a sua política de segurança limitar o acesso dos VMs Azure à internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída aos IPs. Para mais informações, consulte [o Cofre chave Azure atrás de uma firewall](../../key-vault/key-vault-access-behind-firewall.md).
+  -  Se a sua política de segurança limitar o acesso dos VMs Azure à internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída aos IPs. Para mais informações, consulte [o Cofre chave Azure atrás de uma firewall](../../key-vault/general/access-behind-firewall.md).
   - No Windows, se o TLS 1.0 estiver explicitamente desativado e a versão .NET não for atualizada para 4.6 ou superior, a seguinte alteração de registo permite à Encriptação do Disco Azure selecionar a versão TLS mais recente:
     
             [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]

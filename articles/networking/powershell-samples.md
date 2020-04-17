@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
 manager: mtillman
-editor: tysonn
 tags: ''
 ms.assetid: ''
 ms.service: virtual-network
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: gwallace
-ms.openlocfilehash: d1e6027a0dc71f0962293143ca9bd3de67a659e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca6ac145db0536d3cf7e5bcc72a58d72101ab12a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76844909"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459122"
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Amostras Azure PowerShell para networking
 

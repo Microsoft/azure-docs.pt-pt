@@ -3,12 +3,12 @@ title: Usar identidade gerida com uma aplicação
 description: Como utilizar identidades geridas no código de aplicação Azure Service Fabric para aceder aos Serviços Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: cbdb1190ec3238a6accd34db3025e08c194d60b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415625"
+ms.locfileid: "81461570"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como alavancar a identidade gerida de uma aplicação de Tecido de Serviço para aceder aos serviços Azure
 
@@ -41,10 +41,6 @@ Para obter um símbolo, o cliente executa os seguintes passos:
 Uma resposta bem sucedida conterá uma carga útil JSON que representa o token de acesso resultante, bem como metadados descrevendo-o. Uma resposta falhada incluirá também uma explicação do fracasso. Veja abaixo mais detalhes sobre o manuseamento de erros.
 
 As fichas de acesso serão cached by Service Fabric a vários níveis (nó, cluster, serviço de prestador de recursos), pelo que uma resposta bem sucedida não implica necessariamente que o símbolo tenha sido emitido diretamente em resposta ao pedido da aplicação do utilizador. Os tokens serão cached por menos do que a sua vida, e assim uma aplicação é garantida para receber um token válido. Recomenda-se que o código de aplicação caches quaisquer fichas de acesso que adquire; a chave de cache deve incluir (uma derivação de) o público. 
-
-
-> [!NOTE]
-> A única versão API `2019-07-01-preview`aceite está presentemente , e está sujeita a alterações.
 
 Pedido de amostra:
 ```http

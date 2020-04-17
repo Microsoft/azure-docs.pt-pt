@@ -7,21 +7,31 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8666f51b88d2a70a2cb27e3606f24010771c8017
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255122"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460715"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
-[Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas formas principais: montando diretamente as ações de ficheiros Azure sem servidor ou por cache ingequedem ações de ficheiros Azure no local utilizando o Azure File Sync. Qual a opção de implementação que escolher altera as coisas que precisa de considerar como planeia para a sua implantação. 
+
+:::row:::
+    :::column:::
+        [![Entrevista e demo introduzindo O Sincronizado de Ficheiros Azure - clique para reproduzir!](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
+    :::column-end:::
+    :::column:::
+        O Azure File Sync é um serviço que permite cache uma série de partilhas de ficheiros Azure num Windows Server ou VM em nuvem no local. 
+        
+        Este artigo apresenta-lhe conceitos e funcionalidades do Azure File Sync. Uma vez que esteja familiarizado com o Azure File Sync, considere seguir o guia de [implementação do Azure File Sync](storage-sync-files-deployment-guide.md) para experimentar este serviço.        
+    :::column-end:::
+:::row-end:::
+
+Os ficheiros serão armazenados na nuvem em ações de [ficheiros Azure.](storage-files-introduction.md) As ações de ficheiros Azure podem ser utilizadas de duas formas: montando diretamente estas ações de ficheiros Azure sem servidor (SMB) ou por cache ingeque de ações de ficheiros Azure no local utilizando o Azure File Sync. Qual a opção de implementação que escolher altera os aspetos que precisa de considerar como planeia para a sua implantação. 
 
 - **Montagem direta de uma partilha de ficheiros Azure**: Uma vez que o Azure Files fornece acesso SMB, pode montar ações de ficheiroS Azure no local ou na nuvem utilizando o cliente Padrão SMB disponível no Windows, macOS e Linux. Uma vez que as partilhas de ficheiros Azure são inservidoras, a implementação para cenários de produção não requer a gestão de um servidor de ficheiros ou de um dispositivo NAS. Isto significa que não tem de aplicar patches de software ou trocar discos físicos. 
 
 - **A partilha de ficheiros Cache Azure no local com**o Azure File Sync : Azure File Sync permite centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo ao mesmo tempo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma um Windows Server no local (ou cloud) numa cache rápida da sua partilha de ficheiros Azure. 
-
-Este artigo aborda principalmente considerações de implementação para a implementação do Ficheiro Sincronizado Azure. Para planear a implantação de ações de ficheiros Azure para ser montada diretamente por um cliente no local ou na nuvem, consulte O Planeamento para uma implementação de [Ficheiros Azure](storage-files-planning.md).
 
 ## <a name="management-concepts"></a>Conceitos de gestão
 Uma implantação de Sincronização de Ficheiros Azure tem três objetos de gestão fundamentais:
@@ -372,5 +382,5 @@ Se estiver a utilizar uma solução de backup no local, as cópias de segurança
 * [Considere configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 * [Implementar os Ficheiros do Azure](storage-files-deployment-guide.md)
-* [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

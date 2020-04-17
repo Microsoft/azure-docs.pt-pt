@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema de carga de trabalho ASE/SQL ISO 
 description: Descrição geral e arquitetura do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9957ab1bef5b65fc90b5a357bd56d6f0013ea690
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 834096ec529673bae1728877310ba7153ae94cb3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381736"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460584"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Descrição geral do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001
 
@@ -32,7 +32,7 @@ Este ambiente é composto por vários serviços do Azure utilizados para fornece
 - [Políticas do Azure](../../../policy/overview.md) para bloquear os serviços que podem ser implementados no ambiente e negar a criação de qualquer recurso de endereço IP público (PIP)
 - Uma rede virtual que contém uma única sub-rede e colocada em modo peering num ambiente de [serviços partilhados](../iso27001-shared/index.md) pré-existente e que força todo o tráfego a passar pela firewall dos [serviços partilhados](../iso27001-shared/index.md). A rede virtual aloja os seguintes recursos:
   - Um [Ambiente do Serviço de Aplicações do Azure](../../../../app-service/environment/intro.md) que pode ser utilizado para alojar uma ou mais aplicações Web, APIs Web ou funções
-  - Uma instância do [Azure Key Vault](../../../../key-vault/key-vault-overview.md) com um ponto final de serviço VNet, para armazenar segredos utilizados pelas aplicações em execução no ambiente de carga de trabalho
+  - Uma instância do [Azure Key Vault](../../../../key-vault/general/overview.md) com um ponto final de serviço VNet, para armazenar segredos utilizados pelas aplicações em execução no ambiente de carga de trabalho
   - Uma instância de servidor da [Base de Dados SQL do Azure](../../../../sql-database/sql-database-technical-overview.md) com um ponto final de serviço VNet, para alojar as bases de dados utilizadas para aplicações no ambiente de carga de trabalho
 
 ## <a name="next-steps"></a>Passos seguintes

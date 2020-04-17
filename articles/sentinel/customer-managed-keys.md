@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: yelevin
-ms.openlocfilehash: bc2fa02925e7f5c671085eb87ca0431d3fca7691
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5eed208ed79aeab4e46ed90dd4d340a8b445be96
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587962"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461638"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurar a chave gerida pelo cliente Azure Sentinel
 
@@ -60,11 +60,11 @@ Para fornecer CMK, siga estes passos: 
     > [!NOTE]
     >  O Cofre de Chaves Azure deve ser configurado como recuperável para proteger a sua chave e o acesso.
 
-1.  [Ativar as opções de recuperação:](../key-vault/key-vault-best-practices.md#turn-on-recovery-options)
+1.  [Ativar as opções de recuperação:](../key-vault/general/best-practices.md#turn-on-recovery-options)
 
-    -   Certifique-se de que o [Soft Delete](../key-vault/key-vault-ovw-soft-delete.md) está ligado.
+    -   Certifique-se de que o [Soft Delete](../key-vault/general/overview-soft-delete.md) está ligado.
 
-    -   Ligue a [proteção purga](../key-vault/key-vault-ovw-soft-delete.md#purge-protection) para proteger contra a eliminação forçada do segredo/cofre mesmo após a eliminação suave.
+    -   Ligue a [proteção purga](../key-vault/general/overview-soft-delete.md#purge-protection) para proteger contra a eliminação forçada do segredo/cofre mesmo após a eliminação suave.
 
 ### <a name="step-2-enable-cmk-on-your-log-analytics-workspace"></a>PASSO 2: Ativar a CMK no seu espaço de trabalho Log Analytics
 

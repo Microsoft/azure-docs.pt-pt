@@ -2,13 +2,13 @@
 title: Perguntas sobre descoberta, avaliação e análise de dependência em Azure Migrate
 description: Obtenha respostas a perguntas comuns sobre descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 7a63271811053ee2da79f134ac117559e31b0fed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 700e5318b66cdf4993a17b1dae85fb43f75ab035
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460811"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529778"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -19,9 +19,16 @@ Este artigo responde a perguntas comuns sobre descoberta, avaliação e análise
 - Perguntas sobre [migração de servidores](common-questions-server-migration.md)
 - Obter perguntas respondidas no [fórum Migratório Azure](https://aka.ms/AzureMigrateForum)
 
+
+## <a name="what-geographies-are-supported-for-discovery-and-assessment-with-azure-migrate"></a>Que geografias são apoiadas para a descoberta e avaliação com a Migração Azure?
+
+Reveja as geografias apoiadas para as nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
+
+
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quantos VMs posso descobrir com um aparelho?
 
 Pode descobrir até 10.000 VMware VMs, até 5.000 VMs Hiper-V e até 250 servidores físicos utilizando um único aparelho. Se tiver mais máquinas, leia sobre [a escala de uma avaliação Hyper-V,](scale-hyper-v-assessment.md) [dimensionando uma avaliação vMware,](scale-vmware-assessment.md)ou [escalando uma avaliação do servidor físico](scale-physical-assessment.md).
+
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>O tamanho do meu VM mudou. Posso fazer uma avaliação de novo?
 

@@ -8,14 +8,14 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 000659793707c860de881f150e6ce07e4506c602
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3d533080af373ca209a9b393d02d1606d7cb22d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064959"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461740"
 ---
-# <a name="open-a-support-ticket-for-azure-data-box"></a>Abra um bilhete de apoio para a Caixa de Dados Azure 
+# <a name="open-a-support-ticket-for-azure-data-box"></a>Abra um bilhete de apoio para a Caixa de Dados Azure
 
 Este artigo aplica-se à Caixa de Dados Azure, À Caixa de Dados Azure Heavy e ao Disco de Caixas de Dados Azure, todos geridos pelo serviço Azure Data Box. Se encontrar algum problema com o seu serviço Azure Data Box, pode criar um pedido de serviço de suporte técnico. Este artigo acompanha-o através de:
 
@@ -27,11 +27,11 @@ Este artigo aplica-se à Caixa de Dados Azure, À Caixa de Dados Azure Heavy e a
 Execute os seguintes passos para criar um pedido de apoio:
 
 1. Vá à sua caixa de dados ou ordem do disco da caixa de dados. Navegue para APOIAR + Secção **DE RESOLUÇÃO DE PROBLEMAS** e, em seguida, clique em **Novo pedido**de suporte .
-     
+
     ![Novo pedido de suporte](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
-   
+
 2. No **novo pedido de suporte,** selecione **Basics**. No Básico, faça os **seguintes passos:**
-    
+
     1. A partir da lista de dropdown do **tipo Emissão,** selecione **Técnico**.
     2. Escolha a sua **Subscrição**.
     3. Em **Serviço,** verifique **Todos os Serviços**. A partir da lista de abandono, selecione **Data Box**. 
@@ -41,7 +41,7 @@ Execute os seguintes passos para criar um pedido de apoio:
         ![Noções básicas](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. No **novo pedido de suporte,** selecione Problema passo **2**. Em **Problemas,** faça os seguintes passos:
-    
+
     1. Escolha a **Severidade** como **C - Impacto mínimo**. O suporte irá atualizá-lo se necessário.
     2. Selecione o **tipo Problema** da lista de abandono.
     3. Com base no tipo de problema selecionado, escolha uma **categoria**correspondente .
@@ -58,7 +58,7 @@ Execute os seguintes passos para criar um pedido de apoio:
    1. Nas **opções**de Contacto, forneça o seu método de contacto preferido (telefone ou e-mail) e o idioma. O tempo de resposta é automaticamente selecionado com base no seu plano de subscrição.
    2. Nas **informações de Contacto**, forneça o seu nome, e-mail, contacto opcional, país/região. Selecione **Guardar alterações de contacto para futuros pedidos de suporte**.
    3. Clique em **Criar**.
-   
+
        ![Informações de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
       O Microsoft Support utiliza estas informações para lhe contactar para mais informações, diagnóstico e resolução.
@@ -72,15 +72,14 @@ Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no por
 
 1. Para chegar à página de ajuda e suporte, navegue para **navegar > ajuda + suporte**.
 
-    ![Gerir pedidos de apoio](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)   
+    ![Gerir pedidos de apoio](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)
 
 2. Uma listagem tabular de pedidos de **suporte recentes** é exibida em Ajuda **+ suporte**.
 
-    ![Gerir pedidos de apoio](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png) 
+    ![Gerir pedidos de apoio](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
 
 3. Selecione e clique num pedido de suporte. Pode ver o estado e os detalhes para este pedido. Clique **+ Nova mensagem** se quiser acompanhar este pedido.
 
-   
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [resolver problemas relacionados com o Disco de Caixas](data-box-disk-troubleshoot.md)de Dados .

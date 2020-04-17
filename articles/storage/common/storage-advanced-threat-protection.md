@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 4219bb471b92e7ddae72c50403f635498c90080d
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: f390aececdbf9a20f191279892c1856332f2aa8e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81251695"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482101"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configure proteção avançada contra ameaças para armazenamento azure
 
@@ -27,9 +27,7 @@ O serviço ingere registos de diagnóstico de leitura, escrita e exclusão de pe
 
 ## <a name="availability"></a>Disponibilidade
 
-A proteção avançada contra ameaças para o Armazenamento Azure está atualmente disponível apenas para [armazenamento blob](https://azure.microsoft.com/services/storage/blobs/). 
-
-Este serviço está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas nenhuma outra região soberana ou azure nuvem de governo.
+A proteção avançada contra ameaças para o Armazenamento Azure está atualmente disponível apenas para [armazenamento blob](https://azure.microsoft.com/services/storage/blobs/). Os tipos de conta que suportam a proteção avançada de ameaças incluem contas de armazenamento de v2 de uso geral, bloco blob e blob. A proteção avançada de ameaças está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas não em outras regiões soberanas ou do governo de Azure.
 
 Para obter detalhes sobre preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do Centro de [Segurança Azure](https://azure.microsoft.com/pricing/details/security-center/).
 

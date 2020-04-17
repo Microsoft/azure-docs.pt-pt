@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: c3f3c7fbaa043a03b70ab770c06e493716c70daf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49b51a5f14f305afa915ec1d0fae42ca9ded6b1e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500283"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461672"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Boas práticas para garantir aplicações web e móveis paaS usando o Serviço de Aplicações Azure
 
@@ -36,7 +36,7 @@ O Serviço de Aplicações fornece um serviço OAuth 2.0 para o seu fornecedor d
 Restringir o acesso é imperativo para as organizações que querem impor políticas de segurança para o acesso de dados. Pode utilizar o controlo de acesso baseado em funções (RBAC) para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito, tais como a necessidade de conhecer e menos privilegiar princípios de segurança. Para saber mais sobre a concessão de acesso aos utilizadores às aplicações, consulte [o que é o controlo de acesso baseado em papéis.](/azure/role-based-access-control/overview)
 
 ## <a name="protect-your-keys"></a>Proteja as suas chaves
-Não importa o quão boa é a sua segurança se perder as chaves de subscrição. O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Com o Key Vault, pode encriptar chaves e segredos (tais como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, . Ficheiros PFX e palavras-passe) utilizando chaves protegidas por módulos de segurança de hardware (HSMs). Para maior segurança, pode importar ou gerar chaves nos HSMs. Também pode utilizar o Key Vault para gerir os seus certificados TLS com renovação automática. Veja [o que é azure key vault](../../key-vault/key-vault-overview.md) para saber mais.
+Não importa o quão boa é a sua segurança se perder as chaves de subscrição. O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Com o Key Vault, pode encriptar chaves e segredos (tais como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, . Ficheiros PFX e palavras-passe) utilizando chaves protegidas por módulos de segurança de hardware (HSMs). Para maior segurança, pode importar ou gerar chaves nos HSMs. Também pode utilizar o Key Vault para gerir os seus certificados TLS com renovação automática. Veja [o que é azure key vault](../../key-vault/general/overview.md) para saber mais.
 
 ## <a name="restrict-incoming-source-ip-addresses"></a>Restringir os endereços IP de origem de entrada
 [O App Service Environments](../../app-service/environment/intro.md) tem uma funcionalidade de integração de rede virtual que o ajuda a restringir os endereços IP de origem através de grupos de segurança de rede (NSGs). Se não está familiarizado com as Redes Virtuais Azure (VNETs), esta é uma capacidade que lhe permite colocar muitos dos seus recursos Azure numa rede não-internet e redirecionável a que controla o acesso. Para saber mais, consulte [Integrar a sua app com uma Rede Virtual Azure.](../../app-service/web-sites-integrate-with-vnet.md)

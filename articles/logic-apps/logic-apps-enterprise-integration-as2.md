@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e7c34e42d0ab68a5dab9718075f02a85322ce6c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650572"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458833"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para integração empresarial B2B em Aplicações Lógicas Azure com Pacote de Integração Empresarial
 
@@ -61,7 +61,7 @@ Este artigo mostra como adicionar as ações de codificação e descodificação
 
 * Antes de poder utilizar o conector AS2, deve criar um [acordo](../logic-apps/logic-apps-enterprise-integration-agreements.md) AS2 entre os seus parceiros comerciais e armazenar esse acordo na sua conta de integração.
 
-* Se utilizar o [Cofre de Chaves Azure](../key-vault/key-vault-overview.md) para gestão de certificados, verifique se as chaves do cofre permitem as operações **de Encriptação** e **Desencriptação.** Caso contrário, as ações de codificação e dedescodificação falham.
+* Se utilizar o [Cofre de Chaves Azure](../key-vault/general/overview.md) para gestão de certificados, verifique se as chaves do cofre permitem as operações **de Encriptação** e **Desencriptação.** Caso contrário, as ações de codificação e dedescodificação falham.
 
   No portal Azure, vá à chave do seu cofre chave, reveja as **operações permitidas**da sua chave, e confirme que as operações **de Encriptação** e **Desencriptação** são selecionadas, por exemplo:
 

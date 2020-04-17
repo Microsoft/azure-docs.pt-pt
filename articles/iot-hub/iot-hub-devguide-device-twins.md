@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
-ms.openlocfilehash: 51e58de92f111c8854add613a299f2b8ccec0503
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 251c9c9717bae1728bffa48827a45d4535d66c15
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79285243"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482080"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e usar gémeos dispositivos em IoT Hub
 
@@ -58,7 +58,7 @@ Um twin de dispositivo é um documento JSON que inclui:
 
 * **Propriedades reportadas.** Usado juntamente com as propriedades desejadas para sincronizar a configuração ou as condições do dispositivo. A aplicação do dispositivo pode definir propriedades reportadas, e a solução traseira pode lê-las e questioná-las.
 
-* **Propriedades de identidade do dispositivo.** A raiz do documento JSON gémeo do dispositivo contém as propriedades apenas de leitura a partir da identidade do dispositivo correspondente armazenada no [registo de identidade](iot-hub-devguide-identity-registry.md).
+* **Propriedades de identidade do dispositivo.** A raiz do documento JSON gémeo do dispositivo contém as propriedades apenas de leitura a partir da identidade do dispositivo correspondente armazenada no [registo de identidade](iot-hub-devguide-identity-registry.md). Propriedades `connectionStateUpdatedTime` `generationId` e não serão incluídas.
 
 ![Screenshot das propriedades gémeas do dispositivo](./media/iot-hub-devguide-device-twins/twin.png)
 

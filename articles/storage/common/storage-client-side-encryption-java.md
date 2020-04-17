@@ -10,12 +10,12 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8fe95a471df6ea86aad90f387088824c3c92bd3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32691e0ddcee3f5410b12f07a2fb80806345bc26
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75460441"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460516"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Encriptação do lado do cliente e cofre de chaves Azure com Java para armazenamento Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -103,7 +103,7 @@ Nas operações de lote, o mesmo KEK será utilizado em todas as linhas dessa op
 > Para efetuar operações de consulta, deve especificar um resolver chave que seja capaz de resolver todas as teclas no conjunto de resultados. Se uma entidade contida no resultado da consulta não puder ser resolvida a um fornecedor, a biblioteca do cliente irá lançar um erro. Para qualquer consulta que execute as projeções laterais do servidor, a biblioteca do cliente adicionará as propriedades especiais de metadados de encriptação (_ClientEncryptionMetadata1 e _ClientEncryptionMetadata2) por padrão às colunas selecionadas.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
-O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Ao utilizar o Cofre de Chaves Azure, os utilizadores podem encriptar chaves e segredos (tais como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, . Ficheiros PFX e palavras-passe) utilizando chaves protegidas por módulos de segurança de hardware (HSMs). Para obter mais informações, veja [O que é o Azure Key Vault?](../../key-vault/key-vault-overview.md)
+O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Ao utilizar o Cofre de Chaves Azure, os utilizadores podem encriptar chaves e segredos (tais como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, . Ficheiros PFX e palavras-passe) utilizando chaves protegidas por módulos de segurança de hardware (HSMs). Para obter mais informações, veja [O que é o Azure Key Vault?](../../key-vault/general/overview.md)
 
 A biblioteca de clientes de armazenamento utiliza a biblioteca principal key vault para fornecer um quadro comum em Azure para gerir chaves. Os utilizadores também obtêm o benefício adicional de usar a biblioteca de extensões Key Vault. A biblioteca de extensões fornece funcionalidade útil em torno de fornecedores de chaves locais e cloud simétricos simples e sem emenda, bem como com agregação e cache.
 
@@ -256,4 +256,4 @@ Note que encriptar os dados de armazenamento resulta em despesas adicionais de d
 * Descarregue a Biblioteca Azure Key Vault Maven para os pacotes Java Maven:
   * [Pacote core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
   * Pacote [de cliente](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
-* Visite a documentação do cofre da [chave azure](../../key-vault/key-vault-overview.md)
+* Visite a documentação do cofre da [chave azure](../../key-vault/general/overview.md)

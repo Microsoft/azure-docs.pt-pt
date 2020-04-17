@@ -5,7 +5,6 @@ services: batch
 documentationcenter: ''
 author: LauraBrenner
 manager: evansma
-editor: tysonn
 ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2019
 ms.author: labrenne
-ms.openlocfilehash: 8062f42d5b7d2c718502ee2e4a8c035919b9182d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b93a4e20bb053ba5e91ef4cafdd2fb58ccd2e89f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77023111"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460337"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Exemplo da CLI: Executar um trabalho e tarefas com o Azure Batch
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0643ae792c890b65f239d9a0c16a05639dd4f8b9
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811483"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461706"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações PaaS
 
@@ -74,7 +74,7 @@ Há décadas que os princípios e padrões para o perímetro da rede estão disp
 Seguem-se as melhores práticas de gestão do perímetro de identidade.
 
 **Boas práticas**: Proteja as chaves e credenciais para proteger a sua implementação paaS.   
-**Detalhe**: Perder chaves e credenciais é um problema comum. Pode utilizar uma solução centralizada onde chaves e segredos podem ser armazenados em módulos de segurança de hardware (HSMs). [O Azure Key Vault](../../key-vault/key-vault-overview.md) salvaguarda as suas chaves e segredos encriptando chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, ficheiros .pfx e palavras-passe usando chaves protegidas por HSMs.
+**Detalhe**: Perder chaves e credenciais é um problema comum. Pode utilizar uma solução centralizada onde chaves e segredos podem ser armazenados em módulos de segurança de hardware (HSMs). [O Azure Key Vault](../../key-vault/general/overview.md) salvaguarda as suas chaves e segredos encriptando chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, ficheiros .pfx e palavras-passe usando chaves protegidas por HSMs.
 
 **Boas práticas**: Não coloque credenciais e outros segredos no código fonte ou gitHub.   
 **Detalhe**: A única coisa pior do que perder as chaves e credenciais é ter uma parte não autorizada a ter acesso a elas. Os atacantes podem aproveitar as tecnologias do bot para encontrar chaves e segredos armazenados em repositórios de código como o GitHub. Não coloque segredos e segredos nestes repositórios de código público.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ba7863d15ac0dfbebe6f14ef0d6f0daa93160b58
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 84d7be64e7157c35639fec19cb28fe787fe29b19
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380048"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533892"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de uma página única angular
 
@@ -39,7 +39,7 @@ Este tutorial demonstra como uma aplicação angular de uma única página (SPA)
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
 
-A aplicação de amostra criada neste tutorial permite que um SPA angular questione o Microsoft Graph API ou um Web API que aceita tokens do ponto final da plataforma de identidade da Microsoft. O MSAL para biblioteca angular é um invólucro da biblioteca core MSAL.js. Permite que aplicações Angulares (6+) atentiquem os utilizadores da empresa utilizando o Microsoft Azure Ative Directory, os utilizadores da conta microsoft e os utilizadores de identidade social (como facebook, Google e LinkedIn). A biblioteca também permite que as aplicações tenham acesso aos serviços de nuvem da Microsoft ou ao Microsoft Graph.
+A aplicação de amostra criada neste tutorial permite que um SPA angular questione o Microsoft Graph API ou um API web que aceita tokens do ponto final da plataforma de identidade da Microsoft. O MSAL para biblioteca angular é um invólucro da biblioteca core MSAL.js. Permite que aplicações Angulares (6+) atentiquem os utilizadores da empresa utilizando o Microsoft Azure Ative Directory, os utilizadores da conta microsoft e os utilizadores de identidade social (como facebook, Google e LinkedIn). A biblioteca também permite que as aplicações tenham acesso aos serviços de nuvem da Microsoft ou ao Microsoft Graph.
 
 Neste cenário, após a adesão de um utilizador, é solicitado um sinal de acesso e adicionado aos pedidos http através do cabeçalho de autorização. A aquisição e renovação simbólicas são tratadas pela MSAL.
 

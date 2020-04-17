@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 09/11/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff4234d9fd28e655e868108e37b09c5afe2767c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 15960caa55274f06159263c1af4a6c8280e83f4e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72517122"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533491"
 ---
-# <a name="bulk-import-group-members-preview-in-azure-active-directory"></a>Membros do grupo de importação a granel (pré-visualização) no Diretório Ativo do Azure
+# <a name="bulk-import-group-members-in-azure-active-directory"></a>Membros do grupo de importação a granel no Diretório Ativo do Azure
 
 Utilizando o portal Azure Ative Directory (Azure AD), pode adicionar um grande número de membros a um grupo utilizando um ficheiro de valores separados de vírem (CSV) aos membros do grupo de importação a granel.
 
@@ -30,7 +30,7 @@ Utilizando o portal Azure Ative Directory (Azure AD), pode adicionar um grande n
 1. Em Azure AD, selecione **Grupos** > **Todos os grupos**.
 1. Abra o grupo ao qual adiciona membros e, em seguida, selecione **Membros**.
 1. Na página **dos Membros,** selecione **Os membros da Importação**.
-1. Na página dos membros do grupo de **importação a granel (Pré-visualização),** selecione **Download** para obter o modelo de ficheiro CSV com propriedades de membros do grupo necessários.
+1. Na página dos membros do **grupo de importação a granel,** selecione **Download** para obter o modelo de ficheiro CSV com propriedades de membros do grupo necessários.
 
     ![O comando dos Membros importados está na página de perfil do grupo](./media/groups-bulk-import-members/import-panel.png)
 
@@ -38,16 +38,16 @@ Utilizando o portal Azure Ative Directory (Azure AD), pode adicionar um grande n
 
    ![O ficheiro CSV contém nomes e IDs para os membros importarem](./media/groups-bulk-import-members/csv-file.png)
 
-1. Na página dos membros do **grupo de importação a granel (Pré-visualização),** sob o upload do seu ficheiro **CSV,** navegue para o ficheiro. Quando selecionar o ficheiro, a validação do ficheiro CSV começa.
+1. Na página dos membros do **grupo de importação a granel,** sob o upload do seu ficheiro **csv,** navegue para o ficheiro. Quando selecionar o ficheiro, a validação do ficheiro CSV começa.
 1. Quando o conteúdo do ficheiro é validado, a página de importação a granel apresenta **file uploaded com sucesso**. Se houver erros, tem de os corrigir antes de poder submeter o trabalho.
 1. Quando o seu ficheiro passar a validação, selecione **Submeter** para iniciar a operação a granel Azure que importa os membros do grupo para o grupo.
 1. Quando a operação de importação estiver concluída, verá uma notificação de que a operação a granel foi bem sucedida.
 
 ## <a name="check-import-status"></a>Verificar o estado da importação
 
-Pode ver o estado de todos os seus pedidos a granel pendentes na página de resultados da **operação Bulk (pré-visualização).**
+Pode ver o estado de todos os seus pedidos a granel pendentes na página de resultados da **operação Bulk.**
 
-   ![A página de resultados das operações a granel mostra o seu estado de pedido em massa](./media/groups-bulk-import-members/bulk-center.png)
+[![](media/groups-bulk-import-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-import-members/bulk-center.png#lightbox)
 
 Para mais detalhes sobre cada item de linha dentro da operação a granel, selecione os valores sob as colunas **# Sucesso**, **# Falha,** ou **Total Solicitações.** Se ocorrerem falhas, as razões da falha serão listadas.
 

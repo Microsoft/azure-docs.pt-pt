@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -16,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3e3d1fe3bf464892934198d06b602a5b8bcafb67
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b4339ab2c512a96614158f673cb07b60184f5f71
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75458386"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459955"
 ---
 # <a name="secure-network-traffic-between-virtual-machines-using-an-nsg"></a>Tráfego de rede seguro entre máquinas virtuais usando um NSG
 

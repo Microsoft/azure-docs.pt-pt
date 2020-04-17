@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fdffb05ac7aff8aac2db9ac588c1dedf8f5c9ea5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 651705407b6cc371d5b6db2662460e3a3ee7b6d4
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74038964"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460839"
 ---
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>Criar um VM de Monitor Azure com PowerShell 
 

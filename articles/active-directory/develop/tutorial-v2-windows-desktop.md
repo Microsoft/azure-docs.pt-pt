@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: aa09d06af4706af3ae120f62a897c0bc632fb657
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: ba4afa31a1ed7b6e2ddf43787ca32a06e97455ce
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990944"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533773"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Ligue para a Microsoft Graph API a partir de uma aplicação do Windows Desktop
 
 Este guia demonstra como uma aplicação nativa do Windows Desktop .NET (XAML) utiliza um sinal de acesso para ligar para o Microsoft Graph API. A aplicação também pode aceder a outras APIs que requerem fichas de acesso de uma plataforma de identidade da Microsoft para desenvolvedores v2.0 endpoint. Esta plataforma foi anteriormente chamada Azure AD.
 
-Quando tiver concluído o guia, a sua aplicação poderá chamar uma API protegida que utiliza contas pessoais (incluindo outlook.com, live.com e outras). A aplicação também utilizará contas de trabalho e escola de qualquer empresa ou organização que utilize o Diretório Ativo Azure.  
+Quando tiver concluído o guia, a sua aplicação poderá chamar uma API protegida que utiliza contas pessoais (incluindo outlook.com, live.com e outras). A aplicação também utilizará contas de trabalho e escola de qualquer empresa ou organização que utilize o Diretório Ativo Azure.
 
 > [!NOTE]
 > O guia requer visual Studio 2015 Update 3, Visual Studio 2017 ou Visual Studio 2019. Não tem nenhuma destas versões? [Baixe o Visual Studio 2019 gratuitamente.](https://www.visualstudio.com/downloads/)
@@ -34,11 +34,11 @@ Quando tiver concluído o guia, a sua aplicação poderá chamar uma API protegi
 
 ![Mostra como funciona a aplicação de amostragerada por este tutorial](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.svg)
 
-A aplicação de amostra que cria com este guia permite uma aplicação do Windows Desktop que questiona o Microsoft Graph API ou um Web API que aceita tokens de um ponto final da plataforma de identidade da Microsoft. Para este cenário, adicione um token aos pedidos http através do cabeçalho de Autorização. A Microsoft Authentication Library (MSAL) trata da aquisição e renovação simbólicas.
+A aplicação de amostra que cria com este guia permite uma aplicação do Windows Desktop que questiona o Microsoft Graph API ou uma API web que aceita tokens de um ponto final da plataforma de identidade da Microsoft. Para este cenário, adicione um token aos pedidos http através do cabeçalho de Autorização. A Microsoft Authentication Library (MSAL) trata da aquisição e renovação simbólicas.
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Manipulação da aquisição de fichas para aceder a APIs web protegidos
 
-Depois de o utilizador ser autenticado, a aplicação de amostra recebe um símbolo que pode utilizar para consultar a Microsoft Graph API ou uma API Web que é protegida pela plataforma de identidade da Microsoft para desenvolvedores.
+Depois de o utilizador ser autenticado, a aplicação de amostra recebe um símbolo que pode utilizar para consultar a Microsoft Graph API ou uma API web que é protegida pela plataforma de identidade da Microsoft para desenvolvedores.
 
 APIs como o Microsoft Graph requerem um sinal para permitir o acesso a recursos específicos. Por exemplo, é necessário um símbolo para ler o perfil de um utilizador, aceder ao calendário de um utilizador ou enviar e-mail. A sua aplicação pode solicitar um sinal de acesso utilizando o MSAL para aceder a estes recursos, especificando os âmbitos da API. Este token de acesso é adicionado ao cabeçalho de autorização http para cada chamada feita contra o recurso protegido.
 
@@ -54,7 +54,7 @@ Este guia utiliza os seguintes pacotes NuGet:
 
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
 
-Nesta secção cria-se um novo projeto para demonstrar como integrar uma aplicação Windows Desktop .NET (XAML) com o *Sign-In com* a Microsoft para que a aplicação possa consultar APIs web que requeiram um símbolo.
+Nesta secção cria-se um novo projeto para demonstrar como integrar uma aplicação Windows Desktop .NET (XAML) com o *Sign-In com* a Microsoft para que a aplicação possa consultar APIs web que exijam um token.
 
 A aplicação que cria com este guia exibe um botão que é usado para chamar um gráfico, uma área para mostrar os resultados no ecrã e um botão de sinalização.
 
@@ -77,7 +77,7 @@ Para criar a sua aplicação, faça o seguinte:
     Install-Package Microsoft.Identity.Client -Pre
     ```
 
-    > [!NOTE] 
+    > [!NOTE]
     > Este comando instala a Biblioteca de Autenticação da Microsoft. MSAL pega na aquisição, cache e refrescantes tokens do utilizador que são usados para aceder às APIs que são protegidas pelo Azure Ative Directory v2.0
     >
 
@@ -136,7 +136,7 @@ Neste passo, cria-se uma classe para lidar com a interação com a MSAL, como o 
                 .Build();
         }
 
-        // Below are the clientId (Application Id) of your app registration and the tenant information. 
+        // Below are the clientId (Application Id) of your app registration and the tenant information.
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
         // - the content of Tenant by the information about the accounts allowed to sign-in in your application:
@@ -156,7 +156,7 @@ Neste passo, cria-se uma classe para lidar com a interação com a MSAL, como o 
 
 ## <a name="create-the-application-ui"></a>Criar a aplicação UI
 
-Esta secção mostra como uma aplicação pode consultar um servidor back-end protegido, como o Microsoft Graph. 
+Esta secção mostra como uma aplicação pode consultar um servidor back-end protegido, como o Microsoft Graph.
 
 Um ficheiro *MainWindow.xaml* deve ser criado automaticamente como parte do seu modelo de projeto. Abra este ficheiro e, em seguida, substitua o nó * \<de grid>* da sua aplicação pelo seguinte código:
 
@@ -266,9 +266,9 @@ O `AcquireTokenSilent` método lida com aquisições e renovações simbólicas 
 
 Eventualmente, `AcquireTokenSilent` o método falhará. As razões para a falha podem ser que o utilizador tenha assinado ou alterado a sua palavra-passe noutro dispositivo. Quando a MSAL deteta que a questão pode `MsalUiRequiredException` ser resolvida exigindo uma ação interativa, dispara uma exceção. A sua aplicação pode lidar com esta exceção de duas formas:
 
-* Pode fazer uma `AcquireTokenInteractive` chamada contra imediatamente. Esta chamada resulta em levar o utilizador a iniciar sessão. Este padrão é normalmente utilizado em aplicações online onde não existe conteúdo offline disponível para o utilizador. A amostra gerada por esta configuração guiada segue este padrão, que pode ver em ação na primeira vez que executa a amostra. 
+* Pode fazer uma `AcquireTokenInteractive` chamada contra imediatamente. Esta chamada resulta em levar o utilizador a iniciar sessão. Este padrão é normalmente utilizado em aplicações online onde não existe conteúdo offline disponível para o utilizador. A amostra gerada por esta configuração guiada segue este padrão, que pode ver em ação na primeira vez que executa a amostra.
 
-* Como nenhum utilizador utilizou `PublicClientApp.Users.FirstOrDefault()` a aplicação, contém `MsalUiRequiredException` um valor nulo, e uma exceção é lançada. 
+* Como nenhum utilizador utilizou `PublicClientApp.Users.FirstOrDefault()` a aplicação, contém `MsalUiRequiredException` um valor nulo, e uma exceção é lançada.
 
 * O código da amostra trata então `AcquireTokenInteractive`da exceção através da chamada , o que leva o utilizador a iniciar o seu insessão.
 
@@ -322,7 +322,7 @@ Para assinar um utilizador, adicione o `MainWindow.xaml.cs` seguinte método ao 
 /// </summary>
 private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 {
-    var accounts = await App.PublicClientApp.GetAccountsAsync(); 
+    var accounts = await App.PublicClientApp.GetAccountsAsync();
 
     if (accounts.Any())
     {

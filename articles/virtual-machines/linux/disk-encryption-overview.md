@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d058ff5f9863642f73725db3472c942161447f25
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: fa7e085f723d4f4c411f52e045c9437d5cb293b3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548442"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459785"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Encriptação de disco azure para VMs Linux 
 
@@ -105,7 +105,7 @@ Para ativar a funcionalidade de encriptação do disco Azure, os VMs Linux devem
   - Para obter um símbolo para ligar ao seu cofre chave, o VM Linux deve ser \[\]capaz de ligar a um ponto final do Diretório Ativo Azure, login.microsoftonline.com .
   - Para escrever as chaves de encriptação do seu cofre de chaves, o VM Linux deve ser capaz de ligar ao ponto final do cofre chave.
   - O Linux VM deve ser capaz de ligar a um ponto final de armazenamento Azure que acolhe o repositório de extensão Azure e uma conta de armazenamento Azure que acolhe os ficheiros VHD.
-  -  Se a sua política de segurança limitar o acesso dos VMs Azure à Internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída aos IPs. Para mais informações, consulte [o Cofre chave Azure atrás de uma firewall](../../key-vault/key-vault-access-behind-firewall.md).  
+  -  Se a sua política de segurança limitar o acesso dos VMs Azure à Internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída aos IPs. Para mais informações, consulte [o Cofre chave Azure atrás de uma firewall](../../key-vault/general/access-behind-firewall.md).  
 
 ## <a name="encryption-key-storage-requirements"></a>Requisitos de armazenamento de chaves de encriptação  
 

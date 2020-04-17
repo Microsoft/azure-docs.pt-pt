@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: twooley
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
 ms.service: virtual-network
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
-ms.openlocfilehash: b50875105696dc5c556e2a4a9e756078cf995327
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 946926a8a805ec3c53ea3c57dc3eded2462f7673
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060393"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461553"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configure um endereço IP privado para um VM utilizando o portal Azure
 
@@ -53,7 +52,7 @@ Para criar um VM chamado *DNS01* na subnet *FrontEnd* de uma rede virtual chamad
 
     | Item | Valor |
     | --- | --- |
-    | **Assinatura** | A sua subscrição atual |
+    | **Subscrição** | A sua subscrição atual |
     | **Grupo de recursos** | **TestRG** (selecione na lista de dropdown) |
     | **Nome da máquina virtual** | *DNS01* |
     | **Região** | **(EUA) Leste dos EUA** |
