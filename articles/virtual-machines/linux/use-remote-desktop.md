@@ -13,22 +13,22 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 2b1b708618c60153b8dbce69b26d832fa18b25aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e97442d4104f52c1a76ba8cd1d81c99508bb242
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476608"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605192"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instale e configure o Ambiente de Trabalho Remoto para ligar a um Linux VM em Azure
-As máquinas virtuais Linux (VMs) em Azure são geralmente geridas a partir da linha de comando utilizando uma ligação segura (SSH). Quando novo no Linux, ou para cenários de resolução rápida de problemas, a utilização de ambientes de trabalho remotos pode ser mais fácil. Este artigo detalha como instalar e configurar um ambiente de trabalho[(xfce)](https://www.xfce.org)e um ambiente de trabalho remoto[(xrdp)](https://www.xrdp.org)para o seu VM Linux utilizando o modelo de implementação do Gestor de Recursos.
+As máquinas virtuais Linux (VMs) em Azure são geralmente geridas a partir da linha de comando utilizando uma ligação segura (SSH). Quando novo no Linux, ou para cenários de resolução rápida de problemas, a utilização de ambientes de trabalho remotos pode ser mais fácil. Este artigo detalha como instalar e configurar um ambiente de trabalho[(xfce)](https://www.xfce.org)e um ambiente de trabalho remoto[(xrdp)](http://xrdp.org)para o seu VM Linux utilizando o modelo de implementação do Gestor de Recursos.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo requer um Ubuntu 18.04 LTS VM existente em Azure. Se precisar de criar um VM, utilize um dos seguintes métodos:
 
 - O [Azure CLI](quick-create-cli.md)
-- O [portal do Azure](quick-create-portal.md)
+- O [portal Azure](quick-create-portal.md)
 
 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instale um ambiente de trabalho no seu Linux VM

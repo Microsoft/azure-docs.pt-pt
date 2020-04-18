@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/03/2020
+ms.date: 04/17/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d2e3f8da4a05feedb8c1ab585fabcc74edbc71a
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 815d3afe68003f56a5748584b322b731ef5a3dc7
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998753"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639638"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -55,6 +55,15 @@ Nem todos os lançamentos do Azure AD Connect serão disponibilizados para atual
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
 Esta construção de hotfix corrige um problema com a build 1.5.18.0 se tiver a função de filtragem de grupo ativada e utilizar mS-DS-Consistência Como âncora de origem.
+
+> [!IMPORTANT]
+> Se utilizar o mS-DS-ConsistênciaComo âncora de origem, e clonou a regra de sincronização **In from AD - Group Join** e planeia atualizar, complete os seguintes passos como parte da atualização:
+> 1. Durante a atualização, desfaça a opção Iniciar o processo de **sincronização quando a configuração estiver concluída**.
+> 2. Editar a regra de sincronização de agregação clonada e adicionar as duas transformações seguintes:
+>     - Definir fluxo `objectGUID` `sourceAnchorBinary`direto para .
+>     - Definir fluxo `ConvertToBase64([objectGUID])` `sourceAnchor`de expressão para .     
+> 3. Ativar o `Set-ADSyncScheduler -SyncCycleEnabled $true`programador utilizando .
+
 
 ## <a name="15180"></a>1.5.18.0
 

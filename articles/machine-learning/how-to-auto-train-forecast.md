@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: d4e36c0d3838af85768453496a51ecd295c22b93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be3046a343e14be4a527363751081ba3f2593cd3
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79081850"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605882"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-train um modelo de previsão de série de tempo
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -205,12 +205,7 @@ fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 
 Utilize a melhor iteração do modelo para prever valores para o conjunto de dados de teste.
 
-```python
-predict_labels = fitted_model.predict(test_data)
-actual_labels = test_labels.flatten()
-```
-
-Em alternativa, pode `forecast()` utilizar a `predict()`função em vez de , o que permitirá especificações de quando as previsões devem começar. No exemplo seguinte, substitui-se `y_pred` primeiro `NaN`todos os valores por . A origem prevista será no final dos dados de formação neste `predict()`caso, como normalmente seria quando utilizar . No entanto, se substituísse apenas a segunda metade do `y_pred` com `NaN`, a função `NaN` deixaria os valores numéricos na primeira parte inalterados, mas previa os valores na segunda parte. A função devolve tanto os valores previstos como as características alinhadas.
+A `forecast()` função deve `predict()`ser utilizada em vez de, isto permitirá especificações de quando as previsões devem começar. No exemplo seguinte, substitui-se `y_pred` primeiro `NaN`todos os valores por . A origem prevista será no final dos dados de formação neste `predict()`caso, como normalmente seria quando utilizar . No entanto, se substituísse apenas a segunda metade do `y_pred` com `NaN`, a função `NaN` deixaria os valores numéricos na primeira parte inalterados, mas previa os valores na segunda parte. A função devolve tanto os valores previstos como as características alinhadas.
 
 Também pode utilizar `forecast_destination` o parâmetro `forecast()` na função para prever valores até uma data especificada.
 

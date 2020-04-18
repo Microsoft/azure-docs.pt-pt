@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: a2765aaf36aa5f7e541e0ee7fb3178246d2cca5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3547062f100eeb4dfa741a0566d737a0eac776a0
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659905"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605104"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Criar um espaço de trabalho log Analytics com o Azure PowerShell
 
@@ -108,7 +108,7 @@ Os seguintes parâmetros estabelecem um valor predefinido:
     }
     ```
 
-2. Editar o modelo para satisfazer os seus requisitos. Reveja a referência do [modelo Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais as propriedades e valores suportados. 
+2. Editar o modelo para satisfazer os seus requisitos. Reveja a referência do [modelo Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber quais as propriedades e valores suportados. 
 3. Guarde este ficheiro como **modelo espaço de implantação.json** para uma pasta local.   
 4. Está pronto para implementar este modelo. Utilize os seguintes comandos da pasta que contém o modelo. Quando for solicitado um nome de espaço de trabalho, forneça um nome globalmente único em todas as subscrições do Azure.
 

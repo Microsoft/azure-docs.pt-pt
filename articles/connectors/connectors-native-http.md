@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c52f2df34faf441ab70b48b11bbc393ebcecb65
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297215"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617603"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Pontos finais do serviço de chamada sobre HTTP ou HTTPS de Aplicações Lógicas Azure
 
@@ -59,7 +59,7 @@ Este artigo mostra como adicionar um gatilho ou ação HTTP ao fluxo de trabalho
 
 Este gatilho incorporado faz uma chamada http para o URL especificado para um ponto final e devolve uma resposta.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
 
 1. Sob a caixa de pesquisa do designer, selecione **Incorporado**. Na caixa de `http` pesquisa, introduza como filtro. A partir da lista **de Gatilhos,** selecione o gatilho **HTTP.**
 
@@ -88,7 +88,7 @@ Este gatilho incorporado faz uma chamada http para o URL especificado para um po
 
 Esta ação incorporada faz uma chamada http para o URL especificado para um ponto final e devolve uma resposta.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
 
    Este exemplo utiliza o gatilho HTTP como primeiro passo.
 
@@ -140,8 +140,8 @@ Por exemplo, suponha que tenha uma aplicação lógica que envia um pedido HTTP 
 Aqui está o mesmo exemplo que mostra a definição JSON da ação HTTP na definição subjacente de fluxo de trabalho:
 
 ```json
-{
-   "HTTP_action": {
+"HTTP_action": {
+   "inputs": {
       "body": {
          "$content-type": "multipart/form-data",
          "$multipart": [

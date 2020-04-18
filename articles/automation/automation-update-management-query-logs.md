@@ -5,22 +5,22 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 81e12e775306cc8637dedd534f50e8a14bc09a26
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 09eacb42eff6ecf3a3fca2d7fb401f52195f5f2d
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743879"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617429"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Registos de atualizações de consulta para Gestão de Atualizações em Registos de Monitores Azure
 
-Além dos detalhes fornecidos na solução De Gestão de Atualizações, pode pesquisar contra os registos armazenados no seu espaço de trabalho Log Analytics. A partir da página de solução, no painel à esquerda selecione **Logs**. A página de **Pesquisa de Registos** abre.
+Além dos detalhes fornecidos na solução De Gestão de Atualizações, pode pesquisar contra os registos armazenados no seu espaço de trabalho Log Analytics. A partir da página de solução, no painel esquerdo, selecione **Logs**. A página de Pesquisa de Registos abre.
 
-Também pode aprender a personalizar as consultas ou usá-las de diferentes clientes e muito mais visitando: [Log Analytics pesquisar documentação API](https://dev.loganalytics.io/).
+Também pode aprender a personalizar as consultas ou usá-las de diferentes clientes. Consulte [log Analytics pesquisar documentação DaPI](https://dev.loganalytics.io/).
 
 ## <a name="update-records"></a>Registos de atualizações
 
-Registos que são recolhidos pela Update Management para VMs Windows e Linux e os tipos de dados que aparecem nos resultados de pesquisa de registo. As seguintes secções descrevem os registos.
+Update Management recolhe registos de VMs Windows e Linux e os tipos de dados que aparecem nos resultados de pesquisa de registo. As seguintes secções descrevem os registos.
 
 ### <a name="required-updates"></a>Atualizações necessárias
 
@@ -38,7 +38,7 @@ Registos que são recolhidos pela Update Management para VMs Windows e Linux e o
 | SourceSystem | *OperationsManager* | 
 | TenantId | Identificador único que representa as suas organizações exemplo de Diretório Ativo Azure. | 
 | TimeGenerated | Data e hora em que o disco foi criado. | 
-| Tipo | *Atualização* | 
+| Tipo | *Atualizar* | 
 | Classificação de Atualização | Indica o tipo de atualizações que podem ser aplicadas. Para Windows:<br> *Atualizações críticas*<br> *Atualizações de segurança*<br> *Update rollups*<br> *Pacotes de funcionalidades*<br> *Service packs*<br> *Atualizações de definições*<br> *Ferramentas*<br> *Atualizações*. Para Linux:<br> *Atualizações críticas e de segurança*<br> *Outros* |
 | AtualizaçõesGravidade | Classificação de gravidade para a vulnerabilidade. Os valores são:<br> *Crítica*<br> *Importante*<br> *Moderado*<br> *Baixo* |
 | Título de atualização | O título da atualização.|
@@ -49,36 +49,36 @@ Registos que são recolhidos pela Update Management para VMs Windows e Linux e o
 
 | Propriedade | Descrição | 
 |----------|-------------|
-| ApprovalSource | Aplica-se apenas ao sistema operativo Windows. Valor é *Microsoft Update*. |
-| Aprovado | *Verdadeiro* ou *Falso* |
-| Classificação | *Updates* |
+| ApprovalSource | Aplica-se apenas ao sistema operativo Windows. Fonte de aprovação para o registo. O valor é Microsoft Update. |
+| Aprovado | É verdade que o registo é aprovado, ou Falso de outra forma. |
+| Classificação | Classificação de aprovação. O valor é Updates. |
 | Computador | Nome de domínio totalmente qualificado da máquina de reportagem. |
-| ComputadorAmbiente | *Azure* ou *Não-Azure.* |
-| MSRCBulletinID | Número de ID do boletim de segurança | 
-| MSRCSeverity | Classificação de gravidade para a vulnerabilidade. Os valores são:<br> *Crítica*<br> *Importante*<br> *Moderado*<br> *Baixo* |  
+| ComputadorAmbiente | O ambiente. Os valores possíveis são Azure ou Non-Azure. |
+| MSRCBulletinID | Número de identificação do boletim de segurança. | 
+| MSRCSeverity | Classificação de gravidade para a vulnerabilidade. Os valores são:<br> Crítica<br> Importante<br> Moderado<br> Baixa |  
 | KBID | Id do artigo base de conhecimento para a atualização do Windows. |
 | ManagementGroupName | Nome do grupo de gestão do Gestor de Operações ou do espaço de trabalho log Analytics. |
 | UpdateID | Identificador único da atualização de software. |
 | RevisionNumber | O número de revisão de uma revisão específica de uma atualização. |
-| Opcional | *Verdadeiro* ou *Falso* | 
+| Opcional | É verdade que o registo é opcional, ou Falso de outra forma. | 
 | RebootBehavior | O comportamento de reinicialização após a instalação/desinstalação de uma atualização. |
-| _ResourceId | Identificador único para o recurso com o que o registo está associado. |
-| Tipo | *Atualização* |
+| _ResourceId | Identificador único para o recurso associado ao registo. |
+| Tipo | Tipo de disco. O valor é Update. |
 | VMUUID | Identificador único para a máquina virtual. |
 | MG | Identificador único para o grupo de gestão ou espaço de trabalho Log Analytics. | 
-| TenantId | Identificador único que representa as suas organizações exemplo de Diretório Ativo Azure. | 
-| SourceSystem | *OperationsManager* | 
-| TimeGenerated | Data e hora em que o disco foi criado. | 
+| TenantId | Identificador único que representa o exemplo da sua organização de Diretório Ativo Azure. | 
+| SourceSystem | O sistema de origem para o registo. O valor `OperationsManager`é. | 
+| TimeGenerated | Data e hora da criação de discos. | 
 | SourceComputerId | Identificador único que representa o computador de origem. | 
 | Título | O título da atualização. |
 | Data publicada (UTC) | A data em que a atualização está pronta para ser descarregada e instalada a partir do Windows Update.  |
 | UpdateState | O estado atual da atualização. | 
 | Produto | Os produtos para os quais a atualização é aplicável. |
 | SubscriptionId | Identificador exclusivo da subscrição do Azure. | 
-| ResourceGroup | Nome do grupo de recursos do recurso do recurso é membro. | 
-| ResourceProvider | Especifica o fornecedor de recursos. | 
+| ResourceGroup | Nome do grupo de recursos a que pertence o recurso. | 
+| ResourceProvider | O fornecedor de recursos. | 
 | Recurso | Nome do recurso. | 
-| ResourceType | Nome do tipo de recurso. | 
+| ResourceType | O tipo de recurso. | 
 
 ### <a name="update-agent"></a>Agente de Atualização
 
@@ -94,12 +94,12 @@ Registos que são recolhidos pela Update Management para VMs Windows e Linux e o
 | OSVersion | A versão do sistema operativo. |
 | Server | |
 | SourceHealthServiceId | Identificador único que representa o ID do agente do Windows de Log Analytics. |
-| SourceSystem | *OperationsManager* | 
-| TenantId | Identificador único que representa as suas organizações exemplo de Diretório Ativo Azure. |
-| TimeGenerated | Data e hora em que o disco foi criado. |
-| Tipo | *Atualização* | 
+| SourceSystem | O sistema de origem para o registo. O valor `OperationsManager`é. | 
+| TenantId | Identificador único que representa o exemplo da sua organização de Diretório Ativo Azure. |
+| TimeGenerated | Data e hora da criação de discos. |
+| Tipo | Tipo de disco. O valor é Update. | 
 | WindowsUpdateAgentVersion | Versão do agente Windows Update. |
-| WSUSServer | Mostra erros se o agente Windows Update tiver algum problema para ajudar na resolução de problemas. |
+| WSUSServer | Erros se o agente windows Update tiver algum problema, para ajudar na resolução de problemas. |
 
 ### <a name="update-deployment-status"></a>Estado de implementação de atualização 
 
@@ -108,30 +108,30 @@ Registos que são recolhidos pela Update Management para VMs Windows e Linux e o
 | Propriedade | Descrição | 
 |----------|-------------|
 | Computador | Nome de domínio totalmente qualificado da máquina de reportagem. |
-| ComputadorAmbiente | *Azure* ou *Não-Azure.* | 
+| ComputadorAmbiente | O ambiente. Os valores são Azure ou Non-Azure. | 
 | CorrelationId | Identificador único do trabalho do livro de recortes corre para a atualização. |
 | EndTime | O tempo em que o processo de sincronização terminou. | 
 | ErrorResult | Código de erro do Windows Update gerado se uma atualização não for instalada. | 
-| Estado de Instalação | Os possíveis estados de instalação de uma atualização no computador cliente,<br> *Não Comecei* - trabalho ainda não desencadeado.<br> *FailedToStart* - incapaz de iniciar o trabalho na máquina.<br> *Falhou* - o trabalho começou, mas falhou com uma exceção.<br> *InProgress* - trabalho em curso.<br> *ManutençãoJanelaExceeded* - se a execução restava, mas o intervalo da janela de manutenção atingiu.<br> *Conseguiu-* o trabalho foi bem sucedido.<br> *InstalaçãoFailed* - a atualização não foi instalada com sucesso.<br> *Não Incluído*<br> *Excluído* |
+| Estado de Instalação | Os possíveis estados de instalação de uma atualização no computador cliente,<br> `NotStarted`- trabalho ainda não desencadeado.<br> `FailedToStart`- incapaz de iniciar o trabalho na máquina.<br> `Failed`- o trabalho começou, mas falhou com uma exceção.<br> `InProgress`- trabalho em curso.<br> `MaintenanceWindowExceeded`- se a execução restava, mas o intervalo da janela de manutenção chegou.<br> `Succeeded`- o trabalho foi bem sucedido.<br> `InstallFailed`- a atualização não foi instalada com sucesso.<br> `NotIncluded`<br> `Excluded` |
 | KBID | Id do artigo base de conhecimento para a atualização do Windows. | 
 | ManagementGroupName | Nome do grupo de gestão do Gestor de Operações ou do espaço de trabalho log Analytics. |
-| OSType | Especifica o tipo de sistema operativo, *Windows* ou *Linux*. | 
+| OSType | Tipo de sistema operativo. Os valores são Windows ou Linux. | 
 | Produto | Os produtos para os quais a atualização é aplicável. |
 | Recurso | Nome do recurso. | 
-| ResourceId | Identificador único para o recurso com o que o registo está associado. |
-| ResourceProvider | Especifica o fornecedor de recursos. | 
-| ResourceType | Nome do tipo de recurso. | 
+| ResourceId | Identificador único para o recurso associado ao registo. |
+| ResourceProvider | O fornecedor de recursos. | 
+| ResourceType | Tipo de recurso. | 
 | SourceComputerId | Identificador único que representa o computador de origem. | 
-| SourceSystem | *OperationsManager* |
-| StartTime | Hora em que a atualização está programada para ser instalada. |
+| SourceSystem | Sistema de origem para o registo. O valor `OperationsManager`é. |
+| StartTime | Hora da atualização estar programada para ser instalada. |
 | SubscriptionId | Identificador exclusivo da subscrição do Azure. | 
-| SucceededOnRetry | Mostra quando a execução da atualização falhou na primeira tentativa e a operação atual é uma tentativa de novo. |
-| TimeGenerated | Data e hora em que o disco foi criado. |
+| SucceededOnRetry | Valor indicando se a execução da atualização falhou na primeira tentativa e a operação atual é uma tentativa de retry. |
+| TimeGenerated | Data e hora da criação de discos. |
 | Título | O título da atualização. |
-| Tipo | *UpdateRunProgress* |
+| Tipo | O tipo de atualização. O valor `UpdateRunProgress`é. |
 | Atualização | Identificador único da atualização de software. |
 | VMUUID | Identificador único para a máquina virtual. |
-| _ResourceId | Identificador único para o recurso com o que o registo está associado. |
+| ResourceId | Identificador único para o recurso associado ao registo. |
 
 ### <a name="update-summary"></a>Resumo da atualização 
 
@@ -140,32 +140,32 @@ Registos que são recolhidos pela Update Management para VMs Windows e Linux e o
 | Propriedade | Descrição | 
 |----------|-------------|
 | Computador | Nome de domínio totalmente qualificado da máquina de reportagem. |
-| ComputadorAmbiente | *Azure* ou *Não-Azure.* | 
-| CriticalUpdatesMissing | Número de atualizações críticas em falta que são aplicáveis. | 
+| ComputadorAmbiente | O ambiente. Os valores são Azure ou Non-Azure. | 
+| CriticalUpdatesMissing | Número de atualizações críticas aplicáveis que faltam. | 
 | ManagementGroupName | Nome do grupo de gestão do Gestor de Operações ou do espaço de trabalho log Analytics. |
 | NETRuntimeVersion | Versão da .NET Framework instalada no computador Windows. |
-| OldestMissingSecurityUpdateBucket | Os valores são:<br> *Recente* se o valor for inferior a 30 dias<br> *Há 30 dias.*<br> *Há 60 dias*<br> *Há 90 dias.*<br> *Há 120 dias*<br> *Há 150 dias*<br> *Há 180 dias*<br> *Mais velho* quando o valor é superior a 180 dias | 
+| OldestMissingSecurityUpdateBucket | Especificador do balde de segurança mais antigo desaparecido. Os valores são:<br> Recente se o valor for inferior a 30 dias<br> Há 30 dias.<br> Há 60 dias<br> Há 90 dias.<br> Há 120 dias<br> Há 150 dias<br> Há 180 dias<br> Mais velho quando o valor é superior a 180 dias. | 
 | OldestMissingSecurityUpdateInDays | Número total de dias para a atualização mais antiga detetada conforme aplicável que não foi instalada. |
 | OsVersion | A versão do sistema operativo. |
 | OtherUpdatesMissing | Contagem de atualizações detetadas em falta. |
-| Recurso |  Nome do recurso. | 
-| ResourceGroup | Nome do grupo de recursos do recurso do recurso é membro. |
-| ResourceId | Identificador único para o recurso com o que o registo está associado. |
-| ResourceProvider | Especifica o fornecedor de recursos. |
-| ResourceType | Nome do tipo de recurso. |
-| Reiniciar gastos | *Verdadeiro* ou *Falso.* |
-| SecurityUpdatesMissing | Contagem de atualizações de segurança em falta aplicáveis.| 
+| Recurso | Nome do recurso para o registo. | 
+| ResourceGroup | Nome do grupo de recursos que contém o recurso. |
+| ResourceId | Identificador único para o recurso associado ao registo. |
+| ResourceProvider | O fornecedor de recursos. |
+| ResourceType | Tipo de recurso. |
+| Reiniciar gastos | É verdade que se estiver pendente um recomeço, ou falso de outra forma. |
+| SecurityUpdatesMissing | Contagem de atualizações de segurança em falta que são aplicáveis.| 
 | SourceComputerId | Identificador único para a máquina virtual. |
-| SourceSystem | *OpsManager* | 
+| SourceSystem | Sistema de origem para o registo. O valor `OpsManager`é. | 
 | SubscriptionId | Identificador exclusivo da subscrição do Azure. |
-| TimeGenerated | Data e hora em que o disco foi criado. |
+| TimeGenerated | Data e hora da criação de discos. |
 | TotalUpdatesMissing | Número total de atualizações em falta aplicáveis. | 
-| Tipo | *UpdateSummary* |
+| Tipo | Tipo de disco. O valor `UpdateSummary`é. |
 | VMUUID | Identificador único para a máquina virtual. |
 | WindowsUpdateAgentVersion | Versão do agente Windows Update. |
-| WindowsUpdateSetting | Mostra o estado do agente Windows Update. Os valores possíveis são:<br> *Instalação programada*<br> *Notificar antes da instalação*<br> Erro devolvido de agente da WUA pouco saudável. | 
-| WSUSServer | Mostra erros se o agente Windows Update tiver algum problema para ajudar na resolução de problemas. |
-| _ResourceId | Identificador único para o recurso com o que o registo está associado. |
+| WindowsUpdateSetting | Estado do agente Deactualização do Windows. Os valores possíveis são:<br> `Scheduled installation`<br> `Notify before installation`<br> `Error returned from unhealthy WUA agent` | 
+| WSUSServer | Erros se o agente windows Update tiver algum problema, para ajudar na resolução de problemas. |
+| _ResourceId | Identificador único para o recurso associado ao registo. |
 
 ## <a name="sample-queries"></a>Consultas de exemplo
 
@@ -306,8 +306,6 @@ on SourceComputerId
 | summarize assessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity>-1), notAssessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==-1), computersNeedCriticalUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==4), computersNeedSecurityUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==2), computersNeedOtherUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==1), upToDateComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==0)
 | summarize assessedComputersCount=sum(assessedComputersCount), computersNeedCriticalUpdatesCount=sum(computersNeedCriticalUpdatesCount),  computersNeedSecurityUpdatesCount=sum(computersNeedSecurityUpdatesCount), computersNeedOtherUpdatesCount=sum(computersNeedOtherUpdatesCount), upToDateComputersCount=sum(upToDateComputersCount), notAssessedComputersCount=sum(notAssessedComputersCount)
 | extend allComputersCount=assessedComputersCount+notAssessedComputersCount
-
-
 ```
 
 #### <a name="missing-updates-summary"></a>Resumo das atualizações em falta

@@ -3,12 +3,12 @@ title: Implementar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Mostra também como utilizar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 65cc220d32d1e1149b7026fc438f5e34262511dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131960"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604994"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos e recursos de recursos ao nível da subscrição
 
@@ -23,17 +23,17 @@ Pode implementar os seguintes tipos de recursos ao nível da subscrição:
 * [orçamentos](/azure/templates/microsoft.consumption/budgets)
 * [implementações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que se implantam em grupos de recursos.
 * [eventoSSubscrições](/azure/templates/microsoft.eventgrid/eventsubscriptions)
-* [peerAsns](/azure/templates/microsoft.peering/peerasns)
+* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 * [políticasAtribuis](/azure/templates/microsoft.authorization/policyassignments)
 * [definições políticas](/azure/templates/microsoft.authorization/policydefinitions)
 * [definições políticasSetDefinições](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [reparações](/azure/templates/microsoft.policyinsights/remediations)
+* [reparações](/azure/templates/microsoft.policyinsights/2019-07-01/remediations)
 * [recursosGrupos](/azure/templates/microsoft.resources/resourcegroups)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [definições de papel](/azure/templates/microsoft.authorization/roledefinitions)
 * [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
 * [plantypes de planos de suporte](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
-* [etiquetas](/azure/templates/microsoft.resources/tags)
+* [tags](/azure/templates/microsoft.resources/tags)
 
 ### <a name="schema"></a>Esquema
 

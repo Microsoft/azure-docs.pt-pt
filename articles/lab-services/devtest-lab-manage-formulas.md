@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/17/2020
 ms.author: spelluru
-ms.openlocfilehash: 4f8c8d4ff0a8014fe0b9a6ae4aead35ec7df4bf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce980167cd88adfada1aa294aafa885184565799
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501963"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641150"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerir fórmulas azure DevTest Labs
 
@@ -38,7 +38,7 @@ Para obter mais informações sobre a adição de utilizadores e permissões, co
 ### <a name="create-a-formula-from-a-base"></a>Criar uma fórmula a partir de uma base
 Os seguintes passos guiam-no através do processo de criação de uma fórmula a partir de uma imagem personalizada, imagem do Marketplace ou outra fórmula.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 
@@ -83,7 +83,7 @@ Os seguintes passos guiam-no através do processo de criação de uma fórmula b
 > 
 > 
 
-1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Da lista de laboratórios, selecione o laboratório desejado.  
 4. Na página de **visão geral** do laboratório, selecione o VM a partir do qual pretende criar a fórmula.
@@ -100,7 +100,7 @@ Os seguintes passos guiam-no através do processo de criação de uma fórmula b
 ## <a name="modify-a-formula"></a>Modificar uma fórmula
 Para modificar uma fórmula, siga estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Da lista de laboratórios, selecione o laboratório desejado.  
 4. Na página do laboratório, selecione **Fórmulas (bases reutilizáveis)**.
@@ -112,7 +112,7 @@ Para modificar uma fórmula, siga estes passos:
 ## <a name="delete-a-formula"></a>Apagar uma fórmula
 Para eliminar uma fórmula, siga estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Da lista de laboratórios, selecione o laboratório desejado.  
 4. Na página **Definições** do laboratório, selecione **Fórmulas**.
@@ -129,7 +129,7 @@ Para eliminar uma fórmula, siga estes passos:
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>Posts de blog relacionados
-* [Imagens ou fórmulas personalizadas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+* [Imagens ou fórmulas personalizadas?](devtest-lab-faq.md#what-is-the-difference-between-a-custom-image-and-a-formula)
 
 ## <a name="next-steps"></a>Passos seguintes
 Depois de ter criado uma fórmula para usar ao criar um VM, o próximo passo é [adicionar um VM ao seu laboratório.](devtest-lab-add-vm.md)

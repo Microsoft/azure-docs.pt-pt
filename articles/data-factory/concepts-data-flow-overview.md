@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/28/2020
-ms.openlocfilehash: 39d1f15b771168b618bfbc4951f2036a8b95b027
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8420cba043e7fc9285b473b877f0ff10212e9fda
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418461"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605319"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são fluxos de dados de mapeamento?
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Os fluxos de dados de mapeamento são transformações de dados projetadas visualmente na Azure Data Factory. Os fluxos de dados permitem que os engenheiros de dados desenvolvam lógica de transformação gráfica de dados sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro dos oleodutos da Azure Data Factory que utilizam aglomerados de faíscas Apache escalados. As atividades de fluxo de dados podem ser contratadas através das capacidades de agendamento, controlo, fluxo e monitorização existentes da Data Factory.
 

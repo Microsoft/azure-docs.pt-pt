@@ -7,16 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.openlocfilehash: 5e1c0eb1c4f1fc74e56db8f83f1bab6406ec5306
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415557"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606124"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Usando padrões de coluna sinuosos no fluxo de dados de mapeamento
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Várias transformações de fluxo de dados de mapeamento permitem-lhe referência a colunas de modelos com base em padrões em vez de nomes de colunas codificados. Esta correspondência é conhecida como padrões de *coluna.* Pode definir padrões para combinar colunas com base no nome, tipo de dados, fluxo ou posição em vez de exigir nomes de campo exatos. Há dois cenários em que os padrões de coluna são úteis:
 

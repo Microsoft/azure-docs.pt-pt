@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: guybo
-ms.openlocfilehash: aebb31c825725e8b748fe52bfdf74a79074d6a52
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ed7755251feb04a5f811d6ed96b00a347fba8994
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460499"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605914"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuições de Linux endossadas no Azure
 Os parceiros fornecem imagens Linux no Mercado Azure. Estamos trabalhando com várias comunidades Linux para adicionar ainda mais sabores à lista de Distribuição Endossada. Entretanto, para distribuições que não estão disponíveis no Mercado, pode sempre trazer o seu próprio Linux seguindo as diretrizes da [Create e carregar um disco rígido virtual que contém o sistema operativo Linux.](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
@@ -37,7 +37,7 @@ O Agente Azure Linux já está pré-instalado nas imagens do Azure Marketplace e
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |No núcleo |Código fonte: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debiano 7.9+, 8.2+, 9, 10 |No núcleo |Pacote: Em repo em "waagent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4+, 7.0+ |No núcleo |Pacote: Em repo em "WALinuxAgent" <br/>Código fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux |RHEL 6.7+, 7.1+, 8.0+ |No núcleo |Pacote: Em repo em "WALinuxAgent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Red Hat Enterprise Linux |RHEL 7.1+, 8.0+ |No núcleo |Pacote: Em repo em "WALinuxAgent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Empresa SUSE Linux |SLES/SLES para SAP<br>11 SP4<br>12 SP1+<br>15|No núcleo |Pacote:<p> para 11 em [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo<br>para 12 incluídos no Módulo "Nuvem Pública" em "python-azure-agent"<br/>Código fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |abre SUSE Leap 42.2+ |No núcleo |Pacote: Em [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo em "python-azure-agent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04+ ** <sup>1</sup>** |No núcleo |Pacote: Em repo sob "walinuxagent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |

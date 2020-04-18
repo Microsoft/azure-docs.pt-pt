@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/23/2020
-ms.openlocfilehash: c94ac0c27d747da1a98cd9d67ced91a5913147e6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d3c3c55a4ce3ee25db01128dcf50bb8763c5829b
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80132692"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604653"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início Rápido: Executar uma tarefa do Spark no Azure Databricks com o modelo do Azure Resource Manager
 
@@ -27,7 +27,7 @@ Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure para cri
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 > [!Note]
 > Este tutorial não pode ser realizado utilizando **a assinatura de teste gratuito do Azure.**
@@ -39,7 +39,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o modelo
 
 1. Clique na imagem seguinte para abrir o modelo no portal do Azure.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-databricks-workspace%2Fazuredeploy.json" target="_blank"><img src="./media/quickstart-create-databricks-workspace-resource-manager-template/deploy-to-azure.png" alt="Deploy to Azure"></a>
+   [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-databricks-workspace%2Fazuredeploy.json)
 
 2. Indique os valores necessários para criar a sua área de trabalho do Azure Databricks.
 
@@ -49,7 +49,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o modelo
 
    |Propriedade  |Descrição  |
    |---------|---------|
-   |**Assinatura**     | Na lista pendente, selecione a sua subscrição do Azure.        |
+   |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
    |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../azure-resource-manager/management/overview.md). |
    |**Localização**     | Selecione **E.U.A. Leste 2**. Para outras regiões disponíveis, veja [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).        |
    |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |

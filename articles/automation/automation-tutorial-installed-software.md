@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: 136521799dbc928a03c339ecc1cef6fdd3d029b2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b93035fc7e315f8117516771236186f9d942a0aa
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239666"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604667"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Descobrir que software está instalado nos seus computadores do Azure e não Azure
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 Para concluir este tutorial, precisa de:
 
 * Uma subscrição do Azure. Se ainda não tiver um, pode ativar os seus benefícios de [subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Uma [Conta de Automação](automation-offering-get-started.md) para segurar os cadernos de observadores e de ação e a Tarefa observadora.
+* Um [conta de Automatização](automation-offering-get-started.md) para reter os runbooks de observador e ação e a Tarefa de Observador.
 * Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para carregar.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
@@ -43,13 +43,13 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 Primeiro, tem de ativar o Controlo de alterações e Inventário para este tutorial. Se ativou anteriormente a solução de **Controlo de Alterações**, este passo não é preciso.
 
-Navegue até à sua Conta de Automatização e selecione **Inventário** em **GESTÃO DE CONFIGURAÇÃO**.
+Navegue para a sua conta de Automação e **selecione Inventário** sob Gestão de **Configuração**.
 
-Escolha o espaço de trabalho do Log Analytics e a Conta de Automação e clique em **Ativar** a solução. A solução demora até 15 minutos a ativar.
+Escolha o espaço de trabalho log Analytics e a conta de Automação e clique em **Ativar** a solução. A solução demora até 15 minutos a ativar.
 
 ![Faixa de configuração do carregamento de Inventário](./media/automation-tutorial-installed-software/enableinventory.png)
 
-Para ativar a solução, configure a localização, o espaço de trabalho de análise de registo e a Conta de Automação para utilizar e clicar em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e Conta de Automatização.
+Para ativar a solução, configure a localização, a área de trabalho e a conta de Automatização do Log Analytics a utilizar e clique em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
 
 A área de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) serve para recolher dados gerados pelas funcionalidades e serviços, como o Inventário.
 A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
@@ -62,13 +62,13 @@ Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis pa
 
 ## <a name="onboard-a-vm"></a>Carregar uma VM
 
-Na sua Conta de Automatização, navegue para **Inventário** em **GESTÃO DE CONFIGURAÇÃO**.
+Na sua conta de Automação, navegue para **inventário** sob gestão de **configuração.**
 
-Selecione **+ Adicionar VM do Azure**, esta ação abre a página **Máquinas virtuais** e permite-lhe selecionar uma VM existente da lista. Selecione a VM que pretende carregar. Na página que abre clique em **Ativar**, para ativar a solução na VM. O Agente de Gestão da Microsoft é implementado na VM e configura o agente para comunicar com a área de trabalho do Log Analytics que configurou ao ativar a solução. Este processo pode demorar alguns minutos a concluir a inclusão. Neste momento, pode selecionar uma nova VM na lista e carregar outra VM.
+Selecione **+ Adicionar VM do Azure**, esta ação abre a página Máquinas virtuais e permite-lhe selecionar uma VM existente da lista. Selecione a VM que pretende carregar. Na página que abre clique em **Ativar**, para ativar a solução na VM. O Agente de Gestão da Microsoft é implementado na VM e configura o agente para comunicar com a área de trabalho do Log Analytics que configurou ao ativar a solução. Este processo pode demorar alguns minutos a concluir a inclusão. Neste momento, pode selecionar uma nova VM na lista e carregar outra VM.
 
 ## <a name="onboard-a-non-azure-machine"></a>Carregar uma máquina não Azure
 
-Para adicionar máquinas não Azure, instale o agente para [Windows](../azure-monitor/platform/agent-windows.md) ou [Linux](automation-linux-hrw-install.md), consoante o sistema operativo. Assim que o agente estiver instalado, navegue até à sua Conta de Automatização e aceda ao **Inventário** em **GESTÃO DE CONFIGURAÇÃO**. Ao clicar em **Gerir Máquinas**, verá uma lista das máquinas que relatam à sua área de trabalho do Log Analytics que não têm a solução ativada. Selecione a opção adequada para o seu ambiente.
+Para adicionar máquinas não-Azure, instale o [agente Log Analytics para Windows](../azure-monitor/platform/agent-windows.md) ou o agente Log Analytics para o [Linux](automation-linux-hrw-install.md), dependendo do seu sistema operativo. Assim que o agente estiver instalado, navegue para a sua conta de Automação e vá ao **Inventário** sob Gestão de **Configuração**. Ao clicar em **Gerir Máquinas**, verá uma lista das máquinas que relatam à sua área de trabalho do Log Analytics que não têm a solução ativada. Selecione a opção adequada para o seu ambiente.
 
 * **Ativar em todas as máquinas disponíveis** - esta opção ativa a solução em todas as máquinas que relatam à sua área de trabalho do Log Analytics neste momento.
 * **Ativar em todos os computadores disponíveis e futuros** - esta opção ativa a solução em todas as máquinas que relatam à sua área de trabalho do Log Analytics e, subsequentemente, em todas as máquinas futuras adicionadas à área de trabalho.
@@ -78,11 +78,11 @@ Para adicionar máquinas não Azure, instale o agente para [Windows](../azure-mo
 
 ## <a name="view-installed-software"></a>Ver software instalado
 
-Depois de ativar a solução Controlo de alterações e Inventário, pode ver os resultados na página **Inventário**.
+Uma vez ativada a solução de Rastreio e Inventário de Alterações, pode visualizar os resultados na página de Inventário.
 
-A partir da Conta de Automatização, selecione **Inventário** em **GESTÃO DE CONFIGURAÇÃO**.
+Na sua conta de Automação, selecione **Inventário** sob Gestão de **Configuração**.
 
-Na página **Inventário**, clique no separador **Software**.
+Na página Inventário, clique no separador **Software**.
 
 No separador **Software**, existe uma tabela que lista o software que foi encontrado. O software é agrupado por nome de software e versão.
 
@@ -95,14 +95,14 @@ Clique numa linha para ver as propriedades do registo de software e os nomes dos
 Para pesquisar um software específico ou um grupo de software, pode pesquisar na caixa de texto diretamente acima da lista de software.
 O filtro permite-lhe pesquisar com base no nome do software, na versão ou no editor.
 
-Por exemplo, a pesquisa de "Contoso" devolve todos os softwares com um nome, editor ou versão que contêm "Contoso".
+Por exemplo, a procura de **Contoso** devolve todo o software com um nome, editor ou versão contendo **Contoso.**
 
 ## <a name="search-inventory-logs-for-installed-software"></a>Pesquisar registos de inventário do software instalado
 
-O inventário gera dados de registo que são enviados para os registos do Monitor Azure. Para pesquisar os registos através da execução de consultas, selecione **Log Analytics** na parte superior da janela **Inventário**.
+O inventário gera dados de registo que são enviados para os registos do Monitor Azure. Para pesquisar os registos executando consultas, selecione **Log Analytics** no topo da página Inventário.
 
-Os dados do Inventário são armazenados abaixo do tipo **ConfigurationData**.
-A seguinte consulta do Log Analytics de exemplo devolve os resultados de inventário em que o Publicador é igual a "Microsoft Corporation".
+Os dados de inventário `ConfigurationData`são armazenados sob o tipo .
+A seguinte amostra Log Analytics consulta retorna os resultados do inventário onde a Editora é igual à **Microsoft Corporation**.
 
 ```loganalytics
 ConfigurationData
@@ -116,7 +116,7 @@ Para saber mais sobre a execução e pesquisa de ficheiros de registo nos regist
 ### <a name="single-machine-inventory"></a>Inventário de computador único
 
 Para ver o inventário de software de uma única máquina, pode aceder ao Inventário a partir da página de recursos Do Azure VM ou utilizar registos do Monitor Azure para filtrar até à máquina correspondente.
-A consulta do Log Analytics de exemplo seguinte devolve a lista de software de um computador com o nome ContosoVM.
+O seguinte exemplo Log Analytics consulta devolve a lista de software para uma máquina chamada **ContosoVM**.
 
 ```loganalytics
 ConfigurationData

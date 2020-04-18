@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a02c099871ce9748f4c5f604900a7c4d57bb96b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473528"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639276"
 ---
-# <a name="azure-app-service-access-restrictions"></a>Restrições de acesso ao serviço de aplicações Azure #
+# <a name="azure-app-service-access-restrictions"></a>Restrições de acesso ao Serviço de Aplicações Azure
 
 As restrições de acesso permitem definir uma lista de permitir/negar prioritáriamente que controla o acesso à rede à sua aplicação. A lista pode incluir endereços IP ou subredes azure rede virtual. Quando há uma ou mais entradas, há então um implícito "negar tudo" que existe no final da lista.
 
@@ -125,12 +125,12 @@ A sintaxe jSON para o exemplo anterior é:
 }
 ```
 
-## <a name="azure-function-app-access-restrictions"></a>Restrições de acesso à aplicação de função Azure
+## <a name="azure-functions-access-restrictions"></a>Restrições de acesso às Funções Azure
 
-As restrições de acesso também estão disponíveis para Apps de Função com a mesma funcionalidade que os planos do App Service. Permitir restrições de acesso irá desativar o editor de código do portal para quaisquer IPs não autorizados.
+As restrições de acesso também estão disponíveis para aplicações de funções com a mesma funcionalidade que os planos do App Service. Permitir restrições de acesso irá desativar o editor de código do portal para quaisquer IPs não autorizados.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Restrições de acesso a aplicações de função Azure](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+[Restrições de acesso às Funções Azure](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
 [Integração de Gateway de aplicação com pontos finais de serviço](networking/app-gateway-with-service-endpoints.md)
 

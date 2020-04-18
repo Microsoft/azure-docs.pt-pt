@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9c98cd5d3d4d76f9455e4c036aa32a4ead20cfff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d845e245a242a88d16a2597f0144a0ae4a727cb0
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671720"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640976"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profile ASP.NET aplicações web Core Azure Linux com Perfilde Insights de Aplicação
 
@@ -168,10 +168,6 @@ Deve ver a saída semelhante ao seguinte exemplo:
 
     ![Ver vestígios de perfil](./media/profiler-aspnetcore-linux/view-traces.png)
 
-## <a name="known-issues"></a>Problemas conhecidos
-
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>O botão Profile Now não funciona para o Perfil Linux
-A versão Linux do perfil app Insights ainda não suporta o perfil da procura utilizando o botão agora de perfil.
 
 
 ## <a name="next-steps"></a>Passos seguintes

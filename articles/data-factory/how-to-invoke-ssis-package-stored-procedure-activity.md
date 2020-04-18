@@ -13,16 +13,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
-ms.openlocfilehash: 95214d797afcef97d974eeba2b4aea941009e1f5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7a935fa4c4e91cf8adcd6df467ac56eeecaf46c9
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413134"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605943"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Run an SSIS package with the Stored Procedure activity in Azure Data Factory (Executar um pacote do SSIS com a atividade Procedimento Armazenado no Azure Data Factory)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como executar um pacote SSIS num oleoduto Azure Data Factory utilizando uma atividade de Procedimento Armazenado. 
 

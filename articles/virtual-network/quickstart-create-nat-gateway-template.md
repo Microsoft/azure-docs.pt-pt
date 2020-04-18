@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: 6b3dee698e63ed2b0a44f05b593b8840d1cd23ee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3850f3f22e730e46f6d278b6cef0e17d357b126d
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80066405"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618044"
 ---
 # <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>Quickstart: Criar um gateway NAT - Modelo de Gestor de Recursos
 
@@ -72,7 +72,7 @@ Nove recursos Azure são definidos no modelo:
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 
-**Azure CLI**
+**CLI do Azure**
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
@@ -100,13 +100,13 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-**Portal Azure**
+**Portal do Azure**
 
-[![Desdobre para Azure](./media/quick-create-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>Rever os recursos implantados
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **Grupos de Recursos** a partir do painel esquerdo.
 
@@ -118,7 +118,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-**Azure CLI**
+**CLI do Azure**
 
 Quando já não for necessário, pode utilizar o [comando az group eliminar](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos contidos no interior.
 
@@ -135,7 +135,7 @@ Quando já não for necessário, pode utilizar o comando [Remove-AzResourceGroup
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
-**Portal Azure**
+**Portal do Azure**
 
 Quando já não for necessário, elimine o grupo de recursos, o portal NAT e todos os recursos conexos. Selecione o grupo de recursos **myResourceGroupNAT** que contém o gateway NAT e, em seguida, **selecione Eliminar**.
 

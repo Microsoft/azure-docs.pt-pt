@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3e7b1a656c92e37a709b57dae463f6644003e42
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 60d0ad0a1c0a1b4d13ce4d386df22406a8ab8e51
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755200"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617633"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Acesso Condicional: Exigir MFA para todos os utilizadores
 
@@ -41,7 +41,7 @@ As organizações podem ter muitas aplicações em nuvem em uso. Nem todas essas
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de acesso condicional
 
-Os seguintes passos ajudarão a criar uma política de acesso condicional para exigir que as funções administrativas atribuídas realizem a autenticação de vários fatores.
+Os seguintes passos ajudarão a criar uma política de Acesso Condicional para exigir que todos os utilizadores realizem a autenticação de vários fatores.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
 1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.

@@ -3,18 +3,18 @@ title: Onde e como usar - Personalizer
 description: O personalizer pode ser aplicado em qualquer situação em que a sua aplicação possa selecionar o item, ação ou produto certo para exibir - de forma a melhorar a experiência, obter melhores resultados de negócio, ou melhorar a produtividade.
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 63e66315898242beb5da59927e8d506e6f2cff78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c562d7a1853736204a7a03262547e083bd85fb75
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219326"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617676"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Onde e como usar o Personalizer
 
 Utilize o Personalizer em qualquer situação em que a sua aplicação precise de selecionar a ação correta (conteúdo) para exibir - de forma a melhorar a experiência, obter melhores resultados de negócio ou melhorar a produtividade.
 
-O Personalizer utiliza machine learning para selecionar que ação (conteúdo) mostrar ao utilizador. A seleção pode variar drasticamente dependendo da quantidade, qualidade e distribuição dos dados enviados ao serviço.
+O Personalizer utiliza a aprendizagem de reforço para selecionar que ação (conteúdo) mostrar ao utilizador. A seleção pode variar drasticamente dependendo da quantidade, qualidade e distribuição dos dados enviados ao serviço.
 
 ## <a name="example-use-cases-for-personalizer"></a>Exemplo de casos de utilização para Personalizer
 
@@ -44,7 +44,7 @@ Pode aplicar o Personalizer em situações em que se reúna ou possa implementar
 |Dados diários|Há eventos suficientes para ficar em cima da personalização ideal se o problema deriva risa ao longo do tempo (como preferências em notícias ou moda). O personalizer adaptar-se-á à mudança contínua no mundo real, mas os resultados não serão os melhores se não houver eventos e dados suficientes para aprender a descobrir e resolver novos padrões. Deve escolher um caso de uso que acontece com frequência. Considere procurar casos de uso que ocorram pelo menos 500 vezes por dia.|
 |Dados históricos|A sua aplicação pode reter dados por tempo suficiente para acumular um histórico de pelo menos 100.000 interações. Isto permite ao Personalizer recolher dados suficientes para realizar avaliações offline e otimização de políticas.|
 
-**Não use personalizer** onde o comportamento personalizado não é algo que possa ser descoberto em todos os utilizadores. Por exemplo, usar o Personalizer para sugerir uma primeira encomenda de pizza de uma lista de 20 itens de menu possíveis é útil, mas que o contacto para ligar da lista de contactos dos utilizadores ao necessitar de ajuda com cuidados infantis (como "Avó") não é algo que seja personalizável em toda a sua base de utilizadores.
+**Não use personalizer** onde o comportamento personalizado não é algo que possa ser descoberto em todos os utilizadores. Por exemplo, usar o Personalizer para sugerir uma primeira encomenda de pizza de uma lista de 20 itens de menu possíveis é útil, mas que o contacto para ligar da lista de contactos dos utilizadores ao necessitar de ajuda com cuidados infantis (como "Avó") não é algo personalizável em toda a sua base de utilizadores.
 
 ## <a name="how-to-use-personalizer-in-a-web-application"></a>Como usar o Personalizer numa aplicação web
 
@@ -91,7 +91,7 @@ Um uso comum é pegar na saída de um motor de recomendação (por exemplo, os 2
 
 ## <a name="adding-content-safeguards-to-your-application"></a>Adicionar salvaguardas de conteúdo à sua aplicação
 
-Se a sua aplicação permitir grandes variações de conteúdo mostrado aos utilizadores, e alguns desses conteúdos podem ser inseguros ou inadequados para alguns utilizadores, deve planear com antecedência para garantir que as salvaguardas certas estão em vigor para evitar que os seus utilizadores vejam inaceitáveis conteúdo. O melhor padrão para implementar salvaguardas é:
+Se a sua aplicação permitir grandes variações de conteúdo mostradoaos utilizadores, e alguns desses conteúdos podem ser inseguros ou inadequados para alguns utilizadores, deve planear com antecedência para garantir que as salvaguardas certas estão em vigor para evitar que os seus utilizadores vejam conteúdos inaceitáveis. O melhor padrão para implementar salvaguardas é:
     * Obtenha a lista de ações para classificar.
     * Filtrar aqueles que não são viáveis para o público.
     * Apenas classificar estas ações viáveis.

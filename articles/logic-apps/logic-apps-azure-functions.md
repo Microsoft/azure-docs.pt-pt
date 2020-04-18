@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29713622be90ea280bff3c002be746bf1615718f
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284125"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605905"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Ligue para as funções do Azure Logic Apps
 
@@ -101,7 +101,9 @@ Agora que criou a sua função Azure, siga os passos para [adicionar funções a
 
 ## <a name="create-functions-inside-logic-apps"></a>Criar funções dentro de aplicações lógicas
 
-Antes de poder criar uma função Azure a partir de dentro da sua aplicação lógica utilizando o Logic App Designer, tem primeiro de ter uma aplicação de função Azure, que é um recipiente para as suas funções. Se não tiver uma aplicação de função, crie primeiro essa aplicação de função. Consulte [Criar a sua primeira função no portal Azure](../azure-functions/functions-create-first-azure-function.md).
+Pode criar funções Azure diretamente a partir do fluxo de trabalho da sua aplicação lógica utilizando a ação incorporada de Funções Azure no Logic App Designer, mas só pode utilizar este método para funções Azure escritas no JavaScript. Para outras línguas, pode criar funções Azure através da experiência Azure Functions no portal Azure. Para mais informações, consulte [Criar a sua primeira função no portal Azure](../azure-functions/functions-create-first-azure-function.md).
+
+No entanto, antes de poder criar qualquer função Azure, já deve ter uma aplicação de função Azure, que é um recipiente para as suas funções. Se não tiver uma aplicação de função, crie primeiro essa aplicação de função. Consulte [Criar a sua primeira função no portal Azure](../azure-functions/functions-create-first-azure-function.md).
 
 1. No [portal Azure,](https://portal.azure.com)abra a sua aplicação lógica no Logic App Designer.
 

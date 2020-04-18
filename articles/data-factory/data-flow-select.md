@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/18/2020
-ms.openlocfilehash: 498ce053e8a52897d9087091b92fa51a04e195a4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 71a7c812b71e67c7b729844d0672e520c88e2d08
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413256"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606355"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Selecione a transformação no fluxo de dados de mapeamento
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Utilize a transformação selecionada para mudar o nome, a queda ou a reencomenda das colunas. Esta transformação não altera os dados da linha, mas escolhe quais colunas são propagadas a jusante. 
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 471b26ebc4bd4aecb814ec43c7eba56e3d764fa0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16f9080487af95e7de5c5f8c91fd5c8d356b7bde
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78402485"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618077"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Utilize a extensão CLI para aprendizagem automática azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,11 +35,30 @@ O CLI não substitui o Azure Machine Learning SDK. É uma ferramenta complementa
 
 * Para utilizar o CLI, deve ter uma assinatura Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
-* O [Azure CLI.](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+* Para utilizar os comandos CLI neste documento a partir do seu **ambiente local,** você precisa do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+    Se utilizar a [Concha de Nuvem Azure,](https://azure.microsoft.com//features/cloud-shell/)o CLI é acedido através do navegador e vive na nuvem.
 
 ## <a name="full-reference-docs"></a>Docs de referência completos
 
 Encontre os [docs de referência completos para a extensão azure-cli-ml do Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest).
+
+## <a name="connect-the-cli-to-your-azure-subscription"></a>Ligue o CLI à sua subscrição Azure
+
+> [!IMPORTANT]
+> Se estiver a utilizar a Casca de Nuvem Azure, pode saltar esta secção. A casca de nuvem autentica-o automaticamente utilizando a conta que inicia na sua subscrição Azure.
+
+Existem várias formas de autenticar a sua subscrição Azure a partir do CLI. O mais básico é autenticar interativamente usando um browser. Para autenticar interativamente, abra uma linha de comando ou terminal e utilize o seguinte comando:
+
+```azurecli-interactive
+az login
+```
+
+Se a CLI conseguir abrir o seu browser predefinido, executa essa ação e carrega uma página de início de sessão. Caso contrário, tem de abrir um navegador e seguir as instruções na linha de comando. As instruções envolvem [https://aka.ms/devicelogin](https://aka.ms/devicelogin) navegar e introduzir um código de autorização.
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+
+Para outros métodos de autenticação, consulte [Iniciar sessão com o Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 ## <a name="install-the-extension"></a>Instalar a extensão
 

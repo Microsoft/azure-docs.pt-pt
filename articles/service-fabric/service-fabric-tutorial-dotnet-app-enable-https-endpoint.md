@@ -4,12 +4,12 @@ description: Neste tutorial, vai aprender a adicionar um ponto final de HTTPS a 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: aafe2e7c89f6d4a90806378e9cf25c81f51feb60
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b88ecd8d169e7402d149481c22bae95e632efe26
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411189"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605293"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Adicionar um ponto final de HTTPS a um serviço de front-end de API Web ASP.NET Core com o Kestrel
 
@@ -400,7 +400,7 @@ $slb | Set-AzLoadBalancer
 
 Guarde todos os ficheiros, mude de Debug para Release e prima F6 para recompilar.  No Explorador de Soluções, clique com o botão direito do rato em **Voting** e selecione **Publish** (Publicar). Selecione o ponto final da ligação do cluster criado em [Implementar uma aplicação num cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md) ou selecione outro cluster.  Clique em **Publish** para publicar a aplicação no cluster remoto.
 
-Quando a aplicação for implementada, abra [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) um navegador web e navegue para (atualize o URL com o ponto final de ligação para o seu cluster). Se estiver a utilizar um certificado autoassinado, verá um aviso se o PC não confiar na segurança deste site.  Avance para a página Web.
+Quando a aplicação estiver implementada, abra um browser e navegue para `https://mycluster.region.cloudapp.azure.com:443` (atualize o URL com o ponto final da ligação do cluster). Se estiver a utilizar um certificado autoassinado, verá um aviso se o PC não confiar na segurança deste site.  Avance para a página Web.
 
 ![Aplicação Voting][image3]
 

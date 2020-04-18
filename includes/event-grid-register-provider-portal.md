@@ -2,18 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 07/05/2018
-ms.author: tomfitz
+ms.date: 04/16/2020
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: c3677e7897498aa06d7bd547988ad4dc0326f39b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8833bb75f5f50372deda3e71c1df90bed9a20054
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67184348"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605666"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>Ativar o fornecedor de recursos do Event Grid
 
@@ -21,9 +21,9 @@ Se ainda não tiver utilizado anteriormente o Event Grid na sua subscrição do 
 
 No portal do Azure:
 
-1. Selecione **Subscrições**.
+1. Selecione **Subscrições** no menu esquerdo.
 1. Selecione a subscrição que pretende utilizar para Event Grid.
-1. Em **Definições**, selecione **Fornecedores de recursos**.
+1. No menu esquerdo, em **Definições,** selecione **Fornecedores de Recursos**.
 1. Localize **Microsoft.EventGrid**.
 1. Se não estiver registado, selecione **Registar**. 
 

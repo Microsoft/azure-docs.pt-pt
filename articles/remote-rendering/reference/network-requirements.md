@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: 73bbfad4c0535fa00b1aa53764eb52acb83124f8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80680378"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617885"
 ---
 # <a name="network-requirements"></a>Requisitos da rede
 
@@ -27,6 +27,9 @@ Os requisitos exatos da rede dependem do seu caso de utilização específico, c
 * **Evite um tráfego comandado e intenso** – como o streaming de vídeo ou jogos – na mesma rede Wi-Fi.
 * Ter **uma boa força de sinal Wi-Fi** é essencial. Se possível, mantenha-se perto do seu ponto de acesso Wi-Fi e evite obstáculos entre o dispositivo do cliente e os pontos de acesso.
 * Certifique-se de que liga sempre ao centro de **dados Azure mais próximo** da sua [região](regions.md). Quanto mais perto o centro de dados, menor é a latência da rede, o que tem um enorme efeito na estabilidade do holograma.
+
+> [!NOTE]
+> A largura de banda a jusante é maioritariamente consumida pelo fluxo de vídeo, que por sua vez é dividido entre informações de cor e profundidade (ambos 60 Hz, estéreo).
 
 ## <a name="network-performance-tests"></a>Testes de desempenho da rede
 

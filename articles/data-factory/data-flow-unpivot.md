@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: f42b44fdab28cb60ff903a048d9162115bf67d9c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c3e769334beb6a5739eebb8d7e8dc370533c2dc6
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417764"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606246"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Transformação unpivot da fábrica de dados azure
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Utilize o Despivot no fluxo de dados de mapeamento ADF como forma de transformar um conjunto de dados não normalizado numa versão mais normalizada, expandindo valores de várias colunas num único registo em vários registos com os mesmos valores numa única coluna.
 

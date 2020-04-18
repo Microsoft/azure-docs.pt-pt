@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: f103db1d0de7a9d538f56b8ade331dc856b26bce
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: eb11a5cc2deef372ca91c23a8b9c82e17143c85b
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547032"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617720"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preços para pesquisa cognitiva azure
 
@@ -89,6 +89,8 @@ Para enriquecimento de [IA,](cognitive-search-concept-intro.md)deve planear [ane
 | Quebra de documentos, extração de imagem | Faturado de acordo com o número de imagens extraídas dos seus documentos. Numa [configuração indexante,](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) **a imagemAction** é o parâmetro que desencadeia a extração de imagem. Se **a imagemA ação** estiver definida para "nenhuma" (o padrão), não será cobrado para extração de imagem. A taxa de extração de imagem está documentada na página de detalhes de [preços](https://azure.microsoft.com/pricing/details/search/) para pesquisa cognitiva azure.|
 | [Competências cognitivas incorporadas](cognitive-search-predefined-skills.md) | Faturado ao mesmo ritmo que se tivesse realizado a tarefa usando os Serviços Cognitivos diretamente. |
 | Competências personalizadas | Uma habilidade personalizada é a funcionalidade que fornece. O custo de usar uma habilidade personalizada depende inteiramente se o código personalizado está chamando outros serviços medidos. |
+
+A funcionalidade de [enriquecimento incremental (pré-visualização)](cognitive-search-incremental-indexing-conceptual.md) permite-lhe fornecer uma cache que permite ao indexante ser mais eficiente em executar apenas as habilidades cognitivas necessárias se modificar a sua habilidade no futuro, poupando-lhe tempo e dinheiro.
 
 <a name="search-units"></a>
 

@@ -5,12 +5,12 @@ description: Aprenda as melhores práticas do operador de cluster para utilizar 
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 47b2d78f7dc831c4314c4215f5e0a9e17f75f0dc
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d0d13a699d2559c6b4360c807721e0b748959382
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668363"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617526"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Boas práticas para funcionalidades avançadas de programadores no Serviço Azure Kubernetes (AKS)
 
@@ -134,7 +134,7 @@ Para obter mais informações sobre a utilização de seletores de nó, consulte
 
 Um seletor de nó é uma forma básica de atribuir cápsulas a um determinado nó. Mais flexibilidade está disponível usando a finção do *nó.* Com afinidade no nó, define-se o que acontece se a cápsula não puder ser igualada com um nó. Você pode *exigir* que o programador Kubernetes corresponda a uma cápsula com um hospedeiro rotulado. Ou, você pode *preferir* um fósforo, mas permitir que o casulo seja agendado em um anfitrião diferente se não estiver disponível.
 
-O exemplo seguinte define a afinidade do nó ao *necessárioDurante agendamentoIgnoredDuringExecution*. Esta afinidade requer que o calendário kubernetes use um nó com um rótulo correspondente. Se não houver nó disponível, a cápsula tem de esperar que o agendamento continue. Para permitir que a cápsula seja programada num nó diferente, pode, em vez disso, definir o valor para *preferencialmenteDuranteOProgramaDurante execução:*
+O exemplo seguinte define a afinidade do nó ao *necessárioDurante agendamentoIgnoredDuringExecution*. Esta afinidade requer que o calendário kubernetes use um nó com um rótulo correspondente. Se não houver nó disponível, a cápsula tem de esperar que o agendamento continue. Para permitir que a cápsula seja programada num nó diferente, pode, em vez disso, definir o valor para preferirDurante o *agendamentoIgnoreDuringExecution*:
 
 ```yaml
 kind: Pod

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8e73ef75b3313656b45d29270d9996c3ad17c630
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538074"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603669"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparações automáticas de exemplo para conjuntos de escala de máquinas virtuais Azure
 
@@ -90,6 +90,8 @@ Se a funcionalidade de [notificação de fim](./virtual-machine-scale-sets-termi
 ## <a name="enabling-automatic-repairs-policy-when-creating-a-new-scale-set"></a>Ativar a política de reparações automáticas ao criar um novo conjunto de escala
 
 Para permitir a política de reparações automáticas, ao mesmo tempo que cria um novo conjunto de escala, certifique-se de que todos os [requisitos](#requirements-for-using-automatic-instance-repairs) para optar por esta funcionalidade são cumpridos. O ponto final da aplicação deve ser corretamente configurado para as instâncias de conjunto de escala para evitar o desencadeamento de reparações não intencionais enquanto o ponto final está a ser configurado. Para conjuntos de escala recém-criados, quaisquer reparações por exemplo são efetuadas apenas após a espera da duração do período de carência. Para permitir a reparação automática da instância num conjunto de escala, utilize o objeto *Reparose automático* no modelo conjunto de conjuntos de máquinas virtuais.
+
+Também pode utilizar este [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-automatic-repairs-slb-health-probe) para implantar um conjunto de escala de máquina virtual com sonda de saúde de equilíbrio de carga e reparações automáticas de instâncias ativadas com um período de carência de 30 minutos.
 
 ### <a name="azure-portal"></a>Portal do Azure
  

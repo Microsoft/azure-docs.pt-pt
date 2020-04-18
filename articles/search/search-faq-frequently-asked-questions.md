@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d7ba62c795e23e41a1947def77300ffe5d2cc010
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262456"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618035"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Pesquisa Cognitiva Azure - perguntas frequentes (FAQ)
 
@@ -82,6 +82,14 @@ A maioria das consultas de pesquisa wildcard, como prefixo, fuzzy e regex, são 
 Por padrão, os resultados da pesquisa são pontuados com base nas [propriedades estatísticas dos termos correspondentes](search-lucene-query-architecture.md#stage-4-scoring), e ordenados altos a baixos no conjunto de resultados. No entanto, alguns tipos de consultas (wildcard, prefixo, regex) sempre contribuem com uma pontuação constante para a pontuação geral do documento. Este comportamento é propositado. A Azure Cognitive Search impõe uma pontuação constante para permitir que os jogos encontrados através da expansão da consulta sejam incluídos nos resultados, sem afetar o ranking.
 
 Por exemplo, suponha que uma entrada de "tour*" numa pesquisa wildcard produz fósforos em "tours", "tourettes" e "tourmaline". Dada a natureza destes resultados, não há forma de inferir razoavelmente quais os termos mais valiosos do que outros. Por esta razão, ignoramos as frequências de termo quando a pontuação resulta em consultas de tipos wildcard, prefixo e regex. Os resultados da pesquisa com base numa entrada parcial são dados uma pontuação constante para evitar distorções para partidas potencialmente inesperadas.
+
+## <a name="skillset-operations"></a>Operações de Skillset
+
+### <a name="are-there-any-tips-or-tricks-to-reduce-cognitive-services-charges-on-ingestion"></a>Existem algumas dicas ou truques para reduzir os encargos dos serviços cognitivos sobre a ingestão?
+
+É compreensível que não queira executar habilidades incorporadas ou habilidades personalizadas mais do que é absolutamente necessário, especialmente se estiver a lidar com milhões de documentos para processar. Com isso em mente, adicionámos capacidades de "enriquecimento incremental" à execução de habilidades. Na essência, pode fornecer uma localização de cache (uma cadeia de ligação de armazenamento de bolhas) que será usada para armazenar a saída de passos de enriquecimento "intermédios".  Isso permite que o gasoduto de enriquecimento seja inteligente e aplique apenas enriquecimentos necessários quando modificar a sua habilidade. Isto irá, naturalmente, também poupar tempo de indexação, uma vez que o gasoduto será mais eficiente.
+
+Saiba mais sobre [o enriquecimento incremental](cognitive-search-incremental-indexing-conceptual.md)
 
 ## <a name="design-patterns"></a>Padrões de estrutura
 

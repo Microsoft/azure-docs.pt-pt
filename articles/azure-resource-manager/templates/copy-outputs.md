@@ -2,13 +2,13 @@
 title: Definir múltiplas instâncias de um valor de saída
 description: Utilize a operação de cópia num modelo de Gestor de Recursos Azure para iterar várias vezes ao devolver um valor a partir de uma implementação.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 3889260d02f438274c80e99e99136515499443e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/17/2020
+ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153391"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617831"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iteração de saída em modelos ARM
 
@@ -21,12 +21,10 @@ Também pode utilizar cópiacom [recursos,](copy-resources.md) [propriedades num
 O elemento de cópia tem o seguinte formato geral:
 
 ```json
-"copy": [
-  {
-    "count": <number-of-iterations>,
-    "input": <values-for-the-variable>
-  }
-]
+"copy": {
+  "count": <number-of-iterations>,
+  "input": <values-for-the-output>
+}
 ```
 
 A propriedade **de contagem** especifica o número de iterações que deseja para o valor de saída.

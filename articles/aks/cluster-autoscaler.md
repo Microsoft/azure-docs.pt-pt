@@ -4,12 +4,12 @@ description: Aprenda a utilizar o autoscaler cluster para escalar automaticament
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 0b94865d81afc56c24d470012c668662f003a1b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2baa64779713d0bac063e1d2c06107ba2ab291fb
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596254"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617546"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escala automaticamente um cluster para satisfazer as exigências de aplicação no Serviço Azure Kubernetes (AKS)
 
@@ -117,6 +117,7 @@ Também pode configurar mais detalhes granulares do autoescalador do cluster alt
 | escala-down-unready-time          | Quanto tempo um nó não pronto deve ser desnecessário antes de ser elegível para a escala para baixo         | 20 minutos    |
 | escala-down-intervalo de utilização | Nível de utilização do nó, definido como soma dos recursos solicitados divididos por capacidade, abaixo do qual um nó pode ser considerado para a escala para baixo | 0,5 |
 | max-graceful-termination-sec     | Número máximo de segundos o autoscaler do cluster aguarda a terminação da cápsula ao tentar escalar um nó. | 600 segundos   |
+| equilíbrio-grupos de nó semelhantes | Detete piscinas de nós semelhantes e equilibre o número de nós entre eles | false |
 
 > [!IMPORTANT]
 > O perfil autoscaler do cluster afeta todas as piscinas de nós que utilizam o autoscaler do cluster. Não se pode definir um perfil de escala automática por piscina de nó.

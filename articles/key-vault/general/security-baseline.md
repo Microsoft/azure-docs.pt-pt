@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cb908c4b105324e0866d53463ecd3a8a59e7e651
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 46fa0160dd8b37e89cdd77ba8acdae294fddbefe
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81429892"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616901"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de base de segurança azure para cofre chave
 
@@ -1001,7 +1001,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: Gerir os segredos do Azure de forma segura
 
-**Orientação**: Utilize a Identidade de Serviço Gerida em conjunto com o Cofre de Chaves Azure para simplificar e proteger a gestão secreta das suas aplicações na nuvem. Certifique-se de que o apaga-se o cofre de teclas Azure.
+**Orientação**: Utilize a Identidade de Serviço Gerida em conjunto com o Cofre de Chaves Azure para simplificar e proteger a gestão secreta das suas aplicações na nuvem. Certifique-se de que o cofre de teclas Azure está ativado.
 
 Como integrar-se com identidades geridas pelo Azure:
 
@@ -1175,7 +1175,7 @@ Como restaurar os segredos do cofre:https://docs.microsoft.com/powershell/module
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: Certifique-se de que a eliminação suave está ativada para o Cofre de Chaves Azure. O soft delete permite a recuperação de cofres de chaves apagados e objetos de cofre, tais como chaves, segredos e certificados. 
+**Orientação**: Certifique-se de que o soft-delete está ativado para o Cofre de Chaves Azure. O soft-delete permite a recuperação de cofres de chaves apagados e objetos de cofre, tais como chaves, segredos e certificados. 
 
 Como utilizar o Soft Delete do Cofre de Chaves Azure: 
 

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d0ef55f6f5117ffa77052118155afea716125a4
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266445"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639730"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrar registos de AD Azure com registos do Monitor Azure
 
@@ -60,9 +60,13 @@ Para utilizar esta funcionalidade, precisa de:
 * Um utilizador que seja *administrador global* ou *administrador de segurança* do inquilino do Azure AD.
 * Um espaço de trabalho log Analytics na sua subscrição Azure. Aprenda a criar um espaço de [trabalho log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
+## <a name="licensing-requirements"></a>Requisitos de licenciamento
+
+A utilização desta funcionalidade requer uma licença Azure AD Premium P1 ou P2. Para encontrar a licença certa para os seus requisitos, veja [Comparação das funcionalidades disponíveis geralmente das edições Gratuita, Básica e Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+
 ## <a name="send-logs-to-azure-monitor"></a>Enviar registos para o Monitor Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 2. Selecione > **Definições** -> de diagnóstico de **diretório ativo Azure****Adicione a definição de diagnóstico**. Também pode selecionar Definições de **Exportação** a partir da página **Registos** de Auditoria ou **Iniciars de Sessão** para aceder à página de configuração de configurações de diagnóstico.  
     

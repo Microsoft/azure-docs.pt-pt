@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7fcfac923da1c0daee58b10d92cbc6a6ad5e7910
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 625efcce7305cd7b1dd415a286e6b1e92682cc0a
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383411"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616839"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar alvos de cálculo para formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -425,7 +425,7 @@ Para mais informações, consulte a documentação [ScriptRunConfig](https://doc
 
 Pode utilizar a [extensão CLI](reference-azure-machine-learning-cli.md) [azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e machine learning para criar configurações de execução e submeter execuções em diferentes alvos de computação. Os exemplos seguintes assumem que você tem um espaço de trabalho de `az login` aprendizagem automática Azure existente e você entrou no Azure usando o comando CLI. 
 
-[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 ### <a name="create-run-configuration"></a>Criar configuração de execução
 

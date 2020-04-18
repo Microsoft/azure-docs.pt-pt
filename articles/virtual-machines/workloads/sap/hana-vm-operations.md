@@ -15,26 +15,26 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07c8f84f2e37abd87953d8e4cb20b37258b25fda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c4f3ec2727d06528eab788a2a24a6190fe26533
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920516"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606149"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientações para configurar a infraestrutura Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas do Azure (VMs). O documento também inclui informações de configuração para a escala SAP HANA para o M128s VM SKU. Este documento não se destina a substituir a documentação padrão do SAP, que inclui o seguinte conteúdo:
 
 - [Guia de administração SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [Guias de instalação SAP](https://service.sap.com/instguides)
-- [Notas SAP](https://sservice.sap.com/notes)
+- [Notas SAP](https://service.sap.com/notes)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para utilizar este guia, necessita de conhecimentos básicos sobre os seguintes componentes Azure:
 
 - [Máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Redes de networking e virtuais Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-- [Storage do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Armazenamento Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Para saber mais sobre o SAP NetWeaver e outros componentes SAP no Azure, consulte o [SAP na](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) secção Azure da [documentação Azure](https://docs.microsoft.com/azure/).
 
@@ -101,7 +101,7 @@ Os artigos [Azure Virtual Datacenter: A Network Perspetive](https://docs.microso
 
 
 >[!NOTE]
->O tráfego que flui entre um hub VNet e o VNet falado usando [o pino Azure VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) está sujeito a [custos](https://azure.microsoft.com/pricing/details/virtual-network/)adicionais . Com base nesses custos, poderá ter de considerar fazer compromissos entre gerir um centro rigoroso e design de rede falado e executar [vários Gateways Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) que se conecta a 'porta-vozes' para contornar o peering vNet. No entanto, o Azure ExpressRoute Gateways também introduz [custos](https://azure.microsoft.com/pricing/details/vpn-gateway/) adicionais. Também pode encontrar custos adicionais para software de terceiros que utiliza para a exploração de tráfego de rede, auditoria e monitorização. Dependente dos custos de troca de dados através de VNet, espreitando de um lado e custos criados por gateways adicionais do Azure ExpressRoute Gateways e licenças adicionais de software, poderá decidir por microsegmentação dentro de uma VNet, utilizando subredes como unidade de isolamento em vez de VNets.
+>O tráfego que flui entre um hub VNet e o VNet falado usando [o pino Azure VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) está sujeito a [custos](https://azure.microsoft.com/pricing/details/virtual-network/)adicionais . Com base nesses custos, poderá ter de considerar fazer compromissos entre gerir um centro rigoroso e design de rede falado e executar [vários Gateways Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) que se conecta a 'porta-vozes' para contornar o peering vNet. No entanto, o Azure ExpressRoute Gateways também introduz [custos](https://azure.microsoft.com/pricing/details/vpn-gateway/) adicionais. Também pode encontrar custos adicionais para software de terceiros que utiliza para a exploração de tráfego de rede, auditoria e monitorização. Dependendo dos custos de troca de dados através de VNet, espreitando de um lado e custos criados por gateways adicionais da Azure ExpressRoute Gateways e licenças adicionais de software, poderá decidir por microsegmentação dentro de uma VNet, utilizando subredes como unidade de isolamento em vez de VNets.
 
 
 Para uma visão geral dos diferentes métodos de atribuição de endereços IP, consulte os tipos de [endereços IP e os métodos](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)de atribuição em Azure . 

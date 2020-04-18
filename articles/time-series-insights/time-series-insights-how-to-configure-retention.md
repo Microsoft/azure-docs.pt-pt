@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 04/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3fdc007caaa4cb79f6083599a5bc176bc022fb03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 524e47e5be142b720687ad48ee9407da23284bd4
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278598"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605054"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurar a retenção em Insights da Série Tempo
 
@@ -34,7 +34,7 @@ Para obter informações detalhadas para entender melhor estas configurações, 
 
 ## <a name="configure-data-retention"></a>Configurar a retenção de dados
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Localize o ambiente de Insights da Série Do Tempo existente. Selecione **Todos os recursos** no menu do lado esquerdo do portal Azure. Selecione o seu ambiente do Time Series Insights.
 

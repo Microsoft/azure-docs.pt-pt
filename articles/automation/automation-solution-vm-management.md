@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbcd4ea174d4b6a2a45495c32f178ed1bd01bbe0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 968e609772e08814a9943734d30c16bf6f5972e8
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261361"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604717"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VMs de arranque/paragem durante solução off-hours na Automação Azure
 
@@ -225,11 +225,11 @@ A conta de Automação e o espaço de trabalho log Analytics não são eliminado
 
 1. Procure e selecione espaços de **trabalho Log Analytics**.
 
-2. Na página dos espaços de **trabalho Log Analytics,** selecione o espaço de trabalho.
+2. Na página do espaço de trabalho Log Analytics, selecione o espaço de trabalho.
 
 3. **Selecione Eliminar** a partir do menu na página de definições do espaço de trabalho.
 
-4. Se não quiser manter os componentes da conta Azure Automation, pode eliminar manualmente cada um deles. Ver [componentes da Solução](#solution-components).
+4. Se não quiser manter os componentes da [solução](#solution-components)de conta Azure Automation, pode eliminar manualmente cada um deles.
 
 ## <a name="next-steps"></a>Passos seguintes
 

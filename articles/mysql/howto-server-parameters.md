@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/1/2020
-ms.openlocfilehash: 715f1028597d76915d833b0ade66bc03d939030d
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 4/16/2020
+ms.openlocfilehash: bd0a867cce9b2a9ad793b491b9042034ef5810f5
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546452"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605163"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Como configurar parâmetros de servidor em Base de Dados Azure para MySQL utilizando o portal Azure
 
@@ -60,7 +60,8 @@ Estes parâmetros adicionais do servidor não são configuráveis no sistema:
 |innodb_file_per_table no nível básico|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
-|innodb_log_file_size|512MB|
+|innodb_log_file_size|256MB|
+|innodb_log_files_in_group|2|
 
 Outros parâmetros do servidor que não estão listados aqui estão definidos para os seus valores padrão fora da caixa MySQL para as versões [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 

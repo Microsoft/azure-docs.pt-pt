@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 888dc99162551482afc715f1a793614d2c866384
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677041"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604680"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerencie atualizações e patches para os seus VMs Azure
 
@@ -40,13 +40,13 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="view-update-assessment"></a>Ver avaliação de atualizações
 
-Depois de ativar a Atualização de Gestão, abre-se a página de gestão da **Atualização.** Se alguma atualização for identificada como desaparecida, uma lista de atualizações em falta é mostrada no separador **de atualizações Em falta.**
+Depois de ativar a Atualização de Gestão, abre-se a página de gestão da Atualização. Se alguma atualização for identificada como desaparecida, uma lista de atualizações em falta é mostrada no separador **de atualizações Em falta.**
 
 No **link Informação,** selecione o link de atualização para abrir o artigo de suporte para a atualização. Pode aprender informações importantes sobre a atualização.
 
 ![Ver o estado de atualização](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Clique em qualquer outro lugar da atualização para abrir o painel de pesquisa de **Registo** para a atualização selecionada. A consulta para a pesquisa de registos está predefinida para essa atualização específica. Pode modificar esta consulta ou criar a sua própria consulta para visualizar informações detalhadas sobre atualizações implementadas ou em falta no seu ambiente.
+Clique em qualquer outro lugar da atualização para abrir o painel de pesquisa de Registo para a atualização selecionada. A consulta para a pesquisa de registos está predefinida para essa atualização específica. Pode modificar esta consulta ou criar a sua própria consulta para visualizar informações detalhadas sobre atualizações implementadas ou em falta no seu ambiente.
 
 ![Ver o estado de atualização](./media/automation-tutorial-update-management/logsearch.png)
 
@@ -58,7 +58,7 @@ Neste passo, aprende-se a configurar um alerta para que saiba o estado de uma im
 
 Na sua conta de Automação, vá a **Alertas** sob **Monitorização**e, em seguida, clique em **Nova regra**de alerta .
 
-A sua conta De automação já está selecionada como recurso. Se quiser troco, clique em **Selecionar**. Na página **Selecione uma** página de recursos, escolha **Contas de Automação** do Filtro por menu de dropdown **do tipo de recurso.** Selecione a sua conta De automação e, em seguida, clique em **Done**.
+A sua conta De automação já está selecionada como recurso. Se quiser troco, clique em **Selecionar**. Na página Selecione uma página de recursos, escolha **Contas de Automação** do Filtro por menu de dropdown **do tipo de recurso.** Selecione a sua conta De automação e, em seguida, clique em **Done**.
 
 Clique em **Adicionar condição** para selecionar o sinal adequado para a sua implementação da atualização. A tabela seguinte mostra os detalhes dos dois sinais disponíveis.
 
@@ -85,11 +85,11 @@ No campo de nome do **grupo Action,** insira um nome para o alerta e um nome cur
 
 No âmbito **de Ações**, insira um nome para a ação, como Notificação de **E-mail.** Para **tipo de ação,** selecione **Email/SMS/Push/Voice**. Para **mais detalhes,** selecione **Editar detalhes**.
 
-Na página **E-mail/SMS/Push/Voz**, introduza um nome. Selecione a caixa de verificação **E-mail** e, em seguida, introduza um endereço de e-mail válido.
+Na página E-mail/SMS/Push/Voz, introduza um nome. Selecione a caixa de verificação de **e-mail** e, em seguida, introduza um endereço de e-mail válido.
 
 ![Configurar um grupo de ações de e-mail](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-No **painel de e-mail/SMS/Push/Voice,** clique em **OK**. No painel do **grupo de ação Add,** clique em **OK**.
+No painel de e-mail/SMS/Push/Voice, clique em **OK**. No painel do grupo de ação Add, clique em **OK**.
 
 Para personalizar o assunto do e-mail de alerta, sob **a regra Criar,** sob **ações personalizadas,** selecione **o assunto do e-mail**. Quanto terminar, selecione **Criar regra de alerta**. O alerta diz-lhe quando uma implementação de atualização for bem sucedida, e quais as máquinas que faziam parte da execução da atualização.
 
@@ -123,7 +123,7 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 
    Para descrições dos tipos de classificação, consulte classificações de [atualização](automation-view-update-assessments.md#update-classifications).
 
-* **Atualizações para incluir/excluir** - Abre a página Incluir/Excluir. As atualizações a incluir ou excluídas estão em separados, especificando os números de IDENTIFICAção do artigo KB. Ao especificar um ou mais números de IDENTIFICAÇÃO, é necessário remover ou desverificar todas as classificações com a implementação da atualização. Isto garante que nenhuma outra atualização está incluída no seu pacote de atualizações ao especificar iDs de atualização.
+* **Atualizações para incluir/excluir** - Abre a página Incluir/Excluir. As atualizações a incluir ou excluídas estão em separados, especificando os números de IDENTIFICAção do artigo KB. Ao especificar um ou mais números de IDENTIFICAÇÃO, é necessário remover ou desmarcar todas as classificações com a implementação da atualização. Isto garante que nenhuma outra atualização está incluída no seu pacote de atualizações ao especificar iDs de atualização.
 
 > [!NOTE]
 > É importante saber que as exclusões sobrepõem-se às inclusãos. Por exemplo, se definir uma `*`regra de exclusão de , A Gestão de Atualizações não instala patches ou pacotes, uma vez que todos estão excluídos. Os patches excluídos continuam a mostrar como desaparecidos da máquina. Para as máquinas Linux, se incluir um pacote que tenha um pacote dependente que tenha sido excluído, a Update Management não instala o pacote principal.
@@ -132,7 +132,7 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 > Não é possível especificar atualizações que tenham sido substituídos para inclusão com a implementação da atualização.
 >
 
-* **Definições da agenda**: o painel **Definições da Agenda** abre. A hora de início predefinida é 30 minutos depois da hora atual. Pode definir a hora de início para qualquer hora a partir de 10 minutos no futuro.
+* **Definições da agenda**: o painel Definições da Agenda abre. A hora de início predefinida é 30 minutos depois da hora atual. Pode definir a hora de início para qualquer hora a partir de 10 minutos no futuro.
 
    Também pode especificar se a implementação ocorre uma vez ou configurar um agendamento periódico. Em **Periodicidade**, selecione **Uma vez**. Deixe o padrão como 1 dia e clique **OK**. Estas entradas estabelecem um horário recorrente.
 

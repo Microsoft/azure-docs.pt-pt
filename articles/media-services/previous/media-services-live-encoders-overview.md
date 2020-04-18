@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 71a31228602ef161158eaa05c80d50f65de98a50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82fa5968d004bd4460f2c05ec944f6e568508675
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77133276"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641140"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar codificadores no local ao utilizar os Serviços De Mídia Azure para criar fluxos multibitantes
 Este tópico lista no local codificadores ao vivo que pode usar para capturar os seus eventos ao vivo e enviar um único stream bitrate ao vivo para os canais AMS (que estão habilitados para codificação ao vivo) para posterior processamento. O tópico também se liga a tutoriais que mostram como configurar codificadores listados.
@@ -32,9 +32,6 @@ Para obter informações sobre como configurar o [codificador de codificador Hai
 
 ## <a name="telestream-wirecast"></a>Difusão telestream
 Para obter informações sobre como configurar o codificador [telestream wirecast](https://www.telestream.net/wirecast/overview.htm) para enviar um único fluxo ao vivo bitrate para um canal AMS, consulte [configurar a wirecast](media-services-configure-wirecast-live-encoder.md).
-
-## <a name="newtek-tricaster"></a>NewTek TriCaster
-Para obter informações sobre como configurar o codificador [Tricaster](https://newtek.com/products/tricaster-40.html) para enviar um único fluxo ao vivo bitrate para um canal AMS, consulte [Configurar Tricaster](media-services-configure-tricaster-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
 Para mais informações, consulte [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).

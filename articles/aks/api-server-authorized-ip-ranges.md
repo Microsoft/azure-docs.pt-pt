@@ -4,12 +4,12 @@ description: Saiba como proteger o seu cluster utilizando uma gama de endereços
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 593f9e0b335e6f4d62c76ce92f833ff4e9143372
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 570d842409fc019d24446e091f83402f4c288d7c
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126616"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640060"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Acesso seguro ao servidor API utilizando gamas de endereços IP autorizadas no Serviço Azure Kubernetes (AKS)
 
@@ -39,7 +39,7 @@ Para obter mais informações sobre o servidor API e outros componentes de clust
 Os intervalos IP autorizados do servidor API funcionam apenas para novos clusters AKS. Crie um cluster utilizando as [aks az criar][az-aks-create] e especificar o parâmetro de --api-server-autorizado-ip-intervalos para fornecer uma lista de intervalos de endereçoip autorizados. *--api-server-authorized-ip-ranges* Estas gamas de endereços IP são geralmente faixas de endereço utilizadas pelas suas redes no local ou iPs públicos. Quando especificar uma gama CIDR, comece com o primeiro endereço IP na gama. Por exemplo, *137.117.106.90/29* é um intervalo válido, mas certifique-se de especificar o primeiro endereço IP na gama, tais como *137.117.106.88/29*.
 
 > [!IMPORTANT]
-> Por predefinição, o seu cluster utiliza o [equilíbrio de carga SKU Padrão][standard-sku-lb] que pode utilizar para configurar o gateway de saída. Quando ativa as gamas IP autorizadas pelo servidor API durante a criação do cluster, o IP público para o seu cluster também é permitido por padrão, além das gamas que especifica. Se especificar *""* ou nenhum valor para *--api-server-server-autorizado-ip-intervalos,* os intervalos IP autorizados pelo servidor API serão desativados.
+> Por predefinição, o seu cluster utiliza o [equilíbrio de carga SKU Padrão][standard-sku-lb] que pode utilizar para configurar o gateway de saída. Quando ativa as gamas IP autorizadas pelo servidor API durante a criação do cluster, o IP público para o seu cluster também é permitido por padrão, além das gamas que especifica. Se especificar *""* ou nenhum valor para *--api-server-server-autorizado-ip-intervalos,* os intervalos IP autorizados pelo servidor API serão desativados. Note que se estiver a usar powerShell, use *--api-server-autorizado-ip-ranges=""* (com sinal igual) para evitar quaisquer problemas de análise.
 
 O exemplo seguinte cria um cluster de nó único chamado *myAKSCluster* no grupo de recursos chamado *myResourceGroup* com gamas IP autorizadas pelo servidor API ativadas. As gamas de endereços IP permitidas são *73.140.245.0/24:*
 

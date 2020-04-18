@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 04/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d9544b1f4dd5ecbf66493f26c373c5502dce68a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 466b063253ee49ab58c2685f359b4bb8a4079532
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451091"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639686"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Permitir o registo combinado de informações de segurança no Diretório Ativo do Azure
 
@@ -47,34 +47,34 @@ Se configurar a Lista de Atribuição de Zonas no Internet Explorer, os seguinte
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Políticas de acesso condicional para registo combinado
 
-A segurança quando e como os utilizadores se registam para a Autenticação multi-factor Do Azure e o reset de palavra-passe self-service é agora possível com as ações do utilizador na política de Acesso Condicional. Esta funcionalidade está disponível para organizações que permitiram a funcionalidade de [registo combinado.](../authentication/concept-registration-mfa-sspr-combined.md) Esta funcionalidade pode ser ativada em organizações onde pretendem que os utilizadores se registem para a Autenticação Multi-Factor E SSPR azure a partir de um local central, como uma localização de rede confiável durante o embarque em RH. Para obter mais informações sobre a criação de localizações fidedignas no Acesso Condicional, consulte o artigo Qual é a condição de localização no Acesso Condicional do [Diretório Ativo azure?](../conditional-access/location-condition.md#named-locations)
+A segurança quando e como os utilizadores se registam para a Autenticação multi-factor Do Azure e o reset de palavra-passe self-service é agora possível com as ações do utilizador na política de Acesso Condicional. Esta funcionalidade está disponível para organizações que permitiram a funcionalidade de [registo combinado.](../authentication/concept-registration-mfa-sspr-combined.md) Esta funcionalidade pode ser ativada em organizações onde pretendem que os utilizadores se registem para a Autenticação Multi-Factor E SSPR azure a partir de um local central, como uma localização de rede confiável durante o embarque em RH.
+
+Para obter mais informações sobre a criação de localizações fidedignas no Acesso Condicional, consulte o artigo Qual é a condição de localização no Acesso Condicional do [Diretório Ativo azure?](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Criar uma política para exigir o registo a partir de um local de confiança
 
-A seguinte política aplica-se a todos os utilizadores selecionados, que tentam registar-se utilizando a experiência de registo combinado, e bloqueiam o acesso a menos que estejam a ligar-se a partir de um local marcado como rede fidedigna.
-
-![Criar uma política da AC para controlar o registo de informações de segurança](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+A seguinte política aplica-se a todos os utilizadores selecionados que tentem registar-se utilizando a experiência de registo combinado e bloqueia o acesso a menos que estejam a ligar-se a partir de um local marcado como rede fidedigna.
 
 1. No **portal Azure,** navegue até ao**Acesso Condicional** de**Segurança** >  **do Diretório** > Ativo azure
-1. Selecione **Nova política**
-1. Em Nome, insira um nome para esta política. Por exemplo, Registo combinado de **Informações de Segurança em Redes Fidedignas**
-1. Em **Atribuições,** clique em **Utilizadores e grupos,** e selecione os utilizadores e grupos que pretende que esta política se aplique
+1. Selecione **+ Nova política**
+1. Insira um nome para esta política, como registo combinado de informações de *segurança em redes fidedignas*.
+1. Em **Atribuições**, selecione **Utilizadores e grupos**. Escolha os utilizadores e grupos a que pretende que esta política se aplique e, em seguida, selecione **Done**.
 
    > [!WARNING]
-   > Os utilizadores devem estar habilitados para o [registo combinado.](../authentication/howto-registration-mfa-sspr-combined.md)
+   > Os utilizadores devem estar habilitados para o registo combinado.
 
-1. Em **aplicações ou ações cloud**, selecione as ações do **Utilizador,** verifique **registar informações de segurança (pré-visualização)**
-1. Em **condições** > **locais**
+1. Em **aplicações ou ações cloud,** selecione **as ações do Utilizador.** Verifique **registar informações**de segurança e, em seguida, selecione **Done**.
+
+    ![Criar uma política de acesso condicional para controlar o registo de informações de segurança](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+
+1. Em **Condições** > **Locais,** configure as seguintes opções:
    1. Configurar **Sim**
    1. Incluir **Qualquer local**
    1. Excluir **todos os locais confiáveis**
-   1. Clique na lâmina **de** localização
-   1. Clique **na** lâmina Condições
-1. Sob **controlos** > de acesso**Grant**
-   1. Clique no **acesso ao bloco**
-   1. Em seguida, clique em **Selecionar**
+1. Selecione **Feito** na janela *Locais* e, em seguida, selecione **Feito** na janela *Condições.*
+1. Sob **controlode** > **acesso,** escolha o acesso ao **bloco**e, em seguida, **selecione**
 1. Definir **ativar a política** para **on**
-1. Em seguida, clique em **Criar**
+1. Para finalizar a política, selecione **Criar**
 
 ## <a name="next-steps"></a>Passos seguintes
 

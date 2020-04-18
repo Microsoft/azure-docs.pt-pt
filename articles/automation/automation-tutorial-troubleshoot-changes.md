@@ -7,16 +7,16 @@ keywords: alterações, controlo, automatização
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 89f5e00c75b6b85c9a14de02504136907cde62b5
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75420647"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604702"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Resolver problemas relacionados com alterações no seu ambiente
 
-Neste tutorial, irá aprender a resolver problemas relacionados com alterações numa máquina virtual do Azure. Ao ativar o Controlo de alterações, pode controlar as alterações efetuadas ao nível do software, dos ficheiros, dos daemons do Linux, dos Serviços do Windows e das chaves do Registo do Windows nos seus computadores.
+Neste tutorial, irá aprender a resolver problemas relacionados com alterações numa máquina virtual do Azure. Ao ativar o Change Tracking, pode rastrear alterações em software, ficheiros, daemons Linux, Serviços Windows e windows registry chaves nos seus computadores.
 A identificação destas alterações de configuração pode ajudar a localizar problemas operacionais em todo o ambiente.
 
 Neste tutorial, ficará a saber como:
@@ -44,18 +44,20 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de alterações e Inventário
 
-Primeiro, tem de ativar o Controlo de alterações e Inventário para a VM para este tutorial. Se ativou anteriormente outra solução de automatização para uma VM, este passo não é necessário.
+Primeiro, tem de ativar o Change Tracking e o Inventário para o seu VM para este tutorial. Se ativou anteriormente outra solução de automatização para uma VM, este passo não é necessário.
 
-1. No menu da esquerda, selecione **Máquinas virtuais** e selecione uma VM da lista
-1. No menu esquerdo, na secção **OPERAÇÕES,** clique em **Inventário**. A página **Controlo de alterações** abre-se.
+1. No menu esquerdo, selecione **máquinas Virtuais** e selecione um VM da lista.
+1. No menu esquerdo, selecione **Inventário** em **Operações**. A página de inventário abre.
 
-![Ativar a mudança](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) O ecrã **Controlo de Alterações** abre-se. Configure a localização, a área de trabalho do Log Analytics e a conta de Automatização a utilizar e clique em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
+![Ativar a mudança](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
+
+Configure a localização, a área de trabalho do Log Analytics e a conta de Automatização a utilizar e clique em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
 
 A área de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) serve para recolher dados gerados pelas funcionalidades e serviços, como o Inventário.
 A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
 
-Durante a inclusão, a VM está aprovisionada com o Microsoft Monitoring Agent (MMA) e a função de trabalho híbrida.
-Este agente serve para comunicar com a VM e obter informações sobre o software instalado.
+Durante o embarque, o VM é aprovisionado com o agente Log Analytics para Windows e um Trabalhador de Runbook Híbrido.
+O agente é utilizado para comunicar com o VM e obter informações sobre software instalado.
 
 A ativação da solução pode demorar até 15 minutos. Durante este período, não deve fechar a janela do browser.
 Após a solução ser ativada, a informação sobre o software instalado e as alterações nos fluxos vm para os registos do Monitor Azure.
@@ -63,11 +65,11 @@ Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis pa
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="using-change-tracking-in-azure-monitor-logs"></a>Utilização de rastreio de alteração nos registos do Monitor Azure
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Utilização de rastreio de alterações nos registos do Monitor Azure
 
 Alterar o rastreio gera dados de registo que são enviados para registos do Monitor Azure.
-Para pesquisar os registos através da execução de consultas, selecione **Log Analytics** na parte superior da janela **Controlo de alterações**.
-Os dados de Controlo de alterações são armazenados abaixo do tipo **ConfigurationChange**.
+Para pesquisar os registos executando consultas, selecione **Log Analytics** no topo da página de rastreio de alteração.
+Alterar os dados de rastreio `ConfigurationChange`é armazenado sob o tipo .
 O exemplo de consulta do Log Analytics que se segue devolve todos os Serviços do Windows que foram parados.
 
 ```loganalytics
@@ -81,19 +83,18 @@ Para saber mais sobre a execução e pesquisa de ficheiros de registo nos regist
 
 O Controlo de alterações permite controlar as alterações de configuração na VM. Os passos que se seguem mostram como configurar o controlo de ficheiros e chaves do Registo.
 
-Para escolher os ficheiros e as chaves do Registo que devem ser recolhidos e controlados, selecione **Editar definições** na parte superior da página **Controlo de alterações**.
+Para escolher os ficheiros e as chaves do Registo que devem ser recolhidos e controlados, selecione **Editar definições** na parte superior da página Controlo de alterações.
 
 > [!NOTE]
 > O Inventário e o Controlo de alterações utilizam as mesmas definições de coleção, sendo as definições configuradas ao nível da área de trabalho.
 
-Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo do Windows, os ficheiros do Windows ou os ficheiros do Linux a controlar, conforme descrito nas três secções que se seguem.
+Na página de Configuração workspace, adicione as teclas do Registo do Windows, ficheiros Windows ou ficheiros Linux a serem rastreados, conforme descrito nas próximas três secções.
 
 ### <a name="add-a-windows-registry-key"></a>Adicionar uma chave do Registo do Windows
 
-1. No separador **Registo do Windows**, selecione **Adicionar**.
-    É aberta a janela **Adicionar Registo do Windows para Controlo de Alterações**.
+1. No separador **Registo do Windows**, selecione **Adicionar**. 
 
-1. Em **Adicionar Registo do Windows para Controlo de Alterações**, introduza as informações da chave a controlar e clique em **Guardar**
+1. Na página Adicionar Registo do Windows para alterar, introduza a informação para a tecla rastrear e clicar em **Guardar**
 
 |Propriedade  |Descrição  |
 |---------|---------|
@@ -104,9 +105,9 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 
 ### <a name="add-a-windows-file"></a>Adicionar um ficheiro do Windows
 
-1. No separador **Ficheiros do Windows**, selecione **Adicionar**. É aberta a janela **Adicionar Ficheiro do Windows para Controlo de Alterações**.
+1. No separador **Ficheiros do Windows**, selecione **Adicionar**. 
 
-1. Em **Adicionar Ficheiro do Windows para Controlo de Alterações**, introduza as informações do ficheiro ou diretório a controlar e clique em **Guardar**
+1. Na página Adicionar Ficheiro windows para alterar, introduza as informações para o ficheiro ou diretório para rastrear e clicar em **Guardar**
 
 |Propriedade  |Descrição  |
 |---------|---------|
@@ -119,9 +120,9 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 
 ### <a name="add-a-linux-file"></a>Adicionar um ficheiro do Linux
 
-1. No separador **Ficheiros do Linux**, selecione **Adicionar**. É aberta a janela **Adicionar Ficheiro do Linux para Controlo de Alterações **.
+1. No separador **Ficheiros do Linux**, selecione **Adicionar**. 
 
-1. Em **Adicionar Ficheiro do Linux para Controlo de Alterações**, introduza as informações do ficheiro ou diretório a controlar e clique em **Guardar**
+1. Na página Add Linux para Alterar Tracking, introduza as informações para o ficheiro ou diretório para rastrear e clicar em **Guardar**.
 
 |Propriedade  |Descrição  |
 |---------|---------|
@@ -133,24 +134,24 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
 |Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
 |Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignorar** - ignora as ligações simbólicas e não inclui os ficheiros/diretórios referenciados<br>**Seguir** - segue as ligações simbólicas durante a recursão e também inclui os ficheiros/diretórios referenciados<br>**Gerir** - segue as ligações simbólicas e permite alterar o tratamento do conteúdo devolvido      |
-|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
+|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: Verdadeiro ou Falso.|
 
    > [!NOTE]
-   > A opção “Gerir” ligações não é recomendada. A obtenção de conteúdo do ficheiro não é suportada.
+   > A opção **gerir links** não é recomendada. A obtenção de conteúdo do ficheiro não é suportada.
 
 ## <a name="enable-activity-log-connection"></a>Ativar a ligação do Registo de atividades
 
-Na página **Controlo de alterações** da sua VM, selecione **Gerir Ligação de Registo de Atividades**. Esta tarefa abre a página **Registo de atividades do Azure**. Selecione **Ligar** para ligar o Controlo de alterações ao registo de atividades do Azure para a sua VM.
+Na página Controlo de alterações da sua VM, selecione **Gerir Ligação de Registo de Atividades**. Esta tarefa abre a página Registo de atividades do Azure. Clique em Ligar o **Connect** para ligar o Rastreio de Mudança ao registo de atividade do Azure para o seu VM.
 
-Com esta definição ativada, navegue para a página **Descrição Geral** da sua VM e selecione **Parar** para parar a VM. Quando lhe for pedido, selecione **Sim** para parar a VM. Quando esta estiver desalocada, selecione **Iniciar** para reiniciar a sua VM.
+Com esta definição ativada, navegue para a página Descrição Geral da sua VM e selecione **Parar** para parar a VM. Quando lhe for pedido, selecione **Sim** para parar a VM. Quando esta estiver desalocada, selecione **Iniciar** para reiniciar a sua VM.
 
-As operações de paragem e início de uma VM registam um evento no respetivo registo de atividades. Regresse à página **Controlo de alterações**. Selecione o separador **Eventos** na parte inferior da página. Passado algum tempo, os eventos são apresentados no gráfico e na tabela. Tal como no passo anterior, é possível selecionar cada um dos eventos para ver informações detalhadas sobre o evento.
+As operações de paragem e início de uma VM registam um evento no respetivo registo de atividades. Regresse à página Controlo de alterações. Selecione o separador **Eventos** na parte inferior da página. Passado algum tempo, os eventos são apresentados no gráfico e na tabela. Tal como no passo anterior, é possível selecionar cada um dos eventos para ver informações detalhadas sobre o evento.
 
 ![Ver detalhes da alteração no portal](./media/automation-tutorial-troubleshoot-changes/viewevents.png)
 
 ## <a name="view-changes"></a>Ver as alterações
 
-Depois de ativar a solução Controlo de alterações e Inventário, pode ver os resultados na página **Controlo de alterações**.
+Depois de ativar a solução Controlo de alterações e Inventário, pode ver os resultados na página Controlo de alterações.
 
 Na sua VM, selecione **Controlo de alterações** em **OPERAÇÕES**.
 
@@ -165,7 +166,7 @@ No separador **Eventos**, a tabela apresenta os eventos do Registo de Atividades
 
 Como é possível constatar nos resultados, foram efetuadas várias alterações no sistema, incluindo alterações ao nível do software e serviços. Pode utilizar os filtros na parte superior da página para filtrar os resultados consoante o **Tipo de alteração** ou um intervalo de tempo.
 
-Selecione uma alteração do tipo **WindowsServices** para abrir a janela **Detalhes da Alteração**. A janela Detalhes da Alteração mostra detalhes sobre a alteração e os valores antes e após a alteração. Neste caso, o serviço Proteção de Software foi parado.
+Selecione uma alteração **WindowsServices.** Esta seleção abre a página Change Details mostrando detalhes sobre a mudança e os valores antes e depois da alteração. Neste caso, o serviço Proteção de Software foi parado.
 
 ![Ver detalhes da alteração no portal](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
@@ -175,11 +176,11 @@ Ver as alterações no portal do Azure pode ser útil, mas poder ser alertado qu
 
 Para adicionar um alerta a um serviço parado, no portal do Azure, aceda a **Monitorizar**. E, em **Serviços Partilhados**, selecione **Alertas** e clique em **+Nova regra de alerta**
 
-Clique em **Selecionar** para escolher um recurso. Na página **Selecione uma** página de recursos, selecione **Log Analytics** do Filtro por drop-down do tipo **de recurso.** Selecione a sua área de trabalho do Log Analytics e, em seguida, selecione **Concluído**.
+Clique em **Selecionar** para escolher um recurso. Na página Selecione uma página de recursos, selecione **Log Analytics** do Filtro por menu de dropdown do tipo **de recurso.** Selecione a sua área de trabalho do Log Analytics e, em seguida, selecione **Concluído**.
 
 ![Selecionar um recurso](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Clique em **Adicionar condição,** na página lógica de **sinal Configurar,** na tabela, selecione pesquisa de **registo personalizado**. Introduza a seguinte consulta na caixa de texto Consulta de pesquisa:
+Clique em **Adicionar condição,** na página lógica de sinal Configurar, na tabela, selecione pesquisa de **registo personalizado**. Introduza a seguinte consulta na caixa de texto Consulta de pesquisa:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -201,7 +202,7 @@ Em **Ações**, introduza um nome para a ação, como **Administradores por E-ma
 
 ![Adicionar grupo de ação](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
 
-Na página **E-mail/SMS/Push/Voz**, introduza um nome. Selecione a caixa de verificação **E-mail** e, em seguida, introduza um endereço de e-mail válido. Clique em **OK** na página **E-mail/SMS/Push/Voz** e clique em **OK** na página **Adicionar grupo de ação**.
+Na página E-mail/SMS/Push/Voz, introduza um nome. Selecione a caixa de verificação **E-mail** e, em seguida, introduza um endereço de e-mail válido. Clique **ok** no painel e, em seguida, clique **OK** na página do grupo de ação Adicionar.
 
 Para personalizar o assunto do e-mail de alerta, em **Criar regra**, em **Personalizar Ações**, selecione **Assunto do e-mail**. Quanto terminar, selecione **Criar regra de alerta**. O alerta informa-o quando a implementação de uma atualização for concluída com êxito e que máquinas faziam parte da execução dessa implementação de atualização.
 

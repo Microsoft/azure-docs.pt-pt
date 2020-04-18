@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: a7ab79fe7ccfbf6d292b6ba7be58026955a06516
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: f2d7f1725623dcc031f3c2b36bacd6dbc9ad339d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519248"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639959"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Crie e configure uma instância de Serviços de Domínio de Diretório Ativo Azure com opções avançadas de configuração
 
@@ -207,7 +207,7 @@ Os passos para gerar e armazenar estas hashes de senha são diferentes para cont
 > [!TIP]
 > Se o seu inquilino Azure AD tiver uma combinação de utilizadores e utilizadores apenas em nuvem a partir do seu AD no local, você precisa completar ambos os conjuntos de passos.
 
-Para contas de utilizadores apenas na nuvem, os utilizadores devem alterar as suas palavras-passe antes de poderem utilizar o Azure AD DS. Este processo de alteração de palavra-passe faz com que as hashes de senha para a autenticação Kerberos e NTLM sejam geradas e armazenadas em Azure AD. Pode expirar as palavras-passe para todos os utilizadores do inquilino que necessitem de utilizar o Azure AD DS, o que obriga a uma alteração de palavra-passe no próximo início de sessão, ou instruí-los a alterar manualmente as suas palavras-passe. Para este tutorial, vamos alterar manualmente uma palavra-passe do utilizador.
+Para contas de utilizadores apenas na nuvem, os utilizadores devem alterar as suas palavras-passe antes de poderem utilizar o Azure AD DS. Este processo de alteração de palavra-passe faz com que as hashes de senha para a autenticação Kerberos e NTLM sejam geradas e armazenadas em Azure AD. A conta não é sincronizada de Azure AD para Azure AD DS até que a palavra-passe seja alterada. Ou expira as palavras-passe para todos os utilizadores da nuvem do inquilino que precisam de usar O DS Azure, que obriga a uma alteração de palavra-passe no próximo início de sessão, ou instrua os utilizadores da nuvem a alterarmanualmente as suas palavras-passe. Para este tutorial, vamos alterar manualmente uma palavra-passe do utilizador.
 
 Antes de um utilizador poder redefinir a sua palavra-passe, o inquilino DaD Azure deve ser [configurado para redefinir a palavra-passe de autosserviço][configure-sspr].
 

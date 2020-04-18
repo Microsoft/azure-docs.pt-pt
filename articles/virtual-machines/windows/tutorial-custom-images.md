@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7360798f2f95184145a856babf501e3080cbaaf4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 87347cfea0e45d3498c48f07578523a20d5a13e2
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76274194"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641088"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell
 
@@ -112,7 +112,7 @@ New-AzImage `
  
 ## <a name="create-vms-from-the-image"></a>Criar VMs a partir da imagem
 
-Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem. Criar uma VM a partir de uma imagem personalizada é semelhante à criação de uma VM com uma imagem do Marketplace. Quando utiliza uma imagem do Marketplace, tem de fornecer as informações sobre a imagem, o fornecedor da imagem, a oferta, o SKU e a versão. Utilizando o parâmetro simplificado definido para o cmdlet [New-AzVM,](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) basta fornecer o nome da imagem personalizada desde que esteja no mesmo grupo de recursos. 
+Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem. Criar uma VM a partir de uma imagem personalizada é semelhante à criação de uma VM com uma imagem do Marketplace. Quando utiliza uma imagem do Marketplace, tem de fornecer as informações sobre a imagem, o fornecedor da imagem, a oferta, o SKU e a versão. Utilizando o parâmetro simplificado definido para o cmdlet [New-AzVM,](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) basta fornecer o nome da imagem personalizada desde que esteja no mesmo grupo de recursos. Se planeia criar VM num grupo de recursos diferente, forneça o Id de Recurso da imagem para o parâmetro -ImageName.
 
 Este exemplo cria um VM chamado *myVMfromImage* a partir da imagem *myImage,* no *myResourceGroup*.
 

@@ -1,5 +1,5 @@
 ---
-title: Apaga suave mente o Cofre de Chaves Azure Microsoft Docs
+title: Cofre chave Azure soft-delete / Microsoft Docs
 description: O soft-delete no Cofre de Chaves Azure permite-lhe recuperar cofres de chaves apagados e objetos de cofre chave, tais como chaves, segredos e certificados.
 ms.service: key-vault
 ms.subservice: general
@@ -8,16 +8,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 6185f0d84f27b6be89e797fc7cfb22940d8c6401
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: be4f124863da39cc9f6a61ebe054d451b438e8c3
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81432102"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617739"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação recuperável do Azure Key Vault
 
-A função de eliminação suave do Key Vault permite a recuperação dos cofres apagados e objetos do cofre, conhecidos como soft-delete. Especificamente, abordamos os seguintes cenários:
+A função de eliminação suave do Key Vault permite a recuperação dos cofres apagados e dos objetos do cofre, conhecidos como soft-delete. Especificamente, abordamos os seguintes cenários:
 
 - Suporte para eliminação recuperável de um cofre chave
 - Suporte para eliminação recuperável de objetos chave do cofre (ex. chaves, segredos, certificados)
@@ -38,7 +38,7 @@ Os Cofres-Chave Azure são recursos rastreados, geridos pelo Azure Resource Mana
 
 Quando o soft-delete está ativado, os recursos marcados como recursos eliminados são retidos por um período determinado (90 dias por padrão). O serviço fornece ainda um mecanismo para recuperar o objeto eliminado, essencialmente desfazendo a eliminação.
 
-Ao criar um novo cofre de chaves, o soft-delete está ligado por padrão. Pode criar um cofre chave sem apagar suavemente através do [Azure CLI](soft-delete-cli.md) ou [Azure Powershell](soft-delete-powershell.md). Uma vez que o soft-delete é ativado em um cofre chave não pode ser desativado
+Ao criar um novo cofre de chaves, o soft-delete está ligado por padrão. Pode criar um cofre chave sem apagar suavemente através do [Azure CLI](soft-delete-cli.md) ou [Do Azure PowerShell](soft-delete-powershell.md). Uma vez que o soft-delete é ativado em um cofre chave não pode ser desativado
 
 O período de retenção padrão é de 90 dias mas, durante a criação do cofre chave, é possível definir o intervalo da política de retenção para um valor de 7 a 90 dias através do portal Azure. A política de retenção de proteção da purga utiliza o mesmo intervalo. Uma vez definido, o intervalo da política de retenção não pode ser alterado.
 
@@ -46,7 +46,7 @@ Não é possível reutilizar o nome de um cofre chave que foi apagado até que o
 
 ### <a name="purge-protection"></a>Proteção de purga 
 
-A proteção da purga é um comportamento opcional do Cofre chave e não é **ativada por padrão**. Pode ser ligado via [CLI](soft-delete-cli.md#enabling-purge-protection) ou [Powershell](soft-delete-powershell.md#enabling-purge-protection).
+A proteção da purga é um comportamento opcional do Cofre chave e não é **ativada por padrão**. Pode ser ligado via [CLI](soft-delete-cli.md#enabling-purge-protection) ou [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
 
 Quando a proteção da purga está em funcionação, um cofre ou um objeto no estado apagado não podem ser purgados até que o período de retenção tenha passado. Cofres e objetos apagados ainda podem ser recuperados, garantindo que a política de retenção será seguida. 
 
@@ -58,7 +58,7 @@ Eliminação permanente, purgação, um cofre chave é possível através de uma
 
 As exceções são:
 - Quando a assinatura Azure tiver sido marcada como *indeleável.* Neste caso, apenas o serviço pode então realizar a eliminação real, e fá-lo como um processo programado. 
-- Quando a bandeira de proteção de purga ativa ré ativa da própria abóbada. Neste caso, o Cofre Chave vai esperar 90 dias a partir do momento em que o objeto secreto original foi marcado para a eliminação para apagar permanentemente o objeto.
+- Quando `--enable-purge-protection flag` o próprio cofre estiver ativado. Neste caso, o Cofre Chave vai esperar 90 dias a partir do momento em que o objeto secreto original foi marcado para a eliminação para apagar permanentemente o objeto.
 
 ### <a name="key-vault-recovery"></a>Recuperação do cofre chave
 
@@ -72,7 +72,7 @@ Ao mesmo tempo, o Cofre-Chave irá agendar a eliminação dos dados subjacentes 
 
 ### <a name="soft-delete-retention-period"></a>Período de retenção soft-delete
 
-Os recursos eliminados suaves são retidos por um período de tempo definido, 90 dias. Durante o intervalo de retenção de eliminação suave, aplicam-se os seguintes:
+Os recursos eliminados suavemente são retidos por um período de tempo definido, 90 dias. Durante o intervalo de retenção de eliminação suave, aplicam-se os seguintes:
 
 - Pode listar todos os cofres chave e objetos de cofre chave no estado de eliminação suave para a sua subscrição, bem como informações de eliminação e recuperação de acesso sobre eles.
     - Apenas utilizadores com permissões especiais podem listar cofres apagados. Recomendamos que os nossos utilizadores criem um papel personalizado com estas permissões especiais para manusear cofres apagados.

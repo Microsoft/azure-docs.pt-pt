@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 4c510cae7ba5a952e6dc7f7cb7ae7591fe801560
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461298"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606104"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Deriva de schema no fluxo de dados de mapeamento
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A deriva de Schema é o caso em que as suas fontes mudam frequentemente de metadados. Campos, colunas e. Sem manusear a deriva do esquema, o fluxo de dados torna-se vulnerável a alterações de fonte de dados a montante. Os padrões Típicos de ETL falham quando as colunas de entrada e os campos mudam porque tendem a estar ligados a esses nomes de origem.
 

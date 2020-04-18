@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: b06000d6b3cd7a429b7ad0fc9c453595f21bd893
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: dea0f9a038958ea747147a179020545f2f6922a2
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418478"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605346"
 ---
 # <a name="monitor-data-flows"></a>Monitorizar fluxos de dados
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Depois de ter concluído a construção e depurando o fluxo de dados, irá querer agendar o fluxo de dados para executar num horário no contexto de um pipeline. Pode agendar o oleoduto a partir da Azure Data Factory utilizando gatilhos. Ou pode utilizar a opção Trigger Now do Azure Data Factory Pipeline Builder para executar uma execução de uma única execução para testar o fluxo de dados dentro do contexto do gasoduto.
 

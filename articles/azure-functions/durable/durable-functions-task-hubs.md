@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ffb3d590aebe80994de1e7e834a2eba5777df9a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262491"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604605"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centros de tarefas em funções duráveis (Funções Azure)
 
@@ -35,7 +35,13 @@ Todos estes recursos são criados automaticamente na conta de Armazenamento Azur
 
 ## <a name="task-hub-names"></a>Nomes do centro de tarefas
 
-Os centros de tarefas são identificados por um nome declarado no ficheiro *host.json,* como mostra o seguinte exemplo:
+Os centros de tarefas são identificados por um nome que está em conformidade com estas regras:
+
+* Contém apenas caracteres alfanuméricos
+* Começa com uma carta
+* Tem um comprimento mínimo de 3 caracteres, comprimento máximo de 45 caracteres
+
+O nome do centro de tarefas é declarado no ficheiro *host.json,* como mostra o seguinte exemplo:
 
 ### <a name="hostjson-functions-20"></a>host.json (Funções 2.0)
 

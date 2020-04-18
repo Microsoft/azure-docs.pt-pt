@@ -553,8 +553,6 @@
           href: data-factory-service-identity.md
     - name: Monitorizar e gerir
       items:
-        - name: Monitorizar visualmente
-          href: monitor-visually.md
         - name: Monitorizar com o Azure Monitor
           href: monitor-using-azure-monitor.md
         - name: Monitorizar com SDKs

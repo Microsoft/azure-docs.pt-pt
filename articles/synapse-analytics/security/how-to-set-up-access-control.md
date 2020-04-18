@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94699f2153fa8d1df3ab85c184f32792c7ae0b59
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ae8be848b5d12e01865fe6bd3b394b460252aa3e
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428878"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606012"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
 
@@ -51,8 +51,8 @@ Crie e povoetrês grupos de segurança para o seu espaço de trabalho:
 - **WS1\_WSAdmins** – para utilizadores que precisam de controlo total sobre o espaço de trabalho
 - **WS1\_SparkAdmins** – para os utilizadores que precisam de controlo total sobre os aspetos spark do espaço de trabalho
 - **WS1\_SQLAdmins** – para utilizadores que precisam de controlo total sobre os aspetos SQL do espaço de trabalho
-- Adicione **administradores\_WS1** a **\_WS1 SQLAdmins**
-- Adicione **administradores\_WS1** à **\_WS1 SparkAdmins**
+- Adicione **WS1\_WSAdmins** à **WS1\_SQLAdmins**
+- Adicione **WS1\_WSAdmins** à **WS1\_SparkAdmins**
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>PASSO 2: Prepare a sua conta Gen2 de Armazenamento de Lago de Dados
 
@@ -89,7 +89,7 @@ O espaço de trabalho Synapse precisa de acesso ao STG1 e ao CNT1 para que possa
 - Abra o portal do Azure
 - Localizar STG1
 - Navegar para CNT1
-- Certifique-se de que o MSI para a WS1 é atribuído ao papel de Contribuinte de **Dados da Blob Azure** na CNT1
+- Certifique-se de que o MSI (Identidade de Serviço Gerido) para a WS1 é atribuído ao papel de Colaborador de **Dados da Blob Azure** na CNT1
   - Se não o vir atribuído, atribua-o.
   - O MSI tem o mesmo nome que o espaço de trabalho. Neste caso, seria &quot;wS1&quot;.
 

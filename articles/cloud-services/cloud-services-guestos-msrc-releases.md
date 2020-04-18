@@ -10,17 +10,55 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/3/2020
+ms.date: 04/17/2020
 ms.author: raiye
-ms.openlocfilehash: 758f0e3198ef83635ead3f9bd8565cd64f9d413c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: a271eca3c3b6e7cd364f2bc87f2e15006874fa08
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656357"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617692"
 ---
 # <a name="azure-guest-os"></a>Os Convidados Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Os Do Convidado Azure. Procure neste artigo para determinar se uma determinada atualização se aplica ao Sistema operativo convidado que está a utilizar. As atualizações levam sempre para a [família][family-explain] em particular em que foram introduzidas.
+
+## <a name="april-2020-guest-os"></a>Abril 2020 Guest OS
+
+>[!NOTE]
+>O Os Convidado de abril está atualmente a ser lançado para VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no Os convidado de abril. Esta lista está sujeita a alterações.
+
+| Product Category (Categoria de Produto) | Artigo KB da mãe | Descrição da vulnerabilidade | SO convidado | Data primeira introduzida |
+| --- | --- | --- | --- | --- |
+|  Rel 20-04  |  [4550965]  |  Segurança do Windows  | 2.97 | Abr 14, 2020 |
+|  Rel 20-04  |  [4550905]  |  Internet Explorer  | 2.97, 3.84, 4.77 | Abr 14, 2020 |
+|  Rel 20-04  |  [4550971]  |  Segurança do Windows  | 3.84 | Abr 14, 2020 |
+|  Rel 20-04  |  [4550970]  |  Segurança do Windows  | 4.77 | Abr 14, 2020 |
+|  Rel 20-04  |  [4550929]  |  Última atualização cumulativa (UCI)  | 5.42 | Abr 14, 2020 |
+|  Rel 20-04  |  [4549949]  |  Última atualização cumulativa (UCI)  | 6.18 | Abr 14, 2020 |
+|  Rel 20-04  |  [4540688]  |  Rollup mensal  | 2.97 | Mar 10, 2020 |
+|  Rel 20-04  |  [4550735]  |  Atualização do Stack de Manutenção  | 2.97 | Mar 10, 2020 |
+|  Rel 20-04  |  [4540726]  |  Atualização do Stack de Manutenção  | 3.84 | Mar 10, 2020 |
+|  Rel 20-04  |  [4541510]  |  Rollup mensal  | 3.84 | Mar 10, 2020 |
+|  Rel 20-04  |  [4541509]  |  Rollup mensal  | 4.77 | Mar 10, 2020 |
+|  Rel 20-04  |  [4540725]  |  Atualização do Stack de Manutenção  | 4.77 | Mar 10, 2020 |
+|  Rel 20-04  |  [4540723]  |  Atualização do Stack de Manutenção  | 5.42 | Mar 10, 2020 |
+|  Rel 20-04  |  [4539571]  |  Atualização do Stack de Manutenção  | 6.18 | Mar 10, 2020 |
+
+[4550965]: https://support.microsoft.com/kb/4550965
+[4550905]: https://support.microsoft.com/kb/4550905
+[4550971]: https://support.microsoft.com/kb/4550971
+[4550970]: https://support.microsoft.com/kb/4550970
+[4550929]: https://support.microsoft.com/kb/4550929
+[4549949]: https://support.microsoft.com/kb/4549949
+[4540688]: https://support.microsoft.com/kb/4540688
+[4550735]: https://support.microsoft.com/kb/4550735
+[4540726]: https://support.microsoft.com/kb/4540726
+[4541510]: https://support.microsoft.com/kb/4541510
+[4541509]: https://support.microsoft.com/kb/4541509
+[4540725]: https://support.microsoft.com/kb/4540725
+[4540723]: https://support.microsoft.com/kb/4540723
+[4539571]: https://support.microsoft.com/kb/4539571
+
 
 ## <a name="march-2020-guest-os"></a>Março 2020 Guest OS
 

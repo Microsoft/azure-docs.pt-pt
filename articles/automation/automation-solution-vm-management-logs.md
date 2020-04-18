@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 00f6a5f88a66f0a19943ff3a2c722ae1a9938e9e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80550399"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604731"
 ---
 # <a name="how-to-query-logs-from-startstop-vms-solution"></a>Como consultar os registos da solução Start/Stop VMs
 
@@ -71,4 +71,4 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Os VMs de início/paragem durante o horário de folga não incluem um conjunto predefinido de alertas. Reveja os [alertas de registo Create](../azure-monitor/platform/alerts-log.md) com o Monitor Azure para aprender a criar alertas falhados de trabalho para apoiar os seus DevOps ou processos e procedimentos operacionais.
+Os **VMs de início/paragem durante a** solução off-hours não incluem um conjunto predefinido de alertas. Reveja os [alertas de registo Create](../azure-monitor/platform/alerts-log.md) com o Monitor Azure para aprender a criar alertas falhados de trabalho para apoiar os seus DevOps ou processos e procedimentos operacionais.

@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 03/25/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707b03d46615f3acfa0797d1dc0865d53ef75dc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f599ee3303ab907c319d1f8cf3da3e427a4c4c0b
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282125"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639655"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Quais são as identidades geridas para os recursos do Azure?
 
@@ -51,8 +51,12 @@ Existem dois tipos de identidades geridas:
 - Uma **identidade gerida atribuída pelo utilizador**, que é criada como um recurso do Azure autónomo. Através de um processo de criação, o Azure cria uma identidade no inquilino do Azure AD no qual a subscrição que está a ser utilizada confia. Depois de criada, a identidade pode ser atribuída a uma ou mais instâncias do serviço do Azure. O ciclo de vida das identidades atribuídas pelo utilizador é gerido separadamente do ciclo de vida das instâncias do serviço do Azure ao qual estão atribuídas.
 
 Internamente, as identidades geridas são os principais de serviço de um tipo especial, que estão bloqueados apenas para serem utilizados com recursos Azure. Quando a identidade gerida é eliminada, o diretor de serviço correspondente é automaticamente removido.
+Além disso, quando é criada uma identidade atribuída ao utilizador ou atribuída ao sistema, o Fornecedor de Recursos de Identidade Gerido (MSRP) emite um certificado internamente a essa identidade. 
 
-O seu código pode utilizar uma identidade gerida para pedir tokens de acesso para serviços que suportem a autenticação do Azure AD. O Azure encarrega-se da implementação das credenciais que a instância do serviço utiliza.
+O seu código pode utilizar uma identidade gerida para pedir tokens de acesso para serviços que suportem a autenticação do Azure AD. O Azure encarrega-se da implementação das credenciais que a instância do serviço utiliza. 
+
+## <a name="credential-rotation"></a>Rotação credencial
+A rotação credencial é controlada pelo fornecedor de recursos que acolhe o recurso Azure. A rotação padrão da credencial ocorre a cada 46 dias. Cabe ao fornecedor de recursos pedir novas credenciais, para que o fornecedor de recursos possa esperar mais de 46 dias.
 
 O diagrama seguinte mostra como é que as identidades de serviço geridas funcionam com as máquinas virtuais (VMs) do Azure:
 
@@ -135,12 +139,12 @@ Saiba como utilizar uma identidade gerida com outros serviços do Azure:
 * [API Management do Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Tarefas do Azure Container Registry](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
-* [Hubs de Eventos do Azure](../../event-hubs/authenticate-managed-identity.md)
+* [Azure Event Hubs](../../event-hubs/authenticate-managed-identity.md)
 * [Funções do Azure](/azure/app-service/overview-managed-identity)
-* [Serviço Azure Kubernetes](/azure/aks/use-managed-identity)
+* [Azure Kubernetes Service](/azure/aks/use-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
-* [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Fábrica de Dados Azure](../../data-factory/data-factory-service-identity.md)
+* [Service Bus do Azure](../../service-bus-messaging/service-bus-managed-service-identity.md)
+* [Azure Data Factory](../../data-factory/data-factory-service-identity.md)
 
 
 ## <a name="what-azure-services-support-the-feature"></a>Que serviços do Azure suportam a funcionalidade?<a name="which-azure-services-support-managed-identity"></a>

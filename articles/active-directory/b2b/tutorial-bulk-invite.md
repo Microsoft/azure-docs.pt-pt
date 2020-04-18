@@ -5,38 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 2/11/2020
+ms.date: 04/13/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0ef9172ca5d0961bb6de1949a61199ce1d6c1bff
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77166445"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603381"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: A granel convida utilizadores de colaboração Azure AD B2B (pré-visualização)
-
-|     |
-| --- |
-| Este artigo descreve uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-> [!NOTE]
-> A partir de 12/22/2019, a funcionalidade de convite a granel (Pré-visualização) foi temporariamente desativada.
-> Atualmente não existe uma data conhecida para quando esta funcionalidade será reativada no portal Azure. Para convidar os utilizadores convidados a granel utilizando o PowerShell, consulte o tutorial de convite a [granel B2B](bulk-invite-powershell.md) ou o [código B2B e as amostras PowerShell](code-samples.md).
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Convidar utilizadores da colaboração B2B do Azure AD em massa
 
 Se utilizar a colaboração B2B do Azure Active Directory (Azure AD) para trabalhar com parceiros externos, pode convidar múltiplos utilizadores convidados para a sua organização ao mesmo tempo. Neste tutorial, aprende-se a utilizar o portal Azure para enviar convites a granel para utilizadores externos. Deve fazer o seguinte:
 
 > [!div class="checklist"]
-> * Utilize **a Granel convidar os utilizadores (Pré-visualização)** a preparar um ficheiro de valor separado de vírem (.csv) com as informações do utilizador e as preferências de convite
+> * Use **a Granel convidar os utilizadores** a preparar um ficheiro de valor separado de vírem (.csv) com as informações do utilizador e as preferências de convite
 > * Faça upload do ficheiro .csv para Azure AD
 > * Verificar se os utilizadores foram adicionados ao diretório
 
-Se não tiver o Azure Ative Directory, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver o Azure Ative Directory, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,7 +38,7 @@ Precisa de duas ou mais contas de e-mail de teste para as quais possa enviar os 
 1. Inscreva-se no portal Azure com uma conta que é administradora do Utilizador na organização.
 2. No painel de navegação, selecione **Azure Ative Directory**.
 3. Em **'Gerir',** selecione **Users** > **Bulk invite**.
-4. Na página **de convidar os utilizadores (Pré-visualização)** a Granel, selecione **Download** para obter um ficheiro .csv válido com propriedades de convite.
+4. Na página de convidar os utilizadores a **Granel,** selecione **Download** para obter um ficheiro .csv válido com propriedades de convite.
 
     ![Botão de descarregamento de convite a granel](media/tutorial-bulk-invite/bulk-invite-button.png)
 
@@ -63,10 +54,10 @@ Precisa de duas ou mais contas de e-mail de teste para as quais possa enviar os 
    > Não utilize vírgulas na mensagem de **convite personalizada** porque evitarão que a mensagem seja analisada com sucesso.
 
 6. Guarde o ficheiro.
-7. Na página **de convidar os utilizadores (Pré-visualização)** a granel, sob o upload do seu ficheiro **CSV,** navegue para o ficheiro. Quando selecionar o ficheiro, inicia-se a validação do ficheiro .csv. 
+7. Na página **de convidar os utilizadores a Granel,** sob o upload do seu ficheiro **CSV,** navegue para o ficheiro. Quando selecionar o ficheiro, inicia-se a validação do ficheiro .csv. 
 8. Quando o conteúdo do ficheiro for validado, verá o **Ficheiro carregado com sucesso**. Se houver erros, tem de os corrigir antes de poder submeter o trabalho.
 9. Quando o seu ficheiro passar a validação, selecione **Submeter** para iniciar a operação a granel Azure que adiciona os convites. 
-10. Para ver o estado de trabalho, selecione **Clique aqui para ver o estado de cada operação**. Ou, pode selecionar os resultados da **operação Bulk (Pré-visualização)** na secção **Atividade.** Para mais detalhes sobre cada item de linha dentro da operação a granel, selecione os valores sob as colunas **# Sucesso**, **# Falha,** ou **Total Solicitações.** Se ocorrerem falhas, as razões da falha serão listadas.
+10. Para ver o estado de trabalho, selecione **Clique aqui para ver o estado de cada operação**. Ou, pode selecionar **os resultados** da operação Bulk na secção **Atividade.** Para mais detalhes sobre cada item de linha dentro da operação a granel, selecione os valores sob as colunas **# Sucesso**, **# Falha,** ou **Total Solicitações.** Se ocorrerem falhas, as razões da falha serão listadas.
 
     ![Exemplo dos resultados da operação a granel](media/tutorial-bulk-invite/bulk-operation-results.png)
 

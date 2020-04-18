@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: fed411ea171274513308ec3efa68da80e4d25f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9e1bff3d25a978b5159d8e6ab8ab2453df77ca3
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116753"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640518"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Agendar oleodutos de aprendizagem automática com Azure Machine Learning SDK para Python
 
@@ -98,6 +98,10 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 ### <a name="optional-arguments-when-creating-a-schedule"></a>Argumentos opcionais ao criar um horário
 
 Além dos argumentos discutidos anteriormente, pode `status` definir `"Disabled"` o argumento para criar uma programação inativa. Finalmente, `continue_on_step_failure` permite-lhe passar por um Boolean que irá anular o comportamento de falha padrão do oleoduto.
+
+### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>Use aplicativos de lógica Azure para fluxos de trabalho mais complexos
+
+As Aplicações Lógicas Azure suportam fluxos de trabalho mais complexos e são muito mais amplamente integrados do que os oleodutos Azure Machine Learning. Consulte [trigger uma série de um pipeline de Machine Learning a partir de uma Aplicação Lógica](how-to-trigger-published-pipeline.md) para obter mais informações.
 
 ## <a name="view-your-scheduled-pipelines"></a>Veja os seus oleodutos programados
 

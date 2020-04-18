@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1e8587562ff452373fe2ee3b98fa20309e77cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be5defb85547e8750dea9ceaa481217aa40a004e
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266588"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639768"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador utilizando o Azure CLI
 
@@ -37,6 +37,12 @@ Neste artigo, aprende-se a criar, listar e eliminar uma identidade gerida atribu
     - Utilize a Casca de [Nuvem Azure](../../cloud-shell/overview.md) a partir do portal Azure (ver secção seguinte).
     - Utilize a casca de nuvem azure incorporada através do botão "Try It", localizado no canto superior direito de cada bloco de código.
     - [Instale a versão mais recente do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 ou mais tarde) se preferir utilizar uma consola CLI local. Faça o instique no Azure utilizando `az login`uma conta que esteja associada à subscrição Do Azure sob a qual deseja implementar a identidade gerida atribuída pelo utilizador.
+
+
+> [!NOTE]
+> Para modificar as permissões dos utilizadores ao utilizar um diretor de servivce de aplicações utilizando o CLI, deve fornecer ao principal serviço permissões adicionais na API do Gráfico AD Azure, uma vez que partes do CLI executam pedidos GET contra a API do gráfico. Caso contrário, poderá acabar por receber uma mensagem "Insuficiente sapateada para completar a operação". Para isso, terá de entrar no registo da App no Azure Ative Directory, selecionar a sua aplicação, clicar em permissões API, deslocar-se para baixo e selecionar o Gráfico de Diretório Ativo do Azure. A partir daí, selecione permissões de pedido e, em seguida, adicione as permissões apropriadas. 
+
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

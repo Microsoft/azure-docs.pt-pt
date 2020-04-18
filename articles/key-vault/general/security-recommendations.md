@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: b7bd85508851df7c7a664862b02141bf4d3bea1f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0da1a3019124f62aba6a959ce9104c85bd85d3fc
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81429853"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616493"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Recomendações de segurança para cofre de chaves Azure
 
@@ -30,7 +30,7 @@ Algumas das recomendações incluídas neste artigo podem ser automaticamente mo
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
-|Ativar apagar suavemente | [Eliminação suave](overview-soft-delete.md)) permite-lhe recuperar cofres apagados e objetos de cofre |  - |
+|Ativar soft-delete | [Soft-delete](overview-soft-delete.md)) permite-lhe recuperar cofres apagados e objetos de cofre |  - |
 | Limitar o acesso aos dados do cofre  | Siga o princípio do menor privilégio e limite que os membros da sua organização têm acesso aos dados do cofre |  - |
 
 ## <a name="identity-and-access-management"></a>Gestão de identidades e acessos

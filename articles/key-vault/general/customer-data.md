@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 847b6c4616cbbb7fd9c6ccad18ec426dc38a887a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bceea53e6b177940305a2dc77f2a6ecfa37f277a
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430854"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617894"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Funcionalidades de dados de clientes do Azure Key Vault
 
@@ -40,7 +40,7 @@ As seguintes informações identificam os dados dos clientes dentro do Cofre cha
 
 As mesmas APIs REST, experiência portal e SDKs usados para criar cofres, chaves, segredos, certificados e contas de armazenamento geridas, também são capazes de atualizar e apagar estes objetos.
 
-A eliminação suave permite-lhe recuperar os dados apagados durante 90 dias após a eliminação. Ao utilizar o soft delete, os dados podem ser eliminados permanentemente antes do período de retenção de 90 dias expirar através da execução de uma operação de purga. Se o cofre ou a subscrição tiver sido configurado para bloquear as operações de purga, não é possível eliminar permanentemente os dados até que o período de retenção programado tenha passado.
+O soft-delete permite-lhe recuperar os dados apagados durante 90 dias após a eliminação. Ao utilizar o soft-delete, os dados podem ser eliminados permanentemente antes do período de retenção de 90 dias expirar através da execução de uma operação de purga. Se o cofre ou a subscrição tiver sido configurado para bloquear as operações de purga, não é possível eliminar permanentemente os dados até que o período de retenção programado tenha passado.
 
 ## <a name="exporting-customer-data"></a>Exportação de dados dos clientes
 

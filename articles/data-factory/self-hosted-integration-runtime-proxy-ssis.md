@@ -12,16 +12,16 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: ecfdf2a11f31c18064be9a607f2bb3938d26e661
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4cb5b84f3889dcf4e0f28d525afb42cfeac5b54c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414904"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605501"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configure um IR auto-hospedado como procuração para um IR Azure-SSIS na Fábrica de Dados Azure
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como executar pacotes de Serviços de Integração de Servidores SQL (SSIS) num Runtime de Integração Azure-SSIS (Azure-SSIS IR) na Azure Data Factory com um tempo de funcionação de integração auto-hospedado (IR auto-hospedado) configurado como um proxy. 
 

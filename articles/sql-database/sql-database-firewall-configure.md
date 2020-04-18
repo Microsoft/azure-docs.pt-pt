@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: af88fdf3378a6290c773c658ea6dd3469d7c92cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531282"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606098"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Base de Dados Azure SQL e regras de firewall IP do Armazém de Dados Azure SQL
 
@@ -101,7 +101,7 @@ Quando um computador tenta ligar-se ao seu servidor de base de dados a partir da
 
 ### <a name="connections-from-inside-azure"></a>Conexões de dentro do Azure
 
-Para permitir que as aplicações hospedadas no interior do Azure se conectem ao seu servidor SQL, as ligações Azure devem ser ativadas. Quando uma aplicação do Azure tenta ligar-se ao seu servidor de base de dados, a firewall verifica que as ligações Azure são permitidas. Uma definição de firewall que tenha endereços IP de arranque e fim iguais a *0.0.0.0* indica que as ligações Azure são permitidas. Isto pode ser ligado diretamente a partir da lâmina do Portal Azure, definindo as regras do Firewall, bem como trocando os **Serviços e recursos Do Allow Azure para aceder a este servidor** para **ON** nas definições de **Firewalls e redes virtuais.** Se a ligação não for permitida, o pedido não chega ao servidor de base de dados SQL.
+Para permitir que as aplicações hospedadas no interior do Azure se conectem ao seu servidor SQL, as ligações Azure devem ser ativadas. Quando uma aplicação do Azure tenta ligar-se ao seu servidor de base de dados, a firewall verifica que as ligações Azure são permitidas. Isto pode ser ligado diretamente a partir da lâmina do Portal Azure, definindo as regras do Firewall, bem como trocando os **Serviços e recursos Do Allow Azure para aceder a este servidor** para **ON** nas definições de **Firewalls e redes virtuais.** Se a ligação não for permitida, o pedido não chega ao servidor de base de dados SQL.
 
 > [!IMPORTANT]
 > Esta opção configura a firewall para permitir todas as ligações do Azure, incluindo ligações a partir das subscrições de outros clientes. Se selecionar esta opção, certifique-se de que o seu login e permissões do utilizador limitam o acesso apenas aos utilizadores autorizados.

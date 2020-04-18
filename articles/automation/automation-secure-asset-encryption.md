@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: a82d2b6d9521ba7dd5e7b194c26ff8fe5a100871
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 594bac257c2b9739f1ece276c881348b35d2f704
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457489"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604821"
 ---
 # <a name="encrypt-secure-assets-in-azure-automation"></a>Encriptar recursos seguros na Automatização do Azure
 
@@ -56,11 +56,11 @@ Antes de ativar as chaves geridas pelo cliente para uma conta De automatização
  - Apenas as chaves RSA são suportadas com encriptação Azure Automation. Para mais informações sobre chaves, consulte [sobre chaves, segredos e certificados do Cofre chave Azure.](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
 - A conta Automation e o cofre chave podem estar em diferentes subscrições, mas precisam de estar no mesmo inquilino do Azure Ative Directory.
 
-### <a name="assign-an-identity-to-the-automation-account"></a>Atribuir uma identidade à conta de automação
+### <a name="assign-an-identity-to-the-automation-account"></a>Atribuir uma identidade à conta de Automação
 
-Para utilizar chaves geridas pelo cliente com uma conta Automation, a sua conta Automation precisa de autenticar contra o cofre de chaves que armazena chaves geridas pelo cliente. A Azure Automation utiliza o sistema de identidades geridas atribuídas para autenticar a conta com o Cofre chave Azure. Para obter mais informações sobre identidades geridas, veja [o que é gerida identidades para os recursos Do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Para utilizar chaves geridas pelo cliente com uma conta Automation, a sua conta Automation precisa de autenticar contra o cofre de chaves que armazena chaves geridas pelo cliente. A Azure Automation utiliza o sistema de identidades geridas atribuídas para autenticar a conta com o Cofre chave Azure. Para obter mais informações sobre identidades geridas, veja [quais são as identidades geridas para os recursos do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-Configure um sistema de identidade gerida atribuída à conta de automação utilizando a seguinte chamada REST API:
+Configure um sistema de identidade gerida atribuída à conta Automation utilizando a seguinte chamada REST API:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -133,7 +133,7 @@ Corpo do pedido:
 
 ### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>Alterar a configuração da conta Automation para utilizar a chave gerida pelo cliente
 
-Por fim, pode trocar a sua conta de Automação de chaves geridas pela Microsft para chaves geridas pelo cliente, utilizando a seguinte chamada REST API:
+Por fim, pode mudar a sua conta de Automação de chaves geridas pela Microsoft para chaves geridas pelo cliente, utilizando a seguinte chamada REST API:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -193,9 +193,6 @@ Para revogar o acesso às chaves geridas pelo cliente, utilize a PowerShell ou o
 ## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o cofre de chave do Azure?](../key-vault/general/overview.md)
-
 - [Recursos de certificados na Automatização do Azure](shared-resources/certificates.md)
-
 - [Recursos de credenciais na Automatização do Azure](shared-resources/credentials.md)
-
 - [Recursos de variáveis na Automatização do Azure](shared-resources/variables.md)

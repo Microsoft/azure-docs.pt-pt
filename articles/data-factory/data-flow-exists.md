@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: 512d9a688d7f808056a91b5bc0484c378af33948
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a303c8fa1e23460fb906232eedb6bfb1930b4bc9
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413824"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606474"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Existe transformação no fluxo de dados de mapeamento
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A transformação existente é uma transformação de filtragem de linha que verifica se os seus dados existem em outra fonte ou fluxo. O fluxo de saída inclui todas as linhas no fluxo esquerdo que existem ou não existem no fluxo certo. A transformação existente ```SQL WHERE EXISTS``` ```SQL WHERE NOT EXISTS```é semelhante a e.
 

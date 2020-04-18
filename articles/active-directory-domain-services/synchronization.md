@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38ed48df4d681543cc30daccf46b98635d973b89
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944424"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639900"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Como objetos e credenciais são sincronizados num domínio gerido pelo Azure AD Domain Services
 
@@ -31,6 +31,8 @@ O diagrama que se segue ilustra como funciona a sincronização entre o Azure AD
 ## <a name="synchronization-from-azure-ad-to-azure-ad-ds"></a>Sincronização de Azure AD para Azure AD DS
 
 As contas de utilizador, membros do grupo e hashes credenciais são sincronizadas de uma forma de Azure AD para Azure AD DS. Este processo de sincronização é automático. Não é necessário configurar, monitorizar ou gerir este processo de sincronização. A sincronização inicial pode demorar algumas horas a alguns dias, dependendo do número de objetos no diretório Azure AD. Após a sincronização inicial estar completa, as alterações que são feitas em AD Azure, tais como alterações de password ou atributo, são automaticamente sincronizadas para O DS Azure.
+
+Quando um utilizador é criado em AD Azure, não é sincronizado com O DS Azure até que altere a sua palavra-passe em Azure AD. Este processo de alteração de palavra-passe faz com que as hashes de senha para a autenticação Kerberos e NTLM sejam geradas e armazenadas em Azure AD. As hashes de senha são necessárias para autenticar com sucesso um utilizador em Azure AD DS.
 
 O processo de sincronização é de uma forma/unidirecional por design. Não há sincronização inversa das mudanças do Azure AD DS de volta ao Azure AD. Um domínio gerido por AD DS Azure é em grande parte apenas lido, exceto para OUs personalizado que você pode criar. Não é possível efetuar alterações nos atributos do utilizador, palavras-passe do utilizador ou membros do grupo dentro de um domínio gerido pelo Azure AD DS.
 
@@ -134,7 +136,7 @@ As chaves de encriptação são únicas para cada inquilino da AD Azure. Estes h
 
 As hashes de senha legacy são então sincronizadas a partir de Azure AD para os controladores de domínio para um domínio gerido por AD DS Azure. Os discos para estes controladores de domínio geridos em DS AD Azure são encriptados em repouso. Estes hashes de palavra-passe são armazenados e protegidos nestes controladores de domínio semelhantes à forma como as palavras-passe são armazenadas e protegidas num ambiente AD DS no local.
 
-Para ambientes AD Azure apenas na nuvem, [os utilizadores devem redefinir/alterar a sua palavra-passe](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que as hashes de senha necessárias sejam geradas e armazenadas em Azure AD. Para qualquer conta de utilizador na nuvem criada em Azure AD após ativar os Serviços de Domínio Azure AD, as hashes de senha são geradas e armazenadas nos formatos compatíveis NTLM e Kerberos. Essas novas contas não precisam de redefinir ou alterar a sua palavra-passe geram as hashes de senha do legado.
+Para ambientes AD Azure apenas na nuvem, [os utilizadores devem redefinir/alterar a sua palavra-passe](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que as hashes de senha necessárias sejam geradas e armazenadas em Azure AD. Para qualquer conta de utilizador na nuvem criada em Azure AD após ativar os Serviços de Domínio Azure AD, as hashes de senha são geradas e armazenadas nos formatos compatíveis NTLM e Kerberos. Todas as contas de utilizadores na nuvem devem alterar a sua palavra-passe antes de serem sincronizadas com o Azure AD DS.
 
 Para contas híbridas de utilizador sincronizadas a partir do ambiente AD DS no local utilizando o Azure AD Connect, é necessário configurar o [Azure AD Connect para sincronizar hashes de palavra-passe nos formatos compatíveis NTLM e Kerberos.](tutorial-configure-password-hash-sync.md)
 

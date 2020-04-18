@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: be558c3e3a68ce6c194dcf98d8f5ff92c4c14edb
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 934cf854b0c526ed994c7dc91763f65de64fd14b
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457829"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617508"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>TLS terminação com certificados key vault
 
@@ -47,7 +47,10 @@ A integração do Gateway de aplicação com o Key Vault requer um processo de c
 
 1. **Configure o seu cofre chave**
 
-   Em seguida, importa um certificado existente ou cria um novo no seu cofre chave. O certificado será utilizado por aplicações que percorrem o gateway da aplicação. Neste passo, você também pode usar um segredo de cofre chave que é armazenado como um ficheiro PFX sem palavra-passe, base 64 codificado. Recomendamos a utilização de um tipo de certificado devido à capacidade de renovação automática que está disponível com objetos do tipo certificado no cofre da chave. Depois de criar um certificado ou um segredo, define as políticas de acesso no cofre chave para permitir que a identidade seja concedida *tenha* acesso ao segredo.
+   Em seguida, importa um certificado existente ou cria um novo no seu cofre chave. O certificado será utilizado por aplicações que percorrem o gateway da aplicação. Neste passo, você também pode usar um segredo de cofre chave que é armazenado como um ficheiro PFX codificado sem palavra-passe, base-64. Recomendamos a utilização de um tipo de certificado devido à capacidade de renovação automática que está disponível com objetos do tipo certificado no cofre da chave. Depois de criar um certificado ou um segredo, define as políticas de acesso no cofre chave para permitir que a identidade seja concedida *tenha* acesso ao segredo.
+   
+   > [!NOTE]
+   > Se implementar o gateway de aplicação através de um modelo ARM, quer utilizando o Azure CLI ou powerShell, quer através de uma Aplicação Azure implantada a partir do portal Azure, o certificado SSL que está armazenado no cofre da chave como um ficheiro PFX codificado com base 64 **deve ser sem palavras-passe**. Além disso, deve completar os passos no Cofre chave Azure para passar o [valor do parâmetro seguro durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md). É particularmente importante `enabledForTemplateDeployment` começar `true`a.
 
 1. **Configurar o gateway de aplicação**
 

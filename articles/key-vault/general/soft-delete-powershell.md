@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c74bea8aa1a8e2f9de47b501f9afd9540cfc61b9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 79d8cb4b09ef547bf1c0b01f48872ddcb4f964ee
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81422915"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616532"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell
 
-A função de eliminação suave do Cofre de Chaves Azure permite a recuperação de cofres apagados e objetos de cofre. Especificamente, a eliminação suave aborda os seguintes cenários:
+A função de eliminação suave do Cofre De Chaves Azure permite a recuperação de cofres apagados e objetos de cofre. Especificamente, a eliminação suave aborda os seguintes cenários:
 
 - Suporte para eliminação recuperável de um cofre chave
 - Suporte para eliminação recuperável de objetos chave do cofre; chaves, segredos e.certificados
@@ -53,7 +53,7 @@ Para obter mais informações sobre permissões e controlo de acesso, consulte [
 Ativa o "soft-delete" para permitir a recuperação de um cofre de chave apagado ou objetos armazenados num cofre de chaves.
 
 > [!IMPORTANT]
-> Permitir a "eliminação suave" num cofre chave é uma ação irreversível. Uma vez que a propriedade de eliminação suave tenha sido definida como "verdadeira", não pode ser alterada ou removida.  
+> Permitir o "soft-delete" num cofre chave é uma ação irreversível. Uma vez que a propriedade de eliminação suave tenha sido definida como "verdadeira", não pode ser alterada ou removida.  
 
 ### <a name="existing-key-vault"></a>Cofre-chave existente
 
@@ -269,13 +269,13 @@ Quando a proteção da purga é ligada, um cofre ou um objeto em estado apagado 
 
 Só é possível ativar a proteção da purga se estiver ativada uma eliminação suave. 
 
-Para ligar a proteção de eliminação suave e purga quando criar um cofre, utilize o cmdlet [New-AzKeyVault:](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0)
+Para ligar a proteção soft-delete e purgaquando criar um cofre, utilize o cmdlet [New-AzKeyVault:](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0)
 
 ```powershell
 New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
 ```
 
-Para adicionar proteção de purga a um cofre existente (que já tem soft delete enabled), utilize os cmdlets [Get-AzKeyVault,](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0) [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0)e [Set-AzResource:](/powershell/module/az.resources/set-azresource?view=azps-1.5.0)
+Para adicionar proteção de purga a um cofre existente (que já tem soft-delete ativado), utilize os cmdlets [Get-AzKeyVault,](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0) [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0)e [Set-AzResource:](/powershell/module/az.resources/set-azresource?view=azps-1.5.0)
 
 ```
 ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"

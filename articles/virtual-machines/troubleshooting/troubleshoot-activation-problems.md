@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 5c84588290ce769b556002469b6a11c6950bb878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd38f646b8dfc58839cd2645f7fadf7332693854
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476557"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605995"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Troubleshoot Azure Windows virtual machine activation problems (Resolver problemas de ativação de máquinas virtuais do Windows no Azure)
 
@@ -77,7 +77,7 @@ Para o VM que é criado a partir de uma imagem personalizada, você deve configu
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Passo 2 Verifique a conectividade entre o serviço VM e Azure KMS
 
-1. Descarregue e extrai a ferramenta [PSping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) para uma pasta local no VM que não ativa. 
+1. Descarregue e extrai a ferramenta [PSping](https://docs.microsoft.com/sysinternals/downloads/psping) para uma pasta local no VM que não ativa. 
 
 2. Vá iniciar, procure no Windows PowerShell, clique no Windows PowerShell e, em seguida, selecione Executar como administrador.
 

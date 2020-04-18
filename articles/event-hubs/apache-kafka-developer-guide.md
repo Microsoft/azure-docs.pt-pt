@@ -8,12 +8,12 @@ ms.author: spelluru
 ms.date: 03/31/2020
 ms.topic: article
 ms.service: event-hubs
-ms.openlocfilehash: 8a72d20101aacaf59b4be5c4a231b132237113f3
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: d90bf8efab28624672dcedb5bf53d45052dd9123
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633921"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605115"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Guia de desenvolvimento apache Kafka para Hubs de Eventos Azure
 Este artigo fornece links para artigos que descrevem como integrar as suas aplicações Apache Kafka com hubs de eventos Azure. 
@@ -74,9 +74,17 @@ Consulte os seguintes guias como fazer na nossa documentação:
 | [Ligar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md) | Acompanha-o através da ligação da sua aplicação Spark aos Centros de Eventos para streaming em tempo real. |
 | [Ligar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md) | Mostra-lhe como ligar o Apache Flink a um centro de eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. |
 | [Integrar o Apache Kafka Connect com um centro de eventos (Pré-visualização)](event-hubs-kafka-connect-tutorial.md) | Acompanha-o através da integração do Kafka Connect com um hub de eventos e da implementação de conectores básicos fileStreamSource e FileStreamSink. |
-| [Ligue a Akka Streams a um centro de eventos](event-hubs-kafka-akka-streams-tutorial.md) | Mostra-lhe como ligar a Akka Streams a um centro de eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. |
+| [Ligar o Akka Streams a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md) | Mostra-lhe como ligar a Akka Streams a um centro de eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. |
 | [Use o arranque de bota de primavera para Apache Kafka com Hubs de Eventos Azure](/azure/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub) | Demonstra como configurar um Cloud Stream Binder baseado em Java criado com o Ininicializador de Botas de primavera para usar Apache Kafka com Hubs de Eventos Azure. |
 
 ## <a name="next-steps"></a>Passos seguintes
 Reveja as amostras no GitHub [repo-event-hubs-for-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) sob pastas quickstart e tutoriais.
+
+Consulte também os seguintes artigos:
+
+- [Guia de resolução de problemas apache Kafka para Centros de Eventos](apache-kafka-troubleshooting-guide.md)
+- [Perguntas frequentes - Centros de Eventos para Apache Kafka](apache-kafka-frequently-asked-questions.md)
+- [Guia de migração Apache Kafka para Centros de Eventos](apache-kafka-migration-guide.md)
+
+
 

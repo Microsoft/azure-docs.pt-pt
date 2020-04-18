@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 04/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 23efda2793ef5d323089ee5b72fb1ea873de6b20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9604f0c6eeb9d0ac4b7d07f1ab1ba03285fd60fe
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310990"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640074"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como escalar o seu ambiente Time Series Insights
 

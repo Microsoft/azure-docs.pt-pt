@@ -1,5 +1,5 @@
 ---
-title: Cofre de Chaves Azure - Como usar soft delete com CLI
+title: Cofre de Chaves Azure - Como usar soft-delete com CLI
 description: Utilize exemplos de casos de soft-delete com snips de código CLI
 services: key-vault
 author: msmbaldwin
@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c8e4083035d87696ec44d06a62bc55ba721c6f03
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ae6ddac61ecbcef41704f71ed5188fc547a996a3
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81422929"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616592"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como utilizar a eliminação de forma recuperável do Key Vault com a CLI
 
-A função de eliminação suave do Cofre de Chaves Azure permite a recuperação de cofres apagados e objetos de cofre. Especificamente, a eliminação suave aborda os seguintes cenários:
+A função de eliminação suave do Cofre De Chaves Azure permite a recuperação de cofres apagados e objetos de cofre. Especificamente, a eliminação suave aborda os seguintes cenários:
 
 - Suporte para eliminação recuperável de um cofre chave
 - Suporte para eliminação recuperável de objetos chave do cofre; chaves, segredos e.certificados
@@ -46,7 +46,7 @@ Para obter mais informações sobre permissões e controlo de acesso, consulte [
 Ativa o "soft-delete" para permitir a recuperação de um cofre de chave apagado ou objetos armazenados num cofre de chaves.
 
 > [!IMPORTANT]
-> Permitir a "eliminação suave" num cofre chave é uma ação irreversível. Uma vez que a propriedade de eliminação suave tenha sido definida como "verdadeira", não pode ser alterada ou removida.  
+> Permitir o "soft-delete" num cofre chave é uma ação irreversível. Uma vez que a propriedade de eliminação suave tenha sido definida como "verdadeira", não pode ser alterada ou removida.  
 
 ### <a name="existing-key-vault"></a>Cofre-chave existente
 
@@ -231,13 +231,13 @@ Quando a proteção da purga é ligada, um cofre ou um objeto em estado apagado 
 
 Só é possível ativar a proteção da purga se estiver ativada uma eliminação suave. 
 
-Para ligar a proteção de eliminação suave e purga quando criar um cofre, use o [cofre az criar](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) comando:
+Para ligar a proteção soft-delete e purgaquando criar um cofre, use o [cofre az criar](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) comando:
 
 ```azurecli
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
 
-Para adicionar proteção de purga a um cofre existente (que já tem soft delete ativado), utilize o comando de [atualização az keyvault:](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update)
+Para adicionar proteção de purga a um cofre existente (que já tem soft-delete ativado), utilize o comando de [atualização az keyvault:](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update)
 
 ```azurecli
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true

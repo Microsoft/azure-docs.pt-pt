@@ -12,16 +12,16 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 3aabf68b6763e5815a03021cb02683d509c26190
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ab2ba31d6b712bd3399bc8bf5b491337d462dac9
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415058"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606210"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalize a configuração para um Tempo de Integração Azure-SSIS
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A configuração personalizada para um Runtime de Integração de Serviços de Integração de Servidores Azure-SQL (Azure-SSIS IR) fornece uma interface para adicionar os seus próprios passos durante a configuração ou reconfiguração do seu IR Azure-SSIS. 
 
