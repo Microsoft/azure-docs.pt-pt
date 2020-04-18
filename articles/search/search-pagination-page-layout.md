@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 451e83fa6ab547536a4cfd85304930e749a8247f
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998401"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641609"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com os resultados da pesquisa em Pesquisa Cognitiva Azure
 
@@ -108,10 +108,22 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
     }
 ```
 
-> [!IMPORTANT]
-> Os serviços criados após 15 de julho de 2020 proporcionarão uma experiência de destaque diferente. Os serviços criados antes dessa data não mudarão no seu comportamento de destaque. Com esta mudança, apenas frases que correspondam à consulta de frase completa serão devolvidas. Além disso, será possível especificar o tamanho do fragmento devolvido para o destaque.
->
-> Quando estiver a escrever o código do cliente que implementa o destaque, esteja ciente desta mudança. Note que isso não irá impactá-lo a menos que crie um serviço de pesquisa completamente novo.
+### <a name="new-behavior-starting-july-15"></a>Novo comportamento (a partir de 15 de julho)
+
+Os serviços criados após 15 de julho de 2020 proporcionarão uma experiência de destaque diferente. Os serviços criados antes dessa data não mudarão no seu comportamento de destaque. 
+
+Com o novo comportamento:
+
+* Só as frases que correspondam à consulta de frasecompleta serão devolvidas. A consulta "super bowl" devolverá destaques como este:
+
+    ```html
+    '<em>super bowl</em> is super awesome with a bowl of chips'
+    ```
+  Note que o termo *tigela de batatas fritas* não tem qualquer destaque porque não corresponde à frase completa.
+  
+* Será possível especificar o tamanho do fragmento devolvido para o destaque. O tamanho do fragmento é especificado como número de caracteres (máximo é de 1000 caracteres).
+
+Quando estiver a escrever o código do cliente que implementa o destaque, esteja ciente desta mudança. Note que isso não irá impactá-lo a menos que crie um serviço de pesquisa completamente novo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

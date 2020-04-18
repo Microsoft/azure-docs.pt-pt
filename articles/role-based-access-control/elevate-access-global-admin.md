@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/03/2019
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1731c630cb98ac542ebcdc7aedf07f7bb63eaec0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137469"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641354"
 ---
-# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevar o acesso à gestão de todas as subscrições e grupos de gestão do Azure
+# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevate access to manage all Azure subscriptions and management groups (Elevar o acesso para gerir todas as subscrições e grupos de gestão do Azure)
 
 Como Administrador Global em Azure Ative Directory (Azure AD), poderá não ter acesso a todas as subscrições e grupos de gestão no seu diretório. Este artigo descreve as formas como pode elevar o seu acesso a todas as subscrições e grupos de gestão.
 
@@ -30,7 +30,7 @@ Como Administrador Global em Azure Ative Directory (Azure AD), poderá não ter 
 
 ## <a name="why-would-you-need-to-elevate-your-access"></a>Por que precisa elevar o seu acesso?
 
-Se é administrador global, pode haver alturas em que pretende fazer o seguinte:
+Se é administrador global, pode haver alturas em que pretende fazer as seguintes ações:
 
 - Recuperar o acesso a um grupo de gestão ou subscrição do Azure quando um utilizador perde uinos
 - Conceder a outro utilizador ou a si próprio acesso a uma subscrição ou grupo de gestão do Azure
@@ -55,9 +55,7 @@ Siga estes passos para elevar o acesso a um Administrador Global utilizando o po
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) ou no centro de [administração do Azure Ative Directin](https://aad.portal.azure.com) como Administrador Global.
 
-1. Procure e selecione **Azure Active Directory**.
-
-   ![Selecione Azure Ative Directory - screenshot](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
+1. Diretório **Ativo Open Azure.**
 
 1. Em **'Gerir',** selecione **Propriedades**.
 
@@ -98,7 +96,7 @@ Para remover a atribuição da função`/`de Administrador de Acesso ao Utilizad
 
 1. Desloque a **gestão de acesso dos recursos azure** para o **Nº**. Uma vez que se trata de uma definição por utilizador, deve ser inscrito como o mesmo utilizador que foi utilizado para elevar o acesso.
 
-    Se tentar remover a atribuição da função de Administrador de Acesso ao Utilizador no painel de controlo de acesso (IAM), verá a seguinte mensagem. Para remover a atribuição de funções, deve definir o toggle de volta para **No** ou utilizar O Azure PowerShell, Azure CLI ou a API REST.
+    Se tentar remover a atribuição da função de Administrador de Acesso ao Utilizador no painel de controlo de acesso (IAM), verá a seguinte mensagem. Para remover a atribuição de funções, deve repor o toggle para **No** ou utilizar o Azure PowerShell, O CLI Azure ou a API REST.
 
     ![Remover atribuições de funções com âmbito de raiz](./media/elevate-access-global-admin/iam-root-remove.png)
 
@@ -233,7 +231,7 @@ Pode enumerar todas as atribuições de negação`/`para um utilizador no âmbit
 
 ### <a name="remove-elevated-access"></a>Remover o acesso elevado
 
-Quando ligar, `elevateAccess`cria uma atribuição de funções para si mesmo, para revogar os privilégios que`/`precisa para remover a atribuição de funções de Administrador de Acesso ao Utilizador para si mesmo no âmbito de raiz ()
+Quando ligar, `elevateAccess`cria uma atribuição de funções para si mesmo, para revogar esses privilégios que`/`precisa para remover a atribuição de funções de Administrador de Acesso ao Utilizador para si mesmo no âmbito de raiz ().
 
 1. Ligue para as `roleName` definições de [funções GET Onde](/rest/api/authorization/roledefinitions/get) é igual a Administrador de Acesso ao Utilizador para determinar o nome ID da função de Administrador de Acesso ao Utilizador.
 

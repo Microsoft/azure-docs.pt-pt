@@ -47,7 +47,7 @@
           href: media-services-portal-live-passthrough-get-started.md
         - name: .NET
           href: media-services-dotnet-live-encode-with-onpremises-encoders.md
-- name: Como
+- name: Procedimento
   items:
     - name: Componentes legados
       displayName: 'deprecated, deprecation, retired, retirement, legacy'
@@ -257,8 +257,6 @@
           items:
             - name: Codificador Haivision KB
               href: media-services-configure-kb-live-encoder.md
-            - name: Codificador de NewTek TriCaster
-              href: media-services-configure-tricaster-live-encoder.md
             - name: Codificador de Wirecast
               href: media-services-configure-wirecast-live-encoder.md
         - name: Lidar com operações de longa duração
@@ -434,7 +432,7 @@
       items:
         - name: Perguntas mais frequentes
           href: media-services-frequently-asked-questions.md
-        - name: Guia de resolução de problemas de transmissão em direto
+        - name: Guia de resolução de problemas de transmissão em fluxo em direto
           href: media-services-troubleshooting-live-streaming.md
         - name: Códigos de erro
           href: media-services-error-codes.md

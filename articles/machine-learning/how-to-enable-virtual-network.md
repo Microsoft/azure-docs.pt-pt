@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 03/13/2020
-ms.openlocfilehash: f70c24c91e048270696b244bb9775cb24f0ef30d
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 04/17/2020
+ms.openlocfilehash: 1f3c9f86072eeedbc999946d0f846fbc3b41f94d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383481"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641759"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Empregos de experimentação e inferência secure Azure ML dentro de uma Rede Virtual Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -433,6 +433,8 @@ try:
 except:
     print("Creating new aks cluster")
 
+    # Subnet to use for AKS
+    subnet_name = "default"
     # Create AKS configuration
     prov_config = AksCompute.provisioning_configuration(location = "eastus2")
     # Set info for existing virtual network to create the cluster in
@@ -440,7 +442,7 @@ except:
     prov_config.vnet_name = "myvnetname"
     prov_config.service_cidr = "10.0.0.0/16"
     prov_config.dns_service_ip = "10.0.0.10"
-    prov_config.subnet_name = "default"
+    prov_config.subnet_name = subnet_name
     prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
     # Create compute target
@@ -449,7 +451,7 @@ except:
     aks_target.wait_for_completion(show_output = True)
     
     # Update AKS configuration to use an internal load balancer
-    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", "default")
+    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
     aks_target.update(update_config)
     # Wait for the operation to complete
     aks_target.wait_for_completion(show_output = True)

@@ -15,12 +15,12 @@ ms.date: 02/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: e8d82011fe4fdd40bb07c77411ad0e948ddad049
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f2229d57b249bab734b1ef91c10d5ec42ab95a17
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240101"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641433"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD
 
@@ -131,3 +131,4 @@ Várias funções de administrador do Azure AD expandem-se ao Azure AD e ao Micr
 - [O que é o controlo de acesso baseado em funções (RBAC) dos recursos do Azure?](overview.md)
 - [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) (Permissões de cargos de administrador no Azure Active Directory)
 - [Administradores de subscrição clássicos do Azure](classic-administrators.md)
+- [Cloud Adoption Framework: Gestão de acesso a recursos em Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: e4e4ac1b0a867130dd7b9e276db52e1ca1e72976
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062139"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641384"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Compreender definições de papéis para os recursos do Azure
 
 Se está a tentar perceber como funciona um papel ou se está a criar o seu próprio [papel personalizado para os recursos Do Azure,](custom-roles.md)é útil compreender como os papéis são definidos. Este artigo descreve os detalhes das definições de papéis e fornece alguns exemplos.
 
-## <a name="role-definition-structure"></a>Estrutura de definição de papel
+## <a name="role-definition"></a>Definição de função
 
-Uma *definição de função* é uma coleção de permissões. Por vezes é denominada apenas *função*. Uma definição de função lista as operações que podem ser efetuadas, por exemplo, ler, escrever e eliminar. Pode também listar as operações que não podem ser efetuadas ou operações relacionadas a dados subjacentes. Uma definição de função tem a seguinte estrutura:
+Uma *definição de função* é uma coleção de permissões. Por vezes é denominada apenas *função*. Uma definição de função lista as operações que podem ser efetuadas, por exemplo, ler, escrever e eliminar. Pode também listar as operações que não podem ser efetuadas ou operações relacionadas a dados subjacentes. Uma definição de função tem as seguintes propriedades:
 
 ```
 Name
@@ -41,6 +41,20 @@ DataActions []
 NotDataActions []
 AssignableScopes []
 ```
+
+| Propriedade | Descrição |
+| --- | --- |
+| `Name` | O nome da exibição do papel. |
+| `Id` | A identificação única do papel. |
+| `IsCustom` | Indica se este é um papel personalizado. Pronto `true` para papéis personalizados. |
+| `Description` | A descrição do papel. |
+| `Actions` | Uma série de cordas que especifica as operações de gestão que a função permite ser executadas. |
+| `NotActions` | Um conjunto de cordas que especifica as operações de `Actions`gestão que estão excluídas das permitidas . |
+| `DataActions` | Um conjunto de cordas que especifica as operações de dados que a função permite ser executada aos seus dados dentro desse objeto. |
+| `NotDataActions` | Um conjunto de cordas que especifica as operações de `DataActions`dados que estão excluídas das permitidas . |
+| `AssignableScopes` | Uma série de cordas que especifica os âmbitos que a função está disponível para atribuição. |
+
+### <a name="operations-format"></a>Formato de operações
 
 As operações são especificadas com cordas que têm o seguinte formato:
 
@@ -55,6 +69,8 @@ A `{action}` parte de uma cadeia de operação especifica o tipo de operações 
 | `write` | Ativa as operações de escrita (PUT ou PATCH). |
 | `action` | Permite operações personalizadas como reiniciar máquinas virtuais (POST). |
 | `delete` | Ativa eliminar operações (DELETE). |
+
+### <a name="role-definition-example"></a>Exemplo de definição de papel
 
 Aqui está a definição de papel [do Colaborador](built-in-roles.md#contributor) no formato JSON. A operação de caráter universal (`*`) em `Actions` indica que o principal atribuído a esta função pode efetuar todas as ações ou, por outras palavras, pode gerir tudo. Isto inclui ações definidas no futuro, uma vez que o Azure adiciona novos tipos de recursos. As operações em `NotActions` são subtraídas de `Actions`. No caso da função [Contribuidor](built-in-roles.md#contributor), `NotActions` remove a capacidade desta função para gerir o acesso aos recursos e também atribuir acesso aos recursos.
 
@@ -92,7 +108,7 @@ O acesso à gestão não é herdado dos seus dados desde que o método de autent
 
 Anteriormente, o controlo de acesso baseado em funções não era utilizado para operações de dados. A autorização para operações de dados variou entre os fornecedores de recursos. O mesmo modelo de autorização de controlo de acesso baseado em funções utilizado para operações de gestão foi alargado às operações de dados.
 
-Para apoiar as operações de dados, foram adicionadas novas propriedades de dados à estrutura de definição de funções. As operações de dados são especificadas nas propriedades `DataActions` e `NotDataActions`. Ao adicionar estas propriedades de dados, mantém-se a separação entre gestão e dados. Tal impede que as atribuições de função atuais com carateres universais (`*`) tenham, de repente, acesso aos dados. Aqui estão algumas operações de dados que podem ser especificadas em `DataActions` e `NotDataActions`:
+Para apoiar as operações de dados, foram adicionadas novas propriedades de dados à definição de funções. As operações de dados são especificadas nas propriedades `DataActions` e `NotDataActions`. Ao adicionar estas propriedades de dados, mantém-se a separação entre gestão e dados. Tal impede que as atribuições de função atuais com carateres universais (`*`) tenham, de repente, acesso aos dados. Aqui estão algumas operações de dados que podem ser especificadas em `DataActions` e `NotDataActions`:
 
 - Ler uma lista de blobs num contentor
 - Escrever um blob de armazenamento num contentor
@@ -161,12 +177,12 @@ Para visualizar e trabalhar com operações de dados, deve ter as versões corre
 | Ferramenta  | Versão  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 ou mais tarde |
-| [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 ou mais tarde |
+| [CLI do Azure](/cli/azure/install-azure-cli) | 2.0.30 ou mais tarde |
 | [Azure para .NET](/dotnet/azure/) | 2.8.0 pré-visualização ou posterior |
 | [SDK do Azure para Go](/azure/go/azure-sdk-go-install) | 15.0.0 ou mais tarde |
 | [Azure para Java](/java/azure/) | 1.9.0 ou mais tarde |
 | [Azure para Python](/azure/python/) | 0.40.0 ou mais tarde |
-| [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) (Azure SDK para Ruby) | 0.17.1 ou mais tarde |
+| [SDK do Azure para Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 ou mais tarde |
 
 Para visualizar e utilizar as operações de dados na API REST, deve definir o parâmetro **da versão api** para a seguinte versão ou posteriormente:
 

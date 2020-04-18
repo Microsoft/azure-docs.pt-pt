@@ -6,27 +6,27 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: 3432f981df3f666d6276eee4564ef33000faa6b1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/17/2020
+ms.openlocfilehash: d4bf2d1d4beeb00325d54e091a00438073509eef
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410900"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641317"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configure o tráfego de rede de saída para clusters Azure HDInsight usando firewall
 
-Este artigo fornece os passos para que possa proteger o tráfego de saída do seu cluster HDInsight utilizando o Azure Firewall. Os passos abaixo assumem que está a configurar uma Firewall Azure para um cluster existente. Se estiver a implantar um novo cluster e atrás de uma firewall, crie primeiro o seu cluster HDInsight e sub-rede e siga os passos neste guia.
+Este artigo fornece os passos para que possa proteger o tráfego de saída do seu cluster HDInsight utilizando o Azure Firewall. Os passos abaixo assumem que está a configurar uma Firewall Azure para um cluster existente. Se estiver a implantar um novo cluster atrás de uma firewall, crie primeiro o seu cluster HDInsight e sub-rede. Em seguida, siga os passos deste guia.
 
 ## <a name="background"></a>Segundo plano
 
-Os clusters Azure HDInsight são normalmente implantados na sua própria rede virtual. O cluster tem dependências de serviços fora dessa rede virtual que exigem o acesso da rede para funcionar corretamente.
+Os clusters HDInsight são normalmente implantados numa rede virtual. O cluster tem dependências de serviços fora daquela rede virtual.
 
 Há várias dependências que requerem tráfego de entrada. O tráfego de gestão de entrada não pode ser enviado através de um dispositivo de firewall. Os endereços de origem para este tráfego são conhecidos e são publicados [aqui.](hdinsight-management-ip-addresses.md) Também pode criar regras do Network Security Group (NSG) com esta informação para garantir o tráfego de entrada aos clusters.
 
-As dependências de tráfego de saída HDInsight são quase totalmente definidas com FQDNs, que não têm endereços IP estáticos atrás deles. A falta de endereços estáticos significa que os Grupos de Segurança da Rede (NSGs) não podem ser usados para bloquear o tráfego de saída de um cluster. Os endereços mudam muitas vezes o suficiente para que não se possa estabelecer regras com base na resolução de nomeactual e usá-las para estabelecer regras de NSG.
+As dependências de tráfego de saída HDInsight são quase totalmente definidas com FQDNs. Que não têm endereços IP estáticos atrás deles. A falta de endereços estáticos significa que os Grupos de Segurança da Rede (NSGs) não conseguem bloquear o tráfego de saída de um cluster. Os endereços mudam muitas vezes o suficiente que não se pode estabelecer regras com base na resolução e utilização de nomes atuais.
 
-A solução para assegurar endereços de saída é utilizar um dispositivo de firewall que possa controlar o tráfego de saída com base em nomes de domínio. O Azure Firewall pode restringir o tráfego HTTP e HTTPS de saída com base no FQDN do destino ou [das etiquetas FQDN](../firewall/fqdn-tags.md).
+Proteja os endereços de saída com uma firewall que possa controlar o tráfego de saída com base em nomes de domínio. A Firewall Azure restringe o tráfego de saída com base no FQDN do destino ou [das etiquetas FQDN](../firewall/fqdn-tags.md).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Configurar firewall azure com HDInsight
 
@@ -74,7 +74,7 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
 
     **Secção de FQDNs alvo**
 
-    | Nome | Endereços de origem | Protocolo:Porto | FQDNS alvo | Notas |
+    | Nome | Endereços de origem | `Protocol:Port` | FQDNS alvo | Notas |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Permite atividade de login do Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Permite atividade de login do Windows |
@@ -106,14 +106,14 @@ Crie as regras de rede para configurar corretamente o seu cluster HDInsight.
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Serviço de tempo |
     | Rule_2 | Qualquer | * | DC_IP_Address_1, DC_IP_Address_2 | * | Se estiver a utilizar o Enterprise Security Package (ESP), adicione uma regra de rede na secção endereços IP que permite a comunicação com clusters AAD-DS para clusters ESP. Pode encontrar os endereços IP dos controladores de domínio na secção AAD-DS no portal |
-    | Rule_3 | TCP | * | Endereço IP da sua conta de armazenamento de data lake | * | Se estiver a utilizar o Armazenamento de Lagos De Dados Azure, pode adicionar uma regra de rede na secção endereços IP para resolver um problema sni com ADLS Gen1 e Gen2. Esta opção irá encaminhar o tráfego para firewall, o que pode resultar em custos mais elevados para grandes cargas de dados, mas o tráfego será registado e auditável em registos de firewall. Determine o endereço IP da sua conta de Armazenamento de Data Lake. Pode utilizar um comando powershell de modo `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` a resolver o FQDN num endereço IP.|
+    | Rule_3 | TCP | * | Endereço IP da sua conta de armazenamento de data lake | * | Se estiver a utilizar o Armazenamento de Lagos De Dados Azure, pode adicionar uma regra de rede na secção endereços IP para resolver um problema sni com ADLS Gen1 e Gen2. Esta opção irá encaminhar o tráfego para firewall. O que pode resultar em custos mais elevados para grandes cargas de dados, mas o tráfego será registado e auditável em registos de firewall. Determine o endereço IP da sua conta de Armazenamento de Data Lake. Pode utilizar um comando PowerShell de modo `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` a resolver o FQDN num endereço IP.|
     | Rule_4 | TCP | * | * | 12000 | (Opcional) Se estiver a utilizar o Log Analytics, crie uma regra de rede na secção endereços IP para permitir a comunicação com o seu espaço de trabalho log Analytics. |
 
     **Secção etiquetas de serviço**
 
     | Nome | Protocolo | Endereços de Origem | Etiquetas de Serviço | Portos de Destino | Notas |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_7 | TCP | * | SQL | 1433 | Configure uma regra de rede na secção Etiquetas de Serviço para SQL que lhe permitirá registar e auditar o tráfego SQL, a menos que tenha configurado pontos finais de serviço para o Servidor SQL na subnet HDInsight, que irá contornar a firewall. |
+    | Rule_7 | TCP | * | SQL | 1433 | Configure uma regra de rede na secção Etiquetas de Serviço para SQL que lhe permitirá registar e auditar o tráfego SQL. A menos que tenha configurado os pontos finais do serviço para o Servidor SQL na subnet HDInsight, que irá contornar a firewall. |
 
    ![Título: Introduzir a recolha de regras de aplicação](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
@@ -153,7 +153,7 @@ Complete a configuração da tabela de rotas:
 
 1. Selecione **+ Associado**.
 
-1. No ecrã de **sub-rede Associado,** selecione a rede virtual em que o seu cluster foi criado e a **Subnet** utilizada para o seu cluster HDInsight.
+1. No ecrã de **sub-rede Associado,** selecione a rede virtual em que o seu cluster foi criado. E a **Subnet** que usou para o seu cluster HDInsight.
 
 1. Selecione **OK**.
 
@@ -171,13 +171,13 @@ Se as suas aplicações tiverem outras dependências, elas precisam de ser adici
 
 A Firewall Azure pode enviar registos para alguns sistemas de armazenamento diferentes. Para obter instruções sobre a configuração do registo da sua firewall, siga os passos no [Tutorial: Monitor Azure Firewall registos e métricas](../firewall/tutorial-diagnostics.md).
 
-Depois de concluída a configuração do registo, se estiver a registar dados para o Log Analytics, pode ver o tráfego bloqueado com uma consulta como a seguinte:
+Depois de concluída a configuração do registo, se estiver a utilizar o Log Analytics, pode ver o tráfego bloqueado com uma consulta como:
 
 ```Kusto
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Integrar o seu Firewall Azure com registos Do Monitor Azure é útil quando se consegue obter uma aplicação a funcionar quando não se sabe de todas as dependências da aplicação. Pode saber mais sobre os registos do Monitor Azure a partir de [dados de log da Analyze no Monitor Azure](../azure-monitor/log-query/log-query-overview.md)
+Integrar o Firewall Azure com registos do Monitor Azure é útil quando se tem uma aplicação a funcionar pela primeira vez. Especialmente quando não se sabe de todas as dependências da aplicação. Pode saber mais sobre os registos do Monitor Azure a partir de [dados de log da Analyze no Monitor Azure](../azure-monitor/log-query/log-query-overview.md)
 
 Para conhecer os limites de escala do Firewall Azure e solicitar aumentos, consulte [este](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) documento ou consulte as [FAQs](../firewall/firewall-faq.md).
 
@@ -185,14 +185,14 @@ Para conhecer os limites de escala do Firewall Azure e solicitar aumentos, consu
 
 Depois de ter a firewall configurada com sucesso,`https://CLUSTERNAME-int.azurehdinsight.net`pode utilizar o ponto final interno para aceder ao Ambari a partir de dentro da rede virtual.
 
-Para utilizar o ponto`https://CLUSTERNAME.azurehdinsight.net`final do público (`CLUSTERNAME-ssh.azurehdinsight.net`) ou ssh endpoint ( ), certifique-se de que você tem as rotas certas na tabela de rotas e regras DE NSG para evitar a questão de encaminhamento assimétrico explicado [aqui](../firewall/integrate-lb.md). Especificamente neste caso, você precisa permitir o endereço IP do cliente nas regras NSG de entrada e `internet`também adicioná-lo à tabela de rota definida pelo utilizador com o próximo conjunto de lúpulo como . Se isto não estiver configurado corretamente, verá um erro de tempo.
+Para utilizar o ponto`https://CLUSTERNAME.azurehdinsight.net`final do público (`CLUSTERNAME-ssh.azurehdinsight.net`) ou ssh endpoint ( ), certifique-se de que você tem as rotas certas na tabela de rotas e regras DE NSG para evitar a questão de encaminhamento assimétrico explicado [aqui](../firewall/integrate-lb.md). Especificamente neste caso, você precisa permitir o endereço IP do cliente nas regras NSG de entrada e `internet`também adicioná-lo à tabela de rota definida pelo utilizador com o próximo conjunto de lúpulo como . Se o encaminhamento não estiver bem configurado, verá um erro de tempo.
 
 ## <a name="configure-another-network-virtual-appliance"></a>Configure outro aparelho virtual de rede
 
 > [!Important]
 > As seguintes informações **só** são necessárias se pretender configurar um aparelho virtual de rede (NVA) que não seja o Firewall Azure.
 
-As instruções anteriores ajudam-no a configurar o Firewall Azure para restringir o tráfego de saída do seu cluster HDInsight. O Azure Firewall é configurado automaticamente para permitir o tráfego para muitos dos cenários importantes comuns. Se pretender utilizar outro aparelho virtual de rede, terá de configurar manualmente uma série de funcionalidades adicionais. Tenha em mente o seguinte, pois configura o seu aparelho virtual de rede:
+As instruções anteriores ajudam-no a configurar o Firewall Azure para restringir o tráfego de saída do seu cluster HDInsight. O Azure Firewall é configurado automaticamente para permitir o tráfego para muitos dos cenários importantes comuns. A utilização de outro aparelho virtual de rede exigirá que configure uma série de funcionalidades adicionais. Tenha em mente os seguintes fatores à medida que configura o seu aparelho virtual de rede:
 
 * Os serviços de endpoint de serviço devem ser configurados com pontos finais de serviço.
 * As dependências de endereçoip são para tráfego não HTTP/S (tanto o tráfego TCP como uDP).
@@ -213,7 +213,7 @@ As instruções anteriores ajudam-no a configurar o Firewall Azure para restring
 | **Ponto Final** | **Detalhes** |
 |---|---|
 | \*:123 | Verificação do relógio NTP. O tráfego é verificado em vários pontos finais no porto 123 |
-| IPs [publicados aqui](hdinsight-management-ip-addresses.md) | Estes são o serviço HDInsight |
+| IPs [publicados aqui](hdinsight-management-ip-addresses.md) | Estes IPs são serviço HDInsight |
 | IPs privados AAD-DS para clusters ESP |
 | \*:16800 para ativação do Windows KMS |
 | \*12000 para Log Analytics |

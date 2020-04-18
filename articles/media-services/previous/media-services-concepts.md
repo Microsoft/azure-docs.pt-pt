@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 260ddccc1a1b0bd4090284025b79e20ff5ce4fdc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 44d6776a367a5cb1eeb86c955f083598d417aba6
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475239"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641676"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de Serviços De Mídia Azure 
 
@@ -111,7 +111,7 @@ Para obter informações sobre codificadores suportados, consulte [Os Codificado
 ## <a name="live-streaming"></a>Transmissão em Fluxo em Direto
 Na Azure Media Services, um Canal representa um oleoduto para o processamento de conteúdos de streaming ao vivo. Um Canal recebe streams de entrada ao vivo de uma de duas maneiras:
 
-* Um codificador ao vivo no local envia RTMP multibitado ou Streaming Suave (MP4 fragmentado) para o Canal. Pode utilizar os seguintes codificadores ao vivo que produzem streaming liso multibitado: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores de saída RTMP: Adobe Flash Live Encoder, [Telestream Wirecast,](media-services-configure-wirecast-live-encoder.md)Teradek, Haivision e Tricaster codificadores. Os fluxos ingeridos passam pelos Canais sem mais transcodificação e codificação. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador ao vivo no local envia RTMP multibitado ou Streaming Suave (MP4 fragmentado) para o Canal. Pode utilizar os seguintes codificadores ao vivo que produzem streaming liso multibitado: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores de saída RTMP: Adobe Flash Live Encoder, [Telestream Wirecast,](media-services-configure-wirecast-live-encoder.md)Teradek, Haivision codificadores. Os fluxos ingeridos passam pelos Canais sem mais transcodificação e codificação. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 * Um único fluxo bitrate (num dos seguintes formatos: RTMP, ou Smooth Streaming (MP4 fragmentado)) é enviado para o Canal que está habilitado a realizar codificação ao vivo com os Media Services. O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
 ### <a name="channel"></a>Canal

@@ -1,44 +1,44 @@
 ---
 title: Como usar uma identidade gerida atribuída pelo sistema para aceder aos dados da Azure Cosmos DB
-description: Saiba como configurar uma identidade gerida atribuída ao sistema Azure AD para aceder a chaves do Azure Cosmos DB. msi, identidade de serviço gerida, ad, diretório ativo azul, identidade
+description: Saiba como configurar uma identidade gerida de acesso a um Azure Ative Directory (Azure AD) para aceder às chaves do Azure Cosmos DB.
 author: j-patrick
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: 37e5cb817db2c54a07ab04c4dcc31b1976fdf03d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 8136ad7a1fe29bc3394e959c10aafc52988c0a23
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81450059"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641173"
 ---
-# <a name="how-to-use-a-system-assigned-managed-identity-to-access-azure-cosmos-db-data"></a>Como usar uma identidade gerida atribuída pelo sistema para aceder aos dados da Azure Cosmos DB
+# <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utilize identidades geridas atribuídas pelo sistema para aceder aos dados do Azure Cosmos DB
 
-Neste artigo vai criar uma solução robusta e chave de **rotação agnóstica,** para aceder às teclas Db da Azure Cosmos, alavancando [identidades geridas.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) O exemplo neste artigo usa uma Função Azure. No entanto, pode alcançar esta solução utilizando qualquer serviço que suporte identidades geridas. 
+Neste artigo, você vai configurar uma solução *agnóstica robusta e chave de rotação* para aceder às teclas Db Azure Cosmos usando [identidades geridas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). O exemplo neste artigo utiliza funções Azure, mas pode utilizar qualquer serviço que suporte identidades geridas. 
 
-Você vai aprender a criar uma Função Azure que pode aceder a Azure Cosmos DB sem precisar de copiar quaisquer chaves Azure Cosmos DB. A função acordará a cada minuto e registará a temperatura atual de um aquário. Para aprender a configurar um temporizador acionado Função Azure, consulte a [função Criar uma função em Azure que é desencadeada por um artigo temporizador.](../azure-functions/functions-create-scheduled-function.md)
+Você vai aprender a criar uma app de funções que pode aceder a dados do Azure Cosmos DB sem precisar de copiar quaisquer chaves Azure Cosmos DB. A aplicação de funções acordará a cada minuto e registará a temperatura atual de um aquário. Para aprender a configurar uma aplicação de função acionada pelo temporizador, consulte a [função Create a em Azure que é desencadeada por um artigo temporizador.](../azure-functions/functions-create-scheduled-function.md)
 
-Para simplificar o cenário, a limpeza de documentos de temperatura mais antigos é tratada por uma configuração já configurada [time to live.](./time-to-live.md) 
+Para simplificar o cenário, já está configurada uma definição time [to live](./time-to-live.md) para limpar documentos de temperatura mais antigos. 
 
-## <a name="assign-a-system-assigned-managed-identity-to-an-azure-function"></a>Atribuir uma identidade gerida atribuída pelo sistema a uma Função Azure
+## <a name="assign-a-system-assigned-managed-identity-to-a-function-app"></a>Atribuir uma identidade gerida atribuída pelo sistema a uma aplicação de função
 
-Neste passo, atribuirá uma identidade gerida atribuída ao sistema à sua Função Azure.
+Neste passo, você atribuirá uma identidade gerida atribuída ao sistema para a sua aplicação de função.
 
-1. No [portal Azure,](https://portal.azure.com/)abra o painel **função Azure** e navegue para a sua aplicação de função. 
+1. No [portal Azure,](https://portal.azure.com/)abra o painel **função Azure** e vá para a sua aplicação de funções. 
 
 1. Abra a **Plataforma com** > separador**identidade:** 
 
-   ![Separador de identidade](./media/managed-identity-based-authentication/identity-tab-selection.png)
+   ![Screenshot mostrando funcionalidades da Plataforma e opções de identidade para a aplicação de função.](./media/managed-identity-based-authentication/identity-tab-selection.png)
 
-1. No separador **Identidade,** **ligue** o estado de identidade do **sistema.** Certifique-se de selecionar **Save**, e confirmar que pretende ativar a identidade do sistema. No final, o painel de identidade do **sistema** deve ser o seguinte:  
+1. No separador **Identidade,** **ligue** o **Estado** de identidade do sistema e selecione **Guardar**. O painel **de identidade** deve ser o seguinte:  
 
-   ![Identidade do sistema ligada](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
+   ![Screenshot mostrando o estado de identidade do sistema definido para On.](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
 
-## <a name="grant-the-managed-identity-access-to-your-azure-cosmos-account"></a>Conceda o acesso de identidade gerido à sua conta Azure Cosmos
+## <a name="grant-access-to-your-azure-cosmos-account"></a>Conceda acesso à sua conta Azure Cosmos
 
-Neste passo, atribuirá um papel à identidade gerida atribuída pelo sistema da Função Azure. A Azure Cosmos DB tem múltiplas funções incorporadas que pode atribuir à identidade gerida. Para esta solução, utilizará as seguintes duas funções:
+Neste passo, você atribuirá uma função à identidade gerida atribuída pelo sistema da aplicação de função. A Azure Cosmos DB tem múltiplas funções incorporadas que pode atribuir à identidade gerida. Para esta solução, utilizará as seguintes duas funções:
 
 |Papel incorporado  |Descrição  |
 |---------|---------|
@@ -46,44 +46,44 @@ Neste passo, atribuirá um papel à identidade gerida atribuída pelo sistema da
 |[Leitor de Conta Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Pode ler os dados da conta Azure Cosmos DB. Permite a recuperação das chaves de leitura. |
 
 > [!IMPORTANT]
-> O suporte rBAC no Azure Cosmos DB é aplicável apenas ao controlo das operações de aviões. As operações de avião de dados são asseguradas utilizando chaves-me-mestre ou fichas de recursos. Para saber mais, consulte o acesso seguro ao artigo de [dados.](secure-access-to-data.md)
+> O apoio ao controlo de acesso baseado em funções no Azure Cosmos DB aplica-se apenas ao controlo das operações dos aviões. As operações de avião de dados são asseguradas através de chaves-mestre ou fichas de recursos. Para saber mais, consulte o acesso seguro ao artigo de [dados.](secure-access-to-data.md)
 
 > [!TIP] 
-> Ao atribuir funções, atribua apenas o acesso necessário. Se o seu serviço necessitar apenas de dados de leitura, atribua a identidade gerida ao papel de Leitor de **Conta Cosmos DB.** Para mais informações sobre a importância do acesso menos privilegiado, consulte a [menor exposição das contas privilegiadas.](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts)
+> Ao atribuir funções, atribua apenas o acesso necessário. Se o seu serviço necessitar apenas de dados de leitura, atribua a função de Leitor de **Conta Db Cosmos** à identidade gerida. Para mais informações sobre a importância do menor acesso privilegiado, consulte o artigo [De menor exposição de contas privilegiadas.](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts)
 
-Para o seu cenário, você vai ler a temperatura e, em seguida, escrever esses dados para um recipiente em Azure Cosmos DB. Como tem de escrever os dados, utilizará a função **de Contribuinte de Conta DocumentDB.** 
+Neste cenário, a aplicação de funções irá ler a temperatura do aquário e depois escrever esses dados para um contentor em Azure Cosmos DB. Como a aplicação de funções deve escrever os dados, terá de atribuir a função de Contribuinte de **Conta DocumentDB.** 
 
-1. Inscreva-se no portal Azure e navegue na sua conta Azure Cosmos DB. Abra o Painel de Gestão de **Acesso (IAM)** e, em seguida, o separador de atribuições de **funções:**
+1. Inscreva-se no portal Azure e vá à sua conta Azure Cosmos DB. Abra o painel de controlo de **acesso (IAM)** e, em seguida, o separador de **atribuições de funções:**
 
-   ![Painel IAM](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
+   ![Screenshot mostrando o painel de controlo de acesso e o separador de tarefas role.](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
 
-1. Selecione o botão **+ Adicionar** e, em seguida, **adicionar a atribuição de funções**.
+1. Selecione **+ Adicionar** > **atribuição de funções**.
 
-1. O painel de atribuição de **funções adicionais** abre-se para a direita:
+1. O painel de atribuição de **funções Add** abre-se para a direita:
 
-   ![Adicionar Papel](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
+   ![Screenshot mostrando o painel de atribuição de funções Adicionar.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
 
-   * **Função** - Selecionar Colaborador de **Conta DocumentDB**
-   * **Atribuir acesso a** - Sob a subsecção de **identidade gerida atribuída** pelo Sistema Select, selecione App **de Funções**.
-   * **Selecione** - O painel será preenchido com todas as aplicações de função, na sua subscrição, que tenham uma **Identidade de Sistema Gerido**. No nosso caso, seleciono a aplicação de função **SummaryService:** 
+   * **Função**: Selecione Colaborador de **Conta DocumentDB**
+   * **Atribuir acesso a**: Sob a subsecção de identidade gerida atribuída pelo **sistema Select,** selecione **App de Funções**.
+   * **Selecione**: O painel será preenchido com todas as aplicações de função na sua subscrição que tenham uma **Identidade de Sistema Gerido**. Neste caso, selecione a aplicação de função **FishTankTemperatureService:** 
 
-      ![Selecione Atribuição](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
+      ![Screenshot mostrando o painel de atribuição de funções Adicionar povoado com exemplos.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
 
-1. Depois de a identidade da aplicação de função ser selecionada, clique em **Guardar**.
+1. Depois de ter selecionado a sua aplicação de funções, selecione **Guardar**.
 
-## <a name="programmatically-access-the-azure-cosmos-db-keys-from-the-azure-function"></a>Aceda programáticamente as teclas Azure Cosmos DB da Função Azure
+## <a name="programmatically-access-the-azure-cosmos-db-keys"></a>Aceda programáticamente as teclas Azure Cosmos DB
 
-Agora temos uma aplicação de função que tem uma identidade gerida atribuída pelo sistema. Essa identidade é dada ao papel de Contribuinte de **Conta DocumentDB** nas permissões do Azure Cosmos DB. O código de aplicação de funções seguinte receberá as chaves Azure Cosmos DB, criará um objeto CosmosClient, obterá a temperatura e, em seguida, guardá-lo para cosmos DB.
+Agora temos uma aplicação de função que tem uma identidade gerida atribuída pelo sistema com o papel de **Contribuinte de Conta DocumentDB** nas permissões do Azure Cosmos DB. O código de aplicação de funções seguinte receberá as chaves Db Do Azure Cosmos, criará um objeto CosmosClient, obterá a temperatura do aquário e, em seguida, guardá-lo para O Azure Cosmos DB.
 
 Esta amostra utiliza a [API list Keys](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) para aceder às chaves da conta Azure Cosmos DB.
 
 > [!IMPORTANT] 
-> Se quiser atribuir o papel de Leitor de [ **Conta Cosmos DB,** ](#grant-the-managed-identity-access-to-your-azure-cosmos-account) terá de utilizar apenas list [Keys api](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Isto só vai povoar as chaves de leitura.
+> Se quiser atribuir o papel de Leitor de [Conta Cosmos DB,](#grant-access-to-your-azure-cosmos-account) terá de utilizar a [Lista Ler API apenas chaves](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Isto vai povoar apenas as chaves de leitura.
 
 A API da `DatabaseAccountListKeysResult` Lista de Chaves devolve o objeto. Este tipo não é definido nas bibliotecas C# O seguinte código mostra a implementação desta classe:  
 
 ```csharp 
-namespace SummarizationService 
+namespace Monitor 
 {
   public class DatabaseAccountListKeysResult
   {
@@ -112,7 +112,8 @@ namespace Monitor
 }
 ```
 
-Utilizará a biblioteca [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para obter o símbolo de identidade gerido atribuído pelo sistema. Para saber outras formas de obter `Microsoft.Azure.Service.AppAuthentication` o símbolo e mais informações sobre a biblioteca, consulte o artigo [Serviço de Autenticação](../key-vault/general/service-to-service-authentication.md) de Serviços.
+Utilizará a biblioteca [Microsoft.Azure.Services.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para obter o símbolo de identidade gerido atribuído pelo sistema. Para saber outras formas de obter o `Microsoft.Azure.Service.AppAuthentication` símbolo e obter mais informações sobre a biblioteca, consulte o artigo de [autenticação Serviço-a-serviço.](../key-vault/general/service-to-service-authentication.md)
+
 
 ```csharp
 using System;
@@ -126,7 +127,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Monitor
 {
-    public static class TemperatureMonitor
+    public static class FishTankTemperatureService
     {
         private static string subscriptionId =
         "<azure subscription id>";
@@ -141,7 +142,7 @@ namespace Monitor
         private static string containerName =
         "<container to store the temperature in>";
 
-        [FunctionName("TemperatureMonitor")]
+        [FunctionName("FishTankTemperatureService")]
         public static async Task Run([TimerTrigger("0 * * * * *")]TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"Starting temperature monitoring: {DateTime.Now}");
@@ -149,20 +150,20 @@ namespace Monitor
             // AzureServiceTokenProvider will help us to get the Service Managed token.
             var azureServiceTokenProvider = new AzureServiceTokenProvider();
 
-            // In order to get the Service Managed token we need to authenticate to the Azure Resource Manager.
+            // Authenticate to the Azure Resource Manager to get the Service Managed token.
             string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
 
-            // To get the Azure Cosmos DB keys setup the List Keys API:
+            // Setup the List Keys API to get the Azure Cosmos DB keys.
             string endpoint = $"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listKeys?api-version=2019-12-12";
 
-            // setup an HTTP Client and add the access token.
+            // Setup an HTTP Client and add the access token.
             HttpClient httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
             // Post to the endpoint to get the keys result.
             var result = await httpClient.PostAsync(endpoint, new StringContent(""));
 
-            // Get the Result back as a DatabaseAccountListKeysResult.
+            // Get the result back as a DatabaseAccountListKeysResult.
             DatabaseAccountListKeysResult keys = await result.Content.ReadAsAsync<DatabaseAccountListKeysResult>();
 
             log.LogInformation("Starting to create the client");
@@ -187,7 +188,7 @@ namespace Monitor
 
         private static int GetTemperature()
         {
-            // fake the temperature sensor for this demo
+            // Fake the temperature sensor for this demo.
             Random r = new Random(DateTime.UtcNow.Second);
             return r.Next(0, 120);
         }
@@ -195,10 +196,10 @@ namespace Monitor
 }
 ```
 
-Está agora pronto para implementar a [sua Função Azure.](../azure-functions/functions-create-first-function-vs-code.md)
+Está agora pronto para [implementar a sua aplicação de funções.](../azure-functions/functions-create-first-function-vs-code.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Autenticação baseada em certificado saca-se com Azure Cosmos DB e Diretório Ativo](certificate-based-authentication.md)
-* [Proteger as chaves do Azure Cosmos com o Azure Key Vault](access-secrets-from-keyvault.md)
+* [Autenticação baseada em certificado saca-se com o Azure Cosmos DB e o Azure Ative Directory](certificate-based-authentication.md)
+* [Chaves DB Secure Azure Cosmos usando cofre de chaves Azure](access-secrets-from-keyvault.md)
 * [Base de segurança para Azure Cosmos DB](security-baseline.md)

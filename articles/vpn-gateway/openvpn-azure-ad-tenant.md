@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/17/2020
 ms.author: alzam
-ms.openlocfilehash: 6f7558a7d382d13c822862b881e310d3a5aaad0f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 00db2ed05285a1637414aa1e3adbe3b047ff0568
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879416"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641353"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um inquilino de Diretório Ativo Azure para ligações ao protocolo P2S OpenVPN
 
@@ -64,7 +64,7 @@ Use os passos [deste artigo](../active-directory/fundamentals/add-users-azure-ac
     Azure Government
 
     ```
-    https://login-us.microsoftonline.com/common/oauth2/authorize?client_id=51bb15d4-3a4f-4ebf-9dca-40096fe32426&response_type=code&redirect_uri=https://portal.azure.us&nonce=1234&prompt=admin_consent
+   https://login.microsoftonline.us/common/oauth2/authorize?client_id=51bb15d4-3a4f-4ebf-9dca-40096fe32426&response_type=code&redirect_uri=https://portal.azure.us&nonce=1234&prompt=admin_consent
     ````
 
     Microsoft Cloud Alemanha

@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 3d5ecaf67dcff182c7dace474b7bda45cdfd5c58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0910b31685aa408c319b40ea23782b11724b6237
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969324"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641718"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais Linux em Azure
 O Azure fornece a resolução de nome snS dNS por padrão para todas as máquinas virtuais que se encontram numa única rede virtual. Pode implementar a sua própria solução de resolução de nomes DNS configurando os seus próprios serviços DNS nas suas máquinas virtuais que o Azure acolhe. Os seguintes cenários devem ajudá-lo a escolher aquele que funciona para a sua situação.

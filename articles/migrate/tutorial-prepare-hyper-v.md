@@ -4,16 +4,16 @@ description: Saiba como se preparar para avaliação/migração de VMs Hiper-V c
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: e86e634812e9f2782a003a11b48cfecf91d95359
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ea6290eae187ed4ead39f7307a84a54a23c19c29
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535303"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641640"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para avaliação e migração de VMs Hiper-V para Azure
 
-Este artigo descreve como se preparar para a avaliação de VMs hiper-V no local com Azure Migrate:Server Assessment (migrar-serviços-visão geral.md#azure-migrate-server-assessment-tool), e migração de VMs Hiper-V com [Migração Azure Migração:Servidor](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Este artigo descreve como se preparar para a avaliação de VMs hiper-V no local com [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), e migração de VMs Hiper-V com [Migração Azure Migrate:Server](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 Este tutorial é o primeiro de uma série que mostra como avaliar e migrar VMs Hiper-V para Azure. Neste tutorial, ficará a saber como:

@@ -4,18 +4,18 @@ description: Conheça a cláusula SQL ORDER BY para O Azure Cosmos DB. Use o SQL
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/17/2020
 ms.author: tisande
-ms.openlocfilehash: b88184be39a41ec42f8fb304a7511073f645f1cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70702ee4a77e8b3c46de4354f3394bca4080d837
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77188738"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641402"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>CLÁUSULA ORDER BY em Azure Cosmos DB
 
-A cláusula OPCIONAL ORDER BY especifica a ordem de triagem dos resultados devolvidos pela consulta.
+A `ORDER BY` cláusula opcional especifica a ordem de triagem dos resultados devolvidos pela consulta.
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -31,9 +31,9 @@ ORDER BY <sort_specification>
   
    Especifica uma propriedade ou expressão para classificar o conjunto de resultados da consulta. Uma coluna de classificação pode ser especificada como um nome ou pseudónimo de propriedade.  
   
-   Várias propriedades podem ser especificadas. Os nomes de propriedade devem ser únicos. A sequência das propriedades do tipo na cláusula ORDER BY define a organização do conjunto de resultados ordenados. Ou seja, o conjunto de resultados é classificado pela primeira propriedade e, em seguida, que a lista ordenada é ordenada pela segunda propriedade, e assim por diante.  
+   Várias propriedades podem ser especificadas. Os nomes de propriedade devem ser únicos. A sequência do tipo `ORDER BY` de propriedades na cláusula define a organização do conjunto de resultados ordenados. Ou seja, o conjunto de resultados é classificado pela primeira propriedade e, em seguida, que a lista ordenada é ordenada pela segunda propriedade, e assim por diante.  
   
-   Os nomes de propriedade referidos na cláusula ORDER BY devem corresponder a um imóvel na lista selecionada ou a um imóvel definido na cláusula DE Cobrança especificada na cláusula FROM sem quaisquer ambiguidades.  
+   Os nomes de `ORDER BY` propriedade referidos na cláusula devem corresponder a um imóvel na lista `FROM` selecionada ou a um imóvel definido na coleção especificada na cláusula sem quaisquer ambiguidades.  
   
 - `<sort_expression>`  
   
@@ -45,7 +45,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Especifica que os valores na coluna especificada devem ser classificados por ordem ascendente ou descendente. AsC classifica do valor mais baixo para o valor mais alto. O DESC classifica-se de valor mais elevado para valor mais baixo. ASC é a ordem de classificação padrão. Os valores nulos são tratados como os valores mais baixos possíveis.  
+   Especifica que os valores na coluna especificada devem ser classificados por ordem ascendente ou descendente. `ASC`classifica-se do valor mais baixo para o valor mais alto. `DESC`tipos de valor mais elevado para valor mais baixo. `ASC`é a ordem de classificação padrão. Os valores nulos são tratados como os valores mais baixos possíveis.  
   
 ## <a name="remarks"></a>Observações  
   
@@ -152,7 +152,7 @@ Os resultados incluem apenas `lastName`o documento que tem um definido:
     ]
 ```
 
-Se atualizarmos a política de indexação do contentor `lastName`para incluir explicitamente um caminho para, incluiremos documentos com uma propriedade de tipo indefinida nos resultados da consulta. Deve definir explicitamente o caminho para levar a este valor escalar (e não para além dele). Deve utilizar `?` o personagem na definição do seu caminho na política `lastName` de indexação para garantir que indexa explicitamente a propriedade e nenhum caminho adicional aninhada além dela.
+Se atualizarmos a política de indexação do contentor `lastName`para incluir explicitamente um caminho para, incluiremos documentos com uma propriedade de tipo indefinida nos resultados da consulta. Deve definir explicitamente o caminho para levar a este valor escalar (e não para além dele). Deve utilizar `?` o personagem na definição do seu caminho na política `lastName` de indexação para garantir que indexa explicitamente a propriedade e nenhum caminho adicional aninhada além dela. Se `Order By` a sua consulta utilizar um [índice composto,](index-policy.md#composite-indexes)os resultados incluirão sempre documentos com uma propriedade de tipo indefinida nos resultados da consulta.
 
 Aqui está uma política de indexação de amostras `lastName` que lhe permite ter documentos com um aparecimento indefinido nos resultados da consulta:
 
@@ -218,6 +218,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Começar](sql-query-getting-started.md)
+- [Introdução](sql-query-getting-started.md)
 - [Políticas de indexação no Azure Cosmos DB](index-policy.md)
 - [Cláusula LIMITE OFFSET](sql-query-offset-limit.md)
