@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: a0e6b5b7d5cedc821ee34bdd219ae07bb9d43199
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 31afb7bc00250887841adccc8c3cc4dc69462d55
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79481913"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81642890"
 ---
 <a name="HOLTop"></a>
 
-[Documentação de referência](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Biblioteca Código fonte](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Amostras de](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics) [pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.3) | 
+[Documentação de referência](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Biblioteca Código fonte](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Amostras de](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics) [pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) | 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,14 +32,14 @@ ms.locfileid: "79481913"
 
 ### <a name="add-the-client-library"></a>Adicione a biblioteca de clientes
 
-Crie um projeto Maven no seu IDE preferido ou ambiente de desenvolvimento. Em seguida, adicione a seguinte dependência ao ficheiro *pom.xml* do seu projeto. Você pode encontrar a sintaxe de implementação [para outras ferramentas](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.3) de construção on-line.
+Crie um projeto Maven no seu IDE preferido ou ambiente de desenvolvimento. Em seguida, adicione a seguinte dependência ao ficheiro *pom.xml* do seu projeto. Você pode encontrar a sintaxe de implementação [para outras ferramentas](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) de construção on-line.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>1.0.0-beta.3</version>
+        <version>1.0.0-beta.4</version>
     </dependency>
 </dependencies>
 ```
@@ -50,6 +50,7 @@ Crie um projeto Maven no seu IDE preferido ou ambiente de desenvolvimento. Em se
 Crie um `TextAnalyticsSamples.java`ficheiro Java chamado . Abra o ficheiro e `import` adicione as seguintes declarações:
 
 ```java
+import com.azure.core.credential.AzureKeyCredential;
 import com.azure.ai.textanalytics.models.*;
 import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
 import com.azure.ai.textanalytics.TextAnalyticsClient;
@@ -76,7 +77,6 @@ public static void main(String[] args) {
     sentimentAnalysisExample(client);
     detectLanguageExample(client);
     recognizeEntitiesExample(client);
-    recognizePIIEntitiesExample(client);
     recognizeLinkedEntitiesExample(client);
     extractKeyPhrasesExample(client);
 }
@@ -93,7 +93,7 @@ O cliente Text `TextAnalyticsClient` Analytics é um objeto que autentica o Azur
 * [Deteção de idioma](#language-detection)
 * [Reconhecimento de Entidade Nomeada](#named-entity-recognition-ner) 
 * [Ligação de entidades](#entity-linking)
-* [Extração de frase-chave](#key-phrase-extraction)
+* [Extração de expressões-chave](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -102,7 +102,7 @@ Crie um método `TextAnalyticsClient` para instantanear o objeto com a chave e p
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {
     return new TextAnalyticsClientBuilder()
-        .apiKey(new TextAnalyticsApiKeyCredential(key))
+        .apiKey(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
 }
@@ -204,34 +204,6 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 ```console
 Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, score: 0.92.
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8.
-```
-
-## <a name="using-ner-to-recognize-personal-information"></a>Usar ner para reconhecer informações pessoais
-
-Crie uma `recognizePIIEntitiesExample()` nova função chamada que leve o `recognizePiiEntities()` cliente que criou anteriormente, e chame a sua função. O `RecognizePiiEntitiesResult` objeto devolvido conterá `NamedEntity` uma lista `errorMessage` de se for bem sucedido, ou se não. 
-
-```java
-static void recognizePIIEntitiesExample(TextAnalyticsClient client)
-{
-    // The text that need be analyzed.
-    String text = "Insurance policy for SSN on file 123-12-1234 is here by approved.";
-
-    for (PiiEntity entity : client.recognizePiiEntities(text)) {
-        System.out.printf(
-            "Recognized personal identifiable information entity: %s, entity category: %s, %nentity sub-category: %s, score: %s.%n",
-            entity.getText(),
-            entity.getCategory(),
-            entity.getSubCategory(),
-            entity.getConfidenceScore());
-    }
-}
-```
-
-### <a name="output"></a>Saída
-
-```console
-Recognized personal identifiable information entity: 123-12-1234, entity category: U.S. Social Security Number (SSN), 
-entity sub-category: null, score: 0.85.
 ```
 
 ## <a name="entity-linking"></a>Ligação de entidades
