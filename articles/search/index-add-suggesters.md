@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 1e2a837acef976b6b872c2d4002ee49d662ad594
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.date: 04/21/2020
+ms.openlocfilehash: 7eb2988628d60fa72c7d83b81a58a1e0fae5de33
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641329"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770088"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Criar um sugestor para permitir resultados autocompletos e sugeridos numa consulta
 
-Na Pesquisa Cognitiva Azure, o "search-as-you-type" é ativado através de uma construção **de sugestionante** adicionada a um índice de [pesquisa](search-what-is-an-index.md). Um sugestionador suporta duas experiências: *autocomplete,* que completa o termo ou frase, e *sugestões* que devolvem uma pequena lista de documentos correspondentes.  
+Na Pesquisa Cognitiva Azure, o "search-as-you-type" é ativado através de uma construção **de sugestionante** adicionada a um índice de [pesquisa](search-what-is-an-index.md). Um sugestionador suporta duas experiências: *autocomplete,* que completa uma entrada parcial para uma consulta de um termo inteiro, e *sugestões* que convidam clique através de um determinado jogo. Autocomplete produz uma consulta. Sugestões produzem um documento correspondente.
 
 A seguinte imagem de [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustra ambos. A Autocomplete antecipa um termo potencial, terminando "tw" com "in". Sugestões são resultados de mini pesquisa, onde um campo como o nome do hotel representa um documento de pesquisa de hotel correspondente do índice. Para sugestões, pode emergir qualquer campo que forneça informações descritivas.
 
@@ -33,27 +33,36 @@ O suporte de pesquisa como o tipo de pesquisa é ativado numa base por campo par
 
 ## <a name="what-is-a-suggester"></a>O que é um sugeridor?
 
-Um sugestivo é uma estrutura de dados que suporta comportamentos de pesquisa como você tipo, armazenando prefixos para combinar em consultas parciais. Semelhantes a termos tokenizados, os prefixos são armazenados em índices invertidos, um para cada campo especificado numa coleção de campos sugestionantes.
-
-Ao criar prefixos, um sugestor tem a sua própria cadeia de análise, semelhante à utilizada para a pesquisa completa de texto. No entanto, ao contrário da análise em plena pesquisa de texto, um sugestor só pode operar sobre campos que usam o analisador lucene padrão (padrão) ou um [analisador](index-add-language-analyzers.md)de linguagem . Os campos que utilizam [analisadores personalizados](index-add-custom-analyzers.md) ou [analisadores predefinidos](index-add-custom-analyzers.md#predefined-analyzers-reference) (com exceção do Lucene padrão) são explicitamente proibidos de evitar maus resultados.
-
-> [!NOTE]
-> Se precisar de contornar a restrição do analisador, utilize dois campos separados para o mesmo conteúdo. Isto permitirá que um dos campos tenha um sugestor, enquanto o outro pode ser configurado com uma configuração de analisador personalizado.
+Um sugestivo é uma estrutura de dados interna que suporta comportamentos de pesquisa como você tipo, armazenando prefixos para combinar em consultas parciais. Tal como em termos tokenizados, os prefixos são armazenados em índices invertidos, um para cada campo especificado numa coleção de campos sugestionantes.
 
 ## <a name="define-a-suggester"></a>Defina um sugestionista
 
-Para criar um sugestor, adicione um a um [esquema de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) e coloque cada [propriedade](#property-reference). No índice, pode ter um sugestor (especificamente, um sugestor na coleção de sugestionantes). A melhor altura para criar um sugestionante é quando também está a definir o campo que o utilizará.
+Para criar um sugestor, adicione um a um [esquema de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) e coloque cada [propriedade](#property-reference). A melhor altura para criar um sugestionante é quando também está a definir o campo que o utilizará.
+
++ Use apenas campos de cordas
+
++ Utilize o analisador lucene`"analyzer": null`padrão padrão () ou `"analyzer": "en.Microsoft"`um [analisador](index-add-language-analyzers.md) de linguagem (por exemplo, ) no campo
 
 ### <a name="choose-fields"></a>Escolha campos
 
-Embora um sugestionista tenha várias propriedades, é principalmente uma coleção de campos para os quais você está permitindo uma experiência de pesquisa como você-tipo. Para sugestões em particular, escolha campos que melhor representem um único resultado. Nomes, títulos ou outros campos únicos que distinguem entre vários jogos funcionam melhor. Se os campos consistem em valores repetitivos, as sugestões consistem em resultados idênticos e um utilizador não saberá qual clicar.
+Embora um sugestionista tenha várias propriedades, é principalmente uma coleção de campos de cordas para os quais você está permitindo uma experiência de pesquisa como você-tipo. Há um sugestor para cada índice, por isso a lista de sugestionantes deve incluir todos os campos que contribuam com conteúdo tanto para sugestões como para auto-completar.
 
-Certifique-se de que cada campo utiliza um analisador que executa análises lexical durante a indexação. Pode utilizar o analisador lucene`"analyzer": null`padrão padrão () ou um `"analyzer": "en.Microsoft"` [analisador](index-add-language-analyzers.md) de linguagem (por exemplo, ). 
+Benefícios autocompletos de um conjunto maior de campos para extrair porque o conteúdo adicional tem mais potencial de conclusão de prazo.
 
-A sua escolha de um analisador determina como os campos são tokenizados e subsequentemente pré-fixados. Por exemplo, para uma cadeia hifenizada como "sensível ao contexto", usar um analisador de linguagem resultará nestas combinações simbólicas: "contexto", "sensível", "sensível ao contexto". Se tivesses usado o analisador lucene padrão, a corda hifenizada não existiria.
+As sugestões, por outro lado, produzem melhores resultados quando a sua escolha de campo é seletiva. Lembre-se que a sugestão é um representante para um documento de pesquisa para que você queira campos que melhor representem um único resultado. Nomes, títulos ou outros campos únicos que distinguem entre vários jogos funcionam melhor. Se os campos consistem em valores repetitivos, as sugestões consistem em resultados idênticos e um utilizador não saberá qual clicar.
 
-> [!TIP]
-> Considere utilizar a [API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) de Texto analisar para obter informações sobre como os termos são tokenizados e subsequentemente pré-fixados. Uma vez construído um índice, pode experimentar vários analisadores numa corda para ver os tokens que emite.
+Para satisfazer as experiências de pesquisa como você tipo, adicione todos os campos que precisa para completar automaticamente, mas depois use **$select**, **$top,** **$filter**, e **procure Fields** para controlar resultados para sugestões.
+
+### <a name="choose-analyzers"></a>Escolha analisadores
+
+A sua escolha de um analisador determina como os campos são tokenizados e subsequentemente pré-fixados. Por exemplo, para uma cadeia hifenizada como "sensível ao contexto", usar um analisador de linguagem resultará nestas combinações simbólicas: "contexto", "sensível", "sensível ao contexto". Se tivesses usado o analisador lucene padrão, a corda hifenizada não existiria. 
+
+Ao avaliar os analisadores, considere utilizar a [API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) de Texto analisar para obter informações sobre como os termos são tokenizados e subsequentemente pré-fixados. Uma vez construído um índice, pode experimentar vários analisadores numa corda para ver a saída de fichas.
+
+Os campos que utilizam [analisadores personalizados](index-add-custom-analyzers.md) ou [analisadores predefinidos](index-add-custom-analyzers.md#predefined-analyzers-reference) (com exceção do Lucene padrão) são explicitamente proibidos de evitar maus resultados.
+
+> [!NOTE]
+> Se precisar de contornar a restrição do analisador, por exemplo, se precisar de uma palavra-chave ou analisador de ngram para determinados cenários de consulta, deve utilizar dois campos separados para o mesmo conteúdo. Isto permitirá que um dos campos tenha um sugestor, enquanto o outro pode ser configurado com uma configuração de analisador personalizado.
 
 ### <a name="when-to-create-a-suggester"></a>Quando criar um sugestor
 
@@ -161,7 +170,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Recomendamos o seguinte exemplo para ver como os pedidos são formulados.
+Recomendamos que o seguinte artigo saiba mais sobre como solicita a formulação.
 
 > [!div class="nextstepaction"]
 > [Adicione autocompleta e sugestões ao código do cliente](search-autocomplete-tutorial.md) 

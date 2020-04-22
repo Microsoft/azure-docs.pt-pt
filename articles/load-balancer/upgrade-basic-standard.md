@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: a4c8b029b199915cce9a417430e67675a03d327f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2d6f41756d87e43ac7db9e6a8670c453920c834
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659956"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770374"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Upgrade Azure Public Load Balancer
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto rico de funcionalidades e alta disponibilidade através de redundância de zona. Para saber mais sobre o Load Balancer SKU, consulte a [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
@@ -21,7 +21,6 @@ Há três fases numa atualização:
 
 1. Migrar a configuração
 2. Adicione VMs para apoiar piscinas de Balancer de Carga Padrão
-3. Criar uma regra de saída sobre o equilibrador de carga para a ligação de saída
 
 Este artigo abrange a migração de configuração. Adicionar VMs a piscinas de backend pode variar dependendo do seu ambiente específico. No entanto, [são fornecidas](#add-vms-to-backend-pools-of-standard-load-balancer)algumas recomendações gerais de alto nível.
 
@@ -31,17 +30,18 @@ Está disponível um script Azure PowerShell que faz o seguinte:
 
 * Cria um Balancer de Carga SKU Padrão no grupo de recursos e localização o que especifica.
 * Copia perfeitamente as configurações do Equilíbrio de Carga SKU Básico para o recém-criado Equilíbrio de Carga Standard.
+* Cria uma regra de saída padrão que permite a conectividade de saída.
 
 ### <a name="caveatslimitations"></a>Ressalvas\Limitações
 
-* O script apenas suporta a atualização do Balancer de Carga Pública. Para a atualização interna do balancer de carga básica, crie um Balancer de Carga Interna Padrão se não for desejada conectividade de saída e crie um Balancer de Carga Interna Padrão e Um Equilíbrio de Carga Pública Padrão se for necessária conectividade de saída.
+* O script apenas suporta a atualização do Balancer de Carga Pública. Para obter instruções para o balancer de carga interna, consulte [esta página](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard) para obter instruções.
 * O Standard Load Balancer tem um novo endereço público. É impossível mover os endereços IP associados ao equilíbrio de carga básico existente sem problemas para o Standard Load Balancer, uma vez que têm SKUs diferentes.
 * Se o equilibrador de carga Standard for criado numa região diferente, não poderá associar os VMs existentes na região antiga ao recém-criado Standard Load Balancer. Para contornar esta limitação, certifique-se de criar um novo VM na nova região.
 * Se o seu Balancer de Carga não tiver qualquer configuração IP frontal ou piscina de backend, é provável que acerte um erro ao executar o script. Por favor, certifique-se de que não estão vazios.
 
 ## <a name="download-the-script"></a>Descarregue o script
 
-Descarregue o script de migração da [Galeria PowerShell.](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0)
+Descarregue o script de migração da [Galeria PowerShell.](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0)
 ## <a name="use-the-script"></a>Use o script
 
 Existem duas opções para si, dependendo da configuração e preferências locais do ambiente PowerShell:

@@ -7,14 +7,16 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom:
+- mvc
+- mqtt
 ms.date: 04/03/2019
-ms.openlocfilehash: 3bb51db139dbdafef63c0c2da71a1ca4ce582338
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dd6ad0a3bc20821f51fcb4637dd4af18a6c3ec84
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675407"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769149"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT (iOS)
 

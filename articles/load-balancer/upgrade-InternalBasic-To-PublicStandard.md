@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3eca498e5716ae7c0a03e5e624d618899da8dc8
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659990"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770405"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Ligação de saída necessária
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto rico de funcionalidades e alta disponibilidade através de redundância de zona. Para saber mais sobre o Load Balancer SKU, consulte a [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Uma vez que a Standard Internal Load Balancer não fornece uma ligação de saída, fornecemos uma solução para criar um Balancer de Carga Pública Padrão.
@@ -21,8 +21,7 @@ Há quatro estágios numa atualização:
 
 1. Migrar a configuração para O Equilíbrio de Carga Pública Padrão
 2. Adicione VMs para apoiar piscinas de Equilibradores de Carga Pública Padrão
-3. Criar uma regra de saída sobre o Balancer de Carga para ligação de saída
-4. Estabelecer regras de NSG para Subnet/VMs que devem ser abster-se de/para a Internet
+3. Estabelecer regras de NSG para Subnet/VMs que devem ser abster-se de/para a Internet
 
 Este artigo abrange a migração de configuração. Adicionar VMs a piscinas de backend pode variar dependendo do seu ambiente específico. No entanto, [são fornecidas](#add-vms-to-backend-pools-of-standard-load-balancer)algumas recomendações gerais de alto nível.
 
@@ -32,6 +31,7 @@ Está disponível um script Azure PowerShell que faz o seguinte:
 
 * Cria um Balancer de Carga Pública Padrão SKU no grupo de recursos e localização que especifica.
 * Copia perfeitamente as configurações do Equilíbrio de Carga Interna SKU Básico para o recém-criado Balancer de Carga Pública Padrão.
+* Cria uma regra de saída que permite a conectividade de saída.
 
 ### <a name="caveatslimitations"></a>Ressalvas\Limitações
 
@@ -42,7 +42,7 @@ Está disponível um script Azure PowerShell que faz o seguinte:
 
 ## <a name="download-the-script"></a>Descarregue o script
 
-Descarregue o script de migração da [Galeria PowerShell.](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0)
+Descarregue o script de migração da [Galeria PowerShell.](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0)
 ## <a name="use-the-script"></a>Use o script
 
 Existem duas opções para si, dependendo da configuração e preferências locais do ambiente PowerShell:

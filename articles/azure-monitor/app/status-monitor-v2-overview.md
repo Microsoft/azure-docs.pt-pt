@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 4042fc05f278915fe72bf8fc4e6afd69a5bbb4b9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 626a8c96fdc247db174e2cbcd2e5c99cec43d2ea
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537428"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770969"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implementar o Agente de Insights de Aplicação do Monitor Azure para servidores no local
 
@@ -36,14 +36,14 @@ O Agente insights de https://www.powershellgallery.com/packages/Az.ApplicationMo
 - Consulte as [instruções detalhadas](status-monitor-v2-detailed-instructions.md) para um mergulho profundo sobre como começar.
 
 ## <a name="powershell-api-reference"></a>Referência powerShell API
-- [Monitorização de Insights de aplicação de deficientes](status-monitor-v2-api-disable-monitoring.md)
-- [Motor de instrumentação para desativação](status-monitor-v2-api-disable-instrumentation-engine.md)
-- [Monitorização de Insights de aplicação de ativação](status-monitor-v2-api-enable-monitoring.md)
-- [Motor de instrumentação de ativação](status-monitor-v2-api-enable-instrumentation-engine.md)
-- [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
-- [Estatuto de Monitorização Get-ApplicationInsights](status-monitor-v2-api-get-status.md)
-- [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
-- [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
+- [Monitorização de Insights de aplicação de deficientes](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-applicationinsightsmonitoring)
+- [Motor de instrumentação para desativação](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-instrumentationengine)
+- [Monitorização de Insights de aplicação de ativação](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring)
+- [Motor de instrumentação de ativação](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-instrumentationengine)
+- [Get-ApplicationInsightsMonitoringConfig](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringconfig)
+- [Estatuto de Monitorização Get-ApplicationInsights](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus)
+- [Set-ApplicationInsightsMonitoringConfig](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#set-applicationinsightsmonitoringconfig)
+- [Start-ApplicationInsightsMonitoringTrace](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#start-applicationinsightsmonitoringtrace)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 - [Resolução de problemas](status-monitor-v2-troubleshoot.md)
@@ -64,7 +64,7 @@ Cada uma destas opções é descrita nas [instruções detalhadas](status-monito
 
 - Como posso verificar se a habilitação foi bem sucedida?
 
-  - O [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) cmdlet pode ser usado para verificar se a habilitação foi bem sucedida.
+  - O [Get-ApplicationInsightsMonitoringStatus](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus) cmdlet pode ser usado para verificar se a habilitação foi bem sucedida.
   - Recomendamos que utilize [Métricas Ao Vivo](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) para determinar rapidamente se a sua aplicação está a enviar telemetria.
 
   - Também pode utilizar [o Log Analytics](../log-query/get-started-portal.md) para listar todas as funções na nuvem que atualmente enviam telemetria:

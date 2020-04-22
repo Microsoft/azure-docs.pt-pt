@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0df8ac495b6aca81e46dffc248019483b1c82202
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e0ac6ccde2443a7b374d9eb85f6f960af79c69dc
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81422453"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769486"
 ---
 # <a name="tutorial-connect-sql-on-demand-preview-to-power-bi-desktop--create-report"></a>Tutorial: Ligue o SQL a pedido (pré-visualização) ao Power BI Desktop & criar relatório
 
@@ -24,7 +24,7 @@ Neste tutorial, ficará a saber como:
 >
 > - Criar base de dados de demonstração
 > - Criar vista usada para relatório
-> - Ligue ao Power BI Desktop
+> - Ligar ao Power BI Desktop
 > - Criar relatório com base na vista
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -51,7 +51,7 @@ Crie a base de dados de demonstração (e deixe cair uma base de dados existente
 
 ```sql
 -- Drop database if it exists
-IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'Demo')
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Demo')
 BEGIN
     DROP DATABASE Demo
 END;

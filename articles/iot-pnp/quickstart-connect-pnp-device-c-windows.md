@@ -1,19 +1,19 @@
 ---
 title: Conecte o código do dispositivo de amostra IoT Plug e reprodução de pré-visualização para o IoT Hub (Windows) [ Microsoft Docs
 description: Construa e execute o código de dispositivo de amostra IoT Plug e Play Preview no Windows que se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o centro.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/26/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 1c8b6a5d133d8838c2c7a23f8881092affa424dc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 080820024db1302ff5a841761428442396b90040
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75531216"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769856"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub-c-windows"></a>Quickstart: Ligue uma aplicação de dispositivo de pré-visualização IoT da amostra e reprodução em execução no Windows para IoT Hub (C Windows)
 

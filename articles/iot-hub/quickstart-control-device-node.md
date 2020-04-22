@@ -8,14 +8,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.custom:
+- mvc
+- seo-javascript-september2019
+- seo-javascript-october2019
+- mqtt
 ms.date: 06/21/2019
-ms.openlocfilehash: 29c6964ff2e0ce1b8ffb0964640bc460e6143902
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 39d136815e3808c907e190773b9303075a5093e6
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78674297"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769365"
 ---
 # <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Quickstart: Use Node.js para controlar um dispositivo ligado a um hub Azure IoT
 

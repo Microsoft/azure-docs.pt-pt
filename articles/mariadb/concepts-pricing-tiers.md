@@ -1,17 +1,17 @@
 ---
 title: Escalões de preço – Azure Database for MariaDB
 description: Conheça os vários níveis de preços para a Base de Dados Azure para OMariaDB, incluindo gerações de cálculo, tipos de armazenamento, tamanho de armazenamento, vCores, memória e períodos de retenção de backup.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 39af6850810fa471003cea27ed274972fb2ff046
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c057bebf94362b3b9e42db9d311e99f1e35c651
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528035"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770135"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de Dados Azure para níveis de preços MariaDB
 
@@ -39,7 +39,7 @@ Depois de criar um servidor, o número de vCores e o nível de preços (exceto d
 
 Os recursos computacionais são fornecidos como vCores, que representam o CPU lógico do hardware subjacente. Os CPUs lógicos da Gen 5 baseiam-se em processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 O armazenamento que você disponibiliza é a quantidade de capacidade de armazenamento disponível para a sua Base de Dados Azure para o servidor MariaDB. O armazenamento é utilizado para os ficheiros de base de dados, ficheiros temporários, registos de transações e registos de servidores MariaDB. A quantidade total de armazenamento que disponibiliza também define a capacidade de I/S disponível para o seu servidor.
 

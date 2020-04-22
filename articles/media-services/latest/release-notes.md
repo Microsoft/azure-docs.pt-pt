@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 76ef9f92b6b6633982242ccafab1950e0ef5f410
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b4849b4fbfdbaece46f5669f4c242e864b1ca533
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582790"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769757"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -35,7 +35,13 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 > Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir o V3 [Live Events,](live-events-outputs-concept.md)ver v3 [Assets,](assets-concept.md)obter informações sobre o acesso a APIs. Para todas as outras tarefas de gestão (por exemplo, Transforms and Jobs), utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados .
 
 Para mais informações, consulte [a orientação da Migração para a mudança dos Serviços de Media v2 para v3](migrate-from-v2-to-v3.md#known-issues).
- 
+
+## <a name="april-2020"></a>Abril de 2020
+
+### <a name="improvements-in-documentation"></a>Melhorias na documentação
+
+Os docs do Azure Media Player foram migrados para a [documentação azure.](../azure-media-player/azure-media-player-overview.md)
+
 ## <a name="january-2020"></a>Janeiro de 2020
 
 ### <a name="improvements-in-media-processors"></a>Melhorias nos processadores de mídia
@@ -361,4 +367,5 @@ Confira o artigo da [comunidade Azure Media Services](media-services-community.m
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição Geral](media-services-overview.md)
+- [Atualizações de documentação de Media Services v3](docs-release-notes.md)
 - [Notas de lançamento v2 dos Media Services](../previous/media-services-release-notes.md)

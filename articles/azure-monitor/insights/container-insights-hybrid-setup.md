@@ -3,12 +3,12 @@ title: Configure clusters Híbridos Kubernetes com Monitor Azure para contentore
 description: Este artigo descreve como pode configurar o Monitor Azure para os contentores monitorizarem os clusters Kubernetes alojados em Azure Stack ou noutro ambiente.
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: 5a973e7e500906ebe833ec4cc6fd2fa8ee79c19e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6c2782fdd810403a793f6ef682d1112fadc22465
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255435"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769040"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configure aglomerados kubernetes híbridos com Monitor Azure para contentores
 
@@ -240,6 +240,9 @@ Para identificar primeiro o id completo do seu espaço `workspaceResourceId` de 
        Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até ver as métricas de saúde para o cluster.
 
 ## <a name="install-the-chart"></a>Instale o gráfico
+
+>[!NOTE]
+>Os seguintes comandos são aplicáveis apenas para a versão Helm 2. A utilização do parâmetro -nome não é aplicável com a versão Helm 3.
 
 Para ativar o gráfico HELM, faça o seguinte:
 

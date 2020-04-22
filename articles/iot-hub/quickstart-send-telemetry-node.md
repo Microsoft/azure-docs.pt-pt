@@ -8,14 +8,17 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019
+ms.custom:
+- mvc
+- seo-javascript-september2019
+- mqtt
 ms.date: 06/21/2019
-ms.openlocfilehash: 8b99cf08e0e47ab99deb443a0fefee6ba0d61a88
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 24b6d2eca2eaa12e3e04647d403a015bdbf24ec6
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675394"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770035"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Quickstart: Envie a telemetria de um dispositivo para um hub IoT e leia-a com uma aplicação de back-end (Node.js)
 

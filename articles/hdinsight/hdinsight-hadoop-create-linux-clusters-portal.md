@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: a5f6ac76d509a0a63c2d641f91cd91cdb2e0d19d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 88392e4e61c28d4fe821c8176242246d10e52b23
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313810"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770901"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Crie clusters baseados em Linux no HDInsight utilizando o portal Azure
 
@@ -94,7 +94,7 @@ A partir do separador **De Segurança + networking,** forneça as seguintes info
 |Propriedade |Descrição |
 |---|---|
 |Pacote de segurança empresarial|Opcional: Selecione a caixa de verificação para utilizar o Pacote de **Segurança Empresarial**. Para mais informações, consulte [configurar um cluster HDInsight com pacote de segurança empresarial utilizando os Serviços de Domínio de Diretório Ativo Azure](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
-|TLS|Opcional: Selecione uma versão TLS da lista de lançamentos. Para mais informações, consulte [Transport Layer Security](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security).|
+|TLS|Opcional: Selecione uma versão TLS da lista de lançamentos. Para mais informações, consulte [Transport Layer Security](./transport-layer-security.md).|
 |Rede virtual|Opcional: Selecione uma rede virtual existente e sub-rede da lista de lançamentos. Para obter informações, consulte [Plan uma implementação de rede virtual para clusters Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). O artigo inclui requisitos específicos de configuração para a rede virtual.|
 |Definições de encriptação do disco|Opcional: Selecione a caixa de verificação para utilizar encriptação. Para obter mais informações, consulte a [encriptação](./disk-encryption.md)do disco de chave gerida pelo Cliente .|
 |Proxy REST do Kafka|Esta definição só está disponível para o tipo de cluster Kafka. Para mais informações, consulte [Utilizar um proxy REST](./kafka/rest-proxy.md).|

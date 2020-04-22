@@ -1,20 +1,20 @@
 ---
 title: Introdução ao Tampão IoT e Pré-visualização de jogo / Microsoft Docs
 description: Saiba mais sobre ioT Plug e Reproduzir Pré-visualização. O IoT Plug and Play baseia-se numa linguagem de modelação aberta que permite aos dispositivos IoT declararem as suas capacidades. Os dispositivos IoT apresentam essa declaração, chamada modelo de capacidade do dispositivo, quando se ligam a soluções em nuvem como as aplicações Azure IoT Central ou partner. A solução cloud pode então entender automaticamente o dispositivo e começar a interagir com ele - tudo sem escrever qualquer código.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 0399e1659fb7cc6a650c6b3c1d0189c8802d4904
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 12f3febac2c5c8ed01b9b156a64dc77f6ed0704f
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064316"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770442"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>O que é IoT Plug e Play Preview?
 

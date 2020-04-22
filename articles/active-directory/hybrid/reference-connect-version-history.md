@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 04/21/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 815d3afe68003f56a5748584b322b731ef5a3dc7
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 3a03a03557fbb2e71ff79ff42fd9d9c72cd5907c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81639638"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770497"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -48,6 +48,14 @@ Nem todos os lançamentos do Azure AD Connect serão disponibilizados para atual
 >
 >Consulte [este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
 
+## <a name="15220"></a>1.5.22.0
+
+### <a name="release-status"></a>Estado de lançamento
+04/20/2020: Lançado para download
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+Esta construção de hotfix corrige um problema na construção 1.5.20.0 se tiver clonado a regra **In da AD - Group Join** e não ter clonado a regra In da **AD - Grupo Comum.**
+
 ## <a name="15200"></a>1.5.20.0
 
 ### <a name="release-status"></a>Estado de lançamento
@@ -57,12 +65,13 @@ Nem todos os lançamentos do Azure AD Connect serão disponibilizados para atual
 Esta construção de hotfix corrige um problema com a build 1.5.18.0 se tiver a função de filtragem de grupo ativada e utilizar mS-DS-Consistência Como âncora de origem.
 
 > [!IMPORTANT]
-> Se utilizar o mS-DS-ConsistênciaComo âncora de origem, e clonou a regra de sincronização **In from AD - Group Join** e planeia atualizar, complete os seguintes passos como parte da atualização:
+> Se clonou a regra de sincronização **In from AD - Group Join** e não clonou a regra de sincronização In da **AD - Grupo Comum** e planeia atualizar, complete os seguintes passos como parte da atualização:
 > 1. Durante a atualização, desfaça a opção Iniciar o processo de **sincronização quando a configuração estiver concluída**.
 > 2. Editar a regra de sincronização de agregação clonada e adicionar as duas transformações seguintes:
 >     - Definir fluxo `objectGUID` `sourceAnchorBinary`direto para .
 >     - Definir fluxo `ConvertToBase64([objectGUID])` `sourceAnchor`de expressão para .     
 > 3. Ativar o `Set-ADSyncScheduler -SyncCycleEnabled $true`programador utilizando .
+
 
 
 ## <a name="15180"></a>1.5.18.0

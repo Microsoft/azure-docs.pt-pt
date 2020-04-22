@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 14946a05f021a9b155fd9a9621f73bde980970fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75750462"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770652"
 ---
 # <a name="deployment-best-practices"></a>Implementação de Boas Práticas
 
@@ -37,6 +37,92 @@ O mecanismo de implementação é a ação usada para colocar a sua aplicação 
 
 Ferramentas de implantação como pipelines Azure, Jenkins e plugins editor usam um destes mecanismos de implementação.
 
+## <a name="use-deployment-slots"></a>Utilizar ranhuras de implantação
+
+Sempre que possível, utilize ranhuras de [implantação](deploy-staging-slots.md) ao implementar uma nova construção de produção. Ao utilizar um nível padrão de plano de aplicação ou melhor, pode implementar a sua aplicação para um ambiente de encenação, validar as suas alterações e fazer testes de fumo. Quando estiver pronto, pode trocar as suas faixas horárias de preparação e produção. A operação de troca aquece as instâncias de trabalho necessárias para corresponder à sua escala de produção, eliminando assim o tempo de inatividade.
+
+### <a name="continuously-deploy-code"></a>Código de implantação contínua
+
+Se o seu projeto designou ramos para testes, QA e encenação, então cada um desses ramos deve ser continuamente implantado para uma ranhura de encenação. (Isto é conhecido como o [design Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) Isto permite que as suas partes interessadas avaliem e testem facilmente o ramo implantado. 
+
+A implantação contínua nunca deve ser ativada para a sua ranhura de produção. Em vez disso, o seu ramo de produção (muitas vezes mestre) deve ser implantado numa ranhura de não produção. Quando estiver pronto para libertar o ramo base, troque-o na ranhura de produção. A troca em produção — em vez de se implantar na produção — evita o tempo de inatividade e permite-lhe reverter as alterações trocando novamente. 
+
+![Visual de utilização da ranhura](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+
+### <a name="continuously-deploy-containers"></a>Implantar continuamente contentores
+
+Para recipientes personalizados do Docker ou outros registos de contentores, desloque a imagem para uma ranhura de preparação e troque em produção para evitar o tempo de inatividade. A automatização é mais complexa do que a implementação de código, pois deve empurrar a imagem para um registo de contentores e atualizar a etiqueta de imagem na webapp.
+
+Para cada ramo que pretende implantar para uma ranhura, instale a automatização para fazer o seguinte em cada compromisso com o ramo.
+
+1. **Construa e marque a imagem.** Como parte do pipeline de construção, marque a imagem com o git commit ID, timestamp ou outra informação identificável. É melhor não usar a etiqueta "mais recente" padrão. Caso contrário, é difícil rastrear o código atualmente implementado, o que torna a depuração muito mais difícil.
+1. **Empurre a imagem marcada.** Uma vez que a imagem é construída e marcada, o gasoduto empurra a imagem para o nosso registo de contentores. No próximo passo, a ranhura de implantação retirará a imagem marcada do registo do contentor.
+1. **Atualize a ranhura de implementação com a nova etiqueta de imagem**. Quando esta propriedade for atualizada, o site reiniciará automaticamente e puxará a nova imagem do recipiente.
+
+![Visual de utilização da ranhura](media/app-service-deploy-best-practices/slot_flow_container_diagram.png)
+
+Há exemplos abaixo para quadros comuns de automação.
+
+### <a name="use-azure-devops"></a>Use Azure DevOps
+
+O Serviço de Aplicações tem [entrega contínua incorporada](deploy-continuous-deployment.md) para contentores através do Centro de Implantação. Navegue para a sua aplicação no [portal Azure](https://portal.azure.com/) e selecione **Centro de Implantação** sob **Implantação**. Siga as instruções para selecionar o seu repositório e o seu ramo. Isto configurará um oleoduto de construção e libertação de DevOps para construir, etiquetar e implantar automaticamente o seu recipiente quando novos compromissos forem empurrados para o seu ramo selecionado.
+
+### <a name="use-github-actions"></a>Use ações gitHub
+
+Também pode automatizar a implantação do seu contentor [com ações GitHub](containers/deploy-container-github-action.md).  O ficheiro de fluxo de trabalho abaixo irá construir e etiquetar o recipiente com o ID de compromisso, empurrá-lo para um registo de contentores e atualizar a ranhura especificada do site com a nova etiqueta de imagem.
+
+```yaml
+name: Build and deploy a container image to Azure Web Apps
+
+on:
+  push:
+    branches:
+    - <your-branch-name>
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@master
+
+    -name: Authenticate using a Service Principal
+      uses: azure/actions/login@v1
+      with:
+        creds: ${{ secrets.AZURE_SP }}
+
+    - uses: azure/container-actions/docker-login@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and push the image tagged with the git commit hash
+      run: |
+        docker build . -t contoso/demo:${{ github.sha }}
+        docker push contoso/demo:${{ github.sha }}
+
+    - name: Update image tag on the Azure Web App
+      uses: azure/webapps-container-deploy@v1
+      with:
+        app-name: '<your-webapp-name>'
+        slot-name: '<your-slot-name>'
+        images: 'contoso/demo:${{ github.sha }}'
+```
+
+### <a name="use-other-automation-providers"></a>Utilizar outros fornecedores de automação
+
+As etapas anteriormente enumeradas aplicam-se a outros utilitários de automação, como o CircleCI ou o Travis CI. No entanto, é necessário utilizar o Azure CLI para atualizar as ranhuras de implementação com novas etiquetas de imagem no passo final. Para utilizar o Azure CLI no seu script de automação, gere um Diretor de Serviço utilizando o seguinte comando.
+
+```shell
+az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
+   --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
+   --sdk-auth
+```
+
+No seu script, `az login --service-principal`faça login na utilização, fornecendo as informações do diretor. Em seguida, `az webapp config container set` pode utilizar para definir o nome do recipiente, etiqueta, URL de registo e senha de registo. Abaixo estão alguns links úteis para você construir o seu processo CI recipiente.
+
+- [Como iniciar sessão no Azure CLI no Circle CI](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
+
 ## <a name="language-specific-considerations"></a>Considerações específicas da linguagem
 
 ### <a name="java"></a>Java
@@ -49,13 +135,9 @@ Por padrão, kudu executa os passos`npm install`de construção para a sua aplic
 
 ### <a name="net"></a>.NET 
 
-Por padrão, kudu executa os passos`dotnet build`de construção para a sua aplicação .Net ( ). Se está a usar um serviço de construção como o Azure DevOps, então a construção de Kudu é desnecessária. Para desativar a construção kudu, crie uma definição de app, `SCM_DO_BUILD_DURING_DEPLOYMENT`com um valor de `false`.
+Por padrão, kudu executa os passos`dotnet build`de construção para a sua aplicação .NET ( ). Se está a usar um serviço de construção como o Azure DevOps, então a construção de Kudu é desnecessária. Para desativar a construção kudu, crie uma definição de app, `SCM_DO_BUILD_DURING_DEPLOYMENT`com um valor de `false`.
 
 ## <a name="other-deployment-considerations"></a>Outras considerações de implantação
-
-### <a name="use-deployment-slots"></a>Utilizar ranhuras de implantação
-
-Sempre que possível, utilize ranhuras de [implantação](deploy-staging-slots.md) ao implementar uma nova construção de produção. Ao utilizar um nível padrão de plano de aplicação ou melhor, pode implementar a sua aplicação para um ambiente de encenação, validar as suas alterações e fazer testes de fumo. Quando estiver pronto, pode trocar as suas faixas horárias de preparação e produção. A operação de troca aquece as instâncias de trabalho necessárias para corresponder à sua escala de produção, eliminando assim o tempo de inatividade. 
 
 ### <a name="local-cache"></a>Local Cache
 

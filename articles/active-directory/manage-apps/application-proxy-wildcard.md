@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17cc4bf6f70901e3bb5d250f0a55f073ad8d99e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406721"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770293"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações wildcard no proxy de aplicação de diretório ativo Azure
 
@@ -48,8 +48,6 @@ Pode publicar aplicações com wildcards se ambos, os URLs internos e externos e
 Por exemplo: `http(s)://*.adventure-works.com`.
 
 Enquanto os URLs internos e externos podem usar diferentes domínios, como uma melhor prática, devem ser os mesmos. Ao publicar a aplicação, vê um erro se um dos URLs não tiver um wildcard.
-
-Se tiver aplicações adicionais com diferentes configurações de configuração, tem de publicar estas exceções como aplicações separadas para substituir as predefinições definidas para o wildcard. As aplicações sem wildcard têm sempre precedência sobre aplicações wildcard. Do ponto de vista da configuração, estas são aplicações "justas" regulares.
 
 A criação de uma aplicação wildcard baseia-se no mesmo fluxo de publicação de [aplicações](application-proxy-add-on-premises-application.md) que está disponível para todas as outras aplicações. A única diferença é que você inclui um wildcard nos URLs e potencialmente a configuração SSO.
 

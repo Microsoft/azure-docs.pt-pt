@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 462a44f7766e0ec52ba7156d6de5ae5261e21376
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 0ecb7ee7f5c7c0ebaa87eb6b32eee1926d9e294d
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547370"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768948"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Visão geral da rede virtual Azure](../virtual-network/virtual-networks-overview.md).
@@ -108,7 +108,7 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 
 <a name="required-ports"> </a> Quando uma instância de serviço de Gestão API é alojada num VNET, as portas da tabela seguinte são utilizadas.
 
-| Fonte / Porta de Destino(s) | Direção          | Protocolo de transporte |   [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags) <br> Fonte / Destino   | Finalidade (*)                                                 | Tipo de Rede Virtual |
+| Fonte / Porta de Destino(s) | Direção          | Protocolo de transporte |   [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags) <br> Fonte / Destino   | Finalidade\*( )                                                 | Tipo de Rede Virtual |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente à API Management                      | Externo             |
 | * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Ponto final de gestão para portal Azure e Powershell         | Externa & Interna  |
@@ -132,9 +132,7 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 
 + **Acesso DNS**: O acesso de saída na porta 53 é necessário para a comunicação com servidores DNS. Se existir um servidor DNS personalizado na outra extremidade de um gateway VPN, o servidor DNS deve ser acessível a partir da subnet que acolhe a Gestão API.
 
-+ **Métricas e Monitorização da Saúde**: Conectividade da rede de saída para os pontos finais de monitorização do Azure, que se resolvem nos seguintes domínios:
-
-+ **Etiquetas**de serviço regionais ": As regras do NSG que permitem a conectividade de saída com etiquetas de serviço de armazenamento, SQL e EventHubs podem utilizar as versões regionais das etiquetas correspondentes à região que contém a instância de Gestão API (por exemplo, Storage.WestUS para uma instância de Gestão API na região dos EUA Ocidental). Em destacamentos multi-regiões, o NSG em cada região deve permitir o tráfego das etiquetas de serviço para aquela região.
++ **Métricas e Monitorização da Saúde**: Conectividade da rede de saída para os pontos finais de monitorização do Azure, que se resolvem nos seguintes domínios. Como mostrado na tabela, estes URLs estão representados sob a etiqueta de serviço AzureMonitor para utilização com grupos de segurança de rede.
 
     | Ambiente Azure | Pontos Finais                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -142,8 +140,10 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com**new**</li><li>shoebox2.metrics.nsatc.net a**ser depreciado**</li><li>prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
     | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com**new**</li><li>shoebox2.metrics.nsatc.net a**ser depreciado**</li><li>prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
 
->[!IMPORTANT]
-> A mudança de clusters acima com a zona dns **.nsatc.net** para **.microsoftmetrics.com** é principalmente uma Mudança dNS. O endereço IP do cluster não se alterará.
+  >[!IMPORTANT]
+  > A mudança de clusters acima com a zona dns **.nsatc.net** para **.microsoftmetrics.com** é principalmente uma Mudança dNS. O endereço IP do cluster não se alterará.
+
++ **Etiquetas**de serviço regionais : As regras do NSG que permitem a conectividade de saída com etiquetas de serviço de armazenamento, SQL e Event Hubs podem utilizar as versões regionais das etiquetas correspondentes à região que contém a instância de Gestão API (por exemplo, Storage.WestUS para uma instância de Gestão de API na região dos EUA Ocidental). Em destacamentos multi-regiões, o NSG em cada região deve permitir o tráfego das etiquetas de serviço para aquela região e para a região primária.
 
 + **Relé SMTP**: Conectividade da rede de saída para o `smtpi-co1.msn.com`Relé SMTP, que se resolve sob o hospedeiro , `smtpi-ch1.msn.com`, `smtpi-db3.msn.com` `smtpi-sin.msn.com``ies.global.microsoft.com`
 
@@ -151,7 +151,7 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 
 + **Portal Azure Diagnósticos**: Para permitir o fluxo de registos de diagnóstico do portal Azure ao `dc.services.visualstudio.com` utilizar a extensão de Gestão API a partir de dentro de uma Rede Virtual, é necessário o acesso de saída à porta 443. Isto ajuda a resolver problemas que poderá enfrentar ao utilizar a extensão.
 
-+ Forçar o tráfego de **túneis para firewall on-prem Utilizando a Rota Expressa ou o Aparelho Virtual**da Rede : Uma configuração comum do cliente é definir a sua própria rota padrão (0.0.0.0/0) que obriga todo o tráfego da subnet delegada da API Management a fluir através de uma firewall no local ou para um aparelho virtual da Rede. Este fluxo de tráfego invariavelmente quebra a conectividade com a Azure API Management porque o tráfego de saída está bloqueado no local, ou NAT'd a um conjunto irreconhecível de endereços que já não funcionam com vários pontos finais Azure. A solução requer que faça algumas coisas:
++ Forçar o tráfego de **túneis para a firewall no local Utilizando a Rota Expressa ou o Aparelho Virtual**da Rede : Uma configuração comum do cliente é definir a sua própria rota padrão (0.0.0.0/0) que obriga todo o tráfego da subnet delegada da API Management a fluir através de uma firewall no local ou para um aparelho virtual da Rede. Este fluxo de tráfego invariavelmente quebra a conectividade com a Azure API Management porque o tráfego de saída está bloqueado no local, ou NAT'd a um conjunto irreconhecível de endereços que já não funcionam com vários pontos finais Azure. A solução requer que faça algumas coisas:
 
   * Ativar pontos finais de serviço na subnet em que o serviço de Gestão API é implantado. [Os pontos finais][ServiceEndpoints] de serviço precisam de ser ativados para azure Sql, Azure Storage, Azure EventHub e Azure ServiceBus. Permitir pontos finais diretamente da subnet delegada da API Management para estes serviços permite-lhes utilizar a rede de espinha dorsal microsoft Azure, proporcionando um encaminhamento ideal para o tráfego de serviços. Se utilizar os Pontos Finais de Serviço com um túnel forçado a Api Management, o tráfego de serviços do Azure acima não é forçado a fazer túneis. O outro tráfego de dependência do serviço de gestão da API é forçado a fazer túneis e não pode ser perdido ou o serviço de Gestão aPi não funcionaria corretamente.
     

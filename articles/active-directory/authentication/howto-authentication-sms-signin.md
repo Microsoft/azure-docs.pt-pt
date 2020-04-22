@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b199854867c48906061cff65bad21e514456c911
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 845948d9aec28ee79a11fb11aaef4cfbf1b263fa
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81378707"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770556"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Configure e ative os utilizadores para autenticação baseada em SMS utilizando o Diretório Ativo do Azure (pré-visualização)
 
@@ -40,7 +40,8 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 * Você precisa de privilégios *de administrador global* no seu inquilino Azure AD para permitir a autenticação baseada em SMS.
 * Cada utilizador habilitado na política do método de autenticação de mensagens de texto deve ser licenciado, mesmo que não o utilize. Cada utilizador ativado deve ter uma das seguintes licenças Azure AD ou Microsoft 365:
     * [Azure AD Premium P1 ou P2][azuread-licensing]
-    * [Microsoft 365 F1 ou F3][m365-firstline-workers-licensing]
+    * [Microsoft 365 (M365) F1 ou F3][m365-firstline-workers-licensing]
+    * [Mobilidade Empresarial + Segurança (EMS) E3 ou E5][ems-licensing] ou [Microsoft 365 (M365) E3 ou E5][m365-licensing]
 
 ## <a name="limitations"></a>Limitações
 
@@ -161,3 +162,5 @@ Para obter acesso adicional ao Azure AD sem senha, como a Aplicação autenticad
 [office]: https://www.office.com
 [m365-firstline-workers-licensing]: https://www.microsoft.com/licensing/news/m365-firstline-workers
 [azuread-licensing]: https://azure.microsoft.com/pricing/details/active-directory/
+[ems-licensing]: https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing
+[m365-licensing]: https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans

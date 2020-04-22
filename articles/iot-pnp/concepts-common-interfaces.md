@@ -1,18 +1,18 @@
 ---
 title: Interfaces comuns - IoT Plug e Pré-visualização de reprodução / Microsoft Docs
 description: Descrição das interfaces comuns para desenvolvedores ioT Plug e Play
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c6ac90f917b9afc37b3a39d8da679fbcad091778
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5773ec2b3ea88fa9a507b7c1b0b84bb7ea305a94
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234710"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770479"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>IoT Plug e Play Preview interfaces comuns
 
@@ -60,5 +60,5 @@ az iot pnp capability-model show --model {ModelID}
 Agora que aprendeu sobre interfaces comuns, aqui estão alguns recursos adicionais:
 
 - [Linguagem de Definição Dupla Digital (DTDL)](https://aka.ms/DTDL)
-- [Dispositivo C SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+- [SDK de Dispositivo C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)

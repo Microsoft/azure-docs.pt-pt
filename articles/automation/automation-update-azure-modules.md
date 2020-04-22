@@ -1,18 +1,18 @@
 ---
-title: Atualizar módulos Azure na Automação Azure
+title: Atualizar módulos PowerShell Azure na Automação Azure
 description: Este artigo descreve como pode agora atualizar módulos comuns do PowerShell do Azure fornecidos por padrão na Automação Azure.
 services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ba926ccbb069c8620259514e0a64c56957529a0f
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: bb73b3d644e96f9596f887faaf62eb15f01956ab
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617471"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769675"
 ---
-# <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Como atualizar os módulos do Azure PowerShell na Automatização do Azure
+# <a name="update-azure-powershell-modules-in-azure-automation"></a>Atualizar módulos PowerShell Azure na Automação Azure
 
 Para atualizar os módulos Azure na sua conta Automation é necessário utilizar o livro de execução de [módulos Update Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), que está disponível como fonte aberta. Para começar a utilizar o livro de execução **Update-AutomationAzureModulesForAccount** para atualizar os seus módulos Azure, descarregue-o a partir do [repositório de releções de módulos Update Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) no GitHub. Em seguida, pode importá-lo para a sua conta de Automação ou executá-la como um script. Para aprender a importar um livro de execução na sua conta de Automação, consulte importar um livro de [execução](manage-runbooks.md#importing-a-runbook).
 
@@ -37,7 +37,7 @@ Se desenvolver os seus scripts localmente, recomenda-se que tenha as mesmas vers
 
 Seguem-se algumas considerações a ter em conta ao utilizar este artigo para atualizar os módulos Azure:
 
-* O livro de execução descrito neste artigo suporta a atualização dos módulos Azure, AzureRM e Az por padrão. Reveja o livro de execução de [módulos Update Azure README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) para obter mais informações sobre a atualização de módulos Az.Automation com este livro de execução. Existem fatores importantes adicionais que deve ter em conta ao utilizar os módulos Az na sua conta Automation. Para saber mais, consulte [Az utilizando módulos Az na sua conta Automation](az-modules.md).
+* O livro de execução descrito neste artigo suporta a atualização dos módulos Azure, AzureRM e Az por padrão. Reveja o livro de execução de [módulos Update Azure README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) para obter mais informações sobre a atualização de módulos Az.Automation com este livro de execução. Existem fatores importantes adicionais que deve ter em conta ao utilizar os módulos Az na sua conta Automation. Para saber mais, consulte [Gerir módulos em Automação Azure.](shared-resources/modules.md)
 
 * Antes de iniciar este livro de execução, certifique-se de que a sua conta Deautomatem uma conta [Azure Run Tal como](manage-runas-account.md) a credencial de conta criada.
 

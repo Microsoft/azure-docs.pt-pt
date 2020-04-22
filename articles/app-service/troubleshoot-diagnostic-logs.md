@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6f22d5b2140e42f5f4b8ef5787d22b4be399c7e8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: e945fd77c2615e6f5213a9aa4fc996f0c4d2f3dd
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272530"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769993"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Ativar diagnósticos de login para apps no Serviço de Aplicações Azure
 ## <a name="overview"></a>Descrição geral
@@ -38,6 +38,9 @@ Este artigo utiliza o [portal Azure](https://portal.azure.com) e o Azure CLI par
 >
 
 ## <a name="enable-application-logging-windows"></a>Ativar o registo de aplicações (Windows)
+
+> [!NOTE]
+> O registo de aplicações para armazenamento de bolhas só pode utilizar contas de armazenamento na mesma região que o Serviço de Aplicações
 
 Para permitir o registo de aplicações para aplicações windows no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione registos do **Serviço de Aplicações.**
 

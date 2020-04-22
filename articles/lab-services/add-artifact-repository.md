@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/21/2019
 ms.author: spelluru
-ms.openlocfilehash: a0dbd92533703a56f1ec2478fab8944656129247
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bb871119bece71c705ad9621a7c76c4b5ed0bc7
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295513"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770246"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicione um repositório de artefactos ao seu laboratório em DevTest Labs
 A DevTest Labs permite especificar um artefacto a ser adicionado a um VM no momento da criação do VM ou após a criação do VM. Este artefacto pode ser uma ferramenta ou uma aplicação que pretende instalar no VM. Os artefactos são definidos num ficheiro JSON carregado a partir de um repositório GitHub ou Azure DevOps Git.
@@ -52,20 +52,20 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
 4. Guarde a URL. Usa o URL mais tarde.
 5. Para criar um sinal de acesso pessoal, no menu de entrega da conta de utilizador, **selecione O meu perfil**.
 6. Na página de informações do perfil, selecione **Segurança**.
-7. No separador **Segurança,** selecione **Adicionar**.
-8. Na página **criar um token** de acesso pessoal:
-   1. Insira uma **descrição** para o símbolo.
-   2. Na lista **Expira,** selecione **180 dias**.
-   3. Na lista **de Contas,** selecione **Todas as contas acessíveis**.
-   4. Selecione a opção **Todos os âmbitos.**
-   5. Selecione **Criar Token**.
+7. No **separador de fichas de acesso pessoal > Segurança,** selecione **+ New Token**.
+8. Na **página criar uma nova** página de fichas de acesso pessoal:
+   1. Insira um **nome** para o símbolo.
+   2. Na lista da **Organização,** selecione **Todas as organizações acessíveis.**
+   3. Na lista **expiração (UTC),** selecione **90 dias**, ou um período de validade definido sob medida.
+   4. Selecione a opção de **acesso completo** para Scopes.
+   5. Selecione **Criar**.
 9. O novo símbolo aparece na lista de Fichas de **Acesso Pessoal.** Selecione **Copy Token**e, em seguida, guarde o valor do símbolo para utilização posterior.
 10. Continue a ligar o seu laboratório à secção de repositório.
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
 Esta secção fornece passos para adicionar um repositório de artefactos a um laboratório no portal Azure.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Mais Serviços**e, em seguida, selecione **DevTest Labs** da lista de serviços.
 3. Da lista de laboratórios, selecione o seu laboratório.
 4. Selecione **Configuração e políticas** no menu esquerdo.

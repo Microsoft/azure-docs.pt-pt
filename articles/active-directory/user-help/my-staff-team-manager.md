@@ -13,12 +13,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: c5804d9e386ff1b17c08fc4ce4f3a232ebe1a39b
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 29c27c876e90bce6a38226f68adf44a26465cfea
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81394439"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770857"
 ---
 # <a name="delegate-user-management-with-my-staff-preview"></a>Delegar gestão de utilizadores com o Meu Pessoal (pré-visualização)
 

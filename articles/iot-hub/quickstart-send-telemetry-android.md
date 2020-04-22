@@ -7,15 +7,17 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom:
+- mvc
+- mqtt
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: e239f8c6a7738500176b84589f2032636eeb71e5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ab947dd5485c68e8b971b1cf98fc389945a69914
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675430"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769317"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Quickstart: Envie telemetria IoT a partir de um dispositivo Android
 

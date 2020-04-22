@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: ec2791911d1461ae47d9353629d23a5d7dc30791
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424651"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770731"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Azure Synapse Analytics (pré-visualização do espaço de trabalho) frequentemente faz perguntas
 
@@ -107,5 +107,5 @@ R: Sim, você pode usar suas aplicações de negócio de terceiros, como Tableau
 - [Criar uma área de trabalho](quickstart-create-workspace.md)
 - [Use o Estúdio Synapse](quickstart-synapse-studio.md)
 - [Criar uma piscina SQL](quickstart-create-sql-pool.md)
-- [Use o SQL a pedido](quickstart-sql-on-demand.md)
+- [Utilizar o SQL a pedido](quickstart-sql-on-demand.md)
 - [Crie uma piscina apache spark](quickstart-create-apache-spark-pool.md) 

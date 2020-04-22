@@ -7,40 +7,36 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: c2c909d8ef2be982d4dd4a70b5f35d03e8e71418
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659973"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770376"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Sem necessidade de ligação de saída
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto rico de funcionalidades e alta disponibilidade através de redundância de zona. Para saber mais sobre o Load Balancer SKU, consulte a [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
-Há duas fases numa atualização:
-
-1. Migrar a configuração
-2. Adicione VMs para apoiar piscinas de Balancer de Carga Padrão
-
-Este artigo abrange a migração de configuração. Adicionar VMs a piscinas de backend pode variar dependendo do seu ambiente específico. No entanto, [são fornecidas](#add-vms-to-backend-pools-of-standard-load-balancer)algumas recomendações gerais de alto nível.
+Este artigo introduz um script PowerShell que cria um Balancer de Carga Padrão com a mesma configuração do Equilíbrio de Carga Básico juntamente com o tráfego migratório do Equilíbrio de Carga Básica para o Equilíbrio de Carga Padrão.
 
 ## <a name="upgrade-overview"></a>Descrição geral da atualização
 
 Está disponível um script Azure PowerShell que faz o seguinte:
 
 * Cria um Balancer de carga SKU Interno Padrão no local que especifica. Note que nenhuma [ligação](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) de saída não será fornecida pelo Balancer De carga Interna Padrão.
-* Copia perfeitamente as configurações do Equilíbrio de Carga SKU Básico para o recém-criado Equilíbrio de Carga Standard.
+* Copia perfeitamente as configurações do Equilíbrio de Carga SKU Básico para o recém-criado Standard Load Balancer.
+* Mover perfeitamente os IPs privados do Equilíbrio de Carga Básico para o recém-criado Equilibrador de Carga Padrão.
+* Mover perfeitamente os VMs da piscina de backend do Equilíbrio de Carga Básica para a piscina de backend do Equilibrador de Carga Padrão
 
 ### <a name="caveatslimitations"></a>Ressalvas\Limitações
 
 * O script apenas suporta a atualização do Balancer de Carga Interna onde não é necessária nenhuma ligação de saída. Se necessitar de [ligação de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para alguns dos seus VMs, consulte esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obter instruções. 
-* O Standard Load Balancer tem novos endereços públicos. É impossível mover os endereços IP associados ao equilíbrio de carga básico existente sem problemas para o Standard Load Balancer, uma vez que têm SKUs diferentes.
 * Se o equilibrador de carga Standard for criado numa região diferente, não poderá associar os VMs existentes na região antiga ao recém-criado Standard Load Balancer. Para contornar esta limitação, certifique-se de criar um novo VM na nova região.
-* Se o seu Balancer de Carga não tiver qualquer configuração IP frontal ou piscina de backend, é provável que acerte um erro ao executar o script. Por favor, certifique-se de que não estão vazios.
+* Se o seu Balancer de Carga não tiver qualquer configuração IP frontal ou piscina de backend, é provável que acerte um erro ao executar o script. Certifique-se de que não estão vazios.
 
 ## <a name="download-the-script"></a>Descarregue o script
 
-Descarregue o script de migração da [Galeria PowerShell.](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0)
+Descarregue o script de migração da [Galeria PowerShell.](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0)
 ## <a name="use-the-script"></a>Use o script
 
 Existem duas opções para si, dependendo da configuração e preferências locais do ambiente PowerShell:
@@ -84,30 +80,6 @@ Para executar o script:
    AzureILBUpgrade.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
-### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Adicione VMs para apoiar piscinas de Balancer de Carga Padrão
-
-Primeiro, verifique duas vezes se o script criou com sucesso um novo Balancer de Carga Interna Standard com a configuração exata migrada do seu Equilíbrio de Carga Interna Básica. Pode verificar isto a partir do portal Azure.
-
-Certifique-se de enviar uma pequena quantidade de tráfego através do Balancer de Carga Padrão como um teste manual.
-  
-Aqui estão alguns cenários de como você adiciona VMs para backend piscinas do recém-criado Standard Internal Load Balancer pode ser configurado, e nossas recomendações para cada um:
-
-* Movendo os **VMs existentes de piscinas de backend do antigo Equilibrante de Carga Interna Básica para piscinas de backend pools de recém-criado Standard Internal Load Balancer**.
-    1. Para fazer as tarefas neste arranque rápido, inicie sessão no [portal Azure](https://portal.azure.com).
- 
-    1. **Selecione todos os recursos** no menu esquerdo e, em seguida, selecione o **recém-criado Standard Load Balancer** da lista de recursos.
-   
-    1. Em **Definições,** selecione **piscinas backend**.
-   
-    1. Selecione a piscina de backend que corresponde ao pool de backend do Equilíbrio de Carga Básica, selecione o seguinte valor: 
-      - **Máquina Virtual**: Desça e selecione os VMs da piscina de backend correspondente do Equilíbrio de Carga Básica.
-    1. Selecione **Guardar**.
-    >[!NOTE]
-    >Para vMs que têm IPs públicos, você precisará criar endereços IP padrão primeiro onde o mesmo endereço IP não está garantido. Desassocie os VMs dos IPs básicos e associe-os aos endereços IP padrão recém-criados. Em seguida, poderá seguir as instruções para adicionar VMs no backend pool do Standard Load Balancer. 
-
-* **Criar novos VMs para adicionar às piscinas de backend do recém-criado Standard Internal Load Balancer**.
-    * Mais instruções sobre como criar VM e associá-lo ao Standard Load Balancer pode ser encontrado [aqui](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
-
 ## <a name="common-questions"></a>Perguntas comuns
 
 ### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>Existem limitações com o script Azure PowerShell para migrar a configuração de v1 para v2?
@@ -116,7 +88,7 @@ Sim. Ver [Ressalvas/Limitações](#caveatslimitations).
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>O script Azure PowerShell também muda o tráfego do meu Equilíbrio de Carga Básico para o recém-criado Standard Load Balancer?
 
-Não. O script Azure PowerShell apenas migra a configuração. A migração de tráfego real é da sua responsabilidade e do seu controlo.
+Sim, migra o tráfego. Se quiser migrar o tráfego pessoalmente, use [este guião](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) que não move VMs para si.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Tive alguns problemas com o uso deste guião. Como posso conseguir ajuda?
   

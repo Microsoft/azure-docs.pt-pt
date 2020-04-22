@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Aplicativo Linux Python com Postgres'
-description: Saiba como obter uma aplicação Linux Python a trabalhar no Azure App Service, com ligação a uma base de dados PostgreSQL em Azure. O tutorial demonstra usando uma aplicação de amostra Django.
+title: 'Tutorial: Deploy Python (Django) com Postgres'
+description: Aprenda a criar uma aplicação Python com uma base de dados PostgreSQL e implemente-a para o Azure App Service no Linux. O tutorial usa uma aplicação de amostra django para demonstração.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/14/2020
@@ -9,12 +9,12 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-ms.openlocfilehash: aa30cb5b66769c0a9c89a311940e581f74636573
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 2f6e21f47a021a0aab1d059da2aea2c497acb785
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392544"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770702"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implemente uma aplicação web Python (Django) com PostgreSQL no Serviço de Aplicações Azure
 
@@ -217,9 +217,8 @@ Na sessão sSH, executar os seguintes comandos:
 ```bash
 cd site/wwwroot
 
-# Activate virtual environment
-python3 -m venv venv
-source venv/bin/activate
+# Activate default virtual environment in App Service container
+source /antenv/bin/activate
 # Install requirements in environment
 pip install -r requirements.txt
 # Run database migrations
