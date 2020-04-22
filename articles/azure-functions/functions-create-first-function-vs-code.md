@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 3e1cf95d3c6ac8918e9e7e5593d687ee2d398810
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 08575164334db965a9e5592b761a06205208de9e
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886624"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732780"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Quickstart: Criar um projeto de funções Azure usando o Código de Estúdio Visual
 
@@ -22,7 +22,7 @@ Há também uma [versão baseada em CLI](functions-create-first-azure-function-a
 
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Se o Código VS não for a sua ferramenta de desenvolvimento preferencial, consulte os nossos tutoriais semelhantes para devlopers Java usando [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [Gradle](/azure/azure-functions/functions-create-first-java-gradle) e [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions).
+> Se o Código VS não for a sua ferramenta de desenvolvimento preferencial, consulte os nossos tutoriais semelhantes para desenvolvedores java usando [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [Gradle](/azure/azure-functions/functions-create-first-java-gradle) e [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
 ::: zone-end  
 
 ## <a name="configure-your-environment"></a>Configurar o ambiente

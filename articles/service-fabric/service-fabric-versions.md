@@ -2,13 +2,13 @@
 title: Versões de cluster suportadas em Tecido de Serviço Azure
 description: Conheça as versões de cluster no Azure Service Fabric, incluindo um link para os mais recentes lançamentos do blog da equipa service Fabric.
 ms.topic: troubleshooting
-ms.date: 03/02/2020
-ms.openlocfilehash: b76e498926492ce7acaa696dfe9a0299fb5573e0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.date: 04/20/2020
+ms.openlocfilehash: b68314a116b0d9da8baf5f61eeffeef2b30835c4
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460533"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732881"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões de Tecido de Serviço Suportado
 
@@ -41,6 +41,7 @@ A tabela seguinte lista as versões do Tecido de Serviço e as suas datas finais
 | 7.0.466.* | 6.5.* |Menos ou igual à versão 4.0|1 de agosto de 2020 |
 | 7.0.470.* | 7.0.466.* |Menos ou igual à versão 4.0 |1 de agosto de 2020  |
 | 7.1.409.* | 7.0.466.* |Menos ou igual à versão 4.0 |Versão atual, por isso não há data de fim |
+
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
 A tabela seguinte lista os sistemas operativos suportados para as versões de Tecido de Serviço suportado.
@@ -106,3 +107,4 @@ A tabela seguinte lista os nomes da versão do Tecido de Serviço e os respetivo
 | 7.0 CU2 | 7.0.464.9590 | 7.0.464.1 |
 | 7.0 CU3 | 7.0.466.9590 | 7.0.465.1 |
 | 7.0 CU4 | 7.0.470.9590 | 7.0.469.1 |
+| 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |

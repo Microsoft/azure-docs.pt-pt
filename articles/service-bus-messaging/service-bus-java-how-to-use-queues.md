@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ac6bc8f78bd3d526e68dba3e81825a28a9ac47f7
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 184ffd39281ea27d8596bc37a9f89fd22acfb1ba
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80294134"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732174"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Quickstart: Use as filas de ônibus do Azure Service com a Java para enviar e receber mensagens
 
@@ -43,7 +43,7 @@ Neste tutorial, aprende-se a criar aplicações Java para enviar mensagens e rec
 ## <a name="configure-your-application-to-use-service-bus"></a>Configure a sua aplicação para utilizar o Service Bus
 Certifique-se de que instalou o [SDK Azure para Java][Azure SDK for Java] antes de construir esta amostra. 
 
-Se estiver a utilizar o Eclipse, pode instalar o [Kit de Ferramentas Azure para eclipse][Azure Toolkit for Eclipse] que inclui o Azure SDK para Java. Em seguida, pode adicionar as **Bibliotecas Microsoft Azure para Java** ao seu projeto. Se estiver a utilizar o IntelliJ, consulte [Instalar o Kit de Ferramentas Azure para IntelliJ](/azure/java/intellij/azure-toolkit-for-intellij-installation). 
+Se estiver a utilizar o Eclipse, pode instalar o [Kit de Ferramentas Azure para eclipse][Azure Toolkit for Eclipse] que inclui o Azure SDK para Java. Em seguida, pode adicionar as **Bibliotecas Microsoft Azure para Java** ao seu projeto. Se estiver a utilizar o IntelliJ, consulte [Instalar o Kit de Ferramentas Azure para IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
 
 ![Adicione bibliotecas Microsoft Azure para Java ao seu projeto Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
@@ -184,7 +184,7 @@ O exemplo que se segue demonstra como as mensagens podem ser recebidas e process
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
 O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não conseguir processar a mensagem por alguma razão, então pode ligar para o método de **abandono()** sobre o objeto cliente com o sinal de bloqueio da mensagem recebida obtido através do **getLockToken()**. Tal faz com que o Service Bus desbloqueie a mensagem na fila e torna a mesma disponível para ser novamente recebida, quer pela mesma aplicação de consumo quer por outra aplicação de consumo.
 
-Há também um intervalo associado a uma mensagem bloqueada dentro da fila, e se a aplicação não processar a mensagem antes do prazo de bloqueio expirar (por exemplo, se a aplicação falhar), então o Service Bus desbloqueia a mensagem automaticamente e fá-la disponível para ser recebido novamente.
+Há também um intervalo associado a uma mensagem bloqueada dentro da fila, e se a aplicação não processar a mensagem antes do prazo de bloqueio expirar (por exemplo, se a aplicação falhar), então o Service Bus desbloqueia automaticamente a mensagem e disponibiliza-a para ser recebida novamente.
 
 No caso de a aplicação se falhar após o processamento da mensagem, mas antes de ser emitido o pedido **completo,** a mensagem é retransmitida à aplicação quando recomeçar. Tal é, frequentemente, designado *Processar Pelo Menos Uma Vez*; ou seja, cada mensagem é processada pelo menos uma vez, contudo, em determinadas situações, a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Isto é muitas vezes conseguido usando o método **getMessageId** da mensagem, que permanece constante através de tentativas de entrega.
 
@@ -196,7 +196,7 @@ Agora que aprendeu o básico das filas de ônibus de serviço, consulte [filas, 
 
 Para obter mais informações, veja [Centro para Programadores do Java](https://azure.microsoft.com/develop/java/).
 
-[Azure SDK for Java]: /azure/java/java-sdk-azure-get-started
+[Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
 [Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

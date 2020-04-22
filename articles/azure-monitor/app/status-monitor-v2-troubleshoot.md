@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 217629ba5c386557455cc2d2b8bd47f85fa8f84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671159"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732944"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Agente de insights de aplicação de resolução de problemas (anteriormente chamado Monitor de Estado v2)
 
@@ -116,7 +116,7 @@ Executar `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` o comando p
    - Versão SDK insights de aplicação
    - Caminhos de arquivo do módulo PowerShell
     
-Reveja a [referência da API](status-monitor-v2-api-get-status.md) para obter uma descrição detalhada de como utilizar este cmdlet.
+Reveja a [referência da API](status-monitor-v2-api-reference.md) para obter uma descrição detalhada de como utilizar este cmdlet.
 
 
 ### <a name="troubleshooting-running-processes"></a>Processos de resolução de problemas
@@ -126,7 +126,7 @@ Se a monitorização estiver a funcionar, devem ser carregados pelo menos 12 DLL
 
 Use `Get-ApplicationInsightsMonitoringStatus -InspectProcess` o comando para verificar os DLLs.
 
-Reveja a [referência da API](status-monitor-v2-api-get-status.md) para obter uma descrição detalhada de como utilizar este cmdlet.
+Reveja a [referência da API](status-monitor-v2-api-reference.md) para obter uma descrição detalhada de como utilizar este cmdlet.
 
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>Colete registos ETW utilizando o PerfView

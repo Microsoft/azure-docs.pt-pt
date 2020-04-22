@@ -6,22 +6,25 @@ ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: 21dbd4128cad7df11aeb713286d868879a58519b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5e654fe5d31a225a855da8477e073ceeb1a68634
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75431532"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767246"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Quickstart: Criar um trabalho de Azure Stream Analytics utilizando o Visual Studio
 
 Este início rápido mostra como criar e executar uma tarefa do Stream Analytics com ferramentas do Azure Stream Analytics para Visual Studio. O trabalho de exemplo lê dados de streaming de um dispositivo IoT Hub. Define um trabalho que calcula a temperatura média quando tem mais de 27° e escreve os eventos de saída resultantes para um novo ficheiro no armazenamento de blob.
 
+> [!NOTE]
+> As ferramentas Visual Studio e Visual Studio Code não suportam empregos nas regiões do Leste da China, China Norte, Alemanha Central e Alemanha NorthEast.
+
 ## <a name="before-you-begin"></a>Antes de começar
 
 * Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
 
-* Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 * Instale o Visual Studio 2019, o Visual Studio 2015 ou o Visual Studio 2013 Update 4. As edições Enterprise (Ultimate/Premium), Professional e Community são suportadas. A edição Express não é suportada.
 
@@ -31,7 +34,7 @@ Este início rápido mostra como criar e executar uma tarefa do Stream Analytics
 
 Antes de definir o trabalho do Stream Analytics, deve preparar os dados, que são posteriormente configurados como a entrada de trabalho. Para preparar os dados de entrada necessários pelo trabalho, preencha os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione **Criar um recurso** > **Internet of Things** > **IoT Hub**.
 

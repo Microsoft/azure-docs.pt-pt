@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 08177165439ff7d3205e31757e5d1e28759a9836
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32bc90cc069ac82641c3aa7692c900c60db7ba87
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274193"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733090"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Transmitir os dados de monitorização do Azure para um hub de eventos
 O Azure Monitor fornece uma solução completa de monitorização de pilhas completas para aplicações e serviços em Azure, em outras nuvens e no local. Além de utilizar o Monitor Azure para analisar esses dados e alavancar os mesmos para diferentes cenários de monitorização, poderá ser necessário enviá-lo para outras ferramentas de monitorização no seu ambiente. O método mais eficaz para transmitir dados de monitorização a ferramentas externas na maioria dos casos é a utilização de Hubs de [Eventos Azure](/azure/event-hubs/). Este artigo fornece uma breve descrição de como pode transmitir dados de monitorização de diferentes fontes para um centro de eventos e ligações a orientações detalhadas.
@@ -56,7 +56,7 @@ Encaminhamento dos seus dados de monitorização para um centro de eventos com o
 | ArcSight | Não | O conector inteligente ArcSight Azure Event Hub está disponível como parte da coleção de [conector inteligente ArcSight.](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852) |
 | Syslog server | Não | Se pretender transmitir dados do Monitor Do Azure diretamente para um servidor syslog, pode utilizar uma [solução baseada numa função Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 | LogRhythm | Não| As instruções para configurar o LogRhythm para recolher registos de um centro de eventos estão disponíveis [aqui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
-|Logz.io | Sim | Para mais informações, consulte [Começar com monitorização e registo usando Logz.io para aplicações Java em execução no Azure](https://docs.microsoft.com/azure/java/java-get-started-with-logzio)
+|Logz.io | Sim | Para mais informações, consulte [Começar com monitorização e registo usando Logz.io para aplicações Java em execução no Azure](https://docs.microsoft.com/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

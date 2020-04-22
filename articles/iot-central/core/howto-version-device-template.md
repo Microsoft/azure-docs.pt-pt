@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bb77d1a09cb2692765c4c834ce617d13465d4d67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37c7bc99881c8d1106c8464cfe18c9e63b8a1b02
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157573"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756734"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo do dispositivo
 
-
+*Este artigo aplica-se a construtores de soluções e desenvolvedores de dispositivos.*
 
 A Azure IoT Central permite o rápido desenvolvimento de aplicações IoT. Pode iterar rapidamente os desenhos do modelo do seu dispositivo adicionando, editando ou apagando capacidades, vistas e personalizações do dispositivo. Uma vez publicado o modelo do dispositivo, o modelo de capacidade do dispositivo mostra como **Publicado** com ícones de bloqueio ao lado do modelo. Para fazer alterações no modelo de capacidade do dispositivo, terá de criar uma nova versão do modelo do dispositivo. Entretanto, as propriedades da nuvem, personalizações e vistas podem ser editadas a qualquer momento sem precisar em versão do modelo do dispositivo. Depois de ter guardado qualquer destas alterações, pode publicar o modelo do dispositivo para disponibilizar as mais recentes alterações para o operador visualizar no Device Explorer.
 
@@ -81,7 +81,4 @@ Pode criar várias versões do modelo do dispositivo. Com o tempo, terá vários
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu a usar versões de modelo de dispositivo na sua aplicação Azure IoT Central, eis o próximo passo sugerido:
-
-> [!div class="nextstepaction"]
-> [Como criar regras de telemetria](tutorial-create-telemetry-rules.md)
+Se é um desenvolvedor de dispositivos, um próximo passo sugerido é ler sobre [dispositivos Azure IoT Edge e Azure IoT Central](./concepts-iot-edge.md).

@@ -8,12 +8,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
-ms.openlocfilehash: e728d0ef8f52927687d56bd1d4c64f03c53ef401
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: 919d1e37e6066c78e83d58be4fe4667ec67e45ad
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73947670"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733379"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Inicie com identidade do módulo IoT Hub e módulo twin (.NET)
 
@@ -53,7 +54,7 @@ No final deste tutorial, terá duas aplicações de consola .NET:
 
 Nesta secção, vai criar uma aplicação de consola .NET no seu dispositivo simulado que atualiza as propriedades reportadas do módulo duplo.
 
-Antes de começar, obtenha a corda de ligação do módulo. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Navegue para o seu hub e selecione **Dispositivos IoT**. Encontre **o meu Primeiro Dispositivo.** Selecione **o myFirstDevice** para o abrir e, em seguida, selecione **o meuFirstModule** para o abrir. Em Detalhes de Identidade do **Módulo,** copie a cadeia de **ligação (chave primária)** quando necessário no seguinte procedimento.
+Antes de começar, obtenha a corda de ligação do módulo. Inicie sessão no [portal do Azure](https://portal.azure.com/). Navegue para o seu hub e selecione **Dispositivos IoT**. Encontre **o meu Primeiro Dispositivo.** Selecione **o myFirstDevice** para o abrir e, em seguida, selecione **o meuFirstModule** para o abrir. Em Detalhes de Identidade do **Módulo,** copie a cadeia de **ligação (chave primária)** quando necessário no seguinte procedimento.
 
    ![Detalhe do módulo no portal do Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 

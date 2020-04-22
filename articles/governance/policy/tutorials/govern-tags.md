@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Gerir a governação da etiqueta'
 description: Neste tutorial, utiliza-se o efeito Modificar da Política Azure para criar e impor um modelo de governação de etiquetas sobre recursos novos e existentes.
-ms.date: 11/25/2019
+ms.date: 04/21/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6319bbde2fdc8f78e2743dd5f1565c8680433fea
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75965990"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759061"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Gerir a governação de etiquetas com a Política Azure
 
 [As etiquetas](../../../azure-resource-manager/management/tag-resources.md) são uma parte crucial da organização dos seus recursos Azure numa taxonomia. Ao seguir [as melhores práticas de gestão de etiquetas,](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)as etiquetas podem ser a base para aplicar as suas políticas de negócio com a Política Azure ou [acompanhar os custos com](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources)a Cost Management.
-Não importa como ou por que usar etiquetas, é importante que possa adicionar, alterar e remover rapidamente essas etiquetas nos seus recursos Azure.
+Não importa como ou por que usar etiquetas, é importante que possa adicionar, alterar e remover rapidamente essas etiquetas nos seus recursos Azure. Para ver se o seu recurso Azure suporta a marcação, consulte [o suporte da Tag](../../../azure-resource-manager/management/tag-support.md).
 
 O efeito Modificado da Política Azure [destina-se](../concepts/effects.md#modify) a ajudar na governação das etiquetas, independentemente da fase da governação dos recursos em que se encontra. **Modificar** ajuda quando:
 

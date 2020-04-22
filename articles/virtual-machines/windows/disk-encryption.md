@@ -2,17 +2,17 @@
 title: Encriptação do lado do servidor de Discos Geridos Azure - PowerShell
 description: O Azure Storage protege os seus dados encriptando-os em repouso antes de persistir nos clusters de Armazenamento. Pode contar com chaves geridas pela Microsoft para a encriptação dos seus discos geridos, ou pode utilizar chaves geridas pelo cliente para gerir a encriptação com as suas próprias chaves.
 author: roygara
-ms.date: 04/02/2020
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 85fc6412a12963bb01782becf639f7acfc31fbe5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 3f6039382b970ca3b0d77042c60cb720f96466d2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81452083"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759195"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
@@ -72,7 +72,7 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 
 - Se esta função estiver ativada para o disco, não poderá desativá-la.
     Se precisa de trabalhar em torno disto, tem de [copiar todos os dados](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) para um disco gerido completamente diferente que não esteja a utilizar chaves geridas pelo cliente.
-- Apenas são suportadas [teclas RSA "macias" e "duras"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) do tamanho 2080, sem outras teclas ou tamanhos.
+- Apenas são suportadas [teclas RSA "macias" e "duras"](../../key-vault/keys/about-keys.md) do tamanho 2080, sem outras teclas ou tamanhos.
 - Os discos criados a partir de imagens personalizadas que são encriptadas utilizando encriptação do lado do servidor e chaves geridas pelo cliente devem ser encriptados utilizando as mesmas chaves geridas pelo cliente e devem estar na mesma subscrição.
 - As imagens criadas a partir de discos que são encriptados com encriptação do lado do servidor e chaves geridas pelo cliente devem ser encriptadas com as mesmas chaves geridas pelo cliente.
 - Imagens personalizadas encriptadas utilizando encriptação do lado do servidor e chaves geridas pelo cliente não podem ser usadas na galeria de imagens partilhadas.

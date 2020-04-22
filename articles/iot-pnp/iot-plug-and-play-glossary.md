@@ -1,20 +1,20 @@
 ---
 title: Glossário de termos - IoT Plug e Pré-visualização de jogo / Microsoft Docs
 description: Conceitos - um glossário de termos comuns relativos ao IoT Plug e play Preview.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/23/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: ef5ce9cc1cda7f1ff6b1985771e20cb20123e264
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f0c21626c664f2d72b534ebae7f0a257620be07d
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025644"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767066"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossário de termos para IoT Plug e Play Preview
 

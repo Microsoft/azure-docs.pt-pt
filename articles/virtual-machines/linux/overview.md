@@ -1,23 +1,19 @@
 ---
 title: Visão geral dos VMs linux em Azure
 description: Visão geral das máquinas virtuais Linux em Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines-linux
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines-linux
 ms.topic: overview
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 69a9722436aea1cf794e6e3f3ce02ec79180cff3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 83676850a58da4e4bd3c549d9d0c6ac25ae20f83
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80159477"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759418"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuais do Linux no Azure
 
@@ -105,7 +101,7 @@ Azure suporta para [cloud-init](https://cloud-init.io/) em toda a maioria DeStro
 
 * [Utilizar o cloud-init em VMs do Linux no Azure](using-cloud-init.md)
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 * [Introdução ao Storage do Microsoft Azure](../../storage/common/storage-introduction.md)
 * [Add a disk to a Linux VM using the azure-cli](add-disk.md) (Adicionar um disco a uma VM do Linux com a CLI do Azure)
 * [How to attach a data disk to a Linux VM in the Azure portal](attach-disk-portal.md) (Como anexar um disco de dados a uma VM do Linux no portal do Azure)
@@ -122,6 +118,6 @@ Azure suporta para [cloud-init](https://cloud-init.io/) em toda a maioria DeStro
 Crie o seu primeiro VM!
 
 - [Portal](quick-create-portal.md)
-- [Azure CLI](quick-create-cli.md)
+- [CLI do Azure](quick-create-cli.md)
 - [PowerShell](quick-create-powershell.md)
 

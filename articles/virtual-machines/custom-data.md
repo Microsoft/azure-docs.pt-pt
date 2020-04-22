@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: aadac082e90a19d1a185dd7e6181a490adb70a10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9497e665d024b583c261ade3e6fb5393a9322ce0
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80109631"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759132"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Dados personalizados e Cloud-Init em Máquinas Virtuais Azure
 
@@ -54,7 +54,7 @@ No Azure Resource Manager (ARM), existe uma [função base64](https://docs.micro
         "computerName": "[parameters('virtualMachineName')]",
         "adminUsername": "[parameters('adminUsername')]",
         "adminPassword": "[parameters('adminPassword')]",
-        "customDataBase64": "[variables('customData')]"
+        "customData": "[variables('customDataBase64')]"
         },
 ```
 

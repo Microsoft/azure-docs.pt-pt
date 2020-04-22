@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac44661dd5a52ba19a3b2dd461aabec1ec250bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd24650c9bf0c4de155b5bfc8723cfa1fef01548
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284879"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81755406"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administração no Diretório Ativo azure
 
@@ -76,9 +76,9 @@ Configurar propriedades da empresa | Administrador Global |
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Autenticação de passagem | Administrador Global | 
-Leia todas as configurações | Leitor global | 
-Inscrição única sem emenda | Administrador Global | 
+Autenticação de passagem | Administrador de Identidade Híbrida | 
+Leia todas as configurações | Leitor global | Administrador de Identidade Híbrida |
+Inscrição única sem emenda | Administrador de Identidade Híbrida | 
 
 ## <a name="connect-health"></a>Connect Health
 
@@ -346,7 +346,7 @@ Atualizar as definições do utilizador | Administrador Global |
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Enviar bilhete de apoio | Administrador de Serviços | Administrador de aplicação, Administrador de Proteção de Informação Azure, Administrador de Faturação, Administrador de Aplicação em Nuvem, Administrador de Conformidade, Administrador da Dynamics 365, Administrador de Análise de Desktop, Administrador de Câmbio, Palavra-passe Administrador, Administrador Intune, Skype para Administrador de Negócios, Administrador power BI, Administrador de Autenticação Privilegiada, Administrador de SharePoint, Administrador de Comunicações de Equipas, Administrador de Equipas, Administrador de Utilizadores, Administrador de Análise de Local de Trabalho
+Enviar bilhete de apoio | Administrador de Serviços | Administrador de aplicação, Administrador de Proteção de Informação Azure, Administrador de Faturação, Administrador de Aplicação em Nuvem, Administrador de Conformidade, Administrador da Dynamics 365, Administrador de Análise de Desktop, Administrador de Troca, Administrador de Passwords, Administrador intune, Skype para Administrador de Negócios, Administrador de Energia, Administrador de Autenticação Privilegiada, Administrador de Dados, Administrador de Comunicações de Equipas, Administrador de Equipas, Administrador de Utilizador, Administrador de Análise de Local de Trabalho
 
 ## <a name="next-steps"></a>Passos seguintes
 

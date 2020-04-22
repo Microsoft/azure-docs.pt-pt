@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4034759dc4f20649c15236b057e348966d72409e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: dfe1bd1cbc99838f427aaba5bc29b23f8bfcbaff
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261165"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758674"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Linha de base de segurança azure para base de dados azure para o servidor único postgresQL
 
@@ -652,7 +652,7 @@ Cobertura de funcionalidades para serviços Azure PaaS no Centro de Segurança A
 
 **Orientação**: Utilize o Gráfico de Recursos Azure para consultar e descobrir todos os recursos (incluindo a Base de Dados Azure para instâncias PostgreSQL) dentro da sua subscrição( s). Certifique-se de que tem permissões adequadas (ler) no seu inquilino e que é capaz de enumerar todas as subscrições do Azure, bem como recursos dentro das suas subscrições.
 
-Como criar consultas com o Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o Gráfico de Recursos Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Como visualizar as suas Assinaturas Azure:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
@@ -798,7 +798,7 @@ Como configurar o Acesso Condicional ao acesso ao portal Azure Resource Manager:
 
 - As ligações de log devem ser ativadas para servidores de base de dados PostgreSQL
 
-Como visualizar os aliases de política do Azure disponíveis:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Como visualizar os pseudónimos disponíveis da Política Azure:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

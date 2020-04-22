@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ad8fcf578ae1c89856a9d7929af0aec813cb4082
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b42c2a414333e7ed262441321a808fc45425fc3b
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187598"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756752"
 ---
 # <a name="json-claims-transformations"></a>JSON reclama transformações
 
@@ -223,6 +223,39 @@ No exemplo seguinte, a transformação `id` de sinistros extrai o elemento dos d
 - Alegações de saída:
     - **extractida:** 6353399
 
+## <a name="getsingleitemfromjson"></a>GetSingleItemFromJson
+
+Obtém o primeiro elemento a partir de um dado JSON.
+
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| Pedido de crédito | inputJson | string | Os Tipos de Reclamação que são utilizados pela transformação de sinistros para obter o item dos dados jSON. |
+| Pedido de saída | key | string | A primeira chave de elementos no JSON. |
+| Pedido de saída | valor | string | O primeiro valor de elemento no JSON. |
+
+No exemplo seguinte, a transformação de sinistros extrai o primeiro elemento (nome dado) dos dados jSON.
+
+```XML
+<ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="givenNameKey" TransformationClaimType="key" />
+    <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemplo
+
+- Créditos de entrada:
+  - **inputJson**: {"givenName": "Emilty", "lastName": "Smith"}
+- Alegações de saída:
+  - **chave**: nome dado
+  - **valor**: Emilty
+
+
 ## <a name="getsinglevaluefromjsonarray"></a>GetSingleValueFromJsonArray
 
 Obtém o primeiro elemento de uma matriz de dados DaJSON.
@@ -294,3 +327,5 @@ Reivindicação de saída:
   }
 }
 ```
+
+

@@ -3,12 +3,12 @@ title: referência host.json para funções Azure 1.x
 description: Documentação de referência para o ficheiro host.json funções azure com o tempo de funcionamento v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 2b00e2343e0959e07b195e2e98c6719a1893b8c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277053"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757512"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>referência host.json para funções Azure 1.x
 
@@ -148,9 +148,7 @@ Configurações de configuração para o [gatilho e encadernação Azure Cosmos 
 
 ## <a name="eventhub"></a>eventoHub
 
-Definições de configuração para [gatilhos e encadernações](functions-bindings-event-hubs.md)do Centro de Eventos .
-
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
+Definições de configuração para [gatilhos e encadernações](functions-bindings-event-hubs-trigger.md#functions-1x)do Centro de Eventos .
 
 ## <a name="functions"></a>funções
 

@@ -2,14 +2,14 @@
 title: 'Quickstart: Tenha intenção com APIs REST - LUIS'
 description: Neste rest API quickstart, utilize uma aplicação PÚBLICA LUIS disponível para determinar a intenção de um utilizador a partir de texto de conversação.
 ms.topic: quickstart
-ms.date: 02/03/2020
+ms.date: 04/20/2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 4e2c32b2eaf8cd6935e8e6b45bf79a1f3c756316
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 03f1c1539233872d9b98fab317c9caf997d5df69
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77524670"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733304"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>Quickstart: Obtenha intenção com APIs rest
 

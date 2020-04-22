@@ -4,12 +4,12 @@ description: Aprenda a criar uma função a partir da linha de comando e, em seg
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: eb893491310850b141a0d68cb7a74041411843a9
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 547acb42be6a0c89dbc315031c46192b5c9a4a0d
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457455"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732813"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função em Azure que responda aos pedidos do HTTP
 
@@ -21,7 +21,7 @@ Há também uma [versão baseada em Código](functions-create-first-function-vs-
 
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Se a Maven não é a sua ferramenta de desenvolvimento preferencial, confira os nossos tutoriais semelhantes para os devlopers java usando [Gradle,](/azure/azure-functions/functions-create-first-java-gradle) [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions) e [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Se a Maven não é a sua ferramenta de desenvolvimento preferencial, consulte os nossos tutoriais semelhantes para desenvolvedores de Java usando [Gradle,](/azure/azure-functions/functions-create-first-java-gradle) [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 ::: zone-end  
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]

@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6f93d74653aab78e48e613ddf9252a0876548b95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a99f261e1a834705d081e8197e4ae627cf1cb9f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157675"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756659"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Defina um novo tipo de dispositivo IoT na sua aplicação Azure IoT Central
+
+*Este artigo aplica-se a construtores de soluções e desenvolvedores de dispositivos.*
 
 Um modelo de dispositivo é uma planta que define as características e comportamentos de um tipo de dispositivo que se conecta a uma aplicação Central Azure IoT.
 
@@ -253,18 +255,6 @@ Para publicar um modelo de dispositivo, vá até si o modelo do seu dispositivo 
 
 Depois de publicar um modelo de dispositivo, um operador pode ir à página **de Dispositivos** e adicionar dispositivos reais ou simulados que usam o modelo do dispositivo. Pode continuar a modificar e a guardar o modelo do seu dispositivo à medida que está a fazer alterações. Quando pretender empurrar estas alterações para o operador para ver na página **dos Dispositivos,** deve selecionar **Publicar** sempre.
 
-
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, ficou a saber como:
-
-* Crie um novo modelo de dispositivo IoT.
-* Criar propriedades em nuvem.
-* Criar personalizações.
-* Defina uma visualização para a telemetria do dispositivo.
-* Publique o modelo do seu dispositivo.
-
-Em seguida, pode:
-
-> [!div class="nextstepaction"]
-> [Ligar um dispositivo](howto-connect-devkit.md)
+Se é um desenvolvedor de dispositivos, um próximo passo sugerido é ler sobre [a versão do modelo](./howto-version-device-template.md)do dispositivo .

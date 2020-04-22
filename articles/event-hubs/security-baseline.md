@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 10fc822f9f36512405dd4e3b5aba6270b53e163f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 1c7e18214ec175b8b21d25643098631a044da19c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549034"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758311"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de Base de Segurança Azure para Centros de Eventos
 
@@ -335,7 +335,7 @@ Como utilizar a Política Azure:https://docs.microsoft.com/azure/governance/poli
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Utilize um único sinal (SSO) com diretório ativo Azure
 
-**Orientação**: O Microsoft Azure fornece uma gestão integrada do controlo de acesso para recursos e aplicações com base no Azure Ative Directory (AD). Uma vantagem fundamental de usar o Azure AD com o Azure Event Hubs é que já não precisa de armazenar as suas credenciais no código. Em vez disso, pode solicitar um sinal de acesso OAuth 2.0 da plataforma Microsoft Identity. O nome do recurso para https://eventhubs.azure.net/pedir um símbolo é . A Azure AD autentica o diretor de segurança (utilizador, grupo ou diretor de serviço) que executa a aplicação. Se a autenticação for bem sucedida, a Azure AD devolve um sinal de acesso à aplicação, podendo então utilizar o sinal de acesso para autorizar o pedido aos recursos do Azure Event Hubs.
+**Orientação**: O Microsoft Azure fornece uma gestão integrada do controlo de acesso para recursos e aplicações com base no Azure Ative Directory (AD). Uma vantagem fundamental de usar o Azure AD com o Azure Event Hubs é que já não precisa de armazenar as suas credenciais no código. Em vez disso, pode solicitar um sinal de acesso OAuth 2.0 da plataforma Microsoft Identity. O nome do recurso para solicitar\/um token é https: /eventhubs.azure.net/. A Azure AD autentica o diretor de segurança (utilizador, grupo ou diretor de serviço) que executa a aplicação. Se a autenticação for bem sucedida, a Azure AD devolve um sinal de acesso à aplicação, podendo então utilizar o sinal de acesso para autorizar o pedido aos recursos do Azure Event Hubs.
 
 Como autenticar uma aplicação com a Azure AD para aceder aos recursos do Event Hubs:https://docs.microsoft.com/azure/event-hubs/authenticate-application
 
@@ -631,7 +631,7 @@ Como criar alertas para eventos de Registo de Atividade seleções do Azure:http
 
 **Orientação**: Utilize o Gráfico de Recursos Azure para consultar e descobrir todos os recursos (incluindo os espaços de nome do Azure Event Hubs) dentro da sua subscrição(s). Certifique-se de que tem permissões adequadas (ler) no seu inquilino e que é capaz de enumerar todas as subscrições do Azure, bem como recursos dentro das suas subscrições.
 
-Como criar consultas com o Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o Gráfico de Recursos Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Como visualizar as suas Assinaturas Azure:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
@@ -779,7 +779,7 @@ Como configurar o Acesso Condicional ao acesso ao portal Azure Resource Manager:
 
 Política Azure Built-in para espaço de nome de Centros de Eventos:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
-Como visualizar os aliases de política do Azure disponíveis:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Como visualizar os pseudónimos disponíveis da Política Azure:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

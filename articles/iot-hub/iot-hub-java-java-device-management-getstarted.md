@@ -9,12 +9,13 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: f68e25a618f5c6499ccc9d76c510eab8f1650330
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 75d89b54bae6eb8166d44e08ea020a0da67ad20c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110876"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732546"
 ---
 # <a name="get-started-with-device-management-java"></a>Começar com a gestão de dispositivos (Java)
 

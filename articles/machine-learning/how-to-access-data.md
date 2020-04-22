@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: ca892b5f360f523ee2b5ff875dfb0707136a5ab5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 4a2102f442fc176762b7d5d69f7b367a94633ef5
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383448"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758787"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligue-se aos serviços de armazenamento azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -99,7 +99,7 @@ Selecione Contas de **Armazenamento** no painel esquerdo e escolha a conta de ar
 * Para itens principais de serviço como, ID de inquilino e ID do cliente, vá às **suas inscrições** da App e selecione qual a aplicação que pretende utilizar. A sua página **de visão geral** correspondente conterá estes itens.
 
 > [!IMPORTANT]
-> Se a sua conta de armazenamento estiver numa rede virtual, apenas é suportada a criação de blob, File share, ADLS Gen 1 e ADLS Gen 2 **através do SDK.** Para conceder o seu espaço de trabalho de `grant_workspace_access` `True`acesso à sua conta de armazenamento, defina o parâmetro para .
+> Se a sua conta de armazenamento estiver numa rede virtual, apenas é suportada a criação de lojas de dados **através do SDK.**
 
 Os exemplos seguintes mostram como registar um contentor de blob Azure, uma partilha de ficheiros Azure, e Azure Data Lake Storage Generation 2 como uma loja de dados. Para outros serviços de armazenamento, consulte a [documentação de referência para os métodos `register_azure_*` aplicáveis.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods)
 
@@ -121,6 +121,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          account_name=account_name,
                                                          account_key=account_key)
 ```
+Se o seu recipiente de bolhas `skip_validation=True` [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)estiver em rede virtual, coloque-o utilizando .
 
 #### <a name="file-share"></a>Partilha de ficheiros
 
@@ -140,6 +141,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      account_name=account_name,
                                                      account_key=account_key)
 ```
+Se a sua quota de `skip_validation=True` ficheiro [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)estiver na rede virtual, despolete a utilização . 
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Geração de Armazenamento de Lagos De Dados Azure 2
 
@@ -271,7 +273,7 @@ O Azure Machine Learning fornece várias formas de utilizar os seus modelos para
 | Método | Acesso a datastore | Descrição |
 | ----- | :-----: | ----- |
 | [Predição de lote](how-to-use-parallel-run-step.md) | ✔ | Faça previsões sobre grandes quantidades de dados assincronicamente. |
-| [Serviço Web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |
+| [Serviço web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |
 | [Módulo Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos para dispositivos IoT Edge. |
 
 Para situações em que o SDK não fornece acesso a lojas de dados, poderá ser capaz de criar código personalizado utilizando o SDK Azure relevante para aceder aos dados. Por exemplo, o [Azure Storage SDK para Python](https://github.com/Azure/azure-storage-python) é uma biblioteca de clientes que pode usar para aceder a dados armazenados em blobs ou ficheiros.

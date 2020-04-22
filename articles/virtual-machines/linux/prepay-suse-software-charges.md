@@ -3,18 +3,17 @@ title: Pré-pagamento para planos de software - Reservas Azure
 description: Saiba como pode pagar os planos de software para economizar dinheiro acima dos seus custos de pagamento.
 author: bandersmsft
 manager: yashesvi
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 3e05920e495dd4aa14be6c849590a37a2bafa33f
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757227"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759281"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pré-pagamento dos planos de software do Azure
 
@@ -63,7 +62,7 @@ Não pode cancelar ou trocar um plano SUSE ou RedHat que comprou. Verifique a su
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio.
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -71,7 +70,7 @@ Para aprender a gerir uma reserva, consulte [as reservas do Manage Azure.](../..
 
 Para saber mais, consulte os seguintes artigos:
 
-- [O que são Reservas Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [O que é o Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Gerir Reservas no Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 - [Entenda como é aplicado o desconto de reserva SUSE](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
 - [Compreender a utilização de reservas na sua subscrição Pay As You Go](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)

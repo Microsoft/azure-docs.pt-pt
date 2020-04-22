@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6bf34f8fb15bf8fddb1ba398ed678d5c98b8c84f
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 265e15713f8159e370ef22a197ffe931200a88f7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667793"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758993"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interaja com os clusters Apache Kafka em Azure HDInsight usando um proxy REST
 
@@ -74,7 +74,7 @@ Para pedidos de ponto final de procuração REST, os pedidos de cliente devem ob
 Pode usar o código python abaixo para interagir com o proxy REST no seu cluster Kafka. Para utilizar a amostra de código, siga estes passos:
 
 1. Guarde o código da amostra numa máquina com python instalada.
-1. Instale dependências de pitão necessárias executando `pip3 install adal` e `pip install msrestazure`.
+1. Instale dependências de pitão necessárias executando `pip3 install msal`.
 1. Modifique a secção de **códigoConfigure estas propriedades** e atualize as seguintes propriedades para o seu ambiente:
 
     |Propriedade |Descrição |
@@ -84,7 +84,7 @@ Pode usar o código python abaixo para interagir com o proxy REST no seu cluster
     |Segredo do Cliente|O segredo para o pedido que registou no grupo de segurança.|
     |Kafkarest_endpoint|Obtenha este valor do separador **Propriedades** na visão geral do cluster, conforme descrito na [secção de implementação](#create-a-kafka-cluster-with-rest-proxy-enabled). Deve estar no seguinte formato –`https://<clustername>-kafkarest.azurehdinsight.net`|
 
-1. A partir da linha de comando, execute o ficheiro python executando`python <filename.py>`
+1. A partir da linha de comando, execute o ficheiro python executando`sudo python3 <filename.py>`
 
 Este código faz a seguinte ação:
 
@@ -95,13 +95,9 @@ Para obter fichas OAuth em python, consulte a [aula python AuthenticationContext
 
 ```python
 #Required python packages
-#pip3 install adal
-#pip install msrestazure
+#pip3 install msal
 
-import adal
-from msrestazure.azure_active_directory import AdalAuthentication
-from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
-import requests
+import msal
 
 #--------------------------Configure these properties-------------------------------#
 # Tenant ID for your Azure Subscription
@@ -114,19 +110,24 @@ client_secret = 'password'
 kafkarest_endpoint = "https://<clustername>-kafkarest.azurehdinsight.net"
 #--------------------------Configure these properties-------------------------------#
 
-#getting token
-login_endpoint = AZURE_PUBLIC_CLOUD.endpoints.active_directory
-resource = "https://hib.azurehdinsight.net"
-context = adal.AuthenticationContext(login_endpoint + '/' + tenant_id)
+# Scope
+scope = 'https://hib.azurehdinsight.net/.default'
+#Authority
+authority = 'https://login.microsoftonline.com/' + tenant_id
 
-token = context.acquire_token_with_client_credentials(
-    resource,
-    client_id,
-    client_secret)
+# Create a preferably long-lived app instance which maintains a token cache.
+app = msal.ConfidentialClientApplication(
+    client_id , client_secret, authority,
+    #cache - For details on how look at this example: https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py
+    )
 
-accessToken = 'Bearer ' + token['accessToken']
+# The pattern to acquire a token looks like this.
+result = None
 
-print(accessToken)
+result = app.acquire_token_for_client(scopes=[scope])
+
+print(result)
+accessToken = result['access_token']
 
 # relative url
 getstatus = "/v1/metadata/topics"
@@ -137,10 +138,10 @@ response = requests.get(request_url, headers={'Authorization': accessToken})
 print(response.content)
 ```
 
-Encontre abaixo outra amostra sobre como obter um símbolo de Azure para proxy REST usando um comando de caracóis. Reparem que `resource=https://hib.azurehdinsight.net` precisamos do especificado enquanto recebemos um símbolo.
+Encontre abaixo outra amostra sobre como obter um símbolo de Azure para proxy REST usando um comando de caracóis. **Reparem que `scope=https://hib.azurehdinsight.net/.default` precisamos do especificado enquanto recebemos um símbolo.**
 
 ```cmd
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&resource=https://hib.azurehdinsight.net' 'https://login.microsoftonline.com/<tenantid>/oauth2/token'
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&scope=https://hib.azurehdinsight.net/.default' 'https://login.microsoftonline.com/<tenantid>/oauth2/v2.0/token'
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

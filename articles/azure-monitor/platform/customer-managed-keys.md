@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 04/12/2020
-ms.openlocfilehash: dbd217c7135172c52a5ec7459930977960c452aa
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 25fdb0aefacbdd9c2630a69981a67821ac155786
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260871"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758818"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuração da chave gerida pelo cliente do Azure Monitor 
 
@@ -281,7 +281,7 @@ Atualize o recurso *cluster* KeyVaultProperties com detalhes do identificador de
 
 **Atualizar**
 
-Este pedido do Gestor de Recursos é uma operação assíncrona.
+Este pedido do Gestor de Recursos é uma operação assíncrona ao atualizar os detalhes do identificador chave, enquanto é sincronizado ao atualizar o valor da capacidade.
 
 > [!Warning]
 > Deve fornecer um corpo inteiro na atualização de recursos *cluster* que inclua *identidade,* *sku,* *KeyVaultProperties* e *localização*. Faltando os detalhes *keyVaultProperties* removerá o identificador chave do recurso *Cluster* e causará [a revogação da chave](#cmk-kek-revocation).
@@ -314,7 +314,7 @@ Content-type: application/json
 **Resposta**
 
 200 OK e cabeçalho.
-Leva alguns minutos para completar a propagação do identificador chave. Pode verificar o estado de provisionamento de duas formas:
+Leva alguns minutos para completar a propagação do identificador chave. Pode verificar o estado de atualização de duas formas:
 1. Copie o valor URL da Operação Azure-Async a partir da resposta e siga a verificação do [estado de funcionamento assíncrono](#asynchronous-operations-and-status-check).
 2. Envie um pedido GET sobre o recurso *Cluster* e veja as propriedades *keyVaultProperties.* Os seus dados de identificação key recentemente atualizados devem voltar na resposta.
 
@@ -436,13 +436,13 @@ Todos os seus dados são acessíveis após a operação de rotação da chave, i
 
 - O número máximo de recursos *cluster* por subscrição é limitado a 2
 
-- *A* associação de recursos de cluster para o espaço de trabalho só deve ser transportada depois de ter verificado que o fornecimento de cluster ADX foi cumprido. Os dados enviados antes desta disposição serão retirados e não serão recuperáveis.
+- *A* associação de recursos de cluster para o espaço de trabalho só deve ser transportada depois de ter verificado que o fornecimento de cluster ADX foi concluído. Os dados enviados para o seu espaço de trabalho antes da conclusão do fornecimento serão retirados e não serão recuperáveis.
 
 - A encriptação CMK aplica-se aos dados recentemente ingeridos após a configuração cmk. Os dados que foram ingeridos antes da configuração cmk, permanecem encriptados com a chave da Microsoft. Pode consultar os dados ingeridos antes e depois da configuração cmk sem problemas.
 
-- Uma vez que o espaço de trabalho está associado a um recurso *cluster,* não pode ser dissociado do recurso *Cluster,* uma vez que os dados são encriptados com a sua chave e não são acessíveis sem o seu KEK no Cofre chave Azure.
+- Pode desassociar um espaço de trabalho a partir de um recurso *cluster* ao decidir que a CMK não é necessária para um espaço de trabalho específico. Novos dados ingeridos após a operação de desassociação é armazenado no armazenamento partilhado de Log Analytics como era antes de ser associado ao recurso *Cluster.* Pode consultar os dados ingeridos antes e depois da desassociação perfeitamente se o seu recurso *Cluster* estiver aprovisionado e configurado com uma chave chave de cofre válida.
 
-- O Cofre de Chaves Azure deve ser configurado como recuperável. Estas propriedades não são ativadas por padrão e devem ser configuradas usando CLI e PowerShell:
+- O Cofre de Chaves Azure deve ser configurado como recuperável. Estas propriedades não são ativadas por padrão e devem ser configuradas usando CLI ou PowerShell:
 
   - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) deve ser ligado
   - [A proteção da purga](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) deve ser ligada para proteger contra a eliminação da força do segredo/cofre mesmo após a eliminação suave
@@ -470,6 +470,8 @@ Todos os seus dados são acessíveis após a operação de rotação da chave, i
 
 - Se tentar eliminar um recurso *cluster* associado a um espaço de trabalho, a operação de eliminação falhará.
 
+- Se tiver um erro de conflito ao criar um recurso *cluster* – Pode ser que tenha eliminado o seu recurso *Cluster* nos últimos 14 dias e se tenha em um período de eliminação suave. O nome do recurso *Cluster* permanece reservado durante o período de eliminação suave e não pode criar um novo cluster com esse nome. O nome é lançado após o período de eliminação suave quando o recurso *Cluster* é permanentemente eliminado.
+
 - Obtenha todos os recursos *do Cluster* para um grupo de recursos:
 
   ```rst
@@ -488,6 +490,11 @@ Todos os seus dados são acessíveis após a operação de rotação da chave, i
           "tenantId": "tenant-id",
           "principalId": "principal-Id"
         },
+        "sku": {
+          "name": "capacityReservation",
+          "capacity": 1000,
+          "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
+          },
         "properties": {
            "KeyVaultProperties": {
               KeyVaultUri: "https://key-vault-name.vault.azure.net",
@@ -517,8 +524,10 @@ Todos os seus dados são acessíveis após a operação de rotação da chave, i
   **Resposta**
     
   A mesma resposta que para os "recursos*de cluster* para um grupo de recursos", mas no âmbito da subscrição.
-    
-- Eliminar o seu recurso *Cluster* -- é executada uma operação de eliminação suave para permitir a recuperação do seu recurso Cluster, dos seus dados e espaços de trabalho associados no prazo de 14 dias, quer a eliminação tenha sido acidental ou intencional. O nome do recurso *Cluster* permanece reservado durante o período de eliminação suave e não pode criar um novo cluster com esse nome. Após o período de eliminação suave, o seu recurso *cluster* e os seus dados não são recuperáveis. Os espaços de trabalho associados são desassociados a partir do recurso *Cluster* e novos dados são ingeridos para armazenamento partilhado e encriptados com a chave microsoft.
+
+- Atualizar a reserva de *capacidade* no recurso *Cluster* -- quando o volume de dados dos seus espaços de trabalho associados mudar e pretender atualizar o nível de reserva de capacidade para considerações de faturação, siga o [recurso *cluster* ](#update-cluster-resource-with-key-identifier-details) atualizado e forneça o seu novo valor de capacidade. O nível de reserva de capacidade pode ser entre 1.000 e 2.000 GB por dia e em etapas de 100. Para um nível superior a 2.000 GB por dia, contacte o seu contacto da Microsoft para o ativar.
+
+- Eliminar o seu recurso *Cluster* -- é executada uma operação de eliminação suave para permitir a recuperação do seu recurso *Cluster,* incluindo os seus dados no prazo de 14 dias, se a eliminação foi acidental ou intencional. O nome do recurso *Cluster* permanece reservado durante o período de eliminação suave e não pode criar um novo cluster com esse nome. Após o período de eliminação suave, o nome do recurso *Cluster* é lançado, o seu recurso *cluster* e os seus dados são permanentemente eliminados e não são recuperáveis. Qualquer espaço de trabalho associado é desassociado do recurso *Cluster* na eliminação da operação. Novos dados ingeridos são armazenados no armazenamento de Log Analytics partilhado e encriptados com a chave microsoft. A operação desassociada dos espaços de trabalho é assíncrona.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -529,8 +538,7 @@ Todos os seus dados são acessíveis após a operação de rotação da chave, i
 
   200 OK
 
-- Recupere o seu recurso *Cluster* e os seus dados -- durante o período de eliminação suave, crie um recurso *Cluster* com o mesmo nome e na mesma subscrição, grupo de recursos e região. Siga o passo de **recurso Create *Cluster* ** para recuperar o seu recurso *Cluster.*
-
+- Recupere o seu recurso *Cluster* e os seus dados -- Um recurso *cluster* que foi eliminado nos últimos 14 dias está em estado de eliminação suave e pode ser recuperado. Isto é executado manualmente pelo grupo de produtos atualmente. Utilize o seu canal Microsoft para pedidos de recuperação.
 
 ## <a name="appendix"></a>Anexo
 

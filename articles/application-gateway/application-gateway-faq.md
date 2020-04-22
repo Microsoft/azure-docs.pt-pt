@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: e64b0a8602a4a0806ada15546972856743c38161
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 0e5a683c95e213a0fc37ec4f559e89abfecf034a
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312476"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758919"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicação
 
@@ -72,7 +72,7 @@ Para o v2 SKU, abra o recurso IP público e **selecione Configuração**. O camp
 
 *O tempo limite de tempo keep-Alive* rege o tempo que o Gateway de Aplicação irá esperar que um cliente envie outro pedido http numa ligação persistente antes de reutilizá-lo ou fechá-lo. *O tempo inativo da TCP* rege o tempo de duração de uma ligação TCP em caso de não atividade. 
 
-O *tempo de tempo de Keep-Alive* no Gateway de aplicação v1 SKU é de 120 segundos e no V2 SKU são 75 segundos. O tempo de paragem inativa do *TCP* é um padrão de 4 minutos no IP virtual frontend (VIP) tanto v1 como v2 SKU do Application Gateway. 
+O *tempo de tempo de Keep-Alive* no Gateway de aplicação v1 SKU é de 120 segundos e no V2 SKU são 75 segundos. O tempo de paragem inativa do *TCP* é um padrão de 4 minutos no IP virtual frontend (VIP) tanto v1 como v2 SKU do Application Gateway. Não pode mudar estes valores.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>O nome IP ou DNS muda ao longo da vida útil do gateway de aplicação?
 

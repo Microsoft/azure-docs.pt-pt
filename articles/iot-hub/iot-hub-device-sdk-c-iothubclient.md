@@ -8,12 +8,13 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: robinsh
-ms.openlocfilehash: fd3e02101f206ebdb183da87089eadcbc9619b33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68883182"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732609"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Dispositivo Azure IoT SDK para C – mais sobre IoTHubClient
 

@@ -7,12 +7,13 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 5b6a07bfbcf56f3ca78fa4991e7741a3d44c25b9
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.reviewer: jagaveer
+ms.openlocfilehash: 3f341271c208cc56a704c836433c33af0129a4ac
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544360"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758376"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Implementar VMs spot utilizando o Azure CLI
 

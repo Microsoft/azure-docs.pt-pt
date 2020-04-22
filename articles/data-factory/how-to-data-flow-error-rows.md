@@ -6,14 +6,14 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: makromer
-ms.openlocfilehash: 4f65421a6457d4bf4d438ce9d035d46476829da2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8225143bb75118620b45c2520bb62ea30501a617
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414364"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732692"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Manuseie as linhas de erro de truncação SQL nos fluxos de dados de mapeamento da Fábrica de Dados
 
@@ -30,6 +30,9 @@ Um cenário comum na Data Factory ao utilizar fluxos de dados de mapeamento, é 
     ![Fluxo de dados do filme 1](media/data-flow/error4.png)
     
 3. O problema é que o título do filme não caberá todos dentro de uma coluna de pia que só pode conter 5 caracteres. Quando executar este fluxo de dados, receberá um erro como este:```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
+
+Este vídeo percorre um exemplo de configuração da lógica de manipulação de linhas de erro no fluxo de dados:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4uOHj]
 
 ## <a name="how-to-design-around-this-condition"></a>Como projetar em torno desta condição
 

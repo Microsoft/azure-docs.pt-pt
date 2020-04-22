@@ -9,12 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.openlocfilehash: 5053935f52153f0cd6ff2f05c5153732f5bda945
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: d7f9ce37ad85d39388eea90af263f59ce312a6b8
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110858"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732258"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Horários e trabalhos de transmissão (Node.js)
 

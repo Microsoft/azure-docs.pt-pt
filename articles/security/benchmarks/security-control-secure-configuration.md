@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 981e13e772ee21e0e4a680e6d07b4ad4892a7cee
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bfa16f59155e420209ab6370056a7c612b5327e4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417055"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759055"
 ---
 # <a name="security-control-secure-configuration"></a>Controlo de Segurança: Configuração segura
 
@@ -30,7 +30,7 @@ Além disso, o Gestor de Recursos Azure tem a capacidade de exportar o modelo em
 
 Também pode utilizar recomendações do Azure Security Center como base de configuração segura para os seus recursos Azure.
 
-- [Como ver os Aliases políticos do Azure disponíveis](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como ver os pseudónimos disponíveis da Política Azure](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Tutorial: Criar e gerir políticas para impor o cumprimento](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 

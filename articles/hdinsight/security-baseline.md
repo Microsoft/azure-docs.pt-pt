@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 93a5bcd77bb4f42d9099cc1ddb1b5c3130c19059
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 2ddb9a9c205135707d7d96beb106074baa1ce324
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010142"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758274"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança azure para HDInsight
 
@@ -144,7 +144,7 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 Também pode utilizar plantas Azure para simplificar as implementações azure em larga escala, embalagendo artefactos ambientais chave, tais como modelos de Gestor de Recursos Azure, controlos RBAC e políticas, numa única definição de planta. Aplique facilmente o projeto a novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
 
-Como visualizar os aliases de política do Azure disponíveis:
+Como visualizar os pseudónimos disponíveis da Política Azure:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -704,7 +704,7 @@ Opcionalmente, se tiver uma subscrição rápida 7, Qualys ou qualquer outra sub
 
 Como instalar o agente Rapid7 manualmente:
 
-https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
+https://insightvm.help.rapid7.com/docs/install
 
 Como instalar o Agente Qualys manualmente:
 
@@ -774,7 +774,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 Embora os recursos clássicos do Azure possam ser descobertos através do Resource Graph, é altamente recomendado criar e utilizar recursos do Gestor de Recursos Azure para avançar.
 
-Como criar consultas com o Azure Graph:
+Como criar consultas com o Gráfico de Recursos Azure:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -940,7 +940,7 @@ Como configurar o Acesso Condicional ao acesso ao portal Azure Resource Manager:
 
 **Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.HDInsight" para criar políticas personalizadas para auditar ou impor a configuração da rede do seu cluster HDInsight.
 
-Como visualizar os aliases de política do Azure disponíveis:
+Como visualizar os pseudónimos disponíveis da Política Azure:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -1034,7 +1034,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.HDInsight" para criar políticas personalizadas para auditar ou impor a configuração do seu cluster HDInsight.
 
-Como visualizar os aliases de política do Azure disponíveis:
+Como visualizar os pseudónimos disponíveis da Política Azure:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 

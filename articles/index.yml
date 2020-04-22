@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 245a9c58bf91dd42caa5cf3c60d05c520f494bea
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: 7f78774b0c26e26bb0fb0da1ac7a11ab13ee23e0
+  ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81417154"
+  ms.lasthandoff: 04/21/2020
+  ms.locfileid: "81732922"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -1247,7 +1247,7 @@ tools:
     url: https://docs.microsoft.com/azure/javascript/
   - title: Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: https://docs.microsoft.com/azure/java/
+    url: https://docs.microsoft.com/azure/developer/java/
   - title: Ir
     imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
     url: https://docs.microsoft.com/azure/developer/go/

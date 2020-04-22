@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 72d7a2dd112e5e7a5105ff977e3917ccdfd7b53e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5724a9e4308f05a82df84ae6a7d5602747f5a140
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500295"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757368"
 ---
 # <a name="azure-operational-security-best-practices"></a>Boas práticas de Segurança Operacional Azure
 Este artigo fornece um conjunto de boas práticas operacionais para proteger os seus dados, aplicações e outros ativos no Azure.
@@ -108,7 +108,7 @@ Aqui estão algumas boas práticas para prevenir, detetar e responder a ameaças
 **Detalhe**: Investigue as funcionalidades e capacidades do [Azure Sentinel](/azure/sentinel/overview) e compare-as com as capacidades do que está a utilizar no local. Considere adotar o Azure Sentinel se cumprir os requisitos do SIEM da sua organização.
 
 **Boas práticas**: Encontre as vulnerabilidades de segurança mais graves para que possa priorizar a investigação.   
-**Detalhe**: Reveja a sua [pontuação segura azure](../../security-center/security-center-secure-score.md) para ver as recomendações resultantes das políticas e iniciativas do Azure incorporadas no Azure Security Center. Estas recomendações ajudam a resolver os principais riscos como atualizações de segurança, proteção de pontos finais, encriptação, configurações de segurança, WAF desaparecido, VMs ligados à Internet, e muito mais.
+**Detalhe**: Reveja a sua [pontuação segura azure](../../security-center/secure-score-security-controls.md) para ver as recomendações resultantes das políticas e iniciativas do Azure incorporadas no Azure Security Center. Estas recomendações ajudam a resolver os principais riscos como atualizações de segurança, proteção de pontos finais, encriptação, configurações de segurança, WAF desaparecido, VMs ligados à Internet, e muito mais.
 
 A pontuação segura, baseada nos controlos do Center for Internet Security (CIS), permite-lhe comparar a segurança Azure da sua organização contra fontes externas. A validação externa ajuda a validar e enriquecer a estratégia de segurança da sua equipa.
 
@@ -116,7 +116,7 @@ A pontuação segura, baseada nos controlos do Center for Internet Security (CIS
 **Detalhe**: Siga as [recomendações de segurança](../../security-center/security-center-recommendations.md) no Centro de Segurança a partir de agora, com os itens prioritários mais elevados.
 
 **Boas práticas**: Integre os alertas do Centro de Segurança na sua solução de informação de segurança e gestão de eventos (SIEM).   
-**Detalhe**: A maioria das organizações com um SIEM usam-no como um centro de compensação para alertas de segurança que requerem uma resposta analista. Os eventos processados produzidos pelo Security Center são publicados no Registo de Atividades do Azure, um dos registos disponíveis através do Azure Monitor. O Azure Monitor oferece um pipeline consolidado para encaminhamento de qualquer um dos seus dados de monitorização para uma ferramenta SIEM. Consulte [A integração](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) de soluções de segurança no Centro de Segurança para obter instruções. Se estiver a utilizar o Azure Sentinel, consulte [o Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Detalhe**: A maioria das organizações com um SIEM usam-no como um centro de compensação para alertas de segurança que requerem uma resposta analista. Os eventos processados produzidos pelo Security Center são publicados no Registo de Atividades do Azure, um dos registos disponíveis através do Azure Monitor. O Azure Monitor oferece um pipeline consolidado para encaminhamento de qualquer um dos seus dados de monitorização para uma ferramenta SIEM. Consulte [alertas de segurança de exportação e recomendações](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) para instruções.. Se estiver a utilizar o Azure Sentinel, consulte [o Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Boas práticas**: Integre os registos Azure com o seu SIEM.   
 **Detalhe**: Utilize [o Monitor Azure para recolher e exportar dados.](/azure/azure-monitor/overview#integrate-and-export-data) Esta prática é fundamental para permitir a investigação de incidentes de segurança, e a retenção de registos on-line é limitada. Se estiver a utilizar o Azure Sentinel, consulte [a Connect](../../sentinel/connect-data-sources.md)sources .

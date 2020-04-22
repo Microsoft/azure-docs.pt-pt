@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 67660e3e98f5a12236798d74cc61f71616e6751d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a012c3ce8f7c9e105a42d8383a502f3608c84070
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934753"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732915"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Aplicações Debug Apache Spark num cluster HDInsight com Kit de Ferramentas Azure para IntelliJ através de SSH
 
@@ -29,7 +29,7 @@ Este artigo fornece orientações passo a passo sobre como usar ferramentas HDIn
 
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows) (A edição comunitária é gratuita.).
 
-* [Kit de ferramentas Azure para IntelliJ](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-installation).
+* [Kit de ferramentas Azure para IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
 
 * [Plugin Scala para IntelliJ](../spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 
@@ -50,7 +50,7 @@ Este artigo fornece orientações passo a passo sobre como usar ferramentas HDIn
 
      ![Intellij Criar Novo Projeto Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 
 1. Na próxima janela do **Novo Projeto,** forneça as seguintes informações:
 

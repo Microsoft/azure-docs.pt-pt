@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/31/2020
+ms.date: 04/20/2020
 ms.author: diberry
-ms.openlocfilehash: 9252fbbf0895bf821c119272ac37d3af1c91fc89
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3bef3cbb321465893b3a05242f0d72d77d091d6b
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76987802"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733255"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Linguagem de programação [Node.js](https://nodejs.org/)
-* [Código de estúdio visual](https://code.visualstudio.com/)
-* ID da aplicação pública:`df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* [Visual Studio Code](https://code.visualstudio.com/)
+* Um ID de aplicativo LUIS - use `df67dcdb-c37d-46af-88e1-8b97951ca1c2`o ID da aplicação IoT pública de . A consulta do utilizador utilizada no código de arranque rápido é específica dessa aplicação.
 
 ## <a name="create-luis-runtime-key-for-predictions"></a>Criar a chave de tempo de execução do LUIS para previsões
 

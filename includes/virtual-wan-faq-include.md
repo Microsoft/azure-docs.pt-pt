@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a2d79391832bbb5424c6d4096eb5c1a597623367
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 2b30c176cf3c9dd31ae3efa85d308b3f89bd4dbe
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81421838"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81737958"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O utilizador precisa de ter hub e falou com dispositivos SD-WAN/VPN para utilizar o Azure Virtual WAN?
 
@@ -212,7 +212,7 @@ Um hub virtual pode propagar uma rota padrão aprendida para uma ligação VPN/E
 ### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Como é que o centro virtual num WAN virtual seleciona o melhor caminho para uma rota a partir de vários hubs
 
 Se um Hub Virtual aprender a mesma rota a partir de múltiplos centros remotos, a ordem em que decide é a seguinte
-1) Rota Origin a) Rotas de rede – Prefixos VNET diretamente aprendidos pelos gateways Do Hub Virtual b) BGP c) Hub RouteTable (rotas configuradas estática) d) Rotas InterHub
+1) Rota Origin a) Rotas de rede – Prefixos VNET diretamente aprendidos pelos gateways do Hub Virtual b) Hub RouteTable (rotas configuradas estática) c) BGP d) Rotas InterHub
 2)  Métrica de rota : Virtual WAN prefere ExpressRoute em vez de VPN. Os pares expressRoute têm uma maior ponderação em comparação com o peer VPN
 3)  Comprimento do caminho AS
 

@@ -1,25 +1,20 @@
 ---
 title: OpenShift na visão geral do Azure
 description: Uma visão geral do OpenShift em Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 021ebe010a27fa155de861121e1972466c800f4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c338e9a6a793d1c2d0557d70242996175d5a85ed
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74035412"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759450"
 ---
 # <a name="openshift-in-azure"></a>OpenShift em Azure
 

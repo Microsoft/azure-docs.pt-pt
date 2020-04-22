@@ -3,12 +3,12 @@ title: Como criar políticas de configuração de hóspedes para Windows
 description: Saiba como criar uma política azure de configuração de hóspedes para windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: deb51cf502d26dc994bf74ef3cb0c728f624afde
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7b06aa0a70bfa17d67da9c6af447138f8bb9e712
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313986"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757415"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de configuração de hóspedes para Windows
 
@@ -25,6 +25,11 @@ Utilize as seguintes ações para criar a sua própria configuração para valid
 
 > [!IMPORTANT]
 > As políticas personalizadas com configuração do hóspede são uma funcionalidade de pré-visualização.
+>
+> A extensão de Configuração de Hóspedes é necessária para realizar auditorias em máquinas virtuais Azure.
+> Para implementar a extensão em escala, atribua as seguintes definições políticas:
+>   - Implemente pré-requisitos para ativar a Política de Configuração do Hóspede nos VMs do Windows.
+>   - Implemente pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.
 
 ## <a name="install-the-powershell-module"></a>Instale o módulo PowerShell
 
@@ -176,8 +181,10 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker -out ./Config
+AuditBitLocker ./Config
 ```
+
+Guarde este `config.ps1` ficheiro com o nome na pasta do projeto. Execute-o na PowerShell `./config.ps1` executando no terminal. Será criado um novo ficheiro mof.
 
 O `Node AuditBitlocker` comando não é tecnicamente necessário, mas `AuditBitlocker.mof` produz um `localhost.mof`ficheiro nomeado em vez do padrão. Ter o nome de ficheiro .mof seguir a configuração torna fácil organizar muitos ficheiros ao operar em escala.
 

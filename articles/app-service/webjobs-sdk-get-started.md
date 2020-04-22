@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4976be485a9b7609c6e8d23f6b897092217663fc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 4ee724ec66d5fb474f8c8a9a967cc7235fef5e85
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535677"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732616"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Introdução ao SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -134,7 +134,7 @@ Nesta secção, configura o registo de consolas que utiliza a [estrutura de regi
     * Desativa [a exploração do painel](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs)de instrumentos. O dashboard é uma ferramenta de monitorização antiga, e a exploração do dashboard não é recomendada para cenários de produção de alta produção.
     * Adiciona o fornecedor de consolas com [filtragem](webjobs-sdk-how-to.md#log-filtering)padrão .
 
-Agora, pode adicionar uma função que é desencadeada por mensagens que chegam numa fila de [Armazenamento Azure](../azure-functions/functions-bindings-storage-queue.md).
+Agora, pode adicionar uma função que é desencadeada por mensagens que chegam numa fila de Armazenamento Azure.
 
 ## <a name="install-the-storage-binding-extension"></a>Instalar a extensão de enlace do Armazenamento
 
@@ -184,7 +184,7 @@ A partir da versão 3.x, deve instalar explicitamente a extensão de encadernaç
 
    O `QueueTrigger` atributo diz o tempo de funcionamento para chamar esta função `queue`quando uma nova mensagem é escrita numa fila de Armazenamento Azure chamada . O conteúdo da mensagem de fila é `message` fornecido ao código do método no parâmetro. O corpo do método é onde processa os dados do gatilho. Neste exemplo, o código apenas regista a mensagem.
 
-   O `message` parâmetro não tem de ser uma corda. Também pode ligar-se a um objeto JSON, uma matriz de byte ou um objeto [CloudQueueMessage.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) Consulte a [utilização do gatilho](../azure-functions/functions-bindings-storage-queue-trigger.md#usage)da fila . Cada tipo de encadernação (como filas, bolhas ou mesas) tem um conjunto diferente de tipos de parâmetros a que se pode ligar.
+   O `message` parâmetro não tem de ser uma corda. Também pode ligar-se a um objeto JSON, uma matriz de byte ou um objeto [CloudQueueMessage.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) Consulte a [utilização do gatilho](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage)da fila . Cada tipo de encadernação (como filas, bolhas ou mesas) tem um conjunto diferente de tipos de parâmetros a que se pode ligar.
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -280,7 +280,7 @@ Nesta secção, você constrói e executa o projeto localmente e despoleta a fun
 
    Como usou `QueueTrigger` o atributo `ProcessQueueMessage` na função, o tempo de funcionamento do WeJobs SDK ouve mensagens de fila quando começa. Encontra uma nova mensagem de fila na fila chamada *fila* e chama a função.
 
-   Devido ao recuo exponencial das [sondagens,](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm)pode levar até 2 minutos para o tempo de funcionamento encontrar a mensagem e invocar a função. Este tempo de espera pode ser reduzido funcionando no modo de [desenvolvimento](webjobs-sdk-how-to.md#host-development-settings).
+   Devido ao recuo exponencial das [sondagens,](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm)pode levar até 2 minutos para o tempo de funcionamento encontrar a mensagem e invocar a função. Este tempo de espera pode ser reduzido funcionando no modo de [desenvolvimento](webjobs-sdk-how-to.md#host-development-settings).
 
    A saída da consola é assim:
 
@@ -444,7 +444,7 @@ Durante a implementação, cria uma instância de serviço de aplicações para 
 1. Refresque a página **de Fila** e a nova mensagem desaparece porque foi processada pela função em funcionamento em Azure.
 
    > [!TIP]
-   > Quando estiver a testar em Azure, utilize o modo de [desenvolvimento](webjobs-sdk-how-to.md#host-development-settings) para garantir que uma função de gatilho de fila seja invocada imediatamente e evite atrasos devido ao recuo exponencial das [sondagens](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm)em fila .
+   > Quando estiver a testar em Azure, utilize o modo de [desenvolvimento](webjobs-sdk-how-to.md#host-development-settings) para garantir que uma função de gatilho de fila seja invocada imediatamente e evite atrasos devido ao recuo exponencial das [sondagens](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm)em fila .
 
 ### <a name="view-logs-in-application-insights"></a>Ver registos em Insights de Aplicação
 

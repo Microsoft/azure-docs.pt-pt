@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Política Azure utiliza o agente de configuração do hóspede para auditar definições dentro de máquinas virtuais.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4899f6b3108cabb4e9cdd36e4b2bc5cd2f1cbd4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1721c0f1ca7c084d636278aabc96f8dac3293038
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538040"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759088"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de hóspedes da Política Azure
 
@@ -20,19 +20,25 @@ Além de auditar e [remediar](../how-to/remediate-resources.md) os recursos do A
 
 Neste momento, a maioria das políticas de configuração de hóspedes da Política Azure apenas auditam definições dentro da máquina. Não aplicam configurações. A exceção é uma política incorporada [abaixo referida](#applying-configurations-using-guest-configuration).
 
+## <a name="resource-provider"></a>Fornecedor de recursos
+
+Antes de poder utilizar a Configuração do Hóspede, tem de registar o fornecedor de recursos. O fornecedor de recursos é registado automaticamente se a atribuição de uma política de Configuração de Hóspedes for feita através do portal. Pode registar-se manualmente através do [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell), ou [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+
 ## <a name="extension-and-client"></a>Extensão e cliente
 
 Para auditar as definições dentro de uma máquina, é ativada uma [extensão virtual](../../../virtual-machines/extensions/overview.md) da máquina. A extensão descarrega a atribuição de política aplicável e a definição de configuração correspondente.
+
+> [!Important]
+> A extensão de Configuração de Hóspedes é necessária para realizar auditorias em máquinas virtuais Azure.
+> Para implementar a extensão em escala, atribua as seguintes definições políticas:
+>   - Implemente pré-requisitos para ativar a Política de Configuração do Hóspede nos VMs do Windows.
+>   - Implemente pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.
 
 ### <a name="limits-set-on-the-extension"></a>Limites definidos na extensão
 
 Para limitar a extensão de aplicações com impacto dentro da máquina, a Configuração de Hóspedes não está autorizada a exceder mais de 5% do CPU. Esta limitação existe tanto para definições incorporadas como personalizadas.
 
-## <a name="register-guest-configuration-resource-provider"></a>Registe o fornecedor de recursos de configuração de hóspedes
-
-Antes de poder utilizar a Configuração do Hóspede, tem de registar o fornecedor de recursos. Pode registar-se através do [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell), ou [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). O fornecedor de recursos é registado automaticamente se a atribuição de uma política de Configuração de Hóspedes for feita através do portal.
-
-## <a name="validation-tools"></a>Ferramentas de validação
+### <a name="validation-tools"></a>Ferramentas de validação
 
 Dentro da máquina, o cliente de Configuração de Hóspedes utiliza ferramentas locais para executar a auditoria.
 
@@ -50,17 +56,17 @@ Os resultados são enviados ao fornecedor de recursos de Configuração de Hósp
 
 ## <a name="supported-client-types"></a>Tipos de clientes suportados
 
-A tabela seguinte mostra uma lista de sistemaoperativo suportado nas imagens do Azure:
+As políticas de Configuração de Hóspedes incluem novas versões. As versões mais antigas dos sistemas operativos disponíveis no mercado Azure são excluídas se o agente de configuração do hóspede não for compatível. A tabela que se segue mostra uma lista de sistemas operativos suportados nas imagens do Azure:
 
 |Publicador|Nome|Versões|
 |-|-|-|
-|Canónico|Ubuntu Server|14.04, 16.04, 18.04|
-|Credativ|Debian|8, 9|
-|Microsoft|Windows Server|Datacenter 2012, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
+|Canónico|Ubuntu Server|14.04 e mais tarde|
+|Credativ|Debian|8 e mais tarde|
+|Microsoft|Windows Server|2012 e mais tarde|
 |Microsoft|Cliente Windows|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7, 7.8|
-|Suse|SLES|12 SP3|
+|OpenLogic|CentOS|7.3 e mais tarde|
+|Red Hat|Red Hat Enterprise Linux|7.4 e mais tarde|
+|Suse|SLES|12 SP3 e mais tarde|
 
 ### <a name="unsupported-client-types"></a>Tipos de clientes não suportados
 

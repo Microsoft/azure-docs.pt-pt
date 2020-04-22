@@ -8,12 +8,13 @@ ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 58294c7afdf31ddd29611351d6442db1c4966157
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: d3e456d57d98b796fb1aea2e82de51f9fae40c68
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269041"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733171"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entenda como azure IoT Edge usa certificados
 

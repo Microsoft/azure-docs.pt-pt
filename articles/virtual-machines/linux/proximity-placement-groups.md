@@ -1,21 +1,18 @@
 ---
-title: Utilize grupos de colocação de proximidade para VMs Linux
-description: Aprenda sobre a criação e utilização de grupos de colocação de proximidade para máquinas virtuais Linux em Azure.
-services: virtual-machines-linux
+title: Utilize grupos de colocação de proximidade
+description: Aprenda sobre a criação e utilização de grupos de colocação de proximidade para máquinas virtuais em Azure.
 author: cynthn
-manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 353a266b647c299515c15889c302ba4409aa511b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f89b28e7a3c29e45efa2796788e27325c01d7098
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73171051"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759245"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implementar VMs para grupos de colocação de proximidade usando o Azure CLI
 

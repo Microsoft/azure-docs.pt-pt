@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/05/2020
+ms.date: 04/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 599b2a280e386e49eb114f448f55b17ed7e823d7
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: f05b4d4fec99aaa2fb79da46e2167d883d1f15ec
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616755"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81766958"
 ---
 # <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Data Discovery & Classificação para Base de Dados Azure SQL e Azure Synapse Analytics
 

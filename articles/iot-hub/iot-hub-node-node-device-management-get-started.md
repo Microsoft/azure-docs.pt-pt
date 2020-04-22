@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 5b2e4c03347020b5d5fc67927165403f06854e0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: a7814970d4ffb051ab54c965d27394f925d79e59
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110910"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732333"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>Começar com a gestão do dispositivo (Node.js)
 

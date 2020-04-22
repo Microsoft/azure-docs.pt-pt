@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: kgremban
-ms.openlocfilehash: f801abc40caf273c28a0c01dedf9735f5198c2af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: a1d74085090a3e20764d7b6fee84ffca52d5cb74
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271086"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732434"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do Hub IoT do Azure e diagnosticar problemas rapidamente
 
@@ -379,8 +380,8 @@ Na `properties` secção, este registo contém informações adicionais sobre a 
 
 | Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | Cadeia | Seja verdadeiro ou falso, indica se o encaminhamento de mensagens está ou não ativado no Hub IoT |
-| **parentSpanId** | Cadeia | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem-mãe, que seria o traço de mensagem D2C neste caso |
+| **isRoutingEnabled** | String | Seja verdadeiro ou falso, indica se o encaminhamento de mensagens está ou não ativado no Hub IoT |
+| **parentSpanId** | String | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem-mãe, que seria o traço de mensagem D2C neste caso |
 
 ##### <a name="iot-hub-egress-logs"></a>IoT Hub egress logs
 
@@ -411,9 +412,9 @@ Na `properties` secção, este registo contém informações adicionais sobre a 
 
 | Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **nome final** | Cadeia | O nome do ponto final de encaminhamento |
-| **ponto finalType** | Cadeia | O tipo de ponto final de encaminhamento |
-| **parentSpanId** | Cadeia | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem dos pais, que seria o rasto de mensagem de entrada IoT Hub neste caso |
+| **nome final** | String | O nome do ponto final de encaminhamento |
+| **ponto finalType** | String | O tipo de ponto final de encaminhamento |
+| **parentSpanId** | String | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem dos pais, que seria o rasto de mensagem de entrada IoT Hub neste caso |
 
 #### <a name="configurations"></a>Configurações
 
@@ -540,7 +541,7 @@ O Azure IoT Hub indica saúde a nível regional. Se uma paragem regional afetar 
 
 Para verificar a saúde dos seus hubs ioT, siga estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Navegar para servir a saúde dos recursos de > **saúde.** **Service Health**
 

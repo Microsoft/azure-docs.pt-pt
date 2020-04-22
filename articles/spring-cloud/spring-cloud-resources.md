@@ -6,22 +6,22 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 11/1/2019
 ms.author: brendm
-ms.openlocfilehash: 70a17f3bd23333bdc4957a8eaf75e415b3917a52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36e9b272bb4648853829364b22881ab8bec1ff70
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278879"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733046"
 ---
 # <a name="azure-spring-cloud-developer-resources"></a>Recursos de desenvolvimento da Nuvem de primavera Azure
 
 Como desenvolvedor, poderá achar úteis os seguintes recursos da Nuvem de primavera De Azure:
 
-* [Mapa do Azure](https://azure.microsoft.com/updates)
-* [Perguntas frequentes](spring-cloud-faq.md)
+* [Roteiro de Azure](https://azure.microsoft.com/updates)
+* [Perguntas mais frequentes](spring-cloud-faq.md)
 * [Guia de resolução de problemas](spring-cloud-troubleshoot.md)
 * [Fórum MSDN](https://social.msdn.microsoft.com/Forums/home)
 * [Site da Nuvem de primavera de Java](https://spring.io/)
 * [Quadro da primavera](https://cloud.spring.io/spring-cloud-azure/)
-* [Spring no Azure](https://docs.microsoft.com/azure/java/spring-framework/?view=azure-java-stable)
+* [Spring no Azure](https://docs.microsoft.com/azure/developer/java/spring-framework/)
 * [Arquitetura de microserviços da Nuvem de primavera por Pivotal](https://docs.pivotal.io/spring-cloud-services/1-5/common/index.html)

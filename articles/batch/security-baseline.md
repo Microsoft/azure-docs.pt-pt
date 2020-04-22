@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fef1afb9748fd6f2f59b972c451d95ae1204ef70
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 8bda712523faa90f32a12fe7eecce27dccf3a55c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011638"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756629"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança azure para lote
 
@@ -712,7 +712,7 @@ Opcionalmente, se tiver uma assinatura rápida 7, Qualys ou qualquer outra subsc
 
 Embora os recursos clássicos do Azure possam ser descobertos através do Resource Graph, é altamente recomendado criar e utilizar recursos do Azure Resource Manager (ARM) em curso.
 
-Como criar consultas com o Azure Graph:
+Como criar consultas com o Gráfico de Recursos Azure:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -877,7 +877,7 @@ Isto não é aplicável ao Lote Azure, uma vez que os utilizadores (não adminis
 
 **Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.Batch" para criar políticas personalizadas para auditar ou impor a configuração das suas contas e piscinas do Lote Azure.
 
-Como visualizar os aliases de política do Azure disponíveis:
+Como visualizar os pseudónimos disponíveis da Política Azure:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -899,7 +899,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="73-maintain-secure-configurations-for-all-azure-resources"></a>7.3: Manter configurações seguras para todos os recursos azure
 
-**Orientação**: Utilize a política azure [negar] e [implementar se não existir] para impor configurações seguras para os recursos Azure relacionados com a sua conta de Lote e piscinas (tais como redes virtuais, subredes, Firewalls Azure, Contas de Armazenamento Azure, etc.). Pode utilizar aliases de política azure a partir dos seguintes espaços de nome para criar políticas personalizadas:
+**Orientação**: Utilize a política azure [negar] e [implementar se não existir] para impor configurações seguras para os recursos Azure relacionados com a sua conta de Lote e piscinas (tais como redes virtuais, subredes, Firewalls Azure, Contas de Armazenamento Azure, etc.). Pode utilizar pseudónimos da Política Azure a partir dos seguintes espaços de nome para criar políticas personalizadas:
 
 - Microsoft.Batch
 
@@ -987,7 +987,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 - Os registos de diagnóstico nas contas do Lote devem ser ativados
 
-Como visualizar os aliases de política do Azure disponíveis:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Como visualizar os pseudónimos disponíveis da Política Azure:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

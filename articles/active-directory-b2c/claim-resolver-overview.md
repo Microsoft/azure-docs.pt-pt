@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 0bdede482b79c82e6e05b1429cb7c17399bc2277
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396073"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756606"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre pedidos de reclamação em políticas personalizadas do Diretório Ativo Azure B2C
 
@@ -90,7 +90,14 @@ A lista de secções seguintes disponível de reclamação resolve.
 | {Contexto:IPAddress} | O endereço IP do utilizador. | 11.111.111.11 |
 | {Contexto:KMSI} | Indica se [me mantenho assinado na](custom-policy-keep-me-signed-in.md) caixa de verificação. |  true |
 
-### <a name="non-protocol-parameters"></a>Parâmetros não protocolares
+### <a name="claims"></a>Afirmações 
+
+| Afirmação | Descrição | Exemplo |
+| ----- | ----------- | --------|
+| {Reclamação:tipo de reclamação} | Um identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro da política dos pais.  Por exemplo: `{Claim:displayName}` `{Claim:objectId}`ou . | Um valor do tipo de reclamação.|
+
+
+### <a name="oauth2-key-value-parameters"></a>Parâmetros de valor-chave OAuth2
 
 Qualquer nome de parâmetro incluído como parte de um pedido oIDC ou OAuth2 pode ser mapeado para uma reclamação na viagem do utilizador. Por exemplo, o pedido da aplicação pode incluir um `app_session`parâmetro `loyalty_number`de corda de consulta com um nome de , ou qualquer corda de consulta personalizada.
 
@@ -118,6 +125,7 @@ Qualquer nome de parâmetro incluído como parte de um pedido oIDC ou OAuth2 pod
 | {SAML:Permitir Criar} | O `AllowCreate` valor do atributo, a partir do `NameIDPolicy` elemento do pedido SAML. | Verdadeiro |
 | {SAML:ForceAuthn} | O `ForceAuthN` valor do atributo, a partir do `AuthnRequest` elemento do pedido SAML. | Verdadeiro |
 | {SAML:ProviderName} | O `ProviderName` valor do atributo, a partir do `AuthnRequest` elemento do pedido SAML.| Contoso.com |
+| {SAML:RelayState} | O `RelayState` parâmetro de corda de consulta.| 
 
 ## <a name="using-claim-resolvers"></a>Utilização de pedidos de indemnização
 

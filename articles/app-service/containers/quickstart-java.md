@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 2192260c3106a6b8d3d3ffd0e063ee945734f308
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8f2e99ffc9f9ee5c5553e8d933d82f83999c8ab2
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79136317"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732888"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Java no Azure App Service no Linux
 
@@ -52,19 +52,19 @@ az login
 
 Em seguida, pode configurar a implementação, executar o comando maven no Comando Solicitação e utilizar as configurações predefinidas premindo **ENTER** até obter o aviso **de Confirmação (Y/N)** e, em seguida, prima **'y'** e a configuração está feita. 
 ```cmd
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
 Um processo de amostra parece:
 
 ```cmd
-~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.0:config
+~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 [INFO] Scanning for projects...
 [INFO]
 [INFO] ----------------------< example.demo:helloworld >-----------------------
 [INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.9.0:config (default-cli) @ helloworld ---
+[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ helloworld ---
 [WARNING] The plugin may not work if you change the os of an existing webapp.
 Define value for OS(Default: Linux):
 1. linux [*]
@@ -141,10 +141,10 @@ Este comando pode demorar alguns minutos a ser executado.
 > [Ligue à base de dados Azure SQL com Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
-> [Ligue-se ao Azure DB para MySQL com Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+> [Ligue-se ao Azure DB para MySQL com Java](/azure/mysql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Ligue-se ao Azure DB para PostgreSQL com Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
+> [Ligue-se ao Azure DB para PostgreSQL com Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
 > [Configure java app](configure-custom-container.md)

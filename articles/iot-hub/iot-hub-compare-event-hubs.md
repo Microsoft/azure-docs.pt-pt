@@ -8,12 +8,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 7a589ba80b61ea5ef9ea1c941e9a0218a1653c99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 7aa59f8181ad60b3d43846a3f4f1f471a050b238
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60735528"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733446"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Ligação de dispositivos IoT ao Azure: Hub IoT e Centros de Eventos
 
@@ -27,7 +30,7 @@ Resumindo, ambas as soluções são concebidas para a ingestão de dados em larg
 
 A tabela seguinte fornece detalhes sobre como os dois níveis do IoT Hub se comparam aos Hubs de Eventos quando você está avaliando-os para as capacidades de IoT. Para obter mais informações sobre os níveis padrão e básicos do IoT Hub, consulte [Como escolher o nível ioT hub certo](iot-hub-scaling.md).
 
-| Capacidade ioT | Nível padrão IoT Hub | IoT Hub básico | Event Hubs |
+| Capacidade ioT | Nível padrão IoT Hub | IoT Hub básico | Hubs de Eventos |
 | --- | --- | --- | --- |
 | Mensagens dispositivo-a-nuvem | ![Marcar][checkmark] | ![Marcar][checkmark] | ![Marcar][checkmark] |
 | Protocolos: HTTPS, AMQP, AMQP sobre webSockets | ![Marcar][checkmark] | ![Marcar][checkmark] | ![Marcar][checkmark] |

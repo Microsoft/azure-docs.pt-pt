@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: ff7c361b402f38160b2693f2d22670a96881045b
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: a1c31725883204f473a46a3d20ca6fd4bbd741e8
+  ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77587673"
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "81755348"
 highlightedContent:
   items:
   - title: Sobre os Serviços de Multimédia do Azure v3
@@ -42,6 +42,9 @@ highlightedContent:
   - title: Especificações dos Serviços de Multimédia do Azure
     itemType: concept
     url: media-services-specifications-live-timed-metadata.md
+  - title: Media Player do Azure
+    itemType: overview
+    url: azure-media-player/azure-media-player-overview.md
 conceptualContent:
   items:
   - title: Programar com a API dos Serviços de Multimédia v3

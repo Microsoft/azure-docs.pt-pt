@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: acacba591c9b895f1bd6abfbab5d3d4a4c858d12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f08107874598a68fb5ce2a1a8a98b6a81d7b94d4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472780"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756789"
 ---
 # <a name="string-claims-transformations"></a>Transformações de sinistros de cordas
 
@@ -615,13 +615,17 @@ Verifica se uma `claimToMatch` `matchTo` reclamação de cadeia e parâmetro de 
 | inputClaim | reivindicaçãoToMatch | string | O tipo de reclamação, que deve ser comparado. |
 | EntradaParametro | matchTo | string | A expressão regular a condizer. |
 | EntradaParametro | outputClaimIfMatched | string | O valor a definir se as cordas forem iguais. |
+| EntradaParametro | extractosGrupos | boolean | [Opcional] Especifica se a correspondência Regex deve extrair valores de grupos. Valores `true`possíveis: ou `false` (padrão). | 
 | Pedido de saída | saídaReclamada | string | Se a expressão regular for compatível, `outputClaimIfMatched` esta alegação de saída contém o valor do parâmetro de entrada. Ou nulo, se não corresponder. |
 | Pedido de saída | regexCompareResultClaim | boolean | O tipo de resultado de correspondência de expressão `true` `false` regular, que deve ser definido como ou com base no resultado da correspondência. |
+| Pedido de saída| O nome da reclamação| string | Se o parâmetro de entrada de grupos extratos for definido como verdadeiro, lista de tipos de reclamação que são produzidos após esta transformação de sinistros ter sido invocada. O nome da reclamaçãoType deve coincidir com o nome do grupo Regex. | 
 
-Por exemplo, verifica se o número de telefone fornecido é válido, com base no padrão de expressão regular do número de telefone.
+### <a name="example-1"></a>Exemplo 1
+
+Verifica se o número de telefone fornecido é válido, com base no padrão de expressão regular do número de telefone.
 
 ```XML
-<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
   </InputClaims>
@@ -636,8 +640,6 @@ Por exemplo, verifica se o número de telefone fornecido é válido, com base no
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemplo
-
 - Créditos de entrada:
     - **reivindicaçõesToMatch:**"64854114520"
 - Parâmetros de entrada:
@@ -647,6 +649,39 @@ Por exemplo, verifica se o número de telefone fornecido é válido, com base no
     - **outputClaim**: "isPhone"
     - **regexCompareResultClaim**: verdadeiro
 
+### <a name="example-2"></a>Exemplo 2
+
+Verifique se o endereço de e-mail fornecido é válido e devolva o pseudónimo do e-mail.
+
+```XML
+<ClaimsTransformation Id="GetAliasFromEmail" TransformationMethod="SetClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="(?&lt;mailAlias&gt;.*)@(.*)$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isEmail" />
+    <InputParameter Id="extractGroups" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isEmailString" TransformationClaimType="regexCompareResultClaim" />
+    <OutputClaim ClaimTypeReferenceId="mailAlias" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- Créditos de entrada:
+    - **reivindicaçõesToMatch**emily@contoso.com: "
+- Parâmetros de entrada:
+    - **matchTo**:`(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched**: "isEmail"
+    - **extractosGrupos**: verdadeiro
+- Alegações de saída:
+    - **saídaClaim**: "isEmail"
+    - **regexCompareResultClaim**: verdadeiro
+    - **mailAlias**: emily
+    
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
 Verifica se uma `matchTo` reclamação de cadeia seletiva e parâmetro de entrada `stringMatchMsg` `stringMatchMsgCode` são iguais, e define as reclamações de saída `true` com `false` o valor presente nos parâmetros de entrada e de entrada, juntamente com a alegação de saída de resultados comparada, que deve ser definida como ou com base no resultado da comparação.

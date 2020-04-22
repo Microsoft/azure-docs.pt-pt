@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ba96dd2fcfb995afa6e3b1302a2c8b075abfd90
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 275215a69f97d93a1b1741a8fa8f3ca752c8c9ef
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72968702"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758980"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com a Dynatrace
 
@@ -140,7 +140,7 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
 ## <a name="configure-dynatrace-sso"></a>Configure Dynatrace SSO
 
-Para configurar um único sinal no lado **dynatrace,** você precisa enviar o ficheiro **Demetadores XML** da Federação descarregado e os URLs copiados apropriados do portal Azure para a equipa de [suporte Dynatrace](https://www.dynatrace.com/services-support/). Configuram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **dynatrace,** você precisa enviar o ficheiro **Demetadores XML** da Federação descarregado e os URLs copiados apropriados do portal Azure para [Dynatrace](https://www.dynatrace.com/support/help/shortlink/users-sso-hub). Pode seguir as instruções no website da Dynatrace para configurar a ligação SAML SSO em ambos os lados.
 
 ### <a name="create-dynatrace-test-user"></a>Criar o utilizador de teste Dynatrace
 

@@ -9,16 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79298840"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758126"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Defina um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central
 
-Este tutorial mostra-lhe, como construtor, como usar um modelo de dispositivo de gateway para definir um dispositivo de gateway na sua aplicação IoT Central. Em seguida, configura vários dispositivos a jusante que se ligam à sua aplicação IoT Central através do dispositivo gateway. 
+*Este artigo aplica-se a construtores de soluções e desenvolvedores de dispositivos.*
+
+Este tutorial mostra-lhe, como construtor de soluções, como usar um modelo de dispositivo de gateway para definir um dispositivo de gateway na sua aplicação IoT Central. Em seguida, configura vários dispositivos a jusante que se ligam à sua aplicação IoT Central através do dispositivo gateway. 
 
 Neste tutorial, você cria um modelo de dispositivo de gateway **Smart Building.** Um dispositivo de gateway **Smart Building** tem relações com outros dispositivos a jusante.
 
@@ -106,7 +108,7 @@ Para adicionar propriedades em nuvem ao modelo de dispositivo de **gateway Smart
     | Nome a apresentar      | Semantic type (Tipo de semântica) | Esquema |
     | ----------------- | ------------- | ------ |
     | Data da Última Assistência | Nenhuma          | Date   |
-    | Nome do cliente     | Nenhuma          | Cadeia |
+    | Nome do cliente     | Nenhuma          | String |
 
 2. Selecione **Guardar**.
 
@@ -207,7 +209,7 @@ Neste tutorial, ficou a saber como:
 > [!NOTE]
 > A geração de códigos baseado em Código VS não é suportada atualmente para dispositivos gateway modelados em IoT Central.
 
-Em seguida, pode:
+Em seguida, como desenvolvedor de dispositivos, pode aprender a:
 
 > [!div class="nextstepaction"]
-> [Ligar um dispositivo](tutorial-connect-device.md)
+> [Adicione um dispositivo Azure IoT Edge à sua aplicação Central Azure IoT](tutorial-add-edge-as-leaf-device.md)

@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: bed6736fda0c1815964f9017adb1e6fffa9335d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 82139eef9708ff8d76e1087c71aa5445ba898385
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110682"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759604"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitor, diagnóstico e desconexões de problemas com hub Azure IoT
 
@@ -27,7 +28,7 @@ Utilize o Monitor Azure para obter alertas e escrever registos quando os disposi
 
 Para registar eventos e erros de ligação do dispositivo, ligue os diagnósticos para o IoT Hub. Recomendamos que se ligar estes registos o mais cedo possível, porque se os registos de diagnóstico não estiverem ativados, quando ocorrerem desconexões do dispositivo, não terá qualquer informação para resolver o problema.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Navegue pelo seu hub ioT.
 
@@ -47,7 +48,7 @@ Para saber mais, consulte [Monitorize a saúde do Hub Azure IoT e diagnostice ra
 
 Para obter alertas quando os dispositivos se desligarem, configure os alertas na métrica dos **dispositivos Conectados (pré-visualização).**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Navegue pelo seu hub ioT.
 
@@ -69,7 +70,7 @@ Para detetar desconexões *por dispositivo,* como quando precisa de saber que um
 
 Quando liga os registos de diagnóstico e alertas para dispositivos conectados, recebe alertas quando ocorrem erros. Esta secção descreve como procurar problemas comuns quando recebe um alerta. Os passos abaixo assumem que configuraste os registos do Monitor Azure para os seus registos de diagnóstico.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Navegue pelo seu hub ioT.
 

@@ -8,12 +8,13 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: robinsh
-ms.openlocfilehash: c1db7f1a891646ad29f6cae95ddb7e2cf3a42bfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 0bb1371de827fbb68afd5d114f49afa4acec0deb
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409747"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759730"
 ---
 # <a name="get-started-with-device-twins-python"></a>Começar com gémeos dispositivo (Python)
 

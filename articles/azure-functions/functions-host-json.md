@@ -3,12 +3,12 @@ title: referência host.json para funções Azure 2.x
 description: Documentação de referência para o ficheiro host.json funções azure com o tempo de funcionamento v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 7b3c9d15fc8cf3a1651c44a5656f731a7820e344
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7967cdc7f5f7cbb92c12de15d31471fda8aa6569
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405491"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758845"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência host.json para funções Azure 2.x e mais tarde 
 
@@ -216,7 +216,7 @@ A definição de configuração pode ser encontrada em [encadernações para fun
 
 ## <a name="eventhub"></a>eventoHub
 
-As definições de configuração podem ser encontradas em [gatilhos e encadernações do Event Hub](functions-bindings-event-hubs-output.md#host-json). 
+As definições de configuração podem ser encontradas em [gatilhos e encadernações do Event Hub](functions-bindings-event-hubs-trigger.md#host-json). 
 
 ## <a name="extensions"></a>extensões
 

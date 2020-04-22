@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 02dc1b55d85b7137a5c1f57999cc3b7e9b1efe29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: b984ee7ed662bf089e7bcb6fc7e948fb61ed1209
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77591341"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733218"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Orientação de comunicações dispositivo-nuvem
 
