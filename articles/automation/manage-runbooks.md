@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 29ac9239b8dc87b1ed12fc8333bf5201fe8fa204
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: a1229ee389b41625554fb2869089b08a3cb9cb6d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617131"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676518"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de corridas na Automação Azure
 
@@ -28,7 +28,7 @@ Pode criar um novo livro de corridas em Azure Automation utilizando um dos porta
 1. No portal do Azure, abra a sua conta da Automatização.
 2. A partir do centro, selecione **Runbooks** sob Automatização de **Processos** para abrir a lista de livros de execução.
 3. Clique **em Criar um livro de execução**.
-4. Introduza um nome para o livro de execução e selecione o seu [Tipo](automation-runbook-types.md). O nome do livro de corridas deve começar com uma letra e pode conter letras, números, sublinhados e traços.
+4. Introduza um nome para o livro de execução e selecione o seu [tipo](automation-runbook-types.md). O nome do livro de corridas deve começar com uma letra e pode conter letras, números, sublinhados e traços.
 5. Clique em **Criar** o livro de execução e abrir o editor.
 
 ### <a name="create-a-runbook-with-powershell"></a>Crie um livro de corridas com a PowerShell
@@ -46,13 +46,13 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 Pode criar um novo livro de corridas em Azure Automation, importando um script PowerShell ou PowerShell Workflow (**.ps1),** um livro gráfico exportado **(.graphrunbook),** ou um script Python2 **(.py).**  Deve especificar o tipo de livro de [execução](automation-runbook-types.md) que é criado durante a importação, tendo em conta as seguintes considerações.
 
-* Um ficheiro **.ps1** que não contenha um fluxo de trabalho pode ser importado para um livro de [execução powerShell](automation-runbook-types.md#powershell-runbooks) ou um livro de [execução powerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks). Se o importar num livro de fluxos de trabalho powerShell, é convertido num fluxo de trabalho. Neste caso, os comentários estão incluídos no livro de execução para descrever as alterações que foram feitas.
+* Pode importar um ficheiro **.ps1** que não contenha um fluxo de trabalho num livro de [execução da PowerShell](automation-runbook-types.md#powershell-runbooks) ou num livro de [execução powerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks). Se o importar num livro de fluxos de trabalho powerShell, é convertido num fluxo de trabalho. Neste caso, os comentários estão incluídos no livro de execução para descrever as alterações que foram feitas.
 
-* Um ficheiro **.ps1** contendo um PowerShell Workflow só pode ser importado num livro de [execução powerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks). Se o ficheiro contiver múltiplos fluxos de trabalho powerShell, a importação falha. Deve guardar cada fluxo de trabalho para o seu próprio ficheiro e importar cada um separadamente.
+* Só pode importar um ficheiro **.ps1** contendo um PowerShell Workflow num [livro de execução powerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks). Se o ficheiro contiver múltiplos fluxos de trabalho powerShell, a importação falha. Deve guardar cada fluxo de trabalho para o seu próprio ficheiro e importar cada um separadamente.
 
-* Um ficheiro **.ps1** que contenha um PowerShell Workflow não deve ser importado num livro de [execução powerShell](automation-runbook-types.md#powershell-runbooks), uma vez que o motor de script PowerShell não o reconhece.
+* Não importe um ficheiro **.ps1** contendo um PowerShell Workflow num livro de [execução powerShell](automation-runbook-types.md#powershell-runbooks), uma vez que o motor de script PowerShell não o reconhece.
 
-* Um ficheiro **.graphrunbook** só pode ser importado num novo [livro de execução gráfico](automation-runbook-types.md#graphical-runbooks). Note que só pode criar um livro de execução gráfico a partir de um ficheiro **.graphrunbook.**
+* Só é possível importar um ficheiro **.graphrunbook** num novo [livro de execução gráfico](automation-runbook-types.md#graphical-runbooks). Note que só pode criar um livro de execução gráfico a partir de um ficheiro **.graphrunbook.**
 
 ### <a name="import-a-runbook-from-a-file-with-the-azure-portal"></a>Importar um livro de execução de um ficheiro com o portal Azure
 

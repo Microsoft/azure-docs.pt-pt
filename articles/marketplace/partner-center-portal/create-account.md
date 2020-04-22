@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/14/2020
-ms.openlocfilehash: d62d05cdbda86af3c3a38757877624e87f6d1719
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 1bd71a4fb150d544125703679cf0fa0b8951e1eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383763"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684139"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de mercado comercial no Partner Center
 
@@ -164,7 +164,7 @@ Uma organização pode ter vários editores associados a uma conta de Mercado Co
 
 Outro utilizador do mesmo inquilino do Azure Ative Directory pode adicionar um novo editor seguindo os passos abaixo:
 
-1. Inicie o fluxo de inscrição no [Microsoft Partner Center](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv).
+1. Inicie o fluxo de inscrição no [Microsoft Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
 2. Selecione **Iniciar sessão com uma conta** de trabalho e insira o seu endereço de e-mail de trabalho.
 3. Selecione o botão **Adicionar Editor.**
 4. Escolha o ID MPN que pretende associar à editora.

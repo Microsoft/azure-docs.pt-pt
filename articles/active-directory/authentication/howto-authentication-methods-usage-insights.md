@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1730939de399cacd13c62988259904ba84ee78ff
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654134"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680192"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Métodos de autenticação utilização & insights (pré-visualização)
 
@@ -93,6 +93,8 @@ Utilizando os controlos no topo da lista, pode procurar um utilizador e filtrar 
 Os dados apresentados nestes relatórios serão adiados até 60 minutos. Existe um campo "Última refrescada" no portal Azure para identificar o quão recentes são os seus dados.
 
 Os dados de utilização e insights não substituem os relatórios ou informações de autenticação de multi-factor sinuosos do Azure.
+
+O relatório não pode ser filtrado atualmente para excluir utilizadores externos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

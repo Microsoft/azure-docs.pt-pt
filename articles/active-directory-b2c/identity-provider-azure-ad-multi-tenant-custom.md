@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 320723744e1366fdc73cd0593fb0ebece03367f8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188448"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678114"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sign-in para o diretório ativo azure multi-inquilino utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -32,7 +32,7 @@ Complete os passos em [Get started com políticas personalizadas no Azure Ative 
 
 Para permitir o início de sessão para utilizadores de uma organização específica da AD Azure, é necessário registar uma aplicação dentro do inquilino da AD Azure organizacional.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino ad organizacional Azure (por exemplo, contoso.com). Selecione o filtro de **subscrição Do Diretório +** no menu superior e, em seguida, escolha o diretório que contém o seu inquilino.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
 1. Selecione **Novo registo**.
@@ -44,7 +44,7 @@ Para permitir o início de sessão para utilizadores de uma organização espec�
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Por exemplo, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    Por exemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Selecione **Registar**. Grave o ID de **Aplicação (cliente)** para utilização num passo posterior.
 1. Selecione **Certificados & segredos**e, em seguida, selecione **novo segredo do cliente**.
@@ -54,13 +54,13 @@ Para permitir o início de sessão para utilizadores de uma organização espec�
 
 Se quiser obter `family_name` as `given_name` reclamações e reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Procure e selecione **Azure Active Directory**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Procure e selecione **Azure Active Directory**.
 1. A partir da secção **Gerir,** selecione registos de **Aplicações**.
 1. Selecione a aplicação que pretende configurar reclamações opcionais na lista.
-1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)**.
+1. A partir da secção **Gerir,** selecione **configuração Token**.
 1. **Selecione Adicionar reclamação opcional**.
-1. Selecione o tipo de ficha que pretende configurar.
-1. Selecione as reclamações opcionais a adicionar.
+1. Para o **tipo Token,** selecione **ID**.
+1. Selecione as reclamações `given_name`opcionais a adicionar e `family_name` .
 1. Clique em **Adicionar**.
 
 ## <a name="create-a-policy-key"></a>Criar uma chave política

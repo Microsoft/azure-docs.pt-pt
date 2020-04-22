@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados da Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 04/06/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 66e2b2f7fbbae5940b576ead22a416625af3c058
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 107350cdab90751e918d4c7845776464b43abbdd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418524"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682819"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -72,6 +72,14 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados atr
 - Análise de registo: Dados de consulta de espaços de trabalho remotos de clientes em vários inquilinos
 - Crie alertas em inquilinos clientes que desencadeiem automação, como os livros de execução da Azure Automation ou as Funções Azure, no inquilino do prestador de serviços através de webhooks
 
+[Rede Azure:](../../networking/networking-overview.md)
+
+- Implementar e gerir cartões de interface [da Rede Virtual Azure (VNet)](../../virtual-network/index.yml) e da rede virtual (vNICs) dentro dos inquilinos dos clientes
+- Implementar e configurar [firewall Azure](../../firewall/overview.md) para proteger os recursos da Rede Virtual dos clientes
+- Gerir serviços de conectividade como [O Wan Virtual Azure,](../../virtual-wan/virtual-wan-about.md) [ExpressRoute](../../expressroute/expressroute-introduction.md)e [GATEWAYS VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) para clientes
+- Utilize o Farol Azure para apoiar cenários-chave para o Programa MSP de [Networking Azure](../../networking/networking-partners-msp.md)
+
+
 [Política Azure:](../../governance/policy/index.yml)
 
 - Os instantâneos de conformidade mostram detalhes para as políticas atribuídas dentro das subscrições delegadas
@@ -121,10 +129,6 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados atr
 - Use diagnósticos de botas para resolver os VMs azure em inquilinos de clientes
 - Aceder a VMs com consola em série nos inquilinos dos clientes
 - Note que não pode usar o Diretório Ativo Azure para iniciar sessão remota a um VM, e não pode integrar um VM com um Cofre chave para senhas, segredos ou chaves criptográficas para encriptação de disco
-
-[Rede Virtual Azure:](../../virtual-network/index.yml)
-
-- Implementar e gerir redes virtuais e cartões de interface de rede virtual (vNICs) dentro dos inquilinos dos clientes
 
 Pedidos de apoio:
 

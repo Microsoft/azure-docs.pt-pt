@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0427398d05cbe9f76249ec8f7c25568d566d5d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d9760624afec111a271ae5aa0ebbe5533d6ba8d6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654385"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680199"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticação baseada em certificado de diretório Ativo Azure no Android
 
@@ -27,7 +27,7 @@ Os dispositivos Android podem utilizar a autenticação baseada em certificados 
 
 Configurar esta funcionalidade elimina a necessidade de introduzir uma combinação de nome de utilizador e palavra-passe em determinadas aplicações de correio e microsoft office no seu dispositivo móvel.
 
-Este tópico fornece-lhe os requisitos e os cenários suportados para configurar cba num dispositivo iOS (Android) para utilizadores de inquilinos no Office 365 Enterprise, Business, Education, Governo dos EUA, China e Alemanha.
+Este tópico fornece-lhe os requisitos e os cenários suportados para configurar cba num dispositivo Android para utilizadores de inquilinos no Office 365 Enterprise, Business, Education, Us Government, China e Alemanha.
 
 Esta funcionalidade está disponível em pré-visualização no Office 365 US Government Defense and Federal plans.
 

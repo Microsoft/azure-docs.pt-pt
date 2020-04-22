@@ -3,7 +3,7 @@ title: Implementar o Oracle Golden Gate num Azure Linux VM [ Microsoft Docs
 description: Rapidamente coloque um Portão Dourado Oracle em funcionamento no seu ambiente Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: mimckitt
+author: BorisB2015
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: mimckitt
-ms.openlocfilehash: d7a52f09463d03fc6ecf0b57583d9eb7a5e65d45
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: borisb
+ms.openlocfilehash: ae6bfb0ab0208d0f778476c9f0959b0c0f1d6471
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263153"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683722"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar o Oracle Golden Gate num Azure Linux VM 
 

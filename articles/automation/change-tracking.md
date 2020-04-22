@@ -5,44 +5,55 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 83babd65fdf22ab40b0137d93a1cbe7f1fd7ff04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d84566c7680081561f60d4825f25a9ce19e02b24
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76844807"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682979"
 ---
-# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Acompanhe as mudanças no seu ambiente com a solução Change Tracking
+# <a name="track-environment-changes-with-change-tracking"></a>Acompanhar alterações ambientais com rastreio de mudanças
 
 Este artigo ajuda-o a usar a solução Change Tracking para identificar facilmente alterações no seu ambiente. A solução rastreia as seguintes alterações de configuração para ajudá-lo a identificar problemas operacionais:
 
 - Software windows
 - Software Linux (pacotes)
-
     >[!NOTE]
-    >Change Tracking apenas rastreia o software que é gerido com o gestor de pacotes da distribuição.
+    >Change Tracking apenas rastreia o software que é gerido com o gestor de pacotes de distribuição.
 
 - Arquivos Windows e Linux
 - Chaves de registo de janelas
 - Serviços Windows
 - Daemons linux
 
-As alterações ao software instalado, serviços Windows, registo e ficheiros windows e daemons Linux nos servidores monitorizados são enviados para o serviço Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço cloud regista os dados. Ao utilizar as informações no painel de rastreio de alterações, pode facilmente ver as alterações que foram feitas na infraestrutura do servidor.
+Depois de ativada a solução, pode visualizar o resumo das alterações para os computadores monitorizados selecionando o **Change Tracking** sob a Gestão de **Configuração** na sua conta Deautomação.
 
 > [!NOTE]
 > O rastreio de mudanças de automatização azure rastreia as mudanças nas máquinas virtuais. Para acompanhar as mudanças de propriedade do Gestor de Recursos Azure, consulte o histórico de [mudança](../governance/resource-graph/how-to/get-resource-changes.md)do Azure Resource Graph.
 
-## <a name="supported-windows-operating-systems"></a>Sistemas operativos Windows suportados
+Pode visualizar alterações nos seus computadores e, em seguida, perfurar detalhes para cada evento. As quedas estão disponíveis no topo da tabela para limitar o gráfico e informações detalhadas com base nos intervalos de tipo e tempo de alteração. Também pode clicar e arrastar na tabela para selecionar um intervalo de tempo personalizado. **O Tipo de Alteração** será um dos seguintes valores **Eventos**, **Daemons,** **Ficheiros,** **Registo,** **Software,** **Serviços Windows**. A categoria mostra-lhe o tipo de alteração e pode ser **adicionada,** **modificada**ou **removida**.
+
+![imagem do painel de rastreio de mudança](./media/change-tracking/change-tracking-dash01.png)
+
+Clicar numa mudança ou evento traz a informação detalhada sobre essa alteração. Como pode ver pelo exemplo, o tipo de arranque do serviço foi alterado de Manual para Auto.
+
+![imagem de detalhes de rastreamento de mudança](./media/change-tracking/change-tracking-details.png)
+
+As alterações ao software instalado, serviços Windows, registo e ficheiros windows e daemons Linux nos servidores monitorizados são enviados para o serviço Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço cloud regista os dados. Ao utilizar as informações no painel de rastreio de alterações, pode facilmente ver as alterações que foram feitas na infraestrutura do servidor.
+
+## <a name="supported-operating-systems"></a>Sistemas operativos suportados
+
+### <a name="windows-operating-systems"></a>Sistemas operativos Windows
 
 As seguintes versões do sistema operativo Windows são oficialmente suportadas para o agente Windows:
 
 * Windows Server 2008 R2 ou posterior
 
-## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux suportados
+### <a name="linux-operating-systems"></a>Sistemas operativos Linux
 
 As seguintes distribuições linux são oficialmente apoiadas. No entanto, o agente Linux também pode funcionar com outras distribuições não listadas. Salvo indicação em contrário, todas as versões menores são suportadas para cada versão principal listada.
 
-### <a name="64-bit"></a>64 bits
+#### <a name="64-bit"></a>64 bits
 
 * CentOS 6 e 7
 * Amazon Linux 2017.09
@@ -52,7 +63,7 @@ As seguintes distribuições linux são oficialmente apoiadas. No entanto, o age
 * Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
 * SUSE Linux Enterprise Server 12
 
-### <a name="32-bit"></a>32 bits
+#### <a name="32-bit"></a>32 bits
 
 * Centos 6
 * Oracle Linux 6
@@ -60,131 +71,48 @@ As seguintes distribuições linux são oficialmente apoiadas. No entanto, o age
 * Debian GNU/Linux 8 e 9
 * Ubuntu Linux 14.04 LTS e 16.04 LTS
 
-## <a name="enable-change-tracking-and-inventory"></a><a name="onboard"></a>Ativar o Controlo de Alterações e Inventário
-
-Para começar a rastrear alterações, é necessário ativar a solução de Rastreio e Inventário de Alterações. Há muitas maneiras de embarcar máquinas para alterar rastreio e inventário. Seguem-se as formas recomendadas e apoiadas de embarcar na solução.
-
-* [De uma máquina virtual](automation-onboard-solutions-from-vm.md)
-* [Desde navegar em várias máquinas](automation-onboard-solutions-from-browse.md)
-* [Da sua conta de Automação](automation-onboard-solutions-from-automation-account.md)
-* [Com um livro de execução azure Automation](automation-onboard-solutions.md)
-
-## <a name="configuring-change-tracking-and-inventory"></a>Configurar o rastreio e o inventário de alterações
-
-Para aprender a embarcar computadores para a solução visite: Soluções de [Automação de Embarque](automation-onboard-solutions-from-automation-account.md). Assim que tiver uma máquina a embarcar com a solução De rastreio e inventário de alterações, pode configurar os itens para rastrear. Quando ativa uma nova chave de ficheiros ou registos, está ativada tanto para o Change Tracking como para o Inventário.
-
-Para rastrear alterações nos ficheiros tanto no Windows como no Linux, são utilizados hashes MD5 dos ficheiros. As hashes teses são então usadas para detetar se uma mudança foi feita desde o último inventário.
-
-### <a name="file-integrity-monitoring-in-azure-security-center"></a>File Integrity Monitoring in Azure Security Center (Monitorização da Integridade dos Ficheiros no Centro de Segurança do Azure)
-
-O Azure Security Center adicionou monitorização da integridade do ficheiro (FIM) construída em Azure Change Tracking. Enquanto o FIM monitoriza apenas ficheiros e registos, a solução completa de Rastreio de Alterações também inclui:
-
-- Alterações de software
-- Serviços Windows
-- Linux Daemons
-
-Se já ativou o FIM e gostaria de experimentar a solução completa de Rastreio de Mudanças, tem de realizar os seguintes passos. As definições não são removidas por este processo.
-
-> [!NOTE]
-> Ativar a solução completa de rastreio de mudanças pode causar encargos adicionais, para mais informações, ver [Preços de Automação](https://azure.microsoft.com/pricing/details/automation/).
-
-1. Retire a solução de monitorização navegando para o espaço de trabalho e localizando-a na [Lista de soluções de monitorização instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
-2. Clique no nome da solução para abrir a sua página sumária e, em seguida, clique em Eliminar, conforme detalhado em [Remover uma solução de monitorização](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Reativar a solução navegando para a conta Automation e selecionando **o Change Tracking** do menu de recursos sob gestão de **configuração**.
-4. Confirme os detalhes de definição do espaço de trabalho e clique em **Ativar**.
-
-### <a name="configure-linux-files-to-track"></a>Configure ficheiros Linux para rastrear
-
-Utilize os seguintes passos para configurar o rastreio de ficheiros nos computadores Linux:
-
-1. Na sua Conta de Automação, selecione **'Localizar rastreio sob** **GESTÃO DE CONFIGURAÇÃO**'. Clique em **Definições de Edição** (o símbolo da engrenagem).
-2. Na página **'Change Tracking',** selecione **Ficheiros Linux**e, em seguida, clique em **+ Adicionar** um novo ficheiro para rastrear.
-3. No **ficheiro Add Linux para alterar**o rastreio, introduza as informações para o ficheiro ou diretório para rastrear e clicar em **Guardar**.
-
-|Propriedade  |Descrição  |
-|---------|---------|
-|Ativado     | Determina se a regulação é aplicada.        |
-|Nome do Item     | Nome amigável do ficheiro a ser rastreado.        |
-|Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
-|Introduzir o Caminho     | O caminho para verificar o ficheiro. Por exemplo: "/etc/*.conf"       |
-|Tipo de Caminho     | Tipo de item a ser rastreado, valores possíveis são Arquivo e Diretório.        |
-|Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
-|Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
-|Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignore** - Ignora links simbólicos e não inclui os ficheiros/diretórios referenciados.<br>**Siga** as ligações simbólicas durante a recursão e inclui também os ficheiros/diretórios referenciados.<br>**Gerir** - Segue as ligações simbólicas e permite alterar o conteúdo devolvido.     |
-|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
-
-> [!NOTE]
-> A opção “Gerir” ligações não é recomendada. A obtenção de conteúdo do ficheiro não é suportada.
-
-### <a name="configure-windows-files-to-track"></a>Configure ficheiros windows para rastrear
-
-Utilize os seguintes passos para configurar o rastreio de ficheiros nos computadores Windows:
-
-1. Na sua Conta de Automação, selecione **'Localizar rastreio sob** **GESTÃO DE CONFIGURAÇÃO**'. Clique em **Definições de Edição** (o símbolo da engrenagem).
-2. Na página **'Change Tracking',** selecione **Ficheiros Windows**e, em seguida, clique em **+ Adicionar** para adicionar um novo ficheiro para rastrear.
-3. No **Ficheiro Adicionar Windows para Localizar**, introduza as informações para o ficheiro rastrear e clicar em **Guardar**.
-
-|Propriedade  |Descrição  |
-|---------|---------|
-|Ativado     | Determina se a regulação é aplicada.        |
-|Nome do Item     | Nome amigável do ficheiro a ser rastreado.        |
-|Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
-|Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
-|Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
-|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
-
-## <a name="wildcard-recursion-and-environment-settings"></a>Wildcard, recursição e ambiente
-
-A recursição permite especificar wildcards para simplificar o rastreio entre diretórios e variáveis ambientais para permitir rastrear ficheiros em ambientes com nomes de unidade múltiplos ou dinâmicos. A lista que se segue mostra informações comuns que deve saber ao configurar a recursão:
-
-* Wildcards são necessários para rastrear vários ficheiros
-* Se utilizarem wildcards, só podem ser utilizados no último segmento de um caminho. (tais `c:\folder\*file*` como `/etc/*.conf`ou)
-* Se uma variável ambiental tiver um caminho inválido, a validação terá sucesso, mas esse caminho falhará quando o inventário correr.
-* Evite caminhos gerais como `c:\*.*` quando definir o caminho, pois isso resultaria em demasiadas pastas a serem atravessadas.
-
-## <a name="configure-file-content-tracking"></a>Configurar o rastreio de conteúdo de ficheiro
-
-Pode visualizar o conteúdo antes e depois de uma alteração de um ficheiro com o Rastreio de Alteração de Conteúdo de Ficheiros. Isto está disponível para ficheiros Windows e Linux, para cada alteração ao ficheiro, o conteúdo do ficheiro é armazenado numa conta de armazenamento, e mostra o ficheiro antes e depois da alteração, inline ou lado a lado. Para saber mais, consulte [Ver o conteúdo de um ficheiro rastreado](change-tracking-file-contents.md).
-
-![ver alterações em um arquivo](./media/change-tracking-file-contents/view-file-changes.png)
-
-### <a name="configure-windows-registry-keys-to-track"></a>Configure as chaves de registo do Windows para rastrear
-
-Utilize os seguintes passos para configurar o rastreio da chave de registo nos computadores Windows:
-
-1. Na sua Conta de Automação, selecione **'Localizar rastreio sob** **GESTÃO DE CONFIGURAÇÃO**'. Clique em **Definições de Edição** (o símbolo da engrenagem).
-2. Na página **'Change Tracking',** selecione **Registo do Windows**e, em seguida, clique em + **Adicionar** para adicionar uma nova chave de registo para rastrear.
-3. No **Registo do Windows adicionar para rastrear alterações,** introduza as informações para a tecla rastrear e clicar em **Guardar**.
-
-|Propriedade  |Descrição  |
-|---------|---------|
-|Ativado     | Determina se a regulação é aplicada.        |
-|Nome do Item     | Nome amigável da chave do registo a ser rastreado.        |
-|Grupo     | Um nome de grupo para agrupar logicamente chaves de registo.        |
-|Chave do Registo do Windows   | O caminho para verificar a chave do registo. Por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
-
 ## <a name="limitations"></a>Limitações
 
 A solução Change Tracking não suporta atualmente os seguintes itens:
 
 * Recursion para rastreio de registo do Windows
 * Sistemas de ficheiros de rede
-* Diferentes métodos de instalação não são rastreados
-* Os ficheiros *.exe não são rastreados para windows
+* Diferentes métodos de instalação
+* ***.exe** ficheiros para Windows
 
 Outras limitações:
 
 * A coluna max **file size** e os valores não são utilizados na implementação atual.
-* Se recolher mais de 2500 ficheiros no ciclo de recolha de 30 minutos, o desempenho da solução poderá ser degradado.
+* Se recolher mais de 2500 ficheiros num ciclo de recolha de 30 minutos, o desempenho da solução poderá ser degradado.
 * Quando o tráfego da rede é elevado, os registos de alteração podem demorar até seis horas a ser exibidos.
-* Se modificar a configuração enquanto um computador é desligado, o computador pode publicar alterações que pertenciam à configuração anterior.
+* Se modificar a configuração enquanto um computador é desligado, o computador pode publicar alterações pertencentes à configuração anterior.
 
-## <a name="known-issues"></a>Problemas Conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 
 A solução Change Tracking está atualmente a ter os seguintes problemas:
 
 * As atualizações hotfix não são recolhidas nas máquinas Core RS3 do Windows Server 2016.
 * Linux Daemons pode mostrar um estado mudado, mesmo que não tenha havido mudanças. Isto deve-se `SvcRunLevels` à forma como o campo é capturado.
+
+## <a name="network-requirements"></a>Requisitos da rede
+
+Alterar o Rastreio requer especificamente os seguintes endereços. As comunicações para estes endereços utilizam a porta 443.
+
+|Azure Público  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>Wildcard, recursição e ambiente
+
+A recursição permite especificar wildcards para simplificar o rastreio entre diretórios e variáveis ambientais para permitir rastrear ficheiros em ambientes com nomes de unidade múltiplos ou dinâmicos. A lista que se segue mostra informações comuns que deve saber ao configurar a recursão:
+
+* Os wildcards são necessários para rastrear vários ficheiros.
+* Wildcards apenas ser usado no último segmento de um caminho, por exemplo, c:\ficheiro de pasta*\\ou /etc/*.conf.
+* Se uma variável ambiental tem um caminho inválido, a validação sucede, mas esse caminho falha quando o Inventário corre.
+* Evite caminhos gerais ao definir o caminho, uma vez que este tipo de regulação pode fazer com que muitas pastas sejam atravessadas.
 
 ## <a name="change-tracking-data-collection-details"></a>Alterar detalhes de recolha de dados de rastreio
 
@@ -211,7 +139,7 @@ A tabela seguinte mostra os limites de item rastreados por máquina para o Rastr
 |Serviços|250||
 |Daemon|250||
 
-O uso médio de dados do Log Analytics para uma máquina que utilize o Change Tracking and Inventory é de aproximadamente 40MB por mês. Este valor é apenas uma aproximação e está sujeito a alterações com base no seu ambiente. Recomenda-se que monitorize o seu ambiente para ver o uso exato que tem.
+O uso médio de dados do Log Analytics para uma máquina que utilize o Change Tracking é de aproximadamente 40MB por mês. Este valor é apenas uma aproximação e está sujeito a alterações com base no seu ambiente. Recomenda-se que monitorize o seu ambiente para ver o uso exato que tem.
 
 ### <a name="windows-service-tracking"></a>Rastreio do serviço windows
 
@@ -249,36 +177,103 @@ O objetivo de monitorizar as alterações às teclas de registo é identificar p
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitoriza a lista de DLLs conhecidos ou comumente utilizados; este sistema impede as pessoas de explorar em fracas permissões de diretório de aplicações, largando em versões de cavalos de Troia de DLLs do sistema.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitoriza a lista de pacotes capazes de receber notificações de eventos do Winlogon, o modelo de suporte de logon interativo para o sistema operativo Windows.
 
-## <a name="network-requirements"></a>Requisitos da rede
+## <a name="enable-change-tracking"></a><a name="onboard"></a>Ativar o rastreio de alterações
 
-Os seguintes endereços são necessários especificamente para o Rastreio de Alterações. A comunicação a estes endereços é feita sobre a porta 443.
+Para começar a rastrear alterações, tem de ativar a solução De rastreio de alterações. Há muitas maneiras de embarcar nas máquinas para mudar de rastreamento. Seguem-se as formas recomendadas e apoiadas de embarcar na solução.
 
-|Azure Público  |Azure Government  |
+* [De uma máquina virtual](automation-onboard-solutions-from-vm.md)
+* [Desde navegar em várias máquinas](automation-onboard-solutions-from-browse.md)
+* [Da sua conta de Automação](automation-onboard-solutions-from-automation-account.md)
+* [Com um livro de execução azure Automation](automation-onboard-solutions.md)
+
+## <a name="configure-change-tracking"></a>Configurar o rastreio de alterações
+
+Para aprender a embarcar computadores para a solução, consulte [soluções de Automação onboarding](automation-onboard-solutions-from-automation-account.md). Assim que tiver uma máquina a embarcar com a solução Change Tracking, pode configurar os itens para rastrear. Quando ativa um novo ficheiro ou chave de registo, está ativado para ambos os Change Tracking.
+
+Para rastrear alterações nos ficheiros tanto no Windows como no Linux, são utilizados hashes MD5 dos ficheiros. As hashes teses são então usadas para detetar se uma mudança foi feita desde o último inventário.
+
+## <a name="enable-file-integrity-monitoring-in-azure-security-center"></a>Ativar a monitorização da integridade do ficheiro no Centro de Segurança Azure
+
+O Azure Security Center adicionou monitorização da integridade do ficheiro (FIM), que é construída em Azure Change Tracking. Enquanto o FIM monitoriza apenas ficheiros e registos, a solução completa de Rastreio de Alterações também inclui:
+
+- Alterações de software
+- Serviços Windows
+- Linux Daemons
+
+Se já ativou o FIM e gostaria de experimentar a solução completa de Rastreio de Mudanças, tem de realizar os seguintes passos. As definições não são removidas por este processo.
+
+> [!NOTE]
+> Ativar a solução completa de rastreio de mudanças pode causar encargos adicionais, para mais informações, ver [Preços de Automação](https://azure.microsoft.com/pricing/details/automation/).
+
+1. Retire a solução de monitorização navegando para o espaço de trabalho e localizando-a na [Lista de soluções de monitorização instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
+2. Clique no nome da solução para abrir a sua página sumária e, em seguida, clique em Eliminar, conforme detalhado em [Remover uma solução de monitorização](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
+3. Reativar a solução navegando para a conta Automation e selecionando **o Change Tracking** sob gestão de **configuração**.
+4. Confirme os detalhes de definição do espaço de trabalho e clique em **Ativar**.
+
+## <a name="configure-file-content-change-tracking"></a>Configurar o rastreio de alteração de conteúdo de ficheiro
+
+Pode visualizar o conteúdo antes e depois da alteração do ficheiro com o rastreio da alteração do conteúdo do ficheiro. Esta funcionalidade está disponível para ficheiros Windows e Linux. Para cada alteração a um ficheiro, o conteúdo do ficheiro é armazenado numa conta de armazenamento. O ficheiro é mostrado antes e depois da alteração, inline ou lado a lado. Para saber mais, consulte [Ver o conteúdo de um ficheiro rastreado](change-tracking-file-contents.md).
+
+![ver alterações em um arquivo](./media/change-tracking-file-contents/view-file-changes.png)
+
+## <a name="configure-windows-registry-keys-to-track"></a>Configure as chaves de registo do Windows para rastrear
+
+Utilize os seguintes passos para configurar o rastreio da chave de registo nos computadores Windows:
+
+1. Na sua conta de Automação, selecione **'Localizar rastreio sob** **Gestão de Configuração**.' Clique em **Definições de Edição** (o símbolo da engrenagem).
+2. Na página 'Change Tracking', selecione **Registo do Windows**e, em seguida, clique em + **Adicionar** para adicionar uma nova chave de registo para rastrear.
+3. No **Registo do Windows adicionar para rastrear alterações,** introduza as informações para a tecla rastrear e clicar em **Guardar**.
+
+|Propriedade  |Descrição  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.azure-automation.us|
+|Ativado     | Determina se a regulação é aplicada.        |
+|Nome do Item     | Nome amigável da chave do registo a ser rastreado.        |
+|Grupo     | Um nome de grupo para agrupar logicamente chaves de registo.        |
+|Chave do Registo do Windows   | O caminho para verificar a chave do registo. Por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
-## <a name="use-change-tracking"></a>Utilizar o rastreio de alterações
+## <a name="configure-file-tracking-on-windows"></a>Configure o rastreio de ficheiros no Windows
 
-Depois de ativada a solução, pode visualizar o resumo das alterações para os computadores monitorizados selecionando o **Change Tracking** sob a GESTÃO DE **CONFIGURAÇÃO** na sua conta Deautomação.
+Utilize os seguintes passos para configurar o rastreio de ficheiros nos computadores Windows:
 
-Pode visualizar alterações nos seus computadores e, em seguida, perfurar detalhes para cada evento. As quedas estão disponíveis no topo da tabela para limitar o gráfico e informações detalhadas com base nos intervalos de tipo e tempo de alteração. Também pode clicar e arrastar na tabela para selecionar um intervalo de tempo personalizado. **O Tipo de Alteração** será um dos seguintes valores **Eventos**, **Daemons,** **Ficheiros,** **Registo,** **Software,** **Serviços Windows**. A categoria mostra-lhe o tipo de alteração e pode ser **adicionada,** **modificada**ou **removida**.
+1. Na sua conta de Automação, selecione **'Localizar rastreio sob** **Gestão de Configuração**.' Clique em **Definições de Edição** (o símbolo da engrenagem).
+2. Na página 'Change Tracking', selecione **Ficheiros Windows**e, em seguida, clique em **+ Adicionar** para adicionar um novo ficheiro para rastrear.
+3. No **Ficheiro Adicionar Windows para Localizar**, introduza as informações para o ficheiro rastrear e clicar em **Guardar**.
 
-![imagem do painel de rastreio de mudança](./media/change-tracking/change-tracking-dash01.png)
+|Propriedade  |Descrição  |
+|---------|---------|
+|Ativado     | É verdade se a definição for aplicada, e falsa de outra forma.        |
+|Nome do Item     | Nome amigável do ficheiro a ser rastreado.        |
+|Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
+|Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo, **c:\temp\\\*.txt**<br>Também pode utilizar variáveis ambientais, tais como `%winDir%\System32\\\*.*`.       |
+|Recursão     | É verdade que se a recursion é usada quando se procura o item a ser rastreado, e Falso de outra forma.        |
+|Carregar conteúdo do ficheiro para todas as definições| Fiel ao upload do conteúdo do ficheiro em alterações rastreadas, e Falso de outra forma.|
 
-Clicar numa mudança ou evento traz a informação detalhada sobre essa alteração. Como pode ver pelo exemplo, o tipo de arranque do serviço foi alterado de Manual para Auto.
+## <a name="configure-file-tracking-on-linux"></a>Configure rastreio de ficheiros em Linux
 
-![imagem de detalhes de rastreamento de mudança](./media/change-tracking/change-tracking-details.png)
+Utilize os seguintes passos para configurar o rastreio de ficheiros nos computadores Linux:
+
+1. Na sua conta de Automação, selecione **'Localizar rastreio sob** **Gestão de Configuração**.' Clique em **Definições de Edição** (o símbolo da engrenagem).
+2. Na página 'Change Tracking', selecione **Ficheiros Linux**e, em seguida, clique em **+ Adicionar** um novo ficheiro para rastrear.
+3. No **ficheiro Add Linux para alterar**o rastreio, introduza as informações para o ficheiro ou diretório para rastrear e clicar em **Guardar**.
+
+|Propriedade  |Descrição  |
+|---------|---------|
+|Ativado     | Determina se a regulação é aplicada.        |
+|Nome do Item     | Nome amigável do ficheiro a ser rastreado.        |
+|Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
+|Introduzir o Caminho     | O caminho para verificar o ficheiro. Por exemplo: "/etc/*.conf"       |
+|Tipo de Caminho     | Tipo de item a ser rastreado, valores possíveis são Arquivo e Diretório.        |
+|Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
+|Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
+|Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignore** - Ignora links simbólicos e não inclui os ficheiros/diretórios referenciados.<br>**Siga** as ligações simbólicas durante a recursão e inclui também os ficheiros/diretórios referenciados.<br>**Gerir** - Segue as ligações simbólicas e permite alterar o conteúdo devolvido.     |
+|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
+
+> [!NOTE]
+> A opção “Gerir” ligações não é recomendada. A obtenção de conteúdo do ficheiro não é suportada.
 
 ## <a name="search-logs"></a>Registos de pesquisa
 
-Além dos detalhes que são fornecidos no portal, as pesquisas podem ser feitas contra os registos. Com a página **'Change Tracking'** aberta, clique em **Log Analytics,** isto abre a página **De Registos.**
-
-### <a name="sample-queries"></a>Consultas de exemplo
-
-A tabela seguinte fornece pesquisas de registo de amostras para registos de alterações recolhidos por esta solução:
+Pode fazer várias pesquisas contra os registos para alterar registos. Com a página 'Change Tracking' aberta, clique em **Log Analytics,** isto abre a página De Registos. A tabela seguinte fornece pesquisas de registo de amostras para registos de alterações recolhidos por esta solução:
 
 |Consulta  |Descrição  |
 |---------|---------|
@@ -287,15 +282,15 @@ A tabela seguinte fornece pesquisas de registo de amostras para registos de alte
 
 ## <a name="alert-on-changes"></a>Alerta sobre alterações
 
-Uma capacidade chave de Change Tracking and Inventory é a capacidade de alertar sobre o estado de configuração e quaisquer alterações ao estado de configuração do seu ambiente híbrido.
-
-No exemplo seguinte, a imagem `C:\windows\system32\drivers\etc\hosts` mostra que o ficheiro foi modificado numa máquina. Este ficheiro é importante porque o ficheiro Host é utilizado pelo Windows para resolver nomes de anfitriões para endereços IP e tem precedência sobre até DNS, o que pode resultar em problemas de conectividade ou na reorientação do tráfego para sites maliciosos ou de outra forma perigosos.
+Uma capacidade chave do Change Tracking está a alertar sobre o estado de configuração e quaisquer alterações ao estado de configuração do seu ambiente híbrido. O exemplo seguinte mostra que o ficheiro **C:\windows\system32\drivers\etc\hosts** foi modificado numa máquina. Este ficheiro é importante porque o Windows o utiliza para resolver nomes de anfitriões para endereços IP. Esta operação tem precedência sobre o DNS, e pode resultar em problemas de conectividade ou na reorientação do tráfego para sites maliciosos ou de outra forma perigosos.
 
 ![Um gráfico que mostra a mudança de ficheiro dos anfitriões](./media/change-tracking/changes.png)
 
 Para analisar mais além desta alteração, aceda à pesquisa de Registo a partir de clicar em **Log Analytics**. Uma vez em Registo de pesquisa, procure alterações `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`de conteúdo no ficheiro Anfitriões com a consulta . Esta consulta procura alterações que incluam uma alteração do conteúdo dos ficheiros para ficheiros cujo caminho totalmente qualificado contém a palavra "anfitriões". Também pode solicitar um ficheiro específico, alterando a parte do `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`caminho para a sua forma totalmente qualificada (como).
 
-Depois da consulta devolver os resultados desejados, clique no novo botão de regra de **alerta** na experiência de pesquisa de Registo para abrir a página de criação de alerta. Também pode navegar para esta experiência através do **Monitor Azure** no portal Azure. Na experiência de criação de alerta, verifique novamente a nossa consulta e modifique a lógica de alerta. Neste caso, quer que o alerta seja desencadeado se houver mesmo uma alteração detetada em todas as máquinas do ambiente.
+Depois da consulta devolver os resultados desejados, clique em **Nova regra** de alerta na pesquisa de registo para abrir a página de criação de alerta. Também pode navegar para esta experiência através do **Monitor Azure** no portal Azure. 
+
+Verifique novamente a sua consulta e modifique a lógica de alerta. Neste caso, quer que o alerta seja desencadeado se houver mesmo uma alteração detetada em todas as máquinas do ambiente.
 
 ![Uma imagem que mostra a consulta de mudança para rastrear alterações no ficheiro dos anfitriões](./media/change-tracking/change-query.png)
 
@@ -307,7 +302,7 @@ Depois de todos os parâmetros e lógicas serem definidos, podemos aplicar o ale
 
 ### <a name="alert-suggestions"></a>Sugestões de alerta
 
-Embora alertar sobre as alterações ao ficheiro Hosts é uma boa aplicação de alertas para dados de Rastreio de Alterações ou Inventário, existem muitos mais cenários para alertar, incluindo os casos definidos juntamente com as suas consultas de exemplo na secção abaixo.
+Embora alertar sobre as alterações ao ficheiro dos anfitriões seja uma boa aplicação de alertas para dados de Rastreio de Alterações ou Inventário, existem muitos mais cenários para alertar, incluindo os casos definidos juntamente com as suas consultas de exemplo na secção abaixo.
 
 |Consulta  |Descrição  |
 |---------|---------|

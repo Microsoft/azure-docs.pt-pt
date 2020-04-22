@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 958dcd441d35b5c28746ff79a0b341e5aa7383a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: 6f33f49be74419a8f0cd31d973d64798f5d76a2c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79214013"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683005"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitorizar o desempenho Azure SQL Database usando pontos de vista dinâmicos de gestão
 
@@ -604,7 +604,7 @@ O exemplo seguinte mostra-lhe diferentes formas de usar a vista de catálogo **s
 
 3. Com esta informação sobre os valores médios e máximos de cada métrica de recurso, pode avaliar o quão bem a sua carga de trabalho se encaixa no tamanho da computação que escolheu. Normalmente, valores médios de **sys.resource_stats** dão-lhe uma boa linha de base para usar contra o tamanho do alvo. Deve ser a sua principal medição. Por exemplo, pode estar a utilizar o nível de serviço Standard com o tamanho da computação S2. As percentagens médias de utilização para CPU e IO lêe e escreve abaixo dos 40%, o número médio de trabalhadores é inferior a 50, e o número médio de sessões é inferior a 200. A sua carga de trabalho pode caber no tamanho da computação S1. É fácil ver se a sua base de dados se enquadra nos limites do trabalhador e da sessão. Para ver se uma base de dados se enquadra num tamanho de computação mais baixo no que diz respeito à CPU, lê e escreve, divida o número de DTU do tamanho inferior do cálculo pelo número dTU do seu tamanho atual de computação, e depois multiplique o resultado em 100:
 
-    ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
+    `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
     O resultado é a diferença de desempenho relativa entre os dois tamanhos de cálculo em percentagem. Se o seu uso de recursos não exceder esta quantidade, a sua carga de trabalho pode caber no tamanho inferior da computação. No entanto, é necessário olhar para todas as gamas de valores de utilização de recursos e determinar, por percentagem, a frequência com que a sua carga de trabalho na base de dados se encaixaria no tamanho inferior da computação. A seguinte consulta produz a percentagem de ajuste por dimensão de recurso, com base no limiar de 40 por cento que calculamos neste exemplo:
 

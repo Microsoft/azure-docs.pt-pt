@@ -12,19 +12,16 @@ ms.date: 04/13/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bc635addc2a5cd7d3c698f6885bec0399e28743a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e94bdd6e79ff13d8ba736e140538bae74091f727
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309662"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680080"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft
 
 O ponto final da plataforma de identidade da Microsoft para identidade como serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0. Embora o serviço seja compatível com as normas, pode haver diferenças subtis entre quaisquer duas implementações destes protocolos. As informações aqui serão úteis se optar por escrever o seu código enviando e manuseando diretamente pedidos de HTTP ou utilizar uma biblioteca de código aberto de terceiros, em vez de utilizar uma das [nossas bibliotecas de código aberto.](reference-v2-libraries.md)
-
-> [!NOTE]
-> Nem todos os cenários e funcionalidades do Azure AD são suportados pelo ponto final da plataforma de identidade da Microsoft. Para determinar se deve utilizar o ponto final da plataforma de identidade da Microsoft, leia sobre [as limitações](active-directory-v2-limitations.md)da plataforma de identidade da Microsoft .
 
 ## <a name="the-basics"></a>Noções básicas
 
@@ -68,7 +65,7 @@ Onde `{tenant}` a lata pode levar um de quatro valores diferentes:
 Para aprender a interagir com estes pontos finais, escolha um tipo de aplicação específico na secção [Protocolos](#protocols) e siga os links para mais informações.
 
 > [!TIP]
-> Qualquer aplicação registada no Azure AD pode utilizar o ponto final da plataforma de identidade da Microsoft, mesmo que não assinem contas pessoais.  Desta forma, pode migrar aplicações existentes para a plataforma de identidade da Microsoft e [MSAL](reference-v2-libraries.md) sem recriar a sua aplicação.  
+> Qualquer aplicação registada no Azure AD pode utilizar o ponto final da plataforma de identidade da Microsoft, mesmo que não assinem contas pessoais.  Desta forma, pode migrar aplicações existentes para a plataforma de identidade da Microsoft e [MSAL](reference-v2-libraries.md) sem recriar a sua aplicação.
 
 ## <a name="tokens"></a>Tokens
 

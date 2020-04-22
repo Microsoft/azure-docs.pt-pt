@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8da8cd7110cd17d0aadd52cce1263c7c0fcfdf5c
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 0f42f075f5d3be4486157334403bfa7d3f1aa80c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632159"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682881"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que pode fazer na Máquina Virtual de Ciência de Dados do Windows
 
@@ -817,7 +817,7 @@ Utilize as seguintes medidas pré-requisitos para aceder ao Azure Cosmos DB a pa
 1. O Azure Cosmos DB Python SDK já está instalado no DSVM. Para atualizá-lo, corra ```pip install pydocumentdb --upgrade``` a partir de um pedido de comando.
 2. Crie uma conta Azure Cosmos DB e base de dados do [portal Azure.](https://portal.azure.com)
 3. Descarregue a Ferramenta de Migração de Dados Do Azure Cosmos DB do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595) e extraa para um diretório à sua escolha.
-4. Importar dados jSON (dados de vulcão) armazenados numa [bolha pública](https://cahandson.blob.core.windows.net/samples/volcano.json) em Azure Cosmos DB com os seguintes parâmetros de comando para a ferramenta de migração. (Use dtui.exe do diretório onde instalou a Ferramenta de Migração de Dados Azure Cosmos DB.) Insira a origem e a localização do alvo com estes parâmetros:
+4. Importar dados jSON (dados de vulcão) armazenados numa [bolha pública](https://dotnet.microsoft.com/) em Azure Cosmos DB com os seguintes parâmetros de comando para a ferramenta de migração. (Use dtui.exe do diretório onde instalou a Ferramenta de Migração de Dados Azure Cosmos DB.) Insira a origem e a localização do alvo com estes parâmetros:
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 

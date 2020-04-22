@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7460490dbd45862f4269d25e3910373700ec9a03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10831c0dc39fa241a43541850afae39593ae033b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77564725"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678278"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Quickstart - Configure um ambiente de nuvem privada
 
@@ -26,7 +26,7 @@ Rever [os pré-requisitos de networking](cloudsimple-network-checklist.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-private-cloud"></a>Criar uma Cloud Privada
 
@@ -159,8 +159,8 @@ Agora pode iniciar sessão no vCenter para configurar máquinas e políticas vir
     ![Lançar cliente vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Selecione o seu cliente vSphere preferido para aceder ao vCenter e iniciar sessão com o seu nome de utilizador e senha.  Os incumprimentos são:
-    * Nome do utilizador: **CloudOwner\@cloudsimple.local**
-    * Palavra-passe: **CloudSimple123!**  
+    * Nome do utilizador:`CloudOwner@cloudsimple.local`
+    * Palavra-passe: `CloudSimple123!`
 
 Os ecrãs vCenter nos próximos procedimentos são do cliente vSphere (HTML5).
 

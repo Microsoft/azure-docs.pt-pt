@@ -14,18 +14,18 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b2b901f652564c47ca35cb0f75a69f26fa2fa71
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 9c2c5c083115440e1e4da203f39f2b32734458c3
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533229"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684960"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerir utilizadores numa unidade administrativa no Diretório Ativo do Azure
 
 No Azure Ative Directory (Azure AD), pode adicionar utilizadores a uma unidade administrativa (UA) para um âmbito de controlo administrativo mais granular.
 
-Para obter medidas para se preparar para utilizar powerShell e Microsoft Graph para gestão de unidades administrativas, consulte [Iniciar -](roles-admin-units-manage.md#getting-started)
+Para que as medidas se preparem para utilizar o PowerShell e o Microsoft Graph para gestão de unidades administrativas, consulte [Iniciar](roles-admin-units-manage.md#get-started).
 
 ## <a name="add-users-to-an-au"></a>Adicione utilizadores a uma UA
 

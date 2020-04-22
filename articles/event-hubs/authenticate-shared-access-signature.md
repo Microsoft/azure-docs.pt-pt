@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 82773ab6decfe15ee1a9d839a1f10a158ae72c42
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: cde5992355d274410bb43b1e3e60fbba1afe4e44
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521327"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676360"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos do Event Hubs utilizando assinaturas de acesso partilhado (SAS)
 A assinatura de acesso partilhado (SAS) dá-lhe controlo granular sobre o tipo de acesso que concede aos clientes que têm a assinatura de acesso partilhado. Aqui estão alguns dos controlos que pode definir num SAS: 
@@ -22,7 +22,7 @@ A assinatura de acesso partilhado (SAS) dá-lhe controlo granular sobre o tipo d
 - As permissões concedidas pela SAS. Por exemplo, um Espaço de nome SAS para um Espaço de Nome saque de Eventos pode conceder a permissão de escuta, mas não a permissão de envio.
 - Apenas os clientes que apresentam credenciais válidas podem enviar dados para um centro de eventos.
 - Um cliente não pode fazer-se passar por outro cliente.
-- Um cliente rouge pode ser impedido de enviar dados para um centro de eventos.
+- Um cliente desonesto pode ser impedido de enviar dados para um centro de eventos.
 
 Este artigo abrange a autenticação dos recursos do Event Hubs utilizando a SAS. Para aprender sobre **a autorização** de acesso aos recursos do Event Hubs utilizando a SAS, consulte [este artigo](authorize-access-shared-access-signature.md). 
 

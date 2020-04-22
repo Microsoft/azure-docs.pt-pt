@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 9ed17ed0825e0011d1402efc45155755a1ecbadf
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 2739e960c4bc6d35ac9ad757e80ed620e5dc04f8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459173"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684651"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento de Azure Machine Learning
 
@@ -825,7 +825,7 @@ O separador Experiment no novo portal do [espaço de trabalho](https://ml.azure.
 ### <a name="azure-machine-learning-sdk-for-python-v1062"></a>Azure Machine Learning SDK para Python v1.0.62
 
 + **Novas funcionalidades**
-  + Introduziu `timeseries` o traço no TabularDataset. Este traço permite a filtragem fácil da marca de tempo em dados um TabularDataset, como tomar todos os dados entre um intervalo de tempo ou os dados mais recentes. Para saber sobre `timeseries` isso o traço no TabularDataset, visite https://aka.ms/azureml-data para documentação ou https://aka.ms/azureml-tsd-notebook por exemplo um caderno.
+  + Introduziu `timeseries` o traço no TabularDataset. Este traço permite a filtragem fácil da marca de tempo em dados um TabularDataset, como tomar todos os dados entre um intervalo de tempo ou os dados mais recentes. Para saber sobre `timeseries` isso o traço no TabularDataset, visite https://aka.ms/azureml-data para documentação ou https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb por exemplo um caderno.
   + Formação habilitada com TabularDataset e FileDataset. Visite https://aka.ms/dataset-tutorial por exemplo um caderno.
 
   + **azureml-train-core**
@@ -1339,7 +1339,7 @@ Revertemos uma mudança que melhorou o desempenho, uma vez que estava a causar p
 + **Funcionalidades de pré-visualização**
     + Integração com [mLflow](https://mlflow.org) 1.0.0 rastreando através do pacote azureml-mlflow[(por exemplo cadernos).](https://aka.ms/azureml-mlflow-examples)
     + Submeta o caderno Jupyter como uma corrida. [Documentação de Referência da API](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + Pré-visualização pública do [Detetor de Deriva](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) de Dados através do pacote azureml-contrib-datadrift[(por exemplo, cadernos).](https://aka.ms/azureml-datadrift-example) Data Drift é uma das principais razões para a precisão do modelo se degradar ao longo do tempo. Acontece quando os dados servidos para modelar na produção é diferente dos dados em que o modelo foi treinado. O detetor AML Data Drift ajuda o cliente a monitorizar a deriva dos dados e envia alerta sempre que a deriva é detetada.
+    + Pré-visualização pública do [Detetor de Deriva](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) de Dados através do pacote azureml-contrib-datadrift[(por exemplo, cadernos).](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/monitor-models/data-drift) Data Drift é uma das principais razões para a precisão do modelo se degradar ao longo do tempo. Acontece quando os dados servidos para modelar na produção é diferente dos dados em que o modelo foi treinado. O detetor AML Data Drift ajuda o cliente a monitorizar a deriva dos dados e envia alerta sempre que a deriva é detetada.
 
 + **Alterações interruptivas**
 

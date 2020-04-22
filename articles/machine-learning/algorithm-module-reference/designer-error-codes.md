@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: cc04d11475568af92ba6a617a1eb6b2b51accb45
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 38e728de22d49de760e998ddc97c5067beb3ecd1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481674"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684688"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (pré-visualização)
 
@@ -145,6 +145,7 @@ Seguem-se códigos de erro de módulos no designer.
 |O valor do parâmetro "{arg_name}" deve ser inferior ou igual ao valor do parâmetro "{upper_boundary_parameter_name}".|
 |O parâmetro "{arg_name}" tem valor "{atual_value}" que deve ser inferior ou igual a {upper_boundary}.|
 |O valor do parâmetro "{arg_name}" {atual_value} deve ser inferior ou igual ao valor do parâmetro "{upper_boundary_parameter_name}" {upper_boundary}.|
+|O valor do parâmetro "{arg_name}" {atual_value} deve ser inferior ou igual ao valor de {upper_boundary_meaning} {upper_boundary}.|
 
 
 ## <a name="error-0008"></a>Erro 0008  
@@ -253,8 +254,8 @@ Se o modelo foi treinado utilizando algum dos módulos de treino especializados,
 
 |Tipo de modelo|Módulo de treino| Módulo de pontuação|
 |----|----|----|
-|qualquer classificador|[Modelo de comboio](train-model.md) |[Modelo de pontuação](score-model.md)|
-|qualquer modelo de regressão|[Modelo de comboio](train-model.md) |[Modelo de pontuação](score-model.md)|
+|qualquer classificador|[Preparar Modelo](train-model.md) |[Modelo de Pontuação](score-model.md)|
+|qualquer modelo de regressão|[Preparar Modelo](train-model.md) |[Modelo de Pontuação](score-model.md)|
 
 <!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
 | anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
@@ -271,6 +272,7 @@ Se o modelo foi treinado utilizando algum dos módulos de treino especializados,
 |Aprendedor de tipo inválido é passado.|
 |O aprendiz "{arg_name}" tem um tipo inválido.|
 |O aprendiz "{arg_name}" tem o tipo inválido "{learner_type}".|
+|Aprendedor de tipo inválido é passado. Mensagem de exceção: {exception_message}|
 
 
 ## <a name="error-0014"></a>Erro 0014  
@@ -393,6 +395,7 @@ Para colunas que pretende utilizar para agrupamento ou categorização, tome med
 |Os valores na coluna não estão classificados.|
 |Os valores na coluna "{col_index}" não são classificados.|
 |Os valores na coluna "{col_index}" do conjunto de dados "{dataset}" não estão classificados.|
+|Os valores no argumento "{arg_name}" não são classificados na ordem "{sorting_order}".|
 
 
 ## <a name="error-0020"></a>Erro 0020  
@@ -633,6 +636,7 @@ Também pode acontecer que uma coluna de etiquetas esteja presente no conjunto d
 |------------------------|
 |Argumento deve ser finito.|
 |"{arg_name}" não é finito.|
+|A coluna "{column_name}" contém valores infinitos.|
 
 
 ## <a name="error-0034"></a>Erro 0034  
@@ -1492,6 +1496,18 @@ Resolução:
 |------------------------------------------------------------|
 |Dado que o TransformationDirectory é inválido.|
 |O Directory de Transformação "{arg_name}" é inválido. Razão: {reason}. Por favor, refaça a experiência de treino que gera o ficheiro Transform. Se a experiência de treino foi eliminada, recrie e guarde o ficheiro Transform.|
+|O Directory de Transformação "{arg_name}" é inválido. Razão: {reason}. {troubleshoot_hint}|
+
+
+## <a name="error-0159"></a>Erro 0159
+ A exceção ocorre se a lista de modelos de módulos for inválida. 
+
+|Mensagens de Exceção|
+|------------------------------------------------------------|
+|Dado que o ModelDirectory é inválido.|
+|ModelDirectory "{arg_name}" é inválido.|
+|ModelDirectory "{arg_name}" é inválido. Razão: {reason}.|
+|ModelDirectory "{arg_name}" é inválido. Razão: {reason}. {troubleshoot_hint}|
 
 
 ## <a name="error-1000"></a>Erro 1000  

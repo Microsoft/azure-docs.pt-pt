@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Saiba como configurar a integração contínua/implantação contínua utilizando O Azure DevOps com espaços Azure Dev
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contentores Azure, contentores
-ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75438452"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685624"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Utilizar CI/CD com o Azure Dev Spaces
 
@@ -131,7 +131,7 @@ Um processo de libertação automatizado começará agora, implantando as tabela
 A libertação é feita quando todas as tarefas estão completas.
 
 > [!TIP]
-> Se a sua libertação falhar com uma mensagem de erro como *upgrade FAILEd: tempo para fora à espera da condição,* tente inspecionar as cápsulas do seu cluster [utilizando o painel kubernetes](../../aks/kubernetes-dashboard.md). Se vir que as cápsulas estão a falhar em começar com mensagens de erro como falhou em *puxar a https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: imagem "azdsexample.azurecr.io/mywebapi:122": erro rpc: código = Desc = Resposta de erro desconhecida do daemon: Obter não autorizado: autenticação necessária,* pode ser porque o seu cluster não foi autorizado a retirar do seu Registo de Contentores Azure. Certifique-se de que completou o cluster DE Autorização do seu conjunto AKS para retirar do seu pré-requisito do Registo de [Contentores Azure.](../../aks/cluster-container-registry-integration.md)
+> Se a sua libertação falhar com uma mensagem de erro como *upgrade FAILEd: tempo para fora à espera da condição,* tente inspecionar as cápsulas do seu cluster [utilizando o painel kubernetes](../../aks/kubernetes-dashboard.md). Se vir que as cápsulas estão a falhar em começar com mensagens de erro como falhou em *puxar a imagem\/"azdsexample.azurecr.io/mywebapi:122": erro rpc: código = Desc = Resposta de erro desconhecida do daemon: Get https: /azdsexample.azurecr.io/v2/mywebapi/manifests/122: não autorizado: autenticação necessária,* pode ser porque o seu cluster não foi autorizado a retirar do registo do seu contentor Azure. Certifique-se de que completou o cluster DE Autorização do seu conjunto AKS para retirar do seu pré-requisito do Registo de [Contentores Azure.](../../aks/cluster-container-registry-integration.md)
 
 Tem agora um pipeline CI/CD totalmente automatizado para o seu garfo GitHub das aplicações de amostra de Dev Spaces. Cada vez que cometer e empurrar código, o pipeline de construção irá construir e empurrar as imagens *mywebapi* e *webfrontend* para a sua instância ACR personalizada. Em seguida, o gasoduto de lançamento irá implantar o gráfico Helm para cada aplicação no espaço _de v_ no seu cluster ativado por Dev Spaces.
 

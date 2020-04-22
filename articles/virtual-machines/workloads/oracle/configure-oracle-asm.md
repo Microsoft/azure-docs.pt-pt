@@ -3,7 +3,7 @@ title: Instale o Oracle ASM numa máquina virtual Azure Linux [ Microsoft Docs
 description: Rapidamente coloque a Oracle ASM a funcionar no seu ambiente Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: mimckitt
+author: BorisB2015
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: mimckitt
-ms.openlocfilehash: 88fd740cad74b12860b6d367c501ba84635f9592
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: borisb
+ms.openlocfilehash: aa65b789d02c60ef6042aa62e1c138c0e1bd7224
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263170"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676905"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Instale o Oracle ASM numa máquina virtual Azure Linux  
 

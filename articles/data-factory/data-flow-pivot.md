@@ -1,5 +1,5 @@
 ---
-title: Mapeando a transformação do eixo do fluxo de dados
+title: Transformação de pivô no fluxo de dados de mapeamento
 description: Dados de pivô de linhas a colunas usando azure data factory mapeando dados fluxo de dados Transformação pivot
 author: kromerm
 ms.author: makromer
@@ -7,73 +7,103 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: 980d7c3e1b1f69e76c091e2a4a74c8e5a4d0bb64
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: a58444f81f60b48f9c2c76f13257a6a2431158a8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606366"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686463"
 ---
-# <a name="azure-data-factory-pivot-transformation"></a>Transformação do pivô da fábrica de dados Azure
+# <a name="pivot-transformation-in-mapping-data-flow"></a>Transformação de pivô no fluxo de dados de mapeamento
+
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Utilize o Pivô no Fluxo de Dados ADF como uma agregação onde uma ou mais colunas de agrupamento têm os seus valores distintos de linha transformados em colunas individuais. Essencialmente, pode girar os valores da linha em novas colunas (transformar dados em metadados).
+Use a transformação do pivô para criar múltiplas colunas a partir dos valores únicos da linha de uma única coluna. O pivô é uma transformação de agregação onde seleciona grupo por colunas e gera colunas de pivô utilizando [funções agregadas](data-flow-expression-functions.md#aggregate-functions).
 
-![Opções de pivô](media/data-flow/pivot1.png "pivô 1")
+## <a name="configuration"></a>Configuração
 
-## <a name="group-by"></a>Agrupar por
+A transformação do pivô requer três inputs diferentes: grupo por colunas, a chave pivot, e como gerar as colunas pivotadas
 
-![Opções de pivô](media/data-flow/pivot2.png "pivô 2")
+### <a name="group-by"></a>Agrupar por
 
-Primeiro, detete as colunas que deseja agrupar para a sua agregação de pivô. Pode definir mais de 1 coluna aqui com o sinal + ao lado da lista de colunas.
+![Agrupar por opções](media/data-flow/pivot2.png "[Grupo por opções")
 
-## <a name="pivot-key"></a>Chave de pivô
+Selecione quais colunas para agregar as colunas mais giradas. Os dados de saída agruparão todas as linhas com o mesmo grupo por valores numa só linha. A agregação feita na coluna pivotada ocorrerá sobre cada grupo.
 
-![Opções de pivô](media/data-flow/pivot3.png "pivô 3")
+Esta secção é opcional. Se nenhum grupo por colunas for selecionado, todo o fluxo de dados será agregado e apenas uma linha será saída.
 
-A Chave Pivot é a coluna que a ADF irá girar de linha em coluna. Por predefinição, cada valor único no conjunto de dados para este campo girará para uma coluna. No entanto, pode introduzir opcionalmente os valores a partir do conjunto de dados que pretende orientar para valores de coluna. Esta é a coluna que determinará as novas colunas que serão criadas.
+### <a name="pivot-key"></a>Chave de pivô
 
-## <a name="pivoted-columns"></a>Colunas pivotadas
+![Chave de pivô](media/data-flow/pivot3.png "Chave de pivô")
 
-![Opções de pivô](media/data-flow/pivot4.png "pivô 4")
+A chave de pivô é a coluna cujos valores de linha são transformados em novas colunas. Por padrão, a transformação do pivô criará uma nova coluna para cada valor único da linha.
 
-Por último, escolherá a agregação que deseja utilizar para os valores mais girados e como gostaria que as colunas fossem exibidas na nova projeção de saída da transformação.
+Na secção **"Valor",** pode introduzir valores específicos de linha a serem pivôs. Apenas os valores de linha introduzidos nesta secção serão pivôs. Ativar o **valor Nulo** criará uma coluna pivotada para os valores nulos na coluna.
 
-(Opcional) Pode definir um padrão de nomeação com prefixo, meio e sufixo a ser adicionado a cada novo nome de coluna a partir dos valores da linha.
+### <a name="pivoted-columns"></a>Colunas pivotadas
 
-Por exemplo, a aposta em "Vendas" por "Região" resultaria em novos valores de coluna saem de cada valor de venda, ou é, "25", "50", "1000", etc. No entanto, se definir um prefixo de valor de "Vendas", cada valor de coluna adicionaria "Sales-" ao início do valor.
+![Colunas pivotadas](media/data-flow/pivot4.png "Colunas pivotadas")
 
-![Opções de pivô](media/data-flow/pivot5.png "pivô 5")
+Para cada valor chave de pivô único que se torna uma coluna, gere um valor de linha agregado para cada grupo. Pode criar várias colunas por chave de pivô. Cada coluna de pivô deve conter pelo menos uma [função agregada](data-flow-expression-functions.md#aggregate-functions).
 
-A definição do Arranjo da Coluna para "Normal" juntará todas as colunas pivotadas com os seus valores agregados. A definição do arranjo das colunas para "Lateral" alternará entre coluna e valor.
+**Padrão de nome** da coluna: Selecione como formatar o nome da coluna de cada coluna de pivô. O nome da coluna output será uma combinação do valor da chave de pivô, prefixo da coluna e prefixo opcional, basta, caracteres médios. 
 
-### <a name="aggregation"></a>Agregação
+**Arranjo da coluna:** Se gerar mais de uma coluna de pivô por chave de pivô, escolha como pretende que as colunas sejam encomendadas. 
 
-Para definir a agregação que deseja utilizar para os valores de rotação, clique no campo na parte inferior do painel de Colunas Pivotadas. Você vai entrar no construtor de expressão De fluxo de dados ADF onde você pode construir uma expressão de agregação e fornecer um nome descritivo para os seus novos valores agregados.
+**Prefixo da coluna:** Se gerar mais de uma coluna de pivô por chave de pivô, introduza um prefixo de coluna para cada coluna. Esta definição é opcional se tiver apenas uma coluna pivotada.
 
-Utilize a Linguagem de Expressão de Fluxo de Dados ADF https://aka.ms/dataflowexpressionspara descrever as transformações da coluna pivotada no Construtor de Expressão: .
+## <a name="help-graphic"></a>Ajudar gráfico
+
+O gráfico abaixo ajuda mostra como os diferentes componentes de pivô interagem uns com os outros
+
+![Gráficos de ajuda de pivô](media/data-flow/pivot5.png "Gráfico de ajuda de pivô")
 
 ## <a name="pivot-metadata"></a>Metadados de pivô
 
-A transformação pivot produzirá novos nomes de colunas dinâmicos com base nos seus dados de entrada. A Chave Pivot produz os valores para cada novo nome de coluna. Se não especificar valores individuais e pretender criar nomes dinâmicos de colunas para cada valor único na sua Chave Pivot, então o UI não apresentará os metadados em Inspeção e não haverá propagação de colunas para a transformação do Lavatório. Se definir valores para a Chave Pivot, então a ADF pode determinar os novos nomes de colunas e esses nomes de colunas estarão disponíveis para si no mapeamento De Inspeção e Sink.
+Se não forem especificados valores na configuração da chave de rotação, as colunas dinâmicas serão geradas dinamicamente no tempo de execução. O número de colunas pivotadas equivalerá ao número de valores-chave únicos multiplicados pelo número de colunas de pivô. Como este pode ser um número de mudança, o UX não apresentará os metadados da coluna no separador **Inspecionar** e não haverá propagação da coluna. Para transformação destas colunas, utilize as capacidades de padrão da [coluna](concepts-data-flow-column-pattern.md) de mapeamento do fluxo de dados. 
 
-### <a name="generate-a-new-model-from-dynamic-columns"></a>Gerar um novo modelo a partir de colunas dinâmicas
+Se forem definidos valores-chave de pivô específicos, as colunas pivotadas aparecerão nos metadados.e Os nomes das colunas estarão disponíveis para si no mapeamento de Inspeção e Pia.
 
-O pivô gera novos nomes de colunas dinamicamente baseados nos valores das linhas. Pode transformar essas novas colunas em metadados que podem ser referenciados mais tarde no fluxo de dados. Para isso, clique no separador 'Pré-visualização de dados'. Todas as novas colunas geradas pela transformação do pivô aparecem com um ícone "drifted" no cabeçalho da mesa. Clique no botão "Map drifted" para transformar essas novas colunas em metadados, tornando-as parte do modelo do fluxo de dados.
+### <a name="generate-metadata-from-drifted-columns"></a>Gerar metadados a partir de colunas derivadas
+
+O pivô gera novos nomes de colunas dinamicamente baseados nos valores das linhas. Pode adicionar estas novas colunas aos metadados que podem ser referenciados mais tarde no fluxo de dados. Para isso, utilize o [mapa à deriva](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) na pré-visualização de dados. 
 
 ![Colunas Pivot](media/data-flow/newpivot1.png "Colunas de pivô derivadas do mapa")
 
-### <a name="landing-new-columns-in-sink"></a>Aterragem de novas colunas em Sink
+### <a name="sinking-pivoted-columns"></a>Colunas afundadas
 
-Mesmo com nomes dinâmicos de colunas em Pivot, ainda pode afundar os seus novos nomes e valores de coluna saqueado na sua loja de destino. Basta definir "Allow Schema Drift" nas definições do lavatório. Não verá os novos nomes dinâmicos nos metadados da sua coluna, mas a opção de deriva de esquemas permitirá que você aterre os dados.
+Embora as colunas dinâmicas sejam dinâmicas, ainda podem ser escritas na sua loja de dados de destino. Ativar **Permitir a deriva do esquema** nas definições da pia. Isto permitir-lhe-á escrever colunas que não estão incluídas em metadados. os metadados da sua coluna, mas a opção de deriva de esquemas permitirá aterrar os dados.
 
-### <a name="view-metadata-in-design-mode"></a>Ver metadados no modo de design
+### <a name="rejoin-original-fields"></a>Voltar a juntar-se aos campos originais
 
-Se desejar ver os novos nomes de colunas como metadados em Inspecionar e pretender ver as colunas propagarem-se explicitamente à transformação do Sink, então deite valores explícitos no separador Chave Pivot.
+A transformação do pivô só projetará o grupo por colunas e pivotadas. Se pretender que os seus dados de saída incluam outras colunas de entrada, utilize um padrão [de auto-adesão.](data-flow-join.md#self-join)
 
-### <a name="how-to-rejoin-original-fields"></a>Como voltar a juntar-se aos campos originais
-A transformação pivot só projetará as colunas utilizadas na agregação, agrupamento e ação de pivô. Se desejar incluir as outras colunas do passo anterior no seu fluxo, utilize um Novo Ramo a partir do passo anterior e utilize o padrão de auto-união para ligar o fluxo aos metadados originais.
+## <a name="data-flow-script"></a>Script de fluxo de dados
+
+### <a name="syntax"></a>Sintaxe
+
+```
+<incomingStreamName>
+    pivot(groupBy(Tm),
+        pivotBy(<pivotKeyColumn, [<specifiedColumnName1>,...,<specifiedColumnNameN>]),
+        <pivotColumnPrefix> = <pivotedColumnValue>,
+        columnNaming: '< prefix >< $N | $V ><middle >< $N | $V >< suffix >',
+        lateral: { 'true' | 'false'}
+    ) ~> <pivotTransformationName
+```
+### <a name="example"></a>Exemplo
+
+Os ecrãs mostrados na secção de configuração têm o seguinte script de fluxo de dados:
+
+```
+BasketballPlayerStats pivot(groupBy(Tm),
+    pivotBy(Pos),
+    {} = count(),
+    columnNaming: '$V$N count',
+    lateral: true) ~> PivotExample
+
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

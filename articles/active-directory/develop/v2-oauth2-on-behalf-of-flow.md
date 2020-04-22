@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7a91f61302b5944e69f71c3cfee2f41cd87b809f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 947286a7238e3ddf2aebe66c6ea87e0e1cf8a853
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309366"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677722"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e OAuth 2.0 Em Nome do Fluxo
 
@@ -27,9 +27,7 @@ O OAuth 2.0 On-Behalf-Of flow (OBO) serve o caso de utilização em que uma apli
 Este artigo descreve como programar diretamente contra o protocolo na sua aplicação.  Sempre que possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas em vez de adquirir fichas e ligar para [APIs web protegidos](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também as [aplicações de amostra que utilizam o MSAL.](sample-v2-code.md)
 
 > [!NOTE]
->
-> - O ponto final da plataforma de identidade da Microsoft não suporta todos os cenários e funcionalidades. Para determinar se deve utilizar o ponto final da plataforma de identidade da Microsoft, leia sobre [as limitações](active-directory-v2-limitations.md)da plataforma de identidade da Microsoft . 
-> - A partir de maio de 2018, alguns fluxos implícitos derivados `id_token` não podem ser usados para o fluxo de OBO. As aplicações de uma página única (SPAs) devem passar um sinal de **acesso** a um cliente confidencial de nível médio para executar os fluxos oBO. Para obter mais informações sobre quais os clientes que podem realizar chamadas OBO, consulte [limitações](#client-limitations).
+> A partir de maio de 2018, alguns fluxos implícitos derivados `id_token` não podem ser usados para o fluxo de OBO. As aplicações de uma página única (SPAs) devem passar um sinal de **acesso** a um cliente confidencial de nível médio para executar os fluxos oBO. Para obter mais informações sobre quais os clientes que podem realizar chamadas OBO, consulte [limitações](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -186,10 +184,10 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Obtenção de consentimento para a aplicação de nível médio
 
-Dependendo da arquitetura ou utilização da sua aplicação, poderá considerar diferentes estratégias para garantir que o fluxo oBo seja bem sucedido. Em todos os casos, o objetivo final é garantir o consentimento adequado para que a aplicação do cliente possa ligar para a aplicação de nível médio, e a aplicação de nível médio tem permissão para ligar para o recurso back-end. 
+Dependendo da arquitetura ou utilização da sua aplicação, poderá considerar diferentes estratégias para garantir que o fluxo oBo seja bem sucedido. Em todos os casos, o objetivo final é garantir o consentimento adequado para que a aplicação do cliente possa ligar para a aplicação de nível médio, e a aplicação de nível médio tem permissão para ligar para o recurso back-end.
 
 > [!NOTE]
-> Anteriormente, o sistema de conta da Microsoft (contas pessoais) não suportava o campo "Aplicação de cliente conhecido", nem podia mostrar consentimento combinado.  Isto foi adicionado e todas as aplicações na plataforma de identidade da Microsoft podem usar a abordagem de aplicação de cliente conhecida para obter o consentimento para chamadas OBO. 
+> Anteriormente, o sistema de conta da Microsoft (contas pessoais) não suportava o campo "Aplicação de cliente conhecido", nem podia mostrar consentimento combinado.  Isto foi adicionado e todas as aplicações na plataforma de identidade da Microsoft podem usar a abordagem de aplicação de cliente conhecida para obter o consentimento para chamadas OBO.
 
 ### <a name="default-and-combined-consent"></a>/.padrão e consentimento combinado
 

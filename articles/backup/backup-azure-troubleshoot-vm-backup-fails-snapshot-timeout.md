@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 4583c02b52ab6b3a4e5056a47db096d4e34399ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3eedb5440711c7a45a13dcd53dd489c490588fc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248024"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677415"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup de Troubleshoot Azure: Problemas com o agente ou extensão
 
@@ -142,6 +142,13 @@ Se a operação de backup programada estiver a demorar mais tempo, entrando em c
 
 Este erro é reportado a partir do IaaS VM. Para identificar a causa principal do problema, vá às definições do cofre dos Serviços de Recuperação. Na secção **de Monitorização,** selecione **trabalhos de backup** para filtrar e visualizar o estado. Clique em Falhas para rever os detalhes **subjacentes** à mensagem de erro. Tome mais ações de acordo com as recomendações na página de detalhes de erros.
 
+## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent - Backup falhou: Esta máquina virtual não está (ativamente) protegida por Backup Azure
+
+**Código de erro**: UserErrorBcmDatasourceNotPresent <br>
+**Mensagem de erro:** Cópia de segurança falhou: Esta máquina virtual não está (ativamente) protegida por Backup Azure.
+
+Verifique se a máquina virtual dada está ativamente (não em estado de pausa) protegida pela Azure Backup. Para ultrapassar esta questão, certifique-se de que a máquina virtual está ativa e, em seguida, tente novamente a operação.
+
 ## <a name="causes-and-solutions"></a>Causas e soluções
 
 ### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>O agente está instalado no VM, mas não responde (para VMs do Windows)
@@ -211,7 +218,7 @@ As seguintes condições podem fazer com que a tarefa instantânea falhe:
 
 ### <a name="remove-lock-from-the-recovery-point-resource-group"></a><a name="remove_lock_from_the_recovery_point_resource_group"></a>Retire o bloqueio do grupo de recursos do ponto de recuperação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Vá à **opção Todos os Recursos**, selecione`<Geo>``<number>`o grupo de recursos de recolha de pontos de restauro no formato seguinte AzureBackupRG_ _ .
 3. Na secção **Definições,** selecione **Fechaduras** para visualizar as fechaduras.
 4. Para remover o bloqueio, selecione a elipse e clique em **Eliminar**.
@@ -240,7 +247,7 @@ Depois de remover a fechadura, acione uma cópia de segurança a pedido. Esta a�
 
 Para limpar manualmente a recolha de pontos de restauro, que não está apurada devido ao bloqueio do grupo de recursos, experimente os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu **Hub,** clique em **Todos os recursos,**`<Geo>`selecione o grupo Recursos com o seguinte formato AzureBackupRG_ _`<number>` onde está localizado o seu VM.
 
     ![Eliminar a fechadura](./media/backup-azure-arm-vms-prepare/resource-group.png)

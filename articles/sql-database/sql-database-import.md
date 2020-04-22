@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 05698596f966f879da1affc58af0122d08d519ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7db3f6f50745526876ef2ca6e3253f1931420f0f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256240"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683253"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Quickstart: Importar um ficheiro BACPAC para uma base de dados em Azure SQL Database
 
@@ -123,7 +123,7 @@ while ($importStatus.Status -eq "InProgress") {
 $importStatus
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Utilize o comando [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) para submeter um pedido de base de dados de importação ao serviço de base de dados Azure SQL. Dependendo do tamanho da base de dados, a importação pode demorar algum tempo a ser concluída.
 
@@ -144,7 +144,8 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 ## <a name="limitations"></a>Limitações
 
-Importar para uma base de dados em piscina elástica não é suportado. Pode importar dados numa única base de dados e, em seguida, mover a base de dados para um pool elástico.
+- Importar para uma base de dados em piscina elástica não é suportado. Pode importar dados numa única base de dados e, em seguida, mover a base de dados para um pool elástico.
+- O Serviço de Exportação de Importações não funciona quando o acesso aos serviços Azure está definido para OFF. No entanto, pode contornar o problema executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação diretamente no seu código utilizando a API DACFx.
 
 ## <a name="import-using-wizards"></a>Importar usando feiticeiros
 

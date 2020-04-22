@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 730e478622da8cd90af1c559e4d0c6fd04151cca
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811234"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686798"
 ---
 # <a name="develop-a-secure-web-app"></a>Desenvolver uma aplicação Web segura
 
@@ -803,7 +803,7 @@ No portal Azure, configure a app para utilizar as credenciais necessárias:
 Depois de adicionar a configuração e os segredos do Azure AD ao Key Vault, os utilizadores podem ser autenticados na aplicação utilizando a autenticação Azure OAuth.
 No código da aplicação, este é tratado pela Biblioteca de Autenticação do Diretório Ativo Azure (ADAL).
 
-Depois de os segredos estarem no Key Vault e a aplicação ter acesso aos segredos ehttps://GATEWAY_HASH.cloudapp.net)à base de dados, o serviço de aplicação pode ser alcançado através do URL de aplicação do gateway ( que pode obter a partir da sua lâmina.
+Depois de os segredos estarem no Key Vault e a aplicação ter acesso aos segredos e à\/base de dados, o serviço de aplicação pode ser alcançado através do URL de aplicação do gateway (https: /GATEWAY_HASH.cloudapp.net), que pode obter a partir da sua lâmina.
 
 Se, ao iniciar sessão no Azure AD, tiver um erro que diz "O utilizador não está registado no diretório em que está a tentar iniciar sessão", tem de adicionar o utilizador. Para adicionar o utilizador, vá ao separador **Utilizadores** do Azure AD e adicione o utilizador manualmente, introduzindo os seus dados ou convidando o utilizador introduzindo o seu endereço de e-mail como utilizador convidado do Azure AD na lâmina **convidar** convidado.
 
@@ -978,7 +978,7 @@ A ferramenta [ZAP da OWASP](https://www.zaproxy.org/) é um scanner de vulnerabi
 
 ### <a name="find-and-fix-vulnerabilities-in-app-dependencies"></a>Encontrar e corrigir vulnerabilidades em dependências de apps
 
-Para encontrar e corrigir dependências de aplicações, pode utilizar a [Verificação de Dependência da OWASP](https://www.owasp.org/index.php/OWASP_Dependency_Check).
+Para encontrar e corrigir dependências de aplicações, pode utilizar a [Verificação de Dependência da OWASP](https://owasp.org/www-project-dependency-check/).
 
 A segurança é uma aplicação semelhante que verifica as dependências. Pode encontrá-lo no [GitHub.](https://github.com/pyupio/safety) Verificações de segurança para vulnerabilidades encontradas em bases de dados de vulnerabilidades bem conhecidas.
 

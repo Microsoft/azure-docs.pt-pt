@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 968e609772e08814a9943734d30c16bf6f5972e8
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 369e3bcf4e5913f4a3ff82206d1e24a206db3f34
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604717"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681300"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VMs de arranque/paragem durante solução off-hours na Automação Azure
 
@@ -120,7 +120,7 @@ Todos os livros `WhatIf` dos pais incluem o parâmetro. Quando definido para Tru
 A tabela seguinte lista as variáveis criadas na sua conta De automação. Só modificar variáveis `External`pré-fixas com . Modificar variáveis pré-fixas com `Internal` efeitos indesejáveis.
 
 > [!NOTE]
-> As limitações ao nome vm e ao grupo de recursos são em grande parte resultado do tamanho variável.
+> As limitações ao nome vm e ao grupo de recursos são em grande parte resultado do tamanho variável. Ver [ativos Variáveis na Automação Azure.](https://docs.microsoft.com/azure/automation/shared-resources/variables)
 
 |Variável | Descrição|
 |---------|------------|
@@ -159,8 +159,8 @@ Não permita todos os horários, porque fazê-lo pode criar ações de horário 
 |Schedule_AutoStop_CreateAlert_Parent | A cada 8 horas | Executa o **AutoStop_CreateAlert_Parent** livro de corridas a cada 8 horas, o que por sua vez para os valores baseados em VM em `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`e `External_ExcludeVMNames` variáveis. Em alternativa, pode especificar uma lista separada de VMs `VMList` com a utilização do parâmetro.|
 |Scheduled_StopVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro de `Stop` corridas com um parâmetro de todos os dias no momento especificado.Para automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis.Ativar o **programado-startVM**relacionado .|
 |Scheduled_StartVM | Definido pelo utilizador, diariamente | Executa o **livro de ScheduledStopStart_Parent** `Start` com um valor de parâmetro de cada dia no momento especificado. Inicia automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis.Ativar o **programado-stopVM**relacionado .|
-|Paragem sequenciada | 1:00 AM (UTC), todas as sextas-feiras | Executa o livro de Sequenced_Parent `Stop` com um valor de parâmetro de cada sexta-feira no momento especificado.Sequencialmente (ascendente) para todos os VMs com uma etiqueta de **SequenceStop** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiqueta e variáveis de ativos, consulte a secção Runbooks.Ativar o horário relacionado, **Sequenciado-StartVM**.|
-|Iniciado-Arranque-VM | 13:00 (UTC), todas as segundas-feiras | Executa o **livro de SequencedStopStart_Parent** `Start` com um valor de parâmetro de cada segunda-feira no momento especificado. Sequencialmente (descendente) inicia todos os VMs com uma etiqueta de **SequenceStart** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiquetae ativos variáveis, consulte os [Livros de Execução.](#runbooks) Ativar o horário relacionado, **Sequenced-StopVM**.
+|Paragem sequenciada | 1:00 AM (UTC), todas as sextas-feiras | Executa o **livro de Sequenced_StopStop_Parent** `Stop` com um valor de parâmetro de cada sexta-feira no momento especificado.Sequencialmente (ascendente) para todos os VMs com uma etiqueta de **SequenceStop** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiqueta e variáveis de ativos, consulte [Runbooks](#runbooks).Ativar o horário relacionado, **Sequenciado-StartVM**.|
+|Iniciado-Arranque-VM | 13:00 (UTC), todas as segundas-feiras | Executa o **livro de SequencedStopStart_Parent** `Start` com um valor de parâmetro de cada segunda-feira no momento especificado. Sequencialmente (descendente) inicia todos os VMs com uma etiqueta de **SequenceStart** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiquetae ativos variáveis, consulte [Runbooks](#runbooks). Ativar o horário relacionado, **Sequenced-StopVM**.
 
 ## <a name="use-of-the-solution-with-classic-vms"></a>Utilização da solução com VMs clássicos
 

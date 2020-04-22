@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 4e20129502e7538bd2f3354b75b33095970e1595
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9e8aa9bbbdf166ba0caf29cd0bce22b8ed321e4e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411868"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685190"
 ---
 # <a name="azure-sql-auditing"></a>Auditoria de SQL do Azure
 
@@ -111,9 +111,6 @@ Para configurar registos de auditoria de escrita numa conta de armazenamento, se
 ### <a name=""></a><a id="audit-log-analytics-destination">Auditoria ao destino Log Analytics</a>
   
 Para configurar os registos de auditoria de escrita para um espaço de trabalho de Log Analytics, selecione **Log Analytics (Pré-visualização)** e abra **detalhes do Log Analytics**. Selecione ou crie o espaço de trabalho do Log Analytics onde os registos serão escritos e, em seguida, clique em **OK**.
-    
-  > [!WARNING]
-   > Permitir a auditoria ao Log Analytics incorrerá em custos baseados em taxas de ingestão. Tenha em conta o custo associado com a utilização desta [opção,](https://azure.microsoft.com/pricing/details/monitor/)ou considere armazenar os registos de auditoria numa conta de armazenamento Azure.
    
    ![LogAnalyticsworkspace](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 

@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: badba278e88e5065d8a4ff57ca9506fe1f9ad203
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 526d8a6a103e7623bac459004bf9ac79e4927541
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774201"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686988"
 ---
 1. Ver ligações no vislumremento direto selecionado.
     ```powershell
@@ -31,7 +31,7 @@ ms.locfileid: "75774201"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Selecione a ligação que deseja ativar para o Serviço de Peering. Para este exemplo, utilizaremos a única ligação disponível.
+1. Selecione a ligação que pretende ativar para o Serviço de Peering. Para este exemplo, usaremos a única ligação disponível.
     ```powershell
     $directPeering.Connections[1] = $directPeering.Connections[1] | Set-AzPeeringDirectConnectionObject -UseForPeeringService $true
 
@@ -47,12 +47,12 @@ ms.locfileid: "75774201"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Agora guarde as alterações feitas ao desvio direto utilizando o comando abaixo.
+1. Agora guarde as alterações feitas ao 'peering' direto utilizando este comando:
     ```powershell
     $directPeering | Update-AzPeering
     ```
     
-    Abaixo está uma saída de amostra:
+    Aqui está uma amostra de saída:
     
     ```powershell
         Name                 : SeattleDirectPeering

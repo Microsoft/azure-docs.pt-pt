@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: f30ccd498b79c36c8892ae38a3e26d169249621a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4d6098b7b4de76461e924fc7d42d039046d7ce5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481104"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677157"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para um caso gerido na Base de Dados Azure SQL
 
@@ -39,7 +39,7 @@ Uma instância gerida é uma plataforma como uma oferta de serviço (PaaS). A Mi
 
 Algumas operações do SQL Server iniciadas por utilizadores finais ou aplicações podem exigir instâncias geridas para interagir com a plataforma. Um dos casos é a criação de uma base de dados de instâncias geridas. Este recurso é exposto através do portal Azure, PowerShell, Azure CLI e da REST API.
 
-As instâncias geridas dependem de serviços Azure, como O Armazenamento Azure para backups, Hubs de eventos Azure para telemetria, Diretório Ativo Azure para autenticação, Cofre chave Azure para encriptação de dados transparente (TDE) e alguns serviços da plataforma Azure que fornecem funcionalidades de segurança e suporte. Os casos geridos fazem ligações a estes serviços.
+As instâncias geridas dependem de serviços Azure, como o Azure Storage para backups, Hubs de eventos Azure para telemetria, Diretório Ativo Azure para autenticação, Cofre chave Azure para encriptação transparente de dados (TDE) e alguns serviços da plataforma Azure que fornecem funcionalidades de segurança e suporte. Os casos geridos fazem ligações a estes serviços.
 
 Todas as comunicações são encriptadas e assinadas usando certificados. Para verificar a fiabilidade das partes comunicativas, as instâncias geridas verificam constantemente estes certificados através de listas de revogação de certificados. Se os certificados forem revogados, a instância gerida fecha as ligações para proteger os dados.
 
@@ -81,7 +81,7 @@ Quando as ligações começam dentro da instância gerida (como em backups e reg
 > [!NOTE]
 > O tráfego que vai para os serviços Azure que estão dentro da região da instância gerida está otimizado e, por isso, não o NATed para gerir o endereço IP público de ponto final de gestão de instâncias. Por essa razão, se precisar de utilizar regras de firewall baseadas em IP, mais frequentemente para armazenamento, o serviço precisa estar numa região diferente do caso gerido.
 
-## <a name="service-aided-subnet-configuration"></a>Configuração da sub-rede ajudada ao serviço
+## <a name="service-aided-subnet-configuration"></a>Configuração de sub-rede com a ajuda de um serviço
 
 Para responder aos requisitos de segurança e gestão do cliente, a Instância Gerida está a transitar de configuração manual para subnet ajudada ao serviço.
 
@@ -306,6 +306,7 @@ As seguintes funcionalidades de rede virtual não são atualmente suportadas com
 - **Microsoft peering**: Permitir que a [Microsoft perspre](../expressroute/expressroute-faqs.md#microsoft-peering) em circuitos de rota expresso soiste direta ou transitivamente com rede virtual onde a Managed Instance reside afeta o fluxo de tráfego entre componentes de Instância Gerida dentro da rede virtual e serviços depende de causar problemas de disponibilidade. Espera-se que as implementações de Instância gerida para a rede virtual com o peering da Microsoft já ativado falhem.
 - **Peering global de rede virtual**: Rede virtual que [peering](../virtual-network/virtual-network-peering-overview.md) conectividade através das regiões de Azure não funciona para Instância Gerida devido a [restrições documentadas](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)de equilíbrio de carga .
 - **AzurePlatformDNS**: Utilizar a [etiqueta](../virtual-network/service-tags-overview.md) de serviço AzurePlatformDNS para bloquear a resolução dNS da plataforma tornaria a Instância Gerida indisponível. Embora a Managed Instance suporte o DNS definido pelo cliente para resolução de DNS dentro do motor, existe uma dependência na plataforma DNS para operações de plataforma.
+- **Gateway NAT**: Utilizar a [Rede Virtual NAT](../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico tornaria a Instância Gerida indisponível. O serviço Managed Instance está atualmente limitado à utilização de um equilibrador de carga básico que não proporciona coexistência de fluxos de entrada e saída com o NAT da Rede Virtual.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[Depreciado] Requisitos de rede sem configuração de sub-rede ajudada pelo serviço
 

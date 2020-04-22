@@ -1,18 +1,18 @@
 ---
-title: Obtenha fichas de acesso ao serviço
+title: Obter tokens de acesso ao serviço
 description: Descreve como criar fichas para aceder às APIs DO REST ARR
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 001a77734a8cedf08c5523380c1cbd00dce89f40
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681197"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687074"
 ---
-# <a name="get-service-access-tokens"></a>Obtenha fichas de acesso ao serviço
+# <a name="get-service-access-tokens"></a>Obter tokens de acesso ao serviço
 
 O acesso às APIs ARR REST só é concedido para utilizadores autorizados. Para provar a sua autorização, deve enviar um sinal de *acesso* juntamente com pedidos REST. Estes tokens são emitidos pelo *Secure Token Service* (STS) em troca de uma chave de conta. Os tokens têm uma **vida útil de 24 horas** e assim podem ser emitidos aos utilizadores sem lhes dar acesso total ao serviço.
 
@@ -24,7 +24,7 @@ Este artigo descreve como criar tal ficha de acesso.
 
 ## <a name="token-service-rest-api"></a>Serviço simbólico REST API
 
-Para criar fichas de acesso, o *Serviço De Token Seguro* fornece uma única API REST. O URL para o serviço [https://sts.mixedreality.azure.com](https://sts.mixedreality.azure.com)ARR STS é .
+Para criar fichas de acesso, o *Serviço De Token Seguro* fornece uma única API REST. O URL para o serviço ARR\/STS é https: /sts.mixedreality.azure.com.
 
 ### <a name="get-token-request"></a>Pedido de 'Get Token'
 
@@ -67,6 +67,6 @@ O script apenas imprime o símbolo à saída, de onde pode copiar & cola. Para u
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Exemplo de scripts PowerShell](../samples/powershell-example-scripts.md)
+* [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)
 * [Azure Frontend APIs](../how-tos/frontend-apis.md)
 * [API DE GESTÃO DE Sessão](../how-tos/session-rest-api.md)

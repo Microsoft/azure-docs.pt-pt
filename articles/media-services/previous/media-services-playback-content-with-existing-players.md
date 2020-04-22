@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 07537d3d67e41f7e1179a709ffa19f3d84aa4539
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d3c22e17c37bc46c16a9cc80eb3cf4b9ec93ecf
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77565830"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686929"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reproduzir o conteúdo com os leitores existentes
 A Azure Media Services suporta muitos formatos de streaming populares, tais como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta-o para os jogadores existentes que pode usar para testar os seus fluxos.
@@ -45,10 +45,6 @@ Utilize o [Azure Media Player](https://aka.ms/azuremediaplayer) para reproduzir 
 * MP4 progressista
 
 ### <a name="flash-player"></a>Flash Player
-
-#### <a name="aes-encrypted-with-token"></a>AES encriptado com Token
-
-[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
 #### <a name="playready-with-token"></a>PlayReady com Token
 

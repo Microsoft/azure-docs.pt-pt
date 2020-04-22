@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas da conta de automação
+title: Resolução de problemas da conta de automatização
 description: Aprenda a resolver problemas e a resolver problemas com uma conta Azure.
 services: automation
 author: mgoedtel
@@ -8,14 +8,14 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c66b1728144b8517f6ac444059b3a8def956c6e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b5e7171ac679384966e9dce79425cd1fa881c53
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80301008"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679387"
 ---
-# <a name="automation-account-troubleshooting"></a>Resolução de problemas da conta de automação
+# <a name="troubleshoot-the-automation-account"></a>Resolução de problemas na conta da Automação
 
 Este artigo discute soluções para questões que pode encontrar quando utiliza uma conta de Automação. As seguintes secções destacam mensagens de erro específicas e possíveis resoluções para cada um. Para obter informações gerais sobre as contas da Automação, consulte [Criar uma conta Azure](../automation-quickstart-create-account.md).
 
@@ -45,11 +45,11 @@ Para registar o Fornecedor de Recursos Automation, siga estes passos no portal A
 
 4. A partir da lista de fornecedores de recursos, verifique se o fornecedor de recursos **da Microsoft.Automation** está registado.
 
-5. Se não estiver listado, registe o fornecedor **Microsoft.Automation** seguindo os passos no [Resolve erros para o registo](/azure/azure-resource-manager/resource-manager-register-provider-errors)do fornecedor de recursos .
+5. Se o fornecedor não estiver listado, registe-o conforme descrito em Resolver erros para o registo do fornecedor de [recursos.](/azure/azure-resource-manager/resource-manager-register-provider-errors)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se não viu o seu problema ou não consegue resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
+Se não vir o seu problema acima ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 
 * Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport)a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.

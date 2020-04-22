@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 457979837b1c56eb85fc19c9a1fce5dc7df8c23b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b802a9c9df7e7f0c44ea66ee0061efb517b80050
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481993"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682764"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
@@ -81,7 +81,9 @@ O seguinte modelo de exemplo demonstra como criar um espaço de trabalho com tr�
 
 * Ativar configurações de alta confidencialidade para o espaço de trabalho
 * Ativar encriptação para o espaço de trabalho
-* Usa um cofre de chaves azure existente
+* Usa um cofre de chaves Azure existente para recuperar chaves geridas pelo cliente
+
+Para mais informações, consulte [encriptação em repouso](concept-enterprise-security.md#encryption-at-rest).
 
 ```json
 {
@@ -121,7 +123,7 @@ O seguinte modelo de exemplo demonstra como criar um espaço de trabalho com tr�
         "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
     },
-    "hbi_workspace":{
+    "high_confidentiality":{
       "type": "string",
       "defaultValue": "false",
       "allowedValues": [
@@ -256,27 +258,31 @@ O seguinte modelo de exemplo demonstra como criar um espaço de trabalho com tr�
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-        "hbiWorkspace": "[parameters('hbi_workspace')]"
+        "hbiWorkspace": "[parameters('high_confidentiality')]"
       }
     }
   ]
 }
 ```
 
-Para obter a identificação do Cofre chave, e a chave URI necessária por este modelo, você pode usar o Azure CLI. O seguinte comando é um exemplo de utilização do CLI Azure para obter o ID de recurso key vault e URI:
+Para obter a identificação do Cofre chave, e a chave URI necessária por este modelo, você pode usar o Azure CLI. O seguinte comando obtém o ID do cofre chave:
 
 ```azurecli-interactive
-az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
+az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
 ```
 
-Este comando devolve um valor semelhante ao seguinte texto. O primeiro valor é o ID e o segundo é o URI:
+Este comando devolve um `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`valor semelhante a .
 
-```text
-[
-  "/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault",
-  "https://mykeyvault.vault.azure.net/"
-]
+Para obter o URI para a chave gerida pelo cliente, utilize o seguinte comando:
+
+```azurecli-interactive
+az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
 ```
+
+Este comando devolve um `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`valor semelhante a .
+
+> [!IMPORTANT]
+> Uma vez criado um espaço de trabalho, não é possível alterar as definições para dados confidenciais, encriptação, ID do cofre de chaves ou identificadores chave. Para alterar estes valores, é necessário criar um novo espaço de trabalho utilizando os novos valores.
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: f1d0ca1ffc2e7a3d645ac5acbaafdf45f85550be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f195a5c05c6c95dac898b2d471747952a3446d52
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76271103"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681720"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(DEPRECIADO) Monitorize um cluster de Kubernetes do Serviço de Contentores Azure com CoScale
 
@@ -62,7 +62,7 @@ az acs kubernetes install-cli
 [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) são usados por Kubernetes para executar uma única instância de um recipiente em cada hospedeiro no cluster.
 São perfeitos para executar agentes de monitorização, como o agente CoScale.
 
-Depois de iniciar sessão no CoScale, aceda à página do [agente](https://app.coscale.com/) para instalar agentes CoScale no seu cluster utilizando um DaemonSet. O CoScale UI fornece passos de configuração guiados para criar um agente e começar a monitorizar o seu cluster completo de Kubernetes.
+Depois de iniciar sessão no CoScale, aceda à página do [agente](https://developer.newrelic.com/) para instalar agentes CoScale no seu cluster utilizando um DaemonSet. O CoScale UI fornece passos de configuração guiados para criar um agente e começar a monitorizar o seu cluster completo de Kubernetes.
 
 ![Configuração do agente CoScale](./media/container-service-kubernetes-coscale/installation.png)
 
@@ -70,7 +70,7 @@ Para ligar o agente no cluster, executar o comando fornecido:
 
 ![Inicie o agente CoScale](./media/container-service-kubernetes-coscale/agent_script.png)
 
-Já está! Uma vez que os agentes estejam a funcionar, deve ver os dados na consola em poucos minutos. Visite a página do [agente](https://app.coscale.com/) para ver um resumo do seu cluster, execute passos de configuração adicionais e veja dashboards como a visão geral do **cluster Kubernetes**.
+Já está! Uma vez que os agentes estejam a funcionar, deve ver os dados na consola em poucos minutos. Visite a página do [agente](https://developer.newrelic.com/) para ver um resumo do seu cluster, execute passos de configuração adicionais e veja dashboards como a visão geral do **cluster Kubernetes**.
 
 ![Visão geral do cluster kubernetes](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
 

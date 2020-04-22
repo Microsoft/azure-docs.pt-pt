@@ -5,18 +5,18 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 356713bd7d51be6f3550a6975a766fe1b6a0fc05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce3dbf416da11fd6863622f1c6911eecb3726461
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286222"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684468"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicar uma solução integrada
 
-Numa única oferta agregada, uma solução integrada combina tecnologias de soluções de pontos de fornecedores de software com a implementação e suporte de um parceiro de serviços. O parceiro de serviços lista a oferta no Microsoft AppSource ou No Azure Marketplace como um serviço de [consultoria.](https://docs.microsoft.com/azure/marketplace/consulting-services)
+Numa única oferta agregada, uma solução integrada combina tecnologias de soluções de pontos de fornecedores de software com a implementação e suporte de um parceiro de serviços. O parceiro de serviços lista a oferta no Microsoft AppSource ou No Azure Marketplace como um serviço de [consultoria.](./consulting-services.md)
 
 As soluções integradas visam responder a uma necessidade ou cenário específico do cliente. Os fornecedores começam por compreender o desafio da indústria ou os pontos de dor. Em seguida, integram duas ou mais tecnologias de melhor raça para criar uma experiência de implantação unificada e repetível para os clientes. Os fornecedores fazem com que os clientes se aedriem rapidamente. Oferecem um único ponto de contacto com o cliente, proporcionando uma personalização relevante, consultoria e suporte à solução. O resultado é uma solução integrada, incluindo tecnologia e serviços.
 
@@ -97,21 +97,21 @@ Depois da sua nomeação ser aprovada, utilize os recursos do programa ligados p
 1. Complete a garantia de marketing para a listagem Microsoft AppSource ou Azure Marketplace, incluindo:
 
     * Um nome de solução combinada.
-    * Uma descrição da listagem da solução integrada. Siga [as melhores práticas de listagem de ofertas.](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+    * Uma descrição da listagem da solução integrada. Siga [as melhores práticas de listagem de ofertas.](./gtm-offer-listing-best-practices.md)
     * Um pitch de uma página para os clientes. Utilize o [modelo de uma página](https://aka.ms/AA5s08a).
     * Uma apresentação do cliente. Utilize o [modelo de apresentação](https://aka.ms/AA5s7ql).
     * Um logotipo para a solução combinada.
 
 ## <a name="publish-your-integrated-solution"></a>Publique a sua solução integrada
 
-Depois de terminar a integração técnica e a garantia de marketing, consulte o guia da editora para os serviços de Consultoria para o [Microsoft AppSource e o Azure Marketplace](https://docs.microsoft.com/azure/marketplace/consulting-services). Utilize este recurso para determinar se a sua solução será publicada no Microsoft AppSource ou no Azure Marketplace. Utilize também o guia para preparar os seus artefactos editoriais e completar o processo de publicação.
+Depois de terminar a integração técnica e a garantia de marketing, consulte o guia da editora para os serviços de Consultoria para o [Microsoft AppSource e o Azure Marketplace](./consulting-services.md). Utilize este recurso para determinar se a sua solução será publicada no Microsoft AppSource ou no Azure Marketplace. Utilize também o guia para preparar os seus artefactos editoriais e completar o processo de publicação.
 
 Embora existam cinco tipos de serviços disponíveis para ofertas de serviços de consultoria, uma solução integrada deve ser uma prova de conceito ou uma implementação completa.
 
 ## <a name="go-to-market-with-your-integrated-solution"></a>Vá ao mercado com a sua solução integrada
 
-Quando a sua solução estiver ao vivo no Microsoft AppSource ou no Azure Marketplace, irá querer impulsionar a consciencialização e a procura através de atividades de marketing. Reveja as atividades enumeradas no plano do Projeto e na [linha temporal.](https://aka.ms/AA5qiuc) Este recurso inclui atividades que os parceiros podem conduzir dentro das suas próprias equipas e uns com os outros. Em seguida, aceda [aos benefícios do mercado](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) para os parceiros que publicam no mercado. Todas as ofertas de solução integrada são elegíveis para benefícios de nível experimental.
+Quando a sua solução estiver ao vivo no Microsoft AppSource ou no Azure Marketplace, irá querer impulsionar a consciencialização e a procura através de atividades de marketing. Reveja as atividades enumeradas no plano do Projeto e na [linha temporal.](https://aka.ms/AA5qiuc) Este recurso inclui atividades que os parceiros podem conduzir dentro das suas próprias equipas e uns com os outros. Em seguida, aceda [aos benefícios do mercado](./gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) para os parceiros que publicam no mercado. Todas as ofertas de solução integrada são elegíveis para benefícios de nível experimental.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter informações sobre a aquisição de uma solução integrada no mercado, consulte [soluções integradas.](https://docs.microsoft.com/azure/marketplace/integrated-solutions)
+Para obter informações sobre a aquisição de uma solução integrada no mercado, consulte [soluções integradas.](./integrated-solutions.md)

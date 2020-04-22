@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77157861"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682050"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Aceder à API de Serviços de Multimédia do Azure com a autenticação do Azure AD  
 
@@ -79,7 +79,7 @@ No diagrama anterior, os números representam o fluxo dos pedidos por ordem cron
        A informação do inquilino pode ser recuperada do portal Azure. Coloque o cursor sobre o nome do utilizador inscrito no canto superior direito.
    * Recurso URI dos Serviços de Media. 
 
-       Este URI é o mesmo para contas de Media Services que https://rest.media.azure.net)estão no mesmo ambiente Azure (por exemplo, .
+       Este URI é o mesmo para contas de Media Services que estão\/no mesmo ambiente Azure (por exemplo, https: /rest.media.azure.net).
 
    * Id do cliente de aplicação de Media Services (nativo).
    * A aplicação de Media Services (nativa) redireciona o URI.
@@ -121,7 +121,7 @@ Na figura anterior, os números representam o fluxo dos pedidos por ordem cronol
        A informação do inquilino pode ser recuperada do portal Azure. Coloque o cursor sobre o nome do utilizador inscrito no canto superior direito.
    * Recurso URI dos Serviços de Media. 
 
-       Este URI é o mesmo para contas de Media Services que estão localizadas no mesmo ambiente Azure (por exemplo, https://rest.media.azure.net).
+       Este URI é o mesmo para contas de Media Services que estão\/localizadas no mesmo ambiente Azure (por exemplo, https: /rest.media.azure.net).
 
    * Recursos URI para REST Media Services.
 

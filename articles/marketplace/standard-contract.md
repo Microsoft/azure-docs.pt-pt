@@ -1,24 +1,24 @@
 ---
-title: Contrato Standard [ Contrato Padrão] Azure
+title: Contrato Standard [ Contrato Padrão] Mercado Azure
 description: Contrato Padrão para Azure Marketplace e AppSource
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 00a83a1b3005043f317ed49cafa735540cd21793
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: facb500299f7196e0e1387c3a7267a917d13a3a6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284964"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681450"
 ---
 # <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato Padrão para o mercado comercial da Microsoft
 
 Para simplificar o processo de aquisição para clientes e reduzir a complexidade jurídica dos fornecedores de software, a Microsoft oferece um Contrato Padrão para o mercado comercial da Microsoft, de forma a ajudar a facilitar as transações no mercado. Em vez de elaborar em condições e condições personalizadas, os editores de marketplace comercial podem optar por oferecer o seu software ao abrigo do Contrato Padrão, que os clientes só precisam de vetar e aceitar uma vez. O Contrato Padrão pode [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178)ser consultado aqui: .
 
-Os termos e condições para uma oferta são definidos na criação da oferta no Partner Center ou no Portal do Parceiro cloud. Pode selecionar para utilizar o Contrato Padrão para o mercado comercial da Microsoft em vez de fornecer os seus próprios termos e condições personalizados.
+Os termos e condições para uma oferta são definidos na criação da oferta no Partner Center. Pode selecionar para utilizar o Contrato Padrão para o mercado comercial da Microsoft em vez de fornecer os seus próprios termos e condições personalizados.
 
 >[!Note]
 >Uma vez publicada uma oferta utilizando o contrato Standard para o mercado comercial da Microsoft, não poderá utilizar os seus próprios termos e condições personalizados. É um cenário de "ou". Ou oferece a sua solução ao abrigo do Contrato Padrão *ou* dos seus próprios termos e condições. Se quiser modificar os termos do Contrato Padrão, pode fazê-lo através de Alterações De Contrato Padrão.
@@ -36,7 +36,7 @@ Existem dois tipos de alterações disponíveis para editores de mercado comerci
 >[!Note]
 >Estes dois tipos de emendas empilham-se em cima uns dos outros. Os clientes visados com alterações personalizadas também receberão a alteração universal ao Contrato Padrão durante a compra.
 
-Você pode aproveitar o Contrato Padrão para o mercado comercial da Microsoft para os seguintes tipos de oferta: Aplicações Azure (Modelos de Solução e Aplicações Geridas), Máquinas Virtuais, Contentores, Aplicações de Contentores, Módulos De Borda IoT e SaaS .
+Pode aproveitar o Contrato Padrão para o mercado comercial da Microsoft para os seguintes tipos de oferta: Aplicações Azure (Modelos de Solução e Aplicações Geridas), Máquinas Virtuais, Contentores, Aplicações de Contentores, Módulos IoT Edge e SaaS.
 
 ## <a name="customer-experience"></a>Experiência do cliente
 

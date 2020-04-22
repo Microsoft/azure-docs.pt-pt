@@ -8,20 +8,20 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 6f5d2dc30ac0f6316587fa0836b87cbd4efc0a8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ebf5d574b4d185953ab0f7984648c440d6f107e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774396"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678646"
 ---
-PowerShell cmdlet **Get-AzPeeringLocation** devolve uma lista de locais `Kind`de observação com o parâmetro obrigatório , que utilizará em etapas posteriores:
+O PowerShell cmdlet **Get-AzPeeringLocation** devolve uma lista de locais `Kind`de observação com o parâmetro obrigatório , que utilizará em etapas posteriores.
 
 ```powershell
 Get-AzPeeringLocation -Kind "Exchange"
 ```
 
-Locais de troca de pares contêm os seguintes campos:
+Os locais de intercâmbio de pares contêm os seguintes campos:
 * Nome de câmbio
 * Localização de peering
 * País
@@ -32,7 +32,7 @@ Locais de troca de pares contêm os seguintes campos:
 
 Valide que está presente na instalação de peering desejada, referindo-se ao [PeeringDB](https://wwww.peeringdb.com).
 
-Abaixo está um exemplo que mostra como usar Seattle como o local de observação para criar um olhar:
+Este exemplo mostra como usar Seattle como o local de observação para criar um olhar.
 
 ```powershell
 $exchangeLocations = Get-AzPeeringLocation -Kind Exchange

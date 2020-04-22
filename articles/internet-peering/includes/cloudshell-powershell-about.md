@@ -8,25 +8,25 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 49212cb9ffdf1f3593acd32a02de11961e673fb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a5485475e3d8030bf85734faec53b0ff0747499
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774175"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678482"
 ---
-Para executar os cmdlets, pode utilizar a Azure Cloud Shell, uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Basta clicar em **Copiar** para copiar o código, colá-lo no Cloud Shell e então prima Enter para executá-lo. Existem algumas formas de iniciar o Cloud Shell:
+Para executar os cmdlets, pode utilizar a Azure Cloud Shell, uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Selecione **Copy** para copiar o código e cole-o na Cloud Shell. Em seguida, selecione **Enter** para executá-lo. Há algumas maneiras de lançar cloud Shell:
 
 
 |  |   |
 |-----------------------------------------------|---|
 | Abrir o Cloud Shell no seu browser. | [![https://shell.azure.com/powershell](../media/launchcloudshell.png)](https://shell.azure.com/powershell) |
-| Clique no botão **Cloud Shell** no menu no canto superior direito do portal. | [![Cloud Shell no portal](../media/cloud-shell-menu.png)](https://portal.azure.com) |
+| Selecione o botão **Cloud Shell** na barra de ferramentas na parte superior direita do portal Azure. | [![Cloud Shell no portal](../media/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
 
 
-Se não quiser utilizar o Azure CloudShell, pode instalar o PowerShell localmente. Se optar por instalar e utilizar o PowerShell localmente, certifique-se de instalar a versão mais recente dos cmdlets powerShell do Gestor de Recursos. Os cmdlets PowerShell são atualizados com frequência e você normalmente precisa atualizar os seus cmdlets PowerShell para obter a mais recente funcionalidade de funcionalidade, falhando o que, você pode encontrar problemas.
+Se não quiser utilizar a Azure Cloud Shell, pode instalar o PowerShell localmente. Se optar por instalar e utilizar o PowerShell localmente, certifique-se de instalar a versão mais recente dos cmdlets PowerShell do Gestor de Recursos Do Azure. Os cmdlets PowerShell são atualizados frequentemente. Normalmente, é necessário atualizar os seus cmdlets PowerShell para obter a mais recente funcionalidade de funcionalidade. Se não o fizeres, podes encontrar problemas.
 
-Para encontrar a versão do PowerShell que está a executar localmente, utilize o cmdlet 'Get-Module -ListAvailable Az'. Para atualizar, consulte [Instalar o módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](https://docs.microsoft.com/powershell/azure/azurerm/overview).
+Para encontrar a versão do PowerShell que está a executar localmente, utilize o cmdlet **'Get-Module -ListAvailable Az'.** Para atualizar, consulte [Instalar o módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Para mais informações, consulte [como instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/overview).
 
-Se estiver a utilizar o PowerShell no macOS, siga os passos de [instalação do PowerShell Core no macOS.](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-6)
+Se utilizar o PowerShell no macOS, siga os passos de instalação da [PowerShell no macOS.](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-6)

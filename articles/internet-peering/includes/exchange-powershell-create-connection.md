@@ -8,18 +8,18 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 0014b67443797f45de51ec1bc459f71bde55cdc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f8e93cf34ac56344ff7e3d145ce8c7c3529767b7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774435"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678657"
 ---
 O exemplo que se segue mostra como criar uma ligação de intercâmbio na Equinix Internet Exchange em Seattle. Se estiver a utilizar um fornecedor diferente e configurações diferentes, substitua essa informação quando fizer o seu pedido.
 
-Utilize o Cmdlet **PowerShell New-AzPeeringExchangeConnectionConnectionObject** para criar objetos de ligação PowerShell que serão utilizados para gerar o novo pedido de peering:
+Utilize o cmdlet **PowerShell New-AzPeeringExchangeConnectionConnectionObject** para criar objetos de ligação PowerShell, que serão utilizados para gerar o novo pedido de peering.
 
-Abaixo está um exemplo para criar uma Ligação de Intercâmbio:
+Este exemplo mostra como criar uma ligação de Intercâmbio.
 
 ```powershell
 $connection1 = New-AzPeeringExchangeConnectionObject `
@@ -30,7 +30,7 @@ $connection1 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-Crie outra ligação no caso de precisar de redundância em determinado local de observação:
+Crie outra ligação no caso de precisar de redundância no local de observação.
 
 ```powershell
 $connection2 = New-AzPeeringExchangeConnectionObject `
@@ -41,7 +41,7 @@ $connection2 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-PowerShell cmdlet **New-AzPeering** pode ser usado para criar um novo persparo de Intercâmbio:
+O CmDLet **PowerShell New-AzPeering** pode ser usado para criar um novo persparo de Troca.
 
 ```powershell
 $asn = Get-AzPeerAsn
@@ -54,7 +54,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Abaixo está uma resposta exemplo quando o pedido foi executado usando uma ligação:
+Esta resposta de exemplo mostra quando o pedido foi executado através de uma ligação.
 
 ```powershell
 
@@ -73,10 +73,10 @@ Tags              : {}
 ```
 
 > [!IMPORTANT]
-> A Microsoft começará a fornecer o `ConnectionState` peering solicitado e refletirá o progresso.
-> Consulte o documento de verificação de verificação de [perceções](../walkthrough-exchange-all.md) da Exchange para fornecer passos relacionados.
+> A Microsoft começa a fornecer o `ConnectionState` peering solicitado e reflete o progresso.
+> Para obter mais informações sobre as etapas relacionadas com o provisionamento, consulte a passagem do [exchange peering](../walkthrough-exchange-all.md).
 
-Pode verificar o Estado de Ligação como mostrado abaixo:
+Pode verificar o estado de ligação, como mostrado aqui.
 
 ```powershell
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 218fb96f6960e194f0fc4a4a3a3e603388b961c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1198d3cc7ccc0013e7c894488027d8e162470247
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760815"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677591"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O Processo de Ciência de Dados da Equipa em ação - Utilizando um Aglomerado de Hadoop Azure HDInsight num conjunto de dados de 1 TB
 
@@ -434,7 +434,7 @@ Para o módulo dados de **importação,** os valores dos parâmetros fornecidos 
 
 1. Escolha "Consulta de Colmeia" para **Fonte de Dados**
 2. Na caixa de consulta de base de dados\_da\_ **Hive,** basta um seleto simples * a partir <o nome da sua base de dados.o\_seu nome de mesa\_> - é suficiente.
-3. **Hcatalog server URI**: Se o seu cluster é "abc", então isto é simplesmente:https://abc.azurehdinsight.net
+3. **Hcatalog server URI**: Se o seu cluster é\/"abc", então isto é simplesmente: https: /abc.azurehdinsight.net
 4. Nome da conta de **utilizador hadoop**: O nome de utilizador escolhido no momento da encomenda do cluster. (NÃO o nome do utilizador do Acesso Remoto!)
 5. **Palavra-passe**da conta de utilizador hadoop : A palavra-passe para o nome de utilizador escolhido no momento da encomenda do cluster. (NÃO a senha de acesso remoto!)
 6. **Localização dos dados de saída**: Escolha "Azure"

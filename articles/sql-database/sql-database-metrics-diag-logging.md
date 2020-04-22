@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 288d4e4d0c5faa6bb2b51451fb36bbb6d666c9eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756410"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683180"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Configure a exportação de streaming da telemetria de diagnóstico da Base de Dados Azure SQL
 
@@ -363,7 +363,7 @@ Pode utilizar o SQL Analytics como um painel hierárquico para visualizar os seu
 
 ## <a name="stream-into-event-hubs"></a>Transmitir em fluxo para os Hubs de Eventos
 
-Pode transmitir métricas de base de dados SQL e registos de recursos em Centros de Eventos, utilizando o Fluxo incorporado para uma opção de hub de **eventos** no portal Azure. Também pode ativar o ID da regra do ônibus de serviço utilizando definições de diagnóstico através de cmdlets PowerShell, o Azure CLI ou o API REST Do Monitor Azure.
+Pode transmitir métricas de base de dados SQL e registos de recursos em Centros de Eventos, utilizando o Fluxo incorporado para uma opção de hub de **eventos** no portal Azure. Também pode ativar o ID da regra do ônibus de serviço utilizando definições de diagnóstico através de cmdlets PowerShell, o Azure CLI ou o API REST Do Monitor Azure. Certifique-se de que o centro de eventos está na mesma região que a sua base de dados e servidor.
 
 ### <a name="what-to-do-with-metrics-and-resource-logs-in-event-hubs"></a>O que fazer com métricas e registos de recursos em Centros de Eventos
 

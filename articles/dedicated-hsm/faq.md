@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a0cb7957008308425d91abb3e0f828cc40301736
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064931"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683314"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
@@ -40,7 +40,7 @@ A Microsoft estabeleceu uma parceria com a Gemalto para fornecer o serviço Azur
 
 ### <a name="q-what-is-an-hsm-used-for"></a>P: Para que é utilizado um HSM?
 
-Os HSMs são usados para armazenar chaves criptográficas que são usadas para funcionalidades criptográficas como SSL (camada de tomada segura), encriptação de dados, PKI (infraestrutura de chaves públicas), DRM (gestão de direitos digitais) e documentos de assinatura.
+Os HSMs são usados para armazenar chaves criptográficas que são usadas para funcionalidades criptográficas como TLS (segurança da camada de transporte), encriptação de dados, PKI (infraestrutura de chaves públicas), DRM (gestão de direitos digitais) e documentos de assinatura.
 
 ### <a name="q-how-does-dedicated-hsm-work"></a>P: Como funciona o HSM dedicado?
 
@@ -69,6 +69,7 @@ A partir do final de março de 2019, o HSM dedicado está disponível nas 14 reg
 * E.U.A. Leste
 * E.U.A. Leste 2
 * E.U.A. Oeste
+* E.U.A.Oeste 2
 * E.U.A. Centro-Sul
 * Ásia Sudeste
 * Ásia Leste
@@ -84,6 +85,10 @@ A partir do final de março de 2019, o HSM dedicado está disponível nas 14 reg
 * Leste do Canadá
 * Leste da Austrália
 * Austrália Sudeste
+* Suíça Norte
+* Suíça Oeste
+* US Gov - Virginia
+* US Gov - Texas
 
 ## <a name="interoperability"></a>Interoperabilidade
 
@@ -132,13 +137,13 @@ Sim. Consulte o guia de migração gemalto.
 
 ### <a name="q-how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm"></a>P: Como decido se uso o Cofre de Chave Azure ou o Azure Dedicado HSM?
 
-O Azure Dedicated HSM é a escolha adequada para as empresas que migram para as aplicações no local do Azure que utilizam HSMs. HSMs dedicados apresentam uma opção de migrar uma aplicação com alterações mínimas. Se as operações criptográficas forem realizadas no código da aplicação em execução numa VM Ou Web App Azure, podem utilizar HSM dedicado. Em geral, software encolhimento em execução em modelos IaaS (infraestrutura como serviço), que suportam HSMs como uma loja chave pode usar O HSM dedicado, como gateway de aplicação ou gestor de tráfego para SSL sem chave, ADCS (Serviços de Certificado de Diretório Ativo), ou ferramentas PKI semelhantes, ferramentas/aplicações usadas para a assinatura de documentos, assinatura de código ou um Servidor SQL (IaaS) configurado com TDE (encriptação de base de dados transparente) com chave principal num HSM usando um Fornecedor EKM (gestão de chaves extensíveis). O Azure Key Vault é adequado para aplicações "na nuvem" ou para encriptação em cenários de repouso onde os dados dos clientes são processados pela PaaS (plataforma como serviço) ou saaS (Software como serviço) cenários como Office 365 Customer Key, Azure Information Protection , Encriptação azure disk, encriptação Azure Data Lake Store com chave gerida pelo cliente, encriptação de armazenamento Azure com chave gerida pelo cliente, e Azure SQL com chave gerida pelo cliente.
+O Azure Dedicated HSM é a escolha adequada para as empresas que migram para as aplicações no local do Azure que utilizam HSMs. HSMs dedicados apresentam uma opção de migrar uma aplicação com alterações mínimas. Se as operações criptográficas forem realizadas no código da aplicação em execução numa VM Ou Web App Azure, podem utilizar HSM dedicado. Em geral, software encolhimento em execução em modelos IaaS (infraestrutura como serviço), que suportam HSMs como uma loja chave pode usar O HSM dedicado, como gateway de aplicação ou gestor de tráfego para TLS sem chave, ADCS (Serviços de Certificado de Diretório Ativo), ou ferramentas PKI semelhantes, ferramentas/aplicações usadas para a assinatura de documentos, assinatura de código ou um Servidor SQL (IaaS) configurado com TDE (encriptação de base de dados transparente) com chave principal num HSM usando um Fornecedor EKM (gestão de chaves extensíveis). O Azure Key Vault é adequado para aplicações "nanuvem" ou para encriptação em cenários de repouso onde os dados dos clientes são processados pela PaaS (plataforma como serviço) ou saaS (Software como serviço) como a Chave do Cliente do Office 365, Proteção de Informação Azure, Encriptação de Disco Azure, encriptação azure Data Lake Store com chave gerida pelo cliente, encriptação de armazenamento Azure com chave gerida pelo cliente, e Azure SQL com chave gerida pelo cliente.
 
 ### <a name="q-what-usage-scenarios-best-suit-azure-dedicated-hsm"></a>P: Quais os cenários de utilização que melhor se adequam ao HSM dedicado ao Azure?
 
 O Azure Dedicado HSM é o mais adequado para cenários de migração. Isto significa que se estiver a migrar para o Local aplicações para o Azure que já estão a utilizar HSMs. Isto proporciona uma opção de baixa fricção para migrar para Azure com alterações mínimas na aplicação. Se as operações criptográficas forem realizadas no código da aplicação em execução no Azure VM ou na Web App, pode ser utilizado hSM dedicado. Em geral, o software entriscada em funcionamento nos modelos IaaS (infraestrutura como serviço), que suporta mHS como uma loja-chave pode usar O HSM dedicado, tais como:
 
-* Gateway de aplicação ou gestor de tráfego para SSL sem chave
+* Gateway de aplicação ou gestor de tráfego para TLS sem chave
 * ADCS (Serviços de Certificado de Diretório Ativo)
 * Ferramentas PKI semelhantes
 * Ferramentas/aplicações utilizadas para a assinatura de documentos

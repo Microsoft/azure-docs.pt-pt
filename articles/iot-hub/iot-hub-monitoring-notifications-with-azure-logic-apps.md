@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68385725"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680709"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitorização e notificações remotas IoT com Aplicações Lógicas Azure que ligam o seu hub IoT e caixa de correio
 
@@ -22,7 +22,7 @@ ms.locfileid: "68385725"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[As Aplicações Lógicas Azure](https://docs.microsoft.com/azure/logic-apps/) podem ajudá-lo a orquestrar fluxos de trabalho através de serviços no local e na nuvem, uma ou mais empresas, e através de vários protocolos. Uma aplicação lógica começa com um gatilho, que é seguido por uma ou mais ações que podem ser sequenciadas usando controlos incorporados, tais como condições e iterres. Esta flexibilidade faz das Aplicações Lógicas uma solução IoT ideal para cenários de monitorização de IoT. Por exemplo, a chegada de dados de telemetria de um dispositivo num ponto final do IoT Hub pode iniciar fluxos de trabalho de aplicações lógicas para armazenar os dados numa bolha de Armazenamento Azure, enviar alertas de e-mail para alertar para anomalias de dados, agendar uma visita técnica se um dispositivo reportar uma falha E assim por diante.
+[As Aplicações Lógicas Azure](https://docs.microsoft.com/azure/logic-apps/) podem ajudá-lo a orquestrar fluxos de trabalho através de serviços no local e na nuvem, uma ou mais empresas, e através de vários protocolos. Uma aplicação lógica começa com um gatilho, que é seguido por uma ou mais ações que podem ser sequenciadas usando controlos incorporados, tais como condições e iterres. Esta flexibilidade faz das Aplicações Lógicas uma solução IoT ideal para cenários de monitorização de IoT. Por exemplo, a chegada de dados de telemetria de um dispositivo num ponto final do IoT Hub pode iniciar fluxos de trabalho de aplicações lógicas para armazenar os dados numa bolha de Armazenamento Azure, enviar alertas de e-mail para alertar para anomalias de dados, agendar uma visita técnica se um dispositivo reportar uma falha, e assim por diante.
 
 ## <a name="what-you-learn"></a>O que irá aprender
 
@@ -212,7 +212,7 @@ Na secção anterior, configura o seu hub IoT para encaminhar mensagens contendo
       Obtenha as informações sMTP para [Hotmail/Outlook.com,](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970) [Gmail](https://support.google.com/a/answer/176600?hl=en)e [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
-      > Pode ser necessário desativar o SSL para estabelecer a ligação. Se for esse o caso e pretender reativar o SSL depois de a ligação ter sido estabelecida, consulte o passo opcional no final desta secção.
+      > Pode ser necessário desativar a TLS/SSL para estabelecer a ligação. Se for esse o caso e pretender reativar o TLS depois de a ligação ter sido estabelecida, consulte o passo opcional no final desta secção.
 
    1. A partir do **novo parâmetro de** queda na etapa enviar **e-mail,** selecione **From,** **To**, **Subject** and **Body**. Clique ou toque em qualquer lugar do ecrã para fechar a caixa de seleção.
 
@@ -224,7 +224,7 @@ Na secção anterior, configura o seu hub IoT para encaminhar mensagens contendo
 
    1. Selecione **Guardar** para salvar a ligação SMTP.
 
-1. (Opcional) Se teve de desativar o SSL para estabelecer uma ligação com o seu fornecedor de e-mail e pretender reativa-lo, siga estes passos:
+1. (Opcional) Se teve de desativar o TLS para estabelecer uma ligação com o seu fornecedor de e-mail e pretender reativa-lo, siga estes passos:
 
    1. No painel de **aplicações Logic,** em Ferramentas de **Desenvolvimento,** selecione **ligações API**.
 

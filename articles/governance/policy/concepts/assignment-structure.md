@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de atribuição de políticas
 description: Descreve a definição de atribuição de políticas utilizada pela Política Azure para relacionar definições de políticas e parâmetros aos recursos para avaliação.
-ms.date: 09/23/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265301"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683208"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -20,6 +20,7 @@ Usas a JSON para criar uma missão política. A atribuição de políticas cont�
 - descrição
 - do IdP
 - modo de execução
+- âmbitos excluídos
 - definição política
 - parâmetros
 
@@ -34,6 +35,7 @@ Por exemplo, o seguinte JSON mostra uma atribuição de política no modo _DoNot
             "assignedBy": "Cloud Center of Excellence"
         },
         "enforcementMode": "DoNotEnforce",
+        "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
         "parameters": {
             "prefix": {
@@ -65,6 +67,10 @@ Esta propriedade tem os seguintes valores:
 |Desativado |DonotEnforce |string |Sim |Não | O efeito político não é aplicado durante a criação de recursos ou atualização. |
 
 Se o **modo de execução** Não for especificado numa definição de política ou de iniciativa, o valor _Padrão_ é utilizado. As tarefas de [reparação](../how-to/remediate-resources.md) podem ser iniciadas para implementar políticas [IfNotExists,](./effects.md#deployifnotexists) mesmo quando o modo de **execução** está definido para _DoNotEnforce_.
+
+## <a name="excluded-scopes"></a>Âmbitos excluídos
+
+O **âmbito** da atribuição inclui todos os contentores de recursos infantis e recursos infantis. Se um recipiente de recursos para crianças ou um recurso para crianças não tiver a definição aplicada, cada um pode ser excluído da avaliação definindo **nãoScopes**. Esta propriedade é uma matriz para permitir excluir um ou mais contentores de recursos ou recursos da avaliação. **notScopes** podem ser adicionados ou atualizados após a criação da atribuição inicial.
 
 ## <a name="policy-definition-id"></a>ID de definição de política
 

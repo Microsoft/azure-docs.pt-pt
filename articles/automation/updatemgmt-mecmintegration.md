@@ -1,5 +1,5 @@
 ---
-title: Utilize a Gestão de Atualizações Azure com clientes do Gestor de Configuração
+title: Utilize a Gestão de Atualização de Automação Azure com clientes do Gestor de Configuração
 description: Este artigo destina-se a ajudá-lo a configurar o Microsoft Endpoint Configuration Manager com esta solução para implementar atualizações de software para clientes ConfigMgr.
 services: automation
 ms.subservice: update-management
@@ -7,18 +7,18 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0ca836e3b53c3cce755d45b50fe168073f0bbaa
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 32a077c476d9669c3f32bd4040fdc8ff90156c19
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618727"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678739"
 ---
 # <a name="deploy-updates-to-microsoft-endpoint-configuration-manager-clients-with-update-management"></a>Implementar atualizações para clientes do Microsoft Endpoint Configuration Manager com Gestão de Atualizações
 
 Os clientes que investiram no Microsoft Endpoint Configuration Manager para gerir Computadores, servidores e dispositivos móveis também dependem da sua força e maturidade na gestão de atualizações de software como parte do seu ciclo de gestão de atualizações de software (SUM).
 
-Pode reportar e atualizar servidores do Windows geridos através da criação e pré-realização de implementações de atualizações de software no Gestor de Configuração e obter o estado detalhado das implementações de atualizações concluídas utilizando a [solução de Gestão](automation-update-management.md)de Atualizações . Se utilizar o Gestor de Configuração para o relatório de conformidade da atualização, mas não para gerir as implementações de atualizações com os seus servidores Windows, pode continuar a reportar ao Gestor de Configuração enquanto as atualizações de segurança são geridas com a solução 'Gestão de Actualizações'.
+Pode reportar e atualizar servidores do Windows geridos através da criação e pré-realização de implementações de atualizações de software no Gestor de Configuração e obter o estado detalhado das implementações de atualizações concluídas utilizando a Atualização de [Gestão](automation-update-management.md). Se utilizar o Gestor de Configuração para o relatório de conformidade da atualização, mas não para gerir as implementações de atualizações com os seus servidores Windows, pode continuar a reportar ao Gestor de Configuração enquanto as atualizações de segurança são geridas com a solução 'Gestão de Actualizações'.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,7 @@ Se pretender continuar a gerir implementações de atualizações a partir do Co
 
 1. Crie uma implementação de atualização de software a partir do site de alto nível na hierarquia do Gestor de Configuração utilizando o processo descrito nas atualizações de [software de implementação](https://docs.microsoft.com/configmgr/sum/deploy-use/deploy-software-updates). A única definição que tem de ser configurada de forma diferente de uma implementação padrão é a opção **Não instalar atualizações de software** para controlar o comportamento de transferência do pacote de implementação. Este comportamento é gerido pela solução Update Management criando uma implementação de atualização programada no passo seguinte.
 
-1. Na Automatização Azure, selecione Gestão de **Atualizações.** Crie uma nova implementação seguindo os passos descritos na Criação de [uma Implementação](automation-tutorial-update-management.md#schedule-an-update-deployment) de Atualizações e selecione **grupos importados** no **drop-down do Tipo** para selecionar a coleção de Gestor de Configuração apropriada. Tenha em mente os seguintes pontos importantes: a. Se for definida uma janela de manutenção na coleção de dispositivos Select Configuration Manager, os membros da coleção honram-na em vez da definição de **Duração** definida na implementação programada.
+1. Na Automatização Azure, selecione Gestão de **Atualizações.** Crie uma nova implementação seguindo os passos descritos na Criação de [uma Implementação](automation-tutorial-update-management.md#schedule-an-update-deployment) de Atualizações e selecione **grupos importados** no dropdown **do Tipo** para selecionar a coleção de Gestor de Configuração apropriada. Tenha em mente os seguintes pontos importantes: a. Se for definida uma janela de manutenção na coleção de dispositivos Select Configuration Manager, os membros da coleção honram-na em vez da definição de **Duração** definida na implementação programada.
     b. Os membros da recolha do alvo devem ter uma ligação à Internet (diretamente, através de um servidor proxy ou através do gateway Log Analytics).
 
 Após completar a implementação da atualização através do Azure Automation, os computadores-alvo que são membros do grupo de computador selecionado sairá atualizações no momento programado a partir da sua cache de cliente local. Pode [ver o estado de implementação da atualização](automation-tutorial-update-management.md#view-results-of-an-update-deployment) para monitorizar os resultados da implementação.

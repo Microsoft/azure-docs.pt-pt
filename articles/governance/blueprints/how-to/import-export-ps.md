@@ -3,12 +3,12 @@ title: Plantas de importação e exportação com powerShell
 description: Aprenda a trabalhar com as definições de plantas como código. Partilhar, controlar a fonte e geri-los utilizando os comandos de exportação e importação.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: dcdf48f8941198591b39d6cf89ec5e6dac7ba94c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677143"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686841"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Definições de plantas de importação e exportação com powerShell
 
@@ -88,7 +88,7 @@ Os passos para exportar a sua definição de projeto são simples. Exportar a de
 
 Uma vez que tenha uma definição de [planta exportada](#export-your-blueprint-definition) ou tenha uma definição de planta criada manualmente na [estrutura de pasta necessária,](#folder-structure-of-a-blueprint-definition)pode importar essa definição de projeto para um grupo de gestão ou subscrição diferente.
 
-Por exemplo, de definições de plantas incorporadas, consulte o [repo Azure Blueprint GitHub](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins).
+Por exemplo, de definições de plantas incorporadas, consulte o [repo Azure Blueprint GitHub](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
 
 - **Nome** [obrigatório]
   - Especifica o nome para a nova definição de projeto
@@ -121,7 +121,7 @@ Para obter informações sobre a criação de definições avançadas de plantas
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Conheça o ciclo de vida da [planta.](../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).

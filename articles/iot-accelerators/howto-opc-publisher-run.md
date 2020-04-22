@@ -8,12 +8,15 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 4f5d57bab51d537b64ce4b800737219663c3d7a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: c664d4859a306387b4eafa2f19ab5877ccf6eb1b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198791"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686962"
 ---
 # <a name="run-opc-publisher"></a>Executar o Publicador OPC
 

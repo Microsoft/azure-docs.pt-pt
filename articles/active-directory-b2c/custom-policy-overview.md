@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f18f44208b97ab5bc8d9cd9ff01d604c62deb963
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246048"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678152"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -43,7 +43,9 @@ Estes três tipos de ficheiros políticos são utilizados:
 - **Ficheiro de extensões** - contém as alterações de configuração únicas para o seu inquilino.
 - **Ficheiro do Partido De Fiação (RP)** - O ficheiro focado na tarefa única que é invocado diretamente pela aplicação ou serviço (também, conhecido como Partido De Fiação). Cada tarefa única requer o seu próprio RP e, dependendo dos requisitos de marca, o número pode ser "total de aplicações x número total de casos de uso".
 
-Os fluxos de utilizadores em Azure AD B2C seguem o padrão de três ficheiros acima descrito, mas o desenvolvedor apenas vê o ficheiro RP, enquanto o portal Azure faz alterações no fundo do ficheiro de extensões.
+Os fluxos de utilizadores em Azure AD B2C seguem o padrão de ficheiro acima descrito, mas o desenvolvedor apenas vê o ficheiro RP, enquanto o portal Azure faz alterações no fundo do ficheiro de extensões.
+
+Apesar de existirem três tipos de ficheiros políticos, não se limita a apenas três ficheiros. Pode ter vários ficheiros de cada tipo de ficheiro. Por exemplo, se não quiser ealterar o ficheiro Extensões, pode criar um ficheiro Extensions2 para alargar ainda mais o ficheiro Extensões.
 
 ## <a name="custom-policy-core-concepts"></a>Conceitos de núcleo de política personalizada
 
@@ -55,7 +57,7 @@ O serviço de gestão de identidade e acesso ao cliente (CIAM) em Azure inclui:
 
 O Azure AD B2C interage com fornecedores de identidade, utilizadores, outros sistemas e com o diretório de utilizadores local em sequência para alcançar uma tarefa de identidade. Por exemplo, inscreva-se num utilizador, registe um novo utilizador ou repor uma palavra-passe. O Quadro de Experiência de Identidade e uma política (também chamada de viagem de utilizador ou política-quadro de confiança) estabelece a confiança multipartidária e define explicitamente os atores, as ações, os protocolos e a sequência de passos a concluir.
 
-O Quadro de Experiência de Identidade é uma plataforma Azure totalmente configurável, orientada por políticas e baseada na nuvem que orquestra a confiança entre entidades em formatos de protocolo padrão como OpenID Connect, OAuth, SAML e algumas não padrão, por exemplo REST Trocas de sinistros sistema-sistema baseados em API. O quadro cria experiências fáceis de utilizar e com rótulo branco que suportam HTML e CSS.
+O Quadro de Experiência de Identidade é uma plataforma Azure totalmente configurável, orientada por políticas e baseada na nuvem que orquestra a confiança entre entidades em formatos de protocolo padrão como OpenID Connect, OAuth, SAML e algumas não padrão, por exemplo, trocas de sistemas baseados na API baseadas no REST. O quadro cria experiências fáceis de utilizar e com rótulo branco que suportam HTML e CSS.
 
 Uma política personalizada é representada como um ou vários ficheiros com formatação XML que fazem referência entre si numa cadeia hierárquica. Os elementos XML definem o esquema de sinistros, as transformações de sinistros, as definições de conteúdo, os fornecedores de sinistros, os perfis técnicos e os passos de orquestração de viagens do utilizador, entre outros elementos. Uma política personalizada é acessível como um ou vários ficheiros XML que são executados pelo Quadro de Experiência de Identidade quando invocados por uma parte que confia. Os desenvolvedores que configuram políticas personalizadas devem definir as relações fidedignas em detalhes cuidadosos para incluir pontos finais de metadados, definições exatas de troca de reclamações e configurar segredos, chaves e certificados conforme necessário por cada fornecedor de identidade.
 

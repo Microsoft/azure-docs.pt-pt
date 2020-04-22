@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: 1f3c9f86072eeedbc999946d0f846fbc3b41f94d
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: f94136ca6bfcb7e33415f2f44fdf4c44ef9f6a6f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641759"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682784"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Empregos de experimentação e inferência secure Azure ML dentro de uma Rede Virtual Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -140,12 +140,13 @@ Para utilizar um conjunto de cálculos de machine learning Azure ou um cluster d
 > * Se as Contas de Armazenamento Azure para o espaço de trabalho também estiverem protegidas numa rede virtual, devem estar na mesma rede virtual que a instância ou cluster de computação de Machine Learning Azure. 
 
 > [!TIP]
-> A instância ou cluster de computação machine learning atribui automaticamente recursos adicionais de rede no grupo de recursos que contém a rede virtual. Para cada instância ou cluster de cálculo, o serviço atribui os seguintes recursos:
+> A instância ou cluster de computação machine learning atribui automaticamente recursos adicionais de rede __no grupo de recursos que contém a rede virtual__. Para cada instância ou cluster de cálculo, o serviço atribui os seguintes recursos:
 > 
 > * Um grupo de segurança de rede
 > * Um endereço IP público
 > * Um equilibrador de carga
 > 
+> No caso dos agrupamentos, estes recursos são eliminados (e recriados) sempre que o cluster desce para 0 nós, no entanto, por exemplo, os recursos são mantidos até que a instância seja completamente eliminada (parar não remove os recursos). 
 > Estes recursos estão limitados pelas [quotas de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) da subscrição.
 
 

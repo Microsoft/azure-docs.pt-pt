@@ -1,6 +1,6 @@
 ---
-title: Erros de resolução de problemas com a Azure Update Management
-description: Saiba como resolver problemas e resolver problemas com a solução de Gestão de Atualizações no Azure.
+title: Resolução de problemas Azure Automation Update Management
+description: Saiba como resolver problemas e resolver problemas com a solução de Gestão de Atualizações na Automação Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,22 +8,22 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c9ff05591c98fda8be39e32f26da484f56e0831b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 91ecff311b8820d3b97e1de0e4b4e87c150e749b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984628"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678929"
 ---
-# <a name="troubleshooting-issues-with-update-management"></a>Problemas de resolução de problemas com gestão de atualizações
+# <a name="troubleshoot-issues-with-the-update-management-solution"></a>Problemas de resolução de problemas com a solução de Gestão de Atualização
 
-Este artigo discute soluções para questões que poderá encontrar ao utilizar a Atualização de Gestão.
+Este artigo discute questões que poderá encontrar ao utilizar a solução de Gestão de Atualizações. Há um agente que desarma problemas para o agente híbrido runbook worker para determinar o problema subjacente. Para saber mais sobre o problema, consulte problemas de agente de [atualização do Windows troubleshoot](update-agent-issues.md) e problemas com o agente de [atualização Troubleshoot Linux](update-agent-issues-linux.md). Para outras questões de embarque, consulte a [solução Troubleshoot no embarque.](onboarding.md)
 
-Há um agente que desarma problemas para o agente híbrido para determinar o problema subjacente. Para saber mais sobre o problema, consulte problemas de agente de [atualização da Troubleshoot](update-agent-issues.md). Para todas as outras questões, utilize as seguintes orientações de resolução de problemas.
+>[!NOTE]
+>Se encontrar problemas ao embarcar na solução numa máquina virtual (VM), consulte o registo do **Gestor de Operações** em Registos de **Aplicação e Serviços** na máquina local. Procure eventos com ID 4502 do `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`evento e detalhes do evento que contenham .
 
-Se encontrar problemas ao embarcar na solução numa máquina virtual (VM), consulte o registo do **Gestor de Operações** em Registos de **Aplicação e Serviços** na máquina local. Procure eventos com ID 4502 do `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`evento e detalhes do evento que contenham .
-
-A secção seguinte destaca mensagens de erro específicas e possíveis resoluções para cada um. Para outras questões de embarque, consulte a [solução Troubleshoot no embarque.](onboarding.md)
+>[!NOTE]
+>Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](../automation-update-azure-modules.md).
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>Cenário: Recebe o erro "Falhou em ativar a solução Update"
 
@@ -299,7 +299,7 @@ Este erro pode ocorrer pelas seguintes razões:
 
 * Há um nome de computador duplicado com diferentes iDs de computador de origem. Este cenário ocorre quando um VM com um nome de computador particular é criado em diferentes grupos de recursos e está reportando ao mesmo espaço de trabalho do Agente Logístico na subscrição.
 
-* A imagem VM a bordo pode vir de uma máquina clonada que não foi preparada com a Preparação do Sistema (sysprep) com o Microsoft Monitoring Agent (MMA) instalado.
+* A imagem VM a bordo pode vir de uma máquina clonada que não foi preparada com a Preparação do Sistema (sysprep) com o agente Log Analytics para windows instalado.
 
 ### <a name="resolution"></a>Resolução
 
@@ -351,17 +351,16 @@ Este erro ocorre quando cria uma implementação de atualização que tem VMs Az
 
 ### <a name="resolution"></a>Resolução
 
-Utilize a seguinte suver para agendar estes itens. Pode utilizar o cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) com o `ForUpdate` parâmetro para criar um horário. Em seguida, utilize o [Cmdlet New-AzureRmAutomationSoftwareUpdateConfiguração](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) e passe `NonAzureComputer` as máquinas do outro inquilino para o parâmetro. O exemplo que se segue mostra como fazê-lo:
+Utilize a seguinte suver para agendar estes itens. Pode utilizar o cmdlet [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) com o `ForUpdateConfiguration` parâmetro para criar um horário. Em seguida, utilize o [cmdlet New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passe `NonAzureComputer` as máquinas do outro inquilino para o parâmetro. O exemplo que se segue mostra como fazê-lo:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
 
 $startTime = ([DateTime]::Now).AddMinutes(10)
 
-$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+$s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
 
-New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
 ## <a name="scenario-unexplained-reboots"></a><a name="node-reboots"></a>Cenário: Reboots inexplicáveis
@@ -614,7 +613,7 @@ KB2267602 é a [atualização de definições do Windows Defender](https://www.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se não viu o seu problema ou não consegue resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional.
+Se não vir o seu problema ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional.
 
 * Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport)a conta oficial do Microsoft Azure para melhorar a experiência do cliente.

@@ -3,12 +3,12 @@ title: Instale o seu ambiente de desenvolvimento em Linux
 description: Instale o runtime e o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir esta configuração, estará pronto para criar aplicações.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 1048e1ccf6b9bc921daa3014ab8003fd53473461
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 6cedd97144a3fd32d9af8582e24ad5c12914e575
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309121"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682629"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -265,7 +265,7 @@ Pode instalar o plug-in do Eclipse para o Service Fabric a partir do IDE do Ecli
 
 2. Para instalar o plug-in do Tecido de Serviço, selecione **Ajuda a** > **instalar novo software**.
 
-3. Na caixa **Compatível com**, escreva **https://dl.microsoft.com/eclipse**.
+3. No **Trabalho com** caixa, insira **https:\//dl.microsoft.com/eclipse**.
 
 4. Selecione **Adicionar**.
 

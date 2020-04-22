@@ -6,18 +6,18 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: f8f1eb353087c5121eaafb4c8789e7a2f7638b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1ff8e0aedce5d3a6acc9a39084cf0839efdd88e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475126"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678446"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utilizar a injeção de dependências nas Funções do Azure do .NET
 
 A Azure Functions suporta o padrão de design de software de injeção de dependência (DI), que é uma técnica para alcançar a [Inversão de Controlo (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) entre as classes e as suas dependências.
 
-- A injeção de dependência nas Funções Azure é construída com base nas características de injeção de dependência do núcleo .NET. Recomenda-se a familiaridade com a injeção de dependência do [núcleo .NET.](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) Existem, no entanto, diferenças na forma como se sobrepõem as dependências e como os valores de configuração são lidos com as Funções Azure no plano de Consumo.
+- A injeção de dependência nas Funções Azure é construída com base nas características de injeção de dependência do núcleo .NET. Recomenda-se a familiaridade com a injeção de dependência do [núcleo .NET.](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) Existem diferenças na forma como sobrepor as dependências e como os valores de configuração são lidos com funções azure no plano de consumo.
 
 - O suporte à injeção de dependência começa com as Funções Azure 2.x.
 

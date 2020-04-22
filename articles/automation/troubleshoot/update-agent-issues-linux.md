@@ -1,6 +1,6 @@
 ---
-title: Diagnosticar O Trabalhador do Livro híbrido do Linux - Gestão de Atualização Azure
-description: Saiba como resolver problemas com o Trabalhador de Runbook Híbrido de Automação Azure no Linux que suporta a Gestão de Atualizações.
+title: Problemas de resolução de problemas de problemas com problemas de agente de atualização linux na Azure Automation Update Management
+description: Saiba como resolver problemas com o agente de atualização do Linux Windows utilizando a solução Degestão de Atualizações.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bba1c7e89a9c3bb1c9aa1567e36dd71a40f14636
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278301"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679062"
 ---
-# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Compreender e resolver a saúde do trabalhador do livro de corridas híbrido linux para gestão de atualizações
+# <a name="troubleshoot-linux-update-agent-issues"></a>Problemas problemas com problemas de problemas com problemas de problemas com problemas de agente de atualização linux
 
-Pode haver muitas razões para a sua máquina não mostrar **Ready** in Update Management. Na Gestão de Atualizações, pode verificar a saúde de um agente híbrido do Runbook Worker para determinar o problema subjacente. Este artigo discute como executar o resolução de problemas para máquinas Azure a partir do portal Azure e máquinas não-Azure no [cenário offline](#troubleshoot-offline).
+Pode haver muitas razões para a sua máquina não aparecer tão pronta (saudável) na Gestão de Atualizações. Na Gestão de Atualizações, pode verificar a saúde de um agente híbrido do Runbook Worker para determinar o problema subjacente. Este artigo discute como executar o resolução de problemas para máquinas Azure a partir do portal Azure e máquinas não-Azure no [cenário offline](#troubleshoot-offline). 
 
 A lista que se segue são os três estados de prontidão em que uma máquina pode estar:
 
-* **Ready** - O Trabalhador híbrido do livro está implantado e foi visto pela última vez há menos de uma hora.
-* **Desligado** - O Trabalhador híbrido do livro de corridas está implantado e foi visto pela última vez há mais de uma hora.
-* **Não configurado** - O Trabalhador híbrido do runbook não é encontrado ou ainda não terminou o embarque.
+* Ready - O Trabalhador híbrido do livro está implantado e foi visto pela última vez há menos de uma hora.
+* Desligado - O Trabalhador híbrido do livro de corridas está implantado e foi visto pela última vez há mais de uma hora.
+* Não configurado - O Trabalhador híbrido do runbook não é encontrado ou ainda não terminou o embarque.
 
 > [!NOTE]
-> Pode haver um ligeiro atraso entre o que o portal Azure mostra e o estado atual da máquina.
+> Pode haver um ligeiro atraso entre o que o portal Azure mostra e o estado atual de uma máquina.
 
 ## <a name="start-the-troubleshooter"></a>Inicie o resolução de problemas
 
-Para máquinas Azure, clique no link **Troubleshoot** sob a coluna **de prontidão** do agente de atualização no portal lança a página do Agente de Atualização de **Resolução** de Problemas. Para máquinas não-Azure, o link leva-o a este artigo. Consulte as instruções offline para filmar uma máquina não Azure.
+Para máquinas Azure, clique no link **Troubleshoot** sob a coluna **de prontidão** do agente de atualização no portal lança a página do Agente de Atualização de Resolução de Problemas. Para máquinas não-Azure, o link leva-o a este artigo. Consulte as instruções offline para filmar uma máquina não Azure.
 
 ![página da lista vm](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
-> Os cheques exigem que o VM esteja a funcionar. Se o VM não estiver a funcionar, é-lhe apresentado um botão para **iniciar o VM**.
+> Os cheques exigem que o VM esteja a funcionar. Se o VM não estiver em execução, é-lhe apresentado um botão **Iniciar o VM.**
 
-Na página do **Agente de Atualização** de Problemas, clique em **Controlos de Execução,** para iniciar o resolução de problemas. O resoluto de problemas usa o [comando run](../../virtual-machines/linux/run-command.md) para executar um script na máquina para verificar as dependências. Quando o resolução de problemas estiver completo, devolve o resultado dos controlos.
+Na página do Agente de Atualização de Problemas, clique em **Controlos de Execução,** para iniciar o resolução de problemas. O resoluto de problemas usa o [comando run](../../virtual-machines/linux/run-command.md) para executar um script na máquina para verificar as dependências. Quando o resolução de problemas estiver completo, devolve o resultado dos controlos.
 
 ![Página de resolução de problemas](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -50,7 +50,7 @@ Quando estiver em conclusão, os resultados são devolvidos na janela. As secç�
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A verificação do sistema operativo verifica se o Trabalhador do Livro híbrido está a executar um dos seguintes Sistemas Operativos:
+A verificação do sistema operativo verifica se o Trabalhador do Livro híbrido está a executar um dos seguintes sistemas operativos:
 
 |Sistema operativo  |Notas  |
 |---------|---------|

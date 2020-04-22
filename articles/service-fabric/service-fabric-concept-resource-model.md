@@ -4,12 +4,12 @@ description: Este artigo fornece uma visão geral da gestão de uma aplicação 
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 69c10b0e9d3b7c29122c8432ab1e4bc06d3a3120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481121"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682632"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recursos de aplicação de tecido de serviço
 
@@ -40,13 +40,13 @@ Para mais informações, consulte [pacote uma aplicação](service-fabric-packag
 
 Em seguida, cria um modelo de Gestor de Recursos, atualiza o ficheiro de parâmetros com detalhes da aplicação e implementa o modelo no cluster Service Fabric. [Explore as amostras.](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM)
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Para implementar uma aplicação a partir de um modelo de Gestor de Recursos, você deve ter uma conta de armazenamento. A conta de armazenamento é utilizada para encenar a imagem da aplicação. 
 
 Pode reutilizar uma conta de armazenamento existente ou pode criar uma nova conta de armazenamento para a realização das suas aplicações. Se utilizar uma conta de armazenamento existente, pode saltar este passo. 
 
-![Criar uma conta do Storage][CreateStorageAccount]
+![Criar uma conta de armazenamento][CreateStorageAccount]
 
 ### <a name="configure-your-storage-account"></a>Configure a sua conta de armazenamento
 
@@ -99,7 +99,7 @@ A aplicação da amostra contém modelos do Gestor de [Recursos Azure](https://g
 | aplicaçãoTypeVersion | A versão do tipo de aplicação         | 1.0.0                                                        | Deve corresponder applicationManifest.xml                 |
 | serviceName            | O nome do serviço         | Voting~VotingWeb                                             | Deve estar no formato ApplicationName~ServiceType            |
 | serviçoTypeName        | O nome tipo do serviço                | VotingWeb                                                    | Deve corresponder serviceManifest.xml                 |
-| appPackageUrl          | O URL de armazenamento blob da aplicação     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | O URL do pacote de aplicação no armazenamento de bolhas (o procedimento para definir o URL é descrito mais tarde no artigo) |
+| appPackageUrl          | O URL de armazenamento blob da aplicação     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | O URL do pacote de aplicação no armazenamento de bolhas (o procedimento para definir o URL é descrito mais tarde no artigo) |
 
 ```json
 {

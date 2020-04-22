@@ -8,40 +8,40 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 7d7b9f847cdcc4ab4b1ff065425eebe07fb4d888
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8869e93a7156b24d61ac555c95b9ca7f850ae34
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75775215"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678584"
 ---
-1. Na página **Criar uma página De Espreitar,** sob o separador **Configuração,** preencha os campos como mostrado abaixo.
+1. Na página **Criar uma página De Espreitar,** no separador **Configuração,** preencha as caixas como mostrado aqui.
 
     > [!div class="mx-imgBorder"]
-    > ![Configuração de peering - Troca](../media/setup-exchange-conf-tab.png)
+    > ![Criar uma página de peering Tipo de peering](../media/setup-exchange-conf-tab.png)
 
-    * Para **o tipo de peering,** selecione *Exchange*.
-    * Selecione **SKU** como *Basic Free*.
-    * Escolha a localização do **Metro** para onde pretende converter o seu olhar para o recurso Azure. Se tiver ligações com a Microsoft na localização do **Metro** selecionada que não sejam convertidas para recurso Azure, então tais ligações serão listadas na secção de **ligações Peering,** como mostrado abaixo. Agora pode converter estas ligações de observação para o recurso Azure.
+    * Para **o tipo de peering,** selecione **Exchange**.
+    * Selecione **SKU** como **Basic Free**.
+    * Selecione a localização do **Metro** onde pretende converter o seu olhar para um recurso Azure. Se tiver ligações com a Microsoft na localização do **Metro** selecionada que não sejam convertidas para um recurso Azure, estas ligações serão listadas na secção de **ligações Peering,** como mostrado. Agora pode converter estas ligações de observação num recurso Azure.
 
         > [!div class="mx-imgBorder"]
-        > ![Configuração de peering - Troca - Conexões Legacy](../media/setup-exchange-legacy-conf-tab.png)
+        > ![Lista de ligações de pares](../media/setup-exchange-legacy-conf-tab.png)
 
         > [!NOTE]
-        > Não é possível modificar as definições para ligações de observação de legados. Se pretender adicionar ligações adicionais de pares com a Microsoft na localização do **Metro** selecionada, pode fazê-lo clicando em **Criar um novo** botão. Consulte [criar ou modificar um 'Exchange' utilizando o portal](../howto-exchange-portal.md) para obter mais informações.
+        > Não é possível modificar as definições para ligações de observação de legados. Se pretender adicionar ligações adicionais de peering com a Microsoft na localização selecionada do **Metro,** selecione **Criar novas**. Para mais informações, consulte [Criar ou modificar um 'Exchange peering', utilizando o portal](../howto-exchange-portal.md).
         >
 
-1. Clique em **Rever + criar**. Observe que o portal executa a validação básica da informação que inseriu. Isto é exibido numa fita no topo, como *validação final de execução...*.
+1. Selecione **Rever + criar**. Note que o portal executa a validação básica da informação que inseriu. Uma fita na parte superior exibe a mensagem *Execução de validação final...*.
 
     > [!div class="mx-imgBorder"]
     > ![Separador de validação de observação](../media/setup-direct-review-tab-validation.png)
 
-1. Depois de se recorrer a *Validação Passada,* verifique as suas informações e submeta o pedido clicando em **Criar**. Se precisar modificar o seu pedido, clique em **Anterior e** repita os passos acima.
+1. Depois de a mensagem ter *sido aprovada,* verifique as suas informações. Envie o pedido selecionando **Criar**. Se precisar modificar o seu pedido, selecione **Anterior** e repita os passos.
 
     > [!div class="mx-imgBorder"]
-    > ![Submeter-se](../media/setup-exchange-review-tab-submit.png)
+    > ![Submissão de pares](../media/setup-exchange-review-tab-submit.png)
 
-1. Assim que submeter o pedido, aguarde que termine a implantação. Se a implementação falhar, contacte [o peering](mailto:peering@microsoft.com)da Microsoft . Uma implantação bem sucedida aparecerá como abaixo.
+1. Depois de submeter o pedido, aguarde que a colocação termine. Se a implementação falhar, contacte [o peering](mailto:peering@microsoft.com)da Microsoft . Uma implantação bem sucedida aparece como mostrado.
 
     > [!div class="mx-imgBorder"]
-    > ![O sucesso do peering](../media/setup-direct-success.png)
+    > ![Olhando para o sucesso](../media/setup-direct-success.png)

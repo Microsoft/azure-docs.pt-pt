@@ -8,18 +8,18 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e1cb1bec6273fa79315b9439bec1412622ebfe28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 610bac5c08d7f3aa3c93e273bc6573a08ca1239f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774305"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680773"
 ---
-O exemplo que se segue mostra como criar um 10Gbps Direct peering em Seattle.
+O exemplo que se segue mostra como criar um 10-Gbps Direct peering em Seattle.
 
-Utilize o CmDLet **PowerShell New-AzPeeringDirectConnectionObject** para criar DirectConnections que devem ser utilizados no novo pedido de peering.
+Utilize o cmdlet **PowerShell New-AzPeeringDirectConnectionObject** para criar objetos DirectConnection que devem ser utilizados no novo pedido de peering.
 
-Abaixo está um exemplo para criar uma Ligação Direta:
+Este exemplo mostra como criar um objeto DirectConnection.
 
 ```powershell
 $connection1 = New-AzPeeringDirectConnectionObject `
@@ -32,9 +32,9 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> O <index> $peeringLocation<index>no exemplo acima deve corresponder à localização de observação da sua escolha
+> O valor <index>para **$peeringLocation[]** <index> no exemplo anterior deve corresponder à localização de observação da sua escolha.
 
-Crie outra ligação no caso de precisar de redundância em determinado local de observação:
+Crie outra ligação no caso de precisar de redundância num dado local de observação.
 
 ```powershell
 $connection2 = New-AzPeeringDirectConnectionObject `
@@ -46,7 +46,7 @@ $connection2 = New-AzPeeringDirectConnectionObject `
     -BandwidthInMbps 10000
 ```
 
-Utilize o CmDLet **PowerShell New-AzPeering** para criar um novo epeering direto. Este comando requer IDENTIFICAÇÃO de recurso ASN que pode ser recuperada como mostrado abaixo.
+Utilize o cmdlet **PowerShell New-AzPeering** para criar um novo epeering direto. Este comando requer um ID de recurso ASN, que pode ser recuperado como mostrado aqui.
 
 
 ```powershell
@@ -60,7 +60,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Abaixo está uma resposta exemplo quando o pedido foi processado com sucesso:
+Este exemplo mostra a resposta quando o pedido foi processado com sucesso.
 
 ```powershell
 
@@ -78,4 +78,4 @@ Abaixo está uma resposta exemplo quando o pedido foi processado com sucesso:
     Tags                 : {}
 
 ```
-Note que, no lugar de **{subscriçãoId}** na saída acima, será apresentado o ID de subscrição real.
+Note que, no lugar de **{subscriçãoId}** nesta saída, será apresentado o ID de subscrição real.

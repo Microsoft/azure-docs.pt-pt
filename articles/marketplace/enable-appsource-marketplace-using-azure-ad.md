@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 45855038e60dcdc3be4f98cfdceed69df5e8c946
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2f33fc8b1bdd15b53ad9130b5cc598dd6d5ee1a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286324"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684632"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Ativar uma listagem do AppSource e do Marketplace com o Azure Active Directory
 
@@ -87,5 +87,10 @@ Utilize a AD Azure para apoiar uma das seguintes ações:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Certifique-se de que [se registou no Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
-- Veja [como criar uma conta partner center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações sobre como criar ou completar a sua oferta.
+Se ainda não o fez, 
+
+- [Saiba](https://azuremarketplace.microsoft.com/sell) mais sobre o mercado.
+
+Para se registar no Partner Center, comece a criar uma nova oferta ou a trabalhar numa existente:
+
+- [Inscreva-se no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou completar a sua oferta.

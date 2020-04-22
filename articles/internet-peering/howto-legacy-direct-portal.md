@@ -1,40 +1,40 @@
 ---
-title: Converter um peering Direto legado para o recurso do Azure com o portal
+title: Converta um legado De espreitar diretamente para um recurso Azure utilizando o portal Azure
 titleSuffix: Azure
-description: Converter um peering Direto legado para o recurso do Azure com o portal
+description: Converta um legado De espreitar diretamente para um recurso Azure utilizando o portal Azure
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 9900414d38bd597d08a80d15e908228c06ce06ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e49e4d5debe63b99039bbafbc14f7788367314f3
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75775059"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678838"
 ---
-# <a name="convert-a-legacy-direct-peering-to-azure-resource-using-the-portal"></a>Converter um peering Direto legado para o recurso do Azure com o portal
+# <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-the-azure-portal"></a>Converta um legado De espreitar diretamente para um recurso Azure utilizando o portal Azure
 
-Este artigo descreve como converter um legado existente Espreitar diretamente para o recurso Azure usando o portal.
+Este artigo descreve como converter um legado existente Espreitar diretamente para um recurso Azure utilizando o portal Azure.
 
 Se preferir, pode completar este guia utilizando o [PowerShell](howto-legacy-direct-powershell.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Reveja os [pré-requisitos](prerequisites.md) e [o direct peering walkthrough](walkthrough-direct-all.md) antes de iniciar a configuração.
+* Reveja os [pré-requisitos](prerequisites.md) e o [passe direto](walkthrough-direct-all.md) antes de iniciar a configuração.
 
 
-## <a name="convert-legacy-direct-peering-to-azure-resource"></a>Converter o legado Direto espreitando para o recurso Azure
+## <a name="convert-a-legacy-direct-peering-to-an-azure-resource"></a>Converter um legado De espreitar diretamente para um recurso Azure
 
-### <a name="sign-in-to-portal-and-select-your-subscription"></a>Inscreva-se no portal e selecione a sua subscrição
+### <a name="sign-in-to-the-portal-and-select-your-subscription"></a>Inscreva-se no portal e selecione a sua subscrição
 [!INCLUDE [Account](./includes/account-portal.md)]
 
-### <a name="convert-legacy-direct-peering"></a><a name=create></a>Converter o legado De espreitar direto
+### <a name="convert-a-legacy-direct-peering"></a><a name=create></a>Converter um legado de espreitar direto
 
-Pode converter ligações de observação de legados utilizando recurso **Peering.**
+Pode converter ligações de observação de legados utilizando o recurso **Peering.**
 
-#### <a name="launch-resource-and-configure-basic-settings"></a>Lançar recurso e configurar definições básicas
+#### <a name="launch-the-resource-and-configure-basic-settings"></a>Lançar o recurso e configurar as definições básicas
 [!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
 
 #### <a name="configure-connections-and-submit"></a>Configurar ligações e submeter
@@ -45,8 +45,8 @@ Pode converter ligações de observação de legados utilizando recurso **Peerin
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para mais informações, visite [faQs de observação de Internet](faqs.md)
+Para mais informações, consulte [as FAQs de observação da Internet](faqs.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Crie ou modifique um epeering direto utilizando o portal](howto-direct-portal.md).
+* [Criar ou modificar um epeering direto utilizando o portal](howto-direct-portal.md)

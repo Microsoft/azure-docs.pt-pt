@@ -1,20 +1,21 @@
 ---
-title: Apoio ao mercado comercial Azure
+title: Apoio ao mercado comercial Mercado Azure
 description: Informações e links de suporte para Azure Marketplace e AppSource
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 3/19/2020
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: b2dba23bdf07233a9945086fba2274602cb2dcf1
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 2b73fee33692b65770caeea651c12e9780dba2c4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252239"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681374"
 ---
-# <a name="support-for-the-marketplace"></a>Apoio ao Mercado  
+# <a name="support-for-the-marketplace"></a>Apoio ao Mercado
+
 Aqui está uma lista de opções de suporte para o Marketplace.  
 
 Além disso, pode obter muitas das suas perguntas respondidas no [canal marketplace do Fórum Comunitário C+AI](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
@@ -23,11 +24,11 @@ Além disso, pode obter muitas das suas perguntas respondidas no [canal marketpl
 
 Abra um bilhete com o suporte da [editora do mercado](https://aka.ms/marketplacepublishersupport) da Microsoft para problemas com o embarque e o início.
 
-## <a name="partner-center-or-cloud-partner-portal"></a>Partner Center ou Cloud Partner Portal  
+## <a name="partner-center"></a>Centro de Parceiros   
 
 | Canal de suporte | Descrição | Disponibilidade |  
 |:--- |:--- |:--- |  
-| Para assistência, visite a página Criar uma página de incidentes localizada no [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Suporte para Partner Center ou Cloud Partner Portal. | O suporte é fornecido 24x5. |  
+| Para assistência, visite a página Criar uma página de incidentes localizada no [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Suporte para Partner Center. | O suporte é fornecido 24x5. |  
 
 ## <a name="technical"></a>Parte Técnica  
 

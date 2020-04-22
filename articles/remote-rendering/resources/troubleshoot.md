@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: ac7e721a863414cf0617177885e0ff1c9e9a35d4
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617872"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681862"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -101,6 +101,35 @@ Se estes dois passos não ajudaram, é necessário descobrir se os quadros de v�
 **O modelo não está dentro da vista frustum:**
 
 Em muitos casos, o modelo é apresentado corretamente, mas localizado fora do frustum da câmara. Uma razão comum é que o modelo foi exportado com um pivô muito fora do centro, por isso é cortado pelo avião de corte da câmara. Ajuda a consultar a caixa de delimitação do modelo programáticamente e visualizar a caixa com a Unidade como uma caixa de linha ou imprimir os seus valores para o registo de depuração.
+
+Além disso, o processo de conversão gera um [ficheiro json de saída](../how-tos/conversion/get-information.md) ao lado do modelo convertido. Para depurar problemas de posicionamento do `boundingBox` modelo, vale a pena olhar para a entrada na [secção outputEstatísticas:](../how-tos/conversion/get-information.md#the-outputstatistics-section)
+
+```JSON
+{
+    ...
+    "outputStatistics": {
+        ...
+        "boundingBox": {
+            "min": [
+                -43.52,
+                -61.775,
+                -79.6416
+            ],
+            "max": [
+                43.52,
+                61.775,
+                79.6416
+            ]
+        }
+    }
+}
+```
+
+A caixa de delimitação é descrita como a `min` e `max` posição no espaço 3D, em metros. Assim, uma coordenada de 1000.0 significa que está a 1 km de distância da origem.
+
+Pode haver dois problemas com esta caixa de delimitação que levam a geometria invisível:
+* **A caixa pode estar muito fora do centro,** por isso o objeto é completamente cortado devido a um recorte de avião distante. Os `boundingBox` valores neste caso seriam `min = [-2000, -5,-5], max = [-1990, 5,5]`assim: usando uma grande compensação no eixo X como exemplo aqui. Para resolver este tipo de `recenterToOrigin` problema, ative a opção na [configuração](../how-tos/conversion/configure-model-conversion.md)de conversão do modelo .
+* **A caixa pode ser centrada, mas ser ordens de magnitude demasiado grande.** Isto significa que, embora a câmara comece no centro do modelo, a sua geometria é cortada em todas as direções. Valores típicos `boundingBox` neste caso `min = [-1000,-1000,-1000], max = [1000,1000,1000]`seriam assim: . A razão para este tipo de problema é geralmente uma incompatibilidade de escala unitária. Para compensar, especifique um [valor de escala durante a conversão](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) ou marque o modelo de origem com as unidades corretas. A escala também pode ser aplicada no nó raiz ao carregar o modelo em tempo de execução.
 
 **O oleoduto de renderização da Unidade não inclui os ganchos de renderização:**
 

@@ -8,17 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 641d7410e414be2adae2a83840c90a680aedd2fc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60755229"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683358"
 ---
 # <a name="azure-data-box-gateway-limits"></a>Limites de Gateway da Caixa de Dados Azure
 
 Considere estes limites à medida que implementa e opera a sua solução Microsoft Azure Data Box Gateway. 
-
 
 ## <a name="data-box-gateway-service-limits"></a>Limites de serviço de Data Box Gateway
 
@@ -30,7 +29,7 @@ A tabela seguinte descreve os limites para o dispositivo Data Box Gateway.
 
 | Descrição | Valor |
 |---|---|
-|Não. de ficheiros por dispositivo |100 milhões <br> Limite é ~ 25 milhões de ficheiros por cada 2 TB de espaço em disco com limite máximo de 100 milhões |
+|Não. de ficheiros por dispositivo |100 milhões <br> Por cada 25 milhões de ficheiros que estão a ser adicionados (com limite máximo de 100 milhões), deverá adicionar 2 TB de espaço em disco, 8 GB de RAM e 4 núcleos de CPU. |
 |Não. de ações por dispositivo |24 |
 |Não. de ações por contentor de armazenamento Azure |1 |
 |Tamanho máximo do ficheiro escrito a uma parte|Para um dispositivo virtual de 2 TB, o tamanho máximo do ficheiro é de 500 GB. <br> O tamanho máximo do ficheiro aumenta com o tamanho do disco de dados na razão anterior até atingir um máximo de 5 TB. |

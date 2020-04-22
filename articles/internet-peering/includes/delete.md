@@ -8,11 +8,11 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 0ed2137d1fd7a3c207db3ec49590a61f00b5fd99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d3f866064790fb3936fb76c1deef15ee2a38773
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774279"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678615"
 ---
-Neste momento, a Deprovision não é suportada através do portal ou powerShell, contacte [a Microsoft a espreitar](mailto:peeringexperience@microsoft.com) para a Deprovision.
+Neste momento, a desprovisionamento não é suportada através do portal Azure ou PowerShell. Para desprovisionar, contacte [o peering da Microsoft](mailto:peeringexperience@microsoft.com).

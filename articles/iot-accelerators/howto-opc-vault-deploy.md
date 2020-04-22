@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f577059e1ebf70e3a9dfe9e538a9d3d49d7c8e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71200005"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686946"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Construir e implementar o serviço de gestão de certificados OPC Vault
 
@@ -90,7 +90,7 @@ Após uma implementação bem sucedida, pode começar a utilizar os serviços. V
 
 Eis como:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Vá ao grupo de recursos em que o serviço foi implantado.
 3. Selecione **Eliminar grupo de recursos** e confirme.
 4. Após um curto período de tempo, todos os componentes de serviço implantados são eliminados.
@@ -107,7 +107,7 @@ Use um nome de grupo de recursos curto e simples. O nome também é usado para n
 
 ### <a name="website-name-already-in-use"></a>Nome do site já em uso
 
-É possível que o nome do site já esteja em uso. Tens de usar um nome de grupo de recursos diferente. Os nomes de anfitriões utilizados pelo script de implementação são: https://resourcegroupname.azurewebsites.net e https://resourgroupname-service.azurewebsites.net.
+É possível que o nome do site já esteja em uso. Tens de usar um nome de grupo de recursos diferente. Os nomes de anfitriões utilizados\/pelo script de\/implementação são: https: /resourcegroupname.azurewebsites.net e https: /resourgroupname-service.azurewebsites.net.
 Outros nomes de serviços são construídos pela combinação de hashes de nome curto, e são improváveis de entrar em conflito com outros serviços.
 
 ### <a name="azure-ad-registration"></a>Registo do Azure AD 

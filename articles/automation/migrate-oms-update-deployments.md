@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 910f284eedbf50be5b58b6c18f02e50adda35e9a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75417772"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680011"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrar as suas implementações de atualização OMS para o Azure
 
-O portal De Gestão de Operações (OMS) está a ser [depreciado.](../azure-monitor/platform/oms-portal-transition.md) Toda a funcionalidade que estava disponível no portal OMS para Gestão de Atualizações está disponível no portal Azure. Este artigo fornece as informações de que necessita para migrar para o portal Azure.
+O portal De Gestão de Operações (OMS) está a ser [depreciado.](../azure-monitor/platform/oms-portal-transition.md) Toda a funcionalidade que estava disponível no portal OMS para Gestão de Atualizações está disponível no portal Azure, através de registos do Monitor Azure. Este artigo fornece a informação que precisa para migrar para o portal Azure.
 
 ## <a name="key-information"></a>Informação chave
 
@@ -23,7 +23,7 @@ O portal De Gestão de Operações (OMS) está a ser [depreciado.](../azure-moni
 
 ## <a name="access-the-azure-portal"></a>Aceder ao portal do Azure
 
-A partir do seu espaço de trabalho OMS, clique **em Open in Azure**. Isto navega para o espaço de trabalho log Analytics que o OMS usou.
+A partir do seu espaço de trabalho OMS, clique **em Open in Azure**. Esta seleção navega para o espaço de trabalho log Analytics que o OMS tem usado.
 
 ![Aberto em Portal Azure - OMS](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 
@@ -31,11 +31,13 @@ No portal Azure, clique na **Conta de Automação**
 
 ![Registos do Azure Monitor](media/migrate-oms-update-deployments/log-analytics.png)
 
-Na sua Conta de Automação, clique em **Gestão de Atualização** para abrir a Gestão de Atualizações.
+Na sua conta De automação, clique em **Gestão de Atualização**.
 
 ![Gestão de Atualizações](media/migrate-oms-update-deployments/azure-automation.png)
 
-No futuro poderá ir diretamente ao portal Azure, sob **todos os serviços,** selecionar **Contas de Automação** em Ferramentas de **Gestão,** selecionar a Conta de Automação apropriada e clicar em Gestão de **Atualização.**
+No portal Azure, selecione **Contas de Automação** em **todos os serviços.** 
+
+Em **Ferramentas de Gestão,** selecione a conta de Automação apropriada e clique em **Gestão de Atualização**.
 
 ## <a name="recreate-existing-deployments"></a>Recriar as implementações existentes
 
@@ -49,9 +51,9 @@ Para criar uma nova implementação de atualização, vá ao portal Azure, selec
 
 ![Programar atualização de implementação](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
-Abre-se o painel de implementação da **nova atualização.** Introduza valores para as propriedades descritas na tabela a seguir e clique em **Criar:**
+Abre-se o painel de implementação da nova atualização. Introduza valores para as propriedades descritas na tabela a seguir e clique em **Criar:**
 
-Para que as Máquinas atualizem, selecione a procura guardada utilizada pela implementação oMS existente.
+Para que as **Máquinas atualizem,** selecione a procura guardada utilizada pela implementação oMS existente.
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -72,4 +74,4 @@ Como mencionado anteriormente, uma vez configuradas as suas novas implementaçõ
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a Gestão de Atualizações no Azure, consulte [Gestão de Atualizações](automation-update-management.md)
+Para saber mais sobre a Gestão de Atualizações em Azure, consulte [A Gestão de Atualizações.](automation-update-management.md)

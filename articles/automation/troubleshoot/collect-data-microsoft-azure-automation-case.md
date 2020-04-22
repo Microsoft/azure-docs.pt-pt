@@ -1,6 +1,6 @@
 ---
 title: Dados para recolher quando abrir um caso para a Microsoft Azure Automation. Microsoft Docs
-description: Este artigo descreve algumas das informações básicas que deve recolher antes de abrir um caso para a Azure Automation com o Microsoft Azure Support.
+description: Este artigo descreve algumas das informações que deve recolher antes de abrir um caso para a Azure Automation com o Microsoft Azure Support.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -13,46 +13,36 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: v-miegge
-ms.openlocfilehash: 4839ce7a0188c782656fd3a4c42cbdd116b165e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1d5d791a58f301991819b41757b9021f6e30fc0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74849382"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679409"
 ---
 # <a name="data-to-collect-when-you-open-a-case-for-microsoft-azure-automation"></a>Dados a recolher quando abre um incidente da Automatização do Microsoft Azure
 
-Este artigo descreve algumas das informações básicas que deve recolher antes de abrir um caso para a Azure Automation com o Microsoft Azure Support. Esta informação não é necessária para abrir o caso. No entanto, pode ajudar a Microsoft a resolver o seu problema mais rapidamente. Além disso, pode ser-lhe pedido estes dados pelo engenheiro de suporte depois de abrir o caso.
+Este artigo descreve algumas das informações que deve recolher antes de abrir um caso para a Azure Automation com o Microsoft Azure Support. Esta informação não é necessária para abrir o caso. No entanto, pode ajudar a Microsoft a resolver o seu problema mais rapidamente. Além disso, pode ser-lhe pedido estes dados pelo engenheiro de suporte depois de abrir o caso.
 
-## <a name="collect-more-information"></a>Recolher mais informações
+## <a name="basic-data"></a>Dados básicos
 
-Antes de abrir um caso para o Suporte de Automação Microsoft Azure, recomendamos que recolha as seguintes informações.
+Recolher os dados básicos descritos no artigo [4034605 da](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics)Base de Conhecimento - Como capturar diagnósticos escritos pela Automação Azure .
 
-### <a name="basic-data-collection"></a>Recolha de dados básicos
-
-Recolher os dados descritos no seguinte artigo da Base de Conhecimento:
-
-* [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics) Como capturar diagnósticos escritos pela Automação Azure
-
-## <a name="collect-data-depending-on-issue"></a>Recolher dados dependendo do problema
- 
-### <a name="for-issues-that-affect-update-management-on-linux"></a>Para questões que afetam a Gestão de Atualizações no Linux
+## <a name="data-for-update-management-issues-on-linux"></a>Dados para problemas de Gestão de Atualizações no Linux
 
 1. Além dos itens listados no KB [4034605,](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics)execute a seguinte ferramenta de recolha de registos:
 
    [OMS Linux Agent Log Collector](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
  
-2. Comprima o conteúdo da seguinte pasta e, em seguida, envie o ficheiro comprimido para o Suporte Azure:
-
-   ``/var/opt/microsoft/omsagent/run/automationworker/``
+2. Comprima o conteúdo da pasta **/var/opt/microsoft/omsagent/run/automationworker/** e, em seguida, envie o ficheiro comprimido para o Suporte Azure.
  
-3. Verifique se o ID do espaço de trabalho a que o Agente OMS Linux está a reportar, é o mesmo que o espaço de trabalho que está a ser monitorizado para atualizações.
+3. Verifique se o ID para o espaço de trabalho a que o agente Log Analytics para o Linux reporta é o mesmo que o ID para o espaço de trabalho que está a ser monitorizado para atualizações.
 
-### <a name="for-issues-that-affect-update-management-on-windows"></a>Para problemas que afetam a Gestão de Atualizações no Windows
+## <a name="data-for-update-management-issues-on-windows"></a>Dados para problemas de Gestão de Atualizações no Windows
 
-Para além dos itens listados no [4034605,](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics)faça o seguinte:
+1. Recolher dados relativos aos itens listados em [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-1. Exportar os seguintes registos de eventos para o formato EVTX:
+2. Exportar os seguintes registos de eventos para o formato EVTX:
 
    * Sistema
    * Aplicação
@@ -60,50 +50,47 @@ Para além dos itens listados no [4034605,](https://support.microsoft.com/help/4
    * Operations Manager
    * Microsoft-SMA/Operacional
 
-2. Verifique se o ID do espaço de trabalho a que o agente está a reportar é o mesmo que o espaço de trabalho que está a ser monitorizado pelas Atualizações do Windows.
+3. Verifique se a identificação do espaço de trabalho a que o agente reporta é a mesma que o ID para o espaço de trabalho que está a ser monitorizado pelas Atualizações do Windows.
 
-### <a name="for-issues-that-affect-a-job"></a>Para questões que afetam um trabalho
+## <a name="data-for-job-issues"></a>Dados relativos a questões de emprego
 
-Além dos itens listados no [4034605,](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics)recolher as seguintes informações:
+1. Recolher dados relativos aos itens listados em [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-1. Recolher o número **JobID** (para o trabalho que está a passar por um problema):
+2. Recolha a identificação do trabalho para o trabalho que tem um problema:
 
-   1. No portal Azure, vá à lâmina das Contas de **Automação.**
-   2. Selecione a **Conta de Automação** que está a resolver problemas.
+   1. No portal Azure, vá para **Contas de Automação.**
+   2. Selecione a conta Automation que está a resolver problemas e note o nome.
    3. Selecione **Jobs**.
-   4. Selecione o trabalho que está a resolver.
-   5. Under **Job Sumário,** procure um ID de **trabalho** (GUID).
+   4. Escolha o trabalho que está a resolver.
+   5. No painel de resumo de trabalho, procure o valor GUID no ID de **trabalho**.
 
    ![ID de trabalho dentro do Painel De Resumo de Emprego](media/collect-data-microsoft-azure-automation-case/job-summary-job-id.png)
 
-2. Recolher o nome da conta:
-
-   1. No portal Azure, vá à lâmina das Contas de **Automação.**
-   2. Arranja o nome da **Conta de Automação** que estás a resolver problemas.
-
-3. Recolha a amostra do guião que está a executar.
+3. Recolha uma amostra do guião que está a executar.
 
 4. Recolher os ficheiros de registo:
 
-   1. No portal Azure, vá à lâmina das Contas de **Automação.**
-   2. Selecione a **Conta de Automação** que está a resolver problemas.
+   1. No portal Azure, vá para **Contas de Automação.**
+   2. Selecione a conta Automation que está a resolver problemas.
    3. Selecione **Jobs**.
-   4. Selecione o trabalho que está a resolver.
+   4. Escolha o trabalho que está a resolver.
    5. Selecione **Todos os Registos**.
-   6. Na lâmina resultante, recolha os dados.
+   6. No painel resultante, recolha os dados.
 
    ![Dados listados em Todos os Registos](media/collect-data-microsoft-azure-automation-case/all-logs-data.png)
 
-### <a name="for-issues-that-affect-modules"></a>Para problemas que afetam módulos
+## <a name="data-for-module-issues"></a>Dados para problemas de módulos
 
-Para além dos itens em "Recolha de dados básicos", recolher as seguintes informações:
+Para além dos [dados básicos,](#basic-data)recolher as seguintes informações:
 
-* Os passos que seguiu para que o problema possa ser reproduzido.
-* Uma imagem de qualquer mensagem de erro.
-* Uma imagem dos módulos atuais e dos seus números de versão.
+* Os passos que seguiu, para que o problema possa ser reproduzido.
+* Imagens de quaisquer mensagens de erro.
+* Imagens dos módulos atuais e dos seus números de versão.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se precisar de mais ajuda em algum ponto deste artigo, contacte os especialistas da Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/).
+Se precisar de mais ajuda:
 
-Em alternativa, apresente um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+* Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport)a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+* Arquiva um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

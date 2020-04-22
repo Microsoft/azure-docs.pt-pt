@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274713"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676418"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
 A extensão Azure Diagnostics é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho dos recursos da computação Azure. Este artigo detalha o esquema utilizado para a configuração da extensão de diagnóstico em máquinas virtuais do Windows e outros recursos computacionais.
@@ -223,9 +223,8 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Elemento Infantil|Descrição|  
 |-------------------|-----------------|  
-|**DataSource**|Os registos do Windows Event para recolher. Atributo obrigatório:<br /><br /> **nome** - A consulta XPath descrevendo os eventos das janelas a recolher. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recolher todos os eventos, especifique "*"|  
-
-
+|**DataSource**|Os registos do Windows Event para recolher. Atributo obrigatório:<br /><br /> **nome** - A consulta XPath descrevendo os eventos das janelas a recolher. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recolher todos os eventos, especifique "*" |
+|**lava-se** | Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico para todos os elementos infantis que suportam pias. O exemplo do sink é Application Insights ou Event Hubs.|  
 
 
 ## <a name="logs-element"></a>Elemento de logs  
@@ -238,9 +237,9 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**não assinadoInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de ficheiros disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
-|**logilogLogLevelFilter agendado**|**string**|Opcional. Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor predefinido é **Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maior parte das informações) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico.**|  
+|**logilogLogLevelFilter agendado**|**cadeia**|Opcional. Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor predefinido é **Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maior parte das informações) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico.**|  
 |**período de transferência programado**|**duração**|Opcional. Especifica o intervalo entre transferências programadas de dados, arredondadas até ao minuto mais próximo.<br /><br /> O padrão é PT0S.|  
-|**lava-se** |**string**| Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico. Por exemplo, Insights de Aplicação ou Centros de Eventos.|  
+|**lava-se** |**cadeia**| Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico. Por exemplo, Insights de Aplicação ou Centros de Eventos.|  
 
 ## <a name="dockersources"></a>Fontes de Docker
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -296,8 +295,8 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Atributos|Tipo|Descrição|  
 |----------------|----------|-----------------|  
-|**logLevel**|**string**|Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor predefinido é **Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maior parte das informações) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico.**|  
-|**nome**|**string**|Um nome único do canal para se referir|  
+|**logLevel**|**cadeia**|Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor predefinido é **Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maior parte das informações) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico.**|  
+|**nome**|**cadeia**|Um nome único do canal para se referir|  
 
 
 ## <a name="privateconfig-element"></a>Elemento PrivateConfig

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: fb82cec6874f8ef4f41897cc22939fe69ed02ec2
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 1e7eaf49fb8b62259b8c619c89edffd629dfde7f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457421"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685519"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Utilize o ID Broker (pré-visualização) para gestão da credencial
 
@@ -46,6 +46,46 @@ A função ID Broker adicionará um VM extra ao cluster. Este VM é o nó de ID 
 
 ![Opção para ativar corretor de ID](./media/identity-broker/identity-broker-enable.png)
 
+### <a name="using-azure-resource-manager-templates"></a>Utilizar modelos do Azure Resource Manager
+Se adicionar uma nova `idbrokernode` função chamada com os seguintes atributos ao perfil computacional do seu modelo, então o cluster será criado com o nó de corretor de ID ativado:
+
+```json
+.
+.
+.
+"computeProfile": {
+    "roles": [
+        {
+            "autoscale": null,
+            "name": "headnode",
+           ....
+        },
+        {
+            "autoscale": null,
+            "name": "workernode",
+            ....
+        },
+        {
+            "autoscale": null,
+            "name": "idbrokernode",
+            "targetInstanceCount": 1,
+            "hardwareProfile": {
+                "vmSize": "Standard_A2_V2"
+            },
+            "virtualNetworkProfile": {
+                "id": "string",
+                "subnet": "string"
+            },
+            "scriptActions": [],
+            "dataDisksGroups": null
+        }
+    ]
+}
+.
+.
+.
+```
+
 ## <a name="tool-integration"></a>Integração de ferramentas
 
 O plug-in HDInsight [IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) é atualizado para suportar o OAuth. Pode utilizar este plug-in para se ligar ao cluster e apresentar trabalhos.
@@ -62,7 +102,7 @@ Na configuração do corretor de ID, aplicações personalizadas e clientes que 
 
 *   OAuth resource uri:https://hib.azurehdinsight.net 
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
-*   Permissão: (nome: Cluster.ReadWrite, id:8f89faa0-ffef-4007-974d-4989b39ad77d)
+*   Permissão: (nome: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 ## <a name="next-steps"></a>Passos seguintes
 

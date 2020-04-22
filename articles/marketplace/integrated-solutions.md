@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: d99b061b57beb003cc47b2d809f493d5a9c66888
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c32fe80b681e6d82d40b0f5c94d5e9288f72cd6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286171"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684408"
 ---
 # <a name="integrated-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Soluções Integradas no Microsoft AppSource e Azure Marketplace
 

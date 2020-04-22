@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Gestor de Recursos Suportados
 description: Forneça uma lista dos tipos de recursos do Gestor de Recursos suportados pelo Azure Resource Graph e change History.
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.topic: reference
-ms.openlocfilehash: 99cb2176e4b0642be1fc31d49528ebf915ea440a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 99a10e084f8ae24156c447f7abca31a8ef977720
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415145"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685483"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráficos de recursos azure e referência do tipo de recurso
 
@@ -50,7 +50,11 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - livearena.broadcast/services
 - mailjet.email/serviços
 - microsoft.aad/domainservices
+- microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/inquilinos
+- microsoft.aisupercomputer/accounts
+- microsoft.aisupercomputer/accounts/jobgroups
+- microsoft.aisupercomputer/accounts/jobsgroups/jobs
 - microsoft.alertsge/actionrules
 - microsoft.alertsge/smartdetectoralertrules
 - microsoft.analysisservices/servidores
@@ -63,6 +67,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.automation/automationaccounts/runbooks
 - microsoft.azconfig/lojas de configuração
 - microsoft.azureactivedirectory/b2cdirecties
+- microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
 - microsoft.azuredata/sqlbigdataclusters
@@ -351,6 +356,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.remoteapp/collections
 - microsoft.resourcegraph/consultas
 - microsoft.resources/deploymentscripts
+- microsoft.resources/templatespecs
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
 - microsoft.search/searchservices
@@ -405,6 +411,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.visualstudio/conta
 - microsoft.visualstudio/conta/extensão
 - microsoft.visualstudio/conta/projeto
+- microsoft.vmware/arczones
 - microsoft.vmwarecloudsimple/dedicadocloudnodes
 - microsoft.vmwarecloudsimple/dedicadoserviços cloud
 - microsoft.vmwarecloudsimple/virtualmachines
@@ -454,7 +461,6 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 
 ## <a name="securityresources"></a>recursos de segurança
 
-- metadados de avaliação
 - microsoft.security/avaliações
 - microsoft.security/assessments/subavaliações
 - microsoft.security/pricings

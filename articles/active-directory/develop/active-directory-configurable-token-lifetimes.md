@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 0b2b9dbe52a5696f21b287402fc4cbaa32b29c73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4138c4ae24ae599d4058c9fd06c33b69657fe38
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263182"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680077"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Toda a vida de fichas configuráveis em Diretório Ativo Azure (Pré-visualização)
 
@@ -102,7 +102,7 @@ Uma política simbólica de vida é um tipo de objeto político que contém regr
 | Refresh Token Max Inative Time (emitido para clientes confidenciais) |Fichas de atualização (emitidas para clientes confidenciais) |90 dias |
 | Refresh Token Max Age (emitido para clientes confidenciais) |Fichas de atualização (emitidas para clientes confidenciais) |Até que revogado |
 
-* <sup>1</sup> Os utilizadores federados que tenham informações de revogação insuficientes incluem quaisquer utilizadores que não tenham o atributo "LastPasswordChangeTimestamp" sincronizado. Estes utilizadores recebem esta curta Idade Max porque a AAD não pode verificar quando revogar fichas que estão ligadas a uma credencial antiga (como uma palavra-passe que foi alterada) e devem voltar a fazer o check-in com mais frequência para garantir que o utilizador e as fichas associadas ainda estão em boas condições. de pé. Para melhorar esta experiência, os administradores dos inquilinos devem certificar-se de que estão a sincronizar o atributo "LastPasswordChangeTimestamp" (isto pode ser definido no objeto de utilizador utilizando o Powershell ou através do AADSync).
+* <sup>1</sup> Os utilizadores federados que tenham informações de revogação insuficientes incluem quaisquer utilizadores que não tenham o atributo "LastPasswordChangeTimestamp" sincronizado. Estes utilizadores recebem esta curta Idade Max porque a AAD não consegue verificar quando revogar fichas que estão ligadas a uma credencial antiga (como uma palavra-passe que foi alterada) e devem fazer o check-in com mais frequência para garantir que o utilizador e as fichas associadas ainda estão em boa posição. Para melhorar esta experiência, os administradores dos inquilinos devem certificar-se de que estão a sincronizar o atributo "LastPasswordChangeTimestamp" (isto pode ser definido no objeto de utilizador utilizando o Powershell ou através do AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Avaliação e priorização de políticas
 Você pode criar e, em seguida, atribuir uma política de vida simbólica a uma aplicação específica, à sua organização, e aos diretores de serviço. Várias políticas podem aplicar-se a uma aplicação específica. A política simbólica vitalícia que entra em vigor segue estas regras:
@@ -243,19 +243,25 @@ Neste exemplo, cria uma política que permite o sinal dos seus utilizadores com 
         }')
         ```
 
-    2. Para criar a política, executar o seguinte comando:
+    1. Para criar a política, executar o seguinte comando:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3. Para ver a sua nova política, e para obter o **ObjectId**da apólice, executar o seguinte comando:
+    1. Para remover qualquer espaço branco, execute o seguinte comando:
+
+        ```powershell
+        Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
+        ```
+
+    1. Para ver a sua nova política, e para obter o **ObjectId**da apólice, executar o seguinte comando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atualize a apólice.
+1. Atualize a apólice.
 
     Pode decidir que a primeira política que deu neste exemplo não é tão rigorosa como o seu serviço exige. Para definir o seu Token Refresh Single-Factor expirar em dois dias, execute o seguinte comando:
 
@@ -277,13 +283,13 @@ Neste exemplo, cria-se uma política que exige que os utilizadores autentiquem c
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. Para ver a sua nova política, e para obter a política **ObjectId,** executar o seguinte comando:
+    1. Para ver a sua nova política, e para obter a política **ObjectId,** executar o seguinte comando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atribua a apólice ao seu diretor de serviço. Também precisa de obter o **ObjectId** do seu diretor de serviço.
+1. Atribua a apólice ao seu diretor de serviço. Também precisa de obter o **ObjectId** do seu diretor de serviço.
 
     1. Utilize o [Cmdlet Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) para ver todos os diretores de serviço da sua organização ou um único diretor de serviço.
         ```powershell
@@ -291,7 +297,7 @@ Neste exemplo, cria-se uma política que exige que os utilizadores autentiquem c
         $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
-    2. Quando tiver o diretor de serviço, faça o seguinte comando:
+    1. Quando tiver o diretor de serviço, faça o seguinte comando:
         ```powershell
         # Assign policy to a service principal
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
@@ -308,13 +314,13 @@ Neste exemplo, cria-se uma política que exige que os utilizadores autentiquem c
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. Para ver a sua nova política, dirija o seguinte comando:
+    1. Para ver a sua nova política, dirija o seguinte comando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atribua a apólice à sua Web API. Também precisa de obter o **ObjectId** da sua aplicação. Utilize o cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) para encontrar o **ObjectId**da sua aplicação, ou utilize o [portal Azure](https://portal.azure.com/).
+1. Atribua a apólice à sua Web API. Também precisa de obter o **ObjectId** da sua aplicação. Utilize o cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) para encontrar o **ObjectId**da sua aplicação, ou utilize o [portal Azure](https://portal.azure.com/).
 
     Obtenha o **ObjectId** da sua aplicação e atribua a política:
 
@@ -337,19 +343,19 @@ Neste exemplo, cria-se algumas políticas para aprender como funciona o sistema 
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2. Para ver a sua nova política, dirija o seguinte comando:
+    1. Para ver a sua nova política, dirija o seguinte comando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atribuir a apólice a um diretor de serviço.
+1. Atribuir a apólice a um diretor de serviço.
 
     Agora, tem uma política que se aplica a toda a organização. Talvez queira preservar esta política de 30 dias para um diretor de serviço específico, mas mude a política de incumprimento da organização para o limite máximo de "até revogar".
 
     1. Para ver todos os diretores de serviço da sua organização, utilize o [Cmdlet Get-AzureADServicePrincipal.](/powershell/module/azuread/get-azureadserviceprincipal)
 
-    2. Quando tiver o diretor de serviço, faça o seguinte comando:
+    1. Quando tiver o diretor de serviço, faça o seguinte comando:
 
         ```powershell
         # Get ID of the service principal
@@ -359,13 +365,13 @@ Neste exemplo, cria-se algumas políticas para aprender como funciona o sistema 
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Coloque `IsOrganizationDefault` a bandeira em falso:
+1. Coloque `IsOrganizationDefault` a bandeira em falso:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
-4. Criar uma nova política de incumprimento da organização:
+1. Criar uma nova política de incumprimento da organização:
 
     ```powershell
     New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"

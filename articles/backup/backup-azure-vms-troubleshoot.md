@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver erros encontrados com backup e res
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 15e4b4c8850798fd2386cd2874b6ab58a18d5406
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c27b1f7e8560c86252aaf2ed1fb79df2439fa
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297395"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677343"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup em máquinas virtuais Azure
 
@@ -191,6 +191,7 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | **Código de erro**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Mensagem de erro**: A operação instantânea falhou devido à falha na criação de um canal de comunicação de rede seguro. | <ol><li> Abra o Editor de Registo executando **regedit.exe** em modo elevado. <li> Identifique todas as versões do .NET Framework presentes no seu sistema. Estão presentes sob a hierarquia da chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada .NET Quadro presente na chave de registo, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:0000000001**. </ol>|
 | **Código de erro**: Falha de instalação do RevvcRedist <br/> **Mensagem de erro**: A operação instantânea falhou devido à falha na instalação visual C++ Redistribuável para o Visual Studio 2012. | Navegue para C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instale vcredist2013_x64.<br/>Certifique-se de que o valor chave do registo que permite a instalação do serviço está definido para o valor correto. Ou seja, detete **o** valor inicial em **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se ainda tiver problemas com a instalação, reinicie o serviço de instalação executando **mSIEXEC/UNREGISTER** seguido de **MSIEXEC/REGISTER** a partir de um pedido de comando elevado.  |
 | **Código de erro**: UserErrorRequestDisallowedByPolicy <BR> **Mensagem de erro**: Uma política inválida está configurada no VM que está a impedir o funcionamento do Snapshot. | Se tiver uma Política Azure que [regule as etiquetas no seu ambiente,](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags)considere alterar a política de um [efeito Deny](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) para um [efeito Modificar,](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)ou crie o grupo de recursos manualmente de acordo com o esquema de [nomeação exigido pela Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
+
 ## <a name="jobs"></a>Tarefas
 
 | Detalhes do erro | Solução |
@@ -229,12 +230,12 @@ Tipicamente, o VM Agent já está presente em VMs que são criados a partir da g
 #### <a name="windows-vms"></a>VMs do Windows
 
 * Transfira e instale o [MSI do agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Precisa de privilégios do Administrador para terminar a instalação.
-* Para máquinas virtuais criadas utilizando o modelo de implementação clássico, [atualize a propriedade VM](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. Este passo não é necessário para máquinas virtuais do Gestor de Recursos Azure.
+* Para máquinas virtuais criadas utilizando o modelo de implementação clássico, [atualize a propriedade VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) para indicar que o agente está instalado. Este passo não é necessário para máquinas virtuais do Gestor de Recursos Azure.
 
 #### <a name="linux-vms"></a>VMs do Linux
 
 * Instale a versão mais recente do agente a partir do repositório de distribuição. Para mais detalhes sobre o nome do pacote, consulte o [repositório](https://github.com/Azure/WALinuxAgent)do Agente Linux .
-* Para VMs criados usando o modelo de implementação clássico, [use este blog](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para atualizar a propriedade VM e verificar se o agente está instalado. Este passo não é necessário para máquinas virtuais do Gestor de Recursos.
+* Para VMs criados utilizando o modelo de implementação clássico, [atualize a propriedade VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) e verifique se o agente está instalado. Este passo não é necessário para máquinas virtuais do Gestor de Recursos.
 
 ### <a name="update-the-vm-agent"></a>Atualizar o Agente VM
 
@@ -280,4 +281,3 @@ Obtenha mais informações sobre como configurar um IP estático através da Pow
 
 * [Como adicionar um IP interno estático a um VM existente](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
 * [Alterar o método de atribuição de um endereço IP privado atribuído a uma interface de rede](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
-

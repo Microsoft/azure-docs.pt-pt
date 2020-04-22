@@ -8,38 +8,38 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 2e8938f270ed175c687d975b0b248275ad92f8e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e50f53c65c330265d3d9ec1b1804a7910b632b1d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75775085"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678828"
 ---
-1. Vá aos **grupos de Recursos** e clique no grupo de recursos que selecionou enquanto cria o recurso **Peering.** Pode utilizar o campo *Filter* se tiver demasiados grupos de recursos.
+1. Vá aos **grupos de Recursos**e selecione o grupo de recursos selecionado quando criou o recurso **Peering.** Utilize a caixa **de filtro** se tiver demasiados grupos de recursos.
 
     > [!div class="mx-imgBorder"]
-    > ![Grupo de recursos de observação](../media/setup-direct-get-resourcegroup.png)
+    > ![Grupos de recursos](../media/setup-direct-get-resourcegroup.png)
 
-1. Clique no recurso **Peering** que criou.
+1. Selecione o recurso **Peering** que criou.
 
     > [!div class="mx-imgBorder"]
     > ![Vista de recursos de observação de recursos](../media/setup-direct-get-open.png)
 
-1. A página **de visão geral** mostra informações de alto nível. Observe a informação realçada abaixo.
+1. A página **de visão geral** mostra informações de alto nível, como mostrado aqui.
 
     > [!div class="mx-imgBorder"]
-    > ![Vista de recursos de observação de recursos](../media/setup-direct-get-overview.png)
+    > ![Painel de visão geral do recurso de observação](../media/setup-direct-get-overview.png)
 
-1. À esquerda, clique em **informações asnique** para visualizar informações submetidas enquanto cria O PeerAsn
-
-    > [!div class="mx-imgBorder"]
-    > ![Vista de recursos de observação de recursos](../media/setup-direct-get-asninfo.png)
-
-1. À esquerda, clique em **Ligações**. Observe no topo um resumo de ligações de observação entre a sua ASN e a Microsoft, através de diferentes instalações dentro do metrô. Também pode chegar ao resumo das ligações a partir da página **Overview,** clicando em **Ligações** no painel central como acima salientado.
+1. À esquerda, selecione **informações ASN** para visualizar as informações submetidas quando criou o PeerAsn.
 
     > [!div class="mx-imgBorder"]
-    > ![Vista de recursos de observação de recursos](../media/setup-direct-get-connectionssummary.png)
+    > ![Peering recursos ASN informação](../media/setup-direct-get-asninfo.png)
 
-    * O Estado de **Ligação** corresponde ao estado da ligação de pares configurada. Os estados exibidos neste campo seguem o diagrama de estado mostrado em [direct peering walkthrough](../walkthrough-direct-all.md)
-    * **IPv4 Session State** e **IPv6 Session State** correspondem aos estados de sessão iPv4 e IPv6 BGP respectivamente.  
-    * Quando selecionar uma linha na parte superior, a secção ***de Ligação*** na parte inferior mostra detalhes para cada ligação. Pode clicar em marcas de seta para expandir a ***configuração***das sub-secções, ***o endereço IPv4*** e o ***endereço IPv6***
+1. À esquerda, selecione **Ligações**. No topo do ecrã, você vê um resumo de ligações de observação entre a sua ASN e microsoft, em diferentes instalações dentro do metro. Também pode aceder ao resumo das ligações a partir da página **'Visão Geral',** selecionando **Ligações** no centro do painel, como mostrado.
+
+    > [!div class="mx-imgBorder"]
+    > ![Peering conexões de recursos](../media/setup-direct-get-connectionssummary.png)
+
+    * O Estado de **Ligação** corresponde ao estado da configuração da ligação de pares. Os estados apresentados neste campo seguem o diagrama de estado mostrado na passagem direta de [observação](../walkthrough-direct-all.md).
+    * **O IPv4 Session State** e **o IPv6 Session State** correspondem aos estados da sessão iPv4 e IPv6 BGP, respectivamente. 
+    * Quando seleciona uma linha na parte superior do ecrã, a secção **de Ligação** na parte inferior mostra detalhes para cada ligação. Selecione as setas para expandir **configuração,** **endereço IPv4**e **endereço IPv6**.

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7eb01f3997ac4ab2e439c00f07990c51ec3e3d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdf0cbfb91332d60516432a7a67fb10404d89113
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370352"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683838"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configure workday para fornecimento automático de utilizadores
 
@@ -281,6 +281,7 @@ Neste passo, você concederá permissões políticas de "segurança de domínio"
     ![Políticas de Segurança do Domínio](./media/workday-inbound-tutorial/wd_isu_06.png "Políticas de Segurança do Domínio")  
 2. Na caixa de texto **domínio,** procure os seguintes domínios e adicione-os ao filtro um a um.  
    * *Provisionamento de Conta Externa*
+   * *Dados dos trabalhadores: Trabalhadores*
    * *Dados dos trabalhadores: Relatórios dos trabalhadores públicos*
    * *Dados da Pessoa: Informações de contato de trabalho*
    * *Dados do Trabalhador: Todas as Posições*
@@ -312,6 +313,7 @@ Neste passo, você concederá permissões políticas de "segurança de domínio"
    | ---------- | ---------- |
    | Obter e Colocar | Dados dos trabalhadores: Relatórios dos trabalhadores públicos |
    | Obter e Colocar | Dados da Pessoa: Informações de contato de trabalho |
+   | Get | Dados dos trabalhadores: Trabalhadores |
    | Get | Dados do Trabalhador: Todas as Posições |
    | Get | Dados dos Trabalhadores: Informação atual sobre pessoal |
    | Get | Dados do Trabalhador: Título de negócio no perfil do trabalhador |
@@ -451,11 +453,15 @@ Neste passo, estabelecemos conectividade com o Workday e o Ative Directy no port
 
 1. Complete a secção **de Credenciais de Administrador** da seguinte forma:
 
-   * **Nome** de utilizador do Administrador – Introduza o nome de utilizador da conta do sistema de integração Workday, com o nome de domínio do arrendatário anexado. Deve parecer algo como: **nome de\@utilizador tenant_name**
+   * Nome de **utilizador workday** – Introduza o nome de utilizador da conta do sistema de integração Workday, com o nome de domínio do arrendatário anexado. Deve parecer algo como: **nome de\@utilizador tenant_name**
 
-   * **Senha de administração –** Insira a palavra-passe da conta do sistema de integração do Dia de Trabalho
+   * **Senha do dia de trabalho -** Insira a palavra-passe da conta do sistema de integração do Dia de Trabalho
 
-   * **URL do inquilino –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4parecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta.
+   * **Url da API de Serviços Web de Workday –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4parecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta.
+
+     > [!NOTE]
+     > Por padrão, a aplicação utiliza o Workday Web Services v21.1 se não forespecificada nenhuma informação da versão no URL. Para utilizar uma versão API específica do Workday Web Services, utilize o formato URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Exemplo: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
 
    * Floresta de **Diretório Ativo -** O "Nome" do seu domínio de Diretório Ativo, registado no agente. Utilize a queda para selecionar o domínio alvo para o fornecimento. Este valor é tipicamente uma corda como: *contoso.com*
 
@@ -607,11 +613,16 @@ As seguintes secções descrevem passos para configurar o fornecimento de utiliz
 
 8. Complete a secção **de Credenciais de Administrador** da seguinte forma:
 
-   * **Nome** de utilizador do Administrador – Introduza o nome de utilizador da conta do sistema de integração Workday, com o nome de domínio do arrendatário anexado. Deve parecer algo como:username@contoso4
+   * Nome de **utilizador workday** – Introduza o nome de utilizador da conta do sistema de integração Workday, com o nome de domínio do arrendatário anexado. Deve parecer algo como:username@contoso4
 
-   * **Senha de administração –** Insira a palavra-passe da conta do sistema de integração do Dia de Trabalho
+   * **Senha do dia de trabalho -** Insira a palavra-passe da conta do sistema de integração do Dia de Trabalho
 
-   * **URL do inquilino –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resourcesparecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta. Se este URL não for conhecido, trabalhe com o seu parceiro de integração workday ou representante de suporte para determinar o URL correto a utilizar.
+   * **Url da API de Serviços Web de Workday –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4parecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta. Se este URL não for conhecido, trabalhe com o seu parceiro de integração workday ou representante de suporte para determinar o URL correto a utilizar.
+
+     > [!NOTE]
+     > Por padrão, a aplicação utiliza o Workday Web Services v21.1 se não forespecificada nenhuma informação da versão no URL. Para utilizar uma versão API específica do Workday Web Services, utilize o formato URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Exemplo: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+
 
    * **Email de notificação –** Insira o seu endereço de e-mail e verifique a caixa de verificação "enviar e-mail se ocorrer falha".
 
@@ -807,9 +818,13 @@ Esta funcionalidade não é suportada atualmente. A supressão recomendada é im
 
 A solução utiliza atualmente as seguintes APIs do Dia do Trabalho:
 
-* Get_Workers (v21.1) para obter informações dos trabalhadores
-* Maintain_Contact_Information (v26.1) para a funcionalidade Work Email Writeback
-* Update_Workday_Account (v31.2) para a funcionalidade Writeback username
+* O formato **URL da API da Workday Web Services** usado na secção **Credenciais de Administrador,** determina a versão API utilizada para Get_Workers
+  * Se o formato\#\#\#\#\.URL\.for: https:// dia de trabalho com/ccx/service/tenantName, então a API v21.1 é utilizada. 
+  * Se o formato\#\#\#\#\.URL\.for: https:// dia de trabalho\_com/ccx/service/tenantName/Recursos Humanos, então a API v21.1 é utilizada 
+  * Se o formato\#\#\#\#\.URL\.for: https:// dia de trabalho\_com/ccx/service/tenantName/Recursos Humanos/v,\# \# \. \# então a versão API especificada é utilizada. (Exemplo: se o v34.0 for especificado, então é utilizado.)  
+   
+* A funcionalidade Workday Email Writeback utiliza Maintain_Contact_Information (v26.1) 
+* A função Workday Username Writeback utiliza Update_Workday_Account (v31.2) 
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>Posso configurar o meu inquilino HCM do Workday com dois inquilinos da AD Azure?
 
@@ -1135,7 +1150,7 @@ Quando clica em qualquer um dos registos de registos de auditoria, a página **D
 
   Se houver problemas com as expressões de mapeamento do seu atributo ou os dados do Dia de Trabalho que chegam têm problemas (por exemplo: valor vazio ou nulo para atributos necessários), então observará uma falha nesta fase com o ErrorCode fornecendo detalhes da falha.
 
-* **Registo de exportação aD:** Este registo de registo apresenta o resultado da operação de criação de conta AD juntamente com os valores de atributo que foram definidos no processo. Utilize informações na secção *Detalhes Adicionais* do registo de registo para resolver problemas com a operação de criação de conta. Um registo de exemplo é mostrado abaixo juntamente com ponteiros sobre como interpretar cada campo. Na secção "Detalhes Adicionais", o "Nome de Evento" está definido para "EntryExportAdd", o "JoinProperty" está definido para o valor do atributo de ID correspondente, o "SourceAnchor" é definido para o WorkdayID (WID) associado ao disco e o "TargetAnchor" está definido para o valor do atributo AD "ObjectGuid" do utilizador recém-criado. 
+* **Registo de exportação aD:** Este registo de registo apresenta o resultado da operação de criação de conta AD juntamente com os valores de atributo que foram definidos no processo. Utilize informações na secção *Detalhes Adicionais* do registo de registo para resolver problemas com a operação de criação de conta. Um registo de exemplo é mostrado abaixo juntamente com ponteiros sobre como interpretar cada campo. Na secção "Detalhes Adicionais", o "Nome de Evento" está definido para "EntryExportAdd", o "JoinProperty" está definido para o valor do atributo de ID correspondente, o "SourceAnchor" é definido para o WorkdayID (WID) associado ao registo e o "TargetAnchor" está definido para o valor do atributo AD "ObjectGuid" do utilizador recém-criado. 
 
   ```JSON
   ErrorCode : None // Use the error code captured here to troubleshoot AD account creation issues
@@ -1352,7 +1367,7 @@ Consulte o artigo Configuração de [fornecimento de exportação e importação
 
 ## <a name="managing-personal-data"></a>Gerir dados pessoais
 
-A solução de provisionamento workday para O Diretório Ativo requer que um agente de provisionamento seja instalado num servidor Windows no local, e este agente cria registos no registo do Windows Event que podem conter dados pessoais dependendo do seu atributo de Trabalho para AD mapeamentos. Para cumprir as obrigações de privacidade do utilizador, pode garantir que nenhum dado é retido nos registos do Evento além das 48 horas, configurando uma tarefa programada pelo Windows para limpar o registo do evento.
+A solução de provisionamento workday para O Diretório Ativo requer que um agente de provisionamento seja instalado num servidor Windows no local, e este agente cria registos no registo do Windows Event que podem conter dados pessoais dependendo do seu Dia de Trabalho para mapeamentos de atributos AD. Para cumprir as obrigações de privacidade do utilizador, pode garantir que nenhum dado é retido nos registos do Evento além das 48 horas, configurando uma tarefa programada pelo Windows para limpar o registo do evento.
 
 O serviço de provisionamento da AD Azure insere-se na categoria de processador de **dados** da classificação rGPD. Como um pipeline de processador de dados, o serviço fornece serviços de processamento de dados a parceiros-chave e consumidores finais. O serviço de provisionamento de AD Azure não gera dados de utilizador e não tem controlo independente sobre os dados pessoais recolhidos e como são utilizados. A recuperação de dados, a gregação, análise e reporte no serviço de provisionamento de AD Azure baseiam-se em dados empresariais existentes.
 

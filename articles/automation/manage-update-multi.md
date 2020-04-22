@@ -5,31 +5,28 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9a3c88ea0c3e656adf0f8c514b418cfc07c9590
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5376562d9df35539a33f6746b387a1ff7083b8f1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335778"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676451"
 ---
-# <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
+# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gerir atualizações para várias máquinas virtuais do Azure
 
-Pode utilizar a solução Update Management para gerir atualizações e patches para as suas máquinas virtuais Windows e Linux. Na sua conta da [Automatização do Azure](automation-offering-get-started.md), pode:
+Pode utilizar a Azure Automation Update Management para gerir atualizações e patches para as suas máquinas virtuais Windows e Linux. Na sua conta da [Automatização do Azure](automation-offering-get-started.md), pode:
 
-- Máquinas virtuais a bordo
-- Avaliar o estado das atualizações disponíveis
-- Agendar instalação de atualizações necessárias
-- Rever os resultados da implementação para verificar se as atualizações foram aplicadas com sucesso a todas as máquinas virtuais para as quais a Atualização de Gestão está ativada
+- Adicionar máquinas virtuais.
+- Avaliar o estado das atualizações disponíveis.
+- Agendar a instalação das atualizações necessárias.
+- Reveja os resultados da implementação para verificar se as atualizações foram aplicadas com sucesso a todas as máquinas virtuais para as quais a Atualização está ativada.
+
+Para conhecer os requisitos do sistema para a Gestão de Atualizações, consulte os [requisitos do cliente](automation-update-management.md#clients)da Atualização Management .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Gestão de Atualizações, precisa de:
-
-- Uma máquina virtual ou um computador que tenha instalado um dos sistemas operativos suportados.
-
-- Acesso a um repositório de atualização para VMs Linux a bordo da solução.
-
-Para conhecer os requisitos do sistema para a Gestão de Atualizações, consulte os [requisitos do cliente](automation-update-management.md#clients)da Atualização Management .
+* Uma máquina virtual ou um computador que tenha instalado um dos sistemas operativos suportados.
+* Acesso a um repositório de atualização para VMs Linux a bordo para Update Management.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Ativar a Gestão de Atualizações para máquinas virtuais Azure
 
@@ -53,25 +50,23 @@ O agente Log Analytics para Windows e Linux precisa de ser instalado nos VMs que
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Ver computadores anexados à sua conta Deautomação
 
-Depois de ativar a Atualização da Gestão das suas máquinas, pode visualizar informações da máquina selecionando **Computadores**. Pode ver informações sobre *o nome da máquina,* estado de *conformidade,* *ambiente,* *tipo OS,* *atualizações críticas e de segurança instaladas,* *outras atualizações instaladas*e disponibilidade do agente de *atualização* para os seus computadores.
+Depois de ativar a Atualização da Gestão das suas máquinas, pode visualizar informações da máquina selecionando **Computadores**. Pode ver informações sobre o nome da máquina, estado de conformidade, ambiente, tipo OS, atualizações críticas e de segurança instaladas, outras atualizações instaladas e prontidão do agente de atualização para os seus computadores.
 
   ![Separador Ver computadores](./media/manage-update-multi/update-computers-tab.png)
 
-Os computadores que foram recentemente ativados para a Gestão de Atualizações podem ainda não ter sido avaliados. O estado de conformidade desses computadores não é **avaliado.** Aqui está uma lista de possíveis valores para o estado de conformidade:
+Os computadores que foram recentemente ativados para a Gestão de Atualizações podem ainda não ter sido avaliados. O estado de conformidade `Not assessed`para esses computadores é. Aqui está uma lista de possíveis valores para o estado de conformidade:
 
-- **Conformidade**: Computadores que não faltam atualizações críticas ou de segurança.
+- `Compliant`: Computadores que não faltam atualizações críticas ou de segurança.
+- `Non-compliant`: Computadores que faltam pelo menos uma atualização crítica ou de segurança.
+- `Not assessed`: Os dados de avaliação da atualização não foram recebidos do computador dentro do prazo previsto. Para os computadores Linux, o prazo esperado é a última hora. Para computadores Windows, o prazo esperado é das últimas 12 horas.
 
-- **Não conforme**: Computadores que faltam pelo menos uma atualização crítica ou de segurança.
-
-- **Não avaliados**: Os dados de avaliação da atualização não foram recebidos do computador dentro do prazo previsto. Para os computadores Linux, o prazo de espera é na última hora. Para computadores Windows, o prazo esperado é nas últimas 12 horas.
-
-Para ver o estado do agente, selecione o link na coluna de prontidão do **agente Atualizar.** A seleção desta opção abre o painel **Híbrido Trabalhador** e mostra o estado do Trabalhador Híbrido. A imagem que se segue mostra um exemplo de um agente que não foi ligado à Atualização por um longo período de tempo:
+Para ver o estado do agente, selecione o link na coluna de prontidão do **agente Atualizar.** A seleção desta opção abre o painel Híbrido Trabalhador e mostra o estado do Trabalhador Híbrido. A imagem que se segue mostra um exemplo de um agente que não foi ligado à Atualização por um longo período de tempo:
 
 ![Separador Ver computadores](./media/manage-update-multi/update-agent-broken.png)
 
 ## <a name="view-an-update-assessment"></a>Ver avaliações de atualizações
 
-Depois de a Gestão de Atualizações ser ativada, o painel **Gestão de atualizações** abre. Pode ver uma lista de atualizações em falta no separador **Atualizações em falta**.
+Após a ativação da Atualização, abre-se o painel de Gestão de Atualizações. Pode ver uma lista de atualizações em falta no separador **Atualizações em falta**.
 
 ## <a name="collect-data"></a>Recolher dados
 
@@ -132,7 +127,7 @@ No painel de implementação da **nova atualização,** especifique as seguintes
   - Ferramentas
   - Atualizações
 
-- **Atualizações a incluir/excluir**: esta opção abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter informações adicionais sobre como a inclusão é tratada, consulte [Agendar uma Implementação de Atualização](automation-tutorial-update-management.md#schedule-an-update-deployment).
+- **Atualizações a incluir/excluir**: esta opção abre a página Incluir/Excluir. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter informações adicionais sobre como a inclusão é tratada, consulte [Agendar uma Implementação de Atualização](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 > [!NOTE]
 > É importante saber que as exclusões sobrepõem-se às inclusãos. Por exemplo, se definir uma `*`regra de exclusão de, então não são instalados patches ou pacotes, uma vez que todos estão excluídos. Os patches excluídos continuam a mostrar como desaparecidos da máquina. Para as máquinas Linux se um pacote estiver incluído mas tiver um pacote dependente que foi excluído, o pacote não está instalado.
@@ -176,11 +171,11 @@ Se uma ou mais atualizações falharem na implementação, o estado é **Falha p
 
 Para ver o dashboard relativo a uma implementação de atualizações, selecione a implementação concluída.
 
-O painel de resultados da **Atualização** mostra o número total de atualizações e os resultados de implementação da máquina virtual. A tabela à direita dá uma desagregação detalhada de cada atualização e dos resultados da instalação. Os resultados da instalação podem ser um dos seguintes valores:
+O painel de resultados da Atualização mostra o número total de atualizações e os resultados de implementação da máquina virtual. A tabela à direita dá uma desagregação detalhada de cada atualização e dos resultados da instalação. Os resultados da instalação podem ser um dos seguintes valores:
 
-- **Não tentada**: A atualização não foi instalada porque não havia tempo suficiente com base na janela de manutenção definida.
-- **Sucesso**: A atualização foi bem sucedida.
-- **Falha :** A atualização falhou.
+- `Not attempted`: A atualização não foi instalada porque não havia tempo suficiente com base na janela de manutenção definida.
+- `Succeeded`: A atualização foi bem sucedida.
+- `Failed`: A atualização falhou.
 
 Para ver todas as entradas de registo que a implementação criou, selecione **Todos os registos**.
 

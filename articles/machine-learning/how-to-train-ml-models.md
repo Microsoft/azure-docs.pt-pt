@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 678af1855baf52efa727444236de8a1724a7d0b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9a3c10687b92d946fccb282f2eda4af637cf2ab
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79078487"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686776"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Modelos de trem com Machine Learning Azure usando estimador
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -80,7 +80,7 @@ print(run.get_portal_url())
 >
 > Para criar artefactos durante o treino (como ficheiros de modelos, pontos `./outputs` de verificação, ficheiros de dados ou imagens traçadas) escreva-os na pasta.
 >
-> Da mesma forma, pode escrever quaisquer registos do seu treino para a `./logs` pasta. Para utilizar a [integração tensorBoard](https://aka.ms/aml-notebook-tb) da Azure Machine Learning, certifique-se de que escreve os seus registos TensorBoard para esta pasta. Enquanto a sua execução estiver em andamento, poderá lançar o TensorBoard e transmitir estes registos.  Mais tarde, também poderá restaurar os registos de qualquer uma das suas operações anteriores.
+> Da mesma forma, pode escrever quaisquer registos do seu treino para a `./logs` pasta. Para utilizar a [integração tensorBoard](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) da Azure Machine Learning, certifique-se de que escreve os seus registos TensorBoard para esta pasta. Enquanto a sua execução estiver em andamento, poderá lançar o TensorBoard e transmitir estes registos.  Mais tarde, também poderá restaurar os registos de qualquer uma das suas operações anteriores.
 >
 > Por exemplo, para descarregar um ficheiro escrito na pasta de *saídas* para a sua máquina local após a sua execução de treino remoto:`run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 

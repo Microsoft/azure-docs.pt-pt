@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 54ddf6818b95a4037188ab222501ddfa69b28149
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587903"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686639"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Caça às ameaças com O Sentinela
 
 Se você é um investigador que quer ser proativo em procurar ameaças à segurança, Azure Sentinel poderosa procura de caça e ferramentas de consulta para caçar ameaças de segurança através de fontes de dados da sua organização. Mas os seus sistemas e aparelhos de segurança geram montanhas de dados que podem ser difíceis de analisar e filtrar em eventos significativos. Para ajudar os analistas de segurança a procurarem proativamente novas anomalias que não foram detetadas pelas suas aplicações de segurança, as consultas de caça incorporadas do Azure Sentinel guiam-no a fazer as perguntas certas para encontrar problemas nos dados que já tem na sua rede. 
 
-Por exemplo, uma consulta incorporada fornece dados sobre os processos mais incomuns em execução na sua infraestrutura - você não quereria um alerta sobre cada vez que eles são executados, eles podem ser totalmente inocentes, mas você pode querer dar uma olhada na consulta de vez em quando para ver se eles são executados, eles podem ser totalmente inocentes, mas você pode querer dar uma olhada na consulta de vez em quando para ver se eles são executados, eles podem ser totalmente inocentes, mas você pode querer dar uma olhada na consulta de vez em quando para ver se eles são executados, eles podem ser totalmente inocentes, mas você pode querer dar uma olhada na consulta de vez em quando para ver se eles são executados, eles podem ser totalmente inocentes, mas você pode querer dar uma olhada na consulta de vez em quando para ver se eles são executados, eles podem ser totalmente inocentes, mas você há algo de anormal. 
+Por exemplo, uma consulta incorporada fornece dados sobre os processos mais incomuns que estão em execução na sua infraestrutura - você não quereria um alerta sobre cada vez que eles são executados, eles podem ser totalmente inocentes, mas você pode querer dar uma olhada na consulta de vez em quando para ver se há algo incomum. 
 
 
 
@@ -54,7 +54,7 @@ Com a caça azure sentinel, você pode aproveitar as seguintes capacidades:
 
 3. Faça uma revisão rápida da consulta subjacente no painel de detalhes da consulta ou clique em ver o resultado da **consulta** para abrir a consulta no Log Analytics. No fundo, reveja os fósforos para a consulta.
 
-4.  Clique na linha e selecione **Adicionar marcador** para adicionar as linhas a serem investigadas - pode fazê-lo por qualquer coisa que pareça suspeito. 
+4.    Clique na linha e selecione **Adicionar marcador** para adicionar as linhas a serem investigadas - pode fazê-lo por qualquer coisa que pareça suspeito. 
 
 5. Em seguida, volte para a página principal **de Caça** e clique no separador **Bookmarks** para ver todas as atividades suspeitas. 
 
@@ -66,7 +66,7 @@ Com a caça azure sentinel, você pode aproveitar as seguintes capacidades:
 
 ## <a name="query-language"></a>Linguagem da consulta 
 
-A caça em Azure Sentinel é baseada na linguagem de consulta de Kusto. Para mais informações sobre a linguagem de consulta e os operadores apoiados, consulte a [Referência da Linguagem](https://docs.loganalytics.io/docs/Language-Reference/)consulta.
+A caça em Azure Sentinel é baseada na linguagem de consulta de Kusto. Para mais informações sobre a linguagem de consulta e os operadores apoiados, consulte a [Referência da Linguagem](/azure/azure-monitor/log-query/get-started-queries)consulta.
 
 ## <a name="public-hunting-query-github-repository"></a>Consulta pública de caça GitHub repositório
 

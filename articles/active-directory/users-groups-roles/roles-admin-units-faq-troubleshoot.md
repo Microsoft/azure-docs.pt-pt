@@ -1,6 +1,6 @@
 ---
-title: Unidades administrativas de resolução de problemas e FAQ - Diretório Ativo Azure [ Azure Ative Diretório ] Microsoft Docs
-description: Investigar unidades administrativas a delegação de permissões com âmbito restrito no Diretório Ativo do Azure
+title: Unidades administrativas resolução de problemas e FAQ - Diretório Ativo Azure Microsoft Docs
+description: Investigar unidades administrativas para conceder permissões com âmbito restrito no Diretório Ativo do Azure.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,42 +14,44 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c9770b60edad6f956ae99c91b94a232cc48bbbd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 022658306d6e4d69174cc616d230cfe4892f1204
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428150"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684847"
 ---
-# <a name="troubleshooting-and-faq-for-administrative-units-in-azure-active-directory"></a>Resolução de problemas e FAQ para unidades administrativas em Diretório Ativo Azure
+# <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Unidades administrativas da Azure AD: Resolução de problemas e FAQ
 
-Para um controlo administrativo mais granular no Azure Ative Directory (Azure AD), pode atribuir aos utilizadores uma função De AD Azure com um âmbito limitado a uma ou mais unidades administrativas (UA). Pode encontrar scripts PowerShell de amostra https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0para tarefas comuns em .
+Para um controlo administrativo mais granular no Azure Ative Directory (Azure AD), pode atribuir aos utilizadores uma função De AD Azure com um âmbito limitado a uma ou mais unidades administrativas (UA). Para amostrar scripts PowerShell para tarefas comuns, consulte [Trabalhar com unidades administrativas](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-**P: Não sou capaz de criar uma unidade administrativa**
+**P: Por que sou incapaz de criar uma unidade administrativa?**
 
-**A:** Apenas um Administrador Global ou Administrador de Funções Privilegiadas pode criar uma unidade administrativa em Azure AD. Verifique se o utilizador que tenta criar a unidade administrativa é atribuído quer ao Administrador Global quer ao papel de Administrador Privilegiado.
+**A:** Apenas um *Administrador Global* ou Administrador *de Funções Privilegiadas* pode criar uma unidade administrativa em Azure AD. Verifique se o utilizador que está a tentar criar a unidade administrativa é atribuído quer ao *Administrador Global* quer ao Papel Privilegiado *do Administrador.*
 
-**P: Adicionei um grupo à unidade administrativa, mas os membros do grupo ainda não aparecem na unidade administrativa**
+**P: Adicionei um grupo à unidade administrativa. Porque é que os membros do grupo ainda não aparecem lá?**
 
-**A:** Quando se adiciona um grupo à unidade administrativa, isso não resulta na adição de todos os membros do grupo à unidade administrativa. Os utilizadores devem ser diretamente designados para a unidade administrativa.
+**A:** Quando se acrescenta um grupo à unidade administrativa, isso não resulta na adição de todos os membros do grupo. Os utilizadores devem ser diretamente atribuídos à unidade administrativa.
 
-**P: Acabei de adicionar/removido um membro da unidade administrativa e ainda aparece na UI**
+**P: Acabei de adicionar (ou removido) um membro da unidade administrativa. Porque é que o membro não aparece (ou continua a aparecer) na interface do utilizador?**
 
-**A:** Por vezes, o processamento da adição ou remoção de um ou mais membros da unidade administrativa pode demorar alguns minutos a refletir na página das **unidades administrativas.** Pode optar por esperar alguns minutos para que se reflita sob as unidades administrativas. Em alternativa, pode ir diretamente às propriedades do recurso associado e ver se a ação foi concluída. Para obter mais informações sobre utilizadores e grupos em UsA, consulte lista [de unidades administrativas para um utilizador](roles-admin-units-add-manage-users.md) e lista [rum as unidades administrativas de um grupo](roles-admin-units-add-manage-groups.md).
+**A:** Por vezes, o processamento da adição ou remoção de um ou mais membros da unidade administrativa pode demorar alguns minutos a refletir-se na página das **unidades administrativas.** Em alternativa, pode ir diretamente às propriedades do recurso associado e ver se a ação foi concluída. Para obter mais informações sobre utilizadores e grupos em UsA, consulte lista [de unidades administrativas para um utilizador](roles-admin-units-add-manage-users.md) e lista [rum as unidades administrativas de um grupo](roles-admin-units-add-manage-groups.md).
 
-**P: Como administrador de palavra-passe delegado numa unidade administrativa, não posso redefinir a palavra-passe de um utilizador específico**
+**P: Sou um administrador de senha delegado numa unidade administrativa. Por que não consigo redefinir a senha de um utilizador específico?**
 
-**A:** Um administrador atribuído a uma unidade administrativa só pode redefinir a palavra-passe para os utilizadores atribuídos à sua unidade administrativa. Certifique-se de que o utilizador para o qual a palavra-passe está a falhar pertence às unidades administrativas sobre as quais lhe foi atribuída a função. Se o utilizador pertencer à mesma unidade administrativa e ainda não conseguir redefinir a palavra-passe do utilizador, verifique as funções atribuídas ao utilizador. Para evitar uma elevação de privilégios, um administrador de âmbito de unidade administrativa não pode redefinir a palavra-passe de um utilizador que é atribuído a um papel com um âmbito de aplicação em toda a organização.
+**A:** Como administrador de uma unidade administrativa, só pode redefinir senhas para utilizadores que sejam atribuídos à sua unidade administrativa. Certifique-se de que o utilizador cuja redefinição da palavra-passe está a falhar pertence à unidade administrativa à qual foi atribuído. Se o utilizador pertencer à mesma unidade administrativa, mas ainda não conseguir redefinir a sua palavra-passe, verifique as funções atribuídas ao utilizador. 
+
+Para evitar uma elevação de privilégios, um administrador administrativo de âmbito de aplicação não pode redefinir a palavra-passe de um utilizador que é atribuído a um papel com um âmbito de aplicação em toda a organização.
 
 **P: Por que as unidades administrativas são necessárias? Não podíamos ter usado grupos de segurança como forma de definir um âmbito?**
 
-**A:** Os grupos de segurança têm um modelo de objetivo e autorização existente. Um administrador de utilizador, por exemplo, pode gerir a adesão de todos os grupos de segurança da organização Azure AD, como usar grupos para gerir o acesso a aplicações como a Salesforce. Um administrador utilizador não deve ter a capacidade de gerir o próprio modelo de delegação, o que seria o resultado se os grupos de segurança fossem alargados para apoiar cenários de "agrupamento de recursos". Unidades administrativas, como unidades organizacionais no Diretório Ativo do Windows Server, destinam-se a fornecer uma forma de administração de âmbito de aplicação de uma vasta gama de objetos de diretório. Os próprios grupos de segurança podem ser membros dos âmbitos de recursos. A utilização de grupos de segurança para definir o conjunto de grupos de segurança que um administrador pode gerir pode tornar-se confusa.
+**A:** Os grupos de segurança têm um modelo de objetivo e autorização existente. Um *Administrador de Utilizador,* por exemplo, pode gerir a adesão de todos os grupos de segurança da organização Azure AD. O papel pode usar grupos para gerir o acesso a aplicações como a Salesforce. Um *Administrador de Utilizador* não deve ser capaz de gerir o próprio modelo de delegação, o que seria o resultado se os grupos de segurança fossem alargados para apoiar cenários de "agrupamento de recursos". As unidades administrativas, como unidades organizacionais no Windows Server Ative Directory, destinam-se a fornecer uma forma de administração de âmbito de aplicação de uma vasta gama de objetos de diretório. Os próprios grupos de segurança podem ser membros dos âmbitos de recursos. A utilização de grupos de segurança para definir o conjunto de grupos de segurança que um administrador pode gerir pode tornar-se confuso.
 
 **P: O que significa adicionar um grupo a uma unidade administrativa?**
 
-**A:** A adição de um grupo a uma unidade administrativa coloca o próprio grupo no âmbito de gestão de qualquer administrador do Utilizador que também seja remeto a essa unidade de administração. Os administradores dos utilizadores da unidade administrativa podem gerir o nome e a adesão do próprio grupo. Não concede ao Utilizador qualquer permissão para gerir os utilizadores do grupo (por exemplo, redefinir as suas palavras-passe). Para conceder ao Administrador do Utilizador a capacidade de gerir os utilizadores, os utilizadores têm de ser membros diretos da unidade administrativa.
+**A:** A adição de um grupo a uma unidade administrativa coloca o próprio grupo no âmbito de gestão de qualquer *Administrador de Utilizador* que também seja remetido nessa unidade administrativa. Os administradores de utilizadores da unidade administrativa podem gerir o nome e a adesão do próprio grupo. Não concede ao Administrador do *Utilizador* permissões da unidade administrativa para gerir os utilizadores do grupo (por exemplo, para redefinir as suas palavras-passe). Para conceder ao Administrador do *Utilizador* a capacidade de gerir os utilizadores, os utilizadores têm de ser membros diretos da unidade administrativa.
 
 **P: Um recurso (utilizador ou grupo) pode ser membro de mais de uma unidade administrativa?**
 
@@ -61,13 +63,15 @@ Para um controlo administrativo mais granular no Azure Ative Directory (Azure AD
 
 **P: As unidades administrativas aninhadas são apoiadas?**
 
-**A:** As unidades administrativas aninhadas não são apoiadas.
+**A:** Não, as unidades administrativas aninhadas não são apoiadas.
 
 **P: As unidades administrativas são suportadas na PowerShell e na API graph?**
 
-**R:** Sim. O suporte para Unidades Administrativas existe na documentação e scripts de [amostras](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview) [da PowerShell,](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) e o suporte está no Microsoft Graph para o tipo de [recursos da Unidade Administrativa](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/administrativeunit).
+**R:** Sim. Encontrará suporte para unidades administrativas na [documentação cmdlet powerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) e [scripts de amostra.](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview) 
+
+Encontre suporte para o tipo de [recursos da Unidade administrativa](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/administrativeunit) no Microsoft Graph.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Unidades administrativas para restringir o âmbito de aplicação das funções](directory-administrative-units.md)
+- [Restringir o âmbito das funções através da utilização de unidades administrativas](directory-administrative-units.md)
 - [Gerir unidades administrativas](roles-admin-units-manage.md)

@@ -12,12 +12,12 @@ ms.date: 12/17/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6021348160b338bc3a153764968f6c846a644cd1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f559dc0da8680a6cd3243b5ee12c3145244c9c2c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535864"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677874"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade microsoft e o fluxo de credenciais de clientes OAuth 2.0
 
@@ -26,9 +26,6 @@ Você pode usar a bolsa de credenciais de [cliente OAuth 2.0](https://tools.ietf
 Este artigo descreve como programar diretamente contra o protocolo na sua aplicação. Sempre que possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas em vez de adquirir fichas e ligar para [APIs web protegidos](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também as [aplicações de amostra que utilizam o MSAL.](sample-v2-code.md)
 
 As credenciais de cliente OAuth 2.0 concedem fluxo de fluxo permite que um serviço web (cliente confidencial) utilize as suas próprias credenciais, em vez de se fazer passar por utilizador, para autenticar quando chama outro serviço web. Neste cenário, o cliente é tipicamente um serviço web de nível médio, um serviço daemon ou um web site. Para um nível mais elevado de garantia, a plataforma de identidade da Microsoft também permite que o serviço de chamadas utilize um certificado (em vez de um segredo partilhado) como credencial.
-
-> [!NOTE]
-> O ponto final da plataforma de identidade da Microsoft não suporta todos os cenários e funcionalidades do Azure AD. Para determinar se deve utilizar o ponto final da plataforma de identidade da Microsoft, leia sobre [as limitações](active-directory-v2-limitations.md)da plataforma de identidade da Microsoft .
 
 No *OAuth*de três patas mais típico, é concedida permissão a um pedido de cliente para aceder a um recurso em nome de um utilizador específico. A permissão é delegada do utilizador para a aplicação, geralmente durante o processo de [consentimento.](v2-permissions-and-consent.md) No entanto, nas credenciais do cliente (*OAuth de duas pernas*), as permissões são concedidas diretamente à própria aplicação. Quando a aplicação apresenta um símbolo a um recurso, o recurso impõe que a própria app tenha autorização para realizar uma ação e não o utilizador.
 

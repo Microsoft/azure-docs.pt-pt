@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f11c19ba33ee2fbae0fef265371bedad2fe29cb7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73821744"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684944"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Utilize uma base de dados Azure SQL gerida de forma segura com pontos finais públicos
 
@@ -35,7 +35,7 @@ Embora não seja obrigatório, o modelo comum de implantação para uma instânc
 
 ## <a name="secure-data-in-motion"></a>Proteger dados em movimento
 
-O tráfego de dados de instância gerido é sempre encriptado se o condutor do cliente suportar a encriptação. Os dados enviados entre a instância gerida e outras máquinas virtuais Azure ou serviços Azure nunca saem da espinha dorsal do Azure. Se houver uma ligação entre a instância gerida e uma rede no local, recomendamos que utilize o Azure ExpressRoute com o peering da Microsoft. O ExpressRoute ajuda-o a evitar a movimentação de dados através da internet pública. Para a conectividade privada gerida, apenas o epeering privado pode ser usado.
+O tráfego de dados de instância gerido é sempre encriptado se o condutor do cliente suportar a encriptação. Os dados enviados entre a instância gerida e outras máquinas virtuais Azure ou serviços Azure nunca saem da espinha dorsal do Azure. Se houver uma ligação entre a instância gerida e uma rede no local, recomendamos que utilize o Azure ExpressRoute. O ExpressRoute ajuda-o a evitar a movimentação de dados através da internet pública. Para a conectividade privada gerida, apenas o epeering privado pode ser usado.
 
 ## <a name="lock-down-inbound-and-outbound-connectivity"></a>Bloquear a conectividade de entrada e saída
 

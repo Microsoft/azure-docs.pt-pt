@@ -13,21 +13,18 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9186f633b773a243a84692c30ddc2c2261fb69ba
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 2a39dbb3676df5ed916203bdcbbc51d5a0da32a4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309413"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677836"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de autorização de autorização de dispositivo OAuth 2.0
 
-A plataforma de identidade da Microsoft suporta a [concessão](https://tools.ietf.org/html/rfc8628)de autorização do dispositivo , que permite que os utilizadores inscrevam em dispositivos limitados de entrada, como uma smart TV, dispositivo IoT ou impressora.  Para ativar este fluxo, o dispositivo tem o utilizador a visitar uma página web no seu navegador noutro dispositivo para iniciar sessão.  Assim que o utilizador entrar, o dispositivo é capaz de obter fichas de acesso e de atualização de fichas conforme necessário.  
+A plataforma de identidade da Microsoft suporta a [concessão](https://tools.ietf.org/html/rfc8628)de autorização do dispositivo , que permite que os utilizadores inscrevam em dispositivos limitados de entrada, como uma smart TV, dispositivo IoT ou impressora.  Para ativar este fluxo, o dispositivo tem o utilizador a visitar uma página web no seu navegador noutro dispositivo para iniciar sessão.  Assim que o utilizador entrar, o dispositivo é capaz de obter fichas de acesso e de atualização de fichas conforme necessário.
 
 Este artigo descreve como programar diretamente contra o protocolo na sua aplicação.  Sempre que possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas em vez de adquirir fichas e ligar para [APIs web protegidos](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também as [aplicações de amostra que utilizam o MSAL.](sample-v2-code.md)
-
-> [!NOTE]
-> O ponto final da plataforma de identidade da Microsoft não suporta todos os cenários e funcionalidades do Azure Ative Directory. Para determinar se deve utilizar o ponto final da plataforma de identidade da Microsoft, leia sobre [as limitações](active-directory-v2-limitations.md)da plataforma de identidade da Microsoft .
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -62,7 +59,7 @@ scope=user.read%20openid%20profile
 
 ### <a name="device-authorization-response"></a>Resposta à autorização do dispositivo
 
-Uma resposta bem sucedida será um objeto JSON contendo as informações necessárias para permitir que o utilizador assine a sua inscrição.  
+Uma resposta bem sucedida será um objeto JSON contendo as informações necessárias para permitir que o utilizador assine a sua inscrição.
 
 | Parâmetro | Formato | Descrição |
 | ---              | --- | --- |
@@ -80,11 +77,11 @@ Uma resposta bem sucedida será um objeto JSON contendo as informações necess�
 
 Depois de `user_code` receber `verification_uri`o e , o cliente apresenta-os ao utilizador, instruindo-os a iniciar em sessão utilizando o seu telemóvel ou navegador pc.
 
-Se o utilizador autenticar com uma conta pessoal (em /comum ou /consumidores), será-lhes solicitado que volte a inscrever-se para transferir o estado de autenticação para o dispositivo.  Será também solicitado que dêem o seu consentimento, para garantir que estão cientes das permissões que estão a ser concedidas.  Isto não se aplica ao trabalho ou às contas escolares utilizadas para autenticar. 
+Se o utilizador autenticar com uma conta pessoal (em /comum ou /consumidores), será-lhes solicitado que volte a inscrever-se para transferir o estado de autenticação para o dispositivo.  Será também solicitado que dêem o seu consentimento, para garantir que estão cientes das permissões que estão a ser concedidas.  Isto não se aplica ao trabalho ou às contas escolares utilizadas para autenticar.
 
 Enquanto o utilizador estiver `verification_uri`a autenticar no `/token` , o cliente deve estar `device_code`a sondar o ponto final do token solicitado utilizando o .
 
-``` 
+```
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -95,21 +92,21 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | Parâmetro | Necessário | Descrição|
 | -------- | -------- | ---------- |
-| `tenant`  | Necessário | O mesmo inquilino ou pseudónimo de inquilino utilizado no pedido inicial. | 
+| `tenant`  | Necessário | O mesmo inquilino ou pseudónimo de inquilino utilizado no pedido inicial. |
 | `grant_type` | Necessário | Deve ser`urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Necessário | Deve coincidir `client_id` com o utilizado no pedido inicial. |
 | `device_code`| Necessário | O `device_code` devolvido no pedido de autorização do dispositivo.  |
 
 ### <a name="expected-errors"></a>Erros esperados
 
-O fluxo de código do dispositivo é um protocolo de votação, pelo que o seu cliente deve esperar receber erros antes de o utilizador terminar de autenticar.  
+O fluxo de código do dispositivo é um protocolo de votação, pelo que o seu cliente deve esperar receber erros antes de o utilizador terminar de autenticar.
 
 | Erro | Descrição | Ação do Cliente |
 | ------ | ----------- | -------------|
 | `authorization_pending` | O utilizador ainda não terminou de autenticar, mas não cancelou o fluxo. | Repita o pedido `interval` após pelo menos segundos. |
 | `authorization_declined` | O utilizador final negou o pedido de autorização.| Pare de votar e volte para um estado não autenticado.  |
 | `bad_verification_code`| O `device_code` enviado `/token` para o ponto final não foi reconhecido. | Verifique se o cliente `device_code` está a enviar o correto no pedido. |
-| `expired_token` | Pelo `expires_in` menos segundos se passaram, e a `device_code`autenticação já não é possível com isto . | Pare de votar e volte para um estado não autenticado. |   
+| `expired_token` | Pelo `expires_in` menos segundos se passaram, e a `device_code`autenticação já não é possível com isto . | Pare de votar e volte para um estado não autenticado. |
 
 ### <a name="successful-authentication-response"></a>Resposta de autenticação bem sucedida
 
@@ -135,4 +132,4 @@ Uma resposta simbólica bem sucedida será como:
 | `id_token`   | JWT | Emitido se o `scope` parâmetro original `openid` incluía o âmbito.  |
 | `refresh_token` | Corda opaca | Emitido se o `scope` parâmetro original `offline_access`incluído .  |
 
-Pode utilizar o token de atualização para adquirir novos tokens de acesso e fichas de atualização utilizando o mesmo fluxo documentado na documentação de fluxo do [Código OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+Pode utilizar o token de atualização para adquirir novos tokens de acesso e fichas de atualização utilizando o mesmo fluxo documentado na documentação de fluxo do [Código OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).

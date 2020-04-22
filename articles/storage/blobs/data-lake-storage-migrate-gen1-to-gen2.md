@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: fb982324b66c5ac0d2db00eb906ed850827bc72e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80c0afafca3b0bf497689cbd4a0870eedd066cfd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79533288"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677134"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrae Azure Data Lake Storage da Gen1 para gen2
 
@@ -100,9 +100,9 @@ Esta tabela compara as capacidades da Gen1 com a da Gen2.
 |Autenticação|[Identidade gerida pela AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Principais de serviço](../../active-directory/develop/app-objects-and-service-principals.md)|[Identidade gerida pela AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Principais de serviço](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Chave de acesso partilhado](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
 |Autorização|Gestão - [RBAC](../../role-based-access-control/overview.md)<br>Dados – [ACLs](data-lake-storage-access-control.md)|Gestão – [RBAC](../../role-based-access-control/overview.md)<br>Dados - [ACLs,](data-lake-storage-access-control.md) [RBAC](../../role-based-access-control/overview.md) |
 |Encriptação – Dados em repouso|Lado do servidor – com chaves [geridas pela Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou [geridas pelo cliente](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|Lado do servidor – com chaves [geridas pela Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou [geridas pelo cliente](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Suporte VNET|[Integração VNET](../../data-lake-store/data-lake-store-network-security.md)|[Pontos Finais de Serviço](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Pontos Finais Privados (pré-visualização pública)](../common/storage-private-endpoints.md)|
-|Experiência de desenvolvimento|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET,](../../data-lake-store/data-lake-store-data-operations-net-sdk.md) [Java,](../../data-lake-store/data-lake-store-get-started-java-sdk.md) [Python,](../../data-lake-store/data-lake-store-data-operations-python.md) [PowerShell,](../../data-lake-store/data-lake-store-get-started-powershell.md) [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|[REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java,](data-lake-storage-directory-file-acl-java.md) [Python](data-lake-storage-directory-file-acl-python.md), [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell,](data-lake-storage-directory-file-acl-powershell.md) [Azure CLI](data-lake-storage-directory-file-acl-cli.md) (Em pré-visualização pública)|
-|Registos de diagnósticos|Troncos clássicos<br>[Monitor Azure integrado](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Registos clássicos](../common/storage-analytics-logging.md) (Em pré-visualização pública)<br>Integração do monitor Azure – tbd de linha temporal|
+|Suporte VNET|[Integração VNET](../../data-lake-store/data-lake-store-network-security.md)|[Pontos Finais de Serviço](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Pontos Finais Privados](../common/storage-private-endpoints.md)|
+|Experiência de desenvolvimento|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET,](../../data-lake-store/data-lake-store-data-operations-net-sdk.md) [Java,](../../data-lake-store/data-lake-store-get-started-java-sdk.md) [Python,](../../data-lake-store/data-lake-store-data-operations-python.md) [PowerShell,](../../data-lake-store/data-lake-store-get-started-powershell.md) [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|Geralmente disponível - [REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET,](data-lake-storage-directory-file-acl-dotnet.md) [Java,](data-lake-storage-directory-file-acl-java.md) [Python](data-lake-storage-directory-file-acl-python.md)<br>Pré-visualização pública - [JavaScript,](data-lake-storage-directory-file-acl-javascript.md) [PowerShell,](data-lake-storage-directory-file-acl-powershell.md) [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
+|Registos de diagnósticos|Troncos clássicos<br>[Monitor Azure integrado](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Registos clássicos](../common/storage-analytics-logging.md) - Geralmente disponíveis<br>Integração do monitor Azure – tbd de linha temporal|
 |Ecossistema|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 ou superior)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW,](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store) [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 ou superior)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW,](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md) [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 <a id="migration-patterns" />

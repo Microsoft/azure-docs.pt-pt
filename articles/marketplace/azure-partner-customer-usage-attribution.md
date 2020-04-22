@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 5fec72ce5f86c1bee9ec0e978e458f5be454c8e3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: e061baa8e7eb73bae0a78f4215f0d48610e85fcb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256591"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686737"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribuição de parceiro sacial do Mercado Comercial e da atribuição do uso do cliente
 
@@ -31,7 +31,7 @@ A atribuição de utilização do cliente suporta três opções de implementaç
 >
 >- A atribuição do uso do cliente é para novas implementações e NÃO suporta a marcação de recursos existentes que já foram implementados.
 >
->- A atribuição de utilização do cliente é necessária para as ofertas da [Aplicação Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) publicadas no Azure Marketplace.
+>- A atribuição de utilização do cliente é necessária para as ofertas da [Aplicação Azure](./partner-center-portal/create-new-azure-apps-offer.md) publicadas no Azure Marketplace.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -83,7 +83,7 @@ Muitas soluções parceiras são implementadas usando modelos de Gestor de Recur
 > [!NOTE]
 > Para mais informações sobre a criação e publicação de modelos de soluções, consulte
 > * [Crie e implemente o seu primeiro modelo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)de Gestor de Recursos.
->* [Oferta de aplicação Azure.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer)
+>* [Oferta de aplicação Azure.](./partner-center-portal/create-new-azure-apps-offer.md)
 >* Vídeo: Modelos de [solução de construção e aplicações geridas para o Mercado Azure.](https://channel9.msdn.com/Events/Build/2018/BRK3603)
 
 

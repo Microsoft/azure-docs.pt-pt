@@ -8,43 +8,43 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: b967c844ab145074490e931122cbe092d67de0c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 000971878e24c46892aaef1fa0c65237a4219883
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774552"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678530"
 ---
-Uma vez que o recurso **Peering** é implantado com sucesso, você pode vê-lo seguindo os passos abaixo.
+Depois do recurso **Peering** ser implantado com sucesso, pode vê-lo seguindo estes passos.
 
-1. Vá aos **grupos de Recursos** e clique no grupo de recursos que selecionou enquanto cria o recurso **Peering.** Pode utilizar o campo *Filter* se tiver demasiados grupos de recursos.
+1. Vá aos **grupos de Recursos**e selecione o grupo de recursos selecionado quando criou o recurso **Peering.** Utilize a caixa **de filtro** se tiver demasiados grupos de recursos.
 
     > [!div class="mx-imgBorder"]
-    > ![Grupo de recursos de observação](../media/setup-direct-get-resourcegroup.png)
+    > ![Grupos de recursos](../media/setup-direct-get-resourcegroup.png)
 
-1. Clique no recurso **Peering** que criou.
+1. Selecione o recurso **Peering** que criou.
 
     > [!div class="mx-imgBorder"]
     > ![Vista de recursos de observação de recursos](../media/setup-direct-get-open.png)
 
-1. A página **de visão geral** mostra informações de alto nível. Observe a informação realçada abaixo.
+1. A página **de visão geral** mostra informações de alto nível, como mostrado aqui.
 
     > [!div class="mx-imgBorder"]
-    > ![Vista de recursos de observação de recursos](../media/setup-exchange-get-overview.png)
+    > ![Painel de visão geral do recurso de observação](../media/setup-exchange-get-overview.png)
 
-1. À esquerda, clique em **informações asnique** para visualizar informações submetidas enquanto cria O PeerAsn
-
-    > [!div class="mx-imgBorder"]
-    > ![Vista de recursos de observação de recursos](../media/setup-direct-get-asninfo.png)
-
-1. À esquerda, clique em **Ligações**. Observe no topo um resumo de ligações de observação entre a sua ASN e a Microsoft, através de diferentes instalações dentro do metrô. Também pode chegar ao resumo das ligações a partir da página **Overview,** clicando em **Ligações** no painel central como acima salientado.
+1. À esquerda, selecione **informações ASN** para visualizar as informações submetidas quando criou o PeerAsn.
 
     > [!div class="mx-imgBorder"]
-    > ![Vista de recursos de observação de recursos](../media/setup-exchange-get-connectionssummary.png)
+    > ![Peering recursos ASN informação](../media/setup-direct-get-asninfo.png)
 
-    * O Estado de **Ligação** corresponde ao estado da ligação de pares configurada. Os estados exibidos neste campo seguem o diagrama de estado mostrado em [Exchange peering walkthrough](../walkthrough-exchange-all.md)
-    * **IPv4 Session State** e **IPv6 Session State** correspondem aos estados de sessão iPv4 e IPv6 BGP respectivamente.  
-    * Quando selecionar uma linha na parte superior, a secção ***de Ligação*** na parte inferior mostra detalhes para cada ligação. Pode clicar em marcas de seta para expandir a ***configuração***das sub-secções, ***o endereço IPv4*** e o ***endereço IPv6***
+1. À esquerda, selecione **Ligações**. No topo do ecrã, você vê um resumo de ligações de observação entre a sua ASN e microsoft, em diferentes instalações dentro do metro. Também pode aceder ao resumo das ligações a partir da página **'Visão Geral',** selecionando **Ligações** no painel central, como mostrado.
+
+    > [!div class="mx-imgBorder"]
+    > ![Peering conexões de recursos](../media/setup-exchange-get-connectionssummary.png)
+
+    * O Estado de **Ligação** corresponde ao estado da configuração da ligação de pares. Os estados apresentados neste campo seguem o diagrama estatal mostrado na passagem de [persponamento](../walkthrough-exchange-all.md)da Exchange .
+    * **O IPv4 Session State** e **o IPv6 Session State** correspondem aos estados da sessão iPv4 e IPv6 BGP, respectivamente.  
+    * Quando seleciona uma linha na parte superior do ecrã, a secção **de Ligação** na parte inferior mostra detalhes para cada ligação. Selecione as setas para expandir **configuração,** **endereço IPv4**e **endereço IPv6**.
 
     > [!div class="mx-imgBorder"]
     > ![Vista de recursos de observação de recursos](../media/setup-exchange-get-connectionsipv4.png)

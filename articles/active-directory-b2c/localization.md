@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/11/2020
+ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e73eae4d66f4ff94a48dfa27e258f8ba8ef87633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94ff7ddda41f2df2634d927a7dbf8a5a0d4fc1d8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126751"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681420"
 ---
 # <a name="localization"></a>Localização
 
@@ -146,65 +146,190 @@ O elemento **LocalizedString** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| ElementType | Sim | Uma referência a um elemento do tipo de reclamação ou a um elemento de interface do utilizador na política. Valores `ClaimType`possíveis: `Predicate`, `GetLocalizedStringsTransformationClaimType` `UxElement`, `ErrorMessage`ou . O `ClaimType` valor é utilizado para localizar um dos atributos de reclamação, conforme especificado no StringId. O `UxElement` valor é utilizado para localizar um dos elementos da interface do utilizador, conforme especificado no StringId. O `ErrorMessage` valor é utilizado para localizar uma das mensagens de erro do sistema, conforme especificado no StringId. O `Predicate` valor é utilizado para localizar uma das mensagens de erro [predicadas,](predicates.md) conforme especificado no StringId. O `InputValidation` valor é utilizado para localizar uma das mensagens de erro do grupo [PredicateValidação,](predicates.md) conforme especificado no StringId. O `GetLocalizedStringsTransformationClaimType` valor é usado para copiar cordas localizadas em sinistros. Para mais informações, consulte [GetLocalizedStringsTransformation reivindica a transformação](string-transformations.md#getlocalizedstringstransformation)  | 
+| ElementType | Sim | Valores possíveis: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicado](#predicate), [Validação de Entrada](#inputvalidation), ou [UxElement](#uxelement).   | 
 | Elementide | Sim | Se o **ElementType** `Predicate`estiver `InputValidation`definido para, `ClaimType`ou , este elemento contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema. |
 | Cadeia | Sim | Se o **ElementType** estiver `ClaimType`definido, este elemento contém uma referência a um atributo de um tipo de reclamação. Valores `DisplayName`possíveis: , `AdminHelpText`ou `PatternHelpText`. O `DisplayName` valor é utilizado para definir o nome do display de reclamação. O `AdminHelpText` valor é utilizado para definir o nome de texto de ajuda do utilizador da reclamação. O `PatternHelpText` valor é usado para definir o texto de ajuda do padrão de reclamação. Se o **ElementType** estiver `UxElement`definido, este elemento contém uma referência a um atributo de um elemento de interface do utilizador. Se o **ElementType** estiver `ErrorMessage`definido, este elemento especifica o identificador de uma mensagem de erro. Consulte [as identificações](localization-string-ids.md) de cordas de `UxElement` localização para obter uma lista completa dos identificadores.|
 
+## <a name="elementtype"></a>ElementType
 
-O exemplo seguinte mostra uma página de inscrição localizada. Os três primeiros valores **da Configuração da Cadeia Localizada** definiram o atributo de reclamação. O terceiro altera o valor do botão de continuação. O último muda a mensagem de erro.
+O ElementType refere-se a um tipo de reclamação, a uma transformação de reclamações ou a um elemento de interface do utilizador na política a ser localizada.
 
-```XML
-<LocalizedResources Id="api.selfasserted.en">
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-  </LocalizedStrings>
-</LocalizedResources>
-```
+| Elemento para localizar | ElementType | Elementide |Cadeia |
+| --------- | -------- | ----------- |----------- |
+| Nome do fornecedor de identidade |`ClaimsProvider`| | A identificação do elemento ClaimsExchange|
+| Atributos do tipo de reclamação|`ClaimType`|Nome do tipo de reclamação| O atributo da reivindicação a ser localizada. Valores `AdminHelpText`possíveis: , `DisplayName`, `PatternHelpText`e `UserHelpText`.|
+|Mensagem de erro|`ErrorMessage`||A identificação da mensagem de erro |
+|Cópias de cordas localizadas em sinistros|`GetLocalizedStringsTra nsformationClaimType`||O nome da reivindicação de saída|
+|Mensagem de utilizador predicada|`Predicate`|O nome do predicado| O atributo do predicado a ser localizado. Valores `HelpText`possíveis: .|
+|Mensagem de utilizador do grupo predicado|`InputValidation`|Identificação do elemento Predicado Validação.|A identificação do elemento PredicadoGroup. O grupo predicado deve ser uma criança do elemento de validação predicado, tal como definido no ElementId.|
+|Elementos da interface de utilizador |`UxElement` | | A identificação do elemento interface do utilizador a ser localizada.|
 
-O exemplo seguinte mostra um **UserHelpText** de **Predicado** localizado com Id `IsLengthBetween8And64`. E um **UserHelpText** localizado do **PredicadoGroup** com Id `CharacterClasses` de **Predicado Validação** com Id `StrongPassword`.
+## <a name="examples"></a>Exemplos
 
-```XML
-<PredicateValidation Id="StrongPassword">
-  <PredicateGroups>
-    ...
-    <PredicateGroup Id="CharacterClasses">
-    ...
-    </PredicateGroup>
-  </PredicateGroups>
-</PredicateValidation>
+### <a name="claimsprovider"></a>ReclamaçõesProvedor
 
-...
+O valor reclamação é utilizado para localizar um dos fornecedores de reclamações a exibir o nome. 
 
-<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
+```xml
+<OrchestrationStep Order="2" Type="ClaimsExchange">
   ...
-</Predicate>
-...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
+  </ClaimsExchanges>
+</OrchestrationStep>
 
-
-<LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
-
-<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>
 ```
 
-## <a name="set-up-localization"></a>Configurar a localização
+O exemplo que se segue mostra como localizar o nome de exibição dos fornecedores de reclamações.
 
-Este artigo mostra-lhe como apoiar vários locais ou idiomas na política para viagens de utilizador. A localização requer três passos: configurar a lista explícita das línguas suportadas, fornecer cordas e coleções específicas da linguagem e editar a Definição de Conteúdo para a página.
+```xml
+<LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
+<LocalizedString ElementType="ClaimsProvider" StringId="GoogleExchange">Google</LocalizedString>
+<LocalizedString ElementType="ClaimsProvider" StringId="LinkedInExchange">LinkedIn</LocalizedString>
+```
 
-### <a name="set-up-the-explicit-list-of-supported-languages"></a>Configurar a lista explícita de línguas apoiadas
+### <a name="claimtype"></a>Tipo de reclamação
 
-Sob o elemento **BuildingBlocks,** adicione o elemento **Localização** com a lista de idiomas suportados. O exemplo que se segue mostra como definir o suporte de localização tanto para inglês (padrão) como para espanhol:
+O valor Do ClaimType é utilizado para localizar um dos atributos de reclamação. 
+
+```xml
+<ClaimType Id="email">
+  <DisplayName>Email Address</DisplayName>
+  <DataType>string</DataType>
+  <UserHelpText>Email address that can be used to contact you.</UserHelpText>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
+```
+
+O exemplo seguinte mostra como localizar os atributos DisplayName, UserHelpText e PatternHelpText do tipo de pedido de e-mail.
 
 ```XML
-<Localization Enabled="true">
-  <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
-    <SupportedLanguage>en</SupportedLanguage>
-    <SupportedLanguage>es</SupportedLanguage>
-  </SupportedLanguages>
-</Localization>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
+```
+
+### <a name="errormessage"></a>Mensagem de erro
+
+O valor ErrorMessage é utilizado para localizar uma das mensagens de erro do sistema. 
+
+```xml
+<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
+  <Metadata>
+    <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+    <Item Key="UserMessageIfClaimsPrincipalAlreadyExists">You are already registered, please press the back button and sign in instead.</Item>
+  </Metadata>
+  ...
+</TechnicalProfile>
+```
+
+O exemplo que se segue mostra como localizar a mensagem de erro UserMessageIfClaimsPrincipalAlreadyExiste uma mensagem de erro.
+
+
+```XML
+<LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
+```
+
+### <a name="getlocalizedstringstransformationclaimtype"></a>GetLocalizedStringsTransformationClaimType
+
+O valor GetLocalizedStringsTransformationClaimType é usado para copiar cordas localizadas em sinistros. Para mais informações, consulte [GetLocalizedStringsTransformation reivindica a transformação](string-transformations.md#getlocalizedstringstransformation)
+
+
+```xml
+<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+   </OutputClaims>
+</ClaimsTransformation>
+```
+
+O exemplo seguinte mostra como localizar as alegações de saída da GetLocalizedStringsTransformation reivindica a transformação.
+
+```xml
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for verifying your account!</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+```
+
+### <a name="predicate"></a>Predicado
+
+O valor predicado é utilizado para localizar uma das mensagens de erro [predicadas.](predicates.md) 
+
+```xml
+<Predicates>
+  <Predicate Id="LengthRange" Method="IsLengthRange"  HelpText="The password must be between 6 and 64 characters.">
+    <Parameters>
+      <Parameter Id="Minimum">6</Parameter>
+      <Parameter Id="Maximum">64</Parameter>
+    </Parameters>
+  </Predicate>
+  <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
+    <Parameters>
+      <Parameter Id="CharacterSet">a-z</Parameter>
+    </Parameters>
+  </Predicate>
+  <Predicate Id="Uppercase" Method="IncludesCharacters" HelpText="an uppercase letter">
+    <Parameters>
+      <Parameter Id="CharacterSet">A-Z</Parameter>
+    </Parameters>
+  </Predicate>
+</Predicates>
+```
+
+O exemplo que se segue mostra como localizar predicados ajudam o texto.
+
+```xml
+<LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 6 and 64 characters.</LocalizedString>
+<LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">a lowercase letter</LocalizedString>
+<LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
+```
+
+### <a name="inputvalidation"></a>Validação de Entrada
+
+O valor de validação de entrada é utilizado para localizar uma das mensagens de erro do grupo [PredicateValidação.](predicates.md) 
+
+```xml
+<PredicateValidations>
+  <PredicateValidation Id="CustomPassword">
+    <PredicateGroups>
+      <PredicateGroup Id="LengthGroup">
+        <PredicateReferences MatchAtLeast="1">
+          <PredicateReference Id="LengthRange" />
+        </PredicateReferences>
+      </PredicateGroup>
+      <PredicateGroup Id="CharacterClasses">
+        <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+        <PredicateReferences MatchAtLeast="3">
+          <PredicateReference Id="Lowercase" />
+          <PredicateReference Id="Uppercase" />
+          <PredicateReference Id="Number" />
+          <PredicateReference Id="Symbol" />
+        </PredicateReferences>
+      </PredicateGroup>
+    </PredicateGroups>
+  </PredicateValidation>
+</PredicateValidations>
+```
+
+O exemplo que se segue mostra como localizar um grupo de validação predicado ajuda texto.
+
+```XML
+<LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
+```
+
+### <a name="uxelement"></a>UxElement
+
+O valor UxElement é utilizado para localizar um dos elementos da interface do utilizador. O exemplo que se segue mostra como localizar os botões de continuação e cancelamento.
+
+```XML
+<LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
+<LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

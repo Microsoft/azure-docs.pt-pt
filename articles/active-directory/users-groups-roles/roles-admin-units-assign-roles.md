@@ -14,18 +14,18 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a518ff070ea021726ee382169e87cca55cad36d0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c900b2a363a4ff271e7a436b358ecf170daca163
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428254"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687028"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções de âmbito a uma unidade administrativa
 
 No Azure Ative Directory (Azure AD), pode atribuir aos utilizadores uma função Azure AD com um âmbito limitado a uma ou mais unidades administrativas (UA) para um controlo administrativo mais granular.
 
-Para obter medidas para se preparar para utilizar powerShell e Microsoft Graph para gestão de unidades administrativas, consulte [Iniciar -](roles-admin-units-manage.md#getting-started)
+Para que as medidas se preparem para utilizar o PowerShell e o Microsoft Graph para gestão de unidades administrativas, consulte [Iniciar](roles-admin-units-manage.md#get-started).
 
 ## <a name="roles-available"></a>Funções disponíveis
 

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 768fa9ca2080fc9a58fb321e62d8d61a608f9564
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7a0f0b96f8140118f1c74ecbd4368aac49d7ece6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415262"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684299"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades transatas de mercado comercial
 
@@ -202,11 +202,11 @@ Quando são selecionados os modelos de preços pay-as-You-Go, a Microsoft atua c
 * Os clientes normalmente compram usando o Acordo de Empresa ou um cartão de crédito habilitado a pagar como você-go acordo. O tipo de acordo determina a faturação, faturação, cobrança e pagamento.
 
 >[!NOTE]
->Todos os relatórios e insights para a opção de publicação transacte estão disponíveis através da secção Insights do Portal do Parceiro cloud ou da secção Analytics do Partner Center.
+>Todos os relatórios e insights para a opção de publicação transacte estão disponíveis através da secção Analytics do Partner Center.
 
 #### <a name="billing-questions-and-support"></a>Perguntas de faturação e apoio
 
-Para obter mais informações e políticas legais, consulte o [Acordo de Editor](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (disponível no Portal do Parceiro cloud).
+Para obter mais informações e políticas legais, consulte o Acordo de [Editor](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (disponível no Partner Center).
 
 Para obter ajuda em questões de faturação, contacte o suporte da [editora do mercado comercial.](https://aka.ms/marketplacepublishersupport)
 

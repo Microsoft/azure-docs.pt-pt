@@ -3,12 +3,12 @@ title: Perguntas sobre descoberta, avaliação e análise de dependência em Azu
 description: Obtenha respostas a perguntas comuns sobre descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 700e5318b66cdf4993a17b1dae85fb43f75ab035
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: b4b2a50bc88768d46c82f6bce73447dc901e5dfd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81529778"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681908"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -28,6 +28,10 @@ Reveja as geografias apoiadas para as nuvens [públicas](migrate-support-matrix.
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quantos VMs posso descobrir com um aparelho?
 
 Pode descobrir até 10.000 VMware VMs, até 5.000 VMs Hiper-V e até 250 servidores físicos utilizando um único aparelho. Se tiver mais máquinas, leia sobre [a escala de uma avaliação Hyper-V,](scale-hyper-v-assessment.md) [dimensionando uma avaliação vMware,](scale-vmware-assessment.md)ou [escalando uma avaliação do servidor físico](scale-physical-assessment.md).
+
+## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Não consigo ver alguns tipos de VM no Governo Azure
+
+Os tipos vM apoiados para avaliação e migração dependem da disponibilidade na localização do Governo Azure. Pode [rever e comparar](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) tipos de VM no Governo Azure.
 
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>O tamanho do meu VM mudou. Posso fazer uma avaliação de novo?
@@ -87,7 +91,7 @@ As avaliações baseadas em importações são avaliações criadas com máquina
 A visualização da dependência pode ajudá-lo a avaliar grupos de VMs para migrar com maior confiança. A visualização da dependência cruza as dependências das máquinas antes de fazer uma avaliação. Ajuda a garantir que nada é deixado para trás, e ajuda a evitar interrupções inesperadas quando migra para Azure. A Azure Migrate utiliza a solução Service Map no Monitor Azure para permitir a visualização da dependência. [Saiba mais](concepts-dependency-visualization.md).
 
 > [!NOTE]
-> A visualização da dependência não está disponível no Governo de Azure.
+> A análise da dependência baseada em agentes não está disponível no Governo de Azure. Pode usar a análise de dependência sem agente
 
 ## <a name="whats-the-difference-between-agent-based-and-agentless"></a>Qual é a diferença entre a sede de agente e o agente?
 

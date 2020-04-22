@@ -12,21 +12,18 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ac630c4901c126ed883adbdc7efb03f36372e6ff
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: e5e462c52c8b06af6da5081f84a082138cd53a3f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535881"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677937"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização OAuth 2.0
 
 A concessão de código de autorização OAuth 2.0 pode ser utilizada em aplicações instaladas num dispositivo para ter acesso a recursos protegidos, como apis web. Utilizando a implementação da plataforma de identidade Microsoft do OAuth 2.0, pode adicionar acesso de sessão e Acesso API às suas aplicações móveis e desktop. Este guia é independente da linguagem e descreve como enviar e receber mensagens HTTP sem utilizar nenhuma das [bibliotecas de autenticação de código aberto Azure.](reference-v2-libraries.md)
 
 Este artigo descreve como programar diretamente contra o protocolo na sua aplicação.  Sempre que possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas em vez de adquirir fichas e ligar para [APIs web protegidos](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também as [aplicações de amostra que utilizam o MSAL.](sample-v2-code.md)
-
-> [!NOTE]
-> Nem todos os cenários do Diretório Ativo do Azure & funcionalidades são suportadas pelo ponto final da plataforma de identidade da Microsoft. Para determinar se deve utilizar o ponto final da plataforma de identidade da Microsoft, leia sobre [as limitações](active-directory-v2-limitations.md)da plataforma de identidade da Microsoft .
 
 O fluxo de código de autorização OAuth 2.0 é descrito na [secção 4.1 da especificação OAuth 2.0](https://tools.ietf.org/html/rfc6749). É usado para realizar autenticação e autorização na maioria dos tipos de aplicações, incluindo [aplicações web](v2-app-types.md#web-apps) e [aplicações instaladas de forma nativa.](v2-app-types.md#mobile-and-native-apps) O fluxo permite que as aplicações adquiram de forma segura access_tokens que podem ser usadas para aceder a recursos protegidos pelo ponto final da plataforma de identidade da Microsoft.
 

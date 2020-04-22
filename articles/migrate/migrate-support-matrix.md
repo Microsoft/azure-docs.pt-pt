@@ -2,14 +2,14 @@
 title: Matriz de suporte de migração Azure
 description: Fornece um resumo das definições de suporte e limitações para o serviço Azure Migrate.
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: 0f766bf95bb7e26d942e7dde3f315bbef6d5dc5c
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 44a971894f53a3f31c068b3c3ed4912bc7e00dab
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535201"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680705"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte de migração Azure
 
@@ -25,6 +25,8 @@ A tabela resume cenários de descoberta, avaliação e migração.
 **Avaliação no local** | Avaliar as cargas de trabalho no local e os dados em execução em VMware VMs, VMs Hiper-V e servidores físicos. Avaliar utilizando a Avaliação do Servidor Migratório Azure e o Microsoft Data Migration Assistant (DMA), bem como outras ferramentas e ofertas ISV.
 **Migração no local para Azure** | Migrar cargas de trabalho e dados em servidores físicos, VMware VMs, VMs Hiper-V, servidores físicos e VMS baseadoem em nuvem para Azure. Migrar utilizando a Avaliação do Servidor Migratório Azure e o Serviço de Migração de Bases de Dados Azure (DMS), bem como outras ferramentas e ofertas ISV.
 
+> [!NOTE]
+> Atualmente, as ferramentas ISV não podem enviar dados para o Azure Migrate no Governo Azure. Pode utilizar ferramentas integradas da Microsoft ou utilizar ferramentas parceiras de forma independente.
 
 ## <a name="supported-tools"></a>Ferramentas suportadas
 
@@ -93,7 +95,7 @@ Estados Unidos | Centro dos EUA ou Oeste DOS EUA 2
 **Tarefa** | **Geografia** | **Detalhes**
 --- | --- | ---
 Criar o projeto | Estados Unidos | Metadados são armazenados em US Gov Arizona, EUA Gov Virginia
-Avaliação do objetivo | Estados Unidos | Regiões-alvo: US Gov Arizona, EUA Gov Virginia/EUA Gov Texas
+Avaliação do objetivo | Estados Unidos | Regiões-alvo: US Gov Arizona, EUA Gov Virginia, EUA Gov Texas
 Replicação do alvo | Estados Unidos | Regiões-alvo: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
 

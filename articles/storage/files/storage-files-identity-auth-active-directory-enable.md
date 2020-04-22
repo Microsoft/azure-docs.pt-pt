@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.author: rogarana
-ms.openlocfilehash: 8d1e1262c592f0120b191e18a5c16b97b887a6a2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 44debc299054568769bfbe6cfc089cc528594274
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536540"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677081"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Ativar no local a autenticação de Serviços de Domínio ativo de diretório ativo sobre SMB para ações de ficheiros Azure
 
@@ -68,11 +68,7 @@ Antes de ativar a autenticação AD DS para as ações de ficheiros Azure, certi
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A autenticação dos Ficheiros Azure com DS AD (pré-visualização) está disponível na maioria das [regiões públicas.](https://azure.microsoft.com/global-infrastructure/regions/)
-
-A autenticação de Ficheiros Azure com DS AD no local não está disponível em:
-- E.U.A. Oeste
-
+A autenticação dos Ficheiros Azure com DS AD (pré-visualização) está disponível em [todas as regiões públicas e regiões de Azure Gov.](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 
@@ -84,13 +80,13 @@ Em seguida, siga os passos abaixo para configurar ficheiros Azure para autentica
 
 1. Ativar a autenticação AD DS dos Ficheiros Azure na sua conta de armazenamento. 
 
-1. Atribuir permissões de acesso para uma parte da identidade Azure AD (utilizador, grupo ou diretor de serviço) que esteja em sintonia com a identidade ad.a do target. 
+2. Atribuir permissões de acesso para uma parte da identidade Azure AD (utilizador, grupo ou diretor de serviço) que esteja em sintonia com a identidade ad.a do target. 
 
-1. Configure OS ACLs em SMB para diretórios e ficheiros. 
+3. Configure OS ACLs em SMB para diretórios e ficheiros. 
  
-1. Monte uma partilha de ficheiros Azure num VM que se juntou ao seu DS AD. 
+4. Monte uma partilha de ficheiros Azure num VM que se juntou ao seu DS AD. 
 
-1. Atualize a palavra-passe da sua identidade de conta de armazenamento em DS AD.
+5. Atualize a palavra-passe da sua identidade de conta de armazenamento em DS AD.
 
 O diagrama que se segue ilustra o fluxo de trabalho de ponta a ponta para permitir a autenticação da AD Azure sobre a SMB para partilhas de ficheiros Azure. 
 

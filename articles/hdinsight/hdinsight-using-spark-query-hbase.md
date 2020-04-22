@@ -7,25 +7,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/24/2020
-ms.openlocfilehash: 888f24e13ce67c878592068927383dd8cbfefa60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 4f2e8b2a691a6b17b5ed075745d556db4e330535
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623094"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682472"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utilizar o Apache Spark para ler e escrever dados do Apache HBase
 
-Apache HBase é tipicamente consultado com a sua API de baixo nível (digitalizações, recebe e coloca) ou com uma sintaxe SQL usando Apache Phoenix. A Apache também fornece o Conector HBase Apache Spark, que é uma alternativa conveniente e performante para consulta e modificação de dados armazenados pela HBase.
+Apache HBase é tipicamente consultado com a sua API de baixo nível (digitalizações, recebe e coloca) ou com uma sintaxe SQL usando Apache Phoenix. A Apache também fornece o Conector HBase Apache Spark. O Conector é uma alternativa conveniente e performante para consultar e modificar os dados armazenados pela HBase.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Dois clusters HDInsight separados implantados na mesma [rede virtual](./hdinsight-plan-virtual-network-deployment.md). Uma HBase e uma Faísca com pelo menos spark 2.1 (HDInsight 3.6) instalada. Para obter mais informações, consulte [Create Linux clusters em HDInsight utilizando o portal Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* Um cliente SSH. Para mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando O SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* O [esquema URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário dos seus clusters. Este esquema seria wasb:// para o Armazenamento de Blob Azure, abfs:// para o Azure Data Lake Storage Gen2 ou adl:// para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para `wasbs://`o Armazenamento Blob, o URI seria .  Ver também, [transferência segura.](../storage/common/storage-require-secure-transfer.md)
+* O esquema URI para o armazenamento primário dos seus clusters. Este esquema seria wasb:// para o `abfs://` armazenamento de Blob Azure, para o Azure Data Lake Storage Gen2 ou adl:// para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para `wasbs://`o Armazenamento Blob, o URI seria .  Ver também, [transferência segura.](../storage/common/storage-require-secure-transfer.md)
 
 ## <a name="overall-process"></a>Processo geral
 
@@ -152,7 +150,7 @@ Neste passo, você define um objeto de catálogo que mapeia o esquema de Apache 
     |}""".stripMargin
     ```
 
-    O código faz o seguinte:  
+    O código faz os seguintes atos:  
 
      a. Defina um esquema de catálogo para `Contacts`a tabela HBase chamada .  
      b. Identifique a tecla `key`de linha como , e mapeie os nomes da coluna utilizados em Spark para a família da coluna, nome da coluna e tipo de coluna como usado na Base H.  

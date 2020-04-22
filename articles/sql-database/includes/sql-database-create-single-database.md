@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: mathoma
 ms.reviewer: vanto
-ms.openlocfilehash: c1ca87b6e7b8afb50522e73107707e15782a0a91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563ac8748e9d4f8a254a151814491113b9c816e6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79199932"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685147"
 ---
 Neste passo, cria-se um servidor de base de dados Azure SQL e uma única base de dados que utiliza dados da amostra AdventureWorksLT. Pode criar a base de dados utilizando menus e ecrãs do portal Azure, ou utilizando um script Azure CLI ou PowerShell na Casca de Nuvem Azure.
 
@@ -75,7 +75,7 @@ Para criar um grupo de recursos, servidor SQL e única base de dados no portal A
    
 1. Depois de rever as definições, selecione **Criar**.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Pode criar um grupo de recursos Azure, servidor SQL e base de dados única utilizando a interface de linha de comando Azure (Azure CLI). Se não quiser utilizar a Casca de Nuvem Azure, instale o [Azure CLI](/cli/azure/install-azure-cli) no seu computador.
 
@@ -106,7 +106,7 @@ location=westus2
 adminlogin=azureuser
 password=Azure1234567
 
-# Set a logical server name that is unique in the system
+# Set a logical server name that is unique to Azure DNS (<server_name>.database.windows.net)
 servername=server-$RANDOM
 
 # Set the ip address range that can access your database
