@@ -641,6 +641,10 @@
       items:
         - name: Processar macrodados
           href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Integrar com os serviços do Azure
+          href: ../blobs/data-lake-storage-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Filtrar dados com a aceleração de consultas
+          href: data-lake-storage-query-acceleration.md
         - name: Controlador do Sistema de Ficheiros de Blobs do Azure para o Hadoop
           href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: URI do Sistema de Ficheiros de Blobs do Azure
@@ -790,6 +794,10 @@
               href: data-lake-storage-explorer.md
             - name: CLI do Sistema de Ficheiros do Hadoop
               href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Consulta
+          items:
+            - name: Filtrar dados com a aceleração de consultas
+              href: data-lake-storage-query-acceleration-how-to.md
         - name: Transferir
           items:
             - name: AzCopy
@@ -838,6 +846,8 @@
           href: 'https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6'
         - name: REST
           href: /rest/api/storageservices/data-lake-storage-gen2
+        - name: Aceleração de consultas
+          href: query-acceleration-sql-reference.md
         - name: AzCopy v10
           items:
             - name: azcopy

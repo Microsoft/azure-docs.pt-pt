@@ -208,6 +208,8 @@
           href: how-to-connect-pta-quick-start.md
         - name: FAQ da autenticação pass-through
           href: how-to-connect-pta-faq.md
+        - name: Desativar a PTA com o Azure AD Connect "Não configurar"
+          href: how-to-connect-pta-disable-do-not-configure.md
     - name: Gerir os Serviços de Federação
       items:
         - name: Gerir a federação com o Azure AD Connect

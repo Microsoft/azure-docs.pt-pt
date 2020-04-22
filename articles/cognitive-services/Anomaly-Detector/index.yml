@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: 82755c42ecc46c2d6bcc7ec3362f43a594923693
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 26632aebbd6cddd1463064b397a2f42071a5d518
+  ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "79415931"
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "81757297"
 landingContent:
 - title: Sobre a API do Detetor de Anomalias
   linkLists:
@@ -49,9 +49,11 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar C#
-      url: quickstarts/detect-data-anomalies-csharp-sdk.md
+      url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
+    - text: Utilizar o JavaScript
+      url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
     - text: Utilizar o Python
-      url: quickstarts/detect-data-anomalies-python-sdk.md
+      url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
   - linkListType: tutorial
     links:
     - text: Visualizar anomalias utilizando a deteção de lote e o Power BI

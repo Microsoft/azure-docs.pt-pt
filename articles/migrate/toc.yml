@@ -96,14 +96,16 @@
       href: how-to-assess.md
     - name: Implementar a aplicação do Azure Migrate
       items:
-        - name: Implementar a aplicação para VMware (OVA)
+        - name: Implementar a aplicação com o modelo (VMware)
           href: how-to-set-up-appliance-vmware.md
-        - name: Implementar a aplicação para Hyper-V (VHD)
+        - name: Implementar a aplicação com o modelo (Hyper-V)
           href: how-to-set-up-appliance-hyper-v.md
-        - name: Implementar a aplicação para VMware/Hyper-V (script)
+        - name: Implementar a aplicação com o script (VMware/Hyper-V)
           href: deploy-appliance-script.md
         - name: Implementar a aplicação para servidores físicos
           href: how-to-set-up-appliance-physical.md
+        - name: Implementar a aplicação no Azure Government
+          href: deploy-appliance-script-government.md
     - name: Limitar o âmbito de deteção para VMs VMware
       href: set-discovery-scope.md
     - name: Detetar aplicações/funções/funcionalidades

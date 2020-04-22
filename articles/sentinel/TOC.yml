@@ -87,7 +87,7 @@
             - name: Soluções baseadas em CEF
               href: connect-common-event-format.md
               items:
-                - name: "PASSO\_1: Implementar o agente"
+                - name: PASSO 1 Implementar o reencaminhador de registos
                   href: connect-cef-agent.md
                 - name: "PASSO\_2: Configurar a solução de segurança"
                   href: connect-cef-solution-config.md

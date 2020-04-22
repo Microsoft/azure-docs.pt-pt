@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 3535f1cb5f8901c0da629e7d2ef4f2a045d714f2
-  ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+  ms.openlocfilehash: a833fc4c8c3115b3ec0d51787b62503f73e8c863
+  ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "81604910"
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "81757314"
 highlightedContent:
   items:
   - title: O que é o serviço de Voz?
@@ -69,7 +69,7 @@ conceptualContent:
       text: Traduzir voz para texto
       url: quickstarts/translate-speech-to-text.md
     - itemType: quickstart
-      text: Traduzir voz para vários idiomas de destino
+      text: Traduzir voz para vários idiomas
       url: quickstarts/translate-speech-to-text-multiple-languages.md
     - itemType: how-to-guide
       text: Noções básicas de tradução de voz

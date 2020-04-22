@@ -6,370 +6,258 @@
       href: automation-intro.md
     - name: FAQ
       href: automation-faq.md
-- name: Conta de Automatização
+- name: Guias de Início Rápido
   items:
     - name: Criar uma conta de Automatização
       href: automation-quickstart-create-account.md
-    - name: Criar uma conta de Automatização autónoma
-      href: automation-create-standalone-account.md
-    - name: Gerir uma conta Run As de Automatização
-      href: manage-runas-account.md
-      displayName: certificate renewal
-    - name: Gerir controlo de acesso baseado em funções
-      href: automation-role-based-access-control.md
-      displayName: RBAC
-    - name: Utilizar o Azure AD para autenticar no Azure
-      href: automation-use-azure-ad.md
-    - name: Gerir os serviços do Office 365
-      href: manage-office-365.md
-    - name: Autenticar runbooks da Automatização do Azure com o Amazon Web Services
-      href: automation-config-aws-account.md
-    - name: Encriptar recursos seguros na Automatização do Azure
-      href: automation-secure-asset-encryption.md
-    - name: Mover a sua Conta de Automatização para outra subscrição
-      href: how-to/move-account.md
-    - name: Automatizar a integração dos serviços de Automatização
-      href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
-    - name: Gerir os dados da Automatização do Azure
-      href: automation-managing-data.md
-      displayName: backup
-    - name: Regiões suportadas para os mapeamentos da área de trabalho do Log Analytics
-      href: how-to/region-mappings.md
-    - name: Resolução de problemas
-      items:
-        - name: Resolução de problemas da conta de automatização
-          href: troubleshoot/automation-account.md
-          displayName: troubleshoot
-- name: Automatização de Processos
+    - name: Criar runbook do PowerShell
+      href: automation-quickstart-create-runbook.md
+    - name: Ativar o Desired State Configuration para um computador
+      href: automation-quickstart-dsc-configuration.md
+- name: Tutoriais
   items:
-    - name: Execução de runbooks na Automatização do Azure
+    - name: Criar um runbook Gráfico
+      href: learn/automation-tutorial-runbook-graphical.md
+    - name: Criar runbook do PowerShell
+      href: learn/automation-tutorial-runbook-textual-powershell.md
+    - name: Criar um runbook de fluxo de trabalho do PowerShell
+      href: learn/automation-tutorial-runbook-textual.md
+    - name: Criar um runbook de Python
+      href: learn/automation-tutorial-runbook-textual-python2.md
+- name: Conceitos
+  items:
+    - name: Descrição geral da execução de runbooks
       href: automation-runbook-execution.md
-      displayName: 'fair share, activity log'
-    - name: Descrição Geral da Função de Trabalho de Runbook Híbrida
+    - name: Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)
       href: automation-hybrid-runbook-worker.md
-    - name: Galeria de runbooks
-      href: automation-runbook-gallery.md
-    - name: Conceitos
+    - name: Tipos de runbook de automatização
+      href: automation-runbook-types.md
+    - name: DSC do PowerShell
+      href: /powershell/scripting/dsc/overview/overview
+    - name: Segurança de dados
       items:
-        - name: Tipos de runbooks
-          href: automation-runbook-types.md
-          displayName: 'graphical, python, powershell, powershell workflow'
-        - name: Conhecer o Fluxo de Trabalho do PowerShell
-          href: automation-powershell-workflow.md
-    - name: Guias de Início Rápido
+        - name: Encriptação de recursos seguros
+          href: automation-secure-asset-encryption.md
+        - name: Gestão dos dados da Automatização do Azure
+          href: automation-managing-data.md
+- name: Guias de procedimentos
+  items:
+    - name: Conta de Automatização
       items:
-        - name: Criar um runbook
-          href: automation-quickstart-create-runbook.md
-    - name: Guias de Procedimentos
+        - name: Criar uma conta de Automatização com o portal do Azure
+          href: automation-create-standalone-account.md
+        - name: Criar uma conta de Automatização com o modelo do Resource Manager
+          href: automation-create-account-template.md
+        - name: Gerir uma conta Run As de Automatização
+          href: manage-runas-account.md
+        - name: Gerir permissões e segurança de funções
+          href: automation-role-based-access-control.md
+        - name: Mover a conta de Automatização para outra subscrição
+          href: how-to/move-account.md
+        - name: Migrar a partir do System Center Orchestrator
+          href: automation-orchestrator-migration.md
+    - name: Recursos partilhados
       items:
-        - name: Iniciar/parar VMs fora do horário de expediente
+        - name: Gerir certificados
+          href: shared-resources/certificates.md
+        - name: Gerir ligações
+          href: automation-connections.md
+        - name: Gerir credenciais
+          href: shared-resources/credentials.md
+        - name: Gerir os módulos do PowerShell
           items:
-            - name: Descrição geral
-              href: automation-solution-vm-management.md
-            - name: Ativar a solução
-              href: automation-solution-vm-management-enable.md
-            - name: Configurar a solução
-              href: automation-solution-vm-management-config.md
-            - name: Analisar dados com consultas de registo
-              href: automation-solution-vm-management-logs.md
+            - name: Utilizar módulos na Automatização do Azure
+              href: shared-resources/modules.md
+            - name: Atualizar módulos do Azure PowerShell
+              href: automation-update-azure-modules.md
+        - name: Gerir agendamentos
+          href: shared-resources/schedules.md
+        - name: Gerir variáveis
+          href: shared-resources/variables.md
+        - name: Gerir pacotes do Python 2
+          href: python-packages.md
+        - name: Resolver problemas dos recursos partilhados
+          href: troubleshoot/shared-resources.md
+    - name: Automatização de processos
+      items:
+        - name: Encontrar runbooks e módulos na Galeria do PowerShell
+          href: automation-runbook-gallery.md
+        - name: Saiba mais sobre o Fluxo de Trabalho do PowerShell
+          href: automation-powershell-workflow.md
         - name: Gerir runbooks
           href: manage-runbooks.md
-        - name: Criar runbooks
-          items:
-            - name: Criar e importar runbooks
-              href: automation-creating-importing-runbook.md
-            - name: Runbook gráfico
-              href: automation-first-runbook-graphical.md
-            - name: Runbook do PowerShell
-              href: automation-first-runbook-textual-powershell.md
-            - name: Runbook de fluxo de trabalho do PowerShell
-              href: automation-first-runbook-textual.md
-            - name: Runbook de Python
-              href: automation-first-runbook-textual-python2.md
-            - name: Criar runbooks com o SDK de Runbook gráfico
-              href: graphical-runbook-sdk.md
-        - name: Editar runbooks
+        - name: Criar e executar runbooks
           items:
             - name: Editar runbooks textuais
               href: automation-edit-textual-runbook.md
-              displayName: powershell
-            - name: Editar runbooks gráficos
+            - name: Editar runbooks Gráficos
               href: automation-graphical-authoring-intro.md
-        - name: Iniciar runbooks
-          items:
-            - name: Testar um runbook
-              href: automation-testing-runbook.md
-            - name: Iniciar um runbook
-              href: automation-starting-a-runbook.md
-            - name: Iniciar um runbook a partir de um webhook
-              href: automation-webhooks.md
+            - name: Criar runbooks modulares
+              href: automation-child-runbooks.md
             - name: Configurar parâmetros de entrada do runbook
               href: runbook-input-parameters.md
-            - name: Runbooks subordinados
-              href: automation-child-runbooks.md
-            - name: Passar um objeto JSON para um runbook da Automatização do Azure
-              href: automation-pass-json-string.md
+            - name: Testar um runbook
+              href: manage-runbooks.md
+            - name: Iniciar um runbook
+              href: start-runbooks.md
+            - name: Iniciar um runbook a partir de um webhook
+              href: automation-webhooks.md
+            - name: Controlar ficheiros atualizados com tarefas de observador
+              href: automation-watchers-tutorial.md
+            - name: Trabalhar com o SDK do runbook Gráfico
+              href: graphical-runbook-sdk.md
         - name: Monitorizar runbooks
           items:
-            - name: Resultado do runbook
+            - name: Monitorizar o resultado do runbook
               href: automation-runbook-output-and-messages.md
-              displayName: 'message streams, progress records, preference'
             - name: Processamento de erros em runbooks gráficos
               href: automation-runbook-graphical-error-handling.md
-        - name: Função de Trabalho de Runbook Híbrida
+            - name: Reencaminhar dados de tarefa para os Registos do Azure Monitor
+              href: automation-manage-send-joblogs-log-analytics.md
+        - name: Resolução de problemas
+          items:
+            - name: Resolver problemas de runbooks
+              href: troubleshoot/runbooks.md
+            - name: Dados a recolher antes de abrir um incidente de suporte
+              href: troubleshoot/collect-data-microsoft-azure-automation-case.md
+        - name: Trabalhar com uma Função de Trabalho de Runbook Híbrida
           items:
             - name: Implementar Função de Trabalho de Runbook Híbrida do Windows
               href: automation-windows-hrw-install.md
             - name: Implementar Função de Trabalho de Runbook Híbrida do Linux
               href: automation-linux-hrw-install.md
-              displayName: signature validation
-            - name: Executar runbooks numa Função de Trabalho de Runbook Híbrida
+            - name: Executar runbooks na Função de Trabalho de Runbook Híbrida
               href: automation-hrw-run-runbooks.md
-              displayName: signed runbooks
-            - name: Controlar ficheiros atualizados com tarefas de observador
-              href: automation-watchers-tutorial.md
-              displayName: 'hybrid runbook worker, hybrid worker, trigger'
-        - name: Integração do Controlo de Origem
+            - name: Resolver problemas de Função de Trabalho de Runbook Híbrida
+              href: troubleshoot/hybrid-runbook-worker.md
+        - name: Utilizar a integração do controlo de código fonte
+          href: source-control-integration.md
+    - name: Gestão da Configuração
+      items:
+        - name: Gerir o State Configuration (DSC)
           items:
-            - name: Integração do controlo de origem
-              href: source-control-integration.md
-              displayName: 'github, vsts, azure devops, personal access token'
-            - name: Integração do controlo de origem - legado
-              href: source-control-integration-legacy.md
-    - name: Resolução de problemas
+            - name: Descrição geral
+              href: automation-dsc-overview.md
+            - name: Introdução ao State Configuration
+              href: automation-dsc-getting-started.md
+            - name: Integrar computadores para gestão
+              href: automation-dsc-onboarding.md
+            - name: Configurar computadores para um estado pretendido
+              href: tutorial-configure-servers-desired-state.md
+            - name: Compilar configurações DSC
+              href: automation-dsc-compile.md
+            - name: Remediar desfasamentos de configuração
+              href: automation-dsc-remediate.md
+            - name: Compor configurações DSC
+              href: compose-configurationwithcompositeresources.md
+            - name: Configurar a implementação contínua com o Chocolatey
+              href: automation-dsc-cd-chocolatey.md
+            - name: Integrar com os Registos do Azure Monitor
+              href: automation-dsc-diagnostics.md
+            - name: Resolver problemas do DSC
+              href: troubleshoot/desired-state-configuration.md
+        - name: Gerir o Controlo de Alterações e o Inventário
+          items:
+            - name: Descrição geral
+              href: change-tracking.md
+            - name: Regiões suportadas para a área de trabalho do Log Analytics ligada
+              href: how-to/region-mappings.md
+            - name: Ativar o Controlo de Alterações e Inventário
+              items:
+                - name: Utilizar o portal do Azure
+                  href: automation-onboard-solutions-from-browse.md
+                - name: A partir de uma VM do Azure
+                  href: automation-onboard-solutions-from-vm.md
+                - name: A partir de uma conta de Automatização
+                  href: automation-onboard-solutions-from-automation-account.md
+                - name: A partir de um runbook de Automatização
+                  href: automation-onboard-solutions.md
+            - name: Ver os conteúdos de ficheiros controlados
+              href: change-tracking-file-contents.md
+            - name: Gerir a recolha de inventário a partir de VMs
+              href: automation-vm-inventory.md
+            - name: Resolução de problemas
+              items:
+                - name: Inclusão
+                  href: troubleshoot/onboarding.md
+                - name: Utilizar o Controlo de Alterações e o Inventário
+                  href: troubleshoot/change-tracking.md
+    - name: Iniciar/Parar VMs durante horas de inatividade
       items:
-        - name: Dados a recolher quando abre um incidente da Automatização do Microsoft Azure
-          href: troubleshoot/collect-data-microsoft-azure-automation-case.md
-        - name: Resolver problemas de Função de Trabalho de Runbook Híbrida
-          href: troubleshoot/hybrid-runbook-worker.md
-          displayName: 'troubleshoot, HRW, hybrid worker'
-        - name: Resolver Problemas de Runbooks
-          href: troubleshoot/runbooks.md
-          displayName: troubleshoot
-        - name: Iniciar/Parar VMs
+        - name: Descrição geral
+          href: automation-solution-vm-management.md
+        - name: Regiões suportadas para a área de trabalho do Log Analytics ligada
+          href: how-to/region-mappings.md
+        - name: Ativar
+          href: automation-solution-vm-management-enable.md
+        - name: Configurar
+          href: automation-solution-vm-management-config.md
+        - name: Analisar dados com consultas de registo
+          href: automation-solution-vm-management-logs.md
+        - name: Resolução de problemas
           href: troubleshoot/start-stop-vm.md
-- name: Gestão de Atualizações
-  items:
-    - name: Descrição geral da Gestão de Atualizações
-      href: automation-update-management.md
-      displayName: 'dynamic groups, pre scripts, post scripts, reboot control, first party, pre download, inclusion'
-    - name: Inclusão
+    - name: Gestão de Atualizações
       items:
-        - name: Utilizar um modelo do Resource Manager
-          href: automation-update-management-deploy-template.md
-        - name: Incluir várias VMs a partir do portal
-          href: automation-onboard-solutions-from-browse.md
-        - name: Inclusão a partir de uma VM do Azure
-          href: automation-onboard-solutions-from-vm.md
-        - name: Inclusão a partir da conta de automatização
-          href: automation-onboard-solutions-from-automation-account.md
-    - name: Guias de Procedimentos
-      items:
-        - name: Gerir atualizações e correções das suas Máquinas Virtuais do Azure
+        - name: Descrição geral
+          href: automation-update-management.md
+        - name: Regiões suportadas para a área de trabalho do Log Analytics ligada
+          href: how-to/region-mappings.md
+        - name: Ativar
+          items:
+            - name: Utilizar um modelo do Resource Manager
+              href: automation-update-management-deploy-template.md
+            - name: Utilizar o portal do Azure
+              href: automation-onboard-solutions-from-browse.md
+            - name: A partir de uma VM do Azure
+              href: automation-onboard-solutions-from-vm.md
+            - name: A partir de uma conta de Automatização
+              href: automation-onboard-solutions-from-automation-account.md
+        - name: Gerir atualizações das suas VMs do Azure
           href: automation-tutorial-update-management.md
         - name: Gerir atualizações de várias VMs
           href: manage-update-multi.md
-        - name: Scripts prévios e posteriores
+        - name: Ver avaliações de atualizações
+          href: automation-view-update-assessments.md
+        - name: Gerir scripts prévios e posteriores
           href: pre-post-scripts.md
-        - name: Migrar de implementações de atualizações do OMS para o Azure
-          href: migrate-oms-update-deployments.md
-        - name: Integrar o SCCM com a Gestão de Atualizações
-          href: oms-solution-updatemgmt-sccmintegration.md
-          displayName: Configuration Manager
-        - name: Configurar o Windows Update para a Gestão de Atualizações
+        - name: Integrar no Configuration Manager
+          href: updatemgmt-mecmintegration.md
+        - name: Configurar o cliente do Windows Update
           href: automation-configure-windows-update.md
-        - name: Utilizar grupos dinâmicos com a Gestão de Atualizações
+        - name: Utilizar grupos dinâmicos
           href: automation-update-management-groups.md
         - name: Consultar os registos da Gestão de Atualizações
           href: automation-update-management-query-logs.md
-        - name: Ver avaliações de atualizações
-          href: automation-view-update-assessments.md
-    - name: Resolução de problemas
-      items:
-        - name: Inclusão
-          href: troubleshoot/onboarding.md
-          displayName: troubleshoot
-        - name: Resolver Problemas da Gestão de Atualizações
-          href: troubleshoot/update-management.md
-          displayName: troubleshoot
-        - name: Resolver problemas de Atualização de Agente
+        - name: Resolução de problemas
           items:
-            - name: Windows
+            - name: Inclusão
+              href: troubleshoot/onboarding.md
+            - name: Utilizar a Gestão de Atualizações
+              href: troubleshoot/update-management.md
+            - name: Resolver problemas do agente do Windows Update
               href: troubleshoot/update-agent-issues.md
-              displayName: 'update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, windows'
-            - name: Linux
+            - name: Resolver problemas do agente da Atualização do Linux
               href: troubleshoot/update-agent-issues-linux.md
-              displayName: 'update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, linux'
-- name: Monitorização de Alterações
-  items:
-    - name: Descrição Geral do Controlo de Alterações
-      href: change-tracking.md
-      displayName: 'wildcard, recursion, environment variables, registry'
-    - name: Inclusão
+    - name: Cenários de vários componentes
       items:
-        - name: Incluir várias VMs a partir do portal
-          href: automation-onboard-solutions-from-browse.md
-        - name: Inclusão a partir de uma VM do Azure
-          href: automation-onboard-solutions-from-vm.md
-        - name: Inclusão a partir da conta de automatização
-          href: automation-onboard-solutions-from-automation-account.md
-    - name: Guias de Procedimentos
-      items:
-        - name: Carregar atualização e controlo de alterações por runbook
-          href: automation-onboard-solutions.md
-        - name: Ver os conteúdos de ficheiro de ficheiros controlados
-          href: change-tracking-file-contents.md
-          displayName: 'change tracking, hash'
-    - name: Resolução de problemas
-      items:
-        - name: Inclusão
-          href: troubleshoot/onboarding.md
-          displayName: troubleshoot
-        - name: Resolver Problemas do Controlo de Alterações e do Inventário
-          href: troubleshoot/change-tracking.md
-          displayName: troubleshoot
-- name: Inventário
-  items:
-    - name: Inclusão
-      items:
-        - name: Incluir várias VMs a partir do portal
-          href: automation-onboard-solutions-from-browse.md
-        - name: Inclusão a partir de uma VM do Azure
-          href: automation-onboard-solutions-from-vm.md
-        - name: Inclusão a partir da conta de automatização
-          href: automation-onboard-solutions-from-automation-account.md
-    - name: Guias de Procedimentos
-      items:
-        - name: Gerir uma VM com a recolha de inventário
-          href: automation-vm-inventory.md
-          displayName: inventory
-        - name: Resolver problemas relacionados com alterações numa VM
-          href: automation-tutorial-troubleshoot-changes.md
-          displayName: inventory
-    - name: Resolução de problemas
-      items:
-        - name: Inclusão
-          href: troubleshoot/onboarding.md
-          displayName: troubleshoot
-- name: Configuração de Estado (DSC)
-  items:
-    - name: Descrição geral da Configuração de Estado
-      href: automation-dsc-overview.md
-      displayName: DSC
-    - name: Conceitos
-      items:
-        - name: DSC do PowerShell
-          href: /powershell/scripting/dsc/overview/overview
-    - name: Guias de Início Rápido
-      items:
-        - name: Introdução
-          href: automation-dsc-getting-started.md
-          displayName: DSC
-        - name: Gerir a configuração de uma máquina
-          href: automation-quickstart-dsc-configuration.md
-          displayName: 'DSC, state configuration, config, node configuration, node'
-    - name: Inclusão
-      items:
-        - name: Integrar computadores para gestão
-          href: automation-dsc-onboarding.md
-          displayName: 'DSC, state configuration'
-    - name: Guias de Procedimentos
-      items:
-        - name: Configurar servidores para um estado pretendido e gerir desvios com o Estado de Configuração
-          href: tutorial-configure-servers-desired-state.md
-          displayName: 'DSC, compliance'
-        - name: Compilar configurações DSC
-          href: automation-dsc-compile.md
-          displayName: 'state configuration, composite resources, configurationData'
-        - name: Remediar servidores DSC não compatíveis
-          href: automation-dsc-remediate.md
-          displayName: 'state configuration, DSC, remediate'
-        - name: Compor configurações DSC com recursos compostos
-          href: compose-configurationwithcompositeresources.md
-        - name: Fornecer implementação contínua com Chocolatey
-          href: automation-dsc-cd-chocolatey.md
-          displayName: 'dsc, state configuration'
-        - name: Reencaminhar a comunicação de dados da Configuração de Estado para os registos do Azure Monitor
-          href: automation-dsc-diagnostics.md
-          displayName: DSC
-    - name: Resolução de problemas
-      items:
-        - name: Resolver problemas de inclusão
-          href: troubleshoot/onboarding.md
-          displayName: troubleshoot
-        - name: Resolver Problemas do State Configuration (DSC)
-          href: troubleshoot/desired-state-configuration.md
-          displayName: 'state configuration, DSC, troubleshoot'
-    - name: Referência
-      items:
-        - name: Soluções da Comunidade
-          items:
-            - name: Dados de configuração à escala
-              href: automation-dsc-config-data-at-scale.md
-              displayName: 'DSC, Configuration Data, ConfigData'
-            - name: Criar configurações a partir de servidores
-              href: automation-dsc-config-from-server.md
-              displayName: 'DSC, ReverseDSC'
-            - name: Configuração baseada em STIG
-              href: automation-dsc-configuration-based-on-stig.md
-              displayName: 'DSC, Configuration'
-            - name: Converter configurações em recursos compostos
-              href: automation-dsc-create-composite.md
-              displayName: 'DSC, composite'
-- name: Gerir Recursos Partilhados
-  items:
-    - name: Certificados
-      href: shared-resources/certificates.md
-    - name: Ligações
-      href: automation-connections.md
-    - name: Credenciais
-      href: shared-resources/credentials.md
-    - name: Módulos do PowerShell
-      items:
-        - name: Utilizar módulos na Automatização do Azure
-          href: shared-resources/modules.md
-        - name: Suporte do módulo Az na Automatização do Azure
-          href: az-modules.md
-        - name: Atualizar módulos do Azure PowerShell
-          href: automation-update-azure-modules.md
-    - name: Agendas
-      href: shared-resources/schedules.md
-    - name: Variáveis
-      href: shared-resources/variables.md
-    - name: Gerir pacotes do Python 2
-      href: python-packages.md
-    - name: Resolver Problemas dos Recursos Partilhados
-      href: troubleshoot/shared-resources.md
-      displayName: 'module, import'
-- name: Cenários de Vários Componentes
-  items:
-    - name: Enviar um e-mail a partir de um Runbook com o SendGrid
-      href: automation-send-email.md
-    - name: Monitorizar runbooks com alertas de métrica
-      href: automation-alert-metric.md
-    - name: Iniciar um runbook a partir dos alertas do Azure
-      href: automation-create-alert-triggered-runbook.md
-      displayName: 'Monitor, Azure Monitor'
-    - name: Criar uma VM do Amazon Web Service
-      href: automation-scenario-aws-deployment.md
-      displayName: 'VSTS, CI, runbooks'
-    - name: Implementar um modelo do Azure Resource Manager num runbook do PowerShell da Automatização do Azure
-      href: automation-deploy-template-runbook.md
-    - name: Integrar a Automatização do Azure com a Event Grid e o Microsoft Teams
-      href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
-    - name: Criar e agendar o runbook da Automatização do Azure que inicia/para o Azure-SSIS IR
-      href: '../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir'
-- name: Monitorizar
-  items:
-    - name: Reencaminhar dados de tarefa da Automatização do Azure para o Log Analytics
-      href: automation-manage-send-joblogs-log-analytics.md
-    - name: Regiões suportadas para mapeamentos de área de trabalho do Log Analytics
-      href: how-to/region-mappings.md
-- name: Migrar
-  items:
-    - name: Migrar do Orchestrator
-      href: automation-orchestrator-migration.md
-      displayName: 'SCORCH, runbooks'
+        - name: Enviar um e-mail a partir de um runbook
+          href: automation-send-email.md
+        - name: Monitorizar runbooks com alerta de métrica
+          href: automation-alert-metric.md
+        - name: Acionar um runbook a partir do alerta do Azure
+          href: automation-create-alert-triggered-runbook.md
+        - name: Gerir os serviços do Office 365
+          href: manage-office-365.md
+        - name: Autenticar runbooks com o Amazon Web Services
+          href: automation-config-aws-account.md
+        - name: Implementar uma VM do AWS com um runbook de Automatização
+          href: automation-scenario-aws-deployment.md
+        - name: Implementar um modelo do Resource Manager com um runbook
+          href: automation-deploy-template-runbook.md
+        - name: Integrar com o Event Grid e o Microsoft Teams
+          href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md
+        - name: Automatizar o arranque/paragem do Azure-SSIS IR
+          href: '../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir'
 - name: Referência
   items:
     - name: Azure PowerShell

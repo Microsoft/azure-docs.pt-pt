@@ -39,7 +39,7 @@
               href: sql-api-java-get-started.md
             - name: Java assíncrono
               href: sql-api-async-java-get-started.md
-            - name: Aplicação de exemplo ponto a ponto de Java assíncrono
+            - name: Exemplo de Java assíncrono com feed de alterações
               href: create-sql-api-java-changefeed.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
@@ -599,6 +599,8 @@
               href: cassandra-import-data.md
         - name: Conceitos
           items:
+            - name: FAQ
+              href: cassandra-faq.md
             - name: Dimensionamento elástico
               href: manage-scale-cassandra.md
             - name: Índices Secundários
@@ -608,7 +610,7 @@
             - name: Feed de alterações
               href: cassandra-change-feed.md
             - name: Armazenar e gerir o Spring Data
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
+              href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Cassandra e Spark
               items:
                 - name: Introdução
@@ -719,7 +721,7 @@
             - name: Gerir a indexação de dados
               href: mongodb-indexing.md
             - name: Armazenar e gerir o Spring Data
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
+              href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Comandos de extensão do MongoDB
               href: mongodb-custom-commands.md
               displayName: custom commands
@@ -778,7 +780,7 @@
             - name: Visualizar dados de gráfico
               href: graph-visualization.md
             - name: Armazenar e gerir o Spring Data
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
+              href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Gerir com modelos do Resource Manager
               href: manage-gremlin-with-resource-manager.md
               displayName: ARM
@@ -1092,9 +1094,9 @@
         - name: Os Hubs de Eventos do Azure e o Armazenamento do Azure
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: Utilizar o Spring Boot Starter
-          href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
+          href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
         - name: Guia para programadores do Spring Data
-          href: 'https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context'
+          href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context'
         - name: Controlador ODBC
           href: odbc-driver.md
     - name: Migrar dados para o Cosmos DB
