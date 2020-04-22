@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8e6fd4955d6d68764895619efd968a957bcb5184
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 2126996620d6f891dde4e7530c057d2c7f31a996
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460601"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676678"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Ficheiros de armazenamento de consulta utilizando recursos sql on-demand (pré-visualização) dentro do Synapse SQL
 
@@ -62,7 +62,7 @@ Consulte [as pastas De consulta e vários ficheiros](query-folders-multiple-csv-
 
 Para consultar os dados de fonte do Parquet, utilize o FORMAT = 'PARQUET'
 
-```sql
+```syntaxsql
 OPENROWSET
 (
     { BULK 'data_file' ,
@@ -121,7 +121,6 @@ Ao omitir a cláusula COM da declaração OPENROWSET, pode instruir o serviço a
 ```sql
 OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
-
 ```
 
 ### <a name="filename-function"></a>Função nome de ficheiro
@@ -163,7 +162,7 @@ Para aceder a elementos aninhados de uma coluna aninhada, como o Struct, use "no
 
 O exemplo do fragmento de sintaxe é o seguinte:
 
-```sql
+```syntaxsql
     OPENROWSET
     (   BULK 'unstructured_data_path' ,
         FORMAT = 'PARQUET' )
@@ -197,7 +196,7 @@ Para aceder a elementos não escalar a partir de uma coluna repetida, utilize a 
 
 Consulte o fragmento de sintaxe abaixo:
 
-```sql
+```syntaxsql
     SELECT
        { JSON_VALUE (column_name, path_to_sub_element), }
        { JSON_QUERY (column_name [ , path_to_sub_element ]), )
@@ -215,9 +214,9 @@ Pode encontrar amostras de consulta para aceder a elementos de colunas repetidas
 Para obter mais informações sobre como consultar diferentes tipos de ficheiros e criar e utilizar pontos de vista, consulte os seguintes artigos:
 
 - [Consulta single CSV arquivo](query-single-csv-file.md)
-- [Arquivos De Consulta Parquet](query-parquet-files.md)
-- [Consulta de ficheiros JSON](query-json-files.md)
-- [Tipos aninhados de Parquet de consulta](query-parquet-nested-types.md)
+- [Consultar ficheiros de Parquet](query-parquet-files.md)
+- [Consultar ficheiros JSON](query-json-files.md)
+- [Consultar tipos aninhados de Parquet](query-parquet-nested-types.md)
 - [Questiões e vários ficheiros CSV](query-folders-multiple-csv-files.md)
 - [Utilizar metadados de ficheiros em consultas](query-specific-files.md)
-- [Criar e usar vistas](create-use-views.md)
+- [Criar e utilizar vistas](create-use-views.md)

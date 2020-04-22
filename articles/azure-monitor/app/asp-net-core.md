@@ -3,12 +3,12 @@ title: Insights de aplicação azure para aplicações ASP.NET Core Microsoft Do
 description: Monitorize ASP.NET aplicações web Core para disponibilidade, desempenho e utilização.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: d6a0e507022452f1491e71651ba3bc8db3d1c090
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1a9a81d76df7f14fb99b8521e7bfa2edff6c9e9e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284794"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687376"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de aplicação para aplicações ASP.NET Core
 
@@ -162,11 +162,11 @@ Os passos anteriores são suficientes para ajudá-lo a começar a recolher a tel
     
 Em alternativa, `FullScript` a `ScriptBody` utilização do está disponível a partir do SDK v2.14. Utilize isto se precisar `<script>` de controlar a etiqueta para definir uma Política de Segurança de Conteúdo:
 
-    ```cshtml
-        <script> // apply custom changes to this script tag.
-            @Html.Raw(JavaScriptSnippet.ScriptBody)
-        </script>
-    ```
+```cshtml
+ <script> // apply custom changes to this script tag.
+     @Html.Raw(JavaScriptSnippet.ScriptBody)
+ </script>
+```
 
 Os `.cshtml` nomes de ficheiros referenciados anteriormente são de um modelo de aplicação padrão do MVC. Em última análise, se pretender ativar adequadamente a monitorização do lado do cliente `<head>` para a sua aplicação, o corte JavaScript deve aparecer na secção de cada página da sua aplicação que pretende monitorizar. Pode atingir este objetivo para este modelo de aplicação `_Layout.cshtml`adicionando o snippet JavaScript a . 
 

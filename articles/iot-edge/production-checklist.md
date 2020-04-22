@@ -8,12 +8,15 @@ ms.date: 4/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6bc74e82dd04e5845e95bdec5c841d0264dd1d3e
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: f1de8330b950ffa09ce3e8ae168f05021b2ad80c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115090"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729460"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implementar a sua solução IoT Edge em produção
 

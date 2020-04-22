@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: e17a76d5a017400287644ad2da46caa5b6636654
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3979be6f49f4ad01a6092fc0d5aa767d342c4642
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262303"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730496"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migração da conta do Cloud Partner Portal para o Centro de Parceiros
 
@@ -47,7 +47,7 @@ Clique no banner para iniciar o processo de migração da sua conta. Espera-se q
 
 As empresas que queiram fazer parceria com a Microsoft devem juntar-se à Microsoft Partner Network (MPN) e obter um ID MPN. Se já é membro da Microsoft Partner Network e tem um ID MPN, mantenha a informação à mão, pois necessitará durante o processo de ativação da conta.  
 
-Se não for membro da Microsoft Partner Network, pode [juntar-se aqui](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/en-us/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) para obter uma identificação de MPN. Tome nota da sua identificação mpn, pois terá de o introduzir durante o processo de ativação da conta.
+Se não for membro da Microsoft Partner Network, pode [juntar-se aqui](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) para obter uma identificação de MPN. Tome nota da sua identificação mpn, pois terá de o introduzir durante o processo de ativação da conta.
 
 Para saber mais sobre a Microsoft Partner Network, consulte [Join the Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) no site do parceiro. Para saber mais sobre os benefícios do ISV na Rede de Parceiros da Microsoft, consulte o [IsV Resource Hub](https://partner.microsoft.com/isv-resource-hub).  
 
@@ -61,7 +61,7 @@ Para obter informações específicas sobre o que precisa de ser feito até 15 d
 > Isto não se aplica às ofertas da Dynamics 365 Business Central.  
 
 1. Se a sua conta de adesão à MPN foi originalmente criada no Partner Membership Center (PMC), inscreva-se no [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) para confirmar que a sua conta foi migrada. Se vir um ecrã de perfil com a sua identificação mpn, está pronto para continuar. Caso contrário, tem de iniciar a sua migração de conta seguindo as indicações no [Centro de Adesão](https://partners.microsoft.com/partnerprogram/Welcome.aspx)ao Parceiro . Se precisar de ajuda, visite [o apoio.](https://partner.microsoft.com/support?issueid=100-0077)
-2. Vá à página de visão geral do [Mercado Comercial no Partner Center.](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) Se vir "Mercado Comercial" no painel de navegação à esquerda, está matriculado e deve continuar até ao próximo passo. Caso contrário, [inscreva-se no mercado comercial](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) agora.
+2. Vá à página de visão geral do [Mercado Comercial no Partner Center.](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) Se vir "Mercado Comercial" no painel de navegação à esquerda, está matriculado e deve continuar até ao próximo passo. Caso contrário, [inscreva-se no mercado comercial](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) agora.
 3. Confirme que as suas ofertas estão no AppSource [procurando as suas ofertas.](https://appsource.microsoft.com/) Se as suas ofertas já estiverem no AppSource, continue para o próximo passo. Para qualquer oferta que não seja no AppSource, crie uma nova oferta de Envolvimento com o [Cliente Dynamics 365](create-new-customer-engagement-offer.md) ou uma nova oferta de [Operações Dynamics 365.](create-new-operations-offer.md)
 4. Na página de [Acordos](https://partner.microsoft.com/dashboard/account/agreements)do Partner Center, certifique-se de que reviu e aceitou a **Addendum ISV Addendum de Aplicações Empresariais**.
 5. Nas [definições](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile)de Conta do Partner Center, certifique-se de que as informações de faturação estão completas.
@@ -73,10 +73,10 @@ Para obter informações específicas sobre o que precisa de ser feito até 15 d
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-Junte-se à chamada semanal da [comunidade Dynamics ISV](https://aka.ms/DynamicsISV-CommunityCall) para apoio e atualizações.
+Obtenha ajuda de especialistas e pares em fóruns e descubra blogs, webinars, vídeos, eventos e muito mais no [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 
-Se precisar de ajuda para publicar, certificar ou gerir as suas ofertas de marketplace, envie um bilhete de [apoio.](https://aka.ms/MarketplacePublisherSupport)
+Se precisar de ajuda para publicar, certificar ou gerir as suas ofertas de marketplace, envie um bilhete de [apoio.](https://partner.microsoft.com/support/v2/?stage=1)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-step"></a>Passo seguinte
 
 - [Gerencie a sua conta de mercado comercial no Partner Center](./manage-account.md)

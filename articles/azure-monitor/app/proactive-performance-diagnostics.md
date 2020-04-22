@@ -4,12 +4,12 @@ description: Application Insights realiza uma análise inteligente da sua teleme
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671737"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687709"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção Inteligente - Anomalias de Desempenho
 
@@ -71,7 +71,7 @@ Os e-mails sobre anomalias de desempenho de Deteções Inteligentes estão limit
 
   * Ainda não, mas pode:
     * [Instale alertas](../../azure-monitor/app/alerts.md) que lhe digam quando uma métrica atravessa um limiar.
-    * [Exportar telemetria](../../azure-monitor/app/export-telemetry.md) para uma [base de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) ou para o [PowerBI,](../../azure-monitor/app/export-power-bi.md )onde pode analisá-la por si mesma.
+    * [Exportar telemetria](../../azure-monitor/app/export-telemetry.md) para uma [base de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) ou para O Power [BI,](../../azure-monitor/app/export-power-bi.md )onde você pode analisá-la por si mesmo.
 * *Com que frequência é feita a análise?*
 
   * Executamos a análise diariamente sobre a telemetria do dia anterior (dia inteiro no fuso horário UTC).
@@ -125,11 +125,11 @@ A notificação de degradação do tempo de resposta diz-lhe:
   * Os rastreios do profiler para ajudá-lo a ver onde o tempo de funcionamento é gasto (o link está disponível se os exemplos de perfis foram recolhidos para esta operação durante o período de deteção). 
   * Relatórios de desempenho no Metric Explorer, onde pode cortar e picar intervalo/filtros para esta operação.
   * Procure por esta chamada para ver propriedades de chamada específicas.
-  * Relatórios de falhas - Se a contagem > 1 isto significa que houve falhas nesta operação que poderiam ter contribuído para a degradação do desempenho.
+  * Relatórios de falha - Se a contagem > 1 isto significa que houve falhas nesta operação que poderiam ter contribuído para a degradação do desempenho.
 
 ## <a name="dependency-duration-degradation"></a>Degradação da duração da dependência
 
-Aplicações modernas adotam cada vez mais a abordagem de conceção de micro serviços, o que, em muitos casos, leva a uma forte fiabilidade nos serviços externos. Por exemplo, se a sua aplicação depender de alguma plataforma de dados ou mesmo se construir o seu próprio serviço de bots provavelmente transmitirá em algum fornecedor de serviços cognitivos para permitir que os seus bots interajam de formas mais humanas e algum serviço de loja de dados para o bot puxar as respostas De.  
+As aplicações modernas adotam cada vez mais uma abordagem de conceção de micro serviços, o que, em muitos casos, conduz a uma forte fiabilidade nos serviços externos. Por exemplo, se a sua aplicação depender de alguma plataforma de dados ou mesmo se construir o seu próprio serviço de bots provavelmente transmitirá em algum fornecedor de serviços cognitivos para permitir que os seus bots interajam de formas mais humanas e algum serviço de loja de dados para o bot retirar as respostas.  
 
 Notificação de degradação da dependência de exemplo:
 
@@ -174,7 +174,7 @@ Modifique a gama de tempo e os filtros para explorar a telemetria.
 Estas ferramentas de diagnóstico ajudam-no a inspecionar a telemetria da sua aplicação:
 
 * [Gerador de perfis](profiler.md) 
-* [Depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md)
+* [Debugger instantâneo](../../azure-monitor/app/snapshot-debugger.md)
 * [Análise](../../azure-monitor/log-query/get-started-portal.md)
 * [Diagnósticos inteligentes de análise](../../azure-monitor/app/analytics.md)
 

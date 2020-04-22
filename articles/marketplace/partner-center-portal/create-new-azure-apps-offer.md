@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 6b7ca1f10744bf38137c57d94d796655946c31b3
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: a62551b31c51836dfa50534ee6db907c8a4e111a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390353"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730623"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -64,7 +64,7 @@ Reveja a seguinte documentação da aplicação Azure, que fornece Quickstarts, 
 * Tutoriais:
 
     * [Criar ficheiros de definição](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-    * [Publicar a aplicação do mercado](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
+    * [Publicar a aplicação do marketplace](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
 * Amostras:
 
@@ -293,7 +293,7 @@ Este plano deve ser disponibilizado em pelo menos uma nuvem.
 
 Selecione a opção **Public Azure** para tornar a sua solução implantável para clientes em todas as regiões públicas do Azure que tenham integração no Marketplace.  Saiba mais sobre [disponibilidade geográfica.](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
 
-Selecione a opção **Azure Government Cloud** para tornar a sua solução implantável na [Nuvem do Governo Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), uma nuvem governamental-comunidade com acesso controlado para clientes do Estado Federal, Estadual, local ou tribal dos EUA e parceiros elegíveis para servir estas entidades.  Você, como editor, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas para servir esta comunidade de nuvem.  O Governo azure utiliza centros e redes de dados fisicamente isolados (localizados apenas nos EUA).  Antes de publicar no [Governo Do Azure,](https://aka.ms/azuregovpublish)a Microsoft recomenda que teste e valide a sua solução no ambiente, uma vez que determinados pontos finais podem diferir. Para encenar e testar a sua solução, solicite uma conta de teste a partir deste [link](https://azure.microsoft.com/global-infrastructure/government/request/).
+Selecione a opção **Azure Government Cloud** para tornar a sua solução implantável na [Nuvem do Governo Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), uma nuvem governamental-comunidade com acesso controlado para clientes do Estado Federal, Estadual, local ou tribal dos EUA e parceiros elegíveis para servir estas entidades.  Você, como editor, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas para servir esta comunidade de nuvem.  O Governo azure utiliza centros e redes de dados fisicamente isolados (localizados apenas nos EUA).  Antes de publicar no [Governo Do Azure,](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)a Microsoft recomenda que teste e valide a sua solução no ambiente, uma vez que determinados pontos finais podem diferir. Para encenar e testar a sua solução, solicite uma conta de teste a partir deste [link](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 >[!Note]
 >Uma vez que um plano é publicado como disponível numa nuvem específica, essa nuvem não pode ser removida.

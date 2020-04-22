@@ -1,21 +1,21 @@
 ---
-title: Guia técnico de publicação de aplicações do Azure Marketplace SaaS
+title: Guia de publicação de aplicações azure Marketplace SaaS
 description: Guia passo a passo e listas de verificação para publicação de aplicações SaaS no Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: keithcharlie
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: kevidal
-ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.author: dsindona
+ms.openlocfilehash: 1bc2feb4d8f3f103802bd823c66cd3f54ac5d74a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544288"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687546"
 ---
-# <a name="saas-applications-offer-publishing-guide"></a>Guia de Publicação das Ofertas de aplicações SaaS
+# <a name="saas-applications-offer-publishing-guide"></a>SaaS aplica guia de publicação
 
 As aplicações SaaS podem ser publicadas no mercado com três chamadas diferentes para a ação: "Contacte-me", "Experimente agora", e "Get It Now". Este guia explica estas três opções, incluindo requisitos para cada um. 
 
@@ -110,8 +110,8 @@ Certifique a sua integração de AD Azure de várias maneiras, dependendo se a s
 **Para candidaturas multi-arrendatárias:**  
 
 Se já apoia a Azure AD, faça o seguinte:
-1.  Registe a sua candidatura no portal Azure
-2.  Ative a funcionalidade de suporte multi-arrendamento em Azure AD para obter uma experiência de teste de "um clique". Informações mais específicas podem ser encontradas [aqui.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)  
+1.    Registe a sua candidatura no portal Azure
+2.    Ative a funcionalidade de suporte multi-arrendamento em Azure AD para obter uma experiência de teste de "um clique". Informações mais específicas podem ser encontradas [aqui.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)  
 
 Se é novo no Azure AD Federated SSO, faça o seguinte: 
 1.  Registe a sua candidatura no portal Azure
@@ -144,9 +144,9 @@ A Microsoft é a anfitriã da transação de comércio. A Microsoft cobra ao seu
 ## <a name="next-steps"></a>Passos seguintes
 Se ainda não o fez,
 
-- [Registe-se](https://azuremarketplace.microsoft.com/sell) no mercado.
+* [Saiba](https://azuremarketplace.microsoft.com/sell) mais sobre o mercado.
 
-Se está registado e está a criar uma nova oferta ou a trabalhar numa já existente,
+Para se registar no Partner Center, comece a criar uma nova oferta ou a trabalhar numa existente:
 
-- [Inicie sessão no Cloud Partner Portal](https://cloudpartner.azure.com) para criar ou completar a sua oferta.
-- Consulte a oferta de candidatura do [Azure SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) para mais informações.
+* [Inscreva-se no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou completar a sua oferta.
+* Consulte a criação de uma oferta de [aplicação SaaS](./partner-center-portal/create-new-saas-offer.md) para mais informações.

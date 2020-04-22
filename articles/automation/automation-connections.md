@@ -1,18 +1,18 @@
 ---
-title: Recursos de ligações na Automatização do Azure
+title: Gerir ligações na Automação Azure
 description: Os ativos de ligação na Automatização Azure contêm as informações necessárias para se ligarem a um serviço ou aplicação externo a partir de um livro de execução ou de uma configuração DSC. Este artigo explica os detalhes das ligações e como trabalhar com eles tanto na autoria textual como gráfica.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: d1ce59322b0cbfaf5a4f7b31371f0d0929a3a3ab
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 90d4ec1bbfd0d76ffedf1505c9147376e3947c3c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457727"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729046"
 ---
-# <a name="connection-assets-in-azure-automation"></a>Recursos de ligações na Automatização do Azure
+# <a name="manage-connections-in-azure-automation"></a>Gerir ligações na Automação Azure
 
 Um ativo de ligação automation contém as informações necessárias para se ligar a um serviço ou aplicação externo a partir de um livro de execução ou de uma configuração DSC. Isto pode incluir informações necessárias para a autenticação, tais como um nome de utilizador e uma senha, além de informações de ligação, como um URL ou uma porta. O valor de uma ligação é manter todas as propriedades para ligar a uma determinada aplicação em um ativo em oposição à criação de múltiplas variáveis. O utilizador pode editar os valores para uma ligação num só local, e pode passar o nome de uma ligação a um livro de execução ou configuração DSC num único parâmetro. As propriedades para uma ligação podem ser acedidas na `Get-AutomationConnection` configuração do livro de execução ou DSC com a atividade.
 

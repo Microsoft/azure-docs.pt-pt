@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c5fb585d0eb6aeb7866c2ab04b324ee31fe903ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658054"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687334"
 ---
 # <a name="workbook-text-parameters"></a>Parâmetros de texto do livro
 
@@ -59,6 +59,8 @@ Uma utilização comum das caixas de texto é como variáveis internas utilizada
 
     ![Imagem mostrando um parâmetro de texto referenciado em KQL](./media/workbooks-text/text-reference.png)
 
+> [!NOTE]
+> No exemplo acima, `{SlowRequestThreshold}` representa um valor inteiro. Se estivesse a pedir uma `{ComputerName}` corda como esta teria de modificar a sua `"{ComputerName}"` consulta kusto para adicionar aspas para que o campo de parâmetros fosse aceite sem citações.
 
 ## <a name="setting-default-values"></a>Definição de valores predefinidos
 1. Comece com um livro vazio no modo de edição.

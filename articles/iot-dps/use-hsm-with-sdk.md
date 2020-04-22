@@ -7,13 +7,15 @@ ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: c85d958074ea5d41d32f71350164c3c983e372a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- mvc
+- amqp
+ms.openlocfilehash: c110e90f26f595bcbf181b72e13f12a6de2fa8ce
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74976660"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687214"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Como utilizar diferentes mecanismos de atestado com o SDK do Cliente do Serviço Aprovisionamento de Dispositivos para C
 

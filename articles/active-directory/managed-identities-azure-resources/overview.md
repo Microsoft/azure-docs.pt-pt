@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/25/2020
+ms.date: 04/18/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f599ee3303ab907c319d1f8cf3da3e427a4c4c0b
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81639655"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682581"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Quais são as identidades geridas para os recursos do Azure?
 

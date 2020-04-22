@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 62d63b24baab204cb029565b109ea2de768e1d80
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ef933ae9a6b0a34529c7ec145b13c023728a3457
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78165447"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731861"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Quickstart: Construa e empurre imagens de contentores de Java para o Registo de Contentores de Azure
 
@@ -163,7 +163,7 @@ Para outras versões das imagens base java suportadas pela Microsoft, consulte:
 Para saber mais sobre o Spring e o Azure, avance para o centro de documentação relativa ao Spring no Azure.
 
 > [!div class="nextstepaction"]
-> [Spring no Azure](/azure/java/spring-framework)
+> [Spring no Azure](/azure/developer/java/spring-framework)
 
 ### <a name="additional-resources"></a>Recursos Adicionais
 
@@ -173,5 +173,5 @@ Para obter mais informações, consulte os seguintes recursos:
 * [Working with Azure DevOps and Java](/azure/devops/java) (Trabalhar com o Azure DevOps e Java)
 * [Introdução ao Spring Boot no Docker](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
-* [Deploy a Spring Boot Application to the Azure App Service](/azure/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin) (Implementar uma Aplicação Spring Boot no Serviço de Aplicações do Azure)
+* [Deploy a Spring Boot Application to the Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin) (Implementar uma Aplicação Spring Boot no Serviço de Aplicações do Azure)
 * [Utilizar uma imagem personalizada do Docker para as Aplicações Web do Azure no Linux](/azure/app-service-web/app-service-linux-using-custom-docker-image)

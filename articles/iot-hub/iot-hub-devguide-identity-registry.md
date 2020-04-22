@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.openlocfilehash: ccb840caea5d28975daaf8cbf6f0d4985bdf006d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 2ef259bf76815fdf8672b696d2260fe6a143b798
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499137"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730182"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreenda o registo de identidade no seu centro ioT
 

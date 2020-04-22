@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c883653754e1f69d3b2d79b256d57a036c70b58e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 15e0eaaeb407ad22220faa7d085eea805fe62679
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78330149"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731347"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Quickstart: Gerir bolhas com Java v12 SDK
 
@@ -355,4 +355,4 @@ Para ver aplicações de amostrade armazenamento Blob, continue a:
 > [Amostras de armazenamento Azure Blob SDK v12 Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * Para saber mais, consulte o [Azure SDK para Java.](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md)
-* Para tutoriais, amostras, quickstarts e outra documentação, visite [O Azure para desenvolvedores](/azure/java/)de nuvem java.
+* Para tutoriais, amostras, quickstarts e outra documentação, visite [O Azure para desenvolvedores](/azure/developer/java/)de nuvem java.

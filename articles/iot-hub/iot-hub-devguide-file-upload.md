@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 35e10c0f9babca7719ff496e7068ad1564670fee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 35337a99706f25d62964e08a5b16cd8e81f315c6
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77209159"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730285"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar ficheiros com o Hub IoT
 

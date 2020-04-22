@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 3a7254cc9de89a297811792b4dd64b4b669ba8e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271242"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730002"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envie mensagens cloud-to-device a partir de um hub IoT
 
@@ -96,7 +97,7 @@ O corpo é um conjunto de registos em série JSON, cada um com as seguintes prop
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Uma marca de tempo que indica quando o resultado da mensagem aconteceu (por exemplo, o centro recebeu a mensagem de feedback ou a mensagem original expirou) |
 | Mensagem Original  | O *MessageId* da mensagem cloud-to-device a que esta informação de feedback diz |
-| Código de Estado         | Uma corda necessária, usada em mensagens de feedback que são geradas pelo centro IoT: <br/> *Sucesso* <br/> *Expirado* <br/> *DeliveryCountExceeded* <br/> *Rejected* <br/> *Purgado* |
+| Código de Estado         | Uma corda necessária, usada em mensagens de feedback que são geradas pelo centro IoT: <br/> *Sucesso* <br/> *Fora do prazo* <br/> *DeliveryCountExceeded* <br/> *Rejected* <br/> *Purgado* |
 | Descrição        | Valores de cadeia para *StatusCode* |
 | DeviceId           | O *DispositivoId* do dispositivo-alvo da mensagem cloud-to-device a que se refere este pedaço de feedback |
 | DispositivoGerada | O *DispositivoGeração Id* do dispositivo-alvo da mensagem cloud-to-device a que se refere este pedaço de feedback |

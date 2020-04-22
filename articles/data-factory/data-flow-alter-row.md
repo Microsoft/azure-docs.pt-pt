@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 77c58bb8dfa7d21b108d2aa63e90142f66877fb7
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/20/2020
+ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606516"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729144"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Alterar a transformação da linha no fluxo de dados de mapeamento
 
@@ -48,10 +48,12 @@ Para que as políticas de alter row funcionem, o fluxo de dados deve escrever pa
 
 ![Alter a pia da linha](media/data-flow/alter-row2.png "Alter Row Sink")
 
- O comportamento padrão é apenas permitir inserções. Para permitir atualizações, upserts ou eliminações, verifique a caixa no lavatório correspondente a essa condição. Se estiverem ativadas atualizações, upserts ou eliminações, deve especificar quais as colunas-chave da pia para combinar.
+O comportamento padrão é apenas permitir inserções. Para permitir atualizações, upserts ou eliminações, verifique a caixa no lavatório correspondente a essa condição. Se estiverem ativadas atualizações, upserts ou eliminações, deve especificar quais as colunas-chave da pia para combinar.
 
 > [!NOTE]
 > Se as suas inserções, atualizações ou upserts modificarem o esquema da tabela-alvo na pia, o fluxo de dados falhará. Para modificar o esquema de destino na sua base de dados, escolha a **tabela Recriar** como ação de mesa. Isto vai cair e recriar a sua tabela com a nova definição de esquema.
+
+A transformação do lavatório requer uma única chave ou uma série de chaves para identificação de linha única na sua base de dados alvo. Para os lavatórios SQL, coloque as teclas no separador de definições do lavatório. Para a CosmosDB, detete a chave de partição nas definições e também detete te o campo do sistema CosmosDB "id" no seu mapeamento de pia. Para a CosmosDB, é obrigatório incluir a coluna do sistema "id" para atualizações, upserts e eliminações.
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 

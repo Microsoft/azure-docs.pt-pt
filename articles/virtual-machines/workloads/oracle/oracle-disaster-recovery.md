@@ -3,7 +3,7 @@ title: Visão geral de um cenário de recuperação de desastres da Oráculo no 
 description: Um cenário de recuperação de desastres para uma base de dados 12c da Oracle Database no seu ambiente Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: DavidCBerry13
+author: BorisB2015
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: daberry
-ms.openlocfilehash: 527c4cfdad3fc371bddd42388aa432c27a2877df
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.author: borisb
+ms.openlocfilehash: adf4c54d4f43f806ae985f7c1523303cf574b4c1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272972"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687471"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação de desastres para uma base de dados 12c da Oracle Database num ambiente Azure
 

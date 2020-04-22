@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 42f8f51545f643e1ed9e1a23c9445f6e216fdabe
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: eadbe13269ce1259b4560af117f5b15b3b294151
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273414"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730591"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Otimização do desempenho com a colocação em cache dos resultados
 
@@ -42,10 +42,11 @@ Uma vez que o conjunto de resultados é ligado para uma base de dados, os result
 - Consultas utilizando funções definidas pelo utilizador
 - Consultas utilizando tabelas com segurança de nível de linha ou nível de coluna ativada
 - Consultas de retornar dados com tamanho de linha superior a 64KB
+- Consultas que devolvem grandes dados em tamanho (>10GB) 
 
 > [!IMPORTANT]
 > As operações para criar cache de conjunto de resultados e recuperar dados da cache acontecem no nó de controlo de uma instância de piscina Synapse SQL.
-> Quando o resultado é ligado, as consultas de execução que devolvem grandes resultados definidos (por exemplo, >1 milhão de linhas) podem causar uma alta utilização de CPU no nó de controlo e abrandar a resposta global da consulta na instância.  Essas consultas são comumente usadas durante a exploração de dados ou operações ETL. Para evitar stressar o nó de controlo e causar problema sancionadis, os utilizadores devem desligar o resultado da OFF, que atira o cache na base de dados antes de executar este tipo de consultas.  
+> Quando o conjunto de resultados é ligado, as consultas de execução que devolvem grandes resultados definidos (por exemplo, >1GB) podem causar uma aceleração elevada no nó de controlo e abrandar a resposta global da consulta na instância.  Essas consultas são comumente usadas durante a exploração de dados ou operações ETL. Para evitar stressar o nó de controlo e causar problema sancionadis, os utilizadores devem desligar o resultado da OFF, que atira o cache na base de dados antes de executar este tipo de consultas.  
 
 Execute esta consulta pelo tempo tomado pelo resultado definir operações de cache para uma consulta:
 

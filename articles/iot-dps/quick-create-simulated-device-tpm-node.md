@@ -7,13 +7,16 @@ ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: 93e68246d1c978bdb1517922f0284524395c218a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom:
+- mvc
+- amqp
+- mqtt
+ms.openlocfilehash: 45e6fac971d7ccf57d6f9bae96a08ccaee023df3
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77605474"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687253"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e fornecer um dispositivo TPM simulado utilizando o dispositivo Node.js SDK para o Serviço de Provisionamento de Dispositivos IoT Hub
 

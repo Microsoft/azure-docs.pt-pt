@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 147dd0f454bd85673bcba5cd6148c5da9716c580
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65409041"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730114"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
 
@@ -185,7 +186,7 @@ A lista que se segue mostra as propriedades e as descrições correspondentes, q
 | **tipo** |Tipos de empregos: |
 | | **horárioSUpdateTwin**: Um trabalho usado para atualizar um conjunto de propriedades ou etiquetas desejadas. |
 | | **horárioSDeviceMethod**: Um trabalho utilizado para invocar um método de dispositivo num conjunto de gémeos dispositivos. |
-| **status** |Estado atual do trabalho. Valores possíveis para o estado: |
+| **estado** |Estado atual do trabalho. Valores possíveis para o estado: |
 | | **pendente**: Agendado e à espera de ser recolhido pelo serviço de trabalho. |
 | | **programado**: Agendado para um tempo no futuro. |
 | | **funcionamento**: Atualmente trabalho ativo. |

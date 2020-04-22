@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/4/2019
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 6a142ce3c082f6f9a53287885ba347fc78f77718
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: da324e1e1a40e515cac4b26d6c9f8661f344e1d7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262031"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687610"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>FAQs do marketplace comercial da Microsoft
 
@@ -46,7 +46,7 @@ O Azure Marketplace oferece soluções e serviços técnicos da Microsoft e parc
 
 **Como posso começar no Azure Marketplace?**
 
-Pode encontrar uma vasta gama de aplicações e soluções empresariais certificadas e otimizadas para funcionar no Azure, visitando o [Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps) O Azure Marketplace também pode ser acedido através do [portal Azure] quando [**se cria um recurso.**](https://portal.azure.com/#create/hub)
+Pode encontrar uma vasta gama de aplicações e soluções empresariais certificadas e otimizadas para funcionar no Azure, visitando o [Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps) O Azure Marketplace também pode ser acedido através do portal [Portal Azure] quando [**se cria um recurso**](https://portal.azure.com/#create/hub).
 
 **Quais são os principais benefícios do Azure Marketplace?**
 
@@ -57,7 +57,7 @@ Com o Azure Marketplace, os clientes podem descobrir aplicações técnicas cons
 As ofertas do Azure Marketplace podem ser adquiridas através de:
 
 * [A montra baseada na web](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [O portal Azure][Azure]
+* [O portal Azure] [Portal Azure]
 * [Interface de linha de comando Azure (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -127,7 +127,7 @@ A subscrição do Azure está incluída com os preços de solução independente
 
 + *Por utilizador:* As subscrições SaaS podem ser avaliadas por utilizador que é faturada mensalmente ou anualmente. 
 
-Os detalhes de preços específicos da oferta [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) podem ser encontrados na página de detalhes da solução no portal Azure ou dentro do [portal Azure].
+Os detalhes de preços específicos da oferta [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) podem ser encontrados na página de detalhes da solução dentro ou dentro do portal [Portal Azure].
 
 > [!Note]
 > Com exceção das taxas mensais, os custos de utilização do Azure são aplicáveis a todos os modelos de preços, salvo indicação em contrário.
@@ -180,7 +180,7 @@ Não. A editora proprietária de soluções no Azure Marketplace pode definir pr
 
 **Onde posso ver os detalhes da subscrição do Azure Marketplace e informações de faturação?**
 
-Os clientes do Programa de [Subscrição Online](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) da Microsoft (web direct) podem ver os detalhes da compra do Marketplace no separador 'Faturas' da secção cost management + faturação do [portal Azure].
+Os clientes do Programa de [Subscrição Online](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) da Microsoft (web direct) podem ver os detalhes da compra do Marketplace no separador 'Faturas' da secção cost management + faturação do portal [Portal Azure].
 
 Os clientes do Enterprise Agreement (EA) podem ver os detalhes da compra do Marketplace no separador Faturas da secção Cost Management + Billing do [portal Azure].
 
@@ -208,7 +208,7 @@ Para migrar outros serviços adquiridos do Azure Marketplace para uma subscriç�
 
 **Como é que descuvo quanto da minha compra do Azure Marketplace usei?**
 
-Uma informação de utilização estimada pode ser encontrada no [portal Azure.] Essas informações de utilização estimadas podem não incluir atividades recentes e podem basear-se em projeções derivadas do consumo passado. Durante a pré-visualização pública, esta capacidade pode não estar disponível para todas as compras e pode variar em função do tipo de produto.
+Uma informação de utilização estimada pode ser encontrada no portal [Azure]. Essas informações de utilização estimadas podem não incluir atividades recentes e podem basear-se em projeções derivadas do consumo passado. Durante a pré-visualização pública, esta capacidade pode não estar disponível para todas as compras e pode variar em função do tipo de produto.
 
 ### <a name="customer-support"></a>Apoio ao cliente
 
@@ -307,7 +307,7 @@ Não existem taxas de publicação ao carregar uma solução De Lista, Teste ou 
 
 **Há alguma taxa de transação para compras através do Azure Marketplace?**
 
-Quando a licença de solução é adquirida via Azure Marketplace, as receitas da licença de software são divididas entre a editora e a Microsoft.  Isto é feito de acordo com os termos e condições do Acordo de [Editor estoiro](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf)do Mercado. Além disso, as soluções com editores BYOL (Bring Your Own License) não incorrem em taxas de transação.
+Quando a licença de solução é adquirida via Azure Marketplace, as receitas da licença de software são divididas entre a editora e a Microsoft.  Isto é feito de acordo com os termos e condições do Acordo de [Editor estoiro](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt)do Mercado. Além disso, as soluções com editores BYOL (Bring Your Own License) não incorrem em taxas de transação.
 
 **O que é um contrato padrão?**
 
@@ -335,7 +335,7 @@ Os leads são clientes que estão a implantar os seus produtos a partir do Marke
 
 **Onde posso arranjar ajuda para preparar o meu destino principal?**
 
-Saiba mais na documentação partner [Center-Get Customer Leads,](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) ou envie um bilhete de suporte selecionando [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) o seu tipo de oferta e gestão de chumbo.
+Saiba mais na documentação partner [Center-Get Customer Leads,](./partner-center-portal/commercial-marketplace-get-customer-leads.md) ou envie um bilhete de suporte selecionando [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) o seu tipo de oferta e gestão de chumbo.
 
 **Sou obrigado a configurar um destino de chumbo para publicar uma oferta no Marketplace?**
 
@@ -343,7 +343,7 @@ Sim, se publicar uma app **Contact Me,** **SaaS,** ou serviços de **consultoria
 
 **Como posso confirmar que a configuração do chumbo está correta?**
 
-Depois de completar a oferta e criar um destino de chumbo, a listagem pode ser publicada corretamente no [Partner Center](https://cloudpartner.azure.com/). Antes da listagem entrar em funcionamento, pode validar se a configuração de configuração de chumbo estiver a funcionar corretamente.  Envie um test-lead para o destino de chumbo configurado na oferta.
+Depois de completar a oferta e criar um destino de chumbo, a listagem pode ser publicada corretamente no [Partner Center](https://partner.microsoft.com/). Antes da listagem entrar em funcionamento, pode validar se a configuração de configuração de chumbo estiver a funcionar corretamente.  Envie um test-lead para o destino de chumbo configurado na oferta.
 
 **De que países/regiões estão disponíveis o Azure Marketplace para os editores venderem?**
 
@@ -353,13 +353,13 @@ Os editores sediados nos seguintes países/regiões podem atualmente ser vendido
 
 *Máquina virtual & aplicações Azure:*
 
-1. Inscreva-se no [Partner Center](https://cloudpartner.azure.com/).
+1. Inscreva-se no [Partner Center](https://partner.microsoft.com/).
 1. Selecione a oferta a partir do separador **All Offers.**
 1. No painel do lado esquerdo do ecrã, selecione o separador **SKUs.**
 1. Selecione o SKU para eliminação e clique no botão **de eliminar** para esse SKU.
 1. [Republique](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) a oferta para o Azure Marketplace.
 
-Para mais informações, consulte [a Apagar uma oferta.](./cloud-partner-portal/manage-offers/cpp-delete-offer.md)
+Para mais informações, consulte [a atualização de uma oferta.](./partner-center-portal/update-existing-offer.md)
 
 *Web Apps (aplicações SaaS, Add-ons) & Serviços de Consultoria:*
 
@@ -392,7 +392,7 @@ Visite o [Microsoft GTM Services](https://partner.microsoft.com/reach-customers/
 
 **Onde estão as soluções Azure Marketplace promovidas dentro das propriedades web da Microsoft?**
 
-As soluções Azure Marketplace estão disponíveis no portal Microsoft [Azure]e no [site do Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/) Os Cloud Developers e os IT Pros que utilizam o Azure têm exposição a soluções parceiras sempre que entram. Um subconjunto de soluções parceiras também é apresentado e rodado na página inicial do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) e na página de [soluções Azure](https://azure.microsoft.com/solutions/).
+As soluções Azure Marketplace estão disponíveis no site da Microsoft [Portal Azure], e no [site do Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/) Os Cloud Developers e os IT Pros que utilizam o Azure têm exposição a soluções parceiras sempre que entram. Um subconjunto de soluções parceiras também é apresentado e rodado na página inicial do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) e na página de [soluções Azure](https://azure.microsoft.com/solutions/).
 
 ### <a name="billing-and-payments"></a>Faturação e pagamentos
 
@@ -474,6 +474,3 @@ Sim, a seu pedido através de bilhete de suporte, a Microsoft processará crédi
 ## <a name="next-steps"></a>Passos seguintes
 
 Visite a página de guia do editor do [mercado comercial.](/azure/marketplace/marketplace-publishers-guide)
-
-
-[Portal do Azure]: https://portal.azure.com

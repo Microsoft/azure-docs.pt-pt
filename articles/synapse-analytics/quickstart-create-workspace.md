@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0b6bf4c6a54e2f187a5751d267720f356e0c30ff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1ccfb1b008a7e3e48f56b1af62087d303522ed73
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424399"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676736"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Quickstart: Criar um espaço de trabalho Azure Synapse Analytics (pré-visualização)
 
@@ -54,7 +54,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com/)
     - Inserido manualmente usando o nome da conta
 
     > [!IMPORTANT]
-    > O espaço de trabalho Azure Synapse precisa de ser capaz de ler e escrever para a conta ADLS Gen2 selecionada.
+    > O espaço de trabalho Azure Synapse precisa de ser capaz de ler e escrever para a conta ADLS Gen2 selecionada. Além disso, para qualquer conta de armazenamento que ligue como conta de armazenamento principal, deve ter ativado espaço de **nome hierárquico** na criação da conta de armazenamento.
     >
     > Abaixo dos campos de seleção da ADLS Gen2, há uma nota a dizer que a identidade gerida do espaço de trabalho será atribuída ao papel **de Contribuinte de Dados Storaqe Blob** no sistema de ficheiros Data Lake Storage Gen2, que lhe concede acesso total.
 

@@ -8,12 +8,15 @@ ms.date: 12/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ff9415ca20b859468528b56d27355430c4fc5a0f
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 3113f01341d2a1ec6160cfea3eb9d12d18b8495c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652075"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687174"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo a jusante a um gateway do Azure IoT Edge
 

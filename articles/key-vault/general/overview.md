@@ -11,14 +11,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 55a7c6e505d6d0c43319280bf7199805b108cd77
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9334cd0fa54212eac937742215f9c2e704a8bd9c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425085"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688025"
 ---
-# <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
+# <a name="about-azure-key-vault"></a>Acerca do Azure Key Vault
 
 O Cofre chave Azure ajuda a resolver os seguintes problemas:
 
@@ -80,4 +80,7 @@ O próprio Key Vault pode ser integrado em Contas de Armazenamento, em Hubs de E
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-certificates.md)
 - [Início Rápido: Criar um Azure Key Vault com a CLI](../secrets/quick-create-cli.md)
+- [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)
+- [Guia do Programador do Cofre de Chaves](../general/developers-guide.md)

@@ -6,14 +6,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 9/25/2019
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: c84436015ad37b57f6603551f1d328ac76181836
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: faff12adbf6c0f88f3161e1e4f2760da3b7966ca
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288738"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687519"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Aplicações Azure: Guia de publicação de oferta de modelo de solução
 
@@ -29,11 +29,18 @@ Estes modelos de solução não são ofertas de transações, mas podem ser usad
 | **Requisitos** | **Detalhes**  |
 | ---------------  | -----------  |
 |Faturação e medição    |  Os recursos serão aprovisionados na subscrição do Azure do cliente. As máquinas virtuais pay-as-you-go (PAYGO) serão transacionadas com o cliente através da Microsoft, faturadas através da subscrição azure do cliente (PAYGO).  <br/> No caso de trazer a sua própria licença (BYOL), enquanto a Microsoft irá cobrar os custos de infraestrutura incorridos na subscrição do cliente, irá transacionar as suas taxas de licenciamento de software diretamente para o cliente.   |
-|Disco rígido virtual compatível com azure (VHD)  |   Os VMs devem ser construídos em Windows ou Linux.  Para mais informações, [consulte Criar um VHD compatível com Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |
+|Disco rígido virtual compatível com azure (VHD)  |   Os VMs devem ser construídos em Windows ou Linux.  Para mais informações, consulte a criação de uma oferta de [aplicação Azure.](./partner-center-portal/create-new-azure-apps-offer.md) |
 | Atribuição de utilização do cliente | Permitir a atribuição de utilização do cliente é necessária em todos os modelos de solução publicados no Mercado Azure. Para obter mais informações sobre a atribuição de utilização do cliente e como o permitir, consulte a atribuição de utilização do cliente parceiro [Azure](./azure-partner-customer-usage-attribution.md).  |
 | Utilizar o Managed Disks | [Os Discos Geridos](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) são a opção padrão para discos persificados de VMs IaaS em Azure. Deve utilizar discos geridos em modelos de solução. <br> <br> 1. Siga as [orientações](https://docs.microsoft.com/azure/virtual-machines/windows/using-managed-disks-template-deployments) e [amostras](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md) para a utilização de discos geridos nos modelos Azure ARM para atualizar os seus modelos de solução. <br> <br> 2. Siga as instruções abaixo para importar o VHD subjacente dos Discos Geridos para uma conta de armazenamento para publicar o VHD como imagem no Mercado: <br> <ul> <li> [PowerShell](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd?toc=%2fpowershell%2fmodule%2ftoc.json) </li> <li> [CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd?toc=%2fcli%2fmodule%2ftoc.json) </li> </ul> |
 
 ## <a name="next-steps"></a>Passos seguintes
-Se ainda não o fez, [registe-se](https://azuremarketplace.microsoft.com/sell) no mercado.
 
-Se estiver registado e estiver a criar uma nova oferta ou a trabalhar numa já existente, inscreva-se no [Portal cloud partner](https://cloudpartner.azure.com) para criar ou completar a sua oferta.
+Se ainda não o fez, 
+
+- [Saiba](https://azuremarketplace.microsoft.com/sell) mais sobre o mercado.
+
+Para se registar no Partner Center, comece a criar uma nova oferta ou a trabalhar numa existente:
+
+- [Inscreva-se no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou completar a sua oferta.
+- Consulte a criação de uma oferta de [aplicação Azure](./partner-center-portal/create-new-azure-apps-offer.md) para mais informações.
+

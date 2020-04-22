@@ -5,15 +5,18 @@ author: nberdy
 ms.author: nberdy
 ms.date: 08/08/2019
 ms.topic: overview
-ms.custom: mvc
+ms.custom:
+- mvc
+- amqp
+- mqtt
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 78678474430792eb7fe419ef4f15828d461c1fec
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 06c0ff7060f4a9d71af11ae75d52ad7f4bf14c6b
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75647412"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730857"
 ---
 # <a name="what-is-azure-iot-hub"></a>O que é o IoT Hub do Azure?
 

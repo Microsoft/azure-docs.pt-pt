@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 04/20/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcccc64e0c766164a06932e9b65a4459816f9deb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89e09fd63ee6121ac9bf7f3c2be00f0ac22f752f
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409121"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731697"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicações de self-service
 
@@ -41,6 +41,9 @@ Através desta funcionalidade, pode:
 -   Opcionalmente, permita que um utilizador de negócios detetete as palavras-passe que os utilizadores podem utilizar para iniciar sessão na aplicação, a partir do Painel de Acesso à [Aplicação](https://myapps.microsoft.com/)do utilizador.
 
 -   Opcionalmente atribua automaticamente os utilizadores autosserviço atribuídos a uma função de aplicação diretamente.
+
+> [!NOTE]
+> É necessária uma licença Azure Ative Directory Premium (P1 ou P2) para que os utilizadores solicitem aderir a uma aplicação de self-service e que os proprietários aprovem ou negem pedidos. Sem uma licença Azure Ative Directory Premium, os utilizadores não podem adicionar aplicações self-service.
 
 ## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Ativar o acesso à aplicação self-service para permitir que os utilizadores encontrem as suas próprias aplicações
 

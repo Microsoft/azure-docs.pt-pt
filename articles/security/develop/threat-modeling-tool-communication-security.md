@@ -16,23 +16,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 39ee0fa2dc973cd6c20756cae2024af79d1375dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1945025ff89a784908a1a3dffd2240172a6e2449
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294142"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687991"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Quadro de Segurança: Segurança da Comunicação [ Segurança da Comunicação] Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Hub de Eventos do Azure** | <ul><li>[Comunicação segura para o Centro de Eventos utilizando SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Verifique os privilégios da conta de serviço e verifique se os Serviços personalizados ou páginas ASP.NET respeitam a segurança da CRM](#priv-aspnet)</li></ul> |
-| **Fábrica de Dados Azure** | <ul><li>[Utilize o gateway de gestão de dados ao ligar o SQL Server às instalações da Fábrica de Dados Azure](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[Utilize o gateway de gestão de dados ao ligar o SQL Server às instalações da Fábrica de Dados Azure](#sqlserver-factory)</li></ul> |
 | **Servidor de Identidade** | <ul><li>[Certifique-se de que todo o tráfego para O Servidor de Identidade está sobre a ligação HTTPS](#identity-https)</li></ul> |
 | **Aplicação Web** | <ul><li>[Verifique os certificados X.509 utilizados para autenticar ligações SSL, TLS e DTLS](#x509-ssltls)</li><li>[Configure o certificado SSL para domínio personalizado no Serviço de Aplicações Azure](#ssl-appservice)</li><li>[Forçar todo o tráfego para o Serviço de Aplicações Azure sobre a ligação HTTPS](#appservice-https)</li><li>[Ativar http segurança rigorosa de transporte (HSTS)](#http-hsts)</li></ul> |
 | **Base de Dados** | <ul><li>[Garantir encriptação de ligação ao servidor SQL e validação de certificado](#sqlserver-validation)</li><li>[Forçar comunicação encriptada ao servidor SQL](#encrypted-sqlserver)</li></ul> |
-| **Storage do Azure** | <ul><li>[Certifique-se de que a comunicação ao Armazenamento Azure está acima de HTTPS](#comm-storage)</li><li>[Valide o hash MD5 após o download do blob se HTTPS não puder ser ativado](#md5-https)</li><li>[Utilize um cliente compatível com SMB 3.0 para garantir encriptação de dados em trânsito a Ações de Ficheiros Azure](#smb-shares)</li></ul> |
+| **Armazenamento Azure** | <ul><li>[Certifique-se de que a comunicação ao Armazenamento Azure está acima de HTTPS](#comm-storage)</li><li>[Valide o hash MD5 após o download do blob se HTTPS não puder ser ativado](#md5-https)</li><li>[Utilize um cliente compatível com SMB 3.0 para garantir encriptação de dados em trânsito a Ações de Ficheiros Azure](#smb-shares)</li></ul> |
 | **Cliente Móvel** | <ul><li>[Aplicação de Certificado de Fixação](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Ativar HTTPS - Canal de Transporte Seguro](#https-transport)</li><li>[WCF: Definir o nível de proteção de segurança de mensagens para encriptar AndSign](#message-protection)</li><li>[WCF: Use uma conta menos privilegiada para executar o seu serviço WCF](#least-account-wcf)</li></ul> |
 | **API Web** | <ul><li>[Forçar todo o tráfego para APIs web sobre conexão HTTPS](#webapi-https)</li></ul> |
@@ -147,7 +147,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | **Fase SDL**               | Compilação |  
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [OWASP HTTP Estrita Folha de Batota de Segurança de Transporte](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
+| **Referências**              | [OWASP HTTP Estrita Folha de Batota de Segurança de Transporte](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html) |
 | **Passos** | <p>HTTP Strict Transport Security (HSTS) é uma melhoria de segurança de opt-in que é especificada por uma aplicação web através da utilização de um cabeçalho de resposta especial. Assim que um navegador suportado receber este cabeçalho, o navegador impedirá que quaisquer comunicações sejam enviadas em HTTP para o domínio especificado e, em vez disso, enviará todas as comunicações para HTTPS. Também impede https clicar através de solicitações nos navegadores.</p><p>Para implementar o HSTS, o seguinte cabeçalho de resposta tem de ser configurado para um website globalmente, seja em código ou em config. Rigoroso-Transporte-Segurança: idade máxima=300; incluir SubDomínios HSTS aborda as seguintes ameaças:</p><ul><li>Marcadores de utilizador `https://example.com` ou tipos manualmente e está sujeito a um atacante man-in-the-middle: HSTS redireciona automaticamente pedidos de HTTP para HTTPS para o domínio alvo</li><li>Aplicação web que se destina a ser puramente HTTPS inadvertidamente contém links HTTP ou serve conteúdo sobre HTTP: HSTS redireciona automaticamente pedidos de HTTP para HTTPS para o domínio alvo</li><li>Um agressor man-in-the-middle tenta intercetar o tráfego de um utilizador da vítima usando um certificado inválido e espera que o utilizador aceite o certificado mau: O HSTS não permite que um utilizador sobrepor-se à mensagem de certificado inválida</li></ul>|
 
 ## <a name="ensure-sql-server-connection-encryption-and-certificate-validation"></a><a id="sqlserver-validation"></a>Garantir encriptação de ligação ao servidor SQL e validação de certificado
@@ -181,7 +181,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Encriptação de nível de transporte de armazenamento Azure - Utilização DE HTTPS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
-| **Passos** | Para garantir a segurança dos dados do Armazenamento Azure em trânsito, utilize sempre o protocolo HTTPS quando ligar para as APIs rest ou aceder a objetos no armazenamento. Além disso, as Assinaturas de Acesso Partilhado, que podem ser usadas para delegar acesso a objetos de armazenamento Azure, incluem uma opção para especificar que apenas o protocolo HTTPS pode ser usado quando utilizar assinaturas de acesso partilhado, garantindo que qualquer pessoa que envie links com tokens SAS utilizará o protocolo adequado.|
+| **Passos** | Para garantir a segurança dos dados do Armazenamento Azure em trânsito, utilize sempre o protocolo HTTPS quando ligar para as APIs rest ou aceder a objetos no armazenamento. Além disso, as Assinaturas de Acesso Partilhado, que podem ser usadas para delegar acesso a objetos de armazenamento Azure, incluem uma opção para especificar que apenas o protocolo HTTPS pode ser usado quando utilizar assinaturas de acesso partilhado, garantindo que qualquer pessoa que envie links com tokens SAS usará o protocolo adequado.|
 
 ## <a name="validate-md5-hash-after-downloading-blob-if-https-cannot-be-enabled"></a><a id="md5-https"></a>Valide o hash MD5 após o download do blob se HTTPS não puder ser ativado
 
@@ -213,7 +213,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | **Fase SDL**               | Compilação |  
 | **Tecnologias Aplicáveis** | Genérico, Windows Phone |
 | **Atributos**              | N/D  |
-| **Referências**              | [Certificado e Fixação de Chaves Públicas](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) |
+| **Referências**              | [Certificado e Fixação de Chaves Públicas](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning) |
 | **Passos** | <p>O predileto de certificado defende-se contra os ataques man-in-the-middle (MITM). A fixação é o processo de associar um hospedeiro ao seu certificado X509 esperado ou chave pública. Uma vez que um certificado ou chave pública é conhecido ou visto para um hospedeiro, o certificado ou chave pública é associado ou 'fixado' ao hospedeiro. </p><p>Assim, quando um adversário tenta fazer o ataque Do SSL MITM, durante o aperto de mão sSL a chave do servidor do intruso será diferente da chave do certificado fixado, e `ServerCertificateValidationCallback` o pedido será descartado, evitando assim que o certificado MITM possa ser alcançado implementando o delegado do ServicePointManager.</p>|
 
 ### <a name="example"></a>Exemplo

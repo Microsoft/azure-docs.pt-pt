@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: d37320ad6e8caf3300756466eabe8de29a339c4a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: b7f9ac7e6e7049a3b744151bc9cb05115fbac935
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258291"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729217"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 

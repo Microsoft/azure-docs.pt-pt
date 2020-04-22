@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
-ms.openlocfilehash: f700b06e6ade0d72178777b67cb734f3120b36dc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bf453587b354b5db3f3ef1a80f974bcb8f8f4e14
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240192"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730024"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construa uma aplicação .NET Framework ou Core utilizando a conta API Azure Cosmos DB Gremlin
 
@@ -21,8 +21,8 @@ ms.locfileid: "79240192"
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
-> * [Nó.js](create-graph-nodejs.md)
-> * [Pitão](create-graph-python.md)
+> * [Node.js](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
 
@@ -118,7 +118,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 1. Depois de ter copiado a CHAVE URI e PRIMÁRIA da sua conta, guarde-as para uma nova variável ambiental na máquina local que executa a aplicação. Para definir a variável ambiental, abra uma janela de comando rápida e execute o seguinte comando. Certifique-se de substituir <Your_Azure_Cosmos_account_URI Your_Azure_Cosmos_account_URI> e <Your_Azure_Cosmos_account_PRIMARY_KEY valores>.
 
    ```console
-   setx EndpointUrl "https://<your cosmos db account name>.gremlin.cosmosdb.azure.com"
+   setx EndpointUrl "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
    setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
    ```
 

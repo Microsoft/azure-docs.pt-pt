@@ -4,14 +4,14 @@ description: Adicione bandeiras de funcionalidade sabotadas e gerencie-as usando
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 04/13/2020
+ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: 398005b37660cfa68936a0c8b3a3d90da8160e49
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e6dc51250987e0282530209ffa13e52d6e75aa9c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309077"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687371"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação spring boot
 
@@ -55,9 +55,9 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
 1. Depois de extrair os ficheiros do seu sistema local, a sua aplicação Spring Boot está pronta para ser editada. Localize *pom.xml* no diretório raiz da sua aplicação.
 
-1. Abra o ficheiro *pom.xml* num editor de texto `<dependencies>`e adicione o seguinte à lista de .:
+1. Abra o ficheiro *pom.xml* num editor de texto `<dependencies>`e adicione o seguinte à lista de:
 
-### <a name="spring-cloud-11x"></a>Nuvem de primavera 1.1.x
+    **Nuvem de primavera 1.1.x**
 
     ```xml
     <dependency>
@@ -76,7 +76,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
     </dependency>
     ```
 
-### <a name="spring-cloud-12x"></a>Nuvem de primavera 1.2.x
+    **Nuvem de primavera 1.2.x**
 
     ```xml
     <dependency>

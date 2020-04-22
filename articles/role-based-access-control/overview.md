@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ec9734974971ac89ad54934f43c70f8805b6a013
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 4a1db200b88d0eabde967961d956cdd2854e828d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641781"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686472"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>O que é o controlo de acesso baseado em funções (RBAC) dos recursos do Azure?
 
@@ -35,14 +35,6 @@ Seguem-se alguns exemplos do que pode fazer com o RBAC:
 - Permitir a um grupo DBA gerir bases de dados SQL numa subscrição
 - Permitir a um utilizador gerir todos os recursos num grupo de recursos, como máquinas virtuais, sites e sub-redes
 - Permitir a uma aplicação aceder a todos os recursos num grupo de recursos
-
-## <a name="best-practice-for-using-rbac"></a>Melhor prática para utilizar o RBAC
-
-Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções. Em vez de dar a todas as pessoas permissões sem restrições na sua subscrição do Azure ou recursos, pode permitir apenas determinadas ações num âmbito específico.
-
-Quando planear a estratégia de controlo de acesso, é boa prática conceder aos utilizadores o privilégio menor de que precisam para trabalhar. O diagrama seguinte mostra um padrão sugerido para utilizar o RBAC.
-
-![RBAC e menor privilégio](./media/overview/rbac-least-privilege.png)
 
 ## <a name="how-rbac-works"></a>Como funciona o RBAC
 

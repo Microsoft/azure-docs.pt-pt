@@ -8,12 +8,15 @@ ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c184972789c412406f264f725f8b94e1f7f162ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: ef31bd74c73aa081c32031b71392f69a1ca14f75
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284905"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730913"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Compreenda o tempo de funcionao do Azure IoT Edge e a sua arquitetura
 

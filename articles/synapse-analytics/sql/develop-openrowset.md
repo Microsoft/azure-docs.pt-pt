@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 25eb93a01c59225b6d9e64db5d08b954adb4f8ab
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 6325d5555b01373b148dce69731ec64896d6e1fd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424070"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680496"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como utilizar o OPENROWSET com o SQL a pedido (pré-visualização)
 
@@ -26,7 +26,7 @@ A OPENROWSET não é atualmente suportada na piscina SQL.
 
 ## <a name="syntax"></a>Sintaxe
 
-```
+```syntaxsql
 --OPENROWSET syntax for reading Parquet files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , 
@@ -60,36 +60,39 @@ Tem duas opções para ficheiros de entrada que contêm os dados-alvo para consu
 
 - 'PARQUET' - Ficheiro binário em formato Parquet 
 
-'unstructured_data_path'
+**'unstructured_data_path'**
 
-O unstructured_data_path que estabelece um caminho para os dados<prefix>é estruturado da seguinte forma: » ://<storage_account_path>/<storage_path>' 
+O unstructured_data_path que estabelece um caminho para os dados é estruturado da seguinte forma:  
+'prefixo\<>.\<storage_account_path\<>/ storage_path>'
  
  
  Abaixo encontrará os caminhos relevantes da conta de armazenamento que se ligarão à sua fonte de dados externa específica. 
 
-| Fonte de Dados Externos       | Prefixo | Caminho da conta de armazenamento                                |
-| -------------------------- | ------ | --------------------------------------------------- |
-| Armazenamento de Blobs do Azure         | https  | <storage_account>.blob.core.windows.net             |
-| Azure Data Lake Store Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https  | <storage_account>.dfs.core.windows.net              |
+| Fonte de Dados Externos       | Prefixo | Caminho da conta de armazenamento                                 |
+| -------------------------- | ------ | ---------------------------------------------------- |
+| Armazenamento de Blobs do Azure         | https  | \<storage_account>.blob.core.windows.net             |
+| Azure Data Lake Store Gen1 | https  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Store Gen2 | https  | \<storage_account>.dfs.core.windows.net              |
+||||
 
- "<storage_path>" 
+'storage_path\<>'
 
  Especifica um caminho dentro do seu armazenamento que aponta para a pasta ou ficheiro que pretende ler. Se o caminho apontar para um recipiente ou pasta, todos os ficheiros serão lidos a partir desse recipiente ou pasta em particular. Os ficheiros em subpastas não serão incluídos. 
  
  Pode utilizar wildcards para direcionar vários ficheiros ou pastas. É permitido o uso de vários wildcards não consecutivos.
-Abaixo está um exemplo que lê todos os *ficheiros cSV* começando com ahttps://sqlondemandstorage.blob.core.windows.net/csv/population *população* de todas as pastas começando com */csv/população*: '*/população*.csv'
+Abaixo está um exemplo que lê todos os *ficheiros cSV* começando com a *população* de todas as pastas começando com */csv/população:*  
+`https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Se especificar que o unstructured_data_path ser uma pasta, uma consulta a pedido do SQL irá recuperar ficheiros dessa pasta. 
 
 > [!NOTE]
 > Ao contrário de Hadoop e PolyBase, a SQL a pedido não devolve subpastas. Além disso, ao contrário de Hadoop e PloyBase, a SQL a pedido devolve ficheiros para os quais o nome do ficheiro começa com um sublinhado (_) ou um período (.).
 
-No exemplo abaixo, se ohttps://mystorageaccount.dfs.core.windows.net/webdata/unstructured_data_path=' ', uma consulta sql on-demand devolverá linhas de mydata.txt e _hidden.txt. Não devolverá o mydata2.txt e o mydata3.txt porque estão localizados numa subpasta.
+No exemplo abaixo, se`https://mystorageaccount.dfs.core.windows.net/webdata/`o unstructured_data_path= , uma consulta a pedido da SQL devolverá as filas do mydata.txt e _hidden.txt. Não devolverá o mydata2.txt e o mydata3.txt porque estão localizados numa subpasta.
 
 ![Dados recursivos para tabelas externas](./media/develop-openrowset/folder-traversal.png)
 
-[WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]
+`[WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]`
 
 A cláusula COM permite especificar colunas que pretende ler a partir de ficheiros.
 
@@ -113,7 +116,8 @@ WITH (
     --[population] bigint
 )
 ```
-<bulk_options>
+
+**\<bulk_options>**
 
 FIELDTERMINATOR ='field_terminator'
 

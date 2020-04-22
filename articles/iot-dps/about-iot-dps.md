@@ -8,12 +8,15 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: e564660b502a950021ba4e4754ff5c210dfd477f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 1b12886ee55741f62a1156269423ffadd34cd433
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241179"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683299"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprovisionar dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
 O Microsoft Azure fornece um conjunto avançado de serviços de cloud pública integrada para todas as suas necessidades de solução IoT. O IoT Hub Device Provisioning Service (DPS) é um serviço de ajuda para o IoT Hub que permite o fornecimento de zero toques, just-in-time para o centro ioT direito sem necessitar de intervenção humana. O DPS permite o fornecimento de milhões de dispositivos de forma segura e escalável.
@@ -23,7 +26,7 @@ Existem muitos cenários de provisionamento em que o DPS é uma excelente escolh
 
 * Aprovisionamento sem toques numa solução de IoT única sem codificar informações de ligação do Hub IoT na fábrica de (configuração inicial)
 * Dispositivos de equilíbrio de carga em vários centros
-* Ligação de dispositivos à solução de IoT do respetivo proprietário com base em dados de transações de venda (arquitetura "multitenancy")
+* Dispositivos de ligação à solução IoT do seu proprietário com base em dados de transações de vendas (multitenancy)
 * Ligação de dispositivos a uma solução de IoT específica, consoante o caso de utilização (isolamento da solução)
 * Ligação de um dispositivo ao hub IoT com a latência mais baixa (fragmentação geográfica)
 * Reaprovisionamento com base numa alteração no dispositivo

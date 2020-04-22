@@ -3,20 +3,25 @@ title: Insights de aplicação Azure sobrepõem pontos finais sdk padrão
 description: Modificar os pontos finais de aplicação do Monitor de Azure padrão SDK para regiões como o Governo Azure.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: b4ab05c7ee815b385ffb2d1ff9e621063d744dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b43bd13c73f77c6292e2062db88d68a20e5bf480
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298324"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729535"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Insights de aplicação sobrepondo pontos finais de padrão
 
 Para enviar dados de Informações de Aplicação para determinadas regiões, terá de anular os endereços de ponto final predefinidos. Cada SDK requer modificações ligeiramente diferentes, todas descritas neste artigo. Estas alterações requerem ajustar o código da `QuickPulse_Endpoint_Address`amostra `TelemetryChannel_Endpoint_Address`e `Profile_Query_Endpoint_address` substituir os valores do espaço reservado para, e com os endereços finais reais para a sua região específica. O final deste artigo contém links para os endereços de ponto final para regiões onde esta configuração é necessária.
 
+> [!NOTE]
+> As cordas de [ligação](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) são o novo método preferido de definir pontos finais personalizados dentro dos Insights de Aplicação.
+
+---
+
 ## <a name="sdk-code-changes"></a>Alterações de código SDK
 
-### <a name="net-with-applicationinsightsconfig"></a>.NET com applicationinsights.config
+# <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > O ficheiro applicationinsights.config é automaticamente substituído sempre que for realizada uma atualização SDK. Depois de realizar uma atualização SDK, certifique-se de que reintroduza os valores finais específicos da região.
@@ -41,7 +46,7 @@ Para enviar dados de Informações de Aplicação para determinadas regiões, te
 </ApplicationInsights>
 ```
 
-### <a name="aspnet-core"></a>Núcleo de ASP.NET
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 Modifique o ficheiro appsettings.json no seu projeto da seguinte forma de ajustar o ponto final principal:
 
@@ -68,6 +73,8 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
     //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
 ```
+
+# <a name="azure-functions"></a>[Funções do Azure](#tab/functions)
 
 ### <a name="azure-functions-v2x"></a>Funções Azure v2.x
 
@@ -120,7 +127,7 @@ namespace Example
 }
 ```
 
-### <a name="java"></a>Java
+# <a name="java"></a>[Java](#tab/java)
 
 Modificar o ficheiro applicationinsights.xml para alterar o endereço de ponto final predefinido.
 
@@ -155,7 +162,7 @@ Modificar `application.properties` o ficheiro e adicionar:
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,7 +181,7 @@ Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
-### <a name="javascript"></a>Javascript
+# <a name="javascript"></a>[JavaScript](#tab/js)
 
 ```javascript
 <script type="text/javascript">
@@ -187,9 +194,11 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 </script>
 ```
 
-### <a name="python"></a>Python
+# <a name="python"></a>[Python](#tab/python)
 
 Para obter orientações sobre a modificação do ponto final de ingestão para o SDK de sonton opencensus-python consulte o [repo opencensus-python.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
+
+---
 
 ## <a name="regions-that-require-endpoint-modification"></a>Regiões que exigem modificação do ponto final
 

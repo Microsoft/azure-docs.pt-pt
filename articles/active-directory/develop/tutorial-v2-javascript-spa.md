@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4a6694a072231f98383c13e6a42aedf68f62ac93
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 52b7c582848dd24f6d9963a9d37c8f12c5db6149
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533790"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678032"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de uma página única JavaScript (SPA)
 
@@ -47,10 +47,6 @@ Este guia utiliza a seguinte biblioteca:
 |Biblioteca|Descrição|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de Autenticação microsoft para JavaScript|
-
-> [!NOTE]
-> *Msal.js* tem como alvo o ponto final da plataforma de identidade da Microsoft, que permite que contas pessoais e contas escolares e de trabalho entrem e adquiram fichas. O ponto final da plataforma de identidade da Microsoft tem [algumas limitações.](../azuread-dev/azure-ad-endpoint-comparison.md#limitations)
-> Para compreender as diferenças entre os pontos finais v1.0 e v2.0, consulte o guia de [comparação de pontos finais](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->
 

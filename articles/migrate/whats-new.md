@@ -2,20 +2,30 @@
 title: O que há de novo em Azure Migrate
 description: Saiba quais são as novidades e as novidades recentes no serviço Azure Migrate.
 ms.topic: overview
-ms.date: 04/16/2020
+ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 1b0221f497ae7bbf84f163eef1ddb862d8de2951
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ba85b0a4ed30320099388ccb48dd91ad6445efd5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535252"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677235"
 ---
 # <a name="whats-new-in-azure-migrate"></a>O que há de novo em Azure Migrate
 
 [A Azure Migrate](migrate-services-overview.md) ajuda-o a descobrir, avaliar e migrar no local servidores, apps e dados para a nuvem do Microsoft Azure. Este artigo resume novos lançamentos e funcionalidades no Azure Migrate.
 
 
+## <a name="update-april-2020"></a>Atualização (abril de 2020)
+
+A Azure Migrate apoia as implantações no Governo de Azure. 
+
+- Pode descobrir e avaliar VMs VMware, VMs Hiper-V e servidores físicos.
+- Pode migrar VMware VMs, VMs hiper-V e servidores físicos para o Azure.
+- Para a migração vMware, você pode usar migração sem agente ou baseada em agente. [Saiba mais](server-migrate-overview.md).
+- [Reveja](migrate-support-matrix.md#supported-geographies-azure-government) geografias e regiões apoiadas para o Governo de Azure.
+- [A análise da dependência baseada em agentes](concepts-dependency-visualization.md#agent-based-analysis) não é apoiada no Governo de Azure.
+- As funcionalidades em pré-visualização são suportadas no Governo azure, especificamente na análise de [dependência sem agente,](concepts-dependency-visualization.md#agentless-analysis)e na [descoberta de aplicações.](how-to-discover-applications.md)
 
 ## <a name="update-march-2020"></a>Atualização (março de 2020)
 

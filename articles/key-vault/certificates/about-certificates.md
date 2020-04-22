@@ -10,57 +10,14 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9fbe624563ad03880ff1a75efdc2df41b151846
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5e014634ecb251f05710de16daee30d72dae619e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424280"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685901"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Sobre certificados azure key vault
-
-O Azure Key Vault permite que as aplicações e utilizadores do Microsoft Azure armazenem e utilizem certificados, que são construídos em cima de chaves e segredos e adicionam uma funcionalidade de renovação automatizada.
-
-Para obter informações mais gerais sobre o Cofre chave, veja [o que é o Cofre chave Azure?](/azure/key-vault/key-vault-overview)
-
-## <a name="azure-key-vault"></a>Azure Key Vault
-
-As seguintes secções oferecem informações gerais aplicáveis em toda a implementação do serviço Key Vault.
-
-### <a name="supporting-standards"></a>Normas de apoio
-
-As especificações javaScript object notation (JSON) e JavaScript Object Signing and Encryption (JOSE) são informações importantes de fundo.  
-
--   [Chave Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)  
--   [Encriptação web JSON (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption-40)  
--   [Algoritmos Web JSON (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40)  
--   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41)  
-
-### <a name="objects-identifiers-and-versioning"></a>Objetos, identificadores e versonagem
-
-Os objetos armazenados no Cofre chave são versonizados sempre que for criada uma nova instância de um objeto. A cada versão é atribuída a um identificador e URL únicos. Quando um objeto é criado pela primeira vez, é dado um identificador de versão única e marcado como a versão atual do objeto. A criação de um novo exemplo com o mesmo nome de objeto dá ao novo objeto um identificador de versão único, fazendo com que se torne a versão atual.  
-
-Os objetos no Cofre-Chave podem ser abordados utilizando o identificador atual ou um identificador específico da versão. Por exemplo, dada uma `MasterKey`Chave com o nome, executar operações com o identificador atual faz com que o sistema utilize a versão mais recente disponível. A realização de operações com o identificador específico da versão faz com que o sistema utilize essa versão específica do objeto.  
-
-Os objetos são identificados exclusivamente dentro do Cofre chave utilizando um URL. Nenhum dos dois objetos no sistema tem o mesmo URL, independentemente da geolocalização. O URL completo de um objeto chama-se Identificador de Objetos. O URL consiste num prefixo que identifica o Cofre de Chave, tipo de objeto, utilizador fornecido Nome do Objeto e uma Versão de Objeto. O Nome do Objeto é insensível e imutável. Os identificadores que não incluem a Versão do Objeto são referidos como Identificadores de Base.  
-
-Para mais informações, consulte [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)
-
-Um identificador de objetos tem o seguinte formato geral:  
-
-`https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
-
-Em que:  
-
-|||  
-|-|-|  
-|`keyvault-name`|O nome de um cofre chave no serviço Microsoft Azure Key Vault.<br /><br /> Os nomes key vault são selecionados pelo utilizador e são globalmente únicos.<br /><br /> O nome do cofre de chaves deve ser uma corda de caracteres 3-24, contendo apenas 0-9, a-z, A-Z, e ..|  
-|`object-type`|O tipo de objeto, "chaves" ou "segredos".|  
-|`object-name`|Um `object-name` é um utilizador fornecido nome e deve ser único dentro de um Cofre chave. O nome deve ser uma cadeia de caracteres 1-127, contendo apenas 0-9, a-z, A-Z, e - .|  
-|`object-version`|Um `object-version` é um identificador de cadeia de 32 caracteres gerado pelo sistema que é opcionalmente usado para abordar uma versão única de um objeto.|  
-
-
-## <a name="key-vault-certificates"></a>Certificados de cofre de chaves
 
 O suporte de certificados Key Vault prevê a gestão dos seus certificados x509 e os seguintes comportamentos:  
 
@@ -73,7 +30,7 @@ O suporte de certificados Key Vault prevê a gestão dos seus certificados x509 
 >[!Note]
 >Os prestadores/autoridades não parceiros também são autorizados, mas não apoiarão a funcionalidade de renovação automática.
 
-### <a name="composition-of-a-certificate"></a>Composição de um certificado
+## <a name="composition-of-a-certificate"></a>Composição de um certificado
 
 Quando um certificado key vault é criado, uma chave e segredo endereçados também são criados com o mesmo nome. A chave key vault permite operações chave e o segredo do Cofre chave permite a recuperação do valor do certificado como segredo. Um certificado Key Vault também contém metadados de certificados x509 públicos.  
 
@@ -81,7 +38,7 @@ O identificador e a versão dos certificados são semelhantes aos das chaves e s
  
 ![Os certificados são objetos complexos](../media/azure-key-vault.png)
 
-### <a name="exportable-or-non-exportable-key"></a>Chave exportável ou não exportável
+## <a name="exportable-or-non-exportable-key"></a>Chave exportável ou não exportável
 
 Quando um certificado key vault é criado, pode ser recuperado do segredo endereçado com a chave privada em formato PFX ou PEM. A política utilizada para a criação do certificado deve indicar que a chave é exportável. Se a apólice indica não ser exportável, então a chave privada não faz parte do valor quando recuperada como segredo.  
 
@@ -89,11 +46,11 @@ A chave endereçada torna-se mais relevante com certificados KV não exportávei
 
 São suportados dois tipos de teclas – *RSA* ou *RSA HSM* com certificados. Exportável só é permitido com RSA, não suportado pela RSA HSM.  
 
-### <a name="certificate-attributes-and-tags"></a>Atributos e Etiquetas de Certificado
+## <a name="certificate-attributes-and-tags"></a>Atributos e Etiquetas de Certificado
 
 Além dos metadados de certificados, uma chave endereçada e um segredo endereçado, um certificado Key Vault também contém atributos e tags.  
 
-#### <a name="attributes"></a>Atributos
+### <a name="attributes"></a>Atributos
 
 Os atributos do certificado são espelhados em atributos da chave endereçada e do segredo criado quando o certificado KV é criado.  
 
@@ -111,14 +68,14 @@ Existem atributos adicionais de leitura que estão incluídos em resposta:
 > [!Note] 
 > Se um certificado de cofre expirar, é a chave endereçada e o segredo torna-se inoperável.  
 
-#### <a name="tags"></a>Etiquetas
+### <a name="tags"></a>Etiquetas
 
  O dicionário especificado pelo cliente de pares de valor-chave, semelhante a etiquetas em chaves e segredos.  
 
  > [!Note]
 > As etiquetas são legíveis por um chamador se tiverem a *lista* ou *obterem* permissão para esse tipo de objeto (chaves, segredos ou certificados).
 
-### <a name="certificate-policy"></a>Política de certificados
+## <a name="certificate-policy"></a>Política de certificados
 
 Uma política de certificados contém informações sobre como criar e gerir o ciclo de vida de um certificado key vault. Quando um certificado com chave privada é importado para o cofre chave, uma política padrão é criada através da leitura do certificado x509.  
 
@@ -138,7 +95,7 @@ A um nível elevado, uma política de certificados contém as seguintes informa�
 -   Emitente: Parâmetros sobre o emitente do certificado a utilizar para emitir certificados x509.  
 -   Atributos políticos: contém atributos associados à política  
 
-#### <a name="x509-to-key-vault-usage-mapping"></a>Mapeamento de utilização do Cofre-Chave X509 para Key Vault
+### <a name="x509-to-key-vault-usage-mapping"></a>Mapeamento de utilização do Cofre-Chave X509 para Key Vault
 
 O quadro seguinte representa o mapeamento da política de utilização chave x509 para operações-chave eficazes de uma chave criada como parte de uma criação de certificado key vault.
 
@@ -153,7 +110,7 @@ O quadro seguinte representa o mapeamento da política de utilização chave x50
 |Não Repudiação|assinar, verificar| N/D |
 |crlsign|assinar, verificar| N/D |
 
-### <a name="certificate-issuer"></a>Emitente de certificado
+## <a name="certificate-issuer"></a>Emitente de certificado
 
 Um objeto de certificado Key Vault contém uma configuração utilizada para comunicar com um fornecedor de emitente de certificado selecionado para encomendar certificados x509.  
 
@@ -180,7 +137,7 @@ O Key Vault permite a criação de múltiplos objetos emitentes com configuraç�
 
 Os objetos emitentes são criados no cofre e só podem ser usados com certificados KV no mesmo cofre.  
 
-### <a name="certificate-contacts"></a>Contactos de certificados
+## <a name="certificate-contacts"></a>Contactos de certificados
 
 Os contactos do certificado contêm informações de contacto para enviar notificações desencadeadas por eventos de vida de certificado. A informação de contactos é partilhada por todos os certificados do cofre chave. Uma notificação é enviada para todos os contactos especificados para um evento para qualquer certificado no cofre chave.  
 
@@ -191,7 +148,7 @@ Se a política de um certificado for definida para a renovação automática, en
 
   Quando uma política de certificadoque está definida para ser renovada manualmente (apenas por e-mail), uma notificação é enviada quando é hora de renovar o certificado.  
 
-### <a name="certificate-access-control"></a>Controlo de Acesso ao Certificado
+## <a name="certificate-access-control"></a>Controlo de Acesso ao Certificado
 
  O controlo de acesso aos certificados é gerido pela Key Vault, e é fornecido pelo Cofre chave que contém esses certificados. A política de controlo de acesso para certificados é distinta das políticas de controlo de acesso para chaves e segredos no mesmo Cofre chave. Os utilizadores podem criar um ou mais cofres para deter certificados, para manter o cenário de segmentação e gestão adequada dos certificados.  
 
@@ -219,7 +176,11 @@ Se a política de um certificado for definida para a renovação automática, en
 
 Para mais informações, consulte as operações do [Certificado na referência aAPI do Cofre Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Cofres - Atualizar a Política](/rest/api/keyvault/vaults/updateaccesspolicy)de Acesso .
 
-## <a name="see-also"></a>Veja também
+## <a name="next-steps"></a>Passos seguintes
 
+- [Sobre o Key Vault](../general/overview.md)
+- [Sobre chaves, segredos e certificados](../general/about-keys-secrets-certificates.md)
+- [Acerca de chaves](../keys/about-keys.md)
+- [Acerca de segredos](../secrets/about-secrets.md)
 - [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)
 - [Guia do Programador do Cofre de Chaves](../general/developers-guide.md)

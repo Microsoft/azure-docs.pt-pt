@@ -7,12 +7,15 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: c79f18669e1b13f79491e98658107221b43f3ff5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 73eb0b3164a386bb270e42ceba56d5dc7045af1c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77046180"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81728993"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>O que é Azure Internet of Things (IoT)?
 

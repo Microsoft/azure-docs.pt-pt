@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 3e6612b30dd8ae6716c0f87687e77c5961275ea5
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 6aad01808ad155b745b614d8de6009386f0d2914
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606574"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687953"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas na Azure Data Factory
 
@@ -236,11 +236,13 @@ function getPipelineDependencies {
         return @($activity.Pipeline.ReferenceName)
     } elseif ($activity.Activities) {
         $result = @()
-        return $activity.Activities | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+        $activity.Activities | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+        return $result
     } elseif ($activity.ifFalseActivities -or $activity.ifTrueActivities) {
         $result = @()
         $activity.ifFalseActivities | Where-Object {$_ -ne $null} | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
         $activity.ifTrueActivities | Where-Object {$_ -ne $null} | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+        return $result
     } elseif ($activity.defaultActivities) {
         $result = @()
         $activity.defaultActivities | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
@@ -248,6 +250,8 @@ function getPipelineDependencies {
             $activity.cases | ForEach-Object{ $_.activities } | ForEach-Object{$result += getPipelineDependencies -activity $_ }
         }
         return $result
+    } else {
+        return @()
     }
 }
 

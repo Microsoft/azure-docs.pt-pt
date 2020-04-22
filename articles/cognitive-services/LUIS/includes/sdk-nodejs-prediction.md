@@ -10,12 +10,12 @@ ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 05e668ff5b0ec19c5e380cf6bfee4b6e46900b2f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9c15e4217c5331346c5a95329bae7e2a4f0e0841
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77372286"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732086"
 ---
 Utilize a biblioteca de clientes em tempo de execução (LUIS) para:
 
@@ -27,7 +27,8 @@ Utilize a biblioteca de clientes em tempo de execução (LUIS) para:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Recurso de tempo de execução da compreensão linguística: [Criar um no portal Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-* [Nó.js](https://nodejs.org)
+* [Node.js](https://nodejs.org)
+* Um ID de aplicativo LUIS - use `df67dcdb-c37d-46af-88e1-8b97951ca1c2`o ID da aplicação IoT pública de . A consulta do utilizador utilizada no código de arranque rápido é específica dessa aplicação.
 
 ## <a name="setting-up"></a>Configuração
 
@@ -37,9 +38,9 @@ Obtenha a sua chave de tempo de [execução](../luis-how-to-azure-subscription.m
 
 [!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
-### <a name="create-a-new-javascript-nodejs-file"></a>Crie um novo ficheiro javascript (Node.js)
+### <a name="create-a-new-javascript-nodejs-file"></a>Crie um novo ficheiro JavaScript (Node.js)
 
-Crie um novo ficheiro javascript no seu `luis_prediction.js`editor preferido ou IDE, nomeado .
+Crie um novo ficheiro JavaScript no seu `luis_prediction.js`editor preferido ou IDE, nomeado .
 
 ### <a name="install-the-npm-library-for-the-luis-runtime"></a>Instale a biblioteca NPM para o tempo de execução do LUIS
 

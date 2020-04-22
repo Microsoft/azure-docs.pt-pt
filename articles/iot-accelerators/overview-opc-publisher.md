@@ -8,12 +8,15 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 2310a81d3cfaeff203134af9968bc2d5caea3e9c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: c77dff4a4f89a78dc0a0d723fbb45fe691246112
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73824782"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681924"
 ---
 # <a name="what-is-opc-publisher"></a>O que é editora oPC?
 

@@ -2,17 +2,17 @@
 title: Configure a gestão de chumbo no Marketo Mercado Azure
 description: Configure a gestão de chumbo para marketo para clientes do mercado Azure.
 author: qianw211
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 04eae529efcf9509d8cd43a7629bb0b76b593cd0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 90f42954fd4d7324a7684795fca6ec302411790c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252504"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731101"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configure a gestão de chumbo em Marketo
 
@@ -21,16 +21,21 @@ Este artigo descreve como configurar o seu sistema de CRM Marketo para processar
 ## <a name="set-up-your-marketo-crm-system"></a>Crie o seu sistema de CRM Marketo
 
 1. Inscreva-se no Marketo.
+
 2. Selecione **Design Studio**.
+
     ![Estúdio de Design Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
 
 3.  Selecione **Novo Formulário**.
+
     ![Nova forma de Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
 4.  Preencha os campos necessários no Formulário Novo e, em seguida, selecione **Criar**.
+
     ![Marketo cria nova forma](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
 5.  Em detalhes de campo, selecione **Terminar**.
+
     ![Forma de acabamento Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
 6.  Aprovar e Fechar.
@@ -41,7 +46,7 @@ Este artigo descreve como configurar o seu sistema de CRM Marketo para processar
 
 8. Marketo Embed Code apresenta código semelhante ao seguinte exemplo.
 
-    ```
+    ```html
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
@@ -60,9 +65,10 @@ Este artigo descreve como configurar o seu sistema de CRM Marketo para processar
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configure a sua oferta para enviar pistas para Marketo
 
-Quando estiver pronto para configurar as informações de gestão de chumbo para a sua oferta no portal editorial, siga os passos abaixo: 
+Quando estiver pronto para configurar as informações de gestão de chumbo para a sua oferta no portal editorial, siga estes passos: 
 
 1. Navegue na página de **configuração** da Oferta para a sua oferta.
+
 1. Selecione **Ligar** sob a secção de Gestão de Chumbo. 
 
     ![Gestão de chumbo - Connect](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
@@ -73,12 +79,13 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 
 4. Forneça o ID do **Servidor,** **o ID da conta de mastigação,** e o ID do **formulário**.
 
-    >[!Note]
-    >Tem de terminar de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta. 
+    > [!Note]
+    > Tem de terminar de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta. 
 
 5. **E-mail de contacto** - Forneça e-mails para pessoas da sua empresa que devam receber notificações de e-mail quando um novo chumbo for recebido. Pode fornecer vários e-mails separando-os com um ponto evío.
+
 6. Selecione **OK**.
 
-Para se certificar de que se ligou com sucesso a um destino de chumbo, clique no botão de validação. Se for bem sucedido, terá um chumbo de teste no destino principal.
+   Para se certificar de que se ligou com sucesso a um destino de chumbo, clique no botão de validação. Se for bem sucedido, terá um chumbo de teste no destino principal.
 
-![Detalhes da ligação](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)
+   ![Detalhes da ligação](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 53660ad93ab2218d546ae6f363873c4d66872e2b
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284645"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730315"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos finais do Hub IoT
 
@@ -76,7 +79,7 @@ Pode ligar os serviços Azure existentes na sua subscrição ao seu hub IoT para
 O IoT Hub suporta atualmente os seguintes serviços Azure como pontos finais adicionais:
 
 * Recipientes de armazenamento Azure
-* Event Hubs
+* Hubs de Eventos
 * Filas de Service Bus
 * Tópicos de Service Bus
 

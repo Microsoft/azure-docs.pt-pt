@@ -4,12 +4,12 @@ description: Instalação de resolução de problemas, registo do Servidor de Ba
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: deff49a7d00a335c396a6fa36d3846ef353331c5
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7a1cac63ba6497b8580c83fe2b666b020701283a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421298"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688039"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
@@ -62,7 +62,7 @@ Recomendamos que execute a validação abaixo, antes de começar a resolver prob
 
 | Operação | Detalhes do erro | Solução |
 | --- | --- | --- |
-| Empurrar agentes para servidores protegidos | A operação do agente falhou devido a um erro \<de comunicação com o serviço de Coordenador do Agente DPM no ServidorName>. | **Se a ação recomendada no produto não funcionar, então execute os seguintes passos:** <ul><li> Se estiver a ligar um computador a partir de um domínio não confiável, siga [estes passos](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> (OU) </li><li> Se estiver a anexar um computador a partir de um domínio de confiança, saque de problemas utilizando os passos descritos [neste blog](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>(OU)</li><li> Tente desativar o antivírus como um passo de resolução de problemas. Se resolver o problema, modifique as definições antivírus, tal como sugerido [neste artigo](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).</li></ul> |
+| Empurrar agentes para servidores protegidos | A operação do agente falhou devido a um erro \<de comunicação com o serviço de Coordenador do Agente DPM no ServidorName>. | **Se a ação recomendada no produto não funcionar, então execute os seguintes passos:** <ul><li> Se estiver a ligar um computador a partir de um domínio não confiável, siga [estes passos](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> (OU) </li><li> Se estiver a anexar um computador a partir de um domínio de confiança, saque de problemas utilizando os passos descritos [neste blog](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>(OU)</li><li> Tente desativar o antivírus como um passo de resolução de problemas. Se resolver o problema, modifique as definições antivírus, tal como sugerido [neste artigo](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>A configuração não conseguiu atualizar os metadados de registo
 
@@ -96,7 +96,7 @@ Recomendamos que execute a validação abaixo, antes de começar a resolver prob
 | Cópia de segurança | Se estiver a apoiar apenas o estado do sistema, verifique se há espaço livre suficiente no computador protegido para armazenar a cópia de segurança do estado do sistema. | <ol><li>Verifique se o Windows Server Backup está instalado na máquina protegida.</li><li>Verifique se há espaço suficiente no computador protegido para o estado do sistema. A maneira mais fácil de verificar isto é ir ao computador protegido, abrir o Windows Server Backup, clicar nas seleções e, em seguida, selecionar BMR. A UI então diz-lhe quanto espaço é necessário. Abra o**plano** > **de backup** > local **WSB** > **Selecione configuração** > **completa de** backup (tamanho é apresentado). Utilize este tamanho para verificação.</li></ol>
 | Cópia de segurança | Falha de back up para BMR | Se o tamanho BMR for grande, mova alguns ficheiros de aplicação para a unidade de S e tente novamente. |
 | Cópia de segurança | A opção de reproteger um VMware VM num novo Microsoft Azure Backup Server não mostra como disponível para adicionar. | As propriedades vMware são apontadas para um antigo caso aposentado do Microsoft Azure Backup Server. Para resolver este problema:<br><ol><li>No VCenter (equivalente SC-VMM), vá ao separador **Resumo** e, em seguida, a **Atributos Personalizados**.</li>  <li>Elimine o antigo nome do Microsoft Azure Backup Server do valor **DPMServer.**</li>  <li>Volte ao novo Servidor de Backup Microsoft Azure e modifique o PG.  Depois de selecionar o botão **Refresh,** o VM aparece com uma caixa de verificação disponível para adicionar à proteção.</li></ol> |
-| Cópia de segurança | Erro ao aceder a ficheiros/pastas partilhadas | Tente modificar as definições antivírus, tal como sugerido neste artigo, [executar software antivírus no servidor DPM](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).|
+| Cópia de segurança | Erro ao aceder a ficheiros/pastas partilhadas | Tente modificar as definições antivírus, tal como sugerido neste artigo, [executar software antivírus no servidor DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).|
 
 ## <a name="change-passphrase"></a>Alterar a frase-passe
 

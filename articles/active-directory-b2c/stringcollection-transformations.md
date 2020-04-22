@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cac7e6feb632456b63b97ead057f9ecaf49322ea
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186782"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729709"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection reclama transformações
 
@@ -159,4 +159,38 @@ Após verificação do `roles` exemplo se o tipo de reclamação stringCollectio
 - Alegações de saída:
     - **saídaReivindicação**: "verdadeiro"
 
+## <a name="stringcollectioncontainsclaim"></a>StringCollectionContémClaim
 
+Verifica se um tipo de reclamação stringCollection contém um valor de reclamação.
+
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| Pedido de crédito | coleção | stringCollection | O tipo de reclamação que deve ser revistado. |
+| Pedido de crédito | item|string| O tipo de reclamação que contém o valor a pesquisar.|
+|EntradaParametro|ignorarCaso|string|Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas.|
+| Pedido de saída | saídaReclamada | boolean | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. Um indicador booleano se a coleção contiver tal corda |
+
+Após o exemplo `roles` verifica se o tipo de `role` reclamação stringCollection contém o valor do tipo de reclamação.
+
+```XML
+<ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="role" TransformationClaimType="item" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="hasAccess" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation> 
+```
+
+- Créditos de entrada:
+    - **coleção**: ["leitor", "autor", "administrador"]
+    - **artigo**: "Administrador"
+- Parâmetros de entrada:
+    - **ignoraCaso**: "verdadeiro"
+- Alegações de saída:
+    - **saídaReivindicação**: "verdadeiro"

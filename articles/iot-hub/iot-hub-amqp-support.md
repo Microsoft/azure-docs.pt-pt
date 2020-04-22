@@ -7,12 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 7f7e957502419b766f7da63048e8168192ea20da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284788"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730760"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunique com o seu hub IoT utilizando o Protocolo AMQP
 

@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 4e380fdcd72ab21f00272536b9f08145dcb09bc1
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60400155"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81728821"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guia de desenvolvimento do Azure IoT Hub
 

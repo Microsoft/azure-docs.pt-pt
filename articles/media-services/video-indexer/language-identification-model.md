@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
-ms.openlocfilehash: ba1521581316d559eb4e67bafba0061c31cc666b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272955"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687129"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identifique automaticamente a língua falada com o modelo de identificação linguística
 
 O Indexer de vídeo suporta a identificação automática de idiomas (LID), que é o processo de identificação automática do conteúdo da linguagem falada a partir do áudio e envio do ficheiro de mídia para ser transcrito na língua identificada dominante. 
 
-Atualmente o LID apoia: Inglês, Espanhol, Francês, Alemão, Italiano, Mandarim Chines, Japonês, Russo e Português (Brasileiro). 
+Atualmente o LID apoia: Inglês, Espanhol, Francês, Alemão, Italiano, Mandarim Chinês, Japonês, Russo e Português (Brasileiro). 
 
 Certifique-se de rever a secção de [Orientações e limitações](#guidelines-and-limitations) abaixo.
 

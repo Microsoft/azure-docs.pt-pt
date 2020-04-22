@@ -2,15 +2,15 @@
 title: Criar modelo - Código de Estúdio Visual
 description: Utilize o Visual Studio Code e a extensão Azure Resource Manager Tools para trabalhar em modelos do Resource Manager.
 author: neilpeterson
-ms.date: 03/27/2019
+ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 4b1ecbf3a1f6083261e87537e20d52e755b77424
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: cd107db5220a96d75092a94736e060ae46672926
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81640676"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686619"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual
 

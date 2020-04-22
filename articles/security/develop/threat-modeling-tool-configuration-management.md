@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c89fae09583c96cf8139885fe2554cf6784b4e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ead6a79109c221d31ead96a202e97294ef218c5f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269829"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687981"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Quadro de segurança: Gestão de Configuração / Atenuações 
 | Produto/Serviço | Artigo |
@@ -33,7 +33,7 @@ ms.locfileid: "78269829"
 | **Gateway de campo iot** | <ul><li>[Criptografe OS e divisórias adicionais de IoT Field Gateway com bit-locker](#field-bit-locker)</li><li>[Certifique-se de que as credenciais de login predefinidas do gateway de campo são alteradas durante a instalação](#default-change)</li></ul> |
 | **Gateway da nuvem iot** | <ul><li>[Certifique-se de que o Cloud Gateway implementa um processo para manter os firmware de dispositivos conectados atualizados](#cloud-firmware)</li></ul> |
 | **Limite de confiança de máquina** | <ul><li>[Certifique-se de que os dispositivos têm controlos de segurança de ponta configurados de acordo com as políticas organizacionais](#controls-policies)</li></ul> |
-| **Storage do Azure** | <ul><li>[Garantir a gestão segura das chaves de acesso ao armazenamento Azure](#secure-keys)</li><li>[Certifique-se de que só são permitidas origens fidedignas se o CORS estiver habilitado no armazenamento do Azure](#cors-storage)</li></ul> |
+| **Armazenamento Azure** | <ul><li>[Garantir a gestão segura das chaves de acesso ao armazenamento Azure](#secure-keys)</li><li>[Certifique-se de que só são permitidas origens fidedignas se o CORS estiver habilitado no armazenamento do Azure](#cors-storage)</li></ul> |
 | **WCF** | <ul><li>[Ativar a funcionalidade de estrangulamento de serviço da WCF](#throttling)</li><li>[Divulgação de informação sobre o WCF através de metadados](#info-metadata)</li></ul> | 
 
 ## <a name="implement-content-security-policy-csp-and-disable-inline-javascript"></a><a id="csp-js"></a>Implementar a Política de Segurança do Conteúdo (CSP) e desativar o javascript inline
@@ -76,7 +76,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase SDL**               | Compilação |  
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [Filtro de proteção XSS](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) |
+| **Referências**              | [Filtro de proteção XSS](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) |
 | **Passos** | <p>A configuração do cabeçalho de resposta x-XSS-Protection controla o filtro de script do site transversal do navegador. Este cabeçalho de resposta pode ter valores seguintes:</p><ul><li>`0:`Isto irá desativar o filtro</li><li>`1: Filter enabled`Se for detetado um ataque de scripts cross-site, para parar o ataque, o navegador irá sanitizar a página</li><li>`1: mode=block : Filter enabled`. Em vez de sanitizar a página, quando um ataque XSS é detetado, o navegador impedirá a renderização da página</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. O navegador vai sanitizar a página e denunciar a violação.</li></ul><p>Esta é uma função de Crómio que utiliza relatórios de violação de CSP para enviar detalhes para um URI à sua escolha. As últimas 2 opções são consideradas valores seguros.</p>|
 
 ## <a name="aspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>ASP.NET aplicações devem desativar o rastreio e a depuração antes da implantação
@@ -109,7 +109,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase SDL**               | Compilação |  
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [OWASP click-jacking Defense Cheat Sheet](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [IE Internals - Combate ao jacking de cliques com opções x-frame-options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
+| **Referências**              | [OWASP click-jacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html), [IE Internals - Combate ao jacking de cliques com opções x-frame-options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
 | **Passos** | <p>click-jacking, também conhecido como um "ui reparação ataque", é quando um intruso usa várias camadas transparentes ou opacas para enganar um utilizador a clicar num botão ou link em outra página quando pretendia clicar na página de nível superior.</p><p>Esta camada é conseguida através da criação de uma página maliciosa com um iframe, que carrega a página da vítima. Assim, o intruso está a "sequestrar" cliques destinados à sua página e a encaminhar-os para outra página, provavelmente propriedade de outra aplicação, domínio ou ambos. Para evitar ataques de jacking de cliques, detete os cabeçalhos de resposta HTTP de X-Frame-Options adequados que instruam o navegador a não permitir o enquadramento de outros domínios</p>|
 
 ### <a name="example"></a>Exemplo

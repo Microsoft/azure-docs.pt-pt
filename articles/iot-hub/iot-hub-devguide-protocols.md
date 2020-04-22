@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 3e7f31371a0582a6f4941efbfa0087119278d2d1
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284632"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729119"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referência - escolha um protocolo de comunicação
 
@@ -39,7 +42,7 @@ Considere os seguintes pontos quando escolher o seu protocolo para comunicaçõe
 
 * **Padrão nuvem-a-dispositivo**. HTTPS não tem uma forma eficiente de implementar o impulso do servidor. Como tal, quando estiver a utilizar HTTPS, os dispositivos pesquisam IoT Hub para mensagens cloud-to-device. Esta abordagem é ineficiente tanto para o dispositivo como para o IoT Hub. De acordo com as atuais diretrizes HTTPS, cada dispositivo deve fazer uma sondagem para mensagens a cada 25 minutos ou mais. O servidor de suporte MQTT e AMQP pressiona ao receber mensagens cloud-to-device. Permitem empurrões imediatos de mensagens do IoT Hub para o dispositivo. Se a latência de entrega for uma preocupação, MQTT ou AMQP são os melhores protocolos a utilizar. Para dispositivos raramente ligados, https também funciona.
 
-* **Portais de campo.** Ao utilizar mQTT e HTTPS, não é possível ligar vários dispositivos (cada um com as suas próprias credenciais por dispositivo) utilizando a mesma ligação TLS. Para [cenários](iot-hub-devguide-endpoints.md#field-gateways) de gateway de campo que requerem uma ligação TLS entre o gateway de campo e o IoT Hub para cada dispositivo conectado, estes protocolos são sub-ideais.
+* **Portais de campo.** MQTT e HTTPS suportam apenas uma única identidade de dispositivo (ID de dispositivo mais credenciais) por ligação TLS. Por esta razão, estes protocolos não são suportados para [cenários](iot-hub-devguide-endpoints.md#field-gateways) de gateway de Campo que requerem mensagens multiplexing usando múltiplas identidades de dispositivo através de um único ou um conjunto de conexões a montante para IoT Hub. Tais gateways podem usar um protocolo que suporta múltiplas identidades de dispositivos por conexão, como amqp, para o seu tráfego a montante.
 
 * **Dispositivos de baixo recurso.** As bibliotecas MQTT e HTTPS têm uma pegada menor do que as bibliotecas AMQP. Como tal, se o dispositivo tiver recursos limitados (por exemplo, menos de 1-MB RAM), estes protocolos podem ser a única implementação de protocolo disponível.
 

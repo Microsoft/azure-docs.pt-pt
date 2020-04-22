@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
-ms.date: 04/03/2020
-ms.openlocfilehash: 5bf405840de54c4e2399ee73e723201acca9e6bc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.date: 04/20/2020
+ms.openlocfilehash: 76fcdb52df88be2c4033140f4bc71b28424d7f38
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657040"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687782"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>O que é ml serviços em Azure HDInsight
 
@@ -23,7 +23,7 @@ Os serviços ML no HDInsight fornecem as mais recentes capacidades para análise
 
 O nó de borda proporciona um lugar conveniente para ligar ao cluster e executar os seus scripts R. O nó de borda permite executar as funções distribuídas paralelas ScaleR através dos núcleos do servidor. Também pode executá-los através dos nós do cluster usando o Mapa de Hadoop da ScaleR. Também pode utilizar contextos de computação Apache Spark.
 
-Os modelos ou previsões resultantes da análise podem ser descarregados para uso no local. Também podem ser operacionalizados noutros locais do Azure. Em particular, através do [Azure Machine Learning Studio (clássico)](https://studio.azureml.net)e [do serviço web.](../../machine-learning/studio/deploy-a-machine-learning-web-service.md)
+Os modelos ou previsões resultantes da análise podem ser descarregados para uso no local. Também podem `operationalized` estar em outro lugar em Azure. Em particular, através do [Azure Machine Learning Studio (clássico)](https://studio.azureml.net)e [do serviço web.](../../machine-learning/studio/deploy-a-machine-learning-web-service.md)
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Começar com os Serviços ML no HDInsight
 
@@ -63,16 +63,16 @@ As seguintes funcionalidades estão incluídas nos Serviços ML no HDInsight.
 | Ativado por R | [Pacotes R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) para soluções escritas em R, com uma distribuição de código aberto de R, e infraestrutura de tempo de execução de script. |
 | Python-habilitado | [Módulos Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) para soluções escritas em Python, com uma distribuição de código aberto de Python, e infraestrutura de tempo de execução de scripts.
 | [Modelos pré-treinados](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | Para análise visual e análise de sentimento de texto, pronto para marcar dados que fornece. |
-| [Implantar e consumir](r-server-operationalize.md) | Operacionalize o seu servidor e implemente soluções como um serviço web. |
+| [Implantar e consumir](r-server-operationalize.md) | `Operationalize`o seu servidor e implementar soluções como um serviço web. |
 | [Execução remota](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Inicie sessões remotas no cluster ML Services na sua rede a partir da sua estação de trabalho de cliente. |
 
 ## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>Opções de armazenamento de dados para serviços ML no HDInsight
 
-O armazenamento predefinido para o sistema de ficheiros HDFS pode ser uma conta de Armazenamento Azure ou armazenamento de lagos de dados azure. Os dados enviados para o armazenamento do cluster durante a análise são persistentes. Os dados estão disponíveis mesmo após a eliminação do cluster. Várias ferramentas podem lidar com a transferência de dados para armazenamento. As ferramentas incluem a instalação de upload baseada no portal da conta de armazenamento e o utilitário [AzCopy.](../../storage/common/storage-use-azcopy.md)
+O armazenamento predefinido para o sistema de ficheiros HDFS pode ser uma conta de Armazenamento Azure ou armazenamento de lagos de dados azure. Os dados enviados para o armazenamento do cluster durante a análise são persistentes. Os dados estão disponíveis mesmo após a eliminação do cluster. Várias ferramentas podem lidar com a transferência de dados para armazenamento. As ferramentas incluem a instalação de upload baseada no portal da conta de armazenamento e o utilitário AzCopy.
 
 Você pode permitir o acesso a lojas de lagos Blob e Data adicionais durante a criação de cluster. Não se limita pela opção de armazenamento principal em uso.  Consulte as opções de [Armazenamento Azure para serviços ML no artigo da HDInsight](./r-server-storage.md) para saber mais sobre a utilização de várias contas de armazenamento.
 
-Também pode utilizar [o Azure Files](../../storage/files/storage-how-to-use-files-linux.md) como opção de armazenamento para utilização no nó de borda. O Azure Files permite as ações de ficheirocriadas no Armazenamento Azure para o sistema de ficheiros Linux. Para mais informações, consulte as opções de [Armazenamento Azure para serviços ML no HDInsight](r-server-storage.md).
+Também pode utilizar o Azure Files como opção de armazenamento para utilização no nó de borda. O Azure Files permite as ações de ficheirocriadas no Armazenamento Azure para o sistema de ficheiros Linux. Para mais informações, consulte as opções de [Armazenamento Azure para serviços ML no HDInsight](r-server-storage.md).
 
 ## <a name="access-ml-services-edge-node"></a>Nó de borda de acesso ML Serviços
 
@@ -82,9 +82,9 @@ Pode ligar-se ao Microsoft ML Server no nó de borda utilizando um browser, ou S
 
 Os seus scripts R podem utilizar qualquer um dos pacotes R de código aberto de 8000+. Também pode utilizar as rotinas paralelizadas e distribuídas da biblioteca ScaleR. Os scripts correm no nó de borda dentro do intérprete R naquele nó. Exceto por passos que chamam funções scaleR com um contexto de computação de redução de mapa (RxHadoopMR) ou Spark (RxSpark). As funções funcionam de forma distribuída pelos nódosos de dados que estão associados aos dados. Para obter mais informações sobre opções de contexto, consulte as opções de [contexto computacionais para os serviços ML no HDInsight](r-server-compute-contexts.md).
 
-## <a name="operationalize-a-model"></a>Operacionalizar um modelo
+## <a name="operationalize-a-model"></a>`Operationalize`um modelo
 
-Quando a sua modelação de dados estiver completa, pode operacionalizar o modelo para fazer previsões para novos dados, quer a partir do Azure quer no local. Este processo é conhecido como pontuação. A pontuação pode ser feita em HDInsight, Azure Machine Learning ou no local.
+Quando a sua modelação `operationalize` de dados estiver completa, o modelo para fazer previsões para novos dados, quer do Azure quer no local. Este processo é conhecido como pontuação. A pontuação pode ser feita em HDInsight, Azure Machine Learning ou no local.
 
 ### <a name="score-in-hdinsight"></a>Pontuação em HDInsight
 
@@ -96,7 +96,7 @@ Para pontuar utilizando o Azure Machine Learning, utilize o pacote Azure Machine
 
 ### <a name="score-on-premises"></a>Pontuação no local
 
-Para marcar no local após criar o seu modelo: serialize o modelo em R, descarregue-o, desserialize-o e, em seguida, use-o para marcar novos dados. Pode obter novos dados utilizando a abordagem descrita anteriormente no [Score in HDInsight](#score-in-hdinsight) ou utilizando [serviços web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+Para marcar no local após criar o seu modelo: serialize o modelo em R, descarregue-o, desserialize-o e, em seguida, use-o para marcar novos dados. Pode obter novos dados utilizando a abordagem descrita anteriormente no Score in HDInsight ou utilizando [serviços web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Manter o aglomerado
 
@@ -130,7 +130,7 @@ Os trabalhos de funcionamento podem abrandar durante a manutenção. No entanto,
 
 O nó de borda Linux de um cluster HDInsight é a zona de aterragem para análise baseada em R. Versões recentes do HDInsight fornecem um IDE baseado no navegador do RStudio Server no nó de borda. O RStudio Server é mais produtivo do que a consola R para desenvolvimento e execução.
 
-Um IDE de ambiente de trabalho pode aceder ao cluster através de um contexto remoto mapReduce ou Spark compute. As opções incluem: [As Ferramentas R](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) da Microsoft para estúdio visual (RTVS), RStudio e [StatET](http://www.walware.de/goto/statet)baseado em Eclipse da Walware .
+Um IDE de ambiente de trabalho pode aceder ao cluster através de um contexto remoto mapReduce ou Spark compute. As opções incluem: [As Ferramentas R](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) da Microsoft para estúdio visual (RTVS), RStudio e StatET baseado em Eclipse da Walware.
 
 Aceda à consola R no nó da borda digitando **R** no pedido de comando. Ao utilizar a interface da consola, é conveniente desenvolver o script R num editor de texto. Em seguida, corte e cola secções do seu script na consola R, conforme necessário.
 

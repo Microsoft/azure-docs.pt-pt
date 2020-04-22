@@ -2,13 +2,13 @@
 title: Estrutura do modelo e sintaxe
 description: Descreve a estrutura e as propriedades dos modelos do Gestor de Recursos Azure usando a sintaxe declarativa da JSON.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 4e8334e4ddfaee52c5d1aa68fb8689fcde0a6cbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 60d800eb5251fb3454ba60a67bd109261c6ff9d4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79459995"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687874"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Compreender a estrutura e a sintaxe dos modelos ARM
 
@@ -293,7 +293,7 @@ Tem algumas opções para adicionar comentários e metadados ao seu modelo.
 Para comentários inline, você `//` pode `/* ... */` usar ou, mas esta sintaxe não funciona com todas as ferramentas. Não pode usar o editor do modelo do portal para trabalhar em modelos com comentários inline. Se adicionar este estilo de comentário, certifique-se de que as ferramentas que utiliza suportam comentários da JSON.
 
 > [!NOTE]
-> Para implementar modelos com comentários utilizando o Azure `--handle-extended-json-format` CLI, tem de utilizar o interruptor.
+> Para implementar modelos com comentários utilizando o Azure CLI com a versão `--handle-extended-json-format` 2.3.0 ou mais antiga, deve utilizar o interruptor.
 
 ```json
 {
@@ -404,7 +404,7 @@ Pode quebrar uma corda em várias linhas. Por exemplo, consulte a propriedade de
   ],
 ```
 
-Para implantar modelos com cordas multi-linhas utilizando o Azure `--handle-extended-json-format` CLI, tem de utilizar o interruptor.
+Para implantar modelos com cordas multi-linhas utilizando o Azure CLI com a versão `--handle-extended-json-format` 2.3.0 ou mais antiga, tem de utilizar o interruptor.
 
 ## <a name="next-steps"></a>Passos seguintes
 

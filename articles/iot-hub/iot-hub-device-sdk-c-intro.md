@@ -8,12 +8,15 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: robinsh
-ms.openlocfilehash: 71193523a83987de2440d8c70c133c29dde4fe91
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: b9b27bb142cb729536a3b7a561ed8b8ff5e0ccf5
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257883"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731311"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Dispositivo Azure IoT SDK para C
 

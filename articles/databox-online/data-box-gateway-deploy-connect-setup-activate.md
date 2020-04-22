@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: c2a0dde496d6af66387210ca9b2ebf9cb4bdae7f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3cf4fd958202c28586b7c15932dc88a21d7c60f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79087940"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686868"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Ligar, configurar, ativar portal da caixa de dados Azure
 
@@ -41,7 +41,7 @@ Antes de configurar e configurar o gateway da caixa de dados, certifique-se de q
 
 1. Abra uma janela do navegador e aceda à UI web local do dispositivo em:
    
-   [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
+   https:\//ip-address-of-network-interface
    
    Utilize o URL de ligação anotado no tutorial anterior. Você vê um erro ou um aviso indicando que há um problema com o certificado de segurança do site.
 

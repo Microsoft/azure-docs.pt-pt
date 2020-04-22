@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: 350c2bf3c4d0fc0a16f1b393e7c8d8a372679797
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78331149"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683171"
 ---
 # <a name="configure-openssl-for-linux"></a>Configurar o OpenSSL para Linux
 
@@ -50,6 +50,8 @@ Detete `SSL_CERT_FILE` a variável ambiental para apontar nesse ficheiro antes d
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
+> [!NOTE]
+> Vale também a pena notar que algumas distribuições de Linux não têm uma variável ambiental TMP ou TMPDIR definida. Isto fará com que o SDK do Discurso descarregue sempre a Lista de Revogação de Certificados (CRL), em vez de cortar o CRL para o disco para reutilização até expirarem. Para melhorar o desempenho inicial da ligação, pode [criar uma variável ambiental chamada TMPDIR e defini-la no caminho do seu diretório temporário escolhido.](https://help.ubuntu.com/community/EnvironmentVariables)
 
 ## <a name="next-steps"></a>Passos seguintes
 

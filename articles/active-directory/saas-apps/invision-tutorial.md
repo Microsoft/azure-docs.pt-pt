@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 04/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63ec58711c5dd142064e2d5cb29ccaa9eb9c0ed9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c2427fff37158745e416f4b2f0641697ad62ea9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79300656"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682673"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com a InVision
 
@@ -157,13 +157,15 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
     e. Na caixa de texto do **Certificado SAML,** abra o Certificado descarregado **(Base64)** no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto do Certificado SAML.
 
-    f. Selecione **SHA-256** a partir do dropdown para o **algoritmo HASH**.
+    f. Na caixa de texto **formato nome ID,** utilize `Unspecified` para o **formato id**nome .
 
-    g. Introduza o nome apropriado para a etiqueta do **botão SSO**.
+    g. Selecione **SHA-256** a partir do dropdown para o **algoritmo HASH**.
 
-    h. Faça **o fornecimento just-in-time** on.
+    h. Introduza o nome apropriado para a etiqueta do **botão SSO**.
 
-    i. Clique em **Atualizar**.
+    i. Faça **o fornecimento just-in-time** on.
+
+    j. Clique em **Atualizar**.
 
 ### <a name="create-invision-test-user"></a>Criar o utilizador de teste InVision
 

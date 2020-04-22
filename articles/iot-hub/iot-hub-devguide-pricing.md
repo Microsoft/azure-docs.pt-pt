@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 9b6db1b7171652ea5ace4db370b72dc22b6bdc90
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 4c7382f84522333b6aae0d79941aae8f2147a12f
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271229"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729150"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informação sobre preços do Hub Azure IoT
 

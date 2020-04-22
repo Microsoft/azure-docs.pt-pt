@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bbe973f5c701f55705fe197f56f5f8ab1d9e8c68
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: e589fa8ae5627746ec1f04e2098a7b592f00dc24
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260790"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684926"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Criar modelos ARM com recursos dependentes
 
@@ -96,11 +96,11 @@ Ao explorar o modelo nesta secção, tente responder a estas perguntas:
 
     ![Modelos de gestor de recursos do Estúdio Visual Azure gestor de recursos dependem da rede virtual](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    O elemento dependsOn permite-lhe definir um recurso como sendo dependente de um ou mais recursos. O elemento dependsOn permite-lhe definir um recurso como sendo dependente de um ou mais recursos.  Este recurso depende de um outro recurso:
+    O elemento dependsOn permite-lhe definir um recurso como sendo dependente de um ou mais recursos. Este recurso depende de um outro recurso:
 
     * `Microsoft.Network/networkSecurityGroups`
 
-1. Expanda o recurso de cinquenta. O tipo de recurso é `Microsoft.Network/networkInterfaces`. O recurso depende de dois outros recursos:
+1. Expanda o quinto recurso. O tipo de recurso é `Microsoft.Network/networkInterfaces`. O recurso depende de dois outros recursos:
 
     * `Microsoft.Network/publicIPAddresses`
     * `Microsoft.Network/virtualNetworks`
@@ -163,7 +163,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
-3. Selecione o nome do grupo de recursos.  Verá um total de seis recursos no grupo de recursos.
+3. Selecione o nome do grupo de recursos. Verá um total de seis recursos no grupo de recursos.
 4. **Selecione Eliminar** o grupo de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes

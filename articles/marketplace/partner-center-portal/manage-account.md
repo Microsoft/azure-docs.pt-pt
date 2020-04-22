@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 256ea1a03cd22df443362623177f91893f28b664
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2e057ca16e2e4f7fcb16ee39d090be853639fc12
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419158"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731453"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerencie a sua conta de mercado comercial no Partner Center
 
@@ -120,11 +120,11 @@ As definições de gestão do dispositivo aplicam-se apenas à publicação da U
 
 Globalmente Exclusivos Identificadores (GUIDs) são números de referência únicos (com 32 dígitos hexadecimais) que podem ser usados para rastrear o seu uso Azure. 
 
-Para criar GUIDs para rastreio, deve utilizar um gerador GUID. A equipa de Armazenamento Azure criou um [formulário de gerador GUIA](https://aka.ms/StoragePartners) que lhe enviará um GUIA do formato correto e pode ser reutilizado nos diferentes sistemas de rastreio.
+Para criar GUIDs para rastreio, deve utilizar um gerador GUID. A equipa de Armazenamento Azure criou um [formulário de gerador GUIA](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) que lhe enviará um GUIA do formato correto e pode ser reutilizado nos diferentes sistemas de rastreio.
 
 Recomendamos que crie um GUID único para cada canal de oferta e distribuição para cada produto. Pode optar por utilizar um único GUID para os múltiplos canais de distribuição do produto se não quiser que o relatório seja dividido.
 
-Se implementar um produto utilizando um modelo e estiver disponível tanto no Azure Marketplace como no GitHub, pode criar e registar dois GUIDS distintos:
+Se implementar um produto utilizando um modelo e estiver disponível tanto no Azure Marketplace como no GitHub, pode criar e registar dois GUIDs distintos:
 
 *    Produto A no Mercado Azure
 *    Produto A no GitHub

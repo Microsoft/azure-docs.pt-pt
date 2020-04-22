@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77206128"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684836"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Apoio à língua e à região para a API de Texto tradutor
 
@@ -63,6 +63,7 @@ A API de Texto tradutor suporta as seguintes línguas para a tradução de texto
 |Francês|    `fr`    |   Neural|
 |Alemão|    `de`    |   Neural|
 |Grego| `el`    |   Neural|
+|Guzerate|  `gu`    |   Neural|
 |Crioulo haitiano|    `ht`        |Estatística|
 |Hebraico |`he`   |Neural
 |Hindi| `hi`    |   Neural|
@@ -85,6 +86,7 @@ A API de Texto tradutor suporta as seguintes línguas para a tradução de texto
 |Malaiala| `ml` | Neural
 |Maltês|   `mt`    |   Estatística|
 |Maori| `mi`  | Neural|
+|Marata| `mr`  | Neural|
 |Norueguês| `nb`    |   Neural|
 |Persa|   `fa`    |   Neural|
 |Polaco|    `pl`    |   Neural|

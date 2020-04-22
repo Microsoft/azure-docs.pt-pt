@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.openlocfilehash: 5b55c457f5e30b1b844aafd0114f73b62bdbcac7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b9b18585aac4e31af05218ff732569912508ce9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067965"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681879"
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilize a linguagem Go para ligar e consultar dados
 Este guia de introdução demonstra como se pode ligar a uma Base de Dados do Azure para MySQL a partir de plataformas Windows, Ubuntu, Linux e Apple macOS com código escrito na linguagem [Go](https://golang.org/). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com Go e que nunca trabalhou com a Base de Dados do Azure para MySQL.
@@ -289,7 +289,7 @@ func main() {
     rows, err := db.Exec("UPDATE inventory SET quantity = ? WHERE name = ?", 200, "banana")
     checkError(err)
     rowCount, err := rows.RowsAffected()
-    fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
+    fmt.Printf("Updated %d row(s) of data.\n", rowCount)
     fmt.Println("Done.")
 }
 ```

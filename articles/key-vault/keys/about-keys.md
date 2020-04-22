@@ -10,80 +10,34 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1c12135ec6e5a0f4de1fdd46134a056447d3c331
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3d89275e1418035fed8aad3ffddd8def2c1d59ce
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424238"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686047"
 ---
 # <a name="about-azure-key-vault-keys"></a>Sobre as chaves do cofre de chaves Azure
 
-O Azure Key Vault permite que as aplicações e utilizadores do Microsoft Azure armazenem e utilizem chaves. Suporta vários tipos e algoritmos de chave e permite a utilização de Módulos de Segurança de Hardware (HSM) para chaves de alto valor. 
+O Cofre de Chaves Azure suporta vários tipos e algoritmos de chave e permite a utilização de Módulos de Segurança de Hardware (HSM) para chaves de alto valor.
 
-Para obter informações mais gerais sobre o Cofre chave, veja [o que é o Cofre chave Azure?](/azure/key-vault/key-vault-overview)
+As teclas criptográficas no Cofre chave são representadas como objetos jSON Web Key [JWK]. As especificações javaScript object notation (JSON) e JavaScript Object Signing and Crypton (JOSE) são:
 
-## <a name="azure-key-vault"></a>Azure Key Vault
+-   [Chave Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [Encriptação web JSON (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
+-   [Algoritmos Web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
+-   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
-As seguintes secções oferecem informações gerais aplicáveis em toda a implementação do serviço Key Vault.
+As especificações base JWK/JWA também são estendidas para permitir tipos-chave exclusivos da implementação do Cofre Chave. Por exemplo, a importação de chaves utilizando embalagens específicas do fornecedor HSM, permite o transporte seguro de chaves que só podem ser utilizadas em HSMs key vault. 
 
-### <a name="supporting-standards"></a>Normas de apoio
-
-As especificações javaScript object notation (JSON) e JavaScript Object Signing and Encryption (JOSE) são informações importantes de fundo.  
-
--   [Chave Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)  
--   [Encriptação web JSON (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption-40)  
--   [Algoritmos Web JSON (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40)  
--   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41)  
-
-### <a name="data-types"></a>Tipos de dados
-
-Consulte as especificações JOSE para os tipos de dados relevantes para chaves, encriptação e assinatura.  
-
--   **algoritmo** - um algoritmo suportado para uma operação chave, por exemplo, RSA1_5  
--   **cifra-valor -** octetos de texto cifrados, codificados usando Base64URL  
--   **valor digestão** - a saída de um algoritmo de hash, codificado usando Base64URL  
--   **tipo chave** - um dos tipos-chave suportados, por exemplo RSA (Rivest-Shamir-Adleman).  
--   **valor simples -** octetos de texto simples, codificados usando Base64URL  
--   **assinatura-valor** - saída de um algoritmo de assinatura, codificado usando Base64URL  
--   **base64URL** - um valor binário codificado de Base64URL [RFC4648]  
--   **boolean -** verdadeiro ou falso  
--   **Identidade** - uma identidade do Azure Ative Directory (Azure AD).  
--   **IntDate** - um valor decimal JSON que representa o número de segundos de 1970-01-01T0:0:0Z UTC até à data/hora UTC especificada. Consulte o RFC3339 para obter mais informações sobre data/horários, em geral e utc em particular.  
-
-### <a name="objects-identifiers-and-versioning"></a>Objetos, identificadores e versonagem
-
-Os objetos armazenados no Cofre chave são versonizados sempre que for criada uma nova instância de um objeto. A cada versão é atribuída a um identificador e URL únicos. Quando um objeto é criado pela primeira vez, é dado um identificador de versão única e marcado como a versão atual do objeto. A criação de um novo exemplo com o mesmo nome de objeto dá ao novo objeto um identificador de versão único, fazendo com que se torne a versão atual.  
-
-Os objetos no Cofre-Chave podem ser abordados utilizando o identificador atual ou um identificador específico da versão. Por exemplo, dada uma `MasterKey`Chave com o nome, executar operações com o identificador atual faz com que o sistema utilize a versão mais recente disponível. A realização de operações com o identificador específico da versão faz com que o sistema utilize essa versão específica do objeto.  
-
-Os objetos são identificados exclusivamente dentro do Cofre chave utilizando um URL. Nenhum dos dois objetos no sistema tem o mesmo URL, independentemente da geolocalização. O URL completo de um objeto chama-se Identificador de Objetos. O URL consiste num prefixo que identifica o Cofre de Chave, tipo de objeto, utilizador fornecido Nome do Objeto e uma Versão de Objeto. O Nome do Objeto é insensível e imutável. Os identificadores que não incluem a Versão do Objeto são referidos como Identificadores de Base.  
-
-Para mais informações, consulte [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)
-
-Um identificador de objetos tem o seguinte formato geral:  
-
-`https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
-
-Em que:  
-
-|||  
-|-|-|  
-|`keyvault-name`|O nome de um cofre chave no serviço Microsoft Azure Key Vault.<br /><br /> Os nomes key vault são selecionados pelo utilizador e são globalmente únicos.<br /><br /> O nome do cofre de chaves deve ser uma corda de caracteres 3-24, contendo apenas 0-9, a-z, A-Z, e ..|  
-|`object-type`|O tipo de objeto, "chaves" ou "segredos".|  
-|`object-name`|Um `object-name` é um utilizador fornecido nome e deve ser único dentro de um Cofre chave. O nome deve ser uma cadeia de caracteres 1-127, contendo apenas 0-9, a-z, A-Z, e - .|  
-|`object-version`|Um `object-version` é um identificador de cadeia de 32 caracteres gerado pelo sistema que é opcionalmente usado para abordar uma versão única de um objeto.|  
-
-## <a name="key-vault-keys"></a>Chaves do cofre da chave
-
-### <a name="keys-and-key-types"></a>Chaves e tipos de chaves
-
-As teclas criptográficas no Cofre chave são representadas como objetos jSON Web Key [JWK]. As especificações base JWK/JWA também são estendidas para permitir tipos-chave exclusivos da implementação do Cofre Chave. Por exemplo, a importação de chaves utilizando embalagens específicas do fornecedor HSM, permite o transporte seguro de chaves que só podem ser utilizadas em HSMs key vault.  
+O Cofre chave Azure suporta as teclas Soft e Hard:
 
 - **Teclas "soft"**: Uma chave processada em software pela Key Vault, mas é encriptada em repouso utilizando uma chave de sistema que está num HSM. Os clientes podem importar uma chave RSA ou EC (Curva Elíptica) existente, ou solicitar que o Cofre chave gere uma.
 - **Teclas "hard"**: Uma chave processada num HSM (Módulo de Segurança de Hardware). Estas chaves estão protegidas num dos Principais Mundos de Segurança HSM (há um Mundo de Segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou CE, de forma suave ou exportando de um dispositivo HSM compatível. Os clientes também podem solicitar o Key Vault para gerar uma chave. Este tipo de chave adiciona o atributo key_hsm ao JWK obter para transportar o material chave HSM.
 
-     Para obter mais informações sobre fronteiras geográficas, consulte [o Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
+Para obter mais informações sobre fronteiras geográficas, consulte [o Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
+
+## <a name="cryptographic-protection"></a>Proteção criptográfica
 
 O Cofre chave suporta apenas as teclas RSA e Elliptic Curve. 
 
@@ -94,9 +48,7 @@ O Cofre chave suporta apenas as teclas RSA e Elliptic Curve.
 
 O Cofre chave suporta as teclas RSA dos tamanhos 2048, 3072 e 4096. O Cofre chave suporta os tipos de teclas Da Curva Elíptica P-256, P-384, P-521 e P-256K (SECP256K1).
 
-### <a name="cryptographic-protection"></a>Proteção criptográfica
-
-Os módulos criptográficos que o Key Vault utiliza, seja HSM ou software, são validados por FIPS (Normas Federais de Processamento de Informação). Não é preciso fazer nada de especial para correr no modo FIPS. As chaves **criadas** ou **importadas** como protegidas por HSM são processadas dentro de um HSM, validado para o Nível 2 do FIPS 140-2. As teclas **criadas** ou **importadas** como protegidas por software, são processadas dentro de módulos criptográficos validados para o Nível 1 40-2 FIPS 1. Para mais informações, consulte [Chaves e tipos de chaves](#keys-and-key-types).
+Os módulos criptográficos que o Key Vault utiliza, seja HSM ou software, são validados por FIPS (Normas Federais de Processamento de Informação). Não é preciso fazer nada de especial para correr no modo FIPS. As chaves **criadas** ou **importadas** como protegidas por HSM são processadas dentro de um HSM, validado para o Nível 2 do FIPS 140-2. As teclas **criadas** ou **importadas** como protegidas por software, são processadas dentro de módulos criptográficos validados para o Nível 1 40-2 FIPS 1.
 
 ###  <a name="ec-algorithms"></a>Algoritmos CE
  Os identificadores de algoritmo seguem-se com teclas EC e EC-HSM no Cofre chave. 
@@ -114,7 +66,6 @@ Os módulos criptográficos que o Key Vault utiliza, seja HSM ou software, são 
 -   **ES256K** - ECDSA para digeridos sha-256 e chaves criadas com curva P-256K. Este algoritmo está pendente de normalização.
 -   **ES384** - ECDSA para digeridos sha-384 e chaves criadas com curva P-384. Este algoritmo é descrito no [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES512** - ECDSA para digeridos SHA-512 e chaves criadas com curva P-521. Este algoritmo é descrito no [RFC7518](https://tools.ietf.org/html/rfc7518).
-
 
 ###  <a name="rsa-algorithms"></a>Algoritmos RSA  
  Os identificadores de algoritmo seguem-se com teclas RSA e RSA-HSM no Cofre chave.  
@@ -134,7 +85,7 @@ Os módulos criptográficos que o Key Vault utiliza, seja HSM ou software, são 
 -   **RS512** - RSASSA-PKCS-v1_5 usando SHA-512. A aplicação fornecida valor de digestão deve ser calculada com recurso a SHA-512 e deve ter 64 bytes de comprimento.  
 -   **RSNULL** - Ver [RFC2437], um caso de utilização especializado para permitir certos cenários de TLS.  
 
-###  <a name="key-operations"></a>Operações-chave
+##  <a name="key-operations"></a>Operações-chave
 
 O Cofre chave suporta as seguintes operações em objetos-chave:  
 
@@ -164,7 +115,7 @@ Os utilizadores podem restringir qualquer uma das operações criptográficas qu
 
 Para obter mais informações sobre objetos JWK, consulte [jSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
 
-###  <a name="key-attributes"></a>Principais atributos
+## <a name="key-attributes"></a>Principais atributos
 
 Para além do material de chave, é possível especificar os seguintes atributos. Num Pedido JSON, as palavras-chave e aparelhos atributos, '{' '}', são necessários mesmo que não existam atributos especificados.  
 
@@ -177,24 +128,24 @@ Existem atributos adicionais de leitura que estão incluídos em qualquer respos
 - *criado*: IntDate, opcional. O atributo *criado* indica quando esta versão da chave foi criada. O valor é nulo para as chaves criadas antes da adição deste atributo. O seu valor DEVE ser um número que contenha um valor IntDate.  
 - *atualizado*: IntDate, opcional. O atributo *atualizado* indica quando esta versão da chave foi atualizada. O valor é nulo para as chaves que foram atualizadas pela última vez antes da adição deste atributo. O seu valor DEVE ser um número que contenha um valor IntDate.  
 
-Para obter mais informações sobre o IntDate e outros tipos de dados, consulte [os tipos de dados](#data-types)  
+Para obter mais informações sobre o IntDate e outros tipos de dados, consulte [Sobre chaves, segredos e certificados: Tipos de [dados](../general/about-keys-secrets-certificates.md#data-types).
 
-#### <a name="date-time-controlled-operations"></a>Operações controladas por data
+### <a name="date-time-controlled-operations"></a>Operações controladas por data
 
 As chaves ainda não válidas e expiradas, fora da janela *da NBF* / *exp,* funcionarão para **desencriptar,** **desembrulhar,** e **verificar** as operações (não devolverão 403, Proibido). A razão para a utilização do estado ainda não válido é permitir que uma chave seja testada antes da utilização da produção. A razão para a utilização do estado expirado é permitir operações de recuperação de dados que foram criados quando a chave era válida. Além disso, pode desativar o acesso a uma chave utilizando as políticas do Cofre chave, ou atualizando o atributo-chave *ativado* a **falso**.
 
-Para obter mais informações sobre os tipos de dados, consulte [os tipos de dados](#data-types).
+Para obter mais informações sobre os tipos de dados, consulte [os tipos de dados](../general/about-keys-secrets-certificates.md#data-types).
 
 Para obter mais informações sobre outros possíveis atributos, consulte a [Chave Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).
 
-### <a name="key-tags"></a>Etiquetas-chave
+## <a name="key-tags"></a>Etiquetas-chave
 
 Pode especificar metadados específicos de aplicação adicionais sob a forma de etiquetas. Key Vault suporta até 15 tags, cada uma das quais pode ter um nome de 256 caracteres e um valor de 256 caracteres.  
 
 >[!Note]
 >As etiquetas são legíveis por um chamador se tiverem a *lista* ou *obterem* permissão para esse tipo de objeto (chaves, segredos ou certificados).
 
-###  <a name="key-access-control"></a>Key access control (Controlo de acesso a chaves)
+##  <a name="key-access-control"></a>Key access control (Controlo de acesso a chaves)
 
 O controlo de acesso às chaves geridas pelo Key Vault é fornecido ao nível de um Cofre chave que funciona como recipiente de chaves. A política de controlo de acesso seleções é distinta da política de controlo de acesso para segredos no mesmo Cofre chave. Os utilizadores podem criar um ou mais cofres para segurar as chaves, e são obrigados a manter o cenário de segmentação e gestão apropriadas das teclas. O controlo de acesso às chaves é independente do controlo de acesso para segredos.  
 
@@ -224,7 +175,11 @@ As seguintes permissões podem ser concedidas, por utilizador/serviço principal
 
 Para obter mais informações sobre o trabalho com as chaves, consulte [as operações chave na referência aAPI do Cofre Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Cofres - Atualizar a Política](/rest/api/keyvault/vaults/updateaccesspolicy)de Acesso . 
 
-## <a name="see-also"></a>Veja também
+## <a name="next-steps"></a>Passos seguintes
 
+- [Sobre o Key Vault](../general/overview.md)
+- [Sobre chaves, segredos e certificados](../general/about-keys-secrets-certificates.md)
+- [Acerca de segredos](../secrets/about-secrets.md)
+- [Acerca de certificados](../certificates/about-certificates.md)
 - [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)
 - [Guia do Programador do Cofre de Chaves](../general/developers-guide.md)

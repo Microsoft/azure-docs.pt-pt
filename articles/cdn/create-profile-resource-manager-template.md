@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 7c7186b6ac5d5dcf4db75ccba9e08f8e0484932f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: dfd7b933502b96c0952a24dbee563e9b537dcdd8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81253429"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683465"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Quickstart: Criar um perfil E ponto final do Azure CDN utilizando o modelo de Gestor de Recursos
 
@@ -211,7 +211,7 @@ az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o t
 
 ![Ver ponto final do CDN](./media/create-profile-resource-manager-template/cdn-view-endpoint.png)
 
-Utilize o Nome do Anfitrião para visualizar o conteúdo. Por exemplo, https://cdndemo-azurewebsites-net.azureedge.net aceda através do seu navegador.
+Utilize o Nome do Anfitrião para visualizar o conteúdo. Por exemplo, aceda a https:\//cdndemo-azurewebsites-net.azureedge.net usando o seu navegador.
 
 ## <a name="clean-up"></a>Limpeza
 

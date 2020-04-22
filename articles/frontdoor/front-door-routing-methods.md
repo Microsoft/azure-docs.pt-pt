@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 69ef68dafc2385eb5614179c3d04265250383104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7dd00d28ecfe844094677e0ae19f4fd359d97d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471545"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687813"
 ---
 # <a name="front-door-routing-methods"></a>Métodos de encaminhamento da porta da frente
 
@@ -27,7 +27,7 @@ Existem quatro conceitos principais para o encaminhamento de tráfego disponíve
 * ** [Latência:](#latency)** O encaminhamento baseado em latência garante que os pedidos são enviados para os limites de latência mais baixos aceitáveis dentro de um intervalo de sensibilidade. Basicamente, os pedidos dos seus utilizadores são enviados para o conjunto de backends "mais próximo" no que diz respeito à latência da rede.
 * ** [Prioridade:](#priority)** Pode atribuir prioridades aos seus diferentes backends quando pretender utilizar um backend de serviço primário para todo o tráfego, e fornecer cópias de segurança caso as costas primárias ou de reserva não estejam disponíveis.
 * ** [Ponderado:](#weighted)** Pode atribuir pesos aos seus diferentes backends quando pretender distribuir o tráfego através de um conjunto de backends, quer uniformemente quer de acordo com os coeficientes de peso.
-* **Afinidade da Sessão:** Pode configurar a afinidade da sessão para os seus anfitriões ou domínios frontendes quando pretender que os pedidos subsequentes de um utilizador sejam enviados para o mesmo backend, desde que a sessão do utilizador ainda esteja ativa e a instância de backend ainda reporte saudável com base em sondas de saúde. 
+* ** [Afinidade da Sessão](#affinity):** Pode configurar a afinidade da sessão para os seus anfitriões ou domínios frontendes quando pretender que os pedidos subsequentes de um utilizador sejam enviados para o mesmo backend, desde que a sessão do utilizador ainda esteja ativa e a instância de backend ainda reporte saudável com base em sondas de saúde. 
 
 Todas as configurações do Front Door incluem a monitorização do estado de funcionamento dos back-ends e a ativação pós-falha global, instantânea e automatizada. Para mais informações, consulte a [Monitorização do Backend da Porta Frontal](front-door-health-probes.md). A porta da frente pode ser configurada para trabalhar com base num único método de encaminhamento e, dependendo das necessidades da sua aplicação, pode utilizar vários ou todos estes métodos de encaminhamento em combinação para construir uma topologia de encaminhamento ideal.
 
@@ -71,7 +71,7 @@ O método ponderado permite alguns cenários úteis:
 * **Cloud-bursting para capacidade adicional**: Expanda rapidamente uma implantação no local para a nuvem colocando-a atrás da Porta da Frente. Quando necessitar de capacidade extra na nuvem, pode adicionar ou ativar mais backends e especificar que parte do tráfego vai para cada backend.
 
 ## <a name="session-affinity"></a><a name = "affinity"></a>Afinidade de Sessão
-Por predefinição, sem afinidade da sessão, a Porta Frontal adere aos pedidos originários do mesmo cliente para diferentes backends com base na configuração de equilíbrio de carga, particularmente como as lanosas para diferentes backends mudam ou se pedidos diferentes dos mesmos utilizador aterra em um ambiente de porta da frente diferente. No entanto, outros cenários específicos ou algumas aplicações com monitorização de estado preferem que os pedidos subsequentes do mesmo utilizador sejam recebidos no mesmo back-end que processou o pedido inicial. A funcionalidade de afinidade de sessão com base em cookies é útil quando pretende manter uma sessão de utilizador no mesmo back-end. Ao utilizar cookies geridos pela Porta Frontal, o Azure Front Door pode direcionar o tráfego subsequente de uma sessão de utilizador para o mesmo backend para processamento, desde que o backend seja saudável e a sessão de utilizador não tenha expirado. 
+Por predefinição, sem afinidade da sessão, a Front Door adere aos pedidos originários do mesmo cliente para diferentes backends com base na configuração de equilíbrio de carga, particularmente como as lanosas para diferentes backends mudam ou se pedidos diferentes do mesmo utilizador aterram num ambiente diferente da Porta da Frente. No entanto, outros cenários específicos ou algumas aplicações com monitorização de estado preferem que os pedidos subsequentes do mesmo utilizador sejam recebidos no mesmo back-end que processou o pedido inicial. A funcionalidade de afinidade de sessão com base em cookies é útil quando pretende manter uma sessão de utilizador no mesmo back-end. Ao utilizar cookies geridos pela Porta Frontal, o Azure Front Door pode direcionar o tráfego subsequente de uma sessão de utilizador para o mesmo backend para processamento, desde que o backend seja saudável e a sessão de utilizador não tenha expirado. 
 
 A afinidade de sessão pode ser ativada ao nível do anfitrião do front-end, ou seja, para cada um dos seus domínios (ou subdomínios) configurados. Depois de ativada, o Front Door adiciona um cookie à sessão do utilizador. A afinidade de sessão baseada em cookies permite ao Front Door identificar diferentes utilizadores, mesmo que estejam por trás do mesmo endereço IP, o que, por sua vez, proporciona uma distribuição do tráfego ainda mais uniforme entre os seus vários back-ends.
 
