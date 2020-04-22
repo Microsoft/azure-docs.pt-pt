@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/16/2020
-ms.openlocfilehash: 98461928e465a103f73761afce5270234224fbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: 47f686f810f62fe03a9b0217677c436f3b91782b
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76167352"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767882"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
@@ -45,7 +45,6 @@ Austrália Leste, Austrália Sudeste, Centro dos EUA, Ásia Oriental, Leste dos 
 
 *West US 2 está temporariamente indisponível como uma réplica de região transversal.
 
-
 ### <a name="paired-regions"></a>Regiões emparelhadas
 Além das regiões de réplica universal, pode criar uma réplica de leitura na região de Azure emparelhada com o seu servidor principal. Se não conhece o par da sua região, pode aprender mais com o [artigo Das Regiões Pares de Azure.](../best-practices-availability-paired-regions.md)
 
@@ -71,7 +70,7 @@ Aprenda a [criar uma réplica de leitura no portal Azure.](howto-read-replicas-p
 
 ## <a name="connect-to-a-replica"></a>Ligar a uma réplica
 
-Na criação, uma réplica herda as regras de firewall ou o ponto final do serviço VNet do servidor principal. Depois, estas regras são independentes do servidor principal.
+Na criação, uma réplica herda as regras de firewall do servidor principal. Depois, estas regras são independentes do servidor principal.
 
 A réplica herda a conta de administração do servidor principal. Todas as contas de utilizador no servidor principal são replicadas para as réplicas de leitura. Só é possível ligar-se a uma réplica de leitura utilizando as contas de utilizador que estão disponíveis no servidor principal.
 
@@ -124,7 +123,7 @@ Uma réplica é criada usando a mesma configuração do servidor que o mestre. A
 > [!IMPORTANT]
 > Antes de uma configuração de servidor mestre ser atualizada para novos valores, atualize a configuração de réplica para valores iguais ou superiores. Esta ação garante que a réplica pode acompanhar quaisquer alterações feitas no mestre.
 
-As regras de firewall, as regras de rede virtual e as definições de parâmetros são herdadas do servidor principal para a réplica quando a réplica é criada. Depois, as regras da réplica são independentes.
+As regras de firewall e as definições de parâmetros são herdadas do servidor principal para a réplica quando a réplica é criada. Depois, as regras da réplica são independentes.
 
 ### <a name="stopped-replicas"></a>Réplicas paradas
 

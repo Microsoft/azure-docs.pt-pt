@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: be3046a343e14be4a527363751081ba3f2593cd3
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 9f80156f61ad82e5563f1c38764c81297f5979f2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605882"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767308"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-train um modelo de previsão de série de tempo
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,13 +36,13 @@ Pode [configurar](#config) até onde deve ser o futuro a previsão (o horizonte 
 
 As funcionalidades extraídas dos dados de treino desempenham um papel fundamental. E, ml automatizado executa passos padrão de pré-processamento e gera funcionalidades adicionais da série de tempo para capturar efeitos sazonais e maximizar a precisão preditiva.
 
-## <a name="time-series-and-deep-learning-models"></a>Séries temporais e modelos de Aprendizagem Profunda
+## <a name="time-series-and-deep-learning-models"></a>Séries temporais e modelos de aprendizagem profunda
 
 
 O ML automatizado fornece aos utilizadores modelos de time-series e deep learning nativos como parte do sistema de recomendação. Estes alunos incluem:
-+ Profeta
-+ Auto-ARIMA
-+ PrevisãoCN
++ Profeta (Pré-visualização)
++ Auto-ARIMA (Pré-visualização)
++ ForecastTCN (Pré-visualização)
 
 A aprendizagem profunda automatizada do ML permite a previsão de dados de séries de tempo univariadae multivariada.
 
@@ -51,7 +51,7 @@ Os modelos de aprendizagem profunda têm três capacidades intrínsecas:
 1. Suportam várias inputs e saídas
 1. Podem extrair automaticamente padrões em dados de entrada que se estendem por longas sequências
 
-Dados maiores, modelos de aprendizagem profunda, como o ForecastTCN da Microsoft, podem melhorar as pontuações do modelo resultante. 
+Dados maiores, modelos de aprendizagem profunda, como o ForecastTCN da Microsoft, podem melhorar as pontuações do modelo resultante. Aprenda a configurar a [sua experiência para uma aprendizagem profunda.](#configure-a-dnn-enable-forecasting-experiment)
 
 Os alunos de séries de horárionativo também são fornecidos como parte do ML automatizado. O profeta trabalha melhor com séries temporais que têm fortes efeitos sazonais e várias estações de dados históricos. O profeta é preciso & rápido, robusto para superar, dados em falta e mudanças dramáticas na sua série de tempo. 
 
@@ -181,6 +181,17 @@ Consulte os cadernos de [amostras de previsão](https://github.com/Azure/Machine
 > O suporte do DNN para previsão em Machine Learning Automatizado está em Pré-visualização e não é suportado para corridas locais.
 
 Para alavancar os DNNs para previsão, terá `enable_dnn` de definir o parâmetro no AutoMLConfig como verdadeiro. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             enable_dnn=True,
+                             ...
+                             **time_series_settings)
+```
+Saiba mais sobre [o AutoMLConfig.](#configure-and-run-experiment)
+
+Em alternativa, pode `Enable deep learning` selecionar a opção no estúdio.
+![texto alternativo](./media/how-to-auto-train-forecast/enable_dnn.png)
 
 Recomendamos a utilização de um cluster AML Compute com GPU SKUs e pelo menos dois nós como alvo da computação. Para permitir tempo suficiente para que o treino de DNN termine, recomendamos que o tempo de experimentação seja no mínimo um par de horas.
 Para obter mais informações sobre os tamanhos de computação AML e VM que incluam GPU's, consulte a documentação da [AML Compute](how-to-set-up-training-targets.md#amlcompute) e a [documentação otimizada de tamanhos de máquinavirtual da GPU.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)

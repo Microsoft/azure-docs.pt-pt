@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52c37e293941a767621cf56ef75f8cc83b1925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 541deb5cf44ad5440e31641b673ed5da5b5d2b26
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298008"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768554"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Criação de gestão de grupos de self-service no Azure Ative Directory 
 
@@ -33,7 +33,7 @@ Quando os grupos de segurança são criados no portal Azure ou usam o Azure AD P
 Grupos criados em | Comportamento padrão do grupo de segurança | Comportamento padrão do grupo 365 do Office 365
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](groups-settings-cmdlets.md) | Só os proprietários podem adicionar membros<br>Visível mas não disponível para participar no painel Access | Aberto para se juntar a todos os utilizadores
-[Portal Azure](https://portal.azure.com) | Só os proprietários podem adicionar membros<br>Visível mas não disponível para participar no painel Access<br>Proprietário não é atribuído automaticamente na criação de grupo | Aberto para se juntar a todos os utilizadores
+[Portal do Azure](https://portal.azure.com) | Só os proprietários podem adicionar membros<br>Visível mas não disponível para participar no painel Access<br>Proprietário não é atribuído automaticamente na criação de grupo | Aberto para se juntar a todos os utilizadores
 [Painel de acesso](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Aberto para se juntar a todos os utilizadores<br>As opções de adesão podem ser alteradas quando o grupo é criado | Aberto para se juntar a todos os utilizadores<br>As opções de adesão podem ser alteradas quando o grupo é criado
 
 ## <a name="self-service-group-management-scenarios"></a>Cenários de gestão de grupos de self-service
@@ -55,6 +55,9 @@ Grupos criados em | Comportamento padrão do grupo de segurança | Comportamento
 Também pode utilizar proprietários que possam atribuir membros como proprietários de **grupos em portais** e proprietários do Azure que possam atribuir membros como proprietários de **grupos em portais Azure** para obter um controlo de acesso mais granular sobre a gestão de grupos de self-service para os seus utilizadores.
 
 Quando os utilizadores podem criar grupos, todos os utilizadores da sua organização podem criar novos grupos e, em seguida, podem, como proprietário padrão, adicionar membros a estes grupos. Não se pode especificar indivíduos que podem criar os seus próprios grupos. Só é possível especificar indivíduos para fazer de outro membro do grupo um proprietário de grupo.
+
+> [!NOTE]
+> É necessária uma licença Azure Ative Directory Premium (P1 ou P2) para que os utilizadores solicitem a adesão a um grupo de segurança ou ao grupo 365 e que os proprietários aprovem ou neguem os pedidos de adesão. Sem uma licença Azure Ative Directory Premium, os utilizadores ainda podem gerir os seus grupos no Painel de Acesso, mas não podem criar um grupo que requer a aprovação do proprietário no Painel de Acesso, e não podem solicitar a adesão a um grupo. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

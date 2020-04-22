@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: 1dbcf953ad5f70c6ddf2a73eef2ea712f1e1278c
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: b3b235833e794e48ae655d184bf938effc0d7ac0
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632089"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768373"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por e-mail para afinação automática
 
@@ -38,17 +38,17 @@ Para utilizar a Automação Azure, o primeiro passo é criar uma conta de automa
 
 Siga estes passos para criar a Conta de Automação Azure através do método de seleção e configuração da aplicação Automation a partir do Marketplace:
 
-- Inicie sessão no portal Azure
-- Clique em "**+ Criar um recurso**" no canto superior esquerdo
-- Pesquisa por "**Automação**" (entrada de imprensa)
-- Clique na aplicação Automation nos resultados da pesquisa
+1. Inicie sessão no portal do Azure.
+1. Clique em "**+ Criar um recurso**" no canto superior esquerdo.
+1. Procure por "**Automação**" (pressione a entrada).
+1. Clique na aplicação Automation nos resultados da pesquisa.
 
-![Adicionar automação Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
+    ![Adicionar automação Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
 
-- Uma vez dentro do painel "Criar uma Conta de Automação", clique em "**Criar**"
-- Preencha as informações necessárias: insira um nome para esta conta de automação, selecione o seu ID de subscrição Azure e os recursos Azure para serem utilizados para a execução do script PowerShell
-- Para a opção "**Create Azure Run As account**", selecione **Sim** para configurar o tipo de conta sob a qual o script PowerShell funciona com a ajuda da Automação Azure. Para saber mais sobre os tipos de conta, consulte [Executar Como conta](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
-- Concluir a criação da conta de automação clicando na **Create**
+1. Uma vez dentro do painel "Criar uma Conta de Automação", clique em "**Criar**".
+1. Preencha as informações necessárias: insira um nome para esta conta de automação, selecione o seu ID de subscrição Azure e os recursos Azure para ser usado para a execução do script PowerShell.
+1. Para a opção "**Create Azure Run As account**", selecione **Sim** para configurar o tipo de conta sob a qual o script PowerShell funciona com a ajuda da Automação Azure. Para saber mais sobre os tipos de conta, consulte [Executar Como conta](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+1. Concluir a criação da conta de automação clicando na **Create**.
 
 > [!TIP]
 > Grave o nome da sua conta Azure Automation, ID de subscrição e recursos (como copiar-pasta para um bloco de notas) exatamente como introduzido enquanto cria a aplicação Automation. Precisa desta informação mais tarde.
@@ -60,7 +60,7 @@ Se tem várias subscrições Do Azure para as quais gostaria de construir a mesm
 
 O script PowerShell para recuperar a recomendação de afinação automática utiliza comandos [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) e [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) para os quais o Módulo Azure versão 4 ou superior é necessário.
 
-- Caso os seus Módulos Azure precisem de ser atualizados, consulte o [suporte do módulo Az na Automação Azure](../automation/az-modules.md).
+- Caso os seus Módulos Azure precisem de ser atualizados, consulte o [suporte do módulo Az na Automação Azure](../automation/shared-resources/modules.md).
 
 ## <a name="create-azure-automation-runbook"></a>Criar o Livro de Execução de Automação Azure
 
@@ -68,18 +68,18 @@ O próximo passo é criar um Livro de Corridas em Automação Azure no interior 
 
 Siga estes passos para criar um novo livro de execução da Automação Azure:
 
-- Aceda à conta Azure Automation que criou no passo anterior
-- Uma vez no painel de conta de automação, clique no item do menu "**Runbooks**" no lado esquerdo para criar um novo livro de execução da Automação Azure com o script PowerShell. Para saber mais sobre a criação de livros de automação, consulte Criar um novo livro de [corridas.](../automation/manage-runbooks.md#creating-a-runbook)
-- Para adicionar um novo livro de corridas, clique na opção de menu "**+Adicionar um livro**de execução " e, em seguida, clique na "**Criação rápida – Criar um novo livro**de execução ".
-- No painel Runbook, escreva em nome do seu livro de execução (para efeitos deste exemplo, "**AutomaticTuningEmailAutomation**" é usado), selecione o tipo de livro como **PowerShell** e escreva uma descrição deste livro de execução para descrever o seu propósito.
-- Clique no botão **Criar** para terminar de criar um novo livro de corridas
+1. Aceda à conta Azure Automation que criou no passo anterior.
+1. Uma vez no painel de conta de automação, clique no item do menu "**Runbooks**" no lado esquerdo para criar um novo livro de execução da Automação Azure com o script PowerShell. Para saber mais sobre a criação de livros de automação, consulte Criar um novo livro de [corridas.](../automation/manage-runbooks.md#creating-a-runbook)
+1. Para adicionar um novo livro de corridas, clique na opção de menu "**+Adicionar um livro**de execução " e, em seguida, clique na "**Criação rápida – Criar um novo livro**de execução "..
+1. No painel Runbook, escreva em nome do seu livro de execução (para efeitos deste exemplo, "**AutomaticTuningEmailAutomation**" é usado), selecione o tipo de livro como **PowerShell** e escreva uma descrição deste livro de execução para descrever o seu propósito.
+1. Clique no botão **Criar** para terminar a criação de um novo livro de corridas.
 
-![Adicione o livro de execução de automação Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
+    ![Adicione o livro de execução de automação Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
 
 Siga estes passos para carregar um script PowerShell dentro do livro de execução criado:
 
-- Dentro do painel "**Editar PowerShell Runbook**", selecione "**RUNBOOKS**" na árvore do menu e expanda a vista até ver o nome do seu livro de execução (neste exemplo "**Automatização AutomáticaDeEmailEmail**"). Selecione este livro de execução.
-- Na primeira linha do "Edit PowerShell Runbook" (começando pelo número 1), copie-colar o seguinte código de script PowerShell. Este script PowerShell é fornecido como é para começar. Modifique o guião para acasalar as suas necessidades.
+1. Dentro do painel "**Editar PowerShell Runbook**", selecione "**RUNBOOKS**" na árvore do menu e expanda a vista até ver o nome do seu livro de execução (neste exemplo "**Automatização AutomáticaDeEmailEmail**"). Selecione este livro de execução.
+1. Na primeira linha do "Edit PowerShell Runbook" (começando pelo número 1), copie-colar o seguinte código de script PowerShell. Este script PowerShell é fornecido como é para começar. Modifique o guião para acasalar as suas necessidades.
 
 No cabeçalho do script PowerShell fornecido, `<SUBSCRIPTION_ID_WITH_DATABASES>` tem de substituir pelo seu ID de subscrição Azure. Para aprender a recuperar o seu ID de subscrição Azure, consulte Obter o seu GUIA de [Subscrição Azure](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/).
 
@@ -184,45 +184,45 @@ Com os passos acima, o script PowerShell para recuperar recomendações de afina
 
 Para completar a solução, como passo final, criar um fluxo de automação no Microsoft Flow composto por três ações (empregos):
 
-1. "**Azure Automation - Create job**" – usado para executar o script PowerShell para recuperar recomendações de afinação automática dentro do livro de execução da Automação Azure
-2. "**Azure Automation - Get job output**" – usado para recuperar a saída do script powerShell executado
-3. "**Office 365 Outlook – Envie um e-mail**" – usado para enviar e-mail. Os e-mails são enviados usando a conta do Office 365 do indivíduo que cria o fluxo.
+ - "**Azure Automation - Create job**" – usado para executar o script PowerShell para recuperar recomendações de afinação automática dentro do livro de execução da Automação Azure.
+ - "**Azure Automation - Get job output**" – usado para recuperar a saída do script PowerShell executado.
+ - "**Office 365 Outlook – Envie um e-mail**" – usado para enviar e-mail. Os e-mails são enviados usando a conta do Office 365 do indivíduo que cria o fluxo.
 
 Para saber mais sobre as capacidades do Microsoft Flow, consulte [Getting started with Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
 O pré-requisito para este passo é inscrever-se na conta [Microsoft Flow](https://flow.microsoft.com) e fazer login. Uma vez dentro da solução, siga estes passos para configurar um **novo fluxo:**
 
-- Access "**My flows**" menu item
-- Inside My flows, selecione o link "**+Create from blank**" no topo da página
-- Clique no link "**Procurar centenas de conectores e gatilhos**" na parte inferior da página
-- No tipo de campo de pesquisa "**recurrence**", e selecionar "**Agenda - Recorrência**" dos resultados da pesquisa para agendar o trabalho de entrega de e-mail para executar.
-- No painel de recorrência no campo de Frequência, selecione a frequência de agendamento para este fluxo executar, como enviar e-mail automatizado a cada Minuto, Hora, Dia, Semana, etc.
+1. Access "**My flows**" menu item.
+1. Dentro dos meus fluxos, selecione o link "**+Create from blank**" no topo da página.
+1. Clique no link "**Procure centenas de conectores e gatilhos**" na parte inferior da página.
+1. No tipo de campo de pesquisa "**recurrence**", e selecionar "**Agenda - Recorrência**" dos resultados da pesquisa para agendar o trabalho de entrega de e-mail para executar.
+1. No painel de recorrência no campo de Frequência, selecione a frequência de agendamento para este fluxo executar, como enviar e-mail automatizado a cada Minuto, Hora, Dia, Semana, etc.
 
 O próximo passo é adicionar três postos de trabalho (criar, obter produção e enviar e-mails) para o fluxo recorrente recém-criado. Para conseguir adicionar os empregos necessários ao fluxo, siga estes passos:
 
 1. Crie ação para executar script PowerShell para recuperar recomendações de afinação
 
-   - Selecione "**+Novo passo**", seguido por "**Adicionar uma ação**" dentro do painel de fluxo de recorrência
-   - No tipo de campo de pesquisa "**automação**" e selecione "**Automação Azure – Criar trabalho**" a partir dos resultados da pesquisa
+   - Selecione "**+Novo passo**", seguido de "**Adicionar uma ação**" dentro do painel de fluxo de Recorrência.
+   - No tipo de campo de pesquisa "**automação**" e selecione "**Automação Azure – Criar trabalho**" a partir dos resultados da pesquisa.
    - No painel de trabalho Criar, configure as propriedades de trabalho. Para esta configuração, necessitará de detalhes do id de subscrição do Azure, do Grupo de Recursos e da Conta de Automação **anteriormente registado** seleção no **painel da Conta de Automação.** Para saber mais sobre as opções disponíveis nesta secção, consulte [A Automação Azure - Create Job](https://docs.microsoft.com/connectors/azureautomation/#create-job).
-   - Complete criando esta ação clicando em "**Salvar fluxo**"
+   - Complete a criação desta ação clicando em "**Salvar o fluxo**".
 
 2. Criar ação para recuperar a saída do script PowerShell executado
 
    - Selecione "**+Novo passo**", seguido por "**Adicionar uma ação**" dentro do painel de fluxo de recorrência
    - Na pesquisa arquivada "**automação**" e selecione "**Automação Azure – Obtenha saída**de trabalho " dos resultados da pesquisa. Para saber mais sobre as opções disponíveis nesta secção, consulte [A Automatização Do Azure – Obtenha saída](https://docs.microsoft.com/connectors/azureautomation/#get-job-output)de emprego .
-   - Povoar os campos necessários (semelhantes à criação do trabalho anterior) - preencha o id de subscrição do Azure, o Grupo de Recursos e a Conta de Automação (conforme introduzido no painel da Conta de Automação)
+   - Povoar os campos necessários (semelhantes à criação do trabalho anterior) - preencha o id de subscrição do Azure, o Grupo de Recursos e a Conta de Automação (conforme inserido no painel da Conta de Automação).
    - Clique dentro do campo "**Job ID**" para o menu "**Conteúdo Dinâmico**" para aparecer. A partir deste menu, selecione a opção "**JOB ID**".
-   - Complete criando esta ação clicando em "**Salvar fluxo**"
+   - Complete a criação desta ação clicando em "**Salvar o fluxo**".
 
 3. Criar medidas para enviar e-mail usando a integração do Office 365
 
-   - Selecione "**+Novo passo**", seguido por "**Adicionar uma ação**" dentro do painel de fluxo de recorrência
-   - No tipo de pesquisa arquivado "**enviar um e-mail**" e selecionar "**Office 365 Outlook – Enviar um e-mail**" dos resultados da pesquisa
-   - No tipo de campo "**Para**" no endereço de e-mail para o qual precisa enviar o e-mail de notificação
-   - No tipo de campo "**Assunto**" no tema do seu e-mail, por exemplo "Notificação automática de recomendações de afinação de e-mail"
-   - Clique dentro do campo "**Body**" para o menu "**Conteúdo Dinâmico**" para aparecer. A partir deste menu, em "**Obter saída**de trabalho ", selecione "**Conteúdo**"
-   - Complete criando esta ação clicando em "**Salvar fluxo**"
+   - Selecione "**+Novo passo**", seguido de "**Adicionar uma ação**" dentro do painel de fluxo de Recorrência.
+   - No tipo de pesquisa arquivado "**enviar um e-mail**" e selecionar "**Office 365 Outlook – Enviar um e-mail**" dos resultados da pesquisa.
+   - No tipo de campo "**Para**" no endereço de e-mail para o qual necessita de enviar o e-mail de notificação.
+   - No tipo de campo "**Assunto**" no tema do seu e-mail, por exemplo , "Notificação automática de recomendações de afinação de e-mail".
+   - Clique dentro do campo "**Body**" para o menu "**Conteúdo Dinâmico**" para aparecer. A partir deste menu, em "**Obter saída**de trabalho ", selecione "**Conteúdo**".
+   - Complete a criação desta ação clicando em "**Salvar o fluxo**".
 
 > [!TIP]
 > Para enviar e-mails automatizados para diferentes destinatários, crie fluxos separados. Nestes fluxos adicionais, altere o endereço de e-mail do destinatário no campo "To" e a linha de assunto de e-mail no campo "Assunto". A criação de novos livros de execução na Azure Automation com scripts PowerShell personalizados (como por exemplo com a mudança de ID de subscrição do Azure) permite uma maior personalização de cenários automatizados, como por exemplo, enviar destinatários separados em recomendações de afinação automatizada para subscrições separadas.

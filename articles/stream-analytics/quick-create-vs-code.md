@@ -7,22 +7,25 @@ ms.author: mamccrea
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: e3e878b4f548da64ab04eb079d51b0846cf35c57
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fe666359b9ed2773f615ff496f4032bda5e74dc2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313880"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767768"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Quickstart: Criar um trabalho azure Stream Analytics em Visual Studio Code (pré-visualização)
 
 Este quickstart mostra-lhe como criar e executar um trabalho de Azure Stream Analytics utilizando a extensão azure Stream Analytics Tools para Visual Studio Code. O trabalho de exemplo lê dados de streaming de um dispositivo Azure IoT Hub. Define um trabalho que calcula a temperatura média quando tem mais de 27° e escreve os eventos de saída resultantes para um novo ficheiro no armazenamento de blob.
 
+> [!NOTE]
+> As ferramentas Visual Studio e Visual Studio Code não suportam empregos nas regiões do Leste da China, China Norte, Alemanha Central e Alemanha NorthEast.
+
 ## <a name="before-you-begin"></a>Antes de começar
 
 * Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
 
-* Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 * Instale o Código do [Estúdio Visual](https://code.visualstudio.com/).
 
@@ -52,7 +55,7 @@ Este quickstart mostra-lhe como criar e executar um trabalho de Azure Stream Ana
 
 Antes de definir o trabalho de Stream Analytics, deve preparar os dados que são posteriormente configurados como entrada de trabalho. Para preparar os dados de entrada que o trabalho necessita, complete os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione **Criar um recurso** > **Internet of Things** > **IoT Hub**.
 
@@ -140,14 +143,6 @@ Antes de definir o trabalho de Stream Analytics, deve preparar os dados que são
    FROM Input
    HAVING Temperature > 27
    ```
-
-## <a name="test-the-query-locally-with-sample-data"></a>Testar a consulta localmente com dados da amostra
-
-Antes de executar a consulta na nuvem, pode testá-la localmente com um arquivo de dados de amostra local ou com dados capturados a partir de entrada ao vivo para verificar a lógica da consulta.
-
-Siga as instruções em [consultas de teste localmente com dados](visual-studio-code-local-run.md) da amostra para obter mais detalhes.
-
- ![Teste com dados de amostra no Código do Estúdio Visual](./media/vscode-local-run/localrun-localinput.gif)
 
 ## <a name="define-a-live-input"></a>Defina uma entrada ao vivo
 
@@ -279,6 +274,8 @@ Se planeias usar o trabalho no futuro, podes detê-lo e reiniciá-lo mais tarde.
 Neste arranque rápido, implementou um simples trabalho de Stream Analytics utilizando o Visual Studio Code. Também pode implementar trabalhos stream analytics utilizando o [portal Azure,](stream-analytics-quick-create-portal.md) [PowerShell](stream-analytics-quick-create-powershell.md), e [Visual Studio.](stream-analytics-quick-create-vs.md)
 
 Para saber mais sobre as Ferramentas de Análise de Azure Stream para código de estúdio visual, continue para os seguintes artigos:
+
+* [Teste Stream Analytics consulta localmente com dados de amostra usando código de estúdio visual](visual-studio-code-local-run.md)
 
 * [Test Azure Stream Analytics empregos localmente contra entrada ao vivo com Código de Estúdio Visual](visual-studio-code-local-run-live-input.md)
 

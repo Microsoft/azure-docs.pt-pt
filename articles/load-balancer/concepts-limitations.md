@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: a94b51e49951948974b8f42f6c89cd3c84f95d65
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7a7210915920ed9ab2a5ddc47a27c2587895a57a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064286"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768266"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componentes e limitações do Balancer de Carga
 O Azure Load Balancer contém vários componentes-chave para o seu funcionamento.  Estes componentes podem ser configurados na sua subscrição através do portal Azure, Azure CLI ou Azure PowerShell.  
@@ -95,7 +95,7 @@ A imagem seguinte apresenta a distribuição baseada em hashes:
 
     - as regras de equilíbrio de carga inferem a forma como o SNAT é programado. As regras de equilíbrio de carga são específicas do protocolo. O SNAT é específico do protocolo e a configuração deve refletir isso em vez de criar um efeito colateral.
 
-    - **Múltiplas frentes** Quando existem várias extremidades dianteiras disponíveis, todas as extremidades dianteiras são usadas e cada extremidade frontal multiplica o número de portas SNAT disponíveis. Se você quer mais portas SNAT porque você está esperando ou já está experimentando uma alta procura de conexões de saída, você também pode adicionar inventário incremental de porta SNAT configurando frontends adicionais, regras e piscinas de backend para a mesma máquina virtual recursos.
+    - **Múltiplas frentes** Quando existem várias extremidades dianteiras disponíveis, todas as extremidades dianteiras são usadas e cada extremidade frontal multiplica o número de portas SNAT disponíveis. Se você quer mais portas SNAT porque você está esperando ou já está experimentando uma alta procura de conexões de saída, você também pode adicionar inventário incremental de porta SNAT configurando frontends adicionais, regras e piscinas de backend para os mesmos recursos de máquinavirtual.
 
     - **Controlo que frontal é usado para saída** Pode escolher e controlar se não desejar que uma determinada extremidade frontal seja utilizada para ligações de saída. Se pretender limitar as ligações de saída a penas originárias de um endereço IP frontal específico, pode desativar opcionalmente o SNAT de saída na regra que expressa o mapeamento de saída.
 
@@ -171,6 +171,8 @@ O equilibrador de carga suporta as SKUs Básicas e Standard. Estas SKUs diferem 
 
 A configuração completa do cenário pode diferir ligeiramente dependendo do SKU. A documentação do equilibrador de carga chama quando um artigo se aplica apenas a um SKU específico. Para comparar e compreender as diferenças, veja a tabela seguinte. Para mais informações, consulte a visão geral do Equilíbrio de [Carga Padrão Azure](load-balancer-standard-overview.md).
 
+Para atualizar o Equilíbrio de Carga Básica para Standard, consulte [atualizar um balancedor de carga básico](upgrade-basic-standard.md).
+
 >[!NOTE]
 > A Microsoft recomenda o Balancer de Carga Padrão.
 As VMs autónomas, os conjuntos de disponibilidade e os conjuntos de dimensionamento de máquinas virtuais só podem ser ligados a um SKU, nunca a ambos. Load Balancer e o endereço IP público SKU devem coincidir quando os utilizar com endereços IP públicos. O Balancer de Carga e as IP SKUs públicas não são mutáveis.
@@ -207,6 +209,7 @@ Para obter mais informações, consulte [os limites do equilíbrio de carga](htt
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- Consulte [a atualização de um Balancer](upgrade-basic-standard.md) de carga básico para atualizar o Equilíbrio de Carga Básico para o Equilíbrio de Carga Padrão.
 - Consulte [Criar um Balancer de Carga Padrão público](quickstart-load-balancer-standard-public-portal.md) para começar com a utilização de um Balancer de Carga: criar um, criar VMs com uma extensão IIS personalizada instalada e carregar o equilíbrio da aplicação web entre os VMs.
 - Saiba mais sobre o Equilíbrio de [Carga Azure.](load-balancer-overview.md)
 - Saiba mais sobre a utilização de Zonas de [Equilíbrio de Carga Padrão e De Disponibilidade.](load-balancer-standard-availability-zones.md)

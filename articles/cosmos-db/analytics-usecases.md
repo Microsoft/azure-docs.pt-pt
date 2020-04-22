@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b9bac14ff47107a4b39f12989685e2e510569ba2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf1db2d737de7004b5ab71c8e0e44d61d1da8c9
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72757066"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768510"
 ---
 # <a name="use-cases-for-built-in-analytics-with-azure-cosmos-db"></a>Casos de utilização para análise incorporada com O Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Com apache spark nativo,O Azure Cosmos DB fornece uma forma rápida, simples e e
 
 Em alguns casos, poderá ter de responder a perguntas baseadas em dados como num determinado momento sobre os eventos concluídos no passado. Por exemplo, para obter a contagem dos estados de atividade de CRM numa determinada data. Se publicou o relatório há uma semana, a contagem dos estatutos seria de acordo com os estatutos de cada atividade naquele momento. A apresentação do mesmo relatório de hoje dar-lhe-á a contagem das atividades cujos estatutos são como são hoje, o que pode ter mudado desde a semana passada, à medida que passam pelo seu ciclo de vida de aberto a fechar. Então, tens de reportar a fotografia em cada fase do ciclo de vida do caso.
 
-Nos cenários tradicionais do armazém de dados, o conceito de instantâneo não é possível porque os armazéns de dados não foram concebidos para o incorporar e os dados apenas fornecem uma visão atual do que está a acontecer. Com o Azure Cosmos DB, os utilizadores têm a possibilidade de implementar o conceito de viagem no tempo, podendo consultar e executar análises sobre os dados retrospetivamente e perguntar como os dados olharam para um ponto de tempo específico da história. Isto significa que os utilizadores podem facilmente ver as visões atuais e históricas dos dados e executar análises sobre os mesmos.
+Com o Azure Cosmos DB, os utilizadores têm a possibilidade de implementar o conceito de viagem no tempo, podendo consultar e executar análises sobre os dados retrospetivamente e perguntar como os dados olharam para um ponto de tempo específico da história. Isto significa que os utilizadores podem facilmente ver as visões atuais e históricas dos dados e executar análises sobre os mesmos.
 
 ## <a name="globally-distributed-machine-learning-and-ai"></a>Aprendizagem automática distribuída globalmente e IA
 

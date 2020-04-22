@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/30/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: dd41596b6631bb63e1625325f8bec065b43881cd
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: dc57978dd881532cab59150dec921df9ffa958c3
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421389"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767212"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Indexer de vídeo frequentemente fez perguntas
 
@@ -43,7 +43,7 @@ Para mais informações e mais funcionalidades do Indexer de Vídeo, consulte [a
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>Como posso começar com o Indexer de Vídeo?
 
-O Indexer de Vídeo inclui uma oferta de teste gratuito que lhe proporciona 600 minutos na interface baseada na web e 2.400 minutos através da API. Pode [iniciar sessão na interface web do Indexer de vídeo](https://www.videoindexer.ai/) e experimentá-la por si mesmo usando qualquer identidade web e sem ter de configurar uma Subscrição Azure. 
+O Indexer de Vídeo inclui uma oferta de teste gratuito que lhe proporciona 600 minutos na interface baseada na web e 2.400 minutos através da API. Pode [iniciar sessão na interface web do Indexer de vídeo](https://www.videoindexer.ai/) e experimentá-la por si mesmo usando qualquer identidade web e sem ter de configurar uma Subscrição Azure. Siga este laboratório de [introdução fácil](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md) para ter uma melhor ideia de como usar o Indexer de Vídeo.
 
 Para indexar vídeos e moscas de áudio em escala, pode ligar o Indexer de Vídeo a uma subscrição paga do Microsoft Azure. Pode encontrar mais informações sobre os preços na página [de preços.](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/)
 
@@ -61,9 +61,18 @@ Não, o Video Indexer fornece a integração de múltiplos modelos de machine le
 
 O Indexer de vídeo suporta os formatos mais comuns dos media. Consulte a lista de [formatos padrão Do Encoder Azure Media](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) para mais detalhes.
 
-### <a name="how-to-do-i-upload-a-media-into-video-indexer"></a>Como fazer o upload de um meio de comunicação para o Indexer de Vídeo?
+### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>Como faço o upload de um ficheiro de mídia para o Indexer de Vídeo e quais são as limitações?
 
-No portal baseado na web do Indexer de vídeo, pode carregar um ficheiro de mídia utilizando o diálogo de upload de ficheiros ou apontando para um URL que acolhe diretamente o ficheiro fonte (ver [exemplo).](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4) Qualquer URL que acolhe o conteúdo dos meios de comunicação utilizando um código iFrame ou incorporado não funcionará (ver [exemplo).](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11) A API do Indexante de Vídeo requer que especifique o ficheiro de entrada através de um URL ou de um matriz byte. Os uploads através de um URL utilizando a API estão limitados a 10 GB, mas não têm um limite de duração temporal. Para mais informações, por favor leia as informações sobre [o seu melhor](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos).
+No portal baseado na web do Indexer de vídeo, pode carregar um ficheiro de mídia utilizando o diálogo de upload de ficheiros ou apontando para um URL que acolhe diretamente o ficheiro fonte (ver [exemplo).](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4) Qualquer URL que acolhe o conteúdo dos meios de comunicação utilizando um código iFrame ou incorporado não funcionará (ver [exemplo).](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11) 
+
+Para mais informações, por favor leia as informações sobre [o seu melhor](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos).
+
+#### <a name="limitations"></a>Limitações
+
+* O nome do vídeo não pode exceder 80 caracteres.
+* Se fizer o upload de um vídeo utilizando a matriz de byte, o tamanho do vídeo está limitado a 2GB (e 30GB ao utilizar URL). 
+
+Para a lista completa, consulte [o Upload de considerações e limitações](upload-index-videos.md#uploading-considerations-and-limitations).
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Quanto tempo demora o Indexer de Vídeo a extrair informações dos meios de comunicação?
 
@@ -71,7 +80,7 @@ O tempo que demora a indexar um ficheiro de vídeo ou áudio, tanto utilizando a
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Posso criar fluxos de trabalho personalizados para automatizar processos com O Indexante de Vídeo?
 
-Sim, pode integrar o Indexer de Vídeo em tecnologias sem servidores como Aplicações Lógicas, Fluxo e [Funções Azure.](https://azure.microsoft.com/services/functions/) Pode encontrar mais detalhes sobre a [Aplicação Lógica](https://azure.microsoft.com/services/logic-apps/) e conectores [Flow](https://flow.microsoft.com/en-us/) para Indexer de Vídeo [aqui](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/). 
+Sim, pode integrar o Indexer de Vídeo em tecnologias sem servidores como Aplicações Lógicas, Fluxo e [Funções Azure.](https://azure.microsoft.com/services/functions/) Pode encontrar mais detalhes sobre a [Aplicação Lógica](https://azure.microsoft.com/services/logic-apps/) e conectores [Flow](https://flow.microsoft.com/en-us/) para Indexer de Vídeo [aqui](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/). Pode ver alguns projetos de automação feitos por parceiros no repo de Amostras de Indexer de [Vídeo.](https://github.com/Azure-Samples/media-services-video-indexer)
 
 ### <a name="in-which-azure-regions-is-video-indexer-available"></a>Em que as regiões azure estão disponíveis indexadores de vídeo?
 
@@ -84,6 +93,12 @@ Sim. No Indexer de Vídeo pode personalizar alguns dos modelos disponíveis para
 Por exemplo, o nosso modelo Pessoa suporta 1.000.000 rostos fora da caixa de reconhecimento de celebridades, mas também pode treiná-lo para reconhecer outras faces que não estão nessa base de dados. 
 
 Para mais detalhes, consulte artigos sobre personalizar modelos [pessoa,](customize-person-model-overview.md) [marcas](customize-brands-model-overview.md)e [idiomas.](customize-language-model-overview.md) 
+
+###  <a name="can-i-edit-the-videos-in-my-library"></a>Posso editar os vídeos na minha biblioteca?
+
+Sim. Prima o botão de vídeo de **edição** a partir do ecrã da biblioteca ou o botão **de editor aberto** do ecrã do leitor para chegar ao separador **Projetos.** Pode criar um novo projeto e adicionar mais vídeos da sua biblioteca para editá-los juntos, uma vez que esteja feito, pode rendero seu vídeo e download. 
+
+Se quiser obter informações sobre o seu novo vídeo, indexe-o com o Indexer de Vídeo e aparecerá na sua biblioteca com as suas ideias.
 
 ### <a name="what-is-the-sla-for-video-indexer"></a>O que é o SLA para Indexer de Vídeo?
 

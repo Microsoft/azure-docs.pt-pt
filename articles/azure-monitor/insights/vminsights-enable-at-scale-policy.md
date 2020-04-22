@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 7069f2cc96b8876f5514acfa4ba49274b61be46f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73c18d45136eea90ad29dc1bd40c4539dddc0ee6
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282941"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767248"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Ativar o Monitor Azure para VMs utilizando a Política Azure
 
@@ -79,7 +79,7 @@ Para ativar o Monitor Azure para VMs utilizando a Política Azure no seu inquili
 - Atribuir a iniciativa a um âmbito: grupo de gestão, subscrição ou grupo de recursos.
 - Reveja e remediar os resultados da conformidade.
 
-Para obter mais informações sobre a atribuição de Política Azure, consulte a visão geral da [Política do Azure](../../governance/policy/overview.md#policy-assignment) e reveja a [visão geral dos grupos de gestão](../../governance/management-groups/overview.md) antes de continuar.
+Para obter mais informações sobre a atribuição de Política Azure, consulte a visão geral da [Política do Azure](../../governance/policy/overview.md#assignments) e reveja a [visão geral dos grupos de gestão](../../governance/management-groups/overview.md) antes de continuar.
 
 ### <a name="policies-for-azure-vms"></a>Políticas para VMs Azure
 
@@ -121,7 +121,7 @@ Para criar a atribuição de políticas a partir da página de Cobertura políti
 
 Ao atribuir a política ou iniciativa, o âmbito selecionado na atribuição pode ser o âmbito listado aqui ou um subconjunto da mesmas. Por exemplo, pode ter criado uma atribuição para a subscrição (âmbito de política) e não para o grupo de gestão (âmbito de cobertura). Neste caso, a percentagem de cobertura indicaria os VMs no âmbito da política ou iniciativa dividido pelos VM no âmbito da cobertura. Noutro caso, pode ter excluído alguns VMs, ou grupos de recursos, ou uma subscrição do âmbito de aplicação da política. Se estiver em branco, indica que ou a política ou iniciativa não existe ou não tem permissões. A informação é fornecida no estado de **atribuição.**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No portal Azure, selecione **Monitor**. 
 

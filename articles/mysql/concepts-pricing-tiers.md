@@ -1,17 +1,17 @@
 ---
 title: Escalões de preço – Base de Dados do Azure para MySQL
 description: Conheça os vários níveis de preços para a Base de Dados Azure para o MySQL, incluindo gerações de cálculo, tipos de armazenamento, tamanho de armazenamento, vCores, memória e períodos de retenção de backup.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: cf959112a2a717da1005be062dda3b83163d8d6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0123436eab2cdfa91066a2bd0652e16896ee838a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269448"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767846"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de Dados Azure para níveis de preços MySQL
 
@@ -39,7 +39,7 @@ Depois de criar um servidor, o número de vCores, geração de hardware e nível
 
 Os recursos computacionais são fornecidos como vCores, que representam o CPU lógico do hardware subjacente. China East 1, China North 1, US DoD Central e US DoD East utilizam cpUs lógicos Gen 4 que são baseados em processadores Intel E5-2673 v3 (Haswell) 2.4-GHz. Todas as outras regiões utilizam cpUs lógicos da Gen 5 que se baseiam em processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 O armazenamento que você fornecer é a quantidade de capacidade de armazenamento disponível para a sua Base de Dados Azure para o servidor MySQL. O armazenamento é utilizado para os ficheiros de base de dados, ficheiros temporários, registos de transações e registos de servidores MySQL. A quantidade total de armazenamento que disponibiliza também define a capacidade de I/S disponível para o seu servidor.
 
@@ -51,7 +51,7 @@ O armazenamento que você fornecer é a quantidade de capacidade de armazenament
 | IOPS | Variável |3 IOPS/GB<br/>Min 100 IOPS<br/>Máximo 20.000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Máximo 20.000 IOPS |
 
 > [!NOTE]
-> O armazenamento até 16TB e 20.000 IOPS é apoiado nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Centro dos EUA, Eua Ocidental, Norte dos EUA, Centro-Sul dos EUA, Norte da Europa, Europa Ocidental, Reino Unido Sul, Oeste do Reino Unido, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Ocidental, Coreia Central Coreia do Sul, Austrália Leste, Austrália Sudeste.
+> O armazenamento até 16TB e 20.000 IOPS é apoiado nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Centro dos EUA, Oeste dos EUA, Norte dos EUA, Centro-Sul dos EUA, Norte da Europa, Europa Ocidental, Reino Unido, Oeste, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul, Austrália Leste, Austrália Sudeste.
 >
 > Todas as outras regiões suportam até 4TB de armazenamento e até 6000 IOPS.
 >

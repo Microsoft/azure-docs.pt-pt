@@ -1,6 +1,6 @@
 ---
 title: Porta da Frente Azure - Suporte para domínios wildcard
-description: Este artigo ajuda-o a entender como o Azure Front Door suporta o mapeamento e a gestão de domínios wildcard na lista de domínios personalizados
+description: Este artigo ajuda-o a entender como o Azure Front Door suporta o mapeamento e a gestão de domínios wildcard na lista de domínios personalizados.
 services: frontdoor
 author: sharad4u
 ms.service: frontdoor
@@ -10,64 +10,72 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: sharadag
-ms.openlocfilehash: c568c9cc5c57098385cc7399459ec656cdbfc305
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d8a6d6f0b05b9b7fd0144959c82b6a2c9e659a3
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79537443"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768316"
 ---
 # <a name="wildcard-domains"></a>Domínios wildcard
 
-Além de domínios ápice e subdomínios, também pode mapear um nome de domínio wildcard para a sua lista de anfitriões frontend ou domínios personalizados do seu perfil front door. Ter domínios wildcard no seu config Front Door simplifica o comportamento de encaminhamento de tráfego para vários subdomínios para uma API, aplicação ou website a partir da mesma regra de encaminhamento sem ter que modificar a configuração para adicionar e/ou especificar cada subdomínio separadamente. Como exemplo, pode definir o `customer1.contoso.com`encaminhamento para , `customer2.contoso.com`e `customerN.contoso.com` usando a `*.contoso.com`mesma regra de encaminhamento adicionando um domínio wildcard .
+Além de domínios ápice e subdomínios, pode mapear um nome de domínio wildcard para a sua lista de anfitriões frontais ou domínios personalizados no seu perfil de Porta Frontal Azure. Ter domínios wildcard na configuração da Porta Frontal Do Azure simplifica o comportamento de encaminhamento de tráfego para vários subdomínios para uma API, aplicação ou website a partir da mesma regra de encaminhamento. Não é necessário modificar a configuração para adicionar ou especificar cada subdomínio separadamente. Como exemplo, pode definir o `customer1.contoso.com`encaminhamento para, `customer2.contoso.com`e `customerN.contoso.com` usando a mesma `*.contoso.com`regra de encaminhamento e adicionando o domínio wildcard .
 
-Alguns dos cenários-chave que são resolvidos com suporte para domínios wildcard incluem:
+Os cenários-chave que são melhorados com suporte para domínios wildcard incluem:
 
-- Já não é necessário embarcar em cada subdomínio da porta da frente e, em seguida, permitir que https ligue um certificado para cada subdomínio.
-- Se uma aplicação adicionar um novo subdomínio, então já não é necessário alterar a configuração da sua produção Front Door. Caso contrário, antes, exigia a adição do subdomínio, vinculando-lhe um certificado, anexando uma política de firewall de aplicação web (WAF), adicionando o domínio a diferentes regras de encaminhamento.
+- Não é necessário embarcar em cada subdomínio no perfil da Porta Frontal Azure e, em seguida, ativar HTTPS para vincular um certificado para cada subdomínio.
+- Já não é obrigado a alterar a configuração da sua produção Azure Front Door se uma aplicação adicionar um novo subdomínio. Anteriormente, teve de adicionar o subdomínio, ligar-lhe um certificado, anexar uma política de firewall de aplicação web (WAF) e, em seguida, adicionar o domínio a diferentes regras de encaminhamento.
 
 > [!NOTE]
-> Atualmente, os domínios wildcard são suportados apenas através da API, PowerShell e CLI. O suporte para a gestão de domínios wildcard através do portal Azure não está disponível.
+> Atualmente, os domínios wildcard são suportados apenas através da API, PowerShell e do Azure CLI. O suporte para adicionar e gerir domínios wildcard no portal Azure não está disponível.
 
 ## <a name="adding-wildcard-domains"></a>Adicionar domínios wildcard
 
-Pode embarcar num domínio wildcard sob a secção Frontend Hosts ou Domains. Semelhante aos subdomínios, a Porta frontal valida que existe também um mapeamento CNAME para o seu domínio wildcard. Este mapeamento DNS pode ser `*.contoso.com` um mapeamento `contoso.azurefd.net` CNAME direto como mapeado para ou através do afdcheck mapeamento temporário como `afdverify.contoso.com` mapeado para `afdverify.contoso.azurefd.net` validar mapa CNAME para wildcard também (Azure DNS suporta registos wildcard).
-
-Também pode adicionar tantos subdomínios de nível único do domínio wildcard nos anfitriões frontais se não estiverem a atingir o máximo. limite dos anfitriões frontend. Esta funcionalidade pode ser necessária para definir uma rota diferente para um subdomínio do que o resto dos domínios (a partir do domínio wildcard) ou ter uma política waf diferente para um subdomínio específico. Assim, `*.contoso.com` permitirá `foo.contoso.com` adicionar sem ter que `foo.bar.contoso.com` provar novamente a propriedade do `*.contoso.com`domínio, mas não porque este não é um subdomínio de nível único de . Para `foo.bar.contoso.com` adicionar sem validação adicional da propriedade do domínio, `*.bar.contosonews.com` terá de ser adicionado.
-
-### <a name="limitations"></a>Limitações
-
-1. Se um domínio wildcard for adicionado num dado perfil da Porta da Frente, então o mesmo não pode ser adicionado a qualquer outro perfil da Porta da Frente. 
-2. Se um domínio wildcard for adicionado num dado perfil front door, então quaisquer subdomínios desse domínio wildcard não podem ser adicionados a outra Porta Frontal ou a um CDN Azure a partir do perfil da Microsoft
-3. Se um subdomínio de um domínio wildcard for adicionado quer num perfil front door quer num CDN Azure a partir do perfil da Microsoft, então o domínio wildcard não pode ser adicionado a qualquer outro perfil da Porta Da Frente. 
-4. Se dois perfis (Porta Frontal ou CDN Azure da Microsoft) tiverem vários subdomínios de um domínio raiz, então os domínios wildcard não podem ser adicionados em nenhum dos perfis.
-
-## <a name="certificate-binding-for-wildcard-domains-and-its-subdomains"></a>Ligação de certificados para domínios wildcard e seus subdomínios
-
-Para aceitar o tráfego HTTPS no seu domínio wildcard, deve ativar HTTPS no domínio wildcard. O certificado vinculativo para o domínio wildcard requer um certificado wildcard, ou seja, o nome do certificado também deve ter o domínio wildcard.
+Pode adicionar um domínio wildcard sob a secção para anfitriões ou domínios frontais. Semelhante aos subdomínios, a Porta Frontal Azure valida que existe um mapeamento de registo CNAME para o seu domínio wildcard. Este mapeamento DNS pode ser um `*.contoso.com` mapeamento `contoso.azurefd.net`de registo CNAME direto como mapeado para . Ou pode usar um mapeamento temporário afdcheck. Por exemplo, `afdverify.contoso.com` mapeado para `afdverify.contoso.azurefd.net` validar o mapa de registos CNAME para o wildcard.
 
 > [!NOTE]
-> Atualmente, apenas a utilização da sua própria opção de certificado SSL personalizada está disponível para ativar HTTPS para domínios wildcard. Os certificados geridos pela Porta Da Frente não podem ser utilizados para domínios wildcard. 
+> O DNS do Azure suporta registos de carateres universais.
 
-Pode optar por utilizar o mesmo certificado wildcard do seu Cofre chave para os subdomínios, ou, também é suportado o uso de certificados geridos pela porta frontal para subdomínios.
-Se for adicionado um subdomínio para um domínio wildcard e o domínio wildcard já tiver um certificado associado, então https para este subdomínio não pode ser desativado. O subdomínio utilizará, por defeito, a ligação do certificado do domínio wildcard, a menos que seja ultrapassado por um certificado de cofre chave diferente ou certificado gerido pela Porta Frontal.
+Pode adicionar tantos subdomínios de nível único do domínio wildcard nos anfitriões frontais, até ao limite dos anfitriões frontais. Esta funcionalidade pode ser necessária para:
 
-## <a name="web-application-firewall-for-wildcard-domains-and-its-subdomains"></a>Firewall de aplicação web para domínios wildcard e seus subdomínios
+- Definindo uma rota diferente para um subdomínio do que o resto dos domínios (a partir do domínio wildcard).
 
-As políticas de WAF podem ser anexadas a um domínio wildcard semelhante a outros domínios. Uma política de WAF diferente pode ser aplicada a um subdomínio de um domínio wildcard. Para os subdomínios, deve especificar explicitamente a política waf a utilizar e mesmo que seja a mesma política que o domínio wildcard. Os subdomínios **não** herdarão automaticamente a política de WAF do domínio wildcard.
+- Ter uma política de WAF diferente para um subdomínio específico. Por exemplo, `*.contoso.com` `foo.contoso.com` permite adicionar sem ter que provar novamente a propriedade do domínio. Mas não permite `foo.bar.contoso.com` porque não é um subdomínio `*.contoso.com`de nível único de . Para `foo.bar.contoso.com` adicionar sem validação adicional da propriedade do domínio, `*.bar.contosonews.com` precisa de ser adicionado.
 
-Se tiver um cenário em que não queira que o WAF corra para um subdomínio, então pode criar uma política waf em branco sem regras geridas ou personalizadas.
+Pode adicionar domínios wildcard e seus subdomínios com determinadas limitações:
 
-## <a name="routing-rules-for-wildcard-domains-and-its-subdomains"></a>Regras de encaminhamento para domínios wildcard e seus subdomínios
+- Se um domínio wildcard for adicionado a um perfil azure front door:
+  - O domínio wildcard não pode ser adicionado a qualquer outro perfil da Porta frontal azure.
+  - Os subdomínios de primeiro nível do domínio wildcard não podem ser adicionados a outro perfil da Porta Frontal Azure ou a um perfil da Rede de Entrega de Conteúdos Azure.
+- Se um subdomínio de um domínio wildcard for adicionado a um perfil de Porta Frontal Azure ou ao perfil da Rede de Entrega de Conteúdos Azure, então o domínio wildcard não pode ser adicionado a outros perfis da Porta Frontal Azure.
+- Se dois perfis (Azure Front Door ou Azure Content Delivery Network) tiverem vários subdomínios de um domínio raiz, então os domínios wildcard não podem ser adicionados a nenhum dos perfis.
 
-Ao configurar uma regra de encaminhamento, pode selecionar um domínio wildcard como anfitrião frontal. Você também pode ter diferentes comportamentos de rota para domínio wildcard vs. subdomínios. Como descrito na forma como a Porta Da Frente faz a correspondência de [rotas,](front-door-route-matching.md)a correspondência mais específica para o domínio através de diferentes regras de encaminhamento será escolhida no tempo de funcionamento.
+## <a name="certificate-binding"></a>Encadernação de certificado
 
-> [!WARNING]
-> Se tiver duas regras de encaminhamento, como a **Route 1**: `*.foo.com/*` mapeada para backend Pool A `bar.foo.com/anotherPath/*`e Route **2**: `bar.foo.com/somePath/*` mapeada para backend Pool B e se um pedido chegar, então os seus clientes verão falhas, uma vez que a Porta Da Frente não encontrará qualquer correspondência em ambas as rotas. Isto porque, de acordo com o algoritmo de correspondência de [rotas,](front-door-route-matching.md)a Porta Frontal irá selecionar a Rota 2 com base em correspondência de domínio mais específica, mas apenas para descobrir que não existem padrões de caminho correspondentes. 
+Para aceitar o tráfego HTTPS no seu domínio wildcard, deve ativar HTTPS no domínio wildcard. O certificado vinculativo para um domínio wildcard requer um certificado wildcard. Ou seja, o nome do certificado deve também ter o domínio wildcard.
 
+> [!NOTE]
+> Atualmente, apenas a utilização da sua própria opção de certificado SSL personalizada está disponível para ativar HTTPS para domínios wildcard. Os certificados geridos pela Porta Frontal Azure não podem ser usados para domínios wildcard.
+
+Pode optar por utilizar o mesmo certificado wildcard do Azure Key Vault ou dos certificados geridos pela Azure Front Door para subdomínios.
+
+Se for adicionado um subdomínio para um domínio wildcard que já tenha um certificado associado ao mesmo, então https para o subdomínio não pode ser desativado. O subdomínio utiliza o certificado de ligação para o domínio wildcard, a menos que um cofre de chave diferente ou certificado gerido pela Porta Frontal Azure o substitua.
+
+## <a name="waf-policies"></a>Políticas waf
+
+As políticas de WAF podem ser anexadas a domínios wildcard, semelhantes a outros domínios. Uma política de WAF diferente pode ser aplicada a um subdomínio de um domínio wildcard. Para os subdomínios, deve especificar a política waf a ser usada mesmo que seja a mesma política que o domínio wildcard. Os subdomínios *não* herdam automaticamente a política waf do domínio wildcard.
+
+Se não quiser que uma política de WAF seja executada por um subdomínio, pode criar uma política de WAF vazia sem regras geridas ou personalizadas.
+
+## <a name="routing-rules"></a>Regras de encaminhamento
+
+Ao configurar uma regra de encaminhamento, pode selecionar um domínio wildcard como anfitrião frontal. Você também pode ter diferentes comportamentos de rota para domínios e subdomínios wildcard. Como descrito em [How Azure Front Door faz a correspondência](front-door-route-matching.md)de rotas, a correspondência mais específica para o domínio através de diferentes regras de encaminhamento é escolhida no tempo de execução.
+
+> [!IMPORTANT]
+> Você deve ter padrões de caminho correspondentes através das suas regras de encaminhamento, ou seus clientes verão falhas. Por exemplo, você tem duas regras`*.foo.com/*` de encaminhamento como Route 1 (mapeada para a piscina traseira A) e Route 2 (mapeada`bar.foo.com/somePath/*` para a piscina traseira B). Então, chega um `bar.foo.com/anotherPath/*`pedido para. A Porta Frontal Azure seleciona a Rota 2 com base num jogo de domínio mais específico, apenas para não encontrar padrões de caminho correspondentes nas rotas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [criar um Front Door](quickstart-create-front-door.md).
-- Aprenda a [adicionar um domínio personalizado na Porta da Frente](front-door-custom-domain.md).
+- Aprenda a [criar um perfil de Porta Frontal Azure.](quickstart-create-front-door.md)
+- Aprenda a [adicionar um domínio personalizado na Porta frontal do Azure](front-door-custom-domain.md).
 - Saiba como [ativar HTTPS num domínio personalizado](front-door-custom-domain-https.md).

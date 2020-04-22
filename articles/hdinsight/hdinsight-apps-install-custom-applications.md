@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 8fe9e551a4ca7dea8f53e0f8c2975ca3d88c48f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b25e9d860f118c1b044b13e01a80aaf7a24963cf
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366262"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768242"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instale aplicações personalizadas apache Hadoop no Azure HDInsight
 
@@ -77,7 +77,7 @@ Para **Hue,** pode utilizar os seguintes passos:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o cluster onde instalou a aplicação.
 1. A partir do menu **Definições,** selecione **Aplicações**.
 1. Selecione **tonalidade** da lista para ver as propriedades.  
@@ -119,13 +119,13 @@ Se uma instalação de aplicação falhar, pode ver as mensagens de erro e depur
 
 * Apache Ambari Web UI: Se o script de instalação foi a causa da falha, utilize ambari Web UI para verificar os registos completos sobre os scripts de instalação.
 
-    Para obter mais informações, consulte [Resolução de problemas](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
+    Para mais informações, consulte [as ações do script Troubleshoot.](./troubleshoot-script-action.md)
 
 ## <a name="remove-hdinsight-applications"></a>Remover aplicações do HDInsight
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o cluster onde instalou a aplicação.
 1. A partir do menu **Definições,** selecione **Aplicações**.
 1. Clique na aplicação que pretende remover e, em seguida, **selecione Eliminar**.
