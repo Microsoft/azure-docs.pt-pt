@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 48cdbc8188604ce1992a1cb15289576ba92902a3
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 57c4b22dfe6ef6cf44be64a4b5c042403f64ccf2
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086152"
+ms.locfileid: "82096661"
 ---
 # <a name="azure-sql-auditing"></a>Auditoria de SQL do Azure
 
@@ -41,28 +41,28 @@ Pode utilizar a auditoria da base de dados SQL para:
 > [!IMPORTANT]
 > - A auditoria da Base de Dados Azure SQL está otimizada para disponibilidade & desempenho. Durante a atividade muito elevada, a Base de Dados Azure SQL permite que as operações prossigam e não possam registar alguns eventos auditados.
 
-#### <a name="auditing-limitations"></a>Limitações de auditoria
+### <a name="auditing-limitations"></a>Limitações de auditoria
 
 - **Atualmente,** o armazenamento premium não é **suportado.**
 - **O espaço hierárquico** para a conta de armazenamento do **Lago Azure Gen2** não é **suportado**atualmente.
 - Não é suportada a auditoria a um Armazém de **Dados Azure SQL** pausado. Para permitir a auditoria, retome o Data Warehouse.
 
-## <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Definir política de auditoria ao nível do servidor vs. base de dados
+#### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Definir política de auditoria ao nível do servidor vs. base de dados
 
 Uma política de auditoria pode ser definida para uma base de dados específica ou como uma política de servidor padrão:
 
 - Uma política de servidor aplica-se a todas as bases de dados existentes e recém-criadas no servidor.
 
-- Se a auditoria do *servidor blob estiver ativada,* *aplica-se sempre à base*de dados . A base de dados será auditada, independentemente das definições de auditoria da base de dados.
+- Se a auditoria do *servidor estiver ativada,* *aplica-se sempre à base*de dados . A base de dados será auditada, independentemente das definições de auditoria da base de dados.
 
-- Permitir a auditoria blob na base de dados ou no armazém de dados, além de o permitir no servidor, *não* sobrepor-se ou alterar nenhuma das definições da auditoria blob do servidor. Ambas as auditorias existirão lado a lado. Por outras palavras, a base de dados é auditada duas vezes em paralelo; uma vez pela política do servidor e uma vez pela política de base de dados.
+- Permitir a auditoria na base de dados ou no armazém de dados, além de o permitir no servidor, *não* sobrepor-se ou alterar nenhuma das definições da auditoria do servidor. Ambas as auditorias existirão lado a lado. Por outras palavras, a base de dados é auditada duas vezes em paralelo; uma vez pela política do servidor e uma vez pela política de base de dados.
 
    > [!NOTE]
-   > Deve evitar permitir a auditoria de blob do servidor e a auditoria da bolha de bases de dados em conjunto, a menos que:
+   > Deve evitar permitir a auditoria do servidor e a auditoria da bolha de bases de dados em conjunto, a menos que:
     > - Pretende utilizar uma *conta*de armazenamento diferente, período de *retenção* ou *log analytics workspace* para uma base de dados específica.
     > - Deseja auditar tipos ou categorias de eventos para uma base de dados específica que difere das restantes bases de dados do servidor. Por exemplo, pode ter inserções de mesa que precisam de ser auditadas apenas para uma base de dados específica.
    >
-   > Caso contrário, recomendamos que apenas ative a auditoria blob ao nível do servidor e deixe a auditoria ao nível da base de dados desativada para todas as bases de dados.
+   > Caso contrário, recomendamos que ative apenas a auditoria ao nível do servidor e deixe a auditoria ao nível da base de dados desativada para todas as bases de dados.
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>Configurar auditorias para o seu servidor
 

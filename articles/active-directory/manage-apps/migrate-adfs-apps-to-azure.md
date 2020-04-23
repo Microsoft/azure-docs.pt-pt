@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 04/01/2020
 ms.author: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb39606cdbb6488ccdee2828029d3617d689508
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: e104fa26d6657c06a0df31bad8c773fb444a1105
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892121"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100877"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Autenticação de aplicações móveis dos Serviços da Federação de Diretórios Ativos para o Diretório Ativo do Azure
 
@@ -224,7 +224,7 @@ Configure as suas aplicações para apontar para Azure AD versus AD FS para SSO.
 
 | Elemento| Valor de Configuração |
 | - | - |
-| Emitente de fornecedor de identidade| [https://sts.windows.net/{tenant-id}/](https://sts.windows.net/{tenant-id}/) |
+| Emitente de fornecedor de identidade| https:\//sts.windows.net/{tenant-id}/ |
 | URL de login do fornecedor de identidade| [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) |
 | URL de logout do fornecedor de identidade| [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) |
 | Localização dos metadados da Federação| [https://login.windows.net/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={application-id}](https://login.windows.net/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={application-id}) |
@@ -239,7 +239,7 @@ As aplicações SaaS precisam de saber para onde enviar pedidos de autenticaçã
 | **URL de sinalização IDP** <p>Url de início de sessão do IdP do ponto de vista da aplicação (onde o utilizador é redirecionado para login).| O URL de inscrição AD FS é o nome de serviço da federação AD FS seguido por "/adfs/ls/". <p>Por exemplo:[https://fs.contoso.com/adfs/ls/](https://fs.contoso.com/adfs/ls/)| Substitua {tenant-id} com a sua identificação do inquilino. <p> Para aplicações que utilizem o protocolo SAML-P:[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>Para aplicações que utilizem o protocolo WS-Federação:[https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
 | **URL de inscrição idp**<p>Url de inscrição do IDP do ponto de vista da aplicação (onde o utilizador é redirecionado quando opta por assinar fora da app).| O URL de inscrição é o mesmo que o URL de inscrição, ou o mesmo URL com "wa=wsignout1.0" anexado. Por exemplo:[https://fs.contoso.com/adfs/ls/?wa=wsignout1.0](https://fs.contoso.com/adfs/ls/?wa=wsignout1.0)| Substitua {tenant-id} com a sua identificação do inquilino.<p>Para aplicações que utilizem o protocolo SAML-P:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> Para aplicações que utilizem o protocolo WS-Federação:[https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
 | **Certificado de assinatura token**<p>O IDP usa a chave privada do certificado para assinar fichas emitidas. Verifica se o token provém do mesmo IdP para o qual a aplicação está configurada para confiar.| O certificado de assinatura de tokens do AD FS está disponível na Gestão do AD FS, em **Certificados**.| Encontre-o no portal Azure nas **propriedades de inscrição única** da aplicação sob o cabeçalho Certificado de Assinatura **SAML**. Aí, pode transferir o certificado para carregamento para a aplicação.  <p>Se a aplicação tiver mais de um certificado, pode encontrar todos os certificados no ficheiro XML dos metadados da federação. |
-| **Identificador/ "emitente"**<p>Identificador do IdP do ponto de vista da app (por vezes chamado de "ID emitente").<p>No token SAML, o valor aparece como elemento emitente.| O identificador para AD FS é geralmente o identificador de serviço da federação na Gestão AD FS ao abrigo do **Serviço > Editar Propriedades de Serviço**da Federação . Por exemplo:[http://fs.contoso.com/adfs/services/trust](http://fs.contoso.com/adfs/services/trust)| Substitua {tenant-id} com a sua identificação do inquilino.<p>[https://sts.windows.net/{tenant-id}/](https://sts.windows.net/{tenant-id}/) |
+| **Identificador/ "emitente"**<p>Identificador do IdP do ponto de vista da app (por vezes chamado de "ID emitente").<p>No token SAML, o valor aparece como elemento emitente.| O identificador para AD FS é geralmente o identificador de serviço da federação na Gestão AD FS ao abrigo do **Serviço > Editar Propriedades de Serviço**da Federação . Por exemplo:[http://fs.contoso.com/adfs/services/trust](http://fs.contoso.com/adfs/services/trust)| Substitua {tenant-id} com a sua identificação do inquilino.<p>https:\//sts.windows.net/{tenant-id}/ |
 | **Metadados da federação idp**<p>Localização dos metadados da federação disponível publicamente. (Algumas aplicações utilizam os metadados de federação como alternativa à configuração individual, por parte do administrador, de URLs, do identificador e do certificado de assinatura de tokens.)| Encontre o URL de metadados da federação AD FS na Gestão AD FS em **Serviço > Pontos Finais > Metadados > Tipo: Metadados da Federação**. Por exemplo:[https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml](https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml)| O valor correspondente para a AD Azure segue o padrão [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml). Substitua {TenantDomainName} com o nome do seu inquilino no formato "contoso.onmicrosoft.com".   <p>Para obter mais informações, veja [Federation metadata](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata) (Metadados da federação). |
 
 
@@ -482,7 +482,7 @@ Embora a janela de paragem planeada possa ser mínima, deve ainda planear comuni
 
 Uma vez concluída a implementação, pode enviar comunicações informando os utilizadores da implementação bem sucedida e lembrá-los de quaisquer novos passos que eles precisam tomar.
 
-* Instrua os utilizadores a utilizarem o Painel de [Acesso](https://myapps.microsoft.com.com/) para acederem a todas as aplicações migradas. 
+* Instrua os utilizadores a utilizarem o Painel de [Acesso](https://myapps.microsoft.com) para acederem a todas as aplicações migradas. 
 
 * Lembre aos utilizadores que podem precisar de atualizar as definições do MFA. 
 

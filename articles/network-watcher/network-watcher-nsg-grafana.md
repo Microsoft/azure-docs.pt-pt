@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: c48d5a02cdb8ef63904642c6c2c76cb5d61e1f9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f038412079ad0620a445b85e4bbc3c325e1aa211
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840915"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100112"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerir e analisar registos de fluxo do Grupo de Segurança da Rede usando o Network Watcher e o Grafana
 
 Os registos de fluxo do [Network Security Group (NSG)](network-watcher-nsg-flow-logging-overview.md) fornecem informações que podem ser usadas para compreender o tráfego IP nas interfaces da rede. Estes registos de fluxo mostram fluxos de saída e de entrada numa base de regra NSG, o NIC a que o fluxo se aplica a, 5-tuple informações sobre o fluxo (Source/Destination IP, Source/Destination Port, Protocol), e se o tráfego foi permitido ou negado.
-
-> [!Warning]  
-> Os passos seguintes funcionam com os registos de fluxo versão 1. Para mais detalhes, consulte [Introdução à exploração de fluxos de registo para grupos de segurança](network-watcher-nsg-flow-logging-overview.md)da rede . As seguintes instruções não funcionarão com a versão 2 dos ficheiros de registo, sem modificação.
 
 Pode ter muitos NSGs na sua rede com o registo de fluxos ativado. Esta quantidade de dados de registo torna complicado analisar e obter informações dos seus registos. Este artigo fornece uma solução para gerir centralmente estes registos de fluxo NSG usando grafana, uma ferramenta de grafismo de código aberto, ElasticSearch, um motor de pesquisa e análise distribuído, e Logstash, que é um pipeline de processamento de dados do lado do servidor de fonte aberta.  
 
@@ -107,6 +104,11 @@ Utilize logstash para aplainar os troncos de fluxo formatadoJOn para um nível d
           "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
           "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
           "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+      "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+      "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+      "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+      "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+      "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
         }
         add_field => {
           "time" => "%{[records][time]}"

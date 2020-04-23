@@ -1,25 +1,20 @@
 ---
 title: Impor segurança com políticas em VMs windows em Azure
 description: Como aplicar uma política a uma máquina virtual do Gestor de Recursos Azure Windows
-services: virtual-machines-windows
-documentationcenter: ''
 author: mimckitt
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0b71ba54-01db-43ad-9bca-8ab358ae141b
 ms.service: virtual-machines-windows
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: 407e5cefe9f7f60c86de6e80133ff1b3f8b9003d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: a0ff463bd7f77f8a4a138bf41698059102809215
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086543"
+ms.locfileid: "82098701"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Aplicar políticas para VMs Windows com Gestor de Recursos Azure
 Ao usar políticas, uma organização pode impor várias convenções e regras em toda a empresa. A aplicação do comportamento desejado pode ajudar a mitigar o risco, contribuindo para o sucesso da organização. Neste artigo, descrevemos como pode usar as políticas do Gestor de Recursos Azure para definir o comportamento desejado para as Máquinas Virtuais da sua organização.

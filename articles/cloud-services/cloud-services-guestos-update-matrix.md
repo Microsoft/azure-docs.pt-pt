@@ -3,21 +3,21 @@ title: Saiba mais sobre os mais recentes lançamentos do Os OS do Azure Guest / 
 description: As últimas notícias de lançamento e compatibilidade do SDK para o Os Convidado dos Serviços Azure Cloud.
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: yohaddad
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/2/2020
-ms.author: raiye
-ms.openlocfilehash: 95c27cd906717d52a232b5ed85eba2b93bc6569d
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.date: 4/22/2020
+ms.author: yohaddad
+ms.openlocfilehash: 83ecbf05ab892e0673b31df893f66b03373957b7
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618280"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101506"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos do Os do Azure Guest e matriz de compatibilidade sdk
 Fornece-lhe informações atualizadas sobre os mais recentes lançamentos do Os OS do Azure Guest para serviços em nuvem. Esta informação ajuda-o a planear o seu caminho de upgrade antes de um Sistema operativo convidado ser desativado. Se configurar as suas funções para utilizar atualizações *automáticas* do Osdo do Hóspede, conforme descrito nas Definições de Atualização do Osso do [Hóspede do Azure,][Azure Guest OS Update Settings]não é vital que leia esta página.
@@ -146,7 +146,7 @@ O Os convidado de setembro foi lançado.
 ## <a name="family-5-releases"></a>Lançamentos da família 5
 **Windows Server 2016**
 
-.NET Quadro instalado: 3.5, 4.6
+.NET Quadro instalado: 3.5, 4.6.2
 
 > [!NOTE]
 > A palavra-passe RDP para a família OS 5 deve ser um mínimo de 10 caracteres.

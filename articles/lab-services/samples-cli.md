@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 35c1a18587ebae1253bd1661a57e21c39f34ee51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 075b5dc06c59682b33c20b182e0dc585b2727027
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760509"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097851"
 ---
 # <a name="azure-cli-samples-for-azure-lab-services"></a>Amostras azure CLI para serviços de laboratório azure
 
@@ -26,6 +26,6 @@ A tabela seguinte inclui links para scripts de bash construídos usando os scrip
 
 | | |
 |---|---|
-| [Criar e verificar a disponibilidade de um VM](scripts/create-verify-virtual-machine-in-lab-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma máquina virtual do Windows com uma configuração mínima. |
-| [Iniciar uma VM](scripts/start-connect-virtual-machine-in-lab-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Começa um VM. |
-| [Parar e apagar um VM](scripts/stop-delete-virtual-machine-in-lab-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Para e elimina um VM. |
+| [Criar e verificar a disponibilidade de um VM](scripts/create-verify-virtual-machine-in-lab-cli.md) | Cria uma máquina virtual do Windows com uma configuração mínima. |
+| [Iniciar uma VM](scripts/start-connect-virtual-machine-in-lab-cli.md) | Começa um VM. |
+| [Parar e apagar um VM](scripts/stop-delete-virtual-machine-in-lab-cli.md) | Para e elimina um VM. |

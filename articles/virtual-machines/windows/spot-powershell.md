@@ -4,15 +4,16 @@ description: Aprenda a usar o Azure PowerShell para implementar VMs spot para ec
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 234cf3f51173c53ef8ca15af4ca6f24881be3109
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.reviewer: jagaveer
+ms.openlocfilehash: 321983fbe99d17dc78198feb195eed8ea26de569
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547273"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100622"
 ---
 # <a name="deploy-spot-vms-using-azure-powershell"></a>Implementar VMs spot usando Azure PowerShell
 

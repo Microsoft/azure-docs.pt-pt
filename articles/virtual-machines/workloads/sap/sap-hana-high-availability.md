@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/31/2020
+ms.date: 04/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 215cfd033a3fe8eb0ad9896c1f45f1e0f788823f
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: e04b37d0c95f2176581c7d13f3641a13ecddfd8f
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521374"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101217"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade de SAP HANA em VMs Azure no SUSE Linux Enterprise Server
 
@@ -511,7 +511,7 @@ sudo crm configure primitive rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> ocf:sus
   params SID="<b>HN1</b>" InstanceNumber="<b>03</b>"
 
 sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
-  meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
+  meta clone-node-max="1" target-role="Started" interleave="true"
 </code></pre>
 
 Em seguida, crie os recursos HANA:
@@ -538,11 +538,11 @@ sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHan
   DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
 
 sudo crm configure ms msl_SAPHana_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> \
-  meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
+  meta notify="true" clone-max="2" clone-node-max="1" \
   target-role="Started" interleave="true"
 
 sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \
-  meta target-role="Started" is-managed="true" \
+  meta target-role="Started" \
   operations \$id="rsc_ip_<b>HN1</b>_HDB<b>03</b>-operations" \
   op monitor interval="10s" timeout="20s" \
   params ip="<b>10.0.0.13</b>"

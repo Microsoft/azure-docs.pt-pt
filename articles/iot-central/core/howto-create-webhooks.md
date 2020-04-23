@@ -3,17 +3,17 @@ title: Criar webhooks sobre regras no Azure IoT Central [ Microsoft Docs
 description: Crie webhooks na Azure IoT Central para notificar automaticamente outras aplicações quando as regras disparam.
 author: viv-liu
 ms.author: viviali
-ms.date: 12/02/2019
+ms.date: 04/03/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: d97bd7a3c6de92f22a9880040f407960d5257f6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cb80b54c75d637842c5f50d9336629dedf758fa
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158100"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100129"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Criar ações de webhook sobre regras na Azure IoT Central
 
@@ -42,6 +42,78 @@ Agora, quando a regra é desencadeada, vê-se um novo pedido aparecer no Request
 ## <a name="payload"></a>Carga útil
 
 Quando uma regra é desencadeada, é feito um pedido HTTP POST para o URL de callback contendo uma carga útil json com os dados de telemetria, dispositivo, regra e aplicação. A carga pode parecer a seguinte:
+
+```json
+{
+    "timestamp": "2020-04-06T00:20:15.06Z",
+    "action": {
+        "id": "<id>",
+        "type": "WebhookAction",
+        "rules": [
+            "<rule_id>"
+        ],
+        "displayName": "Webhook 1",
+        "url": "<callback_url>"
+    },
+    "application": {
+        "id": "<application_id>",
+        "displayName": "Contoso",
+        "subdomain": "contoso",
+        "host": "contoso.azureiotcentral.com"
+    },
+    "device": {
+        "id": "<device_id>",
+        "etag": "<etag>",
+        "displayName": "MXChip IoT DevKit - 1yl6vvhax6c",
+        "instanceOf": "<device_template_id>",
+        "simulated": true,
+        "provisioned": true,
+        "approved": true,
+        "cloudProperties": {
+            "City": {
+                "value": "Seattle"
+            }
+        },
+        "properties": {
+            "deviceinfo": {
+                "firmwareVersion": {
+                    "value": "1.0.0"
+                }
+            }
+        },
+        "telemetry": {
+            "<interface_instance_name>": {
+                "humidity": {
+                    "value": 47.33228889360127
+                }
+            }
+        }
+    },
+    "rule": {
+        "id": "<rule_id>",
+        "displayName": "Humidity monitor"
+    }
+}
+```
+Se a regra monitorizar a telemetria agregada durante um período de tempo, a carga útil conterá uma secção de telemetria diferente.
+
+```json
+{
+    "telemetry": {
+        "<interface_instance_name>": {
+            "Humidity": {
+                "avg": 39.5
+            }
+        }
+    }
+}
+```
+
+## <a name="data-format-change-notice"></a>Aviso de alteração de formato de dados
+
+Se tiver um ou mais webhooks criados e guardados antes de 3 de abril de **2020,** terá de eliminar o webhook e criar um novo webhook. Isto porque os webhooks mais antigos usam um formato de carga útil mais antigo que será depreciado no futuro.
+
+### <a name="webhook-payload-format-deprecated-as-of-3-april-2020"></a>Carga útil webhook (formato depreciado a partir de 3 de abril de 2020)
 
 ```json
 {

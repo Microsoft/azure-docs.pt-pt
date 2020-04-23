@@ -4,19 +4,19 @@ description: A Base de Dados Azure SQL fornece recomendações para bases de dad
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: bd7473813722fd413947535413b98d493058634a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5b0aeec851c8f514492e32792f48e955597ced5
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79214144"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096576"
 ---
 # <a name="database-advisor-performance-recommendations-for-single-and-pooled-databases"></a>Recomendações de desempenho do Database Advisor para bases de dados individuais e reunidas
 
@@ -52,7 +52,7 @@ Você também pode encontrar um histórico completo de ações de afinação que
 
 ## <a name="create-index-recommendations"></a>Criar recomendações de índice
 
-A Base de Dados SQL monitoriza continuamente as consultas que estão a decorrer e identifica os índices que podem melhorar o desempenho. Depois de haver confiança suficiente de que um determinado índice está em falta, é criada uma nova recomendação do **índice Create.**
+A Base de Dados Azure SQL monitoriza continuamente as consultas que estão a decorrer e identifica os índices que podem melhorar o desempenho. Depois de haver confiança suficiente de que um determinado índice está em falta, é criada uma nova recomendação do **índice Create.**
 
 A Base de Dados Azure SQL constrói confiança estimando o ganho de desempenho que o índice traria através do tempo. Dependendo do ganho estimado de desempenho, as recomendações são classificadas como altas, médias ou baixas.
 
@@ -60,7 +60,7 @@ Os índices que são criados através de recomendações são sempre sinalizados
 
 Se tentar largar a coluna que tem um índice criado automaticamente sobre ela, o comando passa. O índice auto-criado também é retirado com o comando. Os índices regulares bloqueiam o comando ALTER/RENAME nas colunas indexadas.
 
-Após a aplicação da recomendação do índice de criação, a Base de Dados Azure SQL compara o desempenho das consultas com o desempenho da linha de base. Se o novo índice melhorar o desempenho, a recomendação é assinalada como bem sucedida e o relatório de impacto está disponível. Se o índice não melhorou o desempenho, é automaticamente revertido. A Base de Dados SQL utiliza este processo para garantir que as recomendações melhorem o desempenho da base de dados.
+Após a aplicação da recomendação do índice de criação, a Base de Dados Azure SQL compara o desempenho das consultas com o desempenho da linha de base. Se o novo índice melhorar o desempenho, a recomendação é assinalada como bem sucedida e o relatório de impacto está disponível. Se o índice não melhorou o desempenho, é automaticamente revertido. A Base de Dados Azure SQL utiliza este processo para garantir que as recomendações melhorem o desempenho da base de dados.
 
 Qualquer recomendação de **índice de criação** tem uma política de back-off que não permite aplicar a recomendação se o uso de recursos de uma base de dados ou piscina é elevado. A política de back-off tem em conta CPU, Data IO, Log IO e armazenamento disponível.
 
@@ -70,7 +70,7 @@ Este processo repete-se até que haja armazenamento disponível suficiente para 
 
 ## <a name="drop-index-recommendations"></a>Recomendações do índice de queda
 
-Além de detetar índices em falta, a Base de Dados SQL analisa continuamente o desempenho dos índices existentes. Se não for utilizado um índice, a Base de Dados Azure SQL recomenda que o abandone. A queda de um índice é recomendada em dois casos:
+Além de detetar índices em falta, a Base de Dados Azure SQL analisa continuamente o desempenho dos índices existentes. Se não for utilizado um índice, a Base de Dados Azure SQL recomenda que o abandone. A queda de um índice é recomendada em dois casos:
 
 - O índice é uma duplicação de outro índice (coluna indexada e incluída, esquema de partição e filtros).
 - O índice não é utilizado durante um período prolongado (93 dias).
@@ -96,7 +96,7 @@ Depois de aplicar esta recomendação, permite a parametrização forçada em po
 > [!IMPORTANT]
 > A Microsoft está neste momento a depreciar as recomendações de "Corrigir o problema do esquema". Recomendamos que utilize [Insights Inteligentes](sql-database-intelligent-insights.md) para monitorizar os problemas de desempenho da sua base de dados, incluindo questões de esquemas que as recomendações "Corrigir esquemas" anteriormente abrangidas.
 
-Corrigir recomendações de **problemas de esquemas** surgem quando o serviço de base de dados SQL nota uma anomalia no número de erros SQL relacionados com o esquema que estão a ocorrer na sua base de dados SQL. Esta recomendação aparece tipicamente quando a sua base de dados encontra múltiplos erros relacionados com esquemas (nome de coluna inválido, nome de objeto inválido, e assim por diante) dentro de uma hora.
+Corrigir recomendações de **problemas de esquemas** surgem quando o serviço de base de dados Azure SQL nota uma anomalia no número de erros SQL relacionados com o esquema que estão a ocorrer na sua base de dados SQL. Esta recomendação aparece tipicamente quando a sua base de dados encontra múltiplos erros relacionados com esquemas (nome de coluna inválido, nome de objeto inválido, e assim por diante) dentro de uma hora.
 
 "Problemas de schema" são uma classe de erros de sintaxe no SQL Server. Ocorrem quando a definição da consulta SQL e a definição do esquema de base de dados não estão alinhadas. Por exemplo, uma das colunas que é esperada pela consulta pode estar faltando na tabela alvo ou vice-versa.
 

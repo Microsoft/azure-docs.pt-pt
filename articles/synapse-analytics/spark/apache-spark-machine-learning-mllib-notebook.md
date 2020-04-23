@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 9dc4047b9e95b088bb614858091f43286cefe361
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 25d11d2cf41f8653c5a54007f121c1251bb24b1f
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430009"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096304"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Construa uma aplicação de machine learning com Apache Spark MLlib e Azure Synapse Analytics
 
@@ -47,7 +47,7 @@ Nos seguintes passos, desenvolve-se um modelo para prever se uma determinada via
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Crie uma app de aprendizagem automática Apache Spark MLlib
 
-1. Crie um caderno utilizando o kernel PySpark. Para obter as instruções, consulte [Criar um caderno](./apache-spark-notebook-create-spark-use-sql.md#create-a-notebook).
+1. Crie um caderno utilizando o kernel PySpark. Para obter as instruções, consulte [Criar um caderno](../quickstart-apache-spark-notebook.md#create-a-notebook).
 2. Importar os tipos necessários para este pedido. Copie e cole o seguinte código numa célula vazia e, em seguida, prima **SHIFT + ENTER,** ou execute a célula utilizando o ícone de reprodução azul à esquerda do código.
 
     ```python
@@ -301,4 +301,4 @@ Depois de ter terminado de executar a aplicação, desligue o caderno para liber
 - [Documentação oficial de Apache Spark](https://spark.apache.org/docs/latest/)
 
 >[!NOTE]
-> Parte da documentação oficial da Apache Spark baseia-se na utilização da consola Spark, que não está disponível no Azure Synapse Spark. Utilize o [caderno](../spark/apache-spark-notebook-create-spark-use-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) ou as experiências [IntelliJ.](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> Parte da documentação oficial da Apache Spark baseia-se na utilização da consola Spark, que não está disponível no Azure Synapse Spark. Utilize o [caderno](../quickstart-apache-spark-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) ou as experiências [IntelliJ.](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

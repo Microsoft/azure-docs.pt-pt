@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de ingresso NGINX qu
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: ec6a398b52424c142b3d7ee82625c10c733456ab
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 4c3edb40c6d0c9a64ce3cb01f665e8e9cf60d12e
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668464"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100979"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Criar um controlador de entrada HTTPS e utilizar os seus próprios certificados TLS no Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Também pode:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo utiliza o Helm para instalar o controlador de ingresso NGINX e uma aplicação web de amostra. Precisa de ter o Helm inicializado dentro do seu cluster AKS e usar uma conta de serviço para a Tiller. Certifique-se de que está a usar o último lançamento do Helm. Para obter instruções de atualização, consulte o [Helm instalar docs][helm-install]. Para obter mais informações sobre configurar e utilizar o Helm, consulte [Instalar aplicações com o Helm no Serviço Azure Kubernetes (AKS)][use-helm].
+Este artigo utiliza o [Helm 3][helm] para instalar o controlador de entrada NGINX e uma aplicação web de amostra. Precisa de ter o Helm inicializado dentro do seu cluster AKS e usar uma conta de serviço para a Tiller. Certifique-se de que está a usar o último lançamento do Helm. Para obter instruções de atualização, consulte o [Helm instalar docs][helm-install]. Para obter mais informações sobre configurar e utilizar o Helm, consulte [Instalar aplicações com o Helm no Serviço Azure Kubernetes (AKS)][use-helm].
 
 Este artigo também requer que esteja a executar a versão Azure CLI 2.0.64 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
@@ -304,6 +304,7 @@ Também pode:
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[helm]: https://helm.sh/
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 
 <!-- LINKS - internal -->

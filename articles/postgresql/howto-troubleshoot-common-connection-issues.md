@@ -2,17 +2,17 @@
 title: Ligações de resolução de problemas - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Saiba como resolver problemas de ligação à Base de Dados Azure para PostgreSQL - Servidor Único.
 keywords: conexão pós-gresql,cadeia de ligação,problemas de conectividade,erro transitório,erro de ligação
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 593dc060ff92c7f4bc338e235dd1a0dd9f303ab3
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 771d7f5b037fde1144b18dc4ed0dee7aecac6744
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767610"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100214"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Problemas de ligação à Base de Dados Azure para PostgreSQL - Servidor Único
 

@@ -2,18 +2,18 @@
 title: Executar scripts num VM Do Windows Azure
 description: Este tópico descreve como executar scripts dentro de uma máquina virtual do Windows
 services: automation
-ms.service: automation
+ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
-ms.topic: article
+ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: e10cab5261d6bd970135273bd4632b7c916641de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd65f33663dea3663f14fb4167448e39b9b7d0b7
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67476765"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099772"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Executar scripts no seu Windows VM
 
@@ -29,7 +29,7 @@ A [extensão do script personalizado](../extensions/custom-script-windows.md) é
 * Executar o script PowerShell em máquinas Windows e script Bash em máquinas Linux.
 * Útil para a configuração de pós-implementação, instalação de software e outras tarefas de configuração ou gestão.
 
-## <a name="run-command"></a>Execute o comando 
+## <a name="run-command"></a>Executar comando
 
 A função [Executar Command](run-command.md) permite a gestão virtual de máquinas e aplicações e resolução de problemas utilizando scripts, e está disponível mesmo quando a máquina não está acessível, por exemplo, se a firewall do hóspede não tiver a porta RDP ou SSH aberta.
 
@@ -69,6 +69,6 @@ A [consola Serial](serial-console.md) fornece acesso direto a um VM, semelhante 
 Saiba mais sobre as diferentes funcionalidades que estão disponíveis para executar scripts e comandos dentro dos seus VMs.
 
 * [Extensão de Script Personalizado](../extensions/custom-script-windows.md)
-* [Comando executar](run-command.md)
+* [Executar o Comando](run-command.md)
 * [Função de Trabalho de Runbook Híbrida](../../automation/automation-hybrid-runbook-worker.md)
 * [Consola em série](serial-console.md)

@@ -1,25 +1,20 @@
 ---
 title: Criar uma imagem não gerida de um VM generalizado em Azure
 description: Crie uma imagem desmalizada de um VM do Windows generalizado para usar para criar várias cópias de um VM em Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f44f30666ead84b2bd2fc63d8a8eb624f70c85c
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.custom: storage-accounts
+ms.openlocfilehash: 130764ad5504ded398a9fdf9fa27d6cb936fbacc
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458084"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099789"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem VM não gerida a partir de um VM Azure
 

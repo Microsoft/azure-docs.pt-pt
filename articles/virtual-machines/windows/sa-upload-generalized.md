@@ -1,25 +1,20 @@
 ---
 title: Faça upload de um VHD generalize para criar vários VMs em Azure
 description: Faça upload de um VHD generalizado para uma conta de armazenamento Azure para criar um VM Windows para usar com o modelo de implementação do Gestor de Recursos.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7a5aa05a9045548e15aba667fdcdbd14fc8990e6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.custom: storage-accounts
+ms.openlocfilehash: e2ecdb6f436806f93610325b4d5adf28cb3253e2
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460312"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099636"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Faça upload de um VHD generalizado para o Azure para criar um novo VM
 

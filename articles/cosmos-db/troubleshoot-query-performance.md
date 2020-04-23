@@ -4,16 +4,16 @@ description: Aprenda a identificar, diagnosticar e resolver problemas com proble
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/20/2020
+ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 4a8b61f3719a60af567d10f8839987e613babc9e
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: b3c6926f17e8378fd3b53bfd59a7c5ea8141adb4
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81870460"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097239"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Problemas de consulta ao usar O Azure Cosmos DB
 
@@ -30,12 +30,14 @@ Este artigo fornece exemplos que pode recriar utilizando o conjunto de dados [nu
 
 ## <a name="common-sdk-issues"></a>Problemas comuns do SDK
 
-- Para obter o melhor desempenho, siga as [dicas de Desempenho.](performance-tips.md)
+Antes de ler este guia, é útil considerar problemas comuns de SDK que não estão relacionados com o motor de consulta.
+
+- Para obter o melhor desempenho, siga estas [dicas de Desempenho.](performance-tips.md)
     > [!NOTE]
     > Para um melhor desempenho, recomendamos o processamento do anfitrião windows 64 bits. O SQL SDK inclui um ServiceInterop.dll nativo para analisar e otimizar consultas localmente. ServiceInterop.dll é suportado apenas na plataforma Windows x64. Para o Linux e outras plataformas não suportadas onde o ServiceInterop.dll não está disponível, será feita uma chamada adicional de rede para obter a consulta otimizada.
-- Pode definir `MaxItemCount` um para as suas consultas, mas não pode especificar uma contagem mínima de artigos.
+- O SDK permite `MaxItemCount` definir um para as suas consultas, mas não pode especificar uma contagem mínima de artigos.
     - O código deve manusear qualquer `MaxItemCount`tamanho da página, de zero a .
-    - O número de itens numa página será sempre inferior `MaxItemCount`ao especificado . No `MaxItemCount` entanto, é estritamente um máximo e pode haver menos resultados do que este montante.
+    - O número de itens numa página será sempre menor ou `MaxItemCount`igual ao especificado . No `MaxItemCount` entanto, é estritamente um máximo e pode haver menos resultados do que este montante.
 - Por vezes, as consultas podem ter páginas vazias mesmo quando há resultados numa página futura. As razões para isto podem ser:
     - O SDK pode estar a fazer várias chamadas de rede.
     - A consulta pode estar a demorar muito tempo a recuperar os documentos.
@@ -43,13 +45,13 @@ Este artigo fornece exemplos que pode recriar utilizando o conjunto de dados [nu
 
 ## <a name="get-query-metrics"></a>Obtenha métricas de consulta
 
-Quando otimizauma consulta em Azure Cosmos DB, o primeiro passo é sempre [obter as métricas](profile-sql-api-query.md) de consulta para a sua consulta. Estas métricas também estão disponíveis através do portal Azure:
+Quando otimizauma consulta em Azure Cosmos DB, o primeiro passo é sempre [obter as métricas](profile-sql-api-query.md) de consulta para a sua consulta. Estas métricas também estão disponíveis através do portal Azure. Uma vez que executa a sua consulta no Data Explorer, as métricas de consulta são visíveis ao lado do separador **Resultados:**
 
 [![Obtenção de](./media/troubleshoot-query-performance/obtain-query-metrics.png) métricas de consulta](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
-Depois de obter as métricas de consulta, compare a Contagem de Documentos Recuperado com a Contagem de Documentos de Saída para a sua consulta. Utilize esta comparação para identificar as secções relevantes para rever neste artigo.
+Depois de obter as métricas de consulta, compare a Contagem de **Documentos Recuperado** com a Contagem de **Documentos** de Saída para a sua consulta. Utilize esta comparação para identificar as secções relevantes para rever neste artigo.
 
-O Conde de Documentos Recuperados é o número de documentos que a consulta precisava para carregar. O Conde de Documentos de Saída é o número de documentos necessários para os resultados da consulta. Se o Conde de Documentos Recuperados for significativamente superior ao Conde de Documentos de Saída, havia pelo menos uma parte da sua consulta que não podia usar o índice e precisava de fazer uma verificação.
+O **Conde de Documentos Recuperados** é o número de documentos que o motor de consulta precisava para carregar. O Conde de **Documentos** de Saída é o número de documentos necessários para os resultados da consulta. Se o **Conde de Documentos Recuperados** for significativamente superior ao Conde de Documentos de **Saída,** havia pelo menos uma parte da sua consulta que não podia usar um índice e precisava de fazer uma verificação.
 
 Consulte as seguintes secções para compreender as otimizações de consulta relevantes para o seu cenário.
 
@@ -63,7 +65,7 @@ Consulte as seguintes secções para compreender as otimizações de consulta re
 
 - [Entenda quais consultas agregadas usam o índice.](#understand-which-aggregate-queries-use-the-index)
 
-- [Modificar consultas que tenham um filtro e uma cláusula ORDER BY.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
+- [Otimize consultas que tenham um filtro e uma cláusula ORDER BY.](#optimize-queries-that-have-both-a-filter-and-an-order-by-clause)
 
 - [Otimize as expressões JOIN utilizando um subquery.](#optimize-join-expressions-by-using-a-subquery)
 
@@ -71,11 +73,11 @@ Consulte as seguintes secções para compreender as otimizações de consulta re
 
 #### <a name="retrieved-document-count-is-approximately-equal-to-output-document-count"></a>Contagem de documentos recuperado é aproximadamente igual à contagem de documentos de saída
 
-- [Evite consultas de divisóriacruzadas cruzadas.](#avoid-cross-partition-queries)
+- [Minimizar consultas de divisóriacruzadas.](#minimize-cross-partition-queries)
 
 - [Otimize consultas que tenham filtros em várias propriedades.](#optimize-queries-that-have-filters-on-multiple-properties)
 
-- [Modificar consultas que tenham um filtro e uma cláusula ORDER BY.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
+- [Otimize consultas que tenham um filtro e uma cláusula ORDER BY.](#optimize-queries-that-have-both-a-filter-and-an-order-by-clause)
 
 <br>
 
@@ -91,7 +93,7 @@ Consulte as seguintes secções para compreender as otimizações de consulta re
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Consultas em que a contagem de documentos recuperada excede a contagem de documentos de saída
 
- O Conde de Documentos Recuperados é o número de documentos que a consulta precisava para carregar. O Conde de Documentos de Saída é o número de documentos necessários para os resultados da consulta. Se o Conde de Documentos Recuperados for significativamente superior ao Conde de Documentos de Saída, havia pelo menos uma parte da sua consulta que não podia usar o índice e precisava de fazer uma verificação.
+ O **Conde de Documentos Recuperados** é o número de documentos que o motor de consulta precisava para carregar. O Número de **Documentos** de Saída é o número de documentos devolvidos pela consulta. Se o **Conde de Documentos Recuperados** for significativamente superior ao Conde de Documentos de **Saída,** havia pelo menos uma parte da sua consulta que não podia usar um índice e precisava de fazer uma verificação.
 
 Aqui está um exemplo de consulta de digitalização que não foi inteiramente servido pelo índice:
 
@@ -129,20 +131,25 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-A Contagem de Documentos Recuperados (60.951) é significativamente maior do que a Contagem de Documentos de Saída (7), pelo que esta consulta precisava de fazer uma verificação. Neste caso, a função do sistema [UPPER()](sql-query-upper.md) não utiliza o índice.
+A Contagem de **Documentos Recuperados** (60.951) é significativamente superior à Contagem do Documento de **Saída** (7), o que implica que esta consulta resultou numa verificação de documentos. Neste caso, a função do sistema [UPPER()](sql-query-upper.md) não utiliza um índice.
 
 ### <a name="include-necessary-paths-in-the-indexing-policy"></a>Incluir os caminhos necessários na política de indexação
 
-A sua política de indexação `WHERE` deve abranger `ORDER BY` quaisquer `JOIN`propriedades incluídas em cláusulas, cláusulas e a maioria das funções do sistema. O caminho especificado na política de índice deve coincidir (sensível a casos) à propriedade nos documentos JSON.
+A sua política de indexação `WHERE` deve abranger `ORDER BY` quaisquer `JOIN`propriedades incluídas em cláusulas, cláusulas e a maioria das funções do sistema. Os caminhos desejados especificados na política de índice devem coincidir com as propriedades nos documentos JSON.
 
-Se você executar uma consulta simples no conjunto de [dados](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) nutricional, você `WHERE` observa uma carga ru muito menor quando a propriedade na cláusula é indexada:
+> [!NOTE]
+> As propriedades na política de indexação do Azure Cosmos DB são sensíveis a casos
+
+Se executar a seguinte consulta simples no conjunto de [dados](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) nutricional, observará uma `WHERE` carga de RU muito mais baixa quando a propriedade na cláusula estiver indexada:
 
 #### <a name="original"></a>Original
 
 Consulta:
 
 ```sql
-SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
+SELECT *
+FROM c
+WHERE c.description = "Malabar spinach, cooked"
 ```
 
 Política de indexação:
@@ -218,13 +225,17 @@ Por exemplo, tendo em conta estas duas consultas de `CONTAINS` amostra, a consul
 Consulta com `CONTAINS` apenas filtro - maior carga RU:
 
 ```sql
-SELECT COUNT(1) FROM c WHERE CONTAINS(c.description, "spinach")
+SELECT COUNT(1)
+FROM c
+WHERE CONTAINS(c.description, "spinach")
 ```
 
 Consulta com filtro de `CONTAINS` igualdade e filtro - menor carga RU:
 
 ```sql
-SELECT AVG(c._ts) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
+SELECT AVG(c._ts)
+FROM c
+WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
 ```
 
 Aqui estão exemplos adicionais de consultas agregadas que não irão utilizar totalmente o índice:
@@ -234,26 +245,35 @@ Aqui estão exemplos adicionais de consultas agregadas que não irão utilizar t
 Deve consultar a [página da função do sistema](sql-query-system-functions.md) relevante para ver se utiliza o índice.
 
 ```sql
-SELECT MAX(c._ts) FROM c WHERE CONTAINS(c.description, "spinach")
+SELECT MAX(c._ts)
+FROM c
+WHERE CONTAINS(c.description, "spinach")
 ```
 
 #### <a name="aggregate-queries-with-user-defined-functionsudfs"></a>Consultas agregadas com funções definidas pelo utilizador (UDF's)
 
 ```sql
-SELECT AVG(c._ts) FROM c WHERE udf.MyUDF("Sausages and Luncheon Meats")
+SELECT AVG(c._ts)
+FROM c
+WHERE udf.MyUDF("Sausages and Luncheon Meats")
 ```
 
 #### <a name="queries-with-group-by"></a>Consultas com GROUP BY
 
-A acusação `GROUP BY` da RU vai aumentar à `GROUP BY` medida que a cardinalidade dos imóveis na cláusula aumenta. Neste exemplo, o motor de consulta deve `c.foodGroup = "Sausages and Luncheon Meats"` carregar todos os documentos que correspondam ao filtro, pelo que se espera que a carga RU seja elevada.
+A acusação de `GROUP BY` perguntas da RU vai aumentar à `GROUP BY` medida que a cardinalidade dos imóveis na cláusula aumenta. Na consulta abaixo, por exemplo, a carga ru da consulta aumentará à medida que o número de descrições únicas aumenta.
+
+A carga ru de uma `GROUP BY` função agregada com uma cláusula será maior do que a carga ru de uma função agregada apenas. Neste exemplo, o motor de consulta deve `c.foodGroup = "Sausages and Luncheon Meats"` carregar todos os documentos que correspondam ao filtro, pelo que se espera que a carga RU seja elevada.
 
 ```sql
-SELECT COUNT(1) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" GROUP BY c.description
+SELECT COUNT(1)
+FROM c
+WHERE c.foodGroup = "Sausages and Luncheon Meats"
+GROUP BY c.description
 ```
 
 Se planeia executar frequentemente as mesmas consultas agregadas, pode ser mais eficiente construir uma visão materializada em tempo real com o [feed de mudança de DB Do Azure Cosmos](change-feed.md) do que executar consultas individuais.
 
-### <a name="modify-queries-that-have-both-a-filter-and-an-order-by-clause"></a>Modificar consultas que tenham um filtro e uma cláusula ORDER BY
+### <a name="optimize-queries-that-have-both-a-filter-and-an-order-by-clause"></a>Otimizar consultas que tenham um filtro e uma cláusula ORDER BY
 
 Embora as consultas que têm `ORDER BY` um filtro e uma cláusula normalmente utilizem um índice de gama, serão mais eficientes se puderem ser servidas a partir de um índice composto. Além de modificar a política de indexação, deve adicionar `ORDER BY` todas as propriedades do índice composto à cláusula. Esta alteração à consulta assegurará que utiliza o índice composto.  Pode observar o impacto executando uma consulta no conjunto de [dados](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) nutricional:
 
@@ -262,7 +282,10 @@ Embora as consultas que têm `ORDER BY` um filtro e uma cláusula normalmente ut
 Consulta:
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup = "Soups, Sauces, and Gravies" ORDER BY c._ts ASC
+SELECT *
+FROM c
+WHERE c.foodGroup = "Soups, Sauces, and Gravies"
+ORDER BY c._ts ASC
 ```
 
 Política de indexação:
@@ -288,7 +311,8 @@ Política de indexação:
 Consulta atualizada (inclui ambas `ORDER BY` as propriedades na cláusula):
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Soups, Sauces, and Gravies"
 ORDER BY c.foodGroup, c._ts ASC
 ```
@@ -324,6 +348,7 @@ Política de indexação atualizada:
 **Carga RU:** 8.86 RUs
 
 ### <a name="optimize-join-expressions-by-using-a-subquery"></a>Otimizar as expressões JOIN utilizando uma subqueria
+
 Subqueries de vários `JOIN` valores podem otimizar expressões empurrando predicados após cada expressão `WHERE` selecionada em vez de afinal juntas cruzadas na cláusula.
 
 Considere esta consulta:
@@ -340,7 +365,7 @@ AND n.nutritionValue < 10) AND s.amount > 1
 
 **Carga RU:** 167.62 RUs
 
-Para esta consulta, o índice corresponderá a qualquer documento que tenha uma etiqueta com o nome "fórmula infantil", nutriçãoValor superior a 0, e servindo uma quantidade superior a 1. A `JOIN` expressão aqui irá executar o cross-product de todos os itens de tags, nutrientes e porções arrays para cada documento correspondente antes de qualquer filtro ser aplicado. A `WHERE` cláusula aplicará então o `<c, t, n, s>` predicado do filtro em cada tuple.
+Para esta consulta, o índice corresponderá a qualquer `infant formula`documento `nutritionValue` que tenha `amount` uma etiqueta com o nome , superior a 0, e superior a 1. A `JOIN` expressão aqui irá executar o cross-product de todos os itens de tags, nutrientes e porções arrays para cada documento correspondente antes de qualquer filtro ser aplicado. A `WHERE` cláusula aplicará então o `<c, t, n, s>` predicado do filtro em cada tuple.
 
 Por exemplo, se um documento correspondente tiver 10 itens em cada uma das três matrizes, expandir-se-á para 1 x 10 x 10 x 10 x 10 (isto é, 1.000) tuples. O uso de subqueimas aqui pode ajudar a filtrar itens de matriz unificados antes de se juntar à próxima expressão.
 
@@ -360,9 +385,9 @@ Assuma que apenas um item na matriz de etiquetas corresponde ao filtro e que exi
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Consultas onde a contagem de documentos recuperadoé igual à contagem de documentos de saída
 
-Se a Contagem de Documentos Recuperados for aproximadamente igual à Contagem de Documentos de Saída, a consulta não teve de digitalizar muitos documentos desnecessários. Para muitas consultas, como as que usam a palavra-chave TOP, a Contagem de Documentos Recuperados pode exceder a Contagem de Documentos de Saída por 1. Não precisas de te preocupar com isto.
+Se a Contagem de **Documentos Recuperadofor** aproximadamente igual à Contagem de Documentos de **Saída,** o motor de consulta não teve de digitalizar muitos documentos desnecessários. Para muitas consultas, como `TOP` as que usam a palavra-chave, a Contagem de **Documentos Recuperada** pode exceder a Contagem de **Documentos** de Saída por 1. Não precisas de te preocupar com isto.
 
-### <a name="avoid-cross-partition-queries"></a>Evite consultas de partição cruzada
+### <a name="minimize-cross-partition-queries"></a>Minimizar consultas de partição cruzada
 
 A Azure Cosmos DB utiliza [a partilha](partitioning-overview.md) para escalar os contentores individuais à medida que a Unidade de Pedido e as necessidades de armazenamento de dados aumentam. Cada partição física tem um índice separado e independente. Se a sua consulta tiver um filtro de igualdade que corresponda à chave de partição do seu recipiente, terá de verificar apenas o índice de partição relevante. Esta otimização reduz o número total de RUs que a consulta requer.
 
@@ -371,26 +396,30 @@ Se tiver um grande número de RUs aprovisionados (mais de 30.000) ou uma grande 
 Por exemplo, se criar um recipiente com a chave de divisórias AlimentosGroup, as seguintes consultas terão de verificar apenas uma única partição física:
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
-Estas consultas também seriam otimizadas pela adição da chave de partição na consulta:
+As consultas que `IN` tenham um filtro com a chave de partição só verificarão as divisórias físicas relevantes e não irão "sair":
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup IN("Soups, Sauces, and Gravies", "Vegetables and Vegetable Products") and c.description = "Mushroom, oyster, raw"
 ```
 
-As consultas que tenham filtros de alcance na chave da divisória, ou que não tenham filtros na chave da divisória, terão de verificar o índice de todos os divisórias físicos para obter resultados:
+As consultas que tenham filtros de alcance na chave da divisória, ou que não tenham filtros na chave da divisória, terão de "sair" e verificar os resultados de todos os indicadores da partilha física:
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.description = "Mushroom, oyster, raw"
 ```
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup > "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
@@ -401,12 +430,14 @@ Embora as consultas que têm filtros em várias propriedades normalmente utilize
 Aqui estão alguns exemplos de consultas que poderiam ser otimizadas com um índice composto:
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts = 1575503264
 ```
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 ```
 

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/05/2019
+ms.date: 04/22/2020
 ms.author: juliako
-ms.openlocfilehash: 7ec8004fa0a54265962e79320c02287b2fcf814a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89360f062f0198a6b0c857395b4956caa1109e82
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499928"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097192"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta indexante de vídeo ligada ao Azure
 
@@ -151,6 +151,15 @@ No diálogo, forneça as seguintes informações:
 |Nome de recurso de serviço de mídia|O nome da conta Azure Media Services que criou na secção anterior.|
 |ID da aplicação|O ID de aplicação Azure AD (com permissões para a conta de Serviços de Media especificado) que criou na secção anterior.|
 |Chave de aplicação|A chave de aplicação Azure AD que criou na secção anterior. |
+
+## <a name="import-your-content-from-the-trial-account"></a>Importe o seu conteúdo da conta *experimental*
+
+Ao [criar uma nova conta,](#connect-to-azure)tem a opção de importar o seu conteúdo da conta *experimental* para a nova conta. Se verificar a opção *de importação* na Create uma nova conta num diálogo de **subscrição Do Azure,** todos os media e personalizações de modelos de conteúdo serão copiados da conta *experimental* para a nova conta.
+
+A capacidade de importar o conteúdo é válida tanto para abordagens automatizadas como manuais acima descritas.
+
+> [!NOTE]
+> O conteúdo só pode ser importado uma vez de cada conta.
 
 ## <a name="considerations"></a>Considerações
 

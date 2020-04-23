@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1bd348ad27d892d0421b13c16ce81bc4f5dfb021
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6cb164628923b7a0b4fd0e48e3b9a6095591060
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262805"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099024"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialização de cache simbólica em MSAL.NET
 Depois de adquirido um [símbolo,](msal-acquire-cache-tokens.md)é cached pela Microsoft Authentication Library (MSAL).  O código de aplicação deve tentar obter um símbolo da cache antes de adquirir um símbolo por outro método.  Este artigo discute a serialização padrão e personalizada da cache simbólica em MSAL.NET.
@@ -273,7 +273,7 @@ Em aplicações web ou APIs web o cache poderia alavancar a sessão, uma cache R
 
 Nas aplicações web ou nas APIs web, mantenha uma cache simbólica por conta.  Para aplicações web, o cache token deve ser chave da conta ID.  Para apis web, a conta deve ser chaveada pelo hash do token usado para chamar a API. MSAL.NET fornece serialização de cache token personalizada em .NET Framework e .NET Core subplataformas. Os eventos são disparados quando a cache é acedida, as aplicações podem escolher se serializar ou desserializar a cache. Em aplicações confidenciais de clientes que lidam com utilizadores (aplicações web que assinam nos utilizadores e ligam para apis web, e APIs web chamando APIs web a jusante), pode haver muitos utilizadores e os utilizadores são processados em paralelo. Por razões de segurança e desempenho, a nossa recomendação é serializar uma cache por utilizador. Os eventos de serialização calculam uma chave de cache com base na identidade do utilizador processado e serialize/deserialie uma cache simbólica para esse utilizador.
 
-Exemplos de como usar caches simbólicos para aplicações web e APIs web estão disponíveis no [tutorial de aplicação web ASP.NET Core](https://ms-identity-aspnetcore-webapp-tutorial) na fase [2-2 Token Cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Para implementações, veja a pasta [TokenCacheProviders](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/Microsoft.Identity.Web/TokenCacheProviders) na biblioteca [microsoft-autenticação-extensões-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (na pasta [Microsoft.Identity.Client.Extensions.Web.](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) 
+Exemplos de como usar caches simbólicos para aplicações web e APIs web estão disponíveis no [tutorial de aplicação web ASP.NET Core](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/) na fase [2-2 Token Cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Para implementações, veja a pasta [TokenCacheProviders](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/Microsoft.Identity.Web/TokenCacheProviders) na biblioteca [microsoft-autenticação-extensões-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (na pasta [Microsoft.Identity.Client.Extensions.Web.](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) 
 
 ## <a name="next-steps"></a>Passos seguintes
 As seguintes amostras ilustram a serialização da cache simbólica.

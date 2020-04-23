@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7f398012edc25ba6a04e230fa8049e7264f857bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5fc469c3db7da45f818230909026cedf6c71a4c
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294528"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101744"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga os seus servidores no local aos Ficheiros Azure, permitindo a sincronização multi-site e as funcionalidades de tiering em nuvem. Como tal, um servidor no local deve ser ligado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor chegar aos serviços de nuvem Azure.
@@ -94,7 +94,8 @@ A tabela seguinte descreve os domínios necessários para a comunicação:
 | **Azure Resource Manager** | `https://management.azure.com` | https://management.usgovcloudapi.net | Qualquer chamada de utilizador (como powerShell) vai para/através deste URL, incluindo a chamada inicial de registo do servidor. |
 | **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | As chamadas do Gestor de Recursos Azure devem ser feitas por um utilizador autenticado. Para ter sucesso, este URL é utilizado para a autenticação do utilizador. |
 | **Azure Active Directory** | https://graph.microsoft.com/ | https://graph.microsoft.com/ | Como parte da implementação do Azure File Sync, será criado um diretor de serviço no Diretório Ativo Azure da subscrição. Este URL é usado para isso. Este principal é utilizado para delegar um conjunto mínimo de direitos ao serviço Desincronização de Ficheiros Azure. O utilizador que executa a configuração inicial do Azure File Sync deve ser um utilizador autenticado com privilégios do proprietário da subscrição. |
-| **Storage do Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor descarrega um ficheiro, então o servidor executa esse movimento de dados de forma mais eficiente quando fala diretamente com a parte de ficheiro Azure na Conta de Armazenamento. O servidor tem uma chave SAS que só permite o acesso à partilha de ficheiros direcionado. |
+| **Azure Active Directory** | https://secure.aadcdn.microsoftonline-p.com | Utilize o URL de ponto final público. | Este URL é acedido pela biblioteca de autenticação Ative Directory que o UI de registo do servidor Do Ficheiro Azure utiliza para iniciar sessão no administrador. |
+| **Armazenamento Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor descarrega um ficheiro, então o servidor executa esse movimento de dados de forma mais eficiente quando fala diretamente com a parte de ficheiro Azure na Conta de Armazenamento. O servidor tem uma chave SAS que só permite o acesso à partilha de ficheiros direcionado. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | Após o registo inicial do servidor, o servidor recebe um URL regional para a instância de serviço Azure File Sync naquela região. O servidor pode utilizar o URL para comunicar direta e eficientemente com a instância que manuseia a sua sincronização. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Uma vez instalado o agente Bluee File Sync, o URL PKI é utilizado para descarregar certificados intermédios necessários para comunicar com o serviço Desincronização de Ficheiros Azure e a partilha de ficheiros Azure. O URL OCSP é utilizado para verificar o estado de um certificado. |
 
@@ -160,7 +161,7 @@ Se estiver a utilizar o Azure File Sync no local, pode utilizar a etiqueta de se
 - A API (pré-visualização) permite a recuperação programática da lista atual de tags de serviço. Na pré-visualização, a API de identificação da etiqueta de serviço pode devolver informações menos atuais do que as informações devolvidas dos documentos JSON publicados no Microsoft Download Center. Pode utilizar a superfície API com base na sua preferência de automação:
     - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
     - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [CLI do Azure](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
 
 Uma vez que a API de identificação da etiqueta de serviço não é atualizada com tanta frequência como os documentos JSON publicados no Microsoft Download Center, recomendamos a utilização do documento JSON para atualizar a lista de autorização da firewall no local. Isto pode ser feito da seguinte forma:
 
@@ -276,6 +277,6 @@ As listas anteriores neste documento contêm o URLs Azure File Sync com que comu
 A criação de regras de firewall de restrição de domínio pode ser uma medida para melhorar a segurança. Se estas configurações de firewall forem utilizadas, é preciso ter em mente que os URLs serão adicionados e podem até mudar ao longo do tempo. Verifique este artigo periodicamente.
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
-- [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
+- [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

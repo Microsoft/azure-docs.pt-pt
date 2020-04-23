@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d02c5484ea4cce2953eac6b1b7b26a17c142bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea1360499c4f4f9b2f6cfa07e81d8f692d0353d3
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68989703"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100792"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remediar utilizadores sinalizados para risco no portal do Azure Active Directory
 
@@ -87,7 +87,6 @@ Além disso, deve:
 
 - Leia e implemente esta [orientação sobre o endereço de atividades incomuns](https://aka.ms/fixaccount). 
 - [Ative o pipeline de auditoria](https://aka.ms/improvesecurity) para ajudá-lo a analisar a atividade no seu inquilino. Uma vez concluída, a sua loja de auditoria começa a povoar com registos de atividade. Neste momento, também pode aproveitar o recurso de [busca e investigação do Centro](https://aka.ms/sccsearch)de Segurança e Compliance. 
-- Utilize este [script para permitir a auditoria](https://aka.ms/mailboxaudit1) da caixa de correio para todas as suas contas. 
 - Reveja as permissões de delegado e as regras de reencaminhamento de todas as caixas de correio de correio. Pode utilizar este [script do PowerShell](https://aka.ms/delegateforwardrules) para realizar esta tarefa. 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,25 +1,21 @@
 ---
 title: Usando o Estúdio Visual numa máquina virtual Azure
 description: Usando o Estúdio Visual numa máquina virtual Azure.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cathysull
 manager: cathys
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: cathys
 keywords: estúdio visual
-ms.openlocfilehash: 76c8ec8f3d691a897ec924e06b76beec746ad14a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 15de6a9aa7e49f680dcd953937d6b12cb9e16d4a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451589"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101608"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Estúdio Visual no Azure
 Usar o Visual Studio numa máquina virtual Azure (VM) reconfigurada é uma maneira rápida e fácil de passar do nada para um ambiente de desenvolvimento em alta e funcionamento. Imagens do sistema com diferentes configurações do Estúdio Visual estão disponíveis no [Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)

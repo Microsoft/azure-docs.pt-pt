@@ -3,12 +3,12 @@ title: Back up Ficheiros Azure com PowerShell
 description: Neste artigo, aprenda a fazer backup de Ficheiros Azure utilizando o serviço de backup Azure e powerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 865cfc6daa7568236b0306ba591b42a9f7704dd4
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273543"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101183"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Back up Ficheiros Azure com PowerShell
 
@@ -26,7 +26,6 @@ Este artigo explica como:
 ## <a name="before-you-start"></a>Antes de começar
 
 * [Saiba mais](backup-azure-recovery-services-vault-overview.md) sobre cofres dos Serviços de Recuperação.
-* Leia sobre as capacidades de pré-visualização para apoiar as ações de [ficheiros do Azure](backup-afs.md).
 * Reveja a hierarquia de objetos PowerShell para Serviços de Recuperação.
 
 ## <a name="recovery-services-object-hierarchy"></a>Serviços de Recuperação objetam hierarquia
@@ -45,12 +44,12 @@ Configurar o PowerShell da seguinte forma:
 
 1. [Descarregue a versão mais recente do Az PowerShell.](/powershell/azure/install-az-ps) A versão mínima necessária é de 1.0.0.
 
-> [!WARNING]
-> A versão mínima do PS necessária para pré-visualização foi 'Az 1.0.0'. Devido às próximas alterações para a GA, a versão PS mínima necessária será 'Az.RecoveryServices 2.6.0'. É muito importante atualizar todas as versões PS existentes para esta versão. Caso contrário, os scripts existentes quebrar-se-ão após a AG. Instale a versão mínima com os seguintes comandos PS
+    > [!WARNING]
+    > A versão PS mínima necessária para a cópia de segurança de partilha de ficheiros Azure é **Az.RecoveryServices 2.6.0**. Por favor, atualize a sua versão para evitar quaisquer problemas com os scripts existentes. Instale a versão mínima com o seguinte comando PS:
 
-```powershell
-Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
-```
+    ```powershell
+    Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+    ```
 
 2. Encontre os cmdlets PowerShell de backup Azure com este comando:
 
@@ -287,14 +286,12 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 
 As imagens de partilha de ficheiros Azure são usadas enquanto as cópias de segurança são tomadas, pelo que normalmente o trabalho termina quando o comando devolve esta saída.
 
-### <a name="using-on-demand-backups-to-extend-retention"></a>Utilização de backups a pedido para alargar a retenção
+### <a name="using-a-runbook-to-schedule-backups"></a>Usando um livro de execução para agendar backups
 
-Os backups a pedido podem ser usados para reter as suas fotos durante 10 anos. Os programadores podem ser usados para executar scripts PowerShell a pedido com retenção escolhida e, assim, tirar fotos em intervalos regulares todas as semanas, meses ou anos. Ao tirar fotografias regulares, consulte as [limitações das cópias de segurança](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) a pedido utilizando cópias de segurança Azure.
+Se estiver à procura de scripts de amostra, pode consultar o [script da amostra no GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) utilizando um livro de execução da Automação Azure.
 
-Se estiver à procura de scripts de amostra, pode consultar<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>o script da amostra no GitHub ( ) usando o livro de execução Azure Automation que lhe permite agendar backups numa base periódica e retê-los até 10 anos.
-
-> [!WARNING]
-> Certifique-se de que a versão PS é atualizada para a versão mínima para 'Az.RecoveryServices 2.6.0' para backups AFS nos seus livros de automação. Terá de substituir o antigo módulo 'AzureRM' por módulo 'Az'. Com esta versão, o filtro 'friendlyName' está disponível para ```Get-AzRecoveryServicesBackupItem``` comando. Passe o nome da partilha de ficheiros azul para o parâmetro friendlyName. Se passar o nome da partilha de ficheiros azul para o parâmetro 'Nome', esta versão lança um aviso para passar este nome amigável ao parâmetro de nome amigável.
+>[!NOTE]
+> A Política de Backup do Ficheiro Azure suporta agora a configuração de backup com retenção diária/semanal/mensal/anual.
 
 ## <a name="next-steps"></a>Passos seguintes
 

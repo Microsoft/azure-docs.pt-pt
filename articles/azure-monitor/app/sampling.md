@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6e930b0dc610f74e1a341b2f57f4c211a85a49d3
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 82e42580f5d934af96b4fad57dde1573b9c30ef5
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605028"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098769"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -388,7 +388,7 @@ tracer = Tracer(
 Pode configurar a amostragem `AzureLogHandler` de taxa `logging_sampling_rate` fixa para modificando o argumento opcional. Se não for fornecido qualquer argumento, será utilizada uma taxa de amostragem de 1.0. Uma taxa de amostragem de 1.0 representa 100%, o que significa que todos os seus pedidos serão enviados como telemetria para Application Insights.
 
 ```python
-exporter = metrics_exporter.new_metrics_exporter(
+handler = AzureLogHandler(
     instrumentation_key='00000000-0000-0000-0000-000000000000',
     logging_sampling_rate=0.5,
 )

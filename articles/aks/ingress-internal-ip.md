@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de ingresso NGINX pa
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 4a123a02ed26a5257d3b8e3ee69fb14d96cde550
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 38b08775158a9e5742f1df013ba52a2176af390d
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668488"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100044"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Criar um controlador de ingresso para uma rede virtual interna no Serviço Azure Kubernetes (AKS)
 
@@ -27,7 +27,7 @@ Também pode:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo utiliza o Helm para instalar o controlador de ingresso NGINX, o cert-manager e uma aplicação web de amostra. Precisa de ter o Helm inicializado dentro do seu cluster AKS e usar uma conta de serviço para a Tiller. Para obter mais informações sobre configurar e utilizar o Helm, consulte [Instalar aplicações com o Helm no Serviço Azure Kubernetes (AKS)][use-helm].
+Este artigo utiliza o [Helm 3][helm] para instalar o controlador de entrada NGINX, o cert-manager e uma aplicação web de amostra. Precisa de ter o Helm inicializado dentro do seu cluster AKS e usar uma conta de serviço para a Tiller. Para obter mais informações sobre configurar e utilizar o Helm, consulte [Instalar aplicações com o Helm no Serviço Azure Kubernetes (AKS)][use-helm].
 
 Este artigo também requer que esteja a executar a versão Azure CLI 2.0.64 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
@@ -265,6 +265,7 @@ Também pode:
 - [Crie um controlador de ingresso com um endereço IP público estático e configure Vamos encriptar para gerar automaticamente certificados TLS][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
+[helm]: https://helm.sh/
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 

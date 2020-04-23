@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2414567b74232d634fa0a34202691a8e43ae6135
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: d47daa29c65f847fdeb33b9e24a892ac1f31b52a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604751"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096967"
 ---
 # <a name="enable-azure-automation-startstop-vms-solution"></a>Ativar a solução de VMs start/stop de automação Azure
 
@@ -46,7 +46,7 @@ Execute os seguintes passos para adicionar os **VMs de início/paragem durante a
 7. Na página Adicionar Solução, selecione **Workspace**. Selecione um espaço de trabalho log Analytics ligado à mesma subscrição Azure em que a conta Automation está. Se não tiver um espaço de trabalho, selecione **Criar novo espaço**de trabalho . Na página do espaço de trabalho Log Analytics, execute os seguintes passos:
 
    - Especifique um nome para o novo espaço de trabalho log analytics, como **ContosoLAWorkspace**.
-   - Selecione uma **Subscrição** para ligar selecionando a partir da lista de drop-down, se o padrão selecionado não for apropriado.
+   - Selecione uma **Subscrição** para ligar selecionando a partir da lista de dropdown, se o padrão selecionado não for apropriado.
    - Para **o Grupo de Recursos,** pode criar um novo grupo de recursos ou selecionar um existente.
    - Selecione um **Local**.
    - Selecione um **nível de preços**. Escolha a opção **Per GB (Autónoma).** Os registos do Monitor Azure têm [preços](https://azure.microsoft.com/pricing/details/log-analytics/) atualizados e o nível Per GB é a única opção.
@@ -90,7 +90,7 @@ Execute os seguintes passos para adicionar os **VMs de início/paragem durante a
 Depois de todas as definições serem validadas, a solução é implementada na sua subscrição. Este processo pode demorar alguns segundos a terminar, e pode acompanhar o seu progresso ao abrigo de **Notificações** do menu.
 
 > [!NOTE]
-> Se tiver uma subscrição do Azure Cloud Solution Provider (Azure Cloud Solution Provider), após a implementação estar concluída, na sua conta de Automação, vá a **Variáveis** ao abrigo **de Recursos Partilhados** e detetete a [**variável External_EnableClassicVMs**](automation-solution-vm-management.md#variables) para **Falso**. Isto impede a solução de procurar recursos VM clássicos.
+> Se tiver uma subscrição do Azure Cloud Solution Provider (Azure Cloud Solution Provider), após a implementação estar concluída, na sua conta de Automação, vá a **Variáveis** ao abrigo **de Recursos Partilhados** e detetete a [variável External_EnableClassicVMs](automation-solution-vm-management.md#variables) para **Falso**. Isto impede a solução de procurar recursos VM clássicos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

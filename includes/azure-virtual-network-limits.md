@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ee4d629d80ff8265d58a1d05b8dca1652ddac6fb
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 511354633b9f88f3d6cd2e2170ce3b7ca1f4ecdb
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81112885"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82095910"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de networking - Gestor de Recursos Azure
 Os seguintes limites aplicam-se apenas aos recursos de networking geridos através **do Gestor de Recursos Azure** por região por subscrição. Saiba como [visualizar o seu uso atual de recursos contra os seus limites](../articles/networking/check-usage-against-limits.md)de subscrição .
@@ -77,7 +77,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Regras de saída por Balancer de Carga        | 600                           |
 | [Tempo limite de inatividade da TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutos/30 minutos          |
 
-<sup>1</sup> O limite é de até 150 recursos, em qualquer combinação de recursos de máquinas virtuais autónomas, recursos definidos de disponibilidade e recursos conjuntos de máquinas virtuais.
+<sup>1</sup> O limite é de até 150 recursos, em qualquer combinação de recursos de máquinas virtuais autónomas, recursos definidos de disponibilidade e grupos de colocação de escala de máquina virtual.
 
 **Balanceador de Carga Básico**
 

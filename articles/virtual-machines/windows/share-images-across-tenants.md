@@ -1,21 +1,19 @@
 ---
 title: Partilhe imagens de galerias entre inquilinos em Azure
 description: Saiba como partilhar imagens vm em inquilinos do Azure usando Galerias de Imagem Partilhada.
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines-windows
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/15/2019
 ms.author: cynthn
-ms.openlocfilehash: 9b7e7066f186017b7cc4408cd4f7edcc7e5f0dcd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c35799147d276bf4b6f07893b7cd975c5c5823c
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74065506"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101200"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Partilhar imagens vM da galeria através dos inquilinos do Azure
 

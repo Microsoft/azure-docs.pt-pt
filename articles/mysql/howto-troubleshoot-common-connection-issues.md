@@ -2,17 +2,17 @@
 title: Problemas de ligação - Base de Dados Azure para MySQL
 description: Aprenda a resolver problemas de ligação à Base de Dados Azure para o MySQL, incluindo erros transitórios que requerem tentativas, problemas de firewall e interrupções.
 keywords: conexão mysql,cadeia de ligação,problemas de conectividade,erro transitório,erro de ligação
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: b22d47d177c4606396b0c8b2279301121c905ca2
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: e4afcb8756f64ab9b66044a1bf1304427330e365
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768272"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100894"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Resolver problemas de ligação à Base de Dados do Azure para MySQL
 

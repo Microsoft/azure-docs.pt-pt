@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a77e6c9086a745804c23f431f633d530e2655f16
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 2be074c457eaadd1fb6467cbcfdd45a2e7745613
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868884"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098905"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenha um símbolo para uma aplicação móvel que chama APIs web
 
@@ -209,7 +209,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive`tem apenas um parâmetro `scopes`obrigatório: . O `scopes` parâmetro enumera cordas que definem os âmbitos para os quais é necessário um símbolo. Se o símbolo for para o Microsoft Graph, pode encontrar os âmbitos necessários na referência API de cada API do Microsoft Graph. Na referência, vá à secção "Permissões".
 
-Por exemplo, para [listar os contactos do utilizador,](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts)utilize o âmbito "User.Read", "Contactos.Read". Para mais informações, consulte a referência de [permissões do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Por exemplo, para [listar os contactos do utilizador,](https://docs.microsoft.com/graph/api/user-list-contacts)utilize o âmbito "User.Read", "Contactos.Read". Para mais informações, consulte a referência de [permissões do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 No Android, pode especificar a atividade dos `PublicClientApplicationBuilder`pais quando criar a app utilizando . Se não especificar a atividade dos pais nessa altura, poderá `.WithParentActivityOrWindow` especificá-la utilizando-a como na seguinte secção. Se especificar a atividade dos pais, o símbolo volta à atividade dos pais após a interação. Se não especificar, a `.ExecuteAsync()` chamada abre uma exceção.
 

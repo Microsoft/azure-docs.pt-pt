@@ -1,19 +1,19 @@
 ---
 title: Use o portal para implantar VMs Spot Azure
 description: Aprenda a usar o Azure PowerShell para implementar VMs spot para economizar em custos.
-services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 045cec080b9b1b8f2e4cb589b053c421897db5be
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.reviewer: jagaveer
+ms.openlocfilehash: 6e7723a437e90807063e3c3b7af2bf068dca5b9f
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547389"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100656"
 ---
 # <a name="deploy-spot-vms-using-the-azure-portal"></a>Implementar VMs spot usando o portal Azure
 

@@ -12,12 +12,12 @@ ms.date: 04/21/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a03a03557fbb2e71ff79ff42fd9d9c72cd5907c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: f1377023af9d4f153671f15e214516ac29536638
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770497"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100078"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -920,8 +920,8 @@ CBool(
 #### <a name="issues-fixed"></a>Questões corrigidas
 
 * A seguir aos URLs estão os novos pontos finais da WS-Federation introduzidos pela Azure AD para melhorar a resiliência contra a interrupção da autenticação e serão adicionados à configuração de confiança do partido AD FS no local:
-  * https://ests.login.microsoftonline.com/login.srf
-  * https://stamp2.login.microsoftonline.com/login.srf
+  * https:\//ests.login.microsoftonline.com/login.srf
+  * https:\//stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
   * https://ccs-sdf.login.microsoftonline.com/login.srf
   

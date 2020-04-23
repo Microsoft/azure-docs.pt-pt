@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d5354f5bca7a4c9ab00066167ad19890536629
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d8665e58dc84a2ea9b5f2ed70a41bbdd0aa3aa9b
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653611"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099160"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na autenticação multi-factor azure
 
@@ -32,7 +32,7 @@ A Autenticação Multi-Factor Azure fornece vários relatórios que podem ser ut
 
 ## <a name="view-mfa-reports"></a>Ver relatórios de MFA
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Ative Directory** > **Security** > **MFA**.
 3. Selecione o relatório que pretende ver.
 
@@ -128,15 +128,19 @@ Em primeiro lugar, certifique-se de que tem o [módulo MSOnline V1 PowerShell](h
 
 Identifique os utilizadores que se registaram para o MFA utilizando o PowerShell que se segue. Este conjunto de comandos exclui utilizadores com deficiência, uma vez que estas contas não podem autenticar contra a AD Azure.
 
-```Get-MsolUser -All | Where-Object {$.StrongAuthenticationMethods -ne $null -and $.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName```
+```powershell
+Get-MsolUser -All | Where-Object {$._StrongAuthenticationMethods -ne $null -and $._BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+```
 
 Identifique os utilizadores que não se registaram no MFA utilizando o PowerShell que se segue. Este conjunto de comandos exclui utilizadores com deficiência, uma vez que estas contas não podem autenticar contra a AD Azure.
 
-```Get-MsolUser -All | Where-Object {$.StrongAuthenticationMethods.Count -eq 0 -and $.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName```
+```powershell
+Get-MsolUser -All | Where-Object {$._StrongAuthenticationMethods.Count -eq 0 -and $._BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+```
 
 Identificar utilizadores e métodos de saída registados. 
 
-```PowerShell
+```powershell
 Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
 
 @{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},

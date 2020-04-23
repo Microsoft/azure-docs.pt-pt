@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 6bae9e871be2a5d56d057d2a077de53329b8c3ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1af0161edb0f833cdd14d8157e6edd9644e21467
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79208931"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100282"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server instância migração para A Base de Dados Azure SQL gerida
 
@@ -30,7 +30,7 @@ A um nível elevado, o processo de migração da base de dados parece:
 ![processo de migração](./media/sql-database-managed-instance-migration/migration-process.png)
 
 - [Avalie a compatibilidade de instâncias geridas](#assess-managed-instance-compatibility) onde deve garantir que não existem problemas de bloqueio que possam impedir as suas migrações.
-  - Este passo também inclui a criação de linha de base de [desempenho](#create-performance-baseline) para determinar a utilização do recurso na sua fonte SQL Server. Este passo é necessário se quiser que o desdobre corretamente a Instância Gerida e verifique se os desempenhos após a migração não são afetados.
+  - Este passo também inclui a criação de linha de base de [desempenho](#create-performance-baseline) para determinar a utilização do recurso na sua fonte SQL Server. Este passo é necessário se pretender implementar uma instância gerida de tamanho adequado e verificar se os desempenhos após a migração não são afetados.
 - [Escolha opções de conectividade de aplicativos](sql-database-managed-instance-connect-app.md)
 - [Desloque-se para uma instância gerida](#deploy-to-an-optimally-sized-managed-instance) de tamanho ótimo onde irá escolher características técnicas (número de vCores, quantidade de memória) e nível de desempenho (Business Critical, General Purpose) da sua Instância Gerida.
 - [Selecione o método de migração e emigra](#select-migration-method-and-migrate) onde migra as suas bases de dados utilizando a migração offline (backup/restauro nativo, importação/exportação) ou migração online (Serviço de Migração de Dados, Replicação Transacional).

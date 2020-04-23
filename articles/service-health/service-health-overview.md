@@ -3,12 +3,12 @@ title: Visão geral da Saúde do Serviço [ Microsoft Docs
 description: Informações personalizadas sobre como as suas aplicações Azure são afetadas por problemas e manutenção de serviços atuais e futuros do Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: a1c6a10ab48125c030c9a35864f829438404ad97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 280be9f0df1f94dad59c1af147d499860571f86e
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898447"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097256"
 ---
 # <a name="service-health-overview"></a>Visão geral da Saúde do Serviço
 
@@ -20,7 +20,7 @@ Serviço Saúde rastreia quatro tipos de eventos de saúde que podem afetar os s
 
 1. **Problemas** de serviço - Problemas nos serviços Azure que o afetam neste momento. 
 2. **Manutenção planeada** - Manutenção futura que poderá afetar a disponibilidade dos seus serviços no futuro.  
-3. **Avisos de saúde** - Alterações nos serviços Azure que requerem a sua atenção. Exemplos incluem quando as funcionalidades do Azure são depreciadas ou se exceder uma quota de utilização.
+3. **Avisos de saúde** - Alterações nos serviços Azure que requerem a sua atenção. Exemplos incluem depreciação de funcionalidades Azure ou requisitos de atualização (por exemplo, upgrade para um quadro PHP suportado).
 4. **Avisos de segurança (pré-visualização)** - Notificações relacionadas com a segurança que podem afetar a disponibilidade dos seus serviços Azure.
 
 > [!NOTE]

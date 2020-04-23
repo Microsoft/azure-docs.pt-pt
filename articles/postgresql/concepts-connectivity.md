@@ -2,17 +2,17 @@
 title: Lidar com erros de conectividade transitórios - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Aprenda a lidar com erros de conectividade transitórios para a Base de Dados Azure para PostgreSQL - Servidor Único.
 keywords: conexão pós-gresql,cadeia de ligação,problemas de conectividade,erro transitório,erro de ligação
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 8138512dfc893f3523c5ad78a93aef1bcdedfe70
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 026a0edf24d349c4b445d6229d3b1ad73decf87d
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768030"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097834"
 ---
 # <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Processamento de erros de conectividade transitórios da Base de Dados do Azure para PostgreSQL – Servidor Único
 

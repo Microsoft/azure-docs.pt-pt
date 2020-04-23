@@ -2,18 +2,18 @@
 title: Executar scripts PowerShell em um VM Windows em Azure
 description: Este tópico descreve como executar scripts PowerShell dentro de uma máquina virtual Do Windows Azure utilizando a funcionalidade Executar Command
 services: automation
-ms.service: automation
+ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: article
+ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: fa7f72989d47499127714eddfa6b5e98aa80178c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0125c556789b1a1a5b11dcd16b852d7f57b6c50
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73749222"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099874"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Executar scripts PowerShell no seu Windows VM utilizando o Comando de Execução
 
@@ -21,7 +21,7 @@ A função Executar Command utiliza o agente da máquina virtual (VM) para execu
 
  
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 Pode aceder às suas máquinas virtuais de várias maneiras. Executar o Comando pode executar scripts nas suas máquinas virtuais remotamente utilizando o agente VM. Utiliza o Comando de Execução através do portal Azure, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)ou [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) para VMs windows.
 

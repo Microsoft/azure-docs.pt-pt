@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de ingresso NGINX b�
 services: container-service
 ms.topic: article
 ms.date: 12/20/2019
-ms.openlocfilehash: 8b9e4537d6dd771697accc1f9fbdc3b6e2584863
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: f6e07dde68f2f2ce0ccfbb7858fd1d217b993a62
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668526"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101489"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Criar um controlador de ingresso no Serviço Azure Kubernetes (AKS)
 
@@ -27,7 +27,7 @@ Também pode:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo utiliza o Helm para instalar o controlador de ingresso NGINX e uma aplicação web de amostra.
+Este artigo utiliza o [Helm 3][helm] para instalar o controlador de entrada NGINX e uma aplicação web de amostra.
 
 Este artigo também requer que esteja a executar a versão Azure CLI 2.0.64 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
@@ -238,6 +238,7 @@ Também pode:
 - Crie um controlador de ingresso que utilize Let's Encrypt para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou com um endereço IP público [estático][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
+[helm]: https://helm.sh/
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 

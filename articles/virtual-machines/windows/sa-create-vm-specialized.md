@@ -1,26 +1,20 @@
 ---
 title: Criar VM a partir de um disco especializado em Azure
 description: Crie um novo VM anexando um disco especializado não gerido, no modelo de implementação do Gestor de Recursos.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: d887ef2ef74bb433d6e8ae7f53cd0b77f5948303
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: storage-accounts
+ms.openlocfilehash: 60b0a0f0d83b9b83c9cf8d530881508af591de59
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073354"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099653"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Crie um VM a partir de um VHD especializado numa conta de armazenamento
 

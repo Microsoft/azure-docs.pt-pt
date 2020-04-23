@@ -1,24 +1,18 @@
 ---
 title: Como implementar o Windows 10 em Azure com direitos de hospedagem multiarrendatário
 description: Saiba como maximizar os benefícios da Garantia de Software do Windows para levar licenças no local para o Azure
-services: virtual-machines-windows
-documentationcenter: ''
 author: xujing
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 9ff8cc64266375a2d439763b222870843136f67a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c85eef1a5d035e23c7e63632ac92c21440b15cae
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70101492"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101557"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implementar o Windows 10 em Azure com direitos de hospedagem multiarrendatário 
 Para clientes com Windows 10 Enterprise E3/E5 por utilizador ou Windows Virtual Desktop Access por utilizador (Licenças de subscrição de utilizador ou licenças de subscrição de utilizadores adicionais), os direitos de hospedagem multiarrendatários para o Windows 10 permitem-lhe trazer as suas Licenças Windows 10 para a nuvem e executar máquinas virtuais do Windows 10 no Azure sem pagar outra licença. Para mais informações, consulte [o Multitenant Hosting para o Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).

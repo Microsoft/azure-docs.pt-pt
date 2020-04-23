@@ -1,26 +1,18 @@
 ---
 title: Crie um VM windows a partir de um modelo em Azure
 description: Utilize um modelo de Gestor de Recursos e PowerShell para criar facilmente um novo VM do Windows.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99e292930414ae027c9cbbf3a901d550041899d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cafe28be1d7c08c24b728de2476cb2210c6e5bd0
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74065553"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098327"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Criar uma máquina virtual do Windows a partir de um modelo de Gestor de Recursos
 

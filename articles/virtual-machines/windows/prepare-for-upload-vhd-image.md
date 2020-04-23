@@ -1,25 +1,19 @@
 ---
 title: Prepare um Windows VHD para fazer upload para o Azure
 description: Saiba como preparar um Windows VHD ou VHDX para o enviar para o Azure
-services: virtual-machines-windows
-documentationcenter: ''
 author: glimoli
 manager: dcscontentpm
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 8118ecde698b54213547e717d25613c0c3e0d3fd
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 1f8f595fd0656a35d54012ece64e826357e03bb9
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631562"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098684"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Prepare a Windows VHD or VHDX to upload to Azure  (Preparar um VHD ou um VHDX do Windows para carregamento para o Azure)
 

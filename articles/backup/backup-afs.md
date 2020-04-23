@@ -3,12 +3,12 @@ title: Back up Ações de arquivo Azure no portal Azure
 description: Saiba como usar o portal Azure para apoiar as ações de ficheiros azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: c1dea6925bad96be178f875567077fafa4db9326
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da2c7fa4cc5c3b7b948604a6f6d3999671cb3697
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938064"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101340"
 ---
 # <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Back up Ações de arquivo Azure em cofre de Serviços de Recuperação
 
@@ -23,19 +23,7 @@ Neste artigo, aprenderá a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Identifique ou crie um cofre de Serviços de [Recuperação](#create-a-recovery-services-vault) na mesma região que a conta de armazenamento que acolhe a partilha de ficheiros.
-* Certifique-se de que a parte do ficheiro está presente num dos tipos de conta de [armazenamento suportado](#limitations-for-azure-file-share-backup-during-preview).
-
-## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações da cópia de segurança da partilha de ficheiros do Azure durante a pré-visualização
-
-A cópia de segurança de partilhas de ficheiros do Azure está em pré-visualização. As ações de ficheiros Azure em contas de armazenamento v1 de uso geral e de uso geral v2 são suportadas. Aqui estão as limitações para apoiar as ações de ficheiros Azure:
-
-* O suporte para cópia de segurança das ações de ficheiros Azure em contas de armazenamento com replicação de [armazenamento redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) (ZRS) está atualmente limitado a [estas regiões.](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#in-which-geos-can-i-back-up-azure-file-shares)
-* A Tualmente, a Azure Backup suporta a configuração de cópias de segurança programadas uma vez por dia de ações de ficheiros Azure.
-* O número máximo de cópias de segurança agendadas por dia é de um.
-* O número máximo de cópias de segurança a pedido por dia é de quatro.
-* Utilize [bloqueios](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) de recursos na conta de armazenamento para evitar a eliminação acidental de cópias de segurança no cofre dos Serviços de Recuperação.
-* Não apague as imagens criadas pela Azure Backup. A apagar instantâneos pode resultar na perda de pontos de recuperação ou restabelecer falhas.
-* Não elimine as ações de ficheiros protegidas pela Azure Backup. A solução atual elimina todas as imagens tiradas pela Azure Backup após a eliminação da parte do ficheiro, pelo que todos os pontos de restauro serão perdidos.
+* Certifique-se de que a parte do ficheiro está presente num dos tipos de conta de [armazenamento suportado](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -80,19 +68,22 @@ Para modificar o tipo de replicação de armazenamento:
 
 1. Depois de selecionar **Backup**, o painel **de backup** abre e pede-lhe para selecionar uma conta de armazenamento a partir de uma lista de contas de armazenamento suportadas descobertas. Ou estão associados a este cofre ou presentes na mesma região que o cofre, mas ainda não estão associados a qualquer cofre dos Serviços de Recuperação.
 
-   ![Selecionar a conta de armazenamento](./media/backup-afs/select-storage-account.png)
-
 1. A partir da lista de contas de armazenamento descobertas, selecione uma conta e selecione **OK**. O Azure procura na conta de armazenamento por ações de ficheiros que podem ser apoiadas. Se adicionou recentemente as suas ações de ficheiro e não as vê na lista, dê algum tempo para que as ações do ficheiro apareçam.
 
     ![Descobrir ações de ficheiros](./media/backup-afs/discovering-file-shares.png)
 
 1. A partir da lista de **Partilhas** de Ficheiros, selecione uma ou mais das ações de ficheiro que pretende fazer. Selecione **OK**.
 
+   ![Selecione as ações de ficheiro](./media/backup-afs/select-file-shares.png)
+
 1. Depois de escolher as suas partilhas de ficheiros, o menu **'Backup'** muda para a política de **backup**. A partir deste menu, selecione uma política de backup existente ou crie uma nova. Em seguida, selecione **'Ativar 'Backup**' .
 
     ![Selecione política de backup](./media/backup-afs/select-backup-policy.png)
 
 Depois de definir uma política de backup, uma foto das ações de arquivo é tirada na hora programada. O ponto de recuperação também é mantido para o período escolhido.
+
+>[!NOTE]
+>A Azure Backup apoia agora as políticas com retenção diária/semanal/mensal/anual para cópia de segurança de partilha de ficheiros Azure.
 
 ## <a name="create-an-on-demand-backup"></a>Criar uma cópia de segurança a pedido
 
@@ -124,8 +115,18 @@ Ocasionalmente, é melhor gerar um instantâneo de backup, ou ponto de recupera�
 
 1. Monitorize as notificações do portal para manter um registo da conclusão do trabalho de backup. Pode monitorizar o progresso do trabalho no painel do cofre. Selecione **Backup Jobs** > **Em andamento**.
 
+>[!NOTE]
+>A Azure Backup bloqueia a conta de armazenamento quando configura a proteção para qualquer parte de ficheiro na conta correspondente. Isto fornece proteção contra a eliminação acidental de uma conta de armazenamento com ações de ficheiros apoiadas.
+
+## <a name="best-practices"></a>Melhores práticas
+
+* Não apague as imagens criadas pela Azure Backup. A eliminação de instantâneos pode resultar na perda de pontos de recuperação e/ou falhas de restauro.
+
+* Não retire o cadeado da conta de armazenamento pela Azure Backup. Se apagar o bloqueio, a sua conta de armazenamento será propensa a uma eliminação acidental e, se for eliminada, perderá as suas fotos ou cópias de segurança.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a:
+
 * [Restaurar as ações de ficheiros da Azure](restore-afs.md)
 * [Gerir cópias de segurança de partilha de ficheiros Azure](manage-afs-backup.md)

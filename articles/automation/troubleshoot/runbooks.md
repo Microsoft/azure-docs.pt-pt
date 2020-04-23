@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 5ed25821f606b98bacf2acf3c2c389a8437406fa
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 73f79145f63e0d8afee7596f1f8231a054ef1c2e
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770910"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097698"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Erros do livro de corridas de resolução de problemas
 
@@ -367,6 +367,20 @@ Para determinar o que está errado, tome os seguintes passos:
        Start-Sleep -Seconds 30
    }
    ```
+
+## <a name="scenario-incorrect-object-reference-on-call-to-add-azaccount"></a><a name="object-reference-not-set"></a>Cenário: Referência incorreta do objeto na chamada para Add-AzAccount
+
+### <a name="issue"></a>Problema
+
+Você recebe este erro `Add-AzAccount`ao trabalhar com , `Connect-AzAccount` que é um pseudónimo para o cmdlet:
+
+```error
+Add-AzAccount : Object reference not set to an instance of an object
+```
+
+### <a name="cause"></a>Causa
+
+Este erro pode ocorrer se o livro de execução não fizer os passos adequados antes de ligar `Add-AzAccount` para adicionar a conta Deautomação. Um exemplo de um dos passos necessários é assinar com uma conta Run As. Para as operações corretas a utilizar no seu livro de execução, consulte a execução do Livro de [Execução em Automação Azure](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
 
 ## <a name="scenario-object-reference-not-set-to-an-instance-of-an-object"></a><a name="child-runbook-object"></a>Cenário: Referência do objeto não definida para uma instância de um objeto
 

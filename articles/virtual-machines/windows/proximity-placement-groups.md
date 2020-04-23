@@ -3,17 +3,17 @@ title: 'PowerShell: Utilize grupos de colocação de proximidade'
 description: Aprenda sobre a criação e utilização de grupos de colocação de proximidade usando o Azure PowerShell.
 services: virtual-machines
 ms.service: virtual-machines
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: cynthn
-ms.openlocfilehash: f69e245d72a63b942896cdd9f4a2225cb4c1706d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: zivr
+ms.openlocfilehash: 2401e8c160fd1c2ee3a734f374f1d4409c52ed16
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78208530"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098531"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Implementar VMs para grupos de colocação de proximidade usando powerShell
 

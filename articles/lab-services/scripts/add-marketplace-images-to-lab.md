@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 3d699a22ed06022c6d9df12ade7f202fb304648c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2f5d6b6b9500ccd90630e8920c09340658fb76f
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76166451"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100195"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Use a PowerShell para adicionar uma imagem de mercado a um laboratório em Azure DevTest Labs
 

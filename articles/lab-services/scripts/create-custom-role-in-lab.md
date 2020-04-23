@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 9605b3c63877335b8f180ae5fd2b06edc1601096
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7822d6ea46b7efc21f43e944d0a96f609df389a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760471"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100190"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Use powerShell para criar um papel personalizado em um laboratório em Azure DevTest Labs
 

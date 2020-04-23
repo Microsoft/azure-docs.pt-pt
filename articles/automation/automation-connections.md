@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 90d4ec1bbfd0d76ffedf1505c9147376e3947c3c
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 39a41a60f4cabe995ebd458c4b906438d1e31bde
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729046"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097120"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Gerir ligações na Automação Azure
 
@@ -69,7 +69,7 @@ A função na tabela a seguir é utilizada para aceder a ligações num livro de
 
 ## <a name="creating-a-new-connection"></a>Criar uma nova ligação
 
-### <a name="to-create-a-new-connection-with-the-azure-portal"></a>Para criar uma nova ligação com o portal Azure
+### <a name="create-a-new-connection-with-the-azure-portal"></a>Criar uma nova ligação com o portal Azure
 
 1. Na sua conta De automação, clique na parte **Do Ativo** para abrir a lâmina **Do Ativo.**
 2. Clique na parte **Ligações** para abrir a lâmina de **Ligações.**
@@ -77,7 +77,7 @@ A função na tabela a seguir é utilizada para aceder a ligações num livro de
 4. No **dropdown do Tipo,** selecione o tipo de ligação que pretende criar. O formulário apresentará as propriedades para esse tipo em particular.
 5. Complete o formulário e clique **em Criar** para salvar a nova ligação.
 
-### <a name="to-create-a-new-connection-with-windows-powershell"></a>Para criar uma nova ligação com o Windows PowerShell
+### <a name="create-a-new-connection-with-windows-powershell"></a>Criar uma nova ligação com o Windows PowerShell
 
 Crie uma nova ligação `New-AzAutomationConnection` com o Windows PowerShell utilizando o cmdlet. Este cmdlet tem um `ConnectionFieldValues` parâmetro nomeado que espera um valore [sinuoso](https://technet.microsoft.com/library/hh847780.aspx) definindo valores para cada uma das propriedades definidas pelo tipo de ligação.
 
@@ -89,7 +89,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-Você é capaz de usar o script para criar o ativo de ligação porque quando cria a `AzureServicePrincipal` sua conta `AzureRunAsConnection` De automatização, ele automaticamente inclui vários módulos globais por padrão juntamente com o tipo de ligação para criar o ativo de ligação. Isto é importante ter em mente, porque se tentar criar um novo ativo de ligação para ligar a um serviço ou aplicação com um método de autenticação diferente, falhará porque o tipo de ligação ainda não está definido na sua conta Desmito. Para obter mais informações sobre como criar o seu próprio tipo de ligação para o seu costume ou módulo a partir da [PowerShell Gallery,](https://www.powershellgallery.com)consulte Módulos de [Integração](automation-integration-modules.md).
+Ao criar a sua conta De automatização, inclui vários `AzureServicePrincipal` módulos `AzureRunAsConnection` globais por padrão, juntamente com o tipo de ligação para criar o ativo de ligação. Se tentar criar um novo ativo de ligação para ligar a um serviço ou aplicação com um método de autenticação diferente, a operação falha porque o tipo de ligação ainda não está definido na sua conta Automation. Para obter mais informações sobre a criação do seu próprio tipo de ligação para um módulo personalizado [da PowerShell Gallery,](https://www.powershellgallery.com) consulte módulos de [Integração.](automation-integration-modules.md)
 
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Utilizando uma ligação numa configuração de livro de execução ou DSC
 

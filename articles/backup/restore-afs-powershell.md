@@ -3,12 +3,12 @@ title: Restaurar ficheiros Azure com PowerShell
 description: Neste artigo, aprenda a restaurar os Ficheiros Azure utilizando o serviço de backup Azure e powerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 12bff49bc249b23542534d218b13b517411f461b
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: bcd85635dbacceb7d1c125bb550feedbdb57e04a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756188"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097647"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Restaurar ficheiros Azure com PowerShell
 
@@ -34,10 +34,12 @@ No seguinte guião:
 * No exemplo, **$rp[0]** seleciona o último ponto de recuperação.
 
 ```powershell
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"
+$Container = Get-AzRecoveryServicesBackupContainer -ContainerType AzureStorage -Status Registered -FriendlyName "afsaccount" -VaultId $vault.ID
+$BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureFiles -VaultId $vault.ID -FriendlyName "azurefiles"
 $startDate = (Get-Date).AddDays(-7)
 $endDate = Get-Date
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $afsBkpItem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
-
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -VaultId $vault.ID -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
 $rp[0] | fl
 ```
 

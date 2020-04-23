@@ -1,25 +1,20 @@
 ---
 title: Crie uma imagem de um disco rígido virtual em Azure
 description: Aprenda a criar uma cópia de um VM Azure para usar como back up ou para problemas de resolução de problemas.
-documentationcenter: ''
 author: roygara
 manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: bc74a3eea1f99de6080788d6f3fddcac823092dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92957bd078c04a9bb7ac35f9d30f042a44e10764
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75370906"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100639"
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo
 

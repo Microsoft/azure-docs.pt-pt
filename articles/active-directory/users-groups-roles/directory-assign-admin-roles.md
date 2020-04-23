@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ac49209fb1debca604a6aeb8ad3993ff898c331
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 401a39d4a65c7aee67d62ed0a6ba77893a11c2d1
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82083007"
+ms.locfileid: "82101149"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -1898,8 +1898,6 @@ Utilizador Convidado | Não mostrado porque não pode ser usado  | ND
 Administrador de Serviço Lync | Administrador do Skype para Empresas | [Reflete a marca atual do produto](directory-assign-admin-roles.md#role-template-ids)
 Suporte de nível 1 do parceiro | Não mostrado porque não deve ser usado | [Documentação de suporte de nível 1 do parceiro](directory-assign-admin-roles.md#partner-tier1-support)
 Suporte de nível parceiro 2 | Não mostrado porque não deve ser usado | [Documentação de suporte de nível parceiro2](directory-assign-admin-roles.md#partner-tier2-support)
-Administrador de impressora | Trabalho em curso | Trabalho em curso
-Técnico de impressora | Trabalho em curso | Trabalho em curso
 Utilizador de hóspedes restrito | Não mostrado porque não pode ser usado | ND
 Utilizador | Não mostrado porque não pode ser usado | ND
 Dispositivo de local de trabalho Aderir | Preterido | [Documentação de papéis depreciados](directory-assign-admin-roles.md#deprecated-roles)

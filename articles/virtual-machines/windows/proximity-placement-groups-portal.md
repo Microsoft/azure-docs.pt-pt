@@ -1,21 +1,18 @@
 ---
 title: Criar um grupo de colocação de proximidade usando o portal
 description: Aprenda a criar um grupo de colocação de proximidade utilizando o portal Azure.
-services: virtual-machines
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 8512d9b701242dc686d49bbe56e8a2059f14ee3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aaecfbd14289840e795c6323737877e267586e16
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73180254"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098650"
 ---
 # <a name="create-a-proximity-placement-group-using-the-portal"></a>Criar um grupo de colocação de proximidade usando o portal
 

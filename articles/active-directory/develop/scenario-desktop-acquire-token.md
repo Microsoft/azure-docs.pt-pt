@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a5942a9d614bbb06fadb1d4b16d4c68c007434c7
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 24567461ee8a87fc9dbd1c5fb4eba5e34d458f7b
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885323"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097766"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicação de desktop que chama APIs web: Adquira um símbolo
 
@@ -91,7 +91,7 @@ return result;
 
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 ```Python
 result = None
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Parâmetros obrigatórios
 
-`AcquireTokenInteractive`tem apenas um parâmetro ``scopes``obrigatório, que contém uma enumeração de cordas que definem os âmbitos para os quais é necessário um símbolo. Se o símbolo for para o Microsoft Graph, os âmbitos necessários podem ser encontrados na referência API de cada API do Microsoft Graph na secção denominada "Permissões". Por exemplo, para [listar os contactos do utilizador,](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts)deve ser utilizado o âmbito "User.Read", "Contactos.Read". Para mais informações, consulte a referência de [permissões do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive`tem apenas um parâmetro ``scopes``obrigatório, que contém uma enumeração de cordas que definem os âmbitos para os quais é necessário um símbolo. Se o símbolo for para o Microsoft Graph, os âmbitos necessários podem ser encontrados na referência API de cada API do Microsoft Graph na secção denominada "Permissões". Por exemplo, para [listar os contactos do utilizador,](https://docs.microsoft.com/graph/api/user-list-contacts)deve ser utilizado o âmbito "User.Read", "Contactos.Read". Para mais informações, consulte a referência de [permissões do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 No Android, também é necessário especificar `.WithParentActivityOrWindow`a atividade dos pais utilizando , como mostra, para que o símbolo volte à atividade dos pais após a interação. Se não especificar, é aberta uma exceção `.ExecuteAsync()`ao ligar.
 
@@ -355,7 +355,7 @@ private static IAuthenticationResult acquireTokenInteractive() throws Exception 
 }
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 A MSAL Python não fornece diretamente um método de aquisição interativo. Em vez disso, requer que o pedido envie um pedido de autorização na sua implementação do fluxo de interação do utilizador para obter um código de autorização. Este código pode então `acquire_token_by_authorization_code` ser passado ao método para obter o símbolo.
 
@@ -586,7 +586,7 @@ private static IAuthenticationResult acquireTokenIwa() throws Exception {
 }
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Este fluxo ainda não é suportado na MSAL Python.
 
@@ -883,7 +883,7 @@ private static IAuthenticationResult acquireTokenUsernamePassword() throws Excep
 }
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Este extrato provém das amostras de v da [MSAL Python.](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/)
 
@@ -1093,7 +1093,7 @@ private static IAuthenticationResult acquireTokenDeviceCode() throws Exception {
 }
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Este extrato provém das amostras de v da [MSAL Python.](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/)
 

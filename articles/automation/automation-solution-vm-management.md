@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 369e3bcf4e5913f4a3ff82206d1e24a206db3f34
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 0331678b50d2448013556ab0694d0ca87045c3a3
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81681300"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096921"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VMs de arranque/paragem durante solução off-hours na Automação Azure
 
-Os **VMs de arranque/paragem durante a solução off-hours** iniciam ou param as suas máquinas virtuais Azure. Inicia ou para máquinas em horários definidos pelo utilizador, fornece insights através de registos do Monitor Do Azure e envia e-mails opcionais utilizando [grupos](../azure-monitor/platform/action-groups.md)de ação . A solução suporta tanto o Gestor de Recursos Azure como os VMs clássicos para a maioria dos cenários. 
+Os **VMs de arranque/paragem durante a** solução off-hours iniciam ou param as suas máquinas virtuais Azure. Inicia ou para máquinas em horários definidos pelo utilizador, fornece insights através de registos do Monitor Do Azure e envia e-mails opcionais utilizando [grupos](../azure-monitor/platform/action-groups.md)de ação . A solução suporta tanto o Gestor de Recursos Azure como os VMs clássicos para a maioria dos cenários. 
 
 Esta solução fornece uma opção de automação descentralizada de baixo custo para os utilizadores que pretendam otimizar os seus custos vm. Com esta solução, pode:
 

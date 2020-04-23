@@ -1,17 +1,17 @@
 ---
 title: Níveis de preços - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo descreve as opções de cálculo e armazenamento na Base de Dados Azure para PostgreSQL - Servidor Único.
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 1e4e69b63e51bafe8ca0b032c22ca509f5a7e6a2
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 95795f287a369edec84b68ac920874808966ff1e
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770572"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097086"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Escalões de preço na Base de Dados do Azure para PostgreSQL – Servidor Único
 

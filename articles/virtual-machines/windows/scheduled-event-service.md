@@ -1,21 +1,18 @@
 ---
 title: Monitorize eventos agendados para os seus VMs Windows em Azure
 description: Saiba como monitorizar as suas máquinas virtuais Azure para eventos agendados.
-services: virtual-machines-windows
-documentationcenter: ''
 author: mysarn
-manager: gwallace
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: vm-windows
+ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
-ms.topic: conceptual
-ms.openlocfilehash: 1cda07c18e4f5ef2a8c00b6a275f22ecc0935751
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.openlocfilehash: 3f3bf83d8155383757cc87749281c688bd281a4a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073321"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099602"
 ---
 # <a name="monitoring-scheduled-events"></a>Monitorização de Eventos Agendados
 

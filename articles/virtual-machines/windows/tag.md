@@ -1,24 +1,18 @@
 ---
 title: Como marcar um recurso VM do Windows em Azure
 description: Saiba como marcar uma máquina virtual do Windows criada em Azure utilizando o modelo de implementação do Gestor de Recursos
-services: virtual-machines-windows
-documentationcenter: ''
 author: mmccrory
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 8f95c11f93ca2075eb2472ad5bb7360df7d69234
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6ecf0f047fe353d94ca901118d1f434e33e9c8d2
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456452"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100571"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Como marcar uma máquina virtual do Windows em Azure
 Este artigo descreve diferentes formas de marcar uma máquina virtual do Windows em Azure através do modelo de implementação do Gestor de Recursos. As etiquetas são pares de chaves/valor definidos pelo utilizador que podem ser colocados diretamente num recurso ou num grupo de recursos. O Azure suporta atualmente até 50 tags por grupo de recursos e recursos. As etiquetas podem ser colocadas num recurso no momento da criação ou adicionadas a um recurso existente. Por favor, note que as tags são suportadas apenas para recursos criados apenas através do modelo de implementação do Gestor de Recursos. Se quiser marcar uma máquina virtual Linux, veja [como marcar uma máquina virtual Linux em Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
