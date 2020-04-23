@@ -22,7 +22,7 @@ O tempo de execução padrão do Azure Data Lake Analytics está a atualizar de 
 
 Esta atualização do .NET Framework 4.5.2 para a versão 4.7.2 significa que o Quadro .NET implantado num tempo de funcionação U-SQL (o tempo de execução padrão) será agora sempre de 4.7.2. Não existe uma opção lado a lado para as versões .NET Framework.
 
-Após esta atualização para .NET Framework 4.7.2 estiver concluída, o código gerido do sistema será executado como versão 4.7.2, o utilizador forneceu bibliotecas como os conjuntos personalizados U-SQL funcionarão no modo compatível para trás adequado para a versão que o conjunto tem sido gerado para.
+Após esta atualização para .NET Framework 4.7.2 estar concluída, o código gerido do sistema será executado como versão 4.7.2, o utilizador fornecido bibliotecas como os conjuntos personalizados U-SQL funcionará no modo compatível para trás adequado para a versão para a qual o conjunto foi gerado.
 
 - Se os DLLs de montagem forem gerados para a versão 4.5.2, o quadro implantado irá tratá-los como 4.5.2 bibliotecas, proporcionando (com algumas exceções) 4.5.2 semântica.
 - Agora pode utilizar conjuntos personalizados U-SQL que utilizam as funcionalidades da versão 4.7.2, se tiver como alvo o .NET Framework 4.7.2.

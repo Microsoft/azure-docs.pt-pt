@@ -109,7 +109,7 @@ Também pode utilizar o cmdlet [Set-OBMachineSetting](https://technet.microsoft.
 
 ## <a name="set-up-the-site-recovery-infrastructure-to-protect-more-than-500-vms"></a>Criar a infraestrutura de recuperação do site para proteger mais de 500 VMs
 
-Antes de configurar a infraestrutura de recuperação do site, aceda ao ambiente para medir os seguintes fatores: máquinas virtuais compatíveis, a taxa diária de alteração de dados, a largura de banda de rede necessária para o RPO que pretende alcançar, o número de Recuperação do Site componentes que são necessários, e o tempo que leva para completar a replicação inicial. Complete os seguintes passos para recolher as informações necessárias:
+Antes de configurar a infraestrutura de recuperação do site, aceda ao ambiente para medir os seguintes fatores: máquinas virtuais compatíveis, a taxa diária de alteração de dados, a largura de banda de rede necessária para o RPO que pretende alcançar, o número de componentes de Recuperação do Site que são necessários e o tempo necessário para completar a replicação inicial. Complete os seguintes passos para recolher as informações necessárias:
 
 1. Para medir estes parâmetros, execute o Planejador de Implantação de Recuperação do Local no seu ambiente. Para obter diretrizes úteis, consulte sobre o Planejador de Implementação de Recuperação do [Site para VMware para O Azure](site-recovery-deployment-planner.md).
 2. Implemente um servidor de configuração que satisfaça as recomendações de [tamanho para o servidor de configuração](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Se a sua carga de trabalho de produção exceder 650 máquinas virtuais, implante outro servidor de configuração.

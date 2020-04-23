@@ -166,7 +166,7 @@ Abra a lâmina Azure AD B2C no portal e faça os seguintes passos.
    > Agora a sua API função é implementada e deve lançar 401 respostas se a chave correta não for fornecida, e deve devolver os dados quando um pedido válido for apresentado.
    > Adicionou segurança adicional em profundidade na EasyAuth, configurando a opção 'Login With Azure AD' para lidar com pedidos não autenticados. Esteja ciente de que isso irá alterar o comportamento de pedido não autorizado entre a App de Funções Backend e o Frontend SPA, uma vez que a EasyAuth emitirá um redirecionamento 302 para a AAD em vez de uma resposta não autorizada 401, corrigiremos isso usando a API Management mais tarde.
    > Ainda não temos nenhuma segurança IP aplicada, se você tem uma chave válida e token OAuth2, qualquer um pode chamá-lo de qualquer lugar - idealmente queremos forçar todos os pedidos a vir através da API Management.
-   > Se estiver a utilizar o nível de consumo de Gestão API, não poderá efetuar este bloqueio por VIP, uma vez que não existe um IP estático dedicado para esse nível, terá de confiar no método de bloquear as suas chamadas API através da chave de função secreta partilhada , por isso os passos 11-13 não serão possíveis.
+   > Se estiver a utilizar o nível de consumo de Gestão API, não poderá efetuar este bloqueio por VIP, uma vez que não existe um IP estático dedicado para esse nível, terá de confiar no método de bloquear as suas chamadas API através da chave de função secreta partilhada, para que os passos 11-13 não sejam possíveis.
 
 1. Feche a lâmina 'Autenticação / Autorização' 
 1. Selecione 'Networking' e, em seguida, selecione 'Restrições de acesso'
@@ -174,7 +174,7 @@ Abra a lâmina Azure AD B2C no portal e faça os seguintes passos.
 1. Se quiser continuar a interagir com o portal de funções e a realizar os passos opcionais abaixo, deve adicionar o seu próprio endereço IP público ou gama CIDR também aqui.
 1. Uma vez que há uma entrada permitida na lista, Azure adiciona uma regra implícita de negação para bloquear todos os outros endereços. 
 
-Você precisará adicionar blocos de endereços formatados CIDR ao painel de restrições IP. When you need to add a single address such as the API Management VIP, you need to add it in the format xx.xx.xx.xx.
+Você precisará adicionar blocos de endereços formatados CIDR ao painel de restrições IP. Quando precisa adicionar um único endereço como o API Management VIP, precisa adicioná-lo no formato xx.xx.xx.xx.xx.
 
    > [!NOTE]
    > Agora a sua API função não deve ser chamada de outro lugar que não seja através da gestão da API, ou do seu endereço.

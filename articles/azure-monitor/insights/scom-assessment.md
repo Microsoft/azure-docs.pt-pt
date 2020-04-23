@@ -33,7 +33,7 @@ Depois de ter adicionado a solução e de ser feita uma avaliação, são mostra
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalar e configurar a solução
 
-A solução funciona com o Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager e Microsoft System System Gerente de Operações do Centro 1807. Uma versão suportada do .NET Framework 4.6.2 deve ser instalada em cada servidor de gestão.
+A solução funciona com o Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager 2016 e Microsoft System Center Operations Manager 1807. Uma versão suportada do .NET Framework 4.6.2 deve ser instalada em cada servidor de gestão.
 
 Utilize as seguintes informações para instalar e configurar a solução.
 

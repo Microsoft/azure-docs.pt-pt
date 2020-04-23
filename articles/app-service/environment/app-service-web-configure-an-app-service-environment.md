@@ -24,7 +24,7 @@ ms.locfileid: "74687265"
 A um nível elevado, um Ambiente de Serviço de Aplicações Azure é composto por vários componentes principais:
 
 * Compute recursos que estão em execução no serviço app service Ambiente hospedado
-* Storage
+* Armazenamento
 * Uma base de dados
 * Uma Rede Virtual Azure (VNet) clássica (V1) ou Gestor de Recursos (V2) 
 * Uma subnet com o app service environment hospedado serviço funcionando nele
@@ -65,7 +65,7 @@ Se as suas aplicações requerem um tamanho maior de recursos computacionais, n�
 
 Se quiser definir regras de escala automática em torno das métricas do conjunto de recursos computacionais, tenha em mente o tempo que o provisionamento requer. Para mais detalhes sobre ambientes de serviço de aplicações autodimensionadas, consulte [como configurar automaticamente em um Ambiente][ASEAutoscale]de Serviço de Aplicações .
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Cada ASE está configurada com 500 GB de armazenamento. Este espaço é utilizado em todas as aplicações da ASE. Este espaço de armazenamento é uma parte da ASE e atualmente não pode ser trocado para usar o seu espaço de armazenamento. Se estiver a fazer ajustes no seu encaminhamento ou segurança de rede virtual, precisa de permitir o acesso ao Armazenamento Azure - ou a ASE não pode funcionar.
 
 ### <a name="database"></a>Base de Dados

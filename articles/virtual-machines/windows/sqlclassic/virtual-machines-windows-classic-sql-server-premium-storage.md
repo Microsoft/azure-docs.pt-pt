@@ -730,7 +730,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  
 
 Num passo posterior de migração, é necessário atualizar o ouvinte Always On com um endereço IP atualizado que faz referência a um equilibrador de carga, isto envolve uma remoção e adição de recursos ip Address. Após a atualização IP, você precisa garantir que o novo endereço IP foi atualizado na Zona DNS e que os clientes estão atualizando o seu cache DNS local.
 
-Se os seus clientes residem num segmento de rede diferente e referenciarem um servidor DNS diferente, você precisa considerar o que acontece sobre a Transferência de Zona DNS durante a migração, uma vez que o tempo de religação da aplicação é limitado pelo menos pelo tempo de transferência de zona de qualquer novo IP endereços para o ouvinte. Se estiver sob restrição de tempo aqui, deve discutir e testar forçando uma transferência de zona incremental com as suas equipas Windows, e também colocar o registo de anfitriões dNS para um tempo mais baixo para viver (TTL), para que os clientes atualizem. Para mais informações, consulte [Transferências incrementais](https://technet.microsoft.com/library/cc958973.aspx) de zonas e [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer).
+Se os seus clientes residem num segmento de rede diferente e referenciarem um servidor DNS diferente, é necessário considerar o que acontece sobre a Transferência de Zona DNS durante a migração, uma vez que o tempo de religação da aplicação é limitado pelo menos pelo tempo de transferência de zona de quaisquer novos endereços IP para o ouvinte. Se estiver sob restrição de tempo aqui, deve discutir e testar forçando uma transferência de zona incremental com as suas equipas Windows, e também colocar o registo de anfitriões dNS para um tempo mais baixo para viver (TTL), para que os clientes atualizem. Para mais informações, consulte [Transferências incrementais](https://technet.microsoft.com/library/cc958973.aspx) de zonas e [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer).
 
 Por defeito, o TTL para DNS Record que está associado ao Ouvinte em Always On in Azure é de 1200 segundos. Poderá pretender reduzi-lo se estiver sob restrição de tempo durante a sua migração para garantir que os clientes atualizem os seus DNS com o endereço IP atualizado para o ouvinte. Pode ver e modificar a configuração despejando a configuração do VNN:
 
@@ -755,7 +755,7 @@ Para obter mais informações sobre as definições anteriores, consulte a [pala
 
 #### <a name="step-5-cluster-quorum-settings"></a>Passo 5: Definições de quórum do cluster
 
-Como vai retirar pelo menos um Servidor SQL de cada vez, deve modificar a definição de quórum do cluster, se utilizar file Share Witness (FSW) com dois nós, deve definir o quórum para permitir a maioria do nó e utilizar o voto dinâmico , permitindo que um único nó permaneça de pé.
+Como vai retirar pelo menos um Servidor SQL de cada vez, deve modificar a definição de quórum do cluster, se utilizar file Share Witness (FSW) com dois nós, deve definir o quórum para permitir a maioria do nó e utilizar o voto dinâmico, permitindo que um único nó permaneça de pé.
 
 ```powershell
 Set-ClusterQuorum -NodeMajority  
@@ -1249,7 +1249,7 @@ Para adicionar o endereço IP, consulte o Apêndice, passo 14.
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Armazenamento Azure Premium](../disks-types.md)
-* [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/)
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
 * [Servidor SQL em Máquinas Virtuais Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->

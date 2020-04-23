@@ -197,7 +197,7 @@ O relatório De 404 Erros permite identificar o tipo de conteúdo que gera o mai
 
 O lado esquerdo do gráfico (y-eixo) indica o nome de ficheiro de cada um dos 10 principais ativos solicitados que resultaram num código de estado 404 não encontrado. Diretamente abaixo do gráfico (eixo x), encontrará etiquetas que indicam o número total de pedidos e o número de pedidos que resultaram num código de estado 404 não encontrado.
 
-Imediatamente abaixo do gráfico de barras, as seguintes informações serão listadas para os 250 principais ativos solicitados: caminho relativo (incluindo nome de ficheiro), número de pedidos que resultaram num código de estado 404 Não Encontrado, o número total de vezes que o ativo foi solicitado, e a percentagem de pedidos que resultaram num código de estado 404 não encontrado.
+Imediatamente abaixo do gráfico de barras, as seguintes informações serão listadas para os 250 principais ativos solicitados: trajetória relativa (incluindo nome de ficheiro), número de pedidos que resultaram num código de estado 404 não encontrado, o número total de vezes que o ativo foi solicitado, e a percentagem de pedidos que resultaram num código de estado 404 não encontrado.
 
 ## <a name="see-also"></a>Consulte também
 * [Descrição geral da CDN do Azure](cdn-overview.md)

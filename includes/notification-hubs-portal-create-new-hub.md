@@ -15,7 +15,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "67509149"
 ---
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. **Selecione todos os serviços** no menu esquerdo e, em seguida, selecione Centros de **Notificação** na secção **Mobile.** Selecione o ícone da estrela ao lado do nome de serviço para adicionar o serviço à secção **FAVORITES** no menu esquerdo. Depois de adicionar Centros de **Notificação** aos **FAVORITOS,** selecione-o no menu esquerdo.
 

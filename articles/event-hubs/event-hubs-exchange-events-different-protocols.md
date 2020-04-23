@@ -21,7 +21,7 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "80372205"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Troca de eventos entre consumidores e produtores que utilizam diferentes protocolos: AMQP, Kafka e HTTPS
-O Azure Event Hubs apoia três protocolos para consumidores e produtores: AMQP, Kafka e HTTPS. Cada um destes protocolos tem a sua própria forma de representar uma mensagem, por isso, naturalmente, surge a seguinte questão: se uma aplicação envia eventos para um Hub de Eventos com um protocolo e os consome com um protocolo diferente, o que fazem as várias partes e valores do evento parece quando chegam ao consumidor? Este artigo discute as melhores práticas tanto para o produtor como para o consumidor, a fim de garantir que os valores dentro de um evento sejam corretamente interpretados pela aplicação consumista.
+O Azure Event Hubs apoia três protocolos para consumidores e produtores: AMQP, Kafka e HTTPS. Cada um destes protocolos tem a sua própria forma de representar uma mensagem, pelo que, naturalmente, surge a seguinte questão: se uma aplicação envia eventos para um Hub de Eventos com um protocolo e os consome com um protocolo diferente, como são as várias partes e valores do evento quando chegam ao consumidor? Este artigo discute as melhores práticas tanto para o produtor como para o consumidor, a fim de garantir que os valores dentro de um evento sejam corretamente interpretados pela aplicação consumista.
 
 Os conselhos deste artigo abrangem especificamente estes clientes, com as versões listadas utilizadas no desenvolvimento dos códigos:
 
@@ -64,7 +64,7 @@ ConsumerRecord<Long, byte[]> cr = /* receive event */
 // cr.value() is a byte[] with values { 0x01, 0x02, 0x03, 0x04 }
 ```
 
-Este código cria um pipeline de byte transparente entre as duas metades da aplicação e permite ao desenvolvedor de aplicações serializar e desserializar manualmente de qualquer forma desejada, incluindo tomar decisões de desserialização no prazo de funcionamento, por exemplo com base no tipo ou informações de remetente em propriedades definidas pelo utilizador no evento.
+Este código cria um pipeline de byte transparente entre as duas metades da aplicação e permite ao desenvolvedor de aplicações serializar e desserializar manualmente de qualquer forma desejada, incluindo tomar decisões de desserialização no prazo de funcionamento, por exemplo com base em informações de tipo ou remetente em propriedades definidas pelo utilizador no evento.
 
 Aplicações que tenham um único tipo de corpo de evento fixo podem ser capazes de usar outros serializadores kafka, e desserializers para converter dados transparentemente. Por exemplo, considere uma aplicação, que utiliza a JSON. A construção e interpretação da cadeia JSON acontece ao nível da aplicação. Ao nível dos Centros de Eventos, o corpo do evento é sempre uma sequência de bytes que representam personagens na codificação UTF-8. Neste caso, o produtor ou consumidor kafka pode tirar partido do StringSerializer ou StringDeserializer fornecidos, como mostrado no seguinte código:
 

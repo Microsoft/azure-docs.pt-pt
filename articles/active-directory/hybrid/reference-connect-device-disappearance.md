@@ -41,7 +41,7 @@ Para verificar quais os dispositivos eliminados, pode utilizar este script Power
 
 Este script gera um relatório sobre certificados armazenados em objetos de Computador de Diretório Ativo, especificamente, certificados emitidos pela funcionalidade de adesão do Hybrid Azure AD.
 Verifica os certificados presentes na propriedade userCertificate de um objeto de computador em AD e, para cada certificado não expirado presente, valida se o certificado foi emitido para a função de adesão do Hybrid Azure AD (ou seja, nome do assunto corresponde ao CN={ObjectGUID}).
-Antes, o Azure AD Connect sincronizaria com o Azure AD qualquer computador que contivesse pelo menos um certificado válido mas a partir da versão 1.4 do Azure AD Connect, o motor de sincronização pode identificar certificados de adesão híbridos Azure e irá 'cloudfilter' o objeto de computador de sincronização para Azure AD a menos que haja um certificado de adesão híbrido Azure válido.
+Antes, o Azure AD Connect sincronizaria com o Azure AD qualquer computador que contivesse pelo menos um certificado válido mas a partir da versão 1.4 do Azure AD Connect, o motor de sincronização pode identificar certificados de adesão híbrido sinuoso e irá 'filtrar' o objeto do computador desde a sincronização para a AD Azure, a menos que haja um certificado de adesma Híbrido Azure AD.
 Os Dispositivos Azure AD que já estavam sincronizados com a AD mas que não possuam um certificado de adesão híbrido Azure AD válido serão eliminados (CloudFiltered=TRUE) pelo motor de sincronização.
 
 ## <a name="next-steps"></a>Passos Seguintes

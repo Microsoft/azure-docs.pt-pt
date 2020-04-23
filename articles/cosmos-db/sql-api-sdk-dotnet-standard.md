@@ -21,7 +21,7 @@ ms.locfileid: "74707294"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Nó.js](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [Java assíncrono](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Pitão](sql-api-sdk-python.md)
@@ -36,7 +36,7 @@ ms.locfileid: "74707294"
 |**Download sDK**|[Nuget](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
 |**Documentação da API**|[.NET Documentação de referência da API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
 |**Amostras**|[.NET amostras de código](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage)|
-|**Começar**|[Começar com o Azure Cosmos DB .NET SDK](sql-api-get-started.md)|
+|**Introdução**|[Começar com o Azure Cosmos DB .NET SDK](sql-api-get-started.md)|
 |**Tutorial de aplicativo web**|[Desenvolvimento de aplicações web com Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Quadro apoiado atual**|[Microsoft .NET Standard 2.0](/dotnet/standard/net-standard)|
 

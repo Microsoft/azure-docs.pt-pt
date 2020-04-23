@@ -91,7 +91,7 @@ CDN|Azure CDN, CDN de terceiros, ou sem CDN.|Azure CDN, CDN de terceiros, ou sem
 A faturação é proclamada| Diárias|Diárias
 Encriptação dinâmica|Sim|Sim
 Empacotamento dinâmico|Sim|Sim
-Dimensionamento|Automaticamente escala até a entrada direcionada.|Unidades de streaming adicionais.
+Escala|Automaticamente escala até a entrada direcionada.|Unidades de streaming adicionais.
 Filtragem IP/G20/Hospedeiro personalizado <sup>1</sup>|Sim|Sim
 Download progressivo|Sim|Sim
 Utilização recomendada |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional. 

@@ -20,9 +20,9 @@ ms.locfileid: "79476156"
 Este artigo descreve como criar um circuito Azure ExpressRoute utilizando a Interface da Linha de Comando (CLI). Este artigo também mostra como verificar o estado, atualizar ou excluir e desprovisionar um circuito. Se pretender utilizar um método diferente para trabalhar com circuitos ExpressRoute, pode selecionar o artigo a partir da seguinte lista:
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [Azure CLI](howto-circuit-cli.md)
+> * [CLI do Azure](howto-circuit-cli.md)
 > * [Modelo Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo - Portal Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
