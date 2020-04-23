@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 7c26487018b9632b5780dcd7c56ab36f286f8cac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ceadbb4297ad0c5ce28470dd75b3f3496c9c5152
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80060005"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084748"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Tutorial: Criar um Portal NAT utilizando o portal Azure e testar o serviço NAT
 
@@ -29,7 +29,7 @@ Se preferir, pode fazer estes passos utilizando o [Azure CLI](tutorial-create-va
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="prepare-the-source-for-outbound-traffic"></a>Prepare a fonte para o tráfego de saída
 
@@ -46,9 +46,9 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 | **\<>de nome de grupo de recursos**  | myResourceGroupNAT |
 | **\<>de nome de rede virtual** | myVNetsource          |
 | **\<>de nome da região**          | E.U.A. Leste 2      |
-| **\<>espaço de endereçoI4**   | 192.168.0.0\16          |
+| **\<>espaço de endereçoI4**   | 192.168.0.0/16          |
 | **\<>de nome de subnet**          | mySubnetsource        |
-| **\<>de endereços-endereço de subnet** | 192.168.0.0\24          |
+| **\<>de endereços-endereço de subnet** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -169,9 +169,9 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 | **\<>de nome de grupo de recursos**  | myResourceGroupNAT |
 | **\<>de nome de rede virtual** | myVNetdestination          |
 | **\<>de nome da região**          | E.U.A. Leste 2      |
-| **\<>espaço de endereçoI4**   | 192.168.0.0\16          |
+| **\<>espaço de endereçoI4**   | 192.168.0.0/16          |
 | **\<>de nome de subnet**          | mySubnetdestination        |
-| **\<>de endereços-endereço de subnet** | 192.168.0.0\24          |
+| **\<>de endereços-endereço de subnet** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

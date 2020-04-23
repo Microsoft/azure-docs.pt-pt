@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 9a3247298ed69cdefb3ce5021f0c4051052105f7
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: c4dacd06cd53ebb71ca9db2722fdf46aade841bc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80297790"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085450"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Construa uma app de base de dados core e SQL ASP.NET no Serviço de Aplicações Azure
 
@@ -99,23 +99,23 @@ az sql server create --name <server_name> --resource-group myResourceGroup --loc
 
 Após criar o servidor lógico da Base de Dados SQL, a CLI do Azure mostra informações semelhantes ao exemplo seguinte:
 
-```json
+<pre>
 {
-  "administratorLogin": "sqladmin",
+  "administratorLogin": "&lt;db_username&gt;",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<server_name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/<server_name>",
+  "fullyQualifiedDomainName": "&lt;server_name&gt;.database.windows.net",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/&lt;server_name&gt;",
   "identity": null,
   "kind": "v12.0",
   "location": "westeurope",
-  "name": "<server_name>",
+  "name": "&lt;server_name&gt;",
   "resourceGroup": "myResourceGroup",
   "state": "Ready",
   "tags": null,
   "type": "Microsoft.Sql/servers",
   "version": "12.0"
 }
-```
+</pre>
 
 ### <a name="configure-a-server-firewall-rule"></a>Configurar uma regra de firewall do servidor
 
@@ -230,7 +230,7 @@ git commit -m "connect to SQLDB in Azure"
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-```bash
+<pre>
 Counting objects: 98, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (92/92), done.
@@ -252,9 +252,9 @@ remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
  * [new branch]      master -> master
-```
+</pre>
 
 ### <a name="browse-to-the-azure-app"></a>Navegue na app Azure
 

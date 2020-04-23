@@ -134,7 +134,7 @@
           href: source-control-integration.md
     - name: Gestão da Configuração
       items:
-        - name: Gerir o State Configuration (DSC)
+        - name: Configuração de Estado (DSC)
           items:
             - name: Descrição geral
               href: automation-dsc-overview.md
@@ -156,7 +156,7 @@
               href: automation-dsc-diagnostics.md
             - name: Resolver problemas do DSC
               href: troubleshoot/desired-state-configuration.md
-        - name: Gerir o Controlo de Alterações e o Inventário
+        - name: Controlo de Alterações e Inventário
           items:
             - name: Descrição geral
               href: change-tracking.md

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/03/2020
+ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a4c2cddbc9086c80922fcf9c5d96cd197ab4778
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5f4dc7223d64fd299da70375329260f7b4f8b322
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81422530"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083432"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-securitytmws"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com trend micro web security (TMWS)
 
@@ -87,7 +87,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
     b. Na caixa de texto **URL resposta,** escreva um URL:`https://auth.iws-hybrid.trendmicro.com/simplesaml/module.php/saml/sp/saml2-acs.php/ics-sp`
 
     > [!NOTE]
-    > O valor do identificador não é real. Atualize este valor com o identificador real. Contacte a equipa de suporte ao cliente da [Trend Micro Web Security (TMWS)](https://success.trendmicro.com/contact-support-north-america) para obter o valor do Identificador. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > O valor do identificador não é real. Atualize este valor com o identificador real. Pode obter estes valores ao abrigo das Definições do Fornecedor de Serviços para a área do **Portal do Administrador Azure** no ecrã do método de **autenticação** para o Azure AD da **Administração > Serviços de Diretórios.**
 
 1. A aplicação Trend Micro Web Security (TMWS) espera que as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -173,7 +173,41 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, conced
 
 ## <a name="configure-trend-micro-web-security-sso"></a>Configurar tendência Micro Web Security SSO
 
-Para configurar um único sinal no lado da **Trend Micro Web Security (TMWS),** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de suporte trend [Micro Web Security (TMWS).](https://success.trendmicro.com/contact-support-north-america) Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+1. Assine na consola de gestão TMWS e vá aos utilizadores **da Administração** > & Serviços de**Diretório****de AUTENTICAÇÃO.** > 
+
+1. Clique aqui na área superior do ecrã.
+
+1. No ecrã método de autenticação que aparece, clique em **Azure AD**.
+
+1. Clique **em On** ou **Off** para decidir se permite que os utilizadores de AD da sua organização visitem websites através da TMWS se os seus dados não estiverem sincronizados com tMWS.
+
+    > [!NOTE]
+    > Os utilizadores não sincronizados a partir do Azure AD só podem ser autenticados através de gateways TMWS conhecidos ou da porta dedicada para a sua organização.
+
+1. Na secção Definições do Fornecedor de **Identidade,** execute os seguintes passos:
+
+    a. No campo URL de **serviço,** colhe o valor **URL login,** que copiou do portal Azure
+
+    b. No campo de atribuição de **nome Logon,** colhe o nome de reclamação do Utilizador com o **atributo** fonte de origem de conta do utilizador do portal Azure.
+
+    c. No campo de **certificados SSL Público,** utilize o Certificado descarregado **(Base64)** do portal Azure.
+
+1. Na secção Definições de **Sincronização,** execute os seguintes passos:
+
+    a. No campo **do Arrendatário,** utilize o Id de **Diretório (inquilino)** ou o valor de nome de **domínio personalizado** do portal Azure.
+
+    b. No campo de ID de **aplicação,** o valor de ID de **aplicação (cliente)** do portal Azure.
+
+    c. No campo **secreto cliente,** use o segredo do **Cliente** do portal Azure.
+
+    d. No campo de **sincronização,** selecione sincronizar manualmente com a AD Azure ou de acordo com um horário. Se escolher Manualmente, sempre que existam alterações nas informações do utilizador do Diretório Ativo, lembre-se de voltar ao ecrã dos Serviços de Diretório e efetuar sincronização manual para que a informação no TMWS permaneça atual.
+
+    e. Clique em **Ligação** de Teste para verificar se o serviço Azure AD pode ser ligado com sucesso. 
+    
+    f. Clique em **Guardar**.
+ 
+ > [!NOTE]
+ > Para mais informações sobre como configurar a Trend Micro Web Security com o Azure AD, consulte [este](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration_001/directory-services/azure-active-directo/configuring-azure-ad.aspx) documento.
 
 ## <a name="test-sso"></a>Teste SSO 
 

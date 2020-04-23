@@ -1,46 +1,41 @@
 ---
 title: Modelo de solução de aplicações Azure oferece guia de publicação / Mercado Azure
 description: Este artigo descreve os requisitos para publicar um modelo de solução no Mercado Azure.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/22/2020
 ms.author: dsindona
-ms.openlocfilehash: faff12adbf6c0f88f3161e1e4f2760da3b7966ca
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 6533fa930716552c91fffd13b196bdbf78158816
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687519"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084860"
 ---
-# <a name="azure-applications-solution-template-offer-publishing-guide"></a>Aplicações Azure: Guia de publicação de oferta de modelo de solução
+# <a name="azure-applications-solution-template-offer-publishing-requirements"></a>Aplicações Azure: Modelo de solução oferece requisitos de publicação
 
-Os modelos de solução são uma das principais formas de publicar uma solução no Mercado. Utilize este guia para compreender os requisitos desta oferta. 
+Este artigo explica os requisitos para o tipo de oferta de modelo de solução, que é uma forma de publicar uma oferta de aplicação Azure no Azure Marketplace. O modelo de oferta de modelo de solução requer um modelo de Gestor de [Recursos Azure (modelo ARM)](../azure-resource-manager/templates/overview.md) para implementar automaticamente a sua infraestrutura de solução.
 
-Utilize a aplicação Azure: modelo de oferta de solução quando a sua solução requer uma implementação adicional e automatização de configuração para além de um único VM. Pode automatizar o fornecimento de um ou mais VMs utilizando aplicações Azure: modelos de solução. Também pode fornecer recursos de networking e armazenamento. Aplicações Azure: modelos de solução oferecem tipo de oferta fornece benefícios de automação para VMs individuais e soluções inteiras baseadas em IaaS.
+Utilize o modelo de oferta de solução de aplicação Azure quando forem necessárias as seguintes condições:
 
-Estes modelos de solução não são ofertas de transações, mas podem ser usados para implementar ofertas vm pagas faturadas através do mercado comercial da Microsoft. A chamada à ação que um utilizador vê é "Get It Now".
+- A sua solução requer uma automatização adicional de implementação e configuração para além de um único VM, como uma combinação de VMs, networking e recursos de armazenamento.
+- O seu cliente vai gerir a solução por si mesmo.
 
+A chamada à ação que um utilizador vê para este tipo de oferta é "Get It Now".
 
-## <a name="requirements-for-solution-templates"></a>Requisitos para modelos de solução
+## <a name="requirements-for-solution-template-offers"></a>Requisitos para ofertas de modelo de solução
 
 | **Requisitos** | **Detalhes**  |
 | ---------------  | -----------  |
-|Faturação e medição    |  Os recursos serão aprovisionados na subscrição do Azure do cliente. As máquinas virtuais pay-as-you-go (PAYGO) serão transacionadas com o cliente através da Microsoft, faturadas através da subscrição azure do cliente (PAYGO).  <br/> No caso de trazer a sua própria licença (BYOL), enquanto a Microsoft irá cobrar os custos de infraestrutura incorridos na subscrição do cliente, irá transacionar as suas taxas de licenciamento de software diretamente para o cliente.   |
-|Disco rígido virtual compatível com azure (VHD)  |   Os VMs devem ser construídos em Windows ou Linux.  Para mais informações, consulte a criação de uma oferta de [aplicação Azure.](./partner-center-portal/create-new-azure-apps-offer.md) |
+|Faturação e medição    |  As ofertas de modelos de solução não são ofertas transatas, mas podem ser usadas para implementar ofertas vm pagas faturadas através do mercado comercial da Microsoft. Os recursos que o modelo ARM da solução implanta será aprovisionado na subscrição azure do cliente. As máquinas virtuais pay-as-you-go (PAYGO) serão transacionadas com o cliente através da Microsoft, faturadas através da subscrição do Cliente Azure.<br/> No caso de trazer a sua própria licença (BYOL), enquanto a Microsoft irá cobrar os custos de infraestrutura incorridos na subscrição do cliente, irá transacionar as suas taxas de licenciamento de software diretamente para o cliente.   |
+|Disco rígido virtual compatível com azure (VHD)  |   Os VMs devem ser construídos em Windows ou Linux. Para obter mais informações, consulte: <ul> <li>Criar uma oferta de [aplicação Azure](./partner-center-portal/create-new-azure-apps-offer.md)(para VHDs Windows)</li><li>[Distribuições linux endossadas em Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) (para VHDs Linux).</li></ul> |
 | Atribuição de utilização do cliente | Permitir a atribuição de utilização do cliente é necessária em todos os modelos de solução publicados no Mercado Azure. Para obter mais informações sobre a atribuição de utilização do cliente e como o permitir, consulte a atribuição de utilização do cliente parceiro [Azure](./azure-partner-customer-usage-attribution.md).  |
 | Utilizar o Managed Disks | [Os Discos Geridos](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) são a opção padrão para discos persificados de VMs IaaS em Azure. Deve utilizar discos geridos em modelos de solução. <br> <br> 1. Siga as [orientações](https://docs.microsoft.com/azure/virtual-machines/windows/using-managed-disks-template-deployments) e [amostras](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md) para a utilização de discos geridos nos modelos Azure ARM para atualizar os seus modelos de solução. <br> <br> 2. Siga as instruções abaixo para importar o VHD subjacente dos Discos Geridos para uma conta de armazenamento para publicar o VHD como imagem no Mercado: <br> <ul> <li> [PowerShell](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd?toc=%2fpowershell%2fmodule%2ftoc.json) </li> <li> [CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd?toc=%2fcli%2fmodule%2ftoc.json) </li> </ul> |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se ainda não o fez, 
-
-- [Saiba](https://azuremarketplace.microsoft.com/sell) mais sobre o mercado.
-
-Para se registar no Partner Center, comece a criar uma nova oferta ou a trabalhar numa existente:
-
+- Se ainda não o fez, [saiba](https://azuremarketplace.microsoft.com/sell) mais sobre o Mercado Azure.
 - [Inscreva-se no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou completar a sua oferta.
-- Consulte a criação de uma oferta de [aplicação Azure](./partner-center-portal/create-new-azure-apps-offer.md) para mais informações.
-
+- [Crie uma oferta de aplicação Azure](./partner-center-portal/create-new-azure-apps-offer.md) para mais informações.

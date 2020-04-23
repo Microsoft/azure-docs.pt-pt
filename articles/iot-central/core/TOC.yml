@@ -132,7 +132,7 @@
     - name: Modelos de aplicação do setor
       items:
         - name: Retalho
-          href: ../retail/overview-iot-central-retail-pnp.md
+          href: ../retail/overview-iot-central-retail.md
         - name: Energia
           href: ../energy/overview-iot-central-energy.md
         - name: Governo

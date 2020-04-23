@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 239e339d1870060d95d6c7e7b602be7d61af5f77
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: HT
+ms.openlocfilehash: 53806a1a627c7ae6bc3470aa387be0982df914fa
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869632"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082263"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Apoio à geração 2 VMs em Azure
 
@@ -28,7 +28,7 @@ Os VMs da geração 2 utilizam a nova arquitetura de botas baseada na UEFI em ve
 Os VMs da geração 1 são suportados por todos os tamanhos vm em Azure (exceto para VMs série Mv2). O Azure oferece agora suporte à geração 2 para as seguintes séries VM selecionadas:
 
 * [Série B](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
-* [Série DC](../dcv2-series.md)
+* [Série DCsv2](../dcv2-series.md)
 * [Série DSv2](../dv2-dsv2-series.md) e [série Dsv3](../dv3-dsv3-series.md)
 * [Série Dasv4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)
 * [Série Esv3](../ev3-esv3-series.md)

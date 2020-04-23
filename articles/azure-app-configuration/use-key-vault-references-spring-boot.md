@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b6b6d10165eed331c397e17a18e382b095e1f74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a5bc947c3ea414f197df9cfcdd5f233e4654cbc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79216748"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085030"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Use referências chave vault em uma aplicação Java Spring
 
@@ -82,7 +82,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Adicione uma referência chave vault à configuração da aplicação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). **Selecione Todos os recursos**e, em seguida, selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). **Selecione Todos os recursos**e, em seguida, selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
 1. Selecione Explorador de **Configuração**.
 
@@ -140,6 +140,14 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Atualize o seu código para utilizar uma referência do Cofre de Chaves
 
+1. Crie uma variável ambiental chamada **APP_CONFIGURATION_ENDPOINT.** Detete o seu valor para o ponto final da sua loja de configuração de aplicações. Pode encontrar o ponto final na lâmina de **Teclas** de Acesso no portal Azure.
+
+1. Open *bootstrap.properties* na pasta de *recursos.* Atualize este ficheiro para utilizar o ponto final da Configuração da Aplicação, em vez de uma cadeia de ligação.
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+    ```
+
 1. Open *MessageProperties.java*. Adicione uma nova variável chamada *keyVaultMessage:*
 
     ```java
@@ -166,7 +174,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 1. Crie um novo ficheiro chamado *AzureCredentials.java* e adicione o código abaixo.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import com.azure.core.credential.TokenCredential;
     import com.azure.identity.EnvironmentCredentialBuilder;
@@ -195,7 +203,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 1. Crie um novo ficheiro chamado *AppConfiguration.java*. E adicione o código abaixo.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import org.springframework.context.annotation.Bean;
     import org.springframework.context.annotation.Configuration;
@@ -214,7 +222,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.AppConfiguration
+    com.example.demo.AppConfiguration
     ```
 
 1. Construa a sua aplicação Spring Boot com a Maven e execute-a, por exemplo:

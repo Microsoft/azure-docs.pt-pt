@@ -1,15 +1,15 @@
 ---
 title: Integração contínua com os Pipelines do Azure
 description: Aprenda a construir, testar e implementar continuamente modelos do Gestor de Recursos Azure.
-ms.date: 03/13/2020
+ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6ce6f176a52a742a3216a5b761b34254027a1c5b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d1c56ce913a1b63bab90f5dd5aaada382abbf493
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255078"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084333"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos de Gestor de Recursos Azure com Pipelines Azure
 
@@ -57,11 +57,7 @@ Se não tiver uma conta GitHub, consulte [os pré-requisitos.](#prerequisites)
 
 1. Selecione **Novo,** um botão verde.
 1. Em **nome de Repositório,** insira um nome de repositório.  Por exemplo, **AzureRmPipeline-repo**. Lembre-se de substituir qualquer um dos **AzureRmPipeline** pelo seu nome de projeto. Pode selecionar **público** ou **privado** para passar por este tutorial. E, em seguida, **selecione Criar repositório**.
-1. Escreva a URL. O URL repositório é o seguinte formato:
-
-    ```url
-    https://github.com/[YourAccountName]/[YourRepositoryName]
-    ```
+1. Escreva a URL. O URL repositório é o seguinte formato - ** https://github.com/[YourAccountName]/[YourRepositoryName]**.
 
 Este repositório é referido como um *repositório remoto.* Cada um dos desenvolvedores do mesmo projeto pode clonar o seu próprio *repositório local,* e fundir as alterações ao repositório remoto.
 

@@ -2,13 +2,13 @@
 title: Funções do modelo - data
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com datas.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 75234a142b9f2fbe61c337bfeb378b47534bac79
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/22/2020
+ms.openlocfilehash: 364b41e9e92cb248a7bd2fac5a41eb535adbf440
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986281"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084792"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funções de data para modelos ARM
 
@@ -21,7 +21,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com datas nos
 
 `dateTimeAdd(base, duration, [format])`
 
-Adiciona uma duração de tempo ao valor da data-data base.
+Adiciona uma duração de tempo a um valor base. Espera-se o formato ISO 8601.
 
 ### <a name="parameters"></a>Parâmetros
 

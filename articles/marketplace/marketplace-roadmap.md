@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2019
-ms.openlocfilehash: c6a3ac701442fb30e471bcc2c8f317e3988980f7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 24e622f76e604d7c0c48e2f3c354e3b4aa64e549
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261980"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084911"
 ---
 # <a name="microsoft-commercial-marketplace-roadmap"></a>Roteiro do mercado comercial da Microsoft
 
@@ -33,7 +33,7 @@ Uma vez que uma capacidade é ao vivo, será removida do roteiro. A funcionalida
 * [Contrato Standard](https://aka.ms/standardcontract)
 * [API de Realização saaS](https://aka.ms/saasapiv2)
 * [Geos e Moedas do Mercado](https://aka.ms/marketplacegeos)
-* [Informações do Vendedor](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
+* [Informações do Vendedor](./partner-center-portal/analytics.md)
 * [Microsoft Build Marketplace Blog](https://aka.ms/marketplacebuildblog)
 * [Blog de atualizações do Marketplace May](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
 * Centro de Parceiros: [Criar a](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / migração de[conta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [gerida por Conta a partir de CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)

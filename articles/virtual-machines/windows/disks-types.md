@@ -5,14 +5,14 @@ author: roygara
 ms.author: rogarana
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 768fa075d4114f467697a23709a3f7d7d4c25f45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a37234ea7116056b76356d70afaa442e61c440c7
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243409"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085471"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais são os tipos de disco disponíveis no Azure?
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]

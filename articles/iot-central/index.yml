@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 2c76e2970bf718a9c858db3853d46cb515eb63c4
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 827ab3f7a54f03782922332c20946816ada5c4c0
+  ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77526744"
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "82024664"
 highlightedContent:
   items:
   - title: O que é o IoT Central?
@@ -66,7 +66,7 @@ conceptualContent:
     footerLink:
       url: ./core/index.yml
       text: Ver mais
-  - title: Transformar
+  - title: Transformação
     links:
     - url: ./core/tutorial-create-telemetry-rules.md
       itemType: how-to-guide
@@ -85,15 +85,15 @@ productDirectory:
     imageSrc: ./retail/media/index/iot-central-retail.svg
     links:
     - text: Criar soluções para o comércio com o Azure IoT Central
-      url: ./retail/overview-iot-central-retail-pnp.md
+      url: ./retail/overview-iot-central-retail.md
     - text: Criar uma aplicação de análise na loja
-      url: ./retail/tutorial-in-store-analytics-create-app-pnp.md
+      url: ./retail/tutorial-in-store-analytics-create-app.md
     - text: Criar uma aplicação de gestão de inventário inteligente
-      url: ./retail/tutorial-iot-central-smart-inventory-management-pnp.md
+      url: ./retail/tutorial-iot-central-smart-inventory-management.md
     - text: Criar uma aplicação de logística associada
-      url: ./retail/tutorial-iot-central-connected-logistics-pnp.md
+      url: ./retail/tutorial-iot-central-connected-logistics.md
     - text: Criar uma aplicação de centro de distribuição digital
-      url: ./retail/tutorial-iot-central-digital-distribution-center-pnp.md
+      url: ./retail/tutorial-iot-central-digital-distribution-center.md
   - title: Criar para os cuidados de saúde
     imageSrc: ./healthcare/media/index/iot-central-healthcare.svg
     links:

@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 6cb7d46d53d468d9e625f956c245c26746ae995e
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 6796906ca24eb69a52a3b822ee6a000038a445c5
+  ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77623852"
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "82024596"
 highlightedContent:
   items:
   - title: O que é o IoT do Azure?
@@ -65,7 +65,7 @@ conceptualContent:
     - url: ../iot-central/core/quick-deploy-iot-central.md
       itemType: quickstart
       text: Criar uma aplicação de IoT Central
-    - url: ../iot-central/core/tutorial-connect-device.md
+    - url: ../iot-central/core/tutorial-connect-device-nodejs.md
       itemType: tutorial
       text: Ligar um dispositivo
     footerLink:

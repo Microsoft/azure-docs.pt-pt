@@ -3,12 +3,12 @@ title: CI/CD com oleodutos e modelos Azure
 description: Descreve como criar uma integração contínua em Pipelines Azure utilizando projetos de implantação do Grupo de Recursos Azure no Estúdio Visual para implementar modelos de Gestor de Recursos.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 7617bf47595fce7baa533b0f7cc94a1803ddd349
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153459"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084656"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrar modelos ARM com oleodutos Azure
 
@@ -28,7 +28,7 @@ Este artigo assume que o seu projeto Visual Studio e a organização Azure DevOp
 
 * Tens uma organização Azure DevOps. Se não tiver um, [crie um de graça.](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops) Se a sua equipa já tem uma organização Azure DevOps, certifique-se de ser administrador do projeto Azure DevOps que pretende utilizar.
 
-* Configurou uma [ligação](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) de serviço à sua subscrição Azure. As tarefas no gasoduto executam sob a identidade do diretor de serviço. Para passos para criar a ligação, consulte [Criar um projeto DevOps](template-tutorial-use-azure-pipelines.md#create-a-devops-project).
+* Configurou uma [ligação](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) de serviço à sua subscrição Azure. As tarefas no gasoduto executam sob a identidade do diretor de serviço. Para passos para criar a ligação, consulte [Criar um projeto DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
 
 * Você tem um projeto Visual Studio que foi criado a partir do modelo de arranque do **Grupo de Recursos Azure.** Para obter informações sobre a criação desse tipo de projeto, consulte [Criar e implantar grupos](create-visual-studio-deployment-project.md)de recursos Azure através do Visual Studio .
 
@@ -261,4 +261,4 @@ Pode selecionar o pipeline em execução actualpara ver detalhes sobre as tarefa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para um processo passo a passo sobre a utilização de Pipelines Azure com modelos ARM, consulte [Tutorial: Integração contínua de modelos ARM com gasodutos Azure](template-tutorial-use-azure-pipelines.md).
+Para um processo passo a passo sobre a utilização de Pipelines Azure com modelos ARM, consulte Tutorial: Integração contínua de modelos de Gestor de [Recursos Azure com Pipelines Azure](deployment-tutorial-pipeline.md).

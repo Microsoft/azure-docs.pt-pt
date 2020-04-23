@@ -1,15 +1,15 @@
 ---
 title: Use o Código do Estúdio Visual para ligar ao Serviço Azure Blockchain
 description: Ligue-se a uma rede de consórcio seleções Azure Blockchain utilizando o Kit de Desenvolvimento Azure Blockchain para extensão Ethereum em Código de Estúdio Visual
-ms.date: 03/26/2020
+ms.date: 04/22/2020
 ms.topic: quickstart
 ms.reviewer: caleteet
-ms.openlocfilehash: 269a3e419186daddf1e6a41a54e52e688f4bc7e3
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8b502966317c5d07e89de4ae70ff72b899e963e6
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348585"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084843"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Quickstart: Use o Código do Estúdio Visual para se conectar a uma rede de consórcio seleções Azure Blockchain Service
 
@@ -20,7 +20,7 @@ Neste arranque rápido, instala e utiliza o Kit de Desenvolvimento Azure Blockch
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Complete [Quickstart: Criar um membro blockchain usando o portal Azure](create-member.md) ou [Quickstart: Criar um membro blockchain Azure Blockchain Service usando o Azure CLI](create-member-cli.md)
-* [Código de estúdio visual](https://code.visualstudio.com/Download)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Kit de desenvolvimento azure blockchain para extensão Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Nó.js 10.15.x ou superior](https://nodejs.org)
 * [Git 2.10.x ou superior](https://git-scm.com)
@@ -34,7 +34,7 @@ No Windows, é necessário um compilador C++ instalado para o módulo de giro do
 * Se o Visual Studio 2019 estiver instalado, defina o caminho de ferramentas de construção de MS para as npm. Por exemplo, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
 * Caso contrário, instale as ferramentas `npm install --global windows-build-tools` vs build autónomas utilizando num Run elevado como concha de comando *administrador.*
 
-Para mais informações sobre o nó-gyp, consulte o [repositório de nó-gyp no GitHub](https://github.com/node-gyp).
+Para mais informações sobre o nó-gyp, consulte o [repositório de nó-gyp no GitHub](https://github.com/nodejs/node-gyp).
 
 ### <a name="verify-azure-blockchain-development-kit-environment"></a>Verifique o ambiente do Kit de Desenvolvimento azure blockchain
 

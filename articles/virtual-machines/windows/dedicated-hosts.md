@@ -1,21 +1,19 @@
 ---
 title: Visão geral dos anfitriões dedicados do Azure para máquinas virtuais
 description: Saiba mais sobre como os Anfitriões Dedicados azure podem ser usados para a implementação de máquinas virtuais.
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: 39d1c0ddb4961800e889346ec110ca629ae73546
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: zivr
+ms.openlocfilehash: 9709408f006cbcc5786a4e5a854abcd20affd693
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78251553"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082837"
 ---
 # <a name="azure-dedicated-hosts"></a>Anfitriões Dedicados azure
 

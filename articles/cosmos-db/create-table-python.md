@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 9de9739efce13fc96bf550759eb0ef68d732af1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 673155706c3b7d44b41562c2dc8ce24a94ac6a58
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77212738"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083636"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Guia de Introdução: Criar uma aplicação de API de Tabela com Python e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
-> * [Nó.js](create-table-nodejs.md)
-> * [Pitão](create-table-python.md)
+> * [Node.js](create-table-nodejs.md)
+> * [Python](create-table-python.md)
 > 
 
 Neste arranque rápido, cria-se e gere-se uma conta API de Mesa Azure Cosmos DB a partir do portal Azure, e do Visual Studio com uma aplicação Python clonada do GitHub. Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, basede-chaves e bases de dados de gráficos com capacidades de distribuição global e escala horizontal.
@@ -72,6 +72,8 @@ Agora, vamos clonar uma aplicação de Tabela a partir do GitHub, definir a cade
     ```
 
 3. Em seguida, abra o ficheiro da solução no Visual Studio. 
+
+> ! [DICA] Para uma passagem mais detalhada de código semelhante, consulte o artigo da amostra da [Tabela Cosmos DB API.](table-storage-how-to-use-python.md)
 
 ## <a name="update-your-connection-string"></a>Atualizar a cadeia de ligação
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: b-juche
-ms.openlocfilehash: d28f5469174a2659869ebb01ef01653b7190e30e
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: a73da39dafcc8be78fbe1c023693ffa4a19aa1d3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772083"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085013"
 ---
-# <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Benefícios da utilização de ficheiros Azure NetApp com base de dados Oracle
+# <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Benefícios da utilização do Azure NetApp Files com o Oracle Database
 
 A Oracle Direct NFS (dNFS) permite conduzir um desempenho superior ao do próprio controlador NFS do sistema operativo. Este artigo explica a tecnologia e proporciona uma comparação de desempenho entre o dNFS e o cliente tradicional nFS (Kernel NFS). Também mostra as vantagens e a facilidade de usar o dNFS com ficheiros Azure NetApp.  
 
@@ -39,7 +39,7 @@ Em contraste, o DNFS da Oracle melhora o desempenho através do tráfego de rede
 
 O [Oracle FAQ para Direct NFS](http://www.orafaq.com/wiki/Direct_NFS) mostra que o Oracle dNFS é um cliente NFS otimizado. Proporciona acesso rápido e escalável ao armazenamento nFS que está localizado em dispositivos de armazenamento NAS (acessível em TCP/IP). o dNFS é incorporado no núcleo de base de dados tal como o ASM, que é utilizado principalmente com armazenamento DAS ou SAN. Como tal, *a orientação é utilizar o dNFS na implementação do armazenamento nas e utilizar as ASM na implementação do armazenamento SAN.*
 
-dNFS é a opção padrão no Oracle 18c e o padrão para RAC.
+dNFS é a opção padrão no Oráculo 18c.
 
 o dNFS está disponível a partir da Oracle Database 11g. O diagrama abaixo compara o DNFS com o NFS nativo. Quando se utiliza o DNFS, uma base de dados da Oracle que funciona numa máquina virtual Azure pode conduzir mais I/O do que o cliente nativo nFS.
 

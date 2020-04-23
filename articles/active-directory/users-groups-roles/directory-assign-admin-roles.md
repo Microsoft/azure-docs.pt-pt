@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3f284efd6a9a2fd83c8e2a8f9fb7a962c1cacc1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4ac49209fb1debca604a6aeb8ad3993ff898c331
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406468"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083007"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -52,17 +52,18 @@ Estão disponíveis as seguintes funções de administrador:
 Os utilizadores desta função podem criar e gerir todos os aspetos das aplicações da empresa, registos de aplicações e configurações de procuração de aplicações. Note que os utilizadores atribuídos a esta função não são adicionados como proprietários na criação de novos registos de aplicações ou aplicações empresariais.
 
 Os Administradores de Aplicação podem gerir credenciais de aplicação que lhes permitem personificar a aplicação. Assim, os utilizadores designados para esta função podem gerir credenciais de aplicação apenas das aplicações que não estejam atribuídas a quaisquer funções de AD Azure ou as atribuídas apenas às seguintes funções de administrador:
+
 * Administrador da Aplicação
 * Programador de Aplicações
 * Administrador de Aplicações na Cloud
 * Leitores de Diretório
 
-Se um pedido for atribuído a qualquer outra função que não seja mencionada acima, então o Administrador de Aplicação não pode gerir credenciais desse pedido. 
- 
+Se um pedido for atribuído a qualquer outra função que não seja mencionada acima, então o Administrador de Aplicação não pode gerir credenciais desse pedido.
+
 Esta função também concede a possibilidade de _consentir_ com permissões delegadas e permissões de aplicação, com exceção das permissões na Microsoft Graph API.
 
 > [!IMPORTANT]
-> Esta exceção significa que ainda pode consentir com permissões para _outras_ aplicações (por exemplo, aplicações ou aplicações de terceiros que tenha registado), mas não permissões em aprópria AD Azure. Ainda pode _solicitar_ estas permissões como parte do registo da aplicação, mas _a concessão_ (ou seja, consentir) estas permissões requer um administrador da AD Azure. Isto significa que um utilizador malicioso não pode facilmente elevar as suas permissões, por exemplo, criando e consentir com uma aplicação que pode escrever para todo o diretório e através das permissões dessa app elevar-se para se tornar um administrador global.
+> Esta exceção significa que ainda pode consentir com permissões para _outras_ aplicações (por exemplo, aplicações ou aplicações não Microsoft que tenha registado), mas não permissões em aad. Ainda pode _solicitar_ estas permissões como parte do registo da aplicação, mas _a concessão_ (isto é, consentir) estas permissões requer um administrador da AD Azure. Isto significa que um utilizador malicioso não pode facilmente elevar as suas permissões, por exemplo, criando e consentir com uma aplicação que pode escrever para todo o diretório e através das permissões dessa app elevar-se para se tornar um administrador global.
 
 ### <a name="application-developer"></a>[Programador de Aplicações](#application-developer-permissions)
 
@@ -70,13 +71,15 @@ Os utilizadores desta função podem criar registos de aplicações quando a def
 
 ### <a name="authentication-administrator"></a>[Administrador de Autenticação](#authentication-administrator-permissions)
 
-O papel de administrador de Autenticação está atualmente em pré-visualização pública. Os utilizadores com esta função podem definir ou redefinir credenciais de não-palavra-passe e atualizar palavras-passe para todos os utilizadores. Os Administradores de Autenticação podem exigir que os utilizadores voltem a registar-se contra a credencial não-senha existente (por exemplo, MFA ou FIDO) e revogar **a desconhecer o MFA no dispositivo,** que indica o MFA no próximo registo de utilizadores que não sejam administradores ou que sejam atribuídos apenas:
+Os utilizadores com esta função podem definir ou redefinir credenciais de não-palavra-passe para alguns utilizadores e atualizar palavras-passe para todos os utilizadores. Os administradores de autenticação podem exigir que os utilizadores que não sejam administradores ou que sejam atribuídos a algumas funções se reregiquem contra as credenciais não-senha existentes (por exemplo, MFA ou FIDO), e também podem revogar **o MFA no dispositivo,** o que indica o MFA no próximo registo. Estas ações aplicam-se apenas aos utilizadores que não sejam administradores ou que lhe sejam atribuídas uma ou mais das seguintes funções:
 
 * Administrador de Autenticação
 * Leitores de Diretório
 * Convidado convidado
 * Leitor de centro de mensagens
 * Relatórios Leitor
+
+A função de administrador de [autenticação privilegiada](#privileged-authentication-administrator) tem permissão pode forçar o reregisto e a autenticação de vários fatores para todos os utilizadores.
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Diretório Ativo do Azure. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e as permissões desse utilizador. Por exemplo:
@@ -103,7 +106,7 @@ Os utilizadores com esta função podem criar e gerir fluxos de utilizadores B2C
 
 ### <a name="b2c-user-flow-attribute-administrator"></a>[Administrador de atributo de fluxo de utilizador B2C](#b2c-user-flow-attribute-administrator-permissions)
 
-Os utilizadores com esta função adicionam ou apagam atributos personalizados disponíveis para todos os fluxos de utilizador no inquilino.Como tal, os utilizadores com esta função podem alterar ou adicionar novos elementos ao esquema do utilizador final e impactar o comportamento de todos os fluxos de utilizadores e resultar indiretamente em alterações aos dados que podem ser solicitados aos utilizadores finais e, em última análise, enviados como alegações às aplicações.Esta função não pode editar fluxos de utilizadores.
+Os utilizadores com esta função adicionam ou apagam atributos personalizados disponíveis para todos os fluxos de utilizador no inquilino.Como tal, os utilizadores com esta função podem alterar ou adicionar novos elementos ao esquema do utilizador final e impactar o comportamento de todos os fluxos de utilizadores e resultar indiretamente em alterações aos dados que podem ser solicitados aos utilizadores finais e, em última análise, enviados como alegações para aplicações.Esta função não pode editar fluxos de utilizadores.
 
 ### <a name="b2c-ief-keyset-administrator"></a>[Administrador de teclas B2C IEF](#b2c-ief-keyset-administrator-permissions)
 
@@ -128,6 +131,7 @@ Efetua compras, gere subscrições, gere pedidos de suporte e monitoriza o estad
 Os utilizadores desta função têm as mesmas permissões que a função de Administrador de Aplicação, excluindo a capacidade de gerir o proxy da aplicação. Este papel confere a capacidade de criar e gerir todos os aspetos das aplicações empresariais e dos registos de candidaturas. Esta função também concede a possibilidade de consentir com permissões delegadas, e permissões de aplicação excluindo a API do Microsoft Graph. Os utilizadores atribuídos a esta função não são adicionados como proprietários na criação de novos registos de aplicações ou aplicações empresariais.
 
 Os Administradores de Aplicação cloud podem gerir credenciais de aplicação que lhes permitem personificar a aplicação. Assim, os utilizadores designados para esta função podem gerir credenciais de aplicação apenas das aplicações que não estejam atribuídas a quaisquer funções de AD Azure ou as atribuídas apenas às seguintes funções de administrador:
+
 * Programador de Aplicações
 * Administrador de Aplicações na Cloud
 * Leitores de Diretório
@@ -350,7 +354,13 @@ Os utilizadores com esta função podem registar impressoras e gerir o estado da
 
 ### <a name="privileged-authentication-administrator"></a>[Administrador de Autenticação Privilegiada](#privileged-authentication-administrator-permissions)
 
-Os utilizadores com esta função podem definir ou redefinir credenciais de não-senha para todos os utilizadores, incluindo administradores globais, e podem atualizar palavras-passe para todos os utilizadores. Os Administradores de Autenticação Privilegiada podem forçar os utilizadores a reregistarem-se contra a credencial não-senha existente (por exemplo, MFA, FIDO) e a revogar "lembre-se do MFA no dispositivo", solicitando ao MFA o próximo login de todos os utilizadores.
+Os utilizadores com esta função podem definir ou redefinir credenciais de não-senha para todos os utilizadores, incluindo administradores globais, e podem atualizar palavras-passe para todos os utilizadores. Os Administradores de Autenticação Privilegiada podem forçar os utilizadores a reregistarem-se contra a credencial não-senha existente (como MFA ou FIDO) e a revogarem "lembre-se do MFA no dispositivo", solicitando ao MFA o próximo início de sessão de todos os utilizadores. A função de [administrador de autenticação](#authentication-administrator) pode forçar a reinscrição e o MFA apenas para não administradores e utilizadores atribuídos às seguintes funções da AD Azure:
+
+* Administrador de Autenticação
+* Leitores de Diretório
+* Convidado convidado
+* Leitor de centro de mensagens
+* Relatórios Leitor
 
 ### <a name="privileged-role-administrator"></a>[Administrador privilegiado](#privileged-role-administrator-permissions)
 

@@ -2,24 +2,19 @@
 title: 'Faça o D: unidade de um VM um disco de dados '
 description: 'Descreve como alterar as letras de condução para um VM do Windows para que possa utilizar o D: conduzir como uma unidade de dados.'
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
 ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 491e7b7be084017cc370fe431c3175ac5b2673f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 15df3178f2860fa066a82cb1429e0c1a6e5c2b08
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74033660"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083427"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Use o D: dirija como uma unidade de dados num VM do Windows
 Se a sua aplicação necessitar de utilizar a unidade D para armazenar dados, siga estas instruções para utilizar uma letra de unidade diferente para o disco temporário. Nunca utilize o disco temporário para armazenar os dados que precisa de guardar.

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18
-ms.date: 03/11/2020
-ms.openlocfilehash: 66bfa0d3ee4cb03f1b48e2db24be7a90d97f60d6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/22/2020
+ms.openlocfilehash: 5fa25f54faecbc7caf130ffeb0d24c3d8fef7e09
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79117211"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084809"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar a Transmissão em Fluxo Estruturada do Apache Spark com o Apache Kafka no HDInsight
 
@@ -35,7 +35,7 @@ Quando terminar os passos deste documento, lembre-se de apagar os clusters para 
 
 * Familiaridade com a utilização de [Cadernos Jupyter](https://jupyter.org/) com Faísca no HDInsight. Para mais informações, consulte os [dados da Carga e execute consultas com a Apache Spark no documento HDInsight.](spark/apache-spark-load-data-run-query.md)
 
-* Familiaridade com a linguagem de programação [Scala](https://www.scala-lang.org/). O código utilizado neste tutorial está escrito em Scala.
+* Familiaridade com a linguagem de programação Scala. O código utilizado neste tutorial está escrito em Scala.
 
 * Familiaridade com a criação de tópicos do Kafka. Para mais informações, consulte o Apache Kafka no documento [de arranque rápido da HDInsight.](kafka/apache-kafka-get-started.md)
 
@@ -48,7 +48,7 @@ Quando terminar os passos deste documento, lembre-se de apagar os clusters para 
 
 ## <a name="structured-streaming-with-apache-kafka"></a>Streaming estruturado com Apache Kafka
 
-A transmissão em Fluxo Estruturada do Spark é um motor de processamento de fluxos incorporado no motor SQL do Spark. Quando utilizar a Transmissão em Fluxo Estruturada, pode escrever consultas de transmissão em fluxo da mesma forma que escreve consultas em lote.
+A transmissão em Fluxo Estruturada do Spark é um motor de processamento de fluxos incorporado no motor SQL do Spark. Ao utilizar o Streaming Estruturado, pode escrever consultas de streaming da mesma forma que escreve consultas de lote.
 
 Os fragmentos de código seguintes demonstram a leitura a partir do Kafka e o armazenamento num ficheiro. A primeira é uma operação em lote, enquanto que a segunda é uma operação de transmissão em fluxo:
 
@@ -277,7 +277,7 @@ Este exemplo demonstra como usar o Spark Structured Streaming com kafka no HDIns
     println("Schema declared")
     ```
 
-1. Selecione dados e inicie o fluxo. O seguinte comando demonstra como recuperar dados de kafka usando uma consulta de lote, e, em seguida, escrever os resultados para HDFS no cluster Spark. Neste exemplo, `select` a mensagem (campo de valor) de Kafka e aplica-lhe o esquema. Os dados são então escritos para HDFS (WASB ou ADL) em formato parquet. Entra no comando na tua próxima célula Jupyter.
+1. Selecione dados e inicie o fluxo. O seguinte comando demonstra como recuperar dados de Kafka usando uma consulta de lote. E depois escreva os resultados para o HDFS no cluster Spark. Neste exemplo, `select` a mensagem (campo de valor) de Kafka e aplica-lhe o esquema. Os dados são então escritos para HDFS (WASB ou ADL) em formato parquet. Entra no comando na tua próxima célula Jupyter.
 
     ```scala
     // Read a batch from Kafka
@@ -316,7 +316,7 @@ Este exemplo demonstra como usar o Spark Structured Streaming com kafka no HDIns
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para limpar os recursos criados por este tutorial, pode eliminar o grupo de recursos. Ao eliminar o grupo de recursos também elimina o cluster do HDInsight associado e quaisquer outros recursos associados ao grupo de recursos.
+Para limpar os recursos criados por este tutorial, pode eliminar o grupo de recursos. A eliminação do grupo de recursos também elimina o cluster HDInsight associado. E quaisquer outros recursos associados ao grupo de recursos.
 
 Para remover o grupo de recursos através do Portal do Azure:
 
@@ -331,7 +331,7 @@ Para remover o grupo de recursos através do Portal do Azure:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a usar o [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) para escrever e ler dados de Apache [Kafka](./kafka/apache-kafka-introduction.md) no HDInsight. Use o seguinte link para aprender a usar a [Tempestade Apache](./storm/apache-storm-overview.md) com Kafka.
+Neste tutorial, aprendeu a usar o Apache Spark Structured Streaming. Para escrever e ler dados de Apache Kafka no HDInsight. Use o seguinte link para aprender a usar a Tempestade Apache com Kafka.
 
 > [!div class="nextstepaction"]
 > [Use apache tempestade com Apache Kafka](hdinsight-apache-storm-with-kafka.md)

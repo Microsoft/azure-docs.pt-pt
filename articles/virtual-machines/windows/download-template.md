@@ -1,25 +1,19 @@
 ---
 title: Descarregue o modelo para um Azure VM
-description: Descarregue o modelo de um VM para ajudar a automatizar implementações no modelo de implementação do Gestor de Recursos
-services: virtual-machines-windows
-documentationcenter: ''
+description: Descarregue o modelo para um VM usando o portal ou PowerShell.
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c73026515f0d7fde4e2f82838696700b1bb17c77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af6905f0ba62a9053e44134348721312ade6b9d7
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74033553"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085387"
 ---
 # <a name="download-the-template-for-a-vm"></a>Transferir o modelo para uma VM
 Quando cria um VM em Azure utilizando o portal ou powerShell, um modelo de Gestor de Recursos é automaticamente criado para si. Pode usar este modelo para duplicar rapidamente uma implementação. O modelo contém informações sobre todos os recursos de um grupo de recursos. Para uma máquina virtual, isto significa que o modelo contém tudo o que é criado para apoiar o VM nesse grupo de recursos, incluindo os recursos de rede.

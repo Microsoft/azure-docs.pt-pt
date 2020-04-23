@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 39e3521339947263161979033406fb39e397373f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 61fbaf37577efdab0b147d437ae78fc4df0764cb
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348964"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084962"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Azure Blob para funções azure
 
@@ -137,7 +137,7 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo seguinte mostra uma ligação do gatilho blob num ficheiro *function.json* e [código Python](functions-reference-python.md) que utiliza a ligação. A função escreve um tronco quando uma bolha `samples-workitems` é adicionada ou atualizada no [recipiente](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
@@ -260,7 +260,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
@@ -298,7 +298,7 @@ A tabela a seguir explica as propriedades de configuração de ligação que def
 
 Aceda aos `context.bindings.<NAME>` dados `<NAME>` blob utilizando o valor definido na *função.json*.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Aceda aos dados blob através do parâmetro digitado como [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Consulte o exemplo do [gatilho](#example) para obter detalhes.
 
@@ -369,7 +369,7 @@ module.exports = function (context, myBlob) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os metadados não estão disponíveis em Python.
 
@@ -391,7 +391,7 @@ A Azure Functions armazena recibos blob num contentor chamado *azure-webjobs-hos
 * O nome blob
 * O ETag (um identificador de versão blob, por exemplo: "0x8D1DC6E70A277EF")
 
-Para forçar o reprocessamento de uma bolha, elimine manualmente o recibo de bolha desse recipiente de anfitriões de *azure-webjobs.* Embora o reprocessamento possa não ocorrer imediatamente, é garantido que ocorra em um ponto posterior no tempo.
+Para forçar o reprocessamento de uma bolha, elimine manualmente o recibo de bolha desse recipiente de anfitriões de *azure-webjobs.* Embora o reprocessamento possa não ocorrer imediatamente, é garantido que ocorra em um ponto posterior no tempo. Para reprocessar imediatamente, a blob *scaninfo* em *azure-webjobs-hosts/blobscaninfo* pode ser atualizada. Qualquer bolha com um último carimbo de `LatestScan` tempo modificado após a propriedade será digitalizada novamente.
 
 ## <a name="poison-blobs"></a>Bolhas venenosas
 

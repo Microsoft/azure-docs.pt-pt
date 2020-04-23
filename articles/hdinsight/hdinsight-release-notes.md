@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/20/2020
-ms.openlocfilehash: cdb31f1a46d7f46b69e9e0ad47a77ba6b32a50a0
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.date: 04/22/2020
+ms.openlocfilehash: f8331b64792781a89428f8c5070375c31c0da48d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770822"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084894"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -66,14 +66,3 @@ O HDInsight continua a fazer melhorias na fiabilidade do cluster e no desempenho
 ## <a name="component-version-change"></a>Alteração da versão do componente
 Nenhuma alteração na versão do componente para esta versão. Pode encontrar aqui as versões atuais do componente para HDInsight 4.0 ad HDInsight 3.6.
 
-## <a name="known-issues"></a>Problemas conhecidos
-
-A partir de 18 de março de 2020, alguns clientes Da Azure HDInsight na Europa Ocidental ou norte da Europa receberam notificações de erro ao criar ou escalar clusters HDInsight nestas regiões. Os erros relacionados com esta questão incluem:
-
-- Erro interno do servidor ocorreu durante o processamento do pedido. Por favor, tente novamente o pedido ou o suporte de contato.
-- Pelo menos uma operação de implantação de recursos falhou. Por favor, lista ruma as operações de implantação para mais detalhes. Consulte https://aka.ms/DeployOperations os detalhes do uso
-- O ID\<\>de subscrição do utilizador ' não\<tem núcleos para criar o nome do cluster>'. Obrigatório: \<X,\>Disponível: 0.
-
-Os engenheiros estão cientes deste problema e estão a investigar ativamente.
-
-Para obter ajuda adicional, crie um pedido de [apoio.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
