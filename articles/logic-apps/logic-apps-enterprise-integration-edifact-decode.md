@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
-ms.openlocfilehash: 78c0d20c0f32a6d63d134e958b30d38fe11fcc5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: c32b3ee5c4689e960834d543de1ca377e918751d
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74790662"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106292"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificar mensagens EDIFACT para Aplicações Lógicas Azure com o Pacote de Integração Empresarial
 
@@ -29,6 +29,10 @@ Aqui estão os itens que precisa:
 * Um [acordo EDIFACT](logic-apps-enterprise-integration-edifact.md) que já está definido na sua conta de integração
 
 ## <a name="decode-edifact-messages"></a>Descodificar mensagens EDIFACT
+
+> [!IMPORTANT]
+> O conector EDIFACT suporta apenas caracteres UTF-8.
+> Se a sua saída contiver caracteres inesperados, verifique se as suas mensagens EDIFACT utilizam o conjunto de caracteres UTF-8. 
 
 1. [Criar uma aplicação lógica.](quickstart-create-first-logic-app-workflow.md)
 

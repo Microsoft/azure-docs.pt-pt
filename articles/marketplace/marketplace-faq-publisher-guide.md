@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: da324e1e1a40e515cac4b26d6c9f8661f344e1d7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 4b166af219c8983e5765ef4c884ced7eb0689f54
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687610"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106683"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>FAQs do marketplace comercial da Microsoft
 
@@ -57,7 +57,8 @@ Com o Azure Marketplace, os clientes podem descobrir aplicações técnicas cons
 As ofertas do Azure Marketplace podem ser adquiridas através de:
 
 * [A montra baseada na web](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [O portal Azure] [Portal Azure]
+* [Portal do Azure](https://portal.azure.com) <br>
+[!Note] Requer uma conta Azure. Se não tiver um, será redirecionado para a página **Welcome to Azure,** para criar um.  
 * [Interface de linha de comando Azure (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -357,7 +358,7 @@ Os editores sediados nos seguintes países/regiões podem atualmente ser vendido
 1. Selecione a oferta a partir do separador **All Offers.**
 1. No painel do lado esquerdo do ecrã, selecione o separador **SKUs.**
 1. Selecione o SKU para eliminação e clique no botão **de eliminar** para esse SKU.
-1. [Republique](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) a oferta para o Azure Marketplace.
+1. [Republique](./partner-center-portal/update-existing-offer.md#review-and-publish-an-updated-offer) a oferta para o Azure Marketplace.
 
 Para mais informações, consulte [a atualização de uma oferta.](./partner-center-portal/update-existing-offer.md)
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 05f8430efa31b39d49025fb8456108da229d3d71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54c4a673e654a0244183a84ffa841d553ae6db51
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239815"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106258"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Crie uma máquina virtual Linux com Networking Acelerado usando o Azure CLI
 
@@ -35,7 +35,7 @@ Com uma rede acelerada, o tráfego de rede chega à interface de rede da máquin
 
 Os benefícios da ligação acelerada em rede aplicam-se apenas ao VM em que está ativado. Para obter os melhores resultados, é ideal permitir esta funcionalidade em pelo menos dois VMs ligados à mesma rede virtual Azure (VNet). Ao comunicar através de VNets ou ligar-se no local, esta funcionalidade tem um impacto mínimo na latência geral.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 * **Latência inferior / Pacotes mais altos por segundo (pps):** Remover o interruptor virtual da pata de dados remove o tempo que os pacotes gastam no hospedeiro para processamento de políticas e aumenta o número de pacotes que podem ser processados dentro do VM.
 * **Nervosismo reduzido:** O processamento de interruptores virtuais depende da quantidade de política que precisa de ser aplicada e da carga de trabalho da CPU que está a fazer o processamento. Descarregar a aplicação da política para o hardware remove essa variabilidade entregando pacotes diretamente ao VM, removendo o anfitrião para a comunicação VM e todas as interrupções de software e interruptores de contexto.
 * **Diminuição da utilização do CPU:** Contornar o interruptor virtual no hospedeiro leva a uma menor utilização de CPU para o tráfego da rede de processamento.
@@ -58,7 +58,7 @@ As seguintes distribuições são suportadas fora da caixa da Galeria Azure:
 ### <a name="supported-vm-instances"></a>Casos de VM suportados
 O Networking Acelerado é suportado na maioria dos tamanhos de instância otimizados para a computação com 2 ou mais vCPUs.  Estas séries apoiadas são: D/DSv2 e F/Fs
 
-Em casos que suportam hiperthreading, o Networking Acelerado é suportado em casos vM com 4 ou mais vCPUs. As séries suportadas são: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
+Em casos que suportam hiperthreading, o Networking Acelerado é suportado em casos vM com 4 ou mais vCPUs. As séries suportadas são: D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
 
 Para obter mais informações sobre os casos de VM, consulte os [tamanhos de VM Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

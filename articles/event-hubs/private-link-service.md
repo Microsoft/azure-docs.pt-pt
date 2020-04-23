@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: bcc360bbe4dd58200993b9377317ccb608b3529d
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 110d4b94eda8315c20f4baa70256f7e5ed378530
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383654"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106479"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integrar hubs de eventos Azure com Link Privado Azure (Pré-visualização)
 O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e o Azure acolheu serviços de clientes/parceiros sobre um **ponto final privado** na sua rede virtual.
@@ -21,11 +21,26 @@ Um ponto final privado é uma interface de rede que o conecta de forma privada e
 
 Para mais informações, consulte [o que é azure private link?](../private-link/private-link-overview.md)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Esta funcionalidade é suportada apenas com o nível **dedicado.** Para mais informações sobre o nível dedicado, consulte [a visão geral dos Centros de Eventos Dedicados](event-hubs-dedicated-overview.md). 
 >
 > Esta funcionalidade encontra-se atualmente em **pré-visualização**. 
 
+>[!WARNING]
+> Permitir pontos finais privados pode impedir que outros serviços Azure interajam com os Centros de Eventos.
+>
+> Os serviços fidedignos da Microsoft não são suportados quando as Redes Virtuais são implementadas.
+>
+> Cenários Comuns Azure que não funcionam com Redes Virtuais (note que a lista **NÃO** é exaustiva) -
+> - Monitor Azure (definição de diagnóstico)
+> - Azure Stream Analytics
+> - Integração com a Grelha de Eventos Azure
+> - Rotas do Hub Azure IoT
+> - Explorador de dispositivos Azure IoT
+>
+> Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
+> - Aplicações Web do Azure
+> - Funções do Azure
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Adicione um ponto final privado usando o portal Azure
 

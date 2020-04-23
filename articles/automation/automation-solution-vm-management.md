@@ -5,25 +5,27 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0331678b50d2448013556ab0694d0ca87045c3a3
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 10c66ba175484d8b95f26ef9330753151a92969b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82096921"
+ms.locfileid: "82106037"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VMs de arranque/paragem durante solução off-hours na Automação Azure
 
 Os **VMs de arranque/paragem durante a** solução off-hours iniciam ou param as suas máquinas virtuais Azure. Inicia ou para máquinas em horários definidos pelo utilizador, fornece insights através de registos do Monitor Do Azure e envia e-mails opcionais utilizando [grupos](../azure-monitor/platform/action-groups.md)de ação . A solução suporta tanto o Gestor de Recursos Azure como os VMs clássicos para a maioria dos cenários. 
 
-Esta solução fornece uma opção de automação descentralizada de baixo custo para os utilizadores que pretendam otimizar os seus custos vm. Com esta solução, pode:
+Esta solução utiliza o [cmdlet Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) para iniciar VMs. Utiliza [stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) para parar VMs.
+
+> [!NOTE]
+> Os **VMs Start/stop durante a** solução off-hours foram atualizados para suportar as versões mais recentes dos módulos Azure que estão disponíveis.
+
+A solução fornece uma opção de automação descentralizada de baixo custo para os utilizadores que pretendam otimizar os seus custos de VM. Com esta solução, pode:
 
 - [Agende VMs para começar e parar.](automation-solution-vm-management-config.md#schedule)
 - Agendar VMs para iniciar e parar em ordem ascendente [usando Tags Azure](automation-solution-vm-management-config.md#tags) (não suportados para VMs clássicos).
 - VMs de paragem automática com base na [baixa utilização do CPU](automation-solution-vm-management-config.md#cpuutil).
-
-> [!NOTE]
-> Os **VMs Start/stop durante a** solução off-hours foram atualizados para suportar as versões mais recentes dos módulos Azure que estão disponíveis.
 
 Seguem-se as limitações com a solução atual:
 

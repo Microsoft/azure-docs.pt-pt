@@ -3,12 +3,12 @@ title: Sobre a cópia de segurança de partilha de ficheiros Azure
 description: Saiba como apoiar as ações de ficheiros azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: bea5035ff50eaf4047f56cde3bd671d81e21f5d3
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: c79100724b882c0682c86070ee74a8726d6b049f
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101433"
+ms.locfileid: "82105748"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre a cópia de segurança de partilha de ficheiros Azure
 
@@ -47,12 +47,7 @@ A cópia de segurança de partilha de ficheiros Azure é uma solução de backup
 
 ## <a name="backup-costs"></a>Custos de backup
 
-A cópia de segurança de partilha do Ficheiro Azure é uma solução baseada em instantâneos e os custos de armazenamento incorridos para instantâneos são faturados juntamente com a Utilização de Ficheiros Azure de acordo com os detalhes de preços [aqui](https://azure.microsoft.com/pricing/details/storage/files/)mencionados .
-
-No entanto, a taxa de exemplo protegida para alavancar a solução de backup é de acordo com o modelo de preços descrito na secção [Backup For Azure Files.](https://azure.microsoft.com/pricing/details/backup/) Atualmente, o preço real foi atualizado apenas para os EUA Do Oeste Central. Para outras regiões, os preços exatos serão atualizados em breve com algumas variações regionais, mas utilizando o mesmo modelo de preços.
-
->[!NOTE]
->Não existe agora "Taxa de Instância Protegida" e será cobrado apenas por instantâneos de acordo com os preços [aqui](https://azure.microsoft.com/pricing/details/storage/files/)mencionados .
+Atualmente será cobrado apenas para instantâneos, uma vez que a cópia de segurança de partilha de ficheiros Azure é uma solução baseada em instantâneos. Os custos de armazenamento incorridos para instantâneos são cobrados juntamente com o Uso de Ficheiros Azure de acordo com os detalhes de preços [aqui](https://azure.microsoft.com/pricing/details/storage/files/)mencionados .
 
 ## <a name="next-steps"></a>Passos seguintes
 

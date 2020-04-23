@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 608c2619c19a2b5fa7e39c1ecb82be40ff4e83f4
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 47bd550bbd8d75a06d38babe88b5a95f3790af50
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82072625"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106559"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2. Atribuir permissões de acesso a uma identidade
 
@@ -94,6 +94,9 @@ Utilize o comando de **utilização da rede** Windows para montar a partilha de 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
 ```
+
+Se tiver problemas na ligação ao Azure Files, consulte a ferramenta de resolução de [problemas que publicámos para erros](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)de montagem de Ficheiros Azure no Windows . Também fornecemos [orientações](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para contornar cenários quando o porto 445 está bloqueado. 
+
 
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Configure permissões NTFS com Windows File Explorer
 Utilize o Windows File Explorer para conceder permissão completa a todos os diretórios e ficheiros sob a parte do ficheiro, incluindo o diretório raiz.

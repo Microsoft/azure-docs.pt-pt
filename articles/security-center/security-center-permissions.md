@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e61571400930d4a781d6d67647bd662a7f2d350
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921322"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106224"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissions in Azure Security Center (Permissões no Centro de Segurança do Azure)
 
@@ -30,10 +30,10 @@ O Security Center avalia a configuração dos seus recursos para identificar pro
 Além destas funções, há duas funções específicas do Centro de Segurança:
 
 * **Leitor de Segurança**: Um utilizador que pertence a esta função tem direitos de visualização para o Centro de Segurança. O utilizador pode ver recomendações, alertas, uma política de segurança e estados de segurança, mas não pode fazer alterações.
-* **Administrador de Segurança**: Um utilizador que pertença a esta função tem os mesmos direitos que o Leitor de Segurança e também pode atualizar a política de segurança e rejeitar alertas e recomendações.
+* **Administrador de Segurança**: Um utilizador que pertence a esta função tem os mesmos direitos que o Leitor de Segurança e também pode atualizar a política de segurança e rejeitar alertas e recomendações.
 
 > [!NOTE]
-> As funções de segurança, Leitor de Segurança e Administrador de Segurança, têm acesso apenas no Centro de Segurança. As funções de segurança não têm acesso a outras áreas de serviço do Azure, tais como Armazenamento, Web & Mobile ou Internet of Things.
+> As funções de segurança, Security Reader e Security Admin, têm acesso apenas no Centro de Segurança. As funções de segurança não têm acesso a outras áreas de serviço do Azure, tais como Armazenamento, Web & Mobile ou Internet of Things.
 >
 >
 

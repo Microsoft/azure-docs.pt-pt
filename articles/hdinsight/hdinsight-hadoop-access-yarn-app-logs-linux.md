@@ -7,23 +7,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/23/2020
-ms.openlocfilehash: 2a7d71c6d751d4a48ec93f020e657a4d43114cfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/23/2020
+ms.openlocfilehash: 7da6536e78a0b981306e3909b06a674cbb8cbaa1
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76764389"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106275"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Aceder aos registos de aplicações do YARN apache hadoop no HDInsight baseado em Linux
 
-Saiba como aceder aos registos das aplicações [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) (Mais Um Negociador de Recursos) num cluster [Apache Hadoop](https://hadoop.apache.org/) em Azure HDInsight.
+Saiba como aceder aos registos das aplicações [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) (Mais Um Negociador de Recursos) num cluster Apache Hadoop em Azure HDInsight.
 
 ## <a name="what-is-apache-yarn"></a>O que é Apache YARN?
 
-O YARN suporta vários modelos de programação[(Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) sendo um deles) dissociando a gestão de recursos a partir do agendamento/monitorização de aplicações. O YARN utiliza um *ResourceManager* global (RM), por-trabalhador-nódeManagers (NMs) e *ApplicationMasters* (MA). *NodeManagers* A AM por aplicação negoceia recursos (CPU, memória, disco, rede) para executar a sua aplicação com o RM. O RM trabalha com as MD para conceder estes recursos, que são concedidos como *contentores.* A AM é responsável por acompanhar o progresso dos contentores que lhe foram atribuídos pela RM. Uma aplicação pode exigir muitos contentores dependendo da natureza da aplicação.
+O YARN suporta vários modelos de programação (Apache Hadoop MapReduce sendo um deles) dissociando a gestão de recursos a partir do agendamento/monitorização de aplicações. O YARN *`ResourceManager`* utiliza um nó de nó global (RM), por-trabalhador-nódeManagers (NMs) e *aplicações ApplicationMasters* (MA). *NodeManagers* A AM por aplicação negoceia recursos (CPU, memória, disco, rede) para executar a sua aplicação com o RM. O RM trabalha com as MD para conceder estes recursos, que são concedidos como *contentores.* A AM é responsável por acompanhar o progresso dos contentores que lhe foram atribuídos pela RM. Uma aplicação pode exigir muitos contentores dependendo da natureza da aplicação.
 
-Cada aplicação pode consistir em *múltiplas tentativas*de aplicação . Se uma aplicação falhar, pode ser novamente tentada como uma nova tentativa. Cada tentativa corre num contentor. De certa forma, um recipiente fornece o contexto para a unidade básica de trabalho realizada por uma aplicação YARN. Todo o trabalho que é feito no contexto de um contentor é realizado no nó de trabalhador único em que o contentor foi atribuído. Ver [Hadoop: Escrita aplicações de ARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html), ou [YARN De Hadoop Apache](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) para posterior referência.
+Cada aplicação pode consistir em *múltiplas tentativas*de aplicação . Se uma aplicação falhar, pode ser novamente tentada como uma nova tentativa. Cada tentativa corre num contentor. De certa forma, um recipiente fornece o contexto para a unidade básica de trabalho realizado por uma aplicação YARN. Todo o trabalho que é feito no contexto de um contentor é feito no nó de trabalhador único em que o contentor foi dado. Ver [Hadoop: Escrita aplicações de ARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html), ou [YARN De Hadoop Apache](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) para posterior referência.
 
 Para escalar o seu cluster para suportar uma maior produção de processamento, pode utilizar a [escala automática](hdinsight-autoscale-clusters.md) ou escalar os [seus clusters manualmente utilizando algumas línguas diferentes.](hdinsight-scaling-best-practices.md#utilities-to-scale-clusters)
 
@@ -40,11 +40,9 @@ O Servidor de Linha do Tempo Do Fio inclui o seguinte tipo de dados:
 
 ## <a name="yarn-applications-and-logs"></a>Aplicações e registos de ARN
 
-O YARN suporta vários modelos de programação[(Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) sendo um deles) dissociando a gestão de recursos a partir do agendamento/monitorização de aplicações. O YARN utiliza um *ResourceManager* global (RM), por-trabalhador-nódeManagers (NMs) e *ApplicationMasters* (MA). *NodeManagers* A AM por aplicação negoceia recursos (CPU, memória, disco, rede) para executar a sua aplicação com o RM. O RM trabalha com as MD para conceder estes recursos, que são concedidos como *contentores.* A AM é responsável por acompanhar o progresso dos contentores que lhe foram atribuídos pela RM. Uma aplicação pode exigir muitos contentores dependendo da natureza da aplicação.
+Os registos de aplicação (e os registos de contentores associados) são fundamentais para depurar aplicações problemáticas de Hadoop. O YARN fornece uma boa estrutura para recolher, agregar e armazenar registos de aplicações com [agregação](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/)de log .
 
-Cada aplicação pode consistir em *múltiplas tentativas*de aplicação . Se uma aplicação falhar, pode ser novamente tentada como uma nova tentativa. Cada tentativa corre num contentor. De certa forma, um recipiente fornece o contexto para a unidade básica de trabalho realizada por uma aplicação YARN. Todo o trabalho que é feito no contexto de um contentor é realizado no nó de trabalhador único em que o contentor foi atribuído. Consulte os [Conceitos YARN de Hadoop Apache Hadoop](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html) para mais referências.
-
-Os registos de aplicação (e os registos de contentores associados) são fundamentais para depurar aplicações problemáticas de Hadoop. O YARN fornece uma boa estrutura para recolher, agregar e armazenar registos de aplicações com a funcionalidade de [Agregação](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/) de Registos. A função de Agregação de Registos torna o acesso aos registos de aplicações mais determinístico. Agrega troncos em todos os contentores num nó de trabalhador e armazena-os como um ficheiro de registo agregado por nó de trabalhador. O registo é armazenado no sistema de ficheiros predefinido após o acabamento de uma aplicação. A sua aplicação pode utilizar centenas ou milhares de contentores, mas os registos para todos os recipientes executados num único nó de trabalhador esgotam-se sempre num único ficheiro. Portanto, só há um log por nó de trabalhador usado pela sua aplicação. A agregação de registoé ativada por padrão na versão 3.0 dos clusters HDInsight. Os registos agregados estão localizados no armazenamento predefinido do cluster. O seguinte caminho é o caminho HDFS para os registos:
+A função de Agregação de Registos torna o acesso aos registos de aplicações mais determinístico. Agrega troncos em todos os contentores num nó de trabalhador e armazena-os como um ficheiro de registo agregado por nó de trabalhador. O registo é armazenado no sistema de ficheiros predefinido após o acabamento de uma aplicação. A sua aplicação pode utilizar centenas ou milhares de contentores, mas os registos para todos os recipientes executados num único nó de trabalhador esgotam-se sempre num único ficheiro. Portanto, só há um log por nó de trabalhador usado pela sua aplicação. A agregação de registoé ativada por padrão na versão 3.0 dos clusters HDInsight. Os registos agregados estão localizados no armazenamento predefinido do cluster. O seguinte caminho é o caminho HDFS para os registos:
 
 ```
 /app-logs/<user>/logs/<applicationId>
@@ -52,7 +50,7 @@ Os registos de aplicação (e os registos de contentores associados) são fundam
 
 No caminho, `user` está o nome do utilizador que iniciou a aplicação. O `applicationId` identificador único atribuído a uma aplicação pelo Arn RM yARN.
 
-Os registos agregados não são diretamente legíveis, uma vez que estão escritos num [TFile](https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf), [formato binário](https://issues.apache.org/jira/browse/HADOOP-3315) indexado por recipiente. Utilize os registos do YARN ResourceManager ou ferramentas CLI para ver estes registos como texto simples para aplicações ou contentores de interesse.
+Os registos agregados não são diretamente legíveis, uma vez que estão escritos num TFile, formato binário indexado por recipiente. Utilize os `ResourceManager` registos de Arn ou as ferramentas CLI para ver estes registos como texto simples para aplicações ou contentores de interesse.
 
 ## <a name="yarn-logs-in-an-esp-cluster"></a>Fios logs em um cluster ESP
 
@@ -87,13 +85,13 @@ Duas configurações devem ser `mapred-site` adicionadas ao costume em Ambari.
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Enumerar todos os ids de aplicação das aplicações yarn atualmente em execução com o seguinte comando:
+1. Enumerar todos os IDs de aplicação das aplicações yarn atualmente em execução com o seguinte comando:
 
     ```bash
     yarn top
     ```
 
-    Note o id `APPLICATIONID` da aplicação a partir da coluna cujos registos devem ser descarregados.
+    Note o ID `APPLICATIONID` da aplicação da coluna cujos registos devem ser descarregados.
 
     ```output
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -119,7 +117,7 @@ Duas configurações devem ser `mapred-site` adicionadas ao costume em Ambari.
 
 ### <a name="other-sample-commands"></a>Outros comandos de amostra
 
-1. Baixe os registos de recipientes Yarn para todos os mestres de aplicação com o comando abaixo. Isto criará o `amlogs.txt` ficheiro de registo nomeado em formato de texto.
+1. Baixe os registos de recipientes Yarn para todos os mestres de aplicação com o comando abaixo. Este passo criará o `amlogs.txt` ficheiro de registo nomeado em formato de texto.
 
     ```bash
     yarn logs -applicationId <application_id> -am ALL > amlogs.txt
@@ -149,9 +147,9 @@ Duas configurações devem ser `mapred-site` adicionadas ao costume em Ambari.
     yarn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt
     ```
 
-## <a name="yarn-resourcemanager-ui"></a>YARN ResourceManager UI
+## <a name="yarn-resourcemanager-ui"></a>YARN `ResourceManager` UI
 
-O YARN ResourceManager UI funciona no headnode do cluster. É acedido através da UI web ambari. Utilize os seguintes passos para visualizar os registos de ARN:
+A UI YARN `ResourceManager` corre no nó do cluster. É acedido através da UI web ambari. Utilize os seguintes passos para visualizar os registos de ARN:
 
 1. No seu navegador web, navegue para `https://CLUSTERNAME.azurehdinsight.net`. Substitua CLUSTERNAME pelo nome do cluster do HDInsight.
 
@@ -159,8 +157,13 @@ O YARN ResourceManager UI funciona no headnode do cluster. É acedido através d
 
     ![Serviço Apache Ambari Yarn selecionado](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
 
-3. A partir do dropdown **quick Links,** selecione um dos nós da cabeça do cluster e, em seguida, selecione **Registo de Gestor de Recursos**.
+3. A partir do dropdown **quick Links,** selecione um **`ResourceManager Log`** dos nós da cabeça do cluster e, em seguida, selecione .
 
     ![Ligações rápidas apache Ambari Yarn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 
     É-lhe apresentada uma lista de links para registos de ARN.
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Arquitetura do Apache Hadoop no HDInsight](hdinsight-hadoop-architecture.md)
+* [Resolver Problemas do YARN do Apache Hadoop com o Azure HDInsight](hdinsight-troubleshoot-yarn.md)

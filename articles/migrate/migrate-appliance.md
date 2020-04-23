@@ -2,13 +2,13 @@
 title: Aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 1c21f06e674871aefde1ae952a459db16feeb717
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.date: 04/23/2020
+ms.openlocfilehash: 71a17211a530b4cb55764f3b3ab84ff5a4d5f3e6
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676344"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106391"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -301,12 +301,78 @@ Adaptador de rede virtual Hiper-V | Bytes Enviados/Segundo | Cálculo para o tam
 
 ## <a name="appliance-upgrades"></a>Atualizações de aparelhos
 
-O aparelho é atualizado à medida que os agentes da Migração Azure que estão a funcionar no aparelho são atualizados. Isto acontece automaticamente porque a atualização automática está ativada no aparelho por defeito. Pode alterar esta definição predefinida para atualizar manualmente os agentes.
+O aparelho é atualizado à medida que os agentes da Migração Azure que estão a funcionar no aparelho são atualizados. Isto acontece automaticamente, uma vez que a atualização automática está ativada no aparelho por defeito. Pode alterar esta definição predefinida, para atualizar manualmente os serviços de aparelhos.
 
-- Desligue a **atualização automática**: Desliga a atualização automática no registo, definindo HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" para 0 (DWORD). Se decidir utilizar atualizações manuais, é importante atualizar todos os agentes do aparelho ao mesmo tempo, utilizando o botão **Atualizar** para cada agente desatualizado do aparelho.
-- **Atualização manual**: Para atualizações manuais, certifique-se de que atualiza todos os agentes do aparelho, utilizando o botão **Atualizar** para cada agente desatualizado do aparelho. Pode mudar a definição da atualização para atualizações automáticas a qualquer momento.
+### <a name="turn-off-auto-update"></a>Desligue a atualização automática
 
-![Atualizar automaticamente o aparelho](./media/migrate-appliance/autoupdate.png)
+1. Na máquina que executa o aparelho, abra o Editor de Registo.
+2. Navegue para **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. Para desativar a atualização automática, crie uma chave de registo **AutoUpdate** com o valor DWORD de 0.
+
+    ![Definir chave de registo](./media/migrate-appliance/registry-key.png)
+
+
+### <a name="turn-on-auto-update"></a>Ativar a tualização automática
+
+Pode ativar a atualização automática utilizando qualquer um destes métodos:
+
+- Ao apagar a chave de registo AutoUpdate de HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+- Após a descoberta estar concluída, no Gestor de Configuração do Aparelho.
+
+Para eliminar a chave de registo:
+
+1. Na máquina que executa o aparelho, abra o Editor de Registo.
+2. Navegue para **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. Elimine a chave de registo **AutoUpdate,** que foi previamente criada para desligar a atualização automática.
+
+Para ligar a partir do Gestor de Configuração do Aparelho, após a descoberta estar completa:
+
+1. Na máquina do aparelho, abra o Gestor de Configuração do Aparelho.
+2. Nos **serviços de eletrodomésticos** > A**atualização automática dos componentes do Azure Migrate é desligada,** clique para ligar a atualização automática.
+
+    ![Ativar atualizações automáticas](./media/migrate-appliance/turn-on.png)
+
+### <a name="check-the-appliance-services-version"></a>Verifique a versão dos serviços de eletrodomésticos
+
+Pode verificar a versão dos serviços de eletrodomésticos utilizando qualquer um destes métodos:
+
+- No Gestor de Configuração do Aparelho, após a descoberta estar concluída.
+- Na máquina do aparelho, nos**Programas e Características**do **Painel** > de Controlo .
+
+Para verificar o Gestor de Configuração do Aparelho:
+
+1. Após a descoberta estar concluída, abra o Gestor de Configuração do Aparelho (na aplicação web do aparelho).
+2. Nos **serviços de eletrodomésticos,** verifique as versões dos serviços de eletrodomésticos.
+
+    ![Ver versão](./media/migrate-appliance/version.png)
+
+Para verificar no Painel de Controlo:
+
+1. No aparelho, clique em**Programas e Funcionalidades** do**Painel** > de Controlo **de Início** > 
+2. Verifique as versões dos serviços de eletrodomésticos na lista.
+
+    ![Ver versão no Painel de Controlo](./media/migrate-appliance/programs-features.png)
+
+### <a name="manually-update-an-older-version"></a>Atualizar manualmente uma versão mais antiga
+
+Se estiver a executar uma versão mais antiga para qualquer um dos componentes, tem de desinstalar o serviço e atualizar manualmente para a versão mais recente.
+
+1. Para verificar as versões mais recentes do serviço de eletrodomésticos, [descarregue](https://aka.ms/latestapplianceservices) o ficheiro LatestComponents.json.
+2.  Depois de descarregar, abra o ficheiro LatestComponents.json no Bloco de Notas.
+3. Encontre a versão de serviço mais recente no ficheiro e o link de descarregamento para o mesmo. Por exemplo:
+
+    "Nome": "ASRMigrationWebApp", "DownloadLink": " "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msiversão": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+
+4.  Descarregue a versão mais recente de um serviço desatualizado, utilizando o link de descarregamento no ficheiro.
+5. Depois de descarregar, faça o seguinte comando numa janela de comando de administrador, para verificar a integridade do MSI descarregado.
+
+    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Por exemplo:\>C: CertUtil -HashFile C:\Utilizadores\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
+
+5. Verifique se a saída de comando corresponde à entrada do valor hash para o serviço no ficheiro (por exemplo, o valor hash MD5 acima).
+6. Agora, execute o MSI para instalar o serviço. É uma instalação silenciosa, e a janela de instalação fecha depois de ser feita.
+7. Após a instalação estar concluída, verifique a versão do serviço em**Programas e Funcionalidades**do **painel** > de controlo . A versão de serviço deve agora ser atualizada para as mais recentes mostradas no ficheiro json.
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

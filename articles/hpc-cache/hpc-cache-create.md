@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: v-erkel
-ms.openlocfilehash: befbe2435a518b82cf5a3ab12e6129aa3ce5c22b
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: efa9037b345cdfc5f165e9c5e0c1831ea97b52ed
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537984"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106496"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar uma Cache Azure HPC
 
@@ -23,7 +23,7 @@ Utilize o portal Azure para criar a sua cache.
 
 ![screenshot da página de detalhes do projeto no portal Azure](media/hpc-cache-create-basics.png)
 
-Em Detalhes do **Projeto**, selecione o grupo de subscrição e recursos que irá acolher a cache.
+Em Detalhes do **Projeto**, selecione o grupo de subscrição e recursos que irá acolher a cache. Certifique-se de que a subscrição está na lista de [acesso.](hpc-cache-prereqs.md#azure-subscription)
 
 Em Detalhes de **Serviço,** detete o nome cache e estes outros atributos:
 

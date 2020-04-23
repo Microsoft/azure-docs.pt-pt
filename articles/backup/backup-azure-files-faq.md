@@ -3,12 +3,12 @@ title: FAQ sobre como Fazer Cópias de Segurança de Ficheiros do Azure
 description: Neste artigo, descubra respostas a perguntas comuns sobre como proteger as suas partilhas de ficheiros Azure com o serviço De backup Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b89e4a55bc8bc4ef2f4cdb50059537fe7708b6a6
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: d7b19fd11e6784a188a18f6a613eef5ff4f77764
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101166"
+ms.locfileid: "82105646"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 
@@ -74,7 +74,7 @@ Sim. Consulte a documentação detalhada [aqui](backup-azure-afs-automation.md).
 
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-them"></a>Posso aceder às fotos tiradas pelos Backups Azure e montá-las?
 
-Todas as imagens tiradas pelo Azure Backup podem ser acedidas através da visualização de instantâneos no portal, PowerShell ou CLI. Para saber mais sobre os instantâneos de partilha de Ficheiros do Azure, veja [Descrição geral de instantâneos de partilha de Ficheiros do Azure (pré-visualização)](../storage/files/storage-snapshots-files.md).
+Todas as imagens tiradas pelo Azure Backup podem ser acedidas através da visualização de instantâneos no portal, PowerShell ou CLI. Para saber mais sobre o Azure Files partilhar fotos, consulte a [visão geral das imagens de partilha para Ficheiros Azure](../storage/files/storage-snapshots-files.md).
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Qual é a retenção máxima que posso configurar para cópias de segurança?
 

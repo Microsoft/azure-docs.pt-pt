@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/26/2016
-ms.openlocfilehash: 3ada12a0cde122fb78815a1d3241d8acb9da2580
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 8aed4f44b597235557a495a263c6a4ddf8e93ce7
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651462"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106326"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens EDIFACT para integração empresarial B2B em Aplicações Lógicas Azure com Pacote de Integração Empresarial
 
@@ -36,7 +36,7 @@ Depois de criar uma conta de [integração](../logic-apps/logic-apps-enterprise-
 
 ## <a name="create-an-edifact-agreement"></a>Criar um acordo EDIFACT 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com "Portal do Azure"). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com "Portal do Azure"). 
 
 2. No menu Azure principal, selecione **Todos os serviços.** Na caixa de pesquisa, insira "integração", e, em seguida, selecione **contas integrais.**
 
@@ -76,6 +76,10 @@ Depois de criar uma conta de [integração](../logic-apps/logic-apps-enterprise-
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configure como o seu acordo lida com mensagens recebidas
 
 Agora que definiu as propriedades do contrato, pode configurar como este acordo identifica e lida com as mensagens recebidas do seu parceiro através deste acordo.
+
+> [!IMPORTANT]
+> O conector EDIFACT suporta apenas caracteres UTF-8.
+> Se a sua saída contiver caracteres inesperados, verifique se as suas mensagens EDIFACT utilizam o conjunto de caracteres UTF-8.
 
 1. Em **'Adicionar',** **selecione 'Receber Definições**' .
 Configure estas propriedades com base no seu acordo com o parceiro que troca mensagens consigo. Para descrições de propriedades, consulte as tabelas nesta secção.

@@ -6,20 +6,18 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 62afa5ee6993aa1bb3c7b5926e5320ab1fa510a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ba34edfc382f0f03abe080d78a6a47dcb65501b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74157606"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82105765"
 ---
 # <a name="azure-signalr-service-internals"></a>Detalhes internos do Serviço SignalR do Azure
 
-O Serviço De Sinalização Azure é construído em cima da estrutura de ASP.NET Core SignalR. Também suporta ASP.NET SignalR como uma funcionalidade de pré-visualização.
+O Serviço De Sinalização Azure é construído em cima da estrutura de ASP.NET Core SignalR. Também suporta ASP.NET SignalR reimplementando ASP.NET protocolo de dados do SignalR para além do quadro central ASP.NET.
 
-> Para apoiar ASP.NET SignalR, o Serviço De Sinalização Azure reimplementa ASP.NET protocolo de dados do SignalR para além do quadro central ASP.NET
-
-Pode migrar facilmente uma aplicação local ASP.NET Core SignalR para trabalhar com o SignalR Service, com algumas linhas de alteração de código.
+Pode migrar facilmente uma aplicação local ASP.NET Core SignalR ou ASP.NET aplicação SignalR para trabalhar com o SignalR Service, com algumas linhas de alteração de código.
 
 O diagrama abaixo descreve a arquitetura típica quando utiliza o Serviço SignalR com o seu servidor de aplicações.
 

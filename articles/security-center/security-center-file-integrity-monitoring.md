@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: 4d65ca8d97e1cca81886259d4f15cc880e45be9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46ff4d9c941af25fcec3a70d7a2e6da95da59f32
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77604282"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106700"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>File Integrity Monitoring in Azure Security Center (Monitorização da Integridade dos Ficheiros no Centro de Segurança do Azure)
 Saiba como configurar a Monitorização da Integridade do Ficheiro (FIM) no Centro de Segurança Azure utilizando esta passagem.
@@ -45,7 +45,39 @@ O FIM utiliza a solução Azure Change Tracking para rastrear e identificar muda
 ## <a name="which-files-should-i-monitor"></a>Que ficheiros devo monitorizar?
 Deve pensar nos ficheiros que são fundamentais para o seu sistema e aplicações ao escolher quais ficheiros monitorizar. Considere escolher ficheiros que não espera mudar sem planear. A escolha de ficheiros que são frequentemente alterados por aplicações ou sistema operativo (como ficheiros de registo e ficheiros de texto) criam muito ruído que dificulta a identificação de um ataque.
 
-O Security Center recomenda quais os ficheiros que deve monitorizar como padrão de acordo com padrões de ataque conhecidos que incluem alterações de ficheiros e registos.
+O Security Center fornece a seguinte lista de itens recomendados para monitorizar com base em padrões de ataque conhecidos. Estes incluem ficheiros e chaves de registo do Windows. Todas as chaves estão sob HKEY_LOCAL_MACHINE ("HKLM" na mesa.)
+
+|**Ficheiros Linux**|**Ficheiros Windows**|**Chaves de registo de janelas**|
+|:----|:----|:----|
+|/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295E}|
+|/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/etc/*.conf|C:\config.sys|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\SYSTEM.ini\boot|
+|/usr/bin|C:\Windows\system.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows|
+|/usr/sbin|C:\Windows\win.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon|
+|/bin|C:\Windows\regedit.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Pastas|
+|/sbin|C:\Windows\System32\userinit.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders|
+|/bota|C:\Windows\explorer.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run|
+|/usr/local/bin|C:\Program Files\Microsoft Security Client\msseces.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce|
+|/usr/local/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx|
+|/opt/bin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices|
+|/opt/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+|/etc/crontab||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{C689AB8-8E78-11D0-8C47-00C04FC295E}|
+|/etc/init.d||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/etc/cron.hora||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini\boot|
+|/etc/cron.daily||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Windows|
+|/etc/cron.weekly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Winlogon|
+|/etc/cron.mensalmente||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\Shell Pastas|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnceEx|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServices|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+|||HKLM\SYSTEM\CurrentControlSet\Control\hivelist|
+|||HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parâmetros\FirewallPolicy\DomainProfile|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parâmetros\FirewallPolicy\PublicProfile|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parâmetros\FirewallPolicy\StandardProfile|
 
 ## <a name="using-file-integrity-monitoring"></a>Utilização da monitorização da integridade do ficheiro
 1. Abra o dashboard **Centro de Segurança**.
@@ -85,8 +117,7 @@ Para permitir o FIM num espaço de trabalho:
 
 > [!NOTE]
 > Pode alterar as definições a qualquer momento. Consulte as entidades monitorizadas do Edit abaixo para saber mais.
->
->
+
 
 ## <a name="view-the-fim-dashboard"></a>Ver o painel fim
 O painel de monitorização da **integridade** do Ficheiro apresenta-se para espaços de trabalho onde o FIM está ativado. O painel fim abre depois de ativar o FIM num espaço de trabalho ou quando seleciona um espaço de trabalho na janela de monitorização da **integridade** do ficheiro que já tem o FIM ativado.
@@ -203,9 +234,6 @@ Neste artigo, aprendeu a usar a Monitorização da Integridade do Ficheiro (FIM)
 
 * [Definir políticas](tutorial-security-policy.md) de segurança -- Aprenda a configurar políticas de segurança para as suas subscrições e grupos de recursos Do Azure.
 * [Gerir recomendações](security-center-recommendations.md) de segurança -- Saiba como as recomendações ajudam a proteger os seus recursos Azure.
-* [Monitorização da saúde](security-center-monitoring.md)de segurança -- Aprenda a monitorizar a saúde dos seus recursos Azure.
-* [Gerir e responder a alertas](security-center-managing-and-responding-alerts.md)de segurança --Aprender a gerir e responder a alertas de segurança.
-* [Monitorizar as soluções](security-center-partner-solutions.md) de parceiros -- Aprenda a monitorizar o estado de saúde das soluções do seu parceiro.
 * [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – Obtenha as notícias e informações mais recentes de segurança do Azure.
 
 <!--Image references-->

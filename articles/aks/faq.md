@@ -3,12 +3,12 @@ title: Perguntas frequentes para o Serviço Azure Kubernetes (AKS)
 description: Encontre respostas a algumas das perguntas comuns sobre o Serviço Azure Kubernetes (AKS).
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: c4bb4328af5df7f729967c7b249847b2ab098770
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f91fe1c63430a0eac23cf9cbc184babb6dd5f7a4
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79497761"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106089"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
 
@@ -96,6 +96,25 @@ A AKS suporta os [seguintes controladores de admissão:][admission-controllers]
 - *Quota de Recursos*
 
 Atualmente, não pode modificar a lista de controladores de admissão no AKS.
+
+## <a name="can-i-use-admission-controller-webhooks-on-aks"></a>Posso usar webhooks controladores de admissão no AKS?
+
+Sim, pode usar webhooks controladores de admissão no AKS. Recomenda-se que exclua espaços de nome aks internos marcados com a etiqueta de **plano de controlo.** Por exemplo, adicionando o abaixo à configuração do webhook:
+
+```
+namespaceSelector:
+    matchExpressions:
+    - key: control-plane
+      operator: DoesNotExist
+```
+
+## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>Os webhooks do controlador de admissão podem ter impacto no sistema kube e nos espaços de nome saldação internos aks?
+
+Para proteger a estabilidade do sistema e evitar que os controladores de admissão personalizados afetem os serviços internos no sistema kube, o espaço de nome AKS tem um Executor de **Admissões,** que exclui automaticamente o sistema de kube e os espaços de nome interno AKS. Este serviço garante que os controladores de admissão personalizados não afetam os serviços em execução no sistema kube.
+
+Se tiver um caso de utilização crítica para ter algo implantado no sistema kube (não recomendado) que necessita de ser coberto pelo seu webhook de admissão personalizada, pode adicionar a etiqueta ou anotação abaixo para que o Executor de Admissões o ignore.
+
+Etiqueta: ```"admissions.enforcer/disabled": "true"``` ou Anotação:```"admissions.enforcer/disabled": true```
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>O Cofre chave Azure está integrado com aks?
 

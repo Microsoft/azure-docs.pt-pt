@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: ab342dba5c8be2ff3793c0eb36926969b3e364e5
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 4508ef7583760a7ef7503f8a6f37202af2684d81
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537292"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106513"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para Cache Azure HPC
 
@@ -20,6 +20,9 @@ Antes de utilizar o portal Azure para criar um novo Azure HPC Cache, certifique-
 ## <a name="azure-subscription"></a>Subscrição do Azure
 
 Recomenda-se uma subscrição paga.
+
+> [!NOTE]
+> A equipa azure HPC Cache deve adicionar a sua subscrição à lista de acesso antes de poder ser usada para criar uma instância de cache. Este procedimento ajuda a garantir que cada cliente obtém uma capacidade de resposta de alta qualidade a partir dos seus caches. Preencha [este formulário](https://aka.ms/onboard-hpc-cache) para solicitar acesso.
 
 ## <a name="network-infrastructure"></a>Infraestrutura de rede
 

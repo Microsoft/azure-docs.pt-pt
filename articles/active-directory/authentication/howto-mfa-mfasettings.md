@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da995afba1dc8eff295c9b724a78da95b9caac85
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 9002447df44a1f0c87ec9de03e316d7d12d8a626
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653969"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82105663"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar Definições do Multi-Factor Authentication do Azure
 
@@ -97,12 +97,12 @@ Configure a funcionalidade de alerta de _fraude_ para que os seus utilizadores p
 
 ### <a name="view-fraud-reports"></a>Ver relatórios de fraude
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Selecione > **Inscrições de** **Diretório Ativo Azure**. O relatório de fraude faz agora parte do relatório padrão de sign-ins da AD.
-
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Selecione Detalhes de**autenticação****de insugações** > de **diretórios** > ativos azure . O relatório de fraude faz agora parte do relatório padrão de sign-ins da AD Azure e vai aparecer no "Detalhe de **Resultados",** como o MFA negou, Código de Fraude introduzido.
+ 
 ## <a name="notifications"></a>Notificações
 
-Configure aqui endereços de e-mail para utilizadores que receberão e-mails de alerta de fraude.
+Configure aqui endereços de e-mail para utilizadores que receberão e-mails de alerta de fraude em**Notificações** > de**Autenticação Multi-Factor**de > **Segurança** >  **do Diretório Ativo do Azure**.
 
 ![Amostra de e-mail de alerta de fraude de notificação](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
@@ -192,7 +192,7 @@ A funcionalidade _de bypass única_ permite que um utilizador autentique uma ún
 
 ### <a name="view-the-one-time-bypass-report"></a>Veja o relatório de bypass único
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue até **azure ative diretório** > **Segurança** > **MFA** > Bypass**one time**.
 
 ## <a name="caching-rules"></a>Regras de caching
@@ -277,7 +277,7 @@ A Azure AD suporta a federação, ou única inscrição (SSO), com serviços de 
 
 Por padrão, os utilizadores não podem criar senhas de aplicação. A função de palavras-passe da aplicação deve ser ativada. Para dar aos utilizadores a capacidade de criar palavras-passe de aplicações, utilize o seguinte procedimento:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Utilizadores de Diretório** > Ativo Azure **.**
 3. **Selecione a autenticação de vários fatores.**
 4. Em termos de autenticação de vários fatores, selecione **as definições**de serviço .
@@ -317,7 +317,7 @@ Independentemente de a funcionalidade IPs fidedigna estar ativada, é necessári
 
 ### <a name="enable-named-locations-by-using-conditional-access"></a>Ativar locais nomeados utilizando acesso condicional
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Ative Diretório Ative** > **Directy Security** > Conditional**Access** > Local **.**
 3. Selecione **Nova localização**.
 4. Insira um nome para a localização.
@@ -327,7 +327,7 @@ Independentemente de a funcionalidade IPs fidedigna estar ativada, é necessári
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Ativar a funcionalidade IPs fidedigno utilizando o Acesso Condicional
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Ative Diretório Ative** > **Directy Security** >  Conditional**Access** > Local **.**
 3. **Selecione Configure MFA fidedigno de IPs**.
 4. Na página Definições de **Serviço,** em **IPs fidedignos,** escolha entre qualquer uma das duas opções seguintes:
@@ -345,7 +345,7 @@ Independentemente de a funcionalidade IPs fidedigna estar ativada, é necessári
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Ativar a função IPs fidedigna utilizando definições de serviço
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Utilizadores de Diretório** > Ativo Azure **.**
 3. **Selecione a autenticação de vários fatores.**
 4. Em termos de autenticação de vários fatores, selecione **as definições**de serviço .
@@ -377,7 +377,7 @@ Quando os seus utilizadores matriculam as suas contas para a Autenticação Mult
 
 ### <a name="enable-and-disable-verification-methods"></a>Ativar e desativar métodos de verificação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Utilizadores de Diretório** > Ativo Azure **.**
 3. **Selecione a autenticação de vários fatores.**
 4. Em termos de autenticação de vários fatores, selecione **as definições**de serviço .
@@ -413,7 +413,7 @@ A funcionalidade reduz o número de autenticações em aplicações web, o que n
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Ativar lembre-se da autenticação de vários fatores
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Utilizadores de Diretório** > Ativo Azure **.**
 3. **Selecione a autenticação de vários fatores.**
 4. Em termos de autenticação de vários fatores, selecione **as definições**de serviço .

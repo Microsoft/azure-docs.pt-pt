@@ -6,13 +6,13 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/30/2019
-ms.openlocfilehash: ece6fdb743035069bc6c666d6e90c76860f63e82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/23/2020
+ms.openlocfilehash: 3c4f6afe56f592c99a8d8fc4949bdfb9aab3d336
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75744902"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106666"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -26,7 +26,7 @@ Aprenda a usar Apache Oozie com Apache Hadoop no Azure HDInsight. Oozie é um si
 Você também pode usar Oozie para agendar trabalhos específicos para um sistema, como programas Java ou scripts de concha.
 
 > [!NOTE]  
-> Outra opção para definir fluxos de trabalho com hDInsight é usar a Azure Data Factory. Para saber mais sobre data factory, consulte [Use Apache Pig e Apache Hive com Data Factory][azure-data-factory-pig-hive]. Para utilizar o Oozie em clusters com pacote de segurança empresarial, consulte [run Apache Oozie em clusters Hadoop HDInsight com pacote](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)de segurança empresarial .
+> Outra opção para definir fluxos de trabalho com hDInsight é usar a Azure Data Factory. Para saber mais sobre data factory, consulte [Use Apache Pig e Apache Hive com Data Factory](../data-factory/transform-data.md). Para utilizar o Oozie em clusters com pacote de segurança empresarial, consulte [run Apache Oozie em clusters Hadoop HDInsight com pacote](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)de segurança empresarial .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ Você também pode usar Oozie para agendar trabalhos específicos para um sistem
 
 * **Uma base de dados Azure SQL.**  Consulte [Criar uma base de dados Azure SQL no portal Azure](../sql-database/sql-database-get-started.md).  Este artigo utiliza uma base de dados chamada **oozietest**.
 
-* O [esquema URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário dos seus clusters. Isto seria `wasb://` para o `abfs://` Armazenamento Azure, para o `adl://` Azure Data Lake Storage Gen2 ou para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para `wasbs://`o Armazenamento Azure, o URI seria . Ver também, [transferência segura.](../storage/common/storage-require-secure-transfer.md)
+* O esquema URI para o armazenamento primário dos seus clusters. `wasb://`para armazenamento azure, `abfs://` para Azure Data `adl://` Lake Storage Gen2 ou para Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para `wasbs://`o Armazenamento Azure, o URI seria . Ver também, [transferência segura.](../storage/common/storage-require-secure-transfer.md)
 
 ## <a name="example-workflow"></a>Fluxo de trabalho de exemplo
 
@@ -52,12 +52,12 @@ O fluxo de trabalho utilizado neste documento contém duas ações. As ações s
 
     O script da Hive usado neste documento conta o total de visitas para cada plataforma, como Android ou iPhone, e armazena as contagens para uma nova mesa da Hive.
 
-    Para mais informações sobre a Hive, consulte [Use Apache Hive com HDInsight][hdinsight-use-hive].
+    Para obter mais informações sobre a Hive, consulte [Use Apache Hive com HDInsight][hdinsight-use-hive].
 
-2. Uma ação Sqoop exporta o conteúdo da nova tabela Hive para uma tabela criada na Base de Dados Azure SQL. Para mais informações sobre o Sqoop, consulte [Use Apache Sqoop com HDInsight][hdinsight-use-sqoop].
+2. Uma ação Sqoop exporta o conteúdo da nova tabela Hive para uma tabela criada na Base de Dados Azure SQL. Para mais informações sobre o Sqoop, consulte [Use Apache Sqoop com HDInsight](hadoop/apache-hadoop-use-sqoop-mac-linux.md).
 
 > [!NOTE]  
-> Para versões Oozie suportadas em clusters HDInsight, veja [as novidades nas versões de cluster Hadoop fornecidas pela HDInsight][hdinsight-versions].
+> Para versões Oozie suportadas em clusters HDInsight, veja [as novidades nas versões de cluster Hadoop fornecidas pela HDInsight](hdinsight-component-versioning.md).
 
 ## <a name="create-the-working-directory"></a>Criar o diretório de trabalho
 
@@ -89,7 +89,7 @@ Oozie espera que guarde todos os recursos necessários para um trabalho no mesmo
 
 ## <a name="add-a-database-driver"></a>Adicione um controlador de base de dados
 
-Uma vez que este fluxo de trabalho utiliza o SQoop para exportar dados para a base de dados SQL, deve fornecer uma cópia do controlador JDBC utilizado para interagir com a base de dados SQL. Para copiar o condutor JDBC para o diretório de trabalho, utilize o seguinte comando da sessão SSH:
+Este fluxo de trabalho utiliza o SQoop para exportar dados para a base de dados SQL. Por isso, deve fornecer uma cópia do controlador JDBC utilizado para interagir com a base de dados SQL. Para copiar o condutor JDBC para o diretório de trabalho, utilize o seguinte comando da sessão SSH:
 
 ```bash
 hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozie/
@@ -405,7 +405,7 @@ Os seguintes passos utilizam o comando Oozie para submeter e gerir os fluxos de 
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
     ```
 
-3. Para submeter o trabalho, utilize o seguinte:
+3. Para submeter o trabalho, utilize o seguinte código:
 
     ```bash
     oozie job -config job.xml -submit
@@ -476,7 +476,7 @@ Para obter mais informações sobre o comando Oozie, consulte a [ferramenta de l
 
 ## <a name="oozie-rest-api"></a>Oozie REST API
 
-Com a API Rest Oozie, você pode construir suas próprias ferramentas que trabalham com Oozie. Seguem-se informações específicas do HDInsight sobre a utilização da API Oozie REST:
+Com a API Rest Oozie, você pode construir suas próprias ferramentas que trabalham com Oozie. As seguintes informações específicas do HDInsight sobre a utilização da API Rest Oozie:
 
 * **URI**: Pode aceder à API REST `https://CLUSTERNAME.azurehdinsight.net/oozie`de fora do cluster a .
 
@@ -526,7 +526,7 @@ Para aceder à UI web oozie, complete os seguintes passos:
 
    * **Job DAG**: O DAG é uma visão gráfica dos caminhos de dados tomados através do fluxo de trabalho.
 
-       ![HDInsight Apache Oozie job dag](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
+       !['HDInsight Apache Oozie job dag'](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
 7. Se selecionar uma das ações do separador **Job Info,** ele traz informações para a ação. Por exemplo, selecione a ação **RunSqoopExport.**
 
@@ -655,7 +655,7 @@ Com a Oozie UI, pode ver os registos da Oozie. O Oozie UI também contém links 
 
 Seguem-se erros específicos que poderá encontrar e como resolvê-los.
 
-### <a name="ja009-cannot-initialize-cluster"></a>JA009: Não pode inicializar o cluster
+### <a name="ja009-cant-initialize-cluster"></a>JA009: Não pode inicializar o cluster
 
 **Sintomas**: O estado do trabalho muda para **SUSPENSO**. Os detalhes para `RunHiveScript` o trabalho mostram o estado como **START_MANUAL**. A seleção da ação apresenta a seguinte mensagem de erro:
 
@@ -665,7 +665,7 @@ Seguem-se erros específicos que poderá encontrar e como resolvê-los.
 
 **Resolução**: Alterar os endereços de armazenamento blob que o trabalho utiliza.
 
-### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltusergt"></a>JA002: Oozie não pode &lt;personificar USER&gt;
+### <a name="ja002-oozie-isnt-allowed-to-impersonate-ltusergt"></a>JA002: Oozie não está autorizado &lt;a personificar USER&gt;
 
 **Sintomas**: O estado do trabalho muda para **SUSPENSO**. Os detalhes para `RunHiveScript` o trabalho mostram o estado como **START_MANUAL**. Se selecionar a ação, mostra a seguinte mensagem de erro:
 
@@ -673,7 +673,7 @@ Seguem-se erros específicos que poderá encontrar e como resolvê-los.
 
 **Causa**: As definições de permissão atuais não permitem que o Oozie se personifique pela conta de utilizador especificada.
 
-**Resolução**: Oozie pode personificar utilizadores no grupo **de utilizadores.** Utilize `groups USERNAME` o para ver os grupos de que a conta de utilizador é membro. Se o utilizador não for membro do grupo de **utilizadores,** utilize o seguinte comando para adicionar o utilizador ao grupo:
+**Resolução**: Oozie pode **`users`** personificar utilizadores no grupo. Utilize `groups USERNAME` o para ver os grupos de que a conta de utilizador é membro. Se o utilizador não for **`users`** membro do grupo, utilize o seguinte comando para adicionar o utilizador ao grupo:
 
     sudo adduser USERNAME users
 
@@ -708,13 +708,6 @@ Por exemplo, para o trabalho neste documento, utilizaria os seguintes passos:
 
 Neste artigo, aprendeu a definir um fluxo de trabalho oozie e como gerir um trabalho de Oozie. Para saber mais sobre como trabalhar com o HDInsight, consulte os seguintes artigos:
 
-* [Enviar dados para empregos apache Hadoop no HDInsight][hdinsight-upload-data]
-* [Use Apache Sqoop com Apache Hadoop em HDInsight][hdinsight-use-sqoop]
-* [Use a Colmeia Apache com Hadoop Apache no HDInsight][hdinsight-use-hive]
-* [Desenvolver java mapReduce programas para HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-[azure-data-factory-pig-hive]: ../data-factory/transform-data.md
-[hdinsight-versions]:  hdinsight-component-versioning.md
-[hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+* [Enviar dados para empregos apache Hadoop no HDInsight](hdinsight-upload-data.md)
+* [Use Apache Sqoop com Apache Hadoop em HDInsight](hadoop/apache-hadoop-use-sqoop-mac-linux.md)
+* [Use a Colmeia Apache com Hadoop Apache no HDInsight](hadoop/hdinsight-use-hive.md)

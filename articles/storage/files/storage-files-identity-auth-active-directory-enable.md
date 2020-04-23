@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: rogarana
-ms.openlocfilehash: 44debc299054568769bfbe6cfc089cc528594274
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: b2dd501344e1ea799db58ea749395aaed05d05f8
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677081"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106560"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Ativar no local a autenticação de Serviços de Domínio ativo de diretório ativo sobre SMB para ações de ficheiros Azure
 
@@ -64,7 +64,7 @@ Antes de ativar a autenticação AD DS para as ações de ficheiros Azure, certi
 
 - Verifique a conectividade montando as partilhas de ficheiros Azure utilizando a chave da sua conta de armazenamento. 
 
-    Para verificar se o seu dispositivo e a partilha de ficheiros estão corretamente configurados, tente montar a parte do ficheiro utilizando a chave da sua conta de armazenamento. Para mais informações, consulte Utilize uma partilha de [ficheiros Azure com o Windows](storage-how-to-use-files-windows.md).
+    Para verificar se o seu dispositivo e a partilha de ficheiros estão corretamente configurados, tente [montar a parte do ficheiro](storage-how-to-use-files-windows.md) utilizando a chave da sua conta de armazenamento. Se tiver problemas na ligação ao Azure Files, consulte a ferramenta de resolução de [problemas que publicámos para erros](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)de montagem de Ficheiros Azure no Windows . Também fornecemos [orientações](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para contornar cenários quando o porto 445 está bloqueado. 
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 66a260fbb03f770ee98ec29a5f5e15e3d7dd1310
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89b3233966ac53d6c384ca6bd5ac30322fbb0b02
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599395"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106598"
 ---
 # <a name="permissions"></a>Permissões
 
@@ -34,6 +34,6 @@ Consulte [permissões no Centro](security-center-permissions.md) de Segurança A
 
 ## <a name="who-can-modify-a-security-policy"></a>Quem pode modificar uma política de segurança?
 
-Para modificar uma política de segurança, deve ser administrador de segurança ou proprietário ou colaborador dessa subscrição.
+Para modificar uma política de segurança, deve ser um Administrador de Segurança ou um Proprietário ou Colaborador dessa subscrição.
 
 Para aprender a configurar uma política de segurança, consulte definições de políticas de [segurança no Azure Security Center](tutorial-security-policy.md).

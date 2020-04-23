@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 98c15fe11b64e8c177e60a2ea1eb7c50eaf69353
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f1611e6d3524cc78fc20fed9d1aac6f3fd453fa
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124781"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106445"
 ---
 # <a name="authorizing-database-access-to-authenticated-users-to-sql-database-and-azure-synapse-analytics-using-logins-and-user-accounts"></a>Autorizar o acesso à base de dados a utilizadores autenticados na Base de Dados SQL e na Azure Synapse Analytics utilizando logins e contas de utilizador
 
@@ -39,7 +39,7 @@ Quando um utilizador tenta ligar-se a uma base de dados, fornece uma conta de ut
 
 - [Autenticação SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
-  Com este método de autenticação, o utilizador submete um nome de conta de utilizador e uma senha associada para estabelecer uma ligação. Esta palavra-passe é armazenada na base de dados principal para contas de utilizador ligadas a um login ou armazenadas na base de dados que contém a conta do utilizador para contas de utilizador não ligadas a um login.
+  Com este método de autenticação, o utilizador submete um nome de conta de utilizador e uma senha associada para estabelecer uma ligação. Esta palavra-passe é armazenada na base de dados principal para contas de utilizador ligadas a um login ou armazenadas na base de dados contendo as contas do utilizador *não* ligadas a um login.
 - [Autenticação do Azure Active Directory](sql-database-aad-authentication.md)
 
   Com este método de autenticação, o utilizador submete um nome de conta de utilizador e solicita que o serviço utilize as informações credenciais armazenadas no Diretório Ativo Azure.

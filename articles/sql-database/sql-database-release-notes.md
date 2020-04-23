@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: sstein
-ms.openlocfilehash: 7d922aa0727ad28054d050a29039951d3f04985f
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 27a62223970b0f697465ce9aa050f3fccbcae464
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383379"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106428"
 ---
 # <a name="sql-database-release-notes"></a>Notas de lançamento da Base de Dados SQL
 
@@ -96,7 +96,7 @@ As seguintes funcionalidades estão ativadas no modelo de implementação de ins
 |[Exceder espaço de armazenamento com pequenos ficheiros de base de dados](#exceeding-storage-space-with-small-database-files)||Tem Sem-teto||
 |[Valores GUIA mostrados em vez de nomes de bases de dados](#guid-values-shown-instead-of-database-names)||Tem Sem-teto||
 |[Os registos de erro não são persistidos](#error-logs-arent-persisted)||Sem Sem Suver||
-|[O âmbito de transação em duas bases de dados dentro da mesma instância não é suportado](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Tem Sem-teto||
+|[O âmbito de transação em duas bases de dados dentro da mesma instância não é suportado](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Tem Sem-teto|Março de 2020|
 |[Módulos CLR e servidores ligados às vezes não conseguem fazer referência a um endereço IP local](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Tem Sem-teto||
 |Consistência da base de dados não verificada utilizando o DBCC CHECKDB após restaurar a base de dados do Armazenamento De Blob Azure.||Resolvido|Nov 2019|
 |A restauração da base de dados ponto-a-tempo do nível Business Critical para o nível de Propósito Geral não terá sucesso se a base de dados de origem contiver objetos OLTP na memória.||Resolvido|Out 2019|
@@ -228,7 +228,7 @@ Os registos de erro disponíveis em instância gerida não são persistentes, e 
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>O âmbito de transação em duas bases de dados dentro da mesma instância não é suportado
 
-A `TransactionScope` classe em .NET não funciona se duas consultas forem enviadas para duas bases de dados dentro do mesmo âmbito de transação:
+**(Resolvido em março de 2020)** A `TransactionScope` classe em .NET não funciona se duas consultas forem enviadas para duas bases de dados dentro do mesmo âmbito de transação:
 
 ```csharp
 using (var scope = new TransactionScope())
@@ -253,9 +253,7 @@ using (var scope = new TransactionScope())
 
 ```
 
-Embora este código funcione com dados dentro da mesma instância, exigiu mSDTC.
-
-**Supor:** Utilize [sqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar outra base de dados num contexto de ligação em vez de utilizar duas ligações.
+**Supor (não necessário desde março de 2020):** Utilize [sqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar outra base de dados num contexto de ligação em vez de utilizar duas ligações.
 
 ### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>Módulos CLR e servidores ligados às vezes não conseguem fazer referência a um endereço IP local
 
