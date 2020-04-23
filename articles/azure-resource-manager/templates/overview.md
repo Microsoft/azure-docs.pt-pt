@@ -3,12 +3,12 @@ title: Descrição geral de modelos
 description: Descreve os benefícios usando modelos do Gestor de Recursos Azure para a implantação de recursos.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885740"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086339"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos do ARM?
 
@@ -50,7 +50,7 @@ Se estiver a tentar decidir entre usar modelos ARM e uma das outras infraestrutu
 
 * **Planos de implementação:** Pode aproveitar as plantas fornecidas pela Microsoft para cumprir as [normas](../../governance/blueprints/overview.md) regulamentares e de conformidade. Estas plantas incluem modelos pré-construídos para várias arquiteturas.
 
-* **Integração CI/CD:** Pode integrar modelos nas suas ferramentas de integração contínua e implantação contínua (CI/CD), que podem automatizar os seus gasodutos de libertação para atualizações rápidas e fiáveis de aplicações e infraestruturas. Ao utilizar a tarefa de modelo Azure DevOps e Resource Manager, pode utilizar os Pipelines Azure para construir e implementar continuamente projetos de modelo sarm. Para saber mais, consulte o [projeto VS com oleodutos](add-template-to-azure-pipelines.md) e [integração contínua com os Oleodutos Azure.](template-tutorial-use-azure-pipelines.md)
+* **Integração CI/CD:** Pode integrar modelos nas suas ferramentas de integração contínua e implantação contínua (CI/CD), que podem automatizar os seus gasodutos de libertação para atualizações rápidas e fiáveis de aplicações e infraestruturas. Ao utilizar a tarefa de modelo Azure DevOps e Resource Manager, pode utilizar os Pipelines Azure para construir e implementar continuamente projetos de modelo sarm. Para saber mais, consulte o [projeto VS com oleodutos](add-template-to-azure-pipelines.md) e tutorial: Integração contínua de modelos de Gestor de [Recursos Azure com Pipelines Azure](./deployment-tutorial-pipeline.md).
 
 * **Código exportável**: Pode obter um modelo para um grupo de recursos existente, exportando o estado atual do grupo de recursos, ou visualizando o modelo utilizado para uma determinada implantação. Ver o [modelo exportado](export-template-portal.md) é uma forma útil de aprender sobre a sintaxe do modelo.
 

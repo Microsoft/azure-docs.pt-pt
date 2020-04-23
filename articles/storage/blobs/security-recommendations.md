@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 0ceef2561d84a1fa491ab9577e1eac789b62bef7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 0b32f7e8fa2ec0d1d28f2fd42147e140d2d03341
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454633"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086118"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para armazenamento blob
 
@@ -57,6 +57,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Ativar regras de firewall | Configure as regras de firewall para limitar o acesso à sua conta de armazenamento a pedidos originários de endereços ou gamas IP especificados, ou a partir de uma lista de subredes numa Rede Virtual Azure (VNet). Para obter mais informações sobre a configuração das regras de firewall, consulte as definições de [proxy e firewall do Ficheiro Azure](../files/storage-sync-files-firewall-and-proxy.md). | - |
 | Permitir que serviços confiáveis da Microsoft acedam à conta de armazenamento | A aplicação das regras de firewall para a sua conta de armazenamento bloqueia os pedidos de dados por defeito, a menos que os pedidos tenham origem num serviço que opera dentro de uma Rede Virtual Azure (VNet) ou de endereços IP públicos permitidos. Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, dos serviços de exploração madeireira e métrica, e assim por diante. Pode autorizar pedidos de outros serviços do Azure adicionando uma exceção para permitir que serviços confiáveis da Microsoft acedam à conta de armazenamento. Para obter mais informações sobre a adição de uma exceção para serviços fidedignos da Microsoft, consulte as definições de [proxy e firewall do Web Do Ficheiro Azure.](../files/storage-sync-files-firewall-and-proxy.md)| - |
 | Utilizar pontos finais privados | Um ponto final privado atribui um endereço IP privado da sua Rede Virtual Azure (VNet) à conta de armazenamento. Protege todo o tráfego entre o seu VNet e a conta de armazenamento sobre um link privado. Para mais informações sobre pontos finais privados, consulte o Connect em privado para uma conta de [armazenamento utilizando o Azure Private Endpoint](../../private-link/create-private-endpoint-storage-portal.md). | - |
+| Utilize etiquetas de serviço VNet | Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereço sacados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam. Para mais informações sobre etiquetas de serviço suportadas pelo Azure Storage, consulte a visão geral das etiquetas de [serviço Azure.](../../virtual-network/service-tags-overview.md) Para um tutorial que mostre como usar etiquetas de serviço para criar regras de rede de saída, consulte [Restringir o acesso aos recursos paaS](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
 | Limitar o acesso da rede a redes específicas | Limitar o acesso à rede a redes que acolhem clientes que exigem acesso reduz a exposição dos seus recursos a ataques de rede. | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
 
 ## <a name="loggingmonitoring"></a>Exploração madeireira/monitorização
@@ -67,5 +68,5 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Documentação da segurança do Azure](https://docs.microsoft.com//azure/security/)
+- [Documentação de segurança azure](https://docs.microsoft.com//azure/security/)
 - [Documentação de desenvolvimento segura.](https://docs.microsoft.com/azure/security/develop/)

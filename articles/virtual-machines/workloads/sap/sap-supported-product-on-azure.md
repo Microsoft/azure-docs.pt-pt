@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cfc66789360f78c927dd157305074ed5ea6f32a
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 8b2f4e7a16c967b26b545d1405f973bf8b8afaae
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768454"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086135"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>O software SAP é suportado para implementações do Azure
 Este artigo descreve como pode descobrir qual o software SAP suportado para implementações do Azure e quais são as versões necessárias do sistema operativo ou lançamentos dbmS.
@@ -135,7 +135,7 @@ O suporte SAP Datahub/Vora nos Serviços Azure Kubernetes (AKS) é detalhado na 
 
 O suporte para SAP BPC 10.1 SP08 é descrito na nota de [suporte SAP #2451795](https://launchpad.support.sap.com/#/notes/2451795)
 
-O suporte à Plataforma de Comércio SAP Hybris em Azure é detalhado no [Hybris Wiki.](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) A partir de DBMS suportado para a Plataforma de Comércio SAP Hybris, ele lista como:
+O suporte à Plataforma de Comércio SAP Hybris em Azure é detalhado na [Documentação Hybris.](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html) A partir de DBMS suportado para a Plataforma de Comércio SAP Hybris, ele lista como:
 
 - SQL Server e Oracle na plataforma do sistema operativo Windows. As mesmas libertações mínimas aplicam-se ao SAP NetWeaver. Consulte a [nota de suporte sap #1928533](https://launchpad.support.sap.com/#/notes/1928533) para mais detalhes
 - SAP HANA em Chapéu Vermelho e SUSE Linux. Os tipos de VM certificados SAP HANA são necessários conforme documentado anteriormente [neste documento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support). Plataforma de Comércio SAP (Hybris) é considerada carga de trabalho OLTP

@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 9e8aa9bbbdf166ba0caf29cd0bce22b8ed321e4e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 48cdbc8188604ce1992a1cb15289576ba92902a3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685190"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086152"
 ---
 # <a name="azure-sql-auditing"></a>Auditoria de SQL do Azure
 
@@ -89,7 +89,7 @@ A secção seguinte descreve a configuração da auditoria utilizando o portal A
   
    ![opções de armazenamento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
    
-### <a name=""></a><a id="audit-storage-destination">Auditoria ao destino de armazenamento</a>
+### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Auditoria ao destino de armazenamento
 
 Para configurar registos de auditoria de escrita numa conta de armazenamento, selecione **detalhes de Armazenamento** e **armazenamento**aberto. Selecione a conta de armazenamento Azure onde os registos serão guardados e, em seguida, selecione o período de retenção. Em seguida, clique em **OK**. Os registos mais antigos do que o período de retenção são eliminados.
 
@@ -108,13 +108,13 @@ Para configurar registos de auditoria de escrita numa conta de armazenamento, se
 - Ao utilizar a Autenticação AAD, os registos de logins falhados *não* aparecerão no registo de auditoria sQL. Para ver registos de auditoria de login falhados, é necessário visitar o [portal azure Ative Diretório,]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)que regista detalhes destes eventos.
 - A auditoria às [réplicas apenas](sql-database-read-scale-out.md) de leitura está ativada automaticamente. Para mais detalhes sobre a hierarquia das pastas de armazenamento, nomeação de convenções e formato de registo, consulte o Formato de Registo de Auditoria da Base de [Dados SQL](sql-database-audit-log-format.md). 
 
-### <a name=""></a><a id="audit-log-analytics-destination">Auditoria ao destino Log Analytics</a>
+### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Auditoria ao destino Log Analytics
   
 Para configurar os registos de auditoria de escrita para um espaço de trabalho de Log Analytics, selecione **Log Analytics (Pré-visualização)** e abra **detalhes do Log Analytics**. Selecione ou crie o espaço de trabalho do Log Analytics onde os registos serão escritos e, em seguida, clique em **OK**.
    
    ![LogAnalyticsworkspace](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
-### <a name=""></a><a id="audit-event-hub-destination">Auditoria ao destino Event Hub</a>
+### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoria ao destino Event Hub
 
 > [!WARNING]
 > Permitir a auditoria num servidor que tenha um pool SQL nele **resulta no reinício do pool SQL e novamente interrompido,** o que pode incorrer em taxas de faturação.
@@ -199,7 +199,7 @@ Se optou por escrever registos de auditoria numa conta de armazenamento Azure, e
 
 <!--The description in this section refers to preceding screen captures.-->
 
-#### <a name="auditing-geo-replicated-databases"></a>Auditoria de bases de dados geo-replicadas
+### <a name="auditing-geo-replicated-databases"></a>Auditoria de bases de dados geo-replicadas
 
 Com bases de dados geo-replicadas, quando permitir a auditoria na base de dados primária, a base de dados secundária terá uma política de auditoria idêntica. Também é possível configurar auditorias na base de dados secundária, permitindo a auditoria no **servidor secundário,** independentemente da base de dados primária.
 
@@ -211,7 +211,7 @@ Com bases de dados geo-replicadas, quando permitir a auditoria na base de dados 
     >[!IMPORTANT]
     >Com a auditoria ao nível da base de dados, as definições de armazenamento da base de dados secundária serão idênticas às da base de dados primária, causando tráfego inter-regional. Recomendamos que ative apenas a auditoria ao nível do servidor e deixe a auditoria ao nível da base de dados desativada para todas as bases de dados.
 
-#### <a name="storage-key-regeneration"></a>Regeneração da chave de armazenamento
+### <a name="storage-key-regeneration"></a>Regeneração da chave de armazenamento
 
 Em produção, é provável que refresque periodicamente as suas chaves de armazenamento. Ao escrever registos de auditoria para o armazenamento do Azure, precisa de reguardar a sua política de auditoria ao refrescar as suas chaves. O processo é o seguinte:
 
@@ -226,7 +226,7 @@ Em produção, é provável que refresque periodicamente as suas chaves de armaz
 
 ## <a name="manage-azure-sql-server-and-database-auditing"></a><a id="manage-auditing"></a>Gerir a auditoria do Servidor EQL azure e da base de dados
 
-#### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
+### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
 
 **Cmdlets PowerShell (incluindo o suporte da cláusula WHERE para filtragem adicional)**:
 
@@ -239,7 +239,7 @@ Em produção, é provável que refresque periodicamente as suas chaves de armaz
 
 Para um exemplo de script, consulte a deteção de [auditoria e ameaça de Configuração utilizando powerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-#### <a name="using-rest-api"></a>Com a API REST
+### <a name="using-rest-api"></a>Com a API REST
 
 **API DE REPOUSO:**
 
@@ -255,7 +255,7 @@ Política alargada com apoio à cláusula WHERE para filtragem adicional:
 - [Obter Política de Auditoria *Alargada de* Base de Dados](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Obtenha política de auditoria *alargada do* servidor](/rest/api/sql/server%20auditing%20settings/get)
 
-#### <a name="using-azure-resource-manager-templates"></a>Utilizar modelos do Azure Resource Manager
+### <a name="using-azure-resource-manager-templates"></a>Utilizar modelos do Azure Resource Manager
 
 Pode gerir a auditoria da base de dados Azure SQL utilizando modelos do Gestor de [Recursos Azure,](../azure-resource-manager/management/overview.md) como mostram estes exemplos:
 

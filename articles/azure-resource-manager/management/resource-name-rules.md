@@ -2,13 +2,13 @@
 title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: f6203f987654b33b32da72bfec030a9d0ab69df8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/22/2020
+ms.openlocfilehash: fab1ab2bb779b3826c852e49da7970030d34594d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981533"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086390"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -534,6 +534,13 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | --- | --- | --- | --- |
 > | aglomerados | grupo de recursos | 4-63 | Alfanuméricos e hífenes.<br><br>Comece e termine com alfanumérico. |
 > | áreas de trabalho | grupo de recursos | 4-63 | Alfanuméricos e hífenes.<br><br>Comece e termine com alfanumérico. |
+
+## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
+
+> [!div class="mx-tableFixed"]
+> | Entidade | Âmbito | Comprimento | Carateres Válidos |
+> | --- | --- | --- | --- |
+> | soluções | área de trabalho | N/D | Para soluções da autoria da Microsoft, o nome deve estar no padrão:<br>`SolutionType(WorkspaceName)`<br><br>Para soluções da autoria de terceiros, o nome deve estar no padrão:<br>`SolutionType[WorkspaceName]`<br><br>Por exemplo, um nome válido é:<br>`AntiMalware(contoso-IT)`<br><br>O tipo de solução é sensível a casos. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 

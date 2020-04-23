@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 8bb56db9eed962ac8f8202c61a7446527c15dfc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11e16453cc2a6044c4b153bd1556d85545ff9625
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060902"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086628"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recomendações de segurança para armazenamento de fila
 
@@ -29,7 +29,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
-| Utilize o modelo de implementação do Gestor de Recursos Azure | Criar novas contas de armazenamento utilizando o modelo de implementação do Gestor de Recursos Azure para importantes melhorias de segurança, incluindo controlo de acesso superior (RBAC) e auditoria, implantação e governação baseadas em Gestor de Recursos, acesso a identidades geridas, acesso para azure Key Vault para segredos, e autenticação e autorização baseadas em Azure AD para acesso a dados e recursos de Armazenamento Azure. Se possível, migrar as contas de armazenamento existentes que usam o modelo de implementação clássico para utilizar o Gestor de Recursos Azure. Para mais informações sobre o Gestor de Recursos Azure, consulte a [visão geral do Gestor de Recursos do Azure.](/azure/azure-resource-manager/resource-group-overview) | - |
+| Utilize o modelo de implementação do Gestor de Recursos Azure | Criar novas contas de armazenamento utilizando o modelo de implementação do Gestor de Recursos Azure para importantes melhorias de segurança, incluindo controlo de acesso superior (RBAC) e auditoria, implantação e governação baseadas em Recursos, acesso a identidades geridas, acesso a Cofre chave Azure para segredos, e autenticação e autorização baseadas em Azure AD para acesso a dados e recursos de Armazenamento Azure. Se possível, migrar as contas de armazenamento existentes que usam o modelo de implementação clássico para utilizar o Gestor de Recursos Azure. Para mais informações sobre o Gestor de Recursos Azure, consulte a [visão geral do Gestor de Recursos do Azure.](/azure/azure-resource-manager/resource-group-overview) | - |
 | Ativar a opção **de transferência Segura necessária** em todas as suas contas de armazenamento | Quando ativa a opção necessária à **transferência Segura,** todos os pedidos feitos contra a conta de armazenamento devem ser realizados sobre ligações seguras. Quaisquer pedidos feitos sobre http falharão. Para mais informações, consulte [Exigir transferência segura no Armazenamento Azure](../common/storage-require-secure-transfer.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
 | Permitir proteção avançada de ameaças para todas as suas contas de armazenamento | A proteção avançada contra ameaças para o Armazenamento Azure fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de acesso ou exploração de contas de armazenamento. Os alertas de segurança são desencadeados no Centro de Segurança do Azure quando ocorrem anomalias na atividade e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças. Para mais informações, consulte [A proteção avançada contra ameaças para o Armazenamento Azure](../common/storage-advanced-threat-protection.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
 | Limite fichas de assinatura de acesso partilhado (SAS) apenas a ligações HTTPS | Exigir HTTPS quando um cliente usa um token SAS para aceder a dados de fila ajuda a minimizar o risco de escutas. Para mais informações, consulte Grant acesso limitado aos recursos de [Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md). | - |
@@ -52,7 +52,8 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 |-|----|--|
 | Ativar regras de firewall | Configure as regras de firewall para limitar o acesso à sua conta de armazenamento a pedidos originários de endereços ou gamas IP especificados, ou a partir de uma lista de subredes numa Rede Virtual Azure (VNet). Para obter mais informações sobre a configuração das regras de firewall, consulte as definições de [proxy e firewall do Ficheiro Azure](../files/storage-sync-files-firewall-and-proxy.md). | - |
 | Permitir que serviços confiáveis da Microsoft acedam à conta de armazenamento | A aplicação das regras de firewall para a sua conta de armazenamento bloqueia os pedidos de dados por defeito, a menos que os pedidos tenham origem num serviço que opera dentro de uma Rede Virtual Azure (VNet) ou de endereços IP públicos permitidos. Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, dos serviços de exploração madeireira e métrica, e assim por diante. Pode autorizar pedidos de outros serviços do Azure adicionando uma exceção para permitir que serviços confiáveis da Microsoft acedam à conta de armazenamento. Para obter mais informações sobre a adição de uma exceção para serviços fidedignos da Microsoft, consulte as definições de [proxy e firewall do Web Do Ficheiro Azure.](../files/storage-sync-files-firewall-and-proxy.md)| - |
-| Use pontos finais privados | Um ponto final privado atribui um endereço IP privado da sua Rede Virtual Azure (VNet) à conta de armazenamento. Protege todo o tráfego entre o seu VNet e a conta de armazenamento sobre um link privado. Para mais informações sobre pontos finais privados, consulte o Connect em privado para uma conta de [armazenamento utilizando o Azure Private Endpoint](../../private-link/create-private-endpoint-storage-portal.md). | - |
+| Utilizar pontos finais privados | Um ponto final privado atribui um endereço IP privado da sua Rede Virtual Azure (VNet) à conta de armazenamento. Protege todo o tráfego entre o seu VNet e a conta de armazenamento sobre um link privado. Para mais informações sobre pontos finais privados, consulte o Connect em privado para uma conta de [armazenamento utilizando o Azure Private Endpoint](../../private-link/create-private-endpoint-storage-portal.md). | - |
+| Utilize etiquetas de serviço VNet | Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereço sacados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam. Para mais informações sobre etiquetas de serviço suportadas pelo Azure Storage, consulte a visão geral das etiquetas de [serviço Azure.](../../virtual-network/service-tags-overview.md) Para um tutorial que mostre como usar etiquetas de serviço para criar regras de rede de saída, consulte [Restringir o acesso aos recursos paaS](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
 | Limitar o acesso da rede a redes específicas | Limitar o acesso à rede a redes que acolhem clientes que exigem acesso reduz a exposição dos seus recursos a ataques de rede. | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
 
 ## <a name="loggingmonitoring"></a>Exploração madeireira/monitorização

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: d2d74a90d6712089cff681381e11b1caec9d469d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283672"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086373"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Centros de Eventos frequentemente fazem perguntas
 
@@ -182,7 +182,7 @@ Nos ensaios, foram utilizados os seguintes critérios:
 Os resultados dão-lhe uma ideia do que pode ser alcançado com um cluster dedicado de Hubs de Eventos. Além disso, um cluster dedicado vem com a Captura de Hubs de Eventos habilitada para os seus cenários de microlote e retenção a longo prazo.
 
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Como posso criar um cluster dedicado aos Centros de Eventos?
-Cria um cluster dedicado ao Event Hubs, submetendo um pedido de apoio de aumento de [quota](https://portal.azure.com/#create/Microsoft.Support) ou contactando a equipa do [Event Hubs.](mailto:askeventhubs@microsoft.com) Normalmente demora cerca de duas semanas para que o cluster seja implantado e entregue para ser usado por si. Este processo é temporário até que um self-serve completo seja disponibilizado através do portal Azure ou modelos do Gestor de Recursos Azure, que demoram cerca de duas horas a implantar o cluster.
+Cria um cluster dedicado ao Event Hubs, submetendo um pedido de apoio de aumento de [quota](https://portal.azure.com/#create/Microsoft.Support) ou contactando a equipa do [Event Hubs.](mailto:askeventhubs@microsoft.com) Normalmente demora cerca de duas semanas para que o cluster seja implantado e entregue para ser usado por si. Este processo é temporário até que um autosserviço completo seja disponibilizado através do portal Azure.
 
 ## <a name="best-practices"></a>Melhores práticas
 

@@ -1,15 +1,15 @@
 ---
 title: Criar, construir, & implementar contratos inteligentes tutorial - Azure Blockchain Service
 description: Tutorial sobre como usar o Kit de Desenvolvimento Azure Blockchain para extensão Ethereum em Visual Studio Code para criar, construir e implementar um contrato inteligente no Serviço Azure Blockchain.
-ms.date: 12/06/2019
+ms.date: 04/22/2020
 ms.topic: tutorial
-ms.reviewer: chrisseg
-ms.openlocfilehash: 5b901ab904425a22d2fe9643ffa75a4e978efa88
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.reviewer: caleteet
+ms.openlocfilehash: dc23c680dfb2ed33cae2a251af16e1b1f25c6ac7
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74972883"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086662"
 ---
 # <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Tutorial: Criar, construir e implementar contratos inteligentes no Serviço Azure Blockchain
 
@@ -27,7 +27,7 @@ Usa o Kit de Desenvolvimento Azure Blockchain para o Ethereum para:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Complete [Quickstart: Use visual studio code para ligar a uma rede](connect-vscode.md) de consórcio azure Blockchain Service
-* [Código de estúdio visual](https://code.visualstudio.com/Download)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Kit de desenvolvimento azure blockchain para extensão Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Nó.js 10.15.x ou superior](https://nodejs.org/download)
 * [Git 2.10.x ou superior](https://git-scm.com)
@@ -41,7 +41,7 @@ No Windows, é necessário um compilador C++ instalado para o módulo de giro do
 * Se o Visual Studio 2019 estiver instalado, defina o caminho de ferramentas de construção de MS para as npm. Por exemplo, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
 * Caso contrário, instale as ferramentas `npm install --global windows-build-tools` vs build autónomas utilizando num Run elevado como concha de comando *administrador.*
 
-Para mais informações sobre o nó-gyp, consulte o [repositório de nó-gyp no GitHub](https://github.com/node-gyp).
+Para mais informações sobre o nó-gyp, consulte o [repositório de nó-gyp no GitHub](https://github.com/nodejs/node-gyp).
 
 ## <a name="create-a-smart-contract"></a>Criar um contrato inteligente
 

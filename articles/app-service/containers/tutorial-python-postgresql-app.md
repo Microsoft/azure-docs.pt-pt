@@ -9,12 +9,12 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-ms.openlocfilehash: 2f6e21f47a021a0aab1d059da2aea2c497acb785
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 0c9329b46d096df1afab6f7e457d143f9c6504be
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770702"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085761"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implemente uma aplicação web Python (Django) com PostgreSQL no Serviço de Aplicações Azure
 
@@ -167,12 +167,12 @@ Uma vez terminada a implantação, vê-se uma saída JSON como a seguinte:
 
 <pre>
 {
-  "URL": "http://<app-name>.azurewebsites.net",
+  "URL": "http://&lt;app-name&gt;.azurewebsites.net",
   "appserviceplan": "myAppServicePlan",
   "location": "westus",
-  "name": "<app-name>",
+  "name": "&lt;app-name&gt;",
   "os": "Linux",
-  "resourcegroup": "<app-resource-group>",
+  "resourcegroup": "&lt;app-resource-group&gt;",
   "runtime_version": "python|3.7",
   "runtime_version_detected": "-",
   "sku": "BASIC",
@@ -370,8 +370,8 @@ Como fez alterações no modelo de dados, precisa de refazer as migrações de b
 ```
 cd site/wwwroot
 
-# Activate the virtual environment
-source venv/bin/activate
+# Activate default virtual environment in App Service container
+source /antenv/bin/activate
 # Run database migrations
 python manage.py migrate
 ```

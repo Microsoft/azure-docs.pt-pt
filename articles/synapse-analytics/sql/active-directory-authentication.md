@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5808f892f189bd6cb2cc39bd157be1d61c966763
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: db80c11c3b6eab3b7e682878e479729f4787a40b
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424756"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086101"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Utilize autenticação de diretório ativo Azure para autenticação com Synapse SQL
 
@@ -48,26 +48,34 @@ Definir direitos de acesso nos ficheiros e dados que são respeitados em diferen
 
 O diagrama de alto nível que se segue resume a arquitetura de solução de utilização da autenticação Azure AD com Synapse SQL. Para suportar a palavra-passe do utilizador nativo azure AD, apenas é considerada a porção Cloud e o Azure AD/Synapse Synapse Synapse SYnapse SQL. Para suportar a autenticação federada (ou utilizador/palavra-passe para credenciais do Windows), é necessária a comunicação com o bloco ADFS. As setas indicam vias de comunicação.
 
-![aad auth diagrama][1]
+![aad auth diagrama](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
-O diagrama seguinte indica a federação, a confiança e as relações de hospedagem que permitem a um cliente ligar-se a uma base de dados, enviando um símbolo. O símbolo é autenticado por um Anúncio Azure, e é confiável pela base de dados. O cliente 1 pode representar um Diretório Ativo Azure com utilizadores nativos ou um Azure AD com utilizadores federados. O Cliente 2 representa uma possível solução, incluindo utilizadores importados; neste exemplo vindo de um Diretório Ativo Azure federado com a ADFS a ser sincronizada com o Diretório Ativo Azure. É importante entender que o acesso a uma base de dados utilizando a autenticação Azure AD requer que a subscrição de hospedagem esteja associada ao Anúncio Azure. A mesma subscrição deve ser utilizada para criar o Servidor SQL que acolhe a Base de Dados Azure SQL ou o pool SQL.
+O diagrama seguinte indica a federação, a confiança e as relações de hospedagem que permitem a um cliente ligar-se a uma base de dados, enviando um símbolo. O símbolo é autenticado por um Anúncio Azure, e é confiável pela base de dados. 
 
-![relação de subscrição][2]
+O cliente 1 pode representar um Diretório Ativo Azure com utilizadores nativos ou um Azure AD com utilizadores federados. O Cliente 2 representa uma possível solução, incluindo utilizadores importados; neste exemplo vindo de um Diretório Ativo Azure federado com a ADFS a ser sincronizada com o Diretório Ativo Azure. 
+
+É importante entender que o acesso a uma base de dados utilizando a autenticação Azure AD requer que a subscrição de hospedagem esteja associada ao Anúncio Azure. A mesma subscrição deve ser utilizada para criar o Servidor SQL que acolhe a Base de Dados Azure SQL ou o pool SQL.
+
+![relação de subscrição](./media/aad-authentication/2-subscription-relationship.png)
 
 ## <a name="administrator-structure"></a>Estrutura de administrador
 
-Ao utilizar a autenticação Azure AD, existem duas contas de Administrador para o Synapse SQL; o administrador original do SQL Server e o administrador da AD Azure. Apenas o administrador com base numa conta Azure AD pode criar o primeiro utilizador de base de dados Azure AD numa base de dados de utilizador. O login do administrador da AD Azure pode ser um utilizador de Anúncios Azure ou um grupo Azure AD. 
+Ao utilizar a autenticação Azure AD, existem duas contas de Administrador para o Synapse SQL; o administrador original do SQL Server e o administrador da AD Azure. Apenas o administrador com base numa conta Azure AD pode criar o primeiro utilizador de base de dados Azure AD numa base de dados de utilizador. 
 
-Quando o administrador é uma conta de grupo, pode ser usado por qualquer membro do grupo, permitindo vários administradores da AD Azure para a instância SQL Synapse. A utilização da conta de grupo como administrador aumenta a capacidade de gestão, permitindo-lhe adicionar e remover centralmente membros do grupo em Azure AD sem alterar os utilizadores ou permissões no espaço de trabalho Synapse Analytics. Apenas um administrador da AD Azure (utilizador ou grupo) pode ser configurado a qualquer momento.
+O login do administrador da AD Azure pode ser um utilizador de Anúncios Azure ou um grupo Azure AD. Quando o administrador é uma conta de grupo, pode ser usado por qualquer membro do grupo, permitindo vários administradores da AD Azure para a instância SQL Synapse. 
 
-![estrutura de administração][3]
+A utilização da conta de grupo como administrador aumenta a capacidade de gestão, permitindo-lhe adicionar e remover centralmente membros do grupo em Azure AD sem alterar os utilizadores ou permissões no espaço de trabalho Synapse Analytics. Apenas um administrador da AD Azure (utilizador ou grupo) pode ser configurado a qualquer momento.
+
+![estrutura de administração](./media/aad-authentication/3-admin-structure.png)
 
 ## <a name="permissions"></a>Permissões
 
 Para criar novos utilizadores, `ALTER ANY USER` tem de ter a permissão na base de dados. A `ALTER ANY USER` permissão pode ser concedida a qualquer utilizador de base de dados. A `ALTER ANY USER` permissão também é detida pelas contas do `CONTROL ON DATABASE` administrador `ALTER ON DATABASE` do servidor e pelos utilizadores `db_owner` da base de dados com a ou a permissão dessa base de dados, e por membros da função de base de dados.
 
-Para criar um utilizador de base de dados contido no Synapse SQL, deve ligar-se à base de dados ou à instância utilizando uma identidade Azure AD. Para criar o primeiro utilizador de base de dados contido, deve ligar-se à base de dados utilizando um administrador da AD Azure (que é o proprietário da base de dados). Qualquer autenticação Azure AD só é possível se o administrador da AD Azure tiver sido criado para synapse SQL. Se o administrador do Azure Ative Directory foi removido do servidor, os atuais utilizadores do Azure Ative Directory criados anteriormente dentro da Synapse SQL já não podem ligar-se à base de dados utilizando as suas credenciais de Diretório Ativo Azure.
+Para criar um utilizador de base de dados contido no Synapse SQL, deve ligar-se à base de dados ou à instância utilizando uma identidade Azure AD. Para criar o primeiro utilizador de base de dados contido, deve ligar-se à base de dados utilizando um administrador da AD Azure (que é o proprietário da base de dados). 
 
+Qualquer autenticação Azure AD só é possível se o administrador da AD Azure tiver sido criado para synapse SQL. Se o administrador do Azure Ative Directory foi removido do servidor, os atuais utilizadores do Azure Ative Directory criados anteriormente dentro da Synapse SQL já não podem ligar-se à base de dados utilizando as suas credenciais de Diretório Ativo Azure.
+ 
 ## <a name="azure-ad-features-and-limitations"></a>Funcionalidades e limitações da AD Azure
 
 - Os seguintes membros da AD Azure podem ser provisionados em Synapse SQL:
@@ -120,21 +128,8 @@ Os seguintes métodos de autenticação são suportados para os diretores de ser
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para uma visão geral do acesso e controlo em Synapse SQL, consulte o controlo de [acesso Synapse SQL](../sql/access-control.md). Para saber mais sobre os principais da base de dados, consulte [os diretores.](https://msdn.microsoft.com/library/ms181127.aspx) Informações adicionais sobre funções de base de dados podem ser encontradas no artigo de funções da [Base de Dados.](https://msdn.microsoft.com/library/ms189121.aspx)
+- Para uma visão geral do acesso e controlo em Synapse SQL, consulte o controlo de [acesso Synapse SQL](../sql/access-control.md).
+- Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](/sql/relational-databases/security/authentication-access/principals-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Para obter mais informações sobre as funções de base de dados, veja [Database roles (Funções de base de dados)](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+
  
-
-<!--Image references-->
-
-[1]: ./media/aad-authentication/1-active-directory-authentication-diagram.png
-[2]: ./media/aad-authentication/2-subscription-relationship.png
-[3]: ./media/aad-authentication/3-admin-structure.png
-[4]: ./media/aad-authentication/4-select-subscription.png
-[5]: ./media/aad-authentication/5-active-directory-settings-portal.png
-[6]: ./media/aad-authentication/6-edit-directory-select.png
-[7]: ./media/aad-authentication/7-edit-directory-confirm.png
-[8]: ./media/aad-authentication/8-choose-active-directory.png
-[9]: ./media/aad-authentication/9-active-directory-settings.png
-[10]: ./media/aad-authentication/10-choose-admin.png
-[11]: ./media/aad-authentication/11-connect-using-integrated-authentication.png
-[12]: ./media/aad-authentication/12-connect-using-password-authentication.png
-[13]: ./media/aad-authentication/13-connect-to-db.png

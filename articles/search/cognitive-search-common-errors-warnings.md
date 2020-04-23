@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72bf08dce36d857c1fe91bbe9806336dfa185f7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671980"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086620"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Resolução de problemas comum de erros e avisos de indexantes em Pesquisa Cognitiva Azure
 
@@ -91,6 +91,8 @@ O indexante não foi capaz de executar uma habilidade no skillset.
 
 ## <a name="error-could-not-execute-skill-because-the-web-api-request-failed"></a>Erro: Não conseguiu executar a habilidade porque o pedido da Web API falhou
 A execução de habilidades falhou porque a chamada para a Web API falhou. Normalmente, esta classe de falha ocorre quando são utilizadas habilidades personalizadas, caso em que terá de desinpurar o seu código personalizado para resolver o problema. Se, em vez disso, a falha for de uma habilidade incorporada, consulte a mensagem de erro para ajudar na resolução do problema.
+
+Ao depurar esta questão, certifique-se de prestar atenção a quaisquer avisos de entrada de [habilidadepara](#warning-skill-input-was-invalid) esta habilidade. O ponto final da Web API pode estar a falhar porque o indexante está a passar-lhe uma entrada inesperada.
 
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
 

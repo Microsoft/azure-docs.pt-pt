@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369782"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085744"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Competência cognitiva de procura de entidade personalizada (Pré-visualização)
 
@@ -29,7 +29,7 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 
 ## <a name="data-limits"></a>Limites de dados
 + O tamanho máximo do recorde de entrada suportado é de 256 MB. Se precisar de separar os seus dados antes de enviá-los para a habilidade de procura de entidades personalizadas, considere utilizar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
-+ A tabela de definição de entidades máximasuportada é de 10 MB se for fornecida utilizando o parâmetro *entidadeDefitionUri.* 
++ A tabela de definição de entidades máximas suportada é de 10 MB se for fornecida utilizando o parâmetro definição de *entidadesDefinitionUri.* 
 + Se as entidades forem definidas inlineline, utilizando o parâmetro *inlineEntidadesDefinição,* o tamanho máximo suportado é de 10 KB.
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
@@ -63,13 +63,13 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 Existem 3 formas diferentes de fornecer a lista de entidades personalizadas à habilidade de Procura de Entidades Personalizadas. Pode fornecer a lista em . Ficheiro CSV, a . Ficheiro JSON ou como uma definição inline como parte da definição de habilidade.  
 
-Se o ficheiro de definição for a . CSV ou . Arquivo JSON, o caminho do ficheiro deve ser fornecido como parte do parâmetro *entidadeDefitionUri.* Neste caso, o ficheiro é descarregado uma vez no início de cada execução de indexador. O ficheiro deve estar acessível desde que o indexante se destine a ser executado. Além disso, o ficheiro deve ser codificado UTF-8.
+Se o ficheiro de definição for a . CSV ou . Arquivo JSON, o caminho do ficheiro precisa de ser fornecido como parte do parâmetro *entidadeSDefinitionUri.* Neste caso, o ficheiro é descarregado uma vez no início de cada execução de indexador. O ficheiro deve estar acessível desde que o indexante se destine a ser executado. Além disso, o ficheiro deve ser codificado UTF-8.
 
 Se a definição for fornecida inline, deve ser fornecida tão inline como o conteúdo do parâmetro de habilidade *inlineEntidadesDefinição.* 
 
 ### <a name="csv-format"></a>Formato CSV
 
-Pode fornecer a definição das entidades personalizadas a procurar num ficheiro DeMA-Separated Value (CSV), fornecendo o caminho para o ficheiro e definindo-o no parâmetro de *habilidades das entidadesDefitionUri.* O caminho deve estar em um local https. O ficheiro de definição pode ter até 10 MB de tamanho.
+Pode fornecer a definição das entidades personalizadas a procurar num ficheiro De Valor Separado com ma (CSV), fornecendo o caminho para o ficheiro e definindo-o no parâmetro de *habilidades das entidadesDefinitionUri.* O caminho deve estar em um local https. O ficheiro de definição pode ter até 10 MB de tamanho.
 
 O formato CSV é simples. Cada linha representa uma entidade única, como mostrado abaixo:
 
@@ -85,7 +85,7 @@ Neste caso, existem três entidades que podem ser devolvidas como entidades enco
 
 Pode fornecer a definição das entidades personalizadas para procurar num ficheiro JSON também. O formato JSON dá-lhe um pouco mais de flexibilidade, uma vez que permite definir regras de correspondência por período. Por exemplo, pode especificar a distância de correspondência difusa (distância Damerau-Levenshtein) para cada período ou se a correspondência deve ser sensível à caixa ou não. 
 
- Tal como acontece com os ficheiros CSV, é necessário fornecer o caminho para o ficheiro JSON e defini-lo no parâmetro de *habilidades das entidadesDefitionUri.* O caminho deve estar em um local https. O ficheiro de definição pode ter até 10 MB de tamanho.
+ Tal como acontece com os ficheiros CSV, é necessário fornecer o caminho para o ficheiro JSON e defini-lo no parâmetro de *habilidades definiçãoUri das entidades.* O caminho deve estar em um local https. O ficheiro de definição pode ter até 10 MB de tamanho.
 
 A definição de lista de entidades personalizadas mais básicas da JSON pode ser uma lista de entidades que correspondam:
 

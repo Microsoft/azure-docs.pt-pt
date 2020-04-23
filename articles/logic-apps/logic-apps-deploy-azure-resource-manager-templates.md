@@ -6,23 +6,23 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 95bfa7b1918da09e4f5913eeb2b57c290b093efe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 432e22879ce0eba89f04a1084e2d4a93a487dd45
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270449"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086441"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementar modelos de Gestor de Recursos Azure para aplicações lógicas azure
 
 Depois de criar um modelo de Gestor de Recursos Azure para a sua aplicação lógica, pode implementar o seu modelo desta forma:
 
-* [Portal Azure](#portal)
+* [Portal do Azure](#portal)
 * [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
-* [Azure CLI](#cli)
+* [CLI do Azure](#cli)
 * [API REST API, gestor de recursos azure](../azure-resource-manager/templates/deploy-rest.md)
-* [Azure DevOps](#azure-pipelines)
+* [DevOps do Azure](#azure-pipelines)
 
 <a name="portal"></a>
 
@@ -30,7 +30,7 @@ Depois de criar um modelo de Gestor de Recursos Azure para a sua aplicação ló
 
 Para implementar automaticamente um modelo de aplicação lógica para o Azure, pode escolher o seguinte **botão Deploy para Azure,** que o inscreve no portal Azure e o solicita informações sobre a sua aplicação lógica. Em seguida, pode efetuar quaisquer alterações necessárias ao modelo ou parâmetros da aplicação lógica.
 
-[![Desdobre para Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Implementar no Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 Por exemplo, é solicitado para obter as seguintes informações depois de iniciar sessão no portal Azure:
 
@@ -79,7 +79,7 @@ az group deployment create -g <Azure-resource-group-name> --template-uri https:/
 
 Para obter mais informações, veja estes tópicos:
 
-* [Implementar recursos com modelos do Resource Manager e do CLI do Azure](../azure-resource-manager/templates/deploy-cli.md) 
+* [Implementar recursos com modelos do Resource Manager e do CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 
 <a name="azure-pipelines"></a>
@@ -91,7 +91,7 @@ Para implementar modelos de aplicações lógicas e gerir ambientes, as equipas 
 Para obter mais informações sobre integração contínua e implantação contínua (CI/CD) para modelos de Gestor de Recursos Azure com Pipelines Azure, consulte estes tópicos e amostras:
 
 * [Integrar modelos de Gestor de Recursos com Pipelines Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)
-* [Tutorial: Integração contínua para modelos de Gestor de Recursos Azure com Pipelines Azure](../azure-resource-manager/templates/template-tutorial-use-azure-pipelines.md)
+* [Tutorial: Integração contínua de modelos de Gestor de Recursos Azure com Pipelines Azure](../azure-resource-manager/templates/deployment-tutorial-pipeline.md)
 * [Amostra: Ligue-se às filas de ônibus de serviço azure de Aplicações Da Lógica Azure e implemente com pipelines Azure em Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Amostra: Ligue-se a contas de armazenamento azure de Aplicações Lógicas Azure e implante com pipelines Azure em Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Amostra: Criar uma aplicação de função para apps azure logic e implementar com pipelines Azure em Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
