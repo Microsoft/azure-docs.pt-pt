@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/24/2019
+ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79253614"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082123"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos sincronizados pela sincronização Azure AD Connect.  
@@ -375,7 +375,7 @@ Este grupo é um conjunto de atributos usados como os atributos mínimos necess�
 * Yammer (apenas o Utilizador é consumido)
 * [Cenários de colaboração cross-org híbridos (B2B) oferecidos por recursos como o SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-Este grupo é um conjunto de atributos que podem ser usados se o diretório Azure AD não for usado para apoiar o Office 365, Dynamics ou Intune. Tem um pequeno conjunto de atributos fundamentais.
+Este grupo é um conjunto de atributos que podem ser usados se o diretório Azure AD não for usado para apoiar o Office 365, Dynamics ou Intune. Tem um pequeno conjunto de atributos fundamentais. Note que o simples sign-on ou o fornecimento de algumas aplicações de terceiros requer configurar a sincronização de atributos para além dos atributos aqui descritos. Os requisitos de aplicação são descritos no tutorial da [aplicação SaaS](../saas-apps/tutorial-list.md) para cada aplicação.
 
 | Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |

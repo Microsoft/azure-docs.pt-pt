@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a81f3ffb7ec190943c50127b129523badf0ef0a7
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: d755573b53eb63d85165fb73fe4b97298dbeff09
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882986"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868986"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App Daemon que chama APIs web - adquira um token
 
@@ -173,7 +173,7 @@ Se ainda não tem uma biblioteca para a sua língua escolhida, talvez queira usa
 
 #### <a name="first-case-access-the-token-request-by-using-a-shared-secret"></a>Primeiro caso: Aceda ao pedido simbólico utilizando um segredo partilhado
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -186,7 +186,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 
 #### <a name="second-case-access-the-token-request-by-using-a-certificate"></a>Segundo caso: Aceda ao pedido simbólico utilizando um certificado
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -215,7 +215,7 @@ Se receber uma mensagem de erro a dizer-lhe que usou um `resource/.default` âmb
 Se obtém um **privilégio insuficiente para completar o** erro de operação quando liga para a API, o administrador do inquilino precisa de conceder permissões ao pedido. Consulte o passo 6 do Registo da aplicação do cliente acima.
 Normalmente verá um erro que se parece com este erro:
 
-```JSon
+```json
 Failed to call the web API: Forbidden
 Content: {
   "error": {

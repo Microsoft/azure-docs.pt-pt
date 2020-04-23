@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ab3ab25df6ce41d4045a270754830d501fe40689
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8eb59eebd29c2cc94e20b71b467866686deec2f1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80347177"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869731"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inscreva-se e inicie aplicações a partir do portal My Apps
 
@@ -110,7 +110,7 @@ Se tiver permissão para aceder e utilizar as aplicações baseadas na nuvem da 
 
 Veja e utilize as aplicações da sua organização a partir de um Navegador Gerido intune nos seus dispositivos iOS e Android.
 
-1. No seu dispositivo móvel, descarregue e instale a aplicação Intune Managed Browser a partir da [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) e da Google Play [Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+1. No seu dispositivo móvel, descarregue e instale a aplicação Intune Managed Browser a partir da Apple App Store e da Google Play Store.
 
 2. Abra a aplicação Intune Managed Browser, vá para https://myapps.microsoft.com, ou use o link fornecido https://myapps.microsoft.com/contoso.compela sua organização se o direcionar para uma página personalizada, como .
 

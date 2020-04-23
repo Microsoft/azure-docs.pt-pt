@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc6cbbd0aa9cb0750e497c7cc7edbd42f21bda55
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62127349"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025004"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orquestrar a implementação da Azure DevTest Labs
 Este artigo fornece uma abordagem recomendada para a rápida implementação e implementação de Azure DevTest Labs. A imagem seguinte enfatiza o processo global como orientação prescritiva, observando simultaneamente a flexibilidade para apoiar vários requisitos e cenários do setor.
@@ -43,7 +43,7 @@ A primeira área de foco ao implementar uma solução Azure DevTest Labs é esta
 ## <a name="milestone-2-deploy-the-pilot-lab"></a>Marco 2: Implementar o laboratório piloto
 Uma vez que a topologia da rede esteja em vigor, o primeiro/laboratório piloto pode ser criado tomando os seguintes passos:
 
-1. Crie um ambiente inicial de Laboratórios DevTest (instruções passo a passo podem ser encontradas [aqui)](https://github.com/Azure/fta-devops/blob/master/devtest-labs/articles/devtest-labs-walkthrough-it.md)
+1. Crie um ambiente inicial de Laboratórios DevTest.
 2. Determine imagens e tamanhos vm admissíveis para utilização com laboratório. Decida se as imagens personalizadas podem ser enviadas para Azure para utilização com o DevTest Labs.
 3. Acesso seguro ao laboratório através da criação de controlos iniciais de acesso à base de base (RBAC) para o laboratório (proprietários de laboratórios e utilizadores de laboratório). Recomendamos que utilize contas de diretório sincronia sincronizadas com o Diretório Ativo Azure para identidade com a DevTest Labs.
 4. Configure DevTest Labs para usar políticas como horários, gestão de custos, VMs reiváveis, imagens personalizadas ou fórmulas.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 31826f5d4d88c977f859a009bface2fddf3a1c88
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 98a160b361e316c87e61855825c2cc36fdbb06d1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67093187"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870306"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integração de Diretório Ativo Azure com Rackspace SSO
 
@@ -187,7 +187,7 @@ Nesta secção, permite que Britta Simon utilize um único sign-on Azure, conced
 
 ### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Configurar o mapeamento do atributo no painel de controlo rackspace
 
-Rackspace usa uma Política de Mapeamento de **Atributos** para atribuir funções e grupos rackspace aos seus utilizadores de entrada única. A Política de Mapeamento do **Atributo** traduz as alegações do Azure AD SAML nos campos de configuração do utilizador que o Rackspace necessita. Mais documentação pode ser encontrada na [documentação básica](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/)de mapeamento de atribuição de rackspace. Algumas considerações:
+Rackspace usa uma Política de Mapeamento de **Atributos** para atribuir funções e grupos rackspace aos seus utilizadores de entrada única. A Política de Mapeamento do **Atributo** traduz as alegações do Azure AD SAML nos campos de configuração do utilizador que o Rackspace necessita. Mais documentação pode ser encontrada na [documentação básica](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/)de mapeamento de atribuição de rackspace. Algumas considerações:
 
 * Se pretender atribuir diferentes níveis de acesso ao Rackspace utilizando grupos AD Azure, terá de ativar a reclamação dos Grupos nas definições de sign-on single **SSO** do Rackspace Azure. A Política de Mapeamento do **Atributo** será então usada para combinar com esses grupos com as funções e grupos derackspace desejados:
 
@@ -226,7 +226,7 @@ mapping:
 > [!TIP]
 > Certifique-se de que utiliza um editor de texto que valida a sintaxe YAML ao editar o seu ficheiro de política.
 
-Consulte a [documentação de Base de Mapeamento](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) de Atribuição de Rackspace para mais exemplos.
+Consulte a [documentação de Base de Mapeamento](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/) de Atribuição de Rackspace para mais exemplos.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

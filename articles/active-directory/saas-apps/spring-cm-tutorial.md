@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bd9ea5565ea64415c00a458236456bed04b6c38
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: be4edfe3262ab74d903384eb00c0282acc7a3299
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74233389"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867433"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integração do Diretório Ativo Azure com a SpringCM
 
@@ -202,7 +202,7 @@ Nesta secção, permite que Britta Simon utilize um único sign-on Azure, conced
 Para permitir que os utilizadores do Diretório Ativo azure assinem o SpringCM, devem ser aprovisionados na SpringCM. No caso da SpringCM, o provisionamento é uma tarefa manual.
 
 > [!NOTE]
-> Para mais informações, consulte [Criar e Editar um Utilizador SpringCM](https://knowledge.springcm.com/create-and-edit-a-springcm-user). 
+> Para mais informações, consulte [Criar e Editar um Utilizador SpringCM](http://community.springcm.com/s/article/Create-and-Edit-a-SpringCM-User-1619481053). 
 
 **Para fornecer uma conta de utilizador à SpringCM, execute os seguintes passos:**
 

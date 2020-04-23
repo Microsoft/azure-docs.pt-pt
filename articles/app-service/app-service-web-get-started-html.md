@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 159b38962fe91cedfc8d313bef943dbc74e9974e
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
-ms.translationtype: MT
+ms.openlocfilehash: e8c4e1fcca347ad2783238c0f5ec4fe407849d3b
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520242"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024538"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar uma aplicação Web HTML estática no Azure
 
@@ -42,16 +42,12 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-Mude para o diretório que contém o código de exemplo e execute o comando `az webapp up`.
-
-No comando a seguir, substitua <nome_aplicação> por um nome de aplicação exclusivo.
+Mude para o diretório que contém o código de exemplo e execute o comando `az webapp up`. No comando a seguir, substitua <nome_aplicação> por um nome de aplicação exclusivo. O conteúdo estático `--html` é indicado pela bandeira.
 
 ```bash
 cd html-docs-hello-world
-```
 
-```azurecli
-az webapp up --location westeurope --name <app_name> 
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 O comando `az webapp up` executa as seguintes ações:
@@ -102,7 +98,7 @@ Guarde as alterações e feche o nano. Utilize o comando `^O` para guardar e `^X
 
 Agora irá implementar novamente a aplicação com o mesmo comando `az webapp up`.
 
-```azurecli
+```bash
 az webapp up --location westeurope --name <app_name> --html
 ```
 
@@ -130,7 +126,7 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 Nos passos anteriores, criou os recursos do Azure num grupo de recursos. Se achar que não vai precisar destes recursos no futuro, execute o seguinte comando no Cloud Shell para eliminar o grupo de recursos. Lembre-se de que o nome do grupo de recursos foi gerado automaticamente para si no passo [criar uma aplicação Web](#create-a-web-app).
 
-```azurecli
+```bash
 az group delete --name appsvc_rg_Windows_westeurope
 ```
 

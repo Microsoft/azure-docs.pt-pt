@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: abf80e98881b73bed53c5a939a79bc8b3a9de2db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/21/2020
+ms.openlocfilehash: c5062bce572fbeda4143902ae6a04b31b9a89754
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530585"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025055"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Como criar e gerir réplicas de leitura em Base de Dados Azure para MariaDB utilizando o Azure CLI e REST API
 
@@ -45,9 +45,6 @@ O `az mariadb server replica create` comando requer os seguintes parâmetros:
 | source-server | mydemoserver | O nome ou identificação do servidor principal existente para replicar. |
 
 Para criar uma réplica de `--location` leitura de região transversal, use o parâmetro. 
-
-> [!NOTE]
-> A replicação da região transversal está em pré-visualização.
 
 O exemplo cli abaixo cria a réplica nos EUA Ocidentais.
 

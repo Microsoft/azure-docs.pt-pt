@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 7/13/2019
 ms.author: rohink
-ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56a7680de3127da06341ac03252a9ab0cff9da7c
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266237"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024953"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utilize o Azure DNS para fornecer configurações de domínio personalizadas para um serviço Azure
 
@@ -134,7 +134,7 @@ Navegue para a sua Zona DNS e clique **em + conjunto de registos**. Preencha as 
 |Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | O nome DNS para o que está a criar, neste exemplo, é o nome asverify.adatumfunctiona9ed.blob.core.windows.net DNS fornecido por padrão à conta de armazenamento.        |
 
-Navegue de volta para a sua conta de armazenamento clicando em Contas de > **Armazenamento,** selecione a sua conta de armazenamento e clique no **domínio Personalizado**. **Storage** Digite o pseudónimo que criou sem o prefixo assionna na caixa de texto, verifique **Use a validação cname indireta e clique em **Guardar**. Uma vez concluído este passo, volte à sua zona DNS e crie um registo CNAME sem o prefixo de assuma.  Depois disso, é seguro eliminar o registo CNAME com o prefixo de cdncheck.
+Navegue de volta para a sua conta de armazenamento clicando em Contas de > **Armazenamento,** selecione a sua conta de armazenamento e clique no **domínio Personalizado**. **Storage** Digite o pseudónimo que criou sem o prefixo assioniar na caixa de texto, verifique **Utilize validação cname indireta,** e clique em **Guardar**. Uma vez concluído este passo, volte à sua zona DNS e crie um registo CNAME sem o prefixo de assuma.  Depois disso, é seguro eliminar o registo CNAME com o prefixo de cdncheck.
 
 ![domínio personalizado de armazenamento blob](./media/dns-custom-domain/indirectvalidate.png)
 

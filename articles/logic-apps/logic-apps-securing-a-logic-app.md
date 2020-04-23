@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: e591a7035db82425952a16f5c4c220e25d8517fe
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ee8bee832e48dc7354b4136e25be9bcc43eb90c5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457183"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870563"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Aplicações Lógicas Azure
 
@@ -655,7 +655,7 @@ Se a opção [Certificado cliente](../active-directory/authentication/active-dir
 
 | Propriedade (designer) | Propriedade (JSON) | Necessário | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | **Certificado de Cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a utilizar para certificados de cliente TLS/SSL. Enquanto os certificados auto-assinados são suportados, os certificados auto-assinados para TLS/SSL não são suportados. |
+| **Autenticação** | `type` | Sim | **Certificado de Cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a utilizar para certificados de cliente TLS/SSL <p><p>**Nota**: Enquanto os certificados auto-assinados são suportados, os certificados auto-assinados para TLS/SSL não são suportados. O conector HTTP não suporta certificados intermédios TLS/SSL. |
 | **Pfx** | `pfx` | Sim | <*codificado-pfx-file-content*> | O conteúdo codificado base64 de um ficheiro de troca de informações pessoais (PFX) <p><p>Para converter o ficheiro PFX em formato codificado base64, pode utilizar o PowerShell seguindo estes passos: <p>1. Guarde o conteúdo do certificado numa variável: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Converter o conteúdo `ToBase64String()` do certificado utilizando a função e guardar esse conteúdo num ficheiro de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Palavra-passe** | `password`| Não | <*password-for-pfx-file*> | A palavra-passe para aceder ao ficheiro PFX |
 |||||

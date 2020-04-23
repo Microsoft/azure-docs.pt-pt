@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 03/09/2020
+ms.date: 04/22/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 5e628626f2db49ff67d6d7ab425a3a19870b1ebd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 210ed5b8ad53fd59a46e160fe5fc72633d115d44
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240899"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082327"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Quickstart: Configure uma aplicação de cliente para aceder a APIs web
 
@@ -110,7 +110,10 @@ Para configurar as definições de aplicação com base na plataforma ou no disp
    | **Web**              | Insira o **Redirect URI** para a sua candidatura. |
    | **iOS / macOS**              | Introduza o id do **pacote**da aplicação , que pode encontrar no XCode em Info.plist ou 'Build Settings'. Adicionar o ID do pacote cria automaticamente um URI redirecionado para a aplicação. |
    | **Android**          | Forneça o **nome pacote**da aplicação , que pode encontrar no ficheiro AndroidManifest.xml.<br/>Gerar e introduzir o **hash Signature**. Adicionar o hash de assinatura cria automaticamente um URI redirecionado para a aplicação.  |
-   | **Aplicações móveis e de desktop**  | Opcional. Selecione um dos **URIs de redirecionamento sugerido** recomendado se estiver a construir aplicações para desktop e dispositivos.<br/>Opcional. Introduza um **URI de redirecionamento personalizado,** que é usado como local onde o Azure AD irá redirecionar os utilizadores em resposta aos pedidos de autenticação. Por exemplo, para aplicações .NET Core `https://localhost`onde deseja interação, utilize. |
+   | **Aplicações móveis e de desktop**  | Opcional. Selecione um dos **URIs de redirecionamento sugerido** recomendado se estiver a construir aplicações para desktop e dispositivos.<br/>Opcional. Introduza um **URI de redirecionamento personalizado,** que é usado como local onde o Azure AD irá redirecionar os utilizadores em resposta aos pedidos de autenticação. Por exemplo, para aplicações .NET Core `http://localhost`onde deseja interação, utilize. |
+
+   > [!NOTE]
+   > Nos Serviços da Federação de DiretórioAtivo (AD FS) e Azure AD B2C, deve também especificar um número de porta.  Por exemplo: `http://localhost:1234`. 
 
    > [!IMPORTANT]
    > Para aplicações móveis que não estejam a utilizar a mais recente Biblioteca de Autenticação da Microsoft (MSAL) ou que não utilizem um corretor, tem de configurar os URIs de redirecionamento para estas aplicações em **dispositivos Desktop +**.

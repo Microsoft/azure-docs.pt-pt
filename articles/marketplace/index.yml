@@ -10,12 +10,12 @@ metadata:
   author: MaggiePucciEvans
   ms.author: evansma
   ms.date: 04/02/2020
-  ms.openlocfilehash: 525b1f2fabff8cd41e0bf304526a622d7543a5e8
-  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+  ms.openlocfilehash: 2857c76aa3b94be71454fc5cdc7fb60b4b6349bd
+  ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/13/2020
-  ms.locfileid: "81261657"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82082412"
 landingContent:
 - title: Trabalhar no marketplace comercial
   linkLists:
@@ -82,7 +82,7 @@ landingContent:
     - text: Ofertas de SaaS
       url: ./partner-center-portal/create-new-saas-offer.md
     - text: Ofertas de máquinas virtuais
-      url: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
+      url: ./marketplace-virtual-machines.md
     - text: Ofertas de aplicações do Azure
       url: ./partner-center-portal/create-new-azure-apps-offer.md
     - text: Ofertas do Dynamics 365 for Customer Engagement & PowerApps

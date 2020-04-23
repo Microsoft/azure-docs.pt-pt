@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/16/2020
 ms.author: borisb
-ms.openlocfilehash: e6a2e7c646782f5ad874124e4a86809ed1d79eea
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c737189650d571fb62a770707e84ed15c5a37a57
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687403"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870506"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral das aplicações e soluções da Oracle no Azure
 
@@ -49,7 +49,7 @@ Executar aplicações empresariais em Azure em sistemas operativos Oracle suport
 
 * Utilize a [Recuperação do Site Azure](../../../site-recovery/site-recovery-overview.md) para orquestrar e gerir a recuperação de desastres para os seus VMs Oracle Linux em Azure e seus servidores ou servidores físicos no local. 
 
-* Ativar clusters de aplicações real oracle (RAC) em Azure utilizando a [Solução Azure VMWare](https://docs.azure.cloudsimple.com/oracle-rac/) ou [o SkyCluster FlashGrid](https://www.flashgrid.io/oracle-rac-in-azure/).
+* Ativar clusters de aplicações real oracle (RAC) em Azure utilizando a [Solução Azure VMWare](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) ou [o SkyCluster FlashGrid](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="backup-oracle-workloads"></a>Cargas de trabalho do Oráculo de Reserva
 

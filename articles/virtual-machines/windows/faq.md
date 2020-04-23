@@ -1,25 +1,18 @@
 ---
 title: FAQ sobre VMs windows em Azure
 description: Fornece respostas a algumas das questões comuns sobre máquinas virtuais do Windows criadas com o modelo Desemposição de Recursos.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-management
-ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: e3d2673ba52ba0cca36e2a999558313b64716ade
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33d530181f4cc389f81ea83dc42b774ccfc8fd85
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299619"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869626"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais do Windows
 Este artigo aborda algumas questões comuns sobre máquinas virtuais do Windows criadas em Azure utilizando o modelo de implementação do Gestor de Recursos. Para a versão Linux deste tópico, consulte [frequentemente perguntas sobre máquinas virtuais Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

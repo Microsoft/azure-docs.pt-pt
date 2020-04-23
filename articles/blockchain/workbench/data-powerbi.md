@@ -1,15 +1,15 @@
 ---
 title: Utilizar dados do Azure Blockchain Workbench no Microsoft Power BI
 description: Saiba como carregar e ver os dados da BD SQL do Azure Blockchain Workbench no Microsoft Power BI.
-ms.date: 05/09/2019
+ms.date: 04/22/2020
 ms.topic: article
-ms.reviewer: mmercuri
-ms.openlocfilehash: 6e1f160c3563a280548c74ebe84f30bf08945c3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: sunri
+ms.openlocfilehash: 4245603fee5b3d24488426c3dc2d026a3c0d7848
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74324801"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082531"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Utilizar dados do Azure Blockchain Workbench com o Microsoft Power BI
 
@@ -19,7 +19,7 @@ Este artigo contém instruções passo a passo sobre como ligar à Base de Dados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Baixar [Power BI Desktop](https://aka.ms/pbidesktopstore).
+* Baixar [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 ## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Ligar power BI aos dados na bancada azure blockchain
 

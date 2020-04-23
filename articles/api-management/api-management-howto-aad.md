@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6102b1e1d6ddbac01033b9cecfeba96a7eb33777
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473545"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868399"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar as contas de programador ao utilizar o Azure Active Directory na Gestão de API do Azure
 
@@ -33,12 +33,12 @@ Este artigo mostra-lhe como permitir o acesso ao portal de desenvolvimento para 
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizar contas de desenvolvimento utilizando a AD Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Selecione ![seta](./media/api-management-howto-aad/arrow.png).
 3. Digite **api** na caixa de pesquisa.
 4. Selecione **serviços de Gestão API**.
 5. Selecionar a sua instância de serviço de Gestão de API.
-6. Em **Segurança,** selecione **Identidades**.
+6. No **portal Developer,** selecione **Identidades**.
 7. Selecione **+Adicionar** a partir de cima.
 
     O painel do fornecedor de **identidade Add** aparece à direita.

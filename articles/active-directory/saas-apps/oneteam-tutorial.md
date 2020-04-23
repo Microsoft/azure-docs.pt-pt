@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 195fa26a38d89d9ef738e6060ff7dab602d5c234
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 875114c53cb3193b1b140e95be19daf7fb6415a9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67095916"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Tutorial: Integração de Diretório Ativo Azure com a Oneteam
 
@@ -118,7 +118,7 @@ Para configurar o único sinal de Azure AD com o Oneteam, execute os seguintes p
     Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<team name>.one-team.io/`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte do [Oneteam Client](https://support.one-team.com/hc/requests/new) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte do Oneteam Client para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
 6. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -136,7 +136,7 @@ Para configurar o único sinal de Azure AD com o Oneteam, execute os seguintes p
 
 ### <a name="configure-oneteam-single-sign-on"></a>Configure um sinal único de um vapor
 
-Para configurar um único sinal no lado **Oneteam,** você precisa enviar os metadados da **Federação xML** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte Oneteam](https://support.one-team.com/hc/requests/new). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **Oneteam,** você precisa enviar os metadados da **Federação xML** descarregados e URLs copiados apropriados do portal Azure para a equipa de suporte Oneteam. Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
 
@@ -194,7 +194,7 @@ Nesta secção, permite que Britta Simon utilize um único sign-on Azure, conced
 Nesta secção, um utilizador chamado Britta Simon é criado no Oneteam. O Oneteam suporta o fornecimento de utilizadores just-in-time, que é ativado por predefinição. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Oneteam, um novo é criado após a autenticação.
 
 >[!NOTE]
->Se precisar de criar um utilizador manualmente, pode levantar o bilhete de suporte com a equipa de [suporte Oneteam](https://support.one-team.com/hc/requests/new).
+>Se precisar de criar um utilizador manualmente, pode levantar o bilhete de suporte com a equipa de suporte Oneteam.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

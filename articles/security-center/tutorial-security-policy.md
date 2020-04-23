@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73906883"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024885"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -62,11 +62,11 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 
 1. Escolha entre as opções disponíveis nesta página:
 
-    1. Para trabalhar com as políticas da indústria, clique **em Adicionar mais padrões.** Para mais informações, consulte [Atualização para pacotes dinâmicos](update-regulatory-compliance-packages.md)de conformidade .
+    1. Para trabalhar com as políticas da indústria, selecione **Adicionar mais padrões.** Para mais informações, consulte [Atualização para pacotes dinâmicos](update-regulatory-compliance-packages.md)de conformidade .
 
-    1. Para atribuir e gerir iniciativas personalizadas, clique em **Adicionar iniciativas personalizadas.** Para mais informações, consulte [A utilização de políticas de segurança personalizadas](custom-security-policies.md).
+    1. Para atribuir e gerir iniciativas personalizadas, selecione **Adicionar iniciativas personalizadas.** Para mais informações, consulte [A utilização de políticas de segurança personalizadas](custom-security-policies.md).
 
-    1. Para visualizar e editar a política de predefinição, clique em **Ver a política eficaz** e proceder como descrito abaixo. 
+    1. Para visualizar e editar a política de predefinição, selecione **Ver uma política eficaz** e proceder como descrito abaixo. 
 
        ![tela de política](./media/security-center-policies/policy-screen.png)
        
@@ -96,20 +96,20 @@ O Centro de Segurança utiliza o Controlo de Acesso Baseado em Funções (RBAC),
 Se a política de segurança padrão estiver a gerar uma recomendação que não seja relevante para o seu ambiente, pode impedi-la desativando a definição de política que envia a recomendação.
 Para obter mais informações sobre recomendações, consulte [a Gestão](security-center-recommendations.md)de recomendações de segurança.
 
-1. No Centro de Segurança, a partir da secção **Política & Conformidade,** clique na política de **segurança**.
+1. No Centro de Segurança, a partir da secção **política & compliance,** selecione **a política**de segurança .
 
    ![gestão de políticas](./media/tutorial-security-policy/policy-management.png)
 
-2. Clique no grupo de subscrição ou gestão para o qual pretende desativar a recomendação.
+2. Selecione o grupo de subscrição ou gestão para o qual pretende desativar a recomendação.
 
    > [!NOTE]
    > Lembre-se de que um grupo de gestão aplica as suas políticas às suas subscrições. Portanto, se desativar a política de uma subscrição e a subscrição pertencer a um grupo de gestão que ainda utiliza a mesma política, irá continuar a receber as recomendações de política. A política ainda será aplicada a partir do nível de gestão e as recomendações ainda serão geradas.
 
-1. Clique em **Ver a política eficaz**.
+1. Selecione **Ver uma política eficaz**.
 
    ![política de desativar](./media/tutorial-security-policy/view-effective-policy.png)
 
-1. Clique na política atribuída.
+1. Selecione a política atribuída.
 
    ![política de desativar](./media/tutorial-security-policy/security-policy.png)
 
@@ -117,7 +117,7 @@ Para obter mais informações sobre recomendações, consulte [a Gestão](securi
 
    ![política de desativar](./media/tutorial-security-policy/disable-policy.png)
 
-1. Clique em **Guardar**.
+1. Selecione **Guardar**.
 
    > [!NOTE]
    > As alterações da política de desativação podem demorar até 12 horas a entrar em vigor.

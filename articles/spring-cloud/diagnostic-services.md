@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adbcf28cfbbe2ea3b7cc9c7fd0d1c76246938344
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920047"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870397"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar registos e métricas com definições de diagnóstico
 
@@ -22,6 +22,9 @@ Utilizando a funcionalidade de diagnóstico da Nuvem de primavera Azure, pode an
 * Faça logs no seu centro de eventos para ingestão por um serviço de terceiros ou uma solução de análise personalizada.
 
 Escolha a categoria de registo e a categoria métrica que pretende monitorizar.
+
+> [!TIP]
+> Só quer transmitir os seus registos? Confira este [comando Azure CLI!](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)
 
 ## <a name="logs"></a>Registos
 

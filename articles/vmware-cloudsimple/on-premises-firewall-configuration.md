@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: df4c51953c6f50e30ba61b993cdb35856fcb8e25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 539665c4756a7dc87078922421b45a88404f58f1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77082966"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868148"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Aceder ao seu ambiente CloudSimple Private Cloud e aplicações a partir de instalações
 
@@ -35,7 +35,7 @@ Para aceder ao seu vCenter de Nuvem Privada e ao seu gestor NSX-T, as portas def
 
 ## <a name="ports-required-for-using-on-premises-active-directory-as-an-identity-source"></a>Portos necessários para utilização de diretório ativo no local como fonte de identidade
 
-Para configurar o diretório ativo no local como fonte de identidade no private Cloud vCenter, as portas definidas na tabela devem ser abertas.  Consulte [o Use Azure AD como fornecedor de identidade para vCenter na CloudSimple Private Cloud](https://docs.azure.cloudsimple.com/azure-ad/) para obter passos de configuração.
+Para configurar o diretório ativo no local como fonte de identidade no private Cloud vCenter, as portas definidas na tabela devem ser abertas.  Consulte [o Use Azure AD como fornecedor de identidade para vCenter na CloudSimple Private Cloud](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) para obter passos de configuração.
 
 | Porta         | Origem                           | Destino                                         | Objetivo                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,6 +60,6 @@ O acesso às máquinas virtuais de carga de trabalho em funcionamento na Cloud P
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar e gerir VLANs e Subnets](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
-* [Ligue-se à rede no local utilizando o Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/)
-* [Configuração Site-to-Site VPN a partir de instalações](https://docs.azure.cloudsimple.com/vpn-gateway/)
+* [Criar e gerir VLANs e Subnets](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/)
+* [Ligue-se à rede no local utilizando o Azure ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-connection/)
+* [Configuração Site-to-Site VPN a partir de instalações](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway/)

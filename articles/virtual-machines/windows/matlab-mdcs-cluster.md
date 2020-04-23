@@ -1,24 +1,19 @@
 ---
 title: Clusters MATLAB em máquinas virtuais
 description: Utilize máquinas virtuais do Microsoft Azure para criar clusters de servidores de computação distribuídos MATLAB para executar as suas cargas de trabalho paralelas mATLAB intensivas em computação
-services: virtual-machines-windows
-documentationcenter: ''
 author: mscurrell
-manager: gwallace
-editor: ''
-ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: Windows
+ms.subservice: workloads
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: a2fb2479f5544b869b51e796085fcb4d0b76121a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d34481587fd48e2eddfd268c39f6bc4f7c4e0c76
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74038146"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869409"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Crie clusters de servidores de computação distribuídos MATLAB em VMs Azure
 Utilize máquinas virtuais Do Microsoft Azure para criar um ou mais clusters de servidores de computação distribuídos MATLAB para executar as suas cargas de trabalho paralelas mATLAB intensivas em computação. Instale o seu software MATLAB Distributed Computing Server num VM para utilizar como imagem base e utilize um modelo de quickstart Azure ou um script Azure PowerShell (disponível no [GitHub)](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)para implementar e gerir o cluster. Após a implantação, ligue-se ao cluster para executar as suas cargas de trabalho.
@@ -26,7 +21,7 @@ Utilize máquinas virtuais Do Microsoft Azure para criar um ou mais clusters de 
 ## <a name="about-matlab-and-matlab-distributed-computing-server"></a>Sobre o MATLAB e o MATLAB Distribuem o Servidor de Computação
 A plataforma [MATLAB](https://www.mathworks.com/products/matlab/) está otimizada para resolver problemas de engenharia e científicos. Os utilizadores do MATLAB com simulações em larga escala e tarefas de processamento de dados podem utilizar produtos de computação paralela MathWorks para acelerar as suas cargas de trabalho intensivas em cálculo, tirando partido de clusters de cálculo e serviços de rede. [A Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing/) permite que os utilizadores do MATLAB paralelamente a aplicações e tirem partido de processadores multi-core, GPUs e clusters de cálculo. [O MATLAB Distributed Computing Server](https://www.mathworks.com/products/distriben/) permite que os utilizadores do MATLAB utilizem muitos computadores num cluster de cálculo.
 
-Ao utilizar máquinas virtuais Azure, pode criar clusters de servidores de computação distribuídos MATLAB que tenham todos os mesmos mecanismos disponíveis para submeter trabalhoparalelo como clusters no local, tais como empregos interativos, trabalhos de lote, tarefas independentes e comunicação tarefas. A utilização do Azure em conjunto com a plataforma MATLAB tem muitos benefícios em comparação com o fornecimento e utilização de hardware tradicional no local: uma gama de tamanhos de máquinas virtuais, criação de clusters a pedido para que você pague apenas pelos recursos de computação que você usa, e o capacidade de testar modelos à escala.  
+Ao utilizar máquinas virtuais Azure, pode criar clusters de servidores de computação distribuídos MATLAB que tenham todos os mesmos mecanismos disponíveis para submeter trabalhoparalelo como clusters no local, tais como empregos interativos, trabalhos de lote, tarefas independentes e tarefas de comunicação. A utilização do Azure em conjunto com a plataforma MATLAB tem muitos benefícios em comparação com o fornecimento e utilização de hardware tradicional no local: uma gama de tamanhos de máquinas virtuais, criação de clusters a pedido, pelo que paga apenas pelos recursos computacionais que utiliza e pela capacidade de testar modelos em escala.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Computador** cliente - Você precisará de um computador cliente baseado no Windows para comunicar com O Azure e o cluster MATLAB Distributed Computing Server após a implementação.

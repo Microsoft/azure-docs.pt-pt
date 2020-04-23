@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2808c8431a6b98b162920fb58a6e2ac0498d2055
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74014273"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081715"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obtenha dados através do Diretório Ativo Azure reportando API com certificados
 
@@ -44,9 +44,9 @@ Neste tutorial, aprende-se a usar um certificado de teste para aceder à API do 
     - Tokens de acesso de utilizador, chaves de aplicação e certificados, através da ADAL
     - Graph API que processa resultados paginados
 
-6. Se for a primeira vez que utiliza o módulo **install-MSCloudIdUtilsModule,** importa-o utilizando o comando Powershell **do Módulo de Importação.** A sua sessão deve ![ser semelhante a este ecrã: Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Se for a primeira vez que utiliza o módulo **install-MSCloudIdUtilsModule,** importa-o utilizando o comando PowerShell **do Módulo de Importação.** A sua sessão deve ![ser semelhante a este ecrã: Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. Utilize o comando **Powershell New-AutoSignedCertificate** para criar um certificado de teste.
+7. Utilize o comando **PowerShell de Certificado Novo Auto-Assinado** para criar um certificado de teste.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
@@ -63,13 +63,13 @@ Neste tutorial, aprende-se a usar um certificado de teste para aceder à API do 
 
 1. Navegue para o [portal Azure](https://portal.azure.com), selecione **Azure Ative Directory,** em seguida, selecione **os registos** da App e escolha a sua aplicação na lista. 
 
-2. Selecione **Definições** > **Teclas** e selecione **Carregar chave pública**.
+2. Selecione **Certificados & segredos** sob a secção **Gerir** na lâmina de registo da aplicação e selecione **Certificado de Upload**.
 
-3. Selecione o ficheiro de certificado do passo anterior e selecione **Guardar**. 
+3. Selecione o ficheiro de certificado do passo anterior e selecione **Adicionar**. 
 
-4. Note o ID de aplicação e a impressão digital do certificado que acabou de registar com a sua aplicação. Para encontrar a impressão digital, a partir da sua página de aplicação no portal, vá a **Definições** e clique em **Teclas**. A impressão digital estará na lista de **Chaves Públicas.**
+4. Note o ID de aplicação e a impressão digital do certificado que acabou de registar com a sua aplicação. Para encontrar a impressão digital, a partir da sua página de candidatura no portal, vá a **Certificados & segredos** sob a secção **Gerir.** A impressão digital estará na lista de **Certificados.**
 
-5. Abra o manifesto de aplicação no editor de manifesto inline e substitua a propriedade *keyCredencia por* a sua nova informação de certificado utilizando o seguinte esquema. 
+5. Abra o manifesto de aplicação no editor de manifesto inline e verifique se a propriedade *keyCredencia* é atualizada com a sua nova informação de certificado, como mostrado abaixo - 
 
    ```
    "keyCredentials": [
@@ -81,23 +81,20 @@ Neste tutorial, aprende-se a usar um certificado de teste para aceder à API do 
             "value":  "$base64Value" //base64 encoding of the certificate raw data
         }
     ]
-   ```
-
-6. Salve o manifesto. 
-  
-7. Agora, você pode obter um sinal de acesso para a MS Graph API usando este certificado. Utilize o **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet do módulo MSCloudIdUtils PowerShell, passando o ID da aplicação e a impressão digital que obteve do passo anterior. 
+   ``` 
+6. Agora, você pode obter um sinal de acesso para a MS Graph API usando este certificado. Utilize o **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet do módulo MSCloudIdUtils PowerShell, passando o ID da aplicação e a impressão digital que obteve do passo anterior. 
 
    ![Portal do Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-8. Utilize o símbolo de acesso no seu script Powershell para consultar a API do Gráfico. Utilize o cmdlet **Invoke-MSCloudIdMSGraphQuery** dos MSCloudIDUtils para enumerar as signins e o ponto final do directórioAudits. Este cmdlet lida com resultados de várias páginas e envia esses resultados para o pipeline PowerShell.
+7. Utilize o símbolo de acesso no seu script PowerShell para consultar a API do Gráfico. Utilize o cmdlet **Invoke-MSCloudIdMSGraphQuery** dos MSCloudIDUtils para enumerar as signins e o ponto final do directórioAudits. Este cmdlet lida com resultados de várias páginas e envia esses resultados para o pipeline PowerShell.
 
-9. Consulta do ponto final do directórioAudits para recuperar os registos de auditoria. 
+8. Consulta do ponto final do directórioAudits para recuperar os registos de auditoria. 
    ![Portal do Azure](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. Consulta do ponto final das placas para recuperar os registos de login.
+9. Consulta do ponto final das placas para recuperar os registos de login.
     ![Portal do Azure](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. Agora pode optar por exportar estes dados para um CSV e economizar para um sistema SIEM. Também pode encapsular o script numa tarefa agendada para obter dados do Azure AD a partir do seu inquilino periodicamente, sem ter de armazenar chaves de aplicação no código de origem. 
+10. Agora pode optar por exportar estes dados para um CSV e economizar para um sistema SIEM. Também pode encapsular o script numa tarefa agendada para obter dados do Azure AD a partir do seu inquilino periodicamente, sem ter de armazenar chaves de aplicação no código de origem. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

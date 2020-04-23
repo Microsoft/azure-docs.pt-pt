@@ -9,22 +9,22 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: overview
+ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 9d2d1985b23e1c7f5e0f7d9fd2795bd85e28ace0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e59359d791729d2136003596d80dd1f31a9a2aac
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240087"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025157"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
-Para embarcar no Azure Sentinel, primeiro é necessário ligar-se às suas fontes de dados. O Azure Sentinel vem com uma série de conectores para soluções Microsoft, disponíveis fora da caixa e proporcionando integração em tempo real, incluindo soluções de Proteção contra Ameaças da Microsoft, e fontes Microsoft 365, incluindo Office 365, Azure AD, Azure ATP, e Microsoft Cloud App Security, e muito mais. Além disso, existem conectores incorporados para o ecossistema de segurança mais amplo para soluções não Microsoft. Também pode utilizar o formato comum do evento, o Syslog ou o REST-API para ligar as suas fontes de dados ao Azure Sentinel.  
+Para embarcar no Azure Sentinel, primeiro é necessário ligar-se às suas fontes de dados. O Azure Sentinel vem com uma série de conectores para soluções Microsoft, disponíveis fora da caixa e proporcionando integração em tempo real, incluindo soluções de Proteção de Ameaças da Microsoft, e fontes microsoft 365, incluindo Office 365, Azure AD, Azure ATP e Microsoft Cloud App Security, entre outros. Além disso, existem conectores incorporados para o ecossistema de segurança mais amplo para soluções não Microsoft. Também pode utilizar o formato comum do evento, o Syslog ou o REST-API para ligar as suas fontes de dados ao Azure Sentinel.  
 
 1. No menu, selecione **Conectores de Dados**. Esta página permite-lhe ver a lista completa de conectores que o Azure Sentinel fornece e o seu estado. Selecione o conector que pretende ligar e selecione página do **conector Open**. 
 

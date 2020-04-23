@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb0941a6cdde5b60b71da6f58ea6b0fd2ccbb262
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d64307c4f91839c466b5f3f495cad8d7410ed364
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160957"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867315"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Tutorial: Integração de Diretório Ativo Azure com a Splunk Enterprise e a Splunk Cloud
 
@@ -113,7 +113,7 @@ Para configurar o único sign-on da Azure AD com a Splunk Enterprise e a Splunk 
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<splunkserver>/saml/acs`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL, Identificador e Resposta real. Contacte a equipa de suporte ao [Cliente Splunk Enterprise e Splunk Cloud](https://www.splunk.com/about-us/contact.html#tabs/customer-support) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL, Identificador e Resposta real. Contacte a equipa de suporte ao [Cliente Splunk Enterprise e Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
 5. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -121,7 +121,7 @@ Para configurar o único sign-on da Azure AD com a Splunk Enterprise e a Splunk 
 
 ### <a name="configure-splunk-enterprise-and-splunk-cloud-single-sign-on"></a>Configure Splunk Enterprise e Splunk Cloud Single Sign-On
 
-Para configurar um único sign-on no **lado da Splunk Enterprise e da Splunk Cloud,** você precisa enviar os metadados da **Federação xML** descarregados e URLs copiados apropriados do portal Azure para [splunk Enterprise e splunk cloud support team](https://www.splunk.com/about-us/contact.html#tabs/customer-support). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sign-on no **lado da Splunk Enterprise e da Splunk Cloud,** você precisa enviar os metadados da **Federação xML** descarregados e URLs copiados apropriados do portal Azure para [splunk Enterprise e splunk cloud support team](https://www.splunk.com/en_us/about-splunk/contact-us.html). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
 
@@ -176,7 +176,7 @@ Nesta secção, permite que Britta Simon utilize um único sign-on Azure, conced
 
 ### <a name="create-splunk-enterprise-and-splunk-cloud-test-user"></a>Crie o utilizador de teste Splunk Enterprise e Splunk Cloud
 
-Nesta secção, cria-se um utilizador chamado Britta Simon na Splunk Enterprise e na Splunk Cloud. Trabalhe com a equipa de [suporte da Splunk Enterprise e da Splunk Cloud](https://www.splunk.com/about-us/contact.html#tabs/customer-support) para adicionar os utilizadores na plataforma Splunk Enterprise e Splunk Cloud. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+Nesta secção, cria-se um utilizador chamado Britta Simon na Splunk Enterprise e na Splunk Cloud. Trabalhe com a equipa de [suporte da Splunk Enterprise e da Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html) para adicionar os utilizadores na plataforma Splunk Enterprise e Splunk Cloud. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

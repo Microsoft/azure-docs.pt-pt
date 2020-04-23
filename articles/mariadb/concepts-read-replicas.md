@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: b2e8bec18f4f5df6fb78a3c31aa0956ec7333eb5
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 9129cb308a364a3ed0654055f8afe9dd8c89010a
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770115"
+ms.locfileid: "82024630"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Azure Database for MariaDB
 
@@ -33,9 +33,6 @@ A réplica da leitura usa replicação assíncrona. A funcionalidade não se des
 
 ## <a name="cross-region-replication"></a>Replicação transversal
 Pode criar uma réplica de leitura numa região diferente do seu servidor principal. A replicação transversal pode ser útil para cenários como o planeamento de recuperação de desastres ou aproximar os dados dos seus utilizadores.
-
-> [!NOTE]
-> A replicação da região transversal está em pré-visualização.
 
 Pode ter um servidor principal em qualquer Base de [Dados Azure para a região mariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Um servidor principal pode ter uma réplica na sua região emparelhada ou nas regiões de réplica universal. A imagem abaixo mostra quais as regiões réplicas disponíveis dependendo da sua região principal.
 

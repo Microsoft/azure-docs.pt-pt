@@ -9,18 +9,18 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 11fecd875385d8ba044cbe44e2270eed11d61ce1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bcb6cd7393419fb8fc75decb00a8f4165d15668c
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77581554"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025276"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Quickstart: A bordo do Azure Sentinel
 
 Neste arranque rápido, aprenda a bordo do Azure Sentinel. 
 
-Para embarcar no Azure Sentinel, primeiro é necessário ativar o Azure Sentinel e, em seguida, ligar as suas fontes de dados. O Azure Sentinel vem com uma série de conectores para soluções Microsoft, disponíveis fora da caixa e proporcionando integração em tempo real, incluindo soluções de Proteção contra Ameaças da Microsoft, fontes microsoft 365, incluindo Office 365, Azure AD, Azure ATP, e Microsoft Cloud App Security, e muito mais. Além disso, existem conectores incorporados para o ecossistema de segurança mais amplo para soluções não Microsoft. Também pode utilizar formato de evento comum, Syslog ou REST-API para ligar as suas fontes de dados ao Azure Sentinel.  
+Para embarcar no Azure Sentinel, primeiro é necessário ativar o Azure Sentinel e, em seguida, ligar as suas fontes de dados. O Azure Sentinel vem com uma série de conectores para soluções Microsoft, disponíveis fora da caixa e proporcionando integração em tempo real, incluindo soluções de Proteção de Ameaças microsoft, fontes microsoft 365, incluindo Office 365, Azure AD, Azure ATP e Microsoft Cloud App Security, e muito mais. Além disso, existem conectores incorporados para o ecossistema de segurança mais amplo para soluções não Microsoft. Também pode utilizar formato de evento comum, Syslog ou REST-API para ligar as suas fontes de dados ao Azure Sentinel.  
 
 Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros de trabalho habilmente criados que superem os conhecimentos com base nos seus dados. Estes livros de livros podem ser facilmente personalizados às suas necessidades.
 
@@ -55,7 +55,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros de 
 
    >[!NOTE] 
    > - Os espaços de trabalho por defeito criados pelo Azure Security Center não constam da lista; não se pode instalar o Azure Sentinel neles.
-   > - O Azure Sentinel pode funcionar em espaços de trabalho em qualquer [região da AG de Log Analytics,](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) exceto nas regiões da China, Alemanha e Governo azure. Os dados gerados pelo Azure Sentinel (tais como incidentes, marcadores e regras de alerta, que podem conter alguns dados dos clientes provenientes destes espaços de trabalho) são guardados quer na Europa Ocidental (para espaços de trabalho localizados na Europa) quer nos EUA (para todos os espaços de trabalho baseados nos EUA, bem como para os EUA, bem como para os ESPAÇOS de trabalho baseados nos EUA, bem como para os EUA, bem como para os EUA, bem como para os EUA, bem como para os EUA, bem como para os EUA, bem como para os EUA, bem como para os EUA, bem como para os EUA, bem como para os EUA, bem como para os EUA, bem como para os EUA qualquer outra região, com exceção da Europa).
+   > - O Azure Sentinel pode funcionar em espaços de trabalho em qualquer [região da AG de Log Analytics,](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) exceto nas regiões da China, Alemanha e Governo azure. Os dados gerados pelo Azure Sentinel (tais como incidentes, marcadores e regras de alerta, que podem conter alguns dados dos clientes provenientes destes espaços de trabalho) são guardados quer na Europa Ocidental (para espaços de trabalho localizados na Europa) quer nos EUA (para todos os espaços de trabalho baseados nos EUA, bem como em qualquer outra região, com exceção da Europa).
 
 1. **Selecione Adicionar Sentinel a Azure**.
   
@@ -64,7 +64,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros de 
 
 O Azure Sentinel cria a ligação a serviços e aplicações ligando-se ao serviço e reencaminhando os eventos e registos para o Azure Sentinel. Para máquinas e máquinas virtuais, pode instalar o agente Azure Sentinel que recolhe os registos e os encaminha para o Azure Sentinel. Para firewalls e proxies, o Azure Sentinel utiliza um servidor Linux Syslog. O agente está instalado nele e a partir do qual o agente recolhe os ficheiros de registo e os encaminha para o Azure Sentinel. 
  
-1. Clique na **recolha de Dados**.
+1. Clique em **Conectores de Dados**.
 2. Há um azulejo para cada fonte de dados que pode ligar.<br>
 Por exemplo, clique em **Azure Ative Directory**. Se ligar esta fonte de dados, transe todos os registos do Azure AD para o Azure Sentinel. Pode selecionar que tipo de registos se desloque para obter - registos de login e/ou registos de auditoria. <br>
 Na parte inferior, o Azure Sentinel fornece recomendações para quais os livros de trabalho que deve instalar para cada conector para que possa obter imediatamente informações interessantes através dos seus dados. <br> Siga as instruções de instalação ou consulte o guia de [ligação relevante](connect-data-sources.md) para mais informações. Para obter informações sobre conectores de dados, consulte [os serviços Connect Microsoft](connect-data-sources.md).

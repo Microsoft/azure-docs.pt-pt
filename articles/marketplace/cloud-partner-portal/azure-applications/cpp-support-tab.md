@@ -7,38 +7,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 93dd8636f60ceca0f43d806d4f5b1a037ed21ee4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83ec57290f56a903a7c4456ba760fbbb3b54f885
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289027"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869369"
 ---
 # <a name="azure-application-support-tab"></a>Separador de suporte para aplicações Azure
 
-Utilize o separador Suporte para fornecer informações de engenharia e apoio ao cliente.
- 
-## <a name="identify-contacts-and-websites"></a>Identificar contactos e websites
+O [Portal do Parceiro Cloud](https://cloudpartner.azure.com/) já não suporta a criação e gestão das ofertas de aplicações azure. Em vez disso, esta funcionalidade foi transferida para o portal Microsoft [Partner Center](https://partner.microsoft.com/). Para mais informações, consulte Criar uma oferta de [aplicação Azure.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer)
 
-Utilize a próxima captura do ecrã como guia para fornecer as informações necessárias. Todos os nomes de campo anexados com um asterisco vermelho (*) devem ser preenchidos.
-
-  ![Formulário de suporte para oferta](./media/azureapp-support-tab.png)
-
-1. Em contacto com **a Engenharia,** forneça informações para os seguintes campos:
-
-   - **Nome\* ** - Introduza o nome do contacto de engenharia para a sua aplicação. Este contacto receberá comunicações técnicas da Microsoft.
-   - **Email\* ** - Introduza o endereço de e-mail do contacto com a engenharia.
-   - **Telefone\* ** - Introduza o número de telefone do contacto de engenharia.
-  
-2. Em contato de **suporte,** forneça informações para os seguintes campos:
-
-   - **Nome\* ** - Introduza o nome do contacto de suporte para a sua aplicação. Este contacto receberá comunicações relacionadas com o suporte da Microsoft.
-   - **Email\* ** - Introduza o endereço de e-mail do contacto de suporte para a sua aplicação.
-   - **Telefone\* ** - Introduza o número de telefone do contacto de suporte.
- 
-3. No âmbito **dos Urls**de Suporte, forneça os URLs de suporte adequados que a Microsoft utilizará quando os seus clientes abrirem bilhetes de suporte. Estes Urls serão para o Azure Público ou para a Nuvem do Governo Azure.
-4. Selecione **Guardar** quando terminar.
-
-## <a name="next-steps"></a>Passos seguintes
-
-[Publicar oferta de aplicação do Azure](./cpp-publish-offer.md)
+Antes de criar uma nova oferta de aplicação Azure, deve ler [Criar uma conta de Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o dashboard do Mercado [Comercial](https://partner.microsoft.com/dashboard/directory) com a página **'Visão Geral'** selecionada. Siga as instruções em Criar uma oferta de [aplicação Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer) para criar a sua oferta.

@@ -1,18 +1,18 @@
 ---
-title: Renderização de depuração
+title: Composição de Depuração
 description: Visão geral dos efeitos de renderização do lado do servidor
 author: jumeder
 ms.author: jumeder
 ms.date: 04/09/2020
 ms.topic: article
-ms.openlocfilehash: 675f8d988e64ed7b556f154f681ccb53ed1000c6
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: f10c736cad9322752d5d552d29ef0c63635628a5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81394296"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868165"
 ---
-# <a name="debug-rendering"></a>Renderização de depuração
+# <a name="debug-rendering"></a>Composição de Depuração
 
 A API de renderização de depuração fornece uma gama de opções globais para alterar a renderização do lado do servidor com diferentes efeitos de depuração.
 
@@ -22,7 +22,7 @@ A API de renderização de depuração fornece uma gama de opções globais para
 |---------------------------------|:-------------------------------------|
 |Contador de quadros                    | Torna uma sobreposição de texto no canto superior esquerdo da moldura. O texto mostra o ID do quadro do servidor atual, que é continuamente incrementado como receitas de renderização. |
 |Contagem de polígonos                    | Torna uma sobreposição de texto no canto superior esquerdo da moldura. O texto mostra a quantidade atualmente renderizada de polígonos, o mesmo valor que consultado por [consultas de desempenho do lado do Servidor](performance-queries.md)| 
-|Armação de arame                        | Se ativado, toda a geometria do objeto carregada no servidor será renderizada no modo de wireframe. Apenas as bordas dos polígonos serão rasterizadas n neste modo. |
+|Armação de arame                        | Se ativado, toda a geometria do objeto carregada no servidor será renderizada no modo de wireframe. Só as bordas dos polígonos serão raspadas neste modo. |
 
 O seguinte código permite estes efeitos de depuração:
 
@@ -56,7 +56,7 @@ No entanto, os efeitos fornecidos não dão qualquer introspeção detalhada na 
 ## <a name="performance-considerations"></a>Considerações de desempenho
 
 * Permitir as sobreposições de texto incorre pouco ou nada sobre a sobrecarga de desempenho.
-* Além disso, permitir a sobreposição incorre numa sobrecarga de desempenho não trivial, embora possa variar dependendo da cena. Para cenas complexas, este modo pode fazer com que o framerate desça abaixo do alvo de 60-Hz.
+* Ativar o modo de armação electrónica incorre numa sobrecarga de desempenho não trivial, embora possa variar dependendo da cena. Para cenas complexas, este modo pode fazer com que a taxa de fotogramas desça abaixo do objetivo de 60-Hz.
 
 ## <a name="next-steps"></a>Passos seguintes
 

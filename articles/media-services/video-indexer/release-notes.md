@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 5aa7abf7aafc14e71af5618cec892ef9f843d88a
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: f7ce5f5086bcf2d577fb998df307ee684d536c15
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733057"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870091"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Indexer de Vídeo dos Serviços De Mídia Azure
 
@@ -40,7 +40,7 @@ O widget **Player** `locale` tem um novo parâmetro. Ambos `locale` `language` e
 
 Para mais informações, consulte a secção de tipos de [widget.](video-indexer-embed-widgets.md#widget-types) 
 
-## <a name="new-player-skin"></a>Pele de jogador novo
+### <a name="new-player-skin"></a>Pele de jogador novo
 
 Uma nova pele de jogador lançada com design atualizado.
 

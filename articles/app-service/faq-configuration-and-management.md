@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 9e7070e925d12df82adbc3683da5b10e48c5d4b0
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 810219bca5c75e3ee7e65c6b7302531bca89788d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668122"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869969"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuração e gestão de FAQs para Web Apps em Azure
 
@@ -187,7 +187,7 @@ Tem duas opções para capturar um vestígio de F12:
 3. Clique à direita na área da mensagem do painel e, em seguida, selecione **Copiar tudo**.
 4. Colhe o texto copiado num ficheiro e, em seguida, guarde o ficheiro.
 
-Para ver um ficheiro HAR, pode utilizar o [espectador HAR](https://www.softwareishard.com/har/viewer/).
+Para ver um ficheiro HAR, pode utilizar o [espectador HAR](http://www.softwareishard.com/har/viewer/).
 
 ## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>Porque é que tenho um erro quando tento ligar uma aplicação web do App Service a uma rede virtual que está ligada ao ExpressRoute?
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/13/2019
+ms.date: 04/22/2019
 ms.author: victorh
-ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312381"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024498"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configure um portal de aplicação com rescisão de TLS utilizando o portal Azure
 
@@ -56,13 +56,11 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Utilize [exportação-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi devolvida para exportar um ficheiro pfx do certificado:
+Utilize [exportação-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi devolvida para exportar um ficheiro pfx do certificado. Certifique-se de que a sua palavra-passe tem 4 - 12 caracteres de comprimento:
 
-> [!NOTE]
-> Não utilize caracteres especiais na sua palavra-passe de ficheiro .pfx. Apenas caracteres alfanuméricos são suportados.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String <your password> -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -150,7 +148,7 @@ No separador **Configuração,** irá ligar a piscina frontal e traseira que cri
 
    - Ficheiro de **certificado PFX** - Navegue e selecione o ficheiro c:\appgwcert.pfx que cria anteriormente.
    - **Nome** do certificado - Digite *mycert1* para o nome do certificado.
-   - **Palavra-passe** - Tipo *Azure123456* para a palavra-passe.
+   - **Palavra-passe** - Digite a sua senha.
   
         Aceite os valores predefinidos para as outras definições no separador **Listener** e, em seguida, selecione o separador de **alvos Backend** para configurar o resto da regra de encaminhamento.
 
@@ -194,10 +192,10 @@ Para fazer isto, vai:
     - **Grupo de recursos**: Selecione **myResourceGroupAG** para o nome do grupo de recursos.
     - **Nome**da máquina virtual : Introduza *myVM* para o nome da máquina virtual.
     - **Nome de utilizador**: *Introduza azureuser* para o nome de utilizador do administrador.
-    - **Palavra-passe**: Insira *o Azure123456* para obter a palavra-passe do administrador.
-4. Aceite as outras predefinições e, em seguida, selecione **Seguinte: Discos**.  
-5. Aceite as predefinições do separador **De Discos** e, em seguida, selecione **Seguinte: Networking**.
-6. No separador **Networking,** verifique se o **myVNet** está selecionado para a **rede Virtual** e a **Subnet** está definida para **myBackendSubnet**. Aceite as outras predefinições e, em seguida, selecione **Seguinte: Gestão**.
+    - **Palavra-passe**: Introduza uma palavra-passe para a conta do administrador.
+1. Aceite as outras predefinições e, em seguida, selecione **Seguinte: Discos**.  
+2. Aceite as predefinições do separador **De Discos** e, em seguida, selecione **Seguinte: Networking**.
+3. No separador **Networking,** verifique se o **myVNet** está selecionado para a **rede Virtual** e a **Subnet** está definida para **myBackendSubnet**. Aceite as outras predefinições e, em seguida, selecione **Seguinte: Gestão**.
 
    O Application Gateway pode comunicar com instâncias fora da rede virtual em que se encontra, mas é necessário garantir que há conectividade IP.
 1. No separador **Gestão,** desloque os **diagnósticos da Bota** para **desligar**. Aceite as outras predefinições e, em seguida, selecione **Rever + criar**.

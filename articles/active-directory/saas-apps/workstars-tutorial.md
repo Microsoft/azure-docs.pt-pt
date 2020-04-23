@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c13c6ab180a172c034d25ac84781f5d3f83ae186
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 43fbc158c9ed0bbe87a75cd845433c7a7be2e6d1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086629"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Tutorial: Integração de Diretório Ativo Azure com Workstars
 
@@ -110,7 +110,7 @@ Para configurar o único sign-on azure com workstars, execute os seguintes passo
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<subdomain>.workstars.com/saml/login_check`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de Resposta real. Contacte a equipa de suporte do [Cliente Workstars](https://support.workstars.com/) para obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de Resposta real. Contacte a equipa de suporte do [Cliente Workstars](http://support.workstars.com/) para obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
 5. Na configuração de um único sinal com página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -210,7 +210,7 @@ Nesta secção, permite que Britta Simon utilize um único sign-on Azure, conced
 
 ### <a name="create-workstars-test-user"></a>Criar o utilizador de teste Workstars
 
-Nesta secção, cria-se uma utilizadora chamada Britta Simon em Workstars. Trabalhe com a equipe de [suporte workstars](https://support.workstars.com) para adicionar os utilizadores na plataforma Workstars.
+Nesta secção, cria-se uma utilizadora chamada Britta Simon em Workstars. Trabalhe com a equipe de [suporte workstars](http://support.workstars.com) para adicionar os utilizadores na plataforma Workstars.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

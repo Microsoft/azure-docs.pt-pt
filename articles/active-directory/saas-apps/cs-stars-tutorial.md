@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0c4cb553ee7edc92b5cb3d319631a985de476b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 15b31bf14b01a215d99814ce57eb9cd5f2cb2773
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159299"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutorial: Integração de Diretório Ativo Azure com CS Stars
 
@@ -111,7 +111,7 @@ Para configurar o único sign-on azure ad com CS Stars, execute os seguintes pas
     b. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:`https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e identificador. Contacte a equipa de suporte do [Cliente CS Stars](http://www.riskonnectclearsight.com/support/) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e identificador. Contacte a equipa de suporte do [Cliente CS Stars](https://riskonnect.com/support/) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
 4. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -129,7 +129,7 @@ Para configurar o único sign-on azure ad com CS Stars, execute os seguintes pas
 
 ### <a name="configure-cs-stars-single-sign-on"></a>Configure CS Stars Single Sign-On
 
-Para configurar um único sign-on no lado **cS Stars,** você precisa enviar o descarregamento da **Federação Metadados XML** e URLs copiados apropriados do portal Azure para a equipa de [suporte CS Stars](http://www.riskonnectclearsight.com/support/). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sign-on no lado **cS Stars,** você precisa enviar o descarregamento da **Federação Metadados XML** e URLs copiados apropriados do portal Azure para a equipa de [suporte CS Stars](https://riskonnect.com/support/). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
 
@@ -184,7 +184,7 @@ Nesta secção, permite que Britta Simon utilize um único sign-on Azure, conced
 
 ### <a name="create-cs-stars-test-user"></a>Criar o utilizador de teste CS Stars
 
-Nesta secção, cria-se uma utilizadora chamada Britta Simon em CS Stars. Trabalhe com a equipa de [suporte cS Stars](http://www.riskonnectclearsight.com/support/) para adicionar os utilizadores na plataforma CS Stars. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+Nesta secção, cria-se uma utilizadora chamada Britta Simon em CS Stars. Trabalhe com a equipa de [suporte cS Stars](https://riskonnect.com/support/) para adicionar os utilizadores na plataforma CS Stars. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

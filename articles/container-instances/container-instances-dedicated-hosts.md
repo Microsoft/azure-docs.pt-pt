@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934152"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025038"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implementar em anfitriões dedicados
 
@@ -37,7 +37,7 @@ O `sku` imóvel pode ter um dos seguintes valores:
 ## <a name="modify-your-json-deployment-template"></a>Modifique o seu modelo de implementação JSON
 
 No seu modelo de implementação, modifique ou adicione as seguintes propriedades:
-* Abaixo, `resources` `apiVersion` definido `2012-12-01`para.
+* Abaixo, `resources` `apiVersion` definido `2019-12-01`para.
 * Sob as propriedades do `sku` grupo de `Dedicated`contentores, adicione uma propriedade com valor.
 
 Aqui está um exemplo de snippet para a secção de recursos de um modelo de implantação de grupo de contentores que usa o sku dedicado:

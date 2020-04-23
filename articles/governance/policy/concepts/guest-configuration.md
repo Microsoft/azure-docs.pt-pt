@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Política Azure utiliza o agente de configuração do hóspede para auditar definições dentro de máquinas virtuais.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1721c0f1ca7c084d636278aabc96f8dac3293038
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 89f7cc3931971d70b441490f77b67ace89434c2b
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759088"
+ms.locfileid: "82025225"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de hóspedes da Política Azure
 
@@ -31,8 +31,8 @@ Para auditar as definições dentro de uma máquina, é ativada uma [extensão v
 > [!Important]
 > A extensão de Configuração de Hóspedes é necessária para realizar auditorias em máquinas virtuais Azure.
 > Para implementar a extensão em escala, atribua as seguintes definições políticas:
->   - Implemente pré-requisitos para ativar a Política de Configuração do Hóspede nos VMs do Windows.
->   - Implemente pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.
+>   - [Implemente pré-requisitos para ativar a Política de Configuração do Hóspede nos VMs do Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>   - [Implemente pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### <a name="limits-set-on-the-extension"></a>Limites definidos na extensão
 
@@ -67,6 +67,8 @@ As políticas de Configuração de Hóspedes incluem novas versões. As versões
 |OpenLogic|CentOS|7.3 e mais tarde|
 |Red Hat|Red Hat Enterprise Linux|7.4 e mais tarde|
 |Suse|SLES|12 SP3 e mais tarde|
+
+As imagens de máquinas virtuais personalizadas são suportadas pelas políticas de Configuração do Hóspede, desde que sejam um dos sistemas operativos na tabela acima.
 
 ### <a name="unsupported-client-types"></a>Tipos de clientes não suportados
 

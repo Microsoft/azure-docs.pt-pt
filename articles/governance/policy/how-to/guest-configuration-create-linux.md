@@ -3,12 +3,12 @@ title: Como criar políticas de configuração de hóspedes para linux
 description: Aprenda a criar uma política azure política de configuração de hóspedes para linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 24442a89d55e34f9ce9697c2f6a32cfc740bcd85
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 219b38bd81cae8d16241d1ee16cfdd2f400ae91e
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758955"
+ms.locfileid: "82024987"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de configuração de hóspedes para linux
 
@@ -26,9 +26,8 @@ Utilize as seguintes ações para criar a sua própria configuração para valid
 > As políticas personalizadas com configuração do hóspede são uma funcionalidade de pré-visualização.
 >
 > A extensão de Configuração de Hóspedes é necessária para realizar auditorias em máquinas virtuais Azure.
-> Para implementar a extensão em escala, atribua as seguintes definições políticas:
->   - Implemente pré-requisitos para ativar a Política de Configuração do Hóspede nos VMs do Windows.
->   - Implemente pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.
+> Para implantar a extensão em escala em todas as máquinas Linux, atribua a seguinte definição de política:
+>   - [Implemente pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ## <a name="install-the-powershell-module"></a>Instale o módulo PowerShell
 

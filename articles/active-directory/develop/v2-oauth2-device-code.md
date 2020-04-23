@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2a39dbb3676df5ed916203bdcbbc51d5a0da32a4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 42f3ca233597d0fbc31ce656bd856875e873e3c2
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677836"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868489"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de autorização de autorização de dispositivo OAuth 2.0
 
@@ -40,7 +40,7 @@ O cliente deve primeiro verificar com o servidor de autenticação um dispositiv
 > Tente executar este pedido no Carteiro!
 > [![Tente executar este pedido no Carteiro](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode
@@ -81,7 +81,7 @@ Se o utilizador autenticar com uma conta pessoal (em /comum ou /consumidores), s
 
 Enquanto o utilizador estiver `verification_uri`a autenticar no `/token` , o cliente deve estar `device_code`a sondar o ponto final do token solicitado utilizando o .
 
-```
+```HTTP
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 

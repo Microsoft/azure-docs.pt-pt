@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: ffaab22efb2f6969f03720abba4a7afc6387021a
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 38152889ad43b41aeb345f59963cbfb869964b98
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758218"
+ms.locfileid: "82025242"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 
@@ -60,7 +60,7 @@ Como construtor de soluções, você usa a IoT Central para criar uma solução 
 - Uma aplicação baseada na cloud que recebe a telemetria dos seus dispositivos e permite-lhe gerir esses dispositivos.
 - Vários dispositivos que executam o código personalizado ligado à sua aplicação baseada na cloud.
 
-Pode implementar rapidamente uma nova aplicação IoT Central e depois personalizá-la para os seus requisitos específicos no seu navegador. Pode começar com um modelo de _aplicação_ genérico ou com um dos modelos de aplicação focados na indústria para [retalho,](../retail/overview-iot-central-retail-pnp.md) [energia,](../energy/overview-iot-central-energy.md) [governo](../government/overview-iot-central-government.md)ou cuidados de [saúde.](../healthcare/overview-iot-central-healthcare.md)
+Pode implementar rapidamente uma nova aplicação IoT Central e depois personalizá-la para os seus requisitos específicos no seu navegador. Pode começar com um modelo de _aplicação_ genérico ou com um dos modelos de aplicação focados na indústria para [retalho,](../retail/overview-iot-central-retail.md) [energia,](../energy/overview-iot-central-energy.md) [governo](../government/overview-iot-central-government.md)ou cuidados de [saúde.](../healthcare/overview-iot-central-healthcare.md)
 
 Como construtor de soluções, utiliza as ferramentas baseadas na Web para criar um modelo de _dispositivo_ para os dispositivos que se ligam à sua aplicação. Um modelo de dispositivo é a planta que define as características e o comportamento de um tipo de dispositivo como o:
 

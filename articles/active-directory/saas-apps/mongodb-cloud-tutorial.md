@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02cc78f7e786e97062cce6d402c972e66fa56860
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: ef8094464b428f1f46017b0d4abaac5aeb1fa428
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81688120"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024534"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com MongoDB Cloud
 
@@ -37,7 +37,7 @@ Para saber mais sobre software como uma integração de aplicações de serviço
 Para começar, precisa do seguinte:
 
 * Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Uma subscrição MongoDB Cloud que está ativada para um único sign-on (SSO).
+* Uma organização MongoDB Cloud que está ativada para um único sign-on (SSO), você pode se inscrever para um [cluster gratuito](https://www.mongodb.com/cloud)
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -146,7 +146,7 @@ Nesta secção, permite que b.Simon utilize um único sign-on Azure, concedendo 
 
 ## <a name="configure-mongodb-cloud-sso"></a>Configure MongoDB Cloud SSO
 
-Para configurar um único sinal no lado da Nuvem MongoDB, precisa dos URLs apropriados copiados do portal Azure. Também precisa de configurar a Candidatura da Federação para a sua Organização de Nuvem MongoDB. Siga as instruções na documentação da [Nuvem MongoDB](https://docs.atlas.mongodb.com/security/federated-authentication/index.html). Se tiver algum problema, contacte a equipa de apoio da [MongoDB Cloud.](https://support.mongodb.com/)
+Para configurar um único sinal no lado da Nuvem MongoDB, precisa dos URLs apropriados copiados do portal Azure. Também precisa de configurar a Candidatura da Federação para a sua Organização de Nuvem MongoDB. Siga as instruções na documentação da [Nuvem MongoDB](https://docs.atlas.mongodb.com/security/federated-auth-azure-ad/). Se tiver algum problema, contacte a equipa de apoio da [MongoDB Cloud.](https://support.mongodb.com/)
 
 ### <a name="create-a-mongodb-cloud-test-user"></a>Criar um utilizador de teste MongoDB Cloud
 

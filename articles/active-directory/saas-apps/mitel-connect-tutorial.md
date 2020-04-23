@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 26a761708f56ff7aba8daf86d2991579e60291cb
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160547"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870199"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Tutorial: Integração de Diretório Ativo Azure com Mitel MiCloud Connect
 
@@ -202,7 +202,7 @@ Nesta secção, permitirá que Britta Simon utilize um único sign-on Azure, con
 
 Nesta secção, cria-se uma utilizadora chamada Britta Simon na sua conta MiCloud Connect. Os utilizadores devem ser criados e ativados antes de utilizarem um único sinal.
 
-Para mais detalhes sobre a adição de utilizadores no portal da Conta Mitel, consulte o artigo [adicionar um utilizador](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) na Base de Conhecimento de Mitel.
+Para mais detalhes sobre a adição de utilizadores no portal da Conta Mitel, consulte o artigo [adicionar um utilizador](https://oneview.mitel.com/s/article/Adding-a-User-092815) na Base de Conhecimento de Mitel.
 
 Crie um utilizador na sua conta MiCloud Connect com os seguintes detalhes:
 

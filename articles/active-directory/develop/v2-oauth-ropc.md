@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 828bdab26684b29d664ea42d0b36f475c7872a80
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a282264ed3e9539bcc96babfc41376d2c6c35628
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309451"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868658"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidade da Microsoft e Credenciais de senha do proprietário de recursos OAuth 2.0
 
@@ -50,8 +50,8 @@ O fluxo ROPC é um único pedido: envia a identificação do cliente e as creden
 > [![Tente executar este pedido no Carteiro](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
-```
-// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
+```HTTP
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required.
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.microsoftonline.com
@@ -67,13 +67,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
 | `tenant` | Necessário | O inquilino de diretório em que quer registar o utilizador. Isto pode ser em formato DE NOME GUIA ou amigável. Este parâmetro não pode ser `common` `consumers`definido para ou `organizations`, mas pode ser definido para . |
-| `client_id` | Necessário | O ID de Aplicação (cliente) que o [portal Azure - Página](https://go.microsoft.com/fwlink/?linkid=2083908) de registos de aplicações atribuída à sua app. | 
+| `client_id` | Necessário | O ID de Aplicação (cliente) que o [portal Azure - Página](https://go.microsoft.com/fwlink/?linkid=2083908) de registos de aplicações atribuída à sua app. |
 | `grant_type` | Necessário | Tem de `password`ser definido para. |
 | `username` | Necessário | O endereço de correio eletrónico do utilizador. |
 | `password` | Necessário | A senha do utilizador. |
 | `scope` | Recomendado | Uma lista de [âmbitos separados](v2-permissions-and-consent.md)do espaço, ou permissões, que a aplicação necessita. Num fluxo interativo, o administrador ou o utilizador devem consentir com estes âmbitos com antecedência. |
-| `client_secret`| Às vezes necessário | Se a sua aplicação for `client_secret` `client_assertion` um cliente público, então a ou não pode ser incluída.  Se a aplicação é um cliente confidencial, então deve ser incluída. | 
-| `client_assertion` | Às vezes necessário | Uma forma `client_secret`diferente de, gerada com um certificado.  Consulte [as credenciais](active-directory-certificate-credentials.md) de certificado para mais detalhes. | 
+| `client_secret`| Às vezes necessário | Se a sua aplicação for `client_secret` `client_assertion` um cliente público, então a ou não pode ser incluída.  Se a aplicação é um cliente confidencial, então deve ser incluída. |
+| `client_assertion` | Às vezes necessário | Uma forma `client_secret`diferente de, gerada com um certificado.  Consulte [as credenciais](active-directory-certificate-credentials.md) de certificado para mais detalhes. |
 
 ### <a name="successful-authentication-response"></a>Resposta de autenticação bem sucedida
 

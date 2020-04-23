@@ -4,12 +4,12 @@ description: Saiba como gerir e monitorizar as cópias de segurança do Agente M
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 404341c8324d9e127e8d8e6bc8083926c0d3106f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537360"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025106"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerir cópias de segurança do Microsoft Azure Recovery Services (MARS) utilizando o serviço de backup Azure
 
@@ -79,8 +79,8 @@ Pode adicionar regras de exclusão para ignorar ficheiros e pastas que não quer
 
     ![Selecione os itens](./media/backup-azure-manage-mars/select-items-remove.png)
 
-> [!NOTE]
-> Proceda com cuidado quando retirar completamente um volume da apólice.  Se precisar adicioná-lo novamente, então será tratado como um novo volume. A próxima cópia de segurança programada realizará uma cópia de segurança inicial (cópia de segurança completa) em vez de Backup Incremental. Se precisar de remover temporariamente e adicionar itens mais tarde, então é aconselhável utilizar definições de **exclusões** em vez de **remover itens** para garantir a cópia de segurança incremental em vez de cópia de segurança completa.
+    > [!NOTE]
+    > Proceda com cuidado quando retirar completamente um volume da apólice.  Se precisar adicioná-lo novamente, então será tratado como um novo volume. A próxima cópia de segurança programada realizará uma cópia de segurança inicial (cópia de segurança completa) em vez de Backup Incremental. Se precisar de remover temporariamente e adicionar itens mais tarde, então é aconselhável utilizar definições de **exclusões** em vez de **remover itens** para garantir a cópia de segurança incremental em vez de cópia de segurança completa.
 
 2. Complete os passos seguintes e clique em **Terminar** para completar a operação.
 
@@ -90,7 +90,7 @@ Existem duas formas de parar de proteger a cópia de segurança de Ficheiros e P
 
 - **Pare a proteção e guarde os dados de backup**.
   - Esta opção impedirá todos os futuros trabalhos de reserva da proteção.
-  - O serviço Azure Backup manterá indefinidamente todos os pontos de recuperação existentes. Os pontos de recuperação não serão verificados para caducidade até que a proteção seja retomada.
+  - O serviço Azure Backup continuará a manter todos os pontos de recuperação existentes.  
   - Poderá restaurar os dados de back-up para pontos de recuperação não expirados.
   - Se decidir retomar a proteção, poderá utilizar a opção de *programação de backup reativar.* Depois disso, os dados seriam mantidos com base na nova política de retenção.
 - **Pare a proteção e elimine os dados de backup**.
@@ -167,7 +167,6 @@ Uma frase-passe é usada para encriptar e desencriptar dados enquanto faz backup
 
     ![Gerar frase de passe.](./media/backup-azure-manage-mars/passphrase2.png)
 - Certifique-se de que a frase-passe é guardada de forma segura num local alternativo (com a lém da máquina de origem), de preferência no Cofre de Chaves Azure. Acompanhe todas as frases-passe se tiver várias máquinas a serem apoiadas com os agentes mars.
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

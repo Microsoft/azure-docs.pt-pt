@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
-ms.openlocfilehash: 4d397279ac7e5949398d695db615d9a003ab7acd
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811676"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024851"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Configurar TLS para uma aplicação no Azure
 
@@ -32,7 +32,7 @@ Para configurar o TLS para um pedido, é necessário obter primeiro um certifica
 
 O certificado deve satisfazer os seguintes requisitos relativos aos certificados TLS/SSL em Azure:
 
-* O certificado deve conter uma chave privada.
+* O certificado deve conter uma chave pública.
 * O certificado deve ser criado para troca de chaves, exportável para um ficheiro de Intercâmbio de Informações Pessoais (.pfx).
 * O nome do certificado deve corresponder ao domínio utilizado para aceder ao serviço de nuvem. Não é possível obter um certificado TLS/SSL de uma autoridade de certificados (CA) para o domínio cloudapp.net. Deve adquirir um nome de domínio personalizado para usar quando aceder ao seu serviço. Quando solicitar um certificado a um CA, o nome do certificado deve corresponder ao nome de domínio personalizado utilizado para aceder à sua aplicação. Por exemplo, se o seu nome de domínio personalizado for **contoso.com** solicitaria um certificado da sua CA para ***.contoso.com** ou **www\.contoso.com**.
 * O certificado deve utilizar um mínimo de encriptação de 2048 bits.

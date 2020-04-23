@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 6f4dbedad56f6867558a8b70575ad906c8796612
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: f625f5df4f33c6516bd5c50f97c52404d76757a0
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392566"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024460"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu app service ou app Funções Azure para usar login Azure AD
 
@@ -100,7 +100,7 @@ Execute os seguintes passos:
     |Campo|Descrição|
     |-|-|
     |ID de Cliente| Utilize a identificação da **Aplicação (cliente)** do registo da aplicação. |
-    |Url de emitente| Utilize `https://login.microsoftonline.com/<tenant-id>/v2.0`, e substitua * \<o>* de identificação do inquilino pelo **D.D. (inquilino) identificação** do registo da aplicação. Este valor é utilizado para redirecionar os utilizadores para o inquilino da AD Azure correto, bem como para descarregar os metadados apropriados para determinar as chaves de assinatura simbólicas apropriadas e o valor de reclamação de emitente simbólico, por exemplo. A `/v2.0` secção pode ser omitida para aplicações utilizando AAD v1. |
+    |Url de emitente| Utilize `<authentication-endpoint>/<tenant-id>/v2.0`https://login.microsoft.com, e substitua * \<* [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) * \<* o ponto final de autenticação>pelo ponto final de autenticação para o seu ambiente em nuvem (por exemplo, " para o Global Azure), substituindo também o>de identificação de inquilinos pelo ID do **Diretório (inquilino)** no qual foi criado o registo da aplicação. Este valor é utilizado para redirecionar os utilizadores para o inquilino da AD Azure correto, bem como para descarregar os metadados apropriados para determinar as chaves de assinatura simbólicas apropriadas e o valor de reclamação de emitente simbólico, por exemplo. A `/v2.0` secção pode ser omitida para aplicações utilizando AAD v1. |
     |Segredo de Cliente (Opcional)| Use o segredo do cliente gerado no registo da aplicação.|
     |Audiências simbólicas permitidas| Se se trata de uma aplicação de nuvem ou servidor e pretende permitir fichas de autenticação a partir de uma aplicação web, adicione o **ID URI** da aplicação web aqui. O ID do **cliente** configurado é *sempre* considerado implicitamente como um público permitido. |
 

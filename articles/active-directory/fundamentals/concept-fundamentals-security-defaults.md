@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3139d39797c3bc576bb39f1438b7e6d3f37e3c5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f307553a97973d03b0699248373e53e4845aa39a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78248851"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869904"
 ---
 # <a name="what-are-security-defaults"></a>O que são incumprimentos de segurança?
 
@@ -92,8 +92,6 @@ Usar o Gestor de Recursos Azure para gerir os seus serviços é uma ação altam
 É importante verificar a identidade dos utilizadores que pretendam aceder ao Azure Resource Manager e configurações de atualizações. Verifica a sua identidade exigindo autenticação adicional antes de permitir o acesso.
 
 Depois de ativar falhas de segurança no seu inquilino, qualquer utilizador que aceda ao portal Azure, Azure PowerShell ou o Azure CLI terá de concluir a autenticação adicional. Esta política aplica-se a todos os utilizadores que acedem ao Gestor de Recursos Do Azure, seja um administrador ou um utilizador. 
-
-Se o utilizador não estiver registado para autenticação multi-factor, o utilizador será obrigado a registar-se utilizando a aplicação Autenticadora Microsoft para proceder. Será fornecido o período de registo de autenticação multifactor de 14 dias.
 
 > [!NOTE]
 > Os inquilinos do Exchange Online pré-2017 têm a autenticação moderna desativada por defeito. Para evitar a possibilidade de um laço de login ao autenticar através destes inquilinos, deve permitir a [autenticação moderna.](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)

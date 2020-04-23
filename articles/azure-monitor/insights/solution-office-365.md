@@ -6,17 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 5aa025fb366634e796abfb2eb9c0035d9b87dc3c
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 2c6eb5407ec62b6e9e771ce257b66fca2a91e0a5
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437051"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82023610"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 em Azure (Pré-visualização)
 
 ![Logotipo do escritório 365](media/solution-office-365/icon.png)
-
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Atualização da solução
@@ -36,8 +35,8 @@ ms.locfileid: "80437051"
 >
 > ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 > 
-> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-april-30th"></a>P: É possível embarcar na solução do Monitor Azure do Office 365 entre hoje e 30 de abril?
-> Não, a solução Azure Monitor Office 365 sobre scripts de embarque já não está disponível. A solução será removida no dia 30 de abril.
+> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-july-30th"></a>P: É possível embarcar na solução do Monitor Azure do Office 365 entre hoje e 30 de julho?
+> Não, a solução Azure Monitor Office 365 sobre scripts de embarque já não está disponível. A solução será removida no dia 30 de julho.
 > 
 > ### <a name="q-will-the-tables-and-schemas-be-changed"></a>P: As mesas e os eschemas serão trocados?
 > O nome da tabela **OfficeActivity** e o esquema permanecerão os mesmos que na solução atual. Pode continuar a utilizar as mesmas consultas na nova solução, excluindo consultas que referenciam dados da AD Azure.
@@ -103,11 +102,11 @@ ms.locfileid: "80437051"
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>P: O Azure Sentinel fornece conectores adicionais como parte da solução?
 > Sim, veja [o Azure Sentinel ligar fontes](../../sentinel/connect-data-sources.md)de dados.
 > 
-> ###    <a name="q-what-will-happen-on-april-30-do-i-need-to-offboard-beforehand"></a>P: O que vai acontecer no dia 30 de abril? Preciso de estar fora de bordo antes?
+> ###    <a name="q-what-will-happen-on-july-30-do-i-need-to-offboard-beforehand"></a>P: O que vai acontecer no dia 30 de julho? Preciso de estar fora de bordo antes?
 > 
 > - Não poderá receber dados da solução **Office365.** A solução deixará de estar disponível no Mercado
 > - Para os clientes Azure Sentinel, a solução de espaço de trabalho Log Analytics **Office365** será incluída na solução Azure Sentinel **SecurityInsights.**
-> - Se não desativar manualmente a sua solução, os seus dados serão desligados automaticamente no dia 30 de abril.
+> - Se não desativar manualmente a sua solução, os seus dados serão desligados automaticamente no dia 30 de julho.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: Os meus dados serão transferidos para a nova solução?
 > Sim. Quando retirar a solução **do Office 365** do seu espaço de trabalho, os seus dados ficarão temporariamente indisponíveis porque o esquema é removido. Quando ativar o novo conector **Office 365** no Sentinel, o esquema é restaurado no espaço de trabalho e todos os dados já recolhidos estarão disponíveis. 

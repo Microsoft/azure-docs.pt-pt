@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad06d2f695109866bab60502a67f0d2c2f425477
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4280bd1385bbf936dc9188df259ca1a4b4a62d6a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68480497"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870390"
 ---
 # <a name="tutorial-integrate-cognidox-with-azure-active-directory"></a>Tutorial: Integrar a Cognidox com o Diretório Ativo Azure
 
@@ -103,7 +103,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
     | Nome | Espaço de nomes  |  Transformação | Parâmetro 1 |
     | ---------------| --------------- | --------- |
-    | wanshort | http://appinux.com/windowsaccountname2 | ExtractmailPrefix() | user.userprincipalname |
+    | wanshort | http:\//appinux.com/windowsaccountname2 | ExtractmailPrefix() | user.userprincipalname |
 
 
     a. Clique **Em adicionar nova alegação** para abrir o diálogo de reclamações do utilizador **Gerir.**

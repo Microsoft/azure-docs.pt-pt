@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ca8c5cacd2b1a1a7b4f70615831d2901510045e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7c137a75c0a021aa8bca3aec23da6c4d1ada300
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024437"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868023"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Quickstart - Create Azure VMware Solution by CloudSimple
 
@@ -34,7 +34,7 @@ Rever [os pré-requisitos de networking](cloudsimple-network-checklist.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-the-service"></a>Criar o serviço
 
@@ -87,4 +87,4 @@ Para configurar a capacidade de pagamento para um ambiente CloudSimple Private C
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criar nuvem privada e configurar o ambiente](quickstart-create-private-cloud.md)
-* Saiba mais sobre [o serviço CloudSimple](https://docs.azure.cloudsimple.com/cloudsimple-service)
+* Saiba mais sobre [o serviço CloudSimple](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-service)

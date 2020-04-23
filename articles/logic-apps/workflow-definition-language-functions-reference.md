@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 48be73a6385c9690909cb70abe558a2def1ace88
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: f557753c61af1e57490ae2d10b7f42475bd7c0a6
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730516"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870241"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência para a utilização de funções em expressões para aplicações lógicas azure e automatização de potência
 
@@ -2426,9 +2426,11 @@ iterationIndexes('<loopName>')
 
 *Exemplo* 
 
-Este exemplo cria uma contra variável e incrementos que variáveis por um durante cada iteração em loop Until até que o valor de contador atinja cinco. O exemplo também cria uma variável que acompanha o índice atual para cada iteração. No lacete Until, durante cada iteração, o exemplo incrementa o contador e atribui o valor de contador ao valor do índice atual e, em seguida, incrementa o contador. A qualquer momento, pode determinar o número atual de iteração recuperando o valor atual do índice.
+Este exemplo cria uma contra variável e incrementos que variáveis por um durante cada iteração em loop Until até que o valor de contador atinja cinco. O exemplo também cria uma variável que acompanha o índice atual para cada iteração. No lacete Until, durante cada iteração, o exemplo incrementa o contador e atribui o valor de contador ao valor do índice atual e, em seguida, incrementa o contador. Enquanto no loop, este exemplo refere o `iterationIndexes` índice de iteração atual utilizando a função:
 
-```
+`iterationIndexes('Until_Max_Increment')`
+
+```json
 {
    "actions": {
       "Create_counter_variable": {
@@ -2459,7 +2461,7 @@ Este exemplo cria uma contra variável e incrementos que variáveis por um duran
             "Create_counter_variable": [ "Succeeded" ]
          }
       },
-      "Until": {
+      "Until_Max_Increment": {
          "type": "Until",
          "actions": {
             "Assign_current_index_to_counter": {
@@ -2472,6 +2474,15 @@ Este exemplo cria uma contra variável e incrementos que variáveis por um duran
                   "Increment_variable": [ "Succeeded" ]
                }
             },
+            "Compose": {
+               "inputs": "'Current index: ' @{iterationIndexes('Until_Max_Increment')}",
+               "runAfter": {
+                  "Assign_current_index_to_counter": [
+                     "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },           
             "Increment_variable": {
                "type": "IncrementVariable",
                "inputs": {

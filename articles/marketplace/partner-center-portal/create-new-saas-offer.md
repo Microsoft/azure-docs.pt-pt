@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 45559978f710549088d75d0f0706b798ebad3821
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a39e1e19f65722b4b5ae809ca943da719a3c6e22
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314075"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869779"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta SaaS
 
@@ -290,6 +290,9 @@ Utilize as seguintes instruções para utilizar o rico editor de texto:
 
 Lembre-se de **Guardar** antes de passar para a secção seguinte.
 
+>[!Note]
+>Se tiver algum problema de envio de ficheiros, https://upload.xboxlive.com certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
+
 #### <a name="additional-marketplace-listing-resources"></a>Recursos adicionais de listagem de mercado
 
 - [Boas práticas para anúncios de oferta de mercado](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
@@ -399,7 +402,7 @@ Selecione a frequência que os clientes devem pagar o preço listado. Deve ser f
 
 - **Preço**: USD por mês ou USD por ano
 
-Os preços estabelecidos em moeda local (USD = Dólar dos Estados Unidos) são convertidos na moeda local de todos os mercados selecionados utilizando as taxas de câmbio atuais disponíveis durante a configuração. Valide estes preços antes de publicar exportando a folha de cálculo dos preços e revendo o preço em cada mercado. Se quiser definir preços personalizados num mercado individual, modifique e importe a folha de cálculo dos preços. É responsável por validar este preço e possuir estas configurações.
+Os preços estabelecidos em USD (USD = Dólar dos Estados Unidos) são convertidos na moeda local de todos os mercados selecionados utilizando as taxas de câmbio atuais quando poupadas. Valide estes preços antes de publicar exportando a folha de cálculo dos preços e revendo o preço em cada mercado. Se quiser definir preços personalizados num mercado individual, modifique e importe a folha de cálculo dos preços. É responsável por validar este preço e possuir estas configurações.
 *\*Primeiro, tem de poupar as alterações de preços para permitir a exportação de dados de preços.*
 
 Reveja cuidadosamente os seus preços antes de publicar, uma vez que existem algumas restrições sobre o que pode mudar após a publicação de um plano:

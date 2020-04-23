@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 1dbc08e01b9a36b1bc80ee6b81ceb2d92ff831cc
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273720"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870224"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ dos conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -445,7 +445,7 @@ Existem duas formas principais de alterar a palavra-passe para VMs em conjuntos 
 
     Atualize as credenciais de administração diretamente no modelo de conjunto de escala (por exemplo, utilizando o Explorador de Recursos Azure, PowerShell ou CLI). Uma vez atualizado o conjunto de escala, todos os novos VMs têm as novas credenciais. Os VMexistentes só têm as novas credenciais se forem reimagemdas.
 
-- Redefinir a palavra-passe utilizando as extensões de acesso VM.
+- Redefinir a palavra-passe utilizando as extensões de acesso VM. Certifique-se de seguir os requisitos de senha conforme descrito [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
 
     Utilize o exemplo do PowerShell seguinte:
 

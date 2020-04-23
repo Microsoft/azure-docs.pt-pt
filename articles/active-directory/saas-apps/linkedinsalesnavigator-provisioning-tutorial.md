@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f789f82288c9820214c4ab32c271bb547945d4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48b9f2dc64d1d3ddd8253a253dcab8ef972032f9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77057384"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869734"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: Configure LinkedIn Sales Navigator para fornecimento automático de utilizadores
 
@@ -53,7 +53,7 @@ Antes de configurar e ativar o serviço de provisionamento, terá de decidir qua
 
 ## <a name="configuring-user-provisioning-to-linkedin-sales-navigator"></a>Configurar o fornecimento de utilizadores ao LinkedIn Sales Navigator
 
-Esta secção guia-o através da ligação do seu AD Azure à conta de utilizador SCIM da LinkedIn Sales Navigator, e configurando o serviço de provisionamento para criar, atualizar e desativar as contas de utilizador atribuídas no LinkedIn Sales Navigator com base no utilizador e atribuição de grupo em Azure AD.
+Esta secção guia-o através da ligação do seu Azure AD à conta de utilizador SCIM da LinkedIn Sales Navigator, e configurando o serviço de provisionamento para criar, atualizar e desativar as contas de utilizador atribuídas no LinkedIn Sales Navigator com base na atribuição de utilizadores e grupos em Azure AD.
 
 > [!TIP]
 > Também pode optar por ativar um único signo baseado em SAML para o LinkedIn Sales Navigator, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal instável pode ser configurado independentemente do fornecimento automático, embora estas duas funcionalidades se complementem.
@@ -99,7 +99,7 @@ O primeiro passo é recuperar o seu token de acesso LinkedIn. Se for administrad
 
 11. Preencha os seguintes campos sob **credenciais de administrador:**
 
-    * No campo URL do https://api.linkedin.com **Inquilino,** introduza .
+    * No campo URL do https://developer.linkedin.com **Inquilino,** introduza .
 
     * No campo **Secret Token,** introduza o sinal de acesso gerado no passo 1 e clique em **Ligação de Teste** .
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b0943098041af4c247ccd35715161bfb2e91895
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 972f4119fa17b4449fae4038283a183f097ccc4d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81726243"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081443"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ally"></a>Tutorial: Azure Ative Directory integração individual (SSO) com ally
 
@@ -37,7 +37,7 @@ Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o qu
 Para começar, precisa dos seguintes itens:
 
 * Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* A assinatura ativada por um único sinal (SSO) da Ally Single Sign-On (SSO).
+* Uma subscrição ativada por um único sign-on da Ally (SSO). Se não tiver uma subscrição, [inicie o seu teste gratuito.](https://www.ally.io/?utm_source=azure&utm_medium=mktgplace&utm_term=tutorial)
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -83,13 +83,13 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Na secção **Basic SAML Configuration,** caso deseje configurar a aplicação no modo iniciado do **IDP,** introduza os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://app.ally.io/saml/consume/<CUSTOM_GUID>`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://app.ally.io/saml/consume/<CUSTOM_UUID>`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://app.ally.io/saml/consume/<CUSTOM_GUID>`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://app.ally.io/saml/consume/<CUSTOM_UUID>`
 
 1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    Na caixa de texto **de URL sign-on,** escreva um URL:`https://app.ally.io/saml/consume/<CUSTOM_GUID>`
+    Na caixa de texto **de URL sign-on,** escreva um URL:`https://app.ally.io/saml/consume/<CUSTOM_UUID>`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte a equipa de apoio ao [Cliente da Ally](mailto:contact@ally.io) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f0ea5b922b2c958aabf5be3a6123bb81a8f0234
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23d2694aa4936090367cf881379f81911ae70f9d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80048509"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870532"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integração do Diretório Ativo Azure com a Jobscience
 
@@ -116,7 +116,7 @@ Nesta secção, permite o único sign-on da Azure AD no portal Azure e configura
     Na caixa de texto **"Sign-on URL",** escreva um URL utilizando o seguinte padrão:`http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o URL de Início de Sinal real. Obtenha este valor pela equipa de suporte do [Cliente jobscience](https://www.jobscience.com/support) ou do perfil SSO que irá criar, o que é explicado mais tarde no tutorial. 
+    > Este valor não é real. Atualize este valor com o URL de Início de Sinal real. Obtenha este valor pela equipa de suporte do [Cliente jobscience](http://www.jobscience.com/support) ou do perfil SSO que irá criar, o que é explicado mais tarde no tutorial. 
  
 1. Na secção **Certificado de Assinatura SAML,** clique no **Certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

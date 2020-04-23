@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b9de6c2b8d9f7b11b686e820aab54fdd8e8a02f
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67442843"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Diretório Ativo Azure com HR2day by Merces
 
@@ -163,7 +163,7 @@ Para configurar o único sign-on azure ad com HR2day por Merces, execute os segu
 Para configurar um único sinal no **HR2day pelo** lado da Merces, você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para [HR2day pela equipa](mailto:servicedesk@merces.nl)de suporte merces . Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
 > [!NOTE]
-> Mencione à equipa da Merces que esta integração **https://hr2day.force.com/INSTANCENAME**precisa que o ID da Entidade seja definido com o padrão .
+> Mencione à equipa da Merces que esta integração precisa que o ID da Entidade seja definido com o padrão **\/https: /hr2day.force.com/INSTANCENAME**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
