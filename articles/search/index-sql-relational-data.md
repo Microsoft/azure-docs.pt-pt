@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3b973dd05d23d190c77986ca9bf6d39656739cd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ebeb7f6fee77c43c9da97b922fc215d75196145
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72790081"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117574"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Como modelar dados relacionais de SQL para importação e indexação em Pesquisa Cognitiva Azure
 
@@ -107,7 +107,7 @@ A solução é capturar o detalhe da sala como JSON aninhado, e depois inserir a
 Este conjunto de linhas está agora pronto para ser importado para a Pesquisa Cognitiva Azure.
 
 > [!NOTE]
-> Esta abordagem pressupõe que o JSON incorporado está sob os [limites máximos de tamanho da coluna do Servidor SQL](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server). Se os seus dados não se encaixarem, pode tentar uma abordagem programática, como ilustrado no [Exemplo: Modelar a base de dados de Inventário AdventureWorks para pesquisa cognitiva Azure](search-example-adventureworks-modeling.md).
+> Esta abordagem pressupõe que o JSON incorporado está sob os [limites máximos de tamanho da coluna do Servidor SQL](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server). 
 
  ## <a name="use-a-complex-collection-for-the-many-side-of-a-one-to-many-relationship"></a>Use uma coleção complexa para o lado "muitos" de uma relação de um a muitos
 

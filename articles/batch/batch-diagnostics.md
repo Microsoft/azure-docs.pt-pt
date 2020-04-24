@@ -1,25 +1,15 @@
 ---
-title: Métricas, alertas e registos de diagnóstico - Lote Azure / Microsoft Docs
+title: Métricas, alertas e registos de diagnóstico
 description: Grave e analise eventos de registo de diagnóstico para recursos da conta Azure Batch, como piscinas e tarefas.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 12/05/2018
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 68d5976a5a79dbde88b7f80b02b39793ffc86de9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f75a8302c8ba368138e6c8edee6c6069c5031d8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78254850"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117306"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas e registos de lote para avaliação e monitorização de diagnóstico
 

@@ -1,23 +1,17 @@
 ---
 title: Use python API para executar um trabalho de Lote Azure
 description: Execute rapidamente um trabalho de amostra de Lote Azure e tarefas usando a biblioteca de clientes Batch Python. Conheça os conceitos-chave do serviço Batch.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
-ms.author: labrenne
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 140ae0fc9f9a8daba193aa05e0800d83b7b6b963
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 07ad9115f6cb602b4df5adbe9a7acdc0425bbf86
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77086038"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117204"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Quickstart: Use Python API para executar um trabalho de Lote Azure
 
@@ -35,7 +29,7 @@ Aqui você vai aprender conceitos-chave do serviço Batch e estar pronto para ex
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 

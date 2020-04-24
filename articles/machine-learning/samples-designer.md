@@ -16,7 +16,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2020
 ms.locfileid: "80389346"
 ---
-# <a name="designer-sample-pipelines"></a>Oleodutos de amostra de design
+# <a name="designer-sample-pipelines"></a>Pipelines de exemplo de estruturador
 
 Use os exemplos incorporados no designer de Machine Learning Azure para começar rapidamente a construir os seus próprios oleodutos de aprendizagem automática. O [repositório GitHub,](https://github.com/Azure/MachineLearningDesigner) designer de machine learning azure, contém documentação detalhada para o ajudar a compreender alguns cenários comuns de aprendizagem automática.
 

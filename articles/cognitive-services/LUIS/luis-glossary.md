@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4f78b4c50f4cd65f3dc32c48cea81b705dc44de1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f764b0d42e08e68b45d49a5aae8542f05707ccde
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79220954"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099364"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão linguística do vocabulário e conceitos comuns
 O glossário da Compreensão linguística (LUIS) explica termos que pode encontrar enquanto trabalha com o Serviço LUIS API.
@@ -30,7 +30,7 @@ A autoria é a capacidade de criar, gerir e implementar uma [aplicação LUIS,](
 
 ## <a name="authoring-key"></a><a name="authoring-key"></a>Chave de autoria
 
-Anteriormente chamada "Programática". Usado para ser o autor da app. Não utilizado para consultas de ponto final de nível de produção. Para mais informações, consulte [os limites-chave](luis-boundaries.md#key-limits).
+Anteriormente chamada "Programática". Usado para ser o autor da app. Não utilizado para consultas de ponto final de nível de produção. Para mais informações, consulte [os limites-chave](luis-limits.md#key-limits).
 
 ## <a name="batch-test-json-file"></a><a name="batch-test-json-file"></a>Ficheiro JSON de teste de lote
 
@@ -38,7 +38,7 @@ O teste do lote é a capacidade de validar o modelo de uma aplicação LUIS atua
 
 Veja também:
 * [Conceitos](luis-concept-batch-test.md)
-* [Como](luis-how-to-batch-test.md)
+* [Procedimentos](luis-how-to-batch-test.md)
 * [Tutorial](luis-tutorial-batch-testing.md)
 
 ## <a name="collaborator"></a><a name="collaborator"></a>Colaborador
@@ -51,7 +51,7 @@ Um colaborador é a mesma coisa que um [colaborador.](#collaborator)
 
 ## <a name="descriptor"></a><a name="descriptor"></a>Descritor
 
-Um descritor é uma [característica](#features) aplicada a um modelo em tempo de formação, incluindo [listas](#phrase-list) de frases e [entidades.](#entity) 
+Um descritor é uma [característica](#features) aplicada a um modelo em tempo de formação, incluindo [listas](#phrase-list) de frases e [entidades.](#entity)
 
 ## <a name="domain"></a><a name="domain"></a>Domínio
 
@@ -121,7 +121,7 @@ Renomeado para [chave de autoria](#authoring-key).
 
 ## <a name="publish"></a><a name="publish"></a>Publicar
 
-Publicação significa disponibilizar uma versão ativa luis na encenação ou [no ponto final](#endpoint)da produção.  
+Publicação significa disponibilizar uma versão ativa luis na encenação ou [no ponto final](#endpoint)da produção.
 
 ## <a name="quota"></a><a name="quota"></a>Quota
 
@@ -156,7 +156,7 @@ Adicione estrutura a uma entidade aprendida por máquinas para fornecer subcompo
 
 A chave de subscrição é a chave final de **previsão** associada ao serviço LUIS [que criou no Azure.](luis-how-to-azure-subscription.md) Esta chave não é a chave de [autor.](#programmatic-key) Se tiver uma chave de ponto final, deve ser utilizada para quaisquer pedidos de ponto final em vez da chave de autor. Pode ver a sua chave de ponto final atual dentro do URL de ponto final na parte inferior de Keys e página [ **de pontos finais** ](luis-how-to-azure-subscription.md) no site [da LUIS.](luis-reference-regions.md) É o valor do **nome/par** de valor da chave de assinatura.
 
-## <a name="test"></a><a name="test"></a>Test
+## <a name="test"></a><a name="test"></a>Teste
 
 [Testar](luis-interactive-test.md#test-your-app) uma aplicação LUIS significa passar uma expressão ao LUIS e ver os resultados da JSON.
 

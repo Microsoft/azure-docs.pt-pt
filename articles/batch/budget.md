@@ -1,21 +1,14 @@
 ---
-title: Análise de custos e orçamento - Lote Azure
+title: Análise de custos e orçamento
 description: Aprenda a obter uma análise de custos e detetete um orçamento para os recursos computacionais subjacentes e licenças de software usadas para executar as suas cargas de trabalho do Batch.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: big-compute
 ms.date: 07/19/2019
-ms.author: labrenne
-ms.openlocfilehash: 819b5e16f4730e9a1998234288e181772f7c1996
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c3c3203882d003d7fbb5f9d5092a1c93886f313a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022720"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117493"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Análise de custos e orçamentos para o Lote Azure
 

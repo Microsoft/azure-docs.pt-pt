@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: ef933ae9a6b0a34529c7ec145b13c023728a3457
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: fbb6f4633ef6e984746a4fb4516380f4b2e3a9da
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731861"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116779"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Quickstart: Construa e empurre imagens de contentores de Java para o Registo de Contentores de Azure
 
@@ -94,6 +94,9 @@ Em seguida, criará um grupo de recursos Azure e o seu ACR utilizando os seguint
 
 Por fim, irá atualizar a configuração do seu projeto e utilizar o pedido de comando para construir e implementar a sua imagem.
 
+> [!NOTE]
+> Para iniciar sessão no registo de contentores Azure que acabou de criar, terá de ter o daemon Docker a funcionar. Para instalar o Docker na sua máquina, [aqui está a documentação oficial do Docker.](https://docs.docker.com/install/)
+
 1. Faça login no registo de contentores Azure a partir do Azure CLI utilizando o seguinte comando. Certifique-se de substituir o espaço reservado pelo seu próprio nome de registo.
 
    ```azurecli
@@ -105,13 +108,13 @@ Por fim, irá atualizar a configuração do seu projeto e utilizar o pedido de c
 
 1. Navegue para o diretório de projeto concluído da sua aplicação Spring Boot (por exemplo, "*C:\SpringBoot\gs-spring-boot-docker\complete*" ou "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*") e abra o ficheiro *pom.xml* com um editor de texto.
 
-1. Atualize `<properties>` a coleção no ficheiro *pom.xml* com o seguinte XML. Substitua o espaço reservado pelo seu `<jib-maven-plugin.version>` nome de registo e atualize o valor com a versão mais recente do [plugin jib-maven](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
+1. Atualize `<properties>` a coleção no ficheiro *pom.xml* com o seguinte XML. Substitua o espaço reservado pelo seu `<jib-maven-plugin.version>` nome de `2.1.0`registo e adicione um imóvel com valor, ou uma versão mais recente do [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
    ```xml
    <properties>
       <docker.image.prefix><your registry name>.azurecr.io</docker.image.prefix>
-      <jib-maven-plugin.version>1.8.0</jib-maven-plugin.version>
       <java.version>1.8</java.version>
+      <jib-maven-plugin.version>2.1.0</jib-maven-plugin.version>
    </properties>
    ```
 

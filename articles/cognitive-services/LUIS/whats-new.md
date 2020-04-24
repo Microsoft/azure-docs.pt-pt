@@ -3,12 +3,12 @@ title: O que há de novo - Compreensão da Linguagem (LUIS)
 description: Este artigo é regularmente atualizado com notícias sobre a API de Compreensão da Linguagem dos Serviços Cognitivos Do Azure.
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 6334b157f68f09f2b165c6073ba63f45a0caf3c4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8e3b6f729f69866cdb797cdfd1887de4f5e2be05
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538023"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097732"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo na compreensão da linguagem
 
@@ -38,7 +38,7 @@ Saiba o que há de novo no serviço. Estes itens incluem notas de lançamento, v
     * [Entidade descompizável de máquinas](tutorial-machine-learned-entity.md)
 * Capacidades avançadas de compreensão da linguagem - [construindo modelos linguísticos sofisticados](luis-concept-entity-types.md) com menos esforço.
 * Defina funcionalidades de machine learning ao nível do modelo e permita que os modelos sejam usados como sinais para outros modelos, por exemplo, utilizando entidades como funcionalidades de intenções e outras entidades.
-* Novos [limites](luis-boundaries.md) expandidos - máximo máximo para listas de frases e frases totais, novo modelo como limites de características
+* Novos [limites](luis-limits.md) expandidos - máximo máximo para listas de frases e frases totais, novo modelo como limites de características
 * Extrair informação do texto no formato da estrutura da hierarquia profunda, tornando as aplicações de conversação mais poderosas.
 
     ![imagem de entidade aprendida por máquinas](./media/whats-new/deep-entity-extraction-example.png)

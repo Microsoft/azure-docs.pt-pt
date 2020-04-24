@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7ddb4b2cd465b5e9542d777d33b9bd8cb952becd
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 27afbafcadb4c482e97e1d003706e7d2712e63c9
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81531342"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117272"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementar a ferramenta de etiquetagem de exemplo
 
@@ -104,14 +104,14 @@ A partir do Azure CLI, execute este comando para criar um recurso de aplicação
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
 az container create \
-  --resource-group <resorunce_group_name> \
+  --resource-group <resource_group_name> \
   --name <name> \
   --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \
   --cpu 2 \
-  --memory 8
+  --memory 8 \
   --command-line "./run.sh eula=accept"
 ```
 

@@ -1,20 +1,14 @@
 ---
-title: Acesso seguro a cofre chave com lote - Lote Azure
+title: Acesso seguro ao Key Vault com o Batch
 description: Aprenda a aceder programáticamente às suas credenciais a partir do Key Vault utilizando o Lote Azure.
-services: batch
-author: laurenhughes
-manager: gwallace
-ms.service: batch
-ms.workload: big-compute
 ms.topic: article
 ms.date: 02/13/2020
-ms.author: lahugh
-ms.openlocfilehash: 0134e7d92ddca9bd3b45abaf642f33de9d209b33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d24904c3a539431e8aff420e9fbd8291cddde78a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78192307"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117459"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Acesso seguro ao Key Vault com o Batch
 

@@ -36,7 +36,7 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Ativar o Application Insights
 

@@ -108,7 +108,7 @@ Para ver a lista de senhas proibida si proibida em ação, tente alterar a palav
 
 Se já não quiser utilizar a lista de palavras-passe proibida personalizada que configuracomo parte deste tutorial, complete os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure e selecione **Azure Ative Directory,** em seguida, escolha **segurança** do menu do lado esquerdo.
 1. No cabeçalho do menu **Gerir,** selecione métodos de **autenticação,** em **seguida, proteção de palavra-passe**.
 1. Detete a opção para impor a **lista personalizada** para *No*.

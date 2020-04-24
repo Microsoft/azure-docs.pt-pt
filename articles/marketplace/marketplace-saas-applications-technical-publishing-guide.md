@@ -6,14 +6,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 1bc2feb4d8f3f103802bd823c66cd3f54ac5d74a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3a3cbe26b9fa82e236acbfd0c7e8ca3e81a7aa75
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687546"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117238"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS aplica guia de publicação
 
@@ -21,12 +21,7 @@ As aplicações SaaS podem ser publicadas no mercado com três chamadas diferent
 
 ## <a name="offer-overview"></a>Visão geral da oferta  
 
-Aplicações SaaS estão disponíveis em ambas as Lojas Azure O seguinte quadro descreve as opções disponíveis atuais:
-
-| Opção storefront | Listagem | Julgamento/Transact |  
-| --- | --- | --- |  
-| AppSource | Sim | Sim |
-| Mercado Azure | Não | Sim |   
+As aplicações SaaS estão disponíveis no Microsoft AppSource e no Azure Marketplace.  Ambas as lojas lista de suporte, experimentação e ofertas transatas.
 
 **Lista:**  A opção de publicação de Listagem consiste num tipo de oferta contacte-me e é utilizada quando não é viável uma participação a nível de Teste ou Transação. O benefício desta abordagem é que permite que os editores com uma solução no mercado comecem imediatamente a receber pistas que podem ser transformadas em negócios para aumentar o seu negócio.  
 **Trial/Transação:**  O cliente tem a opção de comprar ou solicitar diretamente um teste para a sua solução. A experiência Experimental aumenta o nível de envolvimento oferecido aos clientes e permite que os clientes explorem a sua solução antes de comprar. Com uma experiência de Trial, você terá melhores chances de promoção nas montras, e você deve esperar mais e mais pistas mais ricas a partir de compromissos com o cliente. Os ensaios devem incluir apoio gratuito, pelo menos durante o período experimental.  

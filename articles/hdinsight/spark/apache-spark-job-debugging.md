@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/29/2019
-ms.openlocfilehash: bcf2f97e855126c86dbb1d74cd430704e2af3af1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/23/2020
+ms.openlocfilehash: 76c52f0fd31b61937f04946db998088d978e1bc8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75932140"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117425"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar trabalhos do Apache Spark em execução no Azure HDInsight
 
-Neste artigo, aprende-se a rastrear e depurar empregos da [Apache Spark](https://spark.apache.org/) em clusters HDInsight utilizando o [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, Spark UI e o Spark History Server. Inicia-se um trabalho spark utilizando um caderno disponível com o cluster Spark, **Machine learning: Análise preditiva dos dados de inspeção alimentar utilizando mlLib**. Pode utilizar os seguintes passos para rastrear uma aplicação que submeteu usando qualquer outra abordagem, por exemplo, **a apresentação de faíscas**.
+Neste artigo, aprende-se a rastrear e depurar empregos da Apache Spark em clusters HDInsight. Depuração usando o Apache Hadoop YARN UI, Spark UI e o Spark History Server. Inicia-se um trabalho spark utilizando um caderno disponível com o cluster Spark, **Machine learning: Análise preditiva dos dados de inspeção alimentar utilizando mlLib**. Utilize os seguintes passos para rastrear uma aplicação que submeteu usando qualquer outra abordagem, por exemplo, **a apresentação de faíscas**.
 
 Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
    > [!TIP]  
    > Em alternativa, também pode lançar a UI YARN a partir da Ambari UI. Para lançar o Ambari UI, selecione **casa Ambari** sob **dashboards cluster**. A partir da Ambari UI, navegue até **ao YARN** > **Quick Links** > o gestor de recursos ativo > Gestor de Recursos **UI.**
 
-2. Como iniciou o trabalho de Spark usando cadernos Jupyter, a aplicação tem o nome **remotesparkmagics** (este é o nome para todas as aplicações que são iniciadas a partir dos cadernos). Selecione o ID da aplicação com o nome da aplicação para obter mais informações sobre o trabalho. Isto lança a visão da aplicação.
+2. Como iniciou o trabalho de Spark usando cadernos Jupyter, a aplicação tem o nome **remotesparkmagics** (o nome para todas as aplicações iniciadas a partir dos cadernos). Selecione o ID da aplicação com o nome da aplicação para obter mais informações sobre o trabalho. Esta ação lança a visão da aplicação.
 
     ![Servidor de histórico de faíscas Encontre o ID da aplicação Spark](./media/apache-spark-job-debugging/find-application-id1.png)
 
@@ -76,19 +76,18 @@ Na Spark UI, você pode perfurar os trabalhos de Faísca que são gerados pela a
 
     ![Ver a cronologia do evento de estágios de faísca](./media/apache-spark-job-debugging/view-spark-stages-event-timeline.png)
 
-    Isto exibe os eventos Spark sob a forma de uma linha do tempo. A visão da linha do tempo está disponível a três níveis, entre empregos, dentro de um emprego e dentro de uma fase. A imagem acima captura a vista do tempo para um determinado estágio.
+    Esta imagem exibe os eventos Spark sob a forma de uma linha do tempo. A visão da linha do tempo está disponível a três níveis, entre empregos, dentro de um emprego e dentro de uma fase. A imagem acima captura a vista do tempo para um determinado estágio.
 
    > [!TIP]  
    > Se selecionar a caixa de verificação de **zooming Ativa,** pode deslocar-se para a esquerda e para a direita através da vista da linha do tempo.
 
 6. Outros separadores na UI spark fornecem informações úteis sobre a instância Spark também.
 
-   * Separador de armazenamento - Se a sua aplicação criar um RDD, pode encontrar informações sobre as que estão no separador Armazenamento.
+   * Separador de armazenamento - Se a sua aplicação criar um RDD, pode encontrar informações no separador Armazenamento.
    * Separador ambiente - Este separador fornece informações úteis sobre a sua instância Spark, tais como:
      * Versão Scala
      * Diretório de registo de eventos associado ao cluster
      * Número de núcleos de executor para a aplicação
-     * Etc.
 
 ## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>Encontre informações sobre trabalhos concluídos usando o Spark History Server
 
@@ -109,22 +108,4 @@ Uma vez concluído o trabalho, a informação sobre o trabalho é persistiu no S
 
 * [Gerir recursos para o cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
 * [Debug Apache Spark Jobs usando o servidor de histórico de faíscas estendido](apache-azure-spark-history-server.md)
-
-### <a name="for-data-analysts"></a>Para analistas de dados
-
-* [Apache Spark com Machine Learning: Use Spark no HDInsight para analisar a temperatura do edifício utilizando dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: Use Spark no HDInsight para prever resultados da inspeção alimentar](apache-spark-machine-learning-mllib-ipython.md)
-* [Análise de log do site usando Apache Spark em HDInsight](apache-spark-custom-library-website-log-analysis.md)
-* [Análise de dados de telemetria insight de aplicação usando Apache Spark no HDInsight](apache-spark-analyze-application-insight-logs.md)
-
-
-### <a name="for-spark-developers"></a>Para desenvolvedores de Faíscas
-
-* [Criar uma aplicação autónoma com o Scala](apache-spark-create-standalone-application.md)
-* [Executar trabalhos remotamente em um cluster Apache Spark usando Apache Livy](apache-spark-livy-rest-interface.md)
-* [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Utilize o Plugin de Ferramentas HDInsight para intelliJ IDEA para depurar aplicações Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use os cadernos Apache Zeppelin com um cluster Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o portátil Jupyter no cluster Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
+* [Aplicações de Debug Apache Spark com Kit de Ferramentas Azure para IntelliJ através de SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)

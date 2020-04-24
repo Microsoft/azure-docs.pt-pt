@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 24591c20ed707d9541eece0698ecd6e6b5ddee35
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 9601689bbce9566b52664058911e9c45647152d6
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878192"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116823"
 ---
 # <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Configure regras de firewall IP para ônibus de serviço Azure
 Por predefinição, os espaços de nome service Bus são acessíveis a partir da internet desde que o pedido venha com autenticação e autorização válidas. Com firewall IP, pode restringi-lo ainda mais a apenas um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -28,6 +28,20 @@ Esta funcionalidade é útil em cenários em que o Azure Service Bus só deve es
 
 ## <a name="ip-firewall-rules"></a>Regras de firewall IP
 As regras de firewall IP são aplicadas ao nível do espaço de nome do Ônibus de serviço. Por isso, as regras aplicam-se a todas as ligações dos clientes que utilizam qualquer protocolo suportado. Qualquer tentativa de ligação a partir de um endereço IP que não corresponda a uma regra ip permitida no espaço de nome do Ônibus de serviço é rejeitada como não autorizada. A resposta não menciona a regra do PI. As regras do filtro IP são aplicadas por ordem, e a primeira regra que corresponde ao endereço IP determina a aceitação ou rejeita a ação.
+
+>[!WARNING]
+> A implementação das regras da Firewall pode impedir que outros serviços Azure interajam com o Service Bus.
+>
+> Os serviços fidedignos da Microsoft não são suportados quando a filtragem ip (regras de Firewall) for implementada, e será disponibilizado em breve.
+>
+> Cenários Azure comuns que não funcionam com filtragem IP (note que a lista **NÃO** é exaustiva) -
+> - Integração com a Grelha de Eventos Azure
+> - Rotas do Hub Azure IoT
+> - Explorador de dispositivos Azure IoT
+>
+> Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
+> - Serviço de Aplicações do Azure
+> - Funções do Azure
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
 Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall IP para um espaço de nome de ônibus de serviço. 

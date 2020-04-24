@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: fec6b16eb7f80369904eefc407a9a9c8d6629c9a
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 2df36d80aea34da1693cecde524d239abd2bb04a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879331"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100248"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instale e corra recipientes de estival LUIS
- 
+
 O recipiente de Compreensão da Língua (LUIS) carrega o seu modelo de compreensão linguística treinado ou publicado. Como [aplicação LUIS,](https://www.luis.ai)o recipiente de estivador proporciona acesso às previsões de consulta dos pontos finais da API do contentor. Pode recolher registos de consultas a partir do contentor e enviá-los de volta para a aplicação Language Understanding para melhorar a precisão de previsão da aplicação.
 
 O vídeo seguinte demonstra a utilização deste recipiente.
@@ -35,8 +35,8 @@ Para executar o recipiente LUIS, note os seguintes pré-requisitos:
 |Necessário|Objetivo|
 |--|--|
 |Motor do Docker| Precisa do Motor Docker instalado num [computador de acolhimento.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os recipientes se conectem e enviem dados de faturação para o Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar os recipientes Linux.<br><br>|
-|Familiaridade com Docker | Você deve ter uma compreensão básica dos conceitos docker, como registos, repositórios, `docker` contentores e imagens de contentores, bem como conhecimento de comandos básicos.| 
-|Recurso `Cognitive Services` Azure e arquivo [de aplicativo embalado](luis-how-to-start-new-app.md) LUIS |Para utilizar o recipiente, deve ter:<br><br>* Um recurso _Cognitive Services_ Azure e a chave de faturação associada do ponto final de faturação URI. Ambos os valores estão disponíveis nas páginas Overview e Keys para o recurso e são necessários para iniciar o recipiente. <br>* Uma aplicação treinada ou publicada embalada como entrada montada no recipiente com o seu ID de aplicação associado. Pode obter o ficheiro embalado no portal LUIS ou nas APIs de autoria. Se você está recebendo a app embalada LUIS a partir da [apis autora,](#authoring-apis-for-package-file)você também vai precisar da sua _Chave de Autor._<br><br>Estes requisitos são utilizados para passar argumentos de linha de comando para as seguintes variáveis:<br><br>**{AUTHORING_KEY}**: Esta chave é usada para obter a aplicação embalada do serviço LUIS na nuvem e carregar os registos de consulta de volta para a nuvem. O formato é `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}**: Este ID é utilizado para selecionar a App. O formato é `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}**: Esta chave é utilizada para ligar o recipiente. Você pode encontrar a chave final em dois lugares. O primeiro é o portal Azure dentro da lista de chaves do recurso dos _Serviços Cognitivos._ A chave de ponto final também está disponível no portal LUIS na página de definições de Teclas e Ponto final. Não utilize a tecla de arranque.<br><br>**{ENDPOINT_URI}**: O ponto final fornecido na página 'Visão Geral'.<br><br>A chave de autor e a [chave de ponto final](luis-boundaries.md#key-limits) têm propósitos diferentes. Não os utilize de forma intercambiada. |
+|Familiaridade com Docker | Você deve ter uma compreensão básica dos conceitos docker, como registos, repositórios, `docker` contentores e imagens de contentores, bem como conhecimento de comandos básicos.|
+|Recurso `Cognitive Services` Azure e arquivo [de aplicativo embalado](luis-how-to-start-new-app.md) LUIS |Para utilizar o recipiente, deve ter:<br><br>* Um recurso _Cognitive Services_ Azure e a chave de faturação associada do ponto final de faturação URI. Ambos os valores estão disponíveis nas páginas Overview e Keys para o recurso e são necessários para iniciar o recipiente. <br>* Uma aplicação treinada ou publicada embalada como entrada montada no recipiente com o seu ID de aplicação associado. Pode obter o ficheiro embalado no portal LUIS ou nas APIs de autoria. Se você está recebendo a app embalada LUIS a partir da [apis autora,](#authoring-apis-for-package-file)você também vai precisar da sua _Chave de Autor._<br><br>Estes requisitos são utilizados para passar argumentos de linha de comando para as seguintes variáveis:<br><br>**{AUTHORING_KEY}**: Esta chave é usada para obter a aplicação embalada do serviço LUIS na nuvem e carregar os registos de consulta de volta para a nuvem. O formato é `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}**: Este ID é utilizado para selecionar a App. O formato é `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}**: Esta chave é utilizada para ligar o recipiente. Você pode encontrar a chave final em dois lugares. O primeiro é o portal Azure dentro da lista de chaves do recurso dos _Serviços Cognitivos._ A chave de ponto final também está disponível no portal LUIS na página de definições de Teclas e Ponto final. Não utilize a tecla de arranque.<br><br>**{ENDPOINT_URI}**: O ponto final fornecido na página 'Visão Geral'.<br><br>A chave de autor e a [chave de ponto final](luis-limits.md#key-limits) têm propósitos diferentes. Não os utilize de forma intercambiada. |
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -84,22 +84,22 @@ Uma vez que o recipiente esteja no [computador de acolhimento,](#the-host-comput
 
 1. [Pacote de exportação](#export-packaged-app-from-luis) para contentor do portal LUIS ou DA APIs LUIS.
 1. Mova o ficheiro do pacote para o diretório de **entrada** necessário no [computador anfitrião](#the-host-computer). Não mude o nome, altere, sobreescreva ou descomprima o ficheiro pacote LUIS.
-1. [Executar o recipiente,](#run-the-container-with-docker-run)com as definições de montagem de _entrada_ e faturação necessárias. Mais [exemplos](luis-container-configuration.md#example-docker-run-commands) `docker run` do comando estão disponíveis. 
-1. [Consultando o ponto final de previsão do recipiente](#query-the-containers-prediction-endpoint). 
+1. [Executar o recipiente,](#run-the-container-with-docker-run)com as definições de montagem de _entrada_ e faturação necessárias. Mais [exemplos](luis-container-configuration.md#example-docker-run-commands) `docker run` do comando estão disponíveis.
+1. [Consultando o ponto final de previsão do recipiente](#query-the-containers-prediction-endpoint).
 1. Quando terminar com o recipiente, [importe os troncos](#import-the-endpoint-logs-for-active-learning) de ponto final do suporte de saída no portal LUIS e [pare](#stop-the-container) o recipiente.
 1. Utilize a [aprendizagem ativa](luis-how-to-review-endpoint-utterances.md) do portal LUIS na página de **declarações** de ponto final da Revisão para melhorar a aplicação.
 
 A aplicação que funciona no contentor não pode ser alterada. Para alterar a aplicação no recipiente, é necessário alterar a aplicação no serviço LUIS utilizando o portal [LUIS](https://www.luis.ai) ou utilizar a [APIs de autor](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)da LUIS . Em seguida, treine e/ou publique, em seguida, faça o download de um novo pacote e executar o recipiente novamente.
 
-A aplicação LUIS dentro do contentor não pode ser exportada de volta para o serviço LUIS. Só os registos de consulta podem ser carregados. 
+A aplicação LUIS dentro do contentor não pode ser exportada de volta para o serviço LUIS. Só os registos de consulta podem ser carregados.
 
 ## <a name="export-packaged-app-from-luis"></a>App embalada para exportação da LUIS
 
-O recipiente LUIS requer uma aplicação LUIS treinada ou publicada para responder a consultas de previsão de declarações de utilizadores. Para obter a app LUIS, utilize o pacote api treinado ou publicado. 
+O recipiente LUIS requer uma aplicação LUIS treinada ou publicada para responder a consultas de previsão de declarações de utilizadores. Para obter a app LUIS, utilize o pacote api treinado ou publicado.
 
-A localização padrão `input` é o subdiretório em `docker run` relação ao local onde executa o comando.  
+A localização padrão `input` é o subdiretório em `docker run` relação ao local onde executa o comando.
 
-Coloque o ficheiro de embalagem num diretório e refira este diretório como suporte de entrada quando executar o recipiente de estivador. 
+Coloque o ficheiro de embalagem num diretório e refira este diretório como suporte de entrada quando executar o recipiente de estivador.
 
 ### <a name="package-types"></a>Tipos de pacotes
 
@@ -123,17 +123,17 @@ Antes de embalar uma aplicação LUIS, deve ter o seguinte:
 |Instância de recursos _dos Serviços Cognitivos_ Azure|Regiões apoiadas incluem<br><br>Oeste dos`westus`EUA ( )<br>Europa Ocidental`westeurope`( )<br>Austrália Leste`australiaeast`( )|
 |App LUIS treinada ou publicada|Sem [dependências não apoiadas.][unsupported-dependencies] |
 |Acesso ao sistema de ficheiros do [computador anfitrião](#the-host-computer) |O computador hospedeiro deve permitir uma montagem de [entrada](luis-container-configuration.md#mount-settings).|
-  
+
 ### <a name="export-app-package-from-luis-portal"></a>Pacote de aplicativos de exportação do portal LUIS
 
 O [portal](https://www.luis.ai) LUIS fornece a capacidade de exportar o pacote da app treinada ou publicada.
 
 ### <a name="export-published-apps-package-from-luis-portal"></a>Exportação publicado pacote de app do portal LUIS
 
-O pacote da aplicação publicada está disponível na página da lista **my apps.** 
+O pacote da aplicação publicada está disponível na página da lista **my apps.**
 
 1. Inscreva-se no [portal](https://www.luis.ai)LUIS.
-1. Selecione a caixa de verificação à esquerda do nome da aplicação na lista. 
+1. Selecione a caixa de verificação à esquerda do nome da aplicação na lista.
 1. Selecione o item **exportação** da barra de ferramentas contextual acima da lista.
 1. Selecione **Exportar para recipiente (GZIP)**.
 1. Selecione o ambiente de ranhura de **produção** ou ranhura de **encenação**.
@@ -146,7 +146,7 @@ O pacote da aplicação publicada está disponível na página da lista **my app
 O pacote da aplicação versão está disponível na página da lista de **Versões.**
 
 1. Inscreva-se no [portal](https://www.luis.ai)LUIS.
-1. Selecione a aplicação na lista. 
+1. Selecione a aplicação na lista.
 1. Selecione **Gerir** na barra de navegação da aplicação.
 1. Selecione **Versões** na barra de navegação esquerda.
 1. Selecione a caixa de verificação à esquerda do nome da versão na lista.
@@ -173,7 +173,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 | **{AUTHORING_KEY}** | A chave de autor da conta LUIS para a aplicação DOT publicada.<br/>Pode obter a sua chave de autor a partir da página **Definições** do Utilizador no portal LUIS. |
 | **{AZURE_REGION}** | A região de Azure apropriada:<br/><br/>`westus`- Oeste dos EUA<br/>`westeurope`- Europa Ocidental<br/>`australiaeast`- Austrália Leste |
 
-Para fazer o download do pacote publicado, consulte a documentação da [API aqui][download-published-package]. Se tiver sido descarregado com sucesso, a resposta é um ficheiro pacote LUIS. Guarde o ficheiro no local de armazenamento especificado para o suporte de entrada do recipiente. 
+Para fazer o download do pacote publicado, consulte a documentação da [API aqui][download-published-package]. Se tiver sido descarregado com sucesso, a resposta é um ficheiro pacote LUIS. Guarde o ficheiro no local de armazenamento especificado para o suporte de entrada do recipiente.
 
 ### <a name="export-versioned-apps-package-from-api"></a>Pacote de aplicativo sonérquio de exportação da API
 
@@ -192,7 +192,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 | **{AUTHORING_KEY}** | A chave de autor da conta LUIS para a aplicação DOT publicada.<br/>Pode obter a sua chave de autor a partir da página **Definições** do Utilizador no portal LUIS. |
 | **{AZURE_REGION}** | A região de Azure apropriada:<br/><br/>`westus`- Oeste dos EUA<br/>`westeurope`- Europa Ocidental<br/>`australiaeast`- Austrália Leste |
 
-Para descarregar o pacote versão, consulte a documentação da [API aqui][download-versioned-package]. Se tiver sido descarregado com sucesso, a resposta é um ficheiro pacote LUIS. Guarde o ficheiro no local de armazenamento especificado para o suporte de entrada do recipiente. 
+Para descarregar o pacote versão, consulte a documentação da [API aqui][download-versioned-package]. Se tiver sido descarregado com sucesso, a resposta é um ficheiro pacote LUIS. Guarde o ficheiro no local de armazenamento especificado para o suporte de entrada do recipiente.
 
 ## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com`docker run`
 
@@ -212,7 +212,7 @@ Billing={ENDPOINT_URI} ^
 ApiKey={API_KEY}
 ```
 
-* Este exemplo utiliza o `C:` diretório fora da unidade para evitar quaisquer conflitos de permissões no Windows. Se precisar de usar um diretório específico como diretório de entrada, poderá ter de conceder a permissão de serviço do estivador. 
+* Este exemplo utiliza o `C:` diretório fora da unidade para evitar quaisquer conflitos de permissões no Windows. Se precisar de usar um diretório específico como diretório de entrada, poderá ter de conceder a permissão de serviço do estivador.
 * Não altere a ordem dos argumentos a menos que esteja familiarizado com os recipientes de estivadores.
 * Se estiver a utilizar um sistema operativo diferente, utilize a consola/terminal correto, a sintaxe de pasta para os suportes e o carácter de continuação da linha para o seu sistema. Estes exemplos assumem uma consola `^`Windows com um carácter de continuação de linha . Como o recipiente é um sistema operativo Linux, o suporte-alvo usa uma sintaxe de pasta estilo Linux.
 
@@ -223,19 +223,19 @@ Este comando:
 * Atribui dois núcleos de CPU e 4 gigabytes (GB) de memória
 * Expõe a porta TCP 5000 e atribui um pseudo-TTY para o contentor
 * Guarda os registos do contentor e do LUIS para o suporte de saída em *C:\output,* localizado no hospedeiro do contentor
-* Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro. 
+* Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro.
 
-Mais [exemplos](luis-container-configuration.md#example-docker-run-commands) `docker run` do comando estão disponíveis. 
+Mais [exemplos](luis-container-configuration.md#example-docker-run-commands) `docker run` do comando estão disponíveis.
 
 > [!IMPORTANT]
 > A `Eula` `Billing`, `ApiKey` e as opções devem ser especificadas para executar o recipiente; caso contrário, o contentor não vai começar.  Para mais informações, consulte [billing.](#billing)
-> O valor ApiKey é a **chave** da página De **recursos Azure** no `Cognitive Services` portal LUIS e também está disponível na página de chaves de recursos Azure.  
+> O valor ApiKey é a **chave** da página De **recursos Azure** no `Cognitive Services` portal LUIS e também está disponível na página de chaves de recursos Azure.
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 ## <a name="endpoint-apis-supported-by-the-container"></a>APIs endpoint suportados pelo recipiente
 
-As versões V2 e [V3](luis-migration-api-v3.md) da API estão disponíveis com o recipiente. 
+As versões V2 e [V3](luis-migration-api-v3.md) da API estão disponíveis com o recipiente.
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consulta do ponto final da previsão do recipiente
 
@@ -317,7 +317,7 @@ curl -X GET \
 "http://localhost:5000/luis/v2.0/apps/{APP_ID}?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true" \
 -H "accept: application/json"
 ```
-Para fazer consultas ao ambiente **de encenação,** altere o valor do parâmetro de corda de consulta de **encenação** para verdadeiro: 
+Para fazer consultas ao ambiente **de encenação,** altere o valor do parâmetro de corda de consulta de **encenação** para verdadeiro:
 
 `staging=true`
 
@@ -334,14 +334,14 @@ O nome da versão tem um máximo de 10 caracteres e contém apenas caracteres pe
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importar os registos finais para a aprendizagem ativa
 
-Se for especificado um suporte de saída para o recipiente LUIS, os `{INSTANCE_ID}` ficheiros de registo de consulta de aplicações são guardados no diretório de saída, onde está o ID do recipiente. O registo de consulta da aplicação contém a consulta, resposta e carimbos de tempo para cada consulta de previsão submetida ao recipiente LUIS. 
+Se for especificado um suporte de saída para o recipiente LUIS, os `{INSTANCE_ID}` ficheiros de registo de consulta de aplicações são guardados no diretório de saída, onde está o ID do recipiente. O registo de consulta da aplicação contém a consulta, resposta e carimbos de tempo para cada consulta de previsão submetida ao recipiente LUIS.
 
 O seguinte local mostra a estrutura de diretório aninhada para os ficheiros de registo do contentor.
 ```
 /output/luis/{INSTANCE_ID}/
 ```
- 
-A partir do portal LUIS, selecione a sua aplicação e, em seguida, selecione **registos de pontofinal de Importação** para fazer upload destes registos. 
+
+A partir do portal LUIS, selecione a sua aplicação e, em seguida, selecione **registos de pontofinal de Importação** para fazer upload destes registos.
 
 ![Importaos ficheiros de registo do contentor para aprendizagem ativa](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
@@ -363,7 +363,7 @@ Se executar o recipiente com um [suporte](luis-container-configuration.md#mount-
 
 ## <a name="billing"></a>Faturação
 
-O recipiente LUIS envia informações de faturação para o Azure, utilizando um recurso _dos Serviços Cognitivos_ na sua conta Azure. 
+O recipiente LUIS envia informações de faturação para o Azure, utilizando um recurso _dos Serviços Cognitivos_ na sua conta Azure.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

@@ -1,18 +1,16 @@
 ---
 title: Compor uma cena do Blender com o Azure Batch e o Batch Explorer
 description: Tutorial - Como compor vários frames de uma cena do Blender com o Azure Batch e a aplicação cliente Batch Explorer
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ca23bbc2b53eaaaf1848a7a98228be23c9ffed0c
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "60617630"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117085"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Compor uma cena do Blender com o Batch Explorer
 

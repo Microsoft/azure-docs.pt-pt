@@ -1,24 +1,14 @@
 ---
 title: Alta disponibilidade e recuperação de desastres - Lote Azure
 description: Saiba como conceber a sua aplicação Batch para uma paragem regional. As cargas de trabalho devem falhar noutra região ou ser divididas entre duas ou mais regiões.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: labrenne
-ms.openlocfilehash: 84b0cce9557b4ae05586579f175cd0f5db14fdfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da46753906e27a94e3c76fcaf9c4a26861bba6c8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77026086"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117442"
 ---
 # <a name="design-your-application-for-high-availability"></a>Conceber a sua aplicação para elevada disponibilidade
 
@@ -43,7 +33,7 @@ Considere os seguintes pontos ao conceber uma solução que possa falhar:
 - Pré-criar todas as contas necessárias em cada região, como a conta Batch e a conta de armazenamento. Muitas vezes não há qualquer encargo por ter contas criadas, apenas quando há dados armazenados ou a conta é usada.
 - Certifique-se de que as quotas são definidas nas contas com antecedência, para que possa alocar o número necessário de núcleos utilizando a conta Batch.
 - Utilize modelos e/ou scripts para automatizar a implementação da aplicação numa região.
-- Mantenha os binários de aplicação e os dados de referência atualizados em todas as regiões. Manter-se atualizado garantirá que a região pode ser trazida online rapidamente sem ter que esperar pelo upload e implementação de ficheiros. Por exemplo, se uma aplicação personalizada para instalar em nós de piscina for armazenada e referenciada utilizando pacotes de aplicação Batch, então quando uma nova versão da aplicação for produzida, deve ser enviada para cada conta do Lote e referenciada pela configuração do pool (ou fazer da nova versão a versão padrão).
+- Mantenha os binários de aplicação e os dados de referência atualizados em todas as regiões. Manter-se atualizado garantirá que a região pode ser trazida online rapidamente sem ter que esperar pelo upload e implementação de ficheiros. Por exemplo, se uma aplicação personalizada para instalar em nós de piscina for armazenada e referenciada utilizando pacotes de aplicação Batch, então quando uma nova versão da aplicação for produzida, deve ser enviada para cada conta do Batch e referenciada pela configuração do pool (ou fazer da nova versão a versão padrão).
 - Na aplicação que chama Lote, armazenamento e quaisquer outros serviços, facilmente troca clientes ou a carga para a região diferente.
 - As melhores práticas para garantir que uma falha será bem sucedida é mudar frequentemente para uma região alternativa como parte do funcionamento normal. Por exemplo, com duas implantações em regiões distintas, a transição para a região alternativa todos os meses.
 

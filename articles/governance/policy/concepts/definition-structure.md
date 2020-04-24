@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições políticas são usadas para estabelecer convenções para os recursos azure na sua organização.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0a7c4e05270ff242fa97b253b27a5de92895368a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 329692c7220810af1d47fe7036e727bb49284810
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461009"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117289"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -412,7 +412,7 @@ Com a regra da `if()` política revista, verifica a `substring()` duração do *
 
 ### <a name="count"></a>Contagem
 
-As condições que contam quantos membros de uma matriz na carga útil de recursos satisfazem uma expressão de condição pode ser formada usando a expressão **da contagem.** Os cenários comuns estão a verificar se "pelo menos um de", "exatamente um de", "todos", ou "nenhum dos" membros da matriz satisfazem a condição. **contagem** avalia [ \[ \* \] ](#understanding-the--alias) cada membro da matriz de pseudónimo para uma expressão de condição e resume os _verdadeiros_ resultados, que é então comparado com o operador de expressão.
+As condições que contam quantos membros de uma matriz na carga útil de recursos satisfazem uma expressão de condição pode ser formada usando a expressão **da contagem.** Os cenários comuns estão a verificar se "pelo menos um de", "exatamente um de", "todos", ou "nenhum dos" membros da matriz satisfazem a condição. **contagem** avalia [ \[ \* \] ](#understanding-the--alias) cada membro da matriz de pseudónimo para uma expressão de condição e resume os _verdadeiros_ resultados, que é então comparado com o operador de expressão. **As** expressões de contagem podem ser adicionadas até 3 vezes a uma definição de regra de **política** única.
 
 A estrutura da expressão da **contagem** é:
 

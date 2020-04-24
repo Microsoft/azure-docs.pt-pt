@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 9dbf65522d5c85e1054ed3f1f6ca9f86180e7f7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1766ffb579bb1a86da91ac73a396ce0d008f89e
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454986"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117629"
 ---
 # <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Configure pontos finais de serviço de rede virtual para ônibus de serviço Azure
 
@@ -24,6 +24,20 @@ A integração do Service Bus com [pontos finais de serviço da Rede Virtual (VN
 Uma vez configurado para ser ligado a pelo menos um ponto final de serviço de rede virtual, o respetivo espaço de nome do Ônibus de Serviço deixará de aceitar o tráfego de qualquer lugar, mas sim rede virtual autorizada. Do ponto de vista da rede virtual, vincular um espaço de nome service Bus a um ponto final de serviço configura um túnel de rede isolado da subnet da rede virtual para o serviço de mensagens.
 
 O resultado é uma relação privada e isolada entre as cargas de trabalho ligadas à subnet e o respetivo espaço de nome saque de serviço, apesar do endereço observável da rede do ponto final do serviço de mensagens estar numa gama de IP pública.
+
+>[!WARNING]
+> A implementação da integração das Redes Virtuais pode impedir que outros serviços Azure interajam com o Service Bus.
+>
+> Os serviços fidedignos da Microsoft não são suportados quando as Redes Virtuais são implementadas.
+>
+> Cenários Comuns Azure que não funcionam com Redes Virtuais (note que a lista **NÃO** é exaustiva) -
+> - Integração com a Grelha de Eventos Azure
+> - Rotas do Hub Azure IoT
+> - Explorador de dispositivos Azure IoT
+>
+> Os serviços abaixo da Microsoft são obrigados a estar numa rede virtual
+> - Serviço de Aplicações do Azure
+> - Funções do Azure
 
 > [!IMPORTANT]
 > As Redes Virtuais são suportadas apenas em espaços de nome de ônibus de [serviço de nível Premium.](service-bus-premium-messaging.md)
@@ -36,7 +50,7 @@ Soluções que requerem segurança apertada e compartimentada, e onde as redes v
 
 Qualquer rota IP imediata entre os compartimentos, incluindo os que transportam HTTPS sobre TCP/IP, acarreta o risco de exploração de vulnerabilidades da camada de rede para cima. Os serviços de mensagens fornecem caminhos de comunicação completamente isolados, onde as mensagens são até escritas em disco à medida que transitam entre as partes. As cargas de trabalho em duas redes virtuais distintas que estão ambas ligadas à mesma instância de Ônibus de serviço podem comunicar de forma eficiente e fiável através de mensagens, enquanto a respetiva integridade de fronteira de isolamento da rede é preservada.
  
-Isto significa que as suas soluções de nuvem sensíveis à segurança não só têm acesso a capacidades de mensagens assíncronas fiáveis e escaláveis da indústria Azure, como podem agora usar mensagens para criar caminhos de comunicação entre compartimentos de solução segura que são inerentemente mais seguros do que o que é alcançável com qualquer modo de comunicação peer-to-peer, incluindo HTTPS e outros protocolos de tomada seleções protegidos por TLS.
+Isto significa que as suas soluções de nuvem sensíveis à segurança não só têm acesso a capacidades de mensagens assíncronas fiáveis e escaláveis, como podem agora utilizar mensagens para criar caminhos de comunicação entre compartimentos de solução segura que são inerentemente mais seguros do que o que é possível com qualquer modo de comunicação entre pares, incluindo HTTPS e outros protocolos de tomada seletivos protegidos por TLS.
 
 ## <a name="binding-service-bus-to-virtual-networks"></a>Ônibus de serviço de ligação para redes virtuais
 

@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 02/26/2020
+ms.date: 04/23/2020
 ms.author: tamram
-ms.openlocfilehash: 2e1b1ac2ea315759b18dc882b98837bca0a84d46
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 237982c2135430891022ab7a823f8374844e8d90
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061445"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117561"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Quickstart: Criar, descarregar e listar bolhas com o Azure CLI
 
@@ -60,7 +60,7 @@ az group create \
     --location <location>
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Crie uma conta de armazenamento para fins gerais com o comando [az storage account create](/cli/azure/storage/account). A conta de armazenamento para fins gerais pode ser utilizada para os quatro serviços: blobs, ficheiros, tabelas e filas.
 
@@ -72,7 +72,7 @@ az storage account create \
     --resource-group <resource-group> \
     --location <location> \
     --sku Standard_ZRS \
-    --encryption blob
+    --encryption-services blob
 ```
 
 ## <a name="create-a-container"></a>Criar um contentor

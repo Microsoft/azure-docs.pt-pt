@@ -3,12 +3,12 @@ title: Tipo de entidade de lista - LUIS
 description: As entidades da lista representam um conjunto fixo e fechado de palavras relacionadas juntamente com os seus sinónimos. A LUIS não descobre valores adicionais para entidades de lista. Utilize a função Recomendar para ver sugestões de novas palavras com base na lista atual.
 ms.topic: reference
 ms.date: 03/12/2020
-ms.openlocfilehash: 795d16bc2e0c4223ff3ac283a72493923d3ab355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297242"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097579"
 ---
 # <a name="list-entity"></a>Entidade de lista
 
@@ -20,7 +20,7 @@ Uma entidade da lista não é aprendida com máquinas. É uma correspondência e
 
 * São um conjunto conhecido.
 * Não muda muitas vezes. Se precisa de alterar a lista com frequência ou se quiser que a lista se auto-expanda, uma entidade simples reforçada com uma lista de frases é uma escolha melhor.
-* O conjunto não excede os [limites](luis-boundaries.md) máximos do LUIS para este tipo de entidade.
+* O conjunto não excede os [limites](luis-limits.md) máximos do LUIS para este tipo de entidade.
 * O texto na expressão é um jogo insensível com um sinónimo ou o nome canónico. Luis não usa a lista para além da partida. A correspondência fuzzy, stemming, plural, e outras variações não são resolvidas com uma entidade da lista. Para gerir variações, considere usar um [padrão](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional.
 
 ![entidade lista](./media/luis-concept-entities/list-entity.png)

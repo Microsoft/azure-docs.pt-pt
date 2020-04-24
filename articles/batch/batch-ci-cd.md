@@ -1,23 +1,20 @@
 ---
-title: Utilize os oleodutos Azure para construir & implementar soluções HPC - Lote Azure
+title: Utilizar gasodutos Azure para construir & implementar soluções HPC
 description: Aprenda a implementar um pipeline de construção/libertação para uma aplicação HPC em execução no Lote Azure.
 author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
-ms.custom: fasttrack-new
-services: batch
-ms.service: batch
-ms.openlocfilehash: 50cb711dfd16c2a8718d13ba9255ace1e7e3e26d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79c4e74086acc0f74bcc43f6b4543afe12916364
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79533135"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117391"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilizar os oleodutos Azure para construir e implementar soluções HPC
 
-Os serviços Azure DevOps fornecem uma gama de ferramentas usadas pelas equipas de desenvolvimento na construção de uma aplicação personalizada. As ferramentas fornecidas pela Azure DevOps podem traduzir-se em construção automatizada e testes de soluções computacionais de alto desempenho. Este artigo demonstra como configurar uma integração contínua (CI) e uma implantação contínua (CD) utilizando pipelines Azure para uma solução de computação de alto desempenho implantada no Lote Azure.
+A Azure DevOps Services fornece uma gama de ferramentas utilizadas pelas equipas de desenvolvimento na construção de uma aplicação personalizada. As ferramentas fornecidas pela Azure DevOps podem traduzir-se em construção automatizada e testes de soluções computacionais de alto desempenho. Este artigo demonstra como configurar uma integração contínua (CI) e uma implantação contínua (CD) utilizando pipelines Azure para uma solução de computação de alto desempenho implantada no Lote Azure.
 
 A Azure Pipelines fornece uma gama de processos modernos de CI/CD para a construção, implantação, teste e monitorização de software. Estes processos aceleram a entrega do seu software, permitindo-lhe focar-se no seu código em vez de apoiar infraestruturas e operações.
 
@@ -402,7 +399,7 @@ Há uma série de passos envolvidos na implantação da infraestrutura. Como usa
 
     ![Exemplo de variáveis definidas para a libertação dos Gasodutos Azure](media/batch-ci-cd/Release-4.jpg)
 
-1. Navegue para as tarefas para o ambiente Dev. No instantâneo abaixo, pode ver seis tarefas. Estas tarefas irão: descarregar os ficheiros ffmpeg com fecho, implementar uma conta de armazenamento para alojar os modelos do Gestor de Recursos aninhados, copiar os modelos do Gestor de Recursos para a conta de armazenamento, implementar a conta de lote e dependências necessárias, criar uma aplicação em a Conta de Lote Azure e o upload do pacote de aplicação para a Conta de Lote Azure.
+1. Navegue para as tarefas para o ambiente Dev. No instantâneo abaixo, pode ver seis tarefas. Estas tarefas irão: descarregar os ficheiros ffmpeg com fecho, implementar uma conta de armazenamento para alojar os modelos do Gestor de Recursos aninhados, copiar os modelos do Gestor de Recursos para a conta de armazenamento, implementar a conta de lote e dependências necessárias, criar uma aplicação na Conta de Lote Azure e enviar o pacote de aplicação para a Conta de Lote De Lote Azure.
 
     ![Exemplo das tarefas utilizadas para lançar a aplicação HPC para o Lote Azure](media/batch-ci-cd/Release-3.jpg)
 
@@ -508,4 +505,4 @@ az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 Além deste artigo, existem dois tutoriais que utilizam ffmpeg, utilizando .NET e Python. Consulte estes tutoriais para obter mais informações sobre como interagir com uma conta De lote através de uma aplicação simples.
 
 * [Executar uma carga de trabalho paralela com o Lote Azure usando a API Python](tutorial-parallel-python.md)
-* [Executar uma carga de trabalho paralela com o Lote Azure utilizando a API .NET](tutorial-parallel-dotnet.md)
+* [Executar uma carga de trabalho paralela com o Azure Batch através da API .NET](tutorial-parallel-dotnet.md)

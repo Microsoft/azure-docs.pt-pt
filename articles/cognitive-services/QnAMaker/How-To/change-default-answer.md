@@ -1,20 +1,20 @@
 ---
 title: Obtenha resposta padrão - QnA Maker
 description: A resposta padrão é devolvida quando não há correspondência com a pergunta. Pode querer alterar a resposta predefinida da resposta padrão.
-ms.topic: conceptual
-ms.date: 01/10/2020
-ms.openlocfilehash: fae5c38fd64435a3fae56862bad04e000916e88b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.date: 04/22/2020
+ms.openlocfilehash: db5a79ec612a73066ac37365a1815841fafb3862
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76843280"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097103"
 ---
-# <a name="set-default-answer-for-a-knowledge-base"></a>Definir resposta padrão para uma base de conhecimento
+# <a name="change-default-answer-for-a-qna-maker-resource"></a>Alterar a resposta padrão para um recurso QnA Maker
 
 A resposta padrão é devolvida quando não há correspondência com a pergunta. Pode querer alterar a resposta predefinida da resposta padrão.
 
-## <a name="change-default-answer"></a>Alterar A Resposta padrão
+## <a name="change-default-answer-in-the-azure-portal"></a>Alterar Resposta padrão no portal Azure
 
 1. Vá ao [portal Azure](https://portal.azure.com) e navegue para o grupo de recursos que representa o serviço QnA Maker que criou.
 
@@ -32,4 +32,4 @@ A resposta padrão é devolvida quando não há correspondência com a pergunta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Crie um bot com QnA Maker e LUIS](../tutorials/integrate-qnamaker-luis.md)
+* [Criar uma base de dados de conhecimento](../How-to/manage-knowledge-bases.md)

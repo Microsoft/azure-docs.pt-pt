@@ -1,25 +1,15 @@
 ---
 title: Construir soluções com modelos de Estúdio Visual - Lote Azure [ Lote ] Microsoft Docs
 description: Saiba como os modelos do projeto Visual Studio podem ajudá-lo a implementar e executar as suas cargas de trabalho intensivas em Computação no Lote Azure.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: e42917237f3b114881655d88a017c2c4366612b3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 8e8d5be4a9f0fb5482ba6c86a8766a25e5713c09
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254568"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117527"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Use modelos de projeto do Estúdio Visual para lançar soluções de lote
 

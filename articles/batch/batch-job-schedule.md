@@ -1,25 +1,18 @@
 ---
 title: Agende os seus trabalhos
 description: Utilize o agendamento de trabalho para gerir as suas tarefas.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
-ms.service: batch
 ms.topic: article
-ms.workload: big-compute
 ms.date: 02/20/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 55ea8fb4cc0e65deaa89d718c4a46513716dcf54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49b2064d38f9f646c6189d859479d2414569ff60
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672436"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116881"
 ---
-# <a name="schedule-jobs-for-efficiency"></a>Agendar empregos para a eficiência
+# <a name="schedule-jobs-for-efficiency"></a>Agendar trabalhos para eficiência
 
 Agendar trabalhos em lote permite-lhe priorizar os trabalhos que pretende executar primeiro, tendo em conta tarefas que têm dependências de outras tarefas. Ao agendar os seus empregos, pode certificar-se de que utiliza a menor quantidade de recursos. Os nós podem ser desativados quando não são necessários, tarefas que dependem de outras tarefas são fiadas mesmo a tempo de otimizar os fluxos de trabalho. Só um trabalho de cada vez corre. Um novo só começará quando o anterior estiver completo. Pode definir o seu trabalho para completar automaticamente. 
 

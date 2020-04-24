@@ -3,18 +3,18 @@ title: Descrição Geral do Azure Policy
 description: O Azure Policy é um serviço no Azure utilizado para criar, atribuir e gerir definições de política no seu ambiente do Azure.
 ms.date: 04/21/2020
 ms.topic: overview
-ms.openlocfilehash: 68005a9a07e7f081a646c75566a0be4046f078ad
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 4ec09c8a38e22fc14980422bfe9a80a2bf3edda4
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770591"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097375"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
 A Política Azure ajuda a impor as normas organizacionais e a avaliar o cumprimento em escala. Através do seu painel de conformidade, proporciona uma visão agregada para avaliar o estado geral do ambiente, com a capacidade de aprofundar a granularidade por recurso e por política. Também ajuda a levar os seus recursos para o cumprimento através da reparação a granel dos recursos existentes e da reparação automática de novos recursos.
 
-Os casos de utilização comum para a Política Azure incluem a implementação da governação para a coerência dos recursos, conformidade regulamentar, segurança, custos e gestão. As definições políticas para estes casos de uso comum já estão disponíveis no seu ambiente Azure como incorporados para ajudar a começar facilmente.
+Os casos de utilização comum para a Política Azure incluem a implementação da governação para a coerência dos recursos, conformidade regulamentar, segurança, custos e gestão. As definições políticas para estes casos de uso comum já estão disponíveis no seu ambiente Azure como incorporados para ajudá-lo a começar.
 
 ## <a name="overview"></a>Descrição geral
 

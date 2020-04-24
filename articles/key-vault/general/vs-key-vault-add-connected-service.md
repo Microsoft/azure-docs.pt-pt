@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 68f8607db25b70ea5e6bfe21a7d6e002aeb127d6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: af0065db087595167ca71bb79b968cc4ad339acd
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81429775"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116847"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Cofre chave à sua aplicação web utilizando serviços conectados do Estúdio Visual
 
@@ -125,7 +125,7 @@ Agora, podes aceder aos teus segredos em código. Os próximos passos são difer
    1. Adicione a variável de configuração.
 
       ```csharp
-      private static readonly IConfiguration _configuration;
+      private static IConfiguration _configuration;
       ```
 
    1. Adicione este construtor ou substitua o construtor existente por isto:

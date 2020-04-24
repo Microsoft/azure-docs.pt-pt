@@ -1,25 +1,19 @@
 ---
 title: Amostras de PowerShell de máquina virtual azure
 description: Amostras de PowerShell de máquina virtual azure
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: sample
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 434cf3f9342ad10bab39030e65cdd4bc4d0edc27
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 03d27e1e72eaa5f5dee8cfa9062a56c6dd45007a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458867"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100027"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Amostras de PowerShell de máquina virtual Azure
 

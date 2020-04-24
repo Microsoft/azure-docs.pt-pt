@@ -1,21 +1,15 @@
 ---
 title: Início Rápido do Azure – Executar trabalho do Batch – .NET
 description: Execute rapidamente um trabalho de amostra de Lote Azure e tarefas a partir de uma aplicação C# com a biblioteca de clientes Batch .NET.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 809ca9d9aafa813e05dea81eb05616eefcc65472
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1163d63f8cbd6afedfb6e5323fa469059fa8021c
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77017212"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117221"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: executar o seu primeiro trabalho do Azure Batch com a API .NET
 
@@ -33,7 +27,7 @@ Este início rápido executa um trabalho do Azure Batch a partir de uma aplicaç
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 

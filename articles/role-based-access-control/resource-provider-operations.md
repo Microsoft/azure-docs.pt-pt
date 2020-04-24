@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 50a1971fed4cce49eea1922bc9b81f06667f4dd8
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 61fb8b53d7d109fefc002b387702a240353f0dca
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641009"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117612"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Gestor de Recursos Azure
 
@@ -6669,8 +6669,6 @@ Serviço Azure: [Rede Virtual,](../virtual-network/index.yml) [Balancer de Carga
 > | Ação | Microsoft.Network/privateEndpoints/read | Obtém um recurso privado. |
 > | Ação | Microsoft.Network/privateEndpoints/write | Cria um novo ponto final privado, ou atualiza um ponto final privado existente. |
 > | Ação | Microsoft.Network/privateEndpoints/delete | Elimina um recurso de ponto final privado. |
-> |  | **privateEndpoints/privateDnsZoneConfigs** |  |
-> | Ação | Microsoft.Network/privateEndpoints/privateDnsZoneConfigs/write | Coloca uma Zona Privada DNS Config |
 > |  | **privateLinkServices** |  |
 > | Ação | Microsoft.Network/privateLinkServices/read | Obtém um recurso de serviço de ligação privada. |
 > | Ação | Microsoft.Network/privateLinkServices/write | Cria um novo serviço de ligação privada, ou atualiza um serviço de ligação privada existente. |

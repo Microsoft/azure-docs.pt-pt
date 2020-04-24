@@ -1,25 +1,20 @@
 ---
 title: 'Tutorial: Proteja um servidor web do Windows com certificados TLS/SSL em Azure'
 description: Neste tutorial, aprende-se a utilizar o Azure PowerShell para proteger uma máquina virtual do Windows que executa o servidor web IIS com certificados TLS/SSL armazenados no Cofre de Chaves Azure.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2795d45cd5bba7aab33b06350faee23e83189c30
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: da9834636944c6bb816c4f49b0e9bf3abda2264a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81455585"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097783"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Proteja um servidor web numa máquina virtual do Windows em Azure com certificados TLS/SSL armazenados em Cofre chave
 

@@ -10,12 +10,12 @@ metadata:
   author: malopMSFT
   ms.author: allensu
   ms.date: 09/16/2019
-  ms.openlocfilehash: a22284524891c71ec206ef100de9a736cb1a5714
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 1674d92736f7808cd7fc5cc983bc72cea4126868
+  ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77587656"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82100265"
 landingContent:
 - title: Sobre a Ligação Privada do Azure
   linkLists:
@@ -53,13 +53,3 @@ landingContent:
       url: /powershell/module/az.network
     - text: REST
       url: /rest/api/virtualnetwork/privatelinkservices
-- title: Explorar o Azure Private Link
-  linkLists:
-  - linkListType: video
-    links:
-    - text: Azure Private Link
-      url: https://www.youtube.com/watch?reload=9&v=nuFEVvewUgQ
-    - text: Conectividade privada aos serviços do Azure PaaS com o Private Link
-      url: https://www.youtube.com/watch?v=aVFV1_ZwAEY
-    - text: Rede do Azure - N.º 11 - Azure Private Link
-      url: https://www.youtube.com/watch?v=PWKM5KXjWno

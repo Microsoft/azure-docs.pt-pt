@@ -1,18 +1,14 @@
 ---
-title: Boas práticas - Lote Azure
+title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver a sua solução De Lote Azure.
-author: LauraBrenner
-ms.author: labrenne
 ms.date: 04/03/2020
-ms.service: batch
 ms.topic: article
-manager: evansma
-ms.openlocfilehash: 94483f8e15b0cd90f76e369034e987bec6da127c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 43a0020953ea44593cf38298a78547194751fc72
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655837"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117510"
 ---
 # <a name="azure-batch-best-practices"></a>Boas práticas do Lote Azure
 

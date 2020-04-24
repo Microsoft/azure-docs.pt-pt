@@ -1,22 +1,15 @@
 ---
-title: Variáveis ambientais de tempo de execução de tarefas - Lote Azure / Microsoft Docs
+title: Variáveis de ambiente de runtime de tarefas
 description: Orientação variável de ambiente de execução de tarefas e referência para Azure Batch Analytics.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: big-compute
 ms.date: 09/12/2019
 ms.author: labrenne
-ms.openlocfilehash: ebaa06acf309a0f941b8b4efd76fa4e9e7460810
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd30444585cb1adaaf2b42cebdfa04683b12ecfc
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053940"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117340"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variáveis ambientais de tempo de execução do Lote Azure
 

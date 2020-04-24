@@ -1,19 +1,17 @@
 ---
 title: Desencadear um trabalho de lote usando funções azure
 description: Tutorial - Aplique OCR em documentos digitalizados à medida que são adicionados a uma bolha de armazenamento
-author: LauraBrenner
-ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: a967fdc14b85f294ee11cbcc57a8d2280dba38e8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 01c3ab167239affa4d7ae94f5649d60072c3c270
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77017195"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117170"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: Desencadear um trabalho de lote usando funções azure
 
@@ -24,11 +22,11 @@ Neste tutorial, você aprenderá a desencadear um trabalho de Lote usando funç�
 * Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Uma conta do Batch do Azure e uma conta de Armazenamento do Microsoft Azure associada. Consulte [criar uma conta de Lote](quick-create-portal.md#create-a-batch-account) para obter mais informações sobre como criar e ligar contas.
 * [Batch Explorer](https://azure.github.io/BatchExplorer/)
-* [Explorador do Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
+* [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-batch-pool-and-batch-job-using-batch-explorer"></a>Crie uma piscina de lote e trabalho de lote usando o Batch Explorer
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b3cd4ed280529efbde32fb89e6bac20640940fff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a50f203b8057dd4ea51eff1cf09fc97fb598cb3e
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81423909"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096440"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool"></a>Quickstart: Criar uma piscina SQL Synapse
 
@@ -81,5 +81,5 @@ Após a criação da piscina SQL, estará disponível no espaço de trabalho par
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Ver [Quickstart: Crie uma piscina Apache Spark no Estúdio Synapse utilizando ferramentas web](spark/apache-spark-notebook-create-spark-use-sql.md).
+- Ver [Quickstart: Crie uma piscina Apache Spark no Estúdio Synapse utilizando ferramentas web](quickstart-apache-spark-notebook.md).
 - Ver [Quickstart: Crie uma piscina Apache Spark utilizando o portal Azure](quickstart-create-apache-spark-pool.md).

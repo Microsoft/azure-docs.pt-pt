@@ -1,25 +1,15 @@
 ---
 title: Executar Linux em nódosos de computação de máquinavirtual - Lote Azure / Microsoft Docs
 description: Aprenda a processar as suas cargas de trabalho paralelas em piscinas de máquinas virtuais Linux em Azure Batch.
-services: batch
-documentationcenter: python
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: na
 ms.date: 06/01/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 977504f41e93e37ae2c5ce9bdb1182a1cfe0a3fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7abdab248a6f19ec4d57018d65f883fdc838da21
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252288"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116796"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provision Linux computação nóde sintetizar em piscinas de lote
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a4140ffc0d4e97afabb1c3080951eeb75c792a8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba21dfc900145ceeacab6c363e5de84b830282b1
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76961555"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82109637"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Existem três cenários que podem levar a que a máquina virtual em Azure seja impactada: manutenção de hardware não planeada, tempo de inatividade inesperado e manutenção planeada.
@@ -32,7 +32,7 @@ Para reduzir o impacto do período de indisponibilidade devido a um ou mais dest
 
 * [Configurar várias máquinas virtuais num conjunto de disponibilidade para redundância]
 * [Utilizar discos geridos para VMs num conjunto de disponibilidade]
-* [Utilize eventos programados para responder proativamente a eventos de impacto vm](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Use eventos programados para responder proativamente a eventos de impacto vm](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configurar cada camada da aplicação em conjuntos de disponibilidade separados]
 * [Combinar um Balanceador de Carga com conjuntos de disponibilidade]
 * [Utilize zonas de disponibilidade para proteger contra falhas de nível de datacenter]

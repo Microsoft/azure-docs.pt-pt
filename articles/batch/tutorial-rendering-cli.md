@@ -1,20 +1,15 @@
 ---
-title: Compor uma cena na cloud - Azure Batch
+title: Render uma cena na nuvem
 description: Tutorial - como apresentar uma cena Autodesk 3DS Max com o Arnold, através do Serviço Batch Rendering e da Interface de Linha de Comandos do Azure
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: a415a74af654ef9cf56a37c1fca5ac6632ba4418
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78672986"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117136"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: compor uma cena com o Azure Batch 
 

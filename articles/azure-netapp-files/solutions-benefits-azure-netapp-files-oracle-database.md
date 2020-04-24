@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 04/23/2020
 ms.author: b-juche
-ms.openlocfilehash: a73da39dafcc8be78fbe1c023693ffa4a19aa1d3
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 56322dc8def288ed388713e143f6b77816360ba3
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085013"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117051"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Benefícios da utilização do Azure NetApp Files com o Oracle Database
 
@@ -27,15 +27,17 @@ A Oracle Direct NFS (dNFS) permite conduzir um desempenho superior ao do própri
 
 ## <a name="how-oracle-direct-nfs-works"></a>Como funciona o Oracle Direct NFS
 
-O Oracle Direct NFS (dNFS) contorna a cache tampão do sistema operativo. Os dados são cached apenas uma vez no espaço do utilizador, eliminando a sobrecarga de cópias de memória.  
+O resumo seguinte explica como o Oracle Direct NFS funciona a um nível elevado:
 
-O cliente tradicional nFS usa um único fluxo de rede, como mostra o seguinte exemplo: 
+* O Oracle Direct NFS contorna a cache tampão do sistema operativo. Os dados são cached apenas uma vez no espaço do utilizador, eliminando a sobrecarga de cópias de memória.  
 
-![Cliente NFS tradicional usando um único fluxo de rede](../media/azure-netapp-files/solutions-traditional-nfs-client-using-single-network-flow.png)
+* O cliente tradicional nFS usa um único fluxo de rede como mostrado abaixo:    
 
-Em contraste, o DNFS da Oracle melhora o desempenho através do tráfego de rede de equilíbrio de carga em vários fluxos de rede. Esta capacidade permite que a base de dados oracle estabeleça dinamicamente um número significativo de 650 conexões de rede distintas, como mostra o exemplo abaixo:  
+    ![Cliente NFS tradicional usando um único fluxo de rede](../media/azure-netapp-files/solutions-traditional-nfs-client-using-single-network-flow.png)
 
-![Oracle Direct NFS melhorando o desempenho](../media/azure-netapp-files/solutions-oracle-direct-nfs-performance-load-balancing.png)
+    O Oracle Direct NFS melhora ainda mais o desempenho através do tráfego de rede de equilíbrio de carga em vários fluxos de rede. Como testado e mostrado abaixo, 650 ligações de rede distintas foram estabelecidas dinamicamente pela Base de Dados Oracle:  
+
+    ![Oracle Direct NFS melhorando o desempenho](../media/azure-netapp-files/solutions-oracle-direct-nfs-performance-load-balancing.png)
 
 O [Oracle FAQ para Direct NFS](http://www.orafaq.com/wiki/Direct_NFS) mostra que o Oracle dNFS é um cliente NFS otimizado. Proporciona acesso rápido e escalável ao armazenamento nFS que está localizado em dispositivos de armazenamento NAS (acessível em TCP/IP). o dNFS é incorporado no núcleo de base de dados tal como o ASM, que é utilizado principalmente com armazenamento DAS ou SAN. Como tal, *a orientação é utilizar o dNFS na implementação do armazenamento nas e utilizar as ASM na implementação do armazenamento SAN.*
 

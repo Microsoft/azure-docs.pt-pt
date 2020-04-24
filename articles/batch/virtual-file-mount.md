@@ -1,22 +1,15 @@
 ---
 title: Monte um sistema de arquivovirtual numa piscina - Lote Azure [ Lote Azul ] Microsoft Docs
 description: Aprenda a montar um sistema de ficheiros virtual numa piscina de Lote.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: labrenne
-ms.openlocfilehash: bdf0b3bfc955d8a2e2ce1b363c8699ca719b957c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 703b65f0a1571659d7be479776dd8fdf02d86731
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77919010"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117034"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monte um sistema de ficheiros virtual em uma piscina de lote
 

@@ -1,19 +1,14 @@
 ---
-title: Criação e utilização de ficheiros de recursos - Lote Azure
+title: Criação e utilização de ficheiros de recursos
 description: Saiba como criar ficheiros de recursos do Lote a partir de várias fontes de entrada. Este artigo abrange alguns métodos comuns sobre como criá-los e colocá-los num VM.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.topic: article
 ms.date: 03/18/2020
-ms.author: labrenne
-ms.openlocfilehash: 0fe859ac30e7b8050d1f4688d7cf106a465e7566
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: article
+ms.openlocfilehash: c9a2e581d0cada467e89e3da731fac7f78b22992
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531146"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117187"
 ---
 # <a name="creating-and-using-resource-files"></a>Criação e utilização de ficheiros de recursos
 

@@ -4,12 +4,12 @@ description: Extrair dados de texto de expressão com intenções e entidades. S
 author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3cea4a46564210ad8c37fdeda68e24337091d0bb
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221086"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100299"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de texto de expressão com intenções e entidades
 O LUIS dá-lhe a capacidade de obter informações a partir das expressões de linguagem natural de um utilizador. A informação é extraída de uma forma que pode ser usada por um programa, aplicação ou chat bot para tomar medidas. Nas seguintes secções, saiba quais os dados devolvidos de intenções e entidades com exemplos de JSON.
@@ -31,7 +31,7 @@ Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
-A `appID` página de **Definições** da sua aplicação LUIS, bem `/apps/`como parte do URL (depois) quando estiver a editar aquela aplicação LUIS. A `subscription-key` chave final é usada para consultar a sua aplicação. Embora possa utilizar a sua chave de autor/arranque gratuita enquanto está a aprender LUIS, é importante alterar a chave de ponto final para uma chave que suporta o uso esperado do [LUIS.](luis-boundaries.md#key-limits) A `timezoneOffset` unidade tem minutos.
+A `appID` página de **Definições** da sua aplicação LUIS, bem `/apps/`como parte do URL (depois) quando estiver a editar aquela aplicação LUIS. A `subscription-key` chave final é usada para consultar a sua aplicação. Embora possa utilizar a sua chave de autor/arranque gratuita enquanto está a aprender LUIS, é importante alterar a chave de ponto final para uma chave que suporta o uso esperado do [LUIS.](luis-limits.md#key-limits) A `timezoneOffset` unidade tem minutos.
 
 A **resposta HTTPS** contém todas as informações de intenção e entidade que a LUIS pode determinar com base no modelo publicado atual, quer na encenação quer no ponto final de produção. O URL de ponto final encontra-se no site da [LUIS,](luis-reference-regions.md) na secção **Gerir,** na página **Keys e endpoints.**
 
@@ -75,7 +75,7 @@ Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 |Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
 |--|--|--|--|
-|Intenção|Cadeia|topScoringIntent.intent|"GetStoreInfo"|
+|Intenção|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Se o seu chatbot ou app de chamada LUIS tomar uma decisão com base em mais de uma pontuação de intenção, devolva todas as pontuações das intenções.
 
@@ -137,8 +137,8 @@ As intenções são ordenadas da pontuação mais alta para a mais baixa.
 
 |Objeto de dados|Tipo de Dados|Localização de Dados|Valor|Classificação|
 |--|--|--|--|:--|
-|Intenção|Cadeia|intenções[0].intenção|"GetStoreInfo"|0.984749258|
-|Intenção|Cadeia|intenções[1].intenção|"Nenhum"|0.0168218873|
+|Intenção|String|intenções[0].intenção|"GetStoreInfo"|0.984749258|
+|Intenção|String|intenções[1].intenção|"Nenhum"|0.0168218873|
 
 Se adicionar domínios pré-construídos, o nome `Utilties` de `Communication` intenção indica o domínio, tal como ou a intenção:
 
@@ -198,9 +198,9 @@ Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 |Domain|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
 |--|--|--|--|--|
-|Utilitários|Intenção|Cadeia|intenções[0].intenção|"<b>Serviços públicos</b>. ShowNext"|
-|Comunicação|Intenção|Cadeia|intenções[1].intenção|<b>Comunicação.</b> Início"|
-||Intenção|Cadeia|intenção[2].intenção|"Nenhum"|
+|Utilitários|Intenção|String|intenções[0].intenção|"<b>Serviços públicos</b>. ShowNext"|
+|Comunicação|Intenção|String|intenções[1].intenção|<b>Comunicação.</b> Início"|
+||Intenção|String|intenção[2].intenção|"Nenhum"|
 
 
 ## <a name="data-from-entities"></a>Dados de entidades

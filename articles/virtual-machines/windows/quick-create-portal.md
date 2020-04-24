@@ -1,24 +1,19 @@
 ---
 title: Quickstart - Criar um VM Windows no portal Azure
 description: Neste início rápido, vai aprender a utilizar o portal do Azure para criar uma máquina virtual do Windows
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a304e400d193eb4b2d0c2e8ec30ea03ea41977f8
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 5cf23a9c66c76f778dbd5d2b126b28a5a577c978
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606642"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098004"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Windows no portal do Azure
 

@@ -95,7 +95,7 @@ Você completa os seguintes passos de experimentação https://ml.azure.comatrav
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.| Todos os ficheiros têm os mesmos cabeçalhos
         Linhas de salto | Indica quantas, se houver, são ignoradas linhas no conjunto de dados.| Nenhuma
 
-    1. O formulário **Schema** permite uma maior configuração dos seus dados para esta experiência. Para este exemplo, selecione o interruptor de alternância para a **funcionalidade day_of_week,** de modo a não incluí-lo para esta experiência. Selecione **Next**.
+    1. O formulário **Schema** permite uma maior configuração dos seus dados para esta experiência. Para este exemplo, selecione o interruptor de alternância para a **funcionalidade day_of_week,** de modo a não incluí-lo para esta experiência. Selecione **Seguinte**.
 
         ![Configuração do separador de pré-visualização](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
@@ -124,7 +124,7 @@ Você completa os seguintes passos de experimentação https://ml.azure.comatrav
 
         1. Após a criação, selecione o seu novo alvo computacional da lista de lançamentos.
 
-    1. Selecione **Next**.
+    1. Selecione **Seguinte**.
 
 1. No formulário de **tipo de tarefa e configurações,** selecione **Classificação** como o tipo de tarefa de aprendizagem automática.
 
