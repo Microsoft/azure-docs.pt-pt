@@ -4,12 +4,12 @@ description: Saiba como ativar e ver os registos do nó principal kubernetes no 
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: f759f15cf98546cb95ba0adb5890885f85ca6aa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 504d6a5216f3345f22a601c4ae084488aeb97c8d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259386"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128960"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever os registos de nó principal do Kubernetes no Azure Kubernetes Service (AKS)
 
@@ -19,9 +19,9 @@ Com o Serviço Azure Kubernetes (AKS), os principais componentes como o *kube-ap
 
 Este artigo requer um cluster AKS existente na sua conta Azure. Se ainda não tiver um cluster AKS, crie um utilizando o portal [Azure CLI][cli-quickstart] ou [Azure][portal-quickstart]. Os registos do Monitor Azure funcionam com clusters AKS ativados por RBAC e não-RBAC.
 
-## <a name="enable-diagnostics-logs"></a>Ativar registos de diagnóstico
+## <a name="enable-resource-logs"></a>Ativar registos de recursos
 
-Para ajudar a recolher e rever dados de várias fontes, os registos do Azure Monitor fornecem um motor de linguagem e análise de consulta que fornece informações sobre o seu ambiente. Um espaço de trabalho é usado para coligir e analisar os dados, e pode integrar-se com outros serviços Azure, como O Insights de Aplicação e Centro de Segurança. Para utilizar uma plataforma diferente para analisar os registos, pode optar por enviar registos de diagnóstico para uma conta de armazenamento Azure ou um centro de eventos. Para mais informações, consulte os registos do [Monitor Azure?][log-analytics-overview]
+Para ajudar a recolher e rever dados de várias fontes, os registos do Azure Monitor fornecem um motor de linguagem e análise de consulta que fornece informações sobre o seu ambiente. Um espaço de trabalho é usado para coligir e analisar os dados, e pode integrar-se com outros serviços Azure, como O Insights de Aplicação e Centro de Segurança. Para utilizar uma plataforma diferente para analisar os registos, pode optar por enviar registos de recursos para uma conta de armazenamento Azure ou um centro de eventos. Para mais informações, consulte os registos do [Monitor Azure?][log-analytics-overview]
 
 Os registos do Monitor Azure estão ativados e geridos no portal Azure. Para ativar a recolha de registos para os componentes principais kubernetes no seu cluster AKS, abra o portal Azure num navegador web e complete os seguintes passos:
 

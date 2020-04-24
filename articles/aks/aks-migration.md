@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 8315560c679f9807715af14dc315fa3000be0472
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a5e2c1e36a742115ed2f5c690c81a186a86dee7
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77624816"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129090"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar para o Serviço Azure Kubernetes (AKS)
 
@@ -119,7 +119,7 @@ Se utilizar discos geridos pelo Azure, só pode montar o disco se não estiver l
 * [Monte disco azul estático como volume](https://docs.microsoft.com/azure/aks/azure-disk-volume#mount-disk-as-volume)
 
 Se nenhuma dessas abordagens funcionar, pode utilizar uma cópia de segurança e restaurar as opções:
-* [Velero em Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
+* [Velero em Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
 
 #### <a name="azure-files"></a>Ficheiros do Azure
 

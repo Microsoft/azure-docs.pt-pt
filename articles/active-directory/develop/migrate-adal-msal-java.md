@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
-ms.openlocfilehash: 7ba845e79074313f0ccf2c066ba016bd72d46efe
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7729a30acb1b191378960887164bb4b32e225c36
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81534572"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128014"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração DaAL para Java
 
@@ -42,6 +42,10 @@ Se tem trabalhado com o Azure AD para programadores (v1.0) endpoint (e ADAL4J), 
 ## <a name="scopes-not-resources"></a>Âmbitos não recursos
 
 A ADAL4J adquire fichas para recursos, enquanto a MSAL para a Java adquire fichas para âmbitos. Uma série de MSAL para aulas de Java requerem um parâmetro de âmbito. Este parâmetro é uma lista de cordas que declaram as permissões e recursos desejados que são solicitados. Consulte [os âmbitos do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference) para ver os exemplos.
+
+Pode adicionar `/.default` o sufixo de âmbito ao recurso para ajudar a migrar as suas aplicações do ponto final v1.0 (ADAL) para o ponto final da plataforma de identidade da Microsoft (MSAL). Por exemplo, para o `https://graph.microsoft.com`valor de recursos `https://graph.microsoft.com/.default`de , o valor de âmbito equivalente é .  Se o recurso não estiver no formulário URL, `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`mas sim numa identificação `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`de recurso do formulário, ainda pode utilizar o valor de âmbito como .
+
+Para mais detalhes sobre os diferentes tipos de âmbitos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) e nos [Âmbitos para uma Web API aceitando artigos de tokens v1.0.](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes)
 
 ## <a name="core-classes"></a>Aulas de núcleo
 

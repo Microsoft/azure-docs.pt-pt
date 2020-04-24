@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev
-ms.openlocfilehash: fe9dc6c04fe033fd518218d1b5ea971e573405fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3f95383979fd47b3baaec946f724533461729b8
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76696565"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128051"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guia de migração DaAL para MSAL para Python
 
@@ -43,6 +43,10 @@ Veja [o que há de diferente no ponto final da plataforma de identidade da Micro
 ### <a name="scopes-not-resources"></a>Âmbitos não recursos
 
 A ADAL Python adquire fichas para recursos, mas a MSAL Python adquire fichas para âmbitos. A superfície DaPI em MSAL Python já não tem parâmetro de recurso. Você precisaria fornecer âmbitos como uma lista de cordas que declaram as permissões e recursos desejados que são solicitados. Para ver alguns exemplos de âmbitos, consulte [os âmbitos do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+
+Pode adicionar `/.default` o sufixo de âmbito ao recurso para ajudar a migrar as suas aplicações do ponto final v1.0 (ADAL) para o ponto final da plataforma de identidade da Microsoft (MSAL). Por exemplo, para o `https://graph.microsoft.com`valor de recursos `https://graph.microsoft.com/.default`de , o valor de âmbito equivalente é .  Se o recurso não estiver no formulário URL, `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`mas sim numa identificação `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`de recurso do formulário, ainda pode utilizar o valor de âmbito como .
+
+Para mais detalhes sobre os diferentes tipos de âmbitos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) e nos [Âmbitos para uma Web API aceitando artigos de tokens v1.0.](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes)
 
 ### <a name="error-handling"></a>Processamento de erros
 

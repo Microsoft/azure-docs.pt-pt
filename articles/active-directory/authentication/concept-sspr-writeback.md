@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 787c15c11c995c7eb30662131302658175c7f877
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 89431c2bf1838d3264b03c8a5f2ce62cd6df3631
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393027"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127832"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Como é que a palavra-passe de autosserviço repõe o reescrita no Diretório Ativo do Azure?
 
@@ -130,6 +130,7 @@ As palavras-passe são redigidas em todas as seguintes situações:
    * Qualquer força de autosserviço do administrador altere a operação de senha, por exemplo, a expiração da palavra-passe.
    * Qualquer redefinição da palavra-passe de autosserviço do administrador que tenha origem no portal de reset da [palavra-passe](https://passwordreset.microsoftonline.com).
    * Qualquer palavra-passe de utilizador final iniciado pelo administrador reset do [portal Azure](https://portal.azure.com).
+   * Qualquer palavra-passe de utilizador final iniciado pelo administrador reset a partir da [beta da Microsoft Graph API](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
 
 ## <a name="unsupported-writeback-operations"></a>Operações de redisonam não apoiadas
 
@@ -138,7 +139,7 @@ As palavras-passe não são escritas em nenhuma das seguintes situações:
 * **Operações não suportadas de utilizador final**
    * Qualquer utilizador final que reajuste a sua própria palavra-passe utilizando a versão 1, a versão 2 ou a API do Microsoft Graph.
 * **Operações de administrador não apoiados**
-   * Qualquer palavra-passe de utilizador final iniciado pelo administrador reset a partir da versão 1, versão 2 da Versão 2 ou do Microsoft Graph API.
+   * Qualquer palavra-passe de utilizador final iniciado pelo administrador a partir da versão 1, versão 2 do PowerShell ou do Microsoft Graph API (a beta do [Microsoft Graph API](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) é suportada).
    * Qualquer palavra-passe de utilizador final iniciado pelo administrador reset a partir do centro de administração microsoft [365](https://admin.microsoft.com).
 
 > [!WARNING]

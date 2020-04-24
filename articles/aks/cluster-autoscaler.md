@@ -4,12 +4,12 @@ description: Aprenda a utilizar o autoscaler cluster para escalar automaticament
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 2baa64779713d0bac063e1d2c06107ba2ab291fb
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 732c405cad20aef3485b521fa245cb504a809c40
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617546"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129068"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escala automaticamente um cluster para satisfazer as exigências de aplicação no Serviço Azure Kubernetes (AKS)
 
@@ -213,7 +213,7 @@ A AKS gere o autoscaler do cluster em seu nome e executa-o no plano de controlo 
 
 Para configurar os registos a serem empurrados do autoscaler do cluster para o Log Analytics, siga estes passos.
 
-1. Configurar uma regra para os registos de diagnóstico para empurrar os registos de escalar de cluster para log Analytics. [As instruções são detalhadas aqui](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs) `cluster-autoscaler` , certifique-se de verificar se a caixa está a selecionar opções para "Registos".
+1. Estabeleça uma regra para os registos de recursos para empurrar os registos de escalar de cluster para log Analytics. [As instruções são detalhadas aqui](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs) `cluster-autoscaler` , certifique-se de verificar se a caixa está a selecionar opções para "Registos".
 1. Clique na secção "Registos" no seu cluster através do portal Azure.
 1. Insera a seguinte consulta de exemplo no Log Analytics:
 

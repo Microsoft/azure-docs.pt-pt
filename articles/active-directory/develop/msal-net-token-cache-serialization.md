@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: d6cb164628923b7a0b4fd0e48e3b9a6095591060
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 1aa7de4290d0050b9d6b1c8b048f9e5a2836790f
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82099024"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127987"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialização de cache simbólica em MSAL.NET
 Depois de adquirido um [símbolo,](msal-acquire-cache-tokens.md)é cached pela Microsoft Authentication Library (MSAL).  O código de aplicação deve tentar obter um símbolo da cache antes de adquirir um símbolo por outro método.  Este artigo discute a serialização padrão e personalizada da cache simbólica em MSAL.NET.
@@ -84,7 +84,9 @@ static class TokenCacheHelper
   }
 
   /// <summary>
-  /// Path to the token cache
+  /// Path to the token cache. Note that this could be something different for instance for MSIX applications:
+  /// private static readonly string CacheFilePath =
+$"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\{AppName}\msalcache.bin";
   /// </summary>
   public static readonly string CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin3";
 

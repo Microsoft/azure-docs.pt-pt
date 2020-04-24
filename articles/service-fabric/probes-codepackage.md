@@ -1,64 +1,66 @@
 ---
 title: Sondas Azure Service Fabric
-description: Como modelar a Liveness Probe em Tecido de Serviço Azure utilizando ficheiros de manifesto de aplicação e serviço.
+description: Como modelar uma sonda de vivacidade no Tecido de Serviço Azure utilizando ficheiros de manifesto de aplicação e serviço.
 ms.topic: conceptual
+author: tugup
+ms.author: tugup
 ms.date: 3/12/2020
-ms.openlocfilehash: 38f3888a29bf505b723d40bc7cd08fb0c7e29eff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81431218"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137591"
 ---
-# <a name="liveness-probe"></a>Sonda Liveness
-A partir do 7.1 O tecido de serviço suporta o mecanismo de sonda Liveness para aplicações [contentorizadas.][containers-introduction-link] A Liveness Probe ajuda a anunciar a vivacidade da aplicação contentorizada e quando não respondem em tempo útil, resultará num recomeço.
-Este artigo fornece uma visão geral de como definir uma Sonda Liveness através de ficheiros manifestos.
+# <a name="liveness-probe"></a>Sonda de vivacidade
+A partir da versão 7.1, o Azure Service Fabric suporta um mecanismo de sonda de vivacidade para aplicações [contentorizadas.][containers-introduction-link] Uma sonda de vivacidade ajuda a relatar a vivacidade de uma aplicação contentorizada, que recomeçará se não responder rapidamente.
+Este artigo fornece uma visão geral de como definir uma sonda de vivacidade utilizando ficheiros manifestos.
 
-Antes de prosseguir com este artigo, recomendamos que se familiarize com o modelo de [aplicação Service Fabric][application-model-link] e o modelo de [hospedagem do Tecido de Serviço.][hosting-model-link]
+Antes de avançar com este artigo, familiarize-se com o modelo de [aplicação Service Fabric][application-model-link] e o modelo de [hospedagem do Tecido de Serviço.][hosting-model-link]
 
 > [!NOTE]
-> A Liveness Probe só é suportada para recipientes no modo de rede NAT.
+> A sonda liveness é suportada apenas para recipientes no modo de rede NAT.
 
 ## <a name="semantics"></a>Semântica
-Pode especificar apenas 1 Sonda de Vivacidade por recipiente e pode controlar o seu comportamento com estes campos:
+Pode especificar apenas uma sonda de vivacidade por recipiente e pode controlar o seu comportamento utilizando estes campos:
 
-* `initialDelaySeconds`: O atraso inicial em segundos para começar a executar a sonda uma vez iniciado o recipiente. O valor suportado é int. O padrão é 0. O mínimo é 0.
+* `initialDelaySeconds`: O atraso inicial em segundos para começar a executar a sonda após o início do contentor. O valor suportado é **int**. O padrão é 0 e o mínimo é 0.
 
-* `timeoutSeconds`: Período em segundos após o qual consideramos a sonda como falhada se não tiver concluído com sucesso. O valor suportado é int. O padrão é 1. O mínimo é 1.
+* `timeoutSeconds`: O período de segundos após o qual consideramos a sonda como falhada, se não tiver terminado com sucesso. O valor suportado é **int**. O padrão é 1 e o mínimo é 1.
 
-* `periodSeconds`: Período em segundos para especificar com que frequência sondamos. O valor suportado é int. O padrão é 10. O mínimo é 1.
+* `periodSeconds`: O período em segundos para especificar a frequência da sonda. O valor suportado é **int**. O padrão é 10 e o mínimo é 1.
 
-* `failureThreshold`: Assim que chegarmos ao FailureThreshold, o recipiente reinicia. O valor suportado é int. O padrão é de 3. O mínimo é 1.
+* `failureThreshold`: Quando atingirmos este valor, o recipiente recomeçará. O valor suportado é **int**. O padrão é 3 e o mínimo é 1.
 
-* `successThreshold`: No caso de não ser considerado sucesso, para que a sonda seja considerada um sucesso, tem de executar com sucesso para o SuccessThreshold. O valor suportado é int. O padrão é 1. O mínimo é 1.
+* `successThreshold`: No caso de não ter, para que a sonda seja considerada bem sucedida, tem de ser executada com sucesso por este valor. O valor suportado é **int**. O padrão é 1 e o mínimo é 1.
 
-Haverá no máximo 1 sonda para contentor a um momento. Se a sonda não estiver concluída no **tempo limite,** continuamos à espera e a contar para a **falhaThreshold**. 
+Pode haver, no máximo, uma sonda para um contentor a qualquer momento. Se a sonda não terminar no tempo definido no **tempo limiteSeconds**, espere e conte o tempo para o **falhaThreshold**. 
 
-Além disso, o ServiceFabric irá levantar os seguintes relatórios de [saúde][health-introduction-link] da sonda sobre o Pacote de Serviços Implantados:
+Além disso, o Service Fabric irá levantar os seguintes [relatórios][health-introduction-link] de saúde da sonda sobre **o DeployedServicePackage:**
 
-* `Ok`: Se a sonda tiver **sucessoThreshold** então reportamos a saúde como Ok.
+* `OK`: A sonda tem sucesso pelo valor definido no **sucessoThreshold**.
 
-* `Error`: Se a falha da sondaCount == **falhaThreshold**, antes de reiniciar o recipiente reportamos Erro.
+* `Error`: Falha **da sondaFalhaGemLimiar,** ==  **failureThreshold**antes do reinício do recipiente.
 
 * `Warning`: 
-    1. Se a sonda falhar e a falhaCount < **falhaThreshold** reportamos Aviso. Este relatório de saúde permanece até falhaCount atinge **falhaLimiar** ou **sucessoThreshold**.
-    2. Sobre o sucesso pós-fracasso, ainda reportamos Aviso, mas com sucesso consecutivo atualizado.
+    * A sonda falha e **falhaFalhaO** < **FalhaThreshold**. Este relatório de saúde permanece até **que a falhaCount** atinja o valor definido em **falhaLimiar** ou **sucessoThreshold**.
+    * Sobre o sucesso após o fracasso, o aviso permanece, mas com sucessos consecutivos atualizados.
 
-## <a name="specifying-liveness-probe"></a>Especificando a sonda liveness
+## <a name="specifying-a-liveness-probe"></a>Especificando uma sonda de vivacidade
 
-Pode especificar a sonda no ApplicationManifest.xml no serviceManifestImport:
+Pode especificar uma sonda no ficheiro ApplicationManifest.xml no **âmbito do ServiceManifestImport**.
 
-A sonda pode qualquer um dos:
+A sonda pode ser para qualquer um dos seguintes:
 
-1. HTTP
-2. TCP
-3. Executivo 
+* HTTP
+* TCP
+* Executivo 
 
-## <a name="http-probe"></a>Sonda HTTP
+### <a name="http-probe"></a>Sonda HTTP
 
-Para a sonda HTTP, o Tecido de Serviço enviará um pedido HTTP para a porta e caminho especificado. O código de devolução superior ou igual a 200 e menos de 400 indica sucesso.
+Para uma sonda HTTP, o Service Fabric enviará um pedido HTTP para a porta e caminho que especifica. Um código de retorno que é maior ou igual a 200, e menos de 400, indica sucesso.
 
-Aqui está um exemplo de como especificar a sonda HttpGet:
+Aqui está um exemplo de como especificar uma sonda HTTP:
 
 ```xml
   <ServiceManifestImport>
@@ -79,21 +81,21 @@ Aqui está um exemplo de como especificar a sonda HttpGet:
   </ServiceManifestImport>
 ```
 
-A sonda HttpGet tem propriedades adicionais que pode definir:
+A sonda HTTP tem propriedades adicionais que pode definir:
 
-* `path`: Caminho para o acesso ao pedido HTTP.
+* `path`: O caminho a utilizar no pedido HTTP.
 
-* `port`: Porto de acesso a sondas. O alcance é de 1 a 65535. Obrigatório.
+* `port`: A porta a utilizar para as sondas. Esta propriedade é obrigatória. O intervalo é de 1 a 65535.
 
-* `scheme`: Esquema a utilizar para a ligação ao pacote de códigos. Se definido para HTTPS, a verificação do certificado é ignorada. Incumprimentos em HTTP
+* `scheme`: O regime a utilizar para a ligação à embalagem de código. Se esta propriedade for definida para HTTPS, a verificação do certificado é ignorada. A definição predefinida é HTTP.
 
-* `httpHeader`: Cabeçalhos a definir no pedido. Pode especificar vários destes.
+* `httpHeader`: Os cabeçalhos a fixar no pedido. Pode especificar vários cabeçalhos.
 
-* `host`: Hospedeiro IP para ligar a.
+* `host`: O endereço IP do anfitrião a que se ligar.
 
-## <a name="tcp-probe"></a>Sonda TCP
+### <a name="tcp-probe"></a>Sonda TCP
 
-Para a sonda TCP, o Tecido de Serviço tentará abrir uma tomada no recipiente com a porta especificada. Se conseguir estabelecer uma ligação, a sonda é considerada um sucesso. Aqui está um exemplo de como especificar a sonda que utiliza a tomada TCP:
+Para uma sonda TCP, o Tecido de Serviço tentará abrir uma tomada no recipiente utilizando a porta especificada. Se conseguir estabelecer uma ligação, a sonda é considerada bem sucedida. Aqui está um exemplo de como especificar uma sonda que usa uma tomada TCP:
 
 ```xml
   <ServiceManifestImport>
@@ -111,13 +113,13 @@ Para a sonda TCP, o Tecido de Serviço tentará abrir uma tomada no recipiente c
   </ServiceManifestImport>
 ```
 
-## <a name="exec-probe"></a>Sonda Exec
+### <a name="exec-probe"></a>Sonda executiva
 
-Esta sonda emitirá um executivo no contentor e aguardará que o comando esteja concluído.
+Esta sonda emitirá um comando **executivo** no contentor e esperará que o comando termine.
 
 > [!NOTE]
-> O comando executivo toma uma corda compera sepera. O seguinte comando no exemplo funcionará para o contentor Linux.
-> Se estiver a experimentar o recipiente das janelas, use <Command>cmd</Command>
+> **O** comando executivo leva uma corda separada de vírina. O comando no exemplo seguinte funcionará para um recipiente Linux.
+> Se estiver a tentar sondar um recipiente Windows, utilize **cmd**.
 
 ```xml
   <ServiceManifestImport>
@@ -138,8 +140,8 @@ Esta sonda emitirá um executivo no contentor e aguardará que o comando esteja 
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte os seguintes artigos para obter informações relacionadas.
-* [Tecido de serviço e recipientes.][containers-introduction-link]
+Consulte o seguinte artigo para obter informações relacionadas:
+* [Tecido de serviço e recipientes][containers-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

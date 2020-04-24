@@ -4,12 +4,12 @@ description: Descreve como eliminar grupos e recursos de recursos. Descreve como
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: db56cf0897cd90f1e6e51199032d0d9712530f1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c03296f8bec24da1fc85bae14e91ca742054d02
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274024"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136486"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Grupo de recursos do Gestor de Recursos azure e eliminação de recursos
 
@@ -54,6 +54,9 @@ Se a operação GET devolver um erro, o Gestor de Recursos volta a tentar obter 
 
 Para outros códigos de erro, o Gestor de Recursos falha a eliminação do recurso.
 
+> [!IMPORTANT]
+> A eliminação do Grupo de Recursos é irreversível.
+
 ## <a name="delete-resource-group"></a>Eliminar grupo de recursos
 
 Utilize um dos seguintes métodos para eliminar o grupo de recursos.
@@ -64,7 +67,7 @@ Utilize um dos seguintes métodos para eliminar o grupo de recursos.
 Remove-AzResourceGroup -Name ExampleResourceGroup
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group delete --name ExampleResourceGroup
@@ -95,7 +98,7 @@ Remove-AzResource `
   -ResourceType Microsoft.Compute/virtualMachines
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource delete \

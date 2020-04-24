@@ -4,12 +4,12 @@ description: Seja notificado via SMS, webhook, SMS, e-mail e muito mais, quando 
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 26ecfdb33b92c91010af63ec14089dd148d6bad0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669018"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137710"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas sobre o registo de atividade
 
@@ -41,7 +41,7 @@ Os alertas de registo de atividade têm algumas opções comuns:
 - **Grupo de recursos**: Por padrão, a regra de alerta é guardada no mesmo grupo de recursos que o alvo definido no Âmbito. O utilizador também pode definir o Grupo de Recursos onde a regra de alerta deve ser armazenada.
 - **Tipo de recurso**: Gestor de Recursos definiu espaço de nome para o alvo do alerta.
 - **Nome da operação**: O nome de [funcionamento do Gestor de Recursos Azure](../../role-based-access-control/resource-provider-operations.md) utilizado para controlo de acesso baseado em funções . As operações não registadas no Azure Resource Manager não podem ser utilizadas numa regra de alerta de registo de atividade.
-- **Nível**: O nível de gravidade do evento (Verbose, Informacional, Aviso, Erro ou Crítico).
+- **Nível**: O nível de gravidade do evento (Informacional, Aviso, Erro ou Crítico).
 - **Estado**: O estado do evento, tipicamente iniciado, falhado ou bem sucedido.
 - **Evento iniciado por**: Também conhecido como "chamador". O endereço de e-mail ou identificador de Diretório Ativo Azure do utilizador que realizou a operação.
 

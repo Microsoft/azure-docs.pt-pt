@@ -7,20 +7,20 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: c2c695608653130b97bf29cc9ce48e2fbb429209
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 167d9fc68cb075a2cf96d9079131be9e5a510c08
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74694626"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137421"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Change feed no Azure Cosmos DB API para Cassandra
 
 O suporte [para alimentação](change-feed.md) de mudanças no Azure Cosmos DB API para Cassandra está disponível através dos predicados de consulta na Linguagem Cassandra Query (CQL). Utilizando estas condições predicadas, pode consultar a api de alimentação de alterações. As aplicações podem obter as alterações feitas numa tabela utilizando a chave primária (também conhecida como chave de partição) como é exigido no CQL. Em seguida, pode tomar mais medidas com base nos resultados. As alterações nas linhas da tabela são capturadas na ordem do seu tempo de modificação e a ordem de classificação é garantida por chave de partição.
 
-O exemplo que se segue mostra como obter um feed de mudança em todas as linhas de uma tabela De Espaço Chave Cassandra API usando .NET. O predicado COSMOS_CHANGEFEED_START_TIME() é utilizado diretamente no CQL para consultar itens no feed de alteração a partir de um determinado tempo de início (neste caso, data de data atual). Você pode baixar a amostra completa [aqui](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/).
+O exemplo que se segue mostra como obter um feed de mudança em todas as linhas de uma tabela De Espaço Chave Cassandra API usando .NET. O predicado COSMOS_CHANGEFEED_START_TIME() é utilizado diretamente no CQL para consultar itens no feed de alteração a partir de um determinado tempo de início (neste caso, data de data atual). Você pode baixar a amostra completa, para C# [aqui](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) e para Java [aqui](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 
-Em cada iteração, a consulta retoma no último ponto as alterações foram lidas, usando o estado de paging. Podemos ver um fluxo contínuo de novas mudanças na tabela no Keyspace. Veremos alterações nas linhas que estão inseridas ou atualizadas. Atualmente, não é suportado o cuidado de eliminar as operações utilizando o feed de mudança na Cassandra API. 
+Em cada iteração, a consulta retoma no último ponto as alterações foram lidas, usando o estado de paging. Podemos ver um fluxo contínuo de novas mudanças na tabela no Keyspace. Veremos alterações nas linhas que estão inseridas ou atualizadas. Atualmente, não é suportado o cuidado de eliminar as operações utilizando o feed de mudança na Cassandra API.
 
 ```C#
     //set initial start time for pulling the change feed
@@ -70,7 +70,40 @@ Em cada iteração, a consulta retoma no último ponto as alterações foram lid
     }
 
 ```
+```java
+        Session cassandraSession = utils.getSession();
 
+        try {
+              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+               LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
+               String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
+                    + dtf.format(now)+ "'";
+               
+             byte[] token=null; 
+             System.out.println(query); 
+             while(true)
+             {
+                 SimpleStatement st=new  SimpleStatement(query);
+                 st.setFetchSize(100);
+                 if(token!=null)
+                     st.setPagingStateUnsafe(token);
+                 
+                 ResultSet result=cassandraSession.execute(st) ;
+                 token=result.getExecutionInfo().getPagingState().toBytes();
+                 
+                 for(Row row:result)
+                 {
+                     System.out.println(row.getString("user_name"));
+                 }
+             }
+                    
+
+        } finally {
+            utils.close();
+            LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+        }
+
+```
 Para obter as alterações para uma única linha por chave primária, pode adicionar a chave primária na consulta. O exemplo que se segue mostra como rastrear as mudanças para a linha onde "user_id = 1"
 
 ```C#
@@ -79,7 +112,11 @@ Para obter as alterações para uma única linha por chave primária, pode adici
     $"SELECT * FROM uprofile.user where user_id = 1 AND COSMOS_CHANGEFEED_START_TIME() = '{timeBegin.ToString("yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture)}'");
 
 ```
-
+```java
+    String query="SELECT * FROM uprofile.user where user_id=1 and COSMOS_CHANGEFEED_START_TIME()='" 
+                    + dtf.format(now)+ "'";
+    SimpleStatement st=new  SimpleStatement(query);
+```
 ## <a name="current-limitations"></a>Limitações atuais
 
 As seguintes limitações aplicam-se ao utilizar o feed de mudança com a Cassandra API:

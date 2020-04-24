@@ -4,12 +4,12 @@ description: Aprenda a usar o portal Azure para criar um cluster Azure Kubernete
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 62d8fec4c5c3ff35fb46826cb7118946f66948b2
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 5f7bf75598c09c5c8c0654f7db863068f9e7be7d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392584"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128869"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
@@ -60,7 +60,7 @@ As seguintes regiões são apoiadas para implantações de nóvirtuais:
 ## <a name="known-limitations"></a>Limitações conhecidas
 A funcionalidade Nós virtuais está fortemente dependente do conjunto de funcionalidades da ACI. Os seguintes cenários ainda não são suportados com nódosos virtuais
 
-* Usando o diretor de serviço para puxar as imagens ACR. [Sem margem](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) de sobra é usar os segredos de [Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* Usando o diretor de serviço para puxar as imagens ACR. [Sem margem](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) de sobra é usar os segredos de [Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
 * [Limitações de rede virtuais,](../container-instances/container-instances-vnet.md) incluindo o peering VNet, as políticas de rede Kubernetes e o tráfego de saída para a internet com grupos de segurança de rede.
 * Recipientes init
 * [Pseudónimos hospedeiros](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
