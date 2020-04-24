@@ -1,19 +1,20 @@
 ---
 title: Resolver problemas relativos a início de sessão da subscrição do Azure
 description: Ajuda a resolver os problemas nos quais não pode iniciar sessão no portal do Azure ou no centro de contas do Azure.
+services: cost-management-billing
 author: v-miegge
-ms.reviewer: dcscontentpm
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4213df57423f5211517b019a8b58be99d2e12e7a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 08f278d56e742659ebe197695fae8dfa35383b17
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409347"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639211"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Resolver problemas relativos a início de sessão da subscrição do Azure
 
@@ -36,7 +37,7 @@ Este problema pode ocorrer se utilizar mais do que uma conta de utilizador num b
 Para resolver o problema, experimente um dos métodos seguintes:
 
 - Limpe a cache e elimine os cookies da Internet. No Internet Explorer, clique em **Ferramentas** > **Opções da Internet** > **Eliminar**. Confirme que as caixas de verificação dos ficheiros temporários, dos cookies, das palavras-passe e do histórico de navegação estão selecionadas e clique em Eliminar.
-- Reponha as definições do Internet Explorer para reverter quaisquer definições pessoais que tenha realizada. Clique em **Ferramentas** > **Opções da Internet** > **Avançadas**, selecione a caixa **Eliminar definições pessoais** e prima **Repor**.
+- Reponha as definições do Internet Explorer para reverter quaisquer definições pessoais feitas por si. Clique em **Ferramentas** > **Opções da Internet** > **Avançadas**, selecione a caixa **Eliminar definições pessoais** e prima **Repor**.
 - Utilize o modo de navegação privada do browser. No Internet Explorer:  Clique em **Ferramentas** > **Segurança** > **Navegação InPrivate** e, em seguida, navegue e inicie sessão no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions).
 
 ### <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>Consigo iniciar sessão, mas não vejo *Nenhuma subscrição encontrada*

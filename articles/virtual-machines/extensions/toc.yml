@@ -125,3 +125,5 @@
       href: export-templates.md
     - name: Resolução de problemas
       href: troubleshoot.md
+    - name: Problemas com sistemas Linux compatíveis com o Python 3
+      href: issues-using-vm-extensions-python-3.md

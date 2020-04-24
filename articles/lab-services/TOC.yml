@@ -20,10 +20,28 @@
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates'
     - name: Azure PowerShell
       href: samples-powershell.md
+      items:
+        - name: Adicionar um utilizador externo a um laboratório
+          href: scripts/add-external-user-to-lab.md
+        - name: Adicionar imagens do marketplace a um laboratório
+          href: scripts/add-marketplace-images-to-lab.md
+        - name: Criar uma imagem personalizada a partir de um VHD
+          href: scripts/create-custom-image-from-vhd.md
+        - name: Criar uma função personalizada num laboratório
+          href: scripts/create-custom-role-in-lab.md
+        - name: Definir tamanhos de VM permitidos num laboratório
+          href: scripts/set-allowed-vm-sizes-in-lab.md
     - name: Azure PowerShell - módulo Az.DevTestLabs2
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
     - name: CLI do Azure
       href: samples-cli.md
+      items:
+        - name: Criar e verificar a disponibilidade de uma VM
+          href: scripts/create-verify-virtual-machine-in-lab-cli.md
+        - name: Iniciar uma VM
+          href: scripts/start-connect-virtual-machine-in-lab-cli.md
+        - name: Parar e eliminar uma VM
+          href: scripts/stop-delete-virtual-machine-in-lab-cli.md
 - name: Conceitos
   items:
     - name: Conceitos de Laboratórios DevTest

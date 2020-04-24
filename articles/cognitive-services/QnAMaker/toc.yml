@@ -61,6 +61,8 @@
     - name: Melhores práticas
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
+    - name: Utilizar o Criador de FAQ e o LUIS
+      href: choose-natural-language-processing-service.md
 - name: Guias de procedimentos
   items:
     - name: Gerir os recursos do Azure
@@ -74,6 +76,8 @@
           href: How-To/collaborate-knowledge-base.md
         - name: Ativar a aprendizagem ativa
           href: How-To/use-active-learning.md
+        - name: Alterar resposta predefinida
+          href: How-To/change-default-answer.md
     - name: Gerir base de dados de conhecimento
       items:
         - name: Criar uma base de dados de conhecimento

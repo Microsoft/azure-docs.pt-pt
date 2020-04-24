@@ -34,6 +34,8 @@
       href: security-baselines-overview.md
     - name: Linha de base de segurança da Cache do Azure para Redis
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Linha de base de segurança do Backup
+      href: ../../backup/security-baseline.md
     - name: Linha de base de segurança do Batch
       href: ../../batch/security-baseline.md
     - name: Linha de base de segurança do Container Registry
@@ -56,3 +58,5 @@
       href: ../../postgresql/security-baseline.md
     - name: Linha de base de segurança da Base de Dados SQL
       href: ../../sql-database/security-baseline.md
+    - name: Linha de base de segurança do Armazenamento
+      href: ../../storage/common/security-baseline.md

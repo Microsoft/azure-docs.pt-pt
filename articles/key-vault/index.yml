@@ -13,12 +13,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: e969d71be3c8f77607e69205c24d6c980c9943a2
-  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+  ms.openlocfilehash: 90867d51bd0952eea350ed9120d2274d40b30d99
+  ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81536272"
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "81867262"
 highlightedContent:
   items:
   - title: Introdução ao Azure Key Vault
@@ -89,14 +89,34 @@ conceptualContent:
     footerLink:
       url: ./secrets/index.yml
       text: Ver mais
-  - title: Gerir chaves de armazenamento
+  - title: Key Vault com Armazenamento
     links:
     - url: ./secrets/overview-storage-keys.md
       itemType: overview
-      text: Chaves de armazenamento - CLI
+      text: Gerir chaves de armazenamento - CLI
     - url: ./secrets/overview-storage-keys-powershell.md
       itemType: overview
-      text: Chaves de armazenamento - PowerShell
+      text: Gerir chaves de armazenamento - PowerShell
     - url: ./secrets/storage-keys-sas-tokens-code.md
       itemType: overview
       text: Obter tokens de SAS no código
+  - title: Key Vault com Máquinas Virtuais
+    links:
+    - url: ../virtual-machines/extensions/key-vault-windows.md
+      itemType: overview
+      text: Extensão de VM do Key Vault - Windows
+    - url: ../virtual-machines/extensions/key-vault-linux.md
+      itemType: overview
+      text: Extensão de VM do Key Vault - Linux
+    - url: /azure/developer/ansible/key-vault-configure-vm-security
+      itemType: overview
+      text: Key Vault com VMs do Linux no Ansible
+    - url: ../virtual-machines/windows/disk-encryption-key-vault.md
+      itemType: overview
+      text: Key Vault com Azure Disk Encryption - Windows
+    - url: ../virtual-machines/linux/disk-encryption-key-vault.md
+      itemType: overview
+      text: Key Vault com Azure Disk Encryption - Linux
+    - url: ../virtual-machine-scale-sets/disk-encryption-key-vault.md
+      itemType: overview
+      text: Key Vault com Conjuntos de Dimensionamento de Máquinas Virtuais

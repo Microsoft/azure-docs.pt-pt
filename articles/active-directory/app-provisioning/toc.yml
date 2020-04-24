@@ -79,6 +79,8 @@
   items:
     - name: Conformidade do protocolo SCIM 2.0
       href: application-provisioning-config-problem-scim-compatibility.md
+    - name: Cenários SCIM e Graph
+      href: scim-graph-scenarios.md
     - name: Escolher um método de aprovisionamento
       href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Aprovisionamento de HR de Cloud

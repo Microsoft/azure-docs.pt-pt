@@ -20,8 +20,8 @@
       href: quickstart-synapse-studio.md
     - name: Criar conjuntos
       items:
-        - name: Criar um conjunto do Apache Spark com ferramentas Web
-          href: ./spark/apache-spark-notebook-create-spark-use-sql.md
+        - name: Criar um bloco de notas do Apache Spark com ferramentas Web
+          href: quickstart-apache-spark-notebook.md
         - name: Criar um conjunto do Apache Spark com o portal do Azure
           href: quickstart-create-apache-spark-pool.md
         - name: Criar um conjunto de SQL

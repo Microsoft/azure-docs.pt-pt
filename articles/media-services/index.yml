@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: a1c31725883204f473a46a3d20ca6fd4bbd741e8
-  ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+  ms.openlocfilehash: 2f2049f710dcdbb210594331fa69e6743f5e431e
+  ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 04/22/2020
-  ms.locfileid: "81755348"
+  ms.locfileid: "81869318"
 highlightedContent:
   items:
   - title: Sobre os Serviços de Multimédia do Azure v3
@@ -39,9 +39,6 @@ highlightedContent:
   - title: Migrar Serviços de Multimédia v2 para v3
     itemType: concept
     url: ./latest/migrate-from-v2-to-v3.md
-  - title: Especificações dos Serviços de Multimédia do Azure
-    itemType: concept
-    url: media-services-specifications-live-timed-metadata.md
   - title: Media Player do Azure
     itemType: overview
     url: azure-media-player/azure-media-player-overview.md
@@ -55,6 +52,9 @@ conceptualContent:
     - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
       itemType: sample
       text: Exemplos de código
+    - url: ./latest/release-notes.md
+      itemType: concept
+      text: Descubra as novidades nos Serviços de Multimédia v3
   - title: Transmissão em direto
     links:
     - url: ./latest/live-streaming-overview.md
@@ -99,6 +99,17 @@ conceptualContent:
     - url: ./latest/analyze-videos-tutorial-with-api.md
       itemType: tutorial
       text: Analisar vídeos
+  - title: Saiba mais sobre as especificações dos Serviços de Multimédia
+    links:
+    - url: media-services-specifications-live-timed-metadata.md
+      itemType: concept
+      text: Metadados temporizados no Live Streaming (RTMP e Smooth Streaming)
+    - url: media-services-specifications-ms-sstr-amendment-hevc.md
+      itemType: concept
+      text: Emenda do protocolo Smooth Streaming (MS-SSTR) para HEVC
+    - url: media-services-fmp4-live-ingest-overview.md
+      itemType: concept
+      text: Protocolo de ingestão do Smooth Streaming
 additionalContent:
   sections:
   - items:

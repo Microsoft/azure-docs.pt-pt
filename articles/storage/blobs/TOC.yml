@@ -49,6 +49,8 @@
                   href: storage-quickstart-blobs-nodejs.md
                 - name: JavaScript (SDK v10 para Node.js)
                   href: storage-quickstart-blobs-nodejs-legacy.md
+                - name: JavaScript (SDK v12 para browser)
+                  href: quickstart-blobs-javascript-browser.md
                 - name: JavaScript (SDK v10 para browser)
                   href: storage-quickstart-blobs-javascript-client-libraries-legacy.md
             - name: Ir
@@ -113,6 +115,8 @@
           items:
             - name: Recomendações de segurança
               href: security-recommendations.md
+            - name: Linha de base de segurança
+              href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Encriptação do Armazenamento do Azure em repouso
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
