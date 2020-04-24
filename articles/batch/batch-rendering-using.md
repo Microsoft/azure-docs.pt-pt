@@ -1,18 +1,16 @@
 ---
-title: Utilizando capacidades de renderização - Lote Azure
+title: Usando capacidades de renderização
 description: Como utilizar as capacidades de renderização do Lote Azure. Tente utilizar a aplicação Batch Explorer, diretamente ou invocada a partir de um plug-in de aplicação de cliente.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: f3b2e641ab187514a7900b2ab7cc75068df00252
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6dd7d73d2b04f6e076794ee63d0a546170782fce
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671998"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115640"
 ---
 # <a name="using-azure-batch-rendering"></a>Utilização da renderização do Lote Azure
 
@@ -42,7 +40,7 @@ Os [downloads](https://azure.github.io/BatchExplorer/) do Batch Explorer estão 
 
 ### <a name="using-templates-to-create-pools-and-run-jobs"></a>Usando modelos para criar piscinas e executar empregos
 
-Um conjunto abrangente de modelos está disponível para uso com o Batch Explorer que facilita a criação de piscinas e submete empregos para as várias aplicações de renderização sem ter que especificar todas as propriedades necessárias para criar piscinas, empregos e tarefas diretamente com Lote.  Os modelos disponíveis no Batch Explorer são armazenados e visíveis [num repositório GitHub.](https://github.com/Azure/BatchExplorer-data/tree/master/ncj)
+Um conjunto abrangente de modelos está disponível para uso com o Batch Explorer que facilita a criação de piscinas e submete empregos para as várias aplicações de renderização sem ter que especificar todas as propriedades necessárias para criar piscinas, empregos e tarefas diretamente com O Lote.  Os modelos disponíveis no Batch Explorer são armazenados e visíveis [num repositório GitHub.](https://github.com/Azure/BatchExplorer-data/tree/master/ncj)
 
 ![Galeria Do Explorador de Lote](./media/batch-rendering-using/batch-explorer-gallery.png)
 

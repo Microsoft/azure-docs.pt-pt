@@ -1,20 +1,15 @@
 ---
 title: Início Rápido do Azure - Executar Trabalho do Batch - Portal
 description: Aprenda a usar o portal Azure para criar uma conta Batch, um conjunto de nós de computação, e um trabalho que executa tarefas básicas na piscina.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 6ce0066765de3d99f8309bf568b467518f38923e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4857b9ffb38cf48678f793284afaaf3bbefb7e42
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240437"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114161"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: executar o seu primeiro trabalho do Batch com o portal do Azure
 
@@ -24,7 +19,7 @@ Este início rápido mostra como utilizar o portal do Azure para criar uma conta
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
 
-Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-batch-account"></a>Criar uma conta do Batch
 

@@ -3,15 +3,15 @@ title: Criar e gerir grupos de ação no portal Azure
 description: Aprenda a criar e gerir grupos de ação no portal Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 2/18/2020
+ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 9bc191bb27ebb0bac631ef5cfa8ddc34bbd8214e
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 339b11664308962962c59b2e9386ff122681293a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520897"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116218"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas do Azure Monitor e da Saúde de Serviço usam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. Pode configurar até 2.000 grupos de ação numa subscrição.
@@ -196,14 +196,20 @@ Write-Host $myApp.AppRoles
 ```
 
 ### <a name="sms"></a>SMS
-Consulte a [taxa que limita a informação](./../../azure-monitor/platform/alerts-rate-limiting.md) e o comportamento de alerta de [SMS](../../azure-monitor/platform/alerts-sms-behavior.md) para obter informações importantes adicionais.
+Consulte a [taxa que limita a informação](./../../azure-monitor/platform/alerts-rate-limiting.md) e o comportamento de alerta de [SMS](../../azure-monitor/platform/alerts-sms-behavior.md) para obter informações importantes adicionais. 
 
-Pode ter um número limitado de ações de SMS num Grupo de Ação.  
+Pode ter um número limitado de ações de SMS num Grupo de Ação.
+
+Se a interface de utilizador do grupo de ação do portal Azure não permitir selecionar o seu código de país, então o SMS não é suportado para o seu país. Os preços dos países apoiados constam da página de preços do [Monitor Do Azure.](https://azure.microsoft.com/pricing/details/monitor/) Se o seu código de país não estiver disponível, pode votar para que o seu país seja adicionado à voz do [utilizador](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
+
+  
 
 ### <a name="voice"></a>Voz
 Consulte a taxa que limita o artigo de [informação.](./../../azure-monitor/platform/alerts-rate-limiting.md)
 
 Pode ter um número limitado de ações de Voz num Grupo de Ação.
+
+Se a interface de utilizador do grupo de ação do portal Azure não permitir selecionar o seu código de país, então as chamadas de voz não são suportadas para o seu país. Os preços dos países apoiados constam da página de preços do [Monitor Do Azure.](https://azure.microsoft.com/pricing/details/monitor/) Se o seu código de país não estiver disponível, pode votar para que o seu país seja adicionado à voz do [utilizador](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
 
 ### <a name="webhook"></a>Webhook
 Os webhooks são novamente experimentados usando as seguintes regras. A chamada webhook é novamente experimentada um máximo de 2 vezes quando os seguintes códigos de estado HTTP são devolvidos: 408, 429, 503, 504 ou o ponto final http não responde. A primeira repetição ocorre ao fim de 10 segundos. A segunda tentativa acontece após 100 segundos. Depois de duas falhas, nenhum grupo de ação ligará para o ponto final durante 30 minutos. 

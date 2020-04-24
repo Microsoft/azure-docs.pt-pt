@@ -1,18 +1,16 @@
 ---
-title: Verifique se há erros na piscina e nonóio - Lote Azure
+title: Verifique se há erros na piscina e nonóio
 description: Este artigo abrange as operações de fundo que podem ocorrer, juntamente com erros para verificar e como evitá-las ao criar piscinas e nós.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: a68d812a044c776819d169d5bf179f011d06390f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5051b9c536ded50e77fb75515c16daba884d5d24
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472950"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115912"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verifique se há erros na piscina e nonóio
 
@@ -78,7 +76,7 @@ Uma tarefa de arranque falhada também faz com que o Batch desloque o [estado](/
 
 Como em qualquer tarefa, pode haver muitas causas para a falha na tarefa inicial.  Para resolver problemas, verifique o stdout, o stderr e quaisquer ficheiros de registo específicos da tarefa.
 
-As tarefas de arranque devem ser recandidatadas, pois é possível que a tarefa inicial seja executada várias vezes no mesmo nó; a tarefa inicial é executada quando um nó é reimageed ou reiniciado. Em casos raros, uma tarefa inicial será executada após um evento que causou um reboot do nó, onde um dos discos operativos ou efémeros foi reimagemdo enquanto o outro não. Uma vez que as tarefas de início do Lote (como todas as tarefas do Lote) funcionam a partir do disco efémero, isso não é normalmente um problema, mas em alguns casos em que a tarefa de início está a instalar uma aplicação no disco do sistema operativo e a manter outros dados no disco efémero, isso pode causar problemas porque as coisas estão fora de sincronização. Proteja a sua aplicação em conformidade se estiver a utilizar ambos os discos.
+As tarefas de arranque devem ser recandidatadas, pois é possível que a tarefa inicial seja executada várias vezes no mesmo nó; a tarefa inicial é executada quando um nó é reimageed ou reiniciado. Em casos raros, uma tarefa inicial será executada após um evento que causou um reboot do nó, onde um dos discos operativos ou efémeros foi reimagemdo enquanto o outro não. Uma vez que as tarefas de início do Lote (como todas as tarefas do Lote) funcionam a partir do disco efémero, isso não é normalmente um problema, mas em alguns casos em que a tarefa inicial está a instalar uma aplicação no disco do sistema operativo e a manter outros dados no disco efémero, isso pode causar problemas porque as coisas estão dessincronizadas. Proteja a sua aplicação em conformidade se estiver a utilizar ambos os discos.
 
 ### <a name="application-package-download-failure"></a>Falha no descarregamento de pacotes de aplicações
 

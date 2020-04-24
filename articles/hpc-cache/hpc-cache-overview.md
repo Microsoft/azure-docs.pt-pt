@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: v-erkel
-ms.openlocfilehash: 084c33874b474fc1789df93e088d3cec4263eac9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 02013abe7050f7f193b6aeb1a441e70f46a5df48
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536646"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106462"
 ---
 # <a name="what-is-azure-hpc-cache"></a>O que é o Azure HPC Cache?
 
@@ -63,6 +63,12 @@ A [função de chaves gerida pelo cliente](customer-keys.md) é suportada apenas
 * E.U.A.Oeste 2
 
 Consulte a página do [produto Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para obter as informações mais recentes sobre a disponibilidade.
+
+## <a name="service-availability"></a>Disponibilidade de serviço
+
+Tem de solicitar acesso para cada subscrição que utilizará com o Azure HPC Cache. Esta restrição ajuda a garantir a qualidade do serviço.
+
+Solicite acesso preenchendo [este formulário](https://aka.ms/onboard-hpc-cache). Depois de a sua subscrição ser adicionada à lista de acesso, pode criar caches.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 2028aac9c01aedc4baa568d370c9f7d21c920647
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b4e7d827536245a22d168c7d9923c2e5b82830b0
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419268"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82111798"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de Conectividade do SQL do Azure
 > [!NOTE]
@@ -67,7 +67,7 @@ Se estiver a ligar-se do exterior do Azure, as suas ligações têm uma polític
 ![visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Portas abertas adicionalmente 14000-14999 para permitir [a ligação com](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) o DAC
+> Portas TCP abertas adicionalmente 1434 e 14000-14999 para permitir [a ligação com](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) o DAC
 
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços IP do gateway da Base de Dados SQL do Azure

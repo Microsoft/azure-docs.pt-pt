@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 0fc067f0be4ac5d2b8fa7db9ad7999efe06625a0
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.date: 04/23/2020
+ms.openlocfilehash: aee0576654827351fa5ff9b3c29b57d0d4148d3e
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804508"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116609"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Clusters Scale Azure HDInsight
 
@@ -107,7 +107,7 @@ Para evitar que os seus trabalhos de corrida falhem durante uma operação de re
 
 Para ver uma lista de trabalhos pendentes e em execução, pode utilizar o **YARN Resource Manager UI,** seguindo estes passos:
 
-1. A partir do [portal Azure,](https://portal.azure.com/)selecione o seu cluster.  Consulte [a Lista e mostre](./hdinsight-administer-use-portal-linux.md#showClusters) os agrupamentos para obter as instruções. O cluster é aberto numa nova página do portal.
+1. A partir do [portal Azure,](https://portal.azure.com/)selecione o seu cluster.  O cluster é aberto numa nova página do portal.
 2. Da vista principal, navegue até aos **dashboards** > **ambari.** Insira as credenciais do seu cluster.
 3. A partir do Ambari UI, selecione **YARN** na lista de serviços no menu à esquerda.  
 4. A partir da página YARN, selecione **Quick Links** e paire sobre o nó de cabeça ativo e, em seguida, selecione Resource **Manager UI**.
@@ -251,4 +251,3 @@ Os servidores da região são automaticamente equilibrados dentro de alguns minu
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Escala automaticamente os clusters Azure HDInsight](hdinsight-autoscale-clusters.md)
-* [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)

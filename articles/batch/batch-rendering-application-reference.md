@@ -1,18 +1,16 @@
 ---
-title: Utilize aplicações de renderização - Lote Azure
+title: Utilize aplicações de renderização
 description: Como utilizar aplicações de renderização com o Lote Azure. Este artigo fornece uma breve descrição de como executar cada aplicação de renderização.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: dc0ce23c90a4ba6575ba26b37d97f94ba8fa1f63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6610724cd2ecb14d165b587f9df31353e8eb8e41
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75390488"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115810"
 ---
 # <a name="rendering-applications"></a>Aplicações de renderização
 

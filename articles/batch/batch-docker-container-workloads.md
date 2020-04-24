@@ -1,21 +1,15 @@
 ---
-title: Cargas de trabalho de contentores - Lote Azure
+title: Cargas de trabalho de contentor
 description: Aprenda a executar e dimensionar aplicações a partir de imagens de contentores no Lote Azure. Crie um conjunto de nódosos computacionais que suportem tarefas de contentores em execução.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: article
-ms.workload: na
 ms.date: 03/02/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 81f4e753ffbaaefd5761c9396a6533bac9f212c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 27edfe67152857a89840f5cd24b06d66ae8d94c1
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78254847"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116133"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicações de contentores em Lote Azure
 

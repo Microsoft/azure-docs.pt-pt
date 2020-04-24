@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/07/2020
-ms.openlocfilehash: 3c1369e813ba6518f6cd4b27082020ae36a24c82
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.date: 04/23/2020
+ms.openlocfilehash: e97ac14c91ec9fb05b25d422680d788b4498725f
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811198"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116728"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utilizar blocos de notas do Apache Zeppelin com o cluster do Apache Spark no Azure HDInsight
 
-Os clusters HDInsight Spark incluem os cadernos [Apache Zeppelin.](https://zeppelin.apache.org/) Usa os cadernos para gerir os empregos da [Apache Spark.](https://spark.apache.org/) Neste artigo, aprende-se a usar o caderno Zeppelin num cluster HDInsight.
+Os clusters HDInsight Spark incluem os cadernos [Apache Zeppelin.](https://zeppelin.apache.org/) Usa os cadernos para gerir os empregos da Apache Spark. Neste artigo, aprende-se a usar o caderno Zeppelin num cluster HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -224,29 +224,6 @@ Para validar o serviço de uma linha de comando, SSH para o nó da cabeça. Mude
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
-
-### <a name="scenarios"></a>Cenários
-
-* [Apache Spark com BI: Análise de dados interativa utilizando Spark in HDInsight com ferramentas BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: Use Spark no HDInsight para analisar a temperatura do edifício utilizando dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: Use Spark no HDInsight para prever resultados da inspeção alimentar](apache-spark-machine-learning-mllib-ipython.md)
-* [Análise de log do site usando Apache Spark em HDInsight](apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="create-and-run-applications"></a>Criar e executar aplicações
-
-* [Criar uma aplicação autónoma com o Scala](apache-spark-create-standalone-application.md)
-* [Executar trabalhos remotamente em um cluster Apache Spark usando Apache Livy](apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>Ferramentas e extensões
-
-* [Utilize o Plugin de Ferramentas HDInsight para intelliJ IDEA para criar e submeter aplicações Apache Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Utilize o Plugin de Ferramentas HDInsight para intelliJ IDEA para depurar aplicações Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 * [Kernels disponíveis para o portátil Jupyter no cluster Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>Gerir recursos
-
-* [Gerir recursos para o cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
-* [Controlar e depurar tarefas em execução num cluster do Apache Spark do HDInsight](apache-spark-job-debugging.md)

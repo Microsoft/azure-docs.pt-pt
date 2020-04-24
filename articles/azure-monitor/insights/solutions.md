@@ -5,15 +5,16 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/30/2020
-ms.openlocfilehash: c2690ad7cc4dcaa295bfb08b8c0396438ada0807
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/23/2020
+ms.openlocfilehash: 58dbb52cd906d91daec7e4b16625bc264135e90c
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437530"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114858"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Monitor Azure
+
 A monitorização de soluções de alavancagem de serviços em Azure para fornecer informações adicionais sobre o funcionamento de uma determinada aplicação ou serviço. Este artigo fornece uma breve visão geral das soluções de monitorização no Azure e detalhes sobre a sua utilização e instalação.
 
 > [!NOTE]
@@ -26,6 +27,7 @@ Pode adicionar soluções de monitorização ao Azure Monitor para quaisquer apl
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="use-monitoring-solutions"></a>Utilizar soluções de monitorização
+
 Abra a página **de visão geral** no Monitor Azure para exibir um azulejo para cada solução instalada no espaço de trabalho. 
 
 1. Vá ao [portal Azure.](https://ms.portal.azure.com) Procure e selecione **Monitor**.
@@ -37,7 +39,8 @@ Abra a página **de visão geral** no Monitor Azure para exibir um azulejo para 
 
 As soluções de monitorização podem conter vários tipos de recursos Azure, e você pode ver quaisquer recursos incluídos com uma solução como qualquer outro recurso. Por exemplo, quaisquer consultas de registo incluídas na solução estão listadas no **Solution Queries** in [Query explorer](../log-query/get-started-portal.md#load-queries) Pode utilizar essas consultas ao efetuar análises ad hoc com consultas de [registo](../log-query/log-query-overview.md).
 
-## <a name="list-installed-monitoring-solutions"></a>Lista de soluções de monitorização instaladas 
+## <a name="list-installed-monitoring-solutions"></a>Lista de soluções de monitorização instaladas
+
 Utilize o seguinte procedimento para listar as soluções de monitorização instaladas na sua subscrição.
 
 1. Vá ao [portal Azure.](https://ms.portal.azure.com) Procure e selecione **Soluções**.
@@ -51,9 +54,8 @@ Clique no nome de uma solução para abrir a sua página sumária. Esta página 
 
 ![Propriedades de solução](media/solutions/solution-properties.png)
 
-
-
 ## <a name="install-a-monitoring-solution"></a>Instalar uma solução de monitorização
+
 As soluções de monitorização da Microsoft e dos parceiros estão disponíveis no [Azure Marketplace.](https://azuremarketplace.microsoft.com) Pode pesquisar as soluções disponíveis e instalá-las utilizando o seguinte procedimento. Quando instalar uma solução, deve selecionar um espaço de [trabalho de Log Analytics](../platform/manage-access.md) onde a solução será instalada e onde os seus dados serão recolhidos.
 
 1. A partir da [lista de soluções para a sua subscrição,](#list-installed-monitoring-solutions)clique em **Adicionar**.
@@ -65,6 +67,7 @@ As soluções de monitorização da Microsoft e dos parceiros estão disponívei
 ![Instalar uma solução](media/solutions/install-solution.png)
 
 ### <a name="install-a-solution-from-the-community"></a>Instale uma solução da comunidade
+
 Os membros da comunidade podem submeter soluções de gestão aos Modelos De Arranque Rápido do Azure. Pode instalar estas soluções diretamente ou descarregar os modelos para posterior instalação.
 
 1. Siga o processo descrito no espaço de [trabalho log Analytics e na conta de Automação](#log-analytics-workspace-and-automation-account) para ligar um espaço de trabalho e conta.
@@ -75,28 +78,29 @@ Os membros da comunidade podem submeter soluções de gestão aos Modelos De Arr
 6. É-lhe pedido que forneça informações como o grupo de recursos e a localização, além de valores para quaisquer parâmetros na solução.
 7. Clique em **Comprar** para instalar a solução.
 
-
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics workspace e conta de Automação
+
 Todas as soluções de monitorização requerem um espaço de [trabalho do Log Analytics](../platform/manage-access.md) para armazenar dados recolhidos pela solução e para alojar as suas pesquisas e vistas de registo. Algumas soluções também requerem uma [conta de Automação](../../automation/automation-security-overview.md#automation-account-overview) para conter livros de execução e recursos conexos. O espaço de trabalho e a conta devem satisfazer os seguintes requisitos.
 
 * Cada instalação de uma solução só pode utilizar um espaço de trabalho Log Analytics e uma conta Automation. Pode instalar a solução separadamente em vários espaços de trabalho.
 * Se uma solução requer uma conta de Automação, então o espaço de trabalho log Analytics e a conta de Automação devem estar ligados uns aos outros. Um espaço de trabalho de Log Analytics só pode estar ligado a uma conta de Automação, e uma conta de Automação só pode estar ligada a um espaço de trabalho de Log Analytics.
-* Para ser ligado, o espaço de trabalho log Analytics e a conta de Automação devem estar no mesmo grupo de recursos e região. A exceção é um espaço de trabalho na região leste dos EUA e conta de Automação no Leste dos EUA 2.
+* Para ser ligado, o espaço de trabalho log Analytics e a conta de Automação devem estar na mesma subscrição, mas podem estar em diferentes grupos de recursos implantados na mesma região. A exceção é um espaço de trabalho na região leste dos EUA e conta de Automação no Leste dos EUA 2.
 
 Quando instala uma solução através do Mercado Azure, é solicitado para uma conta de espaço de trabalho e Automação. A ligação entre eles é criada se ainda não estiverem ligadas.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verifique a ligação entre um espaço de trabalho log Analytics e a conta de Automação
+
 Pode verificar a ligação entre um espaço de trabalho de Log Analytics e uma conta de Automação utilizando o seguinte procedimento.
 
 1. Selecione a conta Automation no portal Azure.
-1. Percorra a secção **recursos relacionados** do menu.
-1. Se a definição **do Espaço de Trabalho** estiver ativada, esta conta está ligada a um espaço de trabalho do Log Analytics. Pode clicar no **Workspace** para ver os detalhes do espaço de trabalho.
+1. Percorra a secção **recursos relacionados** do menu e selecione **Linked workspace**.
+1. Se o **Workspace** estiver ligado a uma conta De automatização, então esta página lista o espaço de trabalho a que está ligado. Se selecionar o nome do espaço de trabalho listado, é redirecionado para a página de visão geral para esse espaço de trabalho.
 
 ## <a name="remove-a-monitoring-solution"></a>Remover uma solução de monitorização
+
 Para remover uma solução instalada, localize-a na [lista de soluções instaladas](#list-installed-monitoring-solutions). Clique no nome da solução para abrir a sua página sumária e, em seguida, clique em **Delete**.
 
-
 ## <a name="next-steps"></a>Passos seguintes
+
 * Obtenha uma [lista de soluções de monitorização da Microsoft](solutions-inventory.md).
 * Aprenda a [criar consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos através da monitorização de soluções.
-

@@ -1,34 +1,21 @@
 ---
 title: Executar tarefas sob contas de utilizador - Lote Azure
 description: É útil ser capaz de configurar a conta de utilizador sob a qual pretende que uma tarefa seja executada. Aprenda os tipos de contas de utilizador e como configurá-las.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 11/18/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: fee3dc764d2052185160a4ba6b3d70854c54eeac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22827a1a1406be7cb6ea0bd6e19f6ce316598a48
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252275"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82111747"
 ---
 > [!NOTE] 
 > As contas de utilizador discutidas neste artigo são diferentes das contas dos utilizadores utilizadas para o Protocolo de Ambiente de Trabalho Remoto (RDP) ou Secure Shell (SSH), por razões de segurança. 
 >
 > Para ligar a um nó que executa a configuração da máquina virtual Linux via SSH, consulte [Use Remote Desktop a um Linux VM em Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para ligar aos nós que executam o Windows via RDP, consulte [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Para ligar a um nó que executa a configuração do serviço em nuvem via RDP, consulte [enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
->
->
-
 
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas sob contas de utilizador em Lote
 

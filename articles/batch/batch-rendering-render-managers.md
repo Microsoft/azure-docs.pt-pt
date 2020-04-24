@@ -1,18 +1,16 @@
 ---
-title: Suporte do gestor render - Lote Azure
+title: Suporte de gestor render
 description: Utilizando a integração do gestor de renderização do Azure Batch. Saiba mais sobre suporte incorporado ou complementos para gestores de renderização populares.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 246907b16534d1a91833cab633a1973c97429f47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9921c68bf6ebe44d6d2a6b7b74afbe3fa98e0803
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75449689"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115742"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Utilização do Lote Azure com gestores de quintas renderizados
 

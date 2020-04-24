@@ -1,18 +1,14 @@
 ---
-title: Aplicações de renderização - Lote Azure
+title: Aplicações de renderização
 description: É possível usar quaisquer aplicações de renderização com o Lote Azure. No entanto, as imagens VM do Azure Marketplace estão disponíveis com aplicações comuns pré-instaladas.
-services: batch
-ms.service: batch
-author: LauraBrenner
-ms.author: labrenne
 ms.date: 09/19/2019
 ms.topic: conceptual
-ms.openlocfilehash: 77672534b2aad993a44e9b637fbed58df8610e97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f04fff3df2deb714f0432e5ad77d921a2d7ac205
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022992"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115793"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Aplicações pré-instaladas na renderização de imagens VM
 

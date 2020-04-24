@@ -1,25 +1,15 @@
 ---
-title: Criar tarefas para preparar & trabalhos completos em substantivos de computação - Lote Azure
+title: Criar tarefas para preparar & trabalhos completos em substantivos de cálculo
 description: Utilize tarefas de preparação ao nível do trabalho para minimizar a transferência de dados para os nós de computação do Lote Azure e liberte tarefas para limpeza de nós no final do trabalho.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 02/17/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: d9f6f015c210592d5d8053b1b34d5357bb357629
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9c88994a65d4d2cb8c8373d2bbb4aa2877fe465
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586789"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116065"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação de emprego e libertação de emprego em nódos de computação batch
 

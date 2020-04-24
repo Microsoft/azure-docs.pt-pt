@@ -1,25 +1,15 @@
 ---
-title: Visão geral para desenvolvedores - Lote Azure / Microsoft Docs
+title: Visão geral para desenvolvedores
 description: Conheça as funcionalidades do serviço Batch e das respetivas APIs de um ponto de vista de programação.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
-ms.service: batch
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-compute
 ms.date: 08/29/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 4d6c4ff06783489ea7b6c3488cf6746d579b4c6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fdc04c49521c9d91ef836c4d1dba76091db8f16a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247686"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115385"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 

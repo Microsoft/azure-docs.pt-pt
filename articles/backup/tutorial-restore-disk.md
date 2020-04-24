@@ -4,12 +4,12 @@ description: Saiba como restaurar um disco e criar e recuperar uma VM no Azure c
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 8a66cee7e844f0049f2d2ca2f6841943aa267f3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 31e2645a4a627793f13c37c543d9e08240e06930
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238735"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113719"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurar um disco e criar uma VM recuperada no Azure
 
@@ -88,7 +88,19 @@ Se o VM apoiado tiver gerido discos e se a intenção é restaurar os discos ger
     ```
 
 > [!WARNING]
-> Se o grupo de recursos-alvo não for fornecido, os discos geridos serão restaurados como discos não geridos na conta de armazenamento dada. Isto terá consequências significativas para o tempo de reinstalação, uma vez que o tempo de reinstalação dos discos depende inteiramente da conta de armazenamento dada.
+> Se o grupo de recursos-alvo não for fornecido, os discos geridos serão restaurados como discos não geridos na conta de armazenamento dada. Isto terá consequências significativas para o tempo de reinstalação, uma vez que o tempo de reinstalação dos discos depende inteiramente da conta de armazenamento dada. Os clientes só terão o benefício da restauração instantânea quando o parâmetro do grupo de recursos-alvo for dado. Se a intenção é restaurar os discos geridos como não geridos, não forneça o parâmetro do grupo de recursos-alvo e, em vez disso, forneça o parâmetro de ristímetro de restabelecimento de parâmetros como mostrado abaixo. Este parâmetro está disponível a partir de az 3.4.0.
+
+    ```azurecli-interactive
+    az backup restore restore-disks \
+        --resource-group myResourceGroup \
+        --vault-name myRecoveryServicesVault \
+        --container-name myVM \
+        --item-name myVM \
+        --storage-account mystorageaccount \
+        --rp-name myRecoveryPointName
+        --restore-as-unmanaged-disk
+    ```
+Isto irá restaurar os discos geridos como discos não geridos para a conta de armazenamento dada e não irá aproveitar a funcionalidade de restauro 'instantânea'. Em futuras versões do CLI, será obrigatório fornecer o parâmetro do grupo de recursos-alvo ou o parâmetro "restaurar como não gerido".
 
 ### <a name="unmanaged-disks-restore"></a>Ris não geridos restabelecem
 

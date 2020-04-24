@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0d543abc88c1e45f2c1f5503473d8e92566fc582
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: d49918fc67a45419e5c7ca123642c48e689a1496
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457387"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113787"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>Quickstart: Utilização a pedido do SQL
 
@@ -66,9 +66,15 @@ CREATE DATABASE mydbname
 Para executar consultas utilizando o SQL on-demand, crie credenciais para a SQL a pedido de utilização para aceder a ficheiros no armazenamento.
 
 > [!NOTE]
-> Note que precisa de criar credenciais para acesso à conta de armazenamento. Embora a SQL on-demand possa aceder a armazenamentos de diferentes regiões, ter armazenamento e espaço de trabalho Azure Synapse na mesma região proporcionará uma melhor experiência de desempenho.
+> Para executar com sucesso amostras nesta secção, tem de utilizar token SAS.
+>
+> Para começar a utilizar tokens SAS tem de largar a Identidade de Utilizador que é explicada no [seguinte artigo](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
+>
+> SQL on-demand por padrão usa sempre a passagem do AAD.
 
-Modificar o seguinte código de corte para criar credenciais para recipientes CSV, JSON e Parquet:
+Para obter mais informações sobre como gerir o controlo de acesso ao armazenamento, verifique este [link](sql/develop-storage-files-storage-access-control.md).
+
+Executar o seguinte fragmento de código para criar credenciais utilizadas em amostras nesta secção:
 
 ```sql
 -- create credentials for containers in our demo storage account
@@ -186,9 +192,9 @@ Agora está pronto para começar com os seguintes artigos da Quickstart:
 - [Consulta single CSV arquivo](sql/query-single-csv-file.md)
 - [Questiões e vários ficheiros CSV](sql/query-folders-multiple-csv-files.md)
 - [Consulta de ficheiros específicos](sql/query-specific-files.md)
-- [Arquivos De Consulta Parquet](sql/query-parquet-files.md)
-- [Tipos aninhados de Parquet de consulta](sql/query-parquet-nested-types.md)
-- [Consulta de ficheiros JSON](sql/query-json-files.md)
+- [Consultar ficheiros de Parquet](sql/query-parquet-files.md)
+- [Consultar tipos aninhados de Parquet](sql/query-parquet-nested-types.md)
+- [Consultar ficheiros JSON](sql/query-json-files.md)
 - [Criação e utilização de pontos de vista](sql/create-use-views.md)
 - [Criação e utilização de tabelas externas](sql/create-use-external-tables.md)
 - [Persistir resultado da consulta ao armazenamento do Azure](sql/create-external-table-as-select.md)

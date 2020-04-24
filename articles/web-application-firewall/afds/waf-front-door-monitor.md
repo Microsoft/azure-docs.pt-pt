@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: 4488fadf5db3b32049b5dce4bbee1fa76c320e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4f666415a96307b89022c6caf6af90581f294f3
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284148"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115368"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Monitorização e exploração madeireira de firewall de aplicação web Azure 
 
@@ -39,7 +39,7 @@ A seguinte consulta de exemplo obtém registos waf em pedidos bloqueados:
 ``` WAFlogQuery
 AzureDiagnostics
 | where ResourceType == "FRONTDOORS" and Category == "FrontdoorWebApplicationFirewallLog"
-| where action_name_s == "Block"
+| where action_s == "Block"
 
 ```
 

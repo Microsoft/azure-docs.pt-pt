@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 5a89c3f7d52c5717b902a69e9c64b3fcc422c481
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 64f3f3c1a4fa656edc7163f6c8ee0ad60f117be6
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067201"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116575"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remova um protetor transparente de encriptação de dados (TDE) utilizando powerShell
 
@@ -33,7 +33,7 @@ ms.locfileid: "80067201"
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager (RM) ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para mais informações sobre a sua compatibilidade, consulte [A introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para a instalação, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).
 
@@ -56,7 +56,7 @@ A impressão digital do atual protetor TDE da base de dados, e o ID da base de d
 SELECT [database_id],
        [encryption_state],
        [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/
-       [encryptor_thumbprint],
+       [encryptor_thumbprint]
  FROM [sys].[dm_database_encryption_keys]
 ```
 
@@ -70,7 +70,7 @@ SELECT * FROM sys.dm_db_log_info (database_id)
 
 O comando PowerShell **Get-AzureRmSqlServerKeyKeyfornece** a impressão digital do Protetor TDE utilizado na consulta, para que possa ver quais as teclas a manter e quais as teclas a eliminar no AKV. Apenas as chaves que já não são utilizadas pela base de dados podem ser eliminadas com segurança do Cofre de Chaves Azure.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 O programa de teclas do servidor powerShell **az sql**fornece a impressão digital do Protetor TDE utilizado na consulta, para que possa ver quais as teclas a manter e quais as teclas a eliminar no AKV. Apenas as chaves que já não são utilizadas pela base de dados podem ser eliminadas com segurança do Cofre de Chaves Azure.
 
@@ -126,7 +126,7 @@ Este guia como orientar passa por duas abordagens dependendo do resultado deseja
    Restore-AzKeyVaultKey -VaultName <KeyVaultName> -InputFile <BackupFilePath>
    ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para referência ao comando, consulte o cofre de [chaves Azure CLI](/cli/azure/keyvault/key).
 

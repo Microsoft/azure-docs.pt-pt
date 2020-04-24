@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
-ms.openlocfilehash: b8c4248b7275ac96acce96f890f6ff0148116f48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f456137b61a96f555b2604e7871516fd1d38ab42
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79478009"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116711"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integrar o ônibus de serviço Azure com link privado Azure (Pré-visualização)
 
@@ -22,7 +22,21 @@ Um ponto final privado é uma interface de rede que o conecta de forma privada e
 
 Para mais informações, consulte [o que é azure private link?](../private-link/private-link-overview.md)
 
-> [!NOTE]
+>[!WARNING]
+> A implementação de pontos finais privados pode impedir que outros serviços Azure interajam com o Service Bus.
+>
+> Os serviços fidedignos da Microsoft não são suportados quando as Redes Virtuais são implementadas.
+>
+> Cenários Comuns Azure que não funcionam com Redes Virtuais (note que a lista **NÃO** é exaustiva) -
+> - Integração com a Grelha de Eventos Azure
+> - Rotas do Hub Azure IoT
+> - Explorador de dispositivos Azure IoT
+>
+> Os serviços abaixo da Microsoft são obrigados a estar numa rede virtual
+> - Serviço de Aplicações do Azure
+> - Funções do Azure
+
+> [!IMPORTANT]
 > Esta funcionalidade é suportada com o nível **premium** do Azure Service Bus. Para mais informações sobre o nível premium, consulte o artigo service [bus premium e standard de mensagens tiers.](service-bus-premium-messaging.md)
 >
 > Esta funcionalidade encontra-se atualmente em **pré-visualização**. 
@@ -45,7 +59,7 @@ O seu ponto final privado e a sua rede virtual devem estar na mesma região. Qua
 
 Se já tem um espaço de nome existente, pode criar um ponto final privado seguindo estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Na barra de pesquisa, digite em **Service Bus**.
 3. Selecione o espaço de **nome** da lista à qual pretende adicionar um ponto final privado.
 4. Selecione o separador **de rede** em **Definições**.

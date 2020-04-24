@@ -1,22 +1,15 @@
 ---
 title: Piscina de Lote Azure elimina evento de início
 description: Referência para lote piscina excluir evento de início. Este evento é emitido quando uma operação de eliminação de piscinas tiver começado.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
-ms.openlocfilehash: 24a68c6656bd13f0c353d53870a51cdc940fd141
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38e419e549006d3fde2f1694e0d40e620cd438e5
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022210"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115929"
 ---
 # <a name="pool-delete-start-event"></a>Evento de início de eliminação de conjunto
 
@@ -32,4 +25,4 @@ ms.locfileid: "77022210"
 
 |Elemento|Tipo|Notas|
 |-------------|----------|-----------|
-|`id`|Cadeia|A identificação da piscina.|
+|`id`|String|A identificação da piscina.|

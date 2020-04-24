@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/08/2020
+ms.date: 04/23/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: bb4b654bd0b3591ebaa1bd217020095319a4938c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: a3a81513773ef6d826ad354d47a3e7ec83e75d65
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381920"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106649"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -111,7 +111,7 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |Mover uma firewall para um grupo de recursos diferente ou subscrição não é suportado|Mover uma firewall para um grupo de recursos diferente ou subscrição não é suportado.|O suporte a esta funcionalidade está no nosso roteiro. Para mover uma firewall para um grupo de recursos ou uma subscrição diferente, tem de eliminar a instância atual e recriá-la no novo grupo de recursos ou subscrição.|
 |Alertas de inteligência de ameaça podem ser mascarados|Regras de rede com o destino 80/443 para filtrar máscaras de saída alertas de inteligência ameaça quando configurados para alertar apenas o modo.|Crie filtragem de saída para 80/443 utilizando as regras de aplicação. Ou mudar o modo de inteligência de ameaça para **Alertar e Negar.**|
 |Azure Firewall usa DNS Azure apenas para resolução de nomes|A Firewall Azure resolve os FQDNs usando apenas dNS azure. Um servidor DNS personalizado não é suportado. Não há impacto na resolução do DNS noutras subredes.|Estamos a trabalhar para relaxar esta limitação.|
-|Azure Firewall SNAT/DNAT não funciona para destinos IP privados|O suporte Azure Firewall SNAT/DNAT está limitado à saída/entrada da Internet. O SNAT/DNAT não funciona atualmente para destinos IP privados. Por exemplo, falei com a fala.|Esta é uma limitação atual.|
+|DNAT azure Firewall não funciona para destinos IP privados|O suporte ao Adn da Firewall Azure está limitado à saída/entrada da Internet. O DNAT não funciona atualmente para destinos IP privados. Por exemplo, falei com a fala.|Esta é uma limitação atual.|
 |Não pode remover a primeira configuração ip pública|Cada endereço IP público da Firewall Azure é atribuído a uma *configuração IP*.  A primeira configuração IP é atribuída durante a implementação da firewall, e normalmente também contém uma referência à sub-rede de firewall (a menos que configurada explicitamente de forma diferente através de uma implementação do modelo). Não é possível eliminar esta configuração IP porque iria desalocar a firewall. Ainda pode alterar ou remover o endereço IP público associado a esta configuração IP se a firewall tiver pelo menos um outro endereço IP público disponível para usar.|Esta ação é propositada.|
 |As zonas de disponibilidade só podem ser configuradas durante a implantação.|As zonas de disponibilidade só podem ser configuradas durante a implantação. Não é possível configurar zonas de disponibilidade depois de uma firewall ter sido implantada.|Esta ação é propositada.|
 |SNAT em ligações de entrada|Além do DNAT, as ligações através do endereço IP público firewall (entrada) são SNATed para um dos IPs privados firewall. Este requisito hoje (também para NVAs Ativos/Ativos) para garantir o encaminhamento simétrico.|Para preservar a fonte original para HTTP/S, considere usar cabeçalhos [XFF.](https://en.wikipedia.org/wiki/X-Forwarded-For) Por exemplo, utilize um serviço como [a Porta Frontal Azure](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) ou o Portal de [Aplicações Azure](../application-gateway/rewrite-http-headers.md) em frente à firewall. Também pode adicionar WAF como parte da Porta Frontal Azure e corrente à firewall.

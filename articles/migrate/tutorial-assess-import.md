@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 9e6b451901da00243c458c06d51ba19fb64c0fdc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81530458"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114569"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Avaliar servidores utilizando dados importados
 
@@ -248,6 +248,8 @@ Esta visão mostra o cálculo estimado e o custo de armazenamento de vMs de func
 > As classificações de confiança não são atribuídas a avaliações de servidores importados para a Avaliação do Servidor utilizando o CSV.
 
 ## <a name="supported-operating-system-names"></a>Nomes de sistema operativo suportado
+
+Os nomes do sistema operativo fornecidos no CSV devem coincidir ou conter os nomes desta lista. Isto é necessário para que os nomes especificados sejam reconhecidos como válidos pela avaliação.
 
 <!-- BEGIN A - H -->
 

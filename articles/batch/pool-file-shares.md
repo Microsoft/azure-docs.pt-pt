@@ -1,25 +1,14 @@
 ---
-title: Partilha de ficheiros Azure para piscinas de Lotes Azure [ Microsoft Docs
+title: Partilha de ficheiros Azure para piscinas de Lotes Azure
 description: Como montar uma partilha de Ficheiros Azure a partir de nódos de computação numa piscina linux ou Windows em Azure Batch.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: labrenne
-ms.custom: ''
-ms.openlocfilehash: 156dad25af5abd1b4d5db32569faf09a23fadfb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 666ee6bd0e6287545c107427dffcc9f2ccde900a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022516"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115453"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Use uma partilha de ficheiros Azure com uma piscina de lote
 

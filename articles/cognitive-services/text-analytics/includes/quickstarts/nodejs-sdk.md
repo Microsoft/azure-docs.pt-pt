@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 1414d86577e5aa17cb42762403b3767948c1e30c
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 8bcc919aee7548e8596d1f44c8a357d3f84dfb14
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81642907"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82095886"
 ---
 <a name="HOLTop"></a>
 
@@ -106,7 +106,7 @@ Crie variáveis para o ponto final e chave azure do seu recurso.
 
 ```javascript
 const key = '<paste-your-text-analytics-key-here>';
-const endpoint = `<paste-your-text-analytics-endpoint-here>`;
+const endpoint = '<paste-your-text-analytics-endpoint-here>';
 ```
 
 ## <a name="object-model"></a>Modelo de objeto
@@ -121,10 +121,10 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 
 * [Autenticação do Cliente](#client-authentication)
 * [Análise de Sentimentos](#sentiment-analysis) 
-* [Deteção de idioma](#language-detection)
+* [Deteção de linguagem](#language-detection)
 * [Reconhecimento de Entidade Nomeada](#named-entity-recognition-ner)
 * [Ligação de entidades](#entity-linking)
-* [Extração de expressões-chave](#key-phrase-extraction)
+* [Extração de frase-chave](#key-phrase-extraction)
 
 ## <a name="client-authentication"></a>Autenticação de Cliente
 

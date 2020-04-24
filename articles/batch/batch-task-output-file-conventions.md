@@ -1,25 +1,15 @@
 ---
 title: Persistir dados de saída para o Armazenamento Azure com a biblioteca .NET File Conventions - Azure Batch
 description: Aprenda a utilizar a biblioteca de Convenções de Ficheiros de Lote Azure para .NET persistir a tarefa de Lote & saída de trabalho para o Armazenamento Azure, e ver essa saída no portal Azure.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e331dcfc9acf7a5e8a83be788b566cf92eaeb8f4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: e835b4e4ace344de65bc5d037b99afdf811ed4bb
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548051"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116439"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Persistir dados de trabalho e tarefa sintetizar para o Armazenamento Azure com a biblioteca de Convenções de Ficheiros de Lote para .NET
 

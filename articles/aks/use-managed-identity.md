@@ -7,12 +7,12 @@ manager: saudas
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 7a71d3bd70d97df884f1bc962c0ef9897d7fd2cb
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 00ecc077ba55ab9f91fc58f8a47fcdf7440deea6
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024409"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112971"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Use identidades geridas no Serviço Azure Kubernetes
 
@@ -61,6 +61,8 @@ Uma criação de cluster bem sucedida usando identidades geridas contém esta in
 
 > [!NOTE]
 > Para criar e utilizar o seu próprio VNet, endereço IP estático ou disco Azure anexado onde os recursos estão fora do grupo de recursos MC_*, utilize o PrincipalID do Cluster System Identidade Gerida Atribuída para executar uma atribuição de funções. Para obter mais informações sobre a atribuição de funções, consulte o [acesso do Delegado a outros recursos Do IA.](kubernetes-service-principal.md#delegate-access-to-other-azure-resources)
+>
+> As bolsas de autorização para cluster Identidade Gerida utilizada pelo fornecedor Azure Cloud podem demorar 60 minutos a povoar.
 
 Finalmente, obtenha credenciais para aceder ao cluster:
 

@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: f7ce5f5086bcf2d577fb998df307ee684d536c15
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 07046d181e8e83e0271cb78cfb182df4e76980b5
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81870091"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115521"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Indexer de Vídeo dos Serviços De Mídia Azure
 
@@ -43,6 +43,31 @@ Para mais informações, consulte a secção de tipos de [widget.](video-indexer
 ### <a name="new-player-skin"></a>Pele de jogador novo
 
 Uma nova pele de jogador lançada com design atualizado.
+
+### <a name="prepare-for-upcoming-changes"></a>Prepare-se para as próximas alterações
+
+* Hoje, as seguintes APIs devolvem um objeto de conta:
+
+    * [Conta Paga](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)
+    * [Conta Get](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account)
+    * [Obter-Contas-Autorização](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-Authorization)
+    * [Obter-Contas-Com-Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
+ 
+    O objeto conta `Url` tem um campo que aponta para a localização do website do Indexante de [Vídeo.](https://www.videoindexer.ai/)
+Para contas pagas, o `Url` campo está atualmente a apontar para um URL interno em vez do site público.
+Nas próximas semanas vamos alterá-lo e devolver o URL do site do [Indexer](https://www.videoindexer.ai/) de Vídeo para todas as contas (julgamento e pago).
+
+    Não utilize os URLs internos, deve utilizar as [APIs públicas do Indexer](https://api-portal.videoindexer.ai/)de Vídeo .
+* Se estiver a incorporar URLs de Indexer de Vídeo nas suas aplicações e os URLs não estiverem a apontar para o website `https://wus2.videoindexer.ai`do [Indexer](https://www.videoindexer.ai/) de Vídeo ou para o ponto final da [API do Indexer](https://api.videoindexer.ai) de Vídeo, mas sim para um ponto final regional (por exemplo), regenerar os URLs.
+
+   Pode fazê-lo por qualquer um dos dois:
+
+    * Substituição do URL por um URL que aponta para as APIs de widget do Índice de Vídeo (por exemplo, o [widget insights)](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget)
+    * Utilizando o website do Indexer de Vídeo para gerar um novo URL incorporado:
+         
+         Pressione **A Reprodução** para chegar à página do seu vídeo - > clique ** &lt;em Incorporar&gt; ** -> copiar o URL na sua aplicação:
+   
+    Os URLs regionais não são apoiados e serão bloqueados nas próximas semanas.
 
 ## <a name="january-2020"></a>Janeiro de 2020
  

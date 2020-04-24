@@ -6,19 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/20/2019
+ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7f6508648be1e857a29f46b57e8309a7ec797291
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 1bc47fe6e1f0730bcff49e138df92f85ba3ef1a8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81681840"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114484"
 ---
 # <a name="workspace-mappings"></a>Mapeamentos de áreas de trabalho
 
-Ao permitir soluções como Gestão de Atualizações, Rastreio de Alterações e Inventário, ou VMs de arranque/paragem durante o horário de folga, apenas certas regiões são suportadas para ligar um espaço de trabalho de Log Analytics e uma conta de Automação. Este mapeamento aplica-se apenas à conta Deautomação e ao espaço de trabalho log Analytics. Os recursos que reportam à sua conta de Automação ou log Analytics podem residir noutras regiões.
+Ao ativar a Gestão de Atualizações, alterar o rastreio e o inventário, ou iniciar/parar VMs durante o horário de folga, apenas certas regiões são suportadas para ligar um espaço de trabalho de Log Analytics e uma conta de Automação na sua subscrição. Este mapeamento aplica-se apenas à conta Deautomação e ao espaço de trabalho log Analytics. O espaço de trabalho log Analytics e a conta de Automação devem estar na mesma subscrição, mas podem estar em diferentes grupos de recursos implantados na mesma região.
+
+Para mais informações, consulte o espaço de [trabalho do Log Analytics e a conta de Automação.](../azure-monitor/insights/solutions.md#log-analytics- workspace-and-automation-account)
 
 ## <a name="supported-mappings"></a>Mapeamentos suportados
 
@@ -49,12 +51,12 @@ A tabela seguinte mostra os mapeamentos suportados:
 
 ## <a name="unlink-workspace"></a>Unlink workspace (Desassociar a área de trabalho)
 
-Se decidir que já não pretende integrar a sua conta de Automação com um espaço de trabalho de Log Analytics, pode desvincular a sua conta diretamente do portal Azure. Antes de prosseguir, primeiro tem de remover a Gestão de Atualizações, Alterar o Rastreio e o Inventário e iniciar/parar vMs durante as soluções fora de horas, se estiver a utilizá-las. Se não os remover, não pode completar a operação de desligação. Reveja o artigo para a solução específica que importou para entender os passos necessários para removê-lo.
+Se decidir que já não pretende integrar a sua conta de Automação com um espaço de trabalho de Log Analytics, pode desvincular a sua conta diretamente do portal Azure. Antes de prosseguir, primeiro tem de remover a Gestão da Atualização, alterar o rastreio e o inventário e iniciar/parar vMs durante o horário de folga se estiver a utilizá-los. Se não os remover, não pode completar a operação de desligação. Reveja o artigo para cada um que está a permitir para compreender os passos necessários para removê-lo.
 
-Depois de remover estas soluções, pode executar os seguintes passos para desligar a sua conta Desvinculação da Automatização.
+Depois de removê-los, pode executar os seguintes passos para desligar a sua conta Desvinculação da Automatização.
 
 > [!NOTE]
-> Algumas soluções, incluindo versões anteriores da solução de monitorização Azure SQL, podem ter criado ativos de automação e podem ter de ser removidas antes de desvincular o espaço de trabalho.
+> Algumas soluções, incluindo versões anteriores da solução de monitorização Azure SQL, podem ter criado ativos da Automação e podem ter de ser removidas antes de desvincular o espaço de trabalho.
 
 1. A partir do portal Azure, abra a sua conta de Automação. Na página da conta automation, selecione **Linked workspace** em **Recursos Relacionados**.
 
@@ -62,31 +64,31 @@ Depois de remover estas soluções, pode executar os seguintes passos para desli
 
 3. Enquanto a Azure Automation tenta desvincular a conta do seu espaço de trabalho Log Analytics, pode acompanhar o progresso em **Notificações** do menu.
 
-4. Se utilizou a solução De Gestão de Atualizações, opcionalmente poderá querer remover os seguintes itens que já não são necessários depois de remover a solução.
+4. Se utilizou a Atualização, opcionalmente poderá querer remover os seguintes itens que já não são necessários depois de o remover.
 
     * Horários de atualização - Cada um tem um nome que corresponde a uma implementação de atualização que criou.
     * Grupos de trabalhadores híbridos criados `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`para a solução - Cada um tem um nome semelhante a .
 
-5. Se utilizou os VMs iniciar/parar durante a solução de horas de folga, pode remover opcionalmente os seguintes itens que não são necessários depois de remover a solução.
+5. Se utilizou VMs de arranque/paragem durante o horário de folga, pode remover opcionalmente os seguintes itens que não são necessários depois de removê-lo.
 
     * Iniciar e parar os horários do livro de corridas vM
     * Iniciar e parar livros de execução VM
     * Variáveis
 
-Em alternativa, pode desligar o seu espaço de trabalho a partir da sua conta Automation dentro do espaço de trabalho. 
+Em alternativa, pode desligar o seu espaço de trabalho a partir da sua conta Automation dentro do espaço de trabalho.
 
 1. No espaço de trabalho, selecione **Conta de Automação** em **Recursos Relacionados.** 
 2. Na página da Conta de Automação, selecione **Conta Unlink**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como embarcar na gestão de atualizações e alterações de soluções de rastreio e inventário:
+* Saiba como embarcar na Gestão de Atualizações e Alterar Rastreio e Inventário:
 
     * De uma [máquina virtual](../automation-onboard-solutions-from-vm.md)
     * Da sua [conta de Automação](../automation-onboard-solutions-from-automation-account.md)
     * Ao [navegar em várias máquinas](../automation-onboard-solutions-from-browse.md)
     * De um [livro de corridas](../automation-onboard-solutions.md)
 
-* Aprenda a bordo dos VMs iniciar/parar durante a solução de horas de folga:
+* Aprenda a bordo dos VMs iniciar/parar durante o horário de folga:
 
-    * [Implementar VMs start/stop durante o horário de folga](../automation-solution-vm-management.md)
+    * [VMs de arranque/paragem durante a visão geral fora de horas](../automation-solution-vm-management.md)

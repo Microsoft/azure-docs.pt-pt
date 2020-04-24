@@ -1,22 +1,14 @@
 ---
 title: Evento completo da tarefa do Lote Azure
 description: Referência para lote tarefa completo evento. Este evento é emitido uma vez que uma tarefa é concluída, independentemente do código de saída.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: labrenne
-ms.openlocfilehash: 0fee5f071d5c7005e466bf4c3d0c1d0a7db24731
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e11eac04009def2bce4476ba2d77c798f25ca15
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022924"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116507"
 ---
 # <a name="task-complete-event"></a>Evento de conclusão de tarefa
 
@@ -53,9 +45,9 @@ ms.locfileid: "77022924"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`jobId`|Cadeia|A identificação do trabalho que contém a tarefa.|
-|`id`|Cadeia|A identificação da tarefa.|
-|`taskType`|Cadeia|O tipo de tarefa. Isto pode ser 'JobManager' indicando que se trata de uma tarefa de gestor de emprego ou de 'Utilizador' indicando que não é uma tarefa de gestor de emprego. Este evento não é emitido para tarefas de preparação de emprego, tarefas de libertação de emprego ou tarefas de início.|
+|`jobId`|String|A identificação do trabalho que contém a tarefa.|
+|`id`|String|A identificação da tarefa.|
+|`taskType`|String|O tipo de tarefa. Isto pode ser 'JobManager' indicando que se trata de uma tarefa de gestor de emprego ou de 'Utilizador' indicando que não é uma tarefa de gestor de emprego. Este evento não é emitido para tarefas de preparação de emprego, tarefas de libertação de emprego ou tarefas de início.|
 |`systemTaskVersion`|Int32|Este é o contador de retry interno numa tarefa. Internamente, o serviço Batch pode voltar a tentar uma tarefa para responder a questões transitórias. Estas questões podem incluir erros de agendamento interno ou tentativas de recuperação de nóóis computacionais em mau estado.|
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó computacional sobre o qual a tarefa funcionou.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma Tarefa multi-instância que requer vários nódosos de computação.  Veja [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) mais detalhes.|
@@ -66,8 +58,8 @@ ms.locfileid: "77022924"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`poolId`|Cadeia|A identificação da piscina em que a tarefa correu.|
-|`nodeId`|Cadeia|A identificação do nó em que a tarefa correu.|
+|`poolId`|String|A identificação da piscina em que a tarefa correu.|
+|`nodeId`|String|A identificação do nó em que a tarefa correu.|
 
 ###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstânciaSDefinições
 

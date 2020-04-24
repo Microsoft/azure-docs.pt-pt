@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/13/2020
+ms.date: 04/23/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cbb9b4340a7cdb9be5039722a8f75e09288ec48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46f6c77916c7be62247c69b12dff1982e5781aff
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472865"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112223"
 ---
 # <a name="start-using-privileged-identity-management"></a>Começar a utilizar o Privileged Identity Management
 
-Com a Privileged Identity Management (PIM), pode gerir, controlar e monitorizar o acesso dentro da sua organização Azure Ative Directory (Azure AD). Este âmbito inclui acesso a recursos Azure, Azure AD e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
+Este artigo descreve como permitir a Gestão de Identidade Privilegiada (PIM) e começar a usá-lo.
 
-Este artigo descreve como ativar e começar a usar a Gestão de Identidade Privilegiada.
+Utilize a Gestão de Identidade Privilegiada (PIM) para gerir, controlar e monitorizar o acesso dentro da sua organização Azure Ative Directory (Azure AD). Com a PIM pode fornecer o acesso necessário e just-in-time aos recursos Do Azure, recursos AD Azure e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,29 +36,30 @@ Para utilizar a Gestão de Identidade Privilegiada, deve ter uma das seguintes l
 
 Para mais informações, consulte [os requisitos de Licença para utilizar a Gestão de Identidade Privilegiada.](subscription-requirements.md)
 
-## <a name="sign-up-pim-for-azure-ad-roles"></a>Inscreva-se pim para funções de AD Azure
+## <a name="prepare-pim-for-azure-ad-roles"></a>Preparar PIM para funções de AD Azure
 
-Uma vez que tenha ativado a Gestão de Identidade Privilegiada para o seu diretório, terá de inscrever a Privileged Identity Management para gerir as funções de AD Azure.
+Uma vez que tenha ativado a Gestão de Identidade Privilegiada para o seu diretório, pode preparar a Gestão de Identidade Privilegiada para gerir funções de AD Azure.
 
-1. Open **Azure AD Privileged Identity Management.**
+Aqui estão as tarefas que recomendamos para que se prepare para funções de AD Azure, por ordem:
 
-1. Selecione **funções Azure AD**.
+1. [Configure as definições de função ad](pim-how-to-change-default-settings.md).
+1. [Dar atribuições elegíveis.](pim-how-to-add-role-to-user.md)
+1. [Permitir que os utilizadores elegíveis ativem a sua função De AD Azure just-in-time](pim-how-to-activate-role.md).
 
-    ![Inscreva-se na Gestão de Identidade Privilegiada para funções de AD Azure](./media/pim-getting-started/sign-up-pim-azure-ad-roles.png)
+## <a name="prepare-pim-for-azure-roles"></a>Preparar PIM para funções de Azure
 
-1. Selecione **Inscrever-se**.
+Uma vez que tenha ativado a Gestão de Identidade Privilegiada para o seu diretório, pode preparar a Gestão de Identidade Privilegiada para gerir as funções azure para acesso a recursos Azure numa subscrição.
 
-1. Na mensagem que aparece, clique em **Sim** para inscrever a Privilegiada Gestão de Identidade para gerir as funções da Azure AD.
+Aqui estão as tarefas que recomendamos para que se prepare para funções Azure, por ordem:
 
-    ![Inscreva-se na mensagem de Gestão de Identidade Privilegiada para a mensagem de funções da Azure AD](./media/pim-getting-started/sign-up-pim-message.png)
-
-    Quando a inscrição estiver concluída, as opções de AD Azure serão ativadas. Talvez precise refrescar o portal.
-
-    Para obter informações sobre como descobrir e selecionar os recursos Azure para proteger com gestão de identidade privilegiada, consulte [os recursos do Discover Azure para gerir na Gestão](pim-resource-roles-discover-resources.md)de Identidade Privilegiada.
+1. [Descubra os recursos do Azure](pim-resource-roles-discover-resources.md)
+1. [Configure as definições de função Azure](pim-resource-roles-configure-role-settings.md).
+1. [Dar atribuições elegíveis.](pim-resource-roles-assign-roles.md)
+1. [Permitir que os utilizadores elegíveis ativem as suas funções Azure apenas no tempo](pim-resource-roles-activate-your-roles.md).
 
 ## <a name="navigate-to-your-tasks"></a>Navegue para as suas tarefas
 
-Uma vez criada a Gestão de Identidade Privilegiada, pode iniciar as suas tarefas de gestão de identidade.
+Assim que a Gestão de Identidade Privilegiada estiver configurada, pode aprender o seu caminho.
 
 ![Janela de navegação na Gestão de Identidade Privilegiada mostrando Tarefas e Gerir opções](./media/pim-getting-started/pim-quickstart-tasks.png)
 
@@ -68,14 +69,14 @@ Uma vez criada a Gestão de Identidade Privilegiada, pode iniciar as suas tarefa
 | **Os meus pedidos** | Exibe os seus pedidos pendentes para ativar atribuições de funções elegíveis. |
 | **Aprovar pedidos** | Apresenta uma lista de pedidos para ativar funções elegíveis pelos utilizadores no seu diretório que está designado para aprovar. |
 | **Rever acesso** | Lista as avaliações de acesso ativa que lhe são atribuídas para completar, quer esteja a rever o acesso para si ou para outra pessoa. |
-| **Funções do Azure AD** | Apresenta um dashboard e configurações para administradores de funções privilegiadas para gerir atribuições de funções azure AD. Este dashboard está desativado para todos aqueles que não são um administrador de funções com privilégios. Estes utilizadores têm acesso a um dashboard especial intitulado A minha vista. O dashboard A minha vista só apresenta informações sobre o utilizador que está a aceder ao dashboard, e não sobre o inquilino completo. |
-| **Recursos do Azure** | Apresenta um dashboard e configurações para administradores de funções privilegiadas para gerir atribuições de funções de recursos Azure. Este dashboard está desativado para todos aqueles que não são um administrador de funções com privilégios. Estes utilizadores têm acesso a um dashboard especial intitulado A minha vista. O dashboard A minha vista só apresenta informações sobre o utilizador que está a aceder ao dashboard, e não sobre o inquilino completo. |
+| **Funções do Azure AD** | Apresenta um dashboard e configurações para administradores privilegiados para gerir atribuições de funções azure AD. Este dashboard está desativado para todos aqueles que não são um administrador de funções com privilégios. Estes utilizadores têm acesso a um dashboard especial intitulado A minha vista. O dashboard A minha vista só apresenta informações sobre o utilizador que está a aceder ao dashboard, e não sobre o inquilino completo. |
+| **Recursos do Azure** | Apresenta um dashboard e configurações para administradores privilegiados para gerir atribuições de funções de recursos Azure. Este dashboard está desativado para todos aqueles que não são um administrador de funções com privilégios. Estes utilizadores têm acesso a um dashboard especial intitulado A minha vista. O dashboard A minha vista só apresenta informações sobre o utilizador que está a aceder ao dashboard, e não sobre o inquilino completo. |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>Adicione um azulejo PIM ao tablier
 
-Para facilitar a abertura da Gestão de Identidade Privilegiada, adicione um azulejo privilegiado de Gestão de Identidade ao seu portal Azure dashboard.
+Para facilitar a abertura da Gestão de Identidade Privilegiada, adicione um azulejo PIM ao seu painel de instrumentos do portal Azure.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **todos os serviços** e encontre o serviço de Gestão de **Identidade Privilegiada azure AD.**
 
@@ -94,4 +95,4 @@ Para facilitar a abertura da Gestão de Identidade Privilegiada, adicione um azu
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir funções de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
-- [Descubra os recursos do Azure para gerir na Gestão de Identidade Privilegiada](pim-resource-roles-discover-resources.md)
+- [Gerir o acesso a recursos azure na Gestão de Identidade Privilegiada](pim-resource-roles-discover-resources.md)

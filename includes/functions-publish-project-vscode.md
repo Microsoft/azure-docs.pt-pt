@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: d8665b4cec3357baee5d6c1b77b5719645575419
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 41dfb809cdab00f4f9bee335d92522f37a438c68
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81112844"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82109746"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 
@@ -24,6 +24,8 @@ Nesta secção, cria uma aplicação de função e recursos relacionados na subs
     ![Publique o seu projeto na Azure](media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Forneça as seguintes informações nas instruções:
+
+    + **Selecione pasta**: Escolha uma pasta do seu espaço de trabalho ou navegue para uma que contenha a sua aplicação de função. Não verá isto se já tiver uma aplicação de função válida aberta.
 
     + **Selecione subscrição**: Escolha a subscrição para utilizar. Não verá isto se tiver apenas uma assinatura.
 

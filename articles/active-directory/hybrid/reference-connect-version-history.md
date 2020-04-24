@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/21/2020
+ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1377023af9d4f153671f15e214516ac29536638
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100078"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112206"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -47,6 +47,14 @@ Nem todos os lançamentos do Azure AD Connect serão disponibilizados para atual
 >Se tiver ativado o Azure AD Connect para sincronização, em breve começará automaticamente a receber notificações de Saúde que o avisam sobre as próximas depreciações quando estiver a executar uma das versões mais antigas.
 >
 >Consulte [este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
+
+## <a name="15290"></a>1.5.29.0
+
+### <a name="release-status"></a>Estado de lançamento
+04/23/2020: Lançado para download
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+Esta construção de hotfix corrige um problema introduzido na construção 1.5.20.0 onde um administrador de inquilinos com MFA não foi capaz de ativar o DSSO.
 
 ## <a name="15220"></a>1.5.22.0
 

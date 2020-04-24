@@ -11,18 +11,20 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 3c0d648d48bc39949071f39f5b49959a92576769
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 63188a0b464ad81bef2bf439763cb2f6b477ab1d
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81400660"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115436"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>Quickstart: Reconhecer o discurso a partir de um microfone
 
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
+
+> [!VIDEO https://channel9.msdn.com/Blogs/One-Dev-Minute/How-to-use-the-Azure-Cognitive-Services-NET-Speech-SDK-for-recognition/player?format=ny]
 
 [!INCLUDE [C# Header](../includes/quickstarts/from-microphone/csharp/header.md)]
 

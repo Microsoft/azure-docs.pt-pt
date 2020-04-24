@@ -1,25 +1,15 @@
 ---
-title: Criar uma conta no portal Azure - Azure Batch [ Lote Azul ] Microsoft Docs
+title: Criar uma conta no portal Azure
 description: Saiba como criar uma conta do Azure Batch no portal do Azure a executar cargas de trabalho paralelas em grande escala na nuvem
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3723631609a04f6d12abcaac1f9d7733bf3caa01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9349ed74111565f68a088cda95c8defcd79f7e69
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247647"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113226"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
@@ -31,7 +21,7 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-1. Inicie sessão no [Portal do Azure][azure_portal].
+1. Inicie sessão no [portal do Azure][azure_portal].
 
 1. Selecione **Criar um** > serviço de**lote****computacional** > de recursos .
 
@@ -51,7 +41,7 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 
     e. **Conta de armazenamento**: Uma conta opcional de Armazenamento Azure que associa à sua conta Batch. Recomenda-se uma conta de armazenamento v2 de uso geral para o melhor desempenho. Para todas as opções da conta de armazenamento em Batch, consulte a visão geral da [funcionalidade lote](batch-api-basics.md#azure-storage-account). No portal, selecione uma conta de armazenamento existente, ou crie uma nova.
 
-      ![Criar uma conta do Storage][storage_account]
+      ![Criar uma conta de armazenamento][storage_account]
 
     f. **Modo de atribuição da piscina**: No separador **definições avançadas** pode especificar o modo de atribuição do pool como **serviço de lote** ou **subscrição do Utilizador**. Para a maioria dos cenários, aceite o serviço de **lote**padrão .
 
@@ -83,7 +73,7 @@ Se optar por criar uma conta do Batch no modo de subscrição de utilizador, exe
 
 Quando criar a sua primeira conta do Batch no modo de subscrição de utilizador, tem de registar a sua subscrição no Batch. (Se anteriormente efetuou este procedimento, avance para a secção seguinte.)
 
-1. Inicie sessão no [Portal do Azure][azure_portal].
+1. Inicie sessão no [portal do Azure][azure_portal].
 
 1. Selecione Todas as**Subscrições**de **Serviços** > e selecione a subscrição que pretende utilizar para a conta 'Lote'.
 
@@ -141,7 +131,7 @@ Consulte as [quotas de serviço do Lote e limites](batch-quota-limit.md) para ob
 Além do portal do Azure, também pode criar e gerir contas do Batch com ferramentas, incluindo o seguinte:
 
 * [Cmdlets do PowerShell do Batch](batch-powershell-cmdlets-get-started.md)
-* [Azure CLI](batch-cli-get-started.md)
+* [CLI do Azure](batch-cli-get-started.md)
 * [Gestão de Batch .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>Passos seguintes

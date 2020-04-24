@@ -1,25 +1,14 @@
 ---
 title: Serviços authenticate Azure Batch com Diretório Ativo Azure
 description: O lote suporta a AD Azure para autenticação do serviço Batch. Aprenda a autenticar de uma de duas maneiras.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 01/28/2020
-ms.author: labrenne
-ms.openlocfilehash: f56c05f64086ac2e98e69d6b21fae7a0a63b5006
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1f95871788b4b9848ba622da1c8eb0cc83c07aa
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77019524"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116184"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Soluções de serviço authenticate Batch com Diretório Ativo
 

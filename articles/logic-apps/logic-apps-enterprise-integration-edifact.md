@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 8aed4f44b597235557a495a263c6a4ddf8e93ce7
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: c9d80ccac311b02d8734663d99a37804f8280771
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106326"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115538"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens EDIFACT para integração empresarial B2B em Aplicações Lógicas Azure com Pacote de Integração Empresarial
 
@@ -254,7 +254,7 @@ Quando completa cada linha de validação, outra é adicionada automaticamente. 
 Para obter mais detalhes técnicos sobre este conector, tais como ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/edifact/).
 
 > [!NOTE]
-> Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
+> Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com o rótulo ISE do conector utiliza os limites de [mensagem B2B para](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits)o ISE .
 
 ## <a name="next-steps"></a>Passos seguintes
 

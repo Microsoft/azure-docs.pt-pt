@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9c5fd444c55a20441325088912a07eb051219b84
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a8e275a41637950139598ac7c4f2513841bb4d0d
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881473"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112512"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicação web que assina nos utilizadores: Mover-se para a produção
 
@@ -25,6 +25,15 @@ Agora que sabes como obter um símbolo para ligar para a Web APIs, aprende a mov
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
+
+### <a name="troubleshooting"></a>Resolução de problemas
+
+> [!NOTE]
+> Quando os utilizadores iniciarem sessão na aplicação web pela primeira vez, terão de consentir. No entanto, em algumas organizações, os utilizadores podem ver uma mensagem como a seguinte:
+>
+> *O AppName precisa de permissões para aceder a recursos na sua organização que só um administrador pode conceder. Por favor, peça a um administrador que conceda permissão a esta aplicação antes de a utilizar.*
+>
+> Isto porque o seu administrador inquilino **desativou** a capacidade de os utilizadores consentirem. Nesse caso, é necessário contactar os administradores do seu inquilino para que eles façam um consentimento administrativo para os âmbitos exigidos pelo pedido.
 
 ### <a name="same-site"></a>Mesmo site
 

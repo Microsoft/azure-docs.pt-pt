@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3603e76186ce30fb491d829d3a804837f4ac2e6d
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 97dc7cb90f5ffc577a007c23074a0e8a75788fab
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732798"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114025"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerir horários na Automação Azure
 
@@ -174,6 +174,26 @@ $automationAccountName = "MyAutomationAccount"
 $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
 Set-AzAutomationSchedule –AutomationAccountName $automationAccountName `
 –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
+```
+
+## <a name="removing-a-schedule"></a>Remoção de um horário
+
+Quando estiver pronto para remover os seus horários, pode utilizar `Remove-AzureRmAutomationSchedule` o portal Azure ou o cmdlet. Lembre-se de que só pode remover um horário que tenha sido desativado como descrito na secção anterior.
+
+### <a name="remove-a-schedule-using-the-azure-portal"></a>Remova um horário usando o portal Azure
+
+1. Na sua conta de Automação, selecione **Horários** em **Recursos Partilhados**.
+2. Clique no nome de um horário para abrir o painel de detalhes.
+3. Clique em **Apagar**.
+
+### <a name="remove-a-schedule-with-powershell"></a>Remova um horário com powerShell
+
+Pode utilizar o cmdlet [Remove-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) para eliminar um horário existente. 
+
+```azurepowershell-interactive
+$automationAccountName = "MyAutomationAccount"
+$scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
+Remove-AzureRmAutomationSchedule -AutomationAccountName $automationAccountName ` -Name $scheduleName -ResourceGroupName "ResourceGroup01"
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

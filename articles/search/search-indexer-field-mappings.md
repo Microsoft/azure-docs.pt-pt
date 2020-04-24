@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3e09741e841897032b8146dee67b79e0c26ea5cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17a96479b80410cbfcb2a6061904491f95c45f10
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275157"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116269"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos e transformações de campo usando indexadores de pesquisa cognitiva Azure
 
@@ -28,10 +28,7 @@ Algumas situações em que os mapeamentos de campo são úteis:
 * Precisa de codificar ou descodificar os seus dados no Base64. Os mapeamentos de campo suportam **várias funções de mapeamento,** incluindo funções para codificação e descodificação base64.
 
 > [!NOTE]
-> A funcionalidade de mapeamento de campo dos indexadores de Pesquisa Cognitiva Azure fornece uma forma simples de mapear campos de dados para campos de indexação, com algumas opções para conversão de dados. Dados mais complexos podem exigir o pré-processamento para remodelá-lo em uma forma que é fácil indexar.
->
-> A Microsoft Azure Data Factory é uma poderosa solução baseada na nuvem para importar e transformar dados. Também pode escrever código para transformar dados de origem antes de indexar. Para exemplos de código, consulte [Dados relacionais do Modelo](search-example-adventureworks-modeling.md) e [facetas multinível do Modelo](search-example-adventureworks-multilevel-faceting.md).
->
+> Os mapeamentos de campo nos indexadores são uma forma simples de mapear campos de dados para campos de índice, com alguma capacidade de conversão de dados de peso leve. Dados mais complexos podem exigir o pré-processamento para remodelá-lo em uma forma que é propícia à indexação. Uma opção que pode considerar é [a Azure Data Factory.](https://docs.microsoft.com/zure/data-factory/)
 
 ## <a name="set-up-field-mappings"></a>Configurar mapeamentos de campo
 
@@ -182,7 +179,7 @@ Se `useHttpServerUtilityUrlTokenEncode` os `useHttpServerUtilityUrlTokenDecode` 
 > [!WARNING]
 > Se `base64Encode` for utilizado para `useHttpServerUtilityUrlTokenEncode` produzir valores-chave, deve ser definido como verdadeiro. Só a codificação de base 64 de url-safe pode ser utilizada para valores-chave. Consulte [as regras de nomeação &#40;Pesquisa Cognitiva Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/naming-rules) para o conjunto completo de restrições sobre caracteres em valores-chave.
 
-As bibliotecas .NET em Azure Cognitive Search assumem a estrutura completa .NET, que fornece codificação incorporada. As `useHttpServerUtilityUrlTokenEncode` `useHttpServerUtilityUrlTokenDecode` opções e opções alavancam esta função incorporada. Se estiver a utilizar o Núcleo .NET ou `false` outro quadro, recomendamos que estabeleça essas opções e chame diretamente as funções de codificação e descodificação do seu quadro.
+As bibliotecas .NET em Azure Cognitive Search assumem a estrutura completa .NET, que fornece codificação incorporada. As `useHttpServerUtilityUrlTokenEncode` `useHttpServerUtilityUrlTokenDecode` opções e opções alavancam esta funcionalidade incorporada. Se estiver a utilizar o Núcleo .NET ou `false` outro quadro, recomendamos que estabeleça essas opções e chame diretamente as funções de codificação e descodificação do seu quadro.
 
 A tabela seguinte compara diferentes codificações `00>00?00`base64 da cadeia . Para determinar o processamento adicional necessário (se houver) para as suas funções base64, aplique a função de codificação da sua biblioteca na cadeia `00>00?00` e compare a saída com a saída `MDA-MDA_MDA`esperada .
 
@@ -245,8 +242,6 @@ A Base de Dados Azure SQL não tem um `Collection(Edm.String)` tipo de dados inc
     "mappingFunction" : { "name" : "jsonArrayToStringCollection" }
   }]
 ```
-
-Para um exemplo detalhado que transforma dados relacionais em campos de recolha de índices, consulte [dados relacionais do Modelo](search-example-adventureworks-modeling.md).
 
 <a name="urlEncodeFunction"></a>
 

@@ -3,18 +3,18 @@ title: 'Tutorial: Entidade da lista - LUIS'
 description: Obtenha dados que correspondam a uma lista de itens predefinida. Cada item na lista pode ter sinónimos também com correspondência exata
 ms.topic: tutorial
 ms.date: 03/12/2020
-ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9530719c43260751d64d7ccf446bc7941078d6e9
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79297412"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101132"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutorial: Obtenha dados exatos de texto de uma expressão com entidade da lista
 
 Neste tutorial, entenda como obter dados que correspondam exatamente a uma lista predefinida de itens.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ Para esta aplicação de pizza importada, crie uma entidade de lista para os dif
 Uma entidade de lista é uma boa opção para este tipo de dados quando:
 
 * Os valores dos dados são um conjunto conhecido.
-* O conjunto não excede os [limites](luis-boundaries.md) máximos do LUIS para este tipo de entidade.
+* O conjunto não excede os [limites](luis-limits.md) máximos do LUIS para este tipo de entidade.
 * O texto na expressão é um jogo insensível com um sinónimo ou o nome canónico. Luis não usa a lista para além da partida. As variações, os plurales e outras variações não são resolvidos apenas com uma entidade de lista. Para gerir variações, considere usar um [padrão](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional.
 
 > [!CAUTION]
@@ -72,7 +72,7 @@ Exemplos do nome primário e sinónimos são:
 
 1. Selecione **+ Criar**.
 
-1. Na caixa de diálogo pop-up de entidade, introduza `CrustList` para o nome da entidade e **Lista** para o tipo de entidade. Selecione **Next**.
+1. Na caixa de diálogo pop-up de entidade, introduza `CrustList` para o nome da entidade e **Lista** para o tipo de entidade. Selecione **Seguinte**.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de ecrã da caixa de diálogo criação da nova entidade](media/luis-quickstart-intent-and-list-entity/create-pizza-crust-list-entity.png)

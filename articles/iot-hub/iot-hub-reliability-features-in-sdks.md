@@ -10,12 +10,12 @@ ms.service: iot-hub
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a645ab1fa4a1be3ec8e939452a1457e84bbafe15
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 6b8981f9a0b372c6c2d5b24236bb4f55dcf8a9d6
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759675"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116745"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gerir a conectividade e mensagens fiáveis utilizando sDKs do dispositivo Azure IoT Hub
 
@@ -132,7 +132,7 @@ Para amostras de código noutras línguas, reveja os seguintes documentos de imp
 
 * [SDK de Node](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
-* [SDK Python](https://github.com/Azure/azure-iot-sdk-python)
+* [Python SDK](https://github.com/Azure/azure-iot-sdk-python) (Fiabilidade ainda não implementada)
 
 ## <a name="next-steps"></a>Passos seguintes
 

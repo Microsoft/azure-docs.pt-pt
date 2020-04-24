@@ -1,25 +1,15 @@
 ---
-title: Executar tarefas paralelas à otimização de recursos computacionais - Lote Azure
+title: Executar tarefas paralelas à otimização dos recursos computacionais
 description: Aumentar a eficiência e reduzir os custos utilizando menos nós de cálculo e executando tarefas simultâneas em cada nó numa piscina de Lote Azure
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/17/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5465771cb97ef9d8d5c451a6bafc61c4621d3c4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 180294e7da95392e5c6c8055e53cea1ad3b4c7a6
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023638"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116762"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Executar tarefas simultaneamente para maximizar o uso de nós computacionais de Lote 
 

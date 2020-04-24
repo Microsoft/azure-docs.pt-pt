@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 5dbf32610e54df4ff009d4cb0a0b080babb4ec73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74112063"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116286"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Como filtrar por linguagem na Pesquisa Cognitiva Azure 
 
@@ -32,7 +32,7 @@ O sucesso desta técnica depende da integridade dos conteúdos de campo. A Pesqu
 
 Na Pesquisa Cognitiva Azure, as consultas visam um único índice. Os desenvolvedores que querem fornecer cordas específicas da linguagem numa única experiência de pesquisa normalmente definem campos dedicados para armazenar os valores: um campo para cordas inglesas, um para francês, e assim por diante. 
 
-Nas nossas amostras, incluindo a [amostra imobiliária](search-get-started-portal.md) mostrada abaixo, você pode ter visto definições de campo semelhantes à seguinte imagem. Note como este exemplo mostra as atribuições de analisadores linguísticos para os campos neste índice. Os campos que contêm cordas funcionam melhor na pesquisa de texto completo quando emparelhados com um analisador projetado para lidar com as regras linguísticas da linguagem-alvo.
+O exemplo que se segue é da [amostra imobiliária](search-get-started-portal.md) que tem vários campos de cordas contendo conteúdo em diferentes línguas. Note as atribuições de analisadores linguísticos para os campos neste índice. Os campos que contêm cordas funcionam melhor na pesquisa de texto completo quando emparelhados com um analisador projetado para lidar com as regras linguísticas da linguagem-alvo.
 
   ![](./media/search-filters-language/lang-fields.png)
 
@@ -58,7 +58,7 @@ parameters =
     };
 ```
 > [!Note]
-> Embora não exista $filter argumento sobre a consulta, este caso de utilização está fortemente afiliado aos conceitos de filtro, pelo que o apresentamos como um cenário de filtragem.
+> Embora não haja argumentos $filter sobre a consulta, este caso de uso está fortemente afiliado a conceitos de filtro, por isso é apresentado como um cenário de filtragem.
 
 ## <a name="see-also"></a>Consulte também
 

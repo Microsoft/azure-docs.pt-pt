@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 2db7a25f3f463e9210544354395c9d33a75f633c
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: eb8e06370ecbe2b104a19c4e420b5d3ae013a00e
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619379"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116320"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Questões conhecidas e resolução de problemas Azure Machine Learning
 
@@ -82,7 +82,21 @@ Conheça as quotas de [recursos](how-to-manage-quotas.md) que pode encontrar ao 
     * Atualizar `azureml-sdk[automl]` pacote para a versão mais recente.
     * Adicione `azureml-dataprep` a versão 1.1.8 ou superior.
     * Adicione `pyarrow` a versão 0.11 ou superior.
+    
+* **Instalação pip: Dependecies não é garantido ser consistente com a instalação**de uma única linha : Esta é uma limitação conhecida do pip, uma vez que não tem uma dependência funcional quando instala como uma única linha. A primeira dependência única é a única que olha. Por exemplo, se estiver a instalar a deriva de dados azure-ml que requer a versão > 1.0 e o azureml-train-automl que requer versão < 1.2 e se a versão mais recente for 1.3, quando o utilizador instala as embalagens numa única linha, como mostrado abaixo, tudo é atualizado para 1.3, mesmo que o pacote azureml-train-automl exija uma versão mais antiga. 
 
+    * Verá dependecies inconsistentes com instalação de linha única.
+    ```python
+       pip install azure-ml-datadrift, azureml-train-automl
+     ```
+   
+    * Para garantir que as versões apropriadas estão instaladas para as suas embalagens, instale utilizando várias linhas como no seguinte código. A ordem não importa aqui.
+    
+     ```python
+        pip install azure-ml-datadrift
+        pip install azureml-train-automl 
+     ```
+     
 ## <a name="create-and-manage-workspaces"></a>Criar e gerir espaços de trabalho
 
 > [!WARNING]

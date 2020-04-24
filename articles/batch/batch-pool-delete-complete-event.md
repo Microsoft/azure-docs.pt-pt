@@ -1,22 +1,15 @@
 ---
 title: Piscina de Lote Azure elimina evento completo
 description: Referência para piscina de lote excluir evento completo. Este evento é emitido quando uma operação de eliminação de piscina sabotada.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
-ms.openlocfilehash: d317d7395a8246c109073a72338b55960cb50954
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d28223c79f96f35a6ee11f98e0f09f21d7db4451
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023621"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115946"
 ---
 # <a name="pool-delete-complete-event"></a>Evento de conclusão de eliminação de conjunto
 
@@ -34,7 +27,7 @@ ms.locfileid: "77023621"
 
 |Elemento|Tipo|Notas|
 |-------------|----------|-----------|
-|`id`|Cadeia|A identificação da piscina.|
+|`id`|String|A identificação da piscina.|
 |`startTime`|DateTime|O tempo que a piscina apagou começou.|
 |`endTime`|DateTime|O tempo que a piscina apagar está concluído.|
 

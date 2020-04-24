@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/06/2020
-ms.openlocfilehash: 787d88d336abcf3b0ba9b14c3d3798850b665eca
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.date: 04/23/2020
+ms.openlocfilehash: a230d4f775207afc37172dae9f0709d66a6d1aa1
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745104"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116626"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilizar a Vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
 
@@ -162,8 +162,4 @@ Pode alterar várias definições da Colmeia, tais como alterar o motor de execu
 Para informações gerais sobre a Hive no HDInsight:
 
 * [Use a Colmeia Apache com Hadoop Apache no HDInsight](hdinsight-use-hive.md)
-
-Para obter informações sobre outras formas de trabalhar com Hadoop no HDInsight:
-
-* [Use o Porco Apache com Hadoop Apache no HDInsight](hdinsight-use-pig.md)
-* [Use mapReduce com Hadoop Apache no HDInsight](hdinsight-use-mapreduce.md)
+* [Utilizar o cliente do Apache Beeline com o Apache Hive](apache-hadoop-use-hive-beeline.md)

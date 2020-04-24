@@ -3,12 +3,12 @@ title: Monitorizar casos de contentores
 description: Como monitorizar o consumo de recursos computacionais como cpu e memória pelos seus contentores em Instâncias de Contentores Azure.
 ms.topic: article
 ms.date: 04/24/2019
-ms.openlocfilehash: b4a66254c18d7e01b6d56e64e6b62721b620d499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250038"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116372"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorizar recursos de contentores no Azure Container Instances
 
@@ -25,13 +25,13 @@ Neste momento, as métricas do Monitor Azure só estão disponíveis para os con
 
 ## <a name="available-metrics"></a>Métricas disponíveis
 
-O Monitor Azure fornece as [seguintes métricas para instâncias de contentores Azure][supported-metrics]. Estas métricas estão disponíveis para um grupo de contentores e recipientes individuais.
+O Monitor Azure fornece as [seguintes métricas para instâncias de contentores Azure][supported-metrics]. Estas métricas estão disponíveis para um grupo de contentores e recipientes individuais. Por padrão, as métricas são agregadas como médias.
 
-* **Utilização do CPU** - medida em **milicores**. Um milicore é 1/1000th de um núcleo cpu, por isso 500 miliscentrais (ou 500 m) representam 50% de utilização de um núcleo cpu. Agregado como **uso médio** em todos os núcleos.
+* **Utilização do CPU** - medida em **milicores**. Um milicore é 1/1000th de um núcleo CPU, por isso 500 miliscores representa o uso de 0,5 núcleo cpu.
 
-* **Utilização da memória** - agregado **simultéma**em média .
+* **Uso da memória** - em bytes.
 
-* **Bytes de rede recebidos por segundo** e **bytes de rede transmitidos por segundo** - agregados como **bytes médios por segundo**. 
+* **Bytes de rede recebidos por segundo** e **bytes**de rede transmitidos por segundo . 
 
 ## <a name="get-metrics---azure-portal"></a>Obter métricas - Portal do Azure
 

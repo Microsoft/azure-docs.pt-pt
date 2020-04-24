@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec8d5b66c71c558e56f3d1f48cec96d7cc487552
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 0f90a6dd94a498b6de6b5e2ec8381180483d0ac8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654117"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113158"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integre a sua infraestrutura VPN com o Azure MFA utilizando a extensão do Servidor de Política de Rede para o Azure
 
@@ -178,7 +178,7 @@ Pode utilizar uma opção de configuração padrão (baseada em assistentes) ou 
 
     ![Especificar janela dos Grupos de Utilizadores para permitir ou negar o acesso](./media/howto-mfa-nps-extension-vpn/image7.png)
 
-9. Selecione **Next**.
+9. Selecione **Seguinte**.
 
 10. Na janela **'Especificar filtros IP',** selecione **Seguinte**.
 
@@ -366,7 +366,7 @@ O guião executa as seguintes ações:
 
 Se quiser utilizar os seus próprios certificados, deve associar a chave pública do seu certificado ao diretor de serviço em Azure AD, e assim por diante.
 
-Para utilizar o script, forneça a extensão com as suas credenciais administrativas de Diretório Ativo Azure e o ID de inquilino do Azure Ative Directory que copiou anteriormente. Executar o script em cada servidor NPS onde instala a extensão NPS.
+Para utilizar o script, forneça a extensão com as suas credenciais administrativas de Diretório Ativo Azure e o ID de inquilino do Azure Ative Directory que copiou anteriormente. A conta deve estar no mesmo inquilino da AD Azure que pretende permitir a extensão. Executar o script em cada servidor NPS onde instala a extensão NPS.
 
 1. Executar o Windows PowerShell como administrador.
 
@@ -376,6 +376,8 @@ Para utilizar o script, forneça a extensão com as suas credenciais administrat
 
     ![Executando o script de configuração AzureMfsNpsExtnConfigSetup.ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
 
+    Se tiver um erro de segurança devido ao TLS, `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` ative o TLS 1.2 utilizando o comando a partir do seu pedido PowerShell.
+    
     Depois de o script verificar a instalação do módulo PowerShell, exibe a janela de entrada do módulo PowerShell do módulo PowerShell do Diretório Ativo Azure.
 
 4. Introduza as credenciais e palavra-passe do administrador da AD Azure e, em seguida, selecione **Iniciar sessão**.

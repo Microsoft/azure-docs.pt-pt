@@ -1,25 +1,15 @@
 ---
-title: Instale pacotes de aplicações em nódeos computacionais - Lote Azure / Microsoft Docs
+title: Instale pacotes de aplicações em nódeos de cálculo
 description: Utilize a funcionalidade de pacotes de aplicação do Lote Azure para gerir facilmente várias aplicações e versões para instalação em nódos de computação batch.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/26/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30301832381bdc7b5f001eec2c449c571f9fd671
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7824d3e2d8cfb7b52041e59a9007688c4ef1cafa
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086218"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115623"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações para calcular os nódosos com pacotes de aplicação do Lote
 
@@ -180,7 +170,7 @@ Para atualizar ou eliminar um pacote de aplicação existente, abra os detalhes 
 
 ![Atualizar ou eliminar pacote no portal Azure][7]
 
-**Atualização**
+**Atualizar**
 
 Quando clicar em **Atualizar,** o **pacote 'Actualizar'** é apresentado. Esta janela é semelhante à janela **do pacote de aplicações,** no entanto apenas o campo de seleção do pacote está ativado, permitindo especificar um novo ficheiro ZIP para carregar.
 

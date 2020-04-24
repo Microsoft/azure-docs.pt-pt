@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2020
 ms.author: chmutali
-ms.openlocfilehash: b97d87568a051826d5bab7140b6b15ca3541d5d8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 61f374c3fbc15e78784fe30c4e66ea109537727d
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81680250"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112886"
 ---
 # <a name="workday-attribute-reference"></a>Referência de atributo da Workday
 Esta secção fornece uma lista de atributos que pode obter do Workday usando consultas XPATH. Com base na versão Workday Web Services API, planeia utilizar, consulte a secção apropriada. 
 
-## <a name="xpath-values-for-workday-web-services-version-211"></a>Valores XPATH para workday Web Services versão 21.1
+## <a name="xpath-values-for-workday-web-services-wws-api-v211"></a>Valores XPATH para Serviços Web workday (WWS) API v21.1
 
 
 A tabela abaixo captura a lista de atributos do Dia de Trabalho e as expressões XPATH correspondentes que são enviadas para fora da caixa com o conector de aplicações de fornecimento de entrada workday. 
@@ -112,7 +112,9 @@ A tabela abaixo captura a lista de atributos do Dia de Trabalho e as expressões
 | 79 | Tipo de Trabalhador                            | wd:Trabalhador/wd:Dados\_do trabalhador/wd:Dados de emprego/wd:Dados\_de posição/wd:Tipo\_de trabalhador\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                                                                                    |
 | 80 | WorkSpaceReference                    | wd:Trabalhador/wd:Dados\_do trabalhador/wd:Dados de emprego/wd:Dados\_de posição/wd:Espaço\_de trabalho\_\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                                                                                   |
 
-## <a name="xpath-values-for-workday-web-services-version-30"></a>Valores XPATH para a versão 30+ dos Serviços Web do Dia de Trabalho
+## <a name="xpath-values-for-workday-web-services-wws-api-v30"></a>Valores XPATH para Serviços Web Workday (WWS) API v30+
+
+Se estiver a utilizar uma wws API v30.0 ou superior, antes de ligar o trabalho de provisionamento, por favor atualize as **expressões XPATH API** no âmbito **do Attribute Mapping -> Advanced Options -> Editar lista de atributos para** o Workday para utilizar os valores listados abaixo. Para configurar XPATHs adicionais, consulte a secção [Tutorial: Gerir a sua configuração](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration). 
 
 
 | \# | Nome                                  | Expressão aPI do dia de trabalho XPATH                                                                                                                                                                                                                                                                                                                                                |

@@ -3,24 +3,24 @@ title: Guia de referência para funções em expressões
 description: Guia de referência para funções em expressões para Aplicações lógicas Azure e Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.openlocfilehash: f557753c61af1e57490ae2d10b7f42475bd7c0a6
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.date: 04/23/2020
+ms.openlocfilehash: 6ab3db36ac4d743c8c03b57075d3c4d5f6c85d67
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81870241"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115028"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência para a utilização de funções em expressões para aplicações lógicas azure e automatização de potência
 
-Para definições de fluxo de trabalho em [Aplicações lógicas Azure](../logic-apps/logic-apps-overview.md) e [Power Automate,](https://docs.microsoft.com/flow/getting-started) [algumas expressões](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtêm os seus valores a partir de ações de tempo de execução que podem ainda não existir quando o seu fluxo de trabalho começa a funcionar. Para fazer referência a estes valores ou processar os valores nestas expressões, pode utilizar *funções* fornecidas pela [Linguagem definição](../logic-apps/logic-apps-workflow-definition-language.md)de fluxo de trabalho. 
+Para definições de fluxo de trabalho em [Aplicações lógicas Azure](../logic-apps/logic-apps-overview.md) e [Power Automate,](https://docs.microsoft.com/flow/getting-started) [algumas expressões](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtêm os seus valores a partir de ações de tempo de execução que podem ainda não existir quando o seu fluxo de trabalho começa a funcionar. Para fazer referência a estes valores ou processar os valores nestas expressões, pode utilizar *funções* fornecidas pela [Linguagem definição](../logic-apps/logic-apps-workflow-definition-language.md)de fluxo de trabalho.
 
 > [!NOTE]
 > Esta página de referência aplica-se tanto às Aplicações Lógicas Azure como ao Power Automate, mas aparece na documentação das Aplicações Lógicas Azure. Embora esta página se refira especificamente a aplicações lógicas, estas funções funcionam tanto para fluxos como para aplicações lógicas. Para obter mais informações sobre funções e expressões no Power Automate, consulte [As expressões de utilização em condições](https://docs.microsoft.com/flow/use-expressions-in-conditions).
 
-Por exemplo, pode calcular valores utilizando funções matemáticas, como a [função add()](../logic-apps/workflow-definition-language-functions-reference.md#add)quando se deseja a soma de inteiros ou carros alegóricos. Aqui estão outros exemplos de tarefas que pode executar com funções:
+Por exemplo, pode calcular valores utilizando funções matemáticas, como a função [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) quando se deseja a soma de inteiros ou carros alegóricos. Aqui estão outros exemplos de tarefas que pode executar com funções:
 
 | Tarefa | Sintaxe de função | Resultado |
 | ---- | --------------- | ------ |
@@ -31,8 +31,7 @@ Por exemplo, pode calcular valores utilizando funções matemáticas, como a [fu
 Para encontrar funções [com base no seu propósito geral,](#ordered-by-purpose)reveja as seguintes tabelas. Ou, para informação detalhada sobre cada função, consulte a [lista alfabética.](#alphabetical-list)
 
 > [!NOTE]
-> Na sintaxe para definições de parâmetros, um ponto de interrogação (?) que aparece após um parâmetro significa que o parâmetro é opcional.
-> Por exemplo, consulte [getFutureTime()](#getFutureTime).
+> Na sintaxe para definições de parâmetros, um ponto de interrogação (?) que aparece após um parâmetro significa que o parâmetro é opcional. Por exemplo, consulte [getFutureTime()](#getFutureTime).
 
 ## <a name="functions-in-expressions"></a>Funções em expressões
 
@@ -74,15 +73,14 @@ Aqui estão as funções disponíveis ordenadas pelo seu propósito geral, ou po
 
 ## <a name="string-functions"></a>Funções de cadeia
 
-Para trabalhar com cordas, pode utilizar estas funções de cadeia e também [algumas funções](#collection-functions)de recolha.
-As funções das cordas funcionam apenas em cordas.
+Para trabalhar com cordas, pode utilizar estas funções de cadeia e também [algumas funções](#collection-functions)de recolha. As funções das cordas funcionam apenas em cordas.
 
 | Função de corda | Tarefa |
 | --------------- | ---- |
 | [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combine duas ou mais cordas e devolva a corda combinada. |
 | [terminaCom](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Verifique se uma corda termina com a subcadeia especificada. |
 | [formatoNúmero](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Devolva um número como uma corda com base no formato especificado |
-| [guia](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Gere um identificador globalmente único (GUID) como uma corda. |
+| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Gere um identificador globalmente único (GUID) como uma corda. |
 | [indexof](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Volte a colocar a posição inicial para um substring. |
 | [últimoIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Volte a colocar a posição inicial na última ocorrência de um substring. |
 | [substituir](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Substitua uma subcadeia com a corda especificada e devolva a corda atualizada. |
@@ -119,8 +117,7 @@ Para trabalhar com coleções, geralmente matrizes, cordas e, por vezes, dicion�
 
 ## <a name="logical-comparison-functions"></a>Funções de comparação lógica
 
-Para trabalhar com condições, comparar valores e resultados de expressão, ou avaliar vários tipos de lógica, pode utilizar estas funções de comparação lógica.
-Para obter a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+Para trabalhar com condições, comparar valores e resultados de expressão, ou avaliar vários tipos de lógica, pode utilizar estas funções de comparação lógica. Para obter a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Função de comparação lógica | Tarefa |
 | --------------------------- | ---- |
@@ -139,10 +136,10 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 
 ## <a name="conversion-functions"></a>Funções de conversão
 
-Para alterar o tipo ou formato de um valor, pode utilizar estas funções de conversão.
-Por exemplo, pode mudar um valor de um Boolean para um inteiro.
-Para obter mais informações sobre como as Aplicações Lógicas lidam com tipos de conteúdo durante a conversão, consulte os tipos de [conteúdo de Handle](../logic-apps/logic-apps-content-type.md).
-Para obter a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+Para alterar o tipo ou formato de um valor, pode utilizar estas funções de conversão. Por exemplo, pode mudar um valor de um Boolean para um inteiro. Para obter mais informações sobre como as Aplicações Lógicas lidam com tipos de conteúdo durante a conversão, consulte os tipos de [conteúdo de Handle](../logic-apps/logic-apps-content-type.md). Para obter a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+> [!NOTE]
+> As Aplicações Lógicas Azure convertem automaticamente valores entre alguns tipos de dados, o que significa que não é necessário realizar manualmente estas conversões. No entanto, se o fizer, poderá experimentar comportamentos de exibição inesperados, que não afetam as conversões reais, apenas como são mostradas. Para mais informações, consulte [Conversões implícitas do tipo de dados](#implicit-data-conversions).
 
 | Função de conversão | Tarefa |
 | ------------------- | ---- |
@@ -163,12 +160,41 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 | [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Devolva um número de ponto flutuante para obter um valor de entrada. |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Devolva a versão inteiro para uma corda. |
 | [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Devolva o valor ou objeto do tipo JavaScript Object (JSON) para uma corda ou XML. |
-| [cadeia](../logic-apps/workflow-definition-language-functions-reference.md#string) | Devolva a versão de corda por um valor de entrada. |
+| [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | Devolva a versão de corda por um valor de entrada. |
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Devolva a versão codificada por URI para obter um valor de entrada substituindo caracteres url-inseguros por caracteres de fuga. |
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Devolva a versão binária para uma corda codificada por URI. |
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Devolva a versão de corda para uma corda codificada por URI. |
 | [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | Devolva a versão XML para uma corda. |
 |||
+
+<a name="implicit-data-conversions"></a>
+
+## <a name="implicit-data-type-conversions"></a>Conversões implícitas de tipo de dados
+
+As Aplicações Lógicas Azure convertem-se automaticamente ou implicitamente entre alguns tipos de dados, para que não tenha de converter manualmente estes tipos. Por exemplo, se utilizar valores não-string onde as cordas são esperadas como inputs, as Aplicações Lógicas convertem automaticamente os valores não-string em cordas.
+
+Por exemplo, suponha que um gatilho retorne um valor numérico como saída:
+
+`triggerBody()?['123']`
+
+Se utilizar esta saída numérica onde se espera a entrada de cordas, como um URL, as Aplicações`{}`Lógicas convertem automaticamente o valor numa corda utilizando o aparelho encaracolado () notação:
+
+`@{triggerBody()?['123']}`
+
+### <a name="base64-encoding-and-decoding"></a>Codificação e descodificação base64
+
+As Aplicações Lógicas executam automaticamente ou implicitamente a codificação ou descodificação do Base64, para que não tenha de realizar manualmente estas operações utilizando as expressões correspondentes:
+
+* `base64(<value>)`
+* `base64ToBinary(<value>)`
+* `base64ToString(<value>)`
+* `base64(decodeDataUri(<value>))`
+* `concat('data:;base64,',<value>)`
+* `concat('data:,',encodeUriComponent(<value>))`
+* `decodeDataUri(<value>)`
+
+> [!NOTE]
+> Se adicionar manualmente estas expressões à sua aplicação lógica, por exemplo, utilizando o editor de expressão, navegar para longe do Logic App Designer e regressar ao designer, o designer mostra apenas os valores dos parâmetros. As expressões só são preservadas em vista de código se não editar os valores do parâmetro. Caso contrário, a Logic Apps remove as expressões da vista de código, deixando apenas os valores dos parâmetros. Este comportamento não afeta a codificação ou descodificação, apenas se as expressões são mostradas.
 
 <a name="math-functions"></a>
 
@@ -908,6 +934,9 @@ E devolve este resultado:`["hello"]`
 
 Devolva a versão codificada base64 para uma corda.
 
+> [!NOTE]
+> As Aplicações Lógicas Azure executam automaticamente a codificação e descodificação base64, o que significa que não é necessário realizar manualmente estas conversões. No entanto, se o fizer, poderá experimentar comportamentos de exibição inesperados, que não afetam as conversões reais, apenas como são mostradas. Para mais informações, consulte [Conversões implícitas do tipo de dados](#implicit-data-conversions).
+
 ```
 base64('<value>')
 ```
@@ -937,6 +966,9 @@ E devolve este resultado:`"aGVsbG8="`
 ### <a name="base64tobinary"></a>base64ToBinary
 
 Volte a colocar a versão binária numa cadeia codificada com base64.
+
+> [!NOTE]
+> As Aplicações Lógicas Azure executam automaticamente a codificação e descodificação base64, o que significa que não é necessário realizar manualmente estas conversões. No entanto, se o fizer, poderá experimentar comportamentos de exibição inesperados, que não afetam as conversões reais, apenas como são mostradas. Para mais informações, consulte [Conversões implícitas do tipo de dados](#implicit-data-conversions).
 
 ```
 base64ToBinary('<value>')
@@ -968,9 +1000,10 @@ E devolve este resultado:
 
 ### <a name="base64tostring"></a>base64Tostring
 
-Volte a colocar a versão de corda para uma cadeia codificada base64, descodificando eficazmente a cadeia base64.
-Utilize esta função em vez [de descodificarBase64()](#decodeBase64).
-Embora ambas as funções `base64ToString()` funcionem da mesma forma, é preferível.
+Volte a colocar a versão de corda para uma cadeia codificada base64, descodificando eficazmente a cadeia base64. Utilize esta função em vez [de descodificarBase64() ()](#decodeBase64)que é depreciada.
+
+> [!NOTE]
+> As Aplicações Lógicas Azure executam automaticamente a codificação e descodificação base64, o que significa que não é necessário realizar manualmente estas conversões. No entanto, se o fizer, poderá experimentar comportamentos de exibição inesperados, que não afetam as conversões reais, apenas como são mostradas. Para mais informações, consulte [Conversões implícitas do tipo de dados](#implicit-data-conversions).
 
 ```
 base64ToString('<value>')
@@ -1569,43 +1602,18 @@ E devolve este resultado:`74`
 
 <a name="decodeBase64"></a>
 
-### <a name="decodebase64"></a>descodificarBase64
+### <a name="decodebase64-deprecated"></a>descodificadorBase64 (depreciado)
 
-Volte a colocar a versão de corda para uma cadeia codificada base64, descodificando eficazmente a cadeia base64.
-Considere usar [base64ToString()](#base64ToString) em vez de `decodeBase64()`.
-Embora ambas as funções `base64ToString()` funcionem da mesma forma, é preferível.
-
-```
-decodeBase64('<value>')
-```
-
-| Parâmetro | Necessário | Tipo | Descrição |
-| --------- | -------- | ---- | ----------- |
-| <*valor*> | Sim | String | A cadeia codificada base64 para descodificar |
-|||||
-
-| Valor devolvido | Tipo | Descrição |
-| ------------ | ---- | ----------- |
-| <*descodificada-base64-string*> | String | A versão de corda para uma cadeia codificada base64 |
-||||
-
-*Exemplo*
-
-Este exemplo cria uma cadeia para uma cadeia codificada base64:
-
-```
-decodeBase64('aGVsbG8=')
-```
-
-E devolve este resultado:`"hello"`
+Esta função é depreciada, por isso, por favor, utilize o [base64ToString()](#base64ToString) em vez disso.
 
 <a name="decodeDataUri"></a>
 
 ### <a name="decodedatauri"></a>descodificarDataUri
 
-Devolva a versão binária para um identificador de recursos uniforme de dados (URI).
-Considere utilizar [dadosUriToBinary() ()](#dataUriToBinary)em vez de `decodeDataUri()`.
-Embora ambas as funções `dataUriToBinary()` funcionem da mesma forma, é preferível.
+Devolva a versão binária para um identificador de recursos uniforme de dados (URI). Considere utilizar [dadosUriToBinary() ()](#dataUriToBinary)em vez de `decodeDataUri()`. Embora ambas as funções `dataUriToBinary()` funcionem da mesma forma, é preferível.
+
+> [!NOTE]
+> As Aplicações Lógicas Azure executam automaticamente a codificação e descodificação base64, o que significa que não é necessário realizar manualmente estas conversões. No entanto, se o fizer, poderá experimentar comportamentos de exibição inesperados, que não afetam as conversões reais, apenas como são mostradas. Para mais informações, consulte [Conversões implícitas do tipo de dados](#implicit-data-conversions).
 
 ```
 decodeDataUri('<value>')
@@ -1703,9 +1711,10 @@ E devolva este resultado:`2`
 
 ### <a name="encodeuricomponent"></a>codificar Componente UriUri
 
-Volte a colocar uma versão codificada por um identificador de recursos uniforme (URI) para uma cadeia, substituindo caracteres inseguros de URL por caracteres de fuga.
-Considere utilizar [uriComponent()](#uriComponent) `encodeUriComponent()`em vez de .
-Embora ambas as funções `uriComponent()` funcionem da mesma forma, é preferível.
+Volte a colocar uma versão codificada por um identificador de recursos uniforme (URI) para uma cadeia, substituindo caracteres inseguros de URL por caracteres de fuga. Considere utilizar [uriComponent()](#uriComponent) `encodeUriComponent()`em vez de . Embora ambas as funções `uriComponent()` funcionem da mesma forma, é preferível.
+
+> [!NOTE]
+> As Aplicações Lógicas Azure executam automaticamente a codificação e descodificação base64, o que significa que não é necessário realizar manualmente estas conversões. No entanto, se o fizer, poderá experimentar comportamentos de exibição inesperados, que não afetam as conversões reais, apenas como são mostradas. Para mais informações, consulte [Conversões implícitas do tipo de dados](#implicit-data-conversions).
 
 ```
 encodeUriComponent('<value>')
@@ -2223,7 +2232,7 @@ E devolver estes resultados:
 
 <a name="guid"></a>
 
-### <a name="guid"></a>guia
+### <a name="guid"></a>guid
 
 Gerar um identificador globalmente único (GUID) como uma corda, por exemplo, "c2ecc88d-88c8-4096-912c-d6f2e2b138ce":
 

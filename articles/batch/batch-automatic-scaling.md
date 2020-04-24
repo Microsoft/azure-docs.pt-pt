@@ -1,25 +1,16 @@
 ---
-title: Escala automaticamente os nódosos de computação numa piscina de Lote Azure [ Microsoft Docs
+title: Dimensionar automaticamente os nós de computação de um conjunto do Azure Batch
 description: Ative a escala automática numa piscina de nuvem para ajustar dinamicamente o número de nós de computação na piscina.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 398b6d9c3fc05a6cf164b4003f57b94ecd6c1972
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b790ee286d9edd8cee04ef1db719be6395509be2
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054020"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113566"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Crie uma fórmula automática para a escala de cafés de computação em uma piscina de lote
 

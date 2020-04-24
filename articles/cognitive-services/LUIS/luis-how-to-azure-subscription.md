@@ -4,12 +4,12 @@ description: Quando utiliza pela primeira vez a Compreensão da Linguagem (LUIS)
 services: cognitive-services
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: ea2799e7b8bb18ad4a729a70ae1477cde9f97e95
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d9235b6ef1c7cddbfbbd36f8382439d781af6d5f
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754380"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101030"
 ---
 # <a name="create-luis-resources"></a>Criar recursos LUIS
 
@@ -70,7 +70,7 @@ Recurso: `kind`
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Criar um recurso de ponto `LUIS`final `my-luis-prediction-resource` de **previsão LUIS**, de `westus` espécie , nomeado no grupo de recursos _existente_ nomeado `my-resource-group` para a região. Se quiser uma entrada superior à do `F0` `S0`nível livre, mude para . Saiba mais sobre os níveis de [preços e a entrada.](luis-boundaries.md#key-limits)
+1. Criar um recurso de ponto `LUIS`final `my-luis-prediction-resource` de **previsão LUIS**, de `westus` espécie , nomeado no grupo de recursos _existente_ nomeado `my-resource-group` para a região. Se quiser uma entrada superior à do `F0` `S0`nível livre, mude para . Saiba mais sobre os níveis de [preços e a entrada.](luis-limits.md#key-limits)
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes

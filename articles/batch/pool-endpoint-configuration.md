@@ -1,19 +1,14 @@
 ---
-title: Configure pontos finais do nó na piscina do Lote Azure [ Microsoft Docs
+title: Configure pontos finais do nó na piscina do Lote Azure
 description: Como configurar ou desativar o acesso às portas SSH ou RDP em nódeos de computação numa piscina de Lote Azure.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: labrenne
-ms.openlocfilehash: 098ccf999391412520989c4ec2433fd73bc0a72d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b0ae4b80757bfa647cd5322668d793fa66ffca3
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77017229"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113855"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configure ou desative o acesso remoto aos nódosos de computação numa piscina de Lote Azure
 

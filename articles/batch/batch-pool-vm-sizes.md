@@ -1,25 +1,16 @@
 ---
-title: Escolha tamanhos VM para piscinas - Lote Azure / Microsoft Docs
+title: Escolha tamanhos VM para piscinas
 description: Como escolher entre os tamanhos vm disponíveis para os nódosos de computação em piscinas de Lote Azure
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: c18190ec5e5d079d51630a976681717a78a46e00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d33b97790d2ce9a276a552fd02fe28c796234b15
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087041"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115861"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho VM para comum de cafés em uma piscina de lote azure
 

@@ -1,26 +1,26 @@
 ---
-title: Livros de execução authenticate Azure Automation com serviços web da Amazon
+title: Autenticar runbooks da Automatização do Azure com o Amazon Web Services
 description: Este artigo descreve como criar e validar uma credencial AWS para runbooks na Automatização do Azure gerindo recursos AWS.
 keywords: autenticação aws, configurar aws
 services: automation
 ms.subservice: process-automation
-ms.date: 04/17/2018
+ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 02ff9cedfbeaa36b2fafc84637ea3141b223a064
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1bf60d17af1d9866de6a62ac538fa0bd9a15ce52
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310485"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113396"
 ---
-# <a name="authenticate-azure-automation-runbooks-with-amazon-web-services"></a>Livros de execução authenticate Azure Automation com serviços web da Amazon
+# <a name="authenticate-azure-automation-runbooks-with-amazon-web-services"></a>Autenticar runbooks da Automatização do Azure com o Amazon Web Services
 
 Automatizar tarefas comuns com recursos nos Amazon Web Services (AWS) pode ser efetuado com runbooks de Automatização no Azure. Pode automatizar muitas tarefas no AWS através de runbooks de Automatização, tal como o pode fazer com recursos no Azure. Apenas são necessárias duas coisas:
 
 * Uma subscrição do AWS e um conjunto de credenciais. Mais especificamente, a Chave de Acesso do AWS e a Chave Secreta. Para obter mais informações, veja o artigo [Using AWS Credentials (Com Credenciais AWS)](https://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html).
 * Uma subscrição do Azure e a conta de Automatização.
 
-Para efetuar a autenticação com o AWS, tem de especificar um conjunto de credenciais do AWS para autenticar os runbooks a partir da Automatização do Azure. Se já tiver uma conta De automação criada e pretender usá-lo para autenticar com AWS, pode seguir os passos na seguinte secção: Se quiser dedicar uma conta para livros de execução direcionados para os recursos DaWS, deve primeiro criar uma nova [conta Automation](automation-offering-get-started.md) (saltar a opção de criar um diretor de serviço) e utilizar os seguintes passos:
+Para efetuar a autenticação com o AWS, tem de especificar um conjunto de credenciais do AWS para autenticar os runbooks a partir da Automatização do Azure. Se já tiver uma conta de Automatização criada e pretende utilizá-la para efetuar a autenticação com o AWS, pode seguir os passos na secção seguinte. Se quiser dedicar uma conta para livros de execução direcionados para os recursos DaWS, primeiro deve criar uma nova [conta Automation](automation-create-standalone-account.md) e saltar o passo para criar uma conta Run As. Depois de criar a conta, siga os passos abaixo para completar a configuração.
 
 ## <a name="configure-automation-account"></a>Configurar conta de Automatização
 

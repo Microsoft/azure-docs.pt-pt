@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: diberry
-ms.openlocfilehash: ec6f9592a4c149be382fab66cca27d929644d988
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 679073715588a4a81e69e3e7ba2d18341b1bab4b
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78194514"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096627"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de autoria de recursos Azure
 
@@ -66,7 +66,7 @@ Pode atrasar o processo de migração cancelando pela janela. É-lhe pedido peri
 * **Opcionalmente,** guarde a lista de colaboradores de cada aplicação. Esta lista de e-mails é fornecida como parte do processo de migração.
 
 
-A autoria da **sua aplicação LUIS é gratuita**, indicada pelo `F0` nível. Saiba [mais sobre os níveis de preços.](luis-boundaries.md#key-limits)
+A autoria da **sua aplicação LUIS é gratuita**, indicada pelo `F0` nível. Saiba [mais sobre os níveis de preços.](luis-limits.md#key-limits)
 
 Se não tiver uma assinatura Azure, [inscreva-se.](https://azure.microsoft.com/free/)
 

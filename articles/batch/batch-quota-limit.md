@@ -1,25 +1,15 @@
 ---
-title: Quotas e limites de serviço - Lote Azure / Microsoft Docs
+title: Quotas e limites do serviço
 description: Conheça as quotas, limites e constrangimentos do Lote Azure padrão, e como solicitar aumentos de quota
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: c8a78acfa1f3e7332cee337ae1a82ee365fe356a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a901d54ea584ec67bfa679e9cdc716ab27d45eca
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248232"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115827"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -99,7 +89,7 @@ Siga estes passos para solicitar um aumento de quota para a sua conta Batch ou a
    
     c. **Lote tipo** > **Batch** quota
       
-    Selecione **Next**.
+    Selecione **Seguinte**.
     
 1. Em **Detalhes**:
       
@@ -119,7 +109,7 @@ Siga estes passos para solicitar um aumento de quota para a sua conta Batch ou a
 
     b. Selecione uma **Severidade** de acordo com o impacto do seu [negócio][support_sev].
 
-    Selecione **Next**.
+    Selecione **Seguinte**.
 
 1. Em informações de **contacto:**
    

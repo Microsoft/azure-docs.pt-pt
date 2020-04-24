@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 9d213c8fa03ad2ca5e5fd7e620e52aa502749be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 954e7a22ae6b242c6221119c688259e4ce629a2a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79220965"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101064"
 ---
 # <a name="authoring-and-runtime-keys"></a>Chaves de criação e de runtime
 
-O Entendimento linguístico (LUIS) tem dois serviços e conjuntos de API: 
+O Entendimento linguístico (LUIS) tem dois serviços e conjuntos de API:
 
 * Autoria (anteriormente conhecida como _programática)_
 * Tempo de execução da previsão
@@ -42,8 +42,8 @@ Quando começa si pela primeira vez a usar O LUIS, é criada uma **chave de arra
 <a name="endpoint-key"></a>
 <a name="authoring-key"></a>
 
-O LUIS permite três tipos de recursos Azure: 
- 
+O LUIS permite três tipos de recursos Azure:
+
 |Chave|Objetivo|Serviço cognitivo`kind`|Serviço cognitivo`type`|
 |--|--|--|--|
 |[Chave de autoria](#programmatic-key)|Acesso e gestão de dados de aplicação com autoria, formação, publicação e testes. Crie uma chave de autor DO LUIS se pretender autor programático de aplicações LUIS.<br><br>O objetivo `LUIS.Authoring` da chave é permitir-lhe:<br>* gerir programáticamente aplicações e modelos de compreensão de linguagem, incluindo formação e publicação<br> * controlar as permissões ao recurso de autoria atribuindo as pessoas [ao papel de contribuinte](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
@@ -55,42 +55,42 @@ Quando o processo de criação de recursos estiver concluído, [atribua a chave]
 É importante para o autor de apps LUIS em [regiões](luis-reference-regions.md#publishing-regions) onde você quer publicar e consultar.
 
 > [!CAUTION]
-> Por conveniência, muitas das amostras utilizam a [tecla Starter](#starter-key) porque fornece algumas chamadas finais de previsão gratuitas na sua [quota](luis-boundaries.md#key-limits).  
+> Por conveniência, muitas das amostras utilizam a [tecla Starter](#starter-key) porque fornece algumas chamadas finais de previsão gratuitas na sua [quota](luis-limits.md#key-limits).
 
 
 ### <a name="query-prediction-resources"></a>Recursos de previsão de consultas
 
-* A chave de tempo de execução pode ser usada para todas as suas aplicações LUIS ou para aplicações ESPECÍFICAs do LUIS. 
-* Não utilize a chave de tempo de execução para a autoria de aplicações LUIS. 
+* A chave de tempo de execução pode ser usada para todas as suas aplicações LUIS ou para aplicações ESPECÍFICAs do LUIS.
+* Não utilize a chave de tempo de execução para a autoria de aplicações LUIS.
 
 O ponto final do tempo de execução LUIS aceita dois estilos de consulta, ambos usam a chave de tempo de execução do ponto final de previsão, mas em diferentes lugares.
 
-O ponto final usado para aceder ao tempo de execução utiliza um subdomínio `{region}` único na região do seu recurso, denotado na tabela seguinte. 
+O ponto final usado para aceder ao tempo de execução utiliza um subdomínio `{region}` único na região do seu recurso, denotado na tabela seguinte.
 
 ## <a name="assignment-of-the-key"></a>Atribuição da chave
 
-Pode [atribuir](luis-how-to-azure-subscription.md) a chave de tempo de execução no [portal LUIS](https://www.luis.ai) ou através das APIs correspondentes. 
+Pode [atribuir](luis-how-to-azure-subscription.md) a chave de tempo de execução no [portal LUIS](https://www.luis.ai) ou através das APIs correspondentes.
 
 ## <a name="key-limits"></a>Limites-chave
 
-Pode criar até 10 chaves de autoria por região por subscrição. 
+Pode criar até 10 chaves de autoria por região por subscrição.
 
-Consulte [os limites de chave](luis-boundaries.md#key-limits) e as [regiões de Azure.](luis-reference-regions.md) 
+Consulte [os limites de chave](luis-limits.md#key-limits) e as [regiões de Azure.](luis-reference-regions.md)
 
 As regiões editoriais são diferentes das regiões autorais. Certifique-se de que cria uma aplicação na região de autor correspondente à região editorial que pretende localizar a sua aplicação de cliente.
 
 ## <a name="key-limit-errors"></a>Principais erros de limite
-Se exceder a sua quota de transações por segundo (TPS), receberá um erro HTTP 429. Se exceder a sua quota de transação por mês (TPS), receberá um erro HTTP 403. 
+Se exceder a sua quota de transações por segundo (TPS), receberá um erro HTTP 429. Se exceder a sua quota de transação por mês (TPS), receberá um erro HTTP 403.
 
 ## <a name="contributions-from-other-authors"></a>Contribuições de outros autores
 
-**Para a autoria de aplicações [migradas](luis-migration-authoring.md) **por recursos : _os contribuintes_ são geridos no portal Azure para o recurso de autoria, utilizando a página de Controlo de **Acesso (IAM).** Saiba [como adicionar um utilizador,](luis-how-to-collaborate.md)utilizando o endereço de e-mail do colaborador e a função de _contribuinte._ 
+**Para a autoria de aplicações [migradas](luis-migration-authoring.md) **por recursos : _os contribuintes_ são geridos no portal Azure para o recurso de autoria, utilizando a página de Controlo de **Acesso (IAM).** Saiba [como adicionar um utilizador,](luis-how-to-collaborate.md)utilizando o endereço de e-mail do colaborador e a função de _contribuinte._
 
 **Para aplicações que ainda não migraram**: todos os _colaboradores_ são geridos no portal LUIS a partir da página **'Gerir - > Colaboradores.**
 
 ## <a name="move-transfer-or-change-ownership"></a>Mover, transferir ou alterar a propriedade
 
-Uma aplicação é definida pelos seus recursos Azure, que é determinada pela subscrição do proprietário. 
+Uma aplicação é definida pelos seus recursos Azure, que é determinada pela subscrição do proprietário.
 
 Pode mover a sua aplicação LUIS. Utilize os seguintes recursos de documentação no portal Azure ou no Azure CLI:
 
@@ -98,22 +98,22 @@ Pode mover a sua aplicação LUIS. Utilize os seguintes recursos de documentaç�
 * [Mover recursos para novo grupo de recursos ou subscrição](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 * [Mover recursos dentro da mesma subscrição ou através de subscrições](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
 
-Para transferir a [propriedade](../../cost-management-billing/manage/billing-subscription-transfer.md) da sua subscrição: 
+Para transferir a [propriedade](../../cost-management-billing/manage/billing-subscription-transfer.md) da sua subscrição:
 
 **Para utilizadores que tenham migrado - [aplicações de recursos migrados](luis-migration-authoring.md) **de `contributor`recursos - Como proprietário do recurso, você pode adicionar um .
 
-**Para utilizadores que ainda não tenham migrado**: Exporte a sua aplicação como um ficheiro JSON. Outro utilizador da LUIS pode importar a app, tornando-se assim o proprietário da app. A nova aplicação terá um ID de aplicação diferente.  
+**Para utilizadores que ainda não tenham migrado**: Exporte a sua aplicação como um ficheiro JSON. Outro utilizador da LUIS pode importar a app, tornando-se assim o proprietário da app. A nova aplicação terá um ID de aplicação diferente.
 
 ## <a name="access-for-private-and-public-apps"></a>Acesso a aplicativos privados e públicos
 
-Para uma aplicação **privada,** o acesso a tempo de execução está disponível para proprietários e colaboradores. Para uma aplicação **pública,** o acesso a tempo de execução está disponível para todos os que têm o seu próprio [Serviço Cognitivo](../cognitive-services-apis-create-account.md) Azure ou recurso de tempo de execução [LUIS,](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) e tem o ID da aplicação pública. 
+Para uma aplicação **privada,** o acesso a tempo de execução está disponível para proprietários e colaboradores. Para uma aplicação **pública,** o acesso a tempo de execução está disponível para todos os que têm o seu próprio [Serviço Cognitivo](../cognitive-services-apis-create-account.md) Azure ou recurso de tempo de execução [LUIS,](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) e tem o ID da aplicação pública.
 
 Atualmente, não existe um catálogo de aplicações públicas.
 
 ### <a name="authoring-access"></a>Acesso de autoria
-O acesso à aplicação a partir do portal [LUIS](luis-reference-regions.md#luis-website) ou das [APIs de autoria](https://go.microsoft.com/fwlink/?linkid=2092087) é controlado pelo recurso de autoria Azure. 
+O acesso à aplicação a partir do portal [LUIS](luis-reference-regions.md#luis-website) ou das [APIs de autoria](https://go.microsoft.com/fwlink/?linkid=2092087) é controlado pelo recurso de autoria Azure.
 
-O proprietário e todos os colaboradores têm acesso ao autor da app. 
+O proprietário e todos os colaboradores têm acesso ao autor da app.
 
 |O acesso à autoria inclui|Notas|
 |--|--|
@@ -131,7 +131,7 @@ O proprietário e todos os colaboradores têm acesso ao autor da app.
 
 ### <a name="prediction-endpoint-runtime-access"></a>Acesso de prazo de ponta de previsão
 
-O acesso à consulta o ponto final da previsão é controlado por uma definição na página informação de **aplicação** na secção **Gerir.** 
+O acesso à consulta o ponto final da previsão é controlado por uma definição na página informação de **aplicação** na secção **Gerir.**
 
 |[Ponto final privado](#runtime-security-for-private-apps)|[Ponto final público](#runtime-security-for-public-apps)|
 |:--|:--|
@@ -153,19 +153,19 @@ O tempo de execução de uma aplicação privada só está disponível para o se
 
 Uma vez configurada uma aplicação como pública, _qualquer_ chave de autor de LUIS válida ou chave de ponto final LUIS pode consultar a sua app, desde que a chave não tenha usado toda a quota de ponto final.
 
-Um utilizador que não seja proprietário ou colaborador, só pode aceder ao tempo de execução de uma aplicação pública se for dado o ID da aplicação. O LUIS não tem um _mercado_ público ou outra forma de procurar uma aplicação pública.  
+Um utilizador que não seja proprietário ou colaborador, só pode aceder ao tempo de execução de uma aplicação pública se for dado o ID da aplicação. O LUIS não tem um _mercado_ público ou outra forma de procurar uma aplicação pública.
 
 Uma aplicação pública é publicada em todas as regiões para que um utilizador com uma chave de recursos LUIS baseada na região possa aceder à app em qualquer região que esteja associada à chave de recursos.
 
 ## <a name="transfer-of-ownership"></a>Transferência de propriedade
 
-Luis não tem o conceito de transferir a propriedade de um recurso. 
+Luis não tem o conceito de transferir a propriedade de um recurso.
 
-## <a name="securing-the-endpoint"></a>Assegurar o ponto final 
+## <a name="securing-the-endpoint"></a>Assegurar o ponto final
 
-Pode controlar quem pode ver a sua chave de ponta de ponta de previsão LUIS, chamando-a num ambiente servidor-a-servidor. Se estiver a utilizar o LUIS a partir de um bot, a ligação entre o bot e o LUIS já está segura. Se estiver a ligar diretamente para o ponto final da LUIS, deve criar uma API do lado do servidor (como uma [função](https://azure.microsoft.com/services/functions/)Azure) com acesso controlado (como [AAD).](https://azure.microsoft.com/services/active-directory/) Quando a API do lado do servidor for chamada e a autenticação e autorização forem verificadas, passe a chamada para O. Embora esta estratégia não impeça ataques man-in-the-middle, ele obfusa o seu ponto final dos seus utilizadores, permite-lhe rastrear o acesso, e permite-lhe adicionar registo de resposta de ponto final (como Insights de [Aplicação).](https://azure.microsoft.com/services/application-insights/)  
+Pode controlar quem pode ver a sua chave de ponta de ponta de previsão LUIS, chamando-a num ambiente servidor-a-servidor. Se estiver a utilizar o LUIS a partir de um bot, a ligação entre o bot e o LUIS já está segura. Se estiver a ligar diretamente para o ponto final da LUIS, deve criar uma API do lado do servidor (como uma [função](https://azure.microsoft.com/services/functions/)Azure) com acesso controlado (como [AAD).](https://azure.microsoft.com/services/active-directory/) Quando a API do lado do servidor for chamada e a autenticação e autorização forem verificadas, passe a chamada para O. Embora esta estratégia não impeça ataques man-in-the-middle, ele obfusa o seu ponto final dos seus utilizadores, permite-lhe rastrear o acesso, e permite-lhe adicionar registo de resposta de ponto final (como Insights de [Aplicação).](https://azure.microsoft.com/services/application-insights/)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Compreender [conceitos de versão.](luis-concept-version.md) 
+* Compreender [conceitos de versão.](luis-concept-version.md)
 * Aprenda [a criar chaves.](luis-how-to-azure-subscription.md)

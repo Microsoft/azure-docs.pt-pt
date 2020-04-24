@@ -1,18 +1,16 @@
 ---
-title: Verifique se há erros de trabalho e tarefas - Lote Azure / Microsoft Docs
+title: Verificar a existência de erros nos trabalhos e tarefas
 description: Erros para verificar e resolver problemas empregos e tarefas
-services: batch
 author: mscurrell
-ms.service: batch
 ms.topic: article
 ms.date: 03/10/2019
 ms.author: markscu
-ms.openlocfilehash: 4ace0de6d252680eb64990277b9478adf752f54d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c58bdf50f3e69b2b7d18f750f94fecdb512af85
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087010"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116031"
 ---
 # <a name="job-and-task-error-checking"></a>Verificação de erros de trabalho e tarefa
 

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: f94136ca6bfcb7e33415f2f44fdf4c44ef9f6a6f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: bd4dabe1d5fbc4722d03f31492d2118802292df2
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682784"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82111975"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Empregos de experimentação e inferência secure Azure ML dentro de uma Rede Virtual Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -172,7 +172,9 @@ Não precisa especificar NSGs ao nível da subnet, porque o serviço Azure Batch
 
 A configuração da regra NSG no portal Azure é mostrada nas seguintes imagens:
 
-[![As regras de nSG de entrada para machine learning compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png#lightbox)
+:::image type="content" source="./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png" alt-text="As regras de nSG de entrada para machine learning compute" border="true":::
+
+
 
 ![As regras de nsg de saída para machine learning compute](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
@@ -224,14 +226,15 @@ A configuração da regra NSG no portal Azure é mostrada na seguinte imagem:
 
 Se estiver a utilizar túneis forçados com a Computação de Aprendizagem automática, adicione [as rotas definidas pelo utilizador (UDRs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) à sub-rede que contém o recurso computacional.
 
-* Estabeleça um UDR para cada endereço IP que seja utilizado pelo serviço Azure Batch na região onde os seus recursos existem. Estes UDRs permitem que o serviço Batch comunique com os nossos nódeos computacionais para agendamento de tarefas. Para obter uma lista de endereços IP do serviço Batch, utilize um dos seguintes métodos:
+* Estabeleça um UDR para cada endereço IP que seja utilizado pelo serviço Azure Batch na região onde os seus recursos existem. Estes UDRs permitem que o serviço Batch comunique com os nossos nódeos computacionais para agendamento de tarefas. Adicione também o endereço IP para o serviço de Aprendizagem Automática Azure onde os recursos existem, uma vez que este é necessário para o acesso às Instâncias computadas. Para obter uma lista de endereços IP do serviço Batch e do serviço de Machine Learning Azure, utilize um dos seguintes métodos:
 
-    * Descarregue as [gamas e etiquetas](https://www.microsoft.com/download/details.aspx?id=56519) de `BatchNodeManagement.<region>`serviço `<region>` Azure IP e procure no ficheiro, onde fica a sua região Azure.
+    * Descarregue as [gamas e etiquetas](https://www.microsoft.com/download/details.aspx?id=56519) de `BatchNodeManagement.<region>` serviço `AzureMachineLearning.<region>`Azure IP e procure no ficheiro e, onde `<region>` fica a sua região Azure.
 
     * Utilize o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para descarregar as informações. O exemplo seguinte descarrega as informações de endereço IP e filtra as informações para a região leste dos EUA 2:
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+        az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
 
 * O tráfego de saída para o Armazenamento Azure não deve ser bloqueado pelo seu aparelho de rede no local. Especificamente, os URLs `<account>.table.core.windows.net`estão na forma, `<account>.queue.core.windows.net`e `<account>.blob.core.windows.net`.
@@ -537,7 +540,7 @@ Para obter mais informações sobre a configuração de uma regra de rede, consu
 
     A partir da secção geral do seu espaço de trabalho, o valor __do registo__ liga-se ao Registo de Contentores Azure.
 
-    ![Registo de contentores azure para o espaço de trabalho](./media/how-to-enable-virtual-network/azure-machine-learning-container-registry.png)
+    :::image type="content" source="./media/how-to-enable-virtual-network/azure-machine-learning-container-registry.png" alt-text="Registo de contentores azure para o espaço de trabalho" border="true":::
 
     __CLI do Azure__
 

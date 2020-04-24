@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 3cf654e77bf68c5194a0213d4452242b5c44e234
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b1db306ffdb1c05c880e5fc639de2cc1db130d8e
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81423671"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096287"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark em Conceitos Centrais de Analytics Azure Synapse
 
@@ -30,7 +30,7 @@ Como não há um dólar ou custo de recursos associado à criação de piscinas 
 
 A melhor prática é criar piscinas de faíscas mais pequenas que possam ser usadas para desenvolvimento e depuração e, em seguida, maiores para executar cargas de trabalho de produção.
 
-Você pode ler como criar uma piscina de faíscas e ver todas as suas propriedades aqui [Começar com piscinas Spark em Synapse Analytics](apache-spark-notebook-create-spark-use-sql.md#create-an-apache-spark-pool)
+Você pode ler como criar uma piscina de faíscas e ver todas as suas propriedades aqui [Começar com piscinas Spark em Synapse Analytics](../quickstart-create-apache-spark-pool.md)
 
 ## <a name="spark-instances"></a>Casos de faíscas
 

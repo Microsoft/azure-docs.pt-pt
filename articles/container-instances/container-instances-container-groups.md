@@ -1,15 +1,15 @@
 ---
 title: Introdução a grupos de contentores
-description: Conheça grupos de contentores em Casos de Contentores Azure, uma coleção de casos que partilham um ciclo de vida e recursos como armazenamento e rede
+description: Conheça grupos de contentores em Casos de Contentores Azure, uma coleção de casos que partilham um ciclo de vida e recursos como CPUs, armazenamento e rede
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 73781418321c3932bf3e0190b646dcd3bb178195
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3efc4528863286da676fc7eb758176156c87a32a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247218"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115657"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contentores no Azure Container Instances
 
@@ -56,7 +56,10 @@ Cada instância de contentores de um grupo é atribuída aos recursos especifica
     
 Por exemplo, num grupo com dois contentores cada um solicitando 1 CPU, um dos seus contentores pode executar uma carga de trabalho que requer mais CPUs para funcionar do que o outro.
 
-Neste cenário, pode definir um limite de recursos de 2 CPUs para a instância do contentor. Esta configuração permite que a instância do recipiente utilize até aos 2 CPUs completos, se disponível.
+Neste cenário, pode definir um limite de recursos de até 2 CPUs para a instância do contentor. Esta configuração permite que a instância do recipiente utilize até 2 CPUs, se disponível.
+
+> [!NOTE]
+> Uma pequena quantidade de recursos de um grupo de contentores é utilizada pela infraestrutura subjacente do serviço. Os seus contentores poderão aceder à maioria, mas não todos os recursos atribuídos ao grupo. Por esta razão, planeie um pequeno tampão de recursos ao solicitar recursos para contentores no grupo.
 
 ### <a name="minimum-and-maximum-allocation"></a>Atribuição mínima e máxima
 
@@ -72,7 +75,7 @@ Dentro de um grupo de contentores, as instâncias de contentores podem chegar en
 
 Coloque opcionalmente grupos de contentores numa [rede virtual Azure][virtual-network] para permitir que os contentores comuniquem de forma segura com outros recursos da rede virtual.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 Pode especificar volumes externos para montar dentro de um grupo de contentores. Os volumes suportados incluem:
 * [Partilha de ficheiros Azure][azure-files]

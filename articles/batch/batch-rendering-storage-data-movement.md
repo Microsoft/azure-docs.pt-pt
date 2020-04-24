@@ -1,5 +1,5 @@
 ---
-title: Armazenamento e movimento de dados para renderização - Lote Azure
+title: Armazenamento e movimento de dados para renderização
 description: Conheça as várias opções de armazenamento e movimento de dados para renderizar cargas de trabalho de ficheiros de ativos e de saída.
 services: batch
 ms.service: batch
@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1076fc152ddf2c3a2d4f2346262ca90215d68ddf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 497f3b3b42d98c08b06744eaa976ae188443b90d
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75390389"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115674"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opções de armazenamento e movimento de dados para renderização de ficheiros de ativos e de saída
 

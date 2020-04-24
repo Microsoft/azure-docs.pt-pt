@@ -6,22 +6,30 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: sngun
-ms.openlocfilehash: 64ad8e6b1101d8486268c857b3a7752e1801f52c
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 32dd598b8fc62c0ec68f86f95b02f9f3d98cedd2
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420249"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116303"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar operações de aviões de controlo da Azure Cosmos DB
 
-As operações de controlo do avião incluem alterações na conta ou contentor da Azure Cosmos. Por exemplo, criar uma conta Azure Cosmos, adicionar uma região, atualizar o rendimento, falha da região, adicionar um VNet etc. são algumas das operações de controle do avião. Este artigo explica como auditar as operações de controlo de aviões em Azure Cosmos DB.
+Control Plane in Azure Cosmos DB é um serviço RESTful que lhe permite realizar um conjunto diversificado de operações na conta Azure Cosmos. Expõe um modelo de recursos públicos (por exemplo: base de dados, conta) e várias operações aos utilizadores finais para realizar ações no modelo de recurso. As operações de controlo do avião incluem alterações na conta ou contentor da Azure Cosmos. Por exemplo, operações como criar uma conta Azure Cosmos, adicionar uma região, atualizar o rendimento, falha da região, adicionar um VNet etc. são algumas das operações de controle do avião. Este artigo explica como auditar as operações de controlo de aviões em Azure Cosmos DB. Pode executar as operações de controlo de aviões nas contas Azure Cosmos utilizando o portal Azure CLI, PowerShell ou Azure, enquanto para contentores, utilize o Azure CLI ou o PowerShell.
+
+Seguem-se alguns cenários de exemplo em que a auditoria das operações de controlo dos aviões é útil:
+
+* Você quer receber um alerta quando as regras de firewall para a sua conta Azure Cosmos são modificadas. O alerta é necessário para encontrar modificações não autorizadas às regras que regem a segurança da rede da sua conta Azure Cosmos e tomar medidas rápidas.
+
+* Você quer receber um alerta se uma nova região é adicionada ou removida da sua conta Azure Cosmos. A adição ou remoção de regiões tem implicações nos requisitos de faturação e soberania de dados. Este alerta irá ajudá-lo a detetar uma adição acidental ou remoção da região por conta própria.
+
+* Você quer obter mais detalhes dos registos de diagnóstico sobre o que mudou. Por exemplo, um VNet foi alterado.
 
 ## <a name="disable-key-based-metadata-write-access"></a>Desativar o acesso de escrita de metadados baseados na chave
- 
-Antes de auditar as operações de controlo de aviões em Azure Cosmos DB, desative os metadados baseados na chave, a escrever acesso na sua conta. Quando o acesso de escrita de metadados baseados na chave é desativado, os clientes que ligam à conta Azure Cosmos através de chaves de conta são impedidos de aceder à conta. Você pode desativar `disableKeyBasedMetadataWriteAccess` o acesso de escrita, definindo a propriedade como verdadeira. Depois de definir esta propriedade, as alterações a qualquer recurso podem ocorrer a partir de um utilizador com a função e credenciais de controlo de acesso baseados em Funções adequadas(RBAC). Para saber mais sobre como definir esta propriedade, consulte as [alterações de Prevenção do artigo dos SDKs.](role-based-access-control.md#preventing-changes-from-cosmos-sdk)
 
- Considere os seguintes pontos ao desligar o acesso de escrita dos metadados:
+Antes de auditar as operações de controlo de aviões em Azure Cosmos DB, desative os metadados baseados na chave, a escrever acesso na sua conta. Quando o acesso de escrita de metadados baseados na chave é desativado, os clientes que ligam à conta Azure Cosmos através de chaves de conta são impedidos de aceder à conta. Você pode desativar `disableKeyBasedMetadataWriteAccess` o acesso de escrita, definindo a propriedade como verdadeira. Depois de definir esta propriedade, as alterações a qualquer recurso podem ocorrer a partir de um utilizador com a função e credenciais de controlo de acesso baseados em Funções adequadas(RBAC). Para saber mais sobre como definir esta propriedade, consulte as [alterações de Prevenção do artigo dos SDKs.](role-based-access-control.md#preventing-changes-from-cosmos-sdk) Depois de desativar o acesso à escrita, as alterações baseadas em SDK para a entrada, o índice continuará a funcionar.
+
+Considere os seguintes pontos ao desligar o acesso de escrita dos metadados:
 
 * Avalie e certifique-se de que as suas aplicações não fazem chamadas de metadados que alteram os recursos acima referidos (por exemplo, criem recolha, atualização de entrada, ...) utilizando as teclas SDK ou conta.
 
@@ -29,7 +37,9 @@ Antes de auditar as operações de controlo de aviões em Azure Cosmos DB, desat
 
 ## <a name="enable-diagnostic-logs-for-control-plane-operations"></a>Ativar registos de diagnóstico para operações de controlo de aviões
 
-Pode ativar registos de diagnóstico para operações de controlo do avião utilizando o portal Azure. Utilize os seguintes passos para permitir a exploração de madeira nas operações de planos de controlo:
+Pode ativar registos de diagnóstico para operações de controlo do avião utilizando o portal Azure. Após a ativação, os registos de diagnóstico registarão a operação como um par de eventos de início e completam eventos com detalhes relevantes. Por exemplo, o *RegionFailoverStart* e *regionFailoverComplete* completarão o evento de failover da região.
+
+Utilize os seguintes passos para permitir a exploração de madeira nas operações de planos de controlo:
 
 1. Assine no [portal Azure](https://portal.azure.com) e navegue para a sua conta Azure Cosmos.
 
@@ -46,6 +56,7 @@ Também pode armazenar os registos numa conta de armazenamento ou transmitir par
 Depois de ligar a exploração madeireira, utilize os seguintes passos para rastrear as operações para obter uma conta específica:
 
 1. Assine pelo [portal Azure.](https://portal.azure.com)
+
 1. Abra o separador **Monitor** a partir da navegação à esquerda e, em seguida, selecione o painel de **registos.** Abre um UI onde pode facilmente executar consultas com essa conta específica no âmbito. Faça a seguinte consulta para ver os registos de planos de controlo:
 
    ```kusto
@@ -67,6 +78,79 @@ As seguintes imagens capturam registos quando a entrada de uma tabela Cassandra 
 Se pretender depurar ainda mais, pode identificar uma operação específica no **registo de Atividade** utilizando o ID de atividade ou pelo carimbo temporal da operação. O timestamp é usado para alguns clientes do Gestor de Recursos onde o ID da atividade não é explicitamente passado. O registo de Atividades dá detalhes sobre a identidade com que a operação foi iniciada. A imagem seguinte mostra como utilizar o ID de atividade e encontrar as operações associadas ao mesmo no registo de Atividade:
 
 ![Use o ID de atividade e encontre as operações](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
+
+## <a name="control-plane-operations-for-azure-cosmos-account"></a>Controle operações de aviões para a conta Azure Cosmos
+
+Seguem-se as operações de controlo dos aviões disponíveis ao nível da conta. A maioria das operações são rastreadas ao nível da conta. Estas operações estão disponíveis como métricas no monitor Azure:
+
+* Região adicionada
+* Região removida
+* Conta eliminada
+* Região falhou
+* Conta criada
+* Rede virtual eliminada
+* Definições de rede de conta atualizadas
+* Definições de replicação de conta atualizadas
+* Chaves de conta atualizadas
+* Definições de backup da conta atualizadas
+* Configurações de diagnóstico de conta atualizadas
+
+## <a name="control-plane-operations-for-database-or-containers"></a>Controlar as operações dos aviões para bases de dados ou contentores
+
+Seguem-se as operações de controlo dos aviões disponíveis na base de dados e no nível do contentor. Estas operações estão disponíveis como métricas no monitor Azure:
+
+* Base de Dados SQL Atualizada
+* Recipiente SQL atualizado
+* Entrada de base de dados SQL atualizada
+* Entrada de recipiente SQL atualizada
+* Base de dados SQL eliminada
+* Recipiente SQL eliminado
+* Cassandra Keyspace Atualizado
+* Tabela Cassandra Atualizada
+* Cassandra Keyspace Entrada atualizada
+* Entrada de tabela Cassandra atualizada
+* Cassandra Keyspace apagada
+* Mesa Cassandra apagada
+* Base de Dados Gremlin Atualizada
+* Gráfico de Gremlin Atualizado
+* Entrada de base de dados Gremlin atualizada
+* Entrada de gráfico de gremlin atualizada
+* Base de Dados Gremlin eliminada
+* Gráfico de Gremlin eliminado
+* Base de Dados de Mongo Atualizada
+* Coleção Mongo Atualizada
+* Entrada de base de dados de Mongo atualizada
+* Mongo Collection Throughput Atualizado
+* Base de Dados mongo eliminada
+* Coleção Mongo apagada
+* Tabela AzureTable Atualizada
+* Entrada de tabela azuretable atualizada
+* Tabela AzureTable eliminada
+
+## <a name="diagnostic-log-operations"></a>Operações de registo de diagnóstico
+
+Seguem-se os nomes de operação em registos de diagnóstico para diferentes operações:
+
+* RegionAddStart, RegionAddComplete
+* RegionRemoveStart, RegionRemoveComplete
+* AccountDeleteStart, AccountDeleteComplete
+* RegiãoFailoverStart, RegionFailoverComplete
+* AccountCreateStart, AccountCreateComplete
+* AccountUpdateStart, AccountUpdateComplete
+* VirtualNetworkDeleteStart, VirtualNetworkDeleteComplete
+* DiagnosticLogUpdateStart, DiagnosticLogUpdateComplete
+
+Para operações específicas da API, a operação é nomeada com o seguinte formato:
+
+* ApiKind + ApiKindResourceType + OperationType + Início/Completo
+* ApiKind + ApiKindResourceType + "Reposição" + operaçãoType + Início/Completo
+
+**Exemplo** 
+
+* CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
+* CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
+
+A propriedade *ResourceDetails* contém todo o corpo de recursos como uma carga útil de pedido e contém todas as propriedades solicitadas para atualizar
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 4155e419bb03613abad808ca09d84bcb6583291f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b6af42f09351df60beb2aa449f8fcd2ff6a554e8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81423650"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116660"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>O que é Apache Spark em Azure Synapse Analytics
 
@@ -35,7 +35,7 @@ As piscinas de faíscas em Azure Synapse oferecem um serviço Spark totalmente g
 | Funcionalidade | Descrição |
 | --- | --- |
 | Rapidez e eficiência |As ocorrências de faíscas começam em aproximadamente 2 minutos por menos de 60 nós e aproximadamente 5 minutos para mais de 60 nós. A instância encerra, por defeito, 5 minutos após o último trabalho executado, a menos que seja mantida viva por uma ligação de caderno. |
-| Facilidade de criação |Pode criar uma nova piscina Spark em Azure Synapse em minutos usando o portal Azure, Azure PowerShell ou o Synapse Analytics .NET SDK. Veja [Começar com piscinas Spark em Synapse Analytics.](apache-spark-notebook-create-spark-use-sql.md) |
+| Facilidade de criação |Pode criar uma nova piscina Spark em Azure Synapse em minutos usando o portal Azure, Azure PowerShell ou o Synapse Analytics .NET SDK. Veja [Começar com piscinas Spark em Synapse Analytics.](../quickstart-create-apache-spark-pool.md) |
 | Facilidade de utilização |A Synapse Analytics inclui um caderno personalizado derivado do [Nteract](https://nteract.io/). Pode utilizar estes blocos de notas para o processamento e a visualização de dados interativos.|
 | APIs REST |Spark in Synapse Analytics inclui [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), um servidor de trabalho spark baseado em REST API para submeter e monitorizar remotamente trabalhos. |
 | Suporte para Azure Data Lake Storage Geração 2| As piscinas de faíscas em Azure Synapse podem usar a Geração de Armazenamento do Lago De dados Azure 2, bem como o armazenamento BLOB. Para mais informações sobre o Armazenamento de Data Lake, consulte [a visão geral do armazenamento do Lago De Dados Azure](../../data-lake-store/data-lake-store-overview.md). |
@@ -78,7 +78,8 @@ Apache Spark vem com [MLlib](https://spark.apache.org/mllib/), uma biblioteca de
 
 Use os seguintes artigos para saber mais sobre Apache Spark em Synapse Analytics:
 
-- [Quickstart: Crie uma piscina de faíscas em Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
+- [Quickstart: Crie uma piscina de faíscas em Azure Synapse](../quickstart-create-apache-spark-pool.md)
+- [Quickstart: Crie um caderno Apache Spark](../quickstart-apache-spark-notebook.md)
 - [Tutorial: Machine learning usando Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
 - [Documentação oficial de Apache Spark](https://spark.apache.org/docs/latest/)
 
@@ -89,4 +90,4 @@ Use os seguintes artigos para saber mais sobre Apache Spark em Synapse Analytics
 
 Nesta visão geral, você obtém uma compreensão básica de Apache Spark em Azure Synapse Analytics. Avance para o próximo artigo para aprender a criar uma piscina de faíscas no Azure Synapse Analytics:
 
-- [Crie uma piscina de faíscas em Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
+- [Crie uma piscina de faíscas em Azure Synapse](../quickstart-create-apache-spark-pool.md)

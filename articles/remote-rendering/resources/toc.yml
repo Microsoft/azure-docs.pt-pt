@@ -1,10 +1,12 @@
 - name: Notas de versão
   href: 'https://github.com/Azure/azure-remote-rendering/releases'
-- name: Ferramentas
-  href: tools/toc.yml
 - name: Resolução de problemas
   href: troubleshoot.md
+- name: Suporte
+  href: support.md
 - name: Fornecer comentários sobre o produto
   href: 'https://feedback.azure.com/forums/928696-azure-remote-rendering'
 - name: Stack Overflow
   href: 'https://stackoverflow.com/questions/tagged/azure-remote-rendering'
+- name: Ferramentas
+  href: tools/toc.yml

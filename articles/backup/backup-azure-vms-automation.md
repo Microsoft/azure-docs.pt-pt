@@ -3,12 +3,12 @@ title: Back up e recuperar VMs Azure com PowerShell
 description: Descreve como fazer backup e recuperar VMs Azure usando backup Azure com PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 1d1074eea3d530b17904e2f49fba7c0d24e84e59
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: a27b191868230ef9fc0de4378549e13d019ca875
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743289"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116388"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Back up e restaurar VMs Azure com PowerShell
 
@@ -480,8 +480,8 @@ $restorejob
 
 Forneça um parâmetro adicional **TargetResourceGroupName** para especificar o RG ao qual serão restaurados os discos geridos.
 
-> [!NOTE]
-> Recomenda-se vivamente utilizar o parâmetro **TargetResourceGroupName** para restaurar os discos geridos, uma vez que resulta em melhorias significativas de desempenho. Além disso, a partir do módulo Azure Powershell Az 1.0 em diante, este parâmetro é obrigatório em caso de restauro com discos geridos
+> [!IMPORTANT]
+> Recomenda-se vivamente utilizar o parâmetro **TargetResourceGroupName** para restaurar os discos geridos, uma vez que resulta em melhorias significativas de desempenho. Se este parâmetro não for dado, os clientes não podem beneficiar da funcionalidade de restauro instantâneo e a operação de restauro será mais lenta em comparação. Se o objetivo é restaurar os discos geridos como discos não geridos, então não forneça este parâmetro e torne a intenção clara fornecendo o parâmetro -RestoreAsUnmanagedDisks. O parâmetro -RestoreAsUnmanageDDisks está disponível a partir de Az PS 3.7.0 em diante. Em futuras versões, será obrigatório fornecer qualquer um destes parâmetros para a experiência de restauro certa
 >
 >
 

@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 03/11/2020
-ms.openlocfilehash: fe6125682f669e453100488b7e0afc4c49409588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a1440dcda27a487c89be4ac63e624a2bb6b393a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79129727"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82111883"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Criar fluxos de trabalho de aprendizagem automática orientados para eventos (Pré-visualização)
 
@@ -26,7 +26,7 @@ Para obter mais informações sobre os tipos de eventos, consulte a [integraçã
 Utilize a Grelha de Eventos para permitir cenários comuns como:
 
 * Envie e-mails sobre falha de execução e conclusão de execução
-* Use uma função azul depois de um modelo ser registado
+* Utilize uma função Azure depois de um modelo ser registado
 * Eventos de streaming de Azure Machine Learning para vários pontos finais
 * Desencadear um oleoduto ML quando a deriva for detetada
 
@@ -87,15 +87,13 @@ Ao configurar os seus eventos, pode aplicar filtros apenas para acionar dados es
 
 1. Vá ao portal Azure, selecione uma nova subscrição ou uma existente. 
 
-1. Selecione o separador de filtros e desloque-se para filtros avançados. Na **Chave** e **valor** fornece os tipos de propriedade que pretende filtrar. Aqui você pode ver que o evento só será acionado quando o tipo de execução é um pipeline run ou pipeline step run.  
+1. Selecione o separador de filtros e desloque-se para filtros avançados. Para obter a **Chave** e **o Valor,** forneça os tipos de propriedade que pretende filtrar. Aqui você pode ver que o evento só será acionado quando o tipo de execução é um pipeline run ou pipeline step run.  
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="eventos de filtro":::
 
-## <a name="sample-scenarios"></a>Cenários de exemplo
+## <a name="sample-send-email-alerts"></a>Amostra: Enviar alertas de e-mail
 
-### <a name="use-a-logic-app-to-send-email-alerts"></a>Use uma App Lógica para enviar alertas de e-mail
-
-Aproveite [as Aplicações Lógicas Azure](https://docs.microsoft.com/azure/logic-apps/) para configurar e-mails para todos os seus eventos. Personalize com condições e especifique destinatários para permitir a colaboração e a consciencialização entre as equipas que trabalham em conjunto.
+Utilize [aplicativos azure logic](https://docs.microsoft.com/azure/logic-apps/) para configurar e-mails para todos os seus eventos. Personalize com condições e especifique destinatários para permitir a colaboração e a consciencialização entre as equipas que trabalham em conjunto.
 
 1. No portal Azure, vá ao seu espaço de trabalho Azure Machine Learning e selecione o separador de eventos a partir da barra esquerda. A partir daqui, selecione __aplicativos Lógicos.__ 
 
@@ -126,7 +124,7 @@ Aproveite [as Aplicações Lógicas Azure](https://docs.microsoft.com/azure/logi
     ![confirmar-lógica-app-criar](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
-### <a name="use-a-logic-app-to-trigger-retraining-workflows-when-data-drift-occurs"></a>Utilize uma App Lógica para desencadear fluxos de trabalho de reconversão quando ocorre deriva de dados
+## <a name="sample-trigger-retraining-when-data-drift-occurs"></a>Amostra: Reconversão do gatilho quando ocorrer deriva de dados
 
 Os modelos ficam velhos ao longo do tempo, e não permanecem úteis no contexto em que está a funcionar. Uma maneira de saber se está na hora de retreinar o modelo é detetar a deriva de dados. 
 
@@ -173,7 +171,7 @@ Agora, o gasoduto da fábrica de dados é acionado quando ocorre deriva. Veja de
 
 ![espaço de visão no trabalho](./media/how-to-use-event-grid/view-in-workspace.png)
 
-### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Utilizar funções Azure para implementar um modelo baseado em tags
+## <a name="sample-deploy-a-model-based-on-tags"></a>Amostra: Implementar um modelo com base em etiquetas
 
 Um objeto modelo de Aprendizagem automática Azure contém parâmetros que pode girar implementações em nome, versão, etiqueta e propriedade do modelo. O evento de registo do modelo pode desencadear um ponto final e pode utilizar uma Função Azure para implementar um modelo baseado no valor desses parâmetros.
 

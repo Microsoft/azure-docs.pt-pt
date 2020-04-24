@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 0e7c34e42d0ab68a5dab9718075f02a85322ce6c
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 545c1720ef379ec74bd2e7c0bc68f6a2fcbba789
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458833"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115504"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para integração empresarial B2B em Aplicações Lógicas Azure com Pacote de Integração Empresarial
 
@@ -122,7 +122,7 @@ Para tentar implementar uma aplicação lógica totalmente operacional e experim
 Para obter mais detalhes técnicos sobre este conector, tais como ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/as2/). 
 
 > [!NOTE]
-> Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão original do conector com o selo ISE utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
+> Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com o rótulo ISE do conector utiliza os limites de [mensagem B2B para](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits)o ISE .
 
 ## <a name="next-steps"></a>Passos seguintes
 

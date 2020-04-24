@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/23/2020
 ms.author: aschhab
-ms.openlocfilehash: 1e22641e9d4f9959c26cd2043ea2acd7e260e0f0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a4bc2dcfd1826623516a40be0aff7688d0b6168c
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314047"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116694"
 ---
 # <a name="message-sessions"></a>Sessões de mensagens
 As sessões de ônibus de serviço do Microsoft Azure permitem o manuseamento conjunto e ordenado de sequências não limitadas de mensagens relacionadas. As sessões podem ser usadas em primeiro dentro, primeiro fora (FIFO) e padrões de resposta a pedidos. Este artigo mostra como usar sessões para implementar estes padrões ao usar o Service Bus. 
@@ -64,7 +64,7 @@ Quando vários recetores simultâneos retiram da fila, as mensagens pertencentes
 
 A ilustração anterior mostra três recetores simultâneos de sessão. Uma Sessão com `SessionId` = 4 não tem cliente ativo e possuidor, o que significa que nenhuma mensagem é entregue a partir desta sessão específica. Uma sessão funciona de muitas maneiras como uma sub fila.
 
-O bloqueio de sessão mantido pelo recetor da sessão é um guarda-chuva para os bloqueios de mensagem utilizados pelo modo de liquidação *de bloqueio de peek..* Um recetor não pode ter duas mensagens em simultâneo "em voo", mas as mensagens devem ser processadas em ordem. Uma nova mensagem só pode ser obtida quando a mensagem prévia tiver sido completada ou com letras mortas. O abandono de uma mensagem faz com que a mesma mensagem seja novamente servida com a próxima operação de receção.
+O bloqueio de sessão mantido pelo recetor da sessão é um guarda-chuva para os bloqueios de mensagem utilizados pelo modo de liquidação *de bloqueio de peek..* Apenas um recetor pode ter um cadeado numa sessão. Um recetor pode ter muitas mensagens a bordo, mas as mensagens serão recebidas em ordem. O abandono de uma mensagem faz com que a mesma mensagem seja novamente servida com a próxima operação de receção.
 
 ### <a name="message-session-state"></a>Estado da sessão de mensagens
 

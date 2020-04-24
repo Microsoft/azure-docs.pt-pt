@@ -1,23 +1,15 @@
 ---
 title: Use VMs Azure intensivos com lote
 description: Como aproveitar os tamanhos das máquinas virtuais HPC e GPU nas piscinas do Lote Azure. Conheça as dependências do OS e veja vários exemplos de cenário.
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
-ms.openlocfilehash: d0238e0b5b882748218835d7f06a147d435a9f90
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 674ee6c5b96c7aaf2926b51824488d03fc56d0a6
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80245060"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115963"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utilize instâncias DE RDMA ou GPU em piscinas de lotes
 

@@ -11,18 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5b70c11cd6bc24f945b437decf22586cfb97557
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 3713901dd3dd5d17c4e1ddcef529c663b68f5b43
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81873306"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112580"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
 Os serviços da Microsoft, como o Azure Ative Directory (Azure AD) e o Office 365, utilizam padrões e protocolos abertos para maximizar a interoperabilidade. Um dos mais críticos é o Open ID Connect (OIDC). Quando uma aplicação de cliente como o Outlook se conecta a um serviço como o Exchange Online, os pedidos da API são autorizados usando fichas de acesso OAuth 2.0. Por padrão, as fichas de acesso são válidas por uma hora. Quando expiram, o cliente é redirecionado para a Azure AD para os refrescar. Isto também proporciona uma oportunidade para reavaliar as políticas de acesso ao utilizador – podemos optar por não refrescar o símbolo por causa de uma política de Acesso Condicional, ou porque o utilizador foi desativado no diretório. 
 
-Ouvimos o feedback esmagador dos nossos clientes: um atraso de uma hora devido ao tempo de vida simbólico para reaplicar as políticas de Acesso Condicional e as alterações no estado do utilizador (por exemplo: deficientes devido a despedimentos) não é suficiente.
+A expiração e a atualização do token é um mecanismo padrão na indústria. Dito isto, os clientes têm manifestado preocupação com o desfasamento entre quando as condições de risco mudam para o utilizador (por exemplo: passar do escritório corporativo para o café local, ou credenciais de utilizador descobertas no mercado negro) e quando as políticas podem ser aplicadas relacionadas com essa mudança. Experimentámos a abordagem "objeto contundente" de vidas simbólicas reduzidas, mas descobrimos que podem degradar as experiências e a fiabilidade dos utilizadores sem eliminar riscos.
+
+A resposta atempada a violações de políticas ou questões de segurança requer realmente uma "conversa" entre o emitente simbólico, como o Azure AD, e o partido que confia, como o Exchange Online. Esta conversa bidirecional dá-nos duas capacidades importantes. O partido que confia pode notar quando as coisas mudaram, como um cliente vindo de um novo local, e dizer ao emitente simbólico. Também dá ao emitente simbólico uma forma de dizer à parte que confia para deixar de respeitar as fichas de um determinado utilizador devido ao compromisso da conta, à desativação ou a outras preocupações. O mecanismo para esta conversação é a Avaliação contínua de acesso (CAE).
 
 A Microsoft tem participado precocemente na iniciativa Do Protocolo de Avaliação de Acesso Contínuo (CAEP) no âmbito do grupo de trabalho [De Sinais e Eventos Partilhados](https://openid.net/wg/sse/) da Fundação OpenID. Os fornecedores de identidade e as partes que dependem poderão alavancar os eventos e sinais de segurança definidos pelo grupo de trabalho para reautorizar ou encerrar o acesso. É um trabalho emocionante e melhorará a segurança em muitas plataformas e aplicações.
 

@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Gestor de Recursos Suportados
 description: Forneça uma lista dos tipos de recursos do Gestor de Recursos suportados pelo Azure Resource Graph e change History.
-ms.date: 04/20/2020
+ms.date: 04/23/2020
 ms.topic: reference
-ms.openlocfilehash: 99a10e084f8ae24156c447f7abca31a8ef977720
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 021a0d595a34bc132aa0e67f2b5485ae9c321ef3
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685483"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116643"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráficos de recursos azure e referência do tipo de recurso
 
@@ -412,6 +412,11 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.visualstudio/conta/extensão
 - microsoft.visualstudio/conta/projeto
 - microsoft.vmware/arczones
+- microsoft.vmware/recursospools
+- microsoft.vmware/vcenters
+- microsoft.vmware/virtualmachines
+- microsoft.vmware/virtualmachinetemplates
+- microsoft.vmware/virtualnetworks
 - microsoft.vmwarecloudsimple/dedicadocloudnodes
 - microsoft.vmwarecloudsimple/dedicadoserviços cloud
 - microsoft.vmwarecloudsimple/virtualmachines

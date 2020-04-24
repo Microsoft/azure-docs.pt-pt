@@ -1,19 +1,14 @@
 ---
-title: Utilize a Galeria de Imagem Partilhada para criar uma piscina personalizada - Lote Azure [ Lote ] Microsoft Docs
+title: Use a Galeria de Imagem Partilhada para criar uma piscina personalizada
 description: Crie um pool de Lote com a Galeria de Imagem Partilhada para fornecer imagens personalizadas para calcular os nódosos que contêm o software e os dados que precisa para a sua aplicação. As imagens personalizadas são uma forma eficiente de configurar os nódosos de cálculo para executar as suas cargas de trabalho do Lote.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: labrenne
-ms.openlocfilehash: 95f27d913cd288c186bae1a6375212b072f50bb4
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 45f721dbdf11e0a6f58da71c644acf687dfadd49
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422441"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116524"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Use a Galeria de Imagem Partilhada para criar uma piscina personalizada
 

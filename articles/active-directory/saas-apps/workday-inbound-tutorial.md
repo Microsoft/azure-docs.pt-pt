@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf0cbfb91332d60516432a7a67fb10404d89113
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 298c99d44328dc79db1722b450ad74c3929d0c12
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81683838"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114442"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configure workday para fornecimento automático de utilizadores
 
@@ -329,17 +329,18 @@ Neste passo, você concederá permissões políticas de "segurança de processos
 
     ![Políticas de segurança do processo de negócio](./media/workday-inbound-tutorial/wd_isu_12.png "Políticas de segurança do processo de negócio")  
 
-2. Na caixa de texto **do Tipo de Processo de Negócios,** procure *contacto* e selecione processo de negócio **de Alteração de Contactos** e clique em **OK**.
+2. Na caixa de texto **do Tipo de Processo de Negócios,** *procure* contacto e selecione Processo de troca de contactos de **trabalho** alterar o processo de negócio e clique em **OK**.
 
     ![Políticas de segurança do processo de negócio](./media/workday-inbound-tutorial/wd_isu_13.png "Políticas de segurança do processo de negócio")  
 
-3. Na página política de segurança do processo de **negócio de edição,** percorra a secção Manter Informações de **Contacto (Serviço Web).**
+3. Na página política de segurança do processo de **negócio seleção,** percorra a secção **Change Work Contact Information (Serviço Web).**
+    
 
-    ![Políticas de segurança do processo de negócio](./media/workday-inbound-tutorial/wd_isu_14.png "Políticas de segurança do processo de negócio")  
-
-4. Selecione e adicione o novo grupo de segurança do sistema de integração à lista de grupos de segurança que podem iniciar o pedido de serviços web. Clique em **Done**. 
+4. Selecione e adicione o novo grupo de segurança do sistema de integração à lista de grupos de segurança que podem iniciar o pedido de serviços web. 
 
     ![Políticas de segurança do processo de negócio](./media/workday-inbound-tutorial/wd_isu_15.png "Políticas de segurança do processo de negócio")  
+
+5. Clique em **Done**. 
 
 ### <a name="activating-security-policy-changes"></a>Ativar mudanças na política de segurança
 
@@ -460,8 +461,11 @@ Neste passo, estabelecemos conectividade com o Workday e o Ative Directy no port
    * **Url da API de Serviços Web de Workday –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4parecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta.
 
      > [!NOTE]
-     > Por padrão, a aplicação utiliza o Workday Web Services v21.1 se não forespecificada nenhuma informação da versão no URL. Para utilizar uma versão API específica do Workday Web Services, utilize o formato URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Exemplo: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+     > Por padrão, a aplicação utiliza serviços web de dia de trabalho (WWS) v21.1 se nenhuma informação da versão for especificada no URL. Para utilizar uma versão API wws específica, utilize o formato URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Exemplo: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0 <br>
+     
+     > [!NOTE]
+     > Se estiver a utilizar uma wws API v30.0 ou superior, antes de ligar o trabalho de provisionamento, por favor atualize as **expressões XPATH API** em **mapeamento de atributos -> Lista de atributos de Edição > Editar para** o Dia de Trabalho referindo-se à secção [Gestão da sua configuração](#managing-your-configuration) e referência de [atributo do Dia](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30)de Trabalho .  
 
    * Floresta de **Diretório Ativo -** O "Nome" do seu domínio de Diretório Ativo, registado no agente. Utilize a queda para selecionar o domínio alvo para o fornecimento. Este valor é tipicamente uma corda como: *contoso.com*
 
@@ -823,7 +827,7 @@ A solução utiliza atualmente as seguintes APIs do Dia do Trabalho:
   * Se o formato\#\#\#\#\.URL\.for: https:// dia de trabalho\_com/ccx/service/tenantName/Recursos Humanos, então a API v21.1 é utilizada 
   * Se o formato\#\#\#\#\.URL\.for: https:// dia de trabalho\_com/ccx/service/tenantName/Recursos Humanos/v,\# \# \. \# então a versão API especificada é utilizada. (Exemplo: se o v34.0 for especificado, então é utilizado.)  
    
-* A funcionalidade Workday Email Writeback utiliza Maintain_Contact_Information (v26.1) 
+* A funcionalidade Workday Email Writeback utiliza Change_Work_Contact_Information (v30.0) 
 * A função Workday Username Writeback utiliza Update_Workday_Account (v31.2) 
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>Posso configurar o meu inquilino HCM do Workday com dois inquilinos da AD Azure?
@@ -1254,7 +1258,7 @@ Para esta alteração, deve utilizar o [Workday Studio](https://community.workda
 
 1. Descarregue e instale [o Estúdio Workday.](https://community.workday.com/studio-download) Você precisará de uma conta comunitária workday para aceder ao instalador.
 
-2. Descarregue o ficheiro WSDL do Workday Human_Resources a partir deste URL:https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
+2. Descarregue o ficheiro Workday **Human_Resources** WSDL específico da versão WWS API que planeia utilizar a partir do Diretório de [Serviços Web workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html)
 
 3. Estúdio workday de lançamento.
 
@@ -1274,7 +1278,7 @@ Para esta alteração, deve utilizar o [Workday Studio](https://community.workda
 
 9. Selecione **OK**.
 
-10. No painel **Request,** cola no XML abaixo e define **Employee_ID** para a identificação do empregado de um verdadeiro utilizador no seu inquilino do Dia de Trabalho. Selecione um utilizador que tenha o atributo preenchido que deseja extrair.
+10. No painel **Request,** cola no XML abaixo. **Deteto Employee_ID** à identificação do empregado de um verdadeiro utilizador no seu inquilino do Dia do Trabalho. Desloque **wd:versão** para a versão da WWS que pretende utilizar. Selecione um utilizador que tenha o atributo preenchido que deseja extrair.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

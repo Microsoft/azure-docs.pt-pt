@@ -3,23 +3,18 @@ title: Gerir a execução de automação azure como contas
 description: Este artigo descreve como gerir o seu Run As contas com powerShell, ou a partir do portal.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/24/2019
+ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8d2c2f1e7ee10153108e54649ceba45b927b0cd2
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 5cb3752e5a74f26936efcbb9dba5cdcda76e01f4
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676631"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113311"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir a execução de automação azure como contas
 
-Executar Como contas na Azure Automation fornecem autenticação para gestão de recursos em Azure usando os cmdlets Azure. Ao criar uma conta Run As, cria um novo utilizador principal de serviço no Azure Ative Directory (AD) e atribui a função de Colaborador a este utilizador ao nível da subscrição. Para livros de corridas que utilizam trabalhadores híbridos em máquinas virtuais Azure, pode utilizar [identidades geridas para recursos Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) em vez de Run As contas para autenticar os seus recursos Azure.
-
-O diretor de serviço de uma Conta Não tem permissões para ler Azure AD por padrão. Se quiser adicionar permissões para ler ou gerir o Azure AD, terá de conceder as permissões no diretor de serviço sob **permissões DaPI**. Para saber mais, consulte [Adicionar permissões para aceder a APIs web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
+Executar Como contas na Azure Automation fornecem autenticação para gestão de recursos em Azure usando os cmdlets Azure. Ao criar uma conta Run As, cria um novo utilizador principal de serviço no Azure Ative Directory (AD) e atribui a função de Colaborador a este utilizador ao nível da subscrição.
 
 ## <a name="types-of-run-as-accounts"></a>Tipos de execução Como contas
 
@@ -30,6 +25,8 @@ A Azure Automation utiliza dois tipos de Run As contas:
 
 >[!NOTE]
 >As subscrições do Azure Cloud Solution Provider (CSP) suportam apenas o modelo Do Gestor de Recursos Azure. Os serviços de Gestor de Recursos Não-Azure não estão disponíveis no programa. Quando está a utilizar uma subscrição de CSP, a conta Azure Classic Run Como conta não é criada, mas a conta Azure Run As é criada. Para saber mais sobre subscrições de CSP, consulte [os serviços disponíveis nas subscrições do CSP.](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services)
+
+O diretor de serviço de uma Conta Não tem permissões para ler Azure AD por padrão. Se quiser adicionar permissões para ler ou gerir o Azure AD, terá de conceder as permissões no diretor de serviço sob **permissões DaPI**. Para saber mais, consulte [Adicionar permissões para aceder a APIs web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ### <a name="run-as-account"></a>Conta Run As
 
@@ -52,6 +49,9 @@ A conta Azure Classic Run As conta executa as seguintes tarefas.
   * Cria um ativo `AzureClassicRunAsCertificate` de certificado de automação nomeado na conta de Automação especificada. O recurso do certificado contém a chave privada do certificado que o certificado de gestão utiliza.
 
   * Cria um ativo `AzureClassicRunAsConnection` de ligação automation nomeado na conta de Automação especificada. O ativo de ligação detém o nome de subscrição, id de subscrição e nome do ativo do certificado.
+
+>[!NOTE]
+>Azure Classic Run Uma conta não é criada por padrão ao mesmo tempo que cria uma conta Automation. Esta conta é criada individualmente seguindo os passos descritos mais tarde neste artigo.
 
 ## <a name="run-as-account-permissions"></a><a name="permissions"></a>Executar Como permissões de conta
 

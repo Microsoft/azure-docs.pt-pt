@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 59e32087d4489cbb155a9cff7d40094c0606c0cf
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 42abeba310e7a30364f93e998f12129a2d3c1f15
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732835"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114297"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Gerir credenciais na Automação Azure
 
@@ -34,7 +34,7 @@ Como parte do módulo Azure PowerShell Az, os cmdlets na tabela seguinte são us
 
 | Cmdlet | Descrição |
 |:--- |:--- |
-| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Recupera informações sobre um ativo credencial. Este cmdlet não devolve `PSCredential` um objeto.  |
+| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Recupera um objeto [CredentialInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) contendo metadados sobre a credencial. O cmdlet não recupera `PSCredential` o objeto em si.  |
 | [Novo AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |Cria uma nova credencial de Automação. |
 | [Remover-AutomaçãoCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Remove uma credencial de Automação. |
 | [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |Define as propriedades para uma credencial de Automação existente. |
@@ -45,17 +45,11 @@ As atividades na tabela seguinte são utilizadas para aceder a credenciais em li
 
 | Atividade | Descrição |
 |:--- |:--- |
-| `Get-AutomationPSCredential` |Obtém uma credencial para usar numa configuração de rumbook ou DSC. A credencial está na forma `PSCredential` de um objeto. Para saber mais sobre o cmdlet correspondente a esta atividade, consulte [os ativos do Módulo na Automação Azure.](modules.md) |
+| `Get-AutomationPSCredential` |Obtém `PSCredential` um objeto para usar numa configuração de livro de execução ou DSC. Na maioria das vezes, deve `Get-AzAutomationCredential` utilizar esta atividade em vez do cmdlet, uma vez que este último apenas recupera informações credenciais. Esta informação normalmente não é útil para passar para outro cmdlet. |
 | [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Obtém uma credencial com um pedido de nome de utilizador e senha. |
 | [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Cria um ativo credencial. |
 
-Para `PSCredential` recuperar objetos no seu código, pode instalar o addon Ise de Automação Microsoft Azure para o PowerShell ISE. Para mais informações, consulte [os ativos do Módulo em Automação Azure.](modules.md)
-
-```azurepowershell
-Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser -Force
-```
-
-O seu script também pode importar o módulo necessário sempre que necessário, como no seguinte exemplo: 
+Para `PSCredential` recuperar objetos no seu `Orchestrator.AssetManagement.Cmdlets` código, tem de importar o módulo. Para mais informações, consulte [Gerir módulos em Automação Azure.](modules.md)
 
 ```azurepowershell
 Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue

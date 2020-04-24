@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a464bb8a942c449e0b17751fbea7a810711cb48d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: e3674f7686679c27ad732fcaa92620703b91b5fc
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536000"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112614"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 
@@ -41,7 +41,7 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
 >
 > 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 1. Navegue na plataforma de identidade da Microsoft para programadores da página de registos de [aplicações.](https://aka.ms/MobileAppReg)
+> 1. Vá à lâmina de [registos](https://aka.ms/MobileAppReg) da App para o Diretório Ativo Azure no portal Azure.
 > 1. Selecione **Novo registo**.
 >      - Na secção **Nome,** introduza um nome de aplicação significativo que `Win-App-calling-MsGraph`será apresentado aos utilizadores da aplicação, por exemplo.
 >      - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)**.

@@ -1,22 +1,14 @@
 ---
 title: Evento de falha de tarefa do Lote Azure
 description: Referência para evento de falha de tarefa de lote. Este evento será emitido para além de um evento completo de tarefas e pode ser usado para detetar quando uma tarefa falhou.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 08/15/2019
-ms.author: labrenne
-ms.openlocfilehash: 2bc958d6dca2b3caae665e6f9b080c651ace9ea0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e973a7e0a2ab67300a0f6762c837336e12bae3b
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022890"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116456"
 ---
 # <a name="task-fail-event"></a>Evento de falha de tarefa
 
@@ -53,9 +45,9 @@ ms.locfileid: "77022890"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`jobId`|Cadeia|A identificação do trabalho que contém a tarefa.|
-|`id`|Cadeia|A identificação da tarefa.|
-|`taskType`|Cadeia|O tipo de tarefa. Isto pode ser 'JobManager' indicando que se trata de uma tarefa de gestor de emprego ou de 'Utilizador' indicando que não é uma tarefa de gestor de emprego. Este evento não é emitido para tarefas de preparação de emprego, tarefas de libertação de emprego ou tarefas de início.|
+|`jobId`|String|A identificação do trabalho que contém a tarefa.|
+|`id`|String|A identificação da tarefa.|
+|`taskType`|String|O tipo de tarefa. Isto pode ser 'JobManager' indicando que se trata de uma tarefa de gestor de emprego ou de 'Utilizador' indicando que não é uma tarefa de gestor de emprego. Este evento não é emitido para tarefas de preparação de emprego, tarefas de libertação de emprego ou tarefas de início.|
 |`systemTaskVersion`|Int32|Este é o contador de retry interno numa tarefa. Internamente, o serviço Batch pode voltar a tentar uma tarefa para responder a questões transitórias. Estas questões podem incluir erros de agendamento interno ou tentativas de recuperação de nóóis computacionais em mau estado.|
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó computacional sobre o qual a tarefa funcionou.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma Tarefa multi-instância que requer vários nódosos de computação.  Veja [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) mais detalhes.|
@@ -66,8 +58,8 @@ ms.locfileid: "77022890"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`poolId`|Cadeia|A identificação da piscina em que a tarefa correu.|
-|`nodeId`|Cadeia|A identificação do nó em que a tarefa correu.|
+|`poolId`|String|A identificação da piscina em que a tarefa correu.|
+|`nodeId`|String|A identificação do nó em que a tarefa correu.|
 
 ###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstânciaSDefinições
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 2a876349af2bd53a46737dda82961afe442bae05
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0b6fea381bd6b4aa8ad3e7061e6f632176c41033
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81401091"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113838"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Apoio à linguagem e voz para o serviço da Fala
 
@@ -241,6 +241,7 @@ A API de **Tradução da Fala** apoia diferentes línguas para a tradução fala
 | Francês                  | `fr`          |
 | Alemão                  | `de`          |
 | Grego                   | `el`          |
+| Guzerate                | `gu`          |
 | Crioulo haitiano          | `ht`          |
 | Hebraico                  | `he`          |
 | Hindi                   | `hi`          |
@@ -261,6 +262,8 @@ A API de **Tradução da Fala** apoia diferentes línguas para a tradução fala
 | Malaio                   | `ms`          |
 | Malaiala               | `ml`          |
 | Maltês                 | `mt`          |
+| Maori                   | `mi`          |
+| Marata                 | `mr`          |
 | Norueguês               | `nb`          |
 | Persa                 | `fa`          |
 | Polaco                  | `pl`          |

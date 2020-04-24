@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: adb36e14bb7b772d3e28361bdc48d248bd84f41f
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: c03487b100ddb066416072c6c06773890db86e0a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458969"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115317"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao processador da extensão Desired State Configuration do Azure
 
@@ -39,7 +39,7 @@ Este artigo fornece informações sobre ambos os cenários: utilização da exte
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - **Máquina local**: Para interagir com a extensão Azure VM, deve utilizar o portal Azure ou o Azure PowerShell SDK.
-- **Agente convidado**: O VM Azure configurado pela configuração DSC deve ser um OS que suporta a Estrutura de Gestão do Windows (WMF) 4.0 ou mais tarde. Para obter a lista completa de versões de OS suportadas, consulte o histórico da [versão de extensão DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Agente convidado**: O VM Azure configurado pela configuração DSC deve ser um OS que suporta a Estrutura de Gestão do Windows (WMF) 4.0 ou mais tarde. Para obter a lista completa de versões de OS suportadas, consulte o histórico da [versão de extensão DSC](../../automation/automation-dsc-extension-history.md).
 
 ## <a name="terms-and-concepts"></a>Termos e conceitos
 
@@ -102,7 +102,7 @@ O **cmdlet de extensão Get-AzVMDsc** recupera o estado de extensão DSC de um V
 
 O **Cmdlet Get-AzVMDscExtensionStatus** recupera o estado da configuração DSC que é decretada pelo manipulador de extensão DSC. Esta ação pode ser realizada num único VM ou num grupo de VMs.
 
-O **cmdlet de extensão remove** o manipulador de extensão de um VM específico. Este cmdlet *não* remove a configuração, desinstala o WMF ou altera as definições aplicadas no VM. Só remove o manipulador de extensão. 
+O **cmdlet de extensão remove** o manipulador de extensão de um VM específico. Este cmdlet *não* remove a configuração, desinstala o WMF ou altera as definições aplicadas no VM. Só remove o manipulador de extensão.
 
 Informações importantes sobre a extensão do Gestor de Recursos DSC cmdlets:
 

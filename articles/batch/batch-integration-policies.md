@@ -1,25 +1,15 @@
 ---
-title: Integração com políticas azure - Lote Azure / Microsoft Docs
-description: ''
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
+title: Integração com políticas azure
+description: A Azure Policy é um serviço em Azure que utiliza para criar, atribuir e gerir políticas que apliquem regras sobre os seus recursos.
 ms.topic: article
 ms.date: 02/24/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 9a306457f838fc79d12be3217d96cc8fb25c9c1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74c087031a024b0c50d6c40057a4e2eda554be6f
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77618376"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116082"
 ---
 # <a name="integration-with-azure-policy"></a>Integração com a Política Azure
 

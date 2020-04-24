@@ -746,4 +746,4 @@ Neste tutorial, enviou notificações de difusão para todos os dispositivos And
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Portal Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

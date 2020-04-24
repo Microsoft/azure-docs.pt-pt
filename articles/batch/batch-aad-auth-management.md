@@ -1,25 +1,14 @@
 ---
 title: Utilize o Diretório Ativo Azure para autenticar soluções de Gestão de Lotes
 description: Explore utilizando o Azure Ative Directory para autenticar a partir de aplicações que utilizam a biblioteca Batch Management .NET.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: labrenne
-ms.openlocfilehash: 5c217971bd213c97a2ee31a0a1f513b601d14df9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0aa95aa440303d1577b7646c1a9f1bc5b6e69ac2
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472984"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114790"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Soluções de Gestão de Lotes Autenticados com Diretório Ativo
 

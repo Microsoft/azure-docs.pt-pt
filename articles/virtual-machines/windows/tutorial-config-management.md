@@ -1,26 +1,19 @@
 ---
 title: Tutorial - Gerir a configuração da máquina virtual do Windows em Azure
 description: Neste tutorial, você aprende como identificar alterações e gerir atualizações de pacotes numa máquina virtual do Windows
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d97323f1916ee46e6b1f8d4ca8723b950baca39c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ed36dc669c8b89ba4a2b7831c6eb6f8742e73730
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238581"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100418"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorizar alterações e atualizar uma máquina virtual do Windows em Azure
 

@@ -1,20 +1,15 @@
 ---
-title: Arquiteturas de referência de renderização azure - Lote Azure
+title: Arquiteturas de referência de renderização azure
 description: Arquiteturas para usar O Lote Azure e outros serviços Azure para estender uma fazenda no local, explodindo até a nuvem
-services: batch
-ms.service: batch
-author: davefellows
-manager: evansma
-ms.author: labrenne
 ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: 20442a6618ca9357bb3be95879b68bffca45a40d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbdb5eb39805ac87bf90216e5fbeedae91b423f0
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022958"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115776"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização azure
 

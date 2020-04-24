@@ -3,15 +3,15 @@ title: Conectores do Azure Logic Apps
 description: Automatizar fluxos de trabalho com conectores para Aplicações Lógicas Azure, tais como incorporados, geridos, no local, conta de integração, ISE e conectores empresariais
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/05/2020
-ms.openlocfilehash: 3010f3c99a5b214c2503f890321cbb73427e3c20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: 9723fc3ab68785c6e444647f427fcf9788792cea
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247335"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115691"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores do Azure Logic Apps
 
@@ -47,6 +47,9 @@ Os conectores estão disponíveis como gatilhos e ações incorporados ou como c
   Por exemplo, se estiver a utilizar o Microsoft BizTalk Server, as suas aplicações lógicas podem ligar-se e comunicar com o seu Servidor BizTalk utilizando o [conector no local](#on-premises-connectors)do BizTalk Server . Em seguida, pode estender ou executar operações semelhantes ao BizTalk nas suas aplicações lógicas utilizando os [conectores](#integration-account-connectors)de conta de integração.
 
   Os conectores são classificados como Standard ou Enterprise. [Os conectores empresariais](#enterprise-connectors) fornecem acesso a sistemas empresariais como sAP, IBM MQ e IBM 3270 por um custo adicional. Para determinar se um conector é Standard ou Enterprise, consulte os detalhes técnicos na página de referência de cada conector sob a visão geral dos [Conectores](https://docs.microsoft.com/connectors).
+
+  > [!IMPORTANT]
+  > A partir de 1 de maio de **2020**, as alterações da Google às suas políticas de [segurança de dados e privacidade](https://www.blog.google/technology/safety-security/project-strobe/) podem afetar aplicações lógicas que utilizam o [conector Gmail.](https://docs.microsoft.com/connectors/gmail/) Se as suas aplicações lógicas utilizarem o conector @gmail.com @googlemail.comGmail com uma conta de consumo do Gmail (endereço de e-mail que termina com ou), as suas aplicações lógicas só podem utilizar gatilhos, ações e conectores aprovados pelo Google. A partir de 15 de junho de **2020,** quaisquer fluxos de trabalho não conformes serão desativados. Para mais informações, consulte as políticas de [segurança e privacidade dos dados para os conectores da Google em Aplicações Lógicas Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
   Também pode identificar conectores utilizando estas categorias, embora alguns conectores possam cruzar várias categorias. Por exemplo, o SAP é um conector Enterprise e um conector no local:
 

@@ -1,20 +1,15 @@
 ---
-title: Estados de contagem para tarefas e nósos - Lote Azure / Microsoft Docs
+title: Conde estados para tarefas e nódosos
 description: Conte o estado das tarefas do Lote Azure e calcule os nódosos para ajudar a gerir e monitorizar as soluções do Lote.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.topic: article
 ms.date: 09/07/2018
-ms.author: labrenne
+ms.topic: article
 ms.custom: seodec18
-ms.openlocfilehash: a7b58e96918d26851812aa96c18043121c081e94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1abff4c1a07ba0c5375228995330646204d33cd7
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023927"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116099"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorize as soluções do Lote contando tarefas e nódosos por estado
 

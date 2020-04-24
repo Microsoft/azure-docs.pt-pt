@@ -4,12 +4,12 @@ description: Respostas para perguntas frequentes relacionadas com o serviço Dec
 author: dkkapur
 ms.topic: article
 ms.date: 04/10/2020
-ms.openlocfilehash: 8730dcb24af61730d7f93ea37a53cf87435eb9f9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 4fca198356c8db006c4190e0f16b20f78dc1d477
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261623"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115232"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre instâncias de contentores de Azure
 
@@ -55,9 +55,12 @@ Use a imagem mais pequena que satisfaz os seus requisitos. Para o Linux, pode ut
 
 ### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>Quantos núcleos e memória devo atribuir para os meus contentores ou para o grupo de contentores?
 
-Isto depende da sua carga de trabalho. Inicie um pequeno desempenho e teste para ver como se fazem os seus recipientes. [Monitorize](container-instances-monitor.md)o CPU e o uso de recursos de memória e adicione, em seguida, núcleos ou memória com base no tipo de processos que implementa no recipiente. 
+Isto depende da sua carga de trabalho. Inicie um pequeno desempenho e teste para ver como se fazem os seus recipientes. [Monitorize](container-instances-monitor.md)o CPU e o uso de recursos de memória e adicione, em seguida, núcleos ou memória com base no tipo de processos que implementa no recipiente.
 
 Certifique-se também de verificar a disponibilidade de [recursos](container-instances-region-availability.md#availability---general) para a região que está a implantar para os limites superiores dos núcleos de CPU e da memória disponível por grupo de contentores. 
+
+> [!NOTE]
+> Uma pequena quantidade de recursos de um grupo de contentores é utilizada pela infraestrutura subjacente do serviço. Os seus contentores poderão aceder à maioria, mas não todos os recursos atribuídos ao grupo. Por esta razão, planeie um pequeno tampão de recursos ao solicitar recursos para contentores no grupo.
 
 ### <a name="what-underlying-infrastructure-does-aci-run-on"></a>Em que infraestruturas subjacentes a ACI funciona?
 

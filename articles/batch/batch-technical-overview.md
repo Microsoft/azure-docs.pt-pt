@@ -1,25 +1,14 @@
 ---
-title: O Azure Batch executa grandes trabalhos paralelos na cloud | Microsoft Docs
+title: O Lote Azure tem grandes empregos paralelos na nuvem
 description: Saiba como utilizar o serviço Azure Batch para cargas de trabalho em larga e escala e de HPC
-services: batch
-documentationcenter: ''
-author: mscurrell
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/19/2018
-ms.author: markscu
-ms.custom: mvc
-ms.openlocfilehash: 7ca2a5e91a0ec0d765e106baca20f135996bc26e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f2bdaeec47b50b715920b27d6adf6e078a354964
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77022805"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116354"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Azure Batch?
 
@@ -90,7 +79,7 @@ Veja [Descrição geral das funcionalidades do Batch para programadores](batch-a
 ## <a name="next-steps"></a>Passos seguintes
 
 Introdução ao Azure Batch com um dos seguintes inícios rápidos:
-* [Executar o seu primeiro trabalho do Batch com a CLI do Azure](quick-create-cli.md)
+* [Executar a primeira tarefa do Batch com a CLI do Azure](quick-create-cli.md)
 * [Executar o seu primeiro trabalho do Batch com o portal do Azure](quick-create-portal.md)
 * [Executar o seu primeiro trabalho do Batch com a API .NET](quick-run-dotnet.md)
 * [Executar o seu primeiro trabalho do Batch com a API Python](quick-run-python.md)

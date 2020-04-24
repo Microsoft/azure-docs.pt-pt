@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cdad95b1a910a45629e85bcc716218b272afd9de
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e18fc765385e6d703e735a1ca15c539c32f36e93
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424903"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116252"
 ---
 # <a name="overview-query-data-in-storage"></a>Visão geral: Dados de consulta no armazenamento
 
@@ -72,9 +72,6 @@ Tens de criar credenciais antes de fazer consultas. Esta credencial será utiliz
 > SQL on-demand por padrão usa sempre a passagem do AAD.
 
 Para obter mais informações sobre como gerir o controlo de acesso ao armazenamento, verifique este [link](develop-storage-files-storage-access-control.md).
-
-> [!WARNING]
-> Você precisa criar credenciais para uma conta de armazenamento que está localizada na sua região de endpoint. Embora a SQL on-demand possa aceder a armazenamentos de diferentes regiões, ter armazenamento e ponto final na mesma região proporcionará uma melhor experiência de desempenho.
 
 Para criar credenciais para contentores CSV, JSON e Parquet, execute o código abaixo:
 
@@ -179,10 +176,10 @@ Está agora pronto para continuar com os seguintes artigos como fazer:
 
 - [Consulta de ficheiros específicos](query-specific-files.md)
 
-- [Arquivos De Consulta Parquet](query-parquet-files.md)
+- [Consultar ficheiros de Parquet](query-parquet-files.md)
 
-- [Tipos aninhados de Parquet de consulta](query-parquet-nested-types.md)
+- [Consultar tipos aninhados de Parquet](query-parquet-nested-types.md)
 
-- [Consulta de ficheiros JSON](query-json-files.md)
+- [Consultar ficheiros JSON](query-json-files.md)
 
 - [Criar e usar vistas](create-use-views.md)

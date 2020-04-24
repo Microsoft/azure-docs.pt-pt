@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/31/2017
-ms.openlocfilehash: cbf0a1f033ddafc68debab8de26dff29d73cc98e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12a1cd3c170fd7444362d1eabba1541cefb37d1a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651479"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115555"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para integração empresarial B2B em Aplicações Lógicas Azure com Pacote de Integração Empresarial
 
@@ -34,7 +34,7 @@ Depois de criar uma conta de [integração](../logic-apps/logic-apps-enterprise-
 
 ## <a name="create-an-x12-agreement"></a>Criar um acordo X12
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com "Portal do Azure"). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com "Portal do Azure"). 
 
 2. A partir do menu Principal Azure, selecione **Todos os serviços.** 
    Na caixa de pesquisa, insira "integração", e, em seguida, selecione **contas integrais.**  
@@ -301,7 +301,7 @@ Quando completa cada linha de validação, outra é adicionada automaticamente. 
 Para obter mais detalhes técnicos sobre este conector, tais como ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/x12/). 
 
 > [!NOTE]
-> Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
+> Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com o rótulo ISE do conector utiliza os limites de [mensagem B2B para](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits)o ISE .
 
 ## <a name="next-steps"></a>Passos seguintes
 

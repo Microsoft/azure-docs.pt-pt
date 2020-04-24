@@ -1,26 +1,15 @@
 ---
-title: Começar com powerShell - Lote Azure / Microsoft Docs
+title: Começar com a PowerShell
 description: Introdução rápida aos cmdlets do Azure PowerShell que pode utilizar para gerir os recursos do Batch.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: powershell
-ms.workload: big-compute
 ms.date: 01/15/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 26691ca6b9d078ef18ac852c67fa2ac88dff2722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79473c5fb63a5f5ad29194c65cd8094ea444dbd8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023009"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115844"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerir os recursos do Batch com os cmdlets do PowerShell
 

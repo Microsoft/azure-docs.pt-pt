@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
 ms.date: 04/22/2020
-ms.openlocfilehash: 8fd5a1775a6a217ce9dd8c80439dd2c54f9cd727
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: db5cabd82ebfed3b1de7659e4b9450ccee0ff001
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82087598"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115300"
 ---
-# <a name="create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Crie um membro do Serviço Blockchain Azure usando um modelo de Gestor de Recursos Azure
+# <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Quickstart: Criar um membro do Serviço Azure Blockchain usando um modelo de Gestor de Recursos Azure
 
 Neste arranque rápido, você implementa um novo membro blockchain e consórcio no Azure Blockchain Service usando um modelo de Gestor de Recursos Azure.
 

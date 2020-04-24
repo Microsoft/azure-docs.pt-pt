@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: cbef289ebc79e20b928db684af01a4eaeb1c0ce8
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: c4b1c6348e834f83e20c612678075405a14f1a9d
+  ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81401441"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82106207"
 landingContent:
 - title: Sobre assistentes de voz
   linkLists:
@@ -34,6 +34,10 @@ landingContent:
       url: faq-voice-assistants.md
     - text: Preços dos assistentes de voz
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+  - linkListType: get-started
+    links:
+    - text: Construa e implante uma amostra de Assistente de Voz para a sua subscrição Azure (GitHub)
+      url: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
 - title: Desenvolver com Comandos Personalizados
   linkLists:
   - linkListType: quickstart

@@ -1,18 +1,16 @@
 ---
-title: Capacidades de renderização - Lote Azure
+title: Capacidades de renderização
 description: As capacidades standard Azure Batch são usadas para executar cargas de trabalho e aplicações de renderização. O lote inclui funcionalidades específicas para suportar a renderização de cargas de trabalho.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3efe1dfa69de5ce41aed2152baa88b313fd928f1
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75449711"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115759"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Capacidades de renderização do Lote Azure
 

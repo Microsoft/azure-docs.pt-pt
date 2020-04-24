@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/12/2020
-ms.openlocfilehash: b9d923b3272f9d8b3da39d7cdb771a766eee4eab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/23/2020
+ms.openlocfilehash: 8380cfcbf267b117108d46794153bd5a61b8ec6a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272737"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116235"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir os clusters Apache Hadoop em HDInsight utilizando o portal Azure
 
@@ -27,7 +27,7 @@ Um aglomerado Apache Hadoop existente no HDInsight.  Consulte [a Create Linux cl
 
 ## <a name="getting-started"></a>Introdução
 
-Inscreva-se [https://portal.azure.com](https://portal.azure.com)em .
+Inicie sessão em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="list-and-show-clusters"></a><a name="showClusters"></a>Lista e mostrar aglomerados
 
@@ -106,7 +106,7 @@ A partir da página inicial do [cluster,](#homePage)em **Definições** selecion
 |CLUSTER URL|O URL para a interface web ambari.|
 |Ponto Final Privado|O ponto final privado para o aglomerado.|
 |Concha segura (SSH)|O nome de utilizador e o nome do anfitrião a utilizar no acesso ao cluster através do SSH.|
-|ESTADO|Um dos: Abortado, Aceite, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operacional, Running, Error, Deleting, Eliminado, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, Redimensionado ou ClusterCustomization.|
+|ESTADO|Um dos: Abortado, Aceite, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operacional, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued ou ClusterCustomization.|
 |REGIÃO|Localização azul. Para obter uma lista de localizações suportadas do Azure, consulte a caixa de lista seletiva **da Região** nos [preços HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).|
 |DATA DE CRIAÇÃO|A data em que o aglomerado foi implantado.|
 |Sistema Operativo|Ou **Windows** ou **Linux.**|
@@ -225,7 +225,7 @@ A palavra-passe é alterada em todos os nós do cluster.
    | Nome |"Alterar a senha ssh" |
    | Roteiro de bash URI |O URI para o ficheiro changepassword.sh |
    | Tipo de nó): (Cabeça, Trabalhador, Nimbus, Supervisor ou Zookeeper.) |✓ para todos os tipos de nó listados |
-   | Parâmetros |Introduza o nome de utilizador SSH e, em seguida, a nova palavra-passe. Deve haver um espaço entre o nome do utilizador e a palavra-passe. |
+   | Parâmetros |Introduza o nome de utilizador SSH e, em seguida, a nova palavra-passe. Deve haver um espaço entre o nome do utilizador e a palavra-passe. Os seguintes caracteres não são suportados em palavras-passe ssh: " ' / \ < % ~ | $&
    | Persista esta ação do guião... |Deixe este campo descontrolado. |
 
 6. Selecione **Criar** para aplicar o script. Uma vez terminada a script, é possível ligar-se ao cluster utilizando o SSH com a nova senha.

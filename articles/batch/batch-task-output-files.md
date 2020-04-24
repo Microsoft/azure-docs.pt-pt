@@ -1,23 +1,15 @@
 ---
 title: Persistir dados de saída para o Armazenamento Azure com serviço de lote API - Lote Azure
 description: Aprenda a utilizar o serviço de lote API para persistir a tarefa do Lote e os dados de saída de trabalho para o Armazenamento Azure.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 03/05/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 11bd8bc427dd3da35ec5aa0f728f6b04b7d4527d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fbbf75defcfe976e59d38ae76341e71feee9f53
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022856"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116473"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Persistir dados de tarefas para o Armazenamento Azure com o serviço de lote API
 
@@ -159,7 +151,7 @@ Em cada upload de ficheiros, o Batch escreve `fileuploadout.txt` dois `fileuploa
 
 ## <a name="diagnose-file-upload-performance"></a>Diagnóstico de desempenho de upload de ficheiro
 
-Os `fileuploadout.txt` registos de ficheiros fazem upload do progresso. Pode examinar este ficheiro para saber mais sobre quanto tempo os seus uploads de ficheiros estão a demorar. Tenha em mente que existem muitos fatores que contribuem para carregar o desempenho, incluindo o tamanho do nó, outra atividade no nó no momento do upload, se o recipiente alvo está na mesma região que a piscina batch, quantos nós estão carregando para o conta de armazenamento ao mesmo tempo, e assim por diante.
+Os `fileuploadout.txt` registos de ficheiros fazem upload do progresso. Pode examinar este ficheiro para saber mais sobre quanto tempo os seus uploads de ficheiros estão a demorar. Tenha em mente que existem muitos fatores que contribuem para carregar o desempenho, incluindo o tamanho do nó, outra atividade no nó no momento do upload, se o recipiente alvo está na mesma região que a piscina do Lote, quantos nós estão a carregar para a conta de armazenamento ao mesmo tempo, e assim por diante.
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Utilize o serviço de lote API com a norma De Convenções de Ficheiros de Lote
 

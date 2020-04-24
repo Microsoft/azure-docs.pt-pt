@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: cfc6e4790b67137b423cc90d93874d4914f81251
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 8d22f8a2722dc55a13ce8e3752ca69d6e7251070
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393381"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115130"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Armazenamento azure Blob como fonte da Grelha de Eventos
 
@@ -20,9 +20,9 @@ Este artigo fornece as propriedades e esquemas para eventos de armazenamento de 
 
 
 >[!NOTE]
-> Apenas contas de armazenamento de tipo **StorageV2 (finalidade geral v2)**, **BlockBlobStorage**e integração de eventos de suporte **blobStorage.** **O armazenamento (propósito genral v1)** *não* suporta a integração com a Grelha de Eventos.
+> Apenas contas de armazenamento de tipo **StorageV2 (finalidade geral v2)**, **BlockBlobStorage**e integração de eventos de suporte **blobStorage.** **O armazenamento (finalidade geral v1)** *não* suporta a integração com a Grelha de Eventos.
 
-## <a name="event-grid-event-schema"></a>Esquema de evento sinuoso do evento Da Grelha de Eventos
+## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
 ### <a name="list-of-events-for-blob-rest-apis"></a>Lista de eventos para APIs de REPOUSO Blob
 
