@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfee19e9cfd1def71ebad82c2210ffc10146c896
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 11eddf0e5f9f950373e222a8007cabf7aa0720bb
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81639750"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142275"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalização de mapeamento de atributos para aplicações SaaS no Diretório Ativo Azure
 
@@ -73,7 +73,7 @@ Juntamente com esta propriedade, os atributos-mapeamentos também suportam os se
 - **Atributo-alvo** – O atributo do utilizador no sistema-alvo (exemplo: ServiceNow).
 - **Valor predefinido se nulo (opcional)** - O valor que será passado para o sistema-alvo se o atributo de origem for nulo. Este valor só será provisionado quando um utilizador for criado. O "valor predefinido quando nulo" não será provisionado ao atualizar um utilizador existente. Se, por exemplo, pretender fornecer todos os utilizadores existentes no sistema-alvo com um determinado Título de Trabalho (quando for nulo no sistema de origem), pode utilizar a seguinte [expressão](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Certifique-se de substituir o "Valor Padrão" pelo que gostaria de fornecer quando nula no sistema de origem. 
 - **Combine objetos usando este atributo** – Se este mapeamento deve ser usado para identificar exclusivamente os utilizadores entre a fonte e os sistemas de destino. É normalmente definido no utilizadorPrincipalName ou atribuidor de correio em Azure AD, que é tipicamente mapeado para um campo de nome de utilizador numa aplicação alvo.
-- **Precedência correspondente** – Podem ser definidos múltiplos atributos correspondentes. Quando há vários, são avaliados na ordem definida por este campo. Assim que um jogo é encontrado, não são avaliados mais atributos correspondentes.
+- **Precedência correspondente** – Podem ser definidos múltiplos atributos correspondentes. Quando há vários, são avaliados na ordem definida por este campo. Assim que um jogo é encontrado, não são avaliados mais atributos correspondentes. Embora possa definir quantos atributos correspondentes gostaria, considere se os atributos que está a usar como atributos correspondentes são verdadeiramente únicos e precisam de ser atributos correspondentes. Geralmente, os clientes têm 1 ou 2 atributos correspondentes na sua configuração. 
 - **Aplique este mapeamento**
   - **Sempre** – Aplique este mapeamento tanto na criação do utilizador como nas ações de atualização.
   - **Apenas durante** a criação - Aplique este mapeamento apenas em ações de criação do utilizador.
@@ -316,8 +316,10 @@ A seleção desta opção forçará efetivamente uma ressincronização de todos
 - Atualizar os mapeamentos de atributos tem um impacto no desempenho de um ciclo de sincronização. Uma atualização da configuração de mapeamento de atributos requer que todos os objetos geridos sejam reavaliados.
 - Uma boa prática recomendada é manter o número de alterações consecutivas nos seus mapeamentos de atributos no mínimo.
 - A adição de um atributo fotográfico a fornecer a uma aplicação não é suportada hoje, uma vez que não pode especificar o formato para sincronizar a fotografia. Pode solicitar a funcionalidade na Voz do [Utilizador](https://feedback.azure.com/forums/169401-azure-active-directory)
-- O atributo IsSoftDeleted é frequentemente parte dos mapeamentos padrão para uma aplicação. IsSoftdeleted pode ser verdade num dos quatro cenários (o utilizador está fora de âmbito devido ao facto de não ter sido atribuído da aplicação, o utilizador está fora de âmbito devido ao não cumprimento de um filtro de deteção, o utilizador foi eliminado suavemente em Azure AD, ou a conta De propriedadeEnabled está definida como falsa no utilizador). 
-- O serviço de provisionamento da AD Azure não suporta o fornecimento de valores nulos
+- O atributo IsSoftDeleted é frequentemente parte dos mapeamentos padrão para uma aplicação. IsSoftdeleted pode ser verdade num dos quatro cenários (o utilizador está fora de âmbito devido ao facto de não ter sido atribuído da aplicação, o utilizador está fora de âmbito devido ao não cumprimento de um filtro de deteção, o utilizador foi eliminado suavemente em Azure AD, ou a conta De propriedadeEnabled está definida como falsa no utilizador). Não é aconselhável remover o atributo IsSoftDeleted dos seus mapeamentos de atributos.
+- O serviço de provisionamento da AD Azure não suporta o fornecimento de valores nulos.
+- A chave primária, tipicamente "ID", não deve ser incluída como um atributo-alvo nos seus mapeamentos de atributos. 
+- O atributo de papel normalmente precisa ser mapeado usando uma expressão, em vez de um mapeamento direto. Consulte a secção acima para mais detalhes sobre o mapeamento de papéis. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

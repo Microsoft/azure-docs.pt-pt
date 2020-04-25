@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: a76852a6e3cc5ffcdfcac62ce29fe47c97af3df1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b16c60130836cf0e3b38092b894129f503ee6e83
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136164"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82141674"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e boas práticas para o Diretório Ativo Azure B2C
 
 As seguintes boas práticas e recomendações abrangem alguns dos aspetos primários da integração do Azure Ative Directory (Azure AD) B2C em ambientes de aplicação existentes ou novos.
 
-## <a name="fundamentals"></a>Noções Básicas
+## <a name="fundamentals"></a>Noções básicas
 
 |  |  |
 |--|--|
@@ -43,7 +43,7 @@ Defina a sua aplicação e arquitetura de serviço, inventário de sistemas atua
 | Criar um plano de migração |Planear o futuro pode fazer a migração correr mais suavemente. Saiba mais sobre [a migração dos utilizadores.](user-migration.md)|
 | Usabilidade vs. segurança | A sua solução deve encontrar o equilíbrio certo entre a usabilidade da aplicação e o nível de risco aceitável da sua organização. |
 | Mover as dependências no local para a nuvem | Para ajudar a garantir uma solução resiliente, considere mover as dependências de aplicação existentes para a nuvem. |
-| Migrar aplicativos existentes para b2clogin.com | A depreciação do login.microsoftonline.com entrou em vigor para todos os inquilinos da Azure AD B2C em 04 de dezembro de 2020. [Saiba mais](b2clogin.md). |
+| Migrar aplicativos existentes para b2clogin.com | A depreciação da login.microsoftonline.com entrará em vigor para todos os inquilinos Da AD B2C do Azure a 04 de dezembro de 2020. [Saiba mais](b2clogin.md). |
 
 ## <a name="implementation"></a>Implementação
 

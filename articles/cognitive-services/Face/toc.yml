@@ -7,14 +7,8 @@
       href: Overview.md
 - name: Guias de Início Rápido
   items:
-    - name: Utilizar o SDK de cliente
-      items:
-        - name: SDK .NET
-          href: Quickstarts/csharp-sdk.md
-        - name: SDK Python
-          href: QuickStarts/python-sdk.md
-        - name: SDK Go
-          href: QuickStarts/go-sdk.md
+    - name: Utilizar a biblioteca de cliente
+      href: Quickstarts/client-libraries.md
     - name: Utilizar a API REST
       items:
         - name: Detetar rostos numa imagem
@@ -27,7 +21,7 @@
               href: QuickStarts/go.md
             - name: Java
               href: QuickStarts/Java.md
-            - name: Javascript
+            - name: JavaScript
               href: QuickStarts/JavaScript.md
             - name: Node.js
               href: QuickStarts/node.md

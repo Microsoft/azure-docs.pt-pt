@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 45304e12bf959cb1f695384535360af283ee3f10
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 59469aaa0a63cd56debe6af84d48bafa727df88c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981873"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142303"
 ---
 # <a name="iot-edge-module-support-tab"></a>Separador de suporte para módulo IoT Edge
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerir as suas ofertas migratórias.
+>A partir de 13 de abril de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) para gerir as suas ofertas migratórias.
 
 Utilize o separador **suporte** da página **New Offer** para fornecer recursos técnicos e de suporte ao utilizador para a sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de Suporte: **Contacto de Engenharia,** **Apoio ao Cliente**e **Urls**de Apoio . Um asterisco (*) anexado ao nome de campo indica que é necessário.
 

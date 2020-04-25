@@ -3,24 +3,25 @@ title: Configure endereços IP para uma interface de rede Azure [ Microsoft Docs
 description: Saiba como adicionar, alterar e remover endereços IP privados e públicos para uma interface de rede.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
-ms.author: kumud
-ms.openlocfilehash: b5655a58c3538ac47e8649619b079dc46ee01242
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.author: allensu
+ms.openlocfilehash: 8ff958b7bab7be3124452c1206baf64d0f8ccb7a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473230"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142508"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Add, change, or remove IP addresses for an Azure network interface (Adicionar, alterar ou remover endereços IP para uma interface de rede do Azure)
 

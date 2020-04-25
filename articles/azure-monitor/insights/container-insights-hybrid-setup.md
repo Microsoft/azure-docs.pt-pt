@@ -3,12 +3,12 @@ title: Configure clusters Híbridos Kubernetes com Monitor Azure para contentore
 description: Este artigo descreve como pode configurar o Monitor Azure para os contentores monitorizarem os clusters Kubernetes alojados em Azure Stack ou noutro ambiente.
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: 6c2782fdd810403a793f6ef682d1112fadc22465
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: c0dbbf9f65aa96db1ebcd0b03552bba8d1f91863
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81769040"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143176"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configure aglomerados kubernetes híbridos com Monitor Azure para contentores
 
@@ -107,7 +107,7 @@ Para identificar primeiro o id completo do seu espaço `workspaceResourceId` de 
 
 3. O exemplo seguinte apresenta a lista de espaços de trabalho nas suas subscrições no formato Padrão JSON.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 

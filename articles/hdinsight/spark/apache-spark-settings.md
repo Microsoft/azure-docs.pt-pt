@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/15/2020
-ms.openlocfilehash: e13390067f8767e8c07b9c189264444e6d999a7a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/24/2020
+ms.openlocfilehash: cd16d898408bff46cee13b4df63cd3386d0581b1
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411304"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137846"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
 
-Um cluster HDInsight Spark inclui uma instalação da biblioteca [Apache Spark.](https://spark.apache.org/)  Cada cluster HDInsight inclui parâmetros de configuração predefinidos para todos os seus serviços instalados, incluindo o Spark.  Um aspeto chave da gestão de um cluster HDInsight Apache Hadoop é monitorizar a carga de trabalho, incluindo Spark Jobs. Para melhor executar os trabalhos spark, considere a configuração do cluster físico ao determinar a configuração lógica do cluster.
+Um cluster HDInsight Spark inclui uma instalação da biblioteca Apache Spark.  Cada cluster HDInsight inclui parâmetros de configuração predefinidos para todos os seus serviços instalados, incluindo o Spark.  Um aspeto chave da gestão de um cluster HDInsight Apache Hadoop é monitorizar a carga de trabalho, incluindo Spark Jobs. Para melhor executar os trabalhos spark, considere a configuração do cluster físico ao determinar a configuração lógica do cluster.
 
-O cluster padrão HDInsight Apache Spark inclui os seguintes nós: três nós [do ZooKeeper Apache,](https://zookeeper.apache.org/) dois nós de cabeça e um ou mais nós de trabalhador:
+O cluster padrão HDInsight Apache Spark inclui os seguintes nós: três nós do ZooKeeper Apache, dois nós de cabeça e um ou mais nós de trabalhador:
 
 ![Arquitetura Spark HDInsight](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
@@ -102,7 +102,7 @@ Dependendo da carga de trabalho do Spark, pode determinar que uma configuração
 |---|---|
 |--executores num-num|Define o número de executores.|
 |--executor-núcleos|Define o número de núcleos para cada executor. Recomendamos o uso de executores de tamanho médio, uma vez que outros processos também consomem parte da memória disponível.|
-|-- executor-memória|Controla o tamanho da memória (tamanho da pilha) de cada executor no [YARN Apache Hadoop,](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)e terá de deixar alguma memória para execução.|
+|-- executor-memória|Controla o tamanho da memória (tamanho da pilha) de cada executor no YARN Apache Hadoop, e terá de deixar alguma memória para execução.|
 
 Aqui está um exemplo de dois nós operários com diferentes valores de configuração:
 
@@ -129,8 +129,8 @@ Os clusters de faíscas no HDInsight incluem uma série de componentes por padr�
 |---|---|
 |Núcleo de Faísca|Spark Core, Spark SQL, Spark streaming APIs, GraphX e Apache Spark MLlib.|
 |Anaconda|Um gestor de pacotes python.|
-|[Apache Livy](https://livy.incubator.apache.org/)|A Apache Spark REST API, usada para submeter trabalhos remotos a um cluster HDInsight Spark.|
-|Cadernos [Jupyter](https://jupyter.org/) e [Apache Zeppelin](https://zeppelin.apache.org/)|UI interativo baseado no navegador para interagir com o seu cluster Spark.|
+|Apache Livy|A Apache Spark REST API, usada para submeter trabalhos remotos a um cluster HDInsight Spark.|
+|Cadernos Jupyter e Apache Zeppelin|UI interativo baseado no navegador para interagir com o seu cluster Spark.|
 |Controlador ODBC|Conecta clusters De faíscas em HDInsight a ferramentas de inteligência empresarial (BI), como microsoft Power BI e Tableau.|
 
 Para aplicações em execução no caderno `%%configure` Jupyter, utilize o comando para efazer alterações de configuração a partir do próprio caderno. Estas alterações de configuração serão aplicadas aos trabalhos spark executados a partir da sua instância de caderno. Faça tais alterações no início da aplicação, antes de executar a sua primeira célula de código. A configuração alterada é aplicada à sessão Livy quando é criada.
@@ -153,6 +153,5 @@ Monitorize as definições de configuração do núcleo para garantir que os seu
 
 * [Componentes e versões Apache Hadoop disponíveis com hDInsight?](../hdinsight-component-versioning.md)
 * [Gerir recursos para um cluster Apache Spark no HDInsight](apache-spark-resource-manager.md)
-* [Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Configuração de faísca apache](https://spark.apache.org/docs/latest/configuration.html)
 * [Faísca Apache em Apache Hadoop YARN](https://spark.apache.org/docs/latest/running-on-yarn.html)

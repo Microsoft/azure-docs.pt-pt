@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: a0125c556789b1a1a5b11dcd16b852d7f57b6c50
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: f4e318281da5cd704d9fbf13c96cbec0a2d1b1b6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82099874"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143787"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Executar scripts PowerShell no seu Windows VM utilizando o Comando de Execução
 
@@ -58,7 +58,7 @@ The entity was not found in this Azure location
 |**Conta EnableAdmin**|Verifique se a conta de administrador local está desativada e, em caso afirmativo, permite-a.|
 |**IPConfig**| Mostra informações detalhadas para o endereço IP, máscara de sub-rede e porta de entrada padrão para cada adaptador ligado ao TCP/IP.|
 |**RDPDefinições**|Verifica as definições de registo e as definições de política de domínio. Sugere ações de política se a máquina fizer parte de um domínio ou modificar as definições para valores padrão.|
-|**ResetRDPCert**|Remove o certificado SSL ligado ao ouvinte RDP e restaura a segurança do ouvinte RDP à defeito. Utilize este script se vir algum problema com o certificado.|
+|**ResetRDPCert**|Remove o certificado TLS/SSL ligado ao ouvinte RDP e restaura a segurança do ouvinte RDP à defeito. Utilize este script se vir algum problema com o certificado.|
 |**SetRDPPort**|Define o número de porta predefinido ou especificado pelo utilizador para ligações remotas de ambiente de trabalho. Permite regras de firewall para acesso de entrada à porta.|
 
 ## <a name="azure-cli"></a>CLI do Azure

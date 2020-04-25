@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: dsindona
-ms.openlocfilehash: af42476f9d04f7f2bfc275c731b02aa5a9b8ecf6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9f16d26fa95254282e453cd7bf35d85f8b81ed73
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273159"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143203"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Criar um cliente auto-teste para pré-validar uma imagem de máquina virtual Azure
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na certificação de [imagem Azure VM](https://aks.ms/CertifyVMimage) para gerir as suas ofertas migratórias.
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na certificação de [imagem Azure VM](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) para gerir as suas ofertas migratórias.
 
 Utilize este artigo como um guia para a criação de um serviço ao cliente que consuma a API auto-teste. Pode utilizar a API auto-teste para pré-validar uma máquina virtual (VM) para garantir que satisfaz os mais recentes requisitos de publicação do Azure Marketplace. Este serviço de cliente permite-lhe testar um VM antes de submeter a sua oferta para certificação microsoft.
 

@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
-ms.openlocfilehash: f456137b61a96f555b2604e7871516fd1d38ab42
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 33e6ce1d5feb50080b00fcbecdeb9e512980eab6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116711"
+ms.locfileid: "82141952"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integrar o ônibus de serviço Azure com link privado Azure (Pré-visualização)
 
@@ -25,7 +25,7 @@ Para mais informações, consulte [o que é azure private link?](../private-link
 >[!WARNING]
 > A implementação de pontos finais privados pode impedir que outros serviços Azure interajam com o Service Bus.
 >
-> Os serviços fidedignos da Microsoft não são suportados quando as Redes Virtuais são implementadas.
+> Os serviços fidedignos da Microsoft não são suportados quando utilizam redes virtuais.
 >
 > Cenários Comuns Azure que não funcionam com Redes Virtuais (note que a lista **NÃO** é exaustiva) -
 > - Integração com a Grelha de Eventos Azure
@@ -85,7 +85,7 @@ Se já tem um espaço de nome existente, pode criar um ponto final privado segui
         
             ![Criar endpoint privado - página de recursos](./media/private-link-service/create-private-endpoint-resource-page.png)
     2. Se selecionar **Ligar a um recurso Azure por id ou pseudónimo**de recurso, siga estes passos:
-        1. Introduza o ID ou **pseudónimo**do **recurso.** Pode ser a identificação de recursos ou pseudónimo que alguns partilharam consigo.
+        1. Introduza o ID ou **pseudónimo**do **recurso.** Pode ser a identificação de recursos ou pseudónimo que alguém partilhou consigo. A maneira mais fácil de obter o ID de recurso é navegar para o espaço de `/subscriptions/`nome do Ônibus de serviço no portal Azure e copiar a parte de URI a partir de . Veja a seguinte imagem, por exemplo. 
         2. Para **sub-recurso Target,** introduza **o espaço de nome**. É o tipo de sub-recurso a que o seu ponto final privado pode aceder. 
         3. (opcional) Introduza uma **mensagem de pedido.** O proprietário do recurso vê esta mensagem enquanto gere a ligação de ponto final privado. 
         4. Em seguida, selecione **Seguinte: Configuração >** botão na parte inferior da página. 

@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: c1d1daea71ea8b69ef24031c643caf8dcd0d1fb7
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 0a394c14842fe0c4eb4baa18cbb13acb8ca3170a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983335"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142463"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Tab SKUs módulo IoT Edge
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerir as suas ofertas migratórias.
+>A partir de 13 de abril de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) para gerir as suas ofertas migratórias.
 
 O separador **SKUs** da página **New Offer** permite-lhe criar uma ou mais SKUs e associá-las à sua nova oferta.  Pode utilizar diferentes SKUs para diferenciar uma solução por conjuntos de funcionalidades, modelos de faturação ou alguma outra característica.
 
@@ -44,7 +44,7 @@ O separador **SKUs** é refrescado e exibe os campos que edita para configurar o
 
 ## <a name="sku-details"></a>Detalhes da SKU
 
-Configure os **Detalhes SKU** para definir como o seu SKU será exibido nos websites do Azure Marketplace e do Portal Azure.
+Configure os **Detalhes SKU** para definir como o seu SKU será exibido nos websites do Portal Azure Marketplace e Azure.
 
 ![IoT Edge módulo sku metadados](media/iot-edge-module-skus-tab-metadata.png)
 
@@ -52,9 +52,9 @@ A tabela que se segue descreve o propósito, o conteúdo e a formatação para c
 
 |  **Campo**       |     **Descrição**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Título\***        | Título para este SKU. Comprimento máximo de 50 caracteres. <br/> Será mostrado no Portal Azure e será usado como um nome de módulo padrão (sem espaços e caracteres especiais) quando for implantado. Veja as imagens abaixo para ver exatamente onde este campo é exibido.|
+| **Título\***        | Título para este SKU. Comprimento máximo de 50 caracteres. <br/> Será mostrado no portal Azure e será usado como um nome de módulo padrão (sem espaços e caracteres especiais) quando for implantado. Veja as imagens abaixo para ver exatamente onde este campo é exibido.|
 | **Resumo\***      | Resumo curto deste SKU. Comprimento máximo de 100 caracteres. **NÃO** sintetiza a oferta, apenas o SKU.  Este resumo será mostrado no Mercado Azure. Veja as imagens abaixo para ver exatamente onde este campo é exibido.|
-| **Descrição\***  | Breve descrição deste SKU. Comprimento máximo de 3000 caracteres. Não descreva a oferta, mas apenas este SKU. Será exibido no mercado azul e no portal Azure. No portal Azure, será anexado à Descrição do Mercado descrevendo a oferta definida no separador Marketplace.  Pode ser o mesmo que o Resumo SKU. Veja as imagens abaixo para ver exatamente onde este campo é exibido.|
+| **Descrição\***  | Breve descrição deste SKU. Comprimento máximo de 3000 caracteres. Não descreva a oferta, mas apenas este SKU. Será exibido no Azure Marketplace e no portal Azure. No portal Azure, será anexado à Descrição do Mercado descrevendo a oferta definida no separador Marketplace.  Pode ser o mesmo que o Resumo SKU. Veja as imagens abaixo para ver exatamente onde este campo é exibido.|
 | **Esconda este SKU\*** | Mantenha a definição predefinida, que é **Nº .** |
 |  |  |
 
@@ -71,7 +71,7 @@ A tabela que se segue descreve o propósito, o conteúdo e a formatação para c
     ![Como as SKUs são exibidas no site do Azure Marketplace](media/iot-edge-module-ampdotcom-pdp-plans.png)
 
 
-#### <a name="on-the-azure-portal-website"></a>No site do Portal Azure:
+#### <a name="on-the-azure-portal-website"></a>No site do portal Azure:
 
 - Ao navegar em SKUs:
 

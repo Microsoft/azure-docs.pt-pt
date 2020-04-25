@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/02/2020
-ms.openlocfilehash: d9b64785dbd82842479eb3f313b8394f9f25b40b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: ad696f37c89bab87ce9854bc3ba2a995cd0ea569
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370003"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142167"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualizar o dados do Apache Hive com o Microsoft Power BI através do ODBC no Azure HDInsight
 
@@ -74,9 +74,6 @@ Continue a partir do último procedimento.
 
 Neste artigo, aprendeu a visualizar dados do HDInsight usando o Power BI.  Para saber mais, consulte os seguintes artigos:
 
-* [Use Apache Zeppelin para executar consultas apache hive em Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Ligue o Excel ao HDInsight com o condutor microsoft Hive ODBC](./apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Ligue excel a Apache Hadoop utilizando](apache-hadoop-connect-excel-power-query.md)power query .
-* [Ligue-se ao Azure HDInsight e execute consultas apache hive usando ferramentas de data lake para estúdio visual](apache-hadoop-visual-studio-tools-get-started.md).
-* [Utilize a ferramenta Azure HDInsight para o Código](../hdinsight-for-vscode.md)do Estúdio Visual .
-* [Enviar dados para HDInsight](./../hdinsight-upload-data.md).
+* [Visualizar dados interativos de consulta Apache Hive com microsoft Power BI usando consulta direta](/interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f5987bee82dc22d3742cb5d87040930e5d2c52d
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: e8b6d08dd2073de80ac0f7fd08f510d9cda80545
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393040"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143242"
 ---
 # <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>As políticas e restrições de redefinição de senha de autosserviço no Diretório Ativo do Azure
 
@@ -102,7 +102,7 @@ Esta orientação aplica-se a outros prestadores, como o Intune e o Office 365, 
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Set or check the password policies by using PowerShell (Utilizar o PowerShell para definir ou verificar as políticas de palavras-passe)
 
-Para começar, [descarregue e instale o módulo PowerShell Da AD Azure](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Depois de instalado o módulo, utilize os seguintes passos para configurar cada campo.
+Para começar, [descarregue e instale o módulo PowerShell Da AD Azure](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0) e [conecte-o ao seu inquilino Azure AD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples). Depois de instalado o módulo, utilize os seguintes passos para configurar cada campo.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Verifique a política de expiração para obter uma senha
 

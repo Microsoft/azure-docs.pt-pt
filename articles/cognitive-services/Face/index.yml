@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: 7487c7cb8fd044977c8395d0bda8c6ee910f5ec9
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: a39b7373b8fad12fd1a5a30cc634276d7a6651fb
+  ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "76932069"
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82143476"
 landingContent:
 - title: Acerca do serviço Face
   linkLists:
@@ -33,11 +33,11 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET
-      url: quickstarts/csharp-sdk.md
+      url: quickstarts/client-libraries.md?pivots=programming-language-csharp
     - text: Utilizar o SDK Python
-      url: quickstarts/python-sdk.md
+      url: quickstarts/client-libraries.md?pivots=programming-language-python
     - text: Utilizar o SDK do Go
-      url: quickstarts/go-sdk.md
+      url: quickstarts/client-libraries.md?pivots=programming-language-go
   - linkListType: how-to-guide
     links:
     - text: Especifique um modelo de deteção facial

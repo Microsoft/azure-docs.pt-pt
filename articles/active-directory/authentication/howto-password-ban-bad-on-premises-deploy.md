@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ac9b76dd8d3c950b14f6d7b331f15647427ac89
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7870b62dea01f680126f5b4aac3dc2328407cd61
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652723"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143228"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planear e implementar no local a Proteção de Palavras-passe de Diretório Ativo azure
 
@@ -134,7 +134,7 @@ O serviço de atualização do Agente de Ligação AD Microsoft Azure é instala
 * O serviço de atualização do Agente de Ligação AD Microsoft Azure também requer as etapas TLS 1.2 especificadas nos [requisitos do TLS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
 
 > [!WARNING]
-> O representante de proteção de passwords Azure AD e o Proxy de Aplicação AD Azure instalam diferentes versões do serviço de atualização do agente de ligação ad da Microsoft Azure, razão pela qual as instruções se referem ao conteúdo proxy da aplicação. Estas diferentes versões são incompatíveis quando instaladas lado a lado, pelo que não é recomendado instalar o Proxy de Proteção de Passwords Azure AD e proxy de aplicação na mesma máquina.
+> O representante de proteção de passwords Azure AD e o Proxy de Aplicação AD Azure instalam diferentes versões do serviço de atualização do agente de ligação ad da Microsoft Azure, razão pela qual as instruções se referem ao conteúdo proxy da aplicação. Estas diferentes versões são incompatíveis quando instaladas lado a lado e fazê-lo impedirão que o serviço de Atualização do Agente contacte o Azure para atualizações de software, pelo que nunca deverá instalar o Proxy de Proteção de Passwords Azure AD e o Proxy de Aplicação na mesma máquina.
 
 ## <a name="download-required-software"></a>Descarregar software necessário
 

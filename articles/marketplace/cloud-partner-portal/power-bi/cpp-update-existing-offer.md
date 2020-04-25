@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ee8f67a41d339e6e5f65548867c5458739857d50
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b210a945993457fa76703528178763fdc67e876b
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981261"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82141695"
 ---
 # <a name="update-a-power-bi-app-offer"></a>Atualizar uma oferta de Aplicação Power BI
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a movimentar a gestão das suas ofertas de aplicações Power BI para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na criação de [aplicações Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerir as suas ofertas migratórias.
+>A partir de 13 de abril de 2020, começaremos a movimentar a gestão das suas ofertas de aplicações Power BI para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na criação de [aplicações Power BI](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) para gerir as suas ofertas migratórias.
 
 Este artigo mostra-lhe como atualizar a sua oferta da Microsoft Power BI App no [Portal do Parceiro cloud](https://cloudpartner.azure.com/) e, em seguida, reeditar a oferta. Aqui estão algumas razões comuns para atualizar uma oferta:
 

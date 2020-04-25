@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 6f2652a98aa081b62ba80951212ef3a3de513593
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 4aea624c2127c9b0a61d72b8d14929ce6f47df24
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272666"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142495"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Ligue-se à sua máquina virtual baseada em Azure
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, iniciaremos a gestão móvel das ofertas da sua Máquina Virtual Azure ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Create your Azure Virtual Machine ativos técnicos](https://aka.ms/AzureVMTechAsset) para gerir as suas ofertas migradas.
+> A partir de 13 de abril de 2020, iniciaremos a gestão móvel das ofertas da sua Máquina Virtual Azure ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Create your Azure Virtual Machine ativos técnicos](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) para gerir as suas ofertas migradas.
 
-Este artigo explica como se conectar e assinar nas máquinas virtuais (VMs) que criou no Azure.  Uma vez conectado com sucesso, pode trabalhar com o VM como se estivesse ligado localmente ao seu servidor anfitrião. 
+Este artigo explica como se conectar e assinar nas máquinas virtuais (VMs) que criou no Azure.  Uma vez conectado com sucesso, pode trabalhar com o VM como se estivesse ligado localmente ao seu servidor anfitrião.
 
 ## <a name="connect-to-a-windows-based-vm"></a>Ligue-se a um VM baseado no Windows
 

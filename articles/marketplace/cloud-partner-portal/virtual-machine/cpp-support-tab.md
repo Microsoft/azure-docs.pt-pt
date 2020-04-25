@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: 2734bc0868584f9d02147abb953458bbcdec205e
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 15bbd7776f2ac8fef78cde43a22e59b0e60a6f50
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273108"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142993"
 ---
 # <a name="virtual-machine-support-tab"></a>Separador de suporte de máquina virtual
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Create a Azure Virtual Machine para](https://aka.ms/CreateAzureVMoffer) gerir as suas ofertas migratórias.
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Create a Azure Virtual Machine para](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) gerir as suas ofertas migratórias.
 
 O separador **suporte** da página **New Offer** permite-lhe fornecer recursos técnicos e de suporte ao utilizador para a sua oferta.  Divide-se em três áreas: **Engenharia,** **Apoio ao Cliente**e **URLs**de Apoio.
 

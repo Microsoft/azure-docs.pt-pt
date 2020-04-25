@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 5b94a97f1286e1273300014e4eef140be412436b
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 45224625cfc828227708247d082a1aab1aef8469
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637171"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142650"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registo da análise de Armazenamento do Azure
 
@@ -158,7 +158,11 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations non
 
  Além de utilizar o portal Azure ou os cmdlets Azure PowerShell para controlar o armazenamento de madeira, também pode utilizar uma das APIs de Armazenamento Azure. Por exemplo, se estiver a usar um idioma .NET pode utilizar a Biblioteca do Cliente de Armazenamento.  
 
- As classes **CloudBlobClient,** **CloudQueueClient**e **CloudTableClient** têm métodos como **SetServiceProperties** e **SetServicePropertiesAsync** que tomam um objeto **ServiceProperties** como parâmetro. Pode utilizar o objeto **ServiceProperties** para configurar o Registo de Armazenamento. Por exemplo, o seguinte corte C# mostra como alterar o que está registado e o período de retenção para a exploração de filas:  
+# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/diagnostic-logs-classic.cs" id="snippet_EnableDiagnosticLogs":::
+
+# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -170,6 +174,9 @@ serviceProperties.Logging.RetentionDays = 2;
 
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
+
+---
+
 
  Para obter mais informações sobre a utilização de um idioma .NET para configurar o armazenamento de registo, consulte a [Referência da Biblioteca do Cliente de Armazenamento](https://msdn.microsoft.com/library/azure/dn261237.aspx).  
 
