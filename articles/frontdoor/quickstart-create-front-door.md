@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: sharadag
-ms.openlocfilehash: e7e500f0459c0f5fd4039acf316d9469e1567a09
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: c1ce34bb7fc851d3f763241c9e92371b43ed1861
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116987"
+ms.locfileid: "82133451"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início Rápido: criar um Front Door para uma aplicação Web global de elevada disponibilidade
 
@@ -42,7 +42,7 @@ Se ainda não tem uma aplicação web, use os seguintes passos para configurar a
 
 1. Selecione **Web** > **Web App**.
 
-   ![Criar uma aplicação Web no portal do Azure](media/quickstart-create-front-door/create-web-app-for-front-door.png)
+   ![Criar uma aplicação Web no portal do Azure](media/quickstart-create-front-door/create-web-app-azure-front-door.png)
 
 1. Na **Aplicação Web,** selecione a **Subscrição** para utilizar.
 
@@ -60,7 +60,7 @@ Se ainda não tem uma aplicação web, use os seguintes passos para configurar a
 
 1. Selecione **Rever + criar,** rever o **Resumo,** e depois selecione **Criar**. Pode levar alguns minutos para a implantação ser concluída.
 
-   ![Resumo de revisão para web app](media/quickstart-create-front-door/summary-for-web-app-for-front-door.png)
+   ![Resumo de revisão para web app](media/quickstart-create-front-door/web-app-summary-azure-front-door.png)
 
 Depois da sua implementação estar concluída, crie uma segunda aplicação web. Utilize o mesmo procedimento com os mesmos valores, com exceção dos seguintes valores:
 
@@ -87,7 +87,7 @@ Configure a Porta Frontal do Azure para direcionar o tráfego do utilizador com 
 
 1. Para **nome anfitrião,** insira um nome de anfitrião globalmente único. Este exemplo utiliza *contoso-frontend*. Selecione **Adicionar**.
 
-   ![Adicione um anfitrião frontend para a porta da frente de Azure](media/quickstart-create-front-door/add-frontend-host-for-front-door.png)
+   ![Adicione um anfitrião frontend para a porta da frente de Azure](media/quickstart-create-front-door/add-frontend-host-azure-front-door.png)
 
 Em seguida, crie um backend pool que contenha as suas duas aplicações web.
 
@@ -103,7 +103,7 @@ Em seguida, crie um backend pool que contenha as suas duas aplicações web.
 
 1. Selecione a sua subscrição, novamente, e escolha a segunda aplicação web que criou a partir do nome de **anfitrião Backend**. Selecione **Adicionar**.
 
-   ![Adicione um anfitrião de backend à sua porta da frente](media/quickstart-create-front-door/add-backend-host-to-pool-for-front-door.png)
+   ![Adicione um anfitrião de backend à sua porta da frente](media/quickstart-create-front-door/add-backend-host-pool-azure-front-door.png)
 
 Finalmente, adicione uma regra de encaminhamento. Uma regra de encaminhamento mapeia o seu anfitrião frontal para a piscina de backend. A regra reme `contoso-frontend.azurefd.net` um pedido para **o myBackendPool.**
 
@@ -116,7 +116,7 @@ Finalmente, adicione uma regra de encaminhamento. Uma regra de encaminhamento ma
 
 1. Selecione **Rever + Criar,** e depois **Criar**.
 
-   ![Porta da frente azure configurada](media/quickstart-create-front-door/configuration-of-front-door.png)
+   ![Porta da frente azure configurada](media/quickstart-create-front-door/configuration-azure-front-door.png)
 
 ## <a name="view-azure-front-door-in-action"></a>Ver porta da frente azure em ação
 
@@ -141,7 +141,7 @@ Para testar a falha global instantânea em ação, experimente os seguintes pass
 
 1. Atualize o seu browser. Desta vez, deve ver uma mensagem de erro.
 
-   ![Ambos os casos da aplicação web pararam](media/quickstart-create-front-door/service-has-been-stopped.png)
+   ![Ambos os casos da aplicação web pararam](media/quickstart-create-front-door/web-app-stopped-message.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

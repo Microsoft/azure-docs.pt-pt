@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 1d22f66ad5f7adf5bb8196c3e72a2a343f4558b0
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: aad830ba7c7198077fe6073d6351c72ac9a8e662
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536102"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144398"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um sinal de acesso num JavaScript SPA
 
@@ -25,7 +25,7 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Assinatura Azure - [Criar uma subscrição Azure gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/)
 * [Código de Estúdio Visual](https://code.visualstudio.com/download) (para editar ficheiros de projeto)
 
@@ -165,7 +165,7 @@ Depois de o navegador carregar a aplicação, selecione 'Iniciar sessão' de **'
 
 ### <a name="how-the-sample-works"></a>Como funciona a amostra
 
-![Como funciona a aplicação de amostras neste quickstart](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![Como funciona a amostra JavaScript SPA: 1. O SPA inicia o início do início. 2. O SPA adquire um símbolo de identificação da plataforma de identidade da Microsoft. 3. As chamadas de SPA adquirem ficha. 4. A plataforma de identidade da Microsoft devolve um token de Acesso ao SPA. 5. O SPA faz e http GET solicita com o Acess Token para a Microsoft Graph API. 6. O Graph API devolve uma resposta HTTP ao SPA.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### <a name="msaljs"></a>msal.js
 

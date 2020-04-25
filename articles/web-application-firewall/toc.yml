@@ -107,7 +107,7 @@
           href: ./ag/bot-protection.md
         - name: Associar uma política a um Gateway de Aplicação existente
           href: ./ag/associate-waf-policy-existing-gateway.md
-        - name: Registos de diagnósticos
+        - name: Registos do recurso
           href: ./ag/web-application-firewall-logs.md
         - name: Resolver problemas da WAF
           href: ./ag/web-application-firewall-troubleshoot.md

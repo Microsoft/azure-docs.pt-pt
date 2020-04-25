@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: 693b2fd8ac7440b67f53de0aedb9a8268a90de76
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3311d1143c0eca0c2b57e89e98dc22ab14fd9308
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241655"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147726"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Quickstart: Criar tarefas automatizadas, processos e fluxos de trabalho com aplicações lógicas azure - Estúdio Visual
 
@@ -57,6 +57,9 @@ Neste arranque rápido, cria-se a mesma aplicação lógica com o Visual Studio 
 
 * Uma conta de e-mail suportada pelo Logic Apps, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros fornecedores, reveja a [lista de conectores aqui](https://docs.microsoft.com/connectors/). Este exemplo utiliza o Office 365 Outlook. Se utilizar outro fornecedor, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
 
+  > [!IMPORTANT]
+  > Se pretender utilizar o conector Gmail, apenas as contas de negócio g-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode criar uma aplicação de [cliente da Google para usar para autenticação com o seu conector Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para mais informações, consulte as políticas de [segurança e privacidade dos dados para os conectores da Google em Aplicações Lógicas Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+
 <a name="create-resource-group-project"></a>
 
 ## <a name="create-azure-resource-group-project"></a>Criar projeto do Grupo de Recursos do Azure
@@ -80,7 +83,7 @@ Para começar, crie um [Projeto do Grupo de Recursos do Azure](../azure-resource
 
    Se estiver a usar o Visual Studio 2019, siga estes passos:
 
-   1. Na **Create a new project** box, selecione o projeto do Grupo de **Recursos Azure** para Visual C# ou Visual Basic. Selecione **Next**.
+   1. Na **Create a new project** box, selecione o projeto do Grupo de **Recursos Azure** para Visual C# ou Visual Basic. Selecione **Seguinte**.
 
    1. Forneça um nome para o grupo de recursos Azure que pretende utilizar e outras informações sobre o projeto. Selecione **Criar**.
 
@@ -112,7 +115,7 @@ Quando tiver o seu projeto do Grupo de Recursos Azure, crie a sua aplicação l�
    | Definição | Valor de exemplo | Descrição |
    | ------- | ------------- | ----------- |
    | Conta de utilizador | Fabrikam <br> sophia-owen@fabrikam.com | A conta que usou quando inscreveu-se no Visual Studio |
-   | **Assinatura** | "Pay As You Go" <br> (sophia-owen@fabrikam.com) | O nome da sua subscrição do Azure e a conta associada |
+   | **Subscrição** | "Pay As You Go" <br> (sophia-owen@fabrikam.com) | O nome da sua subscrição do Azure e a conta associada |
    | **Grupo de Recursos** | MyLogicApp-RG <br> (E.U.A. Oeste) | O grupo de recursos Azure e localização para armazenar e implementar os recursos da sua aplicação lógica |
    | **Localização** | **O mesmo que o Grupo de Recursos** | O tipo de localização e a localização específica para a implementação da sua aplicação lógica. O tipo de localização é ou uma região azure ou um ambiente de serviço de integração existente [(ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>Para este arranque rápido, mantenha o tipo de localização definido para **região** e a localização definida para **o Mesmo grupo de recursos**. <p>**Nota:** Depois de criar o seu projeto de grupo de recursos, pode alterar o tipo de [localização e a localização,](manage-logic-apps-with-visual-studio.md#change-location)mas diferente tipo de localização afeta a sua aplicação lógica de várias maneiras. |
    ||||

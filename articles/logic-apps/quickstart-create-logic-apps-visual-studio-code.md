@@ -7,12 +7,12 @@ ms.reviewer: klam, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
-ms.openlocfilehash: 819a60887743f39d3c2ffab3c955b2980cee2725
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3dccb596be2d97dd0f38d680537913a76ce09e93
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74784838"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147070"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Quickstart: Criar e gerir definições lógicas de fluxo de fluxo de aplicações utilizando o Código do Estúdio Visual
 
@@ -131,6 +131,10 @@ Antes de começar, certifique-se de que dispõe destes itens:
 
    > [!IMPORTANT]
    > Se quiser reutilizar esta definição de aplicação lógica de amostra, precisa @fabrikam.comde uma conta organizacional do Office 365, por exemplo, . Certifique-se de que substitui o endereço de e-mail fictício pelo seu próprio endereço de e-mail. Para utilizar um conector de e-mail `Send_an_email_action` diferente, como Outlook.com ou Gmail, substitua a ação por uma ação semelhante disponível a partir de um [conector de e-mail que é suportado por Aplicações lógicas Azure](../connectors/apis-list.md).
+   >
+   > Se pretender utilizar o conector Gmail, apenas as contas de negócio g-Suite podem utilizar este conector sem restrições em aplicações lógicas. 
+   > Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode criar uma aplicação de [cliente da Google para usar para autenticação com o seu conector Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+   > Para mais informações, consulte as políticas de [segurança e privacidade dos dados para os conectores da Google em Aplicações Lógicas Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
    ```json
    {
@@ -206,7 +210,7 @@ O designer só de leitura abre numa janela separada e mostra o fluxo de trabalho
 
 ![Ver aplicativo lógico em designer só de leitura](./media/quickstart-create-logic-apps-visual-studio-code/logic-app-designer-view.png)
 
-## <a name="view-in-azure-portal"></a>Vista no portal Azure
+## <a name="view-in-azure-portal"></a>Ver no portal do Azure
 
 Para rever a sua aplicação lógica no portal Azure, siga estes passos:
 

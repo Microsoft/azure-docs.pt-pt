@@ -11,12 +11,12 @@ metadata:
   ms.author: kgremban
   manager: philmea
   ms.date: 08/05/2019
-  ms.openlocfilehash: bf968da3bba6510b3ce273ba1049f4ad164319c2
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 7c190dd3421d0eef9ce0aac3487644be9e758e4c
+  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75457216"
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82130824"
 landingContent:
 - title: Desenvolver para dispositivos Linux
   linkLists:
@@ -99,7 +99,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Implementar e monitorizar em escala com a CLI do Azure
-      url: how-to-deploy-monitor-cli.md
+      url: how-to-deploy-cli-at-scale.md
     - text: Criar um pipeline CI/CD com o Azure Pipelines
       url: how-to-ci-cd.md
   - linkListType: deploy

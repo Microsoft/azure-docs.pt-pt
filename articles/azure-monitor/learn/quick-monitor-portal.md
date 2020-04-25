@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 3775070320b8c6e96dd06031bd87ea53f37046c5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 074010a2f3b1f4f4a58b3c4727bf4eed28402e0a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78894861"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142624"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET
 
@@ -100,10 +100,6 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ```
 
 Para saber mais, visite o repositório do GitHub para o nosso [SDK de JavaScript de open source](https://github.com/Microsoft/ApplicationInsights-JS).
-
-## <a name="video"></a>Vídeo
-
-* Vídeo externo passo a passo sobre [configurar Insights de Aplicação com uma aplicação .NET do zero](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando terminar os testes, pode eliminar o grupo de recursos e todos os recursos relacionados. Para isso siga os passos abaixo.

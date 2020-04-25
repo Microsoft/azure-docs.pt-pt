@@ -4,15 +4,15 @@ description: Visão geral dos discos geridos pelo Azure, que tratam das contas d
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: edcde9c5192791e88da57d158bab3e79b171bfc8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c66324841989580712d893ada9121ae40f5161a3
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78944771"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147777"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduction to Azure managed disks (Introdução aos discos geridos do Azure)
 

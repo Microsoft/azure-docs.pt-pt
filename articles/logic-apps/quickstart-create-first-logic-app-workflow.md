@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: c2a26f2f40e0312fbfa0962e69ddfd0cfdabad5f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3087b964ff5f9754d6552fc95625541ce94a6535
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77191286"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148005"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Quickstart: Crie o seu primeiro fluxo de trabalho utilizando aplicações da Azure Logic - portal Azure
 
@@ -20,9 +20,10 @@ Este quickstart introduz os conceitos gerais básicos por trás de como construi
 
 ![Fluxo de trabalho de aplicativo de lógica de exemplo de alto nível](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-Para este cenário, necessita de uma conta de e-mail de um serviço que é suportado por Aplicações Lógicas Azure, como Office 365 Outlook, Outlook.com ou Gmail. Para outros serviços de e-mail suportados, [reveja a lista de conectores aqui](https://docs.microsoft.com/connectors/). Neste exemplo, a aplicação lógica utiliza o Office 365 Outlook. Se utilizar um serviço de e-mail diferente, os passos gerais gerais gerais gerais gerais são os mesmos, mas a interface de utilizador pode diferir ligeiramente.
+Para este cenário, é necessário uma subscrição Azure ou [inscreva-se para uma conta Azure gratuita](https://azure.microsoft.com/free/), uma conta de e-mail de um serviço que é suportado por Apps Lógicas Azure, como Office 365 Outlook, Outlook.com ou Gmail. Para outros serviços de e-mail suportados, [reveja a lista de conectores aqui](https://docs.microsoft.com/connectors/). Neste exemplo, a aplicação lógica utiliza uma conta de Outlook do Office 365. Se utilizar um serviço de e-mail diferente, os passos gerais gerais gerais gerais gerais são os mesmos, mas a interface de utilizador pode diferir ligeiramente.
 
-Além disso, se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/).
+> [!IMPORTANT]
+> Se pretender utilizar o conector Gmail, apenas as contas de negócio g-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode criar uma aplicação de [cliente da Google para usar para autenticação com o seu conector Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para mais informações, consulte as políticas de [segurança e privacidade dos dados para os conectores da Google em Aplicações Lógicas Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -45,7 +46,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Nome** | <*lógica-app-nome*> | O nome da sua aplicação lógica, que pode`-`conter apenas letras, números, hífenes ,`_`sublinha ( ), parênteses (`(`), `)`e períodos (`.`). Este exemplo usa "My-First-Logic-App". |
-   | **Assinatura** | <*Nome de assinatura Azure*> | O seu nome de subscrição Azure |
+   | **Subscrição** | <*Nome de assinatura Azure*> | O seu nome de subscrição Azure |
    | **Grupo de recursos** | <*Nome do grupo azure-recursos*> | O nome do grupo de [recursos Azure](../azure-resource-manager/management/overview.md) usado para organizar recursos relacionados. Este exemplo usa "My-First-LA-RG". |
    | **Localização** | <*Região azul*> | A região onde armazenar informações de aplicações lógicas. Este exemplo usa "West US". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |

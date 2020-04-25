@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/25/2019
-ms.openlocfilehash: d93c1d81e1434ffdd41297ed54e874c6b71240d2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6611c394d6aff92a62a7ecd9a7656d3408fb9da6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75430472"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146614"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Início Rápido: Criar um servidor da Base de Dados do Azure para PostgreSQL no portal do Azure
 
@@ -178,7 +178,7 @@ pgAdmin é uma ferramenta de código aberto utilizada com o PostgreSQL. Pode ins
     Nome de utilizador | Nome de início de sessão de administrador do servidor | O nome de utilizador de início de sessão de administrador do servidor que foi fornecido quando criou a Base de Dados do Azure para o servidor PostgreSQL anteriormente. Se não se lembrar do nome de utilizador, siga os passos na secção anterior para obter as informações da ligação. O formato é nome de servidor de *nome\@de utilizador.*
     Palavra-passe | A sua palavra-passe de administrador | A palavra-passe que escolheu quando criou o servidor anteriormente neste Início Rápido.
     Função | Deixar em branco | Não é necessário indicar um nome de função neste momento. Deixe o campo em branco.
-    Modo SSL | *Requerer* | Pode definir o modo SSL no separador SSL da PGAdmin. Por padrão, todas as bases de dados Azure para servidores PostgreSQL são criadas com a aplicação da SSL ligada. Para desativar a imposição de SSL, veja [Impor SSL](./concepts-ssl-connection-security.md).
+    Modo SSL | *Requerer* | Pode definir o modo TLS/SSL no separador SSL da PGAdmin. Por padrão, todas as bases de dados Azure para servidores PostgreSQL são criadas com a aplicação do TLS ligada. Para desligar a aplicação do TLS, consulte [a Configuração de Aplicação de TLS](./concepts-ssl-connection-security.md#configure-enforcement-of-tls).
     
 5. Selecione **Guardar**.
 

@@ -3,19 +3,19 @@ title: Referência da API do discurso ao texto (REST) - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar a API REST speech-to-text. Neste artigo, você vai aprender sobre opções de autorização, opções de consulta, como estruturar um pedido e receber uma resposta.
 services: cognitive-services
-author: trevorbye
+author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: trbye
-ms.openlocfilehash: fbb4d114d1fee21d7950e53b06fc16c96b5c930b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/23/2020
+ms.author: yinhew
+ms.openlocfilehash: 005824b0953be741f47c027d121dbe073adca3ba
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81400187"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131289"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -54,6 +54,7 @@ Estes parâmetros podem ser incluídos na cadeia de consulta do pedido REST.
 | `language` | Identifica a língua falada que está a ser reconhecida. Ver [línguas apoiadas.](language-support.md#speech-to-text) | Necessário |
 | `format` | Especifica o formato de resultados. Os valores aceites são `simple` e. `detailed` Os resultados `DisplayText` `Offset`simples `Duration`incluem, `RecognitionStatus`e . As respostas detalhadas incluem múltiplos resultados com valores de confiança e quatro representações diferentes. A predefinição é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com a profanação nos resultados de reconhecimento. Os valores aceites são `masked`, que substitui `removed`a profanação por asteriscos, `raw`que remove toda a profanação do resultado, ou , que inclui a profanação no resultado. A predefinição é `masked`. | Opcional |
+| `pronunciationScoreParams` | Especifica os parâmetros para a apresentação de pontuações de pronúncia nos resultados do reconhecimento, que avaliam a qualidade da pronúncia da entrada da fala, com indicadores de precisão, fluência, completude, etc. Este parâmetro é um json codificado base64 contendo múltiplos parâmetros detalhados. Consulte os parâmetros de [avaliação da pronúncia](#pronunciation-assessment-parameters) para como construir este parâmetro. | Opcional |
 | `cid` | Ao utilizar o [portal Custom Speech](how-to-custom-speech.md) para criar modelos personalizados, pode utilizar modelos personalizados através do id **endpoint** encontrado na página **de Implementação.** Utilize o **ID endpoint** como `cid` argumento para o parâmetro de corda de consulta. | Opcional |
 
 ## <a name="request-headers"></a>Cabeçalhos do pedido
@@ -80,6 +81,38 @@ O áudio é enviado no `POST` corpo do pedido HTTP. Deve estar num dos formatos 
 
 >[!NOTE]
 >Os formatos acima são suportados através da REST API e WebSocket no serviço De Fala. O [SDK de Speech](speech-sdk.md) suporta atualmente o formato WAV com codec PCM, bem como outros [formatos](how-to-use-codec-compressed-audio-input-streams.md).
+
+## <a name="pronunciation-assessment-parameters"></a>Parâmetros de avaliação da pronúncia
+
+Esta tabela lista seletiva e parâmetros opcionais para avaliação da pronúncia.
+
+| Parâmetro | Descrição | Obrigatório / Opcional |
+|-----------|-------------|---------------------|
+| Texto de referência | O texto que a pronúncia será avaliado. | Necessário |
+| Sistema de Classificação | O sistema de pontos para a calibração da pontuação. Os valores aceites são `FivePoint` e. `HundredMark` A predefinição é `FivePoint`. | Opcional |
+| Granularidade | A granularidade de avaliação. Os valores aceites são `Phoneme`, que mostram a pontuação no nível completo de texto, palavra e fonema, `Word`que mostra a pontuação no nível completo de texto e palavra, `FullText`que mostra a pontuação apenas no nível de texto completo. A predefinição é `Phoneme`. | Opcional |
+| Dimensão | Define os critérios de saída. Os valores aceites são `Basic`, `Comprehensive` o que mostra apenas a pontuação de precisão, mostra pontuações em mais dimensões (por exemplo, pontuação de fluência e pontuação de completude no nível de texto completo, tipo de erro no nível de palavra). Verifique [os parâmetros de Resposta](#response-parameters) para ver definições de diferentes dimensões de pontuação e tipos de erro de palavras. A predefinição é `Basic`. | Opcional |
+| EnableMiscue | Permite o cálculo errado. Com isto ativado, as palavras pronunciadas serão comparadas ao texto de referência, e serão marcadas com omissão/inserção com base na comparação. Os valores aceites são `False` e. `True` A predefinição é `False`. | Opcional |
+| CenárioId | Um GUID indicando um sistema de pontos personalizado. | Opcional |
+
+Abaixo está um exemplo JSON contendo os parâmetros de avaliação da pronúncia:
+
+```json
+{
+  "ReferenceText": "Good morning.",
+  "GradingSystem": "HundredMark",
+  "Granularity": "FullText",
+  "Dimension": "Comprehensive"
+}
+```
+
+O seguinte código de amostra mostra como construir os parâmetros de avaliação da pronúncia no parâmetro de consulta URL:
+
+```csharp
+var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
+var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
+var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
+```
 
 ## <a name="sample-request"></a>Pedido de amostra
 
@@ -178,6 +211,11 @@ Cada objeto `NBest` da lista inclui:
 | `ITN` | A forma inversa-por texto normalizada ("canónica") do texto reconhecido, com números de telefone, números, abreviaturas ("doctor smith" a "dr smith"), e outras transformações aplicadas. |
 | `MaskedITN` | A forma ITN com máscara profana aplicada, se solicitado. |
 | `Display` | A forma de exibição do texto reconhecido, com pontuação e capitalização adicionadas. Este parâmetro é o `DisplayText` mesmo que fornecido `simple`quando o formato está definido para . |
+| `AccuracyScore` | A pontuação indicando a precisão da pronúncia do discurso. |
+| `FluencyScore` | A pontuação indicando a fluência do discurso. |
+| `CompletenessScore` | A pontuação indicando a ptidão do discurso dado calculando a relação de palavras pronunciadas para toda a entrada. |
+| `PronScore` | A pontuação geral indicando a qualidade da pronúncia do discurso. Isto é `AccuracyScore`calculado `FluencyScore` `CompletenessScore` a partir de, e com peso. |
+| `ErrorType` | Este valor indica se uma palavra é omitida, `ReferenceText`inserida ou mal pronunciada, em comparação com . Os valores `None` possíveis são (não significando nenhum erro nesta palavra), `Omission` `Insertion` e `Mispronunciation`. |
 
 ## <a name="sample-responses"></a>Respostas da amostra
 
@@ -213,6 +251,45 @@ Uma resposta `detailed` típica para reconhecimento:
         "ITN" : "rewind me to buy 5 pencils",
         "MaskedITN" : "rewind me to buy 5 pencils",
         "Display" : "Rewind me to buy 5 pencils.",
+      }
+  ]
+}
+```
+
+Uma resposta típica para reconhecimento com avaliação de pronúncia:
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "400000",
+  "Duration": "11000000",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "good morning",
+        "ITN" : "good morning",
+        "MaskedITN" : "good morning",
+        "Display" : "Good morning.",
+        "PronScore" : 84.4,
+        "AccuracyScore" : 100.0,
+        "FluencyScore" : 74.0,
+        "CompletenessScore" : 100.0,
+        "Words": [
+            {
+              "Word" : "Good",
+              "AccuracyScore" : 100.0,
+              "ErrorType" : "None",
+              "Offset" : 500000,
+              "Duration" : 2700000
+            },
+            {
+              "Word" : "morning",
+              "AccuracyScore" : 100.0,
+              "ErrorType" : "None",
+              "Offset" : 5300000,
+              "Duration" : 900000
+            }
+        ]
       }
   ]
 }

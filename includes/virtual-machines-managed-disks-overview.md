@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 04/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 72b6c1f86b18df172994827ec78eb109fe82454e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0eaac5aac94c536fda58d7d004a54df51219f7cd
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75913793"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147784"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos geridos
 
@@ -33,11 +33,11 @@ Os discos geridos são integrados com conjuntos de disponibilidade para garantir
 
 ### <a name="integration-with-availability-zones"></a>Integração com Zonas de Disponibilidade
 
-Os discos geridos suportam as Zonas de [Disponibilidade,](../articles/availability-zones/az-overview.md)que é uma oferta de alta disponibilidade que protege as suas aplicações de falhas no datacenter. As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. Com Zonas de Disponibilidade, o Azure oferece à indústria o melhor tempo de uptime De SLA de 99,99% vM.
+Os discos geridos suportam as Zonas de [Disponibilidade,](../articles/availability-zones/az-overview.md)que é uma oferta de alta disponibilidade que protege as suas aplicações de falhas no datacenter. As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões ativadas. Com Zonas de Disponibilidade, o Azure oferece à indústria o melhor tempo de uptime De SLA de 99,99% vM.
 
 ### <a name="azure-backup-support"></a>Suporte de backup Azure
 
-Para proteger contra desastres regionais, [o Azure Backup](../articles/backup/backup-overview.md) pode ser usado para criar um trabalho de backup com backups baseados no tempo e políticas de retenção de backup. Isto permite-lhe realizar restaurações VM fáceis à vontade. Atualmente, o Azure Backup suporta tamanhos de disco até quatro discos tebibyte (TiB).  O Azure Backup suporta a cópia de segurança e restauro de discos geridos. [Saiba mais](../articles/backup/backup-support-matrix-iaas.md) sobre o suporte de apoio à VM Azure.
+Para proteger contra desastres regionais, [o Azure Backup](../articles/backup/backup-overview.md) pode ser usado para criar um trabalho de backup com backups baseados no tempo e políticas de retenção de backup. Isto permite-lhe realizar VM ou restauros de discos geridos à vontade. Atualmente, o Azure Backup suporta tamanhos de disco até 32 discos de tebibyte (TiB). [Saiba mais](../articles/backup/backup-support-matrix-iaas.md) sobre o suporte de apoio à VM Azure.
 
 ### <a name="granular-access-control"></a>Controlo de acesso granular
 

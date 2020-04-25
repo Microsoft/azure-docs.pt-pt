@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: dcb12da680d70e1f0ce4cd763bee340bb3416c6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88aaa3d54ea44a15f7900aba093bf28c70c19695
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76169939"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129863"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Use o seu modelo com a previsão API
 
@@ -134,8 +134,4 @@ Ao executar a aplicação, é-lhe solicitado que entre num caminho para um fiche
 
 Neste guia, aprendeu a submeter imagens ao seu classificador/detetor de imagem personalizado e a receber uma resposta programática com o C# SDK. Em seguida, aprenda a completar cenários de ponta a ponta com C#, ou começar a usar um SDK de linguagem diferente.
 
-* [Quickstart: .NET SDK](csharp-tutorial.md)
-* [Quickstart: Python SDK](python-tutorial.md)
-* [Quickstart: Java SDK](java-tutorial.md)
-* [Quickstart: Nó SDK](node-tutorial.md)
-* [Quickstart: Go SDK](go-tutorial.md)
+* [Quickstart: Custom Vision SDK](quickstarts/image-classification.md)

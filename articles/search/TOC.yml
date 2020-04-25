@@ -68,6 +68,8 @@
           href: cognitive-search-tutorial-blob.md
         - name: Python
           href: cognitive-search-tutorial-blob-python.md
+    - name: Consultar a partir do Power Apps
+      href: search-howto-powerapps.md
 - name: Amostras
   items:
     - name: 'Amostras em C#'
@@ -232,10 +234,8 @@
           items:
             - name: Criar um fornecedor de sugestões
               href: index-add-suggesters.md
-            - name: Adicionar sugestões ou preenchimento automático
+            - name: Adicionar preenchimento automático e sugestões
               href: search-autocomplete-tutorial.md
-        - name: Consultar a partir do Power Apps
-          href: search-howto-powerapps.md
         - name: Referência de sintaxe
           items:
             - name: Sintaxe de consulta simples
@@ -256,8 +256,8 @@
           href: search-query-troubleshoot-collection-filters.md
         - name: Compreender os filtros de recolha
           href: search-query-understand-collection-filters.md
-        - name: Exemplo de facetamento com múltiplos níveis
-          href: search-example-adventureworks-multilevel-faceting.md
+        - name: Filtrar por idioma
+          href: search-filters-language.md
     - name: Resultados
       items:
         - name: Trabalhar com os resultados
@@ -455,10 +455,6 @@
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: Demonstração com ficheiros JFK
           href: 'https://aka.ms/jfkfiles'
-        - name: Demonstração de Empregos em Nova Iorque
-          href: 'https://aka.ms/azjobsdemo'
-        - name: Pesquisar casos de utilização
-          href: 'https://searchsamples.azurewebsites.net/'
     - name: Formação
       items:
         - name: Introdução (Microsoft Learn)

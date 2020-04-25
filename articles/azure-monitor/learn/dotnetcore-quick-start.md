@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ef46b86186d1f5e26360de891b3a090ab0ece66b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 9aa19dfa0626ff0726911815addbb03945ee36f1
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78894820"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144854"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
@@ -99,11 +99,6 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 5. No clique esquerdo em **Métricas**. Utilize o explorador de métricas para investigar a saúde e utilização do seu recurso. Pode clicar em **Adicionar novo gráfico** criar vistas personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráficos existentes, a altura, a paleta de cores, os agrupamentos e as métricas. Por exemplo, pode fazer um gráfico que exibe o tempo médio de carga da página do navegador, escolhendo "Tempo de carga da página do navegador" a partir das métricas que descem e "Avg" da agregação. Para saber mais sobre a visita do Azure Metrics Explorer [Começar com o Azure Metrics Explorer.](../../azure-monitor/platform/metrics-getting-started.md)
 
      ![Separador de métricas: Gráfico médio de tempo de carregamento da página do navegador](./media/dotnetcore-quick-start/8metrics.png)
-
-## <a name="video"></a>Vídeo
-
-- Vídeo externo passo a passo sobre configurar Insights de [Aplicação com .NET Core e Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) do zero.
-- Vídeo externo passo a passo sobre configurar Insights de [aplicação com .NET Core e Visual Studio Code](https://youtu.be/ygGt84GDync) do zero.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando terminar os testes, pode eliminar o grupo de recursos e todos os recursos relacionados. Para isso siga os passos abaixo.

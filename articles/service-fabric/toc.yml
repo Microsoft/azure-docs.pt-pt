@@ -7,6 +7,9 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
+    - name: Modelo ARM
+      displayName: Resource Manager
+      href: quickstart-cluster-template.md
     - name: Criar uma aplicação .NET
       href: service-fabric-quickstart-dotnet.md
     - name: Implementar uma aplicação do contentor do Linux
