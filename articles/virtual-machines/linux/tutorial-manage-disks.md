@@ -15,12 +15,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 1949b66ee48036163e92cb37c275e9117d6a74b4
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: be2a52f1a9071e9d4bb77ab4439291fd58cd828b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460023"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129375"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial - Gerir discos do Azure com a CLI do Azure
 
@@ -32,7 +32,6 @@ As máquinas virtuais (VMs) do Azure utilizam discos para armazenar o sistema op
 > * Discos Standard e Premium
 > * Desempenho do disco
 > * Expor e preparar os discos de dados
-> * Redimensionar discos
 > * Instantâneos de disco
 
 
@@ -265,7 +264,6 @@ Neste tutorial, aprendeu sobre os tópicos de discos de VM, como:
 > * Discos Standard e Premium
 > * Desempenho do disco
 > * Expor e preparar os discos de dados
-> * Redimensionar discos
 > * Instantâneos de disco
 
 Avance para o próximo tutorial para saber mais sobre como automatizar a configuração da VM.

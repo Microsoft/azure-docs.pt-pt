@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 5c1cbebd671568d200321615ad34f52cb636c6c8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: f830d42ef09a60b1f9ced43250b24a68003d1e87
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878090"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129003"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicações no Serviço Kubernetes do Azure (AKS)
 
@@ -74,11 +74,11 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Se o seu cluster AKS for inferior a *1.10,* o Servidor de Métricas não está instalado automaticamente. Para instalar, clone o repo GitHub `metrics-server` e instale as definições de recursos exemplo. Para ver os conteúdos destas definições de YAML, consulte [Servidor de Métricas para Kuberenetes 1.8+][metrics-server-github].
+> Se o seu cluster AKS for inferior a *1.10,* o Servidor de Métricas não está instalado automaticamente. Os manifestos de instalação `components.yaml` do Servidor de Métricas estão disponíveis como um ativo nas libertações do Servidor de Métricas, o que significa que pode instalá-los através de um url. Para saber mais sobre estas definições de YAML, consulte a secção de [implantação][metrics-server-github] do readme.
 > 
+> Instalação de exemplo:
 > ```console
-> git clone https://github.com/kubernetes-incubator/metrics-server.git
-> kubectl create -f metrics-server/deploy/1.8+/
+> kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
 
 Para utilizar o autoscaler, todos os recipientes nas suas cápsulas e nas suas cápsulas devem ter pedidos e limites de CPU definidos. Na `azure-vote-front` implantação, o recipiente frontal já solicita 0,25 CPU, com um limite de 0,5 CPU. Estes pedidos e limites de recursos são definidos como mostrado no seguinte exemplo:
@@ -192,7 +192,7 @@ Avance para o próximo tutorial para saber como atualizar a aplicação no Kuber
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
-[metrics-server-github]: https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B
+[metrics-server-github]: https://github.com/kubernetes-sigs/metrics-server/blob/master/README.md#deployment
 [metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server
 
 <!-- LINKS - internal -->

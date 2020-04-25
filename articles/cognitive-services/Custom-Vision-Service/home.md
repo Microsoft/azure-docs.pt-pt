@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: bdb2b31ee3abb30e6e7339f641b778ff5dc522b0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 79ecb801e1b4d0fa96ca7ae06223fc231cbf12e6
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403795"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129878"
 ---
 # <a name="what-is-custom-vision"></a>O que é a Visão Personalizada?
 
@@ -49,4 +49,4 @@ Tal como acontece com todos os Serviços Cognitivos, os desenvolvedores que util
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Siga o guia [De classificação](getting-started-build-a-classifier.md) Para começar a usar visão personalizada na web, ou complete um tutorial de [classificação de imagem](csharp-tutorial.md) para implementar um cenário básico em código.
+Siga o guia [De classificação](getting-started-build-a-classifier.md) Para começar a usar visão personalizada na web, ou complete um tutorial de [classificação de imagem](quickstarts/image-classification.md) para implementar um cenário básico em código.

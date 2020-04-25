@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 04/24/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3578cb1326ebd701c3f00618c19a501a1476372
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: cd4815187e829cff56893988874e4dcac3b8985e
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80332131"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143764"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Enable Azure Ative Diretório auto-service password repor reescrita para um ambiente no local
 
@@ -57,7 +57,7 @@ Para funcionar corretamente com a reescrita da SSPR, a conta especificada no Azu
    * O objeto raiz de *cada domínio* naquela floresta
    * As unidades organizacionais do utilizador (OUs) que pretende estar ao seu alcance para o SSPR
 
-Se não atribuir estas permissões, a reprodução parece estar configurada corretamente, mas os utilizadores encontram erros quando gerem as suas palavras-passe no local a partir da nuvem.
+Se não atribuir estas permissões, a reprodução parece estar configurada corretamente, mas os utilizadores encontram erros quando gerem as suas palavras-passe no local a partir da nuvem. Devem ser aplicadas permissões a **Este objeto e a todos os objetos descendentes** para que apareça "Palavra-passe não expirada".  
 
 Para configurar as permissões adequadas para a reescrita de palavra-passe, complete os seguintes passos:
 
@@ -67,7 +67,7 @@ Para configurar as permissões adequadas para a reescrita de palavra-passe, comp
 1. A partir do separador **Permissões,** selecione **Adicionar**.
 1. Para **principal,** selecione a conta à a que as permissões devem ser aplicadas (a conta utilizada pelo Azure AD Connect).
 1. Na lista **Aplica-se à** lista de abandono, selecione **objetos de utilizador descendentes**.
-1. Em *Permissões,* selecione as caixas para as seguintes opções:
+1. Em *Permissões,* selecione a caixa para a seguinte opção:
     * **Repor palavra-passe**
 1. Em *Propriedades*, selecione as caixas para as seguintes opções. Você precisa percorrer a lista para encontrar estas opções, que podem já estar definidas por padrão:
     * **Escreva lockoutTime**
@@ -79,7 +79,7 @@ Para configurar as permissões adequadas para a reescrita de palavra-passe, comp
 
 Quando atualiza as permissões, pode demorar até uma hora ou mais para que estas permissões se reproduzam a todos os objetos do seu diretório.
 
-As políticas de password no ambiente AD DS no local podem impedir que os resets de palavra-passe sejam corretamente processados. Para que a reescrita de palavra-passe funcione de forma mais eficiente, a política de grupo para a idade mínima da *palavra-passe* deve ser definida para 0. Esta definição pode ser encontrada em **políticas de configuração de computador > > definições do Windows > Definições de segurança > políticas** de conta dentro de `gpedit.msc`. 
+As políticas de password no ambiente AD DS no local podem impedir que os resets de palavra-passe sejam corretamente processados. Para que a reescrita de palavra-passe funcione de forma mais eficiente, a política de grupo para a idade mínima da *palavra-passe* deve ser definida para 0. Esta definição pode ser encontrada em **políticas de configuração de computador > > definições do Windows > Definições de segurança > políticas** de conta dentro de `gpedit.msc`.
 
 Se atualizar a política do grupo, aguarde que `gpupdate /force` a política atualizada se reproduza ou utilize o comando.
 
@@ -123,7 +123,7 @@ Para permitir a reescrita da palavra-passe no SSPR, complete os seguintes passos
 
 Se já não pretender utilizar a funcionalidade de redação sspr que configuracomo parte deste tutorial, complete os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure e selecione **Azure Ative Directory**, selecione **reset de palavra-passe**e, em seguida, escolha a **integração no local**.
 1. Detete a opção de **escrever palavras-passe para o seu diretório no local?** *No*
 1. Definir a opção para permitir que os utilizadores *No* **desbloqueiem contas sem reajustar a sua palavra-passe?**

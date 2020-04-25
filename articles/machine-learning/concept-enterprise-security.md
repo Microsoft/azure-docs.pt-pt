@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 1af1a1ccd8bff8fc4b578ecdeec3ac5f7c2352b1
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 3765c70b27fb98518f71a55f00acfe5b831044ec
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82082140"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146675"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Aprendizagem automática Azure
 
@@ -183,7 +183,7 @@ Para permitir o fornecimento de uma instância Cosmos DB na sua subscrição com
         > [!NOTE]
         > Esta instância chave do cofre pode ser diferente da chave do cofre que é criado pela Azure Machine Learning quando você fornecer o espaço de trabalho. Se quiser utilizar a mesma instância chave do cofre para o espaço de trabalho, passe o mesmo cofre chave enquanto aprovisiona o espaço de trabalho utilizando o [parâmetro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Esta instância Cosmos DB é criada num grupo de recursos gerido pela Microsoft na sua subscrição. O grupo de recursos geridos está nomeado no formato<AML Workspace Resource Group Name><GUID>
+Esta instância Cosmos DB é criada num grupo de recursos gerido pela Microsoft na sua subscrição. O grupo de recursos geridos `<AML Workspace Resource Group Name><GUID>`está nomeado no formato .
 
 > [!IMPORTANT]
 > * Se precisar de eliminar esta instância Cosmos DB, tem de eliminar o espaço de trabalho Azure Machine Learning que o utiliza. 

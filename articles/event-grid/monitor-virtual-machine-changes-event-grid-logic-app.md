@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: f5aac7fe63b2afc997ff69e5d976c755440c1bea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 045f6d50846092820014ccc7f11a81f1e2234311
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75982578"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144086"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Tutorial: Monitorize as mudanças de máquinavirtual utilizando a Grelha de Eventos Azure e aplicações lógicas
 
@@ -49,6 +49,9 @@ Neste tutorial, ficará a saber como:
 
   Este tutorial usa uma conta de Office 365 Outlook. Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
 
+  > [!IMPORTANT]
+  > Se pretender utilizar o conector Gmail, apenas as contas de negócio g-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode criar uma aplicação de [cliente da Google para usar para autenticação com o seu conector Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para mais informações, consulte as políticas de [segurança e privacidade dos dados para os conectores da Google em Aplicações Lógicas Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+
 * Uma [máquina virtual](https://azure.microsoft.com/services/virtual-machines) que está sozinha no seu próprio grupo de recursos Azure. Se ainda não o fez, crie uma máquina virtual através do [tutorial Create a VM](../virtual-machines/windows/quick-create-portal.md). Para que a máquina virtual publique eventos, [não precisa de fazer mais nada](../event-grid/overview.md).
 
 ## <a name="create-blank-logic-app"></a>Criar uma aplicação lógica em branco
@@ -66,7 +69,7 @@ Neste tutorial, ficará a saber como:
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Nome** | Sim | <*lógica-app-nome*> | Forneça um nome único para a sua aplicação lógica. |
-   | **Assinatura** | Sim | <*Nome de assinatura Azure*> | Selecione a mesma subscrição Azure para todos os serviços deste tutorial. |
+   | **Subscrição** | Sim | <*Nome de assinatura Azure*> | Selecione a mesma subscrição Azure para todos os serviços deste tutorial. |
    | **Grupo de recursos** | Sim | <*Grupo de recursos azure*> | O nome do grupo de recursos Azure para a sua aplicação lógica, que pode selecionar para todos os serviços deste tutorial. |
    | **Localização** | Sim | <*Região azul*> | Selecione a mesma região para todos os serviços neste tutorial. |
    |||
@@ -100,7 +103,7 @@ Adicione agora o gatilho da Grelha de Eventos, que utiliza para monitorizar o gr
 
    | Propriedade | Necessário | Valor | Descrição |
    | -------- | -------- | ----- | ----------- |
-   | **Assinatura** | Sim | <*evento-editor-Azure-assinatura-nome*> | Selecione o nome para a subscrição Azure que está associado à editora do *evento*. Para este tutorial, selecione o nome de subscrição Azure para a sua máquina virtual. |
+   | **Subscrição** | Sim | <*evento-editor-Azure-assinatura-nome*> | Selecione o nome para a subscrição Azure que está associado à editora do *evento*. Para este tutorial, selecione o nome de subscrição Azure para a sua máquina virtual. |
    | **Tipo de recurso** | Sim | <*evento-editor-azure-tipo de recursos*> | Selecione o tipo de recurso Azure para a editora do evento. Para obter mais informações sobre os tipos de recursos do Azure, consulte os fornecedores e tipos de [recursos do Azure.](../azure-resource-manager/management/resource-providers-and-types.md) Para este tutorial, `Microsoft.Resources.ResourceGroups` selecione o valor para monitorizar os grupos de recursos azure. |
    | **Nome do recurso** |  Sim | <*evento-editor-azure-nome de recurso*> | Selecione o nome de recurso Azure para a editora do evento. Esta lista varia em função do tipo de recurso que selecionou. Para este tutorial, selecione o nome para o grupo de recursos Azure que inclui a sua máquina virtual. |
    | **Artigo do tipo de evento** |  Não | <*tipos de eventos*> | Selecione um ou mais tipos de eventos específicos para filtrar e enviar para a sua grelha de eventos. Por exemplo, pode adicionar opcionalmente estes tipos de eventos para detetar quando os recursos são alterados ou eliminados: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>Para obter mais informações, veja estes tópicos: <p><p>- [Esquema de evento sinuoso do evento Azure Event Grid para grupos de recursos](../event-grid/event-schema-resource-groups.md) <br>- [Compreender a filtragem de eventos](../event-grid/event-filtering.md) <br>- [Filtrar eventos para grelha de eventos](../event-grid/how-to-filter-events.md) |

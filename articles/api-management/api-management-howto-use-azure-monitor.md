@@ -2,23 +2,20 @@
 title: Monitorizar as APIs publicadas na Gestão de API do Azure | Microsoft Docs
 description: Siga os passos deste tutorial para aprender a monitorizar a sua API na Gestão de API do Azure.
 services: api-management
-documentationcenter: ''
 author: vladvino
 manager: cfowler
-editor: ''
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238371"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128849"
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
@@ -28,7 +25,7 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Ver registos de atividades
-> * Ver registos de diagnóstico
+> * Ver registos de recursos
 > * Ver métricas da API 
 > * Configurar uma regra de alerta quando a API recebe chamadas não autorizadas
 
@@ -120,20 +117,20 @@ Para ver registos de atividades:
 
 3. Selecione o âmbito de filtragem pretendido e clique em **Aplicar**.
 
-## <a name="diagnostic-logs"></a>Registos de Diagnóstico
+## <a name="resource-logs"></a>Registos de Recursos
 
-Os registos de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria, bem como para fins de resolução de problemas. Os registos de diagnóstico diferem dos registos de atividades. Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos recursos do Azure. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo recurso.
+Os registos de recursos fornecem informações ricas sobre operações e erros que são importantes para a auditoria, bem como para fins de resolução de problemas. Os registos de recursos diferem dos registos de atividade. Os registos de atividade fornecem insights sobre as operações que foram realizadas nos seus recursos Azure. Os registos de recursos fornecem informações sobre as operações que o seu recurso realizou.
 
-Para configurar os registos de diagnóstico:
+Para configurar registos de recursos:
 
 1. Selecione a instância de serviço APIM.
 2. Clique em **Definições de diagnóstico**.
 
-    ![registos de diagnóstico](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+    ![registos de recursos](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Clique em **Ativar diagnósticos**. Pode arquivar registos de diagnóstico juntamente com métricas para uma conta de armazenamento, transmiti-los para um Hub de Eventos ou enviá-los para registos do Monitor Azure. 
+3. Clique em **Ativar diagnósticos**. Pode arquivar registos de recursos juntamente com métricas para uma conta de armazenamento, transmiti-los para um Hub de Eventos ou enviá-los para registos do Monitor Azure. 
 
-Atualmente, a Gestão de API disponibiliza registos de diagnósticos (batches criados de hora a hora) sobre pedidos à API individuais tendo cada entrada o esquema seguinte:
+A API Management fornece atualmente registos de recursos (loteados de hora a hora) sobre o pedido individual de API com cada entrada com o seguinte esquema:
 
 ```json
 {  
@@ -227,7 +224,7 @@ Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Ver registos de atividades
-> * Ver registos de diagnóstico
+> * Ver registos de recursos
 > * Ver métricas da API
 > * Configurar uma regra de alerta quando a API recebe chamadas não autorizadas
 

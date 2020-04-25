@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4dff48f909cd3febbbb7e92dcf96070020b8f57c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77083101"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145140"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados usando a Partilha de Dados do Azure  
 
@@ -68,13 +68,15 @@ Certifique-se de que todos os pré-requisitos estão completos antes de aceitar 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="open-invitation"></a>Convite aberto
 
-1. Verifique a sua caixa de entrada para obter um convite do seu fornecedor de dados. O convite é do Microsoft Azure, intitulado Convite de **Partilha de Dados Do Azure de <yourdataprovider@domain.com> **. Tome nota do nome da partilha para garantir que está a aceitar a parte correta se houver vários convites. 
+1. Pode abrir convite sacar-se por e-mail ou diretamente do portal Azure. 
 
-1. Selecione no **convite para** ver o seu convite em Azure. Isto leva-o à sua visão de Ações Recebidas.
+   Para abrir convite a partir de e-mail, consulte a sua caixa de entrada para obter um convite do seu fornecedor de dados. O convite é do Microsoft Azure, intitulado Convite de **Partilha de Dados Do Azure de <yourdataprovider@domain.com> **. Clique no **convite para** ver o seu convite em Azure. 
+
+   Para abrir convite diretamente do portal Azure, procure **convites** de partilha de dados no portal Azure. Isto leva-o à lista de convites da Data Share.
 
    ![Convites](./media/invitations.png "Lista de convites") 
 
