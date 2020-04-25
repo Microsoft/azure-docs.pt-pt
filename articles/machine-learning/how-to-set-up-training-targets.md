@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 625efcce7305cd7b1dd415a286e6b1e92682cc0a
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 4db00fd43095c44a88cc0aae40778ab5b4b751b0
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616839"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137404"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar alvos de cálculo para formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -99,26 +99,11 @@ Você pode usar a Azure Machine Learning Compute para distribuir o processo de t
 
 A Azure Machine Learning Compute tem limites de predefinição, como o número de núcleos que podem ser atribuídos. Para mais informações, consulte [Gerir e solicitar quotas para os recursos do Azure.](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas)
 
+> [!TIP]
+> Os clusters podem geralmente escalar até 100 nós, desde que tenha quota suficiente para o número de núcleos necessários. Por padrão, os clusters são configurados com uma comunicação inter-nó ativada entre os nós do cluster para apoiar os empregos de PMI, por exemplo. No entanto, pode escalar os seus clusters para 1000 s de nós, [bastando levantar um bilhete](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio e solicitar para whitelist a sua subscrição, ou espaço de trabalho, ou um cluster específico para desativar a comunicação inter-nó. 
+>
 
-Você pode criar um ambiente de computação de Aprendizagem automática Azure a pedido quando você agenda uma corrida, ou como um recurso persistente.
-
-#### <a name="run-based-creation"></a>Criação baseada em corridas
-
-Pode criar a Computação de Aprendizagem automática Azure como alvo de cálculo no tempo de execução. O cálculo é automaticamente criado para a sua execução. O cálculo é apagado automaticamente assim que a execução estiver concluída. 
-
-> [!IMPORTANT]
-> A criação baseada em run da computação Azure Machine Learning está atualmente em Pré-visualização. Não utilize a criação baseada em corridas se utilizar a finação automatizada de hiperparâmetros ou aprendizagem automática de máquinas. Para utilizar a finação do hiperparâmetro ou a aprendizagem automática de máquinas, crie um alvo [de computação persistente.](#persistent)
-
-1.  **Criar, anexar e configurar:** A criação baseada em execução executa todos os passos necessários para criar, anexar e configurar o alvo computacional com a configuração do funcionar.  
-
-  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
-
-
-Agora que ligou o cálculo e configurou a sua execução, o próximo passo é [submeter o treino.](#submit)
-
-#### <a name="persistent-compute"></a><a id="persistent"></a>Computação persistente
-
-Uma computação de aprendizagem automática Azure persistente pode ser reutilizada em todos os trabalhos. A computação pode ser partilhada com outros utilizadores no espaço de trabalho e é mantida entre empregos.
+A Computação de Aprendizagem automática Azure pode ser reutilizada em percursos. O cálculo pode ser partilhado com outros utilizadores no espaço de trabalho e é retido entre corridas, escalando automaticamente os nós para cima ou para baixo com base no número de execuções submetidas, e o max_nodes definido no seu cluster.
 
 1. **Criar e anexar**: Para criar um recurso de computação de aprendizagem automática Azure persistente em Python, especifique as **propriedades vm_size** e **max_nodes.** O Azure Machine Learning utiliza então predefinições inteligentes para as outras propriedades. A computação automaticamente desce para zero nódosos quando não é usado.   VMs dedicados são criados para gerir os seus trabalhos conforme necessário.
     

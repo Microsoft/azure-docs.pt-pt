@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5525f2f8ab4ef83ba9c3aeeff945bc9d875600d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d7c9713f27643e792ea381e1a2419cbc4b67a99
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75748660"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129206"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interprete o esquema de login da AD Azure no Monitor Azure
 
@@ -170,4 +170,4 @@ Este artigo descreve o login de login Azure Ative (Azure AD) no Azure Monitor. A
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Interpretar esquemas de registos de auditoria no Monitor Azure](reference-azure-monitor-audit-log-schema.md)
-* [Ler mais sobre os registos de diagnóstico do Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Ler mais sobre os registos da plataforma Azure](../../azure-monitor/platform/platform-logs-overview.md)

@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f03b146331069371106c1857f2acc68b566d3c5d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75608385"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129236"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integre os registos de DirectórioActivo Azure com o ArcSight utilizando o Monitor Azure
 
@@ -53,7 +53,7 @@ Descarregue e abra o guia de [configuração do ArcSight SmartConnector para o A
     * As definições de aplicação a partir da sua implementação são persistidas nas Definições de Aplicação em Aplicações de Função Azure. 
     * Um novo grupo de recursos para o ArcSight é criado em Azure, com uma aplicação Azure AD para as contas de conector e armazenamento ArcSight contendo os ficheiros mapeados no formato CEF.
 
-4. Por fim, complete os passos de pós-implantação nas **Configurações pós-implantação** do guia de configuração. Esta secção explica como executar uma configuração adicional se estiver num Plano de Serviço de Aplicações para evitar que as aplicações de função fiquem inativas após um período de tempo limite, configure o streaming de registos de diagnóstico do centro do evento e atualize o SysLog NG Daemon Certificado de keystore SmartConnector para associá-lo à conta de armazenamento recém-criada.
+4. Por fim, complete os passos de pós-implantação nas **Configurações pós-implantação** do guia de configuração. Esta secção explica como executar uma configuração adicional se estiver num Plano de Serviço de Aplicações para evitar que as aplicações de função fiquem inativas após um período de tempo, configure o streaming de registos de recursos do centro do evento e atualize o certificado de keystore SysLog NG Daemon SmartConnector para associá-lo à conta de armazenamento recém-criada.
 
 5. O guia de configuração também explica como personalizar as propriedades do conector em Azure, e como atualizar e desinstalar o conector. Há também uma secção sobre melhorias de desempenho, incluindo a atualização para um plano de [consumo azure](https://azure.microsoft.com/pricing/details/functions) e configurar um Equilíbrio de Carga ArcSight se a carga do evento for maior do que o que um único Syslog NG Daemon SmartConnector pode lidar.
 

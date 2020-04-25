@@ -1,39 +1,38 @@
 ---
-title: Registo de diagnóstico para um grupo de segurança de rede
+title: Registo de recursos de diagnóstico para um grupo de segurança de rede
 titlesuffix: Azure Virtual Network
-description: Aprenda a ativar registos de diagnóstico de eventos e regras contra diagnósticos para um grupo de segurança de rede Azure.
+description: Aprenda a ativar registos de recursos de teste e de regras contra o diagnóstico de um grupo de segurança de rede Azure.
 services: virtual-network
-documentationcenter: na
 author: KumudD
 manager: mtillman
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 9829e713f19ab9755e9dc79d676446c8048e09b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cfc1b933abbbc3736145ff3c6a600f48260538d2
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75751177"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133828"
 ---
-# <a name="diagnostic-logging-for-a-network-security-group"></a>Registo de diagnóstico para um grupo de segurança de rede
+# <a name="resource-logging-for-a-network-security-group"></a>Exploração de recursos para um grupo de segurança de rede
 
-Um grupo de segurança de rede (NSG) inclui regras que permitem ou negam o tráfego a uma subnet de rede virtual, interface de rede, ou ambos. Quando ativa o registo de diagnóstico para um NSG, pode registar as seguintes categorias de informação:
+Um grupo de segurança de rede (NSG) inclui regras que permitem ou negam o tráfego a uma subnet de rede virtual, interface de rede, ou ambos. 
+
+Quando ativa o registo de um NSG, pode recolher os seguintes tipos de informações de registo de recursos:
 
 * **Evento:** As inscrições são registadas para as quais as regras de NSG são aplicadas aos VMs, com base no endereço MAC.
 * **Contador de regras:** Contém entradas para quantas vezes cada regra do NSG é aplicada para negar ou permitir o tráfego. O estatuto destas regras é recolhido a cada 60 segundos.
 
-Os registos de diagnóstico só estão disponíveis para NSGs implantados através do modelo de implementação do Gestor de Recursos Azure. Não é possível permitir o registo de diagnóstico para NSGs implantado através do modelo de implementação clássico. Para uma melhor compreensão dos dois modelos, consulte os modelos de [implementação Understanding Azure.](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Os registos de recursos só estão disponíveis para NSGs implantados através do modelo de implementação do Gestor de Recursos Azure. Não é possível permitir a exploração de recursos para NSGs implantados através do modelo de implementação clássico. Para uma melhor compreensão dos dois modelos, consulte os modelos de [implementação Understanding Azure.](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-O registo de diagnóstico está ativado separadamente para *cada* NSG para o que pretende recolher dados de diagnóstico. Se estiver interessado em operações operacionais, ou atividade, faça login, consulte a [exploração madeireira](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)da atividade do Azure.
+A exploração de recursos está ativada separadamente para *cada* NSG para o que pretende recolher dados de diagnóstico. Se estiver interessado em registos de atividade (operacional), consulte o [registo de exploração de atividade do](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure .
 
 ## <a name="enable-logging"></a>Ativar registo
 
-Pode utilizar o [Portal Azure,](#azure-portal) [powerShell](#powershell)ou o [Azure CLI](#azure-cli) para permitir o registo de diagnóstico.
+Pode utilizar o [Portal Azure,](#azure-portal) [powerShell](#powershell)ou o [Azure CLI](#azure-cli) para permitir a exploração de recursos.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -59,9 +58,9 @@ Pode utilizar o [Portal Azure,](#azure-portal) [powerShell](#powershell)ou o [Az
 
 Pode executar os comandos que se seguem na Casca de [Nuvem Azure,](https://shell.azure.com/powershell)ou executando a PowerShell a partir do seu computador. A Casca de Nuvem Azure é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, precisa do módulo Azure PowerShell, versão 1.0.0 ou posterior. Navere `Get-Module -ListAvailable Az` no seu computador, para encontrar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar a PowerShell `Connect-AzAccount` localmente, também precisa de correr para iniciar sessão no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
 
-Para permitir o registo de diagnóstico, precisa da identificação de um NSG existente. Se não tiver um NSG existente, pode criar um com [o New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
+Para permitir a exploração de recursos, precisa da identificação de um NSG existente. Se não tiver um NSG existente, pode criar um com [o New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
-Recupere o grupo de segurança da rede que pretende ativar o registo de diagnóstico com [o Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Por exemplo, para recuperar um NSG chamado *myNsg* que existe num grupo de recursos chamado *myResourceGroup,* insira o seguinte comando:
+Recupere o grupo de segurança da rede que pretende ativar o registo de recursos com [o Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Por exemplo, para recuperar um NSG chamado *myNsg* que existe num grupo de recursos chamado *myResourceGroup,* insira o seguinte comando:
 
 ```azurepowershell-interactive
 $Nsg=Get-AzNetworkSecurityGroup `
@@ -69,7 +68,7 @@ $Nsg=Get-AzNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-Pode escrever registos de diagnóstico para três tipos de destino. Para mais informações, consulte os [destinos de Registo](#log-destinations). Neste artigo, os registos são enviados para o destino *Log Analytics,* como exemplo. Recupere um espaço de trabalho existente no Log Analytics com [o Get-AzOperationalInsightsWorkspacespace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Por exemplo, para recuperar um espaço de trabalho existente chamado *myWorkspace* num grupo de recursos chamado *myWorkspaces,* insira o seguinte comando:
+Pode escrever registos de recursos para três tipos de destino. Para mais informações, consulte os [destinos de Registo](#log-destinations). Neste artigo, os registos são enviados para o destino *Log Analytics,* como exemplo. Recupere um espaço de trabalho existente no Log Analytics com [o Get-AzOperationalInsightsWorkspacespace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Por exemplo, para recuperar um espaço de trabalho existente chamado *myWorkspace* num grupo de recursos chamado *myWorkspaces,* insira o seguinte comando:
 
 ```azurepowershell-interactive
 $Oms=Get-AzOperationalInsightsWorkspace `
@@ -79,7 +78,7 @@ $Oms=Get-AzOperationalInsightsWorkspace `
 
 Se não tiver um espaço de trabalho existente, pode criar um com [o Espaço New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-Existem duas categorias de loga para as quais pode ativar registos. Para mais informações, consulte [as categorias de Registo](#log-categories). Ative o registo de diagnóstico para o NSG com [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). O exemplo seguinte regista dados de categoria seleção e contra-categoria para o espaço de trabalho de um NSG, utilizando os IDs para o NSG e espaço de trabalho que recuperou anteriormente:
+Existem duas categorias de loga para as quais pode ativar registos. Para mais informações, consulte [as categorias de Registo](#log-categories). Ative o registo de recursos para o NSG com [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). O exemplo seguinte regista dados de categoria seleção e contra-categoria para o espaço de trabalho de um NSG, utilizando os IDs para o NSG e espaço de trabalho que recuperou anteriormente:
 
 ```azurepowershell-interactive
 Set-AzDiagnosticSetting `
@@ -96,9 +95,9 @@ Ver e analisar registos. Para mais informações, consulte [Ver e analisar regis
 
 Pode executar os comandos que se seguem na Casca de [Nuvem Azure,](https://shell.azure.com/bash)ou executando o Azure CLI a partir do seu computador. A Casca de Nuvem Azure é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o CLI a partir do seu computador, precisa da versão 2.0.38 ou posterior. Navere `az --version` no seu computador, para encontrar a versão instalada. Se precisar de fazer o upgrade, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Se estiver a executar o CLI localmente, também precisa de correr `az login` para iniciar sessão no Azure com uma conta que tenha as [permissões necessárias.](virtual-network-network-interface.md#permissions)
 
-Para permitir o registo de diagnóstico, precisa da identificação de um NSG existente. Se não tiver um NSG existente, pode criar um com a [rede az nsg criar](/cli/azure/network/nsg#az-network-nsg-create).
+Para permitir a exploração de recursos, precisa da identificação de um NSG existente. Se não tiver um NSG existente, pode criar um com a [rede az nsg criar](/cli/azure/network/nsg#az-network-nsg-create).
 
-Recupere o grupo de segurança da rede que pretende ativar o registo de diagnóstico com [o programa nsg da rede Az](/cli/azure/network/nsg#az-network-nsg-show). Por exemplo, para recuperar um NSG chamado *myNsg* que existe num grupo de recursos chamado *myResourceGroup,* insira o seguinte comando:
+Recupere o grupo de segurança da rede que pretende ativar recursos com [o programa nsg da rede Az](/cli/azure/network/nsg#az-network-nsg-show). Por exemplo, para recuperar um NSG chamado *myNsg* que existe num grupo de recursos chamado *myResourceGroup,* insira o seguinte comando:
 
 ```azurecli-interactive
 nsgId=$(az network nsg show \
@@ -108,9 +107,9 @@ nsgId=$(az network nsg show \
   --output tsv)
 ```
 
-Pode escrever registos de diagnóstico para três tipos de destino. Para mais informações, consulte os [destinos de Registo](#log-destinations). Neste artigo, os registos são enviados para o destino *Log Analytics,* como exemplo. Para mais informações, consulte [as categorias de Registo](#log-categories).
+Pode escrever registos de recursos para três tipos de destino. Para mais informações, consulte os [destinos de Registo](#log-destinations). Neste artigo, os registos são enviados para o destino *Log Analytics,* como exemplo. Para mais informações, consulte [as categorias de Registo](#log-categories).
 
-Ative o registo de diagnóstico para o NSG com [a criação de definições de diagnóstico az monitor .](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) O exemplo seguinte regista dados de eventos e contracategorias para um espaço de trabalho existente chamado *myWorkspace*, que existe num grupo de recursos chamado *myWorkspaces*, e o ID do NSG que recuperou anteriormente:
+Ative o registo de recursos para o NSG com [a criação de definições de diagnóstico az monitor .](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) O exemplo seguinte regista dados de eventos e contracategorias para um espaço de trabalho existente chamado *myWorkspace*, que existe num grupo de recursos chamado *myWorkspaces*, e o ID do NSG que recuperou anteriormente:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create \
@@ -198,7 +197,7 @@ O contra-registo de regras contém informações sobre cada regra aplicada aos r
 
 ## <a name="view-and-analyze-logs"></a>Ver e analisar registos
 
-Para aprender a visualizar os dados de registo de diagnóstico, consulte a visão geral dos [Registos de Diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se enviar dados de diagnóstico para:
+Para aprender a visualizar dados de registo de recursos, consulte a visão geral dos [registos da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se enviar dados de diagnóstico para:
 - **Registos do Monitor Azure:** Pode utilizar a solução de análise do grupo de segurança da [rede](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) para obter informações melhoradas. A solução fornece visualizações para regras de NSG que permitem ou negam o tráfego, por endereço MAC, da interface de rede numa máquina virtual.
 - **Conta de Armazenamento Azure**: Os dados são escritos num ficheiro PT1H.json. Pode encontrar o:
@@ -207,7 +206,7 @@ Para aprender a visualizar os dados de registo de diagnóstico, consulte a visã
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [o registo de atividades](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), anteriormente conhecidos como registos de auditoria ou operacionais. O registo de atividades é ativado por padrão para NSGs criados através de qualquer modelo de implementação Azure. Para determinar quais as operações concluídas nos NSGs no registo de atividade, procure entradas que contenham os seguintes tipos de recursos:
+- Saiba mais sobre [a exploração madeireira](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)de Atividades. O registo de atividades é ativado por padrão para NSGs criados através de qualquer modelo de implementação Azure. Para determinar quais as operações concluídas nos NSGs no registo de atividade, procure entradas que contenham os seguintes tipos de recursos:
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups

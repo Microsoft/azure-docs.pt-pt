@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 3a5cf2b210781d43ddd1a7aa87736a53df222cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 4270e4c71cca28d43b1ecbaca1ec0f262251252b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477396"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137608"
 ---
 # <a name="two-class-neural-network-module"></a>Módulo de rede neural de duas classes
 
@@ -74,9 +74,19 @@ Para calcular a saída da rede para uma determinada entrada, calcula-se um valor
   
      Especificar um valor de semente é útil quando pretende garantir a repetbilidade através de percursos do mesmo oleoduto.  Caso contrário, um valor do relógio do sistema é usado como semente, o que pode causar resultados ligeiramente diferentes cada vez que executa o gasoduto.
   
-13. Adicione um conjunto de dados marcado ao gasoduto e ligue um dos [módulos](module-reference.md)de treino .  
+13. Adicione um conjunto de dados rotulado ao gasoduto e treine o modelo:
+
+    + Se definir o modo Criar o **modo de formação** para **um parâmetro único,** ligue um conjunto de dados marcado e o módulo [Modelo de Comboio.](train-model.md)  
   
-    -   Se definir o modo Criar modo **de treinador** para um parâmetro **único,** utilize o módulo Modelo de [Comboio.](train-model.md)  
+    + Se definir O modo Criar o **modo de formação** para o intervalo do **parâmetro,** ligue um conjunto de dados marcado e treine o modelo utilizando [hiperparâmetros do Modelo tune](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Se passar uma gama de parâmetros para [o Modelo de Comboio,](train-model.md)utiliza apenas o valor predefinido na lista de parâmetros individuais.  
+    > 
+    > Se passar um único conjunto de valores de parâmetros para o módulo de [hiperparâmetros](tune-model-hyperparameters.md) do Modelo tune, quando espera uma gama de definições para cada parâmetro, ignora os valores e utiliza os valores predefinidos para o aluno.  
+    > 
+    > Se selecionar a opção Gama de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros alterem uma gama de valores.  
   
 14. Submeta o oleoduto.
 

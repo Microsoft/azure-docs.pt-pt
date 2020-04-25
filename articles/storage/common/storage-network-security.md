@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7120ba2cf71c9af5373b830d04d0b67952922887
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 6f0e7c514835227fafd439803107531fbc62285c
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113511"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133838"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configure firewalls de armazenamento Azure e redes virtuais
 
@@ -380,7 +380,7 @@ Quando ativa os **serviços fidedignos** da Microsoft... definição, os recurso
 | Azure File Sync          | Microsoft.StorageSync      | Permite-lhe transformar o seu servidor de ficheiros on-prem numa cache para ações do Ficheiro Azure. Permitindo sincronização multi-site, rápida recuperação de desastres e backup do lado da nuvem. [Mais informações](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Fornecer o conteúdo inicial do sistema de ficheiros predefinido para um novo cluster HDInsight. [Saiba mais](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Exportação de Importações De Azure      | Microsoft.ImportExport     | Permite a importação de dados para o Azure e a exportação de dados do Azure através do serviço de importação/exportação. [Saiba mais](/azure/storage/common/storage-import-export-service).  |
-| Azure Monitor            | Microsoft.Insights         | Permite a escrita de dados de monitorização para uma conta de armazenamento segura, incluindo registos de diagnóstico de recursos, registos de login e auditoria do Azure Ative Directory e registos de auditoria da Microsoft Intune. [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
+| Azure Monitor            | Microsoft.Insights         | Permite a escrita de dados de monitorização para uma conta de armazenamento segura, incluindo registos de recursos, registos de login e auditoria do Azure Ative Directory e registos de auditoria da Microsoft Intune. [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
 | Rede Azure         | Microsoft.Network          | Armazenar e analisar registos de tráfego de rede. [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Ativar a replicação para a recuperação de desastres das máquinas virtuais Azure IaaS ao utilizar contas de armazenamento de cache, fonte ou armazenamento ativadas por firewall.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
@@ -401,7 +401,7 @@ A definição de **serviços fidedignos** da Microsoft... permite também que um
 
 ### <a name="storage-analytics-data-access"></a>Acesso a dados de análise de armazenamento
 
-Em alguns casos, o acesso à leitura de registos e métricas de diagnóstico é necessário fora do limite da rede. Ao configurar o acesso de serviços fidedignos à conta de armazenamento, pode permitir o acesso de leitura para os ficheiros de registo, tabelas de métricas ou ambos. [Saiba mais sobre trabalhar com análise de armazenamento.](/azure/storage/storage-analytics)
+Em alguns casos, o acesso à leitura de registos e métricas de recursos é necessário fora do limite da rede. Ao configurar o acesso de serviços fidedignos à conta de armazenamento, pode permitir o acesso de leitura para os ficheiros de registo, tabelas de métricas ou ambos. [Saiba mais sobre trabalhar com análise de armazenamento.](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>Gestão de exceções
 

@@ -8,18 +8,18 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8aaac6100ba980301ff3e85a3ac3959bfee89b49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7540c5a82220eef61b8f1cf470697315496cd6bf
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76895960"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127610"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Compreender as implementações automáticas IoT Edge para dispositivos individuais ou em escala
 
 As implementações automáticas e a implementação em camadas ajudam-no a gerir e configurar módulos em grande número de dispositivos IoT Edge.
 
-O Azure IoT Edge fornece duas formas de configurar os módulos para funcionar em dispositivos IoT Edge. O primeiro método é implementar módulos numa base por dispositivo. Cria-se um manifesto de implantação e aplica-o num determinado dispositivo pelo nome. O segundo método consiste em implantar automaticamente módulos em qualquer dispositivo registado que satisfaça um conjunto de condições definidas. Cria-se um manifesto de implantação e, em seguida, define a que dispositivos se aplica com base em [etiquetas](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) no dispositivo twin.
+O Azure IoT Edge fornece duas formas de configurar os módulos para funcionar em dispositivos IoT Edge. O primeiro método é implementar módulos numa base por dispositivo. Cria-se um manifesto de implantação e aplica-o num determinado dispositivo pelo nome. O segundo método consiste em implantar automaticamente módulos em qualquer dispositivo registado que satisfaça um conjunto de condições definidas. Cria-se um manifesto de implantação e, em seguida, define a que dispositivos se aplica com base em [etiquetas](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) no dispositivo twin.
 
 Este artigo centra-se na configuração e monitorização de frotas de dispositivos, colectivamente referidas como *implantações automáticas IoT Edge*.Os passos básicos de implantação são os seguintes:
 
@@ -28,7 +28,7 @@ Este artigo centra-se na configuração e monitorização de frotas de dispositi
 3. O serviço IoT Hub recupera o estado dos dispositivos IoT Edge e disponibiliza-os ao operador.Por exemplo, um operador pode ver quando um dispositivo Edge não está configurado com sucesso ou se um módulo falha durante o tempo de funcionação.
 4. A qualquer momento, novos dispositivos IoT Edge que satisfaçam as condições de segmentação estão configurados para a implementação.
 
-Este artigo descreve cada componente envolvido na configuração e monitorização de uma implementação. Para uma passagem pela criação e atualização de uma implementação, consulte [os módulos De implantação e monitorização em escala](how-to-deploy-monitor.md).
+Este artigo descreve cada componente envolvido na configuração e monitorização de uma implementação. Para uma passagem pela criação e atualização de uma implementação, consulte [os módulos De implantação e monitorização em escala](how-to-deploy-at-scale.md).
 
 ## <a name="deployment"></a>Implementação
 
@@ -197,5 +197,5 @@ Execute recuos na seguinte sequência:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Caminhe pelos passos para criar, atualizar ou eliminar uma implementação em [módulos Deploy e monitor ioT Edge em escala](how-to-deploy-monitor.md).
+* Caminhe pelos passos para criar, atualizar ou eliminar uma implementação em [módulos Deploy e monitor ioT Edge em escala](how-to-deploy-at-scale.md).
 * Saiba mais sobre outros conceitos IoT Edge como o tempo de [execução IoT Edge](iot-edge-runtime.md) e os [módulos IoT Edge](iot-edge-modules.md).

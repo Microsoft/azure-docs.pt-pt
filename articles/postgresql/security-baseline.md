@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: dfe1bd1cbc99838f427aaba5bc29b23f8bfcbaff
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
-ms.translationtype: MT
+ms.openlocfilehash: a38bb12577fd646b2e7abf773dbb2a3f138f58fe
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758674"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127553"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Linha de base de segurança azure para base de dados azure para o servidor único postgresQL
 
@@ -197,7 +197,7 @@ Como embarcar no Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quicks
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Permitir a exploração de auditoria aos recursos do Azure
 
-**Orientação**: Ativar as definições de diagnóstico na sua Base de Dados Azure para casos PostgreSQL para acesso a registos de auditoria, segurança e diagnóstico. Certifique-se de que ativa especificamente o registo de auditoria PostgreSQL. Os registos de atividade, que estão automaticamente disponíveis, incluem fonte de evento, data, utilizador, carimbo de tempo, endereços de origem, endereços de destino e outros elementos úteis. Também pode ativar as Definições de Diagnóstico de Registo de Atividade do Azure e enviar os registos para o mesmo espaço de trabalho de Log Analytics ou Conta de Armazenamento.
+**Orientação**: Ativar as definições de diagnóstico na sua Base de Dados Azure para casos PostgreSQL para acesso a registos de auditoria, segurança e recursos. Certifique-se de que ativa especificamente o registo de auditoria PostgreSQL. Os registos de atividade, que estão automaticamente disponíveis, incluem fonte de evento, data, utilizador, carimbo de tempo, endereços de origem, endereços de destino e outros elementos úteis. Também pode ativar as Definições de Diagnóstico de Registo de Atividade do Azure e enviar os registos para o mesmo espaço de trabalho de Log Analytics ou Conta de Armazenamento.
 
 Como configurar e aceder aos registos do servidor para base de dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 

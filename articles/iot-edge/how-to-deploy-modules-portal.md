@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 754c106db42f3f0695ad023e736993bee82e9757
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271450"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133925"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implante módulos Azure IoT Edge do portal Azure
 
 Assim que criar módulos IoT Edge com a sua lógica de negócio, pretende implantá-los nos seus dispositivos para operar na borda. Se tiver vários módulos que trabalham em conjunto para recolher e processar dados, pode implantá-los todos de uma vez e declarar as regras de encaminhamento que os ligam.
 
-Este artigo mostra como o portal Azure o guia através da criação de um manifesto de implantação e empurrando a implementação para um dispositivo IoT Edge. Para obter informações sobre a criação de uma implementação que visa vários dispositivos com base nas suas etiquetas partilhadas, consulte [os módulos IoT Edge em escala](how-to-deploy-monitor.md).
+Este artigo mostra como o portal Azure o guia através da criação de um manifesto de implantação e empurrando a implementação para um dispositivo IoT Edge. Para obter informações sobre a criação de uma implementação que visa vários dispositivos com base nas suas etiquetas partilhadas, consulte [os módulos IoT Edge em escala](how-to-deploy-at-scale.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -106,4 +106,4 @@ Selecione **Seguinte: Rotas** e continue com a implantação conforme descrito p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [implantar e monitorizar módulos IoT Edge em escala](how-to-deploy-monitor.md)
+Saiba como [implantar e monitorizar módulos IoT Edge em escala](how-to-deploy-at-scale.md)

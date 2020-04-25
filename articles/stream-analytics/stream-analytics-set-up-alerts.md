@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 836b7a489e3c73d745b128cbbc0c3566220ac409
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bd1f59d5cf33ae7f1f2e33e6c3f1312b5a13e61
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458729"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127579"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Criar alertas para empregos da Azure Stream Analytics
 
@@ -60,13 +60,13 @@ Recomenda-se a monitorização do desempenho do seu trabalho em Análise stream.
 |Métrica|Condição|Agregação do tempo|Limiar|Ações Corretivas|
 |-|-|-|-|-|
 |Utilização su%|Maior que|Máximo|80|Existem vários fatores que aumentam a utilização de SU% Pode escalar com paraparação de consultas ou aumentar o número de unidades de streaming. Para obter mais informações, veja [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md) (Tirar partido da paralelização de consultas no Azure Stream Analytics).|
-|Erros de tempo de execução|Maior que|Total|0|Examine a atividade ou os registos de diagnóstico e efelo alterações adequadas nas inputs, consultas ou saídas.|
+|Erros de tempo de execução|Maior que|Total|0|Examine a atividade ou os registos de recursos e efelo alterações adequadas nas inputs, consultas ou saídas.|
 |Atraso na marca de água|Maior que|Máximo|Quando o valor médio desta métrica nos últimos 15 minutos é maior do que a tolerância à chegada tardia (em segundos). Se não tiver modificado a tolerância à chegada tardia, o padrão é definido para 5 segundos.|Tente aumentar o número de SUs ou paralelizar a sua consulta. Para obter mais informações sobre SUs, consulte [Compreender e ajustar unidades](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job)de streaming . Para obter mais informações sobre a paralelização da sua consulta, consulte a [paralelização da consulta de Alavancagem no Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Erros de desserialização de entrada|Maior que|Total|0|Examine a atividade ou os registos de diagnóstico e efelo alterações adequadas à entrada. Para obter mais informações sobre registos de diagnóstico, consulte [Troubleshoot Azure Stream Analytics utilizando registos](stream-analytics-job-diagnostic-logs.md) de diagnóstico|
+|Erros de desserialização de entrada|Maior que|Total|0|Examine a atividade ou os registos de recursos e efelo alterações adequadas à entrada. Para obter mais informações sobre os registos de recursos, consulte [Troubleshoot Azure Stream Analytics utilizando registos](stream-analytics-job-diagnostic-logs.md) de recursos|
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para mais detalhes sobre a configuração de alertas no portal Azure, consulte [Receber notificações](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)de alerta .  
+Para mais detalhes sobre a configuração de alertas no portal Azure, consulte [Receber notificações](../azure-monitor/platform/alerts-overview.md)de alerta .  
 
 Para mais assistência, experimente o nosso [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

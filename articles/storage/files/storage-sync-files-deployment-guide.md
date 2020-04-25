@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f2c4e762ebf10a5ca2120c13a52750a7781d60b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d179697707b8190515e8c0e6dee2defa8881c03
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268070"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137727"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Podes ter as caches que precisares em todo o mundo.
@@ -24,7 +24,7 @@ Recomendamos vivamente que leia planeamento para uma implementação de [Ficheir
     - [Disponibilidade da região](storage-sync-files-planning.md#azure-file-sync-region-availability) para O Sincronizado de Ficheiros Azure.
     - [Crie uma partilha](storage-how-to-create-file-share.md) de ficheiros para uma descrição passo a passo de como criar uma partilha de ficheiros.
 * Pelo menos uma instância suportada do Windows Server ou do Windows Server para sincronizar com o Sync de Ficheiros Azure. Para obter mais informações sobre as versões suportadas do Windows Server, consulte [interoperabilidade com o Windows Server](storage-sync-files-planning.md#windows-file-server-considerations).
-* O módulo Az PowerShell pode ser utilizado com powerShell 5.1 ou PowerShell 6+. Pode utilizar o módulo Az PowerShell para o Azure File Sync em qualquer sistema suportado, incluindo sistemas não Windows, no entanto o cmdlet de registo do servidor deve ser sempre executado na instância do Servidor do Windows que está a registar (isto pode ser feito diretamente ou via PowerShell remoting). No Windows Server 2012 R2, pode verificar se está a executar pelo menos o PowerShell 5.1. \* olhando para o valor da propriedade **PSVersion** do objeto **$PSVersionTable:**
+* O módulo Az PowerShell pode ser utilizado com powerShell 5.1 ou PowerShell 6+. Pode utilizar o módulo Az PowerShell para o Azure File Sync em qualquer sistema suportado, incluindo sistemas não Windows, no entanto o cmdlet de registo do servidor deve ser sempre executado na instância do Servidor do Windows que está a registar (isto pode ser feito diretamente ou através do remo PowerShell). No Windows Server 2012 R2, pode verificar se está a executar pelo menos o PowerShell 5.1. \* olhando para o valor da propriedade **PSVersion** do objeto **$PSVersionTable:**
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -214,7 +214,7 @@ Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 Registar o Windows Server num Serviço de Sincronização de Armazenamento estabelece uma relação de confiança entre o servidor (ou cluster) e aquele serviço. Os servidores só podem ser registados num Serviço de Sincronização de Armazenamento e podem ser sincronizados com outros servidores e com partilhas de ficheiros do Azure associados ao mesmo Serviço de Sincronização de Armazenamento.
 
 > [!Note]
-> O registo do servidor utiliza as suas credenciais Azure para criar uma relação de confiança entre o Serviço de Sincronização de Armazenamento e o seu Servidor Windows, no entanto, posteriormente, o servidor cria e utiliza a sua própria identidade que é válida desde que o servidor permaneça registado e o atual ficha de assinatura de acesso partilhado (Storage SAS) é válida. Um novo token SAS não pode ser emitido para o servidor uma vez que o servidor não esteja registado, removendo assim a capacidade do servidor de aceder às suas partilhas de ficheiros Azure, impedindo qualquer sincronização.
+> O registo do servidor utiliza as suas credenciais Azure para criar uma relação de confiança entre o Serviço de Sincronização de Armazenamento e o seu Servidor Windows, no entanto, posteriormente, o servidor cria e utiliza a sua própria identidade, que é válida desde que o servidor se mantenha registado e o atual símbolo de Assinatura de Acesso Partilhado (Storage SAS) seja válido. Um novo token SAS não pode ser emitido para o servidor uma vez que o servidor não esteja registado, removendo assim a capacidade do servidor de aceder às suas partilhas de ficheiros Azure, impedindo qualquer sincronização.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 O UI de Registo do Servidor deve ser aberto automaticamente após a instalação do agente Dessincronização de ficheiros Azure. Se isso não acontecer, pode abri-la manualmente na localização do ficheiro, em C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Quando o UI de Registo do Servidor abrir, selecione Iniciar o **'Iniciar' o 'Iniciar' o 'Iniciar' o 'Sign-in'.**
@@ -410,7 +410,7 @@ Isto permite um cenário poderoso, vulgarmente referido como restauração de se
 Os instantâneos VSS e as versões anteriores funcionam independentemente do Sync de Ficheiros Azure. No entanto, o tiering em nuvem deve ser definido para um modo compatível. Muitos pontos finais do servidor Do ficheiro Azure Sync podem existir no mesmo volume. Tem de fazer a seguinte chamada PowerShell por volume que tenha até um ponto final do servidor onde planeia ou está a utilizar o tiering da nuvem.
 
 ```powershell
-Import-Module ‘<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll’
+Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
 Enable-StorageSyncSelfServiceRestore [-DriveLetter] <string> [[-Force]] 
 ```
 
@@ -426,7 +426,7 @@ As fotos vss são tiradas de um volume inteiro. Por padrão, até 64 instantâne
 Para ver se a compatibilidade de restauração de self-service está ativada, pode executar o seguinte cmdlet.
 
 ```powershell
-    Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
+Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
 ```
 
 Ele listará todos os volumes no servidor, bem como o número de dias compatíveis com o tiering em nuvem para cada um. Este número é automaticamente calculado com base nas imagens máximas possíveis por volume e no calendário de instantâneos predefinido. Assim, por padrão, todas as versões anteriores apresentadas a um trabalhador da informação podem ser usadas para restaurar a partir de. O mesmo acontece se alterar o horário padrão para tirar mais fotos.

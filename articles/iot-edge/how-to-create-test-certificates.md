@@ -4,16 +4,16 @@ description: Crie certificados de teste e aprenda a instalá-los num dispositivo
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/14/2020
+ms.date: 04/23/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 364846f6cef196f6cefa7872af48f262b387db4f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 9540913cd86b74fd51e96aa9d1d1dd34c5d60631
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393826"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129800"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Criar certificados de demonstração para testar funcionalidades do dispositivo IoT Edge
 
@@ -313,7 +313,7 @@ O seu dispositivo IoT também precisa de uma cópia dos seus certificados de dis
 3. Recupere a impressão digital SHA1 (chamada de impressão digital em contextos IoT Hub) de cada certificado. A impressão digital é uma corda de 40 caracteres hexadecimais. Utilize o seguinte comando aberto para visualizar o certificado e encontrar a impressão digital:
 
    ```PowerShell
-   openssl x509 -in <WRKDIR>\certs\iot-device-<device name>-primary.cert.pem -text -fingerprint | sed 's/[:]//g'
+   openssl x509 -in <WRKDIR>\certs\iot-device-<device name>-primary.cert.pem -text -fingerprint
    ```
 
    Execute este comando duas vezes, uma para o certificado primário e outra para o certificado secundário. Fornece impressões digitais para ambos os certificados quando regista um novo dispositivo IoT utilizando certificados X.509 auto-assinados.

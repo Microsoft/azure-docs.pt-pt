@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 07046d181e8e83e0271cb78cfb182df4e76980b5
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115521"
+ms.locfileid: "82131213"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Indexer de Vídeo dos Serviços De Mídia Azure
 
@@ -65,7 +65,7 @@ Nas próximas semanas vamos alterá-lo e devolver o URL do site do [Indexer](htt
     * Substituição do URL por um URL que aponta para as APIs de widget do Índice de Vídeo (por exemplo, o [widget insights)](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget)
     * Utilizando o website do Indexer de Vídeo para gerar um novo URL incorporado:
          
-         Pressione **A Reprodução** para chegar à página do seu vídeo - > clique ** &lt;em Incorporar&gt; ** -> copiar o URL na sua aplicação:
+         Pressione **Reproduzir** para chegar à página do seu vídeo - > clique no ** &lt; / &gt; ** botão Incorporado - > copiar o URL na sua aplicação:
    
     Os URLs regionais não são apoiados e serão bloqueados nas próximas semanas.
 

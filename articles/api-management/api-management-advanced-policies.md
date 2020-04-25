@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: c8ef481fe277d6451923da828f0e7473354c24cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 388f05c2af1516a0477392f37763a0480c7ad413
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266172"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128820"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gestão de API
 
@@ -38,7 +38,7 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 -   [Definir método](#SetRequestMethod) de pedido - Permite-lhe alterar o método HTTP para um pedido.
 -   [Definir código](#SetStatus) de estado - Altera o código de estado HTTP para o valor especificado.
 -   [Variável definida](api-management-advanced-policies.md#set-variable) - Persiste um valor numa variável de [contexto](api-management-policy-expressions.md#ContextVariables) nomeado para acesso posterior.
--   [Trace](#Trace) - Adiciona vestígios personalizados na saída do [Inspetor API,](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) telemetria de Insights de Aplicação e Registos de Diagnóstico.
+-   [Trace](#Trace) - Adiciona vestígios personalizados na saída do [Inspetor API,](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) telemetria de Insights de Aplicação e Registos de Recursos.
 -   [Aguardar](#Wait) - Aguarda por pedido de [envio](api-management-advanced-policies.md#SendRequest)em anexo , [Obter valor da cache](api-management-caching-policies.md#GetFromCacheByKey), ou controlar as políticas de [fluxo](api-management-advanced-policies.md#choose) para completar antes de prosseguir.
 
 ## <a name="control-flow"></a><a name="choose"></a>Fluxo de controlo
@@ -914,11 +914,11 @@ As expressões `set-variable` utilizadas na política devem devolver um dos segu
 
 ## <a name="trace"></a><a name="Trace"></a>Vestígios
 
-A `trace` política adiciona um traço personalizado na saída do Inspetor API, telemetria de Insights de Aplicação e/ou Registos de Diagnóstico.
+A `trace` política adiciona um traço personalizado na saída do Inspetor API, telemetria de Insights de Aplicação e/ou Registos de Recursos.
 
 -   A apólice adiciona um traço personalizado à saída do [Inspetor API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) `Ocp-Apim-Trace` quando o rastreio é acionado, ou seja, o cabeçalho de pedido está presente e definido para o cabeçalho verdadeiro e `Ocp-Apim-Subscription-Key` pedido está presente e detém uma chave válida que permite o rastreio.
 -   A política cria uma telemetria [trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) em Insights de Aplicação, quando a integração de `verbosity` Insights de [Aplicação](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) é ativada e o `severity` nível especificado na política é a um nível ou superior ao nível especificado na definição de diagnóstico.
--   A política adiciona uma propriedade na entrada de registo quando os [Registos de Diagnóstico](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) estão ativados e o nível de gravidade especificado na política é a um nível de verbosidade especificado na definição de diagnóstico.
+-   A política adiciona uma propriedade na entrada de registo quando os [Registos](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) de Recursos estão ativados e o nível de gravidade especificado na política é a um nível de verbosidade especificado na definição de diagnóstico.
 
 ### <a name="policy-statement"></a>Declaração política
 

@@ -9,12 +9,12 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d5e968e578428a16a0005149a409986015a1fc5c
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: ccd8d383db265826d8644ee89d7300128fc3a350
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393759"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131315"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Criar e fornecer um dispositivo IoT Edge utilizando certificados X.509
 
@@ -75,7 +75,7 @@ Utilize os seus certificados e chaves gerados para criar uma inscrição individ
 
 Se procura fornecer vários dispositivos IoT Edge, siga os passos na secção seguinte, [Crie uma inscrição](#create-a-dps-group-enrollment)em grupo DPS .
 
-Ao criar uma inscrição em DPS, tem a oportunidade de declarar um **Dispositivo Inicial Twin State**. No dispositivo twin, pode definir etiquetas para agrupar dispositivos por qualquer métrica que necessite na sua solução, como região, ambiente, localização ou tipo de dispositivo. Estas etiquetas são utilizadas para criar [implementações automáticas](how-to-deploy-monitor.md).
+Ao criar uma inscrição em DPS, tem a oportunidade de declarar um **Dispositivo Inicial Twin State**. No dispositivo twin, pode definir etiquetas para agrupar dispositivos por qualquer métrica que necessite na sua solução, como região, ambiente, localização ou tipo de dispositivo. Estas etiquetas são utilizadas para criar [implementações automáticas](how-to-deploy-at-scale.md).
 
 Para obter mais informações sobre as inscrições no Serviço de Provisionamento de Dispositivos, consulte [como gerir as matrículas](../iot-dps/how-to-manage-enrollments.md)do dispositivo.
 
@@ -123,7 +123,7 @@ Utilize os seus certificados e chaves gerados para criar uma inscrição em grup
 
 Se pretende fornecer um único dispositivo IoT Edge, siga os passos na secção anterior, [Crie uma inscrição individual DPS](#create-a-dps-individual-enrollment).
 
-Ao criar uma inscrição em DPS, tem a oportunidade de declarar um **Dispositivo Inicial Twin State**. No dispositivo twin, pode definir etiquetas para agrupar dispositivos por qualquer métrica que necessite na sua solução, como região, ambiente, localização ou tipo de dispositivo. Estas etiquetas são utilizadas para criar [implementações automáticas](how-to-deploy-monitor.md).
+Ao criar uma inscrição em DPS, tem a oportunidade de declarar um **Dispositivo Inicial Twin State**. No dispositivo twin, pode definir etiquetas para agrupar dispositivos por qualquer métrica que necessite na sua solução, como região, ambiente, localização ou tipo de dispositivo. Estas etiquetas são utilizadas para criar [implementações automáticas](how-to-deploy-at-scale.md).
 
 ### <a name="verify-your-root-certificate"></a>Verifique o seu certificado de raiz
 
@@ -328,4 +328,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O processo de inscrição do Serviço de Provisionamento de Dispositivos permite-lhe definir as etiquetas duplas de identificação do dispositivo e dispositivo ao mesmo tempo que disponibiliza o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos ou grupos individuais de dispositivos utilizando a gestão automática do dispositivo. Aprenda a [implantar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-monitor.md) ou utilizando o [Azure CLI](how-to-deploy-monitor-cli.md).
+O processo de inscrição do Serviço de Provisionamento de Dispositivos permite-lhe definir as etiquetas duplas de identificação do dispositivo e dispositivo ao mesmo tempo que disponibiliza o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos ou grupos individuais de dispositivos utilizando a gestão automática do dispositivo. Aprenda a [implantar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-at-scale.md) ou utilizando o [Azure CLI](how-to-deploy-cli-at-scale.md).

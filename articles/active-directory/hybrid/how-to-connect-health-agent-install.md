@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47fede0726ff1a540a71b9c42ca0c07117865d9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9b3857a5ae845f5cc48464152bb6ca600444c1b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331614"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136707"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
@@ -270,7 +270,7 @@ $secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
 $myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
 import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
  
-Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $myCreds
+Register-AzureADConnectHealthADDSAgent -Credential $myCreds
 
 ```
 
@@ -384,7 +384,7 @@ O parâmetro de função toma atualmente os seguintes valores:
 ## <a name="related-links"></a>Ligações relacionadas
 
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
-* [Operações de Saúde Azure AD Connect](how-to-connect-health-operations.md)
+* [Operações do Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
 * [Utilização da Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
 * [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)

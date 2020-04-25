@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2b6e056fbfb134f0b1218b4281b9f971a0e24202
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4a29c7cb7e35e69eb9410dd7ddc9f07757e3565
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71219465"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128723"
 ---
 # <a name="api-management-policies"></a>Políticas de API Management
 Esta secção fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre a adição e configuração de políticas, consulte [Políticas na Gestão da API](api-management-howto-policies.md).  
@@ -26,7 +26,7 @@ Esta secção fornece uma referência para as seguintes políticas de Gestão da
   
  As expressões de política podem ser utilizadas como valores de atributo ou valores de texto em qualquer uma das políticas de API Management, a menos que a política especifique o contrário. Algumas políticas, como [Fluxo de controlo](api-management-advanced-policies.md#choose) e [Definir variável](api-management-advanced-policies.md#set-variable), baseiam-se em expressões de política. Para obter mais informações, veja [Políticas avançadas](api-management-advanced-policies.md#AdvancedPolicies) e [Expressões de política](api-management-policy-expressions.md).  
   
-##  <a name="policies"></a><a name="ProxyPolicies"></a> Políticas  
+##  <a name="policies"></a><a name="ProxyPolicies"></a>Políticas  
   
 -   [Políticas de restrição de acesso](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
     -   Consulte o [cabeçalho HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) - Aplica a existência e/ou o valor de um cabeçalho HTTP.  
@@ -50,7 +50,7 @@ Esta secção fornece uma referência para as seguintes políticas de Gestão da
     -   [Variável definida](api-management-advanced-policies.md#set-variable) - Persistir um valor numa variável de contexto nomeado para acesso posterior.  
     -   [Definir método](api-management-advanced-policies.md#SetRequestMethod) de pedido - Permite-lhe alterar o método HTTP para um pedido.  
     -   [Definir código](api-management-advanced-policies.md#SetStatus) de estado - Altera o código de estado HTTP para o valor especificado.  
-    -   [Trace](api-management-advanced-policies.md#Trace) - Adiciona vestígios personalizados na saída do [Inspetor API,](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) telemetria de Insights de Aplicação e Registos de Diagnóstico.  
+    -   [Trace](api-management-advanced-policies.md#Trace) - Adiciona vestígios personalizados na saída do [Inspetor API,](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) telemetria de Insights de Aplicação e Registos de Recursos.  
     -   [Aguardar](api-management-advanced-policies.md#Wait) - Aguarda por pedido de [envio](api-management-advanced-policies.md#SendRequest)em anexo , [Obter valor da cache](api-management-caching-policies.md#GetFromCacheByKey), ou controlar as políticas de [fluxo](api-management-advanced-policies.md#choose) para completar antes de prosseguir.  
 -   [Políticas de autenticação](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autenticar com Básico](api-management-authentication-policies.md#Basic) - Autenticar com um serviço backend utilizando a autenticação Básica.  

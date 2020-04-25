@@ -8,12 +8,12 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 73685f124f93bb541f33b3b70727d90ce22b3cdd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b676c2647fbf7c93d271e1d7f68653452125e39b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263442"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137200"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com armazenamento AzCopy e Blob
 
@@ -64,7 +64,6 @@ Esta secção contém os seguintes exemplos:
 > |---|---|
 > |Faça upload de ficheiros como Append Blobs ou Page Blobs.|**--blob-tipo**=\[BlockBlob\|PageBlob AppendBlob\|\]|
 > |Faça o upload para um nível de acesso específico (como o nível de arquivo).|**-bloco-blob-tier**=\[None\|\|Hot\|Cool Archive\]|
-> |Descomprimir automaticamente os ficheiros.|**--descompress gzip**=\[\|esvaziar\]|
 > 
 > Para obter uma lista completa, consulte [as opções](storage-ref-azcopy-copy.md#options).
 
@@ -159,7 +158,7 @@ Esta secção contém os seguintes exemplos:
 >
 > |Cenário|Sinalizador|
 > |---|---|
-> |Descomprimir automaticamente os ficheiros.|**--descompress gzip**=\[\|esvaziar\]|
+> |Descomprimir automaticamente os ficheiros.|**--descomprimir**|
 > |Especifique o quão detalhada deseja que as suas entradas de registo relacionadas com cópias sejam.|**--log-level**=\[\|WARNING\|\|ERROR INFO NONE\]|
 > |Especifique se e como substituir os ficheiros e bolhas conflituosos no destino.|**-, substituir**=\[\|verdadeiro\|falso seSourceNewer\|pronta\]|
 > 

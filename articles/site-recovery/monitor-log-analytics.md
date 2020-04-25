@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: f20d0d38a7fbd831d3e97a69373bac04b9b330aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b3f5963572368cb9c884984418140b4bbc0dea3
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74133412"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131197"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorizar o Site Recovery com os Registos do Azure Monitor
 
 Este artigo descreve como monitorizar máquinas replicadas pela [Recuperação](site-recovery-overview.md)do Site Azure, utilizando [registos de monitores Azure](../azure-monitor/platform/data-platform-logs.md)e [Log Analytics.](../azure-monitor/log-query/log-query-overview.md)
 
-O Azure Monitor Logs fornece uma plataforma de dados de registo que recolhe atividade e registos de diagnóstico, juntamente com outros dados de monitorização. Dentro dos Registos do Monitor Azure, utiliza o Log Analytics para escrever e testar consultas de registo e analisar interativamente os dados de registo. Pode visualizar e consultar os resultados do registo e configurar alertas para tomar ações com base em dados monitorizados.
+O Azure Monitor Logs fornece uma plataforma de dados de registo que recolhe registos de atividade e recursos, juntamente com outros dados de monitorização. Dentro dos Registos do Monitor Azure, utiliza o Log Analytics para escrever e testar consultas de registo e analisar interativamente os dados de registo. Pode visualizar e consultar os resultados do registo e configurar alertas para tomar ações com base em dados monitorizados.
 
 Para a recuperação do site, pode aceder a registos do Monitor Azure para o ajudar a fazer o seguinte:
 
@@ -44,7 +44,7 @@ Recomendamos que reveja [as questões comuns](monitoring-common-questions.md) de
 
 1. No cofre, clique em **definições** > de**diagnóstico Adicione a definição de diagnóstico**.
 
-    ![Selecione a exploração madeireira de diagnóstico](./media/monitoring-log-analytics/add-diagnostic.png)
+    ![Selecione a exploração madeireira de recursos](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. Nas **definições de Diagnóstico,** especifique um nome e verifique a caixa **Enviar para Registar Análises**.
 3. Selecione a subscrição de Registos do Monitor Azure e o espaço de trabalho do Log Analytics.

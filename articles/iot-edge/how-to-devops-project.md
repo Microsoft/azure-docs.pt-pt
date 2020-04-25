@@ -7,12 +7,12 @@ ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 66401678f03ee0043345208eb32560f589829226
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7598aafea85e91f28233645d3d71bf85bf45425
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76510316"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82130983"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Crie um oleoduto CI/CD para IoT Edge com projetos Azure DevOps
 
@@ -132,4 +132,4 @@ Pode eliminar o Serviço de Aplicações Azure e outros recursos relacionados qu
 
 * Conheça as Tarefas para Azure IoT Edge em Azure DevOps em [integração contínua e implantação contínua para Azure IoT Edge](how-to-ci-cd.md)
 * Compreenda a implementação ioT Edge em [Understand IoT Edge implementações para dispositivos individuais ou em escala](module-deployment-monitoring.md)
-* Caminhe pelos passos para criar, atualizar ou eliminar uma implementação em [módulos Deploy e monitor ioT Edge em escala](how-to-deploy-monitor.md).
+* Caminhe pelos passos para criar, atualizar ou eliminar uma implementação em [módulos Deploy e monitor ioT Edge em escala](how-to-deploy-at-scale.md).

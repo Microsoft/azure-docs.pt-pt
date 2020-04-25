@@ -9,27 +9,27 @@ ms.topic: include
 ms.date: 08/16/2019
 ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: ee6ee600160349548a0e886131f1a29b90de8746
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf6a5730f92eba8f0a4e63bf40a4d2b50f76eb3a
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275888"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131099"
 ---
-Ao publicar a sua oferta para o mercado através do Partner Center, terá de ligar a sua oferta ao seu sistema de Gestão de Relacionamento com o Cliente (CRM) para que possa receber informações de contacto do cliente imediatamente após um cliente expressar interesse ou implanta o seu produto.
+Ao publicar a sua oferta no mercado através do Partner Center, precisa de ligar a sua oferta ao seu sistema CRM. Desta forma, pode receber informações de contacto do cliente imediatamente após um cliente expressar interesse ou implementar o seu produto.
 
-1. **Selecione um destino principal onde deseja que enviemos pistas de cliente**. São suportados os seguintes sistemas CRM:
+1. Selecione um destino de oportunidades potenciais para onde quer que enviemos as oportunidades potenciais de clientes. São suportados os seguintes sistemas CRM:
 
     * [Dinâmica 365](../commercial-marketplace-lead-management-instructions-dynamics.md) para envolvimento com o cliente
     * [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md)
     * [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md)
 
-    Se o seu sistema CRM não for explicitamente suportado na lista acima, tem as seguintes opções que lhe permitem armazenar os dados de chumbo do cliente e, em seguida, pode exportar ou importar esses dados para o seu sistema CRM.
+    Se o seu sistema CRM não for explicitamente suportado nesta lista, pode armazenar os dados de chumbo do cliente utilizando as seguintes opções. Depois pode exportar ou importar estes dados para o seu sistema de CRM.
 
-    * [Mesa Azure](../commercial-marketplace-lead-management-instructions-azure-table.md)
-    * [Ponto final de Https](../commercial-marketplace-lead-management-instructions-https.md)
+    * [Mesa azul](../commercial-marketplace-lead-management-instructions-azure-table.md)
+    * [PONTO final HTTPS](../commercial-marketplace-lead-management-instructions-https.md)
 
-2. Leia a documentação associada acima respetiva ao destino de oportunidades potencias selecionado por si para saber como configurar o destino de oportunidades potenciais para receber oportunidades potenciais da sua oferta do marketplace. 
-3. Ligue a oferta ao destino de oportunidades potenciais ao publicar a oferta no marketplace no Centro de Parceiros. Consulte a documentação acima ligada para saber como fazê-lo.
-4. Verifique se a ligação ao destino de oportunidades potenciais está configurado adequadamente. Assim que configurar corretamente o seu destino principal e ter atingido a Publish na sua oferta no Partner Center, validamos a ligação e enviaremos-lhe um teste de chumbo. Ao ver a oferta antes de ir ao vivo, também pode testar a sua ligação de chumbo tentando adquirir a oferta no ambiente de pré-visualização. 
-5. Certifique-se de que a ligação ao destino principal permanece atualizada para que não perca nenhuma pista, por isso certifique-se de atualizar estas ligações sempre que algo tenha mudado na sua extremidade.
+2. Leia esta documentação ligada para o seu destino principal selecionado para ver como configurar o destino principal para receber pistas da sua oferta de mercado.
+3. Conecte a sua oferta ao destino principal quando publicar a oferta ao mercado no Partner Center. Para obter informações sobre como fazê-lo, consulte a documentação ligada.
+4. Confirme se a ligação ao destino principal está corretamente configurada. Depois de configurar corretamente o seu destino principal, **selecione Publicar** a sua oferta no Partner Center. Depois validamos a ligação e enviaremos-lhe um teste. Quando vê a oferta antes de ir ao vivo, também pode testar a sua ligação de chumbo tentando adquirir a oferta no ambiente de pré-visualização.
+5. Certifique-se de que a ligação ao destino principal se mantém atualizada para que não perca pistas. Certifique-se de atualizar estas ligações sempre que algo tenha mudado na sua extremidade.

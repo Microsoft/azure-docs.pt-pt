@@ -1,6 +1,6 @@
 ---
-title: Ativar a exploração de diagnóstico em Azure Traffic Manager
-description: Saiba como ativar o registo de diagnóstico para o seu perfil de Gestor de Tráfego e aceda aos ficheiros de registo que são criados como resultado.
+title: Ativar a exploração de recursos no Gestor de Tráfego Azure
+description: Saiba como ativar o registo de recursos para o seu perfil do Gestor de Tráfego e aceda aos ficheiros de registo que são criados como resultado.
 services: traffic-manager
 author: rohinkoul
 manager: twooley
@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0ffcffd7d4a4f2072b640ace03ec819aa416d47
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938680"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133907"
 ---
-# <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Ativar a exploração de diagnóstico em Azure Traffic Manager
+# <a name="enable-resource-logging-in-azure-traffic-manager"></a>Ativar a exploração de recursos no Gestor de Tráfego Azure
 
-Este artigo descreve como permitir o registo de diagnóstico e o acesso aos dados de registo para um perfil do Gestor de Tráfego.
+Este artigo descreve como permitir a recolha de registos de recursos de diagnóstico e dados de registo de acesso para um perfil do Gestor de Tráfego.
 
-Os registos de diagnóstico do Gestor de Tráfego Azure podem fornecer informações sobre o comportamento do recurso de perfil do Gestor de Tráfego. Por exemplo, pode utilizar os dados de registo do perfil para determinar por que razão as sondas individuais têm cronometrado contra um ponto final.
+Os registos de recursos do Gestor de Tráfego Azure podem fornecer informações sobre o comportamento do recurso de perfil do Gestor de Tráfego. Por exemplo, pode utilizar os dados de registo do perfil para determinar por que razão as sondas individuais têm cronometrado contra um ponto final.
 
-## <a name="enable-diagnostic-logging"></a>Ativar o registo de diagnósticos
+## <a name="enable-resource-logging"></a>Ativar a exploração de recursos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -32,15 +32,15 @@ Pode executar os comandos que se seguem na Casca de [Nuvem Azure,](https://shell
 
 1. **Recuperar o perfil do Gestor de Tráfego:**
 
-    Para permitir o registo de diagnóstico, precisa da identificação de um perfil do Gestor de Tráfego. Recupere o perfil do Gestor de Tráfego que pretende ativar o registo de diagnóstico com [o Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). A saída inclui as informações de identificação do perfil do Gestor de Tráfego.
+    Para ativar o registo de recursos, precisa da identificação de um perfil do Gestor de Tráfego. Recupere o perfil do Gestor de Tráfego que pretende ativar o registo de recursos com [o Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). A saída inclui as informações de identificação do perfil do Gestor de Tráfego.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
-2. **Ativar o registo de diagnóstico para o perfil do Gestor de Tráfego:**
+2. **Ativar a exploração de recursos para o perfil do Gestor de Tráfego:**
 
-    Ative o registo de diagnóstico para o perfil do Gestor de Tráfego utilizando o ID obtido no passo anterior com [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). Os seguintes registos de comando saem registos verbosos para o perfil do Gestor de Tráfego para uma determinada conta de Armazenamento Azure. 
+    Ative o registo de recursos para o perfil do Gestor de Tráfego utilizando o ID obtido no passo anterior com [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). Os seguintes registos de comando saem registos verbosos para o perfil do Gestor de Tráfego para uma determinada conta de Armazenamento Azure. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
@@ -55,7 +55,7 @@ Pode executar os comandos que se seguem na Casca de [Nuvem Azure,](https://shell
       Certifique-se de que todas as categorias de registo associadas ao ecrã de recursos do Gestor de Tráfego estão ativadas. Além disso, verifique se a conta de armazenamento está corretamente definida.
 
 ## <a name="access-log-files"></a>Aceder a ficheiros de registo
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Navegue para a sua conta de Armazenamento Azure no portal.
 2. Na página **de visão geral** da sua conta de armazenamento Azure, em **Serviços** selecione **Blobs**.
 3. Para **contentores**, selecione **insights-logs-probehealthstatusevents**, e navegue até ao ficheiro PT1H.json e clique em **Baixar** para descarregar e guardar uma cópia deste ficheiro de registo.
@@ -65,15 +65,15 @@ Pode executar os comandos que se seguem na Casca de [Nuvem Azure,](https://shell
 
 ## <a name="traffic-manager-log-schema"></a>Esquema de log do Gestor de Tráfego
 
-Todos os registos de diagnóstico disponíveis através do Azure Monitor partilham um esquema comum de alto nível, com flexibilidade para cada serviço emitir propriedades únicas para os seus próprios eventos. Para obter registos de diagnóstico de alto nível, consulte [serviços suportados, schemas e categorias para Registos](../azure-monitor/platform/tutorial-dashboards.md)de Diagnóstico Azure .
+Todos os registos de recursos disponíveis através do Azure Monitor partilham um esquema comum de alto nível, com flexibilidade para cada serviço emitir propriedades únicas para os seus próprios eventos. Para obter registos de recursos de alto nível, consulte [serviços suportados, schemas e categorias para registos](../azure-monitor/platform/tutorial-dashboards.md)de recursos azure .
 
 A tabela seguinte inclui logs schema específico para o recurso de perfil do Gestor de Tráfego Azure.
 
 |||||
 |----|----|---|---|
 |**Nome de campo**|**Tipo de campo**|**Definição**|**Exemplo**|
-|Nome final|Cadeia|O nome do ponto final do Gestor de Tráfego cujo estado de saúde está a ser registado.|*myPrimaryEndpoint*|
-|Estado|Cadeia|O estado de saúde do ponto final do Gestor de Tráfego que foi sondado. O estado pode ser **para cima** ou **para baixo.**|**Cima**|
+|Nome final|String|O nome do ponto final do Gestor de Tráfego cujo estado de saúde está a ser registado.|*myPrimaryEndpoint*|
+|Estado|String|O estado de saúde do ponto final do Gestor de Tráfego que foi sondado. O estado pode ser **para cima** ou **para baixo.**|**Cima**|
 |||||
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,28 +1,28 @@
 ---
-title: 'Azure VPN Gateway: Configure alertas sobre eventos de registo de diagnóstico'
-description: Passos para configurar alertas em eventos de registo de diagnóstico VPN Gateway
+title: 'Gateway Azure VPN: Configure alertas sobre eventos de registo de recursos de diagnóstico'
+description: Passos para configurar alertas em eventos de registo de recursos de diagnóstico VPN Gateway
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 49510b26e0b2a9c69dd65faf0f343e86d1a068db
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 95c55242baf2ceb3620ed71026af2bad0195c22d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878906"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127983"
 ---
-# <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Configurar alertas sobre eventos de registo de diagnóstico a partir de VPN Gateway
+# <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configurar alertas sobre eventos de registo de recursos a partir de VPN Gateway
 
-Este artigo ajuda-o a configurar alertas com base em eventos de registo de diagnóstico do Azure VPN Gateway utilizando o Azure Log Analytics. 
+Este artigo ajuda-o a configurar alertas com base em eventos de registo de recursos do Azure VPN Gateway utilizando o Azure Monitor Log Analytics. 
 
-Os seguintes registos estão disponíveis no Azure:
+Os seguintes registos de recursos estão disponíveis no Azure:
 
 |***Nome*** | ***Descrição*** |
 |---        | ---               |
-|GatewayDiagnosticLog | Contém registos de diagnóstico para eventos de configuração de gateway, alterações primárias e eventos de manutenção |
+|GatewayDiagnosticLog | Contém registos de recursos para eventos de configuração de gateway, alterações primárias e eventos de manutenção |
 |TúnelDiagnosticLog | Contém eventos de mudança de estado de túnel. Os eventos de ligação/desconexão do túnel têm uma razão resumida para a mudança de estado, se aplicável |
 |RouteDiagnosticLog | Regista alterações nas rotas estáticas e eventos de BGP que ocorrem na porta de entrada |
 |IKEDiagnosticLog | Regista mensagens de controlo IKE e eventos no portal |
@@ -30,7 +30,7 @@ Os seguintes registos estão disponíveis no Azure:
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a><a name="setup"></a>Criar alertas no portal Azure
 
-Os seguintes passos de exemplo criarão um alerta para um evento de desconexão que envolve um túnel VPN local-a-local:
+Os seguintes passos de exemplo criam um alerta para um evento de desconexão que envolve um túnel VPN local-a-local:
 
 
 1. No portal Azure, procure **log Analytics** em todos **os serviços** e selecione espaços de **trabalho Log Analytics**.

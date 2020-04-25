@@ -4,21 +4,22 @@ titlesuffix: Azure Virtual Network
 description: Saiba mais sobre os endereços IP públicos e privados no Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.sudbservice: ip-services
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: kumud
-ms.openlocfilehash: 9de94dab7000cee90f4448aa6d81196d3865e021
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 4a55ea00d46f46094e5d370ee707870212372198
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474405"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133848"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 

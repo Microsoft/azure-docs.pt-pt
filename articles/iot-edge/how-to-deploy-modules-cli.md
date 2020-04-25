@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 619ba7cb2d99e0137fd1834096dd5b66ffcd6ec9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd0d65624852737c424128e9125b8370b870d4d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240388"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133933"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Implementar módulos Azure IoT Edge com Azure CLI
 
@@ -22,7 +22,7 @@ Assim que criar módulos IoT Edge com a sua lógica de negócio, pretende implan
 
 [O Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de plataforma cruzada de código aberto para gerir recursos Azure, como o IoT Edge. Permite-lhe gerir os recursos do Azure IoT Hub, as instâncias de serviço de fornecimento de dispositivos e os centros ligados fora da caixa. A nova extensão IoT enriquece o Azure CLI com funcionalidades como a gestão de dispositivos e a capacidade completa do IoT Edge.
 
-Este artigo mostra como criar um manifesto de implantação JSON, em seguida, use esse ficheiro para empurrar a implementação para um dispositivo IoT Edge. Para obter informações sobre a criação de uma implementação que visa vários dispositivos com base nas suas tags partilhadas, consulte [módulos IoT Edge em escala](how-to-deploy-monitor-cli.md)
+Este artigo mostra como criar um manifesto de implantação JSON, em seguida, use esse ficheiro para empurrar a implementação para um dispositivo IoT Edge. Para obter informações sobre a criação de uma implementação que visa vários dispositivos com base nas suas tags partilhadas, consulte [módulos IoT Edge em escala](how-to-deploy-cli-at-scale.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -140,4 +140,4 @@ O parâmetro ID do dispositivo é sensível a casos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [implantar e monitorizar módulos IoT Edge em escala](how-to-deploy-monitor.md)
+Saiba como [implantar e monitorizar módulos IoT Edge em escala](how-to-deploy-at-scale.md)

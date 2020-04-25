@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: f390aececdbf9a20f191279892c1856332f2aa8e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 724c250b56107cb68da387bdd531602e8d239e1c
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81482101"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127534"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configure proteção avançada contra ameaças para armazenamento azure
 
@@ -23,7 +23,7 @@ A proteção avançada contra ameaças para o Armazenamento Azure fornece uma ca
 
 Os alertas de segurança são desencadeados quando ocorrem anomalias na atividade. Estes alertas de segurança estão integrados no [Azure Security Center,](https://azure.microsoft.com/services/security-center/)e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças.
 
-O serviço ingere registos de diagnóstico de leitura, escrita e exclusão de pedidos para blob Storage para deteção de ameaças. Para investigar os alertas de proteção avançada contra ameaças, pode visualizar a atividade de armazenamento relacionada utilizando o Storage Analytics Logging. Para mais informações, consulte **A configuração** de registo sessão no Monitor uma conta de [armazenamento no portal Azure](storage-monitor-storage-account.md#configure-logging).
+O serviço ingere registos de recursos de leitura, escrita e exclusão de pedidos de armazenamento blob para deteção de ameaças. Para investigar os alertas de proteção avançada contra ameaças, pode visualizar a atividade de armazenamento relacionada utilizando o Storage Analytics Logging. Para mais informações, consulte **A configuração** de registo sessão no Monitor uma conta de [armazenamento no portal Azure](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="availability"></a>Disponibilidade
 

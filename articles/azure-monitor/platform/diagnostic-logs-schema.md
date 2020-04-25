@@ -4,12 +4,12 @@ description: Compreenda os serviços suportados e o esquema de eventos para os r
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: 352310a6e489a96c38e85b16e9504d8eb9be38b1
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 7183c0b268342d08fe7c0ed79c7fa589e3e28afe
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457251"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128475"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Serviços suportados, schemas e categorias para Registos de Recursos Azure
 
@@ -48,12 +48,12 @@ O esquema para os registos de diagnóstico de recursos varia consoante o recurso
 | --- | --- |
 | Azure Active Directory | [Visão geral](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), Esquema de [registo de auditoria](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e esquema de [sign-ins](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
-| Gestão de API | [Registos de Recursos de Gestão API](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
+| Gestão de API | [Registos de Recursos de Gestão API](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Gateways de Aplicação |[Login para Gateway de Aplicação](../../application-gateway/application-gateway-diagnostics.md) |
 | Automatização do Azure |[Análise de log para automação azure](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Exploração madeireira de lote azure](../../batch/batch-diagnostics.md) |
 | Base de Dados do Azure para MySQL | [Base de Dados Azure para registos de diagnóstico MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Base de Dados do Azure para PostgreSQL | [Base de Dados Azure para registos PostgreSQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
+| Base de Dados do Azure para PostgreSQL | [Base de Dados Azure para registos PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Data Explorer | [Registos do Explorador de Dados Azure](/azure/data-explorer/using-diagnostic-logs) |
 | Serviços Cognitivos | [Exploração madeireira para serviços cognitivos azure](../../cognitive-services/diagnostic-logging.md) |
 | Registo de Contentor | [Exploração madeireira para registo de contentores azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |

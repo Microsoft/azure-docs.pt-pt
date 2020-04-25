@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 270e9a31c28e7209cfe43ea8307b928ed3257a35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f4cc5cefe8090e9e95f80b8b74bf15591cb7887
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845257"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133078"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Leia a entrada em qualquer formato utilizando desserializers personalizados .NET
 
@@ -65,11 +65,11 @@ O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize`
 
 `StreamingDiagnostics`são os diagnósticos para os operadores definidos pelo utilizador, incluindo funções definidas pelo serializador, desserializer e utilizador.
 
-`WriteError`escreve uma mensagem de erro para registos de diagnóstico e envia o erro para diagnósticos.
+`WriteError`escreve uma mensagem de erro para registos de recursos e envia o erro para diagnósticos.
 
 `briefMessage`é uma breve mensagem de erro. Esta mensagem aparece em diagnósticos e é usada pela equipa de produtos para fins de depuração. Não inclua informações sensíveis e mantenha a mensagem menos de 200 caracteres
 
-`detailedMessage`é uma mensagem de erro detalhada que só é adicionada aos seus registos de diagnóstico no seu armazenamento. Esta mensagem deve ser inferior a 2000 caracteres.
+`detailedMessage`é uma mensagem de erro detalhada que só é adicionada aos seus registos de recursos no seu armazenamento. Esta mensagem deve ser inferior a 2000 caracteres.
 
 ```csharp
     public abstract class StreamingDiagnostics
@@ -221,7 +221,7 @@ O seguinte código Javascript é um exemplo do formato de serialização de dese
 
 `serializationClassName`deve ser uma classe `StreamDeserializer<T>`que implementa. Isto é descrito na secção seguinte.
 
-## <a name="region-support"></a>Apoio da região
+## <a name="region-support"></a>Suporte de região
 
 Esta funcionalidade está disponível nas seguintes regiões:
 

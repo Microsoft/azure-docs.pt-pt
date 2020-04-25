@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: db8c1781061f038cc90310fcd00c220fa6f5d1a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c843b45b5a398aaaa1aab66f80961560477cf18
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258214"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128086"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Recolher dados de telemetria para análise de tráfego de pesquisa
 
@@ -22,7 +22,7 @@ A análise do tráfego de pesquisa é um padrão para recolher telemetria sobre 
 Este padrão requer uma dependência de Insights de [Aplicação](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) (uma funcionalidade do [Monitor Azure)](https://docs.microsoft.com/azure/azure-monitor/)para recolher dados dos utilizadores. Requer que adicione instrumentação ao seu código de cliente, conforme descrito neste artigo. Finalmente, precisará de um mecanismo de reporte para analisar os dados. Recomendamos o Power BI, mas pode utilizar o Painel de Aplicação ou qualquer ferramenta que se ligue aos Insights de Aplicação.
 
 > [!NOTE]
-> O padrão descrito neste artigo é para cenários avançados e dados de clickstream gerados pelo código que adiciona ao seu cliente. Em contraste, os registos de serviço são fáceis de configurar, fornecem uma gama de métricas, e podem ser feitos no portal sem o código necessário. Recomenda-se a exploração de diagnóstico para todos os cenários. Para mais informações, consulte [Recolher e analisar dados de registo](search-monitor-logs.md).
+> O padrão descrito neste artigo é para cenários avançados e dados de clickstream gerados pelo código que adiciona ao seu cliente. Em contraste, os registos de serviço são fáceis de configurar, fornecem uma gama de métricas, e podem ser feitos no portal sem o código necessário. É recomendada a exploração madeireira para todos os cenários. Para mais informações, consulte [Recolher e analisar dados de registo](search-monitor-logs.md).
 
 ## <a name="identify-relevant-search-data"></a>Identificar dados de pesquisa relevantes
 
@@ -68,7 +68,7 @@ A telemetria do lado do servidor captura métricas na camada de aplicação, por
 
 No cliente, pode ter um código adicional que manipula as inputs de consulta, adiciona navegação ou inclui contexto (por exemplo, consultas iniciadas a partir de uma página inicial versus uma página de produto). Se isto descrever a sua solução, poderá optar pela instrumentação do lado do cliente para que a sua telemetria reflita os detalhes adicionais. A forma como este detalhe adicional é recolhido vai além do âmbito deste padrão, mas pode rever os Insights de [Aplicação para páginas web](https://docs.microsoft.com/azure/azure-monitor/app/javascript#explore-browserclient-side-data) para obter mais orientação. 
 
-**Usar C #**
+**Utilizar C#**
 
 Para C#, a **Chave de Instrumentação** encontra-se na configuração da sua aplicação, como as definições.json se o seu projeto for ASP.NET. Consulte as instruções de registo se não tiver a certeza da localização da chave.
 
@@ -82,7 +82,7 @@ public HomeController(TelemetryClient telemetry)
     }
 ```
 
-**Utilizar Javascript**
+**Utilizar JavaScript**
 
 ```javascript
 <script type="text/javascript">var appInsights=window.appInsights||function(config){function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(s);try{t.cookie=u.cookie}catch(h){}for(t.queue=[],i=["Event","Exception","Metric","PageView","Trace","Dependency"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t}
@@ -99,7 +99,7 @@ Para correlacionar pedidos de pesquisa com cliques, é necessário ter uma ident
 
 Ter o ID de pesquisa permite a correlação das métricas emitidas pela Azure Cognitive Search para o pedido em si, com as métricas personalizadas que está a registar em Insights de Aplicação.  
 
-**Usar C #**
+**Utilizar C#**
 
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
@@ -138,7 +138,7 @@ Sempre que um pedido de pesquisa for emitido por um utilizador, deve registar is
 > Solicite a contagem de consultas geradas pelo utilizador adicionando $count=fiel à sua consulta de pesquisa. Para mais informações, consulte Documentos de [Pesquisa (REST)](/rest/api/searchservice/search-documents#counttrue--false).
 >
 
-**Usar C #**
+**Utilizar C#**
 
 ```csharp
 var properties = new Dictionary <string, string> {
@@ -152,7 +152,7 @@ var properties = new Dictionary <string, string> {
 _telemetryClient.TrackEvent("Search", properties);
 ```
 
-**Utilizar Javascript**
+**Utilizar JavaScript**
 
 ```javascript
 appInsights.trackEvent("Search", {
@@ -178,7 +178,7 @@ Sempre que um utilizador clica num documento, é um sinal que deve ser registado
 > A posição refere-se à ordem cardeal na sua candidatura. É livre de definir este número, desde que seja sempre o mesmo, para permitir a comparação.
 >
 
-**Usar C #**
+**Utilizar C#**
 
 ```csharp
 var properties = new Dictionary <string, string> {
@@ -190,7 +190,7 @@ var properties = new Dictionary <string, string> {
 _telemetryClient.TrackEvent("Click", properties);
 ```
 
-**Utilizar Javascript**
+**Utilizar JavaScript**
 
 ```javascript
 appInsights.trackEvent("Click", {

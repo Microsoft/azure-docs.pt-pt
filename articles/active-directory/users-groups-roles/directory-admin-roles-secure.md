@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c46facb2d43137175730bf04fea0efec9c1ecbd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 512efa959ccb78533845cd1f376318394b5c377b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266276"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129171"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -102,7 +102,7 @@ A primeira pessoa a utilizar a Azure AD Privileged Identity Management no seu in
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identificar e categorizar contas que estejam em papéis altamente privilegiados 
 
-Depois de ligar a Azure AD Privileged Identity Management, consulte os utilizadores que estão nas funções de administrador global, administrador de papéis privilegiados, administrador exchange online e administrador sharePoint Online. Se não tiver o Azure AD PIM no seu inquilino, pode utilizar a [API PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comece com o papel de administrador global como este papel é genérico: um utilizador a quem é atribuída esta função de administrador tem as mesmas permissões em todos os serviços na nuvem para os quais a sua organização subscreveu, independentemente de terem sido atribuídos este papel na Microsoft 365 centro de administração, portal Azure, ou utilizando o módulo AD Azure para o Microsoft PowerShell. 
+Depois de ligar a Azure AD Privileged Identity Management, consulte os utilizadores que estão nas funções de administrador global, administrador de papéis privilegiados, administrador exchange online e administrador sharePoint Online. Se não tiver o Azure AD PIM no seu inquilino, pode utilizar a [API PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comece com o papel de administrador global como este papel é genérico: um utilizador a quem é atribuída esta função de administrador tem as mesmas permissões em todos os serviços na nuvem para os quais a sua organização subscreveu, independentemente de terem sido atribuídos este papel no centro de administração da Microsoft 365, no portal Azure, ou utilizando o módulo AD Azure para o Microsoft PowerShell. 
 
 Remova quaisquer contas que já não sejam necessárias nessas funções. Em seguida, categorize as restantes contas que são atribuídas às funções de administrador:
 
@@ -123,7 +123,7 @@ Avalie as contas atribuídas ou elegíveis para o papel de administradora global
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ligue a autenticação multifactor e registe todas as outras contas de administração não federadas altamente privilegiadas
 
-Exigir autenticação multi-factor (MFA) azure no início do registo para todos os utilizadores individuais que estejam permanentemente atribuídos a uma ou mais funções de administrador da AD Azure: Administrador global, administrador de funções privilegiadas, administrador exchange online e SharePoint Administrador online. Utilize o guia para ativar a [Autenticação Multifactor (MFA) para as suas contas de administração e certifique-se](../authentication/howto-mfa-userstates.md) de que todos os utilizadores se registaram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Mais informações podem ser encontradas sob o passo 2 e passo 3 do guia Proteja o [acesso aos dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Requerer a Autenticação Multi-Factor Azure (MFA) no início do registo para todos os utilizadores individuais que estejam permanentemente atribuídos a uma ou mais funções de administrador da AD Azure: Administrador global, administrador de funções privilegiada, administrador exchange online e administrador do SharePoint Online. Utilize o guia para ativar a [Autenticação Multifactor (MFA) para as suas contas de administração e certifique-se](../authentication/howto-mfa-userstates.md) de que todos os utilizadores se registaram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Mais informações podem ser encontradas sob o passo 2 e passo 3 do guia Proteja o [acesso aos dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: Mitigar as técnicas de ataque mais usadas
 
@@ -161,7 +161,7 @@ Certifique-se de que todos os utilizadores assinaram as suas contas administrati
 
 #### <a name="turn-on-password-hash-synchronization"></a>Ligue a sincronização de hash de senha
 
-A sincronização de hash de palavra-passe é uma funcionalidade usada para sincronizar hashes de palavra-passe do utilizador hashes de uma instância de Diretório Ativo no local para uma instância azure ad baseada na nuvem. Mesmo que decida utilizar a federação com serviços da Federação de Diretórios Ativos (AD FS) ou outros fornecedores de identidade, pode configurar opcionalmente a sincronização de hash de palavra-passe como cópia de segurança caso a sua infraestrutura no local, como servidores AD ou ADFS, falhe ou se torne temporariamente indisponível. Isto permite que os utilizadores acedam ao serviço utilizando a mesma senha que usam para iniciar sessão na sua instância ad.a. Além disso, permite que a Proteção de Identidade detete credenciais comprometidas comparando essas hashes de senha com senhas conhecidas por estarem comprometidas, se um utilizador tiver alavancado o mesmo endereço de e-mail e senha em outros serviços não ligados à AD Azure.  Para mais informações, consulte A sincronização de hash de [palavra-passe implemente com sincronização Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
+A sincronização de hash de palavra-passe é uma funcionalidade usada para sincronizar hashes de palavra-passe do utilizador hashes de uma instância de Diretório Ativo no local para uma instância azure ad baseada na nuvem. Mesmo que decida utilizar a federação com serviços da Federação de Diretórios Ativos (AD FS) ou outros fornecedores de identidade, pode configurar opcionalmente a sincronização de hash de palavra-passe como cópia de segurança caso a sua infraestrutura no local, como servidores AD ou ADFS, falhe ou fique temporariamente indisponível. Isto permite que os utilizadores acedam ao serviço utilizando a mesma senha que usam para iniciar sessão na sua instância ad.a. Além disso, permite que a Proteção de Identidade detete credenciais comprometidas comparando essas hashes de senha com senhas conhecidas por estarem comprometidas, se um utilizador tiver alavancado o mesmo endereço de e-mail e senha em outros serviços não ligados à AD Azure.  Para mais informações, consulte A sincronização de hash de [palavra-passe implemente com sincronização Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Exigir autenticação multifactor (MFA) para os utilizadores em todas as funções privilegiadas, bem como utilizadores expostos
 
@@ -291,7 +291,7 @@ Utilize a Gestão de Identidade Privilegiada com funções de administrador da A
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Utilize integrações de log Azure para enviar registos Azure relevantes para os seus sistemas SIEM 
 
-A integração de registos Azure permite-lhe integrar registos brutos dos seus recursos Azure aos sistemas existentes de Informação de Segurança e Gestão de Eventos (SIEM) da sua organização. [A integração de registos Azure](../../security/fundamentals/azure-log-integration-overview.md) recolhe eventos windows a partir de registos do Windows Event Viewer, e recursos Azure a partir de Registos de Atividade seleções do Azure, alertas do Azure Security Center e registos de Diagnóstico Azure. 
+A integração de registos Azure permite-lhe integrar registos brutos dos seus recursos Azure aos sistemas existentes de Informação de Segurança e Gestão de Eventos (SIEM) da sua organização. [A integração de registos Azure](../../security/fundamentals/azure-log-integration-overview.md) recolhe eventos windows a partir de registos do Windows Event Viewer, e os recursos do Azure a partir de Registos de atividade do Azure, alertas do Azure Security Center e registos de recursos Azure. 
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Passos adicionais para organizações que gerem o acesso a outras aplicações na nuvem via Azure AD
@@ -326,7 +326,7 @@ O agente Cloud App Security SIEM integra a Cloud App Security com o seu servidor
 
 A fase 4 do roteiro baseia-se na visibilidade da fase 3 e foi concebida para ser implementada em seis meses ou mais. Completar um roteiro ajuda-o a desenvolver fortes proteções de acesso privilegiadas contra potenciais ataques que são atualmente conhecidos e disponíveis. Infelizmente, as ameaças à segurança evoluem e mudam constantemente, por isso recomendamos que enverede a segurança como um processo contínuo focado em aumentar os custos e reduzir a taxa de sucesso dos adversários que visam o seu ambiente.
 
-Garantir o acesso privilegiado é um primeiro passo crítico para estabelecer garantias de segurança para os ativos empresariais numa organização moderna, mas não é a única parte de um programa de segurança completo que incluiria elementos, como política, operações, informação segurança, servidores, aplicações, Computadores, dispositivos, tecido em nuvem e outros componentes fornecem garantias de segurança contínuas. 
+Garantir o acesso privilegiado é um primeiro passo crítico para estabelecer garantias de segurança para os ativos empresariais numa organização moderna, mas não é a única parte de um programa de segurança completo que incluiria elementos, tais como política, operações, segurança de informação, servidores, aplicações, computadores, dispositivos, tecido sinuoso e outros componentes fornecem garantias de segurança em curso. 
 
 Além de gerir as suas contas de acesso privilegiadas, recomendamos que reveja o seguinte de forma contínua:
 

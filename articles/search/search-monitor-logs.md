@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 86e869bc08552ea11728c508486a4784eccf4042
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462373"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127819"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Recolher e analisar dados de registo para pesquisa cognitiva azure
 
@@ -66,7 +66,7 @@ Para o armazenamento blob, demora uma hora até que os recipientes apareçam no 
 
 ## <a name="query-log-information"></a>Informação de registo de consulta
 
-Nos registos de diagnóstico, duas tabelas contêm registos e métricas para a Pesquisa Cognitiva Azure: **AzureDiagnostics** e **AzureMetrics**.
+Duas tabelas contêm registos e métricas para a Pesquisa Cognitiva Azure: **AzureDiagnostics** e **AzureMetrics**.
 
 1. Sob **monitorização,** selecione **Registos**.
 
@@ -97,7 +97,7 @@ As estruturas de dados que contêm dados de registo de pesquisa cognitiva Azure 
 
 Para o armazenamento blob, cada bolha tem um objeto de raiz chamado **registos** contendo uma variedade de objetos de madeira. Cada bolha contém registos de todas as operações que ocorreram durante a mesma hora.
 
-A tabela seguinte é uma lista parcial de campos comuns à exploração madeireira de diagnóstico.
+A tabela seguinte é uma lista parcial de campos comuns à exploração de recursos.
 
 | Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |

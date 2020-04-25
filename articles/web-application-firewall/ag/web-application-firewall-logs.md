@@ -7,14 +7,14 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: cb1af86e04c0b4ba0b59398161fa111fd8065042
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4bc2aa055c40fb33edade8f7815311e392633885
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310058"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133871"
 ---
-# <a name="diagnostic-logs-for-azure-web-application-firewall"></a>Registos de diagnóstico para firewall de aplicação web Azure
+# <a name="resource-logs-for-azure-web-application-firewall"></a>Registos de recursos para firewall de aplicação web Azure
 
 Pode monitorizar os recursos firewall da Aplicação Web utilizando registos. Pode poupar desempenho, acesso e outros dados ou consumi-lo a partir de um recurso para fins de monitorização.
 
@@ -24,10 +24,10 @@ Pode monitorizar os recursos firewall da Aplicação Web utilizando registos. Po
 
 Pode utilizar diferentes tipos de registos em Azure para gerir e resolver problemas nos gateways de aplicações. Pode aceder a alguns destes registos através do portal. Todos os registos podem ser extraídos do armazenamento da Blob Azure e vistos em diferentes ferramentas, tais como [registos Do Monitor Azure,](../../azure-monitor/insights/azure-networking-analytics.md)Excel e Power BI. Pode saber mais sobre os diferentes tipos de registos da seguinte lista:
 
-* **Registo de atividades**: Pode utilizar registos de atividade do [Azure](../../azure-resource-manager/management/view-activity-logs.md) (anteriormente conhecidos como registos operacionais e registos de auditoria) para visualizar todas as operações submetidas à sua subscrição Azure e o seu estado. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
-* **Registo de acesso:** Pode utilizar este registo para visualizar os padrões de acesso do Application Gateway e analisar informações importantes. Isto inclui o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Um registo de acesso é recolhido a cada 300 segundos. Este registo contém um registo por instância de Gateway de Aplicação. A instância De gateway de aplicação é identificada pela propriedade instanceId.
-* **Registo de desempenho:** Pode utilizar este registo para ver como as instâncias do Gateway da Aplicação estão a funcionar. Este registo captura informações de desempenho para cada instância, incluindo pedidos totais servidos, entrada em bytes, pedidos totais servidos, contagem de pedidos falhado, e contagem de instâncias saudáveis e pouco saudáveis. Um registo de desempenho é recolhido a cada 60 segundos. O registo performance está disponível apenas para o V1 SKU. Para o V2 SKU, utilize [métricas](../../application-gateway/application-gateway-metrics.md) para dados de desempenho.
-* **Registo de firewall**: Pode utilizar este registo para visualizar os pedidos que são registados através do modo de deteção ou prevenção de um gateway de aplicação configurado com a firewall da aplicação web.
+* **Registo de atividades**: Pode utilizar registos de [atividade do Azure](../../azure-resource-manager/management/view-activity-logs.md) para visualizar todas as operações submetidas à subscrição do Azure e o seu estado. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
+* **Registo de recursos**de acesso: Pode utilizar este registo para visualizar os padrões de acesso do Gateway de aplicação e analisar informações importantes. Isto inclui o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Um registo de acesso é recolhido a cada 300 segundos. Este registo contém um registo por instância de Gateway de Aplicação. A instância De gateway de aplicação é identificada pela propriedade instanceId.
+* **Registo de Recursos**de Desempenho: Pode utilizar este registo para ver como as instâncias do Gateway da Aplicação estão a funcionar. Este registo captura informações de desempenho para cada instância, incluindo pedidos totais servidos, entrada em bytes, pedidos totais servidos, contagem de pedidos falhado, e contagem de instâncias saudáveis e pouco saudáveis. Um registo de desempenho é recolhido a cada 60 segundos. O registo performance está disponível apenas para o V1 SKU. Para o V2 SKU, utilize [métricas](../../application-gateway/application-gateway-metrics.md) para dados de desempenho.
+* **Registo de Recursos de Firewall**: Pode utilizar este registo para visualizar os pedidos que são registados através do modo de deteção ou prevenção de um gateway de aplicação configurado com a firewall da aplicação web.
 
 > [!NOTE]
 > Os registos estão disponíveis apenas para recursos implantados no modelo de implementação do Gestor de Recursos Azure. Não é possível utilizar registos para recursos no modelo clássico de implantação. Para uma melhor compreensão dos dois modelos, consulte a implementação do Understanding Resource Manager e o artigo [de implantação clássico.](../../azure-resource-manager/management/deployment-models.md)
@@ -50,7 +50,7 @@ O registo de atividades é ativado automaticamente para todos os recursos do Res
 
     ![Portal: ID de recursos para gateway de aplicação](../media/web-application-firewall-logs/diagnostics2.png)
 
-3. Ative o registo de diagnósticos com o seguinte cmdlet do PowerShell:
+3. Ativar a exploração de recursos utilizando o seguinte cmdlet PowerShell:
 
     ```powershell
     Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
@@ -73,7 +73,7 @@ O registo de atividades é ativado automaticamente para todos os recursos do Res
 
    ![Ligar diagnósticos][1]
 
-3. A página **Definições de diagnóstico** fornece as definições para os registos de diagnóstico. Neste exemplo, o Log Analytics armazena os registos. Também pode utilizar os hubs de eventos e uma conta de armazenamento para guardar os registos de diagnóstico.
+3. A página de **definições de Diagnóstico** fornece as definições para os registos de recursos. Neste exemplo, o Log Analytics armazena os registos. Também pode utilizar centros de eventos e uma conta de armazenamento para guardar os registos de recursos.
 
    ![Iniciar o processo de configuração][2]
 

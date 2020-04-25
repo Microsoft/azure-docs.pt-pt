@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 462326fb16663a6f25ff4b51ea11791201086fd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d72a1057c359127eb70f0a82fbf2637409535dce
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528733"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131171"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de dados transparente sql Azure com chave gerida pelo cliente
 
@@ -81,7 +81,7 @@ Os auditores podem usar o Monitor Azure para rever os registos do cofre de chave
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Requisitos para configurar o protetor TDE
 
-- O protetor TDE pode ser apenas assimétrico, rSA 2048 ou rSA HSM 2048.
+- O protetor TDE pode ser apenas a chave HSM assimétrica, RSA ou RSA. Os comprimentos-chave suportados são 2048 e 3072 bytes.
 
 - A data de ativação da chave (se definida) deve ser uma data e hora no passado. A data de validade (se definida) deve ser uma data e hora futuras.
 
@@ -169,7 +169,7 @@ Consideração adicional para ficheiros de registo: Os ficheiros de registo apoi
 
 ## <a name="high-availability-with-customer-managed-tde"></a>Alta disponibilidade com TDE gerido pelo cliente
 
-Mesmo nos casos em que não há geo-redundância configurada para o servidor, é altamente recomendado configurar o servidor para usar dois cofres chave diferentes em duas regiões diferentes com o mesmo material chave. Pode ser realizado criando um protetor TDE usando o cofre principal co-localizado na mesma região que o servidor e clonando a chave em um cofre chave em uma região azure diferente, de modo que o servidor tem acesso a um segundo cofre chave se o cofre principal chave experimentar uma paragem enquanto a base de dados está em funcionamento.
+Mesmo nos casos em que não há geo-redundância configurada para o servidor, é altamente recomendado configurar o servidor para usar dois cofres chave diferentes em duas regiões diferentes com o mesmo material chave. Pode ser realizado através da criação de um protetor TDE utilizando o cofre principal co-localizado na mesma região que o servidor e clonando a chave num cofre chave numa região de Azure diferente, de modo que o servidor tenha acesso a um segundo cofre chave caso o cofre principal experimente uma falha enquanto a base de dados está em funcionamento.
 
 Utilize o cmdlet Backup-AzKeyVaultKey para recuperar a chave em formato encriptado a partir do cofre principal da chave e, em seguida, utilize o cmdlet Restore-AzKeyVaultKey e especifique um cofre chave na segunda região para clonar a chave. Em alternativa, utilize o portal Azure para fazer backup e restaurar a chave. A chave no cofre secundário em se outra região não deve ser marcada como protetorta TDE, e nem sequer é permitida.
 
@@ -179,7 +179,7 @@ Utilize o cmdlet Backup-AzKeyVaultKey para recuperar a chave em formato encripta
 
 ## <a name="geo-dr-and-customer-managed-tde"></a>TDE geo-DR e gerido pelo cliente
 
-Em ambos os cenários [de geo-replicação ativa](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication) e [de grupos failover,](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group) cada servidor envolvido requer um cofre chave separado, que deve ser co-localizado com o servidor na mesma região do Azure. O cliente é responsável por manter o material chave através dos cofres-chave consistente, de modo que o geo-secundário está sincronizado e pode assumir o uso da mesma chave do seu cofre chave local se o primário ficar inacessível devido a uma falha na região e uma falha é desencadeada . Até quatro secundários podem ser configurados, e a corrente (secundárias de secundários) não é suportada.
+Em ambos os cenários [de geo-replicação ativa](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication) e [de grupos failover,](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group) cada servidor envolvido requer um cofre chave separado, que deve ser co-localizado com o servidor na mesma região do Azure. O cliente é responsável por manter o material chave através dos cofres-chave consistente, de modo que o geo-secundário está sincronizado e pode assumir o uso da mesma chave do seu cofre chave local se o primário ficar inacessível devido a uma falha na região e uma falha for desencadeada. Até quatro secundários podem ser configurados, e a corrente (secundárias de secundários) não é suportada.
 
 Para evitar problemas durante o estabelecimento ou durante a geo-replicação devido a material chave incompleto, é importante seguir estas regras ao configurar o TDE gerido pelo cliente:
 

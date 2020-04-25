@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 0ed9144116c1d716124025ef0aae39e7783c5934
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5ea32fb198a61391e1be3648d1d2d2e829a7214
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655468"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137268"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Colete métricas personalizadas para um VM Linux com o agente InfluxData Telegraf
 
@@ -24,11 +24,14 @@ Ao utilizar o Monitor Azure, pode recolher métricas personalizadas através da 
 
  ![Visão geral do agente telégrafo](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
+> [!NOTE]  
+> As Métricas Personalizadas não são suportadas em todas as regiões. Regiões apoiadas estão listadas [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#supported-regions)
+
 ## <a name="send-custom-metrics"></a>Enviar métricas personalizadas 
 
 Para este tutorial, implementamos um VM Linux que executa o sistema operativo Ubuntu 16.04 LTS. O agente Telegraf é suportado para a maioria dos sistemas operativos Linux. Tanto os pacotes Debian como rPM estão disponíveis juntamente com binários Linux não embalados no portal de [descarregamento InfluxData](https://portal.influxdata.com/downloads). Consulte este guia de [instalação da Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) para obter instruções e opções adicionais de instalação. 
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 Crie um novo VM Linux: 
 

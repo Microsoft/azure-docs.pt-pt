@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ee80c04a6365c2cf337c4033a90df8d2993c299d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5992726893b722b0aa46c976a0167793f5ee6bb4
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76845962"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131682"
 ---
 Os seguintes limites aplicam-se aos tópicos do sistema Azure Event Grid e tópicos personalizados, *e não* domínios de eventos.
 
@@ -23,7 +23,7 @@ Os seguintes limites aplicam-se aos tópicos do sistema Azure Event Grid e tópi
 | Assinaturas de eventos por tópico | 500 |
 | Taxa de publicação para um tópico personalizado (ingresso) | 5.000 eventos por segundo por tópico |
 | Publicar pedidos | 250 por segundo |
-| Tamanho do evento | 1 MB (carregado como múltiplos eventos de 64 KB) |
+| Tamanho do evento | 1 MB. As operações são carregadas em incrementos de 64 KB. Assim, eventos acima de 64 KB incorrerão em acusações de operações como se fossem múltiplos eventos. Por exemplo, um evento de 130 KB incorreria em operações como se fossem 3 eventos separados.  |
 
 Os seguintes limites aplicam-se apenas aos domínios dos eventos.
 

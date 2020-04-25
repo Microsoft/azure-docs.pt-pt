@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0658a775e40c1fc433c7c2e1d853493544e74ee4
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 327174974affb3b2511eac60755aa1bf047b3b5e
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743212"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133456"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitorizar a carga de trabalho - Portal Azure
 
@@ -38,7 +38,7 @@ Navegue para a lâmina de navegação para espaços de trabalho log Analytics e 
 
 Para mais detalhes sobre espaços de trabalho, visite a seguinte [documentação.](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace)
 
-## <a name="turn-on-diagnostic-logs"></a>Ligue os registos de diagnóstico
+## <a name="turn-on-resource-logs"></a>Ligue os registos de recursos
 
 Configure as definições de diagnóstico para emitir registos da sua piscina SQL. Os registos consistem em vistas de telemetria equivalentes às DMVs de resolução de problemas de desempenho mais comumente usadas. Atualmente, são apoiadas as seguintes opiniões:
 
@@ -48,7 +48,7 @@ Configure as definições de diagnóstico para emitir registos da sua piscina SQ
 - [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-![Habilitar registos de diagnóstico](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
+![Ativar registos de recursos](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
 
 Os registos podem ser emitidos para o Armazenamento Azure, Stream Analytics ou Log Analytics. Para este tutorial, selecione Log Analytics.
 

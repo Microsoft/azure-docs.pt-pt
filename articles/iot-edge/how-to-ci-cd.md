@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b99e83a8e71b13183c76321c7076b85a212f021
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a653d13137a3067bfaf51c64c09454a08783e31
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76510979"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131402"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implantação contínua para Azure IoT Edge
 
@@ -226,4 +226,4 @@ Para desencadear um trabalho de construção, pode empurrar um compromisso para 
 
 * IoT Edge DevOps melhor amostra de práticas no [Projeto Azure DevOps para IoT Edge](how-to-devops-project.md)
 * Compreenda a implementação ioT Edge em [Understand IoT Edge implementações para dispositivos individuais ou em escala](module-deployment-monitoring.md)
-* Caminhe pelos passos para criar, atualizar ou eliminar uma implementação em [módulos Deploy e monitor ioT Edge em escala](how-to-deploy-monitor.md).
+* Caminhe pelos passos para criar, atualizar ou eliminar uma implementação em [módulos Deploy e monitor ioT Edge em escala](how-to-deploy-at-scale.md).

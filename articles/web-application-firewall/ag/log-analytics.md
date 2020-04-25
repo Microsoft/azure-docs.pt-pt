@@ -7,20 +7,20 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: victorh
-ms.openlocfilehash: e1bc3b58f425b374e4cae1da6e9800579e503f0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d6b984fd451a835afaa51482f0158e9f315f8fc
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73516594"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82130921"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-logs"></a>Utilizar o Log Analytics para examinar os Registos da Firewall de Aplicações Web do Gateway de Aplicação
 
-Uma vez que o seu Gateway WAF de aplicação esteja operacional, pode ativar registos para inspecionar o que está a acontecer com cada pedido. Os registos de firewall dão uma ideia do que o WAF está a avaliar, combinar e bloquear. Com o Log Analytics, pode examinar os dados dentro dos registos de firewall para dar ainda mais informações. Para obter mais informações sobre a criação de um espaço de trabalho log Analytics, consulte [Create a Log Analytics workspace no portal Azure](../../azure-monitor/learn/quick-create-workspace.md). Para mais informações sobre consultas de registo, consulte a [visão geral das consultas de registo no Monitor Azure](../../azure-monitor/log-query/log-query-overview.md).
+Uma vez que o seu Gateway WAF de aplicação esteja operacional, pode ativar registos para inspecionar o que está a acontecer com cada pedido. Os registos de firewall dão uma ideia do que o WAF está a avaliar, combinar e bloquear. Com o Azure Monitor Log Analytics, pode examinar os dados dentro dos registos de firewall para dar ainda mais informações. Para obter mais informações sobre a criação de um espaço de trabalho log Analytics, consulte [Create a Log Analytics workspace no portal Azure](../../azure-monitor/learn/quick-create-workspace.md). Para mais informações sobre consultas de registo, consulte a [visão geral das consultas de registo no Monitor Azure](../../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="import-waf-logs"></a>Importar registos WAF
 
-Para importar os seus registos de firewall para log Analytics, consulte [a saúde de back-end, registos de diagnóstico e métricas para O Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging)da Aplicação . Quando tiver os registos de firewall no seu espaço de trabalho Log Analytics, pode ver dados, escrever consultas, criar visualizações e adicioná-los ao seu portal dashboard.
+Para importar os seus registos de firewall para log Analytics, consulte a [saúde de back-end, registos](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging)de recursos e métricas para O Gateway da Aplicação . Quando tiver os registos de firewall no seu espaço de trabalho Log Analytics, pode ver dados, escrever consultas, criar visualizações e adicioná-los ao seu portal dashboard.
 
 ## <a name="explore-data-with-examples"></a>Explore dados com exemplos
 
@@ -83,4 +83,4 @@ Assim que criar uma consulta, pode adicioná-la ao seu painel de instrumentos.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Back-end health, diagnostic logs, and metrics for Application Gateway](../../application-gateway/application-gateway-diagnostics.md) (Estado de funcionamento do back-end, registos de diagnóstico e métricas para o Gateway de Aplicação)
+[Saúde de back-end, registos de recursos e métricas para Gateway de Aplicação](../../application-gateway/application-gateway-diagnostics.md)

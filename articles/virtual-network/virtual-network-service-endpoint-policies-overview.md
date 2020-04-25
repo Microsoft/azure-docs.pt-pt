@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 926da07ffaf0c61ca2a7fd02351ef3635ec4d73b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 495d0bce905a980f840527f4cc8cd9e2116e3e66
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651304"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133756"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Políticas de endpoint de serviço de rede virtual para armazenamento Azure
 
@@ -90,7 +90,7 @@ Vamos ver o objeto da Política de Ponto final de Serviço.
 - **Filtrar o tráfego para serviços do Azure no local**: as políticas de ponto final de serviço só se aplicam ao tráfego das sub-redes associadas a essas políticas. Para permitir o acesso a recursos de serviços do Azure no local, o tráfego deve ser filtrado mediante a utilização de dispositivos de rede virtual ou de firewalls.
 
 ## <a name="logging-and-troubleshooting"></a>Registo e resolução de problemas
-Não estão disponíveis registos centralizados para as políticas de ponto final de serviço. Relativamente a registos de diagnósticos de serviço, veja [Service endpoints logging](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting) (Registo de pontos finais de serviço).
+Não estão disponíveis registos centralizados para as políticas de ponto final de serviço. Para registos de recursos de serviço, consulte a [exploração de pontos finais do serviço](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).
 
 ### <a name="troubleshooting-scenarios"></a>Cenários de resolução de problemas
 - Acesso negado a contas de armazenamento que estavam a funcionar em pré-visualização (não em região geo-emparelhada)

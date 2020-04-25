@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d175a2cea685585da3767acdb0ab77a99c541d09
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: b1b0facbb7cdd0dd51c53077c21afab427facf3b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873876"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133588"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 
@@ -81,8 +81,8 @@ Faça upload de ficheiros de dados ou diretórios para a loja de dados para que 
 
 ```python
 def_blob_store.upload_files(
-    ["./data/20news.pkl"],
-    target_path="20newsgroups",
+    ["iris.csv"],
+    target_path="train-dataset",
     overwrite=True)
 ```
 
@@ -101,7 +101,7 @@ Cria-se `Dataset` um uso de métodos como [from_file](https://docs.microsoft.com
 ```python
 from azureml.core import Dataset
 
-iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/tabular/iris.csv')])
+iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/iris.csv')])
 ```
 
 Os dados intermédios (ou saída de um passo) são representados por um objeto [PipelineData.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) `output_data1`é produzido como a saída de um passo, e usado como a entrada de um ou mais passos futuros. `PipelineData`introduz uma dependência de dados entre passos, e cria uma ordem de execução implícita no oleoduto. Este objeto será utilizado mais tarde ao criar passos de gasoduto.

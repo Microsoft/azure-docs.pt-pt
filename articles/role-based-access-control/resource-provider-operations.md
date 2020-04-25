@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 61fb8b53d7d109fefc002b387702a240353f0dca
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: bfe0c6fcc0d1d22807bfb59b146050fb307892a0
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82117612"
+ms.locfileid: "82133164"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Gestor de Recursos Azure
 
@@ -4284,7 +4284,7 @@ Serviço Azure: [Grelha de Eventos](../event-grid/index.yml)
 > |  | **domínios/privateLinkResources** |  |
 > | Ação | Microsoft.EventGrid/domínios/privateLinkResources/read | Obter ou listar PrivateLinkResources para domínios |
 > |  | **domínios/fornecedores/Microsoft.Insights/logDefinitions** |  |
-> | Ação | Microsoft.EventGrid/domínios/fornecedores/Microsoft.Insights/logDefinitions/read | Permite o acesso a registos de diagnóstico |
+> | Ação | Microsoft.EventGrid/domínios/fornecedores/Microsoft.Insights/logDefinitions/read | Permite o acesso a registos de recursos |
 > |  | **domínios/fornecedores/Microsoft.Insights/metricDefinitions** |  |
 > | Ação | Microsoft.EventGrid/domínios/fornecedores/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para domínios |
 > |  | **domínios/tópicos** |  |
@@ -4352,7 +4352,7 @@ Serviço Azure: [Grelha de Eventos](../event-grid/index.yml)
 > | Ação | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico para tópicos do sistema |
 > | Ação | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para tópicos do sistema |
 > |  | **systemTopics/providers/Microsoft.Insights/logDefinitions** |  |
-> | Ação | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/logDefinitions/read | Permite o acesso a registos de diagnóstico |
+> | Ação | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/logDefinitions/read | Permite o acesso a registos de recursos |
 > |  | **systemTopics/providers/Microsoft.Insights/metricDefinitions** |  |
 > | Ação | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para tópicos do sistema |
 > |  | **tópicos** |  |
@@ -4376,7 +4376,7 @@ Serviço Azure: [Grelha de Eventos](../event-grid/index.yml)
 > | Ação | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/read | Obtém o cenário de diagnóstico para tópicos |
 > | Ação | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para tópicos |
 > |  | **tópicos/fornecedores/Microsoft.Insights/logDefinitions** |  |
-> | Ação | Microsoft.EventGrid/topics/providers/Microsoft.Insights/logDefinitions/read | Permite o acesso a registos de diagnóstico |
+> | Ação | Microsoft.EventGrid/topics/providers/Microsoft.Insights/logDefinitions/read | Permite o acesso a registos de recursos |
 > |  | **tópicos/fornecedores/Microsoft.Insights/metricDefinitions** |  |
 > | Ação | Microsoft.EventGrid/topics/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para tópicos |
 > |  | **tópicos** |  |

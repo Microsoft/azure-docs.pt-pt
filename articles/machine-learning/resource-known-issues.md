@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: eb8e06370ecbe2b104a19c4e420b5d3ae013a00e
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 58fd9225298b4322567f4feb02629e3ad4e0f00d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116320"
+ms.locfileid: "82127573"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Questões conhecidas e resolução de problemas Azure Machine Learning
 
@@ -40,6 +40,23 @@ Conheça as quotas de [recursos](how-to-manage-quotas.md) que pode encontrar ao 
 
 ## <a name="installation-and-import"></a>Instalação e importação
 
+* **Instalação pip: Não se garante que as dependências sejam consistentes com a instalação**de uma linha única: 
+
+   Esta é uma limitação conhecida do pip, uma vez que não tem uma dependência funcional quando se instala como uma única linha. A primeira dependência única é a única que olha. 
+
+   No código `azure-ml-datadrift` seguinte `azureml-train-automl` e ambos instalados utilizando uma única linha de instalação de pip. 
+     ```
+       pip install azure-ml-datadrift, azureml-train-automl
+     ```
+   Para este exemplo, digamos que `azure-ml-datadrift` requer versão `azureml-train-automl` > 1.0 e requer versão < 1.2. Se a versão `azure-ml-datadrift` mais recente for de 1.3, então ambos os `azureml-train-automl` pacotes são atualizados para 1.3, independentemente do requisito do pacote para uma versão mais antiga. 
+
+   Para garantir que as versões apropriadas estão instaladas para as suas embalagens, instale utilizando várias linhas como no seguinte código. A ordem não é um problema aqui, uma vez que pip explicitamente desvaloriza como parte da próxima chamada de linha. E assim, as dependências da versão apropriada são aplicadas.
+    
+     ```
+        pip install azure-ml-datadrift
+        pip install azureml-train-automl 
+     ```
+     
 * **Mensagem de erro: Não pode desinstalar 'PyYAML'**
 
     Azure Machine Learning SDK para Python: `distutils` PyYAML é um projeto instalado. Portanto, não podemos determinar com precisão quais os ficheiros que lhe pertencem se existe uma desinstalação parcial. Para continuar a instalar o SDK ignorando este erro, utilize:
@@ -83,20 +100,6 @@ Conheça as quotas de [recursos](how-to-manage-quotas.md) que pode encontrar ao 
     * Adicione `azureml-dataprep` a versão 1.1.8 ou superior.
     * Adicione `pyarrow` a versão 0.11 ou superior.
     
-* **Instalação pip: Dependecies não é garantido ser consistente com a instalação**de uma única linha : Esta é uma limitação conhecida do pip, uma vez que não tem uma dependência funcional quando instala como uma única linha. A primeira dependência única é a única que olha. Por exemplo, se estiver a instalar a deriva de dados azure-ml que requer a versão > 1.0 e o azureml-train-automl que requer versão < 1.2 e se a versão mais recente for 1.3, quando o utilizador instala as embalagens numa única linha, como mostrado abaixo, tudo é atualizado para 1.3, mesmo que o pacote azureml-train-automl exija uma versão mais antiga. 
-
-    * Verá dependecies inconsistentes com instalação de linha única.
-    ```python
-       pip install azure-ml-datadrift, azureml-train-automl
-     ```
-   
-    * Para garantir que as versões apropriadas estão instaladas para as suas embalagens, instale utilizando várias linhas como no seguinte código. A ordem não importa aqui.
-    
-     ```python
-        pip install azure-ml-datadrift
-        pip install azureml-train-automl 
-     ```
-     
 ## <a name="create-and-manage-workspaces"></a>Criar e gerir espaços de trabalho
 
 > [!WARNING]

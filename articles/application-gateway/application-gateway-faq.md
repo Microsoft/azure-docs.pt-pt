@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: 0e5a683c95e213a0fc37ec4f559e89abfecf034a
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 8acf04d26d0c69c426eb86f8a26a9f243c6f5ad2
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758919"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136673"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicação
 
@@ -122,6 +122,15 @@ Sim. Para mais detalhes, [Migrate Azure Application Gateway e Web Application Fi
 
 Sim. O Gateway de aplicação v1 SKU continuará a ser suportado. No entanto, recomenda-se vivamente que se mude para v2 para tirar partido das atualizações de funcionalidades nesse SKU. Para mais informações, consulte [Autoscaling e Zone-redundantE Application Gateway v2](application-gateway-autoscaling-zone-redundant.md).
 
+### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>O Application Gateway V2 suporta pedidos de procuração com autenticação NTLM?
+
+Não. Aplicação Gateway V2 ainda não suporta pedidos de procuração com autenticação NTLM.
+
+### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>O cookie de afinidade Gateway application suporta o atributo sameSite?
+Sim, a [atualização v80](https://chromiumdash.appspot.com/schedule) do [navegador Chromium](https://www.chromium.org/Home) introduziu um mandato em cookies HTTP sem atributo sameSite para ser tratado como SameSite=Lax. Isto significa que o cookie de afinidade Do Gateway da Aplicação não será enviado pelo navegador num contexto de terceiros. 
+
+Para suportar este cenário, o Application Gateway injeta outro cookie chamado *ApplicationGatewayAffinityCORS* para além do cookie *ApplicationGatewayAffinity* existente.  Estes cookies são similares, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados: *SameSite=None; Seguro.* Estes atributos mantêm sessões pegajosas mesmo para pedidos de origem cruzada. Consulte a secção de [afinidade baseada em cookies](configuration-overview.md#cookie-based-affinity) para obter mais informações.
+
 ## <a name="performance"></a>Desempenho
 
 ### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Como é que o Application Gateway suporta alta disponibilidade e escalabilidade?
@@ -215,6 +224,29 @@ Não.
 ### <a name="does-application-gateway-support-ipv6"></a>O Gateway de Aplicação suporta o IPv6?
 
 O Gateway v2 de aplicação não suporta atualmente o IPv6. Pode funcionar numa vNet de dupla pilha usando apenas IPv4, mas a subnet gateway deve ser apenas IPv4. Application Gateway v1 não suporta VNets de dupla pilha. 
+
+### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>Como uso o Application Gateway V2 com apenas endereço IP frontend privado?
+
+O Gateway V2 da aplicação não suporta atualmente apenas o modo IP privado. Suporta as seguintes combinações
+* IP privado e IP público
+* IP público apenas
+
+Mas se quiser utilizar o Application Gateway V2 apenas com IP privado, pode seguir o processo abaixo:
+1. Criar um Gateway de Aplicação com endereço IP frontend público e privado
+2. Não forneça os seus ouvintes para o endereço IP frontal público. Application Gateway não ouvirá qualquer tráfego no endereço IP público se não forem criados ouvintes para o mesmo.
+3. Criar e anexar um Grupo de Segurança de [Rede](https://docs.microsoft.com/azure/virtual-network/security-overview) para a sub-rede gateway de aplicação com a seguinte configuração na ordem de prioridade:
+    
+    a. Permita o tráfego da Source como etiqueta de serviço **GatewayManager** e Destino como porta **De qualquer** e Destino como **65200-65535**. Esta gama portuária é necessária para a comunicação da infraestrutura Azure. Estas portas estão protegidas (bloqueadas) por autenticação de certificado. Entidades externas, incluindo os administradores de utilizadores gateway, não podem iniciar alterações nesses pontos finais sem certificados apropriados em vigor
+    
+    b. Permitir o tráfego da Source como etiqueta de serviço **AzureLoadBalancer** e destino e porta de destino como **qualquer**
+    
+    c. Negue todo o tráfego de entrada da Fonte como etiqueta de serviço de **Internet** e destino e porta de destino como **Qualquer**. Dar a esta regra a *menor prioridade* nas regras de entrada
+    
+    d. Mantenha as regras padrão como permitir a entrada da VirtualNetwork para que o acesso no endereço IP privado não seja bloqueado
+    
+    e. A conectividade da Internet não pode ser bloqueada. Caso contrário, enfrentará problemas com a exploração madeireira, métricas, etc.
+
+Configuração DE NSG de ![amostra para acesso IP privado apenas: Configuração NSG do Gateway de aplicação para acesso IP privado apenas](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 ## <a name="configuration---tls"></a>Configuração - TLS
 

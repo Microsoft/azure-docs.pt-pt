@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: be4f124863da39cc9f6a61ebe054d451b438e8c3
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 045c1d255ae380c722506615aae9cf5d22105747
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617739"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133101"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação recuperável do Azure Key Vault
 
@@ -46,7 +46,7 @@ Não é possível reutilizar o nome de um cofre chave que foi apagado até que o
 
 ### <a name="purge-protection"></a>Proteção de purga 
 
-A proteção da purga é um comportamento opcional do Cofre chave e não é **ativada por padrão**. Pode ser ligado via [CLI](soft-delete-cli.md#enabling-purge-protection) ou [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
+A proteção da purga é um comportamento opcional do Cofre chave e não é **ativada por padrão**. A proteção da purga só pode ser ativada uma vez ativada a eliminação suave.  Pode ser ligado via [CLI](soft-delete-cli.md#enabling-purge-protection) ou [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
 
 Quando a proteção da purga está em funcionação, um cofre ou um objeto no estado apagado não podem ser purgados até que o período de retenção tenha passado. Cofres e objetos apagados ainda podem ser recuperados, garantindo que a política de retenção será seguida. 
 

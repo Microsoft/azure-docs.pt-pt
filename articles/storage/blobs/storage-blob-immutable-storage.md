@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: a980c7bd068a463956191eece43ec1be233e7890
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb66e90f1d835a6341b47bb698cf05bc442e0ac0
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367623"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129255"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blob críticos de negócios com armazenamento imutável
 
@@ -46,7 +46,7 @@ O armazenamento imutável suporta as seguintes funcionalidades:
 
 - **Configuração ao nível do contentor:** Os utilizadores podem configurar políticas de retenção baseadas no tempo e etiquetas legais de retenção ao nível do contentor. Com definições de nível de contentor simples, os utilizadores podem criar e bloquear as políticas de retenção baseadas no tempo, expandir intervalos de retenção, definir e desmarcar retenções legais e mais. Estas políticas aplicam-se a todos os blobs no contentor, tanto novos como existentes.
 
-- **Suporte de registo de auditoria**: Cada recipiente inclui um registo de auditoria de política. Ele mostra até sete comandos de retenção baseados no tempo para políticas de retenção baseadas no tempo bloqueados e contém o ID do utilizador, tipo de comando, selos de tempo e intervalo de retenção. Para retenções legais, o registo contém o ID de utilizador, o tipo de comando, os carimbos de data/hora e as etiquetas de retenção legal. Este registo é conservado durante toda a vida da apólice, de acordo com as diretrizes regulamentares sec 17a-4(f). O [Registo de Atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) mostra um registo mais abrangente de todas as atividades de planos de controlo; ao permitir que os [Registos de Diagnóstico Azure](../../azure-monitor/platform/platform-logs-overview.md) retenham e mostre operações de avião de dados. É da responsabilidade do utilizador armazenar esses registos de forma persistente, consoante seja preciso por motivos de regulamentação ou outros fins.
+- **Suporte de registo de auditoria**: Cada recipiente inclui um registo de auditoria de política. Ele mostra até sete comandos de retenção baseados no tempo para políticas de retenção baseadas no tempo bloqueados e contém o ID do utilizador, tipo de comando, selos de tempo e intervalo de retenção. Para retenções legais, o registo contém o ID de utilizador, o tipo de comando, os carimbos de data/hora e as etiquetas de retenção legal. Este registo é conservado durante toda a vida da apólice, de acordo com as diretrizes regulamentares sec 17a-4(f). O [Registo de Atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) mostra um registo mais abrangente de todas as atividades de planos de controlo; ao permitir que os Registos de [Recursos Azure](../../azure-monitor/platform/platform-logs-overview.md) retenham e mostre operações de avião de dados. É da responsabilidade do utilizador armazenar esses registos de forma persistente, consoante seja preciso por motivos de regulamentação ou outros fins.
 
 ## <a name="how-it-works"></a>Como funciona
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 1d144a48f79e59b35c88c5b338747d3186ebceda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 0499d52a6fe3da7349d31748ca3b5add16369571
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920744"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137659"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árvore de decisão impulsionado por duas classes
 
@@ -61,9 +61,19 @@ Pode treinar este tipo de modelo utilizando [o Modelo de Comboio](././train-mode
      A semente aleatória é definida por padrão para 0, o que significa que o valor inicial da semente é obtido a partir do relógio do sistema.  As corridas sucessivas com uma semente aleatória podem ter resultados diferentes.
   
 
-9. Treine o modelo.
+9. Treine o modelo:
+
+    + Se definir o modo Criar o **modo de formação** para **um parâmetro único,** ligue um conjunto de dados marcado e o módulo [Modelo de Comboio.](train-model.md)  
   
-    + Se definir o modo Criar o **modo de formação** para **um parâmetro único,** ligue um conjunto de dados marcado e o módulo [Modelo de Comboio.](./train-model.md)  
+    + Se definir O modo Criar o **modo de formação** para o intervalo do **parâmetro,** ligue um conjunto de dados marcado e treine o modelo utilizando [hiperparâmetros do Modelo tune](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Se passar uma gama de parâmetros para [o Modelo de Comboio,](train-model.md)utiliza apenas o valor predefinido na lista de parâmetros individuais.  
+    > 
+    > Se passar um único conjunto de valores de parâmetros para o módulo de [hiperparâmetros](tune-model-hyperparameters.md) do Modelo tune, quando espera uma gama de definições para cada parâmetro, ignora os valores e utiliza os valores predefinidos para o aluno.  
+    > 
+    > Se selecionar a opção Gama de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros alterem uma gama de valores.  
    
 ## <a name="results"></a>Resultados
 

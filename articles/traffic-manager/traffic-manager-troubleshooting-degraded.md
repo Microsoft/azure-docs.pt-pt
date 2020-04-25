@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: c398763405472c9018a5c30d34fbd3963ecb93b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d720067b619b0d871899f2ac9025a9d8ab24d95
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938371"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82130756"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Resolução de problemas do estado degradado no Gestor de Tráfego do Azure
 
-Este artigo descreve como resolver um perfil do Gestor de Tráfego Azure que mostra um estado degradado. Como um primeiro passo na resolução de problemas um estado dedegradado do Gestor de Tráfego Azure é permitir a exploração de diagnóstico.  Consulte os [registos de diagnóstico enable](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) para obter mais informações. Para este cenário, considere que configura um perfil de Gestor de Tráfego apontando para alguns dos seus serviços cloudapp.net hospedados. Se a saúde do seu Gestor de Tráfego apresentar um estado **degradado,** então o estado de um ou mais pontos finais pode ser **degradado:**
+Este artigo descreve como resolver um perfil do Gestor de Tráfego Azure que mostra um estado degradado. Como primeiro passo na resolução de problemas, um Estado dedegradado do Gestor de Tráfego Azure é permitir a exploração madeireira.  Consulte os [registos](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) de recursos enable para obter mais informações. Para este cenário, considere que configura um perfil de Gestor de Tráfego apontando para alguns dos seus serviços cloudapp.net hospedados. Se a saúde do seu Gestor de Tráfego apresentar um estado **degradado,** então o estado de um ou mais pontos finais pode ser **degradado:**
 
 ![estatuto de ponto final degradado](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 

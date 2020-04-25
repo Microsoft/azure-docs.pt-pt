@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: 618033e24236d26601fafaf7b0678ee83ec973e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e01ac332e61f51909ff1617f1716cd719b67c319
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650170"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127873"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualizar registos e métricas de pesquisa cognitiva azure com power bi
 [A Pesquisa Cognitiva Azure](https://docs.microsoft.com/azure/search/search-what-is-azure-search) permite-lhe armazenar registos de operação e métricas de serviço sobre o seu serviço de pesquisa numa conta de Armazenamento Azure. Esta página fornece instruções para como visualizar essa informação através de uma aplicação de modelo de Power BI. A aplicação fornece informações detalhadas sobre o seu serviço de pesquisa, incluindo informações sobre métricas de Pesquisa, Indexação, Operações e Serviço.
@@ -20,7 +20,9 @@ ms.locfileid: "77650170"
 Você pode encontrar a app de modelo de power bi **azure pesquisa cognitiva: analisar registos e métricas** no mercado de [aplicações power BI](https://appsource.microsoft.com/marketplace/apps).
 
 ## <a name="how-to-get-started-with-the-app"></a>Como começar com a app
-1. Ative o registo de diagnóstico para o seu serviço de pesquisa:
+
+1. Ativar o registo de recursos e métricas para o seu serviço de pesquisa:
+
     1. Crie ou identifique uma conta de [Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) existente onde possa arquivar os registos
     1. Navegue para o seu serviço de Pesquisa Cognitiva Azure no portal Azure
     1. Na secção de monitorização da coluna esquerda, selecione **definições** de diagnóstico

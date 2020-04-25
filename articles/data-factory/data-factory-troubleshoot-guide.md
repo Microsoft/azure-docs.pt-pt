@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: c9a1ac831c4300c0523717fddc1fa53417068b89
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: af0c95c197a70291e0fc863f3256be0e9a1da7f1
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416562"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133216"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -637,14 +637,12 @@ A tabela seguinte aplica-se ao Lote Azure.
 
 - **Causa**: Houve um erro interno ao tentar ler o Diretor de Serviço ou instantaneamente a autenticação MSI.
 
-- **Recomendação**: Por favor, considere fornecer um Diretor de Serviço que tenha permissões para criar um cluster HDInsight na subscrição fornecida e tente novamente. No caso de esta não for uma solução aceitável, contacte a equipa de apoio da ADF para obter mais assistência.
+- **Recomendação**: Por favor, considere fornecer um Diretor de Serviço que tenha permissões para criar um cluster HDInsight na subscrição fornecida e tente novamente. Certifique-se de que as [Identidades de Gestão estão corretamente configuradas](https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities). No caso de esta não for uma solução aceitável, contacte a equipa de apoio da ADF para obter mais assistência.
 
 
 ### <a name="error-code--2300"></a>Código de erro: 2300
 
 - **Mensagem:**`Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
-
-<br>
 
 - **Causa**: Quando a mensagem de erro contém uma mensagem semelhante a 'O nome remoto não pôde ser resolvido.', isto pode significar que o cluster URI fornecido é inválido.
 
@@ -656,27 +654,32 @@ A tabela seguinte aplica-se ao Lote Azure.
 
 - **Causa**: Quando a mensagem de erro contém uma mensagem semelhante a 'Uma tarefa foi cancelada.', isto significa que a submissão do trabalho foi cronometrada.
 
-- **Recomendação**: O problema pode ser a conectividade Geral HDInsight ou a conectividade da rede. Primeiro confirme que o HDInsight Ambari UI está disponível em qualquer navegador. Confirme que as suas credenciais ainda são válidas. Se estiver a utilizar o tempo de execução integrado auto-hospedado (IR), certifique-se de que o faz a partir do VM ou da máquina onde o IR auto-hospedado está instalado. Em seguida, tente submeter o trabalho de volta à Data Factory. Se ainda falhar, contacte a equipa da Data Factory para obter apoio.
+- **Recomendação**: O problema pode ser a conectividade Geral HDInsight ou a conectividade da rede. Primeiro confirme que o HDInsight Ambari UI está disponível em qualquer navegador. Confirme que as suas credenciais ainda são válidas. Para mais informações, leia [A UI da Ambari](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-manage-ambari#ambari-web-ui)Web . Se estiver a utilizar o tempo de execução integrado auto-hospedado (IR), certifique-se de que o faz a partir do VM ou da máquina onde o IR auto-hospedado está instalado. Em seguida, tente submeter o trabalho de volta à Data Factory. Se ainda falhar, contacte a equipa da Data Factory para obter apoio.
 
 <br>
 
 - **Causa**: Quando a mensagem de erro contém uma mensagem semelhante a 'O administrador do utilizador está bloqueado em Ambari' ou 'Não autorizado: O nome ou palavra-passe do utilizador Ambari está errado', isto significa que as credenciais para hDInsight estão incorretas ou expiraram.
 
-- **Recomendação**: Corrija as credenciais e reimplante o serviço ligado. Primeiro certifique-se de que as credenciais funcionam no HDInsight abrindo o cluster URI em qualquer navegador e tentando iniciar sessão. Se as credenciais não funcionarem, pode redefini-las a partir do portal Azure.
+- **Recomendação**: Corrija as credenciais e reimplante o serviço ligado. Primeiro certifique-se de que as credenciais funcionam no HDInsight abrindo o cluster URI em qualquer navegador e tentando iniciar sessão. Se as credenciais não funcionarem, pode redefini-las a partir do portal Azure. Para o cluster ESP, pode [redefinir a palavra-passe através](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password)de reset de palavra-passe de self service .
 
 <br>
 
 - **Causa**: Quando a mensagem de erro contém uma mensagem semelhante a '502 - O servidor Web recebeu uma resposta inválida enquanto atuava como um gateway ou servidor proxy', este erro é devolvido pelo serviço HDInsight.
 
+- **Recomendação**: Para erro de 502, na maior parte das vezes isto deve-se ao facto de o seu processo ambari Server ter sido encerrado. Pode reiniciar os Serviços Ambari reiniciando o nó da cabeça.  
 
-- **Recomendação**: Veja através da documentação de https://hdinsight.github.io/ambari/ambari-ui-502-error.htmlresolução de problemas do Azure HDInsight, por exemplo, https://hdinsight.github.io/spark/spark-thriftserver-errors.html. https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502
-                  
+    1. Ligue-se a um dos seus nósoceano Hdinsight utilizando SSH.
+    2. Identifique o seu anfitrião do nó de cabeça ativo executando "ping headnodehost".
+    3. Ligue-se ao nó da cabeça ativa enquanto o Ambari Server se senta no nó de cabeça ativo utilizando o SSH.  
+    4. Reinicie o nó de cabeça ativo.
+
+        Para mais informações: Veja através da documentação de resolução de problemas do Azure HDInsight, por exemplo: [Erro Ambari UI 502](https://hdinsight.github.io/ambari/ambari-ui-502-error.html), [RpcTimeoutException for Apache Spark thrift server](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception), [Troubleshooting bad gateway errors in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502).
 
 <br>
 
 - **Causa**: Quando a mensagem de erro contém uma mensagem semelhante a "Incapaz de servir o pedido de emprego de apresentação, uma vez que o serviço templeton está ocupado com muitos pedidos de emprego de envio" ou "Queue root.joblauncher já tem 500 pedidos, não pode aceitar a submissão de candidaturas", isto significa que estão a ser submetidos ao HDInsight demasiados postos de trabalho ao mesmo tempo.
 
-- **Recomendação**: Considere limitar o número de postos de trabalho simultâneos submetidos ao HDInsight. Consulte a moeda da atividade da Data Factory se os postos de trabalho estiverem a ser submetidos pela mesma atividade. Mude os gatilhos para que as condutas de gasodutos simultâneos se espalhem ao longo do tempo. Consulte a documentação do HDInsight para ajustar templeton.parallellism.job.submit como o erro sugere.
+- **Recomendação**: Considere limitar o número de postos de trabalho simultâneos submetidos ao HDInsight. Consulte a moeda da atividade da Data Factory se os postos de trabalho estiverem a ser submetidos pela mesma atividade. Mude os gatilhos para que as condutas de gasodutos simultâneos se espalhem ao longo do tempo. Consulte a [documentação do HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors) para ajustar `templeton.parallellism.job.submit` como o erro sugere.
 
 
 ### <a name="error-code--2301"></a>Código de erro: 2301
@@ -735,7 +738,6 @@ A tabela seguinte aplica-se ao Lote Azure.
 
 - **Recomendação**: A mensagem de erro deve ajudar a identificar o problema. Por favor, corrija a configuração json e tente novamente. Procure https://docs.microsoft.com/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service mais informações.
                 
-
 
 ### <a name="error-code--2310"></a>Código de erro: 2310
 
@@ -911,7 +913,7 @@ A tabela seguinte aplica-se ao Lote Azure.
 
 - **Causa**: O tipo de serviço ligado ao armazenamento não é suportado pela atividade.
 
-- **Recomendação**: Certifique-se de que o serviço ligado selecionado tem um dos tipos suportados para a atividade. As atividades da HDI suportam serviços ligados ao AzureBlobStorage e ao AzureBlobFSStorage.
+- **Recomendação**: Certifique-se de que o serviço ligado selecionado tem um dos tipos suportados para a atividade. As atividades da HDI suportam serviços ligados ao AzureBlobStorage e ao AzureBlobFSStorage. Para mais informações, leia Compare opções de [armazenamento para uso com clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options)
 
 
 ### <a name="error-code--2355"></a>Código de erro: 2355

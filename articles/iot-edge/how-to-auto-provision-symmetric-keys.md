@@ -9,12 +9,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 139a2cafe137d000b991cbad8b8567e005ffc728
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c6c2067526850ba972f002dc40bbd5d4cb24c9ba
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668663"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131020"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e fornecer um dispositivo IoT Edge utilizando atestado de chave simétrica
 
@@ -51,7 +51,7 @@ Crie um ID de registo único para o seu dispositivo. Os caracteres válidos são
 
 Utilize o ID de registo do seu dispositivo para criar uma inscrição individual no DPS.
 
-Ao criar uma inscrição em DPS, tem a oportunidade de declarar um **Dispositivo Inicial Twin State**. No dispositivo twin, pode definir etiquetas para agrupar dispositivos por qualquer métrica que necessite na sua solução, como região, ambiente, localização ou tipo de dispositivo. Estas etiquetas são utilizadas para criar [implementações automáticas](how-to-deploy-monitor.md).
+Ao criar uma inscrição em DPS, tem a oportunidade de declarar um **Dispositivo Inicial Twin State**. No dispositivo twin, pode definir etiquetas para agrupar dispositivos por qualquer métrica que necessite na sua solução, como região, ambiente, localização ou tipo de dispositivo. Estas etiquetas são utilizadas para criar [implementações automáticas](how-to-deploy-at-scale.md).
 
 > [!TIP]
 > As matrículas em grupo também são possíveis quando se utiliza o atestado de chave simétrica e envolvem as mesmas decisões que as matrículas individuais.
@@ -261,4 +261,4 @@ Pode verificar se foi utilizada a inscrição individual que criou no Serviço d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O processo de inscrição do Serviço de Provisionamento de Dispositivos permite-lhe definir as etiquetas duplas de identificação do dispositivo e dispositivo ao mesmo tempo que disponibiliza o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos ou grupos individuais de dispositivos utilizando a gestão automática do dispositivo. Aprenda a [implantar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-monitor.md) ou utilizando o [Azure CLI](how-to-deploy-monitor-cli.md).
+O processo de inscrição do Serviço de Provisionamento de Dispositivos permite-lhe definir as etiquetas duplas de identificação do dispositivo e dispositivo ao mesmo tempo que disponibiliza o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos ou grupos individuais de dispositivos utilizando a gestão automática do dispositivo. Aprenda a [implantar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-at-scale.md) ou utilizando o [Azure CLI](how-to-deploy-cli-at-scale.md).

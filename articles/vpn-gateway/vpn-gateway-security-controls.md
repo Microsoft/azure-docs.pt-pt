@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cdf616b29a93e786ef26af83b5d3b3541f94d67c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6fc5b4c901254decdb2d34281a10ababd4d79d45
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972282"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127860"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Controlos de segurança para Azure VPN Gateway
 
@@ -34,9 +34,9 @@ Este artigo documenta os controlos de segurança incorporados no Azure VPN Gatew
 
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de monitorização Azure (Análise de registo, insights de aplicações, etc.)| Sim | Consulte [o Azure Monitor Diagnostics Logs/alert](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure Monitor Metrics/alert](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
+| Suporte de monitorização Azure (Análise de registo, insights de aplicações, etc.)| Sim | Consulte o alerta & de registo do Monitor [Azure](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)[Azure](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
 | Registo e auditoria de planos de controlo e gestão| Sim | Registo de Atividades do Gestor de Recursos Azure. |
-| Registo e auditoria de planos de dados | Sim | [Registos](../azure-resource-manager/management/view-activity-logs.md) de diagnóstico do Monitor Azure para registos de conectividade VPN e auditoria. |
+| Registo e auditoria de planos de dados | Sim | [Registos](../azure-resource-manager/management/view-activity-logs.md) de atividade do Monitor Azure para registos de conectividade VPN e auditoria. |
 
 ## <a name="identity"></a>Identidade
 

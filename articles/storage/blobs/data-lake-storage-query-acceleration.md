@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 04/21/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 191a3280075403c8c5b57c5ffca1c7707d1ddb11
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 70a087e106e632d697052461928f3e1123a06b1b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81771823"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137540"
 ---
 # <a name="azure-data-lake-storage-query-acceleration-preview"></a>Aceleração da consulta de armazenamento do lago Azure Data (pré-visualização)
 
@@ -78,9 +78,7 @@ Apesar da alteração do modelo de faturação, o modelo de preços da Query Acc
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Formulário de inscrição de aceleração de consulta](https://aka.ms/adls/qa-preview-signup)    
-- [Filtrar dados utilizando a aceleração da consulta de armazenamento do lago de dados do Azure](data-lake-storage-query-acceleration-how-to.md)
+- [Filtrar dados utilizando a aceleração da consulta de armazenamento do lago de dados do Azure (pré-visualização)](data-lake-storage-query-acceleration-how-to.md)
 - [Referência linguística SQL de aceleração de consulta (pré-visualização)](query-acceleration-sql-reference.md)
-- Referência da API de aceleração de consulta
-
 
 

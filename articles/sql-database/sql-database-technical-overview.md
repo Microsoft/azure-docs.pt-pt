@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 0d50ddbbeeaed48c14d07c42588efcbb20bb7d79
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 4cb2159b02635e659a8ca7236523e899bf01550c
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411163"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133245"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure?
 
@@ -99,7 +99,7 @@ A Base de Dados Azure SQL fornece funcionalidades avançadas de monitorização 
 
 [A Consulta Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), uma funcionalidade de monitorização incorporada do SQL Server, regista o desempenho das suas consultas em tempo real e permite identificar os potenciais problemas de desempenho e os consumidores de recursos de topo. A finação automática e as recomendações fornecem conselhos sobre as consultas com o desempenho regredido e índices em falta ou duplicados. A sintonização automática na Base de Dados SQL permite-lhe aplicar manualmente as scripts que podem corrigir os problemas, ou deixar a Base de Dados SQL aplicar a correção. A Base de Dados SQL também pode testar e verificar se a correção proporciona algum benefício, e reter ou reverter a mudança dependendo do resultado. Além da Query Store e das capacidades de afinação automática, pode utilizar [DMVs padrão e XEvent](sql-database-monitoring-with-dmvs.md) para monitorizar o desempenho da carga de trabalho.
 
-O Azure fornece ferramentas [de monitorização](sql-database-performance-guidance.md) e [alerta](sql-database-insights-alerts-portal.md) de desempenho incorporadas, combinadas com classificações de desempenho, que lhe permitem monitorizar o estado de milhares de bases de dados. Utilizando estas ferramentas, pode avaliar rapidamente o impacto da escala para cima ou para baixo, com base nas suas necessidades de desempenho atuais ou projetadas. Além disso, a Base de Dados SQL pode [emitir métricas e registos de diagnósticos](sql-database-metrics-diag-logging.md) para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
+O Azure fornece ferramentas [de monitorização](sql-database-performance-guidance.md) e [alerta](sql-database-insights-alerts-portal.md) de desempenho incorporadas, combinadas com classificações de desempenho, que lhe permitem monitorizar o estado de milhares de bases de dados. Utilizando estas ferramentas, pode avaliar rapidamente o impacto da escala para cima ou para baixo, com base nas suas necessidades de desempenho atuais ou projetadas. Além disso, a Base de Dados SQL pode [emitir métricas e registos](sql-database-metrics-diag-logging.md) de recursos para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
 
 - **Armazenamento Azure**: Para arquivar grandes quantidades de telemetria por um pequeno preço.
 - **Hubs de eventos Azure**: Para integrar a telemetria da Base de Dados SQL com a sua solução de monitorização personalizada ou oleodutos quentes.

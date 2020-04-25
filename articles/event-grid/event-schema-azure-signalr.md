@@ -1,24 +1,24 @@
 ---
-title: Azure SingnalR como fonte da Grelha de Eventos
+title: Sinal de Azure como fonte da Grelha de Eventos
 description: Descreve as propriedades que estão fornecidas para eventos Azure SignalR com Grelha de Eventos Azure
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/23/2020
 ms.author: babanisa
-ms.openlocfilehash: 730d1a7a053ab636c45313dd0c35a537434eb782
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: e4ebae9597d750cea6f292655e9f03dd65ccc3f5
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393398"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133725"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Esquema de evento sinuoso do evento Azure Event Grid para o Serviço de Sinalizador
 
 Este artigo fornece as propriedades e esquemas para eventos do SignalR Service.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md). Também lhe dá uma lista de arranques rápidos e tutoriais para usar o Azure SignalR como fonte de evento.
 
-## <a name="event-grid-event-schema"></a>Esquema de evento sinuoso do evento Da Grelha de Eventos
+## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
 ### <a name="available-event-types"></a>Tipos de eventos disponíveis
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 45490e398abd8b5bd3c10adb95b56e1019d2bb94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 165e7984c21b74fa7730fc02756b9e75b4b33aa7
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842474"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131232"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registo de auditoria na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -26,14 +26,14 @@ Se quiser registos de nível de recursos Azure para operações como a computaç
 ## <a name="usage-considerations"></a>Considerações de utilização
 Por predefinição, as instruções de registo pgAudit são emitidas juntamente com as instruções de registo regulares através da função de registo padrão do Postgres. Na Base de Dados do Azure para PostgreSQL, estes ficheiros .log podem ser transferidos através do portal do Azure ou da CLI. O armazenamento máximo para a recolha de ficheiros é de 1 GB, e cada ficheiro está disponível por um máximo de sete dias (o predefinido é de três dias). Este serviço é uma opção de armazenamento de curto prazo.
 
-Em alternativa, pode configurar todos os registos a emitir para o serviço de registo de diagnóstico do Azure Monitor. Se ativar o registo de diagnóstico do Azure Monitor, os seus registos serão automaticamente enviados (em formato JSON) para o Azure Storage, Event Hubs e/ou Registos do Monitor Azure, dependendo da sua escolha.
+Em alternativa, pode configurar todos os registos a enviar para a loja de registos do Monitor Azure para análise posterior no Log Analytics. Se ativar o registo de recursos do Monitor Azure, os seus registos serão automaticamente enviados (em formato JSON) para o Azure Storage, Event Hubs e/ou Registos Do Monitor Azure, dependendo da sua escolha.
 
-A ativação da pgAudit gera um grande volume de inícios de sessão num servidor, o que terá um impacto no desempenho e no armazenamento de registos. Recomendamos que utilize o serviço de registo de diagnósticos do Azure, que oferece opções de armazenamento de longo prazo, bem como funcionalidades de análise e alerta. Recomendamos que desligue o início de sessão padrão para reduzir o impacto sobre o desempenho de inícios de sessão adicionais:
+A ativação da pgAudit gera um grande volume de inícios de sessão num servidor, o que terá um impacto no desempenho e no armazenamento de registos. Recomendamos que utilize registos do Monitor Azure, que oferece opções de armazenamento a mais longo prazo, bem como funcionalidades de análise e alerta. Recomendamos que desligue o início de sessão padrão para reduzir o impacto sobre o desempenho de inícios de sessão adicionais:
 
    1. Defina o `logging_collector` parâmetro para desligar. 
    2. Reiniciar o servidor para aplicar esta alteração.
 
-Para saber como configurar o registo de logapara o Azure Storage, Os Centros de Eventos ou os registos do Monitor Azure, visite a secção de registos de diagnóstico do artigo de [registos](concepts-server-logs.md)do servidor .
+Para saber como configurar o registo de loga para o Azure Storage, Event Hubs ou Registos Do Monitor Azure, visite a secção de registos de recursos do artigo de [registos](concepts-server-logs.md)do servidor .
 
 ## <a name="installing-pgaudit"></a>Instalação pgAudit
 
@@ -71,7 +71,7 @@ Depois de instalado o [pgAudit,](#installing-pgaudit)pode configurar os seus par
 > [!NOTE]
 > Na Base de Dados Azure `pgaudit.log` para PostgreSQL, não pode ser configurado utilizando um `-` atalho de sinal (menos) conforme descrito na documentação pgAudit. Todas as classes de instruções necessárias (LEITURA, ESCRITA, etc.) devem ser especificadas individualmente.
 
-### <a name="audit-log-format"></a>Formato de registo de auditoria
+### <a name="audit-log-format"></a>Formato do registo de auditoria
 Cada entrada de `AUDIT:` auditoria é indicada perto do início da linha de registo. O formato do resto da entrada é detalhado na [documentação pgAudit.](https://github.com/pgaudit/pgaudit/blob/master/README.md#format)
 
 Se precisar de outros campos para satisfazer os seus requisitos `log_line_prefix`de auditoria, utilize o parâmetro Postgres . `log_line_prefix`é uma cadeia que é saída no início de cada linha de registo postgres. Por exemplo, `log_line_prefix` a seguinte definição fornece carimbo de tempo, nome de utilizador, nome da base de dados e ID do processo:
@@ -88,7 +88,7 @@ Para começar rapidamente, prepare-se `pgaudit.log` para `WRITE`, e abra os seus
 ## <a name="viewing-audit-logs"></a>Ver registos de auditoria
 Se estiver a utilizar ficheiros .log, os seus registos de auditoria serão incluídos no mesmo ficheiro que os registos de erros do PostgreSQL. Pode descarregar ficheiros de registo a partir do [portal](howto-configure-server-logs-in-portal.md) Azure ou [CLI](howto-configure-server-logs-using-cli.md). 
 
-Se estiver a utilizar o registo de diagnóstico Azure, a forma como acede aos registos depende do ponto final que escolher. Para o Armazenamento Azure, consulte o artigo da conta de armazenamento de [registos.](../azure-monitor/platform/resource-logs-collect-storage.md) Para Os Hubs de Eventos, consulte o artigo de [logs do Stream Azure.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+Se estiver a utilizar o registo de recursos Azure, a forma como acede aos registos depende do ponto final que escolher. Para o Armazenamento Azure, consulte o artigo da conta de armazenamento de [registos.](../azure-monitor/platform/resource-logs-collect-storage.md) Para Os Hubs de Eventos, consulte o artigo de [logs do Stream Azure.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na mesa são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral da consulta do [Monitor Azure.](../azure-monitor/log-query/log-query-overview.md)
 

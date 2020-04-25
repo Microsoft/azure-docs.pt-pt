@@ -8,16 +8,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3d88123b3dd79e5707c5c19cbbae13c30cbdeb84
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 68fe7da136d744e1efa76a89061afe6995a75051
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409406"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133268"
 ---
 # <a name="troubleshoot-input-connections"></a>Resolver problemas em ligações de entrada
 
-Este artigo descreve questões comuns com as ligações de entrada do Azure Stream Analytics, como resolver problemas de entrada e como corrigir as questões. Muitos passos de resolução de problemas requerem que os registos de diagnóstico sejam ativados para o seu trabalho de Stream Analytics. Se não tiver registos de diagnóstico ativados, consulte [o Troubleshoot Azure Stream Analytics utilizando registos](stream-analytics-job-diagnostic-logs.md)de diagnóstico .
+Este artigo descreve questões comuns com as ligações de entrada do Azure Stream Analytics, como resolver problemas de entrada e como corrigir as questões. Muitos passos de resolução de problemas requerem que os registos de recursos sejam ativados para o seu trabalho de Stream Analytics. Se não tiver registos de recursos ativados, consulte [o Troubleshoot Azure Stream Analytics utilizando registos](stream-analytics-job-diagnostic-logs.md)de recursos .
 
 ## <a name="input-events-not-received-by-job"></a>Eventos de entrada não recebidos por trabalho 
 
@@ -41,7 +41,7 @@ Quando um trabalho de Stream Analytics recebe uma mensagem mal formada de uma en
 
 ![Azure Stream Analytics inputs azulejos](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Ative os registos de diagnóstico para visualizar os detalhes do erro e da mensagem (carga útil) que causou o erro. Existem múltiplas razões pelas quais podem ocorrer erros de desserialização. Para obter mais informações sobre erros específicos de desserialização, consulte erros de [dados de entrada](data-errors.md#input-data-errors). Se os registos de diagnóstico não estiverem ativados, uma breve notificação estará disponível no portal Azure.
+Ative os registos de recursos para visualizar os detalhes do erro e da mensagem (carga útil) que causou o erro. Existem múltiplas razões pelas quais podem ocorrer erros de desserialização. Para obter mais informações sobre erros específicos de desserialização, consulte erros de [dados de entrada](data-errors.md#input-data-errors). Se os registos de recursos não estiverem ativados, uma breve notificação estará disponível no portal Azure.
 
 ![Informação detalhes notificação de aviso](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 

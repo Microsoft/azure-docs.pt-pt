@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: estúdio visual
-ms.openlocfilehash: 20b510453cfaedf1ec8cd74012865f374545d0cd
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8dc0fa53423a4b181ab50cd4c1552115de175c89
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115342"
+ms.locfileid: "82133678"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Estúdio Visual no Azure
 Usar o Visual Studio numa máquina virtual Azure (VM) reconfigurada é uma maneira rápida e fácil de passar do nada para um ambiente de desenvolvimento em alta e funcionamento. Imagens do sistema com diferentes configurações do Estúdio Visual estão disponíveis no [Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)
@@ -31,7 +31,7 @@ As imagens das mais recentes versões principais, Visual Studio 2019, Visual Stu
 | Versão de lançamento                                                                                                                                                | Edições              | Versão do Produto   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
 | [Estúdio Visual 2019: Mais recente (Versão 16.5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Comunidade | Versão 16.5.4    |
-| [Estúdio Visual 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise, Comunidade | Versão 16.0.13    |
+| [Estúdio Visual 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise | Versão 16.0.13    |
 | [Estúdio Visual 2017: Mais recente (Versão 15.9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, Comunidade | Versão 15.9.22   |
 | [Estúdio Visual 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, Comunidade | Versão 15.0.28  |
 | [Estúdio Visual 2015: Última (Atualização 3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, Comunidade | Versão 14.0.25431.01 |

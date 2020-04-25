@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: f049dc6d1261a8201cf79d1779e522b30d13c4b0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: a55515be478781a2f2448924c209a3348ae462c5
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409447"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133316"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Consultas de Troubleshoot Azure Stream Analytics
 
 Este artigo descreve questões comuns com o desenvolvimento de consultas de Stream Analytics e como os resolver.
 
-Este artigo descreve questões comuns com o desenvolvimento de consultas azure stream analytics, como resolver problemas de consulta, e como corrigir as questões. Muitos passos de resolução de problemas requerem que os registos de diagnóstico sejam ativados para o seu trabalho de Stream Analytics. Se não tiver registos de diagnóstico ativados, consulte [o Troubleshoot Azure Stream Analytics utilizando registos](stream-analytics-job-diagnostic-logs.md)de diagnóstico .
+Este artigo descreve questões comuns com o desenvolvimento de consultas azure stream analytics, como resolver problemas de consulta, e como corrigir as questões. Muitos passos de resolução de problemas requerem que os registos de recursos sejam ativados para o seu trabalho de Stream Analytics. Se não tiver registos de recursos ativados, consulte [o Troubleshoot Azure Stream Analytics utilizando registos](stream-analytics-job-diagnostic-logs.md)de recursos .
 
 ## <a name="query-is-not-producing-expected-output"></a>A consulta não está a produzir a produção esperada
 
@@ -43,9 +43,9 @@ Este artigo descreve questões comuns com o desenvolvimento de consultas azure s
 
 5.  Certifique-se de que as políticas de ordenação de eventos estão configuradas como esperado. Vá a **Definições** e selecione [**Ordenar eventos**](stream-analytics-out-of-order-and-late-events.md). A política *não* é aplicada quando utiliza o botão **Teste** para testar a consulta. Este resultado é uma diferença entre testar no navegador versus executar o trabalho em produção. 
 
-6. Depuração utilizando registos de auditoria e diagnóstico:
-    - Utilize [registos](../azure-resource-manager/resource-group-audit.md)de auditoria e filtre para identificar e depurar erros.
-    - Utilize [registos](stream-analytics-job-diagnostic-logs.md) de diagnóstico de trabalho para identificar e depurar erros.
+6. Depuração utilizando registos de atividade e recursos:
+    - Utilize [registos](../azure-resource-manager/resource-group-audit.md)de atividade e filtro para identificar e depurar erros.
+    - Utilize [registos](stream-analytics-job-diagnostic-logs.md) de recursos de trabalho para identificar e depurar erros.
 
 ## <a name="resource-utilization-is-high"></a>A utilização de recursos é elevada
 

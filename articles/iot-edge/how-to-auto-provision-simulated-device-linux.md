@@ -8,12 +8,12 @@ ms.date: 3/2/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b62f551e2532e0205159358b3618695524ae85c8
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 82bdc71a123a263fffd842a04f4837b34aaa8685
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666692"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131072"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Crie e forre um dispositivo IoT Edge com um TPM virtual numa máquina virtual Linux
 
@@ -155,7 +155,7 @@ Depois de ter o Serviço de Provisionamento de Dispositivos em funcionamento, co
 
 Recupere as informações de provisionamento da sua máquina virtual e use-as para criar uma inscrição individual no Serviço de Provisionamento de Dispositivos.
 
-Ao criar uma inscrição em DPS, tem a oportunidade de declarar um **Dispositivo Inicial Twin State**. No dispositivo twin, pode definir etiquetas para agrupar dispositivos por qualquer métrica que necessite na sua solução, como região, ambiente, localização ou tipo de dispositivo. Estas etiquetas são utilizadas para criar [implementações automáticas](how-to-deploy-monitor.md).
+Ao criar uma inscrição em DPS, tem a oportunidade de declarar um **Dispositivo Inicial Twin State**. No dispositivo twin, pode definir etiquetas para agrupar dispositivos por qualquer métrica que necessite na sua solução, como região, ambiente, localização ou tipo de dispositivo. Estas etiquetas são utilizadas para criar [implementações automáticas](how-to-deploy-at-scale.md).
 
 > [!TIP]
 > No Azure CLI, pode criar uma [inscrição](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) ou um grupo de [inscrição](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) e utilizar a bandeira **ativada pela borda** para especificar que um dispositivo, ou grupo de dispositivos, é um dispositivo IoT Edge.
@@ -208,7 +208,7 @@ Conheça o seu **DPS** **ID Scope** e o id de registo do dispositivo antes de in
 
 Para que o tempo de funcionamento do IoT Edge aprovisione automaticamente o seu dispositivo, necessita de acesso ao TPM.
 
-Pode dar acesso ao tempo de funcionação do IoT Edge, ultrapassando as definições sistematas, de modo a que o serviço **iotedge** tenha privilégios de raiz. Se não quiser elevar os privilégios de serviço, também pode usar os seguintes passos para fornecer manualmente acesso tPM.
+Pode dar acesso ao tempo de funcionação do IoT Edge, ultrapassando as definições sistematadas, de modo a que o `iotedge` serviço tenha privilégios de raiz. Se não quiser elevar os privilégios de serviço, também pode usar os seguintes passos para fornecer manualmente acesso tPM.
 
 1. Encontre o caminho de ficheiro para o módulo de hardware TPM no seu dispositivo e guarde-o como uma variável local.
 
@@ -305,4 +305,4 @@ Pode verificar se foi utilizada a inscrição individual que criou no Serviço d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O processo de inscrição do Serviço de Provisionamento de Dispositivos permite-lhe definir as etiquetas duplas de identificação do dispositivo e dispositivo ao mesmo tempo que disponibiliza o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos ou grupos individuais de dispositivos utilizando a gestão automática do dispositivo. Aprenda a [implantar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-monitor.md) ou utilizando o [Azure CLI](how-to-deploy-monitor-cli.md).
+O processo de inscrição do Serviço de Provisionamento de Dispositivos permite-lhe definir as etiquetas duplas de identificação do dispositivo e dispositivo ao mesmo tempo que disponibiliza o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos ou grupos individuais de dispositivos utilizando a gestão automática do dispositivo. Aprenda a [implantar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-at-scale.md) ou utilizando o [Azure CLI](how-to-deploy-cli-at-scale.md).

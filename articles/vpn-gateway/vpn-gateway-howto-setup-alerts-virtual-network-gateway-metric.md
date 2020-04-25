@@ -7,19 +7,19 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: d57663f683ba4e2107ec6813a19fac7b2dcdd26a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01704030ee3142cac9a328e1a3edc024651919a0
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67605221"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127914"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configurar alertas sobre as métricas vpN Gateway
 
 Este artigo ajuda-o a configurar alertas sobre as métricas do Azure VPN Gateway. O Azure Monitor fornece a capacidade de criar alertas para os recursos do Azure. Pode configurar alertas para gateways de rede virtuais do tipo "VPN".
 
 
-|**Métricas**   | **Unidade** | **Granularidade** | **Descrição** | 
+|**Métrica**   | **Unidade** | **Granularidade** | **Descrição** | 
 |---       | ---        | ---       | ---            | ---       |
 |**Largura média de banda**| Bytes/s  | 5 minutos| Utilização média combinada da largura de banda de todas as ligações site-to-site no gateway.     |
 |**Largura de banda p2S**| Bytes/s  | 1 minuto  | Utilização média combinada da largura de banda de todas as ligações ponto-a-local no portal.    |
@@ -71,4 +71,4 @@ Os seguintes passos de exemplo criarão um alerta sobre uma porta de entrada par
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para configurar alertas nos registos de diagnóstico do túnel, consulte [os alertas de configuração nos registos de diagnóstico vpn Gateway](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
+Para configurar alertas nos registos de recursos do túnel, consulte [a configuração de alertas nos registos](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)de recursos vpn Gateway .

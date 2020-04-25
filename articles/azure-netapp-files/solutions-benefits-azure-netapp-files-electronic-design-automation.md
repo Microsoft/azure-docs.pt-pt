@@ -1,0 +1,88 @@
+---
+title: Benefícios da utilização de Ficheiros Azure NetApp para automatização de design eletrónico Microsoft Docs
+description: Explica a solução que o Azure NetApp Files fornece para atender às necessidades da indústria de semicondutores e design de chips. Apresenta cenários de teste que executam uma referência padrão da indústria para automação de design eletrónico (EDA) usando ficheiros Azure NetApp.
+services: azure-netapp-files
+documentationcenter: ''
+author: b-juche
+manager: ''
+editor: ''
+ms.assetid: ''
+ms.service: azure-netapp-files
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 04/24/2020
+ms.author: b-juche
+ms.openlocfilehash: 8a287ec5cd33c9f2a96af7ad8162f7c8f54df118
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82134172"
+---
+# <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>Benefícios da utilização de Ficheiros Azure NetApp para automatização de design eletrónico
+
+O tempo-a-mercado (TTM) é uma consideração crítica para a indústria de semicondutores e design de chips. A indústria tem alta largura de banda e baixas necessidades de latência para armazenamento. Este artigo explica a solução que o Azure NetApp Files fornece para satisfazer as necessidades da indústria. Apresenta cenários de teste que executam uma referência padrão da indústria para a automatização de design eletrónico (EDA) utilizando ficheiros Azure NetApp. 
+
+## <a name="test-scenario-configurations"></a>Configurações de cenário de teste
+
+Os testes envolvem três cenários com as seguintes configurações. 
+
+|    Cenário    |    Volumes    |    Clientes<br> SLES15 D16s_v3  |
+|----------------|---------------|--------------------------------|
+|    Um         |    1          |    1                           |
+|    Dois         |    6          |    24                          |
+|    Três       |    12         |    24                          |
+
+O primeiro cenário aborda até que ponto um único volume pode ser conduzido.  
+
+O segundo e terceiro cenários avaliam os limites de um único ponto final do Azure NetApp Files. Investigam os potenciais benefícios dos limites superiores de I/O e da latência.
+
+## <a name="test-scenario-results"></a>Resultados do cenário de teste
+
+A tabela seguinte resume os resultados dos cenários de teste.
+
+|    Cenário       |    Taxa de I/O<br>  a 2 ms     |    Taxa de I/O<br>  na borda     |    Débito<br>  a 2 ms     |    Débito<br>  na borda     |
+|-------------------|---------------------------|--------------------------------|-----------------------------|----------------------------------|
+|    1 volume       |    39,601                 |    49,502                      |    692 MiB/s                 |    866 MiB/s                      |
+|    6 volumes      |    255,613                |    317,000                     |    4.577 MiB/s               |    5.568 MiB/s                    |
+|    12 volumes     |    256,612                |    319,196                     |    4.577 MiB/s               |    5.709 MiB/s                    |
+
+O cenário de um volume único representa a configuração básica da aplicação. É o cenário de base para cenários de teste.  
+
+O cenário de seis volumes demonstra um aumento linear (600%) relativamente à carga de trabalho de um volume único.  Todos os volumes dentro de uma única rede virtual são acedidos num único endereço IP.  
+
+O cenário de 12 volumes demonstra uma diminuição geral da latência em relação ao cenário de seis volumes. Mas não tem um aumento correspondente de entrada alcançável.   
+
+O gráfico seguinte ilustra a latência e a taxa de operações para a carga de trabalho eda em Ficheiros Azure NetApp.  
+
+![Latência e taxa de operações para a carga de trabalho eda em Ficheiros Azure NetApp](../media/azure-netapp-files/solutions-electronic-design-automation-workload-latency-operation-rate.png)   
+
+O gráfico seguinte ilustra a latência e a entrada para a carga de trabalho EDA nos Ficheiros Azure NetApp.  
+
+![Latência e entrada para a carga de trabalho eda em Ficheiros Azure NetApp](../media/azure-netapp-files/solutions-electronic-design-automation-workload-latency-throughput.png) 
+
+## <a name="layout-of-test-scenarios"></a>Layout de cenários de teste 
+
+A tabela abaixo resume a disposição dos cenários de teste.
+
+|    Cenário de teste     |    Número total de diretórios     |    Número total de ficheiros     |
+|----------------------|------------------------------------|------------------------------|
+|    1 volume          |    88,000                          |    880,000                   |
+|    6 volumes         |    568,000                         |    5,680,000                 |
+|    12 volumes        |    568,000                         |    5,680,000                 |
+
+A carga de trabalho completa é uma mistura de fases funcionais e físicas em funcionamento simultâneo. Representa um fluxo típico de um conjunto de ferramentas EDA para outro.   
+
+A fase funcional consiste em especificações iniciais e um design lógico. A fase física ocorre quando o design lógico é convertido em um chip físico. Durante as fases de sinalização e de aparação, os controlos finais são concluídos e o desenho é entregue a uma fundição para fabrico.  
+
+As fases funcionais incluem uma mistura de leitura sequencial e aleatória e escrita em I/O. As fases funcionais são intensivas de metadados, como a estatística de ficheiros e as chamadas de acesso. Embora as operações de metadados sejam efetivamente sem tamanho, as operações de leitura e escrita variam entre menos de 1 K e 16 K. A maioria das leituras são entre 4 K e 16 K.  A maioria dos escritos são 4 K ou menos.  As fases físicas são compostas por operações sequenciais de leitura e escrita inteiramente, com uma mistura de tamanhos op 32 K e 64 K.  
+
+Nos gráficos acima, a maior parte da entrada provém das fases físicas sequenciais da carga de trabalho. O I/S provém das pequenas fases funcionais aleatórias e intensivas de metadados. Ambas as fases acontecem em paralelo. 
+
+Em conclusão, pode emparelhar a computação Azure com ficheiros Azure NetApp para o design EDA para obter largura de banda escalável. 
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [Arquiteturas de solução com o Azure NetApp Files](azure-netapp-files-solution-architectures.md)

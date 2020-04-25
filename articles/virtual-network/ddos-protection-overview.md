@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: f1dd33425a57689974fc98a28724adf7b130ab40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc47e1f4fbdb48e6e0abc1f2a7e32127b0325f47
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536348"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82130962"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Visão geral da Norma de Proteção DDoS Azure
 
@@ -33,7 +33,7 @@ A proteção Azure DDoS, combinada com as melhores práticas de design de aplica
 |Atenuações automáticas de ataques                    |Sim                                   |Sim                                           |
 |Garantia de disponibilidade                          |Região do Azure                          |Aplicação                                   |
 |Políticas de mitigação                             |Sintonizado para o volume da região de tráfego de Azure |Sintonizado para o volume de tráfego de aplicações          |
-|Alertas de & de métricas                                |Não                                    |Métricas de ataque em tempo real & registos de diagnóstico através do monitor Azure                                 |
+|Alertas de & de métricas                                |Não                                    |Métricas de ataque em tempo real & registos de recursos através do Monitor Azure                                 |
 |Relatórios de mitigação                              |Não                                    |Relatórios de mitigação pós-ataque                |
 |Registos de fluxo de mitigação                            |Não                                    |Fluxo de log NRT para integração SIEM           |
 |Personalização da política de mitigação                 |Não                                    |Envolver especialistas em DDoS                           |

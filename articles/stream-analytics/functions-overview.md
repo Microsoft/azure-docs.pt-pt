@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: b29d66e8bb213fbbb162c3249f022e0783f9f62f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 45e766c624ee96f7faa06fb07d00349e620a4c0a
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115589"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133475"
 ---
 # <a name="user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador no Azure Stream Analytics
 
@@ -43,9 +43,9 @@ As funções definidas pelo utilizador são apátridas, e o valor de retorno só
 
 O Azure Stream Analytics não mantém um registo de todas as funções invocações e resultados devolvidos. Para garantir a repetição - por exemplo, reexecutar o seu trabalho a partir de carimbos de tempo mais antigos produz novamente os mesmos resultados - não utilizar funções como `Date.GetData()` ou `Math.random()`, uma vez que estas funções não devolvem o mesmo resultado para cada invocação.  
 
-## <a name="diagnostic-logs"></a>Registos de diagnósticos
+## <a name="resource-logs"></a>Registos do recurso
 
-Quaisquer erros de tempo de execução são considerados fatais e são emergidos através de registos de atividade e diagnóstico. Recomenda-se que a sua função lide com todas as exceções e erros e devolva um resultado válido à sua consulta. Isto impedirá que o seu trabalho vá para um [estado falhado.](job-states.md)  
+Quaisquer erros de tempo de execução são considerados fatais e são surgidos através de registos de atividade e recursos. Recomenda-se que a sua função lide com todas as exceções e erros e devolva um resultado válido à sua consulta. Isto impedirá que o seu trabalho vá para um [estado falhado.](job-states.md)  
 
 
 ## <a name="next-steps"></a>Passos seguintes

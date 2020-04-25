@@ -15,12 +15,12 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 09d5b7a126a1b8832bfe40e2e25dd4000d5d9155
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 6baa83037d51e850a9f3535be3cc365e7c35e0a4
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548293"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131443"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -154,7 +154,7 @@ Se conceder a um utilizador o acesso apenas a uma única aplicação web, alguma
 * Alterar definições como configuração geral, configurações de escala, definições de backup e definições de monitorização
 * Aceder a credenciais de publicação e outros segredos, como configurações de aplicativos e cordas de ligação
 * Registos de streaming
-* Configuração de registos de diagnóstico
+* Configuração de registos de recursos
 * Consola (pedido de comando)
 * Implantações ativas e recentes (para implantação contínua de git local)
 * Gastos estimados

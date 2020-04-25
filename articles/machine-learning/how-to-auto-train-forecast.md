@@ -10,17 +10,23 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 9f80156f61ad82e5563f1c38764c81297f5979f2
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 05d658c052c5bc12f49d957bb29ad085c269c57b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767308"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137377"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-train um modelo de previsão de série de tempo
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, aprende-se a treinar um modelo de regressão de previsão de séries temportivas utilizando machine learning automatizado em Azure Machine Learning. Configurar um modelo de previsão é semelhante à configuração de um modelo de regressão padrão utilizando machine learning automatizado, mas existem certas opções de configuração e passos de pré-processamento para trabalhar com dados da série de tempo. Os seguintes exemplos mostram-lhe como:
+Neste artigo, aprende-se a configurar e a treinar um modelo de regressão de previsão de séries temportivas utilizando machine learning automatizado em Azure Machine Learning. 
+
+Configurar um modelo de previsão é semelhante à configuração de um modelo de regressão padrão utilizando machine learning automatizado, mas existem certas opções de configuração e passos de pré-processamento para trabalhar com dados da série de tempo. 
+
+Por exemplo, pode [configurar](#config) até onde deve ser a previsão para o futuro (o horizonte de previsão), bem como os lags e muito mais. O ML automatizado aprende um modelo único, mas muitas vezes ramificado internamente para todos os itens nos horizontes de dataset e previsão. Mais dados estão assim disponíveis para estimar os parâmetros dos modelos e a generalização para séries invisíveis torna-se possível.
+
+Os seguintes exemplos mostram-lhe como:
 
 * Preparar dados para modelação de séries temporais
 * Configure parâmetros específicos da [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) série temporal num objeto
@@ -28,21 +34,12 @@ Neste artigo, aprende-se a treinar um modelo de regressão de previsão de séri
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-Pode utilizar ml automatizado para combinar técnicas e abordagens e obter uma previsão recomendada e de alta qualidade da série de tempo. Uma experiência automatizada em séries temporais é tratada como um problema de regressão multivariada. Os valores das séries de tempo passadas são "apostados" para se tornarem dimensões adicionais para o regresso, juntamente com outros preditores.
+Ao contrário dos métodos clássicos da série time, em ml automatizado os valores das séries temporais passadas são "pivôs" para se tornarem dimensões adicionais para o regressor juntamente com outros preditores. Esta abordagem incorpora múltiplas variáveis contextuais e a sua relação entre si durante o treino. Uma vez que vários fatores podem influenciar uma previsão, este método alinha-se bem com cenários de previsão do mundo real. Por exemplo, ao prever vendas, as interações das tendências históricas, da taxa de câmbio e do preço impulsionam conjuntamente o resultado das vendas. 
 
-Esta abordagem, ao contrário dos métodos clássicos da série de tempo, tem uma vantagem de incorporar naturalmente múltiplas variáveis contextuais e sua relação entre si durante o treino. Nas aplicações de previsão do mundo real, vários fatores podem influenciar uma previsão. Por exemplo, ao prever vendas, as interações das tendências históricas, da taxa de câmbio e do preço impulsionam conjuntamente o resultado das vendas. Um outro benefício é que todas as inovações recentes nos modelos de regressão se aplicam imediatamente à previsão.
-
-Pode [configurar](#config) até onde deve ser o futuro a previsão (o horizonte de previsão), bem como os lags e muito mais. O ML automatizado aprende um modelo único, mas muitas vezes ramificado internamente para todos os itens nos horizontes de dataset e previsão. Mais dados estão assim disponíveis para estimar os parâmetros dos modelos e a generalização para séries invisíveis torna-se possível.
-
-As funcionalidades extraídas dos dados de treino desempenham um papel fundamental. E, ml automatizado executa passos padrão de pré-processamento e gera funcionalidades adicionais da série de tempo para capturar efeitos sazonais e maximizar a precisão preditiva.
+As funcionalidades extraídas dos dados de treino desempenham um papel fundamental. E, ml automatizado executa passos padrão de pré-processamento e gera funcionalidades adicionais da série de tempo para capturar efeitos sazonais e maximizar a precisão preditiva
 
 ## <a name="time-series-and-deep-learning-models"></a>Séries temporais e modelos de aprendizagem profunda
 
-
-O ML automatizado fornece aos utilizadores modelos de time-series e deep learning nativos como parte do sistema de recomendação. Estes alunos incluem:
-+ Profeta (Pré-visualização)
-+ Auto-ARIMA (Pré-visualização)
-+ ForecastTCN (Pré-visualização)
 
 A aprendizagem profunda automatizada do ML permite a previsão de dados de séries de tempo univariadae multivariada.
 
@@ -53,9 +50,14 @@ Os modelos de aprendizagem profunda têm três capacidades intrínsecas:
 
 Dados maiores, modelos de aprendizagem profunda, como o ForecastTCN da Microsoft, podem melhorar as pontuações do modelo resultante. Aprenda a configurar a [sua experiência para uma aprendizagem profunda.](#configure-a-dnn-enable-forecasting-experiment)
 
-Os alunos de séries de horárionativo também são fornecidos como parte do ML automatizado. O profeta trabalha melhor com séries temporais que têm fortes efeitos sazonais e várias estações de dados históricos. O profeta é preciso & rápido, robusto para superar, dados em falta e mudanças dramáticas na sua série de tempo. 
+O ML automatizado fornece aos utilizadores modelos de time-series e deep learning nativos como parte do sistema de recomendação. 
 
-AutoRegressive Integrated Moving Average (ARIMA) é um método estatístico popular para a previsão de séries de tempo. Esta técnica de previsão é comumente utilizada em cenários de previsão de curto prazo onde os dados mostram evidências de tendências como ciclos, que podem ser imprevisíveis e difíceis de modelar ou prever. A Auto-ARIMA transforma os seus dados em dados estacionários para receber resultados consistentes e fiáveis.
+
+Modelos| Descrição | Benefícios
+----|----|---
+Profeta (Pré-visualização)|O profeta trabalha melhor com séries temporais que têm fortes efeitos sazonais e várias estações de dados históricos. | A precisão & rápida, robusta para os outliers, os dados em falta e mudanças dramáticas na sua série de horários.
+Auto-ARIMA (Pré-visualização)|A Média Móvel Integrada AutoRegressive (ARIMA) tem melhor desempenho, quando os dados estão estacionários. Isto significa que as suas propriedades estatísticas como a média e a variação são constantes ao longo de todo o conjunto. Por exemplo, se lançares uma moeda, então a probabilidade de ficares com a cabeça é de 50%, independentemente de virares hoje, amanhã ou no próximo ano.| Ótimo para séries univariadas, uma vez que os valores passados são usados para prever os valores futuros.
+ForecastTCN (Pré-visualização)| A ForecastTCN é um modelo de rede neural projetado para enfrentar as tarefas de previsão mais exigentes, capturando tendências locais e globais não lineares nos seus dados, bem como relações entre séries temporais.|Capaz de alavancar tendências complexas nos seus dados e facilmente dimensiona para o maior dos conjuntos de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -101,6 +103,25 @@ test_labels = test_data.pop(label).values
 > Ao treinar um modelo para a previsão de valores futuros, certifique-se de que todas as funcionalidades utilizadas no treino podem ser usadas ao executar previsões para o seu horizonte pretendido. Por exemplo, ao criar uma previsão de procura, incluindo uma característica para o preço atual das ações poderia aumentar maciçamente a precisão da formação. No entanto, se pretender prever com um horizonte longo, poderá não ser capaz de prever com precisão os valores de stock futuros correspondentes a futuros pontos da série temporal, e a precisão do modelo poderá sofrer.
 
 <a name="config"></a>
+
+## <a name="train-and-validation-data"></a>Dados de comboio e validação
+Pode especificar conjuntos separados de comboios e validação diretamente no `AutoMLConfig` construtor.
+
+### <a name="rolling-origin-cross-validation"></a>Validação cruzada de origem rolante
+Para a série de tempo que prevê a Validação Cruzada da Origem Rolante (ROCV) é usada para dividir séries de tempo de forma temporalmente consistente. O ROCV divide a série em dados de treino e validação utilizando um ponto de tempo de origem. Deslizar a origem no tempo gera as dobras de validação cruzada.  
+
+![texto alternativo](./media/how-to-auto-train-forecast/ROCV.svg)
+
+Esta estratégia preservará a integridade dos dados da série temporal e eliminará o risco de fuga de dados. O ROCV é automaticamente utilizado para a previsão de tarefas, através da passagem `n_cross_validations`dos dados de formação e validação e definindo o número de dobras de validação cruzada utilizando . 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             n_cross_validations=3,
+                             ...
+                             **time_series_settings)
+```
+Saiba mais sobre o [AutoMLConfig.](#configure-and-run-experiment)
+
 ## <a name="configure-and-run-experiment"></a>Configurar e executar experiência
 
 Para as tarefas de previsão, o machine learning automatizado utiliza passos de pré-processamento e estimativa específicos dos dados da série temporal. Serão executadas as seguintes etapas de pré-processamento:
@@ -197,6 +218,17 @@ Recomendamos a utilização de um cluster AML Compute com GPU SKUs e pelo menos 
 Para obter mais informações sobre os tamanhos de computação AML e VM que incluam GPU's, consulte a documentação da [AML Compute](how-to-set-up-training-targets.md#amlcompute) e a [documentação otimizada de tamanhos de máquinavirtual da GPU.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)
 
 Consulte o caderno de previsão de produção de [bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) para obter um exemplo de código detalhado que alavanca os DNNs.
+
+### <a name="target-rolling-window-aggregation"></a>Agregação da janela de rolamento alvo
+Muitas vezes, a melhor informação que um meteorologista pode ter é o valor recente do alvo. A criação de estatísticas cumulativas do alvo pode aumentar a precisão das suas previsões. As agregações de janelas de rolamento de destino permitem adicionar uma agregação contínua dos valores de dados como funcionalidades. Para ativar as `target_rolling_window_size` janelas de rolamento do alvo, desloque o tamanho da janela deteger desejada. 
+
+Um exemplo disso pode ser visto na previsão da procura de energia. Pode adicionar uma característica de janela rolante de três dias para ter em conta as alterações térmicas dos espaços aquecidos. No exemplo abaixo, criamos esta janela do `target_rolling_window_size=3` tamanho `AutoMLConfig` três colocando no construtor. A tabela mostra a engenharia de características que ocorre quando é aplicada a agregação da janela. As colunas para o mínimo, máximo e soma são geradas numa janela deslizante de três com base nas definições definidas. Cada linha tem uma nova característica calculada, no caso do carimbo de tempo para 8 de setembro de 2017 4:00 am os valores máximos, mínimos e soma são calculados com base nos valores da procura para 8 de setembro de 2017 1:00AM - 3:00AM. Esta janela de três mudanças ao longo para povoar dados para as restantes linhas.
+
+![texto alternativo](./media/how-to-auto-train-forecast/target-roll.svg)
+
+Gerar e usar estas funcionalidades adicionais como dados contexuísticos extra ajuda na precisão do modelo do comboio.
+
+Veja um exemplo de código Python aproveitando a [função agregada](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)da janela de rolamento do alvo .
 
 ### <a name="view-feature-engineering-summary"></a>Ver resumo de engenharia de recursos
 

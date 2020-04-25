@@ -1,53 +1,22 @@
 ---
-title: Controlo da manutenção
-description: Aprenda a controlar quando a manutenção é aplicada aos seus VMs Azure utilizando o Controlo de Manutenção.
+title: Controlo de manutenção para máquinas virtuais Azure utilizando CLI
+description: Aprenda a controlar quando a manutenção é aplicada aos seus VMs Azure utilizando o controlo de manutenção e o CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 04/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 58c0964d170f49066802b955f09dab01eaf998a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4843b4769e31748fd5f624005792c604db18f11e
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250182"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137506"
 ---
-# <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>Pré-visualização: Atualizações de controlo com controlo de manutenção e o CLI Azure
+# <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Atualizações de controlo com controlo de manutenção e o CLI Azure
 
-Gerencie as atualizações da plataforma, que não requerem um reboot, utilizando o controlo de manutenção. O Azure atualiza frequentemente a sua infraestrutura para melhorar a fiabilidade, desempenho, segurança ou lançar novas funcionalidades. A maioria das atualizações são transparentes para os utilizadores. Algumas cargas de trabalho sensíveis, como jogos, streaming de mídia e transações financeiras, não podem tolerar mesmo alguns segundos de um congelamento de VM ou desconexão para manutenção. O controlo de manutenção dá-lhe a opção de esperar nas atualizações da plataforma e aplicá-las dentro de uma janela de 35 dias. 
-
-O controlo de manutenção permite-lhe decidir quando aplicar atualizações aos seus VMs isolados e anfitriões dedicados azure.
-
-Com controlo de manutenção, pode:
-- Atualizações do lote num pacote de atualização.
-- Aguarde até 35 dias para aplicar atualizações. 
-- Amate automaticamente as atualizações da plataforma para a sua janela de manutenção utilizando funções Azure.
-- As configurações de manutenção funcionam em assinaturas e grupos de recursos. 
-
-> [!IMPORTANT]
-> O Controlo de Manutenção encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
->
-
-## <a name="limitations"></a>Limitações
-
-- Os VMs devem estar num [hospedeiro dedicado,](./linux/dedicated-hosts.md)ou ser criados com um [tamanho VM isolado](./linux/isolation.md).
-- Após 35 dias, será aplicada uma atualização automaticamente.
-- O utilizador deve ter acesso ao Colaborador do **Recurso.**
-
-
-## <a name="install-the-maintenance-extension"></a>Instale a extensão de manutenção
-
-Se optar por instalar o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) localmente, precisa da versão 2.0.76 ou posterior.
-
-Instale `maintenance` a extensão CLI de pré-visualização localmente ou na Cloud Shell. 
-
-```azurecli-interactive
-az extension add -n maintenance
-```
-
+O controlo de manutenção permite-lhe decidir quando aplicar atualizações aos seus VMs isolados e anfitriões dedicados azure. Este tópico abrange as opções azure CLI para controlo de manutenção. Para obter mais informações sobre os benefícios da utilização do controlo de Manutenção, as suas limitações e outras opções de gestão, consulte [a Managing platform updates with Maintenance Control](maintenance-control.md).
 
 ## <a name="create-a-maintenance-configuration"></a>Criar uma configuração de manutenção
 
@@ -61,7 +30,7 @@ az maintenance configuration create \
    -g myMaintenanceRG \
    --name myConfig \
    --maintenanceScope host\
-   --location  eastus
+   --location eastus
 ```
 
 Copie o ID de configuração da saída para utilizar mais tarde.

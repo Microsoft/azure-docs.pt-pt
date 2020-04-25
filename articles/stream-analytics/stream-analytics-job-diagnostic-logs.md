@@ -1,32 +1,32 @@
 ---
-title: Troubleshoot Azure Stream Analytics usando registos de diagnóstico
-description: Este artigo descreve como analisar registos de diagnóstico no Azure Stream Analytics.
+title: Troubleshoot Azure Stream Analytics usando registos de recursos
+description: Este artigo descreve como analisar registos de recursos no Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: cdb6629441becd0a8356debe3360830ff11a7a9d
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 40b57af95f9ea4d4212756634c721ddd55f85d7b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398412"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127758"
 ---
-# <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Troubleshoot Azure Stream Analytics usando registos de diagnóstico
+# <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Troubleshoot Azure Stream Analytics usando registos de recursos
 
-Ocasionalmente, o processamento dos trabalhos do Azure Stream Analytics para inesperadamente. É importante conseguir resolver este tipo de evento. As falhas podem ser provocadas por um resultado de consulta inesperado, pela conectividade aos dispositivos ou por uma falha de serviço repentina. Os registos de diagnóstico no Stream Analytics podem ajudá-lo a identificar a causa dos problemas quando ocorrem e reduzir o tempo de recuperação.
+Ocasionalmente, o processamento dos trabalhos do Azure Stream Analytics para inesperadamente. É importante conseguir resolver este tipo de evento. As falhas podem ser provocadas por um resultado de consulta inesperado, pela conectividade aos dispositivos ou por uma falha de serviço repentina. Os registos de recursos no Stream Analytics podem ajudá-lo a identificar a causa dos problemas quando ocorrem e reduzir o tempo de recuperação.
 
-É altamente recomendado permitir registos de diagnóstico para todos os trabalhos, uma vez que isso ajudará muito na depuração e monitorização.
+É altamente recomendado permitir registos de recursos para todos os postos de trabalho, uma vez que isso ajudará muito na depuração e monitorização.
 
 ## <a name="log-types"></a>Tipos de registo
 
 Stream Analytics oferece dois tipos de registos:
 
-* [Registos de atividade](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (sempre ligados), que dão insights sobre as operações realizadas sobre os trabalhos.
+* [Registos de atividade](../azure-monitor/platform/platform-logs-overview.md) (sempre ligados), que dão insights sobre as operações realizadas sobre os trabalhos.
 
-* [Registos](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) de diagnóstico (configuráveis), que fornecem informações mais ricas sobre tudo o que acontece com um trabalho. Os registos de diagnóstico começam quando o trabalho é criado e terminam quando o trabalho é apagado. Cobrem eventos quando o trabalho é atualizado e enquanto está a funcionar.
+* [Registos](../azure-monitor/platform/platform-logs-overview.md) de recursos (configuráveis), que fornecem informações mais ricas sobre tudo o que acontece com um trabalho. Os registos de recursos começam quando o trabalho é criado e terminam quando o trabalho é apagado. Cobrem eventos quando o trabalho é atualizado e enquanto está a funcionar.
 
 > [!NOTE]
 > Pode utilizar serviços como o Azure Storage, Azure Event Hubs e Azure Monitor para analisar dados não conformes. É cobrado com base no modelo de preços desses serviços.
@@ -53,33 +53,33 @@ Os registos de atividade estão ligados por defeito e dão insights de alto nív
 
 5. Pode tomar medidas corretivas com base na mensagem de erro na JSON. Neste exemplo, é necessário adicionar à consulta controlos para garantir que o valor da latitude se encontre entre -90 graus e 90 graus.
 
-6. Se a mensagem de erro nos registos de Atividade não for útil para identificar a causa da raiz, ative os registos de diagnóstico e utilize os registos do Monitor Azure.
+6. Se a mensagem de erro nos registos de Atividade não for útil para identificar a causa raiz, ative os registos de recursos e utilize os registos do Monitor Azure.
 
 ## <a name="send-diagnostics-to-azure-monitor-logs"></a>Envie diagnósticos para registos do Monitor Azure
 
-É altamente recomendado ligar os registos de diagnóstico e enviá-los para os registos do Monitor Azure. Os registos de diagnóstico estão **desligados** por defeito. Para ligar os registos de diagnóstico, complete estes passos:
+É altamente recomendado ligar os registos de recursos e enviá-los para os registos do Monitor Azure. Estão **fora** por defeito. Para ligá-los, complete estes passos:
 
 1.  Inscreva-se no portal Azure e navegue para o seu trabalho de Stream Analytics. Em **Monitorização,** selecione registos de **diagnósticos**. Em seguida, selecione **Ligar os diagnósticos**.
 
-    ![Navegação de lâminas para registos de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
+    ![Navegação de lâminas para registos de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
 2.  Crie um **Nome** nas **definições de Diagnóstico** e verifique a caixa ao lado do Enviar para Registar **Análise**. Em seguida, adicione um espaço de trabalho existente ou crie um novo espaço de trabalho de análise de **Log**. Verifique as caixas para **execução** e **autoria** em **LOG**, e **AllMetrics** em **MÉTRICA**. Clique em **Guardar**. Recomenda-se utilizar um espaço de trabalho log Analytics na mesma região do Azure que o seu trabalho stream analytics para evitar custos adicionais.
 
-    ![Definições para registos de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
+    ![Definições para registos de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3. Quando o seu trabalho no Stream Analytics começa, os registos de diagnóstico são encaminhados para o seu espaço de trabalho Log Analytics. Para visualizar os registos de diagnóstico para o seu trabalho, selecione **Registos** sob a secção **de Monitorização.**
+3. Quando o seu trabalho no Stream Analytics começa, os registos de recursos são encaminhados para o seu espaço de trabalho Log Analytics. Para visualizar os registos de recursos para o seu trabalho, selecione **Registos** sob a secção **de Monitorização.**
 
-   ![Registos de Diagnóstico sob Monitorização](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+   ![Registos de Recursos sob Monitorização](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
 4. O Stream Analytics fornece consultas pré-definidas que lhe permitem facilmente procurar os registos em que está interessado. As 3 categorias são **Geral,** Erros de **dados de entrada** e erros de dados de **saída.** Por exemplo, para ver um resumo de todos os erros do seu trabalho nos últimos 7 dias, pode selecionar **Executar** a consulta pré-definida apropriada. 
 
-   ![Registos de Diagnóstico sob Monitorização](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
+   ![Registos de Recursos sob Monitorização](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
 
    ![Resultados dos registos](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
 
-## <a name="diagnostics-log-categories"></a>Categorias de registo de diagnósticos
+## <a name="resource-log-categories"></a>Categorias de registo de recursos
 
-O Azure Stream Analytics captura duas categorias de registos de diagnóstico:
+O Azure Stream Analytics captura duas categorias de registos de recursos:
 
 * **Autoria**: Captura eventos de registo relacionados com operações de autoria de emprego, tais como criação de emprego, adição e abater inputs e saídas, adicionar e atualizar a consulta, e iniciar ou parar o trabalho.
 
@@ -90,7 +90,7 @@ O Azure Stream Analytics captura duas categorias de registos de diagnóstico:
         * Erros de avaliação de expressão
     * Outros eventos e erros
 
-## <a name="diagnostics-logs-schema"></a>Diagnóstico slogs schema
+## <a name="resource-logs-schema"></a>Esquema de registos de recursos
 
 Todos os registos são armazenados em formato JSON. Cada entrada tem os seguintes campos de cordas comuns:
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/24/2020
-ms.openlocfilehash: c1bcbb6a368c9c80f968c48c1a6e0bc6c95133d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: cf9597f4a722ff9cda68e87b31db77c989afcb0b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456409"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129853"
 ---
 # <a name="evaluate-model-module"></a>Avaliar módulo modelo
 
@@ -33,36 +33,15 @@ Utilize este módulo para medir a precisão de um modelo treinado. Fornece um co
 > Se você é novo na avaliação de modelos, recomendamos a série de vídeo do Dr. Stephen Elston, como parte do curso de [machine learning](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) da EdX. 
 
 
-Existem três formas de utilizar o módulo **Modelo de Avaliação:**
+## <a name="how-to-use-evaluate-model"></a>Como utilizar o Modelo de Avaliação
+1. Ligue a saída do conjunto de **dados Pontuado** do [Modelo de Pontuação](./score-model.md) à porta de entrada esquerda do Modelo de **Avaliação**. 
 
-+ Gere pontuações sobre os seus dados de treino e avalie o modelo com base nestas pontuações
-+ Gere pontuações no modelo, mas compare essas pontuações com pontuações num conjunto de testes reservados
-+ Compare pontuações para dois modelos diferentes mas relacionados, usando o mesmo conjunto de dados
+2. [Opcional] Ligue a saída do conjunto de **dados Pontuado** do [Modelo de Pontuação](./score-model.md) para o segundo modelo à entrada **direita** do Modelo de **Avaliação**. Pode facilmente comparar resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ser do mesmo tipo de algoritmo. Ou, pode comparar pontuações de duas diferentes corridas sobre os mesmos dados com diferentes parâmetros.
 
-## <a name="use-the-training-data"></a>Use os dados de formação
+    > [!NOTE]
+    > O tipo de algoritmo refere-se a 'Classificação de duas classes', 'Classificação multi-classe', 'Regressão', 'Clustering' em 'Algoritmos de Aprendizagem automática'. 
 
-Para avaliar um modelo, deve ligar um conjunto de dados que contenha um conjunto de colunas e pontuações de entrada.  Se não houver outros dados disponíveis, pode utilizar o seu conjunto de dados original.
-
-1. Ligue a saída do conjunto de **dados pontuado** do [Modelo de Pontuação](./score-model.md) à entrada do Modelo de **Avaliação**. 
-2. Clique em Avaliar o módulo **Model** e execute o pipeline para gerar as pontuações de avaliação.
-
-## <a name="use-testing-data"></a>Utilizar dados de teste
-
-Um cenário comum na aprendizagem automática é separar o seu conjunto de dados original em conjuntos de dados de treino e teste, utilizando o módulo [Split,](./split-data.md) ou o módulo [de partição e amostra.](./partition-and-sample.md) 
-
-1. Ligue a saída do conjunto de **dados pontuado** do [Modelo de Pontuação](score-model.md) à entrada do Modelo de **Avaliação**. 
-2. Ligue a saída do módulo De dados divididos que contém os dados de teste à entrada direita do Modelo de **Avaliação**.
-2. Clique em avaliar o módulo **Model** e selecione **Executar selecionado** para gerar as pontuações de avaliação.
-
-## <a name="compare-scores-from-two-models"></a>Comparar pontuações de dois modelos
-
-Também pode ligar um segundo conjunto de pontuações ao **Modelo de Avaliação**.  As pontuações podem ser um conjunto de avaliação partilhada que já conheceu resultados, ou um conjunto de resultados de um modelo diferente para os mesmos dados.
-
-Esta funcionalidade é útil porque pode facilmente comparar resultados de dois modelos diferentes nos mesmos dados. Ou, pode comparar pontuações de duas diferentes corridas sobre os mesmos dados com diferentes parâmetros.
-
-1. Ligue a saída do conjunto de **dados pontuado** do [Modelo de Pontuação](score-model.md) à entrada do Modelo de **Avaliação**. 
-2. Ligue a saída do módulo 'Modelo de Pontuação' para o segundo modelo à entrada direita do Modelo de **Avaliação**.
-3. Submeta o oleoduto.
+3. Submeta o oleoduto para gerar as pontuações de avaliação.
 
 ## <a name="results"></a>Resultados
 

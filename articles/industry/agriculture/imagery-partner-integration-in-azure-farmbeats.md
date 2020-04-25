@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 62e5b363f8008380a61e24c0549573a30ecaeb73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52d817d1029e75837e55c1b942525661ace33f87
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77131860"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136945"
 ---
 # <a name="imagery-partner-integration"></a>Integração de parceiros de imagens
 
@@ -61,20 +61,27 @@ headers = {"Authorization": "Bearer " + access_token, …} 
 A seguinte amostra de código Python recupera o sinal de acesso. Em seguida, pode utilizar o símbolo para chamadas API subsequentes para FarmBeats.
 
 ```python
-from azure.common.credentials import ServicePrincipalCredentials 
-import adal 
-#FarmBeats API Endpoint 
-ENDPOINT = "https://<yourdatahub>.azurewebsites.net"   
-CLIENT_ID = "<Your Client ID>"   
-CLIENT_SECRET = "<Your Client Secret>"   
-TENANT_ID = "<Your Tenant ID>" 
-AUTHORITY_HOST = 'https://login.microsoftonline.com' 
-AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
-#Authenticating with the credentials 
-context = adal.AuthenticationContext(AUTHORITY) 
-token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
-#Should get an access token here 
-access_token = token_response.get('accessToken') 
+import requests
+import json
+import msal
+
+# Your service principal App ID
+CLIENT_ID = "<CLIENT_ID>"
+# Your service principal password
+CLIENT_SECRET = "<CLIENT_SECRET>"
+# Tenant ID for your Azure subscription
+TENANT_ID = "<TENANT_ID>"
+
+AUTHORITY_HOST = 'https://login.microsoftonline.com'
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID
+
+ENDPOINT = "https://<yourfarmbeatswebsitename-api>.azurewebsites.net"
+SCOPE = ENDPOINT + "/.default"
+
+context = msal.ConfidentialClientApplication(CLIENT_ID, authority=AUTHORITY, client_credential=CLIENT_SECRET)
+token_response = context.acquire_token_for_client(SCOPE)
+# We should get an access token here
+access_token = token_response.get('access_token')
 ```
 
 ## <a name="http-request-headers"></a>HTTP solicitar cabeçalhos

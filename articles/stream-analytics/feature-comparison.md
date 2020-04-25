@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: d3b27a50fa86916b71c84b30ecdbf45deb0ec45c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770762"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133505"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparação de funcionalidades Azure Stream Analytics
 
@@ -39,7 +39,7 @@ Com o Azure Stream Analytics, pode criar soluções de streaming na nuvem e no I
 |Submeta, comece e pare os empregos     |Sim         |Sim         |Sim         |
 |Ver métricas de trabalho e diagrama     |Sim         |Sim         |Abrir no Portal         |
 |Ver erros de execução de emprego     |Sim         |Sim         |Não         |
-|Registos de diagnósticos     |Sim         |Não         |Não         |
+|Registos do recurso     |Sim         |Não         |Não         |
 |Propriedades de mensagem personalizada     |Sim         |Sim         |Não       |
 |Função de código personalizado C# e Deserializer|Modo de leitura|Sim|Não|
 |JavaScript UDF e UDA     |Sim         |Sim         |Apenas no Windows         |

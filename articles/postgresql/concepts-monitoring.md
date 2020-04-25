@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 2d2bb5440e6d23a4cb5781244ba33ab4c5be2612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99c8d4e7e5263b8a7caf30833a899976d3cc829b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252575"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133708"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitor e sintonize base de dados Azure para PostgreSQL - Servidor Único
 Monitorizar dados sobre os seus servidores ajuda-o a resolver problemas e a otimizar para a sua carga de trabalho. A Base de Dados Azure para PostgreSQL fornece várias opções de monitorização para fornecer informações sobre o comportamento do seu servidor.
@@ -42,7 +42,7 @@ Estas métricas estão disponíveis para a Base de Dados Azure para PostgreSQL:
 |pg_replica_log_delay_in_seconds|Réplica Lag|Segundos|O tempo desde a última transação repetida. Esta métrica está disponível apenas para servidores de réplicas.|
 
 ## <a name="server-logs"></a>Registos do servidor
-Pode ativar o registo no seu servidor. Estes registos também estão disponíveis através de registos de diagnóstico do Azure em [registos do Monitor Azure,](../azure-monitor/log-query/log-query-overview.md)Hubs de Eventos e Conta de Armazenamento. Para saber mais sobre o login, visite a página de registos do [servidor.](concepts-server-logs.md)
+Pode ativar o registo no seu servidor. Estes registos de recursos podem ser enviados para [registos do Monitor Azure,](../azure-monitor/log-query/log-query-overview.md)Centros de Eventos e uma Conta de Armazenamento. Para saber mais sobre o login, visite a página de registos do [servidor.](concepts-server-logs.md)
 
 ## <a name="query-store"></a>Arquivo de Consultas
 [A Consulta Store](concepts-query-store.md) acompanha o desempenho da consulta ao longo do tempo, incluindo estatísticas de tempo de execução de consulta e eventos de espera. A funcionalidade persiste na consulta de informação sobre o desempenho do tempo de execução numa base de dados do sistema chamada **azure_sys** sob o esquema query_store. Pode controlar a recolha e armazenamento de dados através de vários botões de configuração.

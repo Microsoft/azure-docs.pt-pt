@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: c9388da449e75dee00fd43af9a4e0407c46f597a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: c98935781699510d84247f80367d5c57cb388f6b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77916715"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137642"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo Florestal de decisão de duas classes
 
@@ -86,9 +86,19 @@ Para mais informações, consulte [Decision Forests](https://go.microsoft.com/fw
 
      Se desseleccionar esta opção, o modelo só pode aceitar os valores contidos nos dados de formação.
   
-9. Fixe um conjunto de dados rotulado e um dos módulos de [formação:](module-reference.md)  
+9. Anexe um conjunto de dados rotulado e treine o modelo:
+
+    + Se definir o modo Criar o **modo de formação** para **um parâmetro único,** ligue um conjunto de dados marcado e o módulo [Modelo de Comboio.](train-model.md)  
   
-    -   Se definir o modo Criar modo **de treinador** para um parâmetro **único,** utilize o módulo Modelo de [Comboio.](./train-model.md)  
+    + Se definir O modo Criar o **modo de formação** para o intervalo do **parâmetro,** ligue um conjunto de dados marcado e treine o modelo utilizando [hiperparâmetros do Modelo tune](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Se passar uma gama de parâmetros para [o Modelo de Comboio,](train-model.md)utiliza apenas o valor predefinido na lista de parâmetros individuais.  
+    > 
+    > Se passar um único conjunto de valores de parâmetros para o módulo de [hiperparâmetros](tune-model-hyperparameters.md) do Modelo tune, quando espera uma gama de definições para cada parâmetro, ignora os valores e utiliza os valores predefinidos para o aluno.  
+    > 
+    > Se selecionar a opção Gama de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros alterem uma gama de valores.  
     
 ## <a name="results"></a>Resultados
 

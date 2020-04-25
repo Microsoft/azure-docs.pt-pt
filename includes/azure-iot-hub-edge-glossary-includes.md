@@ -4,15 +4,15 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: dobett
-ms.openlocfilehash: c95bca125ea70cf32acad0d5ea67c3ad195ed704
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30b8facfef6d90a444bd61d0ce041ed7dfef324e
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67184378"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131628"
 ---
 ## <a name="automatic-device-management"></a>Gestão automática de Dispositivos
-A Gestão Automática de Dispositivos no Azure IoT Hub automatiza muitas das tarefas repetitivas e complexas de gerir grandes frotas de dispositivos ao longo de toda a sua vida. Com a Gestão Automática de Dispositivos, pode direcionar um conjunto de dispositivos com base nas suas propriedades, definir uma configuração desejada e deixar os dispositivos de atualização do IoT Hub sempre que entram em alcance.  Consiste em [configurações automáticas](../articles/iot-hub/iot-hub-auto-device-config.md) de dispositivos e [implementações automáticas IoT Edge](../articles/iot-edge/how-to-deploy-monitor.md).
+A Gestão Automática de Dispositivos no Azure IoT Hub automatiza muitas das tarefas repetitivas e complexas de gerir grandes frotas de dispositivos ao longo de toda a sua vida. Com a Gestão Automática de Dispositivos, pode direcionar um conjunto de dispositivos com base nas suas propriedades, definir uma configuração desejada e deixar os dispositivos de atualização do IoT Hub sempre que entram em alcance.  Consiste em [configurações automáticas](../articles/iot-hub/iot-hub-auto-device-config.md) de dispositivos e [implementações automáticas IoT Edge](../articles/iot-edge/how-to-deploy-at-scale.md).
 
 ## <a name="iot-edge"></a>IoT Edge
 O Azure IoT Edge permite a implantação de serviços Azure e código específico de soluções para dispositivos no local. Os dispositivos IoT Edge podem agregar dados de outros dispositivos para realizar computação e análise antes de os dados forem enviados para a nuvem. Para mais informações, consulte [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/).

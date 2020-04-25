@@ -1,5 +1,5 @@
 ---
-title: Ativar e trabalhar com registos de diagnóstico da Azure Bastion
+title: Ativar e trabalhar com registos de recursos da Azure Bastion
 description: Neste artigo, aprenda a ativar e trabalhar com registos de diagnóstico da Azure Bastion.
 services: bastion
 author: charwen
@@ -7,18 +7,18 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 97f0cdb1e93ef2ad06d2daa04b2f4893fd5dfac2
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 4b71dba02a311b8fa6a16645364f90d7632693a2
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619267"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131280"
 ---
-# <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Ativar e trabalhar com registos de diagnóstico da Bastion
+# <a name="enable-and-work-with-bastion-resource-logs"></a>Ativar e trabalhar com registos de recursos da Bastion
 
 À medida que os utilizadores se ligam às cargas de trabalho utilizando o Azure Bastion, a Bastion pode registar diagnósticos das sessões remotas. Em seguida, pode utilizar os diagnósticos para visualizar quais os utilizadores ligados a que cargas de trabalho, a que horas, de onde e outras informações relevantes sobre o registo. Para utilizar os diagnósticos, deve ativar os registos de diagnóstico no Azure Bastion. Este artigo ajuda-o a ativar os registos de diagnóstico e, em seguida, a visualizar os registos.
 
-## <a name="enable-the-diagnostics-log"></a><a name="enable"></a>Ativar o registo de diagnósticos
+## <a name="enable-the-resource-log"></a><a name="enable"></a>Ativar o registo de recursos
 
 1. No [portal Azure,](https://portal.azure.com)navegue para o seu recurso Azure Bastion e selecione **definições** de Diagnóstico a partir da página Do Bastião Azure.
 
@@ -43,7 +43,7 @@ Para aceder aos registos de diagnóstico, pode utilizar diretamente a conta de a
 2. Ao navegar para dentro do contentor, vê várias pastas no seu blog. Estas pastas indicam a hierarquia de recursos para o seu recurso Azure Bastion.
 
    ![adicionar definição de diagnóstico](./media/diagnostic-logs/2-resource-h.png)
-3. Navegue até à hierarquia completa do seu recurso Azure Bastion cujos registos de diagnóstico deseja aceder/visualizar. O 'y=', 'm=', 'd=', 'h=' e 'm=' indicam o ano, mês, dia, hora e minuto, respectivamente, para os registos de diagnóstico.
+3. Navegue até à hierarquia completa do seu recurso Azure Bastion cujos registos de diagnóstico deseja aceder/visualizar. O 'y=', 'm=', 'd=', 'h=' e 'm=' indicam o ano, mês, dia, hora e minuto, respectivamente, para os registos de recursos.
 
    ![selecionar local de armazenamento](./media/diagnostic-logs/3-resource-location.png)
 4. Localize o ficheiro json criado pela Azure Bastion que contém os dados de registo de diagnóstico sintetizadores para o período de tempo navegado.

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 95a70a1d0c4367adb1dd276bff1b1eb20caafc59
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 454278f0f45a73ec99f52d3f7e9e0c5ce95ecf7a
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473373"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133293"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir a Norma de Proteção DDoS Azure utilizando o portal Azure
 
@@ -167,8 +167,8 @@ Os relatórios de mitigação de ataques utilizam os dados do protocolo Netflow 
 5. Selecione **Endereço IP público** para o tipo de **Recurso**e, em seguida, selecione o endereço IP público específico para o que pretende registar métricas.
 6. Selecione **ligar os diagnósticos para recolher o log DDoSMitigationReports** e, em seguida, selecione quantas opções que necessitar:
 
-    - **Arquivo para uma conta**de armazenamento : Os dados são escritos numa conta de Armazenamento Azure. Para saber mais sobre esta opção, consulte [registos de diagnóstico do Arquivo](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream para um centro de eventos**: Permite que um recetor de registo saqueie registos utilizando um Hub de Eventos Azure. Os centros de eventos permitem a integração com splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, consulte [os registos de diagnóstico do Stream para um centro de eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Arquivo para uma conta**de armazenamento : Os dados são escritos numa conta de Armazenamento Azure. Para saber mais sobre esta opção, consulte [registos](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)de recursos do Arquivo .
+    - **Stream para um centro de eventos**: Permite que um recetor de registo saqueie registos utilizando um Hub de Eventos Azure. Os centros de eventos permitem a integração com splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, consulte os registos de [recursos do Stream para um centro de eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Enviar para Log Analytics**: Escreve registos para o serviço Azure Monitor. Para saber mais sobre esta opção, consulte [registos de recolha para utilização em registos do Monitor Azure](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Tanto os relatórios de mitigação & incrementais pós-ataque incluem os seguintes campos
@@ -189,8 +189,8 @@ Os Registos de Fluxo de Mitigação de Ataque permitem-lhe rever o tráfego perd
 5. Selecione **Endereço IP público** para o tipo de **Recurso**e, em seguida, selecione o endereço IP público específico para o que pretende registar métricas.
 6. Selecione **ligar os diagnósticos para recolher o log DDoSMitigationFlowLogs** e, em seguida, selecione quantas das seguintes opções conforme precisar:
 
-    - **Arquivo para uma conta**de armazenamento : Os dados são escritos numa conta de Armazenamento Azure. Para saber mais sobre esta opção, consulte [registos de diagnóstico do Arquivo](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream para um centro de eventos**: Permite que um recetor de registo saqueie registos utilizando um Hub de Eventos Azure. Os centros de eventos permitem a integração com splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, consulte [os registos de diagnóstico do Stream para um centro de eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Arquivo para uma conta**de armazenamento : Os dados são escritos numa conta de Armazenamento Azure. Para saber mais sobre esta opção, consulte [registos](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)de recursos do Arquivo .
+    - **Stream para um centro de eventos**: Permite que um recetor de registo saqueie registos utilizando um Hub de Eventos Azure. Os centros de eventos permitem a integração com splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, consulte os registos de [recursos do Stream para um centro de eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Enviar para Log Analytics**: Escreve registos para o serviço Azure Monitor. Para saber mais sobre esta opção, consulte [registos de recolha para utilização em registos do Monitor Azure](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Para ver os dados de registos de fluxo no painel de análise azure, você pode importar o painel de dados da amostra dehttps://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 

@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 5c59ddf046e7ffe936b097878d5d049b43ea8aec
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 73981cb0f124e1577690f893ead60e6375f16298
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729016"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133136"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário dos termos do Hub IoT
 
@@ -28,7 +28,7 @@ O Protocolo avançado de [fila de mensagens (AMQP)](https://www.amqp.org/) é um
 
 ## <a name="automatic-device-management"></a>Gestão automática de Dispositivos
 
-A Gestão Automática de Dispositivos no Azure IoT Hub automatiza muitas das tarefas repetitivas e complexas de gerir grandes frotas de dispositivos ao longo de toda a sua vida. Com a Gestão Automática de Dispositivos, pode direcionar um conjunto de dispositivos com base nas suas propriedades, definir uma configuração desejada e deixar os dispositivos de atualização do IoT Hub sempre que entram em alcance.  Consiste em [configurações automáticas](iot-hub-auto-device-config.md) de dispositivos e [implementações automáticas IoT Edge](../iot-edge/how-to-deploy-monitor.md).
+A Gestão Automática de Dispositivos no Azure IoT Hub automatiza muitas das tarefas repetitivas e complexas de gerir grandes frotas de dispositivos ao longo de toda a sua vida. Com a Gestão Automática de Dispositivos, pode direcionar um conjunto de dispositivos com base nas suas propriedades, definir uma configuração desejada e deixar os dispositivos de atualização do IoT Hub sempre que entram em alcance.  Consiste em [configurações automáticas](iot-hub-auto-device-config.md) de dispositivos e [implementações automáticas IoT Edge](../iot-edge/how-to-deploy-at-scale.md).
 
 ## <a name="automatic-device-configuration"></a>Configuração automática do dispositivo
 

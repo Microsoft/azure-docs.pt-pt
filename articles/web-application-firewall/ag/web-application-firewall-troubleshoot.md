@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 33c85752903edd618044ccbab06aff7df9a791da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cfb44fbf84ad85f3e2684dfec21cc83d4aaa666
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74046198"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131259"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Firewall de aplicação web de resolução de problemas (WAF) para Gateway de aplicação Azure
 
@@ -178,7 +178,7 @@ Este é um campo que pode excluir. Para saber mais sobre listas de exclusão, co
 
 ![Exclusão waf](../media/web-application-firewall-troubleshoot/waf-exclusion-02.png)
 
-Também pode examinar os registos de firewall para obter a informação para ver o que precisa adicionar à lista de exclusão. Para permitir a exploração madeireira, consulte a [saúde de back-end, os registos de diagnóstico e as métricas para o Gateway](../../application-gateway/application-gateway-diagnostics.md)da Aplicação .
+Também pode examinar os registos de firewall para obter a informação para ver o que precisa adicionar à lista de exclusão. Para permitir a exploração madeireira, consulte a [saúde de back-end, os registos](../../application-gateway/application-gateway-diagnostics.md)de recursos e as métricas para o Gateway da Aplicação .
 
 Examine o registo de firewall e veja o ficheiro PT1H.json durante a hora que o pedido que pretende inspecionar ocorreu.
 

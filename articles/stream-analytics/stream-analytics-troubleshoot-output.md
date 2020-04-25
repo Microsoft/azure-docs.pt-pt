@@ -8,16 +8,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 305632a0faa1eb7e217e86d36c5159e557df7aaf
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
-ms.translationtype: MT
+ms.openlocfilehash: 5652df0cf142af2ff96590368892530abcb3d667
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409254"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133220"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Saídas de Troubleshoot Azure Stream Analytics
 
-Este artigo descreve questões comuns com ligações de saída do Azure Stream Analytics, como resolver problemas de saída e como corrigir os problemas. Muitos passos de resolução de problemas requerem que os registos de diagnóstico sejam ativados para o seu trabalho de Stream Analytics. Se não tiver registos de diagnóstico ativados, consulte [o Troubleshoot Azure Stream Analytics utilizando registos](stream-analytics-job-diagnostic-logs.md)de diagnóstico .
+Este artigo descreve questões comuns com ligações de saída do Azure Stream Analytics, como resolver problemas de saída e como corrigir os problemas. Muitos passos de resolução de problemas requerem recursos e outros registos de diagnóstico para o seu trabalho de Stream Analytics. Se não tiver registos de recursos ativados, consulte [o Troubleshoot Azure Stream Analytics utilizando registos](stream-analytics-job-diagnostic-logs.md)de recursos .
 
 ## <a name="output-not-produced-by-job"></a>Saída não produzida por trabalho
 

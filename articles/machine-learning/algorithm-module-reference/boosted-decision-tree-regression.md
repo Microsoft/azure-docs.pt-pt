@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 79a2ccae31fac31d8d10bb643c35a41a3d7cb5d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: cb7f11f184ba8e19eb8786817da58edf8ddee44e
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456731"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137098"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore de decisão reforçado
 
@@ -78,10 +78,19 @@ O método de reforço do gradiente também pode ser usado para problemas de clas
     Por predefinição, a semente aleatória está definida para 0, o que significa que o valor inicial da semente é obtido a partir do relógio do sistema.
   
 
-9. Adicione um conjunto de dados de treino e um dos módulos de treino:
+9. Treine o modelo:
 
-    - Se definir a opção **de modo de treinador criar** para parâmetro **único,** utilize o módulo [Modelo de Comboio.](train-model.md)  
+    + Se definir o modo Criar o **modo de formação** para **um parâmetro único,** ligue um conjunto de dados marcado e o módulo [Modelo de Comboio.](train-model.md)  
   
+    + Se definir O modo Criar o **modo de formação** para o intervalo do **parâmetro,** ligue um conjunto de dados marcado e treine o modelo utilizando [hiperparâmetros do Modelo tune](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Se passar uma gama de parâmetros para [o Modelo de Comboio,](train-model.md)utiliza apenas o valor predefinido na lista de parâmetros individuais.  
+    > 
+    > Se passar um único conjunto de valores de parâmetros para o módulo de [hiperparâmetros](tune-model-hyperparameters.md) do Modelo tune, quando espera uma gama de definições para cada parâmetro, ignora os valores e utiliza os valores predefinidos para o aluno.  
+    > 
+    > Se selecionar a opção Gama de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros alterem uma gama de valores.
     
 
 10. Submeta o oleoduto.  

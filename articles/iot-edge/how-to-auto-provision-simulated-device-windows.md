@@ -8,12 +8,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fc051e2a0ebbdae7c62ff8a249747d118d3c2ce4
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 8278d9f2129ab8b213cf1b561f4b82b56dffc8da
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668682"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131044"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Crie e forre um dispositivo IoT Edge simulado com um TPM virtual no Windows
 
@@ -54,7 +54,7 @@ Depois de ter o Serviço de Provisionamento de Dispositivos em funcionamento, co
 
 Crie um dispositivo TPM simulado na sua máquina de desenvolvimento windows. Recupere a chave **de identificação** e **averbamento** de registo para o seu dispositivo e utilize-os para criar uma entrada individual de inscrição no DPS.
 
-Ao criar uma inscrição em DPS, tem a oportunidade de declarar um **Dispositivo Inicial Twin State**. No dispositivo twin pode configurar etiquetas para agrupar dispositivos por qualquer métrica que necessite na sua solução, como região, ambiente, localização ou tipo de dispositivo. Estas etiquetas são utilizadas para criar [implementações automáticas](how-to-deploy-monitor.md).
+Ao criar uma inscrição em DPS, tem a oportunidade de declarar um **Dispositivo Inicial Twin State**. No dispositivo twin pode configurar etiquetas para agrupar dispositivos por qualquer métrica que necessite na sua solução, como região, ambiente, localização ou tipo de dispositivo. Estas etiquetas são utilizadas para criar [implementações automáticas](how-to-deploy-at-scale.md).
 
 Escolha a linguagem SDK que pretende utilizar para criar o dispositivo simulado e siga os passos até criar a inscrição individual.
 
@@ -67,7 +67,7 @@ Dispositivo simulado e guias individuais de inscrição:
 
 * [C](../iot-dps/quick-create-simulated-device.md)
 * [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
-* [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
+* [C #](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
 * [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
@@ -133,4 +133,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O processo de inscrição do Serviço de Provisionamento de Dispositivos permite-lhe definir as etiquetas duplas de identificação do dispositivo e dispositivo ao mesmo tempo que disponibiliza o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos ou grupos individuais de dispositivos utilizando a gestão automática do dispositivo. Saiba como [implantar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-monitor.md) ou utilizando o [Azure CLI](how-to-deploy-monitor-cli.md)
+O processo de inscrição do Serviço de Provisionamento de Dispositivos permite-lhe definir as etiquetas duplas de identificação do dispositivo e dispositivo ao mesmo tempo que disponibiliza o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos ou grupos individuais de dispositivos utilizando a gestão automática do dispositivo. Saiba como [implantar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-at-scale.md) ou utilizando o [Azure CLI](how-to-deploy-cli-at-scale.md)

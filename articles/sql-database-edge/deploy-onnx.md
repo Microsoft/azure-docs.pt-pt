@@ -8,13 +8,13 @@ ms.subservice: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 03/26/2020
-ms.openlocfilehash: aff9346595d3b8985d3558658af32d05f88c0554
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.date: 04/23/2020
+ms.openlocfilehash: aa2bf5473bf5bd76cfdad39310ce793ab3921652
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365456"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129285"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>Implementar e fazer previsões com um modelo ONNX na Pré-visualização de borda de base de dados SQL
 
@@ -54,16 +54,12 @@ boston = load_boston()
 boston
 
 df = pd.DataFrame(data=np.c_[boston['data'], boston['target']], columns=boston['feature_names'].tolist() + ['MEDV'])
-
-# x contains all predictors (features)
-x = df.drop(['MEDV'], axis = 1)
-
-# y is what we are trying to predict - the median value
-y = df.iloc[:,-1]
-
+ 
+target_column = 'MEDV'
+ 
 # Split the data frame into features and target
-x_train = df.drop(['MEDV'], axis = 1)
-y_train = df.iloc[:,-1]
+x_train = pd.DataFrame(df.drop([target_column], axis = 1))
+y_train = pd.DataFrame(df.iloc[:,df.columns.tolist().index(target_column)])
 
 print("\n*** Training dataset x\n")
 print(x_train.head())

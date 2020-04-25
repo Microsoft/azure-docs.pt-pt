@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: c6b845eda1df39ccf5e4b2b1d6a615f3bc932b66
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 42d3360b7defaab2ff0a62dc125a213860b13a6a
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474948"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133596"
 ---
 # <a name="azure-networking-services-overview"></a>Visão geral dos serviços de networking Azure
 
@@ -33,7 +33,7 @@ Esta secção descreve serviços que proporcionam conectividade entre os recurso
 |---|---|---|
 |[Rede virtual](#vnet)|Permite que os recursos do Azure se comuniquem de forma segura entre si, com a internet e com as redes no local.| <p>[Filtre o tráfego de rede](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[Encaminhe o tráfego de rede](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[Restrinja o acesso da rede aos recursos](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[Ligar redes virtuais](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
 |[ExpressRoute](#expressroute)|Estende as suas redes no local para a nuvem da Microsoft sobre uma ligação privada facilitada por um fornecedor de conectividade.|<p>[Criar e modificar um circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[Criar e modificar o peering de um circuito ExpressRoute](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[Ligar uma VNet a um circuito do ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[Configure e gerencie filtros de rotas para circuitos ExpressRoute](../expressroute/how-to-routefilter-portal.md)</p>|
-|[Gateway de VPN](#vpngateway)|Envia tráfego encriptado entre uma rede virtual Azure e uma localização no local através da Internet pública.|<p>[Ligações site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[Ligações VNet a VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Ligações Ponto a Site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
+|[Gateway de VPN](#vpngateway)|Envia tráfego encriptado entre uma rede virtual Azure e uma localização no local através da Internet pública.|<p>[Ligações site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[Ligações VNet a VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Ligações ponto-a-local](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
 |[WAN Virtual](#virtualwan)|Otimiza e automatiza a conectividade do ramo para, e através, Azure. As regiões azure servem como centros aos quais pode optar por ligar os seus ramos.|<p>[Ligações site-to-site](../virtual-wan/virtual-wan-site-to-site-portal.md), [conexões ExpressRoute](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[DNS do Azure](#dns)|Os anfitriões de domínios DNS que fornecem resolução de nomes utilizando a infraestrutura do Microsoft Azure.|<p>[Aloje o seu domínio no DNS do Azure](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Crie registos DNS para uma aplicação web](../dns/dns-web-sites-custom-domain.md)</p> <p>[Criar um recorde de pseudónimos para O Gestor de Tráfego](../dns/tutorial-alias-tm.md)</p> <p>[Criar um registo de pseudónimos para endereço IP público](../dns/tutorial-alias-pip.md)</p> <p>[Criar um recorde de pseudónimos para o registo de recursos de zona](../dns/tutorial-alias-rr.md)</p>|
 |[Azure Bastion](#bastion)|Configure a conectividade RDP/SSH segura e sem emenda às suas máquinas virtuais diretamente no portal Azure sobre TLS. Quando se conecta através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público|<p>[Criar um anfitrião do Azure Bastion](../bastion/bastion-create-host-portal.md)</p><p>[Ligue usando sSH a um Linux VM](../bastion/bastion-connect-vm-ssh.md)</p><p>[Conecte-se usando RDP a um VM do Windows](../bastion/bastion-connect-vm-rdp.md)</p>|
@@ -95,7 +95,7 @@ Esta secção descreve serviços de networking em Azure que ajudam a proteger os
 |[Proteção DDoS](#ddosprotection) |Alta disponibilidade para as suas aplicações com proteção contra taxas de tráfego IP excedentárias|[Gerir a Proteção DDoS Azure](../virtual-network/manage-ddos-protection.md)|
 |[Firewall de aplicação web](#waf)|<p>[Azure WAF com Application Gateway](../web-application-firewall/ag/ag-overview.md) fornece proteção regional a entidades em espaço de endereçopúblico e privado</p><p>[O Azure WAF com porta frontal](../web-application-firewall/afds/afds-overview.md) proporciona proteção na borda da rede para pontos finais públicos.</p>|<p>[Configure regras de proteção de bots](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Configurar código de resposta personalizado](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Configure regras de restrição IP](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Regra limite de taxa de configuração](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
 |[Azure Firewall](#firewall)|O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud que protege os recursos da Rede Virtual do Azure. É uma firewall como um serviço com monitorização de estado com alta disponibilidade integrada e escalabilidade da cloud irrestrita.|<p>[Implementar uma Firewall Azure num Vnet](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[- Implementar uma Firewall Azure numa rede híbrida](../firewall/tutorial-hybrid-ps.md)</p> <p>[Filtrar tráfego de entrada com DNAT de Firewall Azure](../firewall/tutorial-firewall-dnat.md)</p>|
-|[Grupos de segurança da rede](#nsg)|Controlo completo do nó final distribuído granular na VM/subnet para todos os fluxos de tráfego da rede|[Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/tutorial-filter-network-traffic.md)|
+|[Grupos de segurança de rede](#nsg)|Controlo completo do nó final distribuído granular na VM/subnet para todos os fluxos de tráfego da rede|[Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/tutorial-filter-network-traffic.md)|
 |[Pontos finais de serviço de rede virtual](#serviceendpoints)|Permite-lhe limitar o acesso à rede a alguns recursos de serviço sinuoso para uma subnet de rede virtual|[Restrict network access to PaaS resources](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md) (Restringir o acesso de rede a recursos de PaaS)|
 [Ligação Privada](#privatelink)|Permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Armazenamento Azure e Base de Dados SQL) e o Azure acolheu serviços de clientes/parceiros sobre um ponto final privado na sua rede virtual.|<p>[Criar um ponto final privado](../private-link/create-private-endpoint-portal.md)</p><p>[Criar um serviço de Ligação Privada](../private-link/create-private-link-service-portal.md)</p>|
 |||
@@ -120,7 +120,7 @@ Para mais informações sobre o Azure Firewall, consulte a [documentação da Fi
 
 ![Descrição geral das firewalls](./media/networking-overview/firewall-threat.png)
 
-### <a name="network-security-groups"></a><a name="nsg"></a>Grupos de segurança da rede
+### <a name="network-security-groups"></a><a name="nsg"></a>Grupos de segurança de rede
 Pode filtrar o tráfego de rede de e para recursos do Azure numa rede virtual do Azure com um grupo de segurança de rede. Para mais informações, consulte a [Visão Geral da Segurança](../virtual-network/security-overview.md).
 
 ### <a name="service-endpoints"></a><a name="serviceendpoints"></a>Pontos finais de serviço
@@ -196,7 +196,7 @@ Esta secção descreve serviços de networking no Azure que ajudam a monitorizar
 ### <a name="network-watcher"></a><a name="networkwatcher"></a>Observador de Rede
 O Observador de Rede do Azure oferece ferramentas para monitorizar, diagnosticar, ver métricas e ativar ou desativar registos de recursos numa rede virtual do Azure. Para mais informações, consulte o que é o [Observador da Rede?](../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### <a name="expressroute-monitor"></a><a name="expressroutemonitor"></a>ExpressRoute Monitor
-Para saber como ver as métricas do circuito ExpressRoute, registos de diagnóstico e alertas, consulte [a monitorização, métricas e alertas do ExpressRoute.](../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json)
+Para saber como ver as métricas do circuito ExpressRoute, registos de recursos e alertas, consulte [a monitorização, métricas e alertas do ExpressRoute.](../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### <a name="azure-monitor"></a><a name="azuremonitor"></a>Azure Monitor
 O Azure Monitor maximiza a disponibilidade e o desempenho das aplicações ao disponibilizar uma solução abrangente para recolher, analisar e agir na telemetria dos ambientes na cloud e no local. Ajuda a compreender o desempenho das suas aplicações e identifica proativamente os problemas que as afetam e os recursos de que dependem. Para mais informações, consulte a [visão geral do Monitor Azure](../azure-monitor/overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 ### <a name="virtual-network-tap"></a><a name="vnettap"></a>Rede Virtual TAP

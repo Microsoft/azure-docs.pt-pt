@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6c75b9c2feeab32c139998f617cacf540733e3bd
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456350"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133785"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento azure
 
@@ -77,7 +77,7 @@ As partilhas de ficheiros podem ser utilizadas para inúmeros cenários comuns:
 
 - Os ficheiros de configuração podem ser armazenados numa partilha de ficheiros e acedidos a partir de múltiplas VMs. As ferramentas e os utilitários utilizados pelos múltiplos programadores num grupo podem ser armazenados numa partilha de ficheiros, o que garante que todos podem encontrá-los e que utilizam a mesma versão.
 
-- Os registos de diagnóstico, métricas e informações de falha são apenas três exemplos de dados que podem ser escritos numa partilha de ficheiros e processados ou analisados mais tarde.
+- Registos de recursos, métricas e depósitos de colisões são apenas três exemplos de dados que podem ser escritos para uma partilha de ficheiros e processados ou analisados mais tarde.
 
 Para obter mais informações sobre o serviço Ficheiros do Azure, veja [Introdução ao serviço Ficheiros do Azure](../files/storage-files-introduction.md).
 

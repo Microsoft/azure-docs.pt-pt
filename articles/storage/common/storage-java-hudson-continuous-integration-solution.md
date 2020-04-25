@@ -2,23 +2,23 @@
 title: Como usar hudson com armazenamento Blob / Microsoft Docs
 description: Descreve como usar Hudson com armazenamento Azure Blob como um repositório para construir artefactos.
 services: storage
-author: seguler
+author: tamram
 ms.service: storage
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: tarcher
+ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a89439f49dd53f09d5cd40be0bf2e4981e9235d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3b76e9ded7031ce104df9251a851e5e8e430ee4
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77201390"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133777"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Utilização do Armazenamento Azure com uma solução de Integração Contínua Hudson
 ## <a name="overview"></a>Descrição geral
-As seguintes informações mostram como usar o armazenamento Blob como um repositório de artefactos de construção criados por uma solução de Integração Contínua (CI) de Hudson, ou como fonte de ficheiros descarregados para serem usados num processo de construção. Um dos cenários em que você acha isto útil é quando você está codificando em um ambiente de desenvolvimento ágil (usando Java ou outras línguas), as construções estão funcionando com base na integração contínua, e você precisa de um repositório para seus artefactos de construção, para que você possa, por exemplo, partilhe-os com outros membros da organização, seus clientes, ou mantenha um arquivo.  Outro cenário é quando o seu próprio trabalho de construção requer outros ficheiros, por exemplo, dependências para descarregar como parte da entrada de construção.
+As seguintes informações mostram como usar o armazenamento Blob como um repositório de artefactos de construção criados por uma solução de Integração Contínua (CI) de Hudson, ou como fonte de ficheiros descarregados para serem usados num processo de construção. Um dos cenários em que você acha isto útil é quando você está codificando em um ambiente de desenvolvimento ágil (usando Java ou outras línguas), as construções estão funcionando com base na integração contínua, e você precisa de um repositório para seus artefactos de construção, para que você possa, por exemplo, partilhá-los com outros membros da organização, seus clientes, ou manter um arquivo.  Outro cenário é quando o seu próprio trabalho de construção requer outros ficheiros, por exemplo, dependências para descarregar como parte da entrada de construção.
 
 Neste tutorial, estará a utilizar o plugin de Armazenamento Azure para o CI Hudson disponibilizado pela Microsoft.
 
@@ -116,7 +116,7 @@ Para efeitos de instrução, primeiro teremos de criar um trabalho que crie vár
 13. No painel hudson, clique em **Build Now** para executar **MyJob**. Examine a saída da consola para obter o estado. As mensagens de estado para o Armazenamento Azure serão incluídas na saída da consola quando a ação pós-construção começar a carregar artefactos de construção.
 14. Após a conclusão bem sucedida do trabalho, você pode examinar os artefactos de construção abrindo a bolha pública.
     
-    a. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+    a. Inicie sessão no [portal do Azure](https://portal.azure.com).
     
     b. Clique em **Armazenamento**.
     

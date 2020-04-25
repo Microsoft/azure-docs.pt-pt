@@ -4,17 +4,17 @@ titleSuffix: Azure Storage
 description: Uma lista de controlos de segurança para avaliar o Armazenamento Azure.
 services: storage
 author: msmbaldwin
+ms.author: mbaldwin
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: mbaldwin
-ms.openlocfilehash: f03f497051367d36bd229a3f358d28a1130ec620
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 96fde15eb5071e157fedcff6154e6b0635a34721
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82082361"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128027"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controlos de segurança para armazenamento azure
 
@@ -47,8 +47,8 @@ Este artigo documenta os controlos de segurança incorporados no Armazenamento A
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
 | Suporte de monitorização Azure (Análise de registo, insights de aplicações, etc.)| Sim | Métricas do Monitor Azure|
-| Registo e auditoria de planos de controlo e gestão | Sim | Registo de Atividades do Gestor de Recursos Azure |
-| Registo e auditoria de planos de dados| Sim | Registos de Diagnóstico de Serviço.|
+| Registo e auditoria de planos de controlo e gestão | Sim | Registo de Atividades do Azure |
+| Registo e auditoria de planos de dados| Sim | Registos de recursos do Monitor Azure |
 
 ## <a name="identity"></a>Identidade
 

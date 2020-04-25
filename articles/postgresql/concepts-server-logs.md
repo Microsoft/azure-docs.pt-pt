@@ -6,14 +6,15 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 2636e9a225002148e4cd79bb2176e0883aed623a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70520b464bcb26ff8f1ea10f87bbf30537dc58a0
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280498"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131228"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Registos na Base de Dados Azure para PostgreSQL - Servidor Único
+
 A Base de Dados Azure para PostgreSQL permite-lhe configurar e aceder aos registos padrão do Postgres. Os registos podem ser utilizados para identificar, resolução de problemas e erros de configuração de reparação e desempenho sub-ideal. O registo de informações que pode configurar e aceder inclui erros, informações de consulta, registos de autovácuo, ligações e pontos de verificação. (O acesso aos registos de transações não está disponível).
 
 A exploração madeireira de auditoria é disponibilizada através de uma extensão de Postgres, pgaudit. Para saber mais, visite o artigo [conceitos de auditoria.](concepts-audit.md)
@@ -46,7 +47,8 @@ Para a retenção a mais longo prazo de registos e análise de registo, pode des
 
 Pode parar de gerar ficheiros .log, definindo o parâmetro `logging_collector` para OFF. Recomenda-se desligar a geração de ficheiros .log se estiver a utilizar as definições de diagnóstico do Monitor Azure. Esta configuração reduzirá o impacto de desempenho de uma exploração extraloga adicional.
 
-## <a name="diagnostic-logs"></a>Registos de diagnósticos
+## <a name="resource-logs"></a>Registos do recurso
+
 A Base de Dados Azure para PostgreSQL está integrada com as definições de diagnóstico do Monitor Azure. As definições de diagnóstico permitem-lhe enviar os seus registos Postgres em formato JSON para registos de monitorização azure para análise e alerta, Centros de Eventos para streaming e Armazenamento Azure para arquivamento. 
 
 > [!IMPORTANT]
@@ -54,9 +56,10 @@ A Base de Dados Azure para PostgreSQL está integrada com as definições de dia
 
 
 ### <a name="configure-diagnostic-settings"></a>Configurar as definições de diagnóstico
+
 Pode ativar as definições de diagnóstico do seu servidor Postgres utilizando o portal Azure, CLI, REST API e Powershell. A categoria de registo a selecionar é **PostgreSQLLogs**. (Existem outros registos que pode configurar se estiver a utilizar a [Consulta Store](concepts-query-store.md).)
 
-Para ativar registos de diagnóstico utilizando o portal Azure:
+Para ativar registos de recursos utilizando o portal Azure:
 
    1. No portal, vá a *Definições* de Diagnóstico no menu de navegação do seu servidor Postgres.
    2. *Selecione Adicionar definição de diagnóstico*.
@@ -65,9 +68,9 @@ Para ativar registos de diagnóstico utilizando o portal Azure:
    5. Selecione o tipo de log **PostgreSQLLogs**.
    7. Guarde a sua configuração.
 
-Para ativar os registos de diagnóstico utilizando a Powershell, CLI ou REST API, visite o artigo de definições de [diagnóstico.](../azure-monitor/platform/diagnostic-settings.md)
+Para ativar registos de recursos utilizando powershell, CLI ou REST API, visite o artigo de definições de [diagnóstico.](../azure-monitor/platform/diagnostic-settings.md)
 
-### <a name="access-diagnostic-logs"></a>Aceder aos registos de diagnósticos
+### <a name="access-resource-logs"></a>Registos de recursos de acesso
 
 A forma como acede aos registos depende do ponto final que escolher. Para o Armazenamento Azure, consulte o artigo da conta de armazenamento de [registos.](../azure-monitor/platform/resource-logs-collect-storage.md) Para Os Hubs de Eventos, consulte o artigo de [logs do Stream Azure.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 

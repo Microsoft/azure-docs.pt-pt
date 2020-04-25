@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 80e38893d764f35511793d8b31f596dcbf16dd42
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: f2e3c03ba599128cc4552f64637ebd63efcb4578
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991897"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128453"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com monitor Azure
 
@@ -2407,7 +2407,7 @@ As métricas são organizadas pelo espaço de nome. Para obter uma lista de serv
 |Http5xx|Erros do servidor http|Contagem|Total|Erros do servidor http|Instância|
 |Conjunto de Funções de Memória|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
 |Conjunto de trabalho de memória média|Conjunto de trabalho médio da memória|Bytes|Média|Conjunto de trabalho médio da memória|Instância|
-|Tempo de Resposta|Tempo de Resposta|Segundos|Total|Tempo de Resposta|Instância|
+|HttpResponseTime|Tempo de Resposta|Segundos|Total|Tempo de Resposta|Instância|
 |Tempo médio de resposta|Tempo médio de resposta (depreciado)|Segundos|Média|Tempo médio de resposta|Instância|
 |AppConnections|Ligações|Contagem|Média|Ligações|Instância|
 |Alças|N.º de Identificadores|Contagem|Média|N.º de Identificadores|Instância|

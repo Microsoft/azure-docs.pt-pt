@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 07/31/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c1d30a9cdd2cd6ca288edd609a2e2e7bee9174d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 66ce267581d4748ea51a3dcbd7caa61907115cc1
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68718265"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131149"
 ---
 # <a name="common-questions-about-site-recovery-monitoring"></a>Questões comuns sobre monitorização da recuperação do site
 
@@ -52,7 +52,7 @@ Apenas as máquinas para as quais a replicação inicial foi concluída estão i
 ## <a name="azure-monitor-logging"></a>Registo do Azure Monitor
 
 
-### <a name="how-often-does-site-recovery-send-diagnostic-logs-to-azure-monitor-log"></a>Com que frequência a Recuperação do Site envia registos de diagnóstico para o Registo do Monitor Azure? 
+### <a name="how-often-does-site-recovery-send-resource-logs-to-azure-monitor-log"></a>Com que frequência a Recuperação do Site envia registos de recursos para o Registo do Monitor Azure? 
 
 - As Estatísticas de Recuperação do AzureSite e o AzureSiteRecoveryRecoveryPoints são enviados a cada 15 minutos.  
 - AzureSiteRecoveryReplicationDataUploadRate e AzureSiteRecoveryProtectedDiskDataChurnÉChurn são enviados a cada cinco minutos. 
@@ -64,7 +64,7 @@ Apenas as máquinas para as quais a replicação inicial foi concluída estão i
 
 Por defeito, a retenção é de 31 dias. Pode aumentar o período na secção **de Utilização e Custoestimado** no espaço de trabalho log Analytics. Clique na **Retenção**de Dados e escolha o intervalo.
 
-### <a name="whats-the-size-of-the-diagnostic-logs"></a>Qual é o tamanho dos registos de diagnóstico? 
+### <a name="whats-the-size-of-the-resource-logs"></a>Qual é o tamanho dos registos de recursos? 
 
 Tipicamente o tamanho de um tronco é de 15-20 KB. 
 

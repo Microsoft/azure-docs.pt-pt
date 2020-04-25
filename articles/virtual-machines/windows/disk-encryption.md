@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 930fcb4c023dc58fe0eeea65aa3fa5f78569e628
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: b25d35ce467786c402c56c8a7d19a305381db94f
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085676"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137795"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
@@ -189,7 +189,7 @@ Update-AzVM -ResourceGroupName $ResourceGroupName -VM $vm
 
 ```
 
-#### <a name="encrypt-existing-unattached-managed-disks"></a>Criptografe discos geridos não ligados existentes 
+#### <a name="encrypt-existing-managed-disks"></a>Encriptar discos geridos existentes 
 
 Os seus discos existentes não devem ser ligados a um VM em execução para que os criptografe utilizando o seguinte script:
 

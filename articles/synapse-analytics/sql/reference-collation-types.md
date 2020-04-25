@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4270677f8f5f77e1ada0b1d9385163dad762bbda
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2b10aea962a31ba600deca866a8d9f7ab3b81ea8
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81431543"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133666"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Suporte de colagem de base de dados para Synapse SQL
 
@@ -101,6 +101,7 @@ Além disso, o pool SQL não suporta os seguintes tipos de colagem:
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS
+*    UTF-8
 
 ## <a name="checking-the-current-collation"></a>Verificação da atual colagem
 Para verificar a atual colagem da base de dados, pode executar o seguinte corte T-SQL:

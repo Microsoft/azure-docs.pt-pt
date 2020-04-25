@@ -1,23 +1,23 @@
 ---
 title: Monitorizar consultas
 titleSuffix: Azure Cognitive Search
-description: Monitorize as métricas de consulta para desempenho e entrada. Recolher e analisar as inputs de cadeias de consulta em registos de diagnóstico.
+description: Monitorize as métricas de consulta para desempenho e entrada. Recolher e analisar as inputs de cadeias de consulta em registos de recursos.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: a3a313ef9cd74ba901f5a6a2d82a18e3c21145dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da7a47bf61453c30f5c735b1282ae93d2442598c
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462531"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127685"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorize pedidos de consulta em Pesquisa Cognitiva Azure
 
-Este artigo explica como medir o desempenho e o volume da consulta usando métricas e registo de diagnóstico. Também explica como recolher os termos de entrada utilizados em consultas - informações necessárias quando precisa avaliar a utilidade e eficácia do seu corpus de pesquisa.
+Este artigo explica como medir o desempenho e o volume da consulta usando métricas e registo de recursos. Também explica como recolher os termos de entrada utilizados em consultas - informações necessárias quando precisa avaliar a utilidade e eficácia do seu corpus de pesquisa.
 
 Os dados históricos que se alimentam de métricas são preservados durante 30 dias. Para uma retenção mais longa, ou para reportar dados operacionais e cordas de consulta, certifique-se de que permite uma [definição de diagnóstico](search-monitor-logs.md) que especifique uma opção de armazenamento para eventos e métricas de registo persistentes.
 
@@ -118,7 +118,7 @@ Para uma exploração mais profunda, o explorador de métricas abertas do menu *
 
 ## <a name="identify-strings-used-in-queries"></a>Identificar cordas usadas em consultas
 
-Ao ativar o registo de diagnóstico, o sistema capta pedidos de consulta na tabela **AzureDiagnostics.** Como pré-requisito, já deve ter ativado o [registo de diagnóstico,](search-monitor-logs.md)especificando um espaço de trabalho de análise de registo ou outra opção de armazenamento.
+Ao ativar o registo de recursos, o sistema capta pedidos de consulta na tabela **AzureDiagnostics.** Como pré-requisito, já deve ter ativado o registo de [recursos,](search-monitor-logs.md)especificando um espaço de trabalho de análise de registo ou outra opção de armazenamento.
 
 1. Na secção de Monitorização, selecione **Registos** para abrir uma janela de consulta vazia no Log Analytics.
 

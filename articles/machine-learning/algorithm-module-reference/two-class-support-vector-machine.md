@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: ba788518951e72c1701d99decf46350e8665dbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 912d6b80914232d1a2ed2b1fe987ebdf949a1abc
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455813"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136503"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Módulo de máquina de vetor de suporte de duas classes
 
@@ -64,9 +64,19 @@ Para este tipo de modelo, recomenda-se que normalize o conjunto de dados antes d
   
 7.  Em **sementes de número aleatórios,** digite um valor inteiro para usar como semente se quiser garantir a reprodutibilidade em corridas.  Caso contrário, o valor do relógio do sistema é usado como uma semente, o que pode resultar em resultados ligeiramente diferentes em corridas.
   
-9. Ligue um conjunto de dados rotulado e um dos módulos de [treino:](module-reference.md)
+9. Ligue um conjunto de dados rotulado e treine o modelo:
+
+    + Se definir o modo Criar o **modo de formação** para **um parâmetro único,** ligue um conjunto de dados marcado e o módulo [Modelo de Comboio.](train-model.md)  
   
-    -   Se definir o modo Criar modo **de treinador** para um parâmetro **único,** utilize o módulo Modelo de [Comboio.](train-model.md)
+    + Se definir O modo Criar o **modo de formação** para o intervalo do **parâmetro,** ligue um conjunto de dados marcado e treine o modelo utilizando [hiperparâmetros do Modelo tune](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Se passar uma gama de parâmetros para [o Modelo de Comboio,](train-model.md)utiliza apenas o valor predefinido na lista de parâmetros individuais.  
+    > 
+    > Se passar um único conjunto de valores de parâmetros para o módulo de [hiperparâmetros](tune-model-hyperparameters.md) do Modelo tune, quando espera uma gama de definições para cada parâmetro, ignora os valores e utiliza os valores predefinidos para o aluno.  
+    > 
+    > Se selecionar a opção Gama de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros alterem uma gama de valores.
   
 10. Submeta o oleoduto.
 
