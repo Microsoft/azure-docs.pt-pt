@@ -3,12 +3,12 @@ title: Insights de aplicação azure para aplicações ASP.NET Core Microsoft Do
 description: Monitorize ASP.NET aplicações web Core para disponibilidade, desempenho e utilização.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 1a9a81d76df7f14fb99b8521e7bfa2edff6c9e9e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: e8ace92c39ed6b7bdcca0bae14cc0ae95aced2c2
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687376"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145267"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de aplicação para aplicações ASP.NET Core
 
@@ -454,11 +454,6 @@ Este SDK `HttpContext`requer , e, portanto, não funciona em quaisquer aplicaç�
 ## <a name="open-source-sdk"></a>SDK de código aberto
 
 [Leia e contribua para o código](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
-
-## <a name="video"></a>Vídeo
-
-- Confira este vídeo externo passo a passo para configurar os Insights de [Aplicação com .NET Core e Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) do zero.
-- Confira este vídeo externo passo a passo para configurar os Insights de [Aplicação com .NET Core e Visual Studio Code](https://youtu.be/ygGt84GDync) do zero.
 
 ## <a name="next-steps"></a>Passos seguintes
 

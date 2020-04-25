@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: 58845401fc14950b9c446d1481b8ac6f8ecc5523
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 8369c99c5bc44a7281c9e2072c20c723974ec83a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81269929"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146383"
 ---
 # <a name="container-support-tab"></a>Separador de suporte para contentores
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de contentores Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de recipiente azure](https://aka.ms/CreateContainerOffer) para gerir as suas ofertas migratórias.
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de contentores Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de recipiente azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) para gerir as suas ofertas migratórias.
 
 Utilize o separador **suporte** da página **New Offer** para fornecer recursos técnicos e de suporte ao utilizador para a sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de Suporte: **Contacto de Engenharia,** **Apoio ao Cliente**e **Urls**de Apoio . Um asterisco (*) anexado ao nome de campo indica que é necessário.
 

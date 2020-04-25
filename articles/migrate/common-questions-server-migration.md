@@ -3,12 +3,12 @@ title: FaQ migração do servidor migratório Azure
 description: Obtenha respostas a perguntas comuns sobre a utilização da Migração do Servidor Migratório Azure migrate para migrar máquinas.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: bf33c276c721f3be16d75b964c2b223e90c2a560
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8d4d83791366e153f0fa8b81ae120ca3fd33be2d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81529808"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146043"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração do servidor migratório Azure Migrador: Questões comuns
 
@@ -65,7 +65,7 @@ Não. As Zonas de Disponibilidade Azure não são suportadas para a migração d
 
 ## <a name="what-transport-protocol-does-azure-migrate-use-during-replication"></a>Que protocolo de transporte o Azure Migrate usa durante a replicação?
 
-A Azure Migrate utiliza o protocolo do Dispositivo de Bloqueio de Rede (NBD) com encriptação SSL.
+A Azure Migrate utiliza o protocolo do Dispositivo de Bloqueio de Rede (NBD) com encriptação TLS.
 
 ## <a name="what-is-the-minimum-vcenter-server-version-required-for-migration"></a>Qual é a versão vCenter Server mínima necessária para a migração?
 

@@ -4,15 +4,15 @@ description: Este artigo descreve como fazer backup e restaurar metadados de mod
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/24/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 83da2024ab74b705b45a5891f6b40251020dad31
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 2866ec860cbc9037aa6b57389b35f17ec71a7c9d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408660"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145466"
 ---
 # <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
@@ -22,6 +22,9 @@ Apoiar as bases de dados de modelos tabular nos Serviços de Análise azure é p
 > A criação de uma conta de armazenamento pode resultar num novo serviço de faturação. Para saber mais, consulte [o Preço de Armazenamento Azure.](https://azure.microsoft.com/pricing/details/storage/blobs/)
 > 
 > 
+
+> [!NOTE]
+> Se a conta de armazenamento estiver numa região diferente, as definições de firewall devem ser configuradas para permitir o acesso a partir de **todas as redes**. As definições de firewall configuradas para redes Selecionadas com endereços IP listados em branco e permitir a exceção de serviços da Microsoft fidedignas não são suportadas.
 
 Os backups são guardados com uma extensão .abf. Para modelos tabulares na memória, tanto os dados do modelo como os metadados são armazenados. Para os modelos tabular DirectQuery, apenas os metadados do modelo são armazenados. As cópias de segurança podem ser comprimidas e encriptadas, dependendo das opções que escolher.
 

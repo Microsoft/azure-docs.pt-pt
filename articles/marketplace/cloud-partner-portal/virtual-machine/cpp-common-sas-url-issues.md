@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/27/2018
 ms.author: dsindona
-ms.openlocfilehash: c575389538230218e1e6e4f172ebcfbee8ee51dc
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 723762695d34380b7f237fa9082dc470dafcc8df
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273465"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147050"
 ---
 # <a name="common-sas-url-issues-and-fixes"></a>Problemas e correções de URL SAS comuns
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [questões e correções de URL SAS Comuns](https://aka.ms/AzureSAS_URL_FAQ) para gerir as suas ofertas migratórias.
+> A partir de 13 de abril de 2020, começaremos a mover a gestão das suas ofertas de Máquina Virtual Azure para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [questões e correções de URL SAS Comuns](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-sas-uri-issues) para gerir as suas ofertas migratórias.
 
 A tabela que se segue enumera algumas das questões comuns encontradas ao trabalhar com assinaturas de acesso partilhado (que são usadas para identificar e partilhar os VHDs enviados para a sua solução), juntamente com resoluções sugeridas.
 

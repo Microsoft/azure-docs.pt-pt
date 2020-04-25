@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48350bf8f0ffb8681d95f6f42f9aa93256395f9a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 4d4caaf8704f2ee49f8f094ad22065ae462154be
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81534691"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143911"
 ---
 # <a name="combined-security-information-registration-overview"></a>Visão geral do registo combinado de informações de segurança
 
@@ -78,7 +78,7 @@ Existem dois modos de registo combinado: interromper e gerir.
 - **O modo de interrupção** é uma experiência semelhante a um assistente, apresentada aos utilizadores quando registam ou refrescam as suas informações de segurança no início do sessão.
 - **Gerir** o modo faz parte do perfil do utilizador e permite que os utilizadores gerem as suas informações de segurança.
 
-Para ambos os modos, os utilizadores que tenham registado previamente um método que possa ser utilizado para a autenticação multi-factor terão de realizar a Autenticação Multi-Factor antes de poderem aceder às suas informações de segurança.
+Para ambos os modos, os utilizadores que tenham registado previamente um método que possa ser utilizado para a autenticação multi-factor terão de realizar a Autenticação Multi-Factor antes de poderem aceder às suas informações de segurança. Os utilizadores devem confirmar as suas informações antes de continuarem a utilizar os seus métodos previamente registados. 
 
 ### <a name="interrupt-mode"></a>Modo de interrupção
 

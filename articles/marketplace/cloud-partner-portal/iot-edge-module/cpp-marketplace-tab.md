@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: df51a408cc47908a240ceb66bf510fe3df3ce87f
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b4a3aa4e92fcabf354de7d550ec53ead5872596d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983403"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144785"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Separador marketplace do módulo IoT Edge
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerir as suas ofertas migratórias.
+>A partir de 13 de abril de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) para gerir as suas ofertas migratórias.
 
 O separador **Marketplace** da página **New Offer** permite-lhe fornecer aos seus potenciais clientes informações e acordos de marketing, vendas e informações legais e gerir pistas geradas a partir do mercado. Esta longa forma é dividida em quatro secções: **Visão Geral,** **Artefactos de Marketing,** **Gestão de Chumbo,** e **Legal.**
 
@@ -111,7 +111,7 @@ Esta secção tem as seguintes subsecções: **Logos,** **Screenshot**e **Vídeo
 Todos os logótipos enviados para o Portal do Parceiro cloud devem seguir as orientações:
 
 *  O design do Azure tem uma paleta de cores simples. Mantenha o número de cores primárias e secundárias no seu logotipo baixo.
-*  As cores temáticas do Portal Azure são brancas e pretas. Evite utilizar estas cores como cor de fundo para os seus logotipos. Use uma cor que tornará os seus logótipos proeminentes no portal Azure. Recomendamos cores primárias simples. Se estiver a usar um fundo transparente, certifique-se de que os logótipos/texto não são brancos, pretos ou azuis.
+*  As cores temáticas do portal Azure são brancas e pretas. Evite utilizar estas cores como cor de fundo para os seus logotipos. Use uma cor que tornará os seus logótipos proeminentes no portal Azure. Recomendamos cores primárias simples. Se estiver a usar um fundo transparente, certifique-se de que os logótipos/texto não são brancos, pretos ou azuis.
 *  Não use um fundo de gradiente no seu logotipo.
 *  Evite colocar texto — mesmo a sua empresa ou nome de marca - no logotipo. A aparência e a sensação do seu logotipo devem ser "planas" e devem evitar gradientes.
 *  Não estique o logotipo.

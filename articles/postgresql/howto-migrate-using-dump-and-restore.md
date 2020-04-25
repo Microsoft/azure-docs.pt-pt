@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 4365338efa56593e80edcc19cba5944b213d2b72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 90a014e44c728c1881c1fd3d9e189554ed8f44da
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74770242"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146336"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar a base de dados de PostgreSQL através da captura e do restauro
 Pode utilizar [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) para extrair uma base de dados PostgreSQL num ficheiro de despejo e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) restaurar a base de dados PostgreSQL a partir de um ficheiro de arquivo criado por pg_dump.
@@ -42,7 +42,7 @@ pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@ser
 Incluindo o parâmetro --sem proprietário faz com que todos os objetos criados durante a restauração sejam propriedade do utilizador especificado com o nome de utilizador. Para mais informações, consulte a documentação oficial do PostgreSQL sobre [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 
 > [!NOTE]
-> Se o seu servidor PostgreSQL necessitar de ligações SSL (por padrão na Base de `PGSSLMODE=require` Dados Azure para servidores PostgreSQL), delineie uma variável ambiental para que a ferramenta pg_restore se conectem com o SSL. Sem SSL, o erro pode ser lido`FATAL:  SSL connection is required. Please specify SSL options and retry.`
+> Se o seu servidor PostgreSQL necessitar de ligações TLS/SSL (por padrão na Base de `PGSSLMODE=require` Dados Azure para servidores PostgreSQL), delineie uma variável ambiental para que a ferramenta pg_restore se conectem com tLS. Sem TLS, o erro pode ser lido`FATAL:  SSL connection is required. Please specify SSL options and retry.`
 >
 > Na linha de comando Windows, execute o comando `SET PGSSLMODE=require` antes de executar o comando pg_restore. Em Linux ou Bash `export PGSSLMODE=require` comande o comando antes de executar o comando pg_restore.
 >

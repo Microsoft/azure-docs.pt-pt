@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: 184c5f23ae18a58f26f4b18a884209941343e2e1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 68480f5b3b52d2347369f878802c71672213940a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418104"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146882"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para a Salesforce utilizando a Azure Data Factory
 
@@ -42,7 +42,7 @@ Especificamente, este conector Salesforce suporta:
 - Salesforce Developer, Professional, Enterprise ou Edições Ilimitadas.
 - Copiar dados de e para a produção, caixa de areia e domínio personalizado da Salesforce.
 
-O conector Salesforce é construído em cima da Salesforce REST/Bulk API. Por predefinição, o conector utiliza [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados da Salesforce e utiliza [o v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para a Salesforce. Também pode definir explicitamente a versão API [ `apiVersion` ](#linked-service-properties) utilizada para ler/escrever dados através de propriedade no serviço ligado.
+O conector Salesforce é construído em cima da Salesforce REST/Bulk API (o conector escolhe automaticamente um para um melhor desempenho). Por predefinição, o conector utiliza [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados da Salesforce e utiliza [o v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para a Salesforce. Também pode definir explicitamente a versão API [ `apiVersion` ](#linked-service-properties) utilizada para ler/escrever dados através de propriedade no serviço ligado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

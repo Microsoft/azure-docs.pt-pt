@@ -1,14 +1,14 @@
 ---
 title: Integrar um cliente na gestão de recursos delegados do Azure
 description: Aprenda a embarcar um cliente para a gestão de recursos delegados do Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
-ms.date: 04/16/2020
+ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 22c96d43f3d5f284c2cba995eb33f5f8cd238659
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 1bc9cadab966c4d9ae3ddbc12a75f42f69e0c12f
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481711"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146319"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
@@ -107,7 +107,7 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 az role definition list --name "<roleName>" | grep name
 ```
 > [!TIP]
-> Recomendamos a atribuição da Função de Eliminação de [Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao embarcar num cliente, para que os utilizadores do seu inquilino possam [remover o acesso à delegação](#remove-access-to-a-delegation) mais tarde, se necessário. Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no inquilino do cliente.
+> Recomendamos a atribuição da Função de Eliminação de [Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao embarcar num cliente, para que os utilizadores do seu inquilino possam [remover o acesso à delegação](remove-delegation.md) mais tarde, se necessário. Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no inquilino do cliente.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Criar um modelo de Gestor de Recursos Azure
 
@@ -280,77 +280,8 @@ Get-AzContext
 az account list
 ```
 
-## <a name="remove-access-to-a-delegation"></a>Remover o acesso a uma delegação
-
-Por predefinição, os utilizadores do inquilino do cliente que possuam as permissões adequadas podem remover o acesso do prestador de serviços aos recursos delegados na página de prestadores de [serviços](view-manage-service-providers.md#add-or-remove-service-provider-offers) do portal Azure. Quando o fizerem, nenhum utilizador do inquilino do prestador de serviços poderá aceder aos recursos que tinham sido previamente delegados.
-
-Se tiver a bordo utilizadores com a Função de Eliminação de [Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao embarcar num cliente para a gestão de recursos delegados do Azure, esses utilizadores também poderão remover a delegação.
-
-O exemplo abaixo mostra uma atribuição que concede a Função de Eliminação de Atribuição de **Serviços Geridos** que pode ser incluída num ficheiro de parâmetros:
-
-```json
-    "authorizations": [ 
-        { 
-            "principalId": "cfa7496e-a619-4a14-a740-85c5ad2063bb", 
-            "principalIdDisplayName": "MSP Operators", 
-            "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46" 
-        } 
-    ] 
-```
-
-Um utilizador com esta permissão pode remover uma delegação de uma das seguintes formas.
-
-### <a name="azure-portal"></a>Portal do Azure
-
-1. Navegue para a [página dos meus clientes.](view-manage-customers.md)
-2. Selecione **Delegações**.
-3. Encontre a delegação que pretende remover e, em seguida, selecione o ícone do caixote do lixo que aparece na sua fileira.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-# Sign in as a user from the managing tenant directory 
-
-Login-AzAccount
-
-# Select the subscription that is delegated - or contains the delegated resource group(s)
-
-Select-AzSubscription -SubscriptionName "<subscriptionName>"
-
-# Get the registration assignment
-
-Get-AzManagedServicesAssignment -Scope "/subscriptions/{delegatedSubscriptionId}"
-
-# Delete the registration assignment
-
-Remove-AzManagedServicesAssignment -ResourceId "/subscriptions/{delegatedSubscriptionId}/providers/Microsoft.ManagedServices/registrationAssignments/{assignmentGuid}"
-```
-
-### <a name="azure-cli"></a>CLI do Azure
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-# Sign in as a user from the managing tenant directory
-
-az login
-
-# Select the subscription that is delegated – or contains the delegated resource group(s)
-
-az account set -s <subscriptionId/name>
-
-# List registration assignments
-
-az managedservices assignment list
-
-# Delete the registration assignment
-
-az managedservices assignment delete --assignment <id or full resourceId>
-```
-
 ## <a name="next-steps"></a>Passos seguintes
 
 - Conheça [as experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
 - [Ver e gerir os clientes](view-manage-customers.md) indo para os meus **clientes** no portal Azure.
+- Saiba como remover o [acesso a uma delegação](remove-delegation.md) que já estava a bordo.

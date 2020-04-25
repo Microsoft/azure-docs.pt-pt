@@ -1,18 +1,18 @@
 ---
-title: Execução de livro de corridas na Automação Azure
+title: Execução de runbooks na Automatização do Azure
 description: Descreve os detalhes de como um livro de execução na Automatização Azure é processado.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: a7dd9de1f2ae41b20d94cf31de48e92fbb71ca6a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 09122581a3ade4e741a29996b7202ce0f96d074b
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405645"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145535"
 ---
-# <a name="runbook-execution-in-azure-automation"></a>Execução de livro de corridas na Automação Azure
+# <a name="runbook-execution-in-azure-automation"></a>Execução de runbooks na Automatização do Azure
 
 A automatização de processos na Automatização Azure permite-lhe criar e gerir powerShell, PowerShell Workflow e livros gráficos. Para mais detalhes, consulte os livros de [execução da Automação Azure.](automation-runbook-types.md) 
 
@@ -60,9 +60,11 @@ A tabela seguinte lista algumas tarefas de execução do livro de execução com
 |Executar scripts que requerem elevação|Função de Trabalho de Runbook Híbrida|As caixas de areia não permitem a elevação. Com um Trabalhador híbrido do livro, pode desligar o UAC e utilizar o [Comando Invocado](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) ao executar o comando que requer elevação.|
 |Executar scripts que requerem acesso a Instrumentação de Gestão do Windows (WMI)|Função de Trabalho de Runbook Híbrida|Os empregos em caixas de areia na nuvem não podem aceder ao fornecedor de WMI. |
 
-## <a name="runbook-behavior"></a>Comportamento do livro de corridas
+## <a name="using-modules-in-your-runbooks"></a>Usando módulos nos seus livros de execução
 
-### <a name="creating-resources"></a>Criação de recursos
+A Azure Automation suporta uma série de módulos predefinidos, incluindo os módulos AzureRM (AzureRM.Automation) e um módulo contendo vários cmdlets internos. Também são suportados módulos instalados, incluindo os módulos Az (Az.Automation), atualmente a ser utilizados em preferência aos módulos AzureRM. Para mais detalhes sobre os módulos disponíveis para os seus livros de execução e configurações DSC, consulte [Gerir módulos em Automação Azure](shared-resources/modules.md).
+
+## <a name="creating-resources"></a>Criação de recursos
 
 Se o seu livro de execução criar um recurso, o script deve verificar se o recurso já existe antes de tentar criá-lo. Aqui está um exemplo básico.
 
@@ -83,7 +85,7 @@ else
     }
 ```
 
-### <a name="supporting-time-dependent-scripts"></a>Apoiar scripts dependentes do tempo
+## <a name="supporting-time-dependent-scripts"></a>Apoiar scripts dependentes do tempo
 
 Os seus livros devem ser robustos e capazes de lidar com erros transitórios que possam fazê-los reiniciar ou falhar. Se um livro de execução falhar, a Azure Automation tenta-o novamente.
 
@@ -92,11 +94,11 @@ Se o seu livro de execução normalmente estiver dentro de uma restrição de te
 > [!NOTE]
 > A hora local no processo de caixa de areia Azure está definida para UTC. Os cálculos relativos à data e hora nos seus livros de execução devem ter em conta este facto.
 
-### <a name="tracking-progress"></a>Acompanhar o progresso
+## <a name="tracking-progress"></a>Acompanhar o progresso
 
 É uma boa prática autorizar os seus livros de corridas para serem modulares na natureza, com lógica que pode ser reutilizada e reiniciada facilmente. Acompanhar o progresso num livro de corridas é uma boa forma de garantir que a lógica do livro executa corretamente se houver problemas. É possível acompanhar o progresso de um livro de execução usando uma fonte externa, como uma conta de armazenamento, uma base de dados ou ficheiros partilhados. Pode criar lógica no seu livro de execução para verificar primeiro o estado da última ação tomada. Em seguida, com base no resultado da verificação, a lógica pode saltar ou continuar tarefas específicas no livro de execução.
 
-### <a name="preventing-concurrent-jobs"></a>Prevenção de empregos simultâneos
+## <a name="preventing-concurrent-jobs"></a>Prevenção de empregos simultâneos
 
 Alguns livros comportam-se de forma estranha se encontrarem vários empregos ao mesmo tempo. Neste caso, é importante que um livro implemente a lógica para determinar se já existe um trabalho em execução. Aqui está um exemplo básico.
 
@@ -126,7 +128,7 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 }
 ```
 
-### <a name="working-with-multiple-subscriptions"></a>Trabalhar com várias subscrições
+## <a name="working-with-multiple-subscriptions"></a>Trabalhar com várias subscrições
 
 Para lidar com várias subscrições, o seu livro de execução deve utilizar o cmdlet [Desactivação-AzContextAutosave.](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) Este cmdlet garante que o contexto de autenticação não é recuperado de outro livro de corridas que funciona na mesma caixa de areia. O livro de`AzContext` execução também utiliza o parâmetro no módulo Az cmdlets e passa-lhe o contexto adequado.
 
@@ -153,11 +155,11 @@ Start-AzAutomationRunbook `
     -DefaultProfile $context
 ```
 
-### <a name="handling-exceptions"></a>Processamento de exceções
+## <a name="handling-exceptions"></a>Processamento de exceções
 
-Esta secção descreve algumas formas de lidar com exceções ou problemas intermitentes nos seus livros de execução.
+Esta secção descreve algumas formas de lidar com exceções ou problemas intermitentes nos seus livros de execução. Um exemplo é uma exceção WebSocket. O manuseamento correto da exceção impede que falhas de rede transitórias causem a falha dos seus livros de execução. 
 
-#### <a name="erroractionpreference"></a>ErrorActionPreference
+### <a name="erroractionpreference"></a>ErrorActionPreference
 
 A variável [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina como o PowerShell responde a um erro não terminando. Os erros de terminação terminam `ErrorActionPreference`sempre e não são afetados por .
 
@@ -169,7 +171,7 @@ Get-ChildItem -path nofile.txt
 Write-Output "This message will not show"
 ```
 
-#### <a name="try-catch-finally"></a>Tente apanhar finalmente
+### <a name="try-catch-finally"></a>Tente apanhar finalmente
 
 [Experimente o Catch Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) é utilizado em scripts PowerShell para lidar com erros de terminação. O script pode usar este mecanismo para capturar exceções específicas ou exceções gerais. A `catch` declaração deve ser utilizada para rastrear ou tentar lidar com erros. O exemplo que se segue tenta descarregar um ficheiro que não existe. Apanha a `System.Net.WebException` exceção e devolve o último valor para qualquer outra exceção.
 
@@ -189,7 +191,7 @@ catch
 }
 ```
 
-#### <a name="throw"></a>Arremesso
+### <a name="throw"></a>Arremesso
 
 [O lançamento](/powershell/module/microsoft.powershell.core/about/about_throw) pode ser usado para gerar um erro de terminação. Este mecanismo pode ser útil ao definir a sua própria lógica num livro de corridas. Se o guião cumprir um critério que deve `throw` detê-lo, pode usar a declaração para parar. O exemplo seguinte utiliza esta declaração para mostrar um parâmetro de função necessário.
 
@@ -201,11 +203,11 @@ function Get-ContosoFiles
 }
 ```
 
-### <a name="using-executables-or-calling-processes"></a>Utilização de executáveis ou processos de chamada
+## <a name="using-executables-or-calling-processes"></a>Utilização de executáveis ou processos de chamada
 
 Os livros de execução que funcionam em caixas de areia Azure não suportam processos de chamada, tais como executáveis (ficheiros **.exe)** ou subprocessos. A razão para isso é que uma caixa de areia Azure é um processo partilhado executado num recipiente que pode não ser capaz de aceder a todas as APIs subjacentes. Para cenários que exijam software de terceiros ou chamadas para subprocessos, deve executar um livro de execução num [Trabalhador de Runbook Híbrido](automation-hybrid-runbook-worker.md).
 
-### <a name="accessing-device-and-application-characteristics"></a>Aceder às características do dispositivo e da aplicação
+## <a name="accessing-device-and-application-characteristics"></a>Aceder às características do dispositivo e da aplicação
 
 Os trabalhos de livro de corridas que funcionam em caixas de areia Azure não podem aceder a qualquer dispositivo ou características de aplicação. A API mais comum usada para consultar métricas de desempenho no Windows é o WMI, com algumas das métricas comuns a serem a memória e o uso do CPU. No entanto, não importa o que a API é usada, uma vez que os empregos que correm na nuvem não podem aceder à implementação da Microsoft de Web-Based Enterprise Management (WBEM). Esta plataforma baseia-se no Modelo de Informação Comum (CIM), fornecendo as normas da indústria para definir as características do dispositivo e da aplicação.
 

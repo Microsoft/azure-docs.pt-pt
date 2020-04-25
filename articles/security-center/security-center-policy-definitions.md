@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: memildin
-ms.openlocfilehash: 5550f8feb2b93537bdcc508aa0da062681fe9aab
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 00a5c8e824575b8928aed7e0b0018219e9a51039
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673831"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147118"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Políticas de segurança azure monitorizadas pelo Centro de Segurança
 
@@ -23,13 +23,13 @@ Este artigo fornece uma lista de definições e iniciativas da [Política Azure]
 
 Para conhecer as políticas incorporadas que são monitorizadas pelo Centro de Segurança, consulte a seguinte tabela:
 
-[!INCLUDE [azure-policy-samples-init-asc](../../includes/azure-policy-samples-init-asc.md)]
+[!INCLUDE [azure-policy-samples-init-asc](../../includes/policy/samples/custom/init-asc.md)]
 
 ## <a name="built-in-policy-initiatives"></a>Iniciativas políticas incorporadas
 
 Para conhecer as iniciativas incorporadas que são monitorizadas pelo Centro de Segurança, consulte a seguinte tabela:
 
-[!INCLUDE [azure-policy-samples-policyset-security-center](../../includes/azure-policy-samples-policyset-security-center.md)]
+[!INCLUDE [azure-policy-samples-policyset-security-center](../../includes/policy/samples/bycat/policysets-security-center.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

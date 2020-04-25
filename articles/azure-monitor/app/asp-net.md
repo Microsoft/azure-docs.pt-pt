@@ -3,12 +3,12 @@ title: Configurar a análise de aplicações Web para ASP.NET com o Azure Applic
 description: Configure ferramentas de análise de desempenho, disponibilidade e comportamento do utilizador para o seu site ASP.NET, hospedado no local ou no Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: bdd5b1131a0d2d3e2f53840d21cedce1577fde03
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: d3181c3d43f07c7cb920b9fe265a8420c1417a56
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536901"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145270"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para o seu site ASP.NET
 
@@ -115,10 +115,6 @@ O recurso do Azure que recebe a telemetria da sua aplicação é identificado po
 Para atualizar para uma [nova versão do SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), abra o **gestor de pacotes NuGet** e filtre os pacotes instalados. Selecione **Microsoft.ApplicationInsights.Web**, e escolha **upgrade**.
 
 Se tiver realizado personalizações no ApplicationInsights.config, guarde uma cópia do mesmo antes de atualizar. Em seguida, intercale as suas alterações na nova versão.
-
-## <a name="video"></a>Vídeo
-
-* Vídeo externo passo a passo sobre [configurar Insights de Aplicação com uma aplicação .NET do zero](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: 110d4b94eda8315c20f4baa70256f7e5ed378530
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106479"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148208"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integrar hubs de eventos Azure com Link Privado Azure (Pré-visualização)
 O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e o Azure acolheu serviços de clientes/parceiros sobre um **ponto final privado** na sua rede virtual.
@@ -29,7 +29,7 @@ Para mais informações, consulte [o que é azure private link?](../private-link
 >[!WARNING]
 > Permitir pontos finais privados pode impedir que outros serviços Azure interajam com os Centros de Eventos.
 >
-> Os serviços fidedignos da Microsoft não são suportados quando as Redes Virtuais são implementadas.
+> Os serviços fidedignos da Microsoft não são suportados quando utilizam redes virtuais.
 >
 > Cenários Comuns Azure que não funcionam com Redes Virtuais (note que a lista **NÃO** é exaustiva) -
 > - Monitor Azure (definição de diagnóstico)
@@ -86,7 +86,7 @@ Se já tem um espaço de nome sinuoso do Event Hubs, pode criar uma ligação de
         
             ![Criar endpoint privado - página de recursos](./media/private-link-service/create-private-endpoint-resource-page.png)    
     2. Se selecionar **Ligar a um recurso Azure por id ou pseudónimo**de recurso, siga estes passos:
-        1. Introduza o ID ou **pseudónimo**do **recurso.** Pode ser a identificação de recursos ou pseudónimo que alguns partilharam consigo.
+        1. Introduza o ID ou **pseudónimo**do **recurso.** Pode ser a identificação de recursos ou pseudónimo que alguém partilhou consigo. A maneira mais fácil de obter o ID de recursos é navegar para o espaço de `/subscriptions/`nome do Event Hubs no portal Azure e copiar a parte de URI a partir de . Veja a seguinte imagem, por exemplo. 
         2. Para **sub-recurso Target,** introduza **o espaço de nome**. É o tipo de sub-recurso a que o seu ponto final privado pode aceder.
         3. (opcional) Introduza uma **mensagem de pedido.** O proprietário do recurso vê esta mensagem enquanto gere a ligação de ponto final privado.
         4. Em seguida, selecione **Seguinte: Configuração >** botão na parte inferior da página.

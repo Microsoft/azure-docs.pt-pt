@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76c5e18a0bf84e96476eafd7ff35398049f1a492
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81639636"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144073"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificado de diretório Ativo Azure no iOS
 
@@ -35,6 +35,7 @@ Este artigo detalha os requisitos e os cenários suportados para configurar a CB
 | Aplicativo de proteção de informação Azure |![Verifique o suporte de sinalização de marca para esta aplicação][1] |
 | Intune Portal da Empresa |![Verifique o suporte de sinalização de marca para esta aplicação][1] |
 | Microsoft Teams |![Verifique o suporte de sinalização de marca para esta aplicação][1] |
+| Escritório (móvel) |![Verifique o suporte de sinalização de marca para esta aplicação][1] |
 | OneNote |![Verifique o suporte de sinalização de marca para esta aplicação][1] |
 | OneDrive |![Verifique o suporte de sinalização de marca para esta aplicação][1] |
 | Outlook |![Verifique o suporte de sinalização de marca para esta aplicação][1] |

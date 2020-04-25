@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Saiba como associar um endereço IP público a uma máquina virtual.
 services: virtual-network
 documentationcenter: ''
-author: KumudD
+author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: kumud
-ms.openlocfilehash: 5acda69ce08bc493d5349b084d1cfafc8432145b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 2170a4d5f66cf6d1f699ae943f2a80b1b8127e39
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75647463"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146587"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associar um endereço IP público a uma máquina virtual
 
@@ -27,7 +28,7 @@ Pode utilizar o [portal Azure,](#azure-portal)a interface de [linha de comando](
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue ou procure a máquina virtual a que pretende adicionar o endereço IP público e, em seguida, selecione-o.
 3. Em **Definições**, selecione **Networking**, e, em seguida, selecione a interface de rede a que pretende adicionar o endereço IP público, como mostrado na seguinte imagem:
 
@@ -209,7 +210,7 @@ Instale [powerShell](/powershell/azure/install-az-ps), ou use a Casca de Nuvem A
 
 ## <a name="allow-network-traffic-to-the-vm"></a>Permitir o tráfego de rede para o VM
 
-Antes de se ligar ao endereço IP público a partir da internet, certifique-se de que tem as portas necessárias abertas em qualquer grupo de segurança de rede que possa ter associado à interface de rede, a subrede em que a interface de rede está, ou ambas. Embora os grupos de segurança filtram o tráfego para o endereço IP privado da interface da rede, uma vez que o tráfego de internet de entrada chega ao endereço IP público, O Azure traduz o endereço público para o endereço IP privado, por isso, se um grupo de segurança da rede impedir o fluxo de tráfego, falha a comunicação com o endereço IP público. Pode visualizar as regras de segurança eficazes para uma interface de rede e a sua subnet utilizando o [Portal,](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-portal) [CLI](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-cli)ou [PowerShell](diagnose-network-traffic-filter-problem.md#diagnose-using-powershell).
+Antes de se ligar ao endereço IP público a partir da internet, certifique-se de que tem as portas necessárias abertas em qualquer grupo de segurança de rede que possa ter associado à interface de rede, a subrede em que a interface de rede está, ou ambas. Embora os grupos de segurança filtram o tráfego para o endereço IP privado da interface da rede, uma vez que o tráfego de internet de entrada chega ao endereço IP público, o Azure traduz o endereço público para o endereço IP privado, pelo que se um grupo de segurança da rede impedir o fluxo de tráfego, a comunicação com o endereço IP público falha. Pode visualizar as regras de segurança eficazes para uma interface de rede e a sua subnet utilizando o [Portal,](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-portal) [CLI](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-cli)ou [PowerShell](diagnose-network-traffic-filter-problem.md#diagnose-using-powershell).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,26 +1,27 @@
 ---
-title: Prefixo de endereço IP público azure Microsoft Docs
+title: Prefixo de endereço IP público azure
 description: Saiba qual é o prefixo de endereço ip público do Azure e como pode ajudá-lo a atribuir endereços IP públicos previsíveis aos seus recursos.
 services: virtual-network
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: asudbring
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
-ms.author: anavin
-ms.openlocfilehash: 9604d5567e74ef470c3e798b6a3df9e48d6fde5d
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.author: allensu
+ms.openlocfilehash: 0f71f845ef3209146ead79cafae2f3aa5c8c6d7d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985308"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144512"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo de endereço IP público
 
@@ -34,7 +35,7 @@ Cria um prefixo de endereço IP público numa região do Azure e subscrição, e
 
 Ao criar recursos públicos de endereço IP, o Azure atribui um endereço IP público disponível de qualquer uma das gamas utilizadas na região. Assim que o Azure atribuir o endereço, sabe qual é o endereço, mas até o Azure atribuir o endereço, não sabe qual o endereço que poderá ser atribuído. Isto pode ser problemático quando, por exemplo, você, ou os seus parceiros de negócio, configuram regras de firewall que permitem endereços IP específicos. Cada vez que atribua um novo endereço IP público a um recurso, o endereço deve ser adicionado à regra da firewall. Ao atribuir endereços aos seus recursos a partir de um prefixo de endereço IP público, as regras de firewall não precisam de ser atualizadas cada vez que atribua um dos endereços, porque toda a gama pode ser adicionada a uma regra.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 - Pode criar recursos públicos de endereço IP a partir de uma gama conhecida.
 - Você, ou os seus parceiros de negócios podem criar regras de firewall com gamas que incluem endereços IP públicos que você atualmente atribuiu, bem como endereços que você ainda não atribuiu. Isto elimina a necessidade de alterar as regras de firewall à medida que atribui endereços IP a novos recursos.

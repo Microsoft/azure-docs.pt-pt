@@ -3,15 +3,16 @@ title: Move Azure Public IP para outra região do Azure usando o portal Azure
 description: Utilize o modelo do Gestor de Recursos Azure para mover o IP público azure de uma região do Azure para outra usando o portal Azure.
 author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 6d10265e8383b68ebe13c95d8b2a9632668e85da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6dd4b3279fc0110fff2ee0397a785c87b63644d6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75641406"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147835"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Move Azure Public IP para outra região usando o portal Azure
 

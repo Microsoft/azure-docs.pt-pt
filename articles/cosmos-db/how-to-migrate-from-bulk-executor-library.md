@@ -4,14 +4,14 @@ description: Aprenda a migrar a sua aplicação desde a utilização da bibliote
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/24/2020
 ms.author: maquaran
-ms.openlocfilehash: 820a5398d84122659b1676b7d5722bce08b1837d
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d63b34c118cd719f73abbd6711dcb3ef02a6fb28
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755971"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146296"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca executor a granel para o suporte a granel em Azure Cosmos DB .NET V3 SDK
 
@@ -27,13 +27,13 @@ Ativar o `CosmosClient` suporte a granel na instância através da configuraçã
 
 O suporte a granel no .NET SDK funciona alavancando a Biblioteca Paralela de [Tarefas](https://docs.microsoft.com/dotnet/standard/parallel-programming/task-parallel-library-tpl) e operações de agrupamento que ocorrem simultaneamente. 
 
-Não existe um único método que leve a sua lista de documentos ou operações como parâmetro de entrada, mas sim, precisa de criar uma Tarefa para cada operação que pretende executar a granel.
+Não existe um único método no SDK que leve a sua lista de documentos ou operações como parâmetro de entrada, mas, em vez disso, precisa de criar uma Tarefa para cada operação que pretende executar a granel, e depois simplesmente esperar que eles completem.
 
 Por exemplo, se a sua entrada inicial for uma lista de itens onde cada item tem o seguinte esquema:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-Se pretender fazer a importação a granel (semelhante à utilização de BulkExecuteor.BulkImportAsync), tem de ter chamadas simultâneas `CreateItemAsync` com cada valor do artigo. Por exemplo:
+Se pretender fazer a importação a granel (semelhante à utilização de BulkExecuteor.BulkImportAsync), precisa de ter chamadas simultâneas para `CreateItemAsync`. Por exemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
@@ -47,7 +47,7 @@ E se pretender eliminar *a* granel (semelhante à utilização de [BulkExecuteor
 
 ## <a name="capture-task-result-state"></a>Estado de resultado de tarefa de captura
 
-Nos exemplos de código anteriores, criou uma lista simultânea de tarefas e chamou o `CaptureOperationResponse` método em cada uma dessas tarefas. Este método é uma extensão que nos permite manter um esquema de *resposta semelhante* ao BulkExecutor, capturando quaisquer erros e rastreando a utilização das [unidades de pedido.](request-units.md)
+Nos exemplos de código anteriores, criámos uma lista simultânea de tarefas e chamámos o `CaptureOperationResponse` método de cada uma dessas tarefas. Este método é uma extensão que nos permite manter um esquema de *resposta semelhante* ao BulkExecutor, capturando quaisquer erros e rastreando a utilização das [unidades de pedido.](request-units.md)
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="CaptureOperationResult":::
 
@@ -57,7 +57,11 @@ Quando `OperationResponse` o declarado como:
 
 ## <a name="execute-operations-concurrently"></a>Executar operações em simultâneo
 
-Depois de definida a lista de tarefas, aguarde até que estejam todas completas. Pode acompanhar a conclusão das tarefas definindo o âmbito da sua operação a granel, tal como mostrado no seguinte código:
+Para acompanhar o âmbito de toda a lista de Tarefas, utilizamos esta classe de ajudante:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkOperationsHelper":::
+
+O `ExecuteAsync` método aguardará até que todas as operações estejam concluídas e poderá usá-lo assim:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="WhenAll":::
 

@@ -4,7 +4,7 @@ description: Este artigo descreve a instalação da extensão de análise de có
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 04/14/2020
+ms.date: 04/24/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 3ef111817b6351277f975b9b7e454f9a89982451
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 5b7e36c12dab65f4bcc6c05a1ee902301c402d5e
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460210"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147672"
 ---
 # <a name="onboarding-and-installing"></a>Embarque e instalação
 
@@ -44,7 +44,7 @@ Se não tiver um dos acordos de apoio acima mencionados, pode adquirir a extens�
 
 **Próximos passos:**
 
-Contacte um Parceiro a partir da lista abaixo e peça para adquirir a extensão de Análise de Código de Segurança da Microsoft.
+Se cumprir as qualificações acima, contacte um parceiro da lista abaixo para adquirir a extensão de Análise de Código de Segurança da Microsoft. Caso contrário, contacte o Suporte de Análise de [Códigode Segurança da Microsoft](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
 
 >**Parceiros:**
 

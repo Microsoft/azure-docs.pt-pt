@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: dsindona
-ms.openlocfilehash: 99d2bc95c1dd837bfc3bcabcead28777b7e6f746
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 642c6964aaad8d6e8750fca67efb11eb3feaf19d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273941"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147019"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Criar um VHD compatível com Azure
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, iniciaremos a gestão móvel das ofertas da sua Máquina Virtual Azure ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Create your Azure Virtual Machine ativos técnicos](https://aka.ms/AzureVMTechAsset) para gerir as suas ofertas migradas.
+> A partir de 13 de abril de 2020, iniciaremos a gestão móvel das ofertas da sua Máquina Virtual Azure ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Create your Azure Virtual Machine ativos técnicos](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) para gerir as suas ofertas migradas.
 
 Este artigo detalha os passos necessários para criar um disco rígido virtual (VHD) para uma oferta de máquina virtual (VM) no Mercado Azure.  Também inclui as melhores práticas para vários aspetos, tais como a utilização do Protocolo de Ambiente de Trabalho Remoto (RDP), a seleção de um tamanho para o VM, a instalação das mais recentes atualizações do Windows e a generalização da imagem VHD.  As seguintes secções focam-se principalmente em VHDs baseados em janelas; para obter mais informações sobre a criação de VHDs baseados em Linux, consulte [o Linux nas distribuições endossadas pelo Azure](../../../virtual-machines/linux/endorsed-distros.md). 
 

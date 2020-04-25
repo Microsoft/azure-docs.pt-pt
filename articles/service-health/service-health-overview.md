@@ -3,12 +3,12 @@ title: Visão geral da Saúde do Serviço [ Microsoft Docs
 description: Informações personalizadas sobre como as suas aplicações Azure são afetadas por problemas e manutenção de serviços atuais e futuros do Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 280be9f0df1f94dad59c1af147d499860571f86e
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82097256"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146925"
 ---
 # <a name="service-health-overview"></a>Visão geral da Saúde do Serviço
 
@@ -41,6 +41,12 @@ A visão **de questões** de Serviço mostra quaisquer problemas em curso nos se
 Escolha o separador **de impacto Potencial** para ver a lista específica de recursos que possui que podem ser impactados pelo problema. Você pode baixar uma lista de CSV destes recursos para partilhar com a sua equipa.
 
 ![Gerir a emissão de serviço - Impacto](./media/service-health-overview/azure-service-health-overview-4.png)
+
+## <a name="see-emerging-issues-which-may-impact-your-services"></a>Consulte questões emergentes que podem afetar os seus serviços
+
+Existem situações em que problemas de serviço generalizados podem ser publicados na [página Do Estado do Azure](https://status.azure.com) antes de as comunicações direcionadas poderem ser enviadas para clientes com impacto. Para garantir que a Azure Service Health fornece uma visão abrangente das questões que podem afetá-lo, os problemas ativos da página do Estado do Azure são surgidos na Saúde de Serviço como *questões emergentes.* Quando um evento estiver ativo na página Do Estado do Azure, estará presente um banner de questões emergentes na Service Health. Clique no banner para ver todos os detalhes do problema.
+
+![Problema de serviço emergente](./media/service-health-overview/azure-service-health-emerging-issue.png)
 
 ## <a name="get-links-and-downloadable-explanations"></a>Obtenha links e explicações transferíveis 
 

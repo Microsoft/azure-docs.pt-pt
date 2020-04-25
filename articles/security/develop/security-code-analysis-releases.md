@@ -4,7 +4,7 @@ description: Este artigo descreve as próximas versões para a extensão da Aná
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 04/14/2020
+ms.date: 04/24/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a07ce7437d664baca0cfdc310dbc2631f41fdbcc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: d4281d3b6132e551283a71cd1801ef462fbfc68c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81462038"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146126"
 ---
 # <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Microsoft Security Code Analysis lança e mapeia
 
@@ -25,7 +25,7 @@ A equipa de Análise de Códigos de Segurança da Microsoft, em parceria com o D
 
 ![Versões](./media/security-code-analysis-releases/releases.png)
 
-## <a name="credential-scanner-v20-released-on-april-1-2020"></a>Credential Scanner v2.0: Lançado a 1 de abril de 2020
+## <a name="credential-scanner-v20-released-in-april-2020"></a>Credential Scanner v2.0: Lançado em abril de 2020
 
 ### <a name="innovations--improvements"></a>Inovações & Melhorias
 
@@ -50,7 +50,7 @@ A equipa de Análise de Códigos de Segurança da Microsoft, em parceria com o D
 
    - Suporte para formatos de ficheiros de saída de ficheiros SARIF 2.1 e CSV
 
-## <a name="binskim-v160-to-be-released-on-april-2020"></a>BinSkim v1.6.0: Será lançado em abril de 2020
+## <a name="binskim-v160-released-in-april-2020"></a>BinSkim v1.6.0: Lançado em abril de 2020
 
 ### <a name="improvements"></a>Melhorias
 

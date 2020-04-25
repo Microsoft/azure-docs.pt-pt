@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9df0de443e28e0eea3224e42178eddd46108ea64
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: babfd9aafa56091bfdd526366b1042966222f993
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759168"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144598"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Linha de Base de Segurança Azure para Base de Dados Azure para MariaDB
 
@@ -500,7 +500,7 @@ Compreender a proteção de dados dos clientes em Azure:https://docs.microsoft.c
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Criptografar todas as informações sensíveis em trânsito
 
-**Orientação**: Base de dados Azure para O MariaDB suporta a ligação da sua Base de Dados Azure para o servidor MariaDB às aplicações do cliente utilizando a Camada de Tomadas Seguras (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação. No portal Azure, certifique-se de que a "Enforce sSL connection" está ativada para todos os seus casos MariaDB.
+**Orientação**: Base de dados Azure para MariaDB suporta a ligação da sua Base de Dados Azure para o servidor MariaDB às aplicações do cliente utilizando a Transport Layer Security (TLS), anteriormente conhecida como Secure Sockets Layer (SSL). Impor as ligações TLS entre o seu servidor de base de dados e as aplicações do seu cliente ajuda a proteger contra ataques "homem no meio", encriptando o fluxo de dados entre o servidor e a sua aplicação. No portal Azure, certifique-se de que a "Enforce sSL connection" está ativada para todos os seus casos MariaDB.
 
 Como configurar a encriptação em trânsito para o MariaDB:https://docs.microsoft.com/azure/mariadb/howto-configure-ssl
 

@@ -1,14 +1,14 @@
 ---
 title: Publicar uma oferta de Serviço Gerido ao Azure Marketplace
 description: Saiba como publicar uma oferta de Serviço Gerido que a bordo dos clientes para a gestão de recursos delegados do Azure.
-ms.date: 04/08/2020
+ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 247f711188fa10de19cece27f164fdfa71612d1b
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 19c4d1a4bd0ffd7c0162cbf7f20c49a5b219b9bc
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991914"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146748"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de Serviço Gerido ao Azure Marketplace
 
@@ -72,7 +72,7 @@ Complete as seguintes secções na secção Detalhes do **Plano:**
 |**Isto é um plano privado?**     | Indica se o SKU é privado ou público. O padrão é **Não** (público). Se deixar esta seleção, o seu plano não se restringirá a clientes específicos (ou a um determinado número de clientes); Depois de publicar um plano público, não pode depois mudá-lo para privado. Para disponibilizar este plano apenas a clientes específicos, selecione **Sim**. Quando o fizer, terá de identificar os clientes fornecendo as suas iDs de subscrição. Estes podem ser introduzidos um a um (para até 10 assinaturas) ou através do upload de um ficheiro .csv (para até 20.000 assinaturas). Certifique-se de incluir as suas próprias subscrições aqui para que possa testar e validar a oferta. Para mais informações, consulte [As SKUs e Planos Privados.](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)  |
 
 > [!IMPORTANT]
-> Uma vez que um plano é publicado como público, não pode mudá-lo para privado. Para controlar quais os clientes que podem aceitar a sua oferta e delegar recursos, utilize um plano privado. Com um plano público, não é possível restringir a disponibilidade a determinados clientes ou mesmo a um certo número de clientes (embora possa deixar de vender o plano completamente se optar por fazê-lo). Só pode [remover o acesso a uma delegação](onboard-customer.md#remove-access-to-a-delegation) depois de um cliente aceitar uma oferta apenas se incluir uma **Autorização** com a Definição de **Funções** definida para a Atribuição de Inscrição de [Serviços Geridos Eliminar funções](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) quando publicou a oferta. Também pode contactar o cliente e pedir-lhe que [remova o seu acesso](view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Uma vez que um plano é publicado como público, não pode mudá-lo para privado. Para controlar quais os clientes que podem aceitar a sua oferta e delegar recursos, utilize um plano privado. Com um plano público, não é possível restringir a disponibilidade a determinados clientes ou mesmo a um certo número de clientes (embora possa deixar de vender o plano completamente se optar por fazê-lo). Só pode [remover o acesso a uma delegação](remove-delegation.md) depois de um cliente aceitar uma oferta apenas se incluir uma **Autorização** com a Definição de **Funções** definida para a Atribuição de Inscrição de [Serviços Geridos Eliminar funções](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) quando publicou a oferta. Também pode contactar o cliente e pedir-lhe que [remova o seu acesso](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 #### <a name="manifest-details"></a>Detalhes manifestos
 
@@ -100,7 +100,7 @@ Para cada **Autorização,** terá de fornecer o seguinte. Em seguida, pode sele
 - **Funções atribuídas**: Isto só é necessário se tiver selecionado administrador de acesso ao utilizador na Definição de **Funções** para esta autorização. Em caso afirmativo, deve adicionar aqui um ou mais papéis atribuíveis. O utilizador no campo **Deidentificação de Objetos AD Azure** poderá atribuir estas **Funções Atribuídas** a [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md), o que é necessário para [implementar políticas que possam ser remediadas.](deploy-policy-remediation.md) Note que nenhuma outra permissão normalmente associada à função de Administrador de Acesso ao Utilizador será aplicada a este utilizador. Se não selecionar uma ou mais funções aqui, a sua submissão não passará pela certificação. (Se não selecionou o Administrador de Acesso ao Utilizador para a Definição de Funções deste utilizador, este campo não tem qualquer efeito.)
 
 > [!TIP]
-> Para garantir que pode [remover o acesso a uma delegação,](onboard-customer.md#remove-access-to-a-delegation) se necessário, inclua uma **Autorização** com a Definição de **Funções** definida para a [Atribuição de Inscrição de Serviços Geridos .](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no inquilino do cliente.
+> Para garantir que pode [remover o acesso a uma delegação,](remove-delegation.md) se necessário, inclua uma **Autorização** com a Definição de **Funções** definida para a [Atribuição de Inscrição de Serviços Geridos .](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no inquilino do cliente.
 
 Uma vez concluída a informação, pode selecionar **o Novo Plano** quantas vezes for necessário para criar planos adicionais. Quando terminar, selecione **Guardar**e, em seguida, continue na secção **Marketplace.**
 
@@ -116,7 +116,7 @@ Complete os seguintes campos na secção **Visão Geral:**
 |**Resumo**     | Breve propósito ou função da sua oferta. Isto é geralmente exibido sob o título. Comprimento máximo de 100 caracteres.        |
 |**Resumo longo**     | Um resumo mais longo do propósito ou função da sua oferta. Comprimento máximo de 256 caracteres.        |
 |**Descrição**     | Mais informações sobre a sua oferta. Este campo tem um comprimento máximo de 3000 caracteres e suporta formatação HTML simples. Deve incluir as palavras "serviço gerido" ou "serviços geridos" algures na sua descrição.       |
-|**Identificador de Marketing**     | Um identificador único e amigável com URL. Este identificador só pode conter caracteres alfanuméricos minúsculos e traços. Será utilizado em URLs de Marketplace para esta oferta. Por exemplo, se o seu ID da editora for *contoso* e o seu identificador *https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp*de marketing for *sampleApp*, o URL para a sua oferta no Azure Marketplace será .        |
+|**Identificador de Marketing**     | Um identificador único e amigável com URL. Este identificador só pode conter caracteres alfanuméricos minúsculos e traços. Será utilizado em URLs de Marketplace para esta oferta. Por exemplo, se o seu ID da editora for *contoso* e o seu identificador `https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp`de marketing for *sampleApp*, o URL para a sua oferta no Azure Marketplace será .       |
 |**IDs de subscrição de pré-visualização**     | Adicione um a 100 identificadores de subscrição. Os clientes associados a estas subscrições poderão ver a oferta no Azure Marketplace antes de entrar em funcionar. Sugerimos que inclua as suas próprias subscrições aqui para que possa pré-visualizar como a sua oferta aparece no Mercado Azure antes de a disponibilizar aos clientes.  (As equipas de suporte e engenharia da Microsoft também poderão ver a sua oferta durante este período de pré-visualização.)   |
 |**Links úteis**     | URLs relacionados com a sua oferta, tais como documentação, notas de lançamento, PERGUNTAS, etc.        |
 |**Categorias Sugeridas (Max 5)**     | Uma ou mais categorias (até cinco) que se aplicam à sua oferta. Estas categorias ajudam os clientes a descobrir a sua oferta no Azure Marketplace e no portal Azure.        |

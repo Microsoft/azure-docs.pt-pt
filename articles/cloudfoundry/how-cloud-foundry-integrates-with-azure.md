@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 04ef72f7ec70b370305395ae8de8180f4594b43b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3b84ba1c3571e3660d1d71a0167a7489c6ec4ff
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277336"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145133"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrar o Cloud Foundry com o Azure
 
@@ -38,9 +38,9 @@ A Zona de Disponibilidade Azure obtém HA colocando um conjunto de VMs em centro
 > A Zona de Disponibilidade Azure ainda não é oferecida a todas as regiões, confira o mais recente [anúncio da lista de regiões apoiadas.](https://docs.microsoft.com/azure/availability-zones/az-overview) Para a Foundry de Nuvem de Código Aberto, consulte a [Zona de Disponibilidade Azure para obter orientação](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/availability-zone)de cloud foundry de código aberto .
 
 ## <a name="2-network-routing"></a>2. Encaminhamento de Rede
-Por padrão, o equilíbrio de carga básico azure é usado para os pedidos de API/apps cf incoming, reencaminhando-os para os Gorouters. Componentes CF como Diego Brain, MySQL, ERT também podem usar o equilibrador de carga para equilibrar o tráfego para HA. O Azure também fornece um conjunto de soluções de equilíbrio de carga totalmente geridas. Se estiver à procura de rescisão de TLS ("SSL offload") ou por HTTP/HTTPS solicitar processamento de camada de pedido, considere application Gateway. Para uma elevada disponibilidade e equilíbrio de carga de escalabilidade na camada 4, considere o equilibrador de carga padrão.
+Por padrão, o equilíbrio de carga básico azure é usado para os pedidos de API/apps cf incoming, reencaminhando-os para os Gorouters. Componentes CF como Diego Brain, MySQL, ERT também podem usar o equilibrador de carga para equilibrar o tráfego para HA. O Azure também fornece um conjunto de soluções de equilíbrio de carga totalmente geridas. Se estiver à procura de rescisão TLS/SSL ("SSL offload") ou por HTTP/HTTPS solicitar processamento de camada de aplicação, considere application Gateway. Para uma elevada disponibilidade e equilíbrio de carga de escalabilidade na camada 4, considere o equilibrador de carga padrão.
 ### <a name="azure-application-gateway-"></a>Gateway de aplicação azure *
-O Portal de [Aplicações Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) oferece várias capacidades de equilíbrio de carga de camada 7, incluindo descarregamento ssl, final para fim SSL, Firewall de aplicação web, afinidade de sessão baseada em cookies e muito mais. Pode configurar o Gateway de [Aplicação na Fundição](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway)de Nuvem de Código Aberto . Para pcf, verifique as notas de [lançamento do PCF 2.1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) para o teste POC.
+O Portal de [Aplicações Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) oferece várias capacidades de equilíbrio de carga de camada 7, incluindo descarregamento de SSL, final de TLS, Firewall de aplicação web, afinidade de sessão baseada em cookies e muito mais. Pode configurar o Gateway de [Aplicação na Fundição](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway)de Nuvem de Código Aberto . Para pcf, verifique as notas de [lançamento do PCF 2.1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) para o teste POC.
 
 ### <a name="azure-standard-load-balancer-"></a>Equilíbrio de carga padrão Azure *
 O equilíbrio de carga Azure é um equilibrador de carga de camada 4. É usado para distribuir o tráfego entre casos de serviços em um conjunto equilibrado de carga. A versão padrão fornece [funcionalidades avançadas](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) em cima da versão básica. Por exemplo 1. O limite máximo do pool de backend é aumentado de 100 para 1000 VMs.  2. Os pontos finais suportam agora vários conjuntos de disponibilidade em vez de conjuntos de disponibilidade individuais.  3. Funcionalidades adicionais como portas HA, dados de monitorização mais ricos, e assim por diante. Se estiver a mudar-se para a Zona de Disponibilidade Azure, é necessário um equilíbrio de carga padrão. Para uma nova implementação, recomendamos que comece com o Azure Standard Load Balancer. 

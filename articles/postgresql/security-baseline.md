@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a38bb12577fd646b2e7abf773dbb2a3f138f58fe
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
-ms.translationtype: HT
+ms.openlocfilehash: eb6fc65d15ba7262b38a48e220f01d74bfcee54a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127553"
+ms.locfileid: "82146561"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Linha de base de segurança azure para base de dados azure para o servidor único postgresQL
 
@@ -130,7 +130,7 @@ Compreender o uso da etiqueta de serviço para a Base de Dados Azure para Postgr
 
 - Norma de proteção DDoS deve ser ativada
 
-- Impor a ligação SSL deve ser ativada para servidores de base de dados PostgreSQL
+- Impor a ligação TLS deve ser ativada para servidores de base de dados PostgreSQL
 
 Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -525,7 +525,7 @@ Compreender a proteção de dados dos clientes em Azure:https://docs.microsoft.c
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Criptografar todas as informações sensíveis em trânsito
 
-**Orientação**: Base de dados Azure para suportes PostgreSQL que ligam o servidor PostgreSQL às aplicações do cliente utilizando a Camada de Tomadas Seguras (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação. No portal Azure, certifique-se de que a "ligação SSL de aplicação" está ativada para toda a sua Base de Dados Azure para instâncias PostgreSQL por padrão.
+**Orientação**: Base de dados Azure para suportes PostgreSQL que ligam o seu servidor PostgreSQL às aplicações do cliente utilizando a Segurança da Camada de Transporte (TLS), anteriormente conhecida como Camada de Tomadas Seguras (SSL). Impor as ligações TLS entre o seu servidor de base de dados e as aplicações do seu cliente ajuda a proteger contra ataques "homem no meio", encriptando o fluxo de dados entre o servidor e a sua aplicação. No portal Azure, certifique-se de que a "ligação SSL de aplicação" está ativada para toda a sua Base de Dados Azure para instâncias PostgreSQL por padrão.
 
 Atualmente, a versão TLS suportada para base de dados Azure para PostgreSQL são TLS 1.0, TLS 1.1, TLS 1.2.
 
@@ -794,7 +794,7 @@ Como configurar o Acesso Condicional ao acesso ao portal Azure Resource Manager:
 
 **Orientação**: Defina e implemente configurações de segurança padrão para a sua Base de Dados Azure para casos PostgreSQL com Política Azure. Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.DBforPostgreSQL" para criar políticas personalizadas para auditar ou impor a configuração da rede da sua Base de Dados Azure para instâncias PostgreSQL. Também pode utilizar definições políticas incorporadas relacionadas com a sua Base de Dados Azure para casos PostgreSQL, tais como:
 
-- Impor a ligação SSL deve ser ativada para servidores de base de dados PostgreSQL
+- Impor a ligação TLS deve ser ativada para servidores de base de dados PostgreSQL
 
 - As ligações de log devem ser ativadas para servidores de base de dados PostgreSQL
 

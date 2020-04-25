@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Saiba como dissociar um endereço IP público de um VM
 services: virtual-network
 documentationcenter: ''
-author: KumudD
+author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2019
-ms.author: kumud
-ms.openlocfilehash: 1c27af30f97ea967d170b2cccaefb2e95f8fedaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: f29e29f809faeeb486e5b6b9bacc84a61380a012
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74900750"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144463"
 ---
 # <a name="dissociate-a-public-ip-address-from-an-azure-vm"></a>Dissociar um endereço IP público de um Azure VM 
 
@@ -27,7 +28,7 @@ Pode utilizar o [portal Azure,](#azure-portal)a interface de [linha de comando](
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Procure ou procure a máquina virtual a que pretende dissociar o endereço IP público e, em seguida, selecione-o.
 3. Na página VM, selecione **Visão Geral**, selecione o endereço IP público como mostrado na seguinte imagem:
 

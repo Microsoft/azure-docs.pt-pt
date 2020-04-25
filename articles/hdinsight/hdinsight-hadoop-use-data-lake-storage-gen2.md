@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/20/2020
-ms.openlocfilehash: d711cc7e58fb055eda62cfc364a5552a7d10f7bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: 80ce7f893b4828125cd9b63ffe33b7c0d873e899
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272295"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146896"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
-Azure Data Lake Storage Gen2 é um serviço de armazenamento em nuvem dedicado à análise de big data, construído no armazenamento azure Blob. Data Lake Storage Gen2 combina as capacidades do armazenamento Azure Blob e do Armazenamento do Lago Azure Gen1. O serviço resultante oferece funcionalidades do Azure Data Lake Storage Gen1, tais como semântica do sistema de ficheiros, segurança de nível de diretório e nível de ficheiro, e escalabilidade, juntamente com as capacidades de armazenamento de baixo custo, hierárquicos, alta disponibilidade e capacidades de recuperação de desastres do armazenamento Azure Blob.
+Azure Data Lake Storage Gen2 é um serviço de armazenamento em nuvem dedicado à análise de big data, construído no armazenamento azure Blob. Data Lake Storage Gen2 combina as capacidades do armazenamento Azure Blob e do Armazenamento do Lago Azure Gen1. O serviço resultante oferece funcionalidades do Azure Data Lake Storage Gen1. Estas funcionalidades incluem: semântica do sistema de ficheiros, segurança de nível de diretório e nível de ficheiro, e adaptabilidade. Juntamente com o armazenamento de baixo custo, hierárquico, alta disponibilidade e capacidades de recuperação de desastres do armazenamento Azure Blob.
 
 ## <a name="data-lake-storage-gen2-availability"></a>Disponibilidade de Gen2 de armazenamento de lago de dados
 
@@ -36,7 +36,7 @@ Para criar um cluster HDInsight que utiliza data lake storage Gen2 para armazena
 
 Crie uma identidade gerida atribuída ao utilizador, se ainda não tiver uma.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No clique superior esquerdo **Criar um recurso**.
 1. Na caixa de pesquisa, digite **o utilizador atribuído** e clique em Identidade Gerida Atribuída pelo **Utilizador**.
 1. Clique em **Criar**.
@@ -51,13 +51,13 @@ Para obter mais informações sobre como as identidades geridas funcionam no Azu
 
 Crie uma conta de armazenamento de Gen2 de armazenamento de lago de dados Azure.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No clique superior esquerdo **Criar um recurso**.
 1. Na caixa de pesquisa, digite **o armazenamento** e clique na conta **de armazenamento**.
 1. Clique em **Criar**.
 1. No ecrã da **conta de armazenamento Criar:**
     1. Selecione o grupo de subscrição e recursos correto.
-    1. Insira um nome para a sua conta Data Lake Storage Gen2. Para obter mais informações sobre as convenções de nomeação de contas de armazenamento, consulte [as convenções de nomeação para os recursos do Azure.](/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage)
+    1. Insira um nome para a sua conta Data Lake Storage Gen2.
     1. Clique no separador **Avançado.**
     1. Clique **ativado** ao lado do espaço de **nome hierárquico** sob data **lake storage Gen2**.
     1. Clique em **Rever + criar**.
@@ -107,7 +107,7 @@ Pode [descarregar um ficheiro](https://github.com/Azure-Samples/hdinsight-data-l
 | `<MANAGEDIDENTITYNAME>` | O nome da identidade gerida que será dada permissões na sua conta Azure Data Lake Storage Gen2. |
 | `<STORAGEACCOUNTNAME>` | A nova conta azure Data Lake Storage Gen2 que será criada. |
 | `<CLUSTERNAME>` | O nome do seu cluster HDInsight. |
-| `<PASSWORD>` | A sua senha escolhida para iniciar sessão no cluster utilizando o SSH, bem como o painel ambari. |
+| `<PASSWORD>` | A sua senha escolhida para iniciar sessão no cluster utilizando o SSH e o painel ambari. |
 
 O código abaixo faz os seguintes passos iniciais:
 
@@ -136,7 +136,7 @@ az storage account create --name <STORAGEACCOUNTNAME> \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Em seguida, inscreva-se no portal. Adicione a nova identidade gerida atribuída ao utilizador atribuído à função de Contribuinte de Dados do **Depósito Blob** na conta de armazenamento, conforme descrito no passo 3 no âmbito [do portal Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Em seguida, inscreva-se no portal. Adicione a nova identidade gerida atribuída ao utilizador na função de Contribuinte de Dados do **Depósito Blob** na conta de armazenamento. Este passo é descrito no passo 3 sob [o portal Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 Depois de ter atribuído a função para a identidade gerida atribuída pelo utilizador, implemente o modelo utilizando o seguinte código.
 
@@ -165,15 +165,15 @@ Para obter mais informações sobre permissões de ficheiros com ACLs, consulte 
 
 ### <a name="how-do-i-control-access-to-my-data-in-data-lake-storage-gen2"></a>Como controlo o acesso aos meus dados no Data Lake Storage Gen2?
 
-A capacidade do seu cluster HDInsight de aceder a ficheiros em Data Lake Storage Gen2 é controlada através de identidades geridas. Uma identidade gerida é uma identidade registada no Azure Ative Directory (Azure AD) cujas credenciais são geridas pelo Azure. Com identidades geridas, não precisa de registar os principais de serviço sintetários em Azure AD ou manter credenciais como certificados.
+A capacidade do seu cluster HDInsight de aceder a ficheiros em Data Lake Storage Gen2 é controlada através de identidades geridas. Uma identidade gerida é uma identidade registada no Azure Ative Directory (Azure AD) cujas credenciais são geridas pelo Azure. Com identidades geridas, não precisa de registar os diretores de serviço sintetizar em Azure AD. Ou manter credenciais como certificados.
 
-Os serviços Azure têm dois tipos de identidades geridas: atribuídos pelo sistema e atribuídos ao utilizador. O HDInsight utiliza identidades geridas atribuídas ao utilizador para aceder ao Data Lake Storage Gen2. Uma identidade gerida atribuída pelo utilizador, que é criada como um recurso do Azure autónomo. Através de um processo de criação, o Azure cria uma identidade no inquilino do Azure AD no qual a subscrição que está a ser utilizada confia. Depois de criada, a identidade pode ser atribuída a uma ou mais instâncias do serviço do Azure.
+Os serviços Azure têm dois tipos de identidades geridas: atribuídos pelo sistema e atribuídos ao utilizador. O HDInsight utiliza identidades geridas atribuídas ao utilizador para aceder ao Data Lake Storage Gen2. A `user-assigned managed identity` é criado como um recurso Azure autónomo. Através de um processo de criação, o Azure cria uma identidade no inquilino do Azure AD no qual a subscrição que está a ser utilizada confia. Depois de criada, a identidade pode ser atribuída a uma ou mais instâncias do serviço do Azure.
 
 O ciclo de vida das identidades atribuídas pelo utilizador é gerido separadamente do ciclo de vida das instâncias do serviço do Azure ao qual estão atribuídas. Para obter mais informações sobre identidades geridas, veja [como funcionam as identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)
 
 ### <a name="how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services"></a>Como posso definir permissões para os utilizadores de Anúncios Azure consultarem dados no Data Lake Storage Gen2 utilizando a Hive ou outros serviços?
 
-Para definir permissões para os utilizadores consultarem dados, utilize os grupos de segurança Azure AD como o principal designado em ACLs. Não atribua diretamente permissões de acesso a ficheiros a utilizadores individuais ou diretores de serviço. Quando utiliza grupos de segurança Azure AD para controlar o fluxo de permissões, pode adicionar e remover utilizadores ou diretores de serviço sem reaplicar OSAc a toda uma estrutura de diretório. Só tem de adicionar ou remover os utilizadores do grupo de segurança Azure AD apropriado. Os ACLs não são herdados, por isso a reaplicação dos ACLs requer a atualização da ACL em todos os ficheiros e subdiretórios.
+Para definir permissões para os utilizadores consultarem dados, utilize os grupos de segurança Azure AD como o principal designado em ACLs. Não atribua diretamente permissões de acesso a ficheiros a utilizadores individuais ou diretores de serviço. Com os grupos de segurança Azure AD para controlar o fluxo de permissões, pode adicionar e remover utilizadores ou diretores de serviço sem reaplicar ACLs a toda uma estrutura de diretório. Só tem de adicionar ou remover os utilizadores do grupo de segurança Azure AD apropriado. Os ACLs não são herdados, por isso a reaplicação dos ACLs requer a atualização da ACL em todos os ficheiros e subdiretórios.
 
 ## <a name="access-files-from-the-cluster"></a>Aceder a ficheiros a partir do cluster
 

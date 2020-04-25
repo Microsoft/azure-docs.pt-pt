@@ -5,12 +5,12 @@ description: Conheça as melhores práticas do operador de cluster para recursos
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 1eed6f1f82a8a91b2335760e99ea6b895d15547e
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: d887f084ae329be30579b3400b4dc6cfb22c64ca
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392721"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145444"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para conectividade e segurança da rede no Azure Kubernetes Service (AKS)
 
@@ -110,7 +110,7 @@ Existem muitos cenários para ingresso, incluindo os seguintes guias como-a::
 
 ## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>Tráfego seguro com uma firewall de aplicação web (WAF)
 
-**Orientação de boas práticas** - Para digitalizar o tráfego de entrada para potenciais ataques, use uma firewall de aplicação web (WAF) como [Barracuda WAF para Azure][barracuda-waf] ou Azure Application Gateway. Estes recursos de rede mais avançados também podem encaminhar o tráfego para além das ligações HTTP e HTTPS ou a rescisão básica do SSL.
+**Orientação de boas práticas** - Para digitalizar o tráfego de entrada para potenciais ataques, use uma firewall de aplicação web (WAF) como [Barracuda WAF para Azure][barracuda-waf] ou Azure Application Gateway. Estes recursos de rede mais avançados também podem encaminhar o tráfego para além das ligações HTTP e HTTPS ou a rescisão básica de TLS.
 
 Um controlador de ingresso que distribui tráfego para serviços e aplicações é tipicamente um recurso Kubernetes no seu cluster AKS. O controlador funciona como um daemon num nó AKS, e consome alguns dos recursos do nó, tais como CPU, memória e largura de banda da rede. Em ambientes maiores, muitas vezes você quer descarregar parte deste encaminhamento de tráfego ou tLS de terminação para um recurso de rede fora do cluster AKS. Também quer digitalizar o tráfego para potenciais ataques.
 

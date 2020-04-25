@@ -4,12 +4,12 @@ description: Saiba mais sobre networking no Serviço Azure Kubernetes (AKS), inc
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5800254ab44b5b0f1048ce2200f90c06a8d1666a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51773a46b77cb1e9a89b9c85a5f62c4a6b7af3be
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79253939"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146061"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Serviço Azure Kubernetes (AKS)
 
@@ -131,7 +131,7 @@ No AKS, pode criar um recurso Ingress utilizando algo como NGINX, ou utilizar a 
 
 Outra característica comum da Ingress é a rescisão ssl/TLS. Nas grandes aplicações web acedidas via HTTPS, a rescisão de TLS pode ser tratada pelo recurso Ingress e não dentro da própria aplicação. Para fornecer a geração e configuração automáticas de certificação TLS, pode configurar o recurso Ingress para utilizar fornecedores como o Let's Encrypt. Para obter mais informações sobre a configuração de um controlador NGINX Ingress com Let's Encrypt, consulte [Ingress e TLS][aks-ingress-tls].
 
-Também pode configurar o seu controlador de ingresso para preservar o IP de origem do cliente em pedidos de contentores no seu cluster AKS. Quando o pedido de um cliente é encaminhado para um contentor no seu cluster AKS através do seu controlador de entrada, o IP original de origem desse pedido não estará disponível para o recipiente-alvo. Quando ativa a preservação ip de *origem do cliente,* o IP de origem do cliente está disponível no cabeçalho de pedido sob *X-Forwarded-For*. Se estiver a utilizar a preservação ip de origem do cliente no seu controlador de ingresso, não pode utilizar a passagem da SSL. A preservação ip de origem do cliente e a passagem do SSL podem ser utilizadas com outros serviços, como o tipo *LoadBalancer.*
+Também pode configurar o seu controlador de ingresso para preservar o IP de origem do cliente em pedidos de contentores no seu cluster AKS. Quando o pedido de um cliente é encaminhado para um contentor no seu cluster AKS através do seu controlador de entrada, o IP original de origem desse pedido não estará disponível para o recipiente-alvo. Quando ativa a preservação ip de *origem do cliente,* o IP de origem do cliente está disponível no cabeçalho de pedido sob *X-Forwarded-For*. Se estiver a utilizar a preservação ip de origem do cliente no seu controlador de ingresso, não pode utilizar o pass-through do TLS. A preservação ip de origem do cliente e a passagem do TLS podem ser utilizadas com outros serviços, como o tipo *LoadBalancer.*
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 

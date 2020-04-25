@@ -3,12 +3,12 @@ title: Referência do desenvolvedor java para funções azure
 description: Entenda como desenvolver funções com Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4b1f39ff4fd48a3ed99b34391e9cc6efdad86a5d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 19a290fe7717d7838e8fcd1d1f5cddb3f54eb812
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673007"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145335"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de desenvolvimento de Funções Azure Java
 
@@ -159,6 +159,9 @@ As funções permitem personalizar a máquina virtual Java (JVM) usada para exec
 
 Pode fornecer argumentos adicionais numa `JAVA_OPTS`definição de aplicação chamada . Pode adicionar definições de aplicativos à sua aplicação de função implantada para o Azure no portal Azure ou no Azure CLI.
 
+> [!IMPORTANT]  
+> No plano consumo, deve ainda adicionar o cenário WEBSITE_USE_PLACEHOLDER com um valor de 0 para a personalização funcionar. Esta definição aumenta os tempos de início frio para as funções java.
+
 ### <a name="azure-portal"></a>Portal do Azure
 
 No [portal Azure,](https://portal.azure.com)utilize o [separador Definições](functions-how-to-use-azure-function-app-settings.md#settings) de Aplicação para adicionar a `JAVA_OPTS` definição.
@@ -167,16 +170,22 @@ No [portal Azure,](https://portal.azure.com)utilize o [separador Definições](f
 
 Pode utilizar o comando de definição de definições de definição de definições de definição de definições de definições de definição `JAVA_OPTS`do conjunto de definições da linha de [função az,](/cli/azure/functionapp/config/appsettings) como no exemplo seguinte:
 
+#### <a name="consumption-plan"></a>[Plano de consumo](#tab/consumption)
 ```azurecli-interactive
-az functionapp config appsettings set --name <APP_NAME> \
---resource-group <RESOURCE_GROUP> \
---settings "JAVA_OPTS=-Djava.awt.headless=true"
+az functionapp config appsettings set \
+--settings "JAVA_OPTS=-Djava.awt.headless=true" \
+"WEBSITE_USE_PLACEHOLDER=0" \
+--name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
-Este exemplo permite o modo sem cabeça. Substitua-o `<APP_NAME>` pelo nome da `<RESOURCE_GROUP>` sua aplicação de função e pelo grupo de recursos.
+#### <a name="dedicated-plan--premium-plan"></a>[Plano dedicado / Plano Premium](#tab/dedicated+premium)
+```azurecli-interactive
+az functionapp config appsettings set \
+--settings "JAVA_OPTS=-Djava.awt.headless=true" \
+--name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+---
 
-> [!WARNING]  
-> No [plano consumo,](functions-scale.md#consumption-plan)deve `WEBSITE_USE_PLACEHOLDER` adicionar a definição com um valor de `0`.  
-Esta definição aumenta os tempos de início frio para as funções java.
+Este exemplo permite o modo sem cabeça. Substitua-o `<APP_NAME>` pelo nome da `<RESOURCE_GROUP>` sua aplicação de função e pelo grupo de recursos. 
 
 ## <a name="third-party-libraries"></a>Bibliotecas de terceiros 
 
@@ -446,6 +455,9 @@ public class Function {
 }
 
 ```
+
+> [!NOTE]
+> O valor do AppSetting FUNCTIONS_EXTENSION_VERSION deve ser ~2 ou ~3 para uma experiência de arranque a frio otimizada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

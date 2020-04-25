@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f508de35470043cc71bfc8607367f28c04440b57
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: dd8ff7d6e86f8534fcb14812d4ddd6dc0b3d7039
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81408307"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146956"
 ---
 # <a name="security-control-network-security"></a>Controlo de Segurança: Segurança da Rede
 
@@ -118,7 +118,7 @@ Implemente a solução de firewall da sua escolha em cada um dos limites de rede
 |--|--|--|
 | 1.7 | 12.9, 12.10 | Cliente |
 
-Implemente o Portal de Aplicações Azure para aplicações web com HTTPS/SSL habilitados para certificados fidedignos.
+Implemente o Portal de Aplicações Azure para aplicações web com HTTPS/TLS habilitados para certificados fidedignos.
 
 - [Como implementar o Gateway de Aplicação](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 

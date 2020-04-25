@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 73f79145f63e0d8afee7596f1f8231a054ef1c2e
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: a407461e20eefe29dd410ac6ed547b33287a5be8
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82097698"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145415"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Erros do livro de corridas de resolução de problemas
 
@@ -180,11 +180,11 @@ At line:16 char:1
 
 ### <a name="cause"></a>Causa
 
-Este erro é causado pela utilização de cmdlets de módulo AzureRM e Az num livro de execução. Ocorre quando importa o módulo Az antes de importar o módulo AzureRM.
+Este erro é provavelmente causado pela utilização de uma migração incompleta de módulos AzureRM para Az no seu livro de execução. Isto pode fazer com que a Azure Automation inicie um trabalho de livro utilizando apenas módulos AzureRM, em seguida, inicie outro trabalho usando apenas módulos Az, levando a uma queda de caixa de areia. 
 
 ### <a name="resolution"></a>Resolução
 
-Os cmdlets Az e AzureRM não podem ser importados e usados no mesmo livro de corridas. Para saber mais sobre os cmdlets Az na Automação Azure, consulte [Gerir módulos em Automação Azure.](../shared-resources/modules.md)
+Não recomendamos a utilização de cmdlets Az e AzureRM no mesmo livro de corridas. Para saber mais sobre a correta utilização destes módulos, consulte [os módulos Migrating para Az](../shared-resources/modules.md#migrating-to-az-modules).
 
 ## <a name="scenario-the-runbook-fails-with-the-error-a-task-was-canceled"></a><a name="task-was-cancelled"></a>Cenário: O livro de corridas falha com o erro: Uma tarefa foi cancelada
 
@@ -581,7 +581,7 @@ Há duas maneiras de resolver este erro.
 * Em vez de utilizar o [Start-Job,](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job?view=powershell-7)utilize o [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) para iniciar o livro de execução.
 * Tente executar o livro de corridas num trabalhador híbrido.
 
-Para saber mais sobre este comportamento e outros comportamentos dos livros de execução da Automação Azure, consulte o comportamento do Livro de [Corridas.](../automation-runbook-execution.md#runbook-behavior)
+Para saber mais sobre este comportamento e outros comportamentos dos livros de execução da Automação Azure, consulte a execução do Livro de [Corridas na Automação Azure.](../automation-runbook-execution.md)
 
 ## <a name="scenario-linux-hybrid-runbook-worker-receives-a-prompt-for-a-password-when-signing-a-runbook"></a>Cenário: Linux Hybrid Runbook Worker recebe um pedido de senha ao assinar um livro de corridas
 
@@ -645,11 +645,11 @@ Possíveis causas para esta questão:
 
 #### <a name="not-using-run-as-account"></a>Não usar a conta Run As
 
-Siga os passos no [Passo 5 - Adicione a autenticação para gerir os recursos do Azure](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) para garantir que está a utilizar uma conta Run As para aceder ao Key Vault. 
+Siga [o Passo 5 - Adicione a autenticação para gerir os recursos do Azure](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) para garantir que está a utilizar uma conta Run As para aceder ao Cofre chave. 
 
 #### <a name="insufficient-permissions"></a>Permissões insuficientes
 
-Siga os passos em [Adicionar permissões ao Cofre chave](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) para garantir que a sua conta Run As tem permissões suficientes para aceder ao Cofre chave. 
+[Adicione permissões ao Cofre chave](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) para garantir que a sua conta Run As tenha permissões suficientes para aceder ao Cofre chave. 
 
 ## <a name="my-problem-isnt-listed-above"></a><a name="other"></a>O meu problema não está na lista acima.
 
@@ -669,7 +669,7 @@ Para obter ajuda com a passagem de parâmetros em webhooks, consulte [Iniciar um
 
 ### <a name="issues-using-az-modules"></a>Problemas usando módulos Az
 
-A utilização de módulos Az e módulos AzureRM na mesma conta Automation não é suportada. Consulte [os módulos Az em livros](https://docs.microsoft.com/azure/automation/az-modules) de corridas para obter mais detalhes.
+A utilização de uma migração incompleta dos seus módulos de livro de execução do AzureRM para Az pode causar falhas na caixa de areia e falhas no livro de corridas. Ver [Utilizar módulos nos seus livros](../automation-runbook-execution.md#using-modules-in-your-runbooks)de execução .
 
 ### <a name="inconsistent-behavior-in-runbooks"></a>Comportamento inconsistente nos runbooks
 
@@ -688,10 +688,6 @@ Executar Como contas podem não ter as mesmas permissões contra os recursos do 
 
 Para obter ajuda com a passagem de parâmetros em webhooks, consulte [Iniciar um livro de corridas a partir de um webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook).
 
-### <a name="using-az-modules"></a>Utilizar os módulos do Az
-
-A utilização de módulos Az e módulos AzureRM na mesma conta Automation não é suportada. Consulte [os módulos Az em livros de execução.](https://docs.microsoft.com/azure/automation/az-modules)
-
 ### <a name="using-self-signed-certificates"></a>Utilização de certificados auto-assinados
 
 Para utilizar certificados auto-assinados, consulte [Criar um novo certificado](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
@@ -700,8 +696,9 @@ Para utilizar certificados auto-assinados, consulte [Criar um novo certificado](
 
 A caixa de areia Azure impede o acesso a todos os servidores COM fora de processo. Por exemplo, uma aplicação ou um livro de execução sandbox não pode ser chamado para a Instrumentação de Gestão do Windows (WMI), ou para o serviço de Instalação do Windows (msiserver.exe). Para mais detalhes sobre a utilização da caixa de areia, consulte a execução do Livro de [Corridas na Automação Azure](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
 
-## <a name="recommended-documents"></a>Documentos Recomendados
+## <a name="recommended-documents"></a>Documentos recomendados
 
+* [Execução de runbooks na Automatização do Azure](../automation-runbook-execution.md)
 * [Iniciar um livro de corridas na Automação Azure](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
 * [Execução de runbooks na Automatização do Azure](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 
