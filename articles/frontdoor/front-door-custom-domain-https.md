@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: efe2c96c619aaf92efc5b4abf76b6b89c96ebd37
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878039"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160090"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado do Front Door
 
 Este tutorial mostra como ativar o protocolo HTTPS num domínio personalizado associado ao Front Door na secção de sistemas anfitrião de front-end. A utilização do protocolo HTTPS no seu domínio personalizado (por exemplo, https:\//www.contoso.com) garante que os seus dados confidenciais são entregues em segurança através de encriptação TLS/SSL quando são enviados pela Internet. Quando o browser está ligado a um site por HTTPS, valida o certificado de segurança do site e verifica que este é emitido por uma autoridade de certificação legítima. Este processo oferece segurança e protege as suas aplicações Web de ataques.
 
-A Porta Frontal Azure suporta HTTPS num nome de anfitrião predefinido da Porta Frontal, por padrão. Por exemplo, se criar um Front Door (como, por exemplo, https:\//contoso.azurefd.net), o HTTPS é ativado automaticamente para pedidos feitos a https://contoso.azurefd.net. No entanto, assim que carregar o domínio personalizado "www.contoso.com", terá de ativar também o HTTPS neste sistema anfitrião de front-end.   
+A Porta Frontal Azure suporta HTTPS num nome de anfitrião predefinido da Porta Frontal, por padrão. Por exemplo, se criar uma Porta `https://contoso.azurefd.net`Da Frente (como), https é `https://contoso.azurefd.net`automaticamente ativado para pedidos feitos para . No entanto, assim que carregar o domínio personalizado "www.contoso.com", terá de ativar também o HTTPS neste sistema anfitrião de front-end.   
 
 Alguns dos principais atributos da funcionalidade HTTPS personalizada são:
 

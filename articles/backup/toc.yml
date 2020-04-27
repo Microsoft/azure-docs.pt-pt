@@ -356,14 +356,14 @@
           href: backup-azure-vms-troubleshoot.md
         - name: O agente do Azure Backup ou a extensão da VM excederam o limite de tempo
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+        - name: Agente do Backup do Azure
+          href: backup-azure-mars-troubleshoot.md
         - name: A cópia de segurança de ficheiros e pastas de está lenta
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Servidor do Backup do Azure
           href: backup-azure-mabs-troubleshoot.md
         - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Agente do Backup do Azure
-          href: backup-azure-mars-troubleshoot.md
         - name: Partilha de Ficheiros do Azure
           href: troubleshoot-azure-files.md
         - name: SQL Server
