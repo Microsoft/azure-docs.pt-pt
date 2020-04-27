@@ -39,6 +39,8 @@
           href: azure-netapp-files-solution-architectures.md
         - name: Benefícios da utilização do Azure NetApp Files com o Oracle Database
           href: solutions-benefits-azure-netapp-files-oracle-database.md
+        - name: Benefícios da utilização do Azure NetApp Files para a automatização de design eletrónico
+          href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
     - name: FAQs sobre o Azure NetApp Files
       href: azure-netapp-files-faqs.md
 - name: Guias de procedimentos

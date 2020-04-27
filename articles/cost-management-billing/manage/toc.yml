@@ -97,7 +97,7 @@
           href: ea-portal-rest-apis.md
         - name: Instâncias reservadas de VM do Azure EA
           href: ea-portal-vm-reservations.md
-        - name: Resolver problemas de acesso ao EA Portal do Azure
+        - name: Resolver problemas de acesso ao Azure EA Portal
           href: ea-portal-troubleshoot.md
 - name: Resolução de problemas
   items:
@@ -107,7 +107,7 @@
       href: billing-troubleshoot-azure-payment-issues.md
     - name: Cartão rejeitado
       href: troubleshoot-declined-card.md
-    - name: Problemas na inscrição
+    - name: Problemas de inscrição da conta do Azure
       href: troubleshoot-azure-sign-up.md
     - name: Problemas de início de sessão da subscrição
       href: troubleshoot-sign-in-issue.md

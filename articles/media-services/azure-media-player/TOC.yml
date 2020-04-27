@@ -34,6 +34,8 @@
       href: azure-media-player-localization.md
 - name: Amostras
   items:
+    - name: Demonstrações do Leitor de Multimédia do Azure
+      href: demos.md
     - name: Exemplos do Leitor de Multimédia do Azure
       href: 'https://github.com/Azure-Samples/azure-media-player-samples'
 - name: Referência

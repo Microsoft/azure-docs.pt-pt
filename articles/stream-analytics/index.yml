@@ -10,12 +10,12 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/16/2019
-  ms.openlocfilehash: dff33c61d67a25bfc5c1119e5408602df01e5e30
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 757c60487e4c4c7fedca4824cd40e86cbd9ca465
+  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "75359737"
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82130959"
 landingContent:
 - title: Sobre o Azure Stream Analytics
   linkLists:
@@ -95,7 +95,7 @@ landingContent:
       url: stream-analytics-monitor-jobs.md
     - text: Monitorizar e gerir tarefas do Visual Studio
       url: stream-analytics-monitor-jobs-use-vs.md
-    - text: Utilizar registos de diagnósticos para resolver problemas
+    - text: Resolver problemas com os registos de recursos
       url: stream-analytics-job-diagnostic-logs.md
     - text: Depurar com o diagrama de tarefas
       url: stream-analytics-job-diagram-with-metrics.md

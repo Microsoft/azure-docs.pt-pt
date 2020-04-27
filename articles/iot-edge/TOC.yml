@@ -168,13 +168,15 @@
         - name: Implementar à escala
           items:
             - name: Portal do Azure
-              href: how-to-deploy-monitor.md
+              href: how-to-deploy-at-scale.md
             - name: CLI do Azure
-              href: how-to-deploy-monitor-cli.md
+              href: how-to-deploy-cli-at-scale.md
             - name: Visual Studio Code
-              href: how-to-deploy-monitor-vscode.md
+              href: how-to-deploy-vscode-at-scale.md
     - name: Monitorizar e diagnosticar implementações
       items:
+        - name: Monitorizar implementações do IoT Edge
+          href: how-to-monitor-iot-edge-deployments.md
         - name: Métodos diretos EdgeAgent
           href: how-to-edgeagent-direct-method.md
     - name: Utilizar dispositivos do IoT Edge como gateways

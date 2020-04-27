@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 2e914cc8cf1951d5e725ac8ad34140103e599fcb
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 556af0c505197170a633cf1f949d87f5d2584690
+  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78204961"
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82131332"
 landingContent:
 - title: Sobre a Visão Personalizada
   linkLists:
@@ -38,16 +38,8 @@ landingContent:
     links:
     - text: Utilizar o portal Web
       url: getting-started-build-a-classifier.md
-    - text: Utilizar o SDK .NET
-      url: csharp-tutorial.md
-    - text: Utilizar o SDK Python
-      url: python-tutorial.md
-    - text: Utilizar o SDK Java
-      url: java-tutorial.md
-    - text: Utilizar o SDK Node.js
-      url: node-tutorial.md
-    - text: Utilizar o SDK do Go
-      url: go-tutorial.md
+    - text: Utilizar o SDK de Visão Personalizada
+      url: quickstarts/image-classification.md
   - linkListType: how-to-guide
     links:
     - text: Utilizar a API de predição
@@ -58,16 +50,8 @@ landingContent:
     links:
     - text: Utilizar o portal Web
       url: get-started-build-detector.md
-    - text: Utilizar o SDK .NET
-      url: csharp-tutorial-od.md
-    - text: Utilizar o SDK Python
-      url: python-tutorial-od.md
-    - text: Utilizar o SDK Java
-      url: java-tutorial-od.md
-    - text: Utilizar o SDK Node.js
-      url: node-tutorial-object-detection.md
-    - text: Utilizar o SDK do Go
-      url: go-tutorial-object-detection.md
+    - text: Utilizar o SDK de Visão Personalizada
+      url: quickstarts/object-detection.md
   - linkListType: tutorial
     links:
     - text: Detetor de logótipo para dispositivos móveis
