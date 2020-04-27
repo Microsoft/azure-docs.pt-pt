@@ -8,10 +8,10 @@ ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ac09f9b59bc6f47adc9311cc910352c1a0d73b5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68699292"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
@@ -146,8 +146,8 @@ Os seguintes contadores de desempenho para O Sincronizado de Ficheiros Azure est
 | Operações de sincronização AFS\Total Sync File Operations/seg | Número total de ficheiros sincronizados (upload e download). |
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
+- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
 - [Considere configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
-- [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
-- [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)
+- [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Resolver problemas da Sincronização de Ficheiros do Azure](storage-sync-files-troubleshoot.md)
 - [Ficheiros Azure frequentemente fazem perguntas](storage-files-faq.md)

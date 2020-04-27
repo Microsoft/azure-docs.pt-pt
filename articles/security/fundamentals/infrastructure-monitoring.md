@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: af9c157b4644156edc6dcdb1b53c141263576500
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68727159"
 ---
 # <a name="azure-infrastructure-monitoring"></a>Monitorização de infraestruturas Azure   
@@ -41,7 +41,7 @@ A segurança azure definiu requisitos para monitorização ativa. As equipas de 
 ## <a name="incident-management"></a>Gestão de Incidentes
 A Microsoft implementa um processo de gestão de incidentes de segurança para facilitar uma resposta coordenada aos incidentes, caso ocorra.
 
-Se a Microsoft tiver conhecimento do acesso não autorizado aos dados dos clientes armazenados nos seus equipamentos ou nas suas instalações, ou se tiver conhecimento do acesso não autorizado a tais equipamentos ou instalações, resultando em perdas, divulgação ou alteração de dados dos clientes, A Microsoft toma as seguintes ações:
+Se a Microsoft tiver conhecimento do acesso não autorizado aos dados dos clientes armazenados nos seus equipamentos ou nas suas instalações, ou se tiver conhecimento do acesso não autorizado a tais equipamentos ou instalações, resultando em perda, divulgação ou alteração de dados dos clientes, a Microsoft toma as seguintes ações:
 
 - Imediatamente anota o cliente do incidente de segurança.
 - Investiga prontamente o incidente de segurança e fornece aos clientes informações detalhadas sobre o incidente de segurança.

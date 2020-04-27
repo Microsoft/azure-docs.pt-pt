@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 4b166af219c8983e5765ef4c884ced7eb0689f54
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 1cd536f4a7c3751e2b85f40e582c1eb1c5bf2c74
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106683"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160516"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>FAQs do marketplace comercial da Microsoft
 
@@ -57,8 +57,9 @@ Com o Azure Marketplace, os clientes podem descobrir aplicações técnicas cons
 As ofertas do Azure Marketplace podem ser adquiridas através de:
 
 * [A montra baseada na web](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Portal do Azure](https://portal.azure.com) <br>
-[!Note] Requer uma conta Azure. Se não tiver um, será redirecionado para a página **Welcome to Azure,** para criar um.  
+* [Portal do Azure](https://portal.azure.com) <br> 
+>[!Note]
+>Requer uma conta Azure. Se não tiver um, será redirecionado para a página **Welcome to Azure,** para criar um.  
 * [Interface de linha de comando Azure (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -336,7 +337,7 @@ Os leads são clientes que estão a implantar os seus produtos a partir do Marke
 
 **Onde posso arranjar ajuda para preparar o meu destino principal?**
 
-Saiba mais na documentação partner [Center-Get Customer Leads,](./partner-center-portal/commercial-marketplace-get-customer-leads.md) ou envie um bilhete de suporte selecionando [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) o seu tipo de oferta e gestão de chumbo.
+Saiba mais na documentação partner [Center-Get Customer Leads,](./partner-center-portal/commercial-marketplace-get-customer-leads.md) ou envie um bilhete de suporte através de [Ajuda e suporte,](https://partner.microsoft.com/support/v2/?stage=1) selecionando o seu tipo de oferta e gestão de chumbo.
 
 **Sou obrigado a configurar um destino de chumbo para publicar uma oferta no Marketplace?**
 

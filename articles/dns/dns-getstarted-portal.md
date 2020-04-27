@@ -8,16 +8,16 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 26e5386f1c9730f1600e59a002ea7845b82ffe06
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b34b45cba805d748dcc8a0c31340cd8116e1c80
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76937120"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160771"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Quickstart: Criar uma zona DNS Azure e gravar usando o portal Azure
 
-Pode configurar o DNS do Azure para resolver os nomes de anfitrião no seu domínio público. Por exemplo, se adquiriu o nome de domínio *contoso.xyz* a partir de um registo de nome de domínio, pode configurar o Azure DNS para acolher o domínio *contoso.xyz* e resolver *www.contoso.xyz* para o endereço IP do seu servidor web ou aplicação web.
+Pode configurar o DNS do Azure para resolver os nomes de anfitrião no seu domínio público. Por exemplo, se adquiriu o nome de domínio *contoso.xyz* a partir de um registo de nome de domínio, *`www.contoso.xyz`* pode configurar o Azure DNS para acolher o domínio *contoso.xyz* e resolver o endereço IP do seu servidor web ou aplicação web.
 
 Neste arranque rápido, criará um domínio de teste e, em seguida, criará um registo de endereços para resolver *www to* the IP address *10.10.10.10 .*
 

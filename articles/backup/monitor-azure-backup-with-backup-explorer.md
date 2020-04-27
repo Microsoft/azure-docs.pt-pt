@@ -4,12 +4,12 @@ description: Este artigo descreve como usar o Backup Explorer para realizar a mo
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: fa30a061dfe0d9f7721bd2405280f8a01bea87fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87780124d531212a141520df65ff7408cc120e55
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131797"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160994"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorize as suas cópias de segurança com o Backup Explorer
 
@@ -17,17 +17,18 @@ ms.locfileid: "80131797"
 
 Backup Explorer é um livro de trabalho azure monitor incorporado que dá aos clientes Azure Backup esta localização única e central. O Backup Explorer ajuda-o a monitorizar as atividades operacionais em toda a propriedade de Backup em Azure, abrangendo inquilinos, localizações, subscrições, grupos de recursos e cofres. Em termos gerais, o Backup Explorer fornece as seguintes capacidades:
 
-* **Perspetiva à escala**: Obtenha uma visão agregada dos itens de backup, empregos, alertas, políticas e recursos que ainda não estão configurados para backup em toda a propriedade. 
+* **Perspetiva à escala**: Obtenha uma visão agregada dos itens de backup, empregos, alertas, políticas e recursos que ainda não estão configurados para backup em toda a propriedade.
 * **Análise de perfuração**: Mostrar informações detalhadas sobre cada um dos seus trabalhos, alertas, políticas e itens de backup, tudo num só local.
 * **Interfaces atoladas**: Depois de identificar um problema, pode resolvê-lo indo perfeitamente para o item de backup relevante ou recurso Azure.
 
 Estas capacidades são fornecidas fora da caixa por integração nativa com o Azure Resource Graph e os livros azure Monitor.
 
 > [!NOTE]
+>
 > * O Backup Explorer está atualmente disponível apenas para dados de máquinas virtuais Azure (VMs).
 > * O Backup Explorer destina-se a ser um dashboard operacional para visualizar informações sobre as suas cópias de segurança nos últimos 7 dias (máximo).
 > * O Backup Explorer não é atualmente suportado nas nuvens nacionais.
-> * Atualmente, personalizar o modelo do Explorador de Backup não é suportado. 
+> * Atualmente, personalizar o modelo do Explorador de Backup não é suportado.
 > * Não recomendamos a escrita de automatizações personalizadas em dados do Azure Resource Graph.
 
 ## <a name="get-started"></a>Introdução
@@ -48,13 +49,11 @@ O Backup Explorer exibe vários separadores, cada um fornecendo informações de
 
 O separador **Resumo** proporciona uma rápida olhada na condição geral da sua propriedade de reserva. Por exemplo, pode ver o número de itens protegidos, o número de itens para os quais a proteção não foi ativada, ou quantos empregos foram bem sucedidos nas últimas 24 horas.
 
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYd]
 
 ### <a name="the-backup-items-tab"></a>O separador 'Itens de Backup'
 
 Pode filtrar e visualizar cada um dos seus itens de backup por subscrição, cofre e outras características. Ao selecionar o nome de um item de reserva, pode abrir o painel Azure para esse item. Por exemplo, a partir da mesa, pode observar que a última cópia de segurança falhou no ponto *X*. Ao selecionar *X,* pode abrir o painel de **backup** do artigo, onde pode desencadear uma operação de backup a pedido.
-
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYc]
 
@@ -62,20 +61,17 @@ Pode filtrar e visualizar cada um dos seus itens de backup por subscrição, cof
 
 Selecione o separador **Jobs** para ver os detalhes de todos os trabalhos que foram desencadeados nos últimos 7 dias. Aqui, pode filtrar por *Operação de Trabalho,* *Estado de Trabalho*e Código de *Erro* (para trabalhos falhados).
 
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nOrh]
 
 ### <a name="the-alerts-tab"></a>O separador Alertas
 
 Selecione o separador **Alertas** para ver detalhes de todos os alertas que foram gerados nos seus cofres ao longo dos últimos 7 dias. Pode filtrar alertas por tipo (*Falha de Cópia de Segurança* ou Falha de *Restauro),* estado atual *(Ativo* ou *Resolvido)* e gravidade (*Crítica,* *Aviso*ou *Informação).* Também pode selecionar um link para ir ao Azure VM e tomar todas as medidas necessárias.
 
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nTxe]
 
 ### <a name="the-policies-tab"></a>O separador Políticas
 
 Pode selecionar o separador **Políticas** para ver informações chave sobre todas as políticas de backup que foram criadas em toda a sua propriedade de backup. Pode visualizar o número de itens associados a cada política, juntamente com o intervalo de retenção e a frequência de backup especificada pela apólice.
-
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nLKV]
 
@@ -84,7 +80,6 @@ Pode selecionar o separador **Políticas** para ver informações chave sobre to
 A cópia de segurança deve ser ativada para todas as máquinas que necessitem de proteção. Com o Backup Explorer, os administradores de backup podem identificar rapidamente quais as máquinas de uma organização ainda não estão protegidas por backup. Para ver estas informações, selecione o separador **'Backup' não ativado.**
 
 O painel **de backup não ativado** exibe uma tabela com uma lista de máquinas desprotegidas. A sua organização pode atribuir etiquetas diferentes a máquinas de produção e máquinas de teste, ou a máquinas que servem uma variedade de funções. Porque cada classe de máquinas precisa de uma política de backup separada, filtrar por tags ajuda-o a ver informações específicas para cada um. A seleção do nome de qualquer máquina redireciona-o para o painel de **backup configure** da máquina, onde pode optar por aplicar uma política de backup apropriada.
-
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQXZ]
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: c9d20b3259cf4ea7af263d5e31145ad372db0c77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68728418"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de Segurança: Auditoria e Exploração Madeireira [ Atenuações 
@@ -28,8 +28,8 @@ ms.locfileid: "68728418"
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[Identificar entidades sensíveis na sua solução e implementar auditoria de alteração](#sensitive-entities)</li></ul> |
 | **Aplicação Web** | <ul><li>[Certifique-se de que a auditoria e a exploração madeireira são aplicadas na aplicação](#auditing)</li><li>[Certifique-se de que a rotação e a separação do tronco estão no lugar](#log-rotation)</li><li>[Certifique-se de que a aplicação não regista dados sensíveis do utilizador](#log-sensitive-data)</li><li>[Certifique-se de que os ficheiros de auditoria e registo têm acesso restrito](#log-restricted-access)</li><li>[Certifique-se de que os Eventos de Gestão de Utilizadores estão registados](#user-management)</li><li>[Certifique-se de que o sistema tem defesas incorporadas contra o uso indevido](#inbuilt-defenses)</li><li>[Ativar diagnósticos de login para aplicações web no Serviço de Aplicações Azure](#diagnostics-logging)</li></ul> |
-| **Base de Dados** | <ul><li>[Certifique-se de que a auditoria de login está ativada no Servidor SQL](#identify-sensitive-entities)</li><li>[Ativar a deteção de ameaças no Azure SQL](#threat-detection)</li></ul> |
-| **Storage do Azure** | <ul><li>[Utilizar o Azure Storage Analytics para auditar o acesso ao Armazenamento Azure](#analytics)</li></ul> |
+| **Base de dados** | <ul><li>[Certifique-se de que a auditoria de login está ativada no Servidor SQL](#identify-sensitive-entities)</li><li>[Ativar a deteção de ameaças no Azure SQL](#threat-detection)</li></ul> |
+| **Armazenamento Azure** | <ul><li>[Utilizar o Azure Storage Analytics para auditar o acesso ao Armazenamento Azure](#analytics)</li></ul> |
 | **WCF** | <ul><li>[Implementar registo suficiente](#sufficient-logging)</li><li>[Implementar manipulação suficiente de falhas de auditoria](#audit-failure-handling)</li></ul> |
 | **API Web** | <ul><li>[Certifique-se de que a auditoria e a exploração madeireira são aplicadas na Web API](#logging-web-api)</li></ul> |
 | **Gateway de campo iot** | <ul><li>[Certifique-se de que a auditoria e a exploração madeireira adequadas são aplicadas no Field Gateway](#logging-field-gateway)</li></ul> |

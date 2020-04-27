@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 650798fdb884e6494990efb533335a1dd8b4d89f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67875400"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução automatizada de recuperação de desastres utilizando a Recuperação do Site Azure para ações de ficheiros alojadas no StorSimple
@@ -62,7 +62,7 @@ Cada componente do ambiente no local deve ser protegido para permitir a replica�
 Se pretender proteger as máquinas que executam o Ative Directory e o DNS para que estejam disponíveis no site dr, é necessário protegê-las explicitamente (para que os servidores de ficheiros estejam acessíveis após a falha com a autenticação). Existem duas opções recomendadas com base na complexidade do ambiente no local do cliente.
 
 #### <a name="option-1"></a>Opção 1
-Se o cliente tiver um pequeno número de aplicações, um único controlador de domínio para todo o site no local, e estará falhando em todo o site, então recomendamos a utilização da replicação de Recuperação do Site Azure para replicar a máquina do controlador de domínio para um secundário site (isto é aplicável tanto para o site como para o site-to-Azure).
+Se o cliente tiver um pequeno número de aplicações, um único controlador de domínio para todo o site no local, e estará falhando em todo o site, então recomendamos a utilização da replicação de Recuperação do Site Azure para replicar a máquina do controlador de domínio para um local secundário (isto é aplicável tanto para o site como para o local e para o local-para-Azure).
 
 #### <a name="option-2"></a>Opção 2
 Se o cliente tiver um grande número de aplicações, estiver a executar uma floresta de Diretório Ativo, e falhará em algumas aplicações de cada vez, então recomendamos a criação de um controlador de domínio adicional no site dr (ou um site secundário ou em Azure).

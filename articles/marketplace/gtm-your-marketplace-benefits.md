@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: d5c8b2f5cb03c7e1777137100547fbbbaf107f0b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 2249dde8578dcd5cc3444aeef6b51c8afb2f31fa
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684544"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160601"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
@@ -32,11 +32,11 @@ Será contactado por um membro da equipa de Recompensas quando a sua oferta for 
 
 Para os parceiros Da Transact, à medida que cresce as suas vendas faturadas através da plataforma de marketplace, desbloqueia maiores benefícios por nível. 
 
-O requisito mínimo para publicar nas montras é um MPNID, pelo que estes benefícios estão disponíveis para todos os parceiros, independentemente do estatuto de competência da MPN ou do tipo de parceiro. Cada parceiro tem poderes para crescer o seu negócio através do mercado como uma plataforma. 
+O requisito mínimo para publicar nas montras é um MPNID, pelo que estes benefícios estão disponíveis para todos os parceiros, independentemente do estatuto de competência da MPN ou do tipo de parceiro. Cada parceiro tem poderes para crescer o seu negócio através do mercado como uma plataforma.
 
-Você receberá apoio na compreensão dos recursos disponíveis para si e na implementação das melhores práticas, que também pode [rever por conta própria.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/) 
+Você receberá apoio na compreensão dos recursos disponíveis para si e na implementação das melhores práticas, que também pode [rever por conta própria.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 
-Descrições detalhadas de todos os benefícios do programa podem ser encontradas no deck do [programa Marketplace Rewards](https://aka.ms/marketplacerewards).
+Descrições detalhadas de todos os benefícios do programa podem ser encontradas no deck do [programa Marketplace Rewards](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c).
 
 Os seus passos para começar são fáceis:
 
@@ -44,7 +44,7 @@ Os seus passos para começar são fáceis:
 2. A equipa contacta o "proprietário" ou o "contacto primário" por oferta de mercado. É uma boa prática entrar num indivíduo ou num pseudónimo que verifica regularmente: info@company.com mensagens enviadas a pseudónimos como muitas vezes perdem-se.
 
 >[!Note]
->Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, consulte dentro da sua organização quem é o proprietário da oferta em questão, procurando no Partner Center. Devem ter a comunicação e os próximos passos. <br> <br> Se não conseguir determinar o proprietário, ou se o proprietário deixou https://aka.ms/marketplacepublishersupporta sua empresa, pode levantar um bilhete de apoio em .
+>Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, consulte dentro da sua organização quem é o proprietário da oferta em questão, procurando no Partner Center. Devem ter a comunicação e os próximos passos. <br> <br> Se não conseguir determinar o proprietário, ou se o proprietário deixou a sua empresa, pode levantar um bilhete de apoio na [Ajuda e Suporte.](https://partner.microsoft.com/support/v2/?stage=1)
 
 O âmbito das atividades disponíveis para si expande-se à medida que cultiva as suas ofertas no mercado. Todos os anúncios recebem um nível base de recomendações de otimização e promoção como parte de um e-mail auto-servido de recursos e boas práticas.
 
@@ -56,7 +56,7 @@ O quadro abaixo resume os requisitos de elegibilidade para ofertas de lista e ex
 
 ![Benefícios go-to-market](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
-Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards](https://aka.ms/marketplacerewards).
+Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c).
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Recompensas do Mercado para parceiros transatas
 
@@ -77,7 +77,7 @@ Todos os parceiros que tenham uma oferta ao vivo podem trabalhar com um gestor d
 
 \*O limiar de venda de lugares aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que tenham integrações com microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem estar concluídos até 30 de junho de 2020.
 
-Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards](https://aka.ms/marketplacerewards).
+Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c).
 
 Além dos benefícios de recompensas, os parceiros de aplicações empresariais com as ofertas da Dynamics publicadas no Microsoft AppSource têm uma programação suplementar disponível através do [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Isto inclui suporte técnico, de marketing e vendas especializado para as necessidades dos parceiros de aplicações empresariais.
 
@@ -85,7 +85,7 @@ Além dos benefícios de recompensas, os parceiros de aplicações empresariais 
 
 ### <a name="publisher-agreement"></a>Acordo de Editor
 
-Todas as atividades descritas nesta página estão abrangidas pelo acordo de editor de [marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) e estão de acordo com o Programa de Benefícios Comerciais Addendum.
+Todas as atividades descritas nesta página estão abrangidas pelo acordo de editor de [marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) e estão de acordo com o Programa de Benefícios Comerciais Addendum.
 
 ### <a name="cancellation-policy"></a>Política de cancelamento
 
@@ -96,13 +96,13 @@ A Microsoft reserva-se o direito de revogar e rescindir os benefícios do Market
 * exercer atividades ilegais utilizando a sua listagem de mercado.
 * são desclassificados do mercado comercial. 
 * usar a sua oferta para mostrar marketing ou outros conteúdos que violem leis de direitos autorais ou de marca.
-* violar as políticas do programa de patrocínio sinuoso do [Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), incluindo, mas não se limitando a, utilizando o financiamento de patrocínio sinuoso do Azure para as suas próprias operações internas ou mineração bitcoin. 
+* violar as políticas do programa de patrocínio sinuoso do [Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), incluindo, mas não se limitando a, utilizando o financiamento de patrocínio sinuoso do Azure para as suas próprias operações internas ou mineração bitcoin.
 
 ### <a name="offer-availability"></a>Oferta Disponibilidade
 
 Esta oferta é realizada em inglês para todos os parceiros com uma oferta ao vivo no Azure Marketplace ou microsoft AppSource.
 
-As transações que se prove serem fraudulentas não contarão para o nível de programa de [vendas faturado](https://aka.ms/marketplacepublisherrewards)de uma editora, como se nota na [lista, teste,](#list-trial-and-consulting-benefits) secção de consultoria, secção de benefícios do [parceiro transata](#marketplace-rewards-for-transact-partners) e [o deck de programas detalhados.](https://aka.ms/marketplacepublisherrewards) A Microsoft atribuirá parceiros a níveis de elegibilidade com base nas suas vendas faturadas reais, depois de a fraude ter sido removida. 
+As transações que se prove serem fraudulentas não contarão para o nível de programa de vendas faturado de uma editora, como se nota na [lista, no trial,](#list-trial-and-consulting-benefits) na secção de consultoria e na secção de benefícios do [parceiro transata.](#marketplace-rewards-for-transact-partners) A Microsoft atribuirá parceiros a níveis de elegibilidade com base nas suas vendas faturadas reais, depois de a fraude ter sido removida.
 
 ## <a name="next-steps"></a>Passos seguintes
 

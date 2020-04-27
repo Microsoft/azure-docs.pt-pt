@@ -3,12 +3,12 @@ title: Integrar um cliente na gestão de recursos delegados do Azure
 description: Aprenda a embarcar um cliente para a gestão de recursos delegados do Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
 ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1bc9cadab966c4d9ae3ddbc12a75f42f69e0c12f
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 2b8bf3125dd97397f83a2a2cbf23090bce41ad40
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146319"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82161113"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
@@ -199,6 +199,8 @@ Como se trata de uma implantação ao nível da subscrição, não pode ser inic
 
 > [!IMPORTANT]
 > Esta implantação ao nível da subscrição deve ser feita por uma conta não hóspede no inquilino do cliente que tenha o [papel integrado do Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para a subscrição a bordo (ou que contém os grupos de recursos que estão a bordo). Para ver todos os utilizadores que possam delegar a subscrição, um utilizador no inquilino do cliente pode selecionar a subscrição no portal Azure, abrir o controlo de **acesso (IAM),** e [ver todos os utilizadores com a função Proprietário.](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)
+>
+> Se a subscrição foi criada através do [programa Cloud Solution Provider (CSP),](../concepts/cloud-solution-provider.md)qualquer utilizador que tenha a função de Agente [Administrador](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) no seu fornecedor de serviços pode realizar a implementação.
 
 ### <a name="powershell"></a>PowerShell
 

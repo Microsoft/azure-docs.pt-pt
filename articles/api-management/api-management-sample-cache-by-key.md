@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60780826"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Colocação em cache personalizada da Gestão de API do Azure
@@ -179,7 +179,7 @@ Uma vez que se combinam todos estes passos, o resultado final é uma política q
 
 Esta abordagem de cache é usada principalmente em web sites onde HTML é composto no lado do servidor para que possa ser renderizado como uma única página. Também pode ser útil em APIs onde os clientes não podem fazer o cache do lado do cliente EM HTTP ou é desejável não colocar essa responsabilidade no cliente.
 
-Este mesmo tipo de fragmento de cache também pode ser feito nos servidores web backend usando um servidor redis caching, no entanto, usar o serviço de Gestão API para realizar este trabalho é útil quando os fragmentos em cache são provenientes de diferentes back-ends do que os primários respostas.
+Este mesmo tipo de fragmento de cache também pode ser feito nos servidores web backend usando um servidor redis caching, no entanto, usar o serviço de Gestão API para realizar este trabalho é útil quando os fragmentos em cache são provenientes de diferentes back-ends do que as respostas primárias.
 
 ## <a name="transparent-versioning"></a>Versão transparente
 É prática comum que várias versões de implementação diferentes de uma API sejam suportadas a qualquer momento. Por exemplo, apoiar diferentes ambientes (dev, teste, produção, etc.) ou apoiar versões mais antigas da API para dar tempo aos consumidores de API migrarem para versões mais recentes. 

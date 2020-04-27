@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 9da8b6d8e5151bd6487d68c2796c261f19c11b55
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: b962610c585df288a9cb3297ed8e09c8abc5ac0a
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086560"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160652"
 ---
 # <a name="cloud-solution-providers"></a>Fornecedores de Soluções Cloud
 
@@ -105,7 +105,7 @@ Se autorizou um parceiro no programa CSP e esse parceiro já revendeu o produto 
 
 Se um parceiro no programa CSP não tiver vendido o seu produto aos seus clientes e quiser remover o CSP após a publicação da sua oferta, utilize as seguintes instruções:
 
-1. Vá à página de pedido de [apoio.](https://aka.ms/marketplacepublishersupport) Os primeiros menus suspensos são automaticamente preenchidos para si.
+1. Vá à página de pedido de [apoio.](https://partner.microsoft.com/support/v2/?stage=1) Os primeiros menus suspensos são automaticamente preenchidos para si.
 
    > [!NOTE]
    > Não mude as seleções de menus pré-povoados.
@@ -127,7 +127,7 @@ Utilize esta secção para navegar entre as três opções de revendedor CSP.
 
 Se a sua oferta for atualmente **a Opção 1: Qualquer parceiro no programa CSP** e deseja navegar para qualquer uma das outras duas opções, use as seguintes instruções para criar um pedido:
 
-1. Vá à página de pedido de [apoio.](https://aka.ms/marketplacepublishersupport) Os primeiros menus suspensos são automaticamente preenchidos para si.
+1. Vá à página de pedido de [apoio.](https://partner.microsoft.com/support/v2/?stage=1) Os primeiros menus suspensos são automaticamente preenchidos para si.
 
    > [!NOTE]
    > Não mude as seleções de menus pré-povoados.
@@ -145,7 +145,7 @@ Se a sua oferta for atualmente **a Opção 1: Qualquer parceiro no programa CSP*
 
 Se a sua oferta for atualmente **a Opção 2: Parceiros específicos no programa CSP seleciono** e gostaria de navegar para a **Opção um: Qualquer parceiro no programa CSP,** use as seguintes instruções para criar um pedido:
 
-1. Vá à página de pedido de [apoio.](https://aka.ms/marketplacepublishersupport) Os primeiros menus suspensos são automaticamente preenchidos para si.
+1. Vá à página de pedido de [apoio.](https://partner.microsoft.com/support/v2/?stage=1) Os primeiros menus suspensos são automaticamente preenchidos para si.
 
    > [!NOTE]
    > Não mude as seleções de menus pré-povoados.
@@ -158,7 +158,7 @@ Se a sua oferta for atualmente **a Opção 2: Parceiros específicos no programa
 
  Se a sua oferta for atualmente **a Opção 2: Parceiros específicos no programa CSP que selecionei** e gostaria de navegar para a **Opção 3: Sem parceiros no programa CSP,** só poderá navegar para essa opção se os parceiros do programa CSP que previamente autorizou não tiverem revendido a sua oferta aos clientes finais. Por favor, utilize as seguintes instruções para criar um pedido:
 
-1. Vá à página de pedido de [apoio.](https://aka.ms/marketplacepublishersupport) Os primeiros menus suspensos são automaticamente preenchidos para si.
+1. Vá à página de pedido de [apoio.](https://partner.microsoft.com/support/v2/?stage=1) Os primeiros menus suspensos são automaticamente preenchidos para si.
 
    > [!NOTE]
    > Não mude as seleções de menus pré-povoados.

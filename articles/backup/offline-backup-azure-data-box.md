@@ -3,19 +3,19 @@ title: Backup offline usando caixa de dados Azure
 description: Saiba como pode usar a Caixa de Dados Azure para semear grandes dados de backup iniciais offline do Agente MARS para um cofre dos Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: a031a8cac357e7d212f8f6a3a5dbec749fbccc21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672972"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160960"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline Azure Backup utilizando caixa de dados Azure
 
 Pode utilizar a Caixa de [Dados Azure](https://docs.microsoft.com/azure/databox/data-box-overview) para semear as suas grandes cópias de segurança iniciais do Microsoft Azure Recovery Services (MARS) offline (sem utilizar a rede) para um cofre dos Serviços de Recuperação. Este processo poupa tempo e largura de banda da rede que, de outra forma, seria consumida movendo grandes quantidades de dados de backup on-line sobre uma rede de alta latência. Esta melhoria está atualmente em pré-visualização. A cópia de segurança offline baseada na Caixa de Dados Azure proporciona duas vantagens distintas sobre a cópia de [segurança offline com base no serviço de importação/exportação Azure:](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export)
 
-* Não há necessidade de adquirir os seus próprios discos e conectores compatíveis com o Azure. A Caixa de Dados Azure envia os discos associados à caixa de dados selecionada [SKU](https://azure.microsoft.com/services/databox/data/).
-* A Backup Azure (Agente MARS) pode escrever diretamente dados de backup nas SKUs suportadas da Caixa de Dados Azure. Esta capacidade elimina a necessidade de fornecer um local de paragem para os seus dados de backup iniciais. Também não precisa de utilitários para formatar e copiar esses dados nos discos.
+- Não há necessidade de adquirir os seus próprios discos e conectores compatíveis com o Azure. A Caixa de Dados Azure envia os discos associados à caixa de dados selecionada [SKU](https://azure.microsoft.com/services/databox/data/).
+- A Backup Azure (Agente MARS) pode escrever diretamente dados de backup nas SKUs suportadas da Caixa de Dados Azure. Esta capacidade elimina a necessidade de fornecer um local de paragem para os seus dados de backup iniciais. Também não precisa de utilitários para formatar e copiar esses dados nos discos.
 
 ## <a name="azure-data-box-with-the-mars-agent"></a>Caixa de dados Azure com o agente MARS
 
@@ -60,10 +60,10 @@ O processo de semente ira dos dados do Agente MARS utilizando a Caixa de Dados A
 
 ### <a name="azure-subscription-and-required-permissions"></a>Assinatura Azure e permissões necessárias
 
-* O processo requer uma subscrição do Azure.
-* O processo requer que o utilizador designado para executar a política de backup offline seja um proprietário da subscrição Azure.
-* O trabalho da Data Box e o cofre dos Serviços de Recuperação (para o qual os dados precisam de ser semeados) são obrigados a estar nas mesmas subscrições.
-* Recomendamos que a conta de armazenamento alvo associada ao trabalho da Caixa de Dados Azure e ao cofre dos Serviços de Recuperação estejam na mesma região. No entanto, isto não é necessário.
+- O processo requer uma subscrição do Azure.
+- O processo requer que o utilizador designado para executar a política de backup offline seja um proprietário da subscrição Azure.
+- O trabalho da Data Box e o cofre dos Serviços de Recuperação (para o qual os dados precisam de ser semeados) são obrigados a estar nas mesmas subscrições.
+- Recomendamos que a conta de armazenamento alvo associada ao trabalho da Caixa de Dados Azure e ao cofre dos Serviços de Recuperação estejam na mesma região. No entanto, isto não é necessário.
 
 ### <a name="get-azure-powershell-370"></a>Obtenha Azure PowerShell 3.7.0
 
@@ -77,7 +77,7 @@ O processo de semente ira dos dados do Agente MARS utilizando a Caixa de Dados A
     Get-Module -ListAvailable AzureRM*
     ```
 
-1.  Se a saída apresentar uma versão superior a 3.7.0, faça "Passo 2". Caso contrário, salte para o "Passo 3".
+1. Se a saída apresentar uma versão superior a 3.7.0, faça "Passo 2". Caso contrário, salte para o "Passo 3".
 
 #### <a name="step-2-uninstall-the-powershell-version"></a>Passo 2: Desinstalar a versão PowerShell
 
@@ -99,11 +99,11 @@ Desinstale a versão atual do PowerShell.
 
 Depois de verificar que não existem módulos AzureRM, instale a versão 3.7.0 utilizando um dos seguintes métodos:
 
-* A partir do GitHub, utilize [este link](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
+- A partir do GitHub, utilize [este link](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 
 Ou pode:
 
-* Executar o seguinte comando na janela PowerShell:
+- Executar o seguinte comando na janela PowerShell:
 
     ```powershell
     Install-Module -Name AzureRM -RequiredVersion 3.7.0
@@ -148,7 +148,7 @@ Se encomendou uma instância de Caixa de Dados Azure (até 100 TB), siga os pass
 
 #### <a name="mount-your-azure-data-box-instance-as-a-local-system"></a>Monte a sua caixa de dados Azure como um Sistema Local
 
-O Agente MARS opera no contexto do Sistema Local, pelo que requer o mesmo nível de privilégio a ser fornecido ao caminho de montagem onde a instância da Caixa de Dados Azure está ligada. 
+O Agente MARS opera no contexto do Sistema Local, pelo que requer o mesmo nível de privilégio a ser fornecido ao caminho de montagem onde a instância da Caixa de Dados Azure está ligada.
 
 Para garantir que pode montar o seu dispositivo Data Box como um Sistema Local utilizando o protocolo NFS:
 
@@ -195,7 +195,7 @@ Para garantir que pode montar o seu dispositivo Data Box como um Sistema Local u
 
     ![Buscar empregos de Data Box para ID de subscrição](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Selecione a correta ordem data box para a qual desfez, ligou e desbloqueou o disco data Box. Selecione **Next**.
+1. Selecione a correta ordem data box para a qual desfez, ligou e desbloqueou o disco data Box. Selecione **Seguinte**.
 
     ![Selecione encomendas de Caixa de Dados](./media/offline-backup-azure-data-box/select-databox-order.png)
 
@@ -238,14 +238,14 @@ Depois de terminar a cópia de segurança dos dados, verá uma página no Agente
 
 Esta secção explica os passos a tomar após a cópia de segurança dos dados ao Disco de Caixa de Dados Azure ter sucesso.
 
-* Siga os passos deste artigo para [enviar o disco Azure Data Box para o Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Se utilizou um dispositivo Azure Data Box 100-TB, siga estes passos para [enviar o dispositivo Azure Data Box para o Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+- Siga os passos deste artigo para [enviar o disco Azure Data Box para o Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Se utilizou um dispositivo Azure Data Box 100-TB, siga estes passos para [enviar o dispositivo Azure Data Box para o Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
 
-* [Monitorize o trabalho da Caixa](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) de Dados no portal Azure. Após o trabalho da Caixa de Dados Azure estar terminado, o Agente MARS transfere automaticamente os dados da conta de armazenamento para o cofre dos Serviços de Recuperação no momento da próxima cópia de segurança programada. Em seguida, marca o trabalho de backup como *Job Completed* se um ponto de recuperação for criado com sucesso.
+- [Monitorize o trabalho da Caixa](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) de Dados no portal Azure. Após o trabalho da Caixa de Dados Azure estar terminado, o Agente MARS transfere automaticamente os dados da conta de armazenamento para o cofre dos Serviços de Recuperação no momento da próxima cópia de segurança programada. Em seguida, marca o trabalho de backup como *Job Completed* se um ponto de recuperação for criado com sucesso.
 
     >[!NOTE]
     >O Agente MARS aciona cópias de segurança nos horários programados durante a criação de políticas. Estes trabalhos assinalam "À espera que o trabalho da Caixa de Dados Azure esteja concluído" até ao momento em que o trabalho esteja concluído.
 
-* Depois de o Agente MARS criar com sucesso um ponto de recuperação que corresponda à cópia de segurança inicial, pode eliminar a conta de armazenamento ou conteúdos específicos associados ao trabalho da Caixa de Dados Azure.
+- Depois de o Agente MARS criar com sucesso um ponto de recuperação que corresponda à cópia de segurança inicial, pode eliminar a conta de armazenamento ou conteúdos específicos associados ao trabalho da Caixa de Dados Azure.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -307,8 +307,8 @@ A partir do servidor está a tentar configurar para backup offline, execute as s
     >[!NOTE]
     > Para obter o ID do utilizador Azure, execute uma destas ações:
     >
-    >* A partir da PowerShell ligada `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` ao Azure, executar o comando.
-    > * Vá para a trajetória de registo *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup* com o nome *CurrentUserId*.
+    >- A partir da PowerShell ligada `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` ao Azure, executar o comando.
+    > - Vá para o `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` caminho do registo com o nome *CurrentUserId*.
 
 6. Clique na corda adicionada no passo anterior e selecione **Modificar**. No valor, forneça a impressão digital do certificado que exportou no passo 2. Selecione **OK**.
 

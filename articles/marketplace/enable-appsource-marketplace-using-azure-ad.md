@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: d2f33fc8b1bdd15b53ad9130b5cc598dd6d5ee1a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 324f8def5ddafb15156a31fe5addabadcee6f115
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684632"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160618"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Ativar uma listagem do AppSource e do Marketplace com o Azure Active Directory
 
@@ -45,7 +45,7 @@ Para mais informações sobre os requisitos técnicos do SaaS, consulte o Guia d
 
 ## <a name="azure-ad-integration"></a>Integração da AD Azure
 
-- Para obter informações sobre como ativar um único sign-on integrando o Azure AD na sua listagem, consulte [o Diretório Ativo Do Azure para programadores]( https://aka.ms/aaddev).
+- Para obter informações sobre como ativar um único sign-on integrando o Azure AD na sua listagem, consulte [o Diretório Ativo Do Azure para programadores]( https://docs.microsoft.com/azure/active-directory/develop/).
 - Para obter detalhes sobre o único sinal de entrada da Azure AD, veja [o que é o acesso à aplicação e o único registo com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 ## <a name="enable-a-trial-listing"></a>Ativar uma listagem de julgamento

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60295148"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determine os requisitos de controlo de acesso para a sua solução de identidade híbrida
@@ -61,7 +61,7 @@ Qual o modelo que a sua organização irá adotar variará de acordo com os seus
   * Se sim, a adoção de um modelo de identidade híbrida afeta este processo?
 
 ## <a name="access-control"></a>Controlo de Acesso
-Embora a autenticação e a autorização sejam elementos fundamentais para permitir o acesso aos dados corporativos através da validação do utilizador, também é importante controlar o nível de acesso que estes utilizadores terão e o nível de acesso que os administradores terão sobre os recursos que estão a gerir. A sua solução de identidade híbrida deve ser capaz de fornecer acesso granular aos recursos, delegação e controlo de acesso de base. Certifique-se de que a seguinte pergunta é respondida no que diz respeito ao controlo de acesso:
+Embora a autenticação e a autorização sejam elementos fundamentais para permitir o acesso aos dados corporativos através da validação do utilizador, é também importante controlar o nível de acesso que estes utilizadores terão e o nível de acesso que os administradores terão sobre os recursos que estão a gerir. A sua solução de identidade híbrida deve ser capaz de fornecer acesso granular aos recursos, delegação e controlo de acesso de base. Certifique-se de que a seguinte pergunta é respondida no que diz respeito ao controlo de acesso:
 
 * A sua empresa tem mais do que um utilizador com privilégioelevado para gerir o seu sistema de identidade?
   * Se sim, cada utilizador precisa do mesmo nível de acesso?

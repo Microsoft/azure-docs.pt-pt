@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b226c37c36da033862377860be4c413229651fb6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6ce2e5a71d48942642ee01d8d2cc75a232abf259
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614048"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159954"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Monitorizar e diagnosticar uma aplicação ASP.NET Core no Service Fabric com o Application Insights
 
@@ -168,7 +168,7 @@ Agora, está pronto para implementar a aplicação. Clique em **Iniciar** na par
 >[!NOTE]
 >Pode ter um erro de construção se não tiver uma versão atualizada do .NET Core SDK instalado.
 
-Assim que a aplicação concluir a implementação, aceda a [localhost:8080](localhost:8080), onde deve ser capaz de ver a aplicação de página única de Votação de Exemplo. Vote nalguns itens da sua preferência para criar alguns dados e telemetria de exemplo – escolhi as sobremesas!
+Uma vez que a aplicação `localhost:8080`esteja implementada, dirija-se para, onde deverá poder ver a aplicação da amostra de voto única. Vote nalguns itens da sua preferência para criar alguns dados e telemetria de exemplo – escolhi as sobremesas!
 
 ![Votos de exemplo de IA](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
 
@@ -251,7 +251,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-Depois de realizar estas alterações, **Inicie** a aplicação para criar e implementar a versão mais recente da mesma. Assim que a aplicação concluir a implementação, aceda a [localhost:8080](localhost:8080) e adicione e elimine algumas opções de votos. Em seguida, volte para o recurso do Application Insights para ver os rastreios para a execução mais recente (como anteriormente, os rastreios podem demorar 1 a 2 minutos a aparecer no Application Insights). Para todos os votos adicionados e eliminados, deverá ver agora um "Evento Personalizado* juntamente com toda a telemetria de resposta.
+Depois de realizar estas alterações, **Inicie** a aplicação para criar e implementar a versão mais recente da mesma. Uma vez que a aplicação `localhost:8080`seja feita, dirija-se a , e adicione e elimine algumas opções de voto. Em seguida, volte para o recurso do Application Insights para ver os rastreios para a execução mais recente (como anteriormente, os rastreios podem demorar 1 a 2 minutos a aparecer no Application Insights). Para todos os votos adicionados e eliminados, deverá ver agora um "Evento Personalizado* juntamente com toda a telemetria de resposta.
 
 ![eventos personalizados](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 

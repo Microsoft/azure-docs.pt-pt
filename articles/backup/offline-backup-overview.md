@@ -3,12 +3,12 @@ title: Visão geral da cópia de segurança offline
 description: Conheça os componentes da cópia de segurança offline. Incluem cópiade segurança offline baseada na Caixa de Dados Azure e cópia de segurança offline com base no serviço de importação/exportação Azure.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 4dae68c46e0072a726bba13139e405b44be0f008
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a33810c633d8c7ca79c559355935d3c11853bc0a
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78196175"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160926"
 ---
 # <a name="overview-of-offline-backup"></a>Visão geral da cópia de segurança offline
 
@@ -27,7 +27,7 @@ A cópia de segurança offline é oferecida em dois modos com base na propriedad
 
 ## <a name="offline-backup-based-on-azure-data-box-preview"></a>Backup offline baseado na Caixa de Dados Azure (pré-visualização)
 
-Este modo é atualmente suportado com o Agente de Serviços de Recuperação do Microsoft Azure (MARS), em pré-visualização. Esta opção aproveita a Caixa de [Dados Azure](https://azure.microsoft.com/services/databox/) para enviar aparelhos de transferência resistentes à Microsoft com conectores USB para o seu datacenter ou escritório remoto. Os dados de cópia de segurança estão diretamente escritos nestes dispositivos. Esta opção poupa o esforço necessário para adquirir os seus próprios discos e conectores compatíveis com o Azure ou para fornecer armazenamento temporário como local de paragem. A Microsoft também lida com a logística de transferência sem fim, que pode rastrear através do portal Azure. 
+Este modo é atualmente suportado com o Agente de Serviços de Recuperação do Microsoft Azure (MARS), em pré-visualização. Esta opção aproveita a Caixa de [Dados Azure](https://azure.microsoft.com/services/databox/) para enviar aparelhos de transferência resistentes à Microsoft com conectores USB para o seu datacenter ou escritório remoto. Os dados de cópia de segurança estão diretamente escritos nestes dispositivos. Esta opção poupa o esforço necessário para adquirir os seus próprios discos e conectores compatíveis com o Azure ou para fornecer armazenamento temporário como local de paragem. A Microsoft também lida com a logística de transferência sem fim, que pode rastrear através do portal Azure.
 
 Uma arquitetura que descreve o movimento de dados de backup com esta opção é mostrada aqui.
 
@@ -44,7 +44,7 @@ Para utilizar cópias de segurança offline baseadas na Caixa de Dados Azure, co
 
 ## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Backup offline com base no serviço azure import/exportação
 
-Esta opção é suportada pelo Microsoft Azure Backup Server (MABS), System Center Data Protection Manager (DPM) DPM-A e pelo Agente MARS. Utiliza o [serviço de importação/exportação Azure.](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) Pode transferir dados de backup iniciais para o Azure utilizando os seus próprios discos e conectores compatíveis com o Azure. Esta abordagem requer que você provisão de armazenamento temporário conhecido como a localização de encenação e use utilitários pré-construídos para formatar e copiar os dados de backup em discos propriedade do cliente. 
+Esta opção é suportada pelo Microsoft Azure Backup Server (MABS), System Center Data Protection Manager (DPM) DPM-A e pelo Agente MARS. Utiliza o [serviço de importação/exportação Azure.](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) Pode transferir dados de backup iniciais para o Azure utilizando os seus próprios discos e conectores compatíveis com o Azure. Esta abordagem requer que você provisão de armazenamento temporário conhecido como a localização de encenação e use utilitários pré-construídos para formatar e copiar os dados de backup em discos propriedade do cliente.
 
 Uma arquitetura que descreve o movimento de dados de backup com esta opção é mostrada aqui.
 
@@ -81,6 +81,6 @@ A tabela seguinte compara as duas opções disponíveis para que possa fazer as 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Backup offline Azure Backup utilizando caixa de dados Azure](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
-* [Fluxo de trabalho de backup offline em Backup Azure](backup-azure-backup-import-export.md) 
-* [Fluxo de trabalho de backup offline para DPM e Servidor de Backup Azure](backup-azure-backup-server-import-export-.md)
+- [Backup offline Azure Backup utilizando caixa de dados Azure](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
+- [Fluxo de trabalho de backup offline em Backup Azure](backup-azure-backup-import-export.md)
+- [Fluxo de trabalho de backup offline para DPM e Servidor de Backup Azure](backup-azure-backup-server-import-export-.md)

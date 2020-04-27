@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: spelluru
-ms.openlocfilehash: bc8ec6cf4845eb100af5dcd80101f17102d2b7ac
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: fd4b41cc2fe97ad0c2f075884e21f4f2ffc01561
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682149"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159459"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Envie eventos e receba eventos de Azure Event Hubs - .NET Core (Azure.Messaging.EventHubs) 
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando a biblioteca **Azure.Messaging.EventHubs** .NET Core. 
@@ -126,7 +126,7 @@ Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Sig
 
 1. [Criar uma conta de Armazenamento Azure](/azure/storage/common/storage-account-create?tabs=azure-portal)
 2. [Criar um contentor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Obtenha a cadeia de ligação à conta de armazenamento](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
+3. [Obtenha a cadeia de ligação à conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 
     Anote a corda de ligação e o nome do recipiente. Vaiusá-los no código de receção. 
 

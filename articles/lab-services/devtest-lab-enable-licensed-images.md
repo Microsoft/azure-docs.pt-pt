@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 11b6553fe8aceef0d3d15977998dd870c275128a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61294340"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Ative uma imagem licenciada no seu laboratório em Azure DevTest Labs
@@ -28,7 +28,7 @@ No Azure DevTest Labs, uma imagem licenciada é uma imagem que inclui termos e c
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Determinar se uma imagem licenciada está disponível para os utilizadores
 O primeiro passo para permitir que os utilizadores criem VMs a partir de uma imagem licenciada é garantir que os termos e condições foram aceites para a imagem licenciada. Os seguintes passos mostram como pode ver o estado da oferta de uma imagem licenciada e, se necessário, aceitar os seus termos e condições.
 
-1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Selecione **Todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 

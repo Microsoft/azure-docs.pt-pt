@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 4500fcfa6fbfb346a6e5c7fd045ba0046a901b91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60561629"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Reimplantar um VM num laboratório em Laboratórios Azure DevTest
@@ -27,7 +27,7 @@ Se não conseguir ligar-se a uma máquina virtual (VM) num laboratório através
 ## <a name="steps-to-redeploy-a-vm-in-a-lab"></a>Passos para reimplantar um VM em um laboratório 
 Para reimplantar um VM num laboratório em Azure DevTest Labs, tome os seguintes passos: 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Da lista de laboratórios, selecione o laboratório que inclui o VM que quer reimplantar.  
 4. No painel esquerdo, selecione **My Virtual Machines**. 

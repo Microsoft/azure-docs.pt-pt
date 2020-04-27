@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68727200"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Componentes e limites do sistema de informação Azure
@@ -83,9 +83,9 @@ As equipas de serviço são:
 - Rede Azure
 - Serviços de Engenharia de Nuvem
 - ISSD: Segurança
-- Autenticação Multifator
+- Autenticação multifactor
 - SQL Database
-- Storage
+- Armazenamento
 
 ## <a name="types-of-users"></a>Tipos de utilizadores
 Os colaboradores (ou empreiteiros) da Microsoft são considerados utilizadores internos. Todos os outros utilizadores são considerados utilizadores externos. Todos os utilizadores internos do Azure têm o seu estatuto de colaborador categorizado com um nível de sensibilidade que define o seu acesso aos dados dos clientes (acesso ou sem acesso). Os privilégios do utilizador para o Azure (autorização após a autenticação) são descritos na tabela seguinte:

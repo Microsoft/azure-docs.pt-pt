@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 2b73fee33692b65770caeea651c12e9780dba2c4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3871ef232d9a2315ece632f6f764f8377a8435c5
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81681374"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159920"
 ---
 # <a name="support-for-the-marketplace"></a>Apoio ao Mercado
 
@@ -22,13 +22,13 @@ Além disso, pode obter muitas das suas perguntas respondidas no [canal marketpl
 
 ## <a name="onboarding"></a>Inclusão
 
-Abra um bilhete com o suporte da [editora do mercado](https://aka.ms/marketplacepublishersupport) da Microsoft para problemas com o embarque e o início.
+Abra um bilhete com o suporte da [editora do mercado](https://partner.microsoft.com/support/v2/?stage=1) da Microsoft para problemas com o embarque e o início.
 
 ## <a name="partner-center"></a>Centro de Parceiros   
 
 | Canal de suporte | Descrição | Disponibilidade |  
 |:--- |:--- |:--- |  
-| Para assistência, visite a página Criar uma página de incidentes localizada no [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Suporte para Partner Center. | O suporte é fornecido 24x5. |  
+| Para assistência, visite a página Criar uma página de incidentes localizada no [Marketplace Support](https://partner.microsoft.com/support/v2/?stage=1)</li> </ul> | Suporte para Partner Center. | O suporte é fornecido 24x5. |  
 
 ## <a name="technical"></a>Parte Técnica  
 

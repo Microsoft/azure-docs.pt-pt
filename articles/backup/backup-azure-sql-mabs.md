@@ -3,12 +3,12 @@ title: Backup SQL Server utilizando o Servidor de Backup Azure
 description: Neste artigo, aprenda a configuração para fazer backup das bases de dados do SQL Server utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 4a4d4b7e70e2df0e014ea4b4d23027aa7c48f2fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cd6a8b76e4618031f4d21dc04a82a78fad0076d
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505944"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159255"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Backup SQL Server para Azure usando o Servidor de Backup Azure
 
@@ -24,7 +24,7 @@ Para fazer um backup a uma base de dados do SQL Server e recuperá-la do Azure:
 
 Antes de começar, certifique-se de que [instalou e preparou](backup-azure-microsoft-azure-backup.md)o Servidor de Backup Azure .
 
-## <a name="create-a-backup-policy"></a>Criar uma política de backup 
+## <a name="create-a-backup-policy"></a>Criar uma política de backup
 
 Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma política de backup:
 
@@ -36,7 +36,7 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
 1. Para o tipo de grupo de proteção, selecione **Servidores**.
 
     ![Selecione o tipo de grupo de proteção de Servidores](./media/backup-azure-backup-sql/pg-servers.png)
-1. Expanda a máquina SQL Server onde estão localizadas as bases de dados que pretende fazer. Vê as fontes de dados que podem ser apoiadas a partir desse servidor. Expandir **todas as ações Da SQL** e, em seguida, selecionar as bases de dados que pretende fazer o seu apoio. Neste exemplo, selecionamos reportServer$MSDPM2012 e ReportServer$MSDPM2012TempDB. Selecione **Next**.
+1. Expanda a máquina SQL Server onde estão localizadas as bases de dados que pretende fazer. Vê as fontes de dados que podem ser apoiadas a partir desse servidor. Expandir **todas as ações Da SQL** e, em seguida, selecionar as bases de dados que pretende fazer o seu apoio. Neste exemplo, selecionamos reportServer$MSDPM2012 e ReportServer$MSDPM2012TempDB. Selecione **Seguinte**.
 
     ![Selecione uma base de dados do Servidor SQL](./media/backup-azure-backup-sql/pg-databases.png)
 1. Nomeie o grupo de proteção e, em seguida, selecione **quero proteção on-line**.
@@ -53,7 +53,7 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
    >
    >
 
-1. Selecione **Next**. O MABS mostra o espaço de armazenamento global disponível. Também mostra a potencial utilização do espaço do disco.
+1. Selecione **Seguinte**. O MABS mostra o espaço de armazenamento global disponível. Também mostra a potencial utilização do espaço do disco.
 
     ![Configurar a atribuição de disco em MABS](./media/backup-azure-backup-sql/pg-storage.png)
 
@@ -86,7 +86,6 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
     >
     > Utilize o Gestor de Proteção de Dados (DPM) para agendar backups do Azure após o acabamento das cópias de segurança do disco local. Quando segue esta prática, a última cópia de segurança do disco é copiada para O Azure.
     >
-
 
 1. Escolha o calendário da política de retenção. Para obter mais informações sobre como funciona a política de retenção, consulte [use O Backup Azure para substituir a sua infraestrutura](backup-azure-backup-cloud-as-tape.md)de fita.
 
@@ -123,7 +122,7 @@ Um ponto de recuperação é criado quando ocorre o primeiro backup. Em vez de e
 1. No menu suspenso, selecione **proteção Online**. Em seguida, selecione **OK** para iniciar a criação de um ponto de recuperação em Azure.
 
     ![Comece a criar um ponto de recuperação em Azure](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-1. Pode ver o progresso do trabalho no espaço de trabalho **de monitorização.** 
+1. Pode ver o progresso do trabalho no espaço de trabalho **de monitorização.**
 
     ![Ver o progresso do trabalho na consola de monitorização](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
@@ -137,7 +136,7 @@ Para recuperar uma entidade protegida, como uma base de dados do SQL Server, do 
 1. Clique no nome da base de dados e selecione **Recuperar**.
 
     ![Recuperar uma base de dados do Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. DPM mostra os detalhes do ponto de recuperação. Selecione **Next**. Para substituir a base de dados, selecione o tipo de recuperação **Recuperar para a instância original do Servidor SQL**. Em seguida, selecione **Seguinte**.
+1. DPM mostra os detalhes do ponto de recuperação. Selecione **Seguinte**. Para substituir a base de dados, selecione o tipo de recuperação **Recuperar para a instância original do Servidor SQL**. Em seguida, selecione **Seguinte**.
 
     ![Recuperar uma base de dados da sua localização original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 

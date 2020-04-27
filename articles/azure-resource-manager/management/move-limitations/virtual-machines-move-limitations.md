@@ -3,12 +3,12 @@ title: Move Os VMs Azure para um novo grupo de subscrição ou recursos
 description: Utilize o Gestor de Recursos Azure para mover máquinas virtuais para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: df34268b7741f76621c290e9979cf24d828ddc09
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 144888c4a66ef68448ae8bc863f6aef0923dfb69
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478659"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160124"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover orientação para máquinas virtuais
 
@@ -33,15 +33,18 @@ Se o [soft delete](../../../backup/backup-azure-security-feature-cloud.md) estiv
 
 ### <a name="portal"></a>Portal
 
-1. Selecione a máquina virtual configurada para cópia de segurança.
+1. Pare temporariamente a cópia de segurança e guarde os dados de backup.
+2. Para mover máquinas virtuais configuradas com Backup Azure, faça os seguintes passos:
 
-1. No painel esquerdo, selecione **Backup**.
+   1. Encontre a localização da sua máquina virtual.
+   2. Encontre um grupo de recursos `AzureBackupRG_<location of your VM>_1`com o seguinte padrão de nomeação: . Por exemplo, *AzureBackupRG_westus2_1*
+   3. No portal Azure, verifique **tipos de mostrar em oposição.**
+   4. Encontre o recurso com o tipo **Microsoft.Compute/restorePointCollections** que tem o padrão `AzureBackup_<name of your VM that you're trying to move>_###########`de nomeação .
+   5. Apague este recurso. Esta operação elimina apenas os pontos de recuperação instantâneas, não os dados de back-up no cofre.
+   6. Depois de concluída a operação de eliminação, pode mover a sua máquina virtual.
 
-1. Selecione **parar a cópia de segurança**.
-
-1. **Selecione Eliminar dados de volta**.
-
-1. Depois de ser apagado, pode mover o cofre e a máquina virtual para a subscrição do alvo. Depois da mudança, podecontinuar os reforços.
+3. Mova o VM para o grupo de recursos alvo.
+4. Retome a reserva.
 
 ### <a name="powershell"></a>PowerShell
 

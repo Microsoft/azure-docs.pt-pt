@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: 2a6650cac975c575415a329361da00d4fbfcaa9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68965123"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série StorSimple 8000: uma solução híbrida de armazenamento em nuvem
@@ -59,7 +59,7 @@ A solução Microsoft Azure StorSimple inclui os seguintes componentes:
 * **Dispositivo Microsoft Azure StorSimple** – um conjunto de armazenamento híbrido no local que contém SSDs e HDDs, juntamente com controladores redundantes e capacidades automáticas de failover. Os controladores gerem o tiering de armazenamento, colocando dados atualmente utilizados (ou quentes) no armazenamento local (no dispositivo ou nos servidores no local), enquanto movem dados menos utilizados para a nuvem.
 * **StorSimple Cloud Appliance** – também conhecido como StorSimple Virtual Appliance, esta é uma versão de software do dispositivo StorSimple que replica a arquitetura e a maioria das capacidades do dispositivo de armazenamento híbrido físico. O StorSimple Cloud Appliance funciona num único nó numa máquina virtual Azure. Os dispositivos virtuais premium, que aproveitam o armazenamento premium do Azure, estão disponíveis no Update 2 e posteriormente.
 * **Serviço StorSimple Device Manager** – uma extensão do portal Azure que permite gerir um dispositivo StorSimple ou Um Aparelho Cloud StorSimple a partir de uma única interface web. Pode utilizar o serviço StorSimple Device Manager para criar e gerir serviços, visualizar e gerir dispositivos, visualizar alertas, gerir volumes e visualizar e gerir políticas de backup e o catálogo de backup.
-* **Windows PowerShell para StorSimple** – uma interface de linha de comando que pode utilizar para gerir o dispositivo StorSimple. O Windows PowerShell para o StorSimple possui funcionalidades que permitem registar o seu dispositivo StorSimple, configurar a interface de rede no seu dispositivo, instalar certos tipos de atualizações, resolver problemas ao aceder à sessão de suporte e alterar o dispositivo estado. Pode aceder ao Windows PowerShell para StorSimple conectando-se à consola em série ou utilizando o remo do Windows PowerShell.
+* **Windows PowerShell para StorSimple** – uma interface de linha de comando que pode utilizar para gerir o dispositivo StorSimple. O Windows PowerShell para o StorSimple possui funcionalidades que permitem registar o seu dispositivo StorSimple, configurar a interface de rede no seu dispositivo, instalar certos tipos de atualizações, resolver problemas ao aceder à sessão de suporte e alterar o estado do dispositivo. Pode aceder ao Windows PowerShell para StorSimple conectando-se à consola em série ou utilizando o remo do Windows PowerShell.
 * **StorSimple StorLets Azure PowerShell** – uma coleção de cmdlets Windows PowerShell que lhe permitem automatizar tarefas de nível de serviço e migração a partir da linha de comando. Para mais informações sobre os cmdlets Azure PowerShell para StorSimple, vá à [referência cmdlet](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0#azure).
 * **StorSimple Snapshot Manager** – um snap-in MMC que utiliza grupos de volume e o Serviço de Cópia sonante do Volume windows para gerar backups consistentes com aplicações. Além disso, pode utilizar o StorSimple Snapshot Manager para criar horários de backup e clonar ou restaurar volumes.
 * **StorSimple Adapter para SharePoint** – uma ferramenta que alarga de forma transparente a proteção de armazenamento e dados do Microsoft Azure StorSimple às explorações do SharePoint Server, ao mesmo tempo que faz com que o armazenamento StorSimple seja visível e gerível a partir do portal da Administração Central sharePoint.
@@ -214,7 +214,7 @@ Um resumo das cargas de trabalho storSimple suportadas é tabulado abaixo.
 | Colaboração |Partilha de ficheiros distribuídos |Sim | |Todas as versões |
 | Colaboração |SharePoint |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
 | Arquivo |Arquivamento simples de ficheiros |Sim | |Todas as versões |
-| Virtualização |Virtual Machines |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
+| Virtualização |Máquinas virtuais |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
 | Base de Dados |SQL |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
 | Videovigilância |Videovigilância |Sim* |Suportado quando o dispositivo StorSimple é dedicado apenas a esta carga de trabalho |Atualização 2 e mais tarde |
 | Cópia de segurança |Backup do alvo primário |Sim* |Suportado quando o dispositivo StorSimple é dedicado apenas a esta carga de trabalho |Atualização 3 e mais tarde |

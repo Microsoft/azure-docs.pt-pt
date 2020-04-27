@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 352ff91bf26c7ff4f6945431fe6e1357f030e1db
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 6b16398c7c1fd53562df7e4ac8e801a8c97162f6
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477525"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159442"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Envie eventos ou receba eventos de centros de eventos utilizando Python (versão azure-eventhub 5)
 Este quickstart mostra como enviar eventos e receber eventos de um hub de eventos usando o pacote **azure-eventhub versão 5** Python.
@@ -93,7 +93,7 @@ Crie uma conta de armazenamento Azure e um recipiente de bolhas, fazendo os segu
 
 1. [Criar uma conta de Armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Criar um contentor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Obtenha a cadeia de ligação à conta de armazenamento](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
+3. [Obtenha a cadeia de ligação à conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 
 Certifique-se de que regista o nome da cadeia de ligação e do recipiente para posterior utilização no código de receção.
 

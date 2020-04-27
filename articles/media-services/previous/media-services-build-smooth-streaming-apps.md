@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69016797"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como construir uma aplicação de loja de janelas de streaming suave  
 
-O Smooth Streaming Client SDK para windows 8 permite aos desenvolvedores construir aplicações da Windows Store que podem reproduzir a pedido e viver conteúdos de Streaming Suave. Além da reprodução básica de conteúdos smooth streaming, o SDK também fornece funcionalidades ricas como proteção Microsoft PlayReady, restrição de nível de qualidade, DVR ao vivo, comutação de fluxo de áudio, audição de atualizações de estado (como alterações de nível de qualidade) e erros, e assim por diante. Para obter mais informações sobre as funcionalidades suportadas, consulte as notas de [lançamento](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Para mais informações, consulte A Estrutura do [Jogador para o Windows 8](https://playerframework.codeplex.com/). 
+O Smooth Streaming Client SDK para windows 8 permite aos desenvolvedores construir aplicações da Windows Store que podem reproduzir a pedido e viver conteúdos de Streaming Suave. Além da reprodução básica de conteúdos smooth streaming, o SDK também fornece funcionalidades ricas como proteção Microsoft PlayReady, restrição de nível de qualidade, DVR ao vivo, comutação de fluxos de áudio, audição de atualizações de estado (tais como alterações de nível de qualidade) e eventos de erro, e assim por diante. Para obter mais informações sobre as funcionalidades suportadas, consulte as notas de [lançamento](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Para mais informações, consulte A Estrutura do [Jogador para o Windows 8](https://playerframework.codeplex.com/). 
 
 Este tutorial contém quatro lições:
 

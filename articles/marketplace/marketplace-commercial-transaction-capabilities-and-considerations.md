@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 7a0f0b96f8140118f1c74ecbd4368aac49d7ece6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: d3e3afecc441a010ff28ef8970a1da7b1e99ffc6
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684299"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160533"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades transatas de mercado comercial
 
@@ -208,7 +208,7 @@ Quando são selecionados os modelos de preços pay-as-You-Go, a Microsoft atua c
 
 Para obter mais informações e políticas legais, consulte o Acordo de [Editor](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (disponível no Partner Center).
 
-Para obter ajuda em questões de faturação, contacte o suporte da [editora do mercado comercial.](https://aka.ms/marketplacepublishersupport)
+Para obter ajuda em questões de faturação, contacte o suporte da [editora do mercado comercial.](https://partner.microsoft.com/support/v2/?stage=1)
 
 ## <a name="transact-requirements"></a>Requisitos transatas
 

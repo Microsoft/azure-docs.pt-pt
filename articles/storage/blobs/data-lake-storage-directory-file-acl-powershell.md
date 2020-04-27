@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 68ffe40f93be3d10666ebad2eaa153fc9dc9687f
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: db098210d6de28d9dc1db7e264459f57bc0f4d86
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768014"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82161028"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use powerShell para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -412,11 +412,7 @@ A tabela seguinte mostra como os cmdlets utilizados para o mapa Gen1 de Armazena
 |Set-AzDataLakeStoreItemOwner<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|O AzDataLakeGen2Item cmdlet atualiza apenas um item e não recursivamente. Se pretender atualizar de forma recursiva, lista os itens utilizando o cmdlet Get-AzDataLakeStoreChildItem, em seguida, o gasoduto para o AzDataLakeGen2Item cmdlet.|
 |Test-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|O Cmdlet Get-AzDataLakeGen2Item reportará um erro se o item não existir.|
 
-
-
 ## <a name="see-also"></a>Consulte também
 
-* [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Utilização da Azure PowerShell com armazenamento Azure.](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Armazenamento PowerShell cmdlets](/powershell/module/az.storage).
-
+* [Questões conhecidas](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Cmdlets do Armazenamento do PowerShell](/powershell/module/az.storage)

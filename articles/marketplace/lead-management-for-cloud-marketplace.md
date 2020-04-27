@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 09b02d043e970c68cdff0e3dc4f97328c9d74c84
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 6f93e00cb9f840b27578eb9a5b0c6a2cab1ac525
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383784"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160550"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Gestão de chumbo para o mercado comercial
 
@@ -90,7 +90,7 @@ Os leads são clientes que estão a implantar os seus produtos a partir do Marke
 
 **Onde posso arranjar ajuda para preparar o meu destino principal?** 
 
-Você pode encontrar documentação aqui: [Obtenha pistas](./partner-center-portal/commercial-marketplace-get-customer-leads.md) de cliente ou envie um bilhete de suporte através aka.ms/marketplacepublishersupport selecionar tipo de oferta e gestão de chumbo. 
+Você pode encontrar documentação no [Get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) ou enviar um bilhete de suporte na Ajuda e [suporte](https://partner.microsoft.com/support/v2/?stage=1). Selecione tipo de oferta e gestão de chumbo. 
 
 **Sou obrigado a configurar um destino de chumbo para publicar uma oferta no Marketplace?**
 
@@ -187,7 +187,7 @@ O chumbo só é escrito quando seleciona o armazenamento Azure BLOB como destino
 
 **Recebi um e-mail do Marketplace, por que não encontro a pista no meu CRM?**  
 
-É possível que o domínio de e-mail do utilizador final seja de .edu. Por razões de privacidade não passamos dados pessoais identificáveis do domínio .edu. Envie um bilhete de [apoio](https://aka.ms/marketplacepublishersupport).
+É possível que o domínio de e-mail do utilizador final seja de .edu. Por razões de privacidade não passamos dados pessoais identificáveis do domínio .edu. Envie um bilhete de apoio na [Ajuda e suporte.](https://partner.microsoft.com/support/v2/?stage=1)
 
 **Configurei a Azure Table/Azure BLOB como o meu destino principal, como posso ver as pistas?** 
 

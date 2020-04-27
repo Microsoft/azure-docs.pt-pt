@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 4767f7bb5ba02c838c0e21721e55a6564a14acd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "69016660"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparação de Azure sobre codificadores de meios de comunicação de procura  
@@ -47,7 +47,7 @@ O quadro seguinte compara a funcionalidade entre media Encoder Standard (MES) e 
 | Nome do processador de mídia | Preços aplicáveis | Notas |
 | --- | --- | --- |
 | **Media Encoder Standard** |CODIFICAdor |As tarefas de codificação serão cobradas com base na duração total, em minutos, de todos os ficheiros de mídia produzidos como saída, à taxa [aqui][1]especificada, sob a coluna ENCODER. |
-| **Fluxo de Trabalho Premium do Codificador de Multimédia** |PREMIUM ENCODER |As tarefas de codificação serão cobradas com base na duração total, em minutos, de todos os ficheiros de mídia produzidos como saída, à taxa [aqui][1]especificada, sob a coluna PREMIUM ENCODER. |
+| **Fluxo de Trabalho Premium de Codificador de Multimédia** |PREMIUM ENCODER |As tarefas de codificação serão cobradas com base na duração total, em minutos, de todos os ficheiros de mídia produzidos como saída, à taxa [aqui][1]especificada, sob a coluna PREMIUM ENCODER. |
 
 ## <a name="input-containerfile-formats"></a>Formatos de recipiente de entrada/ficheiro
 | Contentor de Entrada/Formatos de Ficheiro | Media Encoder Standard | Fluxo de Trabalho Premium de Codificador de Multimédia |

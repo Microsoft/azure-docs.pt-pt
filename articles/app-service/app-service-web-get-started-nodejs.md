@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: bcb0ae2457175e7511c3539187d72d48e80baa5b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ad1be88fa7152680551909d91ea4d9f7e79dc00f
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047120"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159784"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure 
 
@@ -23,7 +23,7 @@ Inicie-se com o Azure App Service criando uma aplicação Node.js/Express localm
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension)
 - [Node.js e npm.](https://nodejs.org) Execute `node --version` o comando para verificar se o Node.js está instalado.
 - [Código de estúdio visual.](https://code.visualstudio.com/)
-- A extensão do Serviço de [Aplicações Azure](vscode:extension/ms-azuretools.vscode-azureappservice) para Código de Estúdio Visual.
+- A extensão do Serviço de [Aplicações Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) para Código de Estúdio Visual.
 
 ## <a name="clone-and-run-a-local-nodejs-application"></a>Clone e executar uma aplicação local Node.js
 
@@ -159,7 +159,7 @@ Parabéns, conseguiste ter conseguido este arranque rápido!
 
 Em seguida, confira as outras extensões Azure.
 
-* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [BD do Cosmos](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Funções do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Ferramentas do Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 * [Ferramentas Azure CLI](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: ef81e74b07a351139aa8feefbdf1b89ea7e4994f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68727194"
 ---
 # <a name="azure-infrastructure-integrity"></a>Integridade da infraestrutura azure
@@ -53,7 +53,7 @@ A SQL Database emprega agentes de monitorização personalizados (MAs), também 
 O Azure garante que todas as funções implementadas, executantes (web viradas para a Internet ou funções de trabalhadores de processamento de back-end) estão sujeitas a uma monitorização sustentada da saúde para garantir que fornecem de forma eficaz e eficiente os serviços para os quais foram prestados. Se um papel se tornar insalubre, por uma falha crítica na aplicação que está a ser hospedada ou por um problema de configuração subjacente dentro da própria instância de função, o FC deteta o problema dentro da instância de função e inicia um estado corretivo.
 
 ### <a name="compute-connectivity"></a>Conectividade computacional
-O Azure garante que a aplicação ou serviço implementado é acessível através de protocolos padrão baseados na Web. As instâncias virtuais de funções web viradas para a Internet têm conectividade externa da Internet e são acessíveis diretamente pelos utilizadores da web. Para proteger a sensibilidade e integridade das operações que os papéis dos trabalhadores desempenham em nome do papel web acessível ao público, as instâncias virtuais das funções de trabalhador esporão de processamento de back-end têm conectividade externa da Internet, mas não podem ser acedido diretamente por utilizadores externos da web.
+O Azure garante que a aplicação ou serviço implementado é acessível através de protocolos padrão baseados na Web. As instâncias virtuais de funções web viradas para a Internet têm conectividade externa da Internet e são acessíveis diretamente pelos utilizadores da web. Para proteger a sensibilidade e integridade das operações que os papéis dos trabalhadores desempenham em nome do papel web acessível ao público, as instâncias virtuais das funções de trabalhadores de processamento de back-end têm conectividade externa da Internet, mas não podem ser acedidas diretamente por utilizadores externos da web.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que a Microsoft faz para garantir a infraestrutura Azure, consulte:

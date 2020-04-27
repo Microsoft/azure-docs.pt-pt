@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.openlocfilehash: 62e6b007e89fc6be726d3d971ca838770db9cb6e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 51607f44f75cbd93c7ecf1c77bb52c73b27b5f3c
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75422141"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159750"
 ---
 # <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Desloque um recipiente linux personalizado para o Serviço de Aplicações Azure
 
@@ -20,9 +20,9 @@ O Serviço de Aplicações no Linux fornece pilhas de aplicações pré-definida
 
 * Uma [conta Azure](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 * [Estivador](https://www.docker.com/community-edition)
-* [Código de estúdio visual](https://code.visualstudio.com/)
-* A extensão do Serviço de [Aplicações Azure para o Código VS](vscode:extension/ms-azuretools.vscode-azureappservice). Pode utilizar esta extensão para criar, gerir e implementar aplicações Web Linux na Plataforma Azure como serviço (PaaS).
-* A [extensão do Docker para o Código VS](vscode:extension/ms-azuretools.vscode-docker). Pode utilizar esta extensão para simplificar a gestão de imagens e comandos locais do Docker e para implementar imagens de aplicações construídas para o Azure.
+* [Visual Studio Code](https://code.visualstudio.com/)
+* A extensão do Serviço de [Aplicações Azure para o Código VS](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Pode utilizar esta extensão para criar, gerir e implementar aplicações Web Linux na Plataforma Azure como serviço (PaaS).
+* A [extensão do Docker para o Código VS](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). Pode utilizar esta extensão para simplificar a gestão de imagens e comandos locais do Docker e para implementar imagens de aplicações construídas para o Azure.
 
 ## <a name="create-an-image"></a>Criar uma imagem
 
@@ -80,7 +80,7 @@ Parabéns, conseguiste ter conseguido este arranque rápido!
 
 Em seguida, confira as outras extensões Azure.
 
-* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [BD do Cosmos](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Funções do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Ferramentas Azure CLI](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 * [Ferramentas de Gestor de Recursos Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

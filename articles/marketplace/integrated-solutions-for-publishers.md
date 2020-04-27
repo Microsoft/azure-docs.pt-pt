@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: ce3dbf416da11fd6863622f1c6911eecb3726461
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 835aa0192dc37032a76bf3863dc1a4ac0109bb22
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684468"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160567"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicar uma solução integrada
 
@@ -20,7 +20,7 @@ Numa única oferta agregada, uma solução integrada combina tecnologias de solu
 
 As soluções integradas visam responder a uma necessidade ou cenário específico do cliente. Os fornecedores começam por compreender o desafio da indústria ou os pontos de dor. Em seguida, integram duas ou mais tecnologias de melhor raça para criar uma experiência de implantação unificada e repetível para os clientes. Os fornecedores fazem com que os clientes se aedriem rapidamente. Oferecem um único ponto de contacto com o cliente, proporcionando uma personalização relevante, consultoria e suporte à solução. O resultado é uma solução integrada, incluindo tecnologia e serviços.
 
-Para uma visão geral do programa Soluções Integradas, veja [este vídeo](https://aka.ms/AA5qos4).
+Para uma visão geral do programa Soluções Integradas, veja o [vídeo de visão geral para parceiros.](https://partner.microsoft.com/asset/detail/integrated-solutions-program-overview-for-partners-mp4)
 
 ## <a name="benefits-of-integrated-solutions-in-the-marketplace"></a>Benefícios de soluções integradas no mercado
 
@@ -52,7 +52,7 @@ Para uma visão geral do programa Soluções Integradas, veja [este vídeo](http
 
 ## <a name="submit-a-nomination"></a>Submeter uma nomeação
 
-Os parceiros que queiram participar no programa devem identificar outros parceiros com quem queiram trabalhar. Devem completar o formulário de nomeação de [Soluções Integradas.](https://aka.ms/AA5qicu) A equipa do programa Soluções Integradas analisa a nomeação e segue no prazo de 10 dias úteis. A equipa dá aprovação e próximos passos.
+Os parceiros que queiram participar no programa devem identificar outros parceiros com quem queiram trabalhar. Devem completar o formulário de nomeação de [Soluções Integradas.](https://assetsprod.microsoft.com/mpn/integrated-solutions-partner-nomination.docx) A equipa do programa Soluções Integradas analisa a nomeação e segue no prazo de 10 dias úteis. A equipa dá aprovação e próximos passos.
 
 ## <a name="develop-an-integrated-solution"></a>Desenvolver uma solução integrada
 
@@ -84,9 +84,9 @@ Depois da sua nomeação ser aprovada, utilize os recursos do programa ligados p
 
     Utilize estes recursos para o processo de desenvolvimento:
 
-    * [Guia de discussão de workshops de decisão de negócios](https://aka.ms/AA5qicx)
-    * [Guia de discussão do workshop de decisão técnica](https://aka.ms/AA5qid1)
-    * [Vídeo quickstart: Workshops de negócios e técnicos](https://aka.ms/AA5qos9)
+    * [Guia de discussão de workshops de decisão de negócios](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-business-workshop.pptx)
+    * [Guia de discussão do workshop de decisão técnica](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-technical-workshop.pptx)
+    * [Vídeo quickstart: Workshops de Soluções Integradas](https://partner.microsoft.com/asset/detail/integrated-solutions-workshop-quickstart-guide-mp4)
 
 1. Identifique um gestor de projetos inter-parceiros para impulsionar o plano de projeto e a linha temporal que desenvolveu nos workshops de negócios e técnicos.
 
@@ -98,8 +98,8 @@ Depois da sua nomeação ser aprovada, utilize os recursos do programa ligados p
 
     * Um nome de solução combinada.
     * Uma descrição da listagem da solução integrada. Siga [as melhores práticas de listagem de ofertas.](./gtm-offer-listing-best-practices.md)
-    * Um pitch de uma página para os clientes. Utilize o [modelo de uma página](https://aka.ms/AA5s08a).
-    * Uma apresentação do cliente. Utilize o [modelo de apresentação](https://aka.ms/AA5s7ql).
+    * Um pitch de uma página para os clientes. Utilize o [modelo de uma página](https://assetsprod.microsoft.com/mpn/integrated-solutions-customer-one-pager-template.pptx).
+    * Uma apresentação do cliente. Utilize o [modelo de apresentação](https://assetsprod.microsoft.com/mpn/customer-presentation-template.pptx).
     * Um logotipo para a solução combinada.
 
 ## <a name="publish-your-integrated-solution"></a>Publique a sua solução integrada

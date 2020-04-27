@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67875307"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como alvo de reserva com Veeam
@@ -276,11 +276,11 @@ Com base nos pressupostos anteriores, crie um volume de 26 TiB StorSimple tiered
 
     ![Consola de gestão Veeam, página de repositório de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  Na caixa de diálogo de **repositório de backup new backup,** introduza um nome e descrição para o repositório. Selecione **Next**.
+2.  Na caixa de diálogo de **repositório de backup new backup,** introduza um nome e descrição para o repositório. Selecione **Seguinte**.
 
     ![Consola de gestão Veeam, nome e página de descrição](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  Para este tipo, selecione **o servidor Microsoft Windows**. Selecione o servidor Veeam. Selecione **Next**.
+3.  Para este tipo, selecione **o servidor Microsoft Windows**. Selecione o servidor Veeam. Selecione **Seguinte**.
 
     ![Consola de gestão Veeam, selecione tipo de repositório de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -293,7 +293,7 @@ Com base nos pressupostos anteriores, crie um volume de 26 TiB StorSimple tiered
 
     ![Consola de gestão Veeam, definições de compatibilidade de armazenamento](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  Na nova caixa de diálogo de **repositório** de backup, selecione o **serviço Enable vPower NFS na** caixa de verificação do servidor de montagem (recomendado). Selecione **Next**.
+6.  Na nova caixa de diálogo de **repositório** de backup, selecione o **serviço Enable vPower NFS na** caixa de verificação do servidor de montagem (recomendado). Selecione **Seguinte**.
 
     ![Consola de gestão Veeam, página de repositório de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 

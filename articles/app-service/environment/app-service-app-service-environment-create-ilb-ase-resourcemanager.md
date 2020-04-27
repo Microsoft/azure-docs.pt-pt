@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: f05780610a2a6033b069721b143aca5e5efa6c35
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: e24e78d5661c2fbb60a96c2fb6d6192ffade9579
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804525"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159699"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Como Criar um ASE do ILB Utilizando Modelos do Azure Resource Manager
 
@@ -50,7 +50,7 @@ Uma vez preenchido o ficheiro *azuredeploy.parameters.json* para um ILB ASE, o I
 Após a apresentação do modelo de Gestor de Recursos Azure, levará algumas horas para a criação do ILB ASE.  Assim que a criação estiver concluída, o ILB ASE aparecerá no portal UX na lista de Ambientes de Serviço de Aplicações para a subscrição que desencadeou a implementação.
 
 ## <a name="uploading-and-configuring-the-default-tlsssl-certificate"></a>Upload e Configuração do Certificado TLS/SSL "Padrão"
-Uma vez criado o ILB ASE, um certificado TLS/SSL deve ser associado à ASE como a utilização "padrão" do certificado TLS/SSL para estabelecer ligações TLS/SSL às aplicações.  Continuando com o exemplo da Corporação Contoso, se o sufixo DNS *https://some-random-app.internal-contoso.com* padrão da ASE for *internal-contoso.com,* então uma ligação requer um certificado TLS/SSL válido para **.internal-contoso.com*. 
+Uma vez criado o ILB ASE, um certificado TLS/SSL deve ser associado à ASE como a utilização "padrão" do certificado TLS/SSL para estabelecer ligações TLS/SSL às aplicações.  Continuando com o exemplo da Corporação Contoso, se o sufixo DNS *`https://some-random-app.internal-contoso.com`* padrão da ASE for *internal-contoso.com,* então uma ligação requer um certificado TLS/SSL válido para **.internal-contoso.com*. 
 
 Existem várias formas de obter um certificado TLS/SSL válido, incluindo Os AC internos, a aquisição de um certificado a um emitente externo e a utilização de um certificado auto-assinado.  Independentemente da origem do certificado TLS/SSL, os seguintes atributos de certificado devem ser configurados corretamente:
 
@@ -122,7 +122,7 @@ Uma vez preenchido o ficheiro *azuredeploy.parâmetros.json,* o certificado Padr
 
 Após a apresentação do modelo do Gestor de Recursos Azure, levará cerca de quarenta minutos por aase frontal para aplicar a alteração.  Por exemplo, com uma ASE de tamanho padrão utilizando duas extremidades dianteiras, o modelo levará cerca de uma hora e vinte minutos para ser concluído.  Enquanto o modelo estiver em execução, a ASE não será capaz de escalar.  
 
-Uma vez que o modelo esteja concluído, as aplicações no ILB ASE podem ser acedidas através de HTTPS e as ligações serão protegidas usando o certificado Padrão TLS/SSL.  O certificado Padrão TLS/SSL será utilizado quando as aplicações do ILB ASE forem abordadas utilizando uma combinação do nome da aplicação mais o nome de anfitrião predefinido.  Por *https://mycustomapp.internal-contoso.com* exemplo, utilizaria o certificado padrão TLS/SSL para **.internal-contoso.com*.
+Uma vez que o modelo esteja concluído, as aplicações no ILB ASE podem ser acedidas através de HTTPS e as ligações serão protegidas usando o certificado Padrão TLS/SSL.  O certificado Padrão TLS/SSL será utilizado quando as aplicações do ILB ASE forem abordadas utilizando uma combinação do nome da aplicação mais o nome de anfitrião predefinido.  Por *`https://mycustomapp.internal-contoso.com`* exemplo, utilizaria o certificado padrão TLS/SSL para **.internal-contoso.com*.
 
 No entanto, tal como as aplicações que estão a funcionar no serviço público multi-inquilinos, os desenvolvedores também podem configurar nomes de anfitriões personalizados para aplicações individuais e, em seguida, configurar ligações únicas de certificados SNI TLS/SSL para aplicações individuais.  
 

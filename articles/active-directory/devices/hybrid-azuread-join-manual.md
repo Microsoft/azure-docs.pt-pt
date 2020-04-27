@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 878960738830dbe2f94b977e98215a681c4a79d2
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 7ddead0b5ff094efc4abacb6bfbaf8bc4f47902b
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80802557"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159289"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente.
 
@@ -140,7 +140,7 @@ O script abaixo mostra um exemplo da utilização do cmdlet. Neste script, `$aad
 O cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
 * Utiliza o módulo PowerShell de Diretório Ativo e as ferramentas Azure Ative Directory Domain Services (Azure AD DS). Estas ferramentas dependem de Serviços Web de Diretório Ativo que executam um controlador de domínio. Os Serviços Web do Active Directory são suportados em controladores de domínio em execução no Windows Server 2008 R2 e posterior.
-* Só são suportados pela versão 1.1.166.0 do módulo MSOnline do PowerShell. Para descarregar este módulo, utilize [este link](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
+* Só são suportados pela versão 1.1.166.0 do módulo MSOnline do PowerShell. Para descarregar este módulo, utilize [este link](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
 * Se as ferramentas AD DS `Initialize-ADSyncDomainJoinedComputerSync` não estiverem instaladas, falhará. Pode instalar as ferramentas AD DS através do Gestor de Servidores em **recursos** > ferramentas de administração de**servidores remotos** > Ferramentas de administração de**funções**.
 
 Para controladores de domínio que executem o Windows Server 2008 ou versões anteriores, utilize o seguinte script para criar o ponto de ligação ao serviço. Numa configuração multiflorestal, utilize o seguinte script para criar o ponto de ligação de serviço em cada floresta onde existem computadores.
@@ -527,7 +527,7 @@ Em AD FS, deve adicionar uma regra de transformação de emissão que passa pelo
 1. Clique com o botão direito do rato no objeto de confiança da entidade confiadora da Plataforma de Identidade do Microsoft Office 365 e selecione **Edit Claim Rules** (Editar Regras de Emissão).
 1. No separador **Issuance Transform Rules** (Regras de Transformação de Emissão), selecione **Add Rule** (Adicionar Regra).
 1. Na lista de modelos **Claim rule** (Regra de afirmação), selecione **Send Claims Using a Custom Rule** (Enviar Afirmações com uma Regra Personalizada).
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 1. Na caixa de **nome sinuoso** pedido, introduza a Regra de Reivindicação do **Método Auth**.
 1. Na caixa de **regras de reclamação,** introduza a seguinte regra:
 

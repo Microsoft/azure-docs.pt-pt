@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3dd971cec33fa9f840a48e597fb3bed9a7965895
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261725"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160022"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -67,8 +67,8 @@ Planeamos adicionar suporte para os seguintes OSes, por isso certifique-se de qu
 
 |SO|Licença obrigatória|
 |---|---|
-|Windows 10 Enterprise multi-sessão ou Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Negócios<br>Janelas E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Negócios<br>Janelas E3, E5, A3, A5|
+|Windows 10 Enterprise multi-sessão ou Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Negócios<br>Janelas E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Negócios<br>Janelas E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|Licença de Acesso ao Cliente RDS (CAL) com Garantia de Software|
 
 A sua infraestrutura necessita das seguintes coisas para suportar o Windows Virtual Desktop:

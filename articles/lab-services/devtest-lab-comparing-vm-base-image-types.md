@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: ae7556eda817b9eb7be84f9d4a23ea91d3d5440d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64680305"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Comparar imagens e fórmulas personalizadas em DevTest Labs
@@ -41,7 +41,7 @@ As fórmulas fornecem uma forma dinâmica de criar VMs a partir da configuraçã
 
 **Prós**
 
-* As mudanças no ambiente podem ser capturadas no voo através de artefactos. Por exemplo, se quiser um VM instalado com as mais recentes peças do seu pipeline de lançamento ou aliste o mais recente código do seu repositório, pode simplesmente especificar um artefacto que implementa as últimas partes ou alista o mais recente código na fórmula juntamente com uma base de destino imagem. Sempre que esta fórmula é usada para criar VMs, as últimas bits/código são implantadas/alistadas para o VM. 
+* As mudanças no ambiente podem ser capturadas no voo através de artefactos. Por exemplo, se quiser um VM instalado com as mais recentes peças do seu pipeline de lançamento ou aliste o mais recente código do seu repositório, pode simplesmente especificar um artefacto que implementa as últimas partes ou alista o mais recente código na fórmula juntamente com uma imagem de base alvo. Sempre que esta fórmula é usada para criar VMs, as últimas bits/código são implantadas/alistadas para o VM. 
 * As fórmulas podem definir definições padrão que as imagens personalizadas não podem fornecer - como tamanhos VM e definições de rede virtual. 
 * As definições guardadas numa fórmula são mostradas como valores padrão, mas podem ser modificadas quando o VM é criado. 
 

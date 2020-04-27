@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 830668a78929a5e6a7e131ade5c62b81e6d725c3
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 7cfb2001067b70c64274ee1dd3475c142b788c98
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631371"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161286"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -52,7 +52,7 @@ Alguns cadernos de exemplo estão disponíveis no JupyterHub.
 
 O H2O é uma plataforma rápida, em memória, distribuída de machine learning e análise preditiva. Um pacote Python é instalado tanto nos ambientes de raiz como de py35 Anaconda. Também está instalado um pacote R. 
 
-Para abrir o H2O da `java -jar /dsvm/tools/h2o/current/h2o.jar`linha de comando, corra . Existem várias [opções de linha de comando](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que talvez queira configurar. Você pode aceder ao Flow web http://localhost:54321 UI navegando para começar. Os cadernos de amostras também estão disponíveis no JupyterHub.
+Para abrir o H2O da `java -jar /dsvm/tools/h2o/current/h2o.jar`linha de comando, corra . Existem várias [opções de linha de comando](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que talvez queira configurar. Você pode aceder ao Flow web `http://localhost:54321` UI navegando para começar. Os cadernos de amostras também estão disponíveis no JupyterHub.
 
 ### <a name="keras"></a>Keras
 
@@ -66,7 +66,7 @@ O MXNet é um quadro de aprendizagem profunda projetado tanto para a eficiência
 
 O Sistema de Formação GPU de Aprendizagem Profunda nVIDIA, conhecido como DIGITS, é um sistema para simplificar tarefas comuns de aprendizagem profunda. Estas tarefas incluem a gestão de dados, conceção e formação de redes neurais em sistemas DEGPE, e monitorização do desempenho em tempo real com visualização avançada.
 
-O DIGITS está disponível como um serviço chamado *dígitos*. Inicie o serviço e http://localhost:5000 navegue para começar.
+O DIGITS está disponível como um serviço chamado *dígitos*. Inicie o serviço e `http://localhost:5000` navegue para começar.
 
 O DIGITS também está instalado como módulo Python no ambiente raiz do Conda.
 
@@ -137,7 +137,7 @@ Se estiver numa interface gráfica ou tiver um encaminhamento X11, pode entrar n
 
 A distribuição da Anaconda também vem com um caderno Jupyter, um ambiente para partilhar código e análise. O caderno Jupyter é acedido através do JupyterHub. Inscreveu-se usando o seu nome de utilizador e senha linux locais.
 
-O servidor de caderno sapateiro jupyter foi pré-configurado com python 2, Python 3 e núcleos R. Utilize o ícone do ambiente de trabalho **do Jupyter Notebook** para abrir o navegador e aceder ao servidor de portátil. Se estiver no VM via SSH ou no cliente X2Go, também pode [https://localhost:8000/](https://localhost:8000/)aceder ao servidor de portátil Jupyter em .
+O servidor de caderno sapateiro jupyter foi pré-configurado com python 2, Python 3 e núcleos R. Utilize o ícone do ambiente de trabalho **do Jupyter Notebook** para abrir o navegador e aceder ao servidor de portátil. Se estiver no VM via SSH ou no cliente X2Go, também pode `https://localhost:8000/`aceder ao servidor de portátil Jupyter em .
 
 > [!NOTE]
 > Continue se receber algum aviso de certificado.

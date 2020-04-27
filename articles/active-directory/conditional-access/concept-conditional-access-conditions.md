@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb14369275a111476867f2263766e1bb87b7c87d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 622950c394d59d8ba504901f5bb0eea6bc04707f
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295337"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160720"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: Condições
 
@@ -43,6 +43,9 @@ O Azure AD Conditional Access suporta as seguintes plataformas de dispositivos:
 - Windows Phone
 - Windows
 - macOS
+
+> [!WARNING]
+> A Microsoft está ciente de um problema com as políticas de Acesso Condicional e dispositivos baseados em macOS 10.15.4. Mais informações podem ser encontradas no post do blog, [Known Issue: Acesso condicional inesperadamente bloqueando o macOS 10.15.4 cliente de correio nativo/outras aplicações](https://techcommunity.microsoft.com/t5/intune-customer-success/known-issue-conditional-access-unexpectedly-blocking-macos-10-15/ba-p/1322283).
 
 Se bloquear a autenticação do legado utilizando a condição **de Outros clientes,** também pode definir a condição da plataforma do dispositivo.
 
@@ -140,7 +143,7 @@ Esta definição tem impacto nas tentativas de acesso feitas a partir das seguin
 | --- | --- | --- |
 | App DE CRM dynamics | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
 | Aplicação Mail/Calendar/People, Outlook 2016, Outlook 2013 (com autenticação moderna)| Escritório 365 Exchange Online | Windows 10 |
-| MFA e política de localização para apps. As políticas baseadas em dispositivos não são suportadas.| Qualquer serviço de aplicativo saqueado das Minhas Aplicações | Android e iOS |
+| MFA e política de localização para apps. As políticas baseadas em dispositivos não são apoiadas.| Qualquer serviço de aplicativo saqueado das Minhas Aplicações | Android e iOS |
 | Microsoft Teams Services - isto controla todos os serviços que suportam as Equipas microsoft e todas as suas Aplicações de Clientes - Windows Desktop, iOS, Android, WP e cliente web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
 | Aplicações do Office 2016, Office 2013 (com autenticação moderna), [cliente de sincronização OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
 | Aplicações do Office 2016, aplicações do Universal Office, Office 2013 (com autenticação moderna), [cliente sincronizado OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |

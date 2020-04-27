@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2019
-ms.openlocfilehash: 24e622f76e604d7c0c48e2f3c354e3b4aa64e549
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 0631859983944a7e33615106060d3ffb45a3c7bc
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084911"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160499"
 ---
 # <a name="microsoft-commercial-marketplace-roadmap"></a>Roteiro do mercado comercial da Microsoft
 
@@ -27,14 +27,14 @@ Congratulamo-nos com as suas sugestões! Junte-se à conversa na Comunidade parc
 
 Uma vez que uma capacidade é ao vivo, será removida do roteiro. A funcionalidade que foi adicionada ao mercado pode ser encontrada na seguinte documentação.
 
-* [Marketplace + CSP Update Blog](https://aka.ms/marketplacemarchupdateblog)
-* [Publique ofertas no canal CSP (ISV)](https://aka.ms/publishtocsp)
-* [Revender ofertas do Marketplace (CSP)](https://aka.ms/marketplaceincsp)
-* [Contrato Standard](https://aka.ms/standardcontract)
-* [API de Realização saaS](https://aka.ms/saasapiv2)
-* [Geos e Moedas do Mercado](https://aka.ms/marketplacegeos)
-* [Informações do Vendedor](./partner-center-portal/analytics.md)
-* [Microsoft Build Marketplace Blog](https://aka.ms/marketplacebuildblog)
+* [Marketplace + CSP Update Blog](https://azure.microsoft.com/blog/azure-marketplace-and-cloud-solution-provider-updates-march-2019/)
+* [Publique ofertas no canal CSP (ISV)](./cloud-solution-providers.md)
+* [Revender ofertas do Marketplace (CSP)](https://docs.microsoft.com/partner-center/sell-marketplace-products)
+* [Contrato Padrão para o mercado comercial da Microsoft](./standard-contract.md)
+* [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-apis.md)
+* [Disponibilidade geográfica e apoio cambial para o mercado comercial](./marketplace-geo-availability-currencies.md)
+* [Analytics para o mercado comercial no Partner Center](./partner-center-portal/analytics.md)
+* [Microsoft Build Marketplace Blog](https://azure.microsoft.com/blog/announcing-new-marketplace-revenue-opportunities/)
 * [Blog de atualizações do Marketplace May](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
 * Centro de Parceiros: [Criar a](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / migração de[conta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [gerida por Conta a partir de CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
 * Partner Center: Criar a tualização de[estado](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67109324"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Defina uma estratégia híbrida de adoção de identidade
@@ -171,7 +171,7 @@ O seguinte não é suportado e não deve ser escolhido como uma implementação:
 * Os diretórios da Azure AD são por design isolados. Não é suportado para alterar a configuração da sincronização Azure AD Connect para ler dados de outro diretório Azure AD numa tentativa de construir uma GAL comum e unificada entre os diretórios. Também não é suportado para exportar utilizadores como contactos para outro AD no local usando o sincronizado Azure AD Connect.
 
 > [!NOTE]
-> Se a sua organização restringir os computadores da sua rede de ligar à Internet, este artigo lista os pontos finais (intervalos de endereços FQDNs, IPv4 e IPv6) que deve incluir na sua saída permitir listas de acesso e Internet Explorer Trusted Sites Zone of client computadores para garantir que os seus computadores podem utilizar com sucesso o Office 365. Para mais informações, leia o [Office 365 URLs e os intervalos](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US)de endereços IP .
+> Se a sua organização restringir os computadores da sua rede de ligar à Internet, este artigo lista os pontos finais (intervalos de endereços FQDNs, IPv4 e IPv6) que deve incluir na sua saída permitir listas de entrada e Internet Explorer Trusted Sites Zone de computadores clientes para garantir que os seus computadores podem usar com sucesso o Office 365. Para mais informações, leia o [Office 365 URLs e os intervalos](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US)de endereços IP .
 > 
 > 
 

@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.openlocfilehash: 5042d89f1cb5e928444e4b3c9a23db7bb1d66585
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60509345"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utilizar Azure Data Lake Tools for Visual Studio Code
@@ -26,7 +26,7 @@ Neste artigo, saiba como pode usar ferramentas de lago de dados Azure para códi
 
 As ferramentas do Lago De Dados Azure para o Código VS suportam Windows, Linux e macOS.A execução local u-SQL e o depurado local funcionam apenas no Windows.
 
-- [Código de estúdio visual](https://www.visualstudio.com/products/code-vs.aspx)
+- [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
 Para MacOS e Linux:
 - [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core)

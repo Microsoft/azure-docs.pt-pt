@@ -6,12 +6,12 @@ ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
-ms.openlocfilehash: 08a246b07effb8d5f3e2473a4d7959882cf43235
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c647564d685470d86b2aa54be5a86bb995d914bc
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687943"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159733"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Crie uma app Node.js em Azure
 
@@ -23,7 +23,7 @@ Se não tiver uma conta Azure, [inscreva-se hoje](https://azure.microsoft.com/fr
 
 Você precisa do [Código de Estúdio Visual](https://code.visualstudio.com/) instalado juntamente com [Node.js e npm](https://nodejs.org/en/download), o gestor de pacotes Node.js.
 
-Também terá de instalar a extensão do Serviço de [Aplicações Azure,](vscode:extension/ms-azuretools.vscode-azureappservice)que pode utilizar para criar, gerir e implementar aplicações Web Linux na Plataforma Azure como serviço (PaaS).
+Também terá de instalar a extensão do Serviço de [Aplicações Azure,](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)que pode utilizar para criar, gerir e implementar aplicações Web Linux na Plataforma Azure como serviço (PaaS).
 
 ### <a name="sign-in"></a>Iniciar sessão
 

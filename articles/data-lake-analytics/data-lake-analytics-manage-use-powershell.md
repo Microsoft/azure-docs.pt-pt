@@ -10,10 +10,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "66156418"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerir a Análise do Azure Data Lake com o Azure PowerShell
@@ -122,7 +122,7 @@ Test-AdlAnalyticsAccount -Name $adla
 O Azure Data Lake Analytics suporta atualmente as seguintes fontes de dados:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Storage do Azure](../storage/common/storage-introduction.md)
+* [Armazenamento Azure](../storage/common/storage-introduction.md)
 
 Todas as contas data Lake Analytics têm uma conta padrão data lake store. A conta padrão data lake store é usada para armazenar metadados de trabalho e registos de auditoria de emprego. 
 

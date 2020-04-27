@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
 ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60723311"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Utilize o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple
@@ -76,7 +76,7 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 | Configure CHAP para o seu dispositivo StorSimple |[Configure CHAP para o seu dispositivo StorSimple](storsimple-configure-chap.md) |
 | Adicionar uma política de cópias de segurança</br>Adicionar ou modificar um horário</br>Eliminar uma política de backup</br>Pegue uma cópia de segurança manual</br>Criar uma política de backup personalizada com vários volumes e horários |[Gerir políticas de cópia de segurança](storsimple-8000-manage-backup-policies-u2.md) |
 | Parar controladores de dispositivos</br>Reiniciar controladores de dispositivos</br>Desligue os controladores do dispositivo</br>Redefinir o seu dispositivo para incumprimentos de fábrica</br>(Acima estão apenas para dispositivos no local) |[Gerir o controlador de dispositivoS StorSimple](storsimple-8000-manage-device-controller.md) |
-| Saiba mais sobre componentes de hardware StorSimple</br>Monitorizar o estado do hardware</br>(Acima estão apenas para dispositivos no local) |[Monitorizar componentes de hardware](storsimple-8000-monitor-hardware-status.md) |
+| Saiba mais sobre componentes de hardware StorSimple</br>Monitorizar o estado de hardware</br>(Acima estão apenas para dispositivos no local) |[Monitorizar componentes de hardware](storsimple-8000-monitor-hardware-status.md) |
 | Criar um pacote de apoio |[Criar e gerir um pacote de suporte](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple) |
 | Instalar atualizações de software |[Atualizar o seu dispositivo](storsimple-update-device.md) |
 

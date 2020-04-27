@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 44d6776a367a5cb1eeb86c955f083598d417aba6
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: dc39ef8f3d72b2b8fc5aa55aacb2e2503b052023
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641676"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160227"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de Serviços De Mídia Azure 
 
@@ -104,7 +104,7 @@ Para tirar partido da [embalagem dinâmica,](media-services-dynamic-packaging-ov
 A Media Services apoia os seguintes codificadores a pedido que são descritos neste artigo:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Fluxo de Trabalho Premium do Codificador de Multimédia](media-services-encode-asset.md#media-encoder-premium-workflow)
+* [Fluxo de Trabalho Premium de Codificador de Multimédia](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 Para obter informações sobre codificadores suportados, consulte [Os Codificadores](media-services-encode-asset.md).
 
@@ -192,7 +192,7 @@ O download progressivo permite-lhe começar a reproduzir os meios de comunicaç�
 
 Para fornecer urLs de descarregamento progressivo aos utilizadores, primeiro deve criar um localizador OnDemandOrigin. Criar o localizador, dá-lhe o caminho base para o ativo. Em seguida, precisa anexar o nome do ficheiro MP4. Por exemplo:
 
-http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
+`http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 
 ### <a name="streaming-urls"></a>Streaming URLs
 Transmitindo o seu conteúdo aos clientes. Para fornecer URLs de streaming aos utilizadores, primeiro deve criar um localizador OnDemandOrigin. Criar o localizador, dá-lhe o Caminho base para o ativo que contém o conteúdo que pretende transmitir. No entanto, para poder transmitir este conteúdo, precisa de modificar ainda mais este caminho. Para construir um URL completo para o ficheiro manifesto de streaming, deve concatenar o valor do caminho do localizador e o nome de ficheiro manifesto (nome de ficheiro.ism). Em seguida, anexar/Manifestar e um formato apropriado (se necessário) para o caminho do localizador.

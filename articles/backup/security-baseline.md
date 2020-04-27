@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b18463720b63f62a2ae4b19a3bdbae6862bc9985
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 9be6c174e30514ef81cd5fa020d50ffa238317be
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82120733"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160892"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Linha de base de segurança azure para backup
 
@@ -140,7 +140,7 @@ Para mais informações, consulte a [visão geral da Azure Security Baselines](h
 
 **Orientação**: Para controlar a exploração de registos de auditoria de planos, ative as definições de diagnóstico do Azure Activity Log e envie os registos para um espaço de trabalho de Log Analytics, hub de eventos Azure ou conta de armazenamento Azure para arquivo. Utilizando dados do Registo de Atividade sinuoso do Azure, pode determinar o "quê, quem e quando" para quaisquer operações de escrita (PUT, POST, DELETE) realizadas ao nível do plano de controlo para os seus recursos Azure.
 
-Além disso, ingerir registos via Azure Monitor para agregar dados de segurança gerados pela Azure Backup. Dentro do Monitor Azure, utilize o (s) espaço de trabalho do Log Analytics para consultar e realizar análises, e utilize contas de armazenamento para armazenamento a longo prazo/arquivo. Em alternativa, pode ativar e a bordo dados para o Azure Sentinel ou para um incidente de segurança e gestão de eventos de terceiros (SIEM). 
+Além disso, ingerir registos via Azure Monitor para agregar dados de segurança gerados pela Azure Backup. Dentro do Monitor Azure, utilize o (s) espaço de trabalho do Log Analytics para consultar e realizar análises, e utilize contas de armazenamento para armazenamento a longo prazo/arquivo. Em alternativa, pode ativar e a bordo dados para o Azure Sentinel ou para um incidente de segurança e gestão de eventos de terceiros (SIEM).
 
 - [Como ativar as Definições de Diagnóstico para o Registo de Atividade seletiva do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
@@ -248,7 +248,7 @@ Também pode embarcar num espaço de trabalho de Log Analytics para o Azure Sent
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário das contas administrativas
 
-**Orientação**: O Diretório Ativo azure (AD) tem funções incorporadas que devem ser explicitamente atribuídas e são consultadas. Utilize o módulo Azure AD PowerShell para realizar consultas ad hoc para descobrir contas que são membros de grupos administrativos. 
+**Orientação**: O Diretório Ativo azure (AD) tem funções incorporadas que devem ser explicitamente atribuídas e são consultadas. Utilize o módulo Azure AD PowerShell para realizar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
 Documentação de apoio:
 
@@ -310,7 +310,7 @@ Além disso, para o ajudar a acompanhar as contas administrativas dedicadas, pod
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Utilizar máquinas dedicadas (Postos de Trabalho de Acesso Privilegiado) para todas as tarefas administrativas
 
-**Orientação**: Utilize uma estação de trabalho de acesso privilegiado (PAW) com autenticação de multi-factores Azure (MFA) configurada para iniciar sessão e configurar os seus recursos ativados por backup Azure. 
+**Orientação**: Utilize uma estação de trabalho de acesso privilegiado (PAW) com autenticação de multi-factores Azure (MFA) configurada para iniciar sessão e configurar os seus recursos ativados por backup Azure.
 
 - [Estações de Trabalho de Acesso Privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
@@ -358,7 +358,7 @@ Além disso, utilize deteções de risco azure AD para visualizar alertas e rela
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Rever regularmente e conciliar o acesso ao utilizador
 
-**Orientação**: O Diretório Ativo Azure (AD) fornece registos para ajudá-lo a descobrir contas velhas. Além disso, utilize as Análises de Acesso à Identidade do Azure para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e atribuições de papéis. O acesso ao utilizador pode ser revisto regularmente para garantir que apenas os Utilizadores certos tenham acesso continuado. 
+**Orientação**: O Diretório Ativo Azure (AD) fornece registos para ajudá-lo a descobrir contas velhas. Além disso, utilize as Análises de Acesso à Identidade do Azure para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e atribuições de papéis. O acesso ao utilizador pode ser revisto regularmente para garantir que apenas os Utilizadores certos tenham acesso continuado.
 
 - [Compreender relatórios da AD Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
 
@@ -630,7 +630,7 @@ Além disso, utilize a política do Azure para colocar restrições ao tipo de r
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor para os recursos Azure não aprovados
 
-**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na sua subscrição. 
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na sua subscrição.
 
 Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição.  Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
@@ -836,7 +836,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner Credencial para identificar credenciais dentro do código. O Credential Scanner também incentivará a mudança de credenciais descobertas para locais mais seguros, como o Cofre chave Azure. 
+**Orientação**: Implementar o Scanner Credencial para identificar credenciais dentro do código. O Credential Scanner também incentivará a mudança de credenciais descobertas para locais mais seguros, como o Cofre chave Azure.
 
 - [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -858,11 +858,11 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: Ficheiros de pré-digitalização a serem carregados para recursos não computacionais do Azure
 
-**Orientação**: O Microsoft Antimalware está ativado no hospedeiro subjacente que suporta os serviços Azure (por exemplo, Azure Backup), no entanto não funciona com o seu conteúdo. 
+**Orientação**: O Microsoft Antimalware está ativado no hospedeiro subjacente que suporta os serviços Azure (por exemplo, Azure Backup), no entanto não funciona com o seu conteúdo.
 
-Pré-digitalização de quaisquer ficheiros que sejam enviados para recursos não computacionais do Azure, tais como Serviço de Aplicações, Armazenamento de Data Lake, Armazenamento blob, etc. 
+Pré-digitalização de quaisquer ficheiros que sejam enviados para recursos não computacionais do Azure, tais como Serviço de Aplicações, Armazenamento de Data Lake, Armazenamento blob, etc.
 
-Utilize a deteção de ameaças do Azure Security Center para os serviços de dados para detetar malware enviado para contas de armazenamento. 
+Utilize a deteção de ameaças do Azure Security Center para os serviços de dados para detetar malware enviado para contas de armazenamento.
 
 - [Compreenda o Microsoft Antimalware para Serviços Azure Cloud e Máquinas Virtuais](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
@@ -950,7 +950,7 @@ O cliente de reserva geria as chaves dentro do Cofre de Chaves Azure.
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: Criar um procedimento de pontuação e priorização de incidentes
 
-**Orientação**: O Centro de Segurança atribui uma gravidade a cada alerta para o ajudar a priorizar quais os alertas que devem ser investigados primeiro. A gravidade baseia-se na confiança do Centro de Segurança na descoberta ou na analítica usada para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta. 
+**Orientação**: O Centro de Segurança atribui uma gravidade a cada alerta para o ajudar a priorizar quais os alertas que devem ser investigados primeiro. A gravidade baseia-se na confiança do Centro de Segurança na descoberta ou na analítica usada para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
 
 Além disso, marque claramente as assinaturas (para ex. produção, não-prod) e criar um sistema de nomeação para identificar e categorizar claramente os recursos Azure.
 

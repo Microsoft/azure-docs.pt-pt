@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 42c58a84c71b6573814e82517373db6900a83658
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 71c50e8efdf26f2a7d3f270a774b08e49c92faa7
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82025021"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159425"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Envie eventos ou receba eventos a partir de centros de eventos utilizando javaScript (versão azure/event-hubs 5)
 Este quickstart mostra como enviar eventos e receber eventos de um hub de eventos usando o pacote 5 JavaScript **azure/event-hubs.** 
@@ -119,7 +119,7 @@ Para criar uma conta de armazenamento Azure e um recipiente de bolhas, faça as 
 
 1. [Criar uma conta de armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal)  
 2. [Criar um contentor de blobs na conta de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
-3. [Obtenha a cadeia de ligação à conta de armazenamento](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
+3. [Obtenha a cadeia de ligação à conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 
 Certifique-se de que regista o nome da cadeia de ligação e do recipiente para posterior utilização no código de receção.
 

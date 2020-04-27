@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 810219bca5c75e3ee7e65c6b7302531bca89788d
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869969"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160005"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuração e gestão de FAQs para Web Apps em Azure
 
@@ -125,7 +125,7 @@ Para obter mais informações sobre a utilização de ranhuras de implementaçã
 
 Para rever os registos do WebJob:
 
-1. Inscreva-se no seu [site da Kudu.](https://*yourwebsitename*.scm.azurewebsites.net)
+1. Inscreva-se no seu`https://*yourwebsitename*.scm.azurewebsites.net` **site kudu** ().
 2. Selecione o WebJob.
 3. Selecione o botão **Toggle Output.**
 4. Para descarregar o ficheiro de saída, selecione o link **Download.**

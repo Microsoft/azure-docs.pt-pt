@@ -9,10 +9,10 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60616514"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)
@@ -127,13 +127,13 @@ Aqui está uma amostra no registo de pedidos formado pela JSON. Cada bolha tem u
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| hora |Cadeia |A marca de tempo (em UTC) do tronco |
-| resourceId |Cadeia |O identificador do recurso que a operação ocorreu em |
-| categoria |Cadeia |A categoria de registo. Por exemplo, **Pedidos**. |
-| operationName |Cadeia |Nome da operação que está registada. Por exemplo, GetAggregatedJobHistory. |
-| resultType |Cadeia |O estado da operação, por exemplo, 200. |
-| callerIpAddress |Cadeia |O endereço IP do cliente que faz o pedido |
-| correlationId |Cadeia |O identificador do tronco. Este valor pode ser usado para agrupar um conjunto de entradas de registo relacionadas. |
+| hora |String |A marca de tempo (em UTC) do tronco |
+| resourceId |String |O identificador do recurso que a operação ocorreu em |
+| categoria |String |A categoria de registo. Por exemplo, **Pedidos**. |
+| operationName |String |Nome da operação que está registada. Por exemplo, GetAggregatedJobHistory. |
+| resultType |String |O estado da operação, por exemplo, 200. |
+| callerIpAddress |String |O endereço IP do cliente que faz o pedido |
+| correlationId |String |O identificador do tronco. Este valor pode ser usado para agrupar um conjunto de entradas de registo relacionadas. |
 | identidade |Objeto |A identidade que gerou o registo |
 | propriedades |JSON |Consulte a secção seguinte (Solicite propriedades de log schema) para mais detalhes |
 
@@ -141,12 +141,12 @@ Aqui está uma amostra no registo de pedidos formado pela JSON. Cada bolha tem u
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| HttpMethod |Cadeia |O método HTTP utilizado para a operação. Por exemplo, GET. |
-| Caminho |Cadeia |O caminho em que a operação foi realizada |
+| HttpMethod |String |O método HTTP utilizado para a operação. Por exemplo, GET. |
+| Caminho |String |O caminho em que a operação foi realizada |
 | RequestContentLength |int |A duração do conteúdo do pedido HTTP |
-| ClientRequestid |Cadeia |O identificador que identifica exclusivamente este pedido |
-| StartTime |Cadeia |O momento em que o servidor recebeu o pedido |
-| EndTime |Cadeia |O momento em que o servidor enviou uma resposta |
+| ClientRequestid |String |O identificador que identifica exclusivamente este pedido |
+| StartTime |String |O momento em que o servidor recebeu o pedido |
+| EndTime |String |O momento em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Registos de auditoria
 
@@ -179,13 +179,13 @@ Aqui está uma amostra no registo de auditoria formatado pela JSON. Cada bolha t
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| hora |Cadeia |A marca de tempo (em UTC) do tronco |
-| resourceId |Cadeia |O identificador do recurso que a operação ocorreu em |
-| categoria |Cadeia |A categoria de registo. Por exemplo, **Auditoria**. |
-| operationName |Cadeia |Nome da operação que está registada. Por exemplo, JobSubmitted. |
-| resultType |Cadeia |Um subestatuto para o estado de trabalho (operaçãoNome). |
-| resultSignature |Cadeia |Detalhes adicionais sobre o estado do trabalho (operaçãoNome). |
-| identidade |Cadeia |O utilizador que solicitou a operação. Por exemplo, susan@contoso.com. |
+| hora |String |A marca de tempo (em UTC) do tronco |
+| resourceId |String |O identificador do recurso que a operação ocorreu em |
+| categoria |String |A categoria de registo. Por exemplo, **Auditoria**. |
+| operationName |String |Nome da operação que está registada. Por exemplo, JobSubmitted. |
+| resultType |String |Um subestatuto para o estado de trabalho (operaçãoNome). |
+| resultSignature |String |Detalhes adicionais sobre o estado do trabalho (operaçãoNome). |
+| identidade |String |O utilizador que solicitou a operação. Por exemplo, susan@contoso.com. |
 | propriedades |JSON |Consulte a secção seguinte (Audit log properties schema) para mais detalhes |
 
 > [!NOTE]
@@ -197,13 +197,13 @@ Aqui está uma amostra no registo de auditoria formatado pela JSON. Cada bolha t
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| JobId |Cadeia |A identificação atribuída ao trabalho |
-| Nome de emprego |Cadeia |O nome que foi fornecido para o trabalho |
-| Tempo de fuga de emprego |Cadeia |O tempo de execução usado para processar o trabalho |
-| Tempo de submissão |Cadeia |O tempo (em UTC) que o trabalho foi submetido |
-| StartTime |Cadeia |O tempo em que o trabalho começou a funcionar após a submissão (na UTC) |
-| EndTime |Cadeia |O tempo que o trabalho terminou |
-| Paralelismo |Cadeia |O número de unidades de Data Lake Analytics solicitadas para este trabalho durante a submissão |
+| JobId |String |A identificação atribuída ao trabalho |
+| Nome de emprego |String |O nome que foi fornecido para o trabalho |
+| Tempo de fuga de emprego |String |O tempo de execução usado para processar o trabalho |
+| Tempo de submissão |String |O tempo (em UTC) que o trabalho foi submetido |
+| StartTime |String |O tempo em que o trabalho começou a funcionar após a submissão (na UTC) |
+| EndTime |String |O tempo que o trabalho terminou |
+| Paralelismo |String |O número de unidades de Data Lake Analytics solicitadas para este trabalho durante a submissão |
 
 > [!NOTE]
 > **SubmissãoTempo**, **Início,** Fim de **Tempo**e **Paralelismo** fornecem informações sobre uma operação. Estas entradas só contêm um valor se essa operação tiver começado ou concluído. Por exemplo, **o Tempo de Envio** contém apenas um valor após a **operaçãoO nome** tem o valor **JobSubmitted**.

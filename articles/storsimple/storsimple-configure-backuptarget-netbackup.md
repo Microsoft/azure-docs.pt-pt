@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67876215"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como alvo de backup com NetBackup
@@ -328,7 +328,7 @@ A sequência seguinte pressupõe que o NetBackup e o anfitrião alvo estão conf
 
    ![Consola de administração NetBackup, selecionar tipo de política](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5. Selecione o seu anfitrião, selecione a caixa de verificação do **sistema operativo do cliente Detete** e, em seguida, selecione **Adicionar**. Selecione **Next**.
+5. Selecione o seu anfitrião, selecione a caixa de verificação do **sistema operativo do cliente Detete** e, em seguida, selecione **Adicionar**. Selecione **Seguinte**.
 
    ![Consola de administração NetBackup, lista risa clientes numa nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
