@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76513514"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Use o feed de mudança de DB Azure Cosmos para visualizar análise de dados em tempo real
@@ -91,7 +91,7 @@ Crie os recursos Azure - Azure Cosmos DB, Conta de Armazenamento, Hub de Eventos
 
 ## <a name="create-a-database-and-the-collection"></a>Criar uma base de dados e a coleção
 
-Agora vai criar uma coleção para realizar eventos de site de e-commerce. Quando um utilizador visualiza um item, adiciona um item ao seu carrinho, ou compra um item, a coleção receberá um registo que inclua a ação ("visualizado", "adicionado" ou "comprado"), o nome do item em causa, o preço do item em causa e o número de identificação do carrinho de utilizador envolvido.
+Agora vai criar uma coleção para realizar eventos de site de e-commerce. Quando um utilizador visualiza um item, adiciona um item ao seu carrinho, ou compra um item, a recolha receberá um registo que inclui a ação ("visualizado", "adicionado" ou "adquirido"), o nome do item em causa, o preço do item envolvido e o número de identificação do carrinho de utilizador envolvido.
 
 1. Vá ao [portal Azure](https://portal.azure.com/) e encontre a **Conta DB Azure Cosmos** que é criada pela implementação do modelo.  
 

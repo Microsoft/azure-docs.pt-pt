@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 9a77a9d9c8b2d71197089f66d81e07d56c780e11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76263851"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Como utilizar centros de notificação da PHP
@@ -151,7 +151,7 @@ Em primeiro lugar, vamos definir uma classe que representa uma notificação.
     }
     ```
 
-Esta classe é um recipiente para um corpo de notificação nativo, ou um conjunto de propriedades em caso de notificação de modelo, e um conjunto de cabeçalhos, que contém formato (plataforma ou modelo nativo) e propriedades específicas da plataforma (como propriedade de expiração da Apple e WNS cabeçalhos).
+Esta classe é um recipiente para um corpo de notificação nativo, ou um conjunto de propriedades em caso de notificação de modelo, e um conjunto de cabeçalhos, que contém formato (plataforma ou modelo nativo) e propriedades específicas da plataforma (como propriedade de expiração da Apple e cabeçalhos WNS).
 
 Consulte a documentação do [REST APIs](https://msdn.microsoft.com/library/dn495827.aspx) dos Centros de Notificação e os formatos das plataformas de notificação específicas para todas as opções disponíveis.
 

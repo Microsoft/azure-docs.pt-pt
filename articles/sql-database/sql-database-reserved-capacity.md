@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/29/2019
 ms.openlocfilehash: 0713e1ed98cc87b95cad1f84672148cd062e0b58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75979980"
 ---
 # <a name="save-costs-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Poupe custos para recursos de computação de base de dados SQL com capacidade reservada à Base de Dados Azure SQL
@@ -41,7 +41,7 @@ Por exemplo, suponhamos que você está executando um propósito geral, Gen5 –
 
 ## <a name="buy-sql-database-reserved-capacity"></a>Comprar capacidade de reserva da Base de Dados SQL do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione todas as reservas **de serviços** > **Reservations**.
 3. Selecione **Adicionar** e, em seguida, no painel de reservas de compra, selecione Base de **Dados SQL** para comprar uma nova reserva para base de dados SQL.
 4. Preencha os campos necessários. Existindo ou novas bases de dados individuais, piscinas elásticas ou instâncias geridas que correspondam aos atributos que seleciona se qualificar para obter o desconto de capacidade reservado. O número real das instâncias da sua Base de Dados SQL que obtêm o desconto depende do âmbito e quantidade selecionados.
@@ -65,11 +65,11 @@ A tabela seguinte descreve os campos necessários.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para mais informações, consulte [trocas de self-service e reembolsos para Reservas Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="vcore-size-flexibility"></a>flexibilidade do tamanho vCore
 
-a flexibilidade do tamanho vCore ajuda-o a escalar para cima ou para baixo dentro de um nível de desempenho e região, sem perder o benefício de capacidade reservado. A capacidade reservada à Base de Dados SQL também lhe proporciona a flexibilidade para mover temporariamente as suas bases de dados quentes entre piscinas e bases de dados individuais como parte das suas operações normais (dentro da mesma região e nível de desempenho) sem perder a capacidade reservada benefício. Ao manter um tampão não aplicado na sua reserva, pode gerir eficazmente os picos de desempenho sem exceder o seu orçamento.
+a flexibilidade do tamanho vCore ajuda-o a escalar para cima ou para baixo dentro de um nível de desempenho e região, sem perder o benefício de capacidade reservado. A capacidade reservada à Base de Dados SQL também lhe proporciona a flexibilidade para mover temporariamente as suas bases de dados quentes entre piscinas e bases de dados individuais como parte das suas operações normais (dentro da mesma região e nível de desempenho) sem perder o benefício de capacidade reservado. Ao manter um tampão não aplicado na sua reserva, pode gerir eficazmente os picos de desempenho sem exceder o seu orçamento.
 
 ## <a name="limitation"></a>Limitação
 
@@ -77,7 +77,7 @@ Não é possível reservar bases de dados SQL baseadas em DTU (básicas, standar
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio.
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -88,7 +88,7 @@ Para saber como gerir a reserva de capacidade reservada à Base de Dados SQL, co
 Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
 - [O que são Reservas Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Gerir Reservas do Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [Gerir o Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 - [Compreender o desconto das Reservas do Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
 - [Compreender a utilização de reservas na sua subscrição Pay As You Go](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 - [Compreender a utilização de reservas na inscrição Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

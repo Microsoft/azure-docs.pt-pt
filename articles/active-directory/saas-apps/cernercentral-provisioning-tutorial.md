@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ed04d8fdcc2d79c66e2ebc53c737c78664e4621
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77058321"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configure Cerner Central para fornecimento automático de utilizadores
@@ -54,7 +54,7 @@ Antes de configurar e ativar o serviço de provisionamento, deve decidir quais o
 
 ## <a name="configuring-user-provisioning-to-cerner-central"></a>Configurar o fornecimento de utilizadores à Cerner Central
 
-Esta secção guia-o através da ligação do seu AD Azure à Lista de Utilizadores da Cerner Central utilizando a conta de utilizador SCIM da Cerner, e configurando o serviço de provisionamento para criar, atualizar e desativar contas de utilizador atribuídas em Cerner Central com base em atribuição de utilizador e grupo em Azure AD.
+Esta secção guia-o através da ligação do seu AD Azure à Lista de Utilizadores da Cerner Central utilizando a conta de utilizador SCIM da Cerner, e configurando o serviço de provisionamento para criar, atualizar e desativar as contas de utilizador atribuídas em Cerner Central com base na atribuição de utilizador e grupo em Azure AD.
 
 > [!TIP]
 > Também pode optar por ativar o single sign-on baseado em SAML para a Cerner Central, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal instável pode ser configurado independentemente do fornecimento automático, embora estas duas funcionalidades se complementem. Para mais informações, consulte o tutorial de inscrição individual da [Cerner Central.](cernercentral-tutorial.md)

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277362"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implemente o bocal de análise de log azure para monitorização do sistema de foundry em nuvem
@@ -204,7 +204,7 @@ Pode [criar os alertas](https://docs.microsoft.com/azure/log-analytics/log-analy
 | Tipo=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o Bocal recebe um alerta lento do consumidor do loggregator, envia o **slowConsumerAlert** ValueMetric para os registos do Monitor Azure. |
 | Tipo=CF_CounterEvent_CL Job_s=bocal Name_s=eventosPerdida Delta_d>0              | Número de resultados > 0   | Se o número delta de eventos perdidos atingir um limiar, significa que o Bocal pode ter um problema em funcionamento. |
 
-## <a name="scale"></a>Dimensionamento
+## <a name="scale"></a>Escala
 
 Pode escalar o bocal e o gregador.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 1385b20847cf90c212a13591389dfb6cda08432a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76169640"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes multi-VM e recursos PaaS com modelos do Azure Resource Manager
@@ -73,7 +73,7 @@ Existem várias regras a seguir para organizar os seus modelos de Gestor de Recu
 
 Depois de criar e configurar o seu repositório, pode adicioná-lo ao seu laboratório utilizando o portal Azure:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Da lista de laboratórios, selecione o laboratório que quiser.
 1. No painel de **visão geral** do laboratório, selecione **Configuração e políticas**.
@@ -120,7 +120,7 @@ A próxima secção passa pela criação de ambientes a partir de um modelo de G
 
 Uma vez adicionado um modelo de Gestor de Recursos Azure ao laboratório, os utilizadores do laboratório podem criar ambientes no portal Azure seguindo estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 

@@ -17,17 +17,17 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76264038"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação de arquitetura das notificações push empresariais
 
 As empresas de hoje caminham gradualmente para a criação de aplicações móveis para os seus utilizadores finais (externos) ou para os colaboradores (internos). Têm sistemas de backend existentes, sejam eles os principais quadros ou algumas aplicações LoB, que devem ser integrados na arquitetura de aplicações móveis. Este guia fala sobre a melhor forma de fazer esta integração recomendando uma possível solução para cenários comuns.
 
-Um requisito frequente é o envio de notificação push aos utilizadores através da sua aplicação móvel quando um evento de interesse ocorre nos sistemas de backend. Por exemplo, um cliente bancário que tenha a app bancária do banco num iPhone quer ser notificado quando um débito é feito acima de um determinado valor da conta ou um cenário intranet onde um funcionário do departamento de finanças que tem uma app de aprovação de orçamento num Windows Phone quer ser notificado quando o pedido de aprovação for recebido.
+Um requisito frequente é o envio de notificação push aos utilizadores através da sua aplicação móvel quando um evento de interesse ocorre nos sistemas de backend. Por exemplo, um cliente bancário que tenha a app bancária do banco num iPhone quer ser notificado quando um débito é feito acima de um determinado valor da conta ou um cenário intranet em que um funcionário do departamento de finanças que tem uma app de aprovação de orçamento num Windows Phone quer ser notificado quando o pedido de aprovação é recebido.
 
 É provável que a conta bancária ou o processamento de aprovação sejam feitos em algum sistema de backend, que deve iniciar um impulso ao utilizador. Pode haver vários sistemas de backend, que devem todos construir o mesmo tipo de lógica para empurrar quando um evento desencadeia uma notificação. A complexidade aqui reside na integração de vários sistemas de backend juntamente com um único sistema de push onde os utilizadores finais podem ter subscrito notificações diferentes e pode até haver várias aplicações móveis. Por exemplo, aplicações móveis intranet onde uma aplicação móvel pode querer receber notificações de vários desses sistemas de backend. Os sistemas de backend não sabem ou precisam de saber sobre a semântica/tecnologia de impulso, pelo que uma solução comum aqui tradicionalmente tem sido introduzir uma componente, que sondagem os sistemas de backend para quaisquer eventos de interesse e é responsável pelo envio das mensagens push ao cliente.
 
@@ -51,7 +51,7 @@ A peça-chave neste diagrama arquitetónico é o Azure Service Bus, que fornece 
 1. Aplicação Móvel
    * Recebe e exibe notificação
 
-### <a name="benefits"></a>Vantagens
+### <a name="benefits"></a>Benefícios
 
 1. A dissociação entre o recetor (aplicação/serviço móvel via Notification Hub) e o remetente (sistemas de backend) permite a integração de sistemas de backend adicionais com alterações mínimas.
 1. Também faz com que o cenário de várias aplicações móveis possam receber eventos de um ou mais sistemas de backend.  
@@ -287,8 +287,8 @@ O código completo da amostra está disponível nas Amostras do Centro de [Notif
 <!-- Links -->
 [Amostras de hub de notificação]: https://github.com/Azure/azure-notificationhubs-samples
 [Serviço Móvel Azure]: https://azure.microsoft.com/documentation/services/mobile-services/
-[Azure Service Bus]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Service Bus do Azure]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
 [Programação de bus de serviço/sub]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure WebJob]: ../app-service/webjobs-create.md
 [Centros de Notificação - Tutorial Windows Universal]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Portal Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/

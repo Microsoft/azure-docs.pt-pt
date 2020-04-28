@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77085205"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Como: Configure mSAL para iOS e macOS para utilizar diferentes fornecedores de identidade
@@ -127,7 +127,7 @@ do{
 }
 ```
 
-### <a name="sovereign-clouds"></a>Nuvens soberanas
+### <a name="sovereign-clouds"></a>Clouds soberanas
 
 Se a sua aplicação estiver numa nuvem soberana, poderá `MSALPublicClientApplication`ter de alterar o URL de autoridade no . O exemplo que se segue define o URL da autoridade para trabalhar com a nuvem aAD alemã:
 

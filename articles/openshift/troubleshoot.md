@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 05/08/2019
 ms.openlocfilehash: ee032cdf4a3f72b2cd2e7da0658effe75b6fb1fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76274933"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Resolução de problemas para O Chapéu Vermelho Azure OpenShift

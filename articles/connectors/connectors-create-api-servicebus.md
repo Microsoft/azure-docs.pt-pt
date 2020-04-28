@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
 ms.openlocfilehash: 1b38b8508dbe17d42bf191149410f5db638cf834
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76261624"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Troca de mensagens na nuvem usando aplicativos azure logic e ônibus de serviço Azure
@@ -45,7 +45,7 @@ Pode utilizar gatilhos que obtêm respostas do Service Bus e disponibilizar a sa
 
 Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaço de nome service Bus.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Vá ao seu espaço de *nome*service Bus . Na página do espaço de nome, em **Definições,** selecione políticas de **acesso partilhado**. Em **Sinistros,** verifique se tem permissões **de gestão** para esse espaço de nome.
 

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.openlocfilehash: 916c54c3739d1164e4e9c1db67aa1f4e0dbd0c6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76157795"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migração Azure HDInsight 3.6 Apache Storm para HDInsight 4.0 Apache Spark
@@ -40,7 +40,7 @@ O Apache Storm pode fornecer diferentes níveis de processamento garantido de me
 |**Garantia de processamento de eventos**|Pelo menos uma vez. <br> Exatamente uma vez (Tridente) |[Exatamente uma vez](https://spark.apache.org/docs/latest/streaming-programming-guide.html)|[Exatamente uma vez](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Modelo de Processamento**|Tempo real <br> Micro Lote (Tridente) |Lote Micro |Lote Micro |
 |**Suporte ao tempo do evento**|[Sim](https://storm.apache.org/releases/2.0.0/Windowing.html)|Não|[Sim](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
-|**Idiomas**|Java, etc.|Scala, Java, Python|Python, R, Scala, Java, SQL|
+|**Linguagens**|Java, etc.|Scala, Java, Python|Python, R, Scala, Java, SQL|
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Streaming de faísca vs Spark estruturado streaming
 

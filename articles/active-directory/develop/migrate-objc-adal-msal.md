@@ -14,17 +14,17 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77085175"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrar aplicações para o MSAL para iOS e macOS
 
 A Biblioteca de Autenticação de Diretórios Ativos Azure ([ADAL Objective-C)](https://github.com/AzureAD/azure-activedirectory-library-for-objc)foi criada para trabalhar com contas azure Ative Directory através do ponto final v1.0.
 
-A Microsoft Authentication Library para iOS e macOS (MSAL) foi construída para trabalhar com todas as identidades da Microsoft, como contas Azure Ative Directory (Azure AD), contas pessoais da Microsoft e contas Azure AD B2C através da plataforma de identidade da Microsoft (formalmente o ponto final azure AD v2.0).
+A Microsoft Authentication Library para iOS e macOS (MSAL) foi construída para trabalhar com todas as identidades da Microsoft, como contas Azure Ative Directory (Azure AD), contas pessoais da Microsoft e contas Azure AD B2C através da plataforma de identidade microsoft (formalmente o ponto final do Azure AD V2.0).
 
 A plataforma de identidade da Microsoft tem algumas diferenças fundamentais com o Azure Ative Directory v1.0. Este artigo destaca estas diferenças e fornece orientação para migrar uma aplicação da ADAL para a MSAL.
 

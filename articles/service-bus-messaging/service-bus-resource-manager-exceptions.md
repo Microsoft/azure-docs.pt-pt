@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
 ms.openlocfilehash: 0f328651ac4422226071d2de12e9cbc787ef64be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978261"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Exceções ao Gestor de Recursos de Autocarros de Serviços

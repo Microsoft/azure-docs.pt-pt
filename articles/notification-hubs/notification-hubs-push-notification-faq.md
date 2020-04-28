@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
 ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76263834"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações push com Hubs de Notificação Azure: Perguntas frequentes
@@ -183,7 +183,7 @@ O Azure Notification Hubs encripta todos os dados dos clientes em repouso, com e
 
 Sim. Todas as operações de gestão de Centros de Notificação atualizam o Registo de Atividades do Azure ao qual está exposto no [portal Azure]. O Azure Activity Log oferece informações sobre as operações realizadas sobre os recursos nas suas subscrições. Utilizando o Registo de Atividades, pode determinar o quê, quem e quando para quaisquer operações de escrita (PUT, POST, DELETE) feitas para os recursos na sua subscrição. Também pode compreender o estado das operações e outros imóveis relevantes. No entanto. o Registo de Atividades não inclui a operação de leitura (GET).
 
-## <a name="monitoring-and-troubleshooting"></a>Monitorização e resolução de problemas
+## <a name="monitoring-and-troubleshooting"></a>Monitorizar e resolver problemas
 
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Que capacidades de resolução de problemas estão disponíveis?
 
@@ -202,7 +202,7 @@ Também pode aceder programáticamente às métricas. Para obter mais informaç�
 > [!NOTE]
 > As notificações bem sucedidas significam simplesmente que as notificações push foram entregues aos PNS externos (por exemplo, APNs para iOS e macOS ou FCM para dispositivos Android). É da responsabilidade do PNS entregar as notificações aos dispositivos-alvo. Normalmente, o PNS não expõe métricas de entrega a terceiros.  
 
-[Portal Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [Preços dos Centros de Notificação]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Centros de Notificação REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
@@ -215,6 +215,6 @@ Também pode aceder programáticamente às métricas. Para obter mais informaç�
 [Resolução de problemas do Hubs de Notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Métricas de Centros de Notificação]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Registos Exportação/Importação]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
-[Portal Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

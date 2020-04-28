@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: spelluru
 ms.openlocfilehash: 29816d158cf1428727b7ff17bcc2c347f402dedf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77134538"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especifique um grupo de recursos para máquinas virtuais de laboratório em Laboratórios Azure DevTest
@@ -36,7 +36,7 @@ Com esta funcionalidade, pode utilizar um script para especificar um novo ou exi
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
 Siga estes passos para especificar um grupo de recursos para todos os VMs criados no laboratório. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços** no menu de navegação à esquerda. 
 3. Selecione **DevTest Labs** da lista.
 4. Da lista de laboratórios, selecione o seu **laboratório.**  
@@ -121,4 +121,4 @@ Como utilizar esta API:
 Consulte os seguintes artigos: 
 
 - [Definir políticas para um laboratório](devtest-lab-get-started-with-lab-policies.md)
-- [Perguntas frequentes](devtest-lab-faq.md)
+- [Perguntas mais frequentes](devtest-lab-faq.md)

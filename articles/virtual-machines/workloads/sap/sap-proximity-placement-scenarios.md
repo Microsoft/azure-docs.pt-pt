@@ -16,10 +16,10 @@ ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 01ce1599f86082aef3ff53d298cc53896074af66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277601"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de colocação de proximidade azure para a latência ideal da rede com aplicações SAP
@@ -108,7 +108,7 @@ Coloque o seu primeiro VM no grupo de colocação de proximidade utilizando um c
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppganchorvm" -Location "westus2" -OpenPorts 80,3389 -ProximityPlacementGroup "letsgetclose" -Size "Standard_DS11_v2"
 </code></pre>
 
-O comando anterior implementa um VM baseado no Windows. Após esta implementação vm bem sucedida, o âmbito do datacenter do grupo de colocação de proximidade é definido dentro da região de Azure. Todas as implementações vm subsequentes que referenciam o grupo de colocação de proximidade, como mostrado no comando anterior, serão implantadas no mesmo datacenter Azure, desde que o tipo VM possa ser hospedado em hardware colocado nesse datacenter e capacidade para esse tipo VM é disponível.
+O comando anterior implementa um VM baseado no Windows. Após esta implementação vm bem sucedida, o âmbito do datacenter do grupo de colocação de proximidade é definido dentro da região de Azure. Todas as implementações vm subsequentes que referenciam o grupo de colocação de proximidade, como mostrado no comando anterior, serão implantadas no mesmo datacenter Azure, desde que o tipo VM possa ser hospedado em hardware colocado nesse datacenter e capacidade para esse tipo VM disponível.
 
 ## <a name="combine-availability-sets-and-availability-zones-with-proximity-placement-groups"></a>Combine conjuntos de disponibilidade e zonas de disponibilidade com grupos de colocação de proximidade
 Uma das desvantagens em utilizar zonas de disponibilidade para implementações do sistema SAP é que não é possível implementar a camada de aplicação SAP utilizando conjuntos de disponibilidade dentro da zona específica. Pretende que a camada de aplicação SAP seja implantada nas mesmas zonas que a camada DBMS. A referenciação de uma Zona de Disponibilidade e um conjunto de disponibilidade ao implementar um único VM não é suportado. Então, anteriormente, foi forçado a implantar a sua camada de aplicação referindo-se a uma zona. Perdeu a capacidade de garantir que os VMs da camada de aplicação estavam espalhados por diferentes domínios de atualização e falha.
@@ -156,7 +156,7 @@ O resultado desta implantação é:
 > Como você implanta um VM DBMS em uma zona e o segundo DBMS VM em outra zona para criar uma configuração de alta disponibilidade, você precisará de um grupo de colocação de proximidade diferente para cada uma das zonas. O mesmo acontece com qualquer conjunto de disponibilidade que utilize.
 
 ## <a name="move-an-existing-system-into-proximity-placement-groups"></a>Mover um sistema existente para grupos de colocação de proximidade
-Se já tiver sistemas SAP implantados, poderá querer otimizar a latência da rede de alguns dos seus sistemas críticos e localizar a camada de aplicação e a camada DBMS no mesmo datacenter. Para mover os VMs de um conjunto completo de disponibilidade seletiva do Azure para um grupo de colocação de proximidade existente que já está traçado, você precisa desligar todos os VMs do conjunto de disponibilidade e atribuir a disponibilidade definida para o grupo de colocação de proximidade existente através do portal Azure, PowerShell ou CLI. Se quiser mover um VM que não faça parte de uma disponibilidade definida num grupo de colocação de proximidade existente, basta encerrar o VM e atribuí-lo a um grupo de colocação de proximidade existente. 
+Se já tiver sistemas SAP implantados, poderá querer otimizar a latência da rede de alguns dos seus sistemas críticos e localizar a camada de aplicação e a camada DBMS no mesmo datacenter. Para mover os VMs de um conjunto completo de disponibilidade azure para um grupo de colocação de proximidade existente que já está disponível, você precisa desligar todos os VMs do conjunto de disponibilidade e atribuir a disponibilidade definida para o grupo de colocação de proximidade existente através do portal Azure, PowerShell ou CLI. Se quiser mover um VM que não faça parte de uma disponibilidade definida num grupo de colocação de proximidade existente, basta encerrar o VM e atribuí-lo a um grupo de colocação de proximidade existente. 
 
 
 ## <a name="next-steps"></a>Passos seguintes

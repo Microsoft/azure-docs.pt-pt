@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5ae2dee68ec0da8e8a00d4f01583461462bc196c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76696100"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Questões conhecidas nos navegadores Internet Explorer e Microsoft Edge (MSAL.js)
@@ -36,7 +36,7 @@ A causa para a maioria destas questões é a seguinte. O armazenamento da sessã
 
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
-- **A janela popup não fecha ou fica presa ao utilizar login através do Popup para autenticar**. Ao autenticar através da janela popup no Microsoft Edge ou IE (InPrivate), depois de introduzir credenciais e iniciar sessão, se vários domínios em zonas de segurança estiverem envolvidos na navegação, a janela popup não fecha porque mSAL.js perde a pega para a janela popup.  
+- **A janela popup não fecha ou fica presa ao utilizar login através do Popup para autenticar**. Ao autenticar através da janela popup no Microsoft Edge ou IE(InPrivate), depois de introduzir credenciais e iniciar sessão, se vários domínios em zonas de segurança estiverem envolvidos na navegação, a janela popup não fecha porque mSAL.js perde a pega na janela popup.  
 
 ### <a name="update-fix-available-in-msaljs-023"></a>Atualização: Correção disponível em MSAL.js 0.2.3
 As correções para as emissões de redirecionamento de autenticação foram lançadas em [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Ative a `storeAuthStateInCookie` bandeira no config MSAL.js para tirar partido desta correção. Por defeito, esta bandeira está definida como falsa.

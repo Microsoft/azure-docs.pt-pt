@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.custom: include file
 ms.openlocfilehash: cb43c8b8c952d8db6cf450a7015c22c85e7fe4b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76268302"
 ---
 O `objectIdType` (ou tipo de identificador de **objeto)** refere-se ao tipo de identidade que é dado a um papel. Além `DeviceId` dos `UserDefinedFunctionId` tipos e tipos, os tipos de identificador de objetos correspondem a propriedades de objetos do Diretório Ativo Azure.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 84120b07de3a03a049493eb973b6dc46f8668387
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75976454"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publique um anúncio num laboratório em Azure DevTest Labs
@@ -35,7 +35,7 @@ A funcionalidade de anúncio destina-se a ser utilizada para notificações temp
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Passos para publicar um anúncio em um laboratório existente
 
-1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista. (O seu laboratório pode já estar no Dashboard em **Todos os Recursos).**
 1. Da lista de laboratórios, selecione o laboratório no qual quer publicar um anúncio.
 1. Na área de **visão geral** do laboratório, selecione **Configuração e políticas**.
@@ -160,10 +160,10 @@ Pode especificar um anúncio como parte de um modelo do Gestor de Recursos Azure
 
 Pode implementar um modelo de Gestor de Recursos Azure utilizando uma das seguintes formas:
 
-- [Portal Azure](../azure-resource-manager/templates/deploy-portal.md)
+- [Portal do Azure](../azure-resource-manager/templates/deploy-portal.md)
 - [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-- [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-- [REST API](../azure-resource-manager/templates/deploy-rest.md)
+- [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
+- [API REST](../azure-resource-manager/templates/deploy-rest.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 * Se alterar ou definir uma política de laboratório, talvez queira publicar um anúncio para informar os utilizadores. [Definir políticas e horários](devtest-lab-set-lab-policy.md) fornece informações sobre a aplicação de restrições e convenções em toda a sua subscrição, utilizando políticas personalizadas.

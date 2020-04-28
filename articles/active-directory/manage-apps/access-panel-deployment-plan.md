@@ -16,10 +16,10 @@ ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897070"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planeie uma implantação do Painel de Acesso ativo do Diretório Azure
@@ -63,7 +63,7 @@ O Painel de Acesso é gratuito e não necessita de licenças para usar a um nív
 
 * [Associação baseada em grupo](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
-* [Reposição personalizada de palavras-passe](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
+* [Reposição personalizada de palavra-passe](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
 
 * [Proteção de Identidade do Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 

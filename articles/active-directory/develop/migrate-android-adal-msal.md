@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77084052"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração DaAL para Android
@@ -146,7 +146,7 @@ Considere uma conta bancária. Pode ter mais de uma conta em mais de uma institu
 
 Por analogia, como contas numa instituição financeira, as contas na plataforma de identidade da Microsoft são acedidas usando credenciais. Essas credenciais estão registadas ou emitidas pela Microsoft. Ou pela Microsoft em nome de uma organização.
 
-Onde a plataforma identitária da Microsoft difere de uma instituição financeira, nesta analogia, é que a plataforma de identidade da Microsoft fornece um quadro que permite a um utilizador usar uma conta, e as suas credenciais associadas, para aceder a recursos que pertencem vários indivíduos e organizações. Isto é como poder usar um cartão emitido por um banco, em mais uma instituição financeira. Isto funciona porque todas as organizações em questão estão a usar a plataforma de identidade da Microsoft, que permite que uma conta seja usada em várias organizações. Segue-se um exemplo:
+Onde a plataforma identitária da Microsoft difere de uma instituição financeira, nesta analogia, é que a plataforma de identidade da Microsoft fornece um quadro que permite a um utilizador usar uma conta, e as suas credenciais associadas, para aceder a recursos que pertencem a vários indivíduos e organizações. Isto é como poder usar um cartão emitido por um banco, em mais uma instituição financeira. Isto funciona porque todas as organizações em questão estão a usar a plataforma de identidade da Microsoft, que permite que uma conta seja usada em várias organizações. Segue-se um exemplo:
 
 Sam trabalha para Contoso.com mas gere máquinas virtuais Azure que pertencem a Fabrikam.com. Para o Sam gerir as máquinas virtuais do Fabrikam, ele precisa de ser autorizado a aceder-lhes. Este acesso pode ser concedido adicionando a conta de Sam à Fabrikam.com, e concedendo à sua conta um papel que lhe permite trabalhar com as máquinas virtuais. Isto seria feito com o portal Azure.
 

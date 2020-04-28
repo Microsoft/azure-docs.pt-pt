@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77026001"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar a Gestão de Identidade Privilegiada da Azure AD (PIM)
@@ -34,7 +34,7 @@ Este guia passo a passo descreve como planear a implantação da Gestão de Iden
 
 ## <a name="learn-about-privileged-identity-management"></a>Conheça a Gestão de Identidade Privilegiada
 
-A Azure AD Privileged Identity Management ajuda-o a gerir funções administrativas privilegiadas em toda a Azure AD, recursos Azure e outros Serviços Online da Microsoft. Num mundo onde identidades privilegiadas são atribuídas e esquecidas, a Privileged Identity Management fornece soluções como acesso just-in-time, solicitação de fluxos de trabalho de aprovação e avaliações de acesso totalmente integradas para que possa identificar, descobrir e prevenir mal-intencionados atividades de papéis privilegiados em tempo real. Implementar a Gestão de Identidade Privilegiada para gerir os seus papéis privilegiados em toda a sua organização reduzirá consideravelmente o risco, ao mesmo tempo que surgirá informações valiosas sobre as atividades dos seus papéis privilegiados.
+A Azure AD Privileged Identity Management ajuda-o a gerir funções administrativas privilegiadas em toda a Azure AD, recursos Azure e outros Serviços Online da Microsoft. Num mundo onde identidades privilegiadas são atribuídas e esquecidas, a Privileged Identity Management fornece soluções como acesso just-in-time, solicitação de fluxos de trabalho de aprovação e avaliações de acesso totalmente integradas para que possa identificar, descobrir e prevenir atividades maliciosas de papéis privilegiados em tempo real. Implementar a Gestão de Identidade Privilegiada para gerir os seus papéis privilegiados em toda a sua organização reduzirá consideravelmente o risco, ao mesmo tempo que surgirá informações valiosas sobre as atividades dos seus papéis privilegiados.
 
 ### <a name="business-value-of-privileged-identity-management"></a>Valor empresarial da Gestão de Identidade Privilegiada
 
@@ -145,7 +145,7 @@ Siga estes passos para impor o princípio do menor privilégio para as suas fun�
 
     ![Descubra papéis privilegiados que mostram quem tem papéis privilegiados](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
-1. Para todos os Administradores Globais da sua organização, descubra por que precisam do papel. Com base na leitura da documentação anterior, se o trabalho da pessoa puder ser desempenhado por uma ou mais funções de administrador granular, deve removê-las do papel de Administrador Global e efetuar atribuições em conformidade dentro do Diretório Ativo azure (como referência: A Microsoft conta atualmente apenas com cerca de 10 administradores com o papel de Administrador Global. Saiba mais sobre [como a Microsoft utiliza a Gestão de Identidade Privilegiada).](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)
+1. Para todos os Administradores Globais da sua organização, descubra por que precisam do papel. Com base na leitura da documentação anterior, se o trabalho da pessoa puder ser desempenhado por uma ou mais funções de administrador granular, deve removê-las do papel de Administrador Global e efetuar atribuições em conformidade dentro do Diretório Ativo do Azure (Como referência: A Microsoft tem atualmente apenas cerca de 10 administradores com o papel de Administrador Global. Saiba mais sobre [como a Microsoft utiliza a Gestão de Identidade Privilegiada).](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)
 
 1. Para todas as outras funções da Azure AD, reveja a lista de atribuições, identifique os administradores que já não precisam do papel e remova-os das suas atribuições.
 
@@ -350,7 +350,7 @@ Se a Gestão de Identidade Privilegiada não funcionar como desejado no ambiente
 
 #### <a name="azure-ad-roles"></a>Funções do Azure AD
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Open **Azure AD Privileged Identity Management.**
 1. Clique em **funções de AD Azure** e, em seguida, clique em **Funções**.
 1. Para cada função que configurar, clique na elipse**para**todos os utilizadores com uma atribuição elegível.
@@ -358,7 +358,7 @@ Se a Gestão de Identidade Privilegiada não funcionar como desejado no ambiente
 
 #### <a name="azure-resource-roles"></a>Funções de recursos do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Open **Azure AD Privileged Identity Management.**
 1. Clique nos **recursos do Azure** e, em seguida, clique numa subscrição ou recurso que pretende reverter.
 1. Clique em **Papéis**.
@@ -373,7 +373,7 @@ Implementar com sucesso a Gestão de Identidade Privilegiada na produção é um
 
 Deve utilizar a funcionalidade de alerta de identidade privilegiada incorporada para melhor salvaguardar o seu inquilino. Para mais informações, consulte [alertas](pim-how-to-configure-security-alerts.md#security-alerts)de segurança . Estes alertas incluem: os administradores não estão a usar papéis privilegiados, as funções estão a ser atribuídas fora da Gestão de Identidade Privilegiada, as funções estão a ser ativadas com demasiada frequência e mais. Para proteger totalmente a sua organização, deve analisar regularmente a sua lista de alertas e corrigir os problemas. Pode ver e corrigir os seus alertas da seguinte forma:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Open **Azure AD Privileged Identity Management.**
 1. Clique em **funções de AD Azure** e, em seguida, clique em **Alertas**.
 

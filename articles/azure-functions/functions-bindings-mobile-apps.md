@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 952a94797e01a3931fdd151461250af0c2590c11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76120546"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Ligações de aplicativos móveis para funções azure 
@@ -38,7 +38,7 @@ A encadernação de entrada de Aplicativos Móveis carrega um registo a partir d
 Consulte o exemplo específico da linguagem:
 
 * [Script C# (.csx)](#input---c-script-example)
-* Javascript
+* JavaScript
 
 ### <a name="input---c-script-example"></a>Exemplo de argumento De Entrada - C#
 

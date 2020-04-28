@@ -9,10 +9,10 @@ ms.date: 10/25/2019
 ms.author: jehollan, glenga
 ms.custom: include file
 ms.openlocfilehash: fca8c3b0b1bd4d22720a6d15313e297d05b7fac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76021063"
 ---
 1. Abra o portal Azure a partir[https://portal.azure.com](https://portal.azure.com)
@@ -31,7 +31,7 @@ ms.locfileid: "76021063"
 
     | Definição      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
-    | **Assinatura** | A sua subscrição | A subscrição sob a qual esta nova aplicação de função é criada. |
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual esta nova aplicação de função é criada. |
     | **[Grupo de Recursos](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. |
     | **Nome da app de função** | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os caracteres `a-z` válidos são `0-9`(caso insensível), e `-`.  |
     |**Publicar**| Código | Opção para publicar ficheiros de código ou um contentor de Docker. |
@@ -42,13 +42,13 @@ ms.locfileid: "76021063"
 
 1. Introduza as seguintes definições de hospedagem.
 
-    ![Hosting](./media/functions-premium-create/function-app-premium-create-hosting.png)
+    ![Alojamento](./media/functions-premium-create/function-app-premium-create-hosting.png)
 
     | Definição      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
     | **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da conta de [armazenamento.](../articles/azure-functions/functions-scale.md#storage-account-requirements) |
     |**Sistema Operativo**| Sistema operativo preferido | Um sistema operativo é pré-selecionado para si com base na sua seleção de pilhas de tempo de funcionamento, mas pode alterar a definição se necessário. |
-    | **[Plano](../articles/azure-functions/functions-scale.md)** | Premium | Para o Tipo de Plano, selecione **Premium (Pré-visualização)** e selecione predefinições para o *Plano Windows* e *Seleções de Tamanhos.* |
+    | **[Planear](../articles/azure-functions/functions-scale.md)** | Premium | Para o Tipo de Plano, selecione **Premium (Pré-visualização)** e selecione predefinições para o *Plano Windows* e *Seleções de Tamanhos.* |
 
     Selecione o botão **Seguinte : monitorização >.**
 

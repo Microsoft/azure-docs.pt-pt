@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76289803"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Realojamento do mainframe em máquinas virtuais Azure
@@ -92,7 +92,7 @@ Com o Azure IaaS, como um VM, as funções específicas do sistema fornecem supo
 
 Os mainframes normalmente escalam-se, enquanto os ambientes de nuvem se esescalam. O Azure oferece uma gama de tamanhos [Linux](/azure/virtual-machines/linux/sizes) e [Windows](/azure/virtual-machines/windows/sizes) para atender às suas necessidades. A nuvem também escala para cima ou para baixo para corresponder às especificações exatas do utilizador. Calcular a potência, armazenamento e [a escala](/azure/architecture/best-practices/auto-scaling) de serviços à escala da procura ao abrigo de um modelo de faturação baseado no uso.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 
 Na nuvem, você tem uma gama de opções de armazenamento flexíveis e escaláveis, e você paga apenas pelo que você precisa. [O Azure Storage](/azure/storage/common/storage-introduction) oferece uma loja de objetos massivamente escalável para objetos de dados, um serviço de sistema de ficheiros para a nuvem, uma loja de mensagens confiável e uma loja NoSQL. Para os VMs, os discos geridos e não geridos proporcionam armazenamento persistente e seguro do disco.
 

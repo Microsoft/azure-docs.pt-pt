@@ -4,10 +4,10 @@ description: Encontre amostras de modelo do Gestor de Recursos Azure para implem
 ms.topic: article
 ms.date: 03/07/2019
 ms.openlocfilehash: a8f3c81c539562a3c56e4822cf6e4df77d04928f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75981652"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos de Gestor de Recursos Azure para instâncias de contentores azure
@@ -38,13 +38,13 @@ Para opções de implementação, consulte a secção [de implantação.](#deplo
 
 Tem várias opções para implementar recursos com modelos de Gestor de Recursos:
 
-[Azure CLI][deploy-cli]
+[CLI do Azure][deploy-cli]
 
 [Azure PowerShell][deploy-powershell]
 
-[Portal Azure][deploy-portal]
+[Portal do Azure][deploy-portal]
 
-[REST API][deploy-rest]
+[API REST][deploy-rest]
 
 <!-- LINKS - External -->
 [app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-dynamicsnav

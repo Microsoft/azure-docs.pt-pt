@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
 ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76045131"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Suporte à plataforma SDKs do dispositivo Azure IoT
@@ -99,7 +99,7 @@ O [dispositivo Azure IoT Hub Java é](https://github.com/Azure/azure-iot-sdk-jav
 
 A Microsoft trabalha com vários parceiros para fornecer kits de desenvolvimento para várias arquiteturas de microprocessadores. Estes parceiros levaram o Azure IoT C SDK para a sua plataforma. Os parceiros criam e mantêm a camada de abstração da plataforma (PAL) do SDK. A Microsoft trabalha com estes parceiros para fornecer um suporte alargado.
 
-| Partner             | Dispositivos                            | Ligação                     | Suporte |
+| Parceiro             | Dispositivos                            | Ligação                     | Suporte |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT Modem     | [Qualcomm LTE para IoT SDK](https://developer.qualcomm.com/software/lte-iot-sdk) | [Fórum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

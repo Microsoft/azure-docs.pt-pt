@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75979412"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas em Azure Logic Apps com Enterprise Integration Pack
@@ -40,7 +40,7 @@ Para limites relacionados com contas de integração e artefactos como mapas, co
     |------|-------------|
     | [Conta de armazenamento azure](../storage/common/storage-account-overview.md) | Nesta conta, crie um recipiente de blob Azure para a sua montagem. Aprenda a criar uma conta de [armazenamento.](../storage/common/storage-account-create.md) |
     | Contentor de blobs | Neste recipiente, pode fazer o upload da sua montagem. Também precisa da localização deste contentor quando adicionar o conjunto à sua conta de integração. Aprenda a [criar um recipiente de bolhas.](../storage/blobs/storage-quickstart-blobs-portal.md) |
-    | [Explorador do Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Esta ferramenta ajuda-o a gerir mais facilmente as contas de armazenamento e os recipientes blob. Para utilizar o Storage Explorer, [descarregue e instale o Azure Storage Explorer.](https://www.storageexplorer.com/) Em seguida, ligue o Storage Explorer à sua conta de armazenamento seguindo os passos em [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Para saber mais, consulte [Quickstart: Crie uma bolha no armazenamento de objetos com o Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Ou, no portal Azure, encontre e selecione a sua conta de armazenamento. A partir do menu da sua conta de armazenamento, selecione **Storage Explorer**. |
+    | [Explorador do Storage do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Esta ferramenta ajuda-o a gerir mais facilmente as contas de armazenamento e os recipientes blob. Para utilizar o Storage Explorer, [descarregue e instale o Azure Storage Explorer.](https://www.storageexplorer.com/) Em seguida, ligue o Storage Explorer à sua conta de armazenamento seguindo os passos em [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Para saber mais, consulte [Quickstart: Crie uma bolha no armazenamento de objetos com o Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Ou, no portal Azure, encontre e selecione a sua conta de armazenamento. A partir do menu da sua conta de armazenamento, selecione **Storage Explorer**. |
     |||
 
   * Para mapas, você pode atualmente adicionar mapas maiores usando as [aplicações lógicas azure REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).

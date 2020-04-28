@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76263868"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Como usar centros de notificação de Java
@@ -384,7 +384,7 @@ Este tópico mostrou-lhe como criar um simples cliente Java REST para Centros de
   * [Enviar notificações a utilizadores autenticados]
   * [Enviar notificações inter-plataformas a utilizadores autenticados]
 
-[Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
+[SDK Java]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Começar com centros de notificação]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Enviar notícias de última hora]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md

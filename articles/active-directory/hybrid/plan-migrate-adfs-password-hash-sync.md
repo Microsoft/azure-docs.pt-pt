@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b621c9cbc35d0e9956f6648d870102affd84c24f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76028387"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar da federação para a sincronização de hash de senha para o Diretório Ativo Azure
@@ -55,7 +55,7 @@ Agora é uma boa hora para verificar se estas permissões estão em vigor para t
 
 Pode escolher entre dois métodos para migrar da gestão de identidade federada para a sincronização de hash password e inscrição única sem emenda (SSO). O método que utiliza depende de como a sua instância AD FS foi originalmente configurada.
 
-* **Azure AD Connect**. Se configurar originalmente a AD FS utilizando o Azure AD Connect, *tem* de alterar para a sincronização de hash por palavra-passe utilizando o assistente Azure AD Connect.
+* **Ligação Azure AD**. Se configurar originalmente a AD FS utilizando o Azure AD Connect, *tem* de alterar para a sincronização de hash por palavra-passe utilizando o assistente Azure AD Connect.
 
    O Azure AD Connect executa automaticamente o cmdlet **set-MsolDomainAuthentication** quando altera o método de entrada do utilizador. A Azure AD Connect desfedera automaticamente todos os domínios federados verificados no seu inquilino Azure AD.
 
@@ -162,7 +162,7 @@ Para mais informações sobre a condição de **localização** no Acesso Condic
 
 Ao aderir a um dispositivo ao Azure AD, pode criar regras de Acesso Condicional que aplicam que os dispositivos cumprem as suas normas de acesso para segurança e conformidade. Além disso, os utilizadores podem iniciar sessão num dispositivo utilizando uma conta organizacional ou escolar em vez de uma conta pessoal. Quando utilizar dispositivos híbridos com a AD azure, pode juntar-se aos seus dispositivos de domínio Ative Directory para o Azure AD. O seu ambiente federado pode ter sido criado para usar esta funcionalidade.
 
-Para garantir que a adesão híbrida continua a funcionar para quaisquer dispositivos que estejam ligados ao domínio depois de os seus domínios serem convertidos para sincronização de hash de palavra-passe, para clientes do Windows 10, deve utilizar opções do dispositivo Azure AD Connect para sincronizar o computador Ative Directory contas à Azure AD. 
+Para garantir que a adesão híbrida continua a funcionar para quaisquer dispositivos que estejam ligados ao domínio depois de os seus domínios serem convertidos para sincronização de hash de palavra-passe, para clientes do Windows 10, deve utilizar opções do dispositivo Azure AD Connect para sincronizar contas de computador Ative Directory para a AD Azure. 
 
 Para as contas de computador Do Windows 8 e Windows 7, a adesão híbrida utiliza sem emenda sem emenda sem emenda para registar o computador em Azure AD. Não é preciso sincronizar contas de computador do Windows 8 e do Windows 7, como faz para dispositivos Windows 10. No entanto, tem de implementar um ficheiro de workplacejoin.exe atualizado (através de um ficheiro .msi) para clientes windows 8 e Windows 7 para que possam registar-se utilizando SSO sem emenda. [Descarregue o ficheiro .msi](https://www.microsoft.com/download/details.aspx?id=53554).
 

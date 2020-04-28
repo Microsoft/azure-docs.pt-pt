@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76263766"
 ---
 # <a name="notification-hubs-security"></a>Segurança dos Centros de Notificação
@@ -38,7 +38,7 @@ Ao criar um hub, são criadas automaticamente duas regras: uma com direitos **de
 - **DefaultListenSharedAccessSignature**: concede apenas permissão **de escuta.**
 - **DefaultFullSharedAccessSignature**: grants **Listen**, **Manage**, and **Send** permissions. Esta política deve ser usada apenas no seu backend de aplicações. Não o utilize em aplicações de clientes; usar uma política com apenas **ouvir** acesso. Para criar uma nova política de acesso personalizado com um novo token SAS, consulte [tokens SAS para políticas](#sas-tokens-for-access-policies) de acesso mais tarde neste artigo.
 
-Ao executar a gestão de registo sabotadas de aplicações de clientes, se as informações enviadas através de notificações não forem sensíveis (por exemplo, atualizações meteorológicas), uma forma comum de aceder a um Centro de Notificação é dar o valor-chave da regra O acesso apenas à aplicação do cliente, e dar o valor-chave da regra de acesso total ao backend da aplicação.
+Ao executar a gestão de registo sabotadas de aplicações de clientes, se as informações enviadas através de notificações não forem sensíveis (por exemplo, atualizações meteorológicas), uma forma comum de aceder a um Centro de Notificação é dar o valor-chave da regra Apenas aceder à app do cliente, e dar o valor-chave da regra de acesso total ao backend da aplicação.
 
 As aplicações não devem incorporar o valor-chave nas aplicações de clientes da Windows Store; em vez disso, fazer com que a aplicação do cliente a recupere do backend da app no arranque.
 

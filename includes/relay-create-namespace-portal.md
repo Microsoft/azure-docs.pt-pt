@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 500db9f6d299ea81b1f1b1be864df5d91ba1eae7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76021295"
 ---
-1. Inicie sessão no [Portal do Azure][Azure portal].
+1. Inicie sessão no [portal do Azure][Azure portal].
 1. Selecione **Criar um recurso**. Em seguida, selecione**Retransmissão**de **Integração** > . Se não vir **Reencaminhamento** na lista, selecione **Ver Tudo** no canto superior direito.
 1. Selecione **Criar**e introduza um nome de espaço de nome no campo **Nome.** O portal Azure verifica se o nome está disponível.
 1. Escolha uma subscrição Azure para criar o espaço de nome.
