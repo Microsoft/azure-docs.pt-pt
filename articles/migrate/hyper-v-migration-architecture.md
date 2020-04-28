@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 8bca88fc63a7fc04a22d2a68adbe59259b07f50e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74185884"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Como funciona a replicação do Hyper-V?
@@ -34,7 +34,7 @@ A Migração do Servidor Migratório Azure migrate é uma ferramenta para migrar
 
 
 
-**Componente** | **Implantação** | 
+**Componente** | **Implementação** | 
 --- | --- 
 **Fornecedor de replicação** | O fornecedor de recuperação de sites do Microsoft Azure está instalado em anfitriões Hyper-V e registado na Migração do Servidor de Migração azure.<br/> O fornecedor orquestra a replicação para VMs hiper-V.
 **Agente de Serviços de Recuperação** | O agente do Serviço de Recuperação do Microsoft Azure trata da replicação de dados. Trabalha com o fornecedor para replicar dados de VMs Hiper-V para Azure.<br/> Os dados replicados são enviados para uma conta de armazenamento na sua subscrição Azure. A ferramenta De migração do servidor processa os dados replicados e aplica-os a réplicas de discos na subscrição. Os discos de réplica são usados para criar os VMs Azure quando se migra.

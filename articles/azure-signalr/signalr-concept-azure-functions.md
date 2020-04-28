@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74157618"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Construa aplicativos em tempo real com funções Azure e serviço de sinalização Azure
@@ -28,7 +28,7 @@ As Funções Azure permitem-lhe escrever código em [vários idiomas](../azure-f
 * Temporizadores periódicos
 * Eventos de serviços do Azure, como:
     - Event Grid
-    - Event Hubs
+    - Hubs de Eventos
     - Service Bus
     - Feed de alterações do Cosmos DB
     - Armazenamento - blobs e filas

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: rambala
 ms.openlocfilehash: 4c3c6ae5fbdd91e6e44438be7fef2a3a91564a34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74076684"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Design para alta disponibilidade com ExpressRoute
@@ -29,11 +29,11 @@ Para uma elevada disponibilidade, é essencial manter a redundância do circuito
 
 ### <a name="first-mile-physical-layer-design-considerations"></a>Considerações de design de camada física de primeira milha
 
- Se terminar as ligações primárias e secundárias de um circuito ExpressRoute no mesmo Equipamento de Instalações do Cliente (CPE), está a comprometer a elevada disponibilidade dentro da sua rede no local. Além disso, se configurar as ligações primárias e secundárias através da mesma porta de um CPE (seja terminando as duas ligações em diferentes subinterfaces ou fundindo as duas ligações dentro da rede parceira), está a forçar o parceiro para comprometer a elevada disponibilidade no seu segmento de rede também. Este compromisso é ilustrado na figura seguinte.
+ Se terminar as ligações primárias e secundárias de um circuito ExpressRoute no mesmo Equipamento de Instalações do Cliente (CPE), está a comprometer a elevada disponibilidade dentro da sua rede no local. Além disso, se configurar as ligações primárias e secundárias através da mesma porta de um CPE (seja terminando as duas ligações em diferentes subinterfaces ou fundindo as duas ligações dentro da rede parceira), está a forçar o parceiro a comprometer também a elevada disponibilidade no seu segmento de rede. Este compromisso é ilustrado na figura seguinte.
 
 [![2]][2]
 
-Por outro lado, se encerrar as ligações primárias e secundárias de circuitos ExpressRoute em diferentes locais geográficos, então poderá comprometer o desempenho da rede da conectividade. Se o tráfego for ativamente carregado equilibrado em todas as ligações primárias e secundárias que são terminadas em diferentes localizações geográficas, uma potencial diferença substancial na latência da rede entre os dois caminhos resultaria numa rede subóptima desempenho. 
+Por outro lado, se encerrar as ligações primárias e secundárias de circuitos ExpressRoute em diferentes locais geográficos, então poderá comprometer o desempenho da rede da conectividade. Se o tráfego for ativamente carregado equilibrado em todas as ligações primárias e secundárias que são terminadas em diferentes localizações geográficas, uma potencial diferença substancial na latência da rede entre os dois caminhos resultaria num desempenho sub-ideal da rede. 
 
 Para considerações de design geo-redundantes, consulte Design para recuperação de [desastres com expressRoute][DR].
 
@@ -62,7 +62,7 @@ Com a opção 1, na sequência de uma falha de ligação ExpressRoute, a capacid
 Considerando que, com a opção 2, o NAT é acessível mesmo após uma falha de ligação primária ou secundária. Portanto, a camada de rede em si pode redirecionar os pacotes e ajudar a recuperar mais rapidamente após a falha. 
 
 > [!NOTE]
-> Se utilizar a opção NAT 1 (piscinas NAT independentes para ligações primárias e secundárias da ExpressRoute) e mapear uma porta de um endereço IP de um dos pools NAT para um servidor no local, o servidor não será acessível através do circuito ExpressRoute quando o correspondente a ligação falha.
+> Se utilizar a opção NAT 1 (piscinas NAT independentes para ligações primárias e secundárias da ExpressRoute) e mapear uma porta de um endereço IP de um dos pools NAT para um servidor no local, o servidor não será acessível através do circuito ExpressRoute quando a ligação correspondente falhar.
 > 
 
 ## <a name="fine-tuning-features-for-private-peering"></a>Funcionalidades de afinação para o peering privado

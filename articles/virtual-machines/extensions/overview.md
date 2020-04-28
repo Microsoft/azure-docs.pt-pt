@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 09/12/2019
 ms.author: akjosh
 ms.openlocfilehash: bf17f499c1e8339a1e9abb13cffd5e35c390f564
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74072968"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure virtual machine extensions and features (Extensões e funcionalidades das máquinas virtuais do Azure)
-Extensões de máquina virtual Azure (VM) são pequenas aplicações que fornecem tarefas de configuração pós-implementação e automação em VMs Azure, pode usar as imagens existentes e depois personalizá-las como parte das suas implementações, tirando-o do negócio personalizado construção de imagem.
+As extensões da máquina virtual Azure (VM) são pequenas aplicações que fornecem tarefas de configuração pós-implantação e automação em VMs Azure, pode utilizar as imagens existentes e depois personalizá-las como parte das suas implementações, tirando-o do negócio de construção de imagem personalizada.
 
 A plataforma Azure acolhe muitas extensões que vão desde a configuração vM, monitorização, segurança e aplicações de utilidade. Os editores pegam numa aplicação, em seguida, embrulhá-la em uma extensão, e simplificar a instalação, por isso tudo o que você precisa fazer é fornecer parâmetros obrigatórios. 
 

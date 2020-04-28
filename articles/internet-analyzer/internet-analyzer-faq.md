@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74184260"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>FaQ do Analisador de Internet Azure (Pré-visualização)
@@ -22,7 +22,7 @@ Este é o FAQ para O Analisador de Internet Azure, se tiver perguntas adicionais
 
 A pré-visualização está disponível para selecionar clientes. Se estiver interessado em aderir à pré-visualização, faça o seguinte:
 
-1. Inicie sessão no [Portal do Azure](https://ms.portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com).
 2. Navegue para a página **de Assinaturas.**
 3. Clique na subscrição do Azure com a qual planeia utilizar o Internet Analyzer.
 4. Vá às definições dos **fornecedores** de Recursos para a subscrição.
@@ -64,7 +64,7 @@ Cada teste que cria no Analisador de Internet é composto por dois pontos finais
 * Dois [pontos finais personalizados](internet-analyzer-custom-endpoint.md) (um ponto final personalizado deve residir em Azure).
 
 Os seguintes pontos finais pré-reconfigurados estão disponíveis durante a pré-visualização:
-* **Regiões do Azure**
+* **Regiões de Azure**
     * Sul do Brasil
     * Índia Central
     * E.U.A. Central

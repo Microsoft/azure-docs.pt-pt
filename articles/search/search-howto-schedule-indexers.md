@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 72326413d463d449d339b1f3fd241ba2c27b4b6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74112943"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Como agendar indexadores em Pesquisa Cognitiva Azure
@@ -44,7 +44,7 @@ Vamos considerar um exemplo para tornar isto mais concreto. Suponha que configur
 * A terceira execução está marcada para começar às 10:00 UTC, mas nessa altura a execução anterior ainda está em execução. Esta execução programada é então ignorada. A próxima execução do indexante só começará às 11:00 UTC.
 
 > [!NOTE]
-> Se um indexante for definido para um determinado horário, mas falha repetidamente no mesmo documento vezes sem conta cada vez que funciona, o indexante começará a funcionar num intervalo menos frequente (até ao máximo de pelo menos uma vez a cada 24 horas) até que faça progressos com sucesso de novo.  Se acredita ter corrigido qualquer que seja o problema que estava a causar o facto de o indexante estar preso a um determinado ponto, pode realizar uma execução a pedido do indexante, e se isso fizer progressos com sucesso, o indexante voltará ao intervalo de horário definido novamente.
+> Se um indexante estiver definido para um determinado horário, mas falha repetidamente no mesmo documento cada vez mais, cada vez que funciona, o indexante começará a funcionar num intervalo menos frequente (até ao máximo de pelo menos uma vez a cada 24 horas) até que volte a progredir com sucesso.  Se acredita ter corrigido qualquer que seja o problema que estava a causar o facto de o indexante estar preso a um determinado ponto, pode realizar uma execução a pedido do indexante, e se isso fizer progressos com sucesso, o indexante voltará ao intervalo de horário definido novamente.
 
 <a name="portal"></a>
 

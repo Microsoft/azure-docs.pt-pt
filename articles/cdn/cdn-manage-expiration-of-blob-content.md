@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: f28282a802e4b38fadc05c7090fa2a2af154de54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74083165"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gerir a expiração do armazenamento azure blob em Azure CDN
 > [!div class="op_single_selector"]
 > * [Conteúdo Web do Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Armazenamento Azure Blob](cdn-manage-expiration-of-blob-content.md)
+> * [Armazenamento de Blobs do Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 

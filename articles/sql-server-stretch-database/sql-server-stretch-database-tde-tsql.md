@@ -15,16 +15,16 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 6f1f5f55348069dbfe11b4d5857d93f8ba8c9b19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74033959"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Ativar encriptação transparente de dados (TDE) para base de dados de alongamento seletiva em Azure (Transact-SQL)
 > [!div class="op_single_selector"]
-> * [Portal Azure](sql-server-stretch-database-encryption-tde.md)
-> * [TSQL](sql-server-stretch-database-tde-tsql.md)
+> * [Portal do Azure](sql-server-stretch-database-encryption-tde.md)
+> * [Rio TSQL](sql-server-stretch-database-tde-tsql.md)
 >
 >
 

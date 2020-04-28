@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: rambala
 ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74076693"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Projetando para recuperação de desastres com o peering privado ExpressRoute
@@ -118,7 +118,7 @@ Você pode arquiteto o cenário usando o peso de conexão para influenciar VNets
 
 ### <a name="scenario-2"></a>Cenário 2
 
-O Cenário 2 é ilustrado no diagrama a seguir. No diagrama, as linhas verdes indicam caminhos para o fluxo de tráfego entre as redes VNet1 e no local. As linhas azuis indicam caminhos para o fluxo de tráfego entre as redes VNet2 e no local. No estado constante (linhas sólidas no diagrama), todo o tráfego entre VNets e locais no local flui através da espinha dorsal da Microsoft na maior parte do tempo, e flui através da interligação entre locais no local apenas no estado de falha (linhas pontilhadas em o diagrama) de uma Rota Expresso.
+O Cenário 2 é ilustrado no diagrama a seguir. No diagrama, as linhas verdes indicam caminhos para o fluxo de tráfego entre as redes VNet1 e no local. As linhas azuis indicam caminhos para o fluxo de tráfego entre as redes VNet2 e no local. No estado constante (linhas sólidas no diagrama), todo o tráfego entre VNets e locais no local flui através da espinha dorsal da Microsoft na maior parte do tempo, e flui através da interligação entre as localizações no local apenas no estado de falha (linhas pontilhadas no diagrama) de uma ExpressRoute.
 
 [![9]][9]
 

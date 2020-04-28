@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: c332c6712cdf057491e3039854aa1a29bd54196f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74083122"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Resolução de problemas Azure CDN pontos finais que devolvem um código de estado 404
@@ -54,7 +54,7 @@ Primeiro, verifique se o ficheiro para cache está disponível no servidor de or
 ![Êxito!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
 > [!WARNING]
-> Embora esta seja a forma mais rápida e fácil de verificar se o seu ficheiro está disponível ao público, algumas configurações de rede na sua organização podem fazer parecer que um ficheiro está disponível publicamente quando é, na verdade, apenas visível para os utilizadores da sua rede (mesmo que esteja hospedado em Azure). Para garantir que não é esse o caso, teste o ficheiro com um navegador externo, como um dispositivo móvel que não esteja ligado à rede da sua organização, ou uma máquina virtual no Azure.
+> Embora esta seja a forma mais rápida e fácil de verificar se o seu ficheiro está disponível publicamente, algumas configurações de rede na sua organização podem fazer parecer que um ficheiro está disponível publicamente quando é, na verdade, apenas visível para os utilizadores da sua rede (mesmo que esteja hospedado no Azure). Para garantir que não é esse o caso, teste o ficheiro com um navegador externo, como um dispositivo móvel que não esteja ligado à rede da sua organização, ou uma máquina virtual no Azure.
 > 
 > 
 

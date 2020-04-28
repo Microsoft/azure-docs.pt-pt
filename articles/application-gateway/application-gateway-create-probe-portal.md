@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 15daf47a1cb44635932311e60b3690af9ff58677
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74074613"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Crie uma sonda personalizada para Application Gateway usando o portal
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](application-gateway-create-probe-portal.md)
+> * [Portal do Azure](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -34,7 +34,7 @@ As sondas estão configuradas num processo em duas etapas através do portal. O 
 
 ### <a name="enter-probe-properties"></a><a name="createprobe"></a>Insira propriedades da sonda
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Se ainda não tem uma conta, pode [inscrever-se](https://azure.microsoft.com/free) para um julgamento gratuito de um mês.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tem uma conta, pode [inscrever-se](https://azure.microsoft.com/free) para um julgamento gratuito de um mês.
 
 2. No painel Favoritos do portal do Azure, clique em Todos os recursos. Clique na porta de entrada de aplicação na lâmina de todos os recursos. Se a subscrição que selecionou já tiver vários recursos, pode introduzir partners.contoso.net na caixa Filtrar por nome... para aceder facilmente ao gateway de aplicação.
 
@@ -83,7 +83,7 @@ As sondas estão configuradas num processo em duas etapas através do portal. O 
 
 ### <a name="create-the-probe"></a><a name="createprobe"></a>Criar a sonda
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Se ainda não tem uma conta, pode [inscrever-se](https://azure.microsoft.com/free) para um julgamento gratuito de um mês.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tem uma conta, pode [inscrever-se](https://azure.microsoft.com/free) para um julgamento gratuito de um mês.
 
 2. No painel Favoritos do portal do Azure, selecione **Todos os recursos**. Selecione o gateway da aplicação na página **Todos os recursos.** Se a subscrição que selecionou já tiver vários recursos, pode introduzir partners.contoso.net na caixa Filtrar por nome... para aceder facilmente ao gateway de aplicação.
 
