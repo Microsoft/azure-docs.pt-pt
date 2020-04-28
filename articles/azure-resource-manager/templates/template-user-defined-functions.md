@@ -4,10 +4,10 @@ description: Descreve como definir e utilizar funções definidas pelo utilizado
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 2c09572a460aa028b23987033d2b77e2aad8a0cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943222"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funções definidas pelo utilizador no modelo do Gestor de Recursos Azure

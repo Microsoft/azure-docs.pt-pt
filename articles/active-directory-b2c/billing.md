@@ -11,10 +11,10 @@ ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 30ecb1e6faa29482a8d69dd1d08e4f127f515596
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78190012"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de faturação para Azure Ative Directory B2C
@@ -91,7 +91,7 @@ Uma subscrição ligada a um inquilino Azure AD B2C pode ser utilizada para a fa
 
 ### <a name="create-the-link"></a>Criar o link
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém a subscrição Azure que gostaria de utilizar *(não* o diretório que contém o inquilino Azure AD B2C).
 1. Selecione Criar `Active Directory B2C` um **recurso,** insira no campo Search the **Marketplace** e, em seguida, selecione **Azure Ative Directory B2C**.
 1. Selecione **Criar**

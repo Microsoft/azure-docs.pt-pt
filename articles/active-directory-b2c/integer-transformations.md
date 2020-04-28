@@ -12,10 +12,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ece25e95bbbe9f1a1fa591c29ea9ffda0fefd369
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78187683"
 ---
 # <a name="integer-claims-transformations"></a>Integer reclama transformações
@@ -30,7 +30,7 @@ Converte um tipo de dados longo num tipo de dados de cadeia.
 
 | Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| Pedido de crédito | inputClaim | longo | O ClaimType para converter numa corda. |
+| Pedido de crédito | inputClaim | long | O ClaimType para converter numa corda. |
 | Pedido de saída | saídaReclamada | string | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
 
 Neste exemplo, `numericUserId` a reclamação com um tipo `UserId` de valor de longo prazo é convertida para uma reclamação com um tipo de cadeia de valor.

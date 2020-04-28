@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a638184d5232de916ebd25360147301a93309dd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260517"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mova dados de e para azure Cosmos DB usando a Azure Data Factory
@@ -132,7 +132,7 @@ No caso de Copy quando a fonte é do tipo **DocumentDbCollectionSource** as segu
 | --- | --- | --- | --- |
 | nestingSeparator |Um personagem especial no nome da coluna de origem para indicar que o documento aninhado é necessário. <br/><br/>Por exemplo: `Name.First` na tabela de saída produz a seguinte estrutura JSON no documento Cosmos DB:<br/><br/>"Nome": {<br/>    "Primeiro": "João"<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>O valor `.` predefinido é (ponto). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>O valor `.` predefinido é (ponto). |
 | escreverBatchSize |Número de pedidos paralelos ao serviço Azure Cosmos DB para criar documentos.<br/><br/>Pode afinar o desempenho ao copiar dados de/para cosmos DB utilizando esta propriedade. Você pode esperar um melhor desempenho quando você aumentar writeBatchSize porque são enviados pedidos mais paralelos para Cosmos DB. No entanto, terá de evitar estrangulamentos que possam lançar a mensagem de erro: "A taxa de pedido é grande".<br/><br/>O estrangulamento é decidido por uma série de fatores, incluindo a dimensão dos documentos, o número de termos em documentos, a política de indexação da recolha de alvos, etc. Para operações de cópia, pode utilizar uma melhor recolha (por exemplo, S3) para ter a maior entrada disponível (2.500 unidades de pedido/segundo). |Número inteiro |Não (padrão: 5) |
-| escreverBatchTimeout |Aguarde o tempo para que a operação esteja concluída antes de sair. |tempospan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| escreverBatchTimeout |Aguarde o tempo para que a operação esteja concluída antes de sair. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
 ## <a name="importexport-json-documents"></a>Documentos JSON de Importação/Exportação
 Usando este conector Cosmos DB, você pode facilmente

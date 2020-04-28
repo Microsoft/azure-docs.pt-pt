@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261622"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronização Azure AD Connect: Compreender a arquitetura
@@ -54,7 +54,7 @@ Todo o espaço de nomedo do motor sincronizado é composto por dois espaços de 
 
 O **espaço do conector** é uma área de preparação que contém representações dos objetos designados a partir de uma fonte de dados conectada e os atributos especificados na lista de inclusão do atributo. O motor sincronizado utiliza o espaço do conector para determinar o que mudou na fonte de dados conectada e para encenar alterações de entrada. O motor sincronizado também utiliza o espaço do conector para encenar alterações de saída para exportação para a fonte de dados conectada. O motor sincronizado mantém um espaço conector distinto como uma área de preparação para cada Conector.
 
-Utilizando uma área de paragem, o motor sincronizado permanece independente das fontes de dados conectadas e não é afetado pela sua disponibilidade e acessibilidade. Como resultado, pode processar informações de identidade a qualquer momento utilizando os dados na área de encenação. O motor sincronizado só pode solicitar as alterações efetuadas dentro da fonte de dados conectada desde que a última sessão de comunicação terminou ou empurrou apenas as alterações à informação de identidade que a fonte de dados conectada ainda não recebeu, o que reduz a rede tráfego entre o motor de sincronização e a fonte de dados conectada.
+Utilizando uma área de paragem, o motor sincronizado permanece independente das fontes de dados conectadas e não é afetado pela sua disponibilidade e acessibilidade. Como resultado, pode processar informações de identidade a qualquer momento utilizando os dados na área de encenação. O motor sincronizado só pode solicitar as alterações efetuadas dentro da fonte de dados conectada desde que a última sessão de comunicação terminou ou empurrou apenas as alterações à informação de identidade que a fonte de dados conectada ainda não recebeu, o que reduz o tráfego de rede entre o motor de sincronização e a fonte de dados conectada.
 
 Além disso, sincronizar o motor armazena informações de estado sobre todos os objetos que encena no espaço do conector. Quando novos dados são recebidos, o motor sincronizado avalia sempre se os dados já foram sincronizados.
 
@@ -248,13 +248,13 @@ Durante o processo de exportação, o motor sync examina todos os objetos de exp
 
 O motor sincronizado pode determinar o sucesso de uma exportação, mas não pode determinar suficientemente se o processo de gestão da identidade está concluído. Os objetos na fonte de dados conectados podem sempre ser alterados por outros processos. Uma vez que o motor sincronizado não tem uma ligação persistente à fonte de dados conectada, não é suficiente fazer suposições sobre as propriedades de um objeto na fonte de dados conectada baseada apenas numa notificação de exportação bem sucedida.
 
-Por exemplo, um processo na fonte de dados conectado poderia alterar os atributos do objeto de volta aos seus valores originais (isto é, a fonte de dados conectada poderia sobrepor os valores imediatamente após os dados forem empurrados para fora pelo motor sincronizado e aplicados com sucesso em a fonte de dados conectada).
+Por exemplo, um processo na fonte de dados conectado poderia alterar os atributos do objeto de volta aos seus valores originais (isto é, a fonte de dados conectada poderia sobrepor os valores imediatamente após os dados forem empurrados para fora pelo motor sincronizado e aplicados com sucesso na fonte de dados conectada).
 
 O motor sincronizado armazena informações sobre o estado de exportação e importação de informações sobre cada objeto de preparação. Se os valores dos atributos especificados na lista de inclusão do atributo tiverem mudado desde a última exportação, o armazenamento do estado de importação e exportação permite que o motor sincronizado reaja adequadamente. O motor Sync utiliza o processo de importação para confirmar valores de atributos que foram exportados para a fonte de dados conectada. Uma comparação entre as informações importadas e exportadas, tal como mostra a seguinte ilustração, permite ao motor sincronizado determinar se a exportação foi bem sucedida ou se tem de ser repetida.
 
 ![Arco7](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
 
-Por exemplo, se as exportações de motores sincronizados atributoC, que tem um valor de 5, a uma fonte de dados conectada, armazena C=5 na sua memória de estado de exportação. Cada exportação adicional deste objeto resulta numa tentativa de exportar C=5 para a fonte de dados conectada novamente porque o motor sincronizado assume que este valor não foi persistentemente aplicado ao objeto (isto é, a menos que um valor diferente tenha sido importado recentemente do fonte de dados conectada). A memória de exportação é limpa quando C=5 é recebida durante uma operação de importação do objeto.
+Por exemplo, se as exportações de motores sincronizados atributoC, que tem um valor de 5, a uma fonte de dados conectada, armazena C=5 na sua memória de estado de exportação. Cada exportação adicional deste objeto resulta numa tentativa de exportar C=5 para a fonte de dados conectada novamente porque o motor sincronizado assume que este valor não foi aplicado persistentemente ao objeto (isto é, a menos que tenha sido importado recentemente um valor diferente da fonte de dados ligada). A memória de exportação é limpa quando C=5 é recebida durante uma operação de importação do objeto.
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a configuração de [sincronização azure AD Connect.](how-to-connect-sync-whatis.md)

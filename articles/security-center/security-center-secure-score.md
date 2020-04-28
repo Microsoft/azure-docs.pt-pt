@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
 ms.openlocfilehash: 30405ce5cc875144fcd1cf83d4a3f883a0304989
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79415776"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Melhore a sua pontuação segura no Centro de Segurança Azure
@@ -50,7 +50,7 @@ Para ver o seu Resultado Seguro geral:
    - **Secure Score por categoria** mostra quais os recursos que mais precisam de atenção
    - **As principais recomendações do impacto Secure Score** fornecem-lhe uma lista das recomendações que melhorarão mais a sua Pontuação Segura se as implementar.
  
-   ![Secure Score (Classificação de segurança)](./media/security-center-secure-score/secure-score-dashboard.png)
+   ![Pontuação Segura](./media/security-center-secure-score/secure-score-dashboard.png)
 
 3. Na tabela abaixo pode ver cada uma das suas subscrições e a pontuação segura geral para cada um.
 
@@ -60,7 +60,7 @@ Para ver o seu Resultado Seguro geral:
 4. Clique em **ver recomendações** para ver as recomendações para essa subscrição que pode remediar para melhorar a sua Pontuação Segura.
 4. Na lista de recomendações, pode ver que para cada recomendação existe uma coluna que representa o **impacto secure score**. Este número representa o quanto o seu Secure Score irá melhorar se seguir as recomendações. Por exemplo, no ecrã abaixo, se **remediar vulnerabilidades em configurações**de segurança de contentores, a sua Pontuação Segura aumentará em 35 pontos.
 
-   ![Secure Score (Classificação de segurança)](./media/security-center-secure-score/security-center-secure-score1.png)
+   ![Pontuação Segura](./media/security-center-secure-score/security-center-secure-score1.png)
 
 
 

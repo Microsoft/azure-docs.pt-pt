@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253887"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Conceitos de design
@@ -71,7 +71,7 @@ Por esta razão, aplicam-se as seguintes restrições ao Azure AD Connect:
 
 * O atributo sourceAnchor só pode ser definido durante a instalação inicial. Se reproduzir o assistente de instalação, esta opção é apenas para leitura. Se precisar de alterar esta definição, terá de desinstalar e reinstalar.
 * Se instalar outro servidor Azure AD Connect, então deve selecionar o mesmo atributo sourceAnchor que o anteriormente utilizado. Se já esteve a utilizar o DirSync e mudar-se para o Azure AD Connect, então deve utilizar **o objectGUID,** uma vez que é esse o atributo utilizado pelo DirSync.
-* Se o valor para a fonteAnchor for alterado após o objeto ter sido exportado para AD Azure, então a sincronização Azure AD Connect lança um erro e não permite mais alterações nesse objeto antes de o problema ter sido corrigido e a fonteAnchor é alterada novamente na fonte diretório.
+* Se o valor para a fonteAnchor for alterado após o objeto ter sido exportado para a AD Azure, então a sincronização Azure AD Connect lança um erro e não permite mais alterações nesse objeto antes de o problema ter sido corrigido e a fonteAnchor é alterada novamente no diretório de origem.
 
 ## <a name="using-ms-ds-consistencyguid-as-sourceanchor"></a>Usando ms-DS-ConsistênciaGuid como fonteAnchor
 Por predefinição, o Azure AD Connect (versão 1.1.486.0 e mais antigo) utiliza o objectGUID como atributo sourceAnchor. O ObjectGUID é gerado pelo sistema. Não é possível especificar o seu valor ao criar objetos AD no local. Como explicado na fonte da [secçãoAnchor,](#sourceanchor)existem cenários em que é necessário especificar o valor sourceAnchor. Se os cenários forem aplicáveis a si, deve utilizar um atributo ad configurável (por exemplo, ms-DS-Consistência) como atributo sourceAnchor.

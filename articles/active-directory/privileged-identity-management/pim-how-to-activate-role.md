@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f95a1a08189668e5b6f88941069566b00a73bce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77499230"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar as minhas funções do Microsoft Azure AD no PIM
@@ -44,7 +44,7 @@ A partir de novembro de 2019, a parte da AD Azure da Privileged Identity Managem
 
 Quando precisa assumir uma função de AD Azure, pode solicitar a ativação utilizando a opção de navegação **das Minhas funções** na Gestão de Identidade Privilegiada.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Open **Azure AD Privileged Identity Management.** Para obter informações sobre como adicionar o azulejo privilegiado de Gestão de Identidade ao seu painel de instrumentos, consulte Comece a utilizar a Gestão de [Identidade Privilegiada.](pim-getting-started.md)
 
@@ -144,7 +144,7 @@ Quando ativa uma função na Gestão de Identidade Privilegiada, a ativação po
 
 Quando precisa de assumir um papel de AD Azure, pode solicitar a ativação utilizando a opção de navegação **das Minhas funções** na Gestão de Identidade Privilegiada.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Open **Azure AD Privileged Identity Management.** Para obter informações sobre como adicionar o azulejo privilegiado de Gestão de Identidade ao seu painel de instrumentos, consulte Comece a utilizar a Gestão de [Identidade Privilegiada.](pim-getting-started.md)
 

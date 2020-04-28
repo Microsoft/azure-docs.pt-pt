@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1c75d5022432a9a57b30aabec4dd2c4f76f2f29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78671820"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Como: Planear a sua implantação de Acesso Condicional no Diretório Ativo Azure
@@ -96,7 +96,7 @@ Por exemplo, o seguinte nome indica que esta política é a primeira em quatro q
 
 Ao planear a sua solução política de Acesso Condicional, avalie se precisa de criar políticas para alcançar os seguintes resultados. 
 
-### <a name="block-access"></a>Bloquear acesso
+### <a name="block-access"></a>Bloquear o acesso
 
 A opção de bloquear o acesso é poderosa porque:
 

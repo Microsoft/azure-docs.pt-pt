@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79298619"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guia de referência de identidade de diretório ativo azure e operações de gestão de acesso
@@ -79,7 +79,7 @@ Exemplos de objetos a excluir são:
 - Contas de computador onde os funcionários não são destinados a aceder a aplicações em nuvem a partir, por exemplo, servidores
 
 > [!NOTE]
-> Se uma única identidade humana tiver múltiplas contas aprovisionadas a partir de algo como migração de domínio sinuoso, fusão ou aquisição, você só deve sincronizar a conta usada pelo utilizador no dia-a-dia, por exemplo, o que eles usam para iniciar sessão no seu computador .
+> Se uma única identidade humana tiver múltiplas contas aprovisionadas a partir de algo como migração de domínio sinuoso, fusão ou aquisição, só deve sincronizar a conta utilizada pelo utilizador no dia-a-dia, por exemplo, o que eles usam para iniciar sessão no seu computador.
 
 Idealmente, você vai querer alcançar um equilíbrio entre reduzir o número de objetos para sincronizar e a complexidade nas regras. Geralmente, uma combinação entre [filtragem](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering) de OU/recipiente mais um simples mapeamento de atributo saqueado ao atributo com cloudFiltered é uma combinação eficaz de filtragem.
 

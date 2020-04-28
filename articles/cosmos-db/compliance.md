@@ -8,10 +8,10 @@ ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 5a35ec10d7d9bc60bbbf28ee85c83c838108050b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79527372"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Conformidade no Azure Cosmos DB 
@@ -28,7 +28,7 @@ Azure Cosmos DB está disponível em todas as regiões de Azure. A Microsoft dis
 
 * **O Governo de Azure para o Departamento de Defesa (DoD)** está disponível em duas regiões dos Estados Unidos para o Departamento de Defesa dos EUA.
 
-Para ajudar os clientes a cumprir as suas próprias obrigações de conformidade entre indústrias e mercados regulados em todo o mundo, a Azure mantém a maior carteira de conformidade do setor em termos de amplitude (número total de ofertas) e profundidade (número de clientes voltados para o cliente) serviços no âmbito da avaliação).  As ofertas de conformidade azure são agruparadas em quatro segmentos - globalmente aplicável, Governo dos EUA, indústria específica, e região ou região/região específica.  As ofertas de conformidade baseiam-se em vários tipos de garantias, incluindo certificações formais, atestados, validações, autorizações e avaliações produzidas por empresas de auditoria independentes, bem como alterações contratuais, autoavaliações e documentos de orientação do cliente produzidos pela Microsoft.
+Para ajudar os clientes a cumprir as suas próprias obrigações de conformidade entre indústrias e mercados regulados em todo o mundo, a Azure mantém a maior carteira de conformidade do setor em termos de amplitude (número total de ofertas) e profundidade (número de serviços voltados para o cliente no âmbito da avaliação).  As ofertas de conformidade azure são agruparadas em quatro segmentos - globalmente aplicável, Governo dos EUA, indústria específica, e região ou região/região específica.  As ofertas de conformidade baseiam-se em vários tipos de garantias, incluindo certificações formais, atestados, validações, autorizações e avaliações produzidas por empresas de auditoria independentes, bem como alterações contratuais, autoavaliações e documentos de orientação do cliente produzidos pela Microsoft.
 
 ## <a name="azure-cosmos-db-certifications"></a>Certificações Azure Cosmos DB  
 

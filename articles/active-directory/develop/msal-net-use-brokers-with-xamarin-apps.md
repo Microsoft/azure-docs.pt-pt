@@ -13,10 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1a57173311278c5e3e0304aeb12d4d6999379eb5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79262792"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utilize o Autenticador microsoft ou o Portal da Empresa Intune nas aplicações Xamarin
@@ -257,7 +257,7 @@ Example: msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
 ```
 
 A última parte do `hgbUYHVBYUTvuvT&Y6tr554365466=`URI, é a assinatura com a que a APK é assinada, base64 codificada.
-No entanto, durante a fase de desenvolvimento da sua aplicação utilizando o Visual Studio, se estiver a depurar o seu código sem assinar o apk com um certificado específico, o Visual Studio assinará o apk para si para fins de depuração, dando à APK uma assinatura única para o máquina em que é construído. Assim, sempre que construir a sua aplicação numa máquina diferente, terá de atualizar o URI redirecionado no código da aplicação e o registo da aplicação no portal Azure para autenticar com a MSAL. 
+No entanto, durante a fase de desenvolvimento da sua aplicação utilizando o Visual Studio, se estiver a depurar o seu código sem assinar o apk com um certificado específico, o Visual Studio assinará o apk para si para fins de depuração, dando à APK uma assinatura única para a máquina em que foi construído. Assim, sempre que construir a sua aplicação numa máquina diferente, terá de atualizar o URI redirecionado no código da aplicação e o registo da aplicação no portal Azure para autenticar com a MSAL. 
 
 Durante a depuração, pode encontrar uma exceção MSAL (ou mensagem de registo) indicando que o URI redirecionado fornecido está incorreto. **Esta exceção também lhe fornecerá o URI redirecionado que deve utilizar** com a máquina atual em que está a depurar. Pode utilizar este URI redirecionado para continuar a desenvolver-se por enquanto.
 

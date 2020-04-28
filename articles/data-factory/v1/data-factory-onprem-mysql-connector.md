@@ -13,10 +13,10 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281291"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mova dados do MySQL usando a Fábrica de Dados Azure
@@ -305,39 +305,39 @@ Ao mover dados para MySQL, os seguintes mapeamentos são usados de tipos MySQL p
 | bit |Decimal |
 | blob |Byte[] |
 | bool |Booleano |
-| char |Cadeia |
+| char |String |
 | date |Datetime |
 | datetime |Datetime |
 | decimal |Decimal |
 | dupla precisão |Double |
 | double |Double |
-| enum |Cadeia |
+| enum |String |
 | float |Único |
 | int unsigned |Int64 |
 | int |Int32 |
 | inteiro não assinado |Int64 |
 | número inteiro |Int32 |
 | varbinary longo |Byte[] |
-| varchar longo |Cadeia |
+| varchar longo |String |
 | longblob |Byte[] |
-| texto longo |Cadeia |
+| texto longo |String |
 | mediumblob |Byte[] |
 | médio não assinado |Int64 |
 | médio |Int32 |
-| texto médio |Cadeia |
+| texto médio |String |
 | numeric |Decimal |
 | real |Double |
-| set |Cadeia |
+| set |String |
 | pequeno não assinado |Int32 |
 | smallint |Int16 |
-| texto |Cadeia |
+| texto |String |
 | hora |TimeSpan |
 | carimbo de data/hora |Datetime |
 | tinyblob |Byte[] |
 | minúsculo não assinado |Int16 |
 | tinyint |Int16 |
-| texto minúsculo |Cadeia |
-| varchar |Cadeia |
+| texto minúsculo |String |
+| varchar |String |
 | ano |int |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas

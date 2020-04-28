@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281200"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mova dados da Teradata utilizando a Azure Data Factory
@@ -284,11 +284,11 @@ Ao mover dados para a Teradata, os seguintes mapeamentos são utilizados do tipo
 
 | Tipo de base de dados teradata | Tipo de quadro .NET |
 | --- | --- |
-| Char |Cadeia |
-| Estação Clob |Cadeia |
-| Gráfico |Cadeia |
-| Rio Varchar |Cadeia |
-| Vargraphic |Cadeia |
+| Char |String |
+| Estação Clob |String |
+| Gráfico |String |
+| Rio Varchar |String |
+| Vargraphic |String |
 | Blobs |Byte[] |
 | Byte |Byte[] |
 | Rio VarByte |Byte[] |
@@ -301,7 +301,7 @@ Ao mover dados para a Teradata, os seguintes mapeamentos são utilizados do tipo
 | SmallInt |Int16 |
 | Date |DateTime |
 | Hora |TimeSpan |
-| Tempo com fuso horário |Cadeia |
+| Tempo com fuso horário |String |
 | Carimbo de data/hora |DateTime |
 | Carimbo de tempo com fuso horário |DataTimeOffset |
 | Dia do Intervalo |TimeSpan |
@@ -314,15 +314,15 @@ Ao mover dados para a Teradata, os seguintes mapeamentos são utilizados do tipo
 | Minuto de intervalo |TimeSpan |
 | Intervalo minuto para segundo |TimeSpan |
 | Intervalo Segundo |TimeSpan |
-| Ano de Intervalo |Cadeia |
-| Intervalo de ano para mês |Cadeia |
-| Mês de Intervalo |Cadeia |
-| Período (data) |Cadeia |
-| Período (Hora) |Cadeia |
-| Período (hora com fuso horário) |Cadeia |
-| Período (Carimbo de tempo) |Cadeia |
-| Período (carimbo de tempo com fuso horário) |Cadeia |
-| Xml |Cadeia |
+| Ano de Intervalo |String |
+| Intervalo de ano para mês |String |
+| Mês de Intervalo |String |
+| Período (data) |String |
+| Período (Hora) |String |
+| Período (hora com fuso horário) |String |
+| Período (Carimbo de tempo) |String |
+| Período (carimbo de tempo com fuso horário) |String |
+| Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para aprender sobre as colunas de mapeamento em conjunto de dados de origem para colunas em conjunto de dados de sumidouro, consulte [mapeando colunas](data-factory-map-columns.md)de conjunto de dados na Azure Data Factory .

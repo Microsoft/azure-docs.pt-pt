@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281057"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mova dados do SAP Business Warehouse utilizando a Azure Data Factory
@@ -291,27 +291,27 @@ Ao mover dados do SAP BW, os seguintes mapeamentos são utilizados de tipos De B
 Tipo de dados no Dicionário ABAP | Tipo de dados .NET
 -------------------------------- | --------------
 ACCP |  int
-CHAR | Cadeia
-CLNT | Cadeia
+CHAR | String
+CLNT | String
 CURR | Decimal
-CUKY | Cadeia
+CUKY | String
 DEZ | Decimal
 FLTP | Double
 INT1 | Byte
 INT2 | Int16
 INT4 | int
-RIO LANG | Cadeia
-LCHR | Cadeia
+RIO LANG | String
+LCHR | String
 LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
 CRU | Byte[]
 CADEIA BRUTA | Byte[]
-CORDA | Cadeia
-UNIDADE | Cadeia
-DATS | Cadeia
-NUMC | Cadeia
-TIMS | Cadeia
+CORDA | String
+UNIDADE | String
+DATS | String
+NUMC | String
+TIMS | String
 
 > [!NOTE]
 > Para mapear colunas desde o conjunto de dados de origem até colunas a partir de conjunto de dados de sumidouro, consulte [colunas de conjunto de dados de mapeamento na Fábrica](data-factory-map-columns.md)de Dados Azure .

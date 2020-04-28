@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78397791"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -74,7 +74,7 @@ O elemento **DataType** suporta os seguintes valores:
 |duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato `PnYnMnDTnHnMnS`do `P` é , `N` onde indica positivo, ou para valor negativo. `nY`é o número de anos `Y`seguidos por um literal. `nMo`é o número de meses seguido si. `Mo` `nD`é o número de dias `D`seguidos por um literal. Exemplos: `P21Y` representa 21 anos. `P1Y2Mo`representa um ano e dois meses. `P1Y2Mo5D`representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S`representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
 |telefoneNúmero|Representa um número de telefone. |
 |int| Representa o número entre -2.147.483.648 e 2.147.483.647|
-|longo| Representa o número entre -9.223.372.036.854.775.808 para 9.223.372.036.854.775.807 |
+|long| Representa o número entre -9.223.372.036.854.775.808 para 9.223.372.036.854.775.807 |
 |string| Representa o texto como uma sequência de unidades de código UTF-16.|
 |stringCollection|Representa uma coleção `string`de .|
 |userIdentidade| Representa uma identidade de utilizador.|

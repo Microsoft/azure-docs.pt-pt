@@ -13,10 +13,10 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281135"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mova dados da Salesforce utilizando a Azure Data Factory
@@ -285,25 +285,25 @@ Consulte propriedades do [tipo RelationalSource](#copy-activity-properties) para
 
 | Tipo salesforce | . Tipo baseado em NET |
 | --- | --- |
-| Número automático |Cadeia |
+| Número automático |String |
 | Caixa de verificação |Booleano |
 | Moeda |Decimal |
 | Date |DateTime |
 | Date/Time |DateTime |
-| Email |Cadeia |
-| Id |Cadeia |
-| Relação de procura |Cadeia |
-| Lista de Picklist multi-selecionada |Cadeia |
+| Email |String |
+| Id |String |
+| Relação de procura |String |
+| Lista de Picklist multi-selecionada |String |
 | Número |Decimal |
 | Percentagem |Decimal |
-| Telefone |Cadeia |
-| Picklist |Cadeia |
-| Texto |Cadeia |
-| Área de Texto |Cadeia |
-| Área de texto (longa) |Cadeia |
-| Área de Texto (Rica) |Cadeia |
-| Texto (Encriptado) |Cadeia |
-| do IdP |Cadeia |
+| Telefone |String |
+| Picklist |String |
+| Texto |String |
+| Área de Texto |String |
+| Área de texto (longa) |String |
+| Área de Texto (Rica) |String |
+| Texto (Encriptado) |String |
+| do IdP |String |
 
 > [!NOTE]
 > Para mapear colunas desde o conjunto de dados de origem até colunas a partir de conjunto de dados de sumidouro, consulte [colunas de conjunto de dados de mapeamento na Fábrica](data-factory-map-columns.md)de Dados Azure .

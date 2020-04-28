@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
 ms.openlocfilehash: 9d3fa1e0b62ea6f4762c3df6ac7da310d5703807
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245242"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recurso para máquinas
@@ -38,7 +38,7 @@ As tabelas abaixo mostram as funcionalidades do Azure Security Center que estão
 |[Acesso VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Avaliação de vulnerabilidade nativa](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Monitorização da integridade do ficheiro](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Controlos de aplicação adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Controlos de aplicações adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa da rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |Controlos de rede adaptativo|✔|✔|-|Standard|
@@ -64,7 +64,7 @@ As tabelas abaixo mostram as funcionalidades do Azure Security Center que estão
 |[Acesso VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Avaliação de vulnerabilidade nativa](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Monitorização da integridade do ficheiro](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Controlos de aplicação adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Controlos de aplicações adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa da rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |Controlos de rede adaptativo|✔|✔|-|Standard|

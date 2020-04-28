@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79263650"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Troubleshoot: No local AD Password Protection
@@ -86,7 +86,7 @@ Este problema pode ter várias causas.
 
 1. A política de senhas foi desativada. Se esta configuração estiver em vigor, reconfigure-a para ativar utilizando o portal de proteção de passwords Azure AD. Para mais informações, consulte [modos de funcionamento](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
-1. Não instalou o software do agente DC em todos os controladores de domínio no domínio. Nesta situação, é difícil garantir que os clientes remotos do Windows direcionam um determinado controlador de domínio durante uma operação de alteração de palavra-passe. Se acha que apontou com sucesso a um determinado DC onde o software do agente DC está instalado, pode verificar verificando duas vezes o registo de eventos do agente dc: independentemente do resultado, haverá pelo menos um evento para documentar o resultado da senha validação. Se não houver nenhum evento presente para o utilizador cuja palavra-passe é alterada, então a alteração da palavra-passe foi provavelmente processada por um controlador de domínio diferente.
+1. Não instalou o software do agente DC em todos os controladores de domínio no domínio. Nesta situação, é difícil garantir que os clientes remotos do Windows direcionam um determinado controlador de domínio durante uma operação de alteração de palavra-passe. Se acha que direcionou com sucesso um determinado DC onde o software do agente DC está instalado, pode verificar verificando duas vezes o registo de eventos do agente dc: independentemente do resultado, haverá pelo menos um evento para documentar o resultado da validação da palavra-passe. Se não houver nenhum evento presente para o utilizador cuja palavra-passe é alterada, então a alteração da palavra-passe foi provavelmente processada por um controlador de domínio diferente.
 
    Como um teste alternativo, tente configurar as palavras-passe com a alteração de palavras-passe enquanto faz login diretamente num DC onde o software do agente DC está instalado. Esta técnica não é recomendada para a produção de domínios de Diretório Ativo.
 
@@ -129,7 +129,7 @@ Uma vez que a despromoção tenha sido bem sucedida, e o controlador de domínio
 
 ## <a name="booting-into-directory-services-repair-mode"></a>Iniciar no modo de reparação de serviços de diretório
 
-Se o controlador de domínio for iniciado no Modo de Reparação de Serviços de Diretório, o filtro de senha do agente DC deteta esta condição e fará com que todas as medidas de validação ou execução de palavras-passe sejam desativadas, independentemente da política atualmente ativa configuração. O dll de filtro de senha do agente DC irá registar um evento de aviso 10023 no registo do evento Admin, por exemplo:
+Se o controlador de domínio for iniciado no Modo de Reparação de Serviços de Diretório, o filtro de senha do agente DC deteta esta condição e fará com que todas as atividades de validação ou execução de palavras-passe sejam desativadas, independentemente da configuração da política atualmente ativa. O dll de filtro de senha do agente DC irá registar um evento de aviso 10023 no registo do evento Admin, por exemplo:
 
 ```text
 The password filter dll is loaded but the machine appears to be a domain controller that has been booted into Directory Services Repair Mode. All password change and set requests will be automatically approved. No further messages will be logged until after the next reboot.

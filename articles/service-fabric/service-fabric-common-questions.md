@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
 ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78254891"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas comuns acerca do Service Fabric
@@ -66,7 +66,7 @@ Exigimos que um aglomerado de produção tenha pelo menos 5 nós devido às segu
 
 Queremos que o cluster esteja disponível face à falha simultânea de dois nós. Para que um cluster de Tecido de Serviço esteja disponível, os serviços do sistema devem estar disponíveis. Serviços de sistema sinuosos como serviço de nomeação e serviço de gestor de failover, que rastreiam os serviços que foram implantados para o cluster e onde estão atualmente hospedados, dependem de uma forte consistência. Essa forte consistência, por sua vez, depende da capacidade de adquirir um *quórum* para qualquer atualização dada ao estado desses serviços, onde um quórum representa uma maioria estrita das réplicas (N/2+1) para um determinado serviço. Assim, se queremos ser resilientes contra a perda simultânea de dois nós (assim perda simultânea de duas réplicas de um serviço de sistema), temos de ter clusterSize - QuorumSize >= 2, o que força o tamanho mínimo a ser cinco. Para ver isso, considere que o cluster tem nós N e há réplicas N de um serviço de sistema - um em cada nó. O tamanho do quórum para um serviço de sistema é (N/2 + 1). A desigualdade acima parece N - (N/2 + 1) >= 2. Há dois casos a considerar: quando N é par e quando N é estranho. Se N é mesmo,\*digamos N = 2 m onde m\*>=\*1, a desigualdade parece 2 m - (2 m/2 + 1) >= 2 ou m >= 3. O mínimo para N é 6 e que é alcançado quando m = 3. Por outro lado, se N é estranho, diga N =\*2 m+1 onde\*m >= 1, a desigualdade parece 2 m+1 - (2\*m+1)/2 + 1 ) >= 2 ou 2\*m+1 - (m+1) >= 2 ou m >= 2. O mínimo para N é 5 e que é alcançado quando m = 2. Portanto, entre todos os valores de N que satisfazem o ClusterSize de desigualdade - QuorumSize >= 2, o mínimo é 5.
 
-Note-se, no argumento acima assumimos que cada nó tem uma réplica de um serviço de sistema, assim o tamanho do quórum é calculado com base no número de nós no cluster. No entanto, alterando *targetReplicaSetSize* poderíamos fazer o tamanho do quórum menos do que (N/2+1) o que pode dar a impressão de que poderíamos ter um cluster menor que 5 nós e ainda ter 2 nós extra acima do tamanho do quórum. Por exemplo, num cluster de 4 nós, se definirmos o TargetReplicaSetSize para 3, o tamanho quórum baseado no TargetReplicaSetSize é (3/2 + 1) ou 2, portanto temos ClusterSize - QuorumSize = 4-2 >= 2. No entanto, não podemos garantir que o serviço de sistema estará em quórum ou acima se perdermos qualquer par de nós simultaneamente, pode ser que os dois nós que perdemos estivessem a acolher duas réplicas, pelo que o serviço do sistema entrará em perda de quórum (tendo apenas uma réplica restante) e ficará indisponível.
+Note-se, no argumento acima assumimos que cada nó tem uma réplica de um serviço de sistema, assim o tamanho do quórum é calculado com base no número de nós no cluster. No entanto, alterando *targetReplicaSetSize* poderíamos fazer o tamanho do quórum menos do que (N/2+1) o que pode dar a impressão de que poderíamos ter um cluster menor que 5 nós e ainda ter 2 nós extra acima do tamanho do quórum. Por exemplo, num cluster de 4 nós, se definirmos o TargetReplicaSetSize para 3, o tamanho quórum baseado no TargetReplicaSetSize é (3/2 + 1) ou 2, portanto temos ClusterSize - QuorumSize = 4-2 >= 2. No entanto, não podemos garantir que o serviço de sistema estará em quórum ou acima se perdermos qualquer par de nós simultaneamente, pode ser que os dois nós que perdemos estivessem a acolher duas réplicas, pelo que o serviço do sistema entrará em perda de quórum (com apenas uma réplica à esquerda) e ficará indisponível.
 
 Com esse pano de fundo, vamos examinar algumas possíveis configurações de cluster:
 

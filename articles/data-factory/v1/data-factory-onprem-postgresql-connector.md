@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281239"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mova dados do PostgreSQL utilizando a Azure Data Factory
@@ -312,28 +312,28 @@ Ao mover dados para PostgreSQL, os seguintes mapeamentos são utilizados do tipo
 | boolean |bool |Booleano |
 | caixa | |Byte[], String |
 | bytea | |Byte[], String |
-| carácter [n)] |char [n)] |Cadeia |
-| caracteres variando [(n)] |varchar [n)] |Cadeia |
-| cid | |Cadeia |
-| cidr | |Cadeia |
+| carácter [n)] |char [n)] |String |
+| caracteres variando [(n)] |varchar [n)] |String |
+| cid | |String |
+| cidr | |String |
 | círculo | |Byte[], String |
 | date | |Datetime |
-| datarange | |Cadeia |
+| datarange | |String |
 | dupla precisão |flutuante8 |Double |
 | inet | |Byte[], String |
-| intarry | |Cadeia |
-| int4range | |Cadeia |
-| int8range | |Cadeia |
+| intarry | |String |
+| int4range | |String |
+| int8range | |String |
 | número inteiro |int, int4 |Int32 |
 | intervalo [campos] [(p)] | |Timespan |
-| json | |Cadeia |
+| json | |String |
 | jsonb | |Byte[] |
 | linha | |Byte[], String |
 | LSEG | |Byte[], String |
 | macaddr | |Byte[], String |
 | dinheiro | |Decimal |
 | numérico [(p, s)] |decimal [(p, s)] |Decimal |
-| numrange | |Cadeia |
+| numrange | |String |
 | oid | |Int32 |
 | path | |Byte[], String |
 | pg_lsn | |Int64 |
@@ -343,7 +343,7 @@ Ao mover dados para PostgreSQL, os seguintes mapeamentos são utilizados do tipo
 | smallint |int2 |Int16 |
 | pequena série |série2 |Int16 |
 | série |série4 |Int32 |
-| texto | |Cadeia |
+| texto | |String |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para aprender sobre as colunas de mapeamento em conjunto de dados de origem para colunas em conjunto de dados de sumidouro, consulte [mapeando colunas](data-factory-map-columns.md)de conjunto de dados na Azure Data Factory .

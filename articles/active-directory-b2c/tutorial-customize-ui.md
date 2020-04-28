@@ -12,10 +12,10 @@ ms.date: 02/01/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b2b2bc8dd4e60348553228b8b418df252a8c426a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186255"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalize a interface das experiências do utilizador no Diretório Ativo Azure B2C
@@ -39,11 +39,11 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 Cria uma conta de armazenamento e um recipiente Azure e, em seguida, coloca ficheiros BÁSICOS HTML e CSS no recipiente.
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Embora possa armazenar os seus ficheiros de muitas formas, para este tutorial, guarde-os no [armazenamento Azure Blob.](../storage/blobs/storage-blobs-introduction.md)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a usar o diretório que contém a sua subscrição Azure. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o diretório que contenha a sua subscrição. Este diretório é diferente daquele que contém o seu inquilino Azure B2C.
 3. Escolha todos os serviços no canto superior esquerdo do portal Azure, procure e selecione contas de **Armazenamento.**
 4. Selecione **Adicionar**.

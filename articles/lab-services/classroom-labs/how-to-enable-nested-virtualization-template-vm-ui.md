@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/23/2020
 ms.author: enewman
 ms.openlocfilehash: 10f8d2760474631fbcabac4d66139aedf4c7560c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79503078"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Ativar a virtualização aninhada em uma máquina virtual modelo em Azure Lab Services manualmente

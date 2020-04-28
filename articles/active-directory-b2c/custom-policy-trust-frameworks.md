@@ -11,10 +11,10 @@ ms.date: 08/04/2017
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ffa25eec9c4b668f428d8e8b5a780a5fe4625a2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78188890"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir Quadros de Confiança com Quadro de Experiência de Identidade Azure AD B2C
@@ -106,11 +106,11 @@ Em termos de implementação, a especificação TF consiste num conjunto de pol�
 ### <a name="understand-claims"></a>Compreender as reivindicações
 
 > [!NOTE]
-> Referimo-nos colectivamente a todos os tipos possíveis de informação de identidade que possam ser trocadas como "alegações": alegações sobre a credencial de autenticação de um utilizador final, verificação de identidade, dispositivo de comunicação, localização física, identificação pessoal de atributos, e assim por diante.
+> Referimo-nos coletivamente a todos os tipos possíveis de informação de identidade que possam ser trocadas como "alegações": alegações sobre a credencial de autenticação de um utilizador final, verificação de identidade, dispositivo de comunicação, localização física, identificação pessoal de atributos, e assim por diante.
 >
 > Usamos o termo "reivindicações"-- em vez de "atributos"-- porque em transações online, estes artefactos de dados não são factos que podem ser verificados diretamente pela parte que confia. Em vez disso, são afirmações, ou afirmações, sobre factos para os quais a parte que depende deve desenvolver confiança suficiente para conceder a transação solicitada pelo utilizador final.
 >
-> Também usamos o termo "reivindicações" porque as políticas personalizadas do Azure AD B2C que utilizam o Quadro de Experiência de Identidade são projetadas para simplificar o intercâmbio de todos os tipos de informação de identidade digital de forma consistente, independentemente de o protocolo subjacente definido para autenticação do utilizador ou recuperação de atributos.  Da mesma forma, utilizamos o termo "prestadores de sinistros" para se referir colectivamente a fornecedores de identidade, atribuírem fornecedores e atribuírem verificadores quando não queremos distinguir as suas funções específicas.
+> Também usamos o termo "reivindicações" porque as políticas personalizadas do Azure AD B2C que utilizam o Quadro de Experiência de Identidade são projetadas para simplificar o intercâmbio de todos os tipos de informação de identidade digital de forma consistente, independentemente de o protocolo subjacente estar definido para autenticação do utilizador ou recuperação de atributos.  Da mesma forma, utilizamos o termo "prestadores de sinistros" para se referir colectivamente a fornecedores de identidade, atribuírem fornecedores e atribuírem verificadores quando não queremos distinguir as suas funções específicas.
 
 Assim, regem a forma como a informação de identidade é trocada entre um grupo de confiança, fornecedores de identidade e atributos, e atribuem verificadores. Controlam a identidade e os fornecedores de atributos necessários para a autenticação de uma parte que depende. Devem ser considerados como uma linguagem específica de domínio (DSL), isto é, uma linguagem informática especializada para um determinado domínio de aplicação com herança, *se* declarações, polimorfismo.
 
@@ -124,4 +124,4 @@ A interoperabilidade é outro desafio significativo. Devem ser integrados fornec
 
 As viagens dos utilizadores incluem perfis protocolares e metadados que são usados para mergulhar interoperabilidade "no fio" entre a parte que depende e outros participantes. Existem também regras operacionais de tempo de execução que são aplicadas às mensagens de pedido/resposta de troca de informações de identidade para a aplicação do cumprimento das políticas publicadas como parte do caderno de encargos da TF. A ideia das viagens de utilizador é fundamental para a personalização da experiência do cliente. Também esclarece como o sistema funciona a nível protocolário.
 
-Nessa base, as aplicações e portais do partido podem, dependendo do seu contexto, invocar políticas personalizadas Azure AD B2C que alavancam o Quadro de Experiência de Identidade passando o nome de uma política específica e obter precisamente o comportamento e troca de informação querem sem muss, alarido ou risco.
+Nessa base, as aplicações e portais partidários podem, dependendo do seu contexto, invocar políticas personalizadas Azure AD B2C que alavancam o Quadro de Experiência de Identidade passando o nome de uma política específica e obter precisamente o comportamento e troca de informação que desejam sem qualquer muss, alarido ou risco.

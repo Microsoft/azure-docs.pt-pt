@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
 ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279887"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
@@ -73,7 +73,7 @@ Os gateways baseados na rota implementam as VPNs baseadas na rota. As VPNs basea
 Não.Um tipo de gateway de Vnet do Azure não pode ser alterado de baseado em políticas para baseado na rota, ou ao contrário. O gateway tem de ser eliminado e recriado, um processo que demora cerca de 60 minutos. O endereço IP do gateway não será mantido, nem a Chave Pré-partilhada (PSK).
 1. Elimine todas as ligações associadas ao gateway a eliminar.
 1. Elimine o gateway:
-   - [Portal Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
    - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
    - [Azure PowerShell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 1. [Crie uma nova porta de entrada do tipo que deseja e complete a configuração VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
@@ -194,7 +194,7 @@ Esta secção aplica-se ao Modelo de implementação Resource Manager.
 **Modelo de implementação Resource Manager**<br>
 Sim. Veja a secção [BGP](#bgp) para obter mais informações.
 
-**Modelo de implantação clássico**<br>
+**Modelo de implementação clássica**<br>
 É possível transitar o tráfego através do gateway de VPN do Azure com o modelo de implementação clássica, mas tal depende de espaços de endereços definidos estaticamente no ficheiro de configuração de rede. O BGP ainda não é suportado com Redes Virtuais do Azure nem gateways de VPN mediante a utilização do modelo de implementação clássica. Sem o BGP, a definição manual dos espaços de endereços de trânsito é muito propensa a erros e não se recomenda.
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>O Azure gera a mesma chave pré-partilhada IPsec/IKE para todas as minhas ligações VPN para a mesma rede virtual?
@@ -243,7 +243,7 @@ Não. Apenas o tráfego que tem um IP de destino contido nos intervalos de ender
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a><a name="faq"></a>FAQ da Rede Virtual
+## <a name="virtual-network-faq"></a><a name="faq"></a>Rede Virtual FAQ
 
 Pode ver informações adicionais sobre a rede virtual nas [FAQ da Rede Virtual](../virtual-network/virtual-networks-faq.md).
 

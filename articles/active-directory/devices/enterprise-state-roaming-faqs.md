@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672376"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
@@ -55,7 +55,7 @@ Os dados nunca são misturados entre as diferentes contas de utilizador do dispo
 Se o proprietário de uma aplicação não puder ser identificado, irá vaguear pela conta principal. Se um dispositivo for atualizado do Windows 8 ou Windows 8.1 para o Windows 10, todas as aplicações serão marcadas como adquiridas pela conta da Microsoft. Isto porque a maioria dos utilizadores adquire aplicações através da Windows Store, e não havia suporte para a Windows Store para contas AD Azure antes do Windows 10. Se uma aplicação for instalada através de uma licença offline, a aplicação será marcada utilizando a conta principal do dispositivo.
 
 > [!NOTE]
-> Os dispositivos Windows 10 que são propriedade da empresa e estão ligados ao Azure AD já não podem ligar as suas contas da Microsoft a uma conta de domínio. A capacidade de ligar uma conta microsoft a uma conta de domínio e ter todos os dados sincronizados do utilizador com a conta Microsoft (isto é, a conta Microsoft que circula através da conta microsoft conectada e da funcionalidade Ative Diretor) é removida do Windows 10 dispositivos que se unem a um ambiente ative diretório ou Azure ligado.
+> Os dispositivos Windows 10 que são propriedade da empresa e estão ligados ao Azure AD já não podem ligar as suas contas da Microsoft a uma conta de domínio. A capacidade de ligar uma conta microsoft a uma conta de domínio e ter todos os dados sincronizados do utilizador com a conta Microsoft (isto é, a conta Microsoft que circula através da conta microsoft conectada e da funcionalidade Ative Diretor) é removida dos dispositivos do Windows 10 que estão ligados a um ambiente Ative Directory ou Azure AD conectado.
 
 ## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Como faço upgrade das definições da conta da Microsoft sincronizadas no Windows 8 para o Azure AD sincronizar no Windows 10?
 
@@ -104,7 +104,7 @@ A Enterprise State Roaming armazena todos os dados sincronizados na nuvem da Mic
 
 As empresas possuem os dados que circulavam através do Enterprise State Roaming. Os dados são armazenados num centro de dados Azure. Todos os dados dos utilizadores são encriptados tanto em trânsito como em repouso na nuvem utilizando o serviço de Gestão de Direitos Azure da Azure Information Protection. Esta é uma melhoria em comparação com a sincronização de definições baseadana na conta da Microsoft, que encripta apenas certos dados sensíveis, como credenciais de utilizador antes de deixar o dispositivo.
 
-A Microsoft está empenhada em salvaguardar os dados dos clientes. Os dados de definições de um utilizador da empresa são automaticamente encriptados pelo serviço de Gestão de Direitos do Azure antes de deixar um dispositivo Windows 10, pelo que nenhum outro utilizador pode ler estes dados. Se a sua organização tiver uma subscrição paga para o serviço de Gestão de Direitos do Azure, pode utilizar outras funcionalidades de proteção, tais como rastrear e revogar documentos, proteger automaticamente e-mails que contenham informações sensíveis, e gerir as suas próprias chaves (o "trazer a sua própria solução chave, também conhecida como BYOK). Para obter mais informações sobre estas funcionalidades e como funciona este serviço de proteção, consulte o que é a [Azure Rights Management.](/azure/information-protection/what-is-information-protection)
+A Microsoft está empenhada em salvaguardar os dados dos clientes. Os dados de definições de um utilizador da empresa são automaticamente encriptados pelo serviço de Gestão de Direitos do Azure antes de deixar um dispositivo Windows 10, pelo que nenhum outro utilizador pode ler estes dados. Se a sua organização tiver uma subscrição paga para o serviço de Gestão de Direitos do Azure, pode utilizar outras funcionalidades de proteção, tais como rastrear e revogar documentos, proteger automaticamente e-mails que contenham informações sensíveis e gerir as suas próprias chaves (a solução "traga a sua própria chave", também conhecida como BYOK). Para obter mais informações sobre estas funcionalidades e como funciona este serviço de proteção, consulte o que é a [Azure Rights Management.](/azure/information-protection/what-is-information-protection)
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Posso gerir a sincronização para uma aplicação ou configuração específica?
 

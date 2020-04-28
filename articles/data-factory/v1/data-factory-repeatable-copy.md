@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281148"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Cópia repetível na Fábrica de Dados Azure
@@ -151,5 +151,5 @@ Semelhante ao mecanismo 1, a Copy Activity limpa automaticamente os dados da fat
 Reveja os seguintes artigos de conector que para exemplos completos da JSON: 
 
 - [Base de Dados SQL do Azure](data-factory-azure-sql-connector.md)
-- [Armazém de dados Azure SQL](data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

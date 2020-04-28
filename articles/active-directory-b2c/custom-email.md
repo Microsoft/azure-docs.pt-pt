@@ -12,10 +12,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6cc0508a63f26b955ac5e0ebf3ef58a184a35997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78671639"
 ---
 # <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Verificação personalizada de e-mail no Diretório Ativo Azure B2C
@@ -36,7 +36,7 @@ Certifique-se de que completa a secção em que [cria uma tecla API SendGrid](..
 
 Em seguida, guarde a tecla SendGrid API numa chave de política Azure AD B2C para as suas políticas de referência.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o seu diretório Azure AD B2C.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.

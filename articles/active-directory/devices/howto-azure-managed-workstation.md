@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5d02b0299b6267fdd9d880d5bc0fe8c93d0edadc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672612"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Implementar uma estação de trabalho segura e gerida pelo Azure
@@ -160,19 +160,19 @@ Intune no portal Azure:
    * Descrição - **Implantação de postos de trabalho seguros**.
    * Defina **Converter todos os dispositivos visados para o Autopilot** como **Sim**. Esta definição garante que todos os dispositivos na lista são registados com o serviço de implementação do Autopilot. O processo de registo demora até 48 horas, pelo que deverá aguardar.
 
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 
    * Para o modo de **implantação,** escolha **a auto-implantação (pré-visualização)**. Os dispositivos com este perfil estão associados ao utilizador que inscreveu o dispositivo. Precisa de credenciais de utilizador para inscrever o dispositivo. É essencial notar que a implementação de um dispositivo no modo **de auto-implantação** permitirá implementar portáteis num modelo partilhado. Nenhuma atribuição de utilizador irá acontecer até que o dispositivo seja atribuído a um utilizador pela primeira vez. Como resultado, quaisquer políticas de utilizador como o BitLocker não serão ativadas até que uma atribuição de utilizador esteja concluída. Para obter mais informações sobre como iniciar sessão num dispositivo seguro, consulte [perfis selecionados](/intune/device-profile-assign).
    * O **Join to Azure AD como** caixa deve mostrar **Azure AD juntou-se** e ser cinza.
    * Selecione o seu Padrão de Idioma (Região), **tipo**de conta de utilizador . 
 
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 
    * Selecione uma etiqueta de âmbito se tiver configurado uma.
 
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 1. Escolha **atribuições** > **a** > **grupos selecionados**. Em **grupos Selecionados para incluir,** escolha **Postos de Trabalho Seguros**.
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 1. Selecione **Criar** para criar o perfil. O perfil de implementação do Autopilot está agora disponível para atribuir a dispositivos.
 
 A inscrição no dispositivo em Autopilot proporciona uma experiência de utilizador diferente com base no tipo e função do dispositivo. No nosso exemplo de implementação, ilustramos um modelo em que os dispositivos protegidos são implantados a granel e podem ser partilhados, mas quando utilizados pela primeira vez, o dispositivo é atribuído a um utilizador. Para mais informações, consulte a [inscrição do dispositivo Intune Autopilot](/intune/device-enrollment).

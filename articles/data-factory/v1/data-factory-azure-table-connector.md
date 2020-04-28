@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260452"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados de e para a Tabela Azure utilizando a Azure Data Factory
@@ -106,7 +106,7 @@ Se a coluna Azure Table for do tipo data:
 | nome chave azureTableRow |Especifique o nome da coluna cujos valores de coluna são utilizados como chave de linha. Se não especificado, utilize um GUID para cada linha. |Um nome de coluna. |Não |
 | azureTableInsertType |O modo de inserir dados na tabela Azure.<br/><br/>Esta propriedade controla se as linhas existentes na tabela de saída com divisória seletiva e chaves de linha correspondentes têm os seus valores substituídos ou fundidos. <br/><br/>Para saber como funcionam estas definições (fundir e substituir), consulte [inserir ou fundir tópicos de Entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e Inserir ou Substituir tópicos da [Entidade.](https://msdn.microsoft.com/library/azure/hh452242.aspx) <br/><br> Esta definição aplica-se ao nível da linha, não ao nível da tabela, e nenhuma das opções elimina linhas no quadro de saída que não existam na entrada. |fusão (padrão)<br/>substituir |Não |
 | escreverBatchSize |Insere os dados na tabela Azure quando o writeBatchSize ou o writeBatchTimeout for atingido. |Inteiro (número de linhas) |Não (padrão: 10000) |
-| escreverBatchTimeout |Insere os dados na tabela Azure quando o writeBatchSize ou o writeBatchTimeout são atingidos |tempospan<br/><br/>Exemplo: "00:20:00" (20 minutos) |Não (Predefinido para armazenar valor de tempo de saída do cliente 90 seg) |
+| escreverBatchTimeout |Insere os dados na tabela Azure quando o writeBatchSize ou o writeBatchTimeout são atingidos |timespan<br/><br/>Exemplo: "00:20:00" (20 minutos) |Não (Predefinido para armazenar valor de tempo de saída do cliente 90 seg) |
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 Mapeie uma coluna de origem para uma coluna de destino utilizando a propriedade JSON do tradutor antes de poder utilizar a coluna de destino como o nome chave da tabela de divisórias azureTable.
@@ -483,7 +483,7 @@ Ao mover dados para & da Tabela Azure, os [seguintes mapeamentos definidos pelo 
 | Edm.Guid |GUID |Um identificador globalmente único de 128 bits. |
 | Edm.Int32 |Int32 |Um inteiro de 32 bits. |
 | Edm.Int64 |Int64 |Um inteiro de 64 bits. |
-| Edm.String |Cadeia |Um valor codificado uTF-16. Os valores das cordas podem chegar a 64 KB. |
+| Edm.String |String |Um valor codificado uTF-16. Os valores das cordas podem chegar a 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Amostra de conversão de tipo
 A amostra que se segue destina-se a copiar dados de um Azure Blob para a Tabela Azure com conversões de tipo.

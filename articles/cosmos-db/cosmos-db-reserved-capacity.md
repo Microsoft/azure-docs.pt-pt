@@ -8,10 +8,10 @@ ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77505960"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com a capacidade de reserva no Azure Cosmos DB
@@ -34,7 +34,7 @@ A dimensão da aquisição de capacidade reservada deve basear-se na quantidade 
 
 Calculamos recomendações de compra com base no seu padrão de utilização horária. O uso nos últimos 7, 30 e 60 dias é analisado, e a compra de capacidade reservada que maximiza as suas poupanças é recomendada. Pode ver os tamanhos de reserva recomendados no portal Azure utilizando os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).  
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
 
 2. Selecione **todos os serviços** > **Reservations** > **Reservas Adicionar**.
 
@@ -58,7 +58,7 @@ Esta recomendação de compra de uma reserva de 30.000 RU/s indica que, entre 3 
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Comprar capacidade reservada azure Cosmos DB
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).  
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
 
 2. Selecione **todos os serviços** > **Reservations** > **Reservas Adicionar**.  
 
@@ -92,7 +92,7 @@ Quando a sua reserva expira, os seus casos de Azure Cosmos DB continuam a funcio
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para mais informações, consulte [trocas de self-service e reembolsos para Reservas Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -110,4 +110,4 @@ O desconto de reserva é aplicado automaticamente aos recursos DO Azure Cosmos D
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio.
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

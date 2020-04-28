@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261167"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização Azure AD Connect: Faça uma alteração na configuração padrão
@@ -206,7 +206,7 @@ Antes de permitir a sincronização do atributo UserType, deve primeiro decidir 
 
 - Designe um atributo AD não utilizado no local (como extensãoAttribute1) a ser usado como atributo de origem. O atributo ad designado no local deve ser da **cadeia**tipo, ser de valor único e conter o valor **membro** ou **hóspede**. 
 
-    Se escolher esta abordagem, deve certificar-se de que o atributo designado é preenchido com o valor correto para todos os objetos de utilizador existentes no diretório ativo no local que são sincronizados com a AD Azure antes de permitir a sincronização do atributo UserType .
+    Se escolher esta abordagem, deve certificar-se de que o atributo designado é preenchido com o valor correto para todos os objetos de utilizador existentes no diretório ativo no local que são sincronizados com a AD Azure antes de permitir a sincronização do atributo userType.
 
 - Em alternativa, pode obter o valor para o atributo userType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como **Guest** se o seu atributo de utilizador <em>@partners.fabrikam123.org</em>adprincipalname no local terminar com a parte de domínio . 
 

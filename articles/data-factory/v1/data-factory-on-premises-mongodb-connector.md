@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281343"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mova dados de MongoDB usando a Fábrica de Dados Azure
@@ -298,8 +298,8 @@ Ao mover dados para MongoDB, os seguintes mapeamentos são utilizados de tipos M
 | Número Duplo |Double |
 | NúmeroInt |Int32 |
 | Número longo |Int64 |
-| ObjectID |Cadeia |
-| Cadeia |Cadeia |
+| ObjectID |String |
+| String |String |
 | UUID |GUID |
 | Objeto |Renormalizado em colunas achatadas com "_" como separador aninhada |
 

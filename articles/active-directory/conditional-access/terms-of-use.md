@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a2f06a7c88a7c17f5f93201192664c2d4a97564e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480968"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
@@ -201,7 +201,7 @@ Os utilizadores só são obrigados a aceitar os termos de utilização uma vez e
 
 Os utilizadores podem rever e ver os termos de utilização que aceitaram utilizando o seguinte procedimento.
 
-1. Inscreva-se [https://myapps.microsoft.com](https://myapps.microsoft.com)em .
+1. Inicie sessão em [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. No canto superior direito, clique no seu nome e selecione **Perfil**.
 
    ![Site myApps com o painel do utilizador aberto](./media/terms-of-use/tou14.png)

@@ -12,10 +12,10 @@ ms.date: 11/04/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 403dbe6106cb7a1d277ba672112d2bc45dbc2987
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186272"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Colete logs de Diretório Ativo Azure B2C com Insights de Aplicação
@@ -31,7 +31,7 @@ Os registos de atividade detalhados aqui descritos só devem ser **ativados** du
 
 Se ainda não tem um, crie uma instância de Informações de Aplicação na sua subscrição.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém a sua subscrição Azure (não o seu diretório Azure AD B2C).
 1. Selecione **Criar um recurso** no menu de navegação à esquerda.
 1. Procure e selecione **Insights de Aplicação,** em seguida, selecione **Criar**.

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79264001"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminate bad passwords in your organization (Eliminar palavras-passe más na sua organização)
@@ -84,7 +84,7 @@ A proteção de senhas Azure AD foi concebida para bloquear eficientemente todas
 > [!NOTE]
 > A lista global de passwords proibida sem acordo da Microsoft não se baseia em quaisquer fontes de dados de terceiros, incluindo listas de senhas comprometidas.
 
-Embora a lista global proibida da Microsoft seja pequena em comparação com algumas listas a granel de terceiros, os seus efeitos de segurança são amplificados pelo facto de ser proveniente de telemetria de segurança real em ataques de spray de senha real, além do facto de a Microsoft ser obtida. o algoritmo de validação de palavra-passe utiliza técnicas inteligentes de correspondência de difusão. O resultado final é que irá detetar e bloquear eficientemente milhões das senhas fracas mais comuns de serem usadas na sua empresa. Os clientes que optam por adicionar termos específicos da organização à lista de senhas proibidas personalizadas também beneficiam do mesmo algoritmo.
+Embora a lista global proibida da Microsoft seja pequena em comparação com algumas listas a granel de terceiros, os seus efeitos de segurança são amplificados pelo facto de ser proveniente de telemetria de segurança real em ataques de spray de senha real, além do facto de o algoritmo de validação de palavras-passe da Microsoft usar técnicas inteligentes de correspondência. O resultado final é que irá detetar e bloquear eficientemente milhões das senhas fracas mais comuns de serem usadas na sua empresa. Os clientes que optam por adicionar termos específicos da organização à lista de senhas proibidas personalizadas também beneficiam do mesmo algoritmo.
 
 Informações adicionais sobre questões de segurança baseadas em palavras-passe podem ser revistas no [Seu Pa$$word não importa.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984)
 

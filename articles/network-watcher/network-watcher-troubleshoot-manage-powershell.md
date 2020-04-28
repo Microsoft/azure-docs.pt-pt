@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: 0723ddc9b0e2f15d5c8e51c96d51f58f1313493a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78673657"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Troubleshoot Virtual Network Gateway e Connections usando O Observador de Rede Azure PowerShell
@@ -24,8 +24,8 @@ ms.locfileid: "78673657"
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
-> - [REST API](network-watcher-troubleshoot-manage-rest.md)
+> - [CLI do Azure](network-watcher-troubleshoot-manage-cli.md)
+> - [API REST](network-watcher-troubleshoot-manage-rest.md)
 
 O Network Watcher fornece muitas capacidades no que diz respeito à compreensão dos seus recursos de rede em Azure. Uma destas capacidades é a resolução de problemas de recursos. A resolução de problemas de recursos pode ser chamada através do portal PowerShell, CLI ou REST API. Quando chamado, o Observador de Rede inspeciona a saúde de um Gateway de Rede Virtual ou de uma Ligação e devolve as suas descobertas.
 
@@ -58,7 +58,7 @@ Neste exemplo, a resolução de problemas de recursos está a ser remeter-se num
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 A resolução de problemas de recursos devolve dados sobre a saúde do recurso, também guarda registos para uma conta de armazenamento a ser revista. Neste passo, criamos uma conta de armazenamento, se existir uma conta de armazenamento existente, pode utilizá-la.
 

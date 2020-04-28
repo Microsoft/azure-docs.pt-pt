@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d2cf1a2e2ab9cf2d6e35aa12b5b0f8ddc04ad0e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78301959"
 ---
 Pode criar um VNet com o modelo de implementação do Gestor de Recursos e o portal Azure seguindo estes passos. Para obter mais informações sobre redes virtuais, consulte a [visão geral da Rede Virtual.](../articles/virtual-network/virtual-networks-overview.md)
@@ -22,7 +22,7 @@ Pode criar um VNet com o modelo de implementação do Gestor de Recursos e o por
 >
 >
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Em **recursos de pesquisa, serviço e docs (G+/)**, tipo *rede virtual*.
 
    ![Localizar página de recursos da Rede Virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace.png "Localizar página de recursos de rede virtual")

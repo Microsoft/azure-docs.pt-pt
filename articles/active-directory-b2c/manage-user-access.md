@@ -11,10 +11,10 @@ ms.date: 07/24/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f04a3fea3801f917a3ae4aced04ef3824d1cfa82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78184524"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerir o acesso ao utilizador no Diretório Ativo Azure B2C
@@ -87,7 +87,7 @@ Para obter mais informações sobre a recolha de dados DOB, consulte [A marcha d
 
 ## <a name="capture-terms-of-use-agreement"></a>Capturar termos de acordo de utilização
 
-Ao desenvolver a sua aplicação, normalmente captura a aceitação dos termos de utilização dos utilizadores dentro das suas aplicações sem, ou apenas menor, participação do diretório do utilizador. No entanto, é possível utilizar um fluxo de utilizador Azure AD B2C para recolher a aceitação de termos de utilização por parte de um utilizador, restringir o acesso se não for concedida a aceitação, e impor a aceitação de futuras alterações aos termos de utilização, com base na data da última aceitação e data do versão mais recente dos termos de utilização.
+Ao desenvolver a sua aplicação, normalmente captura a aceitação dos termos de utilização dos utilizadores dentro das suas aplicações sem, ou apenas menor, participação do diretório do utilizador. No entanto, é possível utilizar um fluxo de utilizador Azure AD B2C para recolher a aceitação de termos de utilização por parte de um utilizador, restringir o acesso se não for concedida aceitação e impor a aceitação de futuras alterações aos termos de utilização, com base na data da mais recente aceitação e na data da versão mais recente dos termos de utilização.
 
 **Os termos de utilização** também podem incluir "Consentimento para partilhar dados com terceiros". Dependendo dos regulamentos locais e das regras comerciais, pode reunir a aceitação de um utilizador de ambas as condições combinadas, ou pode permitir que o utilizador aceite uma condição e não a outra.
 

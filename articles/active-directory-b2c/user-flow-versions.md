@@ -11,10 +11,10 @@ ms.date: 09/25/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 40d21d3390396e0cb7e44d4e19598f9b0b691087
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78185627"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versões de fluxo de utilizador no Diretório Ativo Azure B2C

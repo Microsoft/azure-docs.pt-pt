@@ -11,10 +11,10 @@ ms.date: 09/28/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c31f3c4c6688af7d2142180e8d9b7100965bad96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186408"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um inquilino do Azure Active Directory B2C
@@ -35,7 +35,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Criar um inquilino do Azure AD B2C
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Inscreva-se numa conta Azure que tenha sido atribuída pelo menos a função [De Contribuinte](../role-based-access-control/built-in-roles.md) dentro da subscrição ou de um grupo de recursos dentro da subscrição.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Inscreva-se numa conta Azure que tenha sido atribuída pelo menos a função [De Contribuinte](../role-based-access-control/built-in-roles.md) dentro da subscrição ou de um grupo de recursos dentro da subscrição.
 
 1. Selecione o diretório que contém a sua subscrição.
 
@@ -89,7 +89,7 @@ Em vez de procurar o *Azure AD B2C* em **todos os serviços** sempre que quiser 
 
 Só precisas de fazer esta operação uma vez. Antes de realizar estes passos, certifique-se de que mudou para o diretório que contém o seu inquilino Azure AD B2C, conforme descrito na secção anterior, [Selecione o seu diretório de inquilinoB2C](#select-your-b2c-tenant-directory).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No menu do portal Azure, selecione **Todos os serviços.**
 1. Na caixa de pesquisa de **todos os serviços,** procure **Azure AD B2C,** paire sobre o resultado da pesquisa e, em seguida, selecione o ícone da estrela na dica de ferramenta. **Azure AD B2C** aparece agora no portal Azure sob **os Favoritos.**
 1. Se quiser alterar a posição do seu novo favorito, vá ao menu do portal Azure, **selecione Azure AD B2C**e, em seguida, arraste-o para cima ou para baixo para a posição desejada.

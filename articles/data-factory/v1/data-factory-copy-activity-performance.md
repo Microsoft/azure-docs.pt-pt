@@ -13,10 +13,10 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c4ca328aa0ddc61d86a435b93fe775f294287b98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79527389"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia de desempenho e otimização da Atividade de Cópia
@@ -198,7 +198,7 @@ No cenário de cópia híbrida (a fonte está no local e a pia está na nuvem), 
 
 ![Cópia encenada: Cenário híbrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
 
-Quando ativa o movimento de dados utilizando uma loja de encenação, pode especificar se pretende que os dados sejam comprimidos antes de transferir dados da loja de dados de origem para uma loja provisória ou de desativação de dados, e depois descomprimido antes de mover dados de um dados provisórios ou de encenação armazenar para a loja de dados da pia.
+Quando ativa o movimento de dados utilizando uma loja de encenação, pode especificar se pretende que os dados sejam comprimidos antes de transferir dados da loja de dados de origem para uma loja de dados provisória ou de encenação, e depois descomprimido antes de transferir dados de uma loja de dados provisória ou de encenação para a loja de dados do lavatório.
 
 Atualmente, não é possível copiar dados entre duas lojas de dados no local utilizando uma loja de encenação. Esperamos que esta opção esteja disponível em breve.
 

@@ -13,10 +13,10 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265860"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para a Oracle no local utilizando a Azure Data Factory
@@ -179,7 +179,7 @@ Na Atividade de Cópia, quando a fonte é do tipo **OracleSource,** as seguintes
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| escreverBatchTimeout |O tempo de espera para a operação de inserção do lote esteja concluído antes de sair. |**tempospan**<br/><br/> Exemplo: 00:30:00 (30 minutos) |Não |
+| escreverBatchTimeout |O tempo de espera para a operação de inserção do lote esteja concluído antes de sair. |**timespan**<br/><br/> Exemplo: 00:30:00 (30 minutos) |Não |
 | escreverBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o valor de **writeBatchSize**. |Inteiro (número de linhas) |Não (padrão: 100) |
 | sqlWriterCleanupScript |Especifica uma consulta para a Atividade de Cópia executar de modo a que os dados de uma fatia específica sejam limpos. |Uma declaração de consulta. |Não |
 | sliceIdentifierColumnName |Especifica o nome da coluna para a Atividade de Cópia para preencher com um identificador de fatias autogerada. O valor da **fatiaIdentifierColumnName** é utilizado para limpar dados de uma fatia específica quando reexecutado. |O nome da coluna de uma coluna que tem tipo de dados de **binário(32)**. |Não |
@@ -598,27 +598,27 @@ Quando transfere dados da Oracle, os seguintes mapeamentos são utilizados do ti
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(apenas suportado em versões Oracle 10g e posteriores quando utilizar um controlador da Microsoft) |
-| CHAR |Cadeia |
-| CLOB |Cadeia |
+| CHAR |String |
+| CLOB |String |
 | DATA |DateTime |
 | BOIA |Decimal, Corda (se precisão > 28) |
 | INTEGER |Decimal, Corda (se precisão > 28) |
 | INTERVALO DE ANO PARA MÊS |Int32 |
 | DIA DE INTERVALO PARA SEGUNDO |TimeSpan |
-| Longo |Cadeia |
+| Longo |String |
 | LONG RAW |Byte[] |
-| NCHAR |Cadeia |
-| NCLOB |Cadeia |
+| NCHAR |String |
+| NCLOB |String |
 | NÚMERO |Decimal, Corda (se precisão > 28) |
-| NVARCHAR2 |Cadeia |
+| NVARCHAR2 |String |
 | CRU |Byte[] |
-| ROWID |Cadeia |
+| ROWID |String |
 | CARIMBO TEMPORAL |DateTime |
 | CARIMBO DE TEMPO COM FUSO HORÁRIO LOCAL |DateTime |
 | CARIMBO DE TEMPO COM FUSO HORÁRIO |DateTime |
 | INTEIRO NÃO ASSINADO |Número |
-| VARCHAR2 |Cadeia |
-| XML |Cadeia |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Os tipos de dados **INTERVAL ANO A MÊS** e INTERVAL DAY TO **SECOND** não são suportados quando se utiliza um controlador da Microsoft.

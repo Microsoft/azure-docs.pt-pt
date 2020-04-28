@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c44d6266f5ea8cdd4f75d0449cb49852e71c905
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672401"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
@@ -81,7 +81,7 @@ A eliminação explícita é quando um administrador do Azure elimina um utiliza
 
 Os dados que não tenham sido acedidos há um ano ("o período de retenção") serão tratados como estando estando fortalecidos e poderão ser eliminados da nuvem da Microsoft. O período de retenção está sujeito a alterações, mas não será inferior a 90 dias. Os dados relativos ao mau tempo podem ser um conjunto específico de definições windows/aplicações ou todas as definições para um utilizador. Por exemplo:
 
-* Se nenhum dispositivo aceder a uma determinada recolha de definições (por exemplo, uma aplicação é removida do dispositivo, ou um grupo de definições como "Tema" é desativado para todos os dispositivos do utilizador), então essa recolha torna-se estadósta após o período de retenção e pode ser eliminada . 
+* Se nenhum dispositivo aceder a uma determinada recolha de definições (por exemplo, uma aplicação é removida do dispositivo, ou um grupo de definições como "Tema" é desativado para todos os dispositivos do utilizador), então essa recolha torna-se estadósta após o período de retenção e pode ser eliminada. 
 * Se um utilizador tiver desligado as definições sincronizar todos os seus dispositivos, então nenhum dos dados de definição será acedido, e todos os dados de definições para esse utilizador ficarão velhos e poderão ser eliminados após o período de retenção. 
 * Se o administrador de diretório da AD Azure desativar o Enterprise State Roaming para todo o diretório, então todos os utilizadores desse diretório deixarão de sincronizar definições, e todos os dados de definições para todos os utilizadores ficarão obsoletos e poderão ser eliminados após o período de retenção. 
 

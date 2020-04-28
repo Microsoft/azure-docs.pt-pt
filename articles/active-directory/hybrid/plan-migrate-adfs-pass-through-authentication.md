@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13a5fc216abc890c19ce3a2d75335431fe2a6799
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79528647"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar da federação para a autenticação pass-through para o Diretório Ativo Azure
@@ -49,7 +49,7 @@ Para a maioria dos clientes, dois ou três agentes de autenticação são sufici
 
 Pode escolher entre dois métodos para migrar da gestão de identidade federada para a autenticação pass-through e um único sign-on sem emenda (SSO). O método que utiliza depende de como a sua instância AD FS foi originalmente configurada.
 
-* **Azure AD Connect**. Se configurar originalmente a AD FS utilizando o Azure AD Connect, *tem* de alterar para autenticação pass-through utilizando o assistente Azure AD Connect.
+* **Ligação Azure AD**. Se configurar originalmente a AD FS utilizando o Azure AD Connect, *tem* de alterar para autenticação pass-through utilizando o assistente Azure AD Connect.
 
    O Azure AD Connect executa automaticamente o cmdlet **set-MsolDomainAuthentication** quando altera o método de entrada do utilizador. A Azure AD Connect desfedera automaticamente todos os domínios federados verificados no seu inquilino Azure AD.
 

@@ -13,10 +13,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: eab332f102b9e39981e2d8ed6e84f73fada87a1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282136"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Blob Azure utilizando a Azure Data Factory
@@ -77,7 +77,7 @@ Para especificar um conjunto de dados para representar dados de entrada ou saíd
 
 Para obter uma lista completa das secções da JSON & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
 
-A fábrica de dados suporta os seguintes valores de tipo baseados em CLS para fornecer informações de tipo em "estrutura" para fontes de dados schema-on-read como Azure blob: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datatimeoffset, Timespan. Data Factory executa automaticamente conversões de tipo ao mover dados de uma loja de dados de origem para uma loja de dados de sumidouro.
+A fábrica de dados suporta os seguintes valores de tipo baseados em CLS para fornecer informações de tipo em "estrutura" para fontes de dados schema-on-read como Azure blob: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan. Data Factory executa automaticamente conversões de tipo ao mover dados de uma loja de dados de origem para uma loja de dados de sumidouro.
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização, formato, etc., dos dados na loja de dados. A secção TypeProperties para conjunto de dados do conjunto de dados do tipo **AzureBlob** tem as seguintes propriedades:
 
@@ -184,7 +184,7 @@ Vamos ver como copiar rapidamente dados de/para um armazenamento de blob Azure. 
     ```
 
 ### <a name="create-the-data-factory"></a>Criar a fábrica de dados
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Clique **em Criar um recurso** a partir do canto superior esquerdo, clique em Inteligência + **análise,** e clique em **Data Factory**.
 3. No painel da nova fábrica de **dados:**  
     1. Introduza **a ADFBlobConnectorDF** para o **nome**. O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o `*Data factory name “ADFBlobConnectorDF” is not available`erro: , mude o nome da fábrica de dados (por exemplo, o seu nomeADFBlobConnectorDF) e tente criar novamente. Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.

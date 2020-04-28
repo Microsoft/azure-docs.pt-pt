@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5aa30bc819531ee8cc9cd337648a6cbc661bb29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77149818"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Ative Directory Connect FAQ
@@ -121,7 +121,7 @@ Não.  Para permitir que o Azure AD Connect crie automaticamente a conta de Cone
 
 ## <a name="network"></a>Rede
 **P: Tenho uma firewall, um dispositivo de rede ou outra coisa que limita o tempo que as ligações podem permanecer abertas na minha rede. Qual deve ser o limite de tempo limite do meu cliente quando uso o Azure AD Connect?**  
-Todo o software de rede, dispositivos físicos ou qualquer outra coisa que limite o tempo máximo que as ligações podem permanecer abertas deve utilizar um limiar de pelo menos cinco minutos (300 segundos) para a conectividade entre o servidor onde o cliente Azure AD Connect está instalado e Diretório Ativo Azure. Esta recomendação aplica-se também a todas as ferramentas de sincronização da Microsoft Identity previamente lançadas.
+Todo o software de rede, dispositivos físicos ou qualquer outra coisa que limite o tempo máximo que as ligações podem permanecer abertas deve utilizar um limiar de pelo menos cinco minutos (300 segundos) para a conectividade entre o servidor onde o cliente Azure AD Connect está instalado e o Diretório Ativo Azure. Esta recomendação aplica-se também a todas as ferramentas de sincronização da Microsoft Identity previamente lançadas.
 
 **P: Os domínios de etiqueta única (SLDs) são suportados?**  
 Embora recomendemos vivamente contra esta configuração de rede[(ver artigo),](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)utilizando o sincronizado Azure AD Connect com um único domínio de etiqueta, desde que a configuração da rede para o domínio de nível único esteja a funcionar corretamente.

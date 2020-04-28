@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983699dfbfe3e8fa332da4810d1514a11029077f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261102"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
@@ -51,7 +51,7 @@ Se utilizar uma construção antes de novembro de 2015[(1.0.9125),](reference-co
 
 Se os objetos do **utilizador** terem sido apagados inadvertidamente em AD Azure devido a um erro de filtragem, pode recriar os objetos de utilizador em AD Azure removendo as suas configurações de filtragem. Depois podes sincronizar os teus diretórios outra vez. Esta ação restaura os utilizadores do caixote do lixo de reciclagem em Azure AD. No entanto, não é possível desapagar outros tipos de objetos. Por exemplo, se apagar acidentalmente um grupo de segurança e foi usado para acl um recurso, o grupo e os seus ACLs não podem ser recuperados.
 
-O Azure AD Connect apenas elimina objetos que já considerou estarem no âmbito. Se houver objetos em AD Azure que foram criados por outro motor de sincronização e estes objetos não estiverem no âmbito, adicionar filtragem não os remove. Por exemplo, se começar com um servidor DirSync que criou uma cópia completa de todo o seu diretório em AD Azure, e instalar um novo servidor de sincronização Azure AD Connect em paralelo com a filtragem ativada desde o início, o Azure AD Connect não remove os objetos extras que são criados pelo DirSync.
+O Azure AD Connect apenas elimina objetos que já considerou estarem no âmbito. Se houver objetos em AD Azure que foram criados por outro motor de sincronização e estes objetos não estiverem no âmbito, adicionar filtragem não os remove. Por exemplo, se começar com um servidor DirSync que criou uma cópia completa de todo o seu diretório em AD Azure, e instalar um novo servidor de sincronização Azure AD Connect em paralelo com a filtragem ativada desde o início, o Azure AD Connect não remove os objetos extra criados pelo DirSync.
 
 A configuração de filtragem é retida quando instala ou atualiza para uma versão mais recente do Azure AD Connect. É sempre uma boa prática verificar que a configuração não foi inadvertidamente alterada após uma atualização para uma versão mais recente antes de executar o primeiro ciclo de sincronização.
 

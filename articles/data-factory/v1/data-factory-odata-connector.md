@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265912"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Mova dados De uma fonte OData utilizando a Fábrica de Dados Azure
@@ -182,7 +182,7 @@ Ao mover dados do OData, os seguintes mapeamentos são utilizados dos tipos ODat
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
 | Edm.SByte |Int16 |
-| Edm.String |Cadeia |
+| Edm.String |String |
 | Edm.Tempo |TimeSpan |
 | Edm.DateTimeOffset |DataTimeOffset |
 

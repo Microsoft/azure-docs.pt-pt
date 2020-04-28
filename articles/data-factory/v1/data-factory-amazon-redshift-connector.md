@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260530"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mova dados da Amazon Redshift usando a Fábrica de Dados Azure
@@ -335,12 +335,12 @@ Os seguintes mapeamentos são usados quando a Copy Activity converte os dados de
 | DECIMAL |Decimal |
 | REAL |Único |
 | PRECISÃO DUPLA |Double |
-| BOOLEAN |Cadeia |
-| CHAR |Cadeia |
-| RIO VARCHAR |Cadeia |
+| BOOLEAN |String |
+| CHAR |String |
+| RIO VARCHAR |String |
 | DATA |DateTime |
 | CARIMBO TEMPORAL |DateTime |
-| TEXT |Cadeia |
+| TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para aprender a mapear colunas no conjunto de dados de origem para colunas no conjunto de dados do lavatório, consulte colunas de conjunto de [dados de mapeamento na Fábrica](data-factory-map-columns.md)de Dados Azure .

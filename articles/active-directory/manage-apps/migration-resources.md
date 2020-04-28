@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b30469858a5dd83f7f5f707f74466302b3000510
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78968731"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Recursos para candidaturas migratórias para o Diretório Ativo do Azure

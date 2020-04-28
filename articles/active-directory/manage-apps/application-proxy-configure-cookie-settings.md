@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bcedb24a0efdbabaaef150fc3d5aff07d210ce23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481369"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Configurações de cookies para aceder a aplicações no local no Diretório Ativo do Azure
@@ -48,7 +48,7 @@ Além disso, se a sua aplicação back-end tiver cookies que precisam de estar d
 ## <a name="set-the-cookie-settings---azure-portal"></a>Definir as definições de cookies - Portal Azure
 Para definir as definições de cookies utilizando o portal Azure:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Navegue para **a Azure Ative Directory** > **Enterprise aplica** > **todas as aplicações.**
 3. Selecione a aplicação para a qual pretende ativar uma definição de cookies.
 4. Clique em **Procuração de Aplicação**.

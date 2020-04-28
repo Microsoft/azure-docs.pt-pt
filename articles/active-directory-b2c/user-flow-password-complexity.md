@@ -12,10 +12,10 @@ ms.date: 02/11/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c5ef550af0c7e19531ea19093ea937880f7dcf14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78185646"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurar requisitos de complexidade para senhas no Diretório Ativo Azure B2C
@@ -37,7 +37,7 @@ Se estiver a usar políticas personalizadas, pode[(configurar a complexidade da 
 
 ## <a name="configure-password-complexity"></a>Configurar a complexidade da palavra-passe
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 3. No portal Azure, procure e selecione **Azure AD B2C**.
 4. Selecione **fluxos de utilizador (políticas)**.

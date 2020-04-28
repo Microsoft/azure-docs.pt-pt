@@ -12,10 +12,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 901e15994b8a51a5fd45d57ca7a4db7778d968e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281616"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formatos de arquivo e compressão suportados pela Azure Data Factory
@@ -506,9 +506,9 @@ Quando especifica `compression` a propriedade num conjunto de dados de entrada J
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos para lojas de dados baseadas em ficheiros suportadas pela Azure Data Factory:
 
-- [Armazenamento de Blobs do Azure](data-factory-azure-blob-connector.md)
+- [Armazenamento Azure Blob](data-factory-azure-blob-connector.md)
 - [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
 - [FTP](data-factory-ftp-connector.md)
 - [HDFS](data-factory-hdfs-connector.md)
 - [Sistema de Ficheiros](data-factory-onprem-file-system-connector.md)
-- [Amazónia S3](data-factory-amazon-simple-storage-service-connector.md)
+- [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)

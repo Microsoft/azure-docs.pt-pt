@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d4b52a3025bfb15e2679709353cebf28254a75c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77185508"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Início de sessão do utilizador com a Autenticação Pass-through do Azure Active Directory
@@ -47,7 +47,7 @@ Pode combinar a autenticação pass-through com a funcionalidade [Single Sign-On
   - Não é necessário implementações complexas no local ou configuração da rede.
   - Precisa apenas de um agente leve para ser instalado no local.
   - Sem despesas de gestão. O agente recebe automaticamente melhorias e correções de erros.
-- *Seguro*
+- *Proteger*
   - As palavras-passe no local nunca são armazenadas na nuvem de qualquer forma.
   - Protege as suas contas de utilizador trabalhando perfeitamente com as políticas de [Acesso Condicional Azure AD,](../active-directory-conditional-access-azure-portal.md)incluindo a Autenticação Multi-Factor (MFA), [bloqueando a autenticação do legado](../conditional-access/concept-conditional-access-conditions.md) e [filtrando ataques](../authentication/howto-password-smart-lockout.md)de senha de força bruta .
   - O agente só faz ligações de saída a partir da sua rede. Portanto, não existe qualquer obrigação de instalar o agente numa rede de perímetro, também conhecida como DMZ.
