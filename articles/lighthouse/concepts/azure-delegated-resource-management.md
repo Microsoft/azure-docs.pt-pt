@@ -4,10 +4,10 @@ description: As ofertas de serviços geridos permitem aos prestadores de serviç
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: db9f562ca4f42d1c1d85eeac44495a8ec7e01beb
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548427"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestão de recursos delegados do Azure

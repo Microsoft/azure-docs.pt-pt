@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-september2019
 ms.openlocfilehash: 7abcad03678131668700f5d2c64b9c971081cb89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060924"
 ---
 # <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Utilize o Serviço de Fila Azure para criar e apagar filas a partir de Node.js
@@ -95,7 +95,7 @@ Depois de fazer o seu pré-processamento sobre as opções de pedido, o método 
 function (returnObject, finalCallback, next)
 ```
 
-Nesta chamada, e após o processamento do ReturnObject (a resposta do pedido ao servidor), a chamada precisa de invocar a seguir se existir para continuar a processar outros filtros ou simplesmente invocar o Backback final de outra forma para acabar com o serviço invocação.
+Nesta chamada, e após o processamento do ReturnObject (a resposta do pedido ao servidor), o backback precisa de invocar a seguir se existir para continuar a processar outros filtros ou simplesmente invocar o Backback final de outra forma para acabar com a invocação do serviço.
 
 O Azure SDK para Node.js inclui dois filtros que implementam lógica de repetição: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. O seguinte cria um objeto **QueueService** que utiliza o **ExponencialRetryPolicyFilter:**
 

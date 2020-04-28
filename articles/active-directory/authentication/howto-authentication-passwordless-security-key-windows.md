@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b8f5d6aaa96c24eb37eb78d237a489f1d25293c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653989"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Ative o acesso à chave de segurança sem palavras-passe para dispositivos Windows 10 com Diretório Ativo Azure (pré-visualização)
@@ -80,7 +80,7 @@ As organizações podem optar por utilizar um ou mais dos seguintes métodos par
 
 Para permitir a utilização de chaves de segurança utilizando o Intune, complete os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue para **a microsoft Intune** > **Device inscrição** > **Windows inscrição** > **Windows Hello for Business** > **Properties**.
 1. Em **definições,** coloque **as teclas de segurança para iniciar** **sessão ativada**.
 
@@ -90,7 +90,7 @@ A configuração das chaves de segurança para iniciar sessão não depende da c
 
 Para direcionar grupos específicos de dispositivos para ativar o prestador de credenciais, utilize as seguintes definições personalizadas via Intune:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue para os**perfis** > de**configuração** > do **dispositivo Intune** > microsoft**Criar perfil**.
 1. Configure o novo perfil com as seguintes definições:
    - Nome: Chaves de segurança para Windows Iniciar sessão

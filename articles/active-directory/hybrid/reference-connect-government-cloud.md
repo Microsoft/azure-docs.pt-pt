@@ -12,13 +12,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2ad28beb68afb5207e7b36c5d76c4dac808c5114
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81378928"
 ---
-# <a name="hybrid-identity-considerations-for-azure-government"></a>Considerações de identidade híbrida para governo Azure 
+# <a name="hybrid-identity-considerations-for-azure-government"></a>Considerações sobre identidade híbrida para o Azure Government 
 O seguinte documento descreve as considerações para a implementação de um ambiente híbrido com a nuvem do Governo Azure.  Esta informação é fornecida como referência para administradores e arquitetos que estão a trabalhar com a nuvem do Governo Azure.  
 > [!NOTE] 
 > Para integrar um ambiente ad no local com a nuvem Azure Governemnt, você precisa atualizar para o mais recente lançamento do [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 

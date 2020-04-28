@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 88ae3c45126403161e35ec46e5ccc2666c3edb55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050068"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inscreva-se na máquina virtual do Windows em Azure utilizando a autenticação do Diretório Ativo Azure (Pré-visualização)
@@ -33,7 +33,7 @@ Existem muitos benefícios em usar a autenticação Azure AD para iniciar sessã
 - Já não têm de gerir as contas dos administradores locais.
 - O Azure RBAC permite-lhe conceder o acesso adequado aos VMs com base nas necessidades e removê-lo quando já não for necessário.
 - Antes de permitir o acesso a um VM, o Azure AD Conditional Access pode impor requisitos adicionais tais como: 
-   - Multi-Factor Authentication
+   - Multi-factor authentication
    - Verificação de risco de entrada
 - Automatizar e escalar o Azure AD junta-se aos VMs do Windows Azure que fazem parte das suas implementações VDI.
 
@@ -201,7 +201,7 @@ Para obter mais informações sobre como utilizar o RBAC para gerir o acesso aos
 Pode impor políticas de Acesso Condicional, tais como a autenticação de vários fatores ou a verificação de risco de entrada do utilizador antes de autorizar o acesso aos VMs do Windows em Azure que estão habilitados com o registo de AD Azure. Para aplicar a política de Acesso Condicional, deve selecionar a aplicação "Azure Windows VM Sign-In" a partir das aplicações ou opções de atribuição de ações na nuvem e, em seguida, utilizar o risco de entrada como condição e/ou exigir a autenticação de vários fatores como controlo de acesso de subvenção. 
 
 > [!NOTE]
-> Se utilizar a "Requerer a autenticação de vários fatores" como controlo de acesso de subvenção para solicitar o acesso à aplicação "Sign-In Do Windows VM", então deve fornecer uma reclamação de autenticação de vários fatores como parte do cliente que inicia a sessão de RDP para o target Windows VM em Azure. A única maneira de o conseguir num cliente do Windows 10 é utilizar o Windows Hello para Business PIN ou authenication biométrico com o cliente RDP. O suporte para autenticação biométrica foi adicionado ao cliente RDP na versão 1809 do Windows 1809. O ambiente de trabalho remoto que utiliza a autenticação do Windows Hello for Business só está disponível para implementações que utilizem o modelo cert trust e que atualmente não estão disponíveis para o modelo de confiança chave.
+> Se utilizar a "Requerer a autenticação de vários fatores" como controlo de acesso de subvenção para solicitar o acesso à aplicação "Sign-In Do Windows VM" do Windows, então deve fornecer uma reclamação de autenticação de vários fatores como parte do cliente que inicia a sessão de RDP no target Windows VM em Azure. A única maneira de o conseguir num cliente do Windows 10 é utilizar o Windows Hello para Business PIN ou authenication biométrico com o cliente RDP. O suporte para autenticação biométrica foi adicionado ao cliente RDP na versão 1809 do Windows 1809. O ambiente de trabalho remoto que utiliza a autenticação do Windows Hello for Business só está disponível para implementações que utilizem o modelo cert trust e que atualmente não estão disponíveis para o modelo de confiança chave.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Inicie sessão utilizando credenciais de AD Azure para um VM do Windows
 
@@ -352,7 +352,7 @@ Se vir a seguinte mensagem de erro quando iniciar uma ligação remota de ambien
 
 ![O método de inscrição que está supor não é permitido.](./media/howto-vm-sign-in-azure-ad-windows/mfa-sign-in-method-required.png)
 
-Se configurar uma política de acesso condicional que requer a autenticação de vários fatores (MFA) antes de poder aceder ao recurso, então precisa de garantir que o PC do Windows 10 dá início à ligação remota de ambiente de trabalho aos sinais vm na utilização de um forte método de autenticação como o Windows Hello. Se não utilizar um método de autenticação forte para a sua ligação remota ao ambiente de trabalho, verá o erro anterior.
+Se configurar uma política de Acesso Condicional que requer a autenticação de vários fatores (MFA) antes de poder aceder ao recurso, então precisa de garantir que o PC do Windows 10 dá início à ligação remota de desktop aos sinais vM, utilizando um método de autenticação forte, como o Windows Hello. Se não utilizar um método de autenticação forte para a sua ligação remota ao ambiente de trabalho, verá o erro anterior.
 
 Se ainda não implementou o Windows Hello for Business e se isso não for uma opção por enquanto, pode excluir o requisito do MFA configurando a política de Acesso Condicional que exclui a aplicação "Azure Windows VM Sign-In" da lista de aplicações na nuvem que requerem MFA. Para saber mais sobre o Windows Hello for Business, consulte [o Windows Hello for Business Overview](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 

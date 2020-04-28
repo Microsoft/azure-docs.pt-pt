@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92a40a5fe3067cf96d3c742102c9ca66078cd5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80051315"
 ---
 # <a name="export-your-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Exporte a sua configuração de provisionamento e recue para um bom estado conhecido

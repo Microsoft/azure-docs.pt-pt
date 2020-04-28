@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: dsindona
 ms.openlocfilehash: aa66d8c4d7d70cda5a2c4e8eebfe54e360844150
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278336"
 ---
 # <a name="publish-a-dynamics-365-for-customer-engagement-offer"></a>Publique uma oferta de Participação de Clientes Da Dynamics 365

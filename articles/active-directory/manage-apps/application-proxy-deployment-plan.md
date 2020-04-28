@@ -16,10 +16,10 @@ ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
 ms.openlocfilehash: edd607c4d708df9fcfd3cbd5fdb71f0a7652d6c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80330916"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planeie uma implementação de proxy de aplicação ad azure
@@ -324,6 +324,6 @@ Os seguintes artigos abrangem cenários comuns que também podem ser usados para
 * [Problema ao criar uma aplicação no portal de administração](application-proxy-config-problem.md)
 * [Configurar Delegação Restrita de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Configurar com o PingAccess](application-proxy-back-end-ping-access-how-to.md)
-* [Não é possível aceder a este erro de aplicação corporativa](application-proxy-sign-in-bad-gateway-timeout-error.md)
+* [Erro "Não é Possível Aceder a esta Aplicação Empresarial"](application-proxy-sign-in-bad-gateway-timeout-error.md)
 * [Problema ao instalar o Conector do Agente do Proxy de Aplicações](application-proxy-connector-installation-problem.md)
 * [Problema ao iniciar sessão](application-sign-in-problem-on-premises-application-proxy.md)

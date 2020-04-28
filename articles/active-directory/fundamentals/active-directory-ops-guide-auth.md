@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80876297"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de autenticação de diretório ativo Azure
@@ -258,7 +258,7 @@ O Acesso Condicional é uma ferramenta essencial para melhorar a postura de segu
 - [Boas práticas para acesso condicional em Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
 - [Configurações de acesso aos dispositivos e identidade](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Referência de definições de acesso condicional do Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
-- [Políticas de Acesso Condicional comuns](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
+- [Políticas comuns de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
 ## <a name="access-surface-area"></a>Área de superfície de acesso
 

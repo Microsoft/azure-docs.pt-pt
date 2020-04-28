@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d4f08161daf1d9c1a4431d9e3fba3ca741d88b16
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743337"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como: Ativar a reposição da palavra-passe a partir do ecrã de login do Windows
@@ -71,7 +71,7 @@ Implementar a alteração da configuração para ativar a reposição de palavra
    - Opcionalmente, indique uma descrição relevante do perfil
    - Plataforma **Windows 10 e posterior**
    - Tipo de perfil **Personalizado**
-1. Configure as **Definições**
+1. Configurar **Definições**
    - **Adicione** a Definição de OMA-URI seguinte para ativar a ligação Repor palavra-passe
       - Indique um nome relevante para explicar o que a definição faz
       - Opcionalmente, indique uma descrição relevante da definição

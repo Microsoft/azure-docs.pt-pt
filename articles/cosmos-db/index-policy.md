@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: tisande
 ms.openlocfilehash: 930f156ebec76be860e7af02d41540ce67982f92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80292074"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
@@ -261,5 +261,5 @@ Para cenários em que nenhuma trajetória imobiliária precisa de ser indexada, 
 
 Leia mais sobre a indexação nos seguintes artigos:
 
-- [Visão geral de indexação](index-overview.md)
+- [Descrição geral da indexação](index-overview.md)
 - [Como gerir a política de indexação](how-to-manage-indexing-policy.md)

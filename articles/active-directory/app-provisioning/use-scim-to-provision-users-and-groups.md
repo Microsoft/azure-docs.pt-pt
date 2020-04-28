@@ -17,10 +17,10 @@ ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0507989ec25db595a85b89f15d8ff7d056a970f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80297685"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Construir um ponto final SCIM e configurar o fornecimento de utilizadores com o Azure Ative Directory (Azure AD)
@@ -287,7 +287,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="get-user"></a>Obter Utilizador
 
-###### <a name="request"></a><a name="request-1"></a>Pedido
+###### <a name="request"></a><a name="request-1"></a>Pedir
 *GET /Utilizadores/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-user-found"></a><a name="response-1"></a>Resposta (Utilizador encontrado)
@@ -334,7 +334,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="get-user-by-query"></a>Obtenha o Utilizador por consulta
 
-##### <a name="request"></a><a name="request-2"></a>Pedido
+##### <a name="request"></a><a name="request-2"></a>Pedir
 
 *GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
@@ -375,7 +375,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="get-user-by-query---zero-results"></a>Obtenha o Utilizador por consulta - Resultados zero
 
-##### <a name="request"></a><a name="request-3"></a>Pedido
+##### <a name="request"></a><a name="request-3"></a>Pedir
 
 *GET /Users?filter=userName eq "utilizador inexistente"*
 
@@ -395,7 +395,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="update-user-multi-valued-properties"></a>Utilizador atualizado [Propriedades multi-valorizadas]
 
-##### <a name="request"></a><a name="request-4"></a>Pedido
+##### <a name="request"></a><a name="request-4"></a>Pedir
 
 *PATCH /Utilizadores/6764549bef60420686bc HTTP/1.1*
 ```json
@@ -446,7 +446,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="update-user-single-valued-properties"></a>Utilizador atualizado [Propriedades de valor único]
 
-##### <a name="request"></a><a name="request-5"></a>Pedido
+##### <a name="request"></a><a name="request-5"></a>Pedir
 
 *PATCH /Utilizadores/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -491,7 +491,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 ### <a name="disable-user"></a>Desativar Utilizador
 
-##### <a name="request"></a><a name="request-14"></a>Pedido
+##### <a name="request"></a><a name="request-14"></a>Pedir
 
 *PATCH /Utilizadores/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -545,7 +545,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 ```
 #### <a name="delete-user"></a>Eliminar Utilizador
 
-##### <a name="request"></a><a name="request-6"></a>Pedido
+##### <a name="request"></a><a name="request-6"></a>Pedir
 
 *DELETE /Utilizadores/5171a35d82074e068ce2 HTTP/1.1*
 
@@ -562,7 +562,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="create-group"></a>Criar Grupo
 
-##### <a name="request"></a><a name="request-7"></a>Pedido
+##### <a name="request"></a><a name="request-7"></a>Pedir
 
 *POST /Grupos HTTP/1.1*
 ```json
@@ -597,7 +597,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="get-group"></a>Obter Grupo
 
-##### <a name="request"></a><a name="request-8"></a>Pedido
+##### <a name="request"></a><a name="request-8"></a>Pedir
 
 *GET /Grupos/40734ae655284ad3abcc?excluídoS=membros HTTP/1.1*
 
@@ -619,7 +619,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="get-group-by-displayname"></a>Obter Grupo por displayName
 
-##### <a name="request"></a><a name="request-9"></a>Pedido
+##### <a name="request"></a><a name="request-9"></a>Pedir
 *GET /Groups?excluiuOsAtributos=membros&filter=displayName eq "displayName" HTTP/1.1*
 
 ##### <a name="response"></a><a name="response-9"></a>Resposta
@@ -648,7 +648,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="update-group-non-member-attributes"></a>Grupo de Atualização [Atributos não membros]
 
-##### <a name="request"></a><a name="request-10"></a>Pedido
+##### <a name="request"></a><a name="request-10"></a>Pedir
 
 *PATCH /Grupos/fa2ce26709934589afc5 HTTP/1.1*
 ```json
@@ -668,7 +668,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 ### <a name="update-group-add-members"></a>Grupo de Atualização [Adicionar Membros]
 
-##### <a name="request"></a><a name="request-11"></a>Pedido
+##### <a name="request"></a><a name="request-11"></a>Pedir
 
 *PATCH /Grupos/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -691,7 +691,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="update-group-remove-members"></a>Grupo de Atualização [Remover Membros]
 
-##### <a name="request"></a><a name="request-12"></a>Pedido
+##### <a name="request"></a><a name="request-12"></a>Pedir
 
 *PATCH /Grupos/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -714,7 +714,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="delete-group"></a>Eliminar Grupo
 
-##### <a name="request"></a><a name="request-13"></a>Pedido
+##### <a name="request"></a><a name="request-13"></a>Pedir
 
 *DELETE /Grupos/cdb1ce18f6594079d37 HTTP/1.1*
 
@@ -951,7 +951,7 @@ Na consulta da amostra, para um utilizador com um determinado valor para o atrib
 
 ***Exemplo 2. Provisiona um utilizador***
 
-Se a resposta a uma consulta ao serviço web para um utilizador com um valor de atributo externo Que corresponda ao valor de atributo do utilizador não devolve nenhum utilizador, então o Azure Ative Directory solicita que o serviço aprovisione um utilizador correspondente ao único em Azure Ative Diretório.  Aqui está um exemplo de tal pedido: 
+Se a resposta a uma consulta ao serviço web para um utilizador com um valor de atributo externo Que corresponda ao valor de atributo do utilizador não devolve nenhum utilizador, então o Azure Ative Directory solicita que o serviço aprovisione um utilizador correspondente ao do Diretório Ativo Azure.  Aqui está um exemplo de tal pedido: 
 
 ```
  POST https://.../scim/Users HTTP/1.1
@@ -996,7 +996,7 @@ No código da amostra o pedido é traduzido numa chamada para o método CreateAs
  Task<Resource> CreateAsync(IRequest<Resource> request);
 ```
 
-Num pedido de fornecimento de um utilizador, o valor do argumento do recurso é uma instância da classe Microsoft.SCIM.Core2EnterpriseUser, definida na biblioteca Microsoft.SCIM.Schemas.  Se o pedido de fornecimento do utilizador for bem sucedido, espera-se que a implementação do método devolva uma instância da classe Microsoft.SCIM.Core2EnterpriseUser, com o valor da propriedade identifier definida para o identificador único do recém-provisionado utilizador.  
+Num pedido de fornecimento de um utilizador, o valor do argumento do recurso é uma instância da classe Microsoft.SCIM.Core2EnterpriseUser, definida na biblioteca Microsoft.SCIM.Schemas.  Se o pedido de fornecimento do utilizador for bem sucedido, espera-se que a implementação do método devolva uma instância da classe Microsoft.SCIM.Core2EnterpriseUser, com o valor da propriedade Identifier definida para o identificador único do utilizador recém-provisionado.  
 
 ***Exemplo 3. Consulta do estado atual de um utilizador*** 
 
@@ -1027,7 +1027,7 @@ No exemplo de um pedido de recuperação do estado atual de um utilizador, os va
 
 ***Exemplo 4. Consulta do valor de um atributo de referência a ser atualizado*** 
 
-Se um atributo de referência for atualizado, então o Azure Ative Directory questiona o serviço para determinar se o valor atual do atributo de referência na loja de identidade encabeçada pelo serviço já corresponde ao valor desse atributo no Azure Ative Diretório. Para os utilizadores, o único atributo de que o valor atual é consultado desta forma é o atributo do gestor. Aqui está um exemplo de um pedido para determinar se o atributo do gestor de um objeto de utilizador tem atualmente um determinado valor: No código de amostra o pedido é traduzido numa chamada para o método QueryAsync do prestador do serviço. O valor das propriedades do objeto fornecidos como o valor do argumento dos parâmetros é o seguinte: 
+Se um atributo de referência for atualizado, então o Azure Ative Directory questiona o serviço para determinar se o valor atual do atributo de referência na loja de identidade encabeçada pelo serviço já corresponde ao valor desse atributo no Diretório Ativo do Azure. Para os utilizadores, o único atributo de que o valor atual é consultado desta forma é o atributo do gestor. Aqui está um exemplo de um pedido para determinar se o atributo do gestor de um objeto de utilizador tem atualmente um determinado valor: No código de amostra o pedido é traduzido numa chamada para o método QueryAsync do prestador do serviço. O valor das propriedades do objeto fornecidos como o valor do argumento dos parâmetros é o seguinte: 
   
 * parâmetros. Filtros Alternativos.Count: 2
 * parâmetros. Filtros Alternativos.ElementAt(x). AtributoPath: "ID"

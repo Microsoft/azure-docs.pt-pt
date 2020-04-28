@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2a919996d00f8ef3fa00109944b60d53b63d95ff
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529131"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
@@ -159,9 +159,9 @@ Por exemplo, pode armazenar a última versão dos seus termos de serviços que o
 
 Para exemplo sondar as transformações de sinistros, consulte as seguintes páginas de referência:
 
-- [Boolean](boolean-transformations.md)
-- [Data](date-transformations.md)
-- [Inteiro](integer-transformations.md)
+- [Booleano](boolean-transformations.md)
+- [Date](date-transformations.md)
+- [Número inteiro](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Número de telefone](phone-number-claims-transformations.md)
 - [General](general-transformations.md)

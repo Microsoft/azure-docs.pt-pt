@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: 9e35ba5a3f3705a52e80262da9bbfbfda489bf83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050383"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Ficheiro de configuração da Biblioteca de Autenticação do Android Microsoft
@@ -32,8 +32,8 @@ Este artigo irá ajudá-lo a compreender as várias definições no ficheiro de 
 
 | Propriedade | Tipo de Dados | Necessário | Notas |
 |-----------|------------|-------------|-------|
-| `client_id` | Cadeia | Sim | Id do cliente da sua aplicação na página de inscrição da [aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | Cadeia | Sim | Redirecionamento URI da sua aplicação a partir da página de inscrição da [aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `client_id` | String | Sim | Id do cliente da sua aplicação na página de inscrição da [aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | String | Sim | Redirecionamento URI da sua aplicação a partir da página de inscrição da [aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `authorities` | >\<da Autoridade de Lista | Não | A lista de autoridades que a sua app precisa |
 | `authorization_user_agent` | Agente de Autorização (enum) | Não | Valores `DEFAULT`possíveis: , `BROWSER``WEBVIEW` |
 | `http` | HttpConfiguração | Não | Configurar `HttpUrlConnection` `connect_timeout` e`read_timeout` |
@@ -103,17 +103,17 @@ A lista de autoridades que são conhecidas e confiáveis por si. Além das autor
 
 | Propriedade | Tipo de dados  | Necessário | Notas |
 |-----------|-------------|-----------|--------|
-| `type` | Cadeia | Sim | Espelha o público ou a conta digite os alvos da sua aplicação. Valores `AAD`possíveis:`B2C` |
+| `type` | String | Sim | Espelha o público ou a conta digite os alvos da sua aplicação. Valores `AAD`possíveis:`B2C` |
 | `audience` | Objeto | Não | Só se aplica`AAD`quando digita= . Especifica a identidade dos alvos da sua aplicação. Use o valor do registo da sua aplicação |
-| `authority_url` | Cadeia | Sim | Só é exigido`B2C`quando digitar= . Especifica o URL ou a política de autoridade que a sua aplicação deve usar  |
+| `authority_url` | String | Sim | Só é exigido`B2C`quando digitar= . Especifica o URL ou a política de autoridade que a sua aplicação deve usar  |
 | `default` | boolean | Sim | É `"default":true` necessário um único quando uma ou mais autoridades são especificadas. |
 
 #### <a name="audience-properties"></a>Propriedades do Público
 
 | Propriedade | Tipo de Dados  | Necessário | Notas |
 |-----------|-------------|------------|-------|
-| `type` | Cadeia | Sim | Especifica o público que a sua aplicação quer atingir. Valores `AzureADandPersonalMicrosoftAccount`possíveis: , `PersonalMicrosoftAccount`, `AzureADMultipleOrgs``AzureADMyOrg` |
-| `tenant_id` | Cadeia | Sim | Só é `"type":"AzureADMyOrg"`necessário quando. Opcional para `type` outros valores. Este pode ser um `contoso.com`domínio de inquilino, `72f988bf-86f1-41af-91ab-2d7cd011db46`como, ou uma identificação de inquilino como) |
+| `type` | String | Sim | Especifica o público que a sua aplicação quer atingir. Valores `AzureADandPersonalMicrosoftAccount`possíveis: , `PersonalMicrosoftAccount`, `AzureADMultipleOrgs``AzureADMyOrg` |
+| `tenant_id` | String | Sim | Só é `"type":"AzureADMyOrg"`necessário quando. Opcional para `type` outros valores. Este pode ser um `contoso.com`domínio de inquilino, `72f988bf-86f1-41af-91ab-2d7cd011db46`como, ou uma identificação de inquilino como) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 

@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: iainfou
 ms.openlocfilehash: ce910b553e14d09eefa35efc5f2973337dfa1309
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80654668"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Ativar auditorias de segurança para serviços de domínio de diretório ativo Azure
@@ -62,7 +62,7 @@ Para permitir eventos de auditoria de segurança Azure AD DS utilizando o portal
 
     ![Ativar o destino e o tipo de eventos de auditoria necessários para capturar](./media/security-audit-events/diagnostic-settings-page.png)
 
-    * **Armazenamento azure**
+    * **Storage do Azure**
         * Selecione **Archive para uma conta**de armazenamento e, em seguida, escolha **Configurar**.
         * Selecione a **Subscrição** e a **conta de Armazenamento** que pretende utilizar para arquivar eventos de auditoria de segurança.
         * Quando estiver pronto, escolha **OK**.
@@ -140,7 +140,7 @@ Para permitir eventos de auditoria de segurança Azure AD DS utilizando o Azure 
 
 Log Analytic workspaces permitem-lhe visualizar e analisar os eventos de auditoria de segurança usando o Monitor Azure e a linguagem de consulta Kusto. Esta linguagem de consulta é projetada para uso apenas de leitura que ostenta capacidades analíticas de potência com uma sintaxe de fácil leitura. Para obter mais informações para começar com as línguas de consulta de Kusto, consulte os seguintes artigos:
 
-* [Documentação do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
+* [Documentação do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/)
 * [Começar com Log Analytics no Monitor Azure](../azure-monitor/log-query/get-started-portal.md)
 * [Começar com consultas de log no Monitor Azure](../azure-monitor/log-query/get-started-queries.md)
 * [Criar e partilhar dashboards dos dados do Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)

@@ -12,10 +12,10 @@ ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80666873"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface de utilizador no Diretório Ativo Azure B2C
@@ -154,7 +154,7 @@ A tabela seguinte lista os fragmentos HTML que o Azure AD B2C se funde no `<div 
 | Inscrição na conta local | Contém um formulário para inscrição de conta local com base num endereço de e-mail ou num nome de utilizador. O formulário pode conter diferentes controlos de entrada, tais como caixa de entrada de texto, caixa de entrada de palavra-passe, botão de rádio, caixas de entrega seletivas únicas e caixas de verificação multi-selecionadas. |
 | Inscrição na conta social | Pode aparecer ao inscrever-se usando uma conta existente de um fornecedor de identidade social, como o Facebook ou o Google. É usado quando devem ser recolhidas informações adicionais do cliente através de um formulário de inscrição. |
 | Inscrição unificada ou inscrição | Lida com o sign-up e o sign-in de clientes que podem usar fornecedores de identidade social, como facebook, Google ou contas locais. |
-| Multi-Factor Authentication | Os clientes podem verificar os seus números de telefone (utilizando texto ou voz) durante o registo ou o check-in. |
+| Multi-factor authentication | Os clientes podem verificar os seus números de telefone (utilizando texto ou voz) durante o registo ou o check-in. |
 | Erro | Fornece informações de erro ao cliente. |
 
 ## <a name="company-branding-preview"></a>Marca da empresa (pré-visualização)
@@ -169,7 +169,7 @@ Para personalizar as páginas de fluxo do utilizador, configura primeiro a marca
 
 Comece por definir o logotipo do banner, imagem de fundo e cor de fundo dentro **da marca da Empresa.**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. No portal Azure, procure e selecione **Azure AD B2C**.
 1. Under **Manage**, selecione **marca da Empresa.**

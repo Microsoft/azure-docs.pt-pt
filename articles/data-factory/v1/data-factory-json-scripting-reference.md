@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 3492f917be8116d0eed0c7ec03ed8aa9ff506520
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80346585"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referência de Scripting JSON
@@ -373,11 +373,11 @@ Clique no link para a loja em que está interessado em ver os schemas JSON para 
 
 | Categoria | Arquivo de dados
 |:--- |:--- |
-| **Azure** |[Armazenamento Azure Blob](#azure-blob-storage) |
+| **Azure** |[Armazenamento de Blobs do Azure](#azure-blob-storage) |
 | &nbsp; |Azure Data Lake Store |
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Base de Dados SQL do Azure](#azure-sql-database) |
-| &nbsp; |[Armazém de dados Azure SQL](#azure-sql-data-warehouse) |
+| &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
 | &nbsp; |[Azure Cognitive Search](#azure-cognitive-search) |
 | &nbsp; |[Armazenamento de mesa azure](#azure-table-storage) |
 | **Bases de Dados** |[Amazon Redshift](#amazon-redshift) |
@@ -392,7 +392,7 @@ Clique no link para a loja em que está interessado em ver os schemas JSON para 
 | &nbsp; |[Teradata](#teradata) |
 | **NoSQL** |[Cassandra](#cassandra) |
 | &nbsp; |[MongoDB](#mongodb) |
-| **Ficheiro** |[Amazónia S3](#amazon-s3) |
+| **Ficheiro** |[Amazon S3](#amazon-s3) |
 | &nbsp; |[Sistema de Ficheiros](#file-system) |
 | &nbsp; |[FTP](#ftp) |
 | &nbsp; |[HDFS](#hdfs) |
@@ -885,7 +885,7 @@ Se estiver a copiar dados para o Azure Cosmos DB, detete o tipo de **sumidouro**
 | --- | --- | --- | --- |
 | nestingSeparator |Um personagem especial no nome da coluna de origem para indicar que o documento aninhado é necessário. <br/><br/>Por exemplo: `Name.First` na tabela de saída produz a seguinte estrutura JSON no documento Cosmos DB:<br/><br/>"Nome": {<br/>    "Primeiro": "João"<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>O valor `.` predefinido é (ponto). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>O valor `.` predefinido é (ponto). |
 | escreverBatchSize |Número de pedidos paralelos ao serviço Azure Cosmos DB para criar documentos.<br/><br/>Pode afinar o desempenho ao copiar dados de/para o Azure Cosmos DB utilizando esta propriedade. Você pode esperar um melhor desempenho quando você aumentar writeBatchSize porque são enviados pedidos mais paralelos para Azure Cosmos DB. No entanto, terá de evitar estrangulamentos que possam lançar a mensagem de erro: "A taxa de pedido é grande".<br/><br/>O estrangulamento é decidido por uma série de fatores, incluindo a dimensão dos documentos, o número de termos em documentos, a política de indexação da recolha de alvos, etc. Para operações de cópia, pode utilizar uma melhor recolha (por exemplo, S3) para ter a maior entrada disponível (2.500 unidades de pedido/segundo). |Número inteiro |Não (padrão: 5) |
-| escreverBatchTimeout |Aguarde o tempo para que a operação esteja concluída antes de sair. |tempospan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| escreverBatchTimeout |Aguarde o tempo para que a operação esteja concluída antes de sair. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -1047,7 +1047,7 @@ Se estiver a copiar dados para a Base de Dados Azure SQL, detete o tipo de **sum
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| escreverBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |tempospan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| escreverBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 | escreverBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
 | sqlWriterCleanupScript |Especifique uma consulta para a Atividade de Cópia executar de tal forma que os dados de uma fatia específica são limpos. |Uma declaração de consulta. |Não |
 | sliceIdentifierColumnName |Especifique um nome de coluna para a Copy Activity para preencher com identificador de fatias gerado saqueado automaticamente, que é usado para limpar dados de uma fatia específica quando reexecutado. |Nome da coluna de uma coluna com tipo de dados de binário(32). |Não |
@@ -1231,7 +1231,7 @@ Se estiver a copiar dados para o Azure SQL Data Warehouse, detete o tipo de **su
 | rejeitarSampleValue |Determina o número de linhas a recuperar antes que a PolyBase recalcule a percentagem de linhas rejeitadas. |1, 2, ... |Sim, se **rejeitarType** é **percentual** |
 | useTypeDefault |Especifica como lidar com valores em falta em ficheiros de texto delimitados quando a PolyBase recupera dados do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade a partir da secção Argumentos em FORMATO DE [ARQUIVO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |Verdade, Falso (padrão) |Não |
 | escreverBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize |Inteiro (número de linhas) |Não (padrão: 10000) |
-| escreverBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |tempospan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| escreverBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -1538,7 +1538,7 @@ Se estiver a copiar dados para o Armazenamento de Mesa Seletiva, detete o tipo d
 | nome chave azureTableRow |Especifique o nome da coluna cujos valores de coluna são utilizados como chave de linha. Se não especificado, utilize um GUID para cada linha. |Um nome de coluna. |Não |
 | azureTableInsertType |O modo de inserir dados na tabela Azure.<br/><br/>Esta propriedade controla se as linhas existentes na tabela de saída com divisória seletiva e chaves de linha correspondentes têm os seus valores substituídos ou fundidos. <br/><br/>Para saber como funcionam estas definições (fundir e substituir), consulte [inserir ou fundir tópicos de Entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e Inserir ou Substituir tópicos da [Entidade.](https://msdn.microsoft.com/library/azure/hh452242.aspx) <br/><br> Esta definição aplica-se ao nível da linha, não ao nível da tabela, e nenhuma das opções elimina linhas no quadro de saída que não existam na entrada. |fusão (padrão)<br/>substituir |Não |
 | escreverBatchSize |Insere os dados na tabela Azure quando o writeBatchSize ou o writeBatchTimeout for atingido. |Inteiro (número de linhas) |Não (padrão: 10000) |
-| escreverBatchTimeout |Insere os dados na tabela Azure quando o writeBatchSize ou o writeBatchTimeout são atingidos |tempospan<br/><br/>Exemplo: "00:20:00" (20 minutos) |Não (Predefinido para armazenar valor de tempo de saída do cliente 90 seg) |
+| escreverBatchTimeout |Insere os dados na tabela Azure quando o writeBatchSize ou o writeBatchTimeout são atingidos |timespan<br/><br/>Exemplo: "00:20:00" (20 minutos) |Não (Predefinido para armazenar valor de tempo de saída do cliente 90 seg) |
 
 #### <a name="example"></a>Exemplo
 
@@ -2057,7 +2057,7 @@ Se estiver a copiar dados para a base de dados da Oracle, detete o tipo de **sum
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| escreverBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |tempospan<br/><br/> Exemplo: 00:30:00 (30 minutos). |Não |
+| escreverBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |timespan<br/><br/> Exemplo: 00:30:00 (30 minutos). |Não |
 | escreverBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 100) |
 | sqlWriterCleanupScript |Especifique uma consulta para a Atividade de Cópia executar de tal forma que os dados de uma fatia específica são limpos. |Uma declaração de consulta. |Não |
 | sliceIdentifierColumnName |Especifique o nome da coluna para a Atividade de Cópia para preencher com identificador de fatias gerado automaticamente, que é usado para limpar dados de uma fatia específica quando reexecutado. |Nome da coluna de uma coluna com tipo de dados de binário(32). |Não |
@@ -2608,7 +2608,7 @@ Se estiver a copiar dados para uma base de dados do SQL Server, detete o tipo de
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| escreverBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |tempospan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| escreverBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 | escreverBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
 | sqlWriterCleanupScript |Especifique a consulta para a Atividade de Cópia executar de tal forma que os dados de uma fatia específica são limpos. Para mais informações, consulte a secção de repetibilidade. |Uma declaração de consulta. |Não |
 | sliceIdentifierColumnName |Especifique o nome da coluna para a Atividade de Cópia para preencher com identificador de fatias gerado automaticamente, que é usado para limpar dados de uma fatia específica quando reexecutado. Para mais informações, consulte a secção de repetibilidade. |Nome da coluna de uma coluna com tipo de dados de binário(32). |Não |
@@ -3175,10 +3175,10 @@ Para definir um conjunto de dados Amazon S3, defina o **tipo** de conjunto de da
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| bucketName |O nome do balde S3. |Cadeia |Sim |
-| key |A chave de objetos S3. |Cadeia |Não |
-| prefixo |Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Aplica-se apenas quando a chave está vazia. |Cadeia |Não |
-| versão |A versão do objeto S3 se a versão S3 estiver ativada. |Cadeia |Não |
+| bucketName |O nome do balde S3. |String |Sim |
+| key |A chave de objetos S3. |String |Não |
+| prefixo |Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Aplica-se apenas quando a chave está vazia. |String |Não |
+| versão |A versão do objeto S3 se a versão S3 estiver ativada. |String |Não |
 | formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desloque a propriedade **tipo** em formato a um destes valores. Para mais informações, consulte as secções de [Formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [Formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como está** entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e de saída. |Não | |
 | compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2,** e **ZipDeflate**. Os níveis suportados são: **Optimal** e **Fastest**. Para mais informações, consulte [formatos de ficheiroe de compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não | |
 
@@ -5061,9 +5061,9 @@ Atividade | Descrição
 -------- | -----------
 [Atividade da Colmeia HDInsight](#hdinsight-hive-activity) | A atividade da Hive HDInsight num pipeline data factory executa consultas de Hive por si só ou a pedido do cluster HDInsight baseado em HDInsight.
 [Atividade de porco HDInsight](#hdinsight-pig-activity) | A atividade do Suíno HDInsight num gasoduto data Factory executa consultas de porco por si só ou a pedido do cluster HDInsight baseado em Linux.
-[HDInsight mapreduzir atividade](#hdinsight-mapreduce-activity) | O HDInsight MapReduce atividade num pipeline data factory executa programas MapReduce por si só ou a pedido do cluster HDInsight baseado em HDInsight.
-[Atividade de streaming HDInsight](#hdinsight-streaming-activity) | A Atividade de Streaming HDInsight num pipeline data Factory executa programas de Streaming Hadoop por conta própria ou a pedido do cluster HDInsight baseado em HDInsight baseado em HDInsight.
-[Atividade de faísca HDInsight](#hdinsight-spark-activity) | A atividade HDInsight Spark num pipeline data Factory executa programas Spark no seu próprio cluster HDInsight.
+[Atividade MapReduce do HDInsight](#hdinsight-mapreduce-activity) | O HDInsight MapReduce atividade num pipeline data factory executa programas MapReduce por si só ou a pedido do cluster HDInsight baseado em HDInsight.
+[Atividade Streaming do HDInsight](#hdinsight-streaming-activity) | A Atividade de Streaming HDInsight num pipeline data Factory executa programas de Streaming Hadoop por conta própria ou a pedido do cluster HDInsight baseado em HDInsight baseado em HDInsight.
+[Atividade do HDInsight Spark](#hdinsight-spark-activity) | A atividade HDInsight Spark num pipeline data Factory executa programas Spark no seu próprio cluster HDInsight.
 [Atividade de Execução em Lote do Machine Learning](#machine-learning-batch-execution-activity) | A Azure Data Factory permite-lhe criar facilmente oleodutos que utilizem um serviço web azure machine learning publicado para análise preditiva. Utilizando a Atividade de Execução de Lotes num oleoduto Azure Data Factory, pode invocar um serviço web de Aprendizagem automática para fazer previsões sobre os dados em lote.
 [Atividade de Recursos de Atualização de Machine Learning](#machine-learning-update-resource-activity) | Com o tempo, os modelos preditivos nas experiências de pontuação de Machine Learning precisam de ser retreinados usando novos conjuntos de dados de entrada. Depois de terminar a reconversão, pretende atualizar o serviço web de pontuação com o modelo de Machine Learning retreinado. Pode utilizar a Atividade de Recursos atualizados para atualizar o serviço web com o modelo recém-treinado.
 [Atividade de Procedimento Armazenado](#stored-procedure-activity) | Pode utilizar a atividade do Procedimento Armazenado num pipeline data factory para invocar um procedimento armazenado numa das seguintes lojas de dados: Base de Dados Azure SQL, Armazém de Dados Azure SQL, Base de Dados do Servidor SQL na sua empresa ou um VM Azure.

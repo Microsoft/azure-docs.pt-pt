@@ -12,10 +12,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 1f19d258531e5368238cba72c986aede3f4a64ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80130827"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considerações de segurança para o movimento de dados
@@ -174,7 +174,7 @@ Algumas lojas de dados na nuvem também requerem a lista branca do endereço IP 
 As seguintes lojas de dados em nuvem requerem listagem branca do endereço IP da máquina gateway. Algumas destas lojas de dados, por defeito, podem não necessitar de whitelisting do endereço IP. 
 
 - [Base de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) 
-- [Armazém de dados Azure SQL](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 

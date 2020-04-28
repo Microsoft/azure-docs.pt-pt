@@ -16,17 +16,17 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 082cbb931c9dae60b39f9ee5323337bf051fb56d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154785"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Ativar o SSO de aplicação cruzada no iOS utilizando o ADAL
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-O único sinal de inscrição (SSO) permite que os utilizadores introduzam apenas as suas credenciais uma vez e tenham essas credenciais a funcionar automaticamente através de aplicações e em plataformas que outras aplicações podem usar (como contas microsoft ou uma conta de trabalho do Microsoft 365) não importa o editor.
+O único sinal de inscrição (SSO) permite que os utilizadores introduzam apenas as suas credenciais uma vez e tenham essas credenciais a funcionar automaticamente através de aplicações e em plataformas que outras aplicações podem usar (como contas microsoft ou uma conta de trabalho do Microsoft 365) independentemente da editora.
 
 A plataforma de identidade da Microsoft, juntamente com os SDKs, facilita a ativação do SSO dentro do seu próprio conjunto de aplicações, ou com a capacidade de corretor e aplicações Authenticator, em todo o dispositivo.
 
@@ -111,7 +111,7 @@ Se um corretor compatível for instalado no dispositivo, como a aplicação Micr
 
 A necessidade de garantir a identidade de uma aplicação que chama o corretor é crucial para a segurança que fornecemos em logins assistidos pelo corretor. Nem o iOS nem o Android aplicam identificadores únicos que são válidos apenas para uma determinada aplicação, pelo que aplicações maliciosas podem "falsificar" o identificador de uma aplicação legítima e receber os tokens destinados à aplicação legítima. Para garantir que estamos sempre a comunicar com a aplicação certa no prazo de funcionamento, pedimos ao desenvolvedor que forneça um redirectURI personalizado ao registar a sua aplicação com a Microsoft. Como os desenvolvedores devem criar este URI redirecionado é discutido em detalhe abaixo. Este redirectURI personalizado contém o Bundle ID da aplicação e é garantido ser único na aplicação pela Apple App Store. Quando uma aplicação chama o corretor, o corretor pede ao sistema operativo iOS que o forneça com o Id bundle que chamou o corretor. O corretor fornece este Bundle ID à Microsoft na chamada para o nosso sistema de identidade. Se o Bundle ID da aplicação não corresponder ao Id bundle fornecido pelo desenvolvedor durante o registo, negaremos o acesso aos tokens para o recurso que a aplicação está a solicitar. Este cheque garante que apenas a aplicação registada pelo programador recebe fichas.
 
-**O desenvolvedor tem a escolha se o SDK chama o corretor ou utiliza o fluxo assistido não-corretor.** No entanto, se o desenvolvedor optar por não utilizar o fluxo assistido pelo corretor, perde o benefício de utilizar credenciais SSO que o utilizador pode já ter adicionado no dispositivo e impede que a sua aplicação seja utilizada com funcionalidades de negócio que a Microsoft fornece clientes como o Acesso Condicional, capacidades de gestão intune e autenticação baseada em certificados.
+**O desenvolvedor tem a escolha se o SDK chama o corretor ou utiliza o fluxo assistido não-corretor.** No entanto, se o desenvolvedor optar por não utilizar o fluxo assistido pelo corretor, perde o benefício de utilizar credenciais SSO que o utilizador pode já ter adicionado no dispositivo e impede que a sua aplicação seja utilizada com funcionalidades empresariais a Microsoft fornece aos seus clientes, tais como Acesso Condicional, capacidades de gestão Intune e autenticação baseada em certificados.
 
 Estes logins têm os seguintes benefícios:
 

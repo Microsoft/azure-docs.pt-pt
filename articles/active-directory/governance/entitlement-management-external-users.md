@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: af0f68ca9520c1715463212da80aaabed48f8269
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80128686"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Reger o acesso a utilizadores externos na gestão de direitos da AD Azure
@@ -91,7 +91,7 @@ Para garantir que as pessoas fora da sua organização possam solicitar pacotes 
 
 ### <a name="review-your-conditional-access-policies"></a>Reveja as suas políticas de Acesso Condicional
 
-- Certifique-se de excluir os hóspedes de quaisquer políticas de Acesso Condicional que os novos utilizadores não possam cumprir, uma vez que isso os impedirá de iniciar sessão no seu diretório. Por exemplo, os hóspedes provavelmente não têm um dispositivo registado, não estão num local conhecido, e não querem voltar a registar-se para autenticação multi-fator (MFA), por isso, adicionar estes requisitos numa política de Acesso Condicional impedirá os hóspedes de usar o direito gestão. Para mais informações, consulte Quais são as condições no Acesso Condicional do [Diretório Ativo do Azure?](../conditional-access/concept-conditional-access-conditions.md)
+- Certifique-se de excluir os hóspedes de quaisquer políticas de Acesso Condicional que os novos utilizadores não possam cumprir, uma vez que isso os impedirá de iniciar sessão no seu diretório. Por exemplo, os hóspedes provavelmente não têm um dispositivo registado, não estão num local conhecido, e não querem voltar a inscrever-se para autenticação multifactor (MFA), por isso, adicionar estes requisitos numa política de Acesso Condicional impedirá os hóspedes de usar a gestão de direitos. Para mais informações, consulte Quais são as condições no Acesso Condicional do [Diretório Ativo do Azure?](../conditional-access/concept-conditional-access-conditions.md)
 
     ![Política de Acesso Condicional Azure AD exclui definições](./media/entitlement-management-external-users/conditional-access-exclude.png)
 

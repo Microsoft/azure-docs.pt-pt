@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21caec50bf9c20ec60194976b1bfbf16e4815914
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261045"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizar a gestão de aplicações com a Azure AD
@@ -81,7 +81,7 @@ A identidade só pode ser o seu plano de controlo se conseguir ligar tudo atrav�
 
 |Funcionalidade  |Descrição|Recomendação |
 |---------|---------|---------|
-|Proxy da aplicação|Os colaboradores dos nossos dias querem ser produtivos em qualquer sítio, em qualquer altura e em qualquer dispositivo. Precisam de aceder a aplicações SaaS na nuvem e aplicações corporativas no local. O representante da Aplicação Azure AD permite este acesso robusto sem redes privadas virtuais dispendiosas e complexas (VPNs) ou zonas desmilitarizadas (DMZs).|Configurar [o acesso remoto](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) para as suas aplicações on-prem. |
+|Proxy de Aplicações|Os colaboradores dos nossos dias querem ser produtivos em qualquer sítio, em qualquer altura e em qualquer dispositivo. Precisam de aceder a aplicações SaaS na nuvem e aplicações corporativas no local. O representante da Aplicação Azure AD permite este acesso robusto sem redes privadas virtuais dispendiosas e complexas (VPNs) ou zonas desmilitarizadas (DMZs).|Configurar [o acesso remoto](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) para as suas aplicações on-prem. |
 |F5, Akamai, Zscaler|Utilizando o seu controlador de rede e entrega existente, pode facilmente proteger aplicações antigas que ainda são cruciais para os seus processos de negócio, mas que não conseguiu proteger antes com a Azure AD. É provável que já tenha tudo o que precisa para começar a proteger estas aplicações.| Usando Akamai, Citrix, F5 ou Zscaler? Confira as [nossas soluções pré-construídas.](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access) | 
 
 ## <a name="related-articles"></a>Artigos relacionados

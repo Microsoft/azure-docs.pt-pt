@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
 ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80116933"
 ---
 ## <a name="use-custom-page-content"></a>Use conteúdo de página personalizado
@@ -114,7 +114,7 @@ Neste artigo, utilizamos o armazenamento Azure Blob para hospedar os nossos cont
 
 Para alojar o seu conteúdo HTML no armazenamento blob, execute os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No menu **Hub,** selecione a conta **new** > **storage** > **Storage**.
 1. Selecione uma **Subscrição** para a sua conta de armazenamento.
 1. Crie um **grupo de Recursos** ou selecione um existente.

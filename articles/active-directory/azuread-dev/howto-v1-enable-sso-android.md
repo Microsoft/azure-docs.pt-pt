@@ -16,17 +16,17 @@ ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0b87a9cd0ae29281faad4209f4449d547921835d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154819"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como: Ativar o SSO cross-app no Android usando o ADAL
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-O único sinal de inscrição (SSO) permite que os utilizadores introduzam apenas as suas credenciais uma vez e tenham essas credenciais a funcionar automaticamente através de aplicações e em plataformas que outras aplicações podem usar (como contas microsoft ou uma conta de trabalho do Microsoft 365) não importa o editor.
+O único sinal de inscrição (SSO) permite que os utilizadores introduzam apenas as suas credenciais uma vez e tenham essas credenciais a funcionar automaticamente através de aplicações e em plataformas que outras aplicações podem usar (como contas microsoft ou uma conta de trabalho do Microsoft 365) independentemente da editora.
 
 A plataforma de identidade da Microsoft, juntamente com os SDKs, facilita a ativação do SSO dentro do seu próprio conjunto de aplicações, ou com a capacidade de corretor e aplicações Authenticator, em todo o dispositivo.
 

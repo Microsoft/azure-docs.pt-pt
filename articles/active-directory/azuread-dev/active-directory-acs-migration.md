@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
 ms.openlocfilehash: 3168d36bf4c2d3c696173725f669b12dc168dcc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80155006"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controlo de Acesso Azure
@@ -134,7 +134,7 @@ Cada serviço na nuvem da Microsoft que aceita fichas emitidas pelo Access Contr
 | Cache gerido em Azure | [Migrar para Azure Cache para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Mercado de Dados Azure | [Migrar para as APIs dos Serviços Cognitivos](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Serviços BizTalk | [Migrar para a funcionalidade de Aplicações Lógicas do Serviço de Aplicações Azure](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| Serviços Azure Media | [Emigrar para a autenticação da AD Azure](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
+| Serviços de Multimédia do Azure | [Emigrar para a autenticação da AD Azure](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Azure Backup | [Atualizar o agente de backup Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
@@ -209,7 +209,7 @@ A um nível elevado, *o Azure Ative Directory é provavelmente a melhor escolha 
 | Descoberta de reino doméstico personalizável/UI de recolha de conta | Código transferível que pode ser incorporado em apps | Não suportado |
 | Faça upload de certificados de assinatura de token personalizados | Suportado | Suportado |
 | Personalizar reclamações em fichas |- Passar por pedidos de entrada de fornecedores de identidade<br />- Obtenha acesso ao fornecedor de identidade como reivindicação<br />- Emitir reclamações de saída com base nos valores dos créditos de entrada<br />- Emitir reclamações de produção com valores constantes |- Não pode passar por reclamações de fornecedores de identidade federados<br />- Não é possível obter acesso do fornecedor de identidade como reivindicação<br />- Não pode emitir reclamações de saída com base em valores de créditos de entrada<br />- Pode emitir reclamações de produção com valores constantes<br />- Pode emitir reclamações de saída com base em propriedades dos utilizadores sincronizados com a Azure AD |
-| **Automação** | | |
+| **Automatização** | | |
 | Automatizar tarefas de configuração e gestão | Suportado através do Serviço de Gestão de Controlo de Acesso | Suportado usando a Microsoft Graph API |
 
 Se decidir que o Azure AD é o melhor caminho de migração para as suas aplicações e serviços, deve estar ciente de duas formas de integrar a sua app com o Azure AD.
@@ -260,7 +260,7 @@ O quadro seguinte compara as funcionalidades do Controlo de Acesso que são rele
 | Descoberta de reino doméstico personalizável/UI de recolha de conta | Código transferível que pode ser incorporado em apps | UI totalmente personalizável através de CSS personalizado |
 | Faça upload de certificados de assinatura de token personalizados | Suportado | Chaves de assinatura personalizadas, não certificados, suportadas através de políticas personalizadas |
 | Personalizar reclamações em fichas |- Passar por pedidos de entrada de fornecedores de identidade<br />- Obtenha acesso ao fornecedor de identidade como reivindicação<br />- Emitir reclamações de saída com base nos valores dos créditos de entrada<br />- Emitir reclamações de produção com valores constantes |- Pode passar por reclamações de fornecedores de identidade; políticas personalizadas necessárias para algumas reivindicações<br />- Não é possível obter acesso do fornecedor de identidade como reivindicação<br />- Pode emitir reclamações de saída com base nos valores dos pedidos de entrada através de políticas personalizadas<br />- Pode emitir reclamações de produção com valores constantes através de políticas personalizadas |
-| **Automação** | | |
+| **Automatização** | | |
 | Automatizar tarefas de configuração e gestão | Suportado através do Serviço de Gestão de Controlo de Acesso |- Criação de utilizadores permitidos através da API do Microsoft Graph<br />- Não pode criar inquilinos, candidaturas ou políticas B2C programáticamente |
 
 Se decidir que o Azure AD B2C é o melhor caminho de migração para as suas aplicações e serviços, comece com os seguintes recursos:

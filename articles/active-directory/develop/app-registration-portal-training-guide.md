@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154598"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>A nova experiência de registo de aplicativos do portal Azure
@@ -31,7 +31,7 @@ Existem [muitas melhorias](https://go.microsoft.com/fwlink/?linkid=2083908) na e
     > [!NOTE]
     > Tem de iniciar sessão com a conta que usou para registar as candidaturas para as encontrar no portal Azure. Recomendamos que verifique se o utilizador assinado no portal Azure corresponde ao utilizador que foi assinado no portal de registo de aplicações, comparando o endereço de e-mail do seu perfil.
     >
-    > Em alguns casos, especialmente quando se inscreveu na utilização de contas pessoais da Microsoft (por exemplo, Outlook, Live, Xbox, etc.) com um endereço de e-mail Azure AD, descobrimos que quando se vai ao portal Azure a partir da experiência antiga, assina-o numa conta diferente com a mesma e-mail no seu inquilino DaD Azure. Se ainda acredita que faltam candidaturas, assine e inscreva-se na conta certa.
+    > Em alguns casos, especialmente quando se inscreveu na utilização de contas pessoais da Microsoft (por exemplo, Outlook, Live, Xbox, etc.) com um endereço de e-mail Azure AD, descobrimos que quando se vai ao portal Azure a partir da experiência antiga, assina-o numa conta diferente com o mesmo e-mail no seu inquilino DaD Azure. Se ainda acredita que faltam candidaturas, assine e inscreva-se na conta certa.
 
 - As aplicações Live SDK criadas com contas pessoais da Microsoft ainda não são suportadas no portal Azure e continuarão a manter-se na experiência antiga num futuro próximo.
 

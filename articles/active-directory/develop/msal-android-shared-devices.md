@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
 ms.openlocfilehash: d9874e27c21906512c2f6c841767b4d6591dbeaf
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80550269"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo partilhado para dispositivos Android
@@ -85,7 +85,7 @@ As seguintes diferenças aplicam-se dependendo se a sua aplicação está a func
 |---------|---------|---------|
 | **Contas**     | Conta única | Múltiplas contas |
 | **Iniciar sessão** | Global | Global |
-| **Inscrição** | Global | Cada aplicação pode controlar se a inscrição é local para a app ou para a família de aplicações. |
+| **Terminar sessão** | Global | Cada aplicação pode controlar se a inscrição é local para a app ou para a família de aplicações. |
 | **Tipos de conta suportados** | Contas de trabalho apenas | Contas pessoais e de trabalho suportadas  |
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Por que você pode querer apenas suportar o modo de conta única

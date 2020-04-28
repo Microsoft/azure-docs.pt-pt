@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: mialdrid
 ms.openlocfilehash: f98c965ad3b776f3688a716ba28b5367a00c9119
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80619229"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Crie um anfitrião do Bastião Azure usando o Azure CLI
