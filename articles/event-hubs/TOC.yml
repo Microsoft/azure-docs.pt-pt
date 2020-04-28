@@ -126,6 +126,8 @@
       maintainContext: true
 - name: Guias de procedimentos
   items:
+    - name: Mover entre regiões
+      href: move-across-regions.md
     - name: Utilizar o Armazenamento de Blobs como arquivo de pontos de verificação no Azure Stack Hub
       href: use-blob-storage-checkpoint-store-azure-stack-hub.md
     - name: Migrar das APIs do Azure Service Manager (clássico) para as APIs do Resource Manager
@@ -164,6 +166,10 @@
       items:
         - name: Guia para programadores do Kafka para os Hubs de Eventos
           href: apache-kafka-developer-guide.md
+        - name: Guia de migração do Kafka para os Hubs de Eventos
+          href: apache-kafka-migration-guide.md
+        - name: Guia de resolução de problemas do Kafka para os Hubs de Eventos
+          href: apache-kafka-troubleshooting-guide.md
         - name: Espelhar um mediador de Kafka num hub de eventos
           href: event-hubs-kafka-mirror-maker-tutorial.md
         - name: Ligar o Apache Spark a um hub de eventos
@@ -174,6 +180,8 @@
           href: event-hubs-kafka-connect-tutorial.md
         - name: Ligar o Akka Streams a um hub de eventos
           href: event-hubs-kafka-akka-streams-tutorial.md
+        - name: FAQ - Hubs de Eventos para o Kafka
+          href: apache-kafka-frequently-asked-questions.md
     - name: Gerir e monitorizar
       items:
         - name: Monitorizar Hubs de Eventos com a Monitorização do Azure

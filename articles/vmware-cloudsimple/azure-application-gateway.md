@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cbfdd358fdfd5403c677c067376142169cdc6bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7dce0181987b7e61b243a7eb0e13b7ed687eb08
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77015461"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185698"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>Utilize o Portal de Aplicações Azure com máquinas virtuais VMware no ambiente CloudSimple Private Cloud
 
 Pode utilizar o Portal de Aplicações Azure para gerir o tráfego web para os seus servidores web que executam em máquinas virtuais VMware dentro do seu ambiente Cloud Simple Private Cloud.
 
-Ao aproveitar o Portal de Aplicações Azure numa implantação híbrida público-privada, pode gerir o tráfego web para as suas aplicações, fornecer uma frontal frontal segura e descarregar o processamento de SSL para os seus serviços em funcionamento em ambiente VMware. O Azure Application Gateway encaminha o tráfego web para apoiar as instâncias de piscina que residem em ambientes VMware de acordo com regras configuradas e sondas de saúde.
+Ao aproveitar o Portal de Aplicações Azure numa implantação híbrida público-privada, pode gerir o tráfego web para as suas aplicações, fornecer uma frontal frontal segura e descarregar o processamento de TLS para os seus serviços em funcionamento em ambiente VMware. O Azure Application Gateway encaminha o tráfego web para apoiar as instâncias de piscina que residem em ambientes VMware de acordo com regras configuradas e sondas de saúde.
 
 Esta solução De gateway de aplicação Azure requer:
 

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/07/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f369eb54dc92a29ba122a8a645262dc085b1ed36
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2b4b94c05b39dddcef83644638a105d5b6c75118
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80930040"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184984"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Utilize scripts de implementação para criar um certificado auto-assinado (Pré-visualização)
 
@@ -284,35 +284,43 @@ O guião de implantação adiciona um certificado ao cofre da chave. Configure a
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Consulte a secção [de modelo sintetizador](./quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template) no Código do Estúdio Visual para abrir a casca cloud e faça upload do ficheiro de modelo para a concha. E, em seguida, executar o seguinte script PowerShell:
+1. Inscreva-se na [Casca de Nuvem Azure](https://shell.azure.com)
 
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
-$identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
+1. Escolha o seu ambiente preferido selecionando **powerShell** ou **Bash** (para CLI) no canto superior esquerdo.  É necessário reiniciar o Shell quando mudar.
 
-$adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
-$resourceGroupName = "${projectName}rg"
-$keyVaultName = "${projectName}kv"
+    ![Ficheiro de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior.  Selecione o ficheiro que guardou na secção anterior. Depois de fazer o upload do ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
+1. Executar o seguinte script PowerShell para implementar o modelo.
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
+    $identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
-O serviço de script de implementação precisa de criar recursos de script de implementação adicionais para a execução do script. A preparação e o processo de limpeza podem demorar até um minuto para ser concluído, para além do tempo real de execução do script.
+    $adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
+    $resourceGroupName = "${projectName}rg"
+    $keyVaultName = "${projectName}kv"
 
-A implementação é falhada devido ao comando inválido, **write-output1** é usado no script. Terá um erro dizendo:
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-```error
-The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
-program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
-```
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
 
-O resultado da execução do script de implementação é armazenado nos recursos do script de implementação para o propósito de resolução de problemas.
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    O serviço de script de implementação precisa de criar recursos de script de implementação adicionais para a execução do script. A preparação e o processo de limpeza podem demorar até um minuto para ser concluído, para além do tempo real de execução do script.
+
+    A implementação é falhada devido ao comando inválido, **write-output1** é usado no script. Terá um erro dizendo:
+
+    ```error
+    The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
+    program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
+    ```
+
+    O resultado da execução do script de implementação é armazenado nos recursos do script de implementação para o propósito de resolução de problemas.
 
 ## <a name="debug-the-failed-script"></a>Depurar o guião falhado
 

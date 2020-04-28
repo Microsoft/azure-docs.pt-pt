@@ -2,15 +2,15 @@
 title: Implementar extensões VM com modelo
 description: Saiba como implementar extensões de máquina virtual com modelos do Azure Resource Manager
 author: mumian
-ms.date: 04/16/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 280b4a9775346c719e82d1fef4162fa6ea666798
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 06d948b44064f029e00a2ef089077e9b55246545
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616881"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184967"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Implementar extensões de máquinavirtual com modelos ARM
 

@@ -1,18 +1,18 @@
 ---
-title: Configure Azure Red Hat OpenShift clusters com Monitor Azure para contentores Microsoft Docs
-description: Este artigo descreve como configurar a monitorização de um cluster Kubernetes com o Azure Monitor hospedado no Azure Red Hat OpenShift.
+title: Configure Chapéu Vermelho Azure OpenShift v3.x com Monitor Azure para contentores Microsoft Docs
+description: Este artigo descreve como configurar a monitorização de um cluster Kubernetes com o Azure Monitor hospedado na versão 3 do Chapéu Vermelho Azure 3 e superior.
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.openlocfilehash: c2fd3568be2c51296bb1377e91031ebfb7ca6ee3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.date: 04/02/2020
+ms.openlocfilehash: 98ac5752e047c4f5f6db63d228bec7c47271aa00
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275519"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166298"
 ---
-# <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift clusters com Monitor Azure para recipientes
+# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configure Chapéu Vermelho Azure OpenShift v3 com Monitor Azure para contentores
 
-O Azure Monitor para contentores proporciona uma rica experiência de monitorização para os clusters Azure Kubernetes Service (AKS) e AKS Engine. Este artigo descreve como permitir a monitorização dos clusters Kubernetes hospedados no [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) para obter uma experiência de monitorização semelhante.
+O Azure Monitor para contentores proporciona uma rica experiência de monitorização para os clusters Azure Kubernetes Service (AKS) e AKS Engine. Este artigo descreve como permitir a monitorização dos clusters Kubernetes hospedados na versão 3 do [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) e na versão mais recente suportada da versão 3, para alcançar uma experiência de monitorização semelhante.
 
 >[!NOTE]
 >O suporte para o Azure Red Hat OpenShift é uma característica na pré-estreia pública neste momento.
@@ -123,7 +123,7 @@ Execute os seguintes passos para permitir a monitorização de um cluster OpenSh
 
 ### <a name="from-the-azure-portal"></a>No portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No menu do portal Azure ou na página Inicial, **selecione Azure Monitor**. Na secção **Insights,** selecione **Recipientes**.
 
@@ -204,5 +204,9 @@ O espaço de trabalho Log Analytics tem de ser criado antes de ativar a monitori
 ## <a name="next-steps"></a>Passos seguintes
 
 - Com a monitorização habilitada a recolher a utilização da saúde e dos recursos do seu cluster RedHat OpenShift e as cargas de trabalho que os executam, aprenda [a utilizar o](container-insights-analyze.md) Monitor Azure para contentores.
+
+- Por predefinição, o agente contentorizado recolhe os registos de contentores stdout/stderr de todos os recipientes que estão em funcionamento em todos os espaços de nome, exceto o sistema kube. Para configurar a recolha de registos de contentores específica para espaços de nome ou nomes específicos, reveja a [configuração do agente Container Insights](container-insights-agent-config.md) para configurar as definições de recolha de dados desejadas no ficheiro de configurações do ConfigMap.
+
+- Para raspar e analisar as métricas de Prometeu do seu cluster, reveja as [métricas do Configure Prometheus](container-insights-prometheus-integration.md)
 
 - Para aprender a parar de monitorizar o seu cluster com o Monitor Azure para obter recipientes, consulte [Como Parar de monitorizar o seu cluster OpenShift](container-insights-optout-openshift.md)do seu chapéu vermelho azul .

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: adbcf28cfbbe2ea3b7cc9c7fd0d1c76246938344
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 83b223ab2195516492d55ac85be6e7db0dffbd98
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81870397"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176792"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar registos e métricas com definições de diagnóstico
 
@@ -30,19 +30,19 @@ Escolha a categoria de registo e a categoria métrica que pretende monitorizar.
 
 |Registar | Descrição |
 |----|----|
-| **ApplicationConsole** | Registo de consolas de todas as aplicações do cliente. | 
+| **ApplicationConsole** | Registo de consolas de todas as aplicações do cliente. |
 | **SystemLogs** | Atualmente, apenas [spring cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) regista nesta categoria. |
 
 ## <a name="metrics"></a>Métricas
 
 Para obter uma lista completa de métricas, consulte as [Métricas](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options)da Nuvem de primavera .
 
-Para começar, permita que um destes serviços receba os dados. Para aprender sobre configurar o Log Analytics, consulte [Iniciar com Log Analytics no Monitor Azure](../azure-monitor/log-query/get-started-portal.md). 
+Para começar, permita que um destes serviços receba os dados. Para aprender sobre configurar o Log Analytics, consulte [Iniciar com Log Analytics no Monitor Azure](../azure-monitor/log-query/get-started-portal.md).
 
 ## <a name="configure-diagnostics-settings"></a>Configurar definições de diagnóstico
 
 1. No portal Azure, vá ao seu exemplo azure Spring Cloud.
-1. Selecione a opção de **definição** de Diagnóstico e, em seguida, selecione **a definição de Adicionar Diagnósticos**.
+1. Selecione a opção de **definições** de diagnóstico e, em seguida, selecione **a definição de diagnóstico .**
 1. Introduza um nome para a definição e, em seguida, escolha para onde pretende enviar os registos. Pode selecionar qualquer combinação das seguintes três opções:
     * **Arquivar para uma conta de armazenamento**
     * **Stream para um centro de eventos**
@@ -52,16 +52,17 @@ Para começar, permita que um destes serviços receba os dados. Para aprender so
 1. Selecione **Guardar**.
 
 > [!NOTE]
-> Pode haver uma lacuna de até 15 minutos entre quando os registos ou métricas são emitidos e quando aparecem na sua conta de armazenamento, no seu centro de eventos ou no Log Analytics.
+> 1. Pode haver uma lacuna de até 15 minutos entre quando os registos ou métricas são emitidos e quando aparecem na sua conta de armazenamento, no seu centro de eventos ou no Log Analytics.
+> 1. Se a instância Azure Spring Cloud for eliminada ou movida, a operação não irá em cascata para os recursos de definição de **diagnóstico.** Os recursos de **definição** de diagnóstico devem ser eliminados manualmente antes da operação contra o seu progenitor, ou seja, a instância Azure Spring Cloud. Caso contrário, se uma nova instância da Nuvem de primavera Azure for aprovisionada com o mesmo ID de recurso que o apagado, ou se a instância azure Spring Cloud for removida para trás, os recursos de **definição** de diagnóstico anteriores continuam a alargá-lo.
 
 ## <a name="view-the-logs-and-metrics"></a>Ver os registos e métricas
 Existem vários métodos para visualizar troncos e métricas conforme descrito nas seguintes rubricas.
 
-### <a name="use-logs-blade"></a>Usar lâmina de registos
+### <a name="use-the-logs-blade"></a>Use a lâmina de registos
 
 1. No portal Azure, vá ao seu exemplo azure Spring Cloud.
 1. Para abrir o painel de pesquisa de **registo,** selecione **Registos**.
-1. Na caixa de pesquisa **de Log**
+1. Na caixa de pesquisa **de Tabelas**
    * Para visualizar registos, introduza uma consulta simples como:
 
     ```sql
@@ -81,7 +82,7 @@ Existem vários métodos para visualizar troncos e métricas conforme descrito n
 1. No portal Azure, no painel esquerdo, selecione **Log Analytics**.
 1. Selecione o espaço de trabalho do Log Analytics que escolheu quando adicionou as definições de diagnóstico.
 1. Para abrir o painel de pesquisa de **registo,** selecione **Registos**.
-1. Na caixa de pesquisa **de Log,**
+1. Na caixa de pesquisa **de Tabelas,**
    * para ver registos, introduza uma consulta simples como:
 
     ```sql
@@ -103,15 +104,14 @@ Existem vários métodos para visualizar troncos e métricas conforme descrito n
     | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
     | limit 50
     ```
-> [!NOTE]  
+> [!NOTE]
 > `==`é sensível ao `=~` caso, mas não é.
 
 Para saber mais sobre a linguagem de consulta que é usada no Log Analytics, consulte consultas de [registo do Monitor Azure](../azure-monitor/log-query/query-language.md).
 
-### <a name="use-your-storage-account"></a>Use a sua conta de armazenamento 
+### <a name="use-your-storage-account"></a>Use a sua conta de armazenamento
 
-1. No portal Azure, no painel esquerdo, selecione **contas de armazenamento.**
-
+1. No portal Azure, encontre contas de **armazenamento** no painel de navegação ou caixa de pesquisa esquerdo.
 1. Selecione a conta de armazenamento que escolheu quando adicionou as definições de diagnóstico.
 1. Para abrir o painel **blob container,** selecione **Blobs**.
 1. Para rever os registos de aplicações, procure um recipiente chamado **insights-logs-applicationconsole**.
@@ -121,7 +121,7 @@ Para saber mais sobre o envio de informações de diagnóstico para uma conta de
 
 ### <a name="use-your-event-hub"></a>Use o seu centro de eventos
 
-1. No portal Azure, no painel esquerdo, selecione Centros de **Eventos**.
+1. No portal Azure, encontre Hubs de **Eventos** em painel de navegação ou caixa de pesquisa esquerdo.
 
 1. Procure e selecione o centro de eventos que escolheu quando adicionou as definições de diagnóstico.
 1. Para abrir o painel da Lista de Hub de **Eventos,** selecione Centros de **Eventos**.
@@ -156,7 +156,7 @@ AppPlatformLogsforSpring
 | where Log contains "error" or Log contains "exception"
 ```
 
-Utilize esta consulta para encontrar erros ou modifique os termos de consulta para encontrar códigos de erro ou exceções específicos. 
+Utilize esta consulta para encontrar erros ou modifique os termos de consulta para encontrar códigos de erro ou exceções específicos.
 
 ### <a name="show-the-number-of-errors-and-exceptions-reported-by-your-application-over-the-last-hour"></a>Mostre o número de erros e exceções reportados pela sua aplicação ao longo da última hora
 

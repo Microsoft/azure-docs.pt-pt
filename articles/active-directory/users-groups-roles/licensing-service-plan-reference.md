@@ -4,24 +4,24 @@ description: Mapa de identificador para gerir o licenciamento de Diretório Ativ
 services: active-directory
 keywords: Planos de licenciamento de diretório sonante ativo azure
 documentationcenter: ''
-author: ajayanti1
+author: kkern
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 03/14/2020
-ms.author: arjay
-ms.reviewer: arjay
+ms.date: 04/27/2020
+ms.author: kakern
+ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1163cca99ba48cfc19ea8c588964c5d439ad69b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b78b7cf30f485f8e6d94a157692f8a6d6a6b3e53
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408435"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181261"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomes de produtos e identificadores de plano de serviço para licenciamento
 

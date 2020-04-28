@@ -3,16 +3,16 @@ title: Gerir cópias de segurança de partilha de ficheiros Azure com o Azure CL
 description: Aprenda a utilizar o Azure CLI para gerir e monitorizar as ações de ficheiros Azure apoiadas pela Azure Backup.
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 44a49913abd99b285397b8b78ad9d4c0f9df52ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06e1f29874085c3943a5207f36eff313dc670e88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934881"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184117"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Gerir cópias de segurança de partilha de ficheiros Azure com o Azure CLI
 
-O Azure CLI proporciona uma experiência de linha de comando para gerir os recursos azure. É uma ótima ferramenta para construir automação personalizada para usar recursos Azure. Este artigo explica como executar tarefas de gestão e monitorização das ações de ficheiro supérno do Azure que são apoiadas por [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). Também pode realizar estes passos com o [portal Azure.](https://portal.azure.com/) 
+O Azure CLI proporciona uma experiência de linha de comando para gerir os recursos azure. É uma ótima ferramenta para construir automação personalizada para usar recursos Azure. Este artigo explica como executar tarefas de gestão e monitorização das ações de ficheiro supérno do Azure que são apoiadas por [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). Também pode realizar estes passos com o [portal Azure.](https://portal.azure.com/)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

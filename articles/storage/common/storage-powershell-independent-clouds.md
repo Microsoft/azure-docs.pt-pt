@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5fa515515c06466e121a5c0ee925fd4d14245363
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bc8da02a523479c3c543eff28a376136e29098f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74895240"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176214"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerir o armazenamento nas nuvens independentes do Azure usando a PowerShell
 
@@ -152,7 +152,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 ## <a name="after-setting-the-environment"></a>Depois de definir o ambiente
 
-A partir daqui para a frente, pode utilizar o mesmo PowerShell usado para gerir as suas contas de armazenamento e aceder ao plano de dados, conforme descrito no artigo [Utilizando o Azure PowerShell com o Armazenamento Azure](storage-powershell-guide-full.md).
+Agora pode utilizar o PowerShell para gerir as suas contas de armazenamento e aceder a blob, fila, ficheiros e dados de mesa. Para mais informações, consulte [Az.Storage](/powershell/module/az.storage).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

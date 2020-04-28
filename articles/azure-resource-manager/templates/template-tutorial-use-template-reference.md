@@ -1,17 +1,17 @@
 ---
-title: Usar referência do modelo
+title: Utilizar a referência do modelo
 description: Utilize a referência do modelo do Gestor de Recursos Azure para criar um modelo.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b713d508a5e28291778d3727c15e12972eea3a77
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 12990238455046d837b175318225bb4f3d317706
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878517"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185052"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutorial: Utilize a referência do modelo do Gestor de Recursos
 
@@ -102,21 +102,42 @@ A partir do Código do Estúdio Visual, adicione os tipos de conta de armazename
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Veja a secção [Implementar o modelo](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) no guia de introdução do Visual Studio Code para o procedimento de implementação. Quando implementar o modelo, especifique o parâmetro **de armazenamentoAccountType** com um valor acrescentado recentemente acrescentado, por exemplo, **Premium_ZRS**. A implementação falharia se usasse o modelo original de arranque rápido porque **Premium_ZRS** não era um valor permitido.  Para passar o valor do parâmetro, adicione o seguinte interruptor ao comando de implantação:
+1. Inscreva-se na [Casca de Nuvem Azure](https://shell.azure.com)
 
-# <a name="cli"></a>[CLI](#tab/CLI)
+1. Escolha o seu ambiente preferido selecionando **powerShell** ou **Bash** (para CLI) no canto superior esquerdo.  É necessário reiniciar o Shell quando mudar.
 
-```azurecli
---parameters storageAccountType='Premium_ZRS'
-```
+    ![Ficheiro de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou na secção anterior. Depois de fazer o upload do ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
 
-```azurepowershell
--storageAccountType "Premium_ZRS"
-```
+1. A partir da Cloud Shell, execute os seguintes comandos. Selecione o separador para mostrar o código do PowerShell ou o código da CLI.
 
----
+    # <a name="cli"></a>[CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location "$location" &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters storageAccountType='Standard_RAGRS'
+    ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -storageAccountType "Standard_RAGRS"
+    ```
+
+    ---
+
+ Quando implementar o modelo, especifique o parâmetro **de armazenamentoAccountType** com um valor acrescentado recentemente, por exemplo, **Standard_RAGRS**. A implementação falharia se usasse o modelo original de arranque rápido porque **Standard_RAGRS** não era um valor permitido.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

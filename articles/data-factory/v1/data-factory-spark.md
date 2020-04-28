@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ce5fb014c7d954b3e8430a86430c6a666adff204
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ea719a26f47da98e80abd9e3fcd1785ed8efa69
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75969237"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185596"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos oleodutos azure Data Factory
 
@@ -63,7 +63,7 @@ Aqui estão os passos típicos para criar um oleoduto de fábrica de dados com u
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Para criar uma fábrica de dados, siga estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **novos** > **dados + Analytics** > **Data Factory**.
 
@@ -247,7 +247,7 @@ Neste passo, cria-se um pipeline com uma atividade HDInsightSpark. Atualmente, o
 
 ### <a name="verify-the-results"></a>Verifique os resultados
 
-1. Inicie o Caderno Jupyter para o seu cluster HDInsight Spark indo para [este site](https://CLUSTERNAME.azurehdinsight.net/jupyter). Também pode abrir um painel de cluster para o seu cluster HDInsight Spark e, em seguida, iniciar o Caderno Jupyter.
+1. Inicie o Caderno Jupyter para o seu `https://CLUSTERNAME.azurehdinsight.net/jupyter`cluster HDInsight Spark indo para . Também pode abrir um painel de cluster para o seu cluster HDInsight Spark e, em seguida, iniciar o Caderno Jupyter.
 
 1. Selecione **New** > **PySpark** para iniciar um novo caderno.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bec28b98a8d2640b5a8034569d49077ce6b4177
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81450994"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de senha de autosserviço do Azure Ative Diretório
@@ -76,7 +76,7 @@ Para obter mais informações sobre preços, consulte [o preço do Diretório At
 | Recursos| Link e Descrição |
 | - | - |
 | Vídeos| [Capacitar os seus utilizadores com melhor escalabilidade de TI](https://youtu.be/g9RpRnylxS8) 
-| |[O que é o reset da palavra-passe self-service?](https://youtu.be/hc97Yx5PJiM)|
+| |[O que é a reposição personalizada de palavra-passe?](https://youtu.be/hc97Yx5PJiM)|
 | |[Implementação de reset de senha de autosserviço](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
 | |[Como configurar o reset de palavra-passe self-service para utilizadores em Azure AD?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
 | |[Como [preparar os utilizadores] para registar [as suas] informações de segurança para o Diretório Ativo do Azure](https://youtu.be/gXuh0XS18wA) |
