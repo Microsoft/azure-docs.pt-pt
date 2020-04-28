@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: f67be1d31125b21048deca4d9cafcc76f4ffc3b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72516742"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Visão geral dos Centros de Eventos Dedicados
@@ -54,7 +54,7 @@ A oferta dedicada do Event Hubs é faturada a um preço mensal fixo, com um mín
 | --- |:---:|:---:|
 | Largura de banda | 20 TUs (até 40 TUs) | 20 CUs |
 | Espaços de nomes |  1 | 50 por CU |
-| Event Hubs |  10 por espaço de nome | 1000 por espaço de nome |
+| Hubs de Eventos |  10 por espaço de nome | 1000 por espaço de nome |
 | Eventos de ingresso | Pagamento por milhão de eventos | Incluído |
 | Tamanho da mensagem | 1 Milhão de Bytes | 1 Milhão de Bytes |
 | Partições | 32 por Centro de Eventos | 1024 por Event Hub |

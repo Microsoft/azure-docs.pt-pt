@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
 ms.openlocfilehash: 21270d3c7143ce063ffe30d939368b9813e9072e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70094108"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testar o desempenho de um serviço de nuvem localmente no Emulador de Computação Azure Usando o Perfil do Estúdio Visual
@@ -164,7 +164,7 @@ Parabéns! Começaste com o perfil.
 * Se ao recolher amostragem, vê a mensagem "PRF0025: Não foram recolhidos dados", verifique se o processo a que se anexou tem atividade de CPU. As aplicações que não estão a fazer nenhum trabalho computacional podem não produzir quaisquer dados de amostragem.  Também é possível que o processo tenha saído antes de qualquer amostragem ter sido feita. Verifique se o método Executar para uma função que está a perfilar não termina.
 
 ## <a name="next-steps"></a>Passos Seguintes
-A instrumentação de binários Azure no emulador não é suportada no perfilador do Estúdio Visual, mas se quiser testar a atribuição de memória, pode escolher essa opção ao perfilar. Você também pode escolher perfis de condivisões, o que ajuda a determinar se os fios estão a perder tempo a competir por fechaduras, ou perfis de interação de nível, o que o ajuda a rastrear problemas de desempenho ao interagir entre os níveis de uma aplicação, a maioria frequentemente entre o nível de dados e um papel de trabalhador.  Pode ver as consultas de base de dados que a sua aplicação gera e utilizar os dados de perfis para melhorar a sua utilização da base de dados. Para obter informações sobre perfis de interação a nível, consulte o blog post [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
+A instrumentação de binários Azure no emulador não é suportada no perfilador do Estúdio Visual, mas se quiser testar a atribuição de memória, pode escolher essa opção ao perfilar. Também pode escolher perfis de moeda, o que o ajuda a determinar se os fios estão a perder tempo a competir por fechaduras, ou perfis de interação de nível, o que o ajuda a rastrear problemas de desempenho ao interagir entre níveis de uma aplicação, mais frequentemente entre o nível de dados e um papel de trabalhador.  Pode ver as consultas de base de dados que a sua aplicação gera e utilizar os dados de perfis para melhorar a sua utilização da base de dados. Para obter informações sobre perfis de interação a nível, consulte o blog post [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
 
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
 [2]: https://msdn.microsoft.com/library/azure/hh411542.aspx

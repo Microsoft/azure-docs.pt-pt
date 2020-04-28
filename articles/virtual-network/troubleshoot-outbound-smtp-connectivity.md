@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: b8acb50978c5932fe6e6838be86b65c12a0984ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71058941"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Problemas de saída problemas de conectividade SMTP em Azure
@@ -44,7 +44,7 @@ Depois de uma subscrição pay-As-You-Go ou Microsoft Partner Network estar isen
 > A Microsoft reserva-se o direito de revogar esta isenção se for determinado que ocorreu uma violação dos termos de serviço.
 
 ## <a name="msdn-azure-pass-azure-in-open-education-bizspark-and-free-trial"></a>MSDN, Azure Pass, Azure in Open, Education, BizSpark e Free Trial
-Se criou um MSDN, Azure Pass, Azure in Open, Education, BizSpark, Azure Sponsorship, Azure Student, Free Trial ou qualquer subscrição do Estúdio Visual depois de 15 de novembro de 2017, terá restrições técnicas que bloqueiam e-mails enviados a partir de VMs dentro destes assinaturas diretamente para fornecedores de e-mail. As restrições são feitas para evitar abusos. Não serão concedidos pedidos para eliminar esta restrição.
+Se criou um MSDN, Azure Pass, Azure in Open, Education, BizSpark, Azure Sponsorship, Azure Student, Free Trial ou qualquer subscrição do Visual Studio depois de 15 de novembro de 2017, terá restrições técnicas que bloqueiam e-mails enviados a partir de VMs dentro destas subscrições diretamente para fornecedores de e-mail. As restrições são feitas para evitar abusos. Não serão concedidos pedidos para eliminar esta restrição.
 
 Se estiver a utilizar estes tipos de subscrição, é encorajado a utilizar serviços de retransmissão SMTP, tal como descrito anteriormente neste artigo ou alterar o seu tipo de subscrição.
 

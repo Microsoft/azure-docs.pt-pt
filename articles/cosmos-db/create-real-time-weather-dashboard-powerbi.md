@@ -8,10 +8,10 @@ ms.date: 09/04/2019
 ms.author: bharathb
 ms.reviewer: sngun
 ms.openlocfilehash: d225a14edddcad58c08094dbc758d67df8f834e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70376596"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Crie um dashboard em tempo real usando O Azure Cosmos DB e Power BI
@@ -71,8 +71,8 @@ Instale um oleoduto de ingestão para carregar [dados meteorológicos](https://c
    |Propriedade  |Tipo de dados  |Filtro  |
    |---------|---------|---------|
    |_ts     |   Numérico      |  [_ts] > Duração.TotalSeconds(RangeStart - #datetime(1970, 1, 1, 0, 0, 0)) e [_ts] < Duração.TotalSeconds(RangeEnd - #datetime(1970, 1, 1, 0, 0, 0))       |
-   |Data (por exemplo:- 2019-08-19)     |   Cadeia      | [Documento.data]> DateTime.ToText(RangeStart",yyyy-MM-dd") e [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd")        |
-   |Data (por exemplo:- 2019-08-11 12:00:00)   |  Cadeia       |  [Documento.data]> DateTime.ToText(RangeStart", yyyy-mm-dd HH:mm:ss") e [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
+   |Data (por exemplo:- 2019-08-19)     |   String      | [Documento.data]> DateTime.ToText(RangeStart",yyyy-MM-dd") e [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd")        |
+   |Data (por exemplo:- 2019-08-11 12:00:00)   |  String       |  [Documento.data]> DateTime.ToText(RangeStart", yyyy-mm-dd HH:mm:ss") e [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
 
 
 1. **Defina a política** de atualização - Defina a política de atualização navegando para o **separador de atualização Incremental** no menu de **contexto** para a tabela. Desadote a política de atualização para atualizar **todos os dias** e armazenar os dados do último mês.

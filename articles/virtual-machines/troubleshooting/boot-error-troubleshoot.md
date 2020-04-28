@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
 ms.openlocfilehash: 660c7fa0051654fd9b0012740ce7ed3ee1e91531
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71059175"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Problemas de sessão de erros de arranque das Máquinas Virtuais Azure
@@ -27,7 +27,7 @@ Este artigo lista os erros comuns de arranque que poderá receber quando iniciar
 
 * [Erros de arranque do BitLocker](troubleshoot-bitlocker-boot-error.md) 
 * [O Windows mostra "A verificar o sistema de ficheiros" durante o arranque](troubleshoot-check-disk-boot-error.md)
-* [Erros de tela azul](troubleshoot-common-blue-screen-error.md)
+* [Erros comuns de ecrã azul](troubleshoot-common-blue-screen-error.md)
 * [Startup VM está presa em "Getting Windows Ready](troubleshoot-vm-boot-configure-update.md)
 * [Erro "FALHA DE SERVIÇO CRÍTICO" em ecrã azul](troubleshoot-critical-service-failed-boot-error.md)
 * [Problema de ciclo de reinicialização](troubleshoot-reboot-loop.md)
@@ -35,6 +35,6 @@ Este artigo lista os erros comuns de arranque que poderá receber quando iniciar
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Diagnósticos de Arranque](boot-diagnostics.md)
+- [Diagnósticos de arranque](boot-diagnostics.md)
 - [Consola em série VM](../windows/serial-console.md)
 - [Resolução de problemas de um VM windows anexando o disco OS a um VM de recuperação](../windows/troubleshoot-recovery-disks.md)

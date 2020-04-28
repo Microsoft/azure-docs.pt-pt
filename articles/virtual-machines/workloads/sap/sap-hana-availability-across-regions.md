@@ -16,10 +16,10 @@ ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 68a393865038722f2fd7fa5e42334f8d5e760951
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70078857"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidade do SAP HANA nas regiões de Azure
@@ -30,7 +30,7 @@ Este artigo descreve cenários relacionados com a disponibilidade do SAP HANA em
 
 As regiões de Azure são frequentemente separadas por grandes distâncias. Dependendo da região geopolítica, a distância entre as regiões de Azure pode ser de centenas de milhas, ou mesmo de milhares de milhas, como nos Estados Unidos. Devido à distância, o tráfego de rede entre os ativos que são implantados em duas regiões diferentes do Azure experimentam uma latência significativa de ida e volta em rede. A latência é significativa o suficiente para excluir a troca de dados sincronizada entre duas instâncias SAP HANA sob cargas de trabalho típicas do SAP. 
 
-Por outro lado, as organizações têm frequentemente um requisito de distância entre a localização do centro de dados primário e um centro de dados secundário. Um requisito de distância ajuda a fornecer disponibilidade se uma catástrofe natural ocorrer em uma localização geográfica mais ampla. Exemplos incluem os furacões que atingiram as Caraíbas e a Florida em setembro e outubro de 2017. A sua organização pode ter pelo menos um requisito mínimo de distância. Para a maioria dos clientes Azure, uma definição de distância mínima requer que você desenhe para disponibilidade em [todas as regiões de Azure.](https://azure.microsoft.com/regions/) Como a distância entre duas regiões azure é muito grande para usar o modo de replicação sincronizada HANA, os requisitos de RTO e RPO podem forçá-lo a implementar configurações de disponibilidade numa região, e depois complementar com implementações adicionais em um segundo região.
+Por outro lado, as organizações têm frequentemente um requisito de distância entre a localização do centro de dados primário e um centro de dados secundário. Um requisito de distância ajuda a fornecer disponibilidade se uma catástrofe natural ocorrer em uma localização geográfica mais ampla. Exemplos incluem os furacões que atingiram as Caraíbas e a Florida em setembro e outubro de 2017. A sua organização pode ter pelo menos um requisito mínimo de distância. Para a maioria dos clientes Azure, uma definição de distância mínima requer que você desenhe para disponibilidade em [todas as regiões de Azure.](https://azure.microsoft.com/regions/) Como a distância entre duas regiões azure é demasiado grande para usar o modo de replicação sincronizada HANA, os requisitos de RTO e RPO podem forçá-lo a implementar configurações de disponibilidade numa região, e depois complementar com implantações adicionais numa segunda região.
 
 Outro aspeto a ter em conta neste cenário é o failover e o redirecionamento do cliente. O pressuposto é que uma falha entre os casos do SAP HANA em duas regiões azure diferentes é sempre uma falha manual. Como o modo de replicação da replicação do sistema SAP HANA está definido como assíncrono, há um potencial que os dados cometidos na instância primária de HANA ainda não chegaram à instância secundária de HANA. Portanto, a falha automática não é uma opção para configurações onde a replicação é assíncrona. Mesmo com uma falha controlada manualmente, como num exercício de failover, é necessário tomar medidas para garantir que todos os dados comprometidos do lado primário chegaram à instância secundária antes de se deslocar manualmente para a outra região do Azure.
  

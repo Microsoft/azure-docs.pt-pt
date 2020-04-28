@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70101268"
 ---
 # <a name="disaster-recovery-principles"></a>Princípios da recuperação de desastres
@@ -56,7 +56,7 @@ Neste cenário, tem um sistema de produção em funcionamento em HANA Large Inst
 
 ![Início da configuração de DR](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start1.PNG)
 
-Se a instância do servidor ainda não tiver sido encomendada com o conjunto adicional de volume de armazenamento, o SAP HANA na Azure Service Management anexa o conjunto adicional de volumes como alvo para a réplica de produção da unidade HANA Large Instance em que está a executar a TST Caso HANA. Para o efeito, é necessário fornecer o SID da sua produção HANA. Depois de o SAP HANA na Azure Service Management confirmar a fixação desses volumes, é necessário montar esses volumes na unidade HANA Large Instance.
+Se a instância do servidor ainda não tiver sido encomendada com o conjunto adicional de volume de armazenamento, a SAP HANA na Azure Service Management anexa o conjunto adicional de volumes como alvo para a réplica de produção da unidade HANA Large Instance em que está a executar a instância TST HANA. Para o efeito, é necessário fornecer o SID da sua produção HANA. Depois de o SAP HANA na Azure Service Management confirmar a fixação desses volumes, é necessário montar esses volumes na unidade HANA Large Instance.
 
 ![Dr configurar próximo passo](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start2.PNG)
 

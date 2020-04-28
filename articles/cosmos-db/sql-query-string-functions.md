@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 84d1ca9f8a0a67a4e0459bc78e71d9118451e75b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349295"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>Funções de corda (Azure Cosmos DB)
@@ -25,13 +25,13 @@ As seguintes funções escalar executam uma operação sobre um valor de entrada
 ||||  
 |-|-|-|  
 |[CONCAT](sql-query-concat.md)|[CONTAINS](sql-query-contains.md)|[ENDSWITH](sql-query-endswith.md)|  
-|[INDEX_OF](sql-query-index-of.md)|[LEFT](sql-query-left.md)|[COMPRIMENTO](sql-query-length.md)|  
-|[LOWER](sql-query-lower.md)|[LTRIM](sql-query-ltrim.md)|[SUBSTITUIR](sql-query-replace.md)|  
-|[REPLICAR](sql-query-replicate.md)|[REVERSE](sql-query-reverse.md)|[RIGHT](sql-query-right.md)|  
+|[INDEX_OF](sql-query-index-of.md)|[LEFT](sql-query-left.md)|[LENGTH](sql-query-length.md)|  
+|[LOWER](sql-query-lower.md)|[LTRIM](sql-query-ltrim.md)|[REPLACE](sql-query-replace.md)|  
+|[REPLICAR](sql-query-replicate.md)|[INVERTER](sql-query-reverse.md)|[RIGHT](sql-query-right.md)|  
 |[RTRIM](sql-query-rtrim.md)|[STARTSWITH](sql-query-startswith.md)|[StringToArray](sql-query-stringtoarray.md)|
 |[StringToBoolean](sql-query-stringtoboolean.md)|[StringToNull](sql-query-stringtonull.md)|[StringToNumber](sql-query-stringtonumber.md)|
-|[StringToObject](sql-query-stringtoobject.md)|[SUBSTRING](sql-query-substring.md)|[ToString](sql-query-tostring.md)|
-|[TRIM](sql-query-trim.md)|[UPPER](sql-query-upper.md)||
+|[StringToObject](sql-query-stringtoobject.md)|[SUBSTRING](sql-query-substring.md)|[Tostring](sql-query-tostring.md)|
+|[CORTE](sql-query-trim.md)|[UPPER](sql-query-upper.md)||
   
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73176801"
 ---
 # <a name="developer-portal-templates"></a>Modelos de portal de desenvolvimento
@@ -42,7 +42,7 @@ Para obter mais informações sobre o trabalho com modelos, consulte como person
         -   [JavaScript](api-management-api-templates.md#JavaScript)  
         -   [Objetivo C](api-management-api-templates.md#ObjectiveC)  
         -   [PHP](api-management-api-templates.md#PHP)  
-        -   [Pitão](api-management-api-templates.md#Python)  
+        -   [Python](api-management-api-templates.md#Python)  
         -   [Ruby](api-management-api-templates.md#Ruby)  
 -   [Produtos](api-management-product-templates.md)  
     -   [Lista de produtos](api-management-product-templates.md#ProductList)  
@@ -67,4 +67,4 @@ Para obter mais informações sobre o trabalho com modelos, consulte como person
 + [Referência de modelo](api-management-developer-portal-templates-reference.md)  
 + [Referência de modelo de dados](api-management-template-data-model-reference.md)  
 + [Controlos de página](api-management-page-controls.md)  
-+ [Recursos de modelo](api-management-template-resources.md)
++ [Recursos do modelo](api-management-template-resources.md)

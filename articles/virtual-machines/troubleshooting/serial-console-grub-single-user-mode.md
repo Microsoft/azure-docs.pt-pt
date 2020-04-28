@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
 ms.openlocfilehash: 06cb3fe5d551ddfc95fcbd37cd9620adebd825c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70883926"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilize a Consola em Série para aceder ao modo GRUB e ao modo de utilizador único
@@ -244,4 +244,4 @@ Para saber mais sobre a Consola Em Série, consulte:
 * [Utilize a Consola Em Série para ativar a GRUB em várias distribuições](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * [Utilize consola em série para chamadas NMI e SysRq](serial-console-nmi-sysrq.md)
 * [Consola em série para VMs do Windows](serial-console-windows.md)
-* [Diagnósticos de Arranque](boot-diagnostics.md)
+* [Diagnósticos de arranque](boot-diagnostics.md)

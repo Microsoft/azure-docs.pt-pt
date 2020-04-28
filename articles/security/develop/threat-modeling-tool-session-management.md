@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73161503"
 ---
 # <a name="security-frame-session-management"></a>Quadro de segurança: Gestão de sessões
@@ -28,7 +28,7 @@ ms.locfileid: "73161503"
 | **Azure AD**    | <ul><li>[Implementar logout adequado utilizando métodos ADAL ao utilizar a AD Azure](#logout-adal)</li></ul> |
 | Dispositivo IoT | <ul><li>[Use vidas finitas para fichas SaS geradas](#finite-tokens)</li></ul> |
 | **Documento Azure DB** | <ul><li>[Use as vidas mínimas para tokens gerados](#resource-tokens)</li></ul> |
-| **AD FS** | <ul><li>[Implementar logout adequado utilizando métodos WsFederation ao utilizar ADFS](#wsfederation-logout)</li></ul> |
+| **ADFS** | <ul><li>[Implementar logout adequado utilizando métodos WsFederation ao utilizar ADFS](#wsfederation-logout)</li></ul> |
 | **Servidor de Identidade** | <ul><li>[Implementar logout adequado ao utilizar o Servidor de Identidade](#proper-logout)</li></ul> |
 | **Aplicação Web** | <ul><li>[As aplicações disponíveis sobre HTTPS devem usar cookies seguros](#https-secure-cookies)</li><li>[Todas as aplicações baseadas em http devem especificar http apenas para definição de cookies](#cookie-definition)</li><li>[Atenuar contra ataques de falsificação de pedidos de sítios cruzados (CSRF) em páginas web ASP.NET](#csrf-asp)</li><li>[Preparar sessão para a vida útil da inatividade](#inactivity-lifetime)</li><li>[Implementar o logout adequado a partir da aplicação](#proper-app-logout)</li></ul> |
 | **API Web** | <ul><li>[Atenuar contra ataques de falsificação de pedidos de sítios cruzados (CSRF) em ASP.NET APIs web](#csrf-api)</li></ul> |
@@ -263,7 +263,7 @@ A configuração seguinte mostra a configuração correta:
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Passos** | Falsificação de pedido transversal (CSRF ou XSRF) é um tipo de ataque no qual um intruso pode realizar ações no contexto de segurança de uma sessão estabelecida de um utilizador diferente num site. O objetivo é modificar ou excluir conteúdo, se o site direcionado depender exclusivamente de cookies de sessão para autenticar o pedido recebido. Um intruso poderia explorar esta vulnerabilidade obtendo um navegador de um utilizador diferente para carregar um URL com um comando de um site vulnerável no qual o utilizador já está conectado. Existem muitas formas de um intruso fazer isso, como por exemplo hospedando um site diferente que carrega um recurso do servidor vulnerável, ou fazendo com que o utilizador clique num link. O ataque pode ser evitado se o servidor enviar um token adicional ao cliente, requer que o cliente inclua esse símbolo em todos os pedidos futuros, e verifica que todos os pedidos futuros incluem um símbolo que diz respeito à sessão atual, como por exemplo, utilizando o ASP.NET AntiForgeryToken ou ViewState. |
+| **Passos** | Falsificação de pedido transversal (CSRF ou XSRF) é um tipo de ataque no qual um intruso pode realizar ações no contexto de segurança de uma sessão estabelecida de um utilizador diferente num site. O objetivo é modificar ou excluir conteúdo, se o site direcionado depender exclusivamente de cookies de sessão para autenticar o pedido recebido. Um intruso poderia explorar esta vulnerabilidade obtendo um navegador de um utilizador diferente para carregar um URL com um comando de um site vulnerável no qual o utilizador já está conectado. Existem muitas formas de um intruso fazer isso, como por exemplo hospedando um site diferente que carrega um recurso do servidor vulnerável, ou fazendo com que o utilizador clique num link. O ataque pode ser evitado se o servidor enviar um token adicional ao cliente, requer que o cliente inclua esse token em todos os pedidos futuros, e verifica que todos os pedidos futuros incluem um símbolo que diz respeito à sessão atual, como por exemplo, utilizando o ASP.NET AntiForgeryToken ou ViewState. |
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -459,7 +459,7 @@ Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Passos** | Falsificação de pedido transversal (CSRF ou XSRF) é um tipo de ataque no qual um intruso pode realizar ações no contexto de segurança de uma sessão estabelecida de um utilizador diferente num site. O objetivo é modificar ou excluir conteúdo, se o site direcionado depender exclusivamente de cookies de sessão para autenticar o pedido recebido. Um intruso poderia explorar esta vulnerabilidade obtendo um navegador de um utilizador diferente para carregar um URL com um comando de um site vulnerável no qual o utilizador já está conectado. Existem muitas formas de um intruso fazer isso, como por exemplo hospedando um site diferente que carrega um recurso do servidor vulnerável, ou fazendo com que o utilizador clique num link. O ataque pode ser evitado se o servidor enviar um token adicional ao cliente, requer que o cliente inclua esse símbolo em todos os pedidos futuros, e verifica que todos os pedidos futuros incluem um símbolo que diz respeito à sessão atual, como por exemplo, utilizando o ASP.NET AntiForgeryToken ou ViewState. |
+| **Passos** | Falsificação de pedido transversal (CSRF ou XSRF) é um tipo de ataque no qual um intruso pode realizar ações no contexto de segurança de uma sessão estabelecida de um utilizador diferente num site. O objetivo é modificar ou excluir conteúdo, se o site direcionado depender exclusivamente de cookies de sessão para autenticar o pedido recebido. Um intruso poderia explorar esta vulnerabilidade obtendo um navegador de um utilizador diferente para carregar um URL com um comando de um site vulnerável no qual o utilizador já está conectado. Existem muitas formas de um intruso fazer isso, como por exemplo hospedando um site diferente que carrega um recurso do servidor vulnerável, ou fazendo com que o utilizador clique num link. O ataque pode ser evitado se o servidor enviar um token adicional ao cliente, requer que o cliente inclua esse token em todos os pedidos futuros, e verifica que todos os pedidos futuros incluem um símbolo que diz respeito à sessão atual, como por exemplo, utilizando o ASP.NET AntiForgeryToken ou ViewState. |
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |

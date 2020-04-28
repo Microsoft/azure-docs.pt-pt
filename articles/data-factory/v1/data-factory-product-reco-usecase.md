@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 49ad9be7c70602132436b14234f01a4086d8e1fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70139148"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de utilização - Recomendações de produtos
@@ -53,7 +53,7 @@ O sistema de recomendação utilizado para a aprendizagem automática neste exem
 
 Finalmente, o conjunto de resultados de recomendações personalizadas do produto é transferido para um mercado de dados relacional para consumo pelo site retalhista.  O conjunto de resultados também poderia ser acedido diretamente a partir do armazenamento de blob por outra aplicação, ou transferido para lojas adicionais para outros consumidores e casos de utilização.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 Ao otimizar a sua estratégia de recomendação de produtos e alinhando-a com objetivos de negócio, a solução cumpriu os objetivos de merchandising e marketing do retalhista online. Além disso, conseguiram operacionalizar e gerir o fluxo de trabalho de recomendação do produto de forma eficiente, fiável e rentável. A abordagem facilitou-lhes a atualização do seu modelo e a sua eficácia com base nas medidas de sucessos de clique-conversão de vendas. Ao utilizarem a Azure Data Factory, conseguiram abandonar a sua gestão de recursos manuais de nuvem demorada e dispendiosa e passar para a gestão de recursos em nuvem a pedido. Por conseguinte, conseguiram poupar tempo, dinheiro e reduzir o seu tempo para a implementação de soluções. As vistas de linhagem de dados e a saúde do serviço operacional tornaram-se fáceis de visualizar e resolver problemas com a intuitiva Data Factory de monitorização e gestão de UI disponíveis a partir do portal Azure. A sua solução pode agora ser programada e gerida para que os dados acabados sejam produzidos e entregues de forma fiável aos utilizadores, e os dados e dependências de processamento são geridos automaticamente sem intervenção humana.
 
 Ao proporcionar esta experiência de compras personalizada, o retalhista online criou uma experiência mais competitiva e envolvente do cliente e, portanto, aumentar as vendas e a satisfação geral do cliente.

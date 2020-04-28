@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb80c3a94e63a886e4a16c0b8fa445b2a8a34e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72515812"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Ligação Azure AD: Configure As permissões da conta do conector AD DS 
@@ -27,7 +27,7 @@ Os seguintes cmdlets PowerShell podem ser usados para configurar permissões de 
 
 ![visão geral da conta ad ds](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
-Para a instalação Azure AD Connect Express, uma conta gerada automaticamente (MSOL_nnnnnnnnnn) é criada em Diretório Ativo com todas as permissões necessárias, pelo que não há necessidade de usar este módulo ADSyncConfig a menos que tenha bloqueado permissões herança em unidades organizacionais ou em objetos de Diretório Ativo específicos que pretende sincronizar para Azure AD. 
+Para a instalação Azure AD Connect Express, uma conta gerada automaticamente (MSOL_nnnnnnnnnn) é criada em Diretório Ativo com todas as permissões necessárias, pelo que não há necessidade de utilizar este módulo ADSyncConfig a menos que tenha bloqueado permissões de herança em unidades organizacionais ou em objetos específicos do Ative Directory que pretende sincronizar para a AD Azure. 
  
 ### <a name="permissions-summary"></a>Resumo das permissões 
 A tabela seguinte fornece um resumo das permissões exigidas em objetos AD: 

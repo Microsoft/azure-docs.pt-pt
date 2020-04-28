@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 1bef73e6be4bdbe8828e1d20ea6e684759984627
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72244640"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Quadro de Segurança: Autenticação [ Atenuações 
@@ -27,7 +27,7 @@ ms.locfileid: "72244640"
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicação Web**    | <ul><li>[Considere usar um mecanismo de autenticação padrão para autenticar a Aplicação Web](#standard-authn-web-app)</li><li>[As aplicações devem lidar com cenários de autenticação falhados de forma segura](#handle-failed-authn)</li><li>[Ativar a autenticação de passo a passo ou adaptativa](#step-up-adaptive-authn)</li><li>[Certifique-se de que as interfaces administrativas estão devidamente bloqueadas](#admin-interface-lockdown)</li><li>[Implementar funcionalidades de senha esquecidas de forma segura](#forgot-pword-fxn)</li><li>[Certifique-se de que a política de senha e conta é implementada](#pword-account-policy)</li><li>[Implementar controlos para evitar a enumeração do nome de utilizador](#controls-username-enum)</li></ul> |
-| **Base de Dados** | <ul><li>[Sempre que possível, utilize a autenticação do Windows para ligar ao Servidor SQL](#win-authn-sql)</li><li>[Quando possível, utilize a autenticação de diretório ativo Azure para a ligação à Base de Dados SQL](#aad-authn-sql)</li><li>[Quando for utilizado o modo de autenticação SQL, certifique-se de que a política de conta e palavra-passe é aplicada no servidor SQL](#authn-account-pword)</li><li>[Não utilize a autenticação SQL em bases de dados contidas](#autn-contained-db)</li></ul> |
+| **Base de dados** | <ul><li>[Sempre que possível, utilize a autenticação do Windows para ligar ao Servidor SQL](#win-authn-sql)</li><li>[Quando possível, utilize a autenticação de diretório ativo Azure para a ligação à Base de Dados SQL](#aad-authn-sql)</li><li>[Quando for utilizado o modo de autenticação SQL, certifique-se de que a política de conta e palavra-passe é aplicada no servidor SQL](#authn-account-pword)</li><li>[Não utilize a autenticação SQL em bases de dados contidas](#autn-contained-db)</li></ul> |
 | **Hub de Eventos do Azure** | <ul><li>[Utilize por dispositivo credenciais de autenticação utilizando tokens SaS](#authn-sas-tokens)</li></ul> |
 | **Fronteira da Azure Trust** | <ul><li>[Ativar a autenticação multi-factor Azure para administradores azure](#multi-factor-azure-admin)</li></ul> |
 | **Limite de confiança de tecido de serviço** | <ul><li>[Restringir o acesso anónimo ao Cluster de Tecidos de Serviço](#anon-access-cluster)</li><li>[Certifique-se de que o certificado cliente-a-nó da Fabric de Serviço é diferente do certificado de nó ao nó](#fabric-cn-nn)</li><li>[Use a AAD para autenticar clientes para servir clusters de tecidos](#aad-client-fabric)</li><li>[Certifique-se de que os certificados de tecido de serviço são obtidos a partir de uma Autoridade de Certificados Aprovada (CA)](#fabric-cert-ca)</li></ul> |
@@ -38,7 +38,7 @@ ms.locfileid: "72244640"
 | **Azure AD** | <ul><li>[Utilize cenários de autenticação padrão suportados pelo Diretório Ativo do Azure](#authn-aad)</li><li>[Sobrepor-se à cache de ficha adal padrão com uma alternativa escalável](#adal-scalable)</li><li>[Certifique-se de que tokenReplayCache é usado para evitar a repetição de fichas de autenticação ADAL](#tokenreplaycache-adal)</li><li>[Utilize bibliotecas ADAL para gerir pedidos simbólicos de clientes DaAuth2 para AAD (ou no local AD)](#adal-oauth2)</li></ul> |
 | **Gateway de campo iot** | <ul><li>[Dispositivos autenticados que ligam ao Gateway de Campo](#authn-devices-field)</li></ul> |
 | **Gateway da nuvem iot** | <ul><li>[Certifique-se de que os dispositivos que ligam ao gateway Cloud são autenticados](#authn-devices-cloud)</li><li>[Utilizar credenciais de autenticação por dispositivo](#authn-cred)</li></ul> |
-| **Storage do Azure** | <ul><li>[Certifique-se de que apenas os recipientes e bolhas necessários recebem acesso de leitura anónimo](#req-containers-anon)</li><li>[Conceder acesso limitado a objetos em armazenamento Azure utilizando SAS ou SAP](#limited-access-sas)</li></ul> |
+| **Armazenamento Azure** | <ul><li>[Certifique-se de que apenas os recipientes e bolhas necessários recebem acesso de leitura anónimo](#req-containers-anon)</li><li>[Conceder acesso limitado a objetos em armazenamento Azure utilizando SAS ou SAP](#limited-access-sas)</li></ul> |
 
 ## <a name="consider-using-a-standard-authentication-mechanism-to-authenticate-to-web-application"></a><a id="standard-authn-web-app"></a>Considere usar um mecanismo de autenticação padrão para autenticar a Aplicação Web
 
@@ -71,7 +71,7 @@ ms.locfileid: "72244640"
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| Detalhes | <p>Verifique se a aplicação tem autorização adicional (como a autenticação de intensificação ou adaptação, através da autenticação multifactor, como o envio de OTP em SMS, e-mail etc. ou solicitação para a reautenticação) para que o utilizador seja desafiado antes de ter acesso a acesso a informação sensível. Esta regra também se aplica para fazer alterações críticas a uma conta ou ação</p><p>Isto significa também que a adaptação da autenticação deve ser implementada de modo a que a aplicação aplique corretamente a autorização sensível ao contexto, de modo a não permitir a manipulação não autorizada por, por exemplo, adulteração de parâmetros</p>|
+| Detalhes | <p>Verifique se a aplicação tem autorização adicional (como a autenticação de intensificação ou adaptação, através da autenticação multifactor, como o envio de OTP em SMS, e-mail etc. ou solicitação para a reautenticação) para que o utilizador seja desafiado antes de ter acesso a informações sensíveis. Esta regra também se aplica para fazer alterações críticas a uma conta ou ação</p><p>Isto significa também que a adaptação da autenticação deve ser implementada de modo a que a aplicação aplique corretamente a autorização sensível ao contexto, de modo a não permitir a manipulação não autorizada por, por exemplo, adulteração de parâmetros</p>|
 
 ## <a name="ensure-that-administrative-interfaces-are-appropriately-locked-down"></a><a id="admin-interface-lockdown"></a>Certifique-se de que as interfaces administrativas estão devidamente bloqueadas
 
@@ -435,7 +435,7 @@ Por favor, note que para testar a eficácia desta configuração, inicie sessão
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
-| **Passos** | <p>A Biblioteca de Autenticação Azure AD (ADAL) permite aos desenvolvedores de aplicações de clientes autenticar facilmente os utilizadores para cloud ou no local Ative Directory (AD) e, em seguida, obter tokens de acesso para garantir chamadas API.</p><p>A ADAL tem muitas funcionalidades que facilitam a autenticação para os desenvolvedores, como suporte assíncrono, uma cache token configurável que armazena fichas de acesso e fichas de atualização, atualização automática de fichas quando expira um token de acesso e um token de atualização está disponível, e mais.</p><p>Ao lidar com a maior parte da complexidade, a ADAL pode ajudar um desenvolvedor a focar-se na lógica do negócio na sua aplicação e a garantir facilmente recursos sem ser um especialista em segurança. Bibliotecas separadas estão disponíveis para .NET, JavaScript (cliente e Node.js), Python, iOS, Android e Java.</p>|
+| **Passos** | <p>A Biblioteca de Autenticação Azure AD (ADAL) permite aos desenvolvedores de aplicações de clientes autenticar facilmente os utilizadores para cloud ou no local Ative Directory (AD) e, em seguida, obter tokens de acesso para garantir chamadas API.</p><p>A ADAL tem muitas funcionalidades que facilitam a autenticação para os desenvolvedores, como suporte assíncrono, uma cache token configurável que armazena fichas de acesso e fichas de atualização, atualização automática de fichas quando expira um token de acesso e um token de atualização está disponível, e muito mais.</p><p>Ao lidar com a maior parte da complexidade, a ADAL pode ajudar um desenvolvedor a focar-se na lógica do negócio na sua aplicação e a garantir facilmente recursos sem ser um especialista em segurança. Bibliotecas separadas estão disponíveis para .NET, JavaScript (cliente e Node.js), Python, iOS, Android e Java.</p>|
 
 ## <a name="authenticate-devices-connecting-to-the-field-gateway"></a><a id="authn-devices-field"></a>Dispositivos autenticados que ligam ao Gateway de Campo
 

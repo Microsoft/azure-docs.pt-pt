@@ -13,10 +13,10 @@ ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: d376672336845958fb6434a78177f42aca938229
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70081956"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Descrição Geral do SQL Server em Máquinas Virtuais do Azure (Linux)
@@ -61,7 +61,7 @@ Quando configurar o SQL Server no Linux, instale o pacote do motor de base de da
 
 * [Descrição Geral das Máquinas Virtuais](../overview.md)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 
 * [Introdução ao Storage do Microsoft Azure](../../../storage/common/storage-introduction.md)
 

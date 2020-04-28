@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff4f1b81f476159c13d3725cd3cb1766aec7dc87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70305102"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utilizar um Fornecedor de Identidade (IdP) SAML 2.0 para Início de Sessão Único
@@ -279,5 +279,5 @@ Para verificar se o único sinal foi configurado corretamente, complete os segui
 
 
 - [Gestão e personalização de serviços da Federação de Diretórios Ativos com Azure AD Connect](how-to-connect-fed-management.md)
-- [Azure AD federation compatibility list](how-to-connect-fed-compatibility.md) (Lista de compatibilidade da federação do Azure AD)
+- [Lista de compatibilidades de federação do Azure AD](how-to-connect-fed-compatibility.md)
 - [Instalação personalizada de ligação a ad azure](how-to-connect-install-custom.md)

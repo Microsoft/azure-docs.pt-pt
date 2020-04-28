@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
 ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70999174"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Boas práticas para garantir aplicações web e móveis paaS usando o Armazenamento Azure
@@ -66,7 +66,7 @@ Para saber mais sobre rBAC ver:
 
 - [Gerir o acesso através do RBAC e do portal do Azure](/azure/role-based-access-control/role-assignments-portal)
 - [Built-in roles for Azure resources](/azure/role-based-access-control/built-in-roles) (Funções incorporadas para recursos do Azure)
-- [Guia de segurança de armazenamento azure](/azure/storage/common/storage-security-guide) 
+- [Guia de segurança do Armazenamento do Azure](/azure/storage/common/storage-security-guide) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Use encriptação do lado do cliente para dados de alto valor
 A encriptação do lado do cliente permite-lhe encriptar programáticamente os dados em trânsito antes de enviar para o Azure Storage e desencriptar programáticamente os dados ao recuperá-lo. Isto fornece encriptação de dados em trânsito, mas também fornece encriptação de dados em repouso. A encriptação do lado do cliente é o método mais seguro de encriptar os seus dados, mas requer que faça alterações programáticas na sua aplicação e coloque os processos de gestão chave no lugar.
