@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
 ms.openlocfilehash: 9c776a32b4a35c72fc40a16afb87db9896a763cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75611071"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalize a política de proteção de informação SQL no Centro de Segurança Azure (Pré-visualização)
@@ -29,7 +29,7 @@ A proteção de informação é uma capacidade avançada de segurança para desc
 - Cenários de segurança como monitorização (auditoria) e alerta sobre acesso anómalo a dados sensíveis
 - Controlar o acesso e reforçar a segurança das lojas de dados que contenham dados altamente sensíveis
  
-[A SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md) implementa este paradigma para as suas lojas de dados SQL, atualmente suportadas para a Base de Dados Azure SQL. A Proteção de Informação SQL descobre e classifica automaticamente dados potencialmente sensíveis, fornece um mecanismo de rotulagem para marcar persistentemente os dados sensíveis com atributos de classificação, e fornece um dashboard detalhado que mostra o estado de classificação da base de dados. Além disso, calcula a sensibilidade do conjunto de resultados das consultas SQL, de modo a que as consultas que extraem dados sensíveis possam ser explicitamente auditadas, e os dados possam ser protegidos. Para obter mais informações sobre a Proteção de Informação SQL, consulte a Descoberta e Classificação de Dados da Base de [Dados Azure SQL](../sql-database/sql-database-data-discovery-and-classification.md).
+[A SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md) implementa este paradigma para as suas lojas de dados SQL, atualmente suportadas para a Base de Dados Azure SQL. A SQL Information Protection descobre e classifica automaticamente dados potencialmente sensíveis, fornece um mecanismo de rotulagem para marcar persistentemente os dados sensíveis com atributos de classificação, e fornece um dashboard detalhado que mostra o estado de classificação da base de dados. Além disso, calcula a sensibilidade do conjunto de resultados das consultas SQL, de modo a que as consultas que extraem dados sensíveis possam ser explicitamente auditadas, e os dados possam ser protegidos. Para obter mais informações sobre a Proteção de Informação SQL, consulte a Descoberta e Classificação de Dados da Base de [Dados Azure SQL](../sql-database/sql-database-data-discovery-and-classification.md).
  
 O mecanismo de classificação baseia-se em duas construções primárias que compõem a taxonomia de classificação - **Rótulos** e Tipos de **Informação**.
 - **Etiquetas** – Os principais atributos de classificação, utilizados para definir o nível de sensibilidade dos dados armazenados na coluna. 

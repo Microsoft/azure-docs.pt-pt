@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
 ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75561648"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como alvo de backup com executivo de backup
@@ -275,7 +275,7 @@ Com base nos pressupostos anteriores, crie um volume de 26 TiB StorSimple tiered
 
     ![Consola de gestão de backup Exec, página de armazenamento selecionada](./media/storsimple-configure-backup-target-using-backup-exec/image5.png)
 
-3.  Insira um nome representativo, por exemplo, **Sábado Cheio,** e uma descrição. Selecione **Next**.
+3.  Insira um nome representativo, por exemplo, **Sábado Cheio,** e uma descrição. Selecione **Seguinte**.
 
     ![Consola de gestão de executivos de backup, nome e página de descrição](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 
