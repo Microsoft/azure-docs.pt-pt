@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68985950"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instale e opere com segurança a sua Caixa de Dados Azure
@@ -142,7 +142,7 @@ Este é um produto de classe A. Em ambiente doméstico, este produto pode causar
 
 ![Ícone de eliminação de baterias](./media/data-box-safety/battery_disposal_icon.png)
 
-Este símbolo no produto ou nas suas baterias ou na sua embalagem significa que este produto e as pilhas que contém não devem ser eliminados com os resíduos domésticos. Em vez disso, é da sua responsabilidade entregá-lo a um ponto de recolha aplicável para a reciclagem de baterias e equipamentos elétricos e eletrónicos. Esta recolha e reciclagem separadas ajudará a conservar os recursos naturais e prevenir potenciais consequências negativas para a saúde humana e para o ambiente, devido à possível presença de substâncias perigosas em baterias e elétricas e eletrónicas equipamento, que poderia ser causado por eliminação inadequada. Para mais informações sobre onde deixar as suas baterias e resíduos elétricos e eletrónicos, contacte o seu escritório local de localização/município, o serviço de eliminação de resíduos domésticos ou a loja onde adquiriu este produto. Contacte microsoft.com de *ereciclo\@* para obter informações adicionais sobre o WEEE.
+Este símbolo no produto ou nas suas baterias ou na sua embalagem significa que este produto e as pilhas que contém não devem ser eliminados com os resíduos domésticos. Em vez disso, é da sua responsabilidade entregá-lo a um ponto de recolha aplicável para a reciclagem de baterias e equipamentos elétricos e eletrónicos. Esta recolha e reciclagem separadas ajudará a conservar os recursos naturais e a prevenir potenciais consequências negativas para a saúde humana e para o ambiente, devido à possível presença de substâncias perigosas em baterias e equipamentos elétricos e eletrónicos, que podem ser causados por uma eliminação inadequada. Para mais informações sobre onde deixar as suas baterias e resíduos elétricos e eletrónicos, contacte o seu escritório local de localização/município, o serviço de eliminação de resíduos domésticos ou a loja onde adquiriu este produto. Contacte microsoft.com de *ereciclo\@* para obter informações adicionais sobre o WEEE.
 
 Este produto contém baterias de pilhas de moedas(ies).
 

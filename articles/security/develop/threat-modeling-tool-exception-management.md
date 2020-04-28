@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: b8fad566b54ab645660011ad3188394b6f8190b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68728080"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Quadro de Segurança: Gestão de Exceções [ Gestão de Exceções] Atenuações 
@@ -213,7 +213,7 @@ Consulte os links na secção de referências para obter detalhes adicionais sob
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Elemento de implementação (ASP.NET Definições Schema)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
-| **Passos** | <p>O `<deployment retail>` interruptor destina-se a ser utilizado por servidores IIS de produção. Este interruptor é usado para ajudar as aplicações a executar com o melhor desempenho possível e menos possível fugas de informação de segurança, desativando a capacidade da aplicação de gerar saída de vestígios numa página, desativando a capacidade de exibir mensagens de erro detalhadas para utilizadores finais, e desativando o interruptor de depuração.</p><p>Muitas vezes, os interruptores e opções que estão focados no desenvolvimento, tais como rastreios de pedidos falhados e depuração, são ativados durante o desenvolvimento ativo. Recomenda-se que o método de implantação em qualquer servidor de produção seja definido para o retalho. abra o ficheiro machine.config `<deployment retail="true" />` e certifique-se de que permanece definido como verdadeiro.</p>|
+| **Passos** | <p>O `<deployment retail>` interruptor destina-se a ser utilizado por servidores IIS de produção. Este interruptor é utilizado para ajudar as aplicações a executar com o melhor desempenho possível e com o mínimo possível de fugas de informação de segurança, desativando a capacidade da aplicação de gerar saída de vestígios numa página, desativando a capacidade de exibir mensagens de erro detalhadas para os utilizadores finais e desativando o interruptor de depuração.</p><p>Muitas vezes, os interruptores e opções que estão focados no desenvolvimento, tais como rastreios de pedidos falhados e depuração, são ativados durante o desenvolvimento ativo. Recomenda-se que o método de implantação em qualquer servidor de produção seja definido para o retalho. abra o ficheiro machine.config `<deployment retail="true" />` e certifique-se de que permanece definido como verdadeiro.</p>|
 
 ## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Exceções devem falhar com segurança
 

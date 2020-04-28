@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 97af40bd1f57acb5b26d3b6216984dfb8e3a5181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68699806"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desenvolver ficheiros Azure com C++
@@ -369,5 +369,5 @@ Para saber mais sobre o Storage do Azure, explore estes recursos:
 
 * [Biblioteca de Clientes do Storage para C++](https://github.com/Azure/azure-storage-cpp)
 * [Amostras de serviço de arquivo de armazenamento azure em C++](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Explorador do Armazenamento do Azure](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Explorador do Storage do Azure](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Documentação de Armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/)

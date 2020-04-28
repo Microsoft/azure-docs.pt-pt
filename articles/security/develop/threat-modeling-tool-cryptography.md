@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: c9116472af5b400ded0fea24f98b07bad9d9039b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68728194"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Quadro de Segurança: Criptografia [ Atenuações 
@@ -27,7 +27,7 @@ ms.locfileid: "68728194"
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicação Web** | <ul><li>[Utilize apenas cifras de blocos simétricos aprovadas e comprimentos-chave](#cipher-length)</li><li>[Utilize modos de cifra de bloco aprovados e vetores de inicialização para cifras simétricas](#vector-ciphers)</li><li>[Utilize algoritmos assimétricos aprovados, comprimentos-chave e estofamento](#padding)</li><li>[Utilize geradores de númeroaleatórios aleatórios aprovados](#numgen)</li><li>[Não utilize cifras de fluxo simétricos](#stream-ciphers)</li><li>[Utilize algoritmos de haxixe MAC/HMAC/chave aprovados](#mac-hash)</li><li>[Utilize apenas funções de haxixe criptográfico aprovadas](#hash-functions)</li></ul> |
-| **Base de Dados** | <ul><li>[Use algoritmos de encriptação fortes para encriptar dados na base de dados](#strong-db)</li><li>[Os pacotes SSIS devem ser encriptados e assinados digitalmente](#ssis-signed)</li><li>[Adicione a assinatura digital a securáveis de base de dados críticas](#securables-db)</li><li>[Utilize o servidor SQL EKM para proteger as chaves de encriptação](#ekm-keys)</li><li>[Utilizar a funcionalidade AlwaysEncrypted se as chaves de encriptação não forem reveladas ao motor Base de Dados](#keys-engine)</li></ul> |
+| **Base de dados** | <ul><li>[Use algoritmos de encriptação fortes para encriptar dados na base de dados](#strong-db)</li><li>[Os pacotes SSIS devem ser encriptados e assinados digitalmente](#ssis-signed)</li><li>[Adicione a assinatura digital a securáveis de base de dados críticas](#securables-db)</li><li>[Utilize o servidor SQL EKM para proteger as chaves de encriptação](#ekm-keys)</li><li>[Utilizar a funcionalidade AlwaysEncrypted se as chaves de encriptação não forem reveladas ao motor Base de Dados](#keys-engine)</li></ul> |
 | **Dispositivo IoT** | <ul><li>[Armazenar chaves criptográficas de forma segura no dispositivo IoT](#keys-iot)</li></ul> | 
 | **Gateway da nuvem iot** | <ul><li>[Gerar uma chave simétrica aleatória de comprimento suficiente para autenticação ao Hub IoT](#random-hub)</li></ul> | 
 | **Cliente Móvel Dynamics CRM** | <ul><li>[Certifique-se de que existe uma política de gestão de dispositivos que requer um PIN de utilização e permite a limpeza remota](#pin-remote)</li></ul> | 

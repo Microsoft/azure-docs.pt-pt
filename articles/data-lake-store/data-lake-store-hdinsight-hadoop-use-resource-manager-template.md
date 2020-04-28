@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b09ca2cc358107c5f95fe3426351d380380db3c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66161378"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Crie um cluster HDInsight com Azure Data Lake Storage Gen1 usando o modelo de Gestor de Recursos Azure
@@ -30,7 +30,7 @@ ms.locfileid: "66161378"
 
 Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight com o Azure Data Lake Storage Gen1, **como armazenamento adicional**.
 
-Para tipos de cluster suportados, o Data Lake Storage Gen1 pode ser usado como uma conta de armazenamento padrão ou adicional. Quando o Data Lake Storage Gen1 é usado como armazenamento adicional, a conta de armazenamento padrão para os clusters continuará a ser Blobs de Armazenamento Azure (WASB) e os ficheiros relacionados com o cluster (como registos, etc.) ainda estão escritos para o armazenamento predefinido, enquanto os dados que pretende o processo pode ser armazenado numa conta Gen1 de Armazenamento de Data Lake. A utilização do Data Lake Storage Gen1 como uma conta de armazenamento adicional não afeta o desempenho nem a capacidade de ler/escrever para o armazenamento do cluster.
+Para tipos de cluster suportados, o Data Lake Storage Gen1 pode ser usado como uma conta de armazenamento padrão ou adicional. Quando o Data Lake Storage Gen1 é usado como armazenamento adicional, a conta de armazenamento padrão para os clusters continuará a ser Blobs de Armazenamento Azure (WASB) e os ficheiros relacionados com o cluster (como registos, etc.) ainda são escritos para o armazenamento predefinido, enquanto os dados que pretende processar podem ser armazenados numa conta data Lake Storage Gen1. A utilização do Data Lake Storage Gen1 como uma conta de armazenamento adicional não afeta o desempenho nem a capacidade de ler/escrever para o armazenamento do cluster.
 
 ## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>Utilização de Data Lake Storage Gen1 para armazenamento de cluster HDInsight
 

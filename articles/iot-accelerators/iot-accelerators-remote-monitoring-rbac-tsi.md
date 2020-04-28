@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65827228"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Configure os controlos de acesso para o explorador de telemetria Time Series Insights
@@ -25,7 +25,7 @@ As políticas de acesso a dados concedem permissões para emitir consultas de da
 
 Siga estas medidas para conceder acesso aos dados para um utilizador principal:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Localize o seu ambiente time series Insights. Digite **série sonérs** na caixa de **pesquisa.** Selecione **Ambiente de Série seletiva** nos resultados da pesquisa. 
 

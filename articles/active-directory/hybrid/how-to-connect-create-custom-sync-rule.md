@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a65d4c477d0e3aa9d5feea53e3e667ece651c83f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60351073"
 ---
 # <a name="how-to-customize-a-synchronization-rule"></a>Como personalizar uma regra de sincronização
@@ -43,7 +43,7 @@ Pode utilizar o editor de regras de sincronização para editar ou criar uma nov
 * Para modificar uma regra de **Saída,** mude o filtro do editor de regras de sincronização.
 
 ## <a name="recommended-documents"></a>**Documentos Recomendados**
-* [Sincronização do Azure AD Connect: Conceitos Técnicos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
+* [Sincronização azure AD Connect: Conceitos Técnicos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
 * [Sincronização Azure AD Connect: Compreender a arquitetura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
 * [Sincronização Azure AD Connect: Compreensão do Provisionamento Declarativo](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
 * [Sincronização Azure AD Connect: Compreender expressões de provisionamento declarativas](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)

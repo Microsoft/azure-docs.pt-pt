@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67109358"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Defina a estratégia de proteção de dados para a sua solução de identidade híbrida
@@ -106,7 +106,7 @@ O Azure Ative Directory fornece um único sign-on a milhares de aplicações Saa
 >
 >
 
-Utilizando o suporte da AD Azure, as aplicações de negócios móveis podem usar a mesma experiência de autenticação fácil dos Serviços Móveis para permitir que os colaboradores assinem as suas aplicações móveis com as suas credenciais de Diretório Ativo corporativo. Com esta funcionalidade, a Azure AD é suportada como fornecedora de identidade em Serviços Móveis ao lado dos outros fornecedores de identidade já suportados (que incluem Contas Microsoft, ID do Facebook, ID do Google e ID do Twitter). Se as aplicações no local utilizarem a credencial do utilizador localizada no AD DS da empresa, o acesso de parceiros e utilizadores provenientes da nuvem deve ser transparente. Você pode gerir o controlo de acesso condicional do utilizador a aplicações web (baseadas na nuvem) web, web API, serviços de nuvem Microsoft, aplicações SaaS de terceiros e aplicações de clientes nativos (móveis), e ter os benefícios de segurança, auditoria, reportando tudo em uma lugar. No entanto, recomenda-se validar a implementação num ambiente de não produção ou com um número limitado de utilizadores.
+Utilizando o suporte da AD Azure, as aplicações de negócios móveis podem usar a mesma experiência de autenticação fácil dos Serviços Móveis para permitir que os colaboradores assinem as suas aplicações móveis com as suas credenciais de Diretório Ativo corporativo. Com esta funcionalidade, a Azure AD é suportada como fornecedora de identidade em Serviços Móveis ao lado dos outros fornecedores de identidade já suportados (que incluem Contas Microsoft, ID do Facebook, ID do Google e ID do Twitter). Se as aplicações no local utilizarem a credencial do utilizador localizada no AD DS da empresa, o acesso de parceiros e utilizadores provenientes da nuvem deve ser transparente. Pode gerir o controlo de acesso condicional do utilizador a aplicações web (baseadas na nuvem), web API, serviços de nuvem microsoft, aplicações SaaS de terceiros e aplicações de clientes nativos (móveis), e ter os benefícios de segurança, auditoria, reporte tudo num só local. No entanto, recomenda-se validar a implementação num ambiente de não produção ou com um número limitado de utilizadores.
 
 > [!TIP]
 > é importante referir que a Azure AD não tem política de grupo como a AD DS tem. Para impor a política dos dispositivos, necessita de uma solução de gestão de dispositivos móveis, como o [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).

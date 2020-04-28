@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 75bbce0f1e9787e55880ccac80dacb5457e1f2c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68728374"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Quadro de Segurança: Autorização / Atenuações 
@@ -27,7 +27,7 @@ ms.locfileid: "68728374"
 | --------------- | ------- |
 | **Limite de confiança de máquina** | <ul><li>[Certifique-se de que os ACLs adequados estão configurados para restringir o acesso não autorizado aos dados do dispositivo](#acl-restricted-access)</li><li>[Certifique-se de que o conteúdo sensível da aplicação específica do utilizador é armazenado no diretório do perfil do utilizador](#sensitive-directory)</li><li>[Certifique-se de que as aplicações implementadas são executadas com menos privilégios](#deployed-privileges)</li></ul> |
 | **Aplicação Web** | <ul><li>[Impor a ordem de passo sequencial ao processar fluxos lógicos de negócio](#sequential-logic)</li><li>[Implementar mecanismo de limitação da taxa para evitar a enumeração](#rate-enumeration)</li><li>[Certifique-se de que a autorização adequada está em vigor e que o princípio dos menos privilégios é seguido](#principle-least-privilege)</li><li>[A lógica empresarial e as decisões de autorização de acesso a recursos não devem basear-se em parâmetros de pedido de entrada](#logic-request-parameters)</li><li>[Certifique-se de que os conteúdos e recursos não são enumerados ou acessíveis através de uma navegação forçada](#enumerable-browsing)</li></ul> |
-| **Base de Dados** | <ul><li>[Certifique-se de que as contas menos privilegiadas são usadas para ligar ao servidor base de dados](#privileged-server)</li><li>[Implementar RLS de segurança de nível de linha para evitar que os inquilinos acedam aos dados uns dos outros](#rls-tenants)</li><li>[A função Sysadmin apenas deve ter utilizadores válidos necessários](#sysadmin-users)</li></ul> |
+| **Base de dados** | <ul><li>[Certifique-se de que as contas menos privilegiadas são usadas para ligar ao servidor base de dados](#privileged-server)</li><li>[Implementar RLS de segurança de nível de linha para evitar que os inquilinos acedam aos dados uns dos outros](#rls-tenants)</li><li>[A função Sysadmin apenas deve ter utilizadores válidos necessários](#sysadmin-users)</li></ul> |
 | **Gateway da nuvem iot** | <ul><li>[Ligue-se ao Cloud Gateway usando fichas menos privilegiadas](#cloud-least-privileged)</li></ul> |
 | **Hub de Eventos do Azure** | <ul><li>[Utilize uma chave SAS apenas com permissões de envio para gerar fichas de dispositivo](#sendonly-sas)</li><li>[Não utilize fichas de acesso que forneçam acesso direto ao Centro de Eventos](#access-tokens-hub)</li><li>[Ligue-se ao Event Hub utilizando teclas SAS que tenham as permissões mínimas necessárias](#sas-minimum-permissions)</li></ul> |
 | **Documento Azure DB** | <ul><li>[Use fichas de recurso para ligar ao Azure Cosmos DB sempre que possível](#resource-docdb)</li></ul> |
@@ -35,7 +35,7 @@ ms.locfileid: "68728374"
 | **Limite de confiança de tecido de serviço** | <ul><li>[Restringir o acesso do cliente a operações de cluster utilizando o RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Execute modelação de segurança e utilize a Segurança de Nível de Campo sempre que necessário](#modeling-field)</li></ul> |
 | **Dynamics CRM Portal** | <ul><li>[Realizar modelação de segurança de contas portais tendo em conta que o modelo de segurança do portal difere do resto do CRM](#portal-security)</li></ul> |
-| **Storage do Azure** | <ul><li>[Conceder permissão de grãos finos a uma série de entidades em Armazenamento de Mesa Azure](#permission-entities)</li><li>[Ativar o Controlo de Acesso baseado em funções (RBAC) à conta de armazenamento Azure utilizando o Gestor de Recursos Azure](#rbac-azure-manager)</li></ul> |
+| **Armazenamento Azure** | <ul><li>[Conceder permissão de grãos finos a uma série de entidades em Armazenamento de Mesa Azure](#permission-entities)</li><li>[Ativar o Controlo de Acesso baseado em funções (RBAC) à conta de armazenamento Azure utilizando o Gestor de Recursos Azure](#rbac-azure-manager)</li></ul> |
 | **Cliente Móvel** | <ul><li>[Implementar jailbreak implícito ou deteção de raízes](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Referência de classe fraca no WCF](#weak-class-wcf)</li><li>[Controlo de autorização de implementação wCF](#wcf-authz)</li></ul> |
 | **API Web** | <ul><li>[Implementar mecanismo de autorização adequado na ASP.NET Web API](#authz-aspnet)</li></ul> |
@@ -84,7 +84,7 @@ ms.locfileid: "68728374"
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Passos** | Para verificar se esta fase foi executada por um utilizador genuíno, pretende impor a aplicação apenas para processar fluxos de lógica empresarial em ordem sequencial, com todos os passos a serem processados em tempo humano realista, e não processando fora de ordem, sem etapas ignoradas , passos processados de outro utilizador, ou transações muito rápidas.|
+| **Passos** | Para verificar se esta fase foi executada por um utilizador genuíno, pretende impor a aplicação apenas para processar fluxos de lógica empresarial em ordem de etapa sequencial, com todos os passos a serem processados em tempo humano realista, e não processando fora de ordem, desviando passos, passos processados de outro utilizador, ou transações submetidas demasiado rapidamente.|
 
 ## <a name="implement-rate-limiting-mechanism-to-prevent-enumeration"></a><a id="rate-enumeration"></a>Implementar mecanismo de limitação da taxa para evitar a enumeração
 

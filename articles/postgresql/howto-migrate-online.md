@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 93cd390889c023adf1c30a8470e1c2298598439e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65067518"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Migração mínima para base de dados Azure para PostgreSQL - Servidor Único
 Pode realizar migrações PostgreSQL para a Base de Dados Azure para PostgreSQL com o mínimo de tempo de inatividade utilizando a capacidade de **sincronização contínua** recentemente introduzida para o Serviço de Migração de Bases de [Dados Azure](https://aka.ms/get-dms) (DMS). Esta funcionalidade limita a quantidade de tempo de inatividade que é incorrido pela aplicação.
 
 ## <a name="overview"></a>Descrição geral
-O Azure DMS executa uma carga inicial das suas instalações para a Base de Dados Azure para postgreSQL, e depois sincroniza continuamente quaisquer novas transações para o Azure enquanto a aplicação permanece em execução. Depois de os dados se aproximarem do lado do azure alvo, você para a aplicação por um breve momento (tempo mínimo de inatividade), aguarde o último lote de dados (a partir do momento em que pare a aplicação até que a aplicação esteja efetivamente indisponível para tomar qualquer novo tráfego) para capturar até no alvo e, em seguida, atualizar a sua cadeia de ligação para apontar para Azure. Quando terminar, a sua candidatura estará em direto no Azure!
+O Azure DMS executa uma carga inicial das suas instalações para a Base de Dados Azure para postgreSQL, e depois sincroniza continuamente quaisquer novas transações para o Azure enquanto a aplicação permanece em execução. Depois de os dados se atualizarem no lado do azure alvo, interrompe a aplicação por um breve momento (tempo mínimo de inatividade), aguarde pelo último lote de dados (desde o momento em que para a aplicação até que a aplicação esteja efetivamente indisponível para apanhar qualquer novo tráfego) para recuperar o alvo e, em seguida, atualizar a sua linha de ligação para apontar para o Azure. Quando terminar, a sua candidatura estará em direto no Azure!
 
 ![Sincronização contínua com o Serviço de Migração de Bases de Dados Azure](./media/howto-migrate-online/ContinuousSync.png)
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
 ms.openlocfilehash: eda134257edb851eea076459b44e02fc59028f46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60363397"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configure Multipath I/O para o seu dispositivo StorSimple
@@ -150,7 +150,7 @@ Depois de o MPIO estar configurado no Windows Server, o volume(s) criado no disp
 
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Passo 4: Configure MPIO para alta disponibilidade e equilíbrio de carga
 
-Para uma alta disponibilidade multi-caminho e equilíbrio de carga, várias sessões devem ser adicionadas manualmente para declarar os diferentes caminhos disponíveis. Por exemplo, se o anfitrião tiver duas interfaces ligadas à rede iSCSI e o dispositivo tiver duas interfaces ligadas à rede iSCSI, então precisa de quatro sessões configuradas com permutações de caminho adequadas (serão necessárias apenas duas sessões se cada interface DATA e a interface do anfitrião encontra-se numa subnet IP diferente e não é repreensível).
+Para uma alta disponibilidade multi-caminho e equilíbrio de carga, várias sessões devem ser adicionadas manualmente para declarar os diferentes caminhos disponíveis. Por exemplo, se o anfitrião tiver duas interfaces ligadas à rede iSCSI e o dispositivo tiver duas interfaces ligadas à rede iSCSI, então precisa de quatro sessões configuradas com permutações de trajetória adequadas (serão necessárias apenas duas sessões se cada interface DATA e interface de anfitrião estiver numa subnet IP diferente e não for resaída).
 
 **Recomendamos que tenha pelo menos 8 sessões paralelas ativas entre o dispositivo e o anfitrião da aplicação.** Isto pode ser conseguido permitindo 4 interfaces de rede no seu sistema Windows Server. Utilize interfaces de rede física ou interfaces virtuais através de tecnologias de virtualização de rede no nível de hardware ou sistema operativo no seu anfitrião Do Windows Server. Com as duas interfaces de rede no dispositivo, esta configuração resultaria em 8 sessões ativas. Esta configuração ajuda a otimizar o dispositivo e a entrada em nuvem.
 

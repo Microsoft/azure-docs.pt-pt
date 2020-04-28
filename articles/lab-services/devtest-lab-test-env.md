@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: c6b458091a8e5e22cca55d401e89e5e13bcf9de9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60623188"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Utilize laboratórios Azure DevTest para ambientes de teste VM e PaaS
@@ -99,7 +99,7 @@ Neste artigo, você aprende sobre várias funcionalidades do Azure DevTest Labs 
    | [Crie artefactos personalizados para o seu VM DevTest Labs](devtest-lab-artifact-author.md) |Crie os seus próprios artefactos personalizados para as máquinas virtuais do seu laboratório.|
    | [Adicione um repositório Git para armazenar artefactos personalizados e modelos de Gestor de Recursos Azure para uso em Azure DevTest Labs](devtest-lab-add-artifact-repo.md) |Aprenda a armazenar os seus artefactos personalizados no seu próprio repo git privado.|
 
-5. **Custos de controlo**
+5. **Controlar os custos**
    
     A Azure DevTest Labs permite-lhe definir uma política no laboratório para especificar o número máximo de VMs que podem ser criados por um teste no laboratório. 
    

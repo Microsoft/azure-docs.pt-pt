@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: dech
 ms.openlocfilehash: f10ace47f774e31b586f7736f5fb8e5dfea0c948
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68707633"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Estimar RU/s usando o planejador de capacidade sbS Do Cosmos Azure
@@ -30,7 +30,7 @@ O planificador de capacidade pode ser usado em dois modos.
 ## <a name="estimate-provisioned-throughput-and-cost-using-basic-mode"></a>Estimativa de rendimento e custos previstos utilizando o modo básico
 Para obter uma estimativa rápida da sua carga de trabalho utilizando o modo básico, navegue até ao [planificador](https://cosmos.azure.com/capacitycalculator/)de capacidade . Introduza nos seguintes parâmetros com base na sua carga de trabalho: 
 
-|**Entrada**  |**Descrição**  |
+|**Input**  |**Descrição**  |
 |---------|---------|
 |Número de regiões|Azure Cosmos DB está disponível em todas as regiões de Azure. Selecione o número de regiões necessárias para a sua carga de trabalho. Pode associar várias regiões à sua conta Cosmos. Consulte a [distribuição global](distribute-data-globally.md) no Azure Cosmos DB para mais detalhes.|
 |Escreve várias regiões|Se permitir [a escrita em várias regiões,](distribute-data-globally.md#key-benefits-of-global-distribution)a sua aplicação pode ler e escrever para qualquer região do Azure. Se desativar as escritas multi-regiões, a sua aplicação pode escrever dados para uma única região. <br/><br/> Enable multi-region escreve se você espera ter uma carga de trabalho ativa ativa que requer baixa latência escrita em diferentes regiões. Por exemplo, uma carga de trabalho da IOT que escreve dados para a base de dados em volumes elevados em diferentes regiões. <br/><br/> A multi-região escreve que garante 99,999% de leitura e de disponibilidade de escrita. Os escritos multi-regiões requerem mais entrada quando comparados com as regiões de escrita única. Para saber mais, veja como as RUs são diferentes para o artigo de [regiões únicas e múltiplas.](optimize-cost-regions.md)|
@@ -49,7 +49,7 @@ O modo avançado permite-lhe fornecer mais definições que impactam a estimativ
 
 Depois de iniciar sessão, pode ver campos adicionais em comparação com os campos em modo básico. Introduza os parâmetros adicionais com base na sua carga de trabalho. 
 
-|**Entrada**  |**Descrição**  |
+|**Input**  |**Descrição**  |
 |---------|---------|
 |API|Azure Cosmos DB é um serviço multi-modelo e multi-API. Para novas cargas de trabalho, selecione API SQL (Core). |
 |Número de regiões|Azure Cosmos DB está disponível em todas as regiões de Azure. Selecione o número de regiões necessárias para a sua carga de trabalho. Pode associar várias regiões à sua conta Cosmos. Consulte a [distribuição global](distribute-data-globally.md) no Azure Cosmos DB para mais detalhes.|

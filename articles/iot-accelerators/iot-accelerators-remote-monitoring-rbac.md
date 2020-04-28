@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67203171"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configure controlos de acesso baseados em funções no acelerador de solução de monitorização remota
@@ -51,7 +51,7 @@ Por predefinição, o utilizador que implementou a solução é automaticamente 
 
 Como proprietário de aplicações Azure Ative Directory, pode utilizar o portal Azure para adicionar ou remover um utilizador para uma função a partir da solução de Monitorização Remota. Os seguintes passos utilizam a [aplicação empresarial Azure Ative Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) que foi criada quando implementou a solução de Monitorização Remota.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Verifique se o [utilizador está no diretório](../active-directory/fundamentals/add-users-azure-active-directory.md) que está a usar. Escolheu o diretório para usar quando inscreveu-se no site [do Microsoft Azure IoT Solution Accelerators.](https://www.azureiotsolutions.com/Accelerators) O nome do diretório é visível no canto superior direito da [página](https://www.azureiotsolutions.com/Accelerators).
 
