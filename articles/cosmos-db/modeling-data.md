@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: 523049ea3286445117f41147f3dd12a2c911d1ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72755020"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelação de dados em Azure Cosmos DB
 
-Enquanto bases de dados sem esquemas, como o Azure Cosmos DB, tornam super fácil armazenar e consultar dados não estruturados e semi-estruturados, deve passar algum tempo a pensar no seu modelo de dados para tirar o máximo partido do serviço em termos de desempenho e escalabilidade e menor custo.
+Enquanto as bases de dados sem esquemas, como o Azure Cosmos DB, tornam super fácil armazenar e consultar dados não estruturados e semi-estruturados, deve passar algum tempo a pensar no seu modelo de dados para tirar o máximo partido do serviço em termos de desempenho e escalabilidade e custo mais baixo.
 
 Como é que os dados vão ser armazenados? Como é que a sua aplicação vai recuperar e consultar dados? A sua aplicação é pesada ou pesada?
 

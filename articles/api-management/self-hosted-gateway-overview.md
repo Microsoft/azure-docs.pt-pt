@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
 ms.openlocfilehash: 415f0e209e607a863d715b1a66a2435603a662f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73513721"
 ---
 # <a name="self-hosted-api-management-gateway-overview"></a>Visão geral do gateway de gestão da API auto-hospedado
@@ -42,7 +42,7 @@ Por padrão, todos estes componentes são implantados em Azure, fazendo com que 
 
 ![Fluxo de tráfego da API sem gateways auto-hospedados](media/self-hosted-gateway-overview/without-gateways.png)
 
-A implantação de gateways auto-hospedados nos mesmos ambientes que as implementações da API e adicioná-las ao serviço de Gestão API permite que o tráfego da API flua diretamente para as APIs de backend, o que melhora a latência, otimiza os custos de transferência de dados e permite cumprimento, mantendo os benefícios de ter um único ponto de gestão e descoberta de todas as APIs dentro da organização, independentemente do local onde as suas implementações são hospedadas.
+A implantação de gateways auto-hospedados nos mesmos ambientes que as implementações da API e adicioná-las ao serviço de Gestão API permite que o tráfego da API flua diretamente para as APIs de backend, o que melhora a latência, otimiza os custos de transferência de dados, e permite o cumprimento, mantendo os benefícios de ter um único ponto de gestão e descoberta de todas as APIs dentro da organização, independentemente do local onde as suas implementações são hospedadas.
 
 ![Fluxo de tráfego da API com gateways auto-hospedados](media/self-hosted-gateway-overview/with-gateways.png)
 

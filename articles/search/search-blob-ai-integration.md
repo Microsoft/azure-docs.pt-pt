@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 591437eb3951164d53388b6164103948e9ad65e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73496436"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>Use AI para entender os dados de armazenamento blob
@@ -32,7 +32,7 @@ Neste artigo, vemos o enriquecimento de IA através de uma lente larga para que 
 
 ## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>O que significa "enriquecer" os dados blob com IA
 
-O enriquecimento de *IA* faz parte da arquitetura indexante da Pesquisa Cognitiva Azure que integra IA incorporada da Microsoft ou IA personalizada que fornece. Ajuda-o a implementar cenários de ponta a ponta onde precisa de processar bolhas (tanto as existentes como as novas à medida que entram ou são atualizadas), abre todos os formatos de ficheiros para extrair imagens e texto, extrair as informações desejadas utilizando várias capacidades de IA, e indexá-los em um índice de pesquisa para pesquisa rápida, recuperação e exploração. 
+O enriquecimento de *IA* faz parte da arquitetura indexante da Pesquisa Cognitiva Azure que integra IA incorporada da Microsoft ou IA personalizada que fornece. Ajuda-o a implementar cenários de ponta a ponta onde precisa de processar bolhas (tanto existentes como novas à medida que entram ou são atualizadas), abrir todos os formatos de ficheiros para extrair imagens e texto, extrair as informações desejadas utilizando várias capacidades de IA, e indexá-las num índice de pesquisa para pesquisa rápida, recuperação e exploração. 
 
 As inputs são as suas bolhas, num único recipiente, no armazenamento azure Blob. As bolhas podem ser quase qualquer tipo de texto ou dados de imagem. 
 

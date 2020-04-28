@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
 ms.openlocfilehash: 9d628583168883276e67d9e2f2fcafdce292769e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73807487"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configure e gerencie a segurança da Base de dados Azure SQL para geo-restauro ou falha
@@ -37,7 +37,7 @@ Se estiver a utilizar logins e utilizadores (em vez de utilizadores contidos), d
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Configurar o acesso do utilizador a uma base de dados secundária ou recuperada
 
-Para que a base de dados secundária seja utilizável como base de dados secundária para leitura e para garantir o acesso adequado à nova base de dados primária ou à base de dados recuperada com recurso a georestabelecido, a base de dados principal do servidor-alvo deve ter a segurança adequada configuração no lugar antes da recuperação.
+Para que a base de dados secundária seja utilizável como base de dados secundária para leitura e para garantir o acesso adequado à nova base de dados primária ou à base de dados recuperada utilizando geo-restauro, a base de dados principal do servidor-alvo deve ter a configuração de segurança adequada no lugar antes da recuperação.
 
 As permissões específicas para cada passo são descritas mais tarde neste tópico.
 

@@ -8,10 +8,10 @@ ms.date: 09/03/2019
 author: luisbosquez
 ms.author: lbosq
 ms.openlocfilehash: 95677f4c45c0213de5ffac5521bac1c6bf7294e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72755086"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Cabeçalhos de resposta ao servidor Azure Cosmos DB Gremlin
@@ -27,8 +27,8 @@ Tenha em mente que, tomando a dependência destes cabeçalhos, está a limitar a
 | **x-ms-total-request-charge** | double | 423.987 | Êxito e Falha | Quantidade de entrada de recolha ou base de dados consumida em unidades de [pedido (RU/s ou RUs)](request-units.md) para todo o pedido. Este cabeçalho está presente em todas as continuações para pedidos que têm vários pedaços. Indica encargos cumulativos desde o início do pedido. O valor deste cabeçalho no último pedaço indica uma carga completa de pedido. |
 | **x-ms-servidor-tempo-ms** | double | 13.75 | Êxito e Falha | Este cabeçalho está incluído para efeitos de resolução de problemas de latência. Indica a quantidade de tempo, em milissegundos, que o servidor Cosmos DB Gremlin levou para executar e produzir uma mensagem de resposta parcial. A utilização do valor deste cabeçalho e a sua comparação com aplicações globais de latência de pedidos podem calcular as despesas gerais de latência da rede. |
 | **x-ms-total-servidor-tempo-ms** | double | 130.512 | Êxito e Falha | O tempo total, em milissegundos, que o servidor Cosmos DB Gremlin levou para executar toda a travessia. Este cabeçalho está incluído em todas as respostas parciais. Representa um tempo de execução cumulativo desde o início do pedido. A última resposta indica o tempo total de execução. Este cabeçalho é útil para diferenciar entre cliente e servidor como fonte de latência. Pode comparar o tempo de execução transversal do cliente ao valor deste cabeçalho. |
-| **x-ms-status-code** | longo | 200 | Êxito e Falha | O cabeçalho indica uma razão interna para a conclusão ou rescisão do pedido. A aplicação é aconselhada a olhar para o valor deste cabeçalho e a tomar medidas corretivas. |
-| **x-ms-substatus-código** | longo | 1003 | Apenas falha | Cosmos DB é uma base de dados multi-modelo que é construída em cima da camada de armazenamento unificada. Este cabeçalho contém informações adicionais sobre a razão da falha quando a falha ocorre dentro de camadas mais baixas de pilha de alta disponibilidade. A aplicação é aconselhada a armazenar este cabeçalho e usá-lo ao contactar o apoio ao cliente da Cosmos DB. O valor deste cabeçalho é útil para o engenheiro Cosmos DB para resolução rápida de problemas. |
+| **x-ms-status-code** | long | 200 | Êxito e Falha | O cabeçalho indica uma razão interna para a conclusão ou rescisão do pedido. A aplicação é aconselhada a olhar para o valor deste cabeçalho e a tomar medidas corretivas. |
+| **x-ms-substatus-código** | long | 1003 | Apenas falha | Cosmos DB é uma base de dados multi-modelo que é construída em cima da camada de armazenamento unificada. Este cabeçalho contém informações adicionais sobre a razão da falha quando a falha ocorre dentro de camadas mais baixas de pilha de alta disponibilidade. A aplicação é aconselhada a armazenar este cabeçalho e usá-lo ao contactar o apoio ao cliente da Cosmos DB. O valor deste cabeçalho é útil para o engenheiro Cosmos DB para resolução rápida de problemas. |
 | **x-ms-retry-after-ms** | corda (TimeSpan) | "00:00:03.9500000" | Apenas falha | Este cabeçalho é uma representação de cadeia de um tipo .NET [TimeSpan.](https://docs.microsoft.com/dotnet/api/system.timespan) Este valor só será incluído nos pedidos falhados devidoà exaustão de entrada. O pedido deve voltar a submeter-se à travessia após o período de tempo instruído. |
 | **x-ms-activity-id** | corda (Guia) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Êxito e Falha | O cabeçalho contém um identificador exclusivo do lado do servidor de um pedido. Cada pedido é atribuído a um identificador único pelo servidor para fins de rastreamento. As aplicações devem registar identificadores de atividade devolvidos pelo servidor para pedidos que os clientes possam querer contactar com o apoio do cliente. O pessoal de apoio da Cosmos DB pode encontrar pedidos específicos destes identificadores na telemetria de serviço cosmos DB. |
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67184205"
 ---
 Neste passo, cria-se uma regra de firewall para abrir a porta da sonda para o ponto final equilibrado (59999, conforme especificado anteriormente) e outra regra para abrir a porta de escuta do grupo de disponibilidade. Uma vez que criou o ponto final equilibrado em carga nos VMs que contêm réplicas de grupo de disponibilidade, precisa abrir a porta da sonda e a porta de escuta nos respetivos VMs.

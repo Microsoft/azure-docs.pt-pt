@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60878447"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Encriptação de dados em Azure Data Lake Storage Gen1
@@ -115,7 +115,7 @@ Note que se utilizar as opções padrão de encriptação, os seus dados são se
 
 ### <a name="how-to-rotate-the-mek-in-data-lake-storage-gen1"></a>Como rodar o MEK em Data Lake Storage Gen1
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Navegue na instância Key Vault que armazena as suas chaves associadas à sua conta Data Lake Storage Gen1. Selecione **Chaves**.
 
     ![Captura de ecrã do Key Vault](./media/data-lake-store-encryption/keyvault.png)

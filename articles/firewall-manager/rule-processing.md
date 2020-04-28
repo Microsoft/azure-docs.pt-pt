@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: victorh
 ms.openlocfilehash: 74e58c316651a1604984ac14c70a3a65d46d6d9f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73518206"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de processamento de regras do Azure Firewall

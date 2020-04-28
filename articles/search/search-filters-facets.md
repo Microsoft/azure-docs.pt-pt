@@ -9,15 +9,15 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 082575a67ea43d62f322e177cff087e5bd572c27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72792901"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Como construir um filtro de faceta na Pesquisa Cognitiva Azure 
 
-A navegação facetada é usada para filtragem auto-direcionada em resultados de consulta numa aplicação de pesquisa, onde a sua aplicação oferece controlos ui para pesquisa de scoping a grupos de documentos (por exemplo, categorias ou marcas) e a Pesquisa Cognitiva Azure fornece a estrutura de dados para apoiar a experiência. Neste artigo, reveja rapidamente os passos básicos para criar uma estrutura de navegação facetada apoiando a experiência de pesquisa que pretende proporcionar. 
+A navegação facetada é usada para filtragem auto-direcionada em resultados de consulta numa aplicação de pesquisa, onde a sua aplicação oferece controlos ui para pesquisa de scoping a grupos de documentos (por exemplo, categorias ou marcas), e a Azure Cognitive Search fornece a estrutura de dados para apoiar a experiência. Neste artigo, reveja rapidamente os passos básicos para criar uma estrutura de navegação facetada apoiando a experiência de pesquisa que pretende proporcionar. 
 
 > [!div class="checklist"]
 > * Escolha campos para filtragem e faceta

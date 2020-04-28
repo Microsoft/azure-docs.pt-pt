@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: victorh
 ms.openlocfilehash: d93c3b47c518962bf45762b846eaf53e490ae8f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73518440"
 ---
 # <a name="what-is-a-secured-virtual-hub"></a>O que é um hub virtual seguro?

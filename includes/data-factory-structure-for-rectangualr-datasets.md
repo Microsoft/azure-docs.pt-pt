@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67184929"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especificação da definição de estrutura para conjuntos de dados retangulares
@@ -54,7 +54,7 @@ A fábrica de dados suporta os seguintes valores de tipo cls compatíveis com CL
 * Decimal
 * Byte[]
 * Booleano
-* Cadeia 
+* String 
 * GUID
 * Datetime
 * Datatimeoffset

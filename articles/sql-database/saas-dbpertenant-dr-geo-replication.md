@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 0668ccf5ceb972dd120e4e3f37be6d879a12d0a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73811710"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastres para uma aplicação SaaS multi-inquilino usando geo-replicação de base de dados
@@ -102,7 +102,7 @@ Antes de iniciar o processo de recuperação, reveja o estado normal e saudável
 
 ## <a name="sync-tenant-configuration-into-catalog"></a>Sincronizar a configuração do inquilino no catálogo
 
-Nesta tarefa, inicia-se um processo que sincroniza a configuração dos servidores, piscinas elásticas e bases de dados no catálogo de inquilinos. O processo mantém esta informação atualizada no catálogo.  O processo funciona com o catálogo ativo, seja na região original ou na região de recuperação. A informação de configuração é usada como parte do processo de recuperação para garantir que o ambiente de recuperação é consistente com o ambiente original, e mais tarde durante o repatriamento para garantir que a região original é feita consistente com quaisquer alterações feitas no ambiente de recuperação. O catálogo também é usado para acompanhar o estado de recuperação dos recursos dos inquilinos
+Nesta tarefa, inicia-se um processo que sincroniza a configuração dos servidores, piscinas elásticas e bases de dados no catálogo de inquilinos. O processo mantém esta informação atualizada no catálogo.  O processo funciona com o catálogo ativo, seja na região original ou na região de recuperação. A informação de configuração é usada como parte do processo de recuperação para garantir que o ambiente de recuperação é consistente com o ambiente original, e mais tarde durante o repatriamento para garantir que a região original é feita de acordo com quaisquer alterações feitas no ambiente de recuperação. O catálogo também é usado para acompanhar o estado de recuperação dos recursos dos inquilinos
 
 > [!IMPORTANT]
 > Para a simplicidade, o processo de sincronização e outros processos de recuperação e repatriamento de longa duração são implementados nestes tutoriais como empregos ou sessões locais da PowerShell que funcionam sob o login do utilizador do seu cliente. Os tokens de autenticação emitidos quando iniciar sessão expirarão após várias horas e os trabalhos falharão. Num cenário de produção, os processos de longo prazo devem ser implementados como serviços azure fiáveis de algum tipo, funcionando sob um diretor de serviço. Consulte [a Utilização do PowerShell Azure para criar um diretor](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)de serviço com um certificado .

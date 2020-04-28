@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 68a17b8b3587077222a9ed2057927c8f16253c1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72794377"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Crie e gereça as api-keys para um serviço de pesquisa cognitiva Azure
@@ -43,7 +43,7 @@ São utilizados dois tipos de teclas para aceder ao seu serviço de pesquisa: ad
 
 Pode obter chaves de acesso no portal ou através da [API DE GESTÃO REST](https://docs.microsoft.com/rest/api/searchmanagement/). Para mais informações, consulte [Gerir administração e consultar api-keys](search-security-api-keys.md).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Enumera rine os [serviços](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de pesquisa para a sua subscrição.
 3. Selecione o serviço e na página 'Overview', clique em **Definições** >**para** visualizar as teclas de administração e consulta.
 
@@ -55,7 +55,7 @@ As chaves de consulta são usadas para o acesso apenas a documentos dentro de um
 
 Restringir o acesso e as operações em aplicações de clientes é essencial para salvaguardar os ativos de pesquisa no seu serviço. Utilize sempre uma chave de consulta em vez de uma chave de administração para qualquer consulta originária de uma aplicação de cliente.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Enumera rine os [serviços](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de pesquisa para a sua subscrição.
 3. Selecione o serviço e na página 'Overview', clique em >**Definições**. **Settings**
 4. Clique em **Gerir chaves de consulta**.

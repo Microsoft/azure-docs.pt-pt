@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72298745"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Começar com o armazenamento de fila Azure e serviços conectados do Estúdio Visual (WebJob Projects)
@@ -551,7 +551,7 @@ Num WebJob contínuo, os registos de aplicações aparecem em /data/jobs/continu
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-Numa bolha Azure os registos da aplicação são assim: 2014-09-26T21:01:13,Informação,Contosoadsnew,491e54,635473620738373502,0,17404,17,Consola.Write - Hello world!, 2014-09-26T21:01:13,Error contosoadsnew,491e54, 635473620738373502,0,17404,19,Consola.Error - Hello world!, 2014-09-26T21:01:13,Informação,Contosoadsnew,491e54,635473620738529920,0,17404,17,Consola.out - Hello world!,
+Numa bolha Azure os registos da aplicação são assim: 2014-09-26T21:01:13,Informação,Contosoadsnew,491e54,635473620738373502,0,17404,17,Consola.Write - Hello world!, 2014-09-26T21:01:13,Error,Contosoadsnew,491e54,635473620738373502,0,17404,19,Consola.Error - Hello world!, 2014-09-26T21:01:13,Informação,Contosoadsnew,491e54,635473620738529920,0,17404,17,Consola.out - Hello world!,
 
 E numa tabela Azure os registos **Console.out** e **Console.Error** soam assim:
 

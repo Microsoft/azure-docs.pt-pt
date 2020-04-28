@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4fdb891d668d99644d8a9ed9c15d158e65d53ba5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72793140"
 ---
 A garantia de uma infraestrutura de Internet das Coisas (IoT) requer uma estratégia rigorosa de segurança aprofundada. Esta estratégia requer que você garanta dados na nuvem, proteja a integridade dos dados durante o transporte através da internet pública e proteja os dispositivos. Cada camada constrói uma maior garantia de segurança na infraestrutura global.

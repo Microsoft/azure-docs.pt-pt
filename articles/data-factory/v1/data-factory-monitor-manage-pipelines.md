@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73666968"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorize e gerencie os oleodutos Azure Data Factory utilizando o portal Azure e powerShell
@@ -46,7 +46,7 @@ Ao utilizar o portal Azure, pode:
 Esta secção também descreve como uma fatia de conjunto de dados transita de um estado para outro estado.   
 
 ### <a name="navigate-to-your-data-factory"></a>Navegue para a sua fábrica de dados
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Clique nas **fábricas de dados** no menu à esquerda. Se não o vir, clique em **Mais serviços >**, e, em seguida, clique em **fábricas** de dados na categoria **INTELLIGENCE + ANALYTICS.**
 
    ![Navegue em todas as fábricas de dados >](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)

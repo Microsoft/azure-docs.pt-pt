@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3b87f40d75d4045155e7dd953dc76ffd9de2b34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60348744"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronização Azure AD Connect: Compreender e personalizar a sincronização
@@ -39,13 +39,13 @@ O serviço de sincronização é composto por dois componentes, o componente de 
 | [Topologias do Azure AD Connect](plan-connect-topologies.md) |Descreve as diferentes topologas e cenários que o motor sincronizado suporta. |
 | **Configuração personalizada** | |
 | [Executando novamente o assistente de instalação](how-to-connect-installation-wizard.md) |Explica quais as opções que tem disponíveis quando executa novamente o assistente de instalação Azure AD Connect. |
-| [Compreensão do Provisionamento Declarativo](concept-azure-ad-connect-sync-declarative-provisioning.md) |Descreve o modelo de configuração chamado provisionamento declarativo. |
-| [Compreender expressões de provisionamento declarativos](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) |Descreve a sintaxe para a linguagem de expressão utilizada no provisionamento declarativo. |
-| [Compreender a configuração padrão](concept-azure-ad-connect-sync-default-configuration.md) |Descreve as regras fora da caixa e a configuração predefinida. Também descreve como as regras funcionam em conjunto para que os cenários fora da caixa funcionem. |
-| [Compreender Utilizadores e Contactos](concept-azure-ad-connect-sync-user-and-contacts.md) |Continua sobre o tema anterior e descreve como a configuração para utilizadores e contactos funciona em conjunto, em particular num ambiente multiflorestal. |
+| [Compreender o Aprovisionamento Declarativo](concept-azure-ad-connect-sync-declarative-provisioning.md) |Descreve o modelo de configuração chamado provisionamento declarativo. |
+| [Compreender as Expressões de Aprovisionamento Declarativas](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) |Descreve a sintaxe para a linguagem de expressão utilizada no provisionamento declarativo. |
+| [Entender a configuração predefinida](concept-azure-ad-connect-sync-default-configuration.md) |Descreve as regras fora da caixa e a configuração predefinida. Também descreve como as regras funcionam em conjunto para que os cenários fora da caixa funcionem. |
+| [Compreender utilizadores e contactos](concept-azure-ad-connect-sync-user-and-contacts.md) |Continua sobre o tema anterior e descreve como a configuração para utilizadores e contactos funciona em conjunto, em particular num ambiente multiflorestal. |
 | [Como fazer uma alteração na configuração padrão](how-to-connect-sync-change-the-configuration.md) |Faz-nos passar por como fazer uma mudança de configuração comum para atributos. |
 | [Melhores práticas para alterar a configuração predefinida](how-to-connect-sync-best-practices-changing-default-configuration.md) |Limitações de suporte e para fazer alterações na configuração fora da caixa. |
-| [Configurar a Filtragem](how-to-connect-sync-configure-filtering.md) |Descreve as diferentes opções de como limitar quais os objetos que estão a ser sincronizados com a AD Azure e passo a passo como configurar estas opções. |
+| [Configurar a filtragem](how-to-connect-sync-configure-filtering.md) |Descreve as diferentes opções de como limitar quais os objetos que estão a ser sincronizados com a AD Azure e passo a passo como configurar estas opções. |
 | **Características e cenários** | |
 | [Impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) |Descreve a *funcionalidade de eliminação acidental de prevenção* e como configurá-la. |
 | [Scheduler](how-to-connect-sync-feature-scheduler.md) |Descreve o programador incorporado, que importa, sincronizae e exporta dados. |
@@ -64,7 +64,7 @@ O serviço de sincronização é composto por dois componentes, o componente de 
 | **Mais informações e referências** | |
 | [Portas](reference-connect-ports.md) |Listas que portas você precisa abrir entre o motor de sincronização e os seus diretórios no local e Azure AD. |
 | [Atributos sincronizados com o Azure Active Directory](reference-connect-sync-attributes-synchronized.md) |Lista todos os atributos sincronizados entre a AD no local e a AD Azure. |
-| [Referência das Funções](reference-connect-sync-functions-reference.md) |Lista todas as funções disponíveis no fornecimento declarativo. |
+| [Referência de funções](reference-connect-sync-functions-reference.md) |Lista todas as funções disponíveis no fornecimento declarativo. |
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

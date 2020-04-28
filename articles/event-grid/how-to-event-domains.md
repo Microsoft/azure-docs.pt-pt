@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.openlocfilehash: 1d07227249806b7d54523af66817a170c19354ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72786543"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gerir tópicos e publicar eventos usando domínios de eventos
@@ -35,7 +35,7 @@ Para saber sobre domínios de eventos, consulte [compreender os domínios do eve
 
 Para gerir grandes conjuntos de tópicos, crie um domínio de evento.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -86,7 +86,7 @@ A gestão do acesso a tópicos é feita através de atribuição de [funções.]
 
 O Event Grid tem duas funções incorporadas, que pode utilizar para atribuir acesso a determinados utilizadores em vários tópicos dentro de um domínio. Estas funções são `EventGrid EventSubscription Contributor (Preview)`, que permitem a criação e eliminação de subscrições, e `EventGrid EventSubscription Reader (Preview)`, que apenas permite a listagem de subscrições de eventos.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
 Os seguintes limites `alice@contoso.com` de comando Azure CLI para a `demotopic1`criação e apagando subscrições de eventos apenas sobre o tópico:
 
 ```azurecli-interactive
@@ -117,7 +117,7 @@ Subscrever um tema num domínio é o mesmo que subscrever qualquer outro recurso
 
 Normalmente, o utilizador a que concedeu acesso na secção anterior criaria a subscrição. Para simplificar este artigo, cria a subscrição. 
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -175,7 +175,7 @@ Publicar eventos num domínio é o mesmo que [publicar para um tópico personali
 }]
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
 Para obter o ponto final de domínio com o Azure CLI, use
 
 ```azurecli-interactive

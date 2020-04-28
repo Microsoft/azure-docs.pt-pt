@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60245202"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect com uma base de dados ADSync existente
@@ -30,7 +30,7 @@ O Azure AD Connect requer uma base de dados do SQL Server para armazenar dados. 
 ## <a name="benefits-of-using-an-existing-adsync-database"></a>Benefícios da utilização de uma base de dados ADSync existente
 Apontando para uma base de dados ADSync existente:
 
-- Com exceção das informações sobre credenciais, a configuração de sincronização armazenada na base de dados ADSync (incluindo regras de sincronização personalizadas, conectores, filtragem e configuração de funcionalidades opcionais) é automaticamente recuperada e utilizada durante a instalação . As credenciais utilizadas pelo Azure AD Connect para sincronizar alterações com a AD e a AD Azure no local estão encriptadas e só podem ser acedidas pelo anterior servidor Azure AD Connect.
+- Com exceção das informações sobre credenciais, a configuração de sincronização armazenada na base de dados ADSync (incluindo regras de sincronização personalizadas, conectores, filtragem e configuração de funcionalidades opcionais) é automaticamente recuperada e utilizada durante a instalação. As credenciais utilizadas pelo Azure AD Connect para sincronizar alterações com a AD e a AD Azure no local estão encriptadas e só podem ser acedidas pelo anterior servidor Azure AD Connect.
 - Todos os dados de identidade (associados a espaços de conector e metaverso) e cookies de sincronização armazenados na base de dados ADSync também são recuperados. O servidor Azure AD Connect recentemente instalado pode continuar a sincronizar de onde o servidor Azure AD Connect anterior deixou de ser desligado, em vez de ter a necessidade de realizar uma sincronização completa.
 
 ## <a name="scenarios-where-using-an-existing-adsync-database-is-beneficial"></a>Cenários em que a utilização de uma base de dados ADSync existente é benéfica

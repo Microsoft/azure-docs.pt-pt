@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73034551"
 ---
 Ao conceber um sistema, é importante compreender as potenciais ameaças a esse sistema, e adicionar defesas apropriadas em conformidade, uma vez que o sistema é projetado e arquitetado. É importante projetar o produto desde o início com segurança em mente, porque compreender como um intruso pode ser capaz de comprometer um sistema ajuda a garantir que as mitigações apropriadas estão em vigor desde o início.
@@ -153,7 +153,7 @@ O diagrama seguinte fornece uma visão simplificada da Arquitetura IoT da Micros
 
 ![Modelação de ameaças para IoT Azure usando ferramenta de modelação de ameaças MS](media/iot-security-architecture/iot-security-architecture-fig3.png)
 
-É importante notar que a arquitetura separa as capacidades do dispositivo e gateway. Esta abordagem permite ao utilizador alavancar dispositivos gateway que são mais seguros: são capazes de comunicar com o gateway da nuvem usando protocolos seguros, o que normalmente requer um maior processamento de sobrecarga que um dispositivo nativo - como um termóstato - poderia fornecer por si só. Na zona de serviços do Azure, assuma que o Cloud Gateway está representado pelo serviço Azure IoT Hub.
+É importante notar que a arquitetura separa as capacidades do dispositivo e gateway. Esta abordagem permite ao utilizador alavancar dispositivos gateway mais seguros: são capazes de comunicar com o gateway da nuvem utilizando protocolos seguros, o que normalmente requer um maior processamento que um dispositivo nativo - como um termóstato - poderia fornecer por si só. Na zona de serviços do Azure, assuma que o Cloud Gateway está representado pelo serviço Azure IoT Hub.
 
 ### <a name="device-and-data-sourcesdata-transport"></a>Dispositivo e fontes de dados/transporte de dados
 
@@ -240,7 +240,7 @@ Eis alguns exemplos de ameaças nesta categoria:
 
 **Informação Divulgação:** um intruso pode escutar uma transmissão e obter informações sem autorização **Negação de Serviço:** um intruso pode bloquear o sinal de transmissão e negar a distribuição de informação
 
-#### <a name="storage"></a>Storage
+#### <a name="storage"></a>Armazenamento
 
 Cada dispositivo e gateway de campo tem alguma forma de armazenamento (temporário para fazer fila os dados, sistema operativo (OS) armazenamento de imagem).
 
@@ -253,7 +253,7 @@ Cada dispositivo e gateway de campo tem alguma forma de armazenamento (temporár
 
 ### <a name="device-and-event-processingcloud-gateway-zone"></a>Dispositivo e processamento de eventos/zona de gateway da nuvem
 
-Um portal de cloud é um sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes em todo o espaço da rede pública, tipicamente para um sistema de controlo e análise de dados baseado em nuvem, uma federação desses sistemas. Em alguns casos, um portal de cloud pode imediatamente facilitar o acesso a dispositivos de uso especial a partir de terminais como tablets ou telefones. No contexto aqui discutido, a "nuvem" destina-se a referir-se a um sistema dedicado de processamento de dados que não esteja vinculado ao mesmo local que os dispositivos anexos ou gateways de campo, e onde as medidas operacionais impedem o acesso físico direcionado, mas não é necessariamente um " infraestrutura de nuvem pública. Um portal de cloud pode potencialmente ser mapeado numa sobreposição de virtualização da rede para isolar o gateway da nuvem e todos os seus dispositivos ou portais de campo ligados a qualquer outro tráfego de rede. O portal da nuvem em si não é um sistema de controlo de dispositivos ou uma instalação de processamento ou armazenamento para dados do dispositivo; essas instalações interface com o gateway nuvem. A zona de porta de entrada de nuvem inclui o próprio portal de nuvem, juntamente com todos os gateways de campo e dispositivos ligados direta ou indiretamente a ele.
+Um portal de cloud é um sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes em todo o espaço da rede pública, tipicamente para um sistema de controlo e análise de dados baseado em nuvem, uma federação desses sistemas. Em alguns casos, um portal de cloud pode imediatamente facilitar o acesso a dispositivos de uso especial a partir de terminais como tablets ou telefones. No contexto aqui discutido, a "nuvem" destina-se a referir-se a um sistema dedicado de processamento de dados que não está vinculado ao mesmo local que os dispositivos anexos ou gateways de campo, e onde as medidas operacionais impedem o acesso físico direcionado, mas não é necessariamente uma infraestrutura de "nuvem pública". Um portal de cloud pode potencialmente ser mapeado numa sobreposição de virtualização da rede para isolar o gateway da nuvem e todos os seus dispositivos ou portais de campo ligados a qualquer outro tráfego de rede. O portal da nuvem em si não é um sistema de controlo de dispositivos ou uma instalação de processamento ou armazenamento para dados do dispositivo; essas instalações interface com o gateway nuvem. A zona de porta de entrada de nuvem inclui o próprio portal de nuvem, juntamente com todos os gateways de campo e dispositivos ligados direta ou indiretamente a ele.
 
 O gateway cloud é principalmente uma peça de software personalizada que funciona como um serviço com pontos finais expostos aos quais o gateway de campo e os dispositivos se conectam. Como tal, deve ser concebido com segurança em mente. Siga o processo [SDL](https://www.microsoft.com/sdl) para conceber e construir este serviço.
 
@@ -261,7 +261,7 @@ O gateway cloud é principalmente uma peça de software personalizada que funcio
 
 Um sistema de controlo (ou controlador) é uma solução de software que interage com um dispositivo, ou um gateway de campo, ou gateway de nuvem com o propósito de controlar um ou vários dispositivos e/ou recolher e/ou armazenar e/ou analisar dados do dispositivo para apresentação, ou posteriores finalidades de controlo. Os sistemas de controlo são as únicas entidades no âmbito desta discussão que podem facilitar imediatamente a interação com as pessoas. As exceções são superfícies de controlo físico intermédio sinuosos nos dispositivos, como um interruptor que permite a uma pessoa desligar o dispositivo ou alterar outras propriedades, e para as quais não existe um equivalente funcional que possa ser acedido digitalmente.
 
-As superfícies de controlo físico intermédio são aquelas em que a lógica governativa limita a função da superfície de controlo físico de modo a que uma função equivalente possa ser iniciada remotamente ou que os conflitos de entrada com entrada remota possam ser evitados – tais intermediários as superfícies de controlo são conceptualmente ligadas a um sistema de controlo local que aproveita a mesma funcionalidade subjacente que qualquer outro sistema de controlo remoto a que o dispositivo pode ser ligado em paralelo. As principais ameaças à computação em nuvem podem ser lidas na página [da Cloud Security Alliance (CSA).](https://cloudsecurityalliance.org/articles/csa-releases-top-threats-to-cloud-computing-deep-dive/)
+As superfícies de controlo físico intermédio são aquelas em que a lógica de regulação limita a função da superfície de controlo físico de modo a que uma função equivalente possa ser iniciada remotamente ou que possam ser evitados conflitos de entrada com entrada remota – tais superfícies de controlo intermediários estão conceptualmente ligadas a um sistema de controlo local que aproveita a mesma funcionalidade subjacente que qualquer outro sistema de controlo remoto a que o dispositivo pode ser ligado em paralelo. As principais ameaças à computação em nuvem podem ser lidas na página [da Cloud Security Alliance (CSA).](https://cloudsecurityalliance.org/articles/csa-releases-top-threats-to-cloud-computing-deep-dive/)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

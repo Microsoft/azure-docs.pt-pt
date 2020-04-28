@@ -9,15 +9,15 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 128a2e8b200f1323b88aad635f27c1b686ecbed2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72789722"
 ---
 A Internet das Coisas (IoT) coloca desafios únicos de segurança, privacidade e conformidade às empresas em todo o mundo. Ao contrário da tecnologia cibernética tradicional, onde estas questões giram em torno do software e como é implementado, a IoT diz respeito ao que acontece quando o cibere e os mundos físicos convergem. Proteger as soluções IoT requer garantir o fornecimento seguro de dispositivos, uma conectividade segura entre estes dispositivos e a nuvem, e proteger os dados seguros na nuvem durante o processamento e armazenamento. No entanto, a trabalhar contra esta funcionalidade estão dispositivos limitados por recursos, distribuição geográfica de implementações e um grande número de dispositivos dentro de uma solução.
 
-Este artigo explora como os aceleradores de soluções IoT fornecem uma solução segura e privada de nuvem de Internet das Coisas. Os aceleradores de solução oferecem uma solução completa de ponta a ponta, com segurança incorporada em todas as fases desde o zero. Na Microsoft, o desenvolvimento de software seguro faz parte da prática de engenharia de software, enraizada na experiência de décadas da Microsoft no desenvolvimento de software seguro. Para garantir isto, o Ciclo de Vida de Desenvolvimento de Segurança (SDL) é a metodologia de desenvolvimento fundamental, juntamente com uma série de serviços de segurança ao nível da infraestrutura, como a Operational Security Assurance (OSA) e a Microsoft Digital Crimes Unit, Microsoft Centro de Resposta de Segurança e Microsoft Malware Protection Center.
+Este artigo explora como os aceleradores de soluções IoT fornecem uma solução segura e privada de nuvem de Internet das Coisas. Os aceleradores de solução oferecem uma solução completa de ponta a ponta, com segurança incorporada em todas as fases desde o zero. Na Microsoft, o desenvolvimento de software seguro faz parte da prática de engenharia de software, enraizada na experiência de décadas da Microsoft no desenvolvimento de software seguro. Para garantir isto, o Security Development Lifecycle (SDL) é a metodologia de desenvolvimento fundamental, juntamente com uma série de serviços de segurança ao nível da infraestrutura, como a Operational Security Assurance (OSA) e a Microsoft Digital Crimes Unit, o Microsoft Security Response Center e o Microsoft Malware Protection Center.
 
 Os aceleradores de solução oferecem características únicas que tornam o fornecimento, a ligação e armazenamento de dados de dispositivos IoT fáceis e transparentes e, acima de tudo, seguros. Este artigo examina as funcionalidades de segurança dos aceleradores de soluções Azure IoT e estratégias de implementação para garantir que os desafios de segurança, privacidade e conformidade sejam abordados.
 
@@ -31,9 +31,9 @@ Dadas as preocupações de segurança, privacidade, transparência e conformidad
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>Infraestrutura segura do zero
 
-A infraestrutura [microsoft Cloud](https://azure.microsoft.com) suporta mais de mil milhões de clientes em 127 países/regiões. Baseando-se na experiência de décadas da Microsoft na construção de software empresarial e na gestão de alguns dos maiores serviços online do mundo, o Microsoft Cloud fornece níveis mais elevados de práticas de segurança, privacidade, conformidade e mitigação de ameaças. do que a maioria dos clientes poderia alcançar por si só.
+A infraestrutura [microsoft Cloud](https://azure.microsoft.com) suporta mais de mil milhões de clientes em 127 países/regiões. Baseando-se na experiência de décadas da Microsoft na construção de software empresarial e na gestão de alguns dos maiores serviços online do mundo, o Microsoft Cloud fornece níveis mais elevados de práticas de segurança, privacidade, conformidade e mitigação de ameaças do que a maioria dos clientes poderia alcançar por si só.
 
-O Ciclo de Vida de Desenvolvimento de [Segurança (SDL)](https://www.microsoft.com/sdl/) fornece um processo obrigatório de desenvolvimento em toda a empresa que incorpora requisitos de segurança em todo o ciclo de vida do software. Para ajudar a garantir que as atividades operacionais seguem o mesmo nível de práticas de segurança, a SDL utiliza diretrizes de segurança rigorosas estabelecidas no processo de Segurança Operacional (OSA) da Microsoft. A Microsoft também trabalha com empresas de auditoria de terceiros para verificação contínua de que cumpre as suas obrigações de conformidade, e a Microsoft dedica-se a amplos esforços de segurança através da criação de centros de excelência, incluindo a Unidade de Crimes Digitais da Microsoft, Microsoft Security Response Center e Microsoft Malware Protection Center.
+O Ciclo de Vida de Desenvolvimento de [Segurança (SDL)](https://www.microsoft.com/sdl/) fornece um processo obrigatório de desenvolvimento em toda a empresa que incorpora requisitos de segurança em todo o ciclo de vida do software. Para ajudar a garantir que as atividades operacionais seguem o mesmo nível de práticas de segurança, a SDL utiliza diretrizes de segurança rigorosas estabelecidas no processo de Segurança Operacional (OSA) da Microsoft. A Microsoft também trabalha com empresas de auditoria de terceiros para verificação contínua de que cumpre as suas obrigações de conformidade, e a Microsoft dedica-se a amplos esforços de segurança através da criação de centros de excelência, incluindo a Unidade de Crimes Digitais da Microsoft, o Microsoft Security Response Center e o Microsoft Malware Protection Center.
 
 ## <a name="microsoft-azure---secure-iot-infrastructure-for-your-business"></a>Microsoft Azure - infraestrutura ioT segura para o seu negócio
 

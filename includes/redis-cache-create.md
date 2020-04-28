@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 3c064aa8e57a77b96161da06847f543816be1217
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73719107"
 ---
 1. Para criar uma cache, inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Criar um recurso**. 
@@ -28,7 +28,7 @@ ms.locfileid: "73719107"
    | Definição      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome cache deve ser uma cadeia entre 1 e 63 caracteres que contenha apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* da sua instância de cache será * \<o nome DNS>.redis.cache.windows.net*. | 
-   | **Assinatura** | Desça e selecione a sua subscrição. | A subscrição sob a qual criar este novo Azure Cache para redis exemplo. | 
+   | **Subscrição** | Desça e selecione a sua subscrição. | A subscrição sob a qual criar este novo Azure Cache para redis exemplo. | 
    | **Grupo de recursos** | Desça e selecione um grupo de recursos, ou selecione **Criar novo** e insira um novo nome de grupo de recursos. | Nome para o grupo de recursos no qual criar a sua cache e outros recursos. Ao colocar todos os recursos da sua aplicação num só grupo de recursos, pode facilmente geri-los ou eliminá-los juntos. | 
    | **Localização** | Desça e selecione um local. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que utilizarão a sua cache. |
    | **Nível de preços** | Desça e selecione um [nível](https://azure.microsoft.com/pricing/details/cache/)de preços . |  O escalão de preço determina o tamanho, o desempenho e as funcionalidades que estão disponíveis para a cache. Para mais informações, consulte [Azure Cache para veravista de Redis](../articles/azure-cache-for-redis/cache-overview.md). |

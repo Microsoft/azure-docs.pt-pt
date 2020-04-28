@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54f5090101c486562e33de56402db348c6038c8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60244751"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Lista de compatibilidades de federação do Azure AD
 O Azure Ative Directory fornece uma única assinatura e reforço ua segurança de acesso a aplicações para o Office 365 e outros serviços Microsoft Online para implementações híbridas e apenas na nuvem sem necessitar de qualquer solução de terceiros. O Office 365, tal como a maioria dos serviços Online da Microsoft, está integrado com o Azure Ative Directory para serviços de diretório, autenticação e autorização. O Azure Ative Directory também fornece um único sign-on a milhares de aplicações SaaS e aplicações web no local. Consulte a galeria de [aplicações](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) azure Ative Directory para aplicações saaS apoiadas. 
 
 ## <a name="idp-validation"></a>Validação idp
-Se a sua organização utilizar uma solução de federação de terceiros, pode configurar um único registo para os seus utilizadores de Diretório Ativo no local com serviços Microsoft Online, como o Office 365, desde que a solução da federação de terceiros seja compatível com o Azure. Diretório Ativo.  Para questões relacionadas com compatibilidade, contacte o seu fornecedor de identidade.  Se quiser ver uma lista de fornecedores de identidade que foram previamente testados para compatibilidade com a Azure AD, pela Microsoft, clique [aqui](https://www.microsoft.com/download/details.aspx?id=56843). 
+Se a sua organização utilizar uma solução de federação de terceiros, pode configurar um único registo para os seus utilizadores de Diretório Ativo no local com serviços Microsoft Online, como o Office 365, desde que a solução da federação de terceiros seja compatível com o Diretório Ativo azure.  Para questões relacionadas com compatibilidade, contacte o seu fornecedor de identidade.  Se quiser ver uma lista de fornecedores de identidade que foram previamente testados para compatibilidade com a Azure AD, pela Microsoft, clique [aqui](https://www.microsoft.com/download/details.aspx?id=56843). 
 
 >[!NOTE]
 >A Microsoft já não fornece testes de validação a fornecedores de identidade independentes para compatibilidade com o Diretório Ativo Azure. Se quiser testar o seu produto para interoperabilidade, consulte estas [orientações](https://www.microsoft.com/download/details.aspx?id=56843). 
