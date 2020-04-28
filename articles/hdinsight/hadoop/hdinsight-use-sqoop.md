@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.openlocfilehash: 8353c0fba034022a79570d09b320b7b5c4c3e60a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74951858"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Apache Sqoop com o Hadoop no HDInsight
@@ -22,7 +22,7 @@ Saiba como utilizar o Apache Sqoop no HDInsight para importar e exportar dados e
 
 Embora o Apache Hadoop seja uma escolha natural para o processamento de dados não estruturados e semi-estruturados, como registos e ficheiros, também pode haver necessidade de processar dados estruturados que são armazenados em bases de dados relacionais.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) é uma ferramenta projetada para transferir dados entre clusters Hadoop e bases de dados relacionais. Pode usá-lo para importar dados de um sistema de gestão relacional de bases de dados (RDBMS) como O Servidor SQL, MySQL ou Oracle para o sistema de ficheiros distribuídos hadoop (HDFS), transformar os dados em Hadoop com MapReduce ou Hive, e depois exportar os dados de volta para um RDBMS . Neste artigo, está a utilizar uma base de dados do SQL Server para a sua base de dados relacional.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) é uma ferramenta projetada para transferir dados entre clusters Hadoop e bases de dados relacionais. Pode usá-lo para importar dados de um sistema de gestão relacional de bases de dados (RDBMS) como O Servidor SQL, MySQL ou Oracle para o sistema de ficheiros distribuídos hadoop (HDFS), transformar os dados em Hadoop com MapReduce ou Hive, e depois exportar os dados de volta para um RDBMS. Neste artigo, está a utilizar uma base de dados do SQL Server para a sua base de dados relacional.
 
 > [!IMPORTANT]  
 > Este artigo cria um ambiente de teste para realizar a transferência de dados. Em seguida, escolha um método de transferência de dados para este ambiente a partir de um dos métodos da secção [Run Sqoop jobs](#run-sqoop-jobs), mais abaixo.

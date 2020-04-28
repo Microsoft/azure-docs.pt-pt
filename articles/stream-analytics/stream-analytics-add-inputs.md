@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.openlocfilehash: 6b841d6b47e009c3b01d9925e11d352c00ed5c19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426439"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Compreender as inputs para azure stream analytics
@@ -19,9 +19,9 @@ ms.locfileid: "75426439"
 Os trabalhos da Azure Stream Analytics ligam-se a uma ou mais informações de dados. Cada entrada define uma ligação a uma fonte de dados existente. Stream Analytics aceita entrada de dados de vários tipos de fontes de eventos, incluindo Hubs de Eventos, Hub IoT e armazenamento blob. As inputs são referenciadas pelo nome na consulta SQL de streaming que escreve para cada trabalho. Na consulta, pode juntar várias inputs para misturar dados ou comparar dados de streaming com uma procura de dados de referência e passar os resultados para as saídas. 
 
 O Stream Analytics tem integração de primeira classe com três tipos de recursos como inputs:
-- [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/)
-- [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) 
-- [Armazenamento Azure Blob](https://azure.microsoft.com/services/storage/blobs/) 
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
+- [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) 
 
 Estes recursos de entrada podem viver na mesma subscrição do Azure que o seu trabalho stream analytics, ou a partir de uma subscrição diferente.
 

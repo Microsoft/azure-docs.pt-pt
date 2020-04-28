@@ -9,10 +9,10 @@ ms.date: 12/06/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: d7927af5b831dbe3294e1abc3a878e323bf1867e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74928054"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Configure um portal de rede virtual para ExpressRoute usando powerShell (clássico)

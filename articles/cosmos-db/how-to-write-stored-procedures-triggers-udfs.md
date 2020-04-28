@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75441722"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos, gatilhos e funções definidas pelo utilizador em Azure Cosmos DB

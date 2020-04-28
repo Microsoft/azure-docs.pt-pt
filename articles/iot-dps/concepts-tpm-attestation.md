@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74975283"
 ---
 # <a name="tpm-attestation"></a>Atestado de TPM

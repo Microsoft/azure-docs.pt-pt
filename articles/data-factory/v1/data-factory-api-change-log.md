@@ -13,10 +13,10 @@ ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
 ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74979007"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - .NET API change log

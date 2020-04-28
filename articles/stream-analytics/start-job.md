@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: c393eb782c2ff16eb5b3e5967b39938dfe2f1534
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426472"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>Como iniciar um trabalho de Azure Stream Analytics

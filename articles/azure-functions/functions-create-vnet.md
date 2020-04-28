@@ -7,10 +7,10 @@ ms.date: 5/03/2019
 ms.author: alkarche
 ms.reviewer: glenga
 ms.openlocfilehash: 0c70c69f547405eb8ebdcf6dcc6ae597db151e53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75433218"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integrar Funções com uma rede virtual do Azure
@@ -60,7 +60,7 @@ Em seguida, crie um VM reconfigurado que execute o WordPress dentro de uma rede 
 
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | **Assinatura** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha, `myResourceGroup`ou o grupo de recursos que criou com a sua app de funções. A utilização do mesmo grupo de recursos para a aplicação de funções, o WordPress VM, e o plano de hospedagem facilitaa a limpeza de recursos quando terminar com este tutorial. |
     | **Nome da máquina virtual** | VNET-Wordpress | O nome VM precisa ser único no grupo de recursos |
     | **[Região](https://azure.microsoft.com/regions/)** | (Europa) Europa Ocidental | Escolha uma região perto de si ou perto das funções que acedem ao VM. |

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: d99920417f20034da1001a821c02376ac19274d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426476"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Pare ou elimine o seu trabalho de Análise de Fluxo saqueado
@@ -26,7 +26,7 @@ Os trabalhos da Azure Stream Analytics podem ser facilmente interrompidos ou eli
 
 Quando se para um emprego, os recursos são desprovisionados e isso deixa de processar eventos. As acusações relacionadas com este trabalho também são interrompidas. No entanto, toda a sua configuração é mantida e pode reiniciar o trabalho mais tarde 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 2. Localize o seu trabalho de streaming analytics e selecione-o.
 

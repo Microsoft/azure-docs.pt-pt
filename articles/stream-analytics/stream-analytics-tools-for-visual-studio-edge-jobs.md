@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 07f109b3d5539f7cd87a12fb42a36803573c2bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75354555"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desenvolver trabalhos stream analytics edge usando ferramentas do Estúdio Visual
@@ -67,7 +67,7 @@ Os trabalhos stream analytics implantados nos ambientes Stream Analytics IoT Edg
 
 |**Categoria**  | **Comando**  |
 |---------|---------|
-|Outros operadores | <ul><li>PARTIÇÃO POR</li><li>TIMESTAMP BY OVER</li><li>JavaScript UDF</li><li>Agregados definidos pelo utilizador (UDA)</li><li>GetMetadataPropertyValue</li><li>Usando mais de 14 agregados num único passo</li></ul>   |
+|Outros operadores | <ul><li>PARTIÇÃO POR</li><li>TIMESTAMP BY OVER</li><li>UDF em JavaScript</li><li>Agregados definidos pelo utilizador (UDA)</li><li>GetMetadataPropertyValue</li><li>Usando mais de 14 agregados num único passo</li></ul>   |
 
 Quando criar um trabalho de Stream Analytics Edge no portal, o compilador irá avisá-lo automaticamente se não estiver a utilizar um operador suportado.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 70eb81b6d13c57a7ebc131244c7aa318cb2b2fd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74871266"
 ---
 # <a name="azure-cosmos-db-sql-query-execution"></a>Execução de consulta azure Cosmos DB SQL
@@ -19,7 +19,7 @@ Qualquer idioma capaz de fazer pedidos HTTP/HTTPS pode chamar a Cosmos DB REST A
 
 Os seguintes exemplos mostram como criar uma consulta e submetê-la contra uma conta de base de dados da Cosmos.
 
-## <a name="rest-api"></a><a id="REST-API"></a>REST API
+## <a name="rest-api"></a><a id="REST-API"></a>API REST
 
 Cosmos DB oferece um modelo de programação RESTful aberto em HTTP. O modelo de recursos consiste num conjunto de recursos sob uma conta de base de dados, que uma disposição de subscrição do Azure. A conta de base de dados é constituída por um conjunto de bases de *dados,* cada uma das quais pode conter *vários contentores,* que por sua vez contêm *itens,* UDFs e outros tipos de recursos. Cada recurso Cosmos DB é endereçado usando um URI lógico e estável. Um conjunto de recursos é chamado de *feed*. 
 

@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cherylmc
 ms.openlocfilehash: e421a534b04f74d2a2eb0bc06aeffa52684ae17a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74931967"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificar um circuito ExpressRoute utilizando powerShell (clássico)
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [Azure CLI](howto-circuit-cli.md)
-> * [Modelo Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
+> * [CLI do Azure](howto-circuit-cli.md)
+> * [Modelo de Gestor de Recursos Azure](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo - Portal Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >

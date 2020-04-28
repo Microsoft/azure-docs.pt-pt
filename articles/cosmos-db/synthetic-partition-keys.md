@@ -7,10 +7,10 @@ ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
 ms.openlocfilehash: e8786c2d6e93c18a5bf9856a5555d6b528f842c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75441226"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Criar uma chave de partição sintética

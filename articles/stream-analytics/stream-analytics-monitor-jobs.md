@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.openlocfilehash: 23c0cc0d0e4a007fdf46021f857b559266f6a193
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75431677"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Criar programáticamente um monitor de trabalho stream analytics

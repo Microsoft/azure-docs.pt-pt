@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
 ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75433871"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Serviço remoing em C# com Serviços Fiáveis
@@ -20,7 +20,7 @@ ms.locfileid: "75433871"
 >
 >
 
-Para serviços que não estão ligados a um determinado protocolo de comunicação ou stack, como uma API web, Windows Communication Foundation, ou outros, o quadro de Serviços Fiáveis fornece um mecanismo de remoing para configurar de forma rápida e fácil o procedimento remoto exige serviços. Este artigo discute como configurar procedimento remoto requer serviços escritos com C#.
+Para serviços que não estão ligados a um determinado protocolo de comunicação ou stack, como uma API web, Windows Communication Foundation, ou outros, o quadro de Serviços Fiáveis fornece um mecanismo de remopara configurar de forma rápida e fácil os serviços de procedimento remoto. Este artigo discute como configurar procedimento remoto requer serviços escritos com C#.
 
 ## <a name="set-up-remoting-on-a-service"></a>Configurar remoting em um serviço
 

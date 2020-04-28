@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: aec1faa4de1149f08fb6fbc1cc5bf3aa2ab6becd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "75371786"
 ---
 Uma assinatura de acesso partilhado (SAS) permite-lhe conceder acesso limitado a contentores e bolhas na sua conta de armazenamento. Ao criar um SAS, especifica os seus constrangimentos, incluindo os recursos de Armazenamento Azure a que um cliente pode aceder, quais as permissões que têm nesses recursos e quanto tempo o SAS é válido.

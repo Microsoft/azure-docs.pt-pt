@@ -12,10 +12,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 6eb7012e28319ee6cc86de5ee56090743d681068
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74923875"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Map source dataset columns to destination dataset columns

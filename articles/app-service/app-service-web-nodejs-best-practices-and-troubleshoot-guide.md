@@ -9,10 +9,10 @@ ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430570"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Boas práticas e guia de resolução de problemas para aplicações de nó no Azure App Service Windows
@@ -273,7 +273,7 @@ Node.exe tem uma `NODE_PENDING_PIPE_INSTANCES`definição chamada . No Serviço 
 
 Siga estes links para saber mais sobre aplicações no nó.js no Serviço de Aplicações Azure.
 
-* [Introdução às Web Apps Node.js no App Service do Azure](app-service-web-get-started-nodejs.md)
+* [Introdução às aplicações Web Node.js no Serviço de Aplicações do Azure](app-service-web-get-started-nodejs.md)
 * [Como depurar uma aplicação Web Node.js no App Service do Azure](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Utilizar Módulos do Node.js com aplicações do Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Web Apps do App Service do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)

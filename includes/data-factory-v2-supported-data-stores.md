@@ -9,21 +9,21 @@ ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: c4225ab2505fc072f705f8126fc8a04581e0f80c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75440342"
 ---
 | Categoria | Arquivo de dados | Suportado como origem | Suportado como sink | Suportado pelo [IR do Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Apoiado por [IR auto-hospedado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **Azure** |[Armazenamento Azure Blob](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
+| **Azure** |[Armazenamento de Blobs do Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Índice de Pesquisa Cognitiva Azure](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[API do Azure Cosmos DB para MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Explorer](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ |
 | &nbsp; |[Armazenamento do Azure Data Lake Ger1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Armazenamento do Azure Data Lake Ger2](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |✓ | |✓ |✓  |
 | &nbsp; |[Base de Dados do Azure para MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Base de Dados do Azure para PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ |✓ |✓ |✓  |
@@ -32,7 +32,7 @@ ms.locfileid: "75440342"
 | &nbsp; |[Instância Gerida da Base de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Armazenamento de mesa azure](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
-| **Base de Dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
+| **Base de dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[Drill](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
@@ -46,7 +46,7 @@ ms.locfileid: "75440342"
 | &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Netezza](../articles/data-factory/connector-netezza.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Fénix](../articles/data-factory/connector-phoenix.md) |✓ | |✓ |✓  |
+| &nbsp; |[Phoenix](../articles/data-factory/connector-phoenix.md) |✓ | |✓ |✓  |
 | &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Presto (Pré-visualização)](../articles/data-factory/connector-presto.md) |✓ | |✓ |✓  |
 | &nbsp; |[Armazém de Negócios SAP via Open Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  |
@@ -61,7 +61,7 @@ ms.locfileid: "75440342"
 | **NoSQL** |[Cassandra](../articles/data-factory/connector-cassandra.md) |✓ | |✓ |✓  |
 | &nbsp; |[Couchbase (Pré-visualização)](../articles/data-factory/connector-couchbase.md) |✓ | |✓ |✓  |
 | &nbsp; |[MongoDB](../articles/data-factory/connector-mongodb.md) |✓ | |✓ |✓  |
-| **Ficheiro** |[Amazónia S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |✓ | |✓ |✓  |
+| **Ficheiro** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Sistema de ficheiros](../articles/data-factory/connector-file-system.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google Cloud Storage](../articles/data-factory/connector-google-cloud-storage.md) |✓ | |✓ |✓  |
@@ -79,7 +79,7 @@ ms.locfileid: "75440342"
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[AdWords do Google](../articles/data-factory/connector-google-adwords.md) |✓ | |✓ |✓  |
 | &nbsp; |[HubSpot (Pré-visualização)](../articles/data-factory/connector-hubspot.md) |✓ | |✓ |✓  |
-| &nbsp; |[Rio Jira](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
+| &nbsp; |[Jira](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
 | &nbsp; |[Magento (Pré-visualização)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
 | &nbsp; |[Marketo (Pré-visualização)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
 | &nbsp; |[Office 365](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  |

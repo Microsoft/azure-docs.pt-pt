@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873425"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL constantes de consulta  
@@ -23,7 +23,7 @@ ms.locfileid: "74873425"
 |-|-|  
 |**Indefinido**|Valor único: **indefinido**|  
 |**Nulo**|Valor único: **nulo**|  
-|**Boolean**|**Valores: falso,** **verdadeiro.**|  
+|**Booleano**|**Valores: falso,** **verdadeiro.**|  
 |**Número**|Um número de ponto flutuante de dupla precisão, padrão IEEE 754.|  
 |**String**|Uma sequência de zero ou mais caracteres Unicode. As cordas devem ser fechadas em cotações simples ou duplas.|  
 |**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **Indefinido**.|  

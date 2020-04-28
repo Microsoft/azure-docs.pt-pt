@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ab3c40ee408498453bb137c63c440d980b0b7255
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74974517"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Configure as políticas de entrega de ativos com .NET SDK
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
 
 ## <a name="overview"></a>Descrição geral
-Se planeia entregar ativos encriptados, uma das etapas do fluxo de trabalho de entrega de conteúdos dos Serviços de Media é configurar políticas de entrega de ativos. A política de entrega de ativos diz aos Media Services como pretende que o seu ativo seja entregue: no qual o protocolo de streaming deve ser embalado dinamicamente (por exemplo, MPEG DASH, HLS, Smooth Streaming, ou todos), quer queira ou não encriptar dinamicamente seu ativo e como (envelope ou encriptação comum).
+Se planeia entregar ativos encriptados, uma das etapas do fluxo de trabalho de entrega de conteúdos dos Serviços de Media é configurar políticas de entrega de ativos. A política de entrega de ativos diz aos Media Services como pretende que o seu ativo seja entregue: no qual o protocolo de streaming deve ser embalado dinamicamente (por exemplo, MPEG DASH, HLS, Smooth Streaming, ou todos), quer queira ou não encriptar de forma dinâmica o seu ativo e como (envelope ou encriptação comum).
 
 Este artigo discute porquê e como criar e configurar políticas de entrega de ativos.
 

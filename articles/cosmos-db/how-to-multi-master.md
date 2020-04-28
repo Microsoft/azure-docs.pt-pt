@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 654baed649093add2aa62f4ba81bf6ce7c3e0df5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873646"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configure multi-master nas suas aplicações que usam O Azure Cosmos DB
@@ -89,7 +89,7 @@ const client = new CosmosClient({
 });
 ```
 
-## <a name="python-sdk"></a><a id="python"></a>Python SDK
+## <a name="python-sdk"></a><a id="python"></a>SDK Python
 
 Para ativar o multi-master `connection_policy.UseMultipleWriteLocations` na `true`sua aplicação, definido para . Além `connection_policy.PreferredLocations` disso, definida para a região em que a aplicação está a ser implantada e onde o Cosmos DB é replicado.
 

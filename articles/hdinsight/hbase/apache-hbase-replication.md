@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435671"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação do cluster Apache HBase em redes virtuais Azure
@@ -123,7 +123,7 @@ Para instalar o Bind, utilize o seguinte procedimento:
     > [!NOTE]  
     > Há uma variedade de maneiras de obter a `ssh` utilidade. No Linux, Unix e macOS, é fornecido como parte do sistema operativo. Se estiver a utilizar o Windows, considere uma das seguintes opções:
     >
-    > * [Concha de nuvem azul](../../cloud-shell/quickstart.md)
+    > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
     > * [Bash em Ubuntu no Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
     > * [Git (https://git-scm.com/)](https://git-scm.com/)
     > * [Openssh (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
@@ -285,7 +285,7 @@ Os seguintes passos descrevem como chamar o script de ação do script do portal
 
 **Para permitir a replicação de HBase a partir do portal Azure**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o cluster hbase de origem.
 3. No menu de cluster, selecione **Script Actions**.
 4. No topo da página, selecione **Submeter Novo**.

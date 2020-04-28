@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
 ms.openlocfilehash: 11c854491ab030394eb61964979cb04a5a4b489b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75433386"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Crie uma Web App mais Cache Azure para Redis usando um modelo
@@ -32,7 +32,7 @@ Neste modelo, irá implementar:
 
 Para executar automaticamente a implementação, clique no seguinte botão:
 
-[![Desdobre para Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
+[![Implementar no Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
 
 ## <a name="parameters-to-specify"></a>Parâmetros para especificar
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]

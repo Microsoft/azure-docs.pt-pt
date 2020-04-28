@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: af883da67f4e1bc819514e88ff480526e16124db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974926"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como desinscrever um dispositivo do Serviço de Provisionamento de Dispositivos Do Hub Azure IoT
@@ -84,7 +84,7 @@ Para colocar permanentemente na lista negra o certificado, apagando o seu grupo 
 Depois de terminar o procedimento, deverá ver a sua inscrição removida da lista de grupos de matrículas.  
 
 > [!NOTE]
-> Se eliminar um grupo de inscrição para um certificado, os dispositivos que possuam o certificado na sua cadeia de certificados poderão ainda inscrever-se se um grupo de inscrição habilitado para o certificado raiz ou outro certificado intermédio superior no seu certificado cadeia existe.
+> Se eliminar um grupo de inscrição para um certificado, os dispositivos que possuam o certificado na sua cadeia de certificados poderão ainda inscrever-se se existir um grupo de inscrição habilitado para o certificado raiz ou outro certificado intermédio mais alto na sua cadeia de certificados.
 
 ## <a name="blacklist-specific-devices-in-an-enrollment-group"></a>Dispositivos específicos da lista negra num grupo de matrículas
 

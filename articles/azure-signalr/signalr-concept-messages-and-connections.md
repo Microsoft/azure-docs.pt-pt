@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 5f6428231a3639738e8fb52e7dc3f2f2a3d2a26e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75392814"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Mensagens e ligações no Serviço De Sinalização Azure
@@ -58,5 +58,5 @@ A distinção entre o tráfego de entrada e o tráfego de saída baseia-se na pe
 
 - [Tipos de agregação no Monitor Azure](/azure/azure-monitor/platform/metrics-supported#microsoftsignalrservicesignalr )
 - [Configuração ASP.NET Core SignalR](/aspnet/core/signalr/configuration)
-- [Rio JSON](https://www.json.org/)
+- [JSON](https://www.json.org/)
 - [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)

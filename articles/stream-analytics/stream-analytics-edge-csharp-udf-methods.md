@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
 ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426320"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desenvolver funções definidas pelo utilizador .NET Standard para trabalhos de Análise de Fluxo de Azure (Pré-visualização)
@@ -45,7 +45,7 @@ O formato de qualquer pacote `/UserCustomCode/CLR/*`UDF tem o caminho. Bibliotec
 
 |**Tipo UDF (C#)**  |**Tipo de Analytics Azure Stream**  |
 |---------|---------|
-|longo  |  bigint   |
+|long  |  bigint   |
 |double  |  double   |
 |string  |  nvarchar (max)   |
 |dataTempo  |  dataTempo   |

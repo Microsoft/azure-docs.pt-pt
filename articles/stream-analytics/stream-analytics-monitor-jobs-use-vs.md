@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: e43a8d157baaf7e02ab7f8db4c777009d2a0abe9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75431679"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Monitorize e gerencie trabalhos stream analytics com o Visual Studio

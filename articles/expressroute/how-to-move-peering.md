@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/12/2019
 ms.author: cherylmc
 ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75436844"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Move a public peering to Microsoft peering (Mover um peering público para o peering da Microsoft)
@@ -62,9 +62,9 @@ Instruções detalhadas para permitir o epeering da Microsoft podem ser encontra
 
 Verifique se o peering da Microsoft está ativado e que os prefixos públicos anunciados estão no estado configurado.
 
-* [Portal Azure](expressroute-howto-routing-portal-resource-manager.md#getmsft)<br>
+* [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md#getmsft)<br>
 * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)<br>
-* [Azure CLI](howto-routing-cli.md#getmsft)
+* [CLI do Azure](howto-routing-cli.md#getmsft)
 
 ## <a name="3-configure-and-attach-a-route-filter-to-the-circuit"></a><a name="routefilter"></a>3. Configure e fixe um filtro de rota no circuito
 

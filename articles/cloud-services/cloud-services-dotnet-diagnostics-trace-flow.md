@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: tagore
 ms.openlocfilehash: 47a33ba27dd6d2df626d93695c421303bace6a0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386515"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Trace o fluxo de uma aplicação de Serviços cloud com diagnósticos azure

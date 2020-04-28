@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.subservice: autoscale
 ms.openlocfilehash: e22806ff94ce2eb830bb6918bfc7f80e5ad3ba0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75364225"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de escala automática usando modelos de Gestor de Recursos para conjuntos de escala VM

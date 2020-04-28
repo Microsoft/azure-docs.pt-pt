@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
 ms.openlocfilehash: 827fab0661a58bfa7d28452960ea6df64d18bf84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74873748"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral de consulta elástica azure SQL Database (pré-visualização)
@@ -143,7 +143,7 @@ A consulta elástica está incluída no custo das bases de dados Azure SQL. Note
 * A importação/exportação para o SQL DB ainda não suporta fontes de dados externas e quadros externos. Se precisar de utilizar a Importação/Exportação, deixe cair estes objetos antes de exportar e, em seguida, recrie-os após a importação.
 * A tualmente, a consulta elástica apenas suporta o acesso apenas a leitura seleções a tabelas externas. Pode, no entanto, utilizar a funcionalidade T-SQL completa na base de dados onde a tabela externa está definida. Isto pode ser útil para, por exemplo, persistir resultados temporários utilizando, por exemplo, select <column_list> <local_table>, ou para definir procedimentos armazenados na base de dados de consulta elástica que se refere maquetes externas.
 * Com exceção do nvarchar (máx), os tipos lob (incluindo tipos espaciais) não são suportados em definições externas de tabela. Como uma suposição, pode criar uma visão na base de dados remota que lança o tipo LOB em nvarchar (máx), definir a sua tabela externa sobre a vista em vez da tabela base e, em seguida, lançá-la novamente para o tipo lob original nas suas consultas.
-* Colunas de nvarchar (max) tipo de dados em resultadodefinido desativar tecnologiaavançada de loteamento utilizada na implementação de consultas elásticas e pode afetar o desempenho da consulta por uma ordem de grandeza, ou mesmo duas ordens de magnitude em casos de utilização não canónica em que grande quantidade de Os dados não agregados estão a ser transferidos em resultado de consulta.
+* As colunas do tipo de dados nvarchar (max) em resultados desativam técnicos avançados de lotação utilizados na implementação de consultas elásticas e podem afetar o desempenho da consulta por uma ordem de grandeza, ou mesmo duas ordens de magnitude em casos de utilização não canónica em que uma grande quantidade de dados não agregados está a ser transferida em resultado de consulta.
 * Atualmente, as estatísticas das colunas sobre as tabelas externas não são suportadas. As estatísticas de tabelas são apoiadas, mas precisam de ser criadas manualmente.
 * A consulta elástica funciona apenas com base de dados Azure SQL. Não é possível usá-lo para consulta no local SQL Server, ou SQL Server num VM.
 

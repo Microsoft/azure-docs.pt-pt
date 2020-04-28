@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
 ms.openlocfilehash: 5705ef4fb6aa895009d554617c968543cc3fcd63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75441842"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Como utilizar o passo do perfil de execução para avaliar as consultas do Gremlin

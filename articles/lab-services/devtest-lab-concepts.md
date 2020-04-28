@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 22fd78ccd58be1790fcd167da396600e8b876564
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75428906"
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos de Laboratórios DevTest
@@ -29,7 +29,7 @@ A lista seguinte contém conceitos e definições chave DevTest Labs:
 Um laboratório é a infraestrutura que engloba um conjunto de recursos, como as Máquinas Virtuais (VMs), que permite gerir melhor esses recursos especificando limites e quotas.
 
 ## <a name="virtual-machine"></a>Máquina virtual
-Um Azure VM é um dos vários tipos de [recursos de computação a pedido e escalável](/azure/architecture/guide/technology-choices/compute-decision-tree) que o Azure oferece. Os VMs Azure dão-lhe a flexibilidade da virtualização sem ter de comprar e manter o hardware físico que o executa, embora ainda precise de manter o VM executando certas tarefas, tais como configurar, corrigir e instalar o software que funciona é.
+Um Azure VM é um dos vários tipos de [recursos de computação a pedido e escalável](/azure/architecture/guide/technology-choices/compute-decision-tree) que o Azure oferece. Os VMs Azure dão-lhe a flexibilidade da virtualização sem ter de comprar e manter o hardware físico que o executa, embora ainda precise de manter o VM executando certas tarefas, tais como configurar, corrigir e instalar o software que o executa.
 
 [A visão geral das máquinas virtuais do Windows em Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) dá-lhe informações sobre o que deve considerar antes de criar um VM, como o cria e como o gere.
 

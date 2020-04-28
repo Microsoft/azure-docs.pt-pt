@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: afc79badd19fa180e631f1f8fa9735567a0b1e33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74978718"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Atualizar os modelos de Aprendizagem automática Azure utilizando a Atividade de Recursos Atualizados

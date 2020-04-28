@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: juliako
 ms.openlocfilehash: 4c7618b60e5fd86a9b8b3f22fb3333c00cfdfa61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74899787"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Use as saídas de mudança de tempo e as saídas ao vivo para criar reprodução de vídeo a pedido
 
 No Azure Media Services, um objeto [de Saída Ao Vivo](https://docs.microsoft.com/rest/api/media/liveoutputs) é como um gravador de vídeo digital que vai capturar e gravar o seu live stream em um ativo na sua conta media Services. O conteúdo registado é permanecido no recipiente definido pelo recurso [Ativo](https://docs.microsoft.com/rest/api/media/assets) (o recipiente está na conta De armazenamento Azure anexada à sua conta). A Saída ao Vivo também permite controlar algumas propriedades do live stream de saída, como quanto do fluxo é mantido na gravação de arquivo (por exemplo, a capacidade do DVR em nuvem) ou quando os espectadores podem começar a ver o live stream. O arquivo no disco é uma "janela" de arquivo circular que apenas contém a quantidade de conteúdo especificada na propriedade **archiveWindowLength** da Saída Ao Vivo. O conteúdo que cai fora desta janela é automaticamente descartado do recipiente de armazenamento e não é recuperável. O valor archiveWindowLength representa uma duração da pádeia ISO-8601 (por exemplo, PTHH:MM:SS), que especifica a capacidade do DVR. O valor pode ser definido de um mínimo de três minutos para um máximo de 25 horas.
 
-A relação entre um Live Event e as suas Saídas ao Vivo é semelhante à transmissão tradicional de TV, na medida em que um canal (Live Event) representa um fluxo constante de vídeo e uma gravação (Live Output) é amplamente difundida para um segmento de tempo específico (por exemplo, notícias noturnas de 18h30 às 19h00). Assim que tiver o fluxo fluindo para o Live Event, pode iniciar o evento de streaming criando um ativo, Live Output e localizador de streaming. A Live Output irá arquivar o stream e disponibilizá-lo aos espectadores através do [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Pode criar várias Saídas ao Vivo (até três no máximo) num Evento Ao Vivo com diferentes comprimentos e configurações de arquivo. Para obter informações sobre o fluxo de trabalho em streaming ao vivo, consulte a secção [de passos gerais.](live-streaming-overview.md#general-steps)
+A relação entre um Live Event e as suas Saídas ao Vivo é semelhante à transmissão televisiva tradicional, na medida em que um canal (Live Event) representa um fluxo constante de vídeo e uma gravação (Live Output) é segmentado para um segmento de horário específico (por exemplo, notícias da noite das 18:30 às 19:00). Assim que tiver o fluxo fluindo para o Live Event, pode iniciar o evento de streaming criando um ativo, Live Output e localizador de streaming. A Live Output irá arquivar o stream e disponibilizá-lo aos espectadores através do [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Pode criar várias Saídas ao Vivo (até três no máximo) num Evento Ao Vivo com diferentes comprimentos e configurações de arquivo. Para obter informações sobre o fluxo de trabalho em streaming ao vivo, consulte a secção [de passos gerais.](live-streaming-overview.md#general-steps)
 
 ## <a name="using-a-dvr-during-an-event"></a>Usando um DVR durante um evento
 

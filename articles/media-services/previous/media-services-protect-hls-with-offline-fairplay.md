@@ -16,10 +16,10 @@ ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.openlocfilehash: 1644c00aea8eefa78550c8d0238dbedab0378492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74968703"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming for iOS (Transmissão Offline do FairPlay para iOS) 

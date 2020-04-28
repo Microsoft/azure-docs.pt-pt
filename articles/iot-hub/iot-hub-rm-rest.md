@@ -9,10 +9,10 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.openlocfilehash: c4cb230c9f0b56e3ff9d81e0d85134a7f192e6e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75429163"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Criar um hub IoT utilizando o fornecedor de recursos REST API (.NET)

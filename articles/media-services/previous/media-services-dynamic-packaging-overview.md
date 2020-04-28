@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
 ms.openlocfilehash: 079094965775c140c0343da98e40fd008995d45a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74901193"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
@@ -29,7 +29,7 @@ ms.locfileid: "74901193"
 > [!NOTE]
 > Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
-O Microsoft Azure Media Services pode ser utilizado para fornecer muitos formatos de ficheiros de fonte de mídia, formatos de streaming de mídia e formatos de proteção de conteúdos para uma variedade de tecnologias de cliente (por exemplo, iOS, XBOX, Silverlight, Windows 8). Estes clientes entendem diferentes protocolos, por exemplo o iOS requer um formato V4 de Streaming AO Vivo (HLS) http e Silverlight e Xbox requerem Smooth Streaming. Se tiver um conjunto de ficheiros MP4 (multibituados) de bitrate adaptativo (multibitado) (ISO Base Media 14496-12) ou um conjunto de ficheiros adaptativo de streaming liso que pretende servir a clientes que compreendam mPEG DASH, HLS ou Smooth Streaming, deve aproveitar os Media Serviços de embalagem dinâmica.
+O Microsoft Azure Media Services pode ser utilizado para fornecer muitos formatos de ficheiros de fonte de mídia, formatos de streaming de mídia e formatos de proteção de conteúdos para uma variedade de tecnologias de cliente (por exemplo, iOS, XBOX, Silverlight, Windows 8). Estes clientes entendem diferentes protocolos, por exemplo o iOS requer um formato V4 de Streaming AO Vivo (HLS) http e Silverlight e Xbox requerem Smooth Streaming. Se tiver um conjunto de ficheiros MP4 (multibituantes) de bitrate adaptativo (multibitado) (ISO Base Media 14496-12) ou um conjunto de ficheiros adaptáveis de streaming suave que pretende servir a clientes que compreendam mPEG DASH, HLS ou Smooth Streaming, deverá aproveitar a embalagem dinâmica dos Media Services.
 
 Com a embalagem dinâmica tudo o que precisa é criar um ativo que contenha um conjunto de ficheiros MP4 bitrate adaptativos ou ficheiros de streaming de bitrate adaptativo. Em seguida, com base no formato especificado no pedido de manifesto ou fragmento, o servidor de Streaming On-Demand irá garantir que recebe o fluxo no protocolo que escolheu. Como resultado, só tem de armazenar e pagar pelos ficheiros num único formato de armazenamento e os Media Services irão compilar e disponibilizar a resposta adequada com base nos pedidos de um cliente.
 

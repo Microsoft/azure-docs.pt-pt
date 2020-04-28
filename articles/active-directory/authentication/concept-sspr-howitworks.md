@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b19c80378aa40a7f791a3eb61130b013217ddee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74848583"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reset de senha de autosserviço da Azure AD
@@ -101,7 +101,7 @@ Os utilizadores não têm a opção de registar a sua aplicação móvel ao regi
 > A aplicação autenticadora não pode ser selecionada como o único método de autenticação ao configurar uma política de 1 portão. Da mesma forma, a aplicação autenticadora e apenas um método adicional não podem ser selecionados ao configurar uma política de 2 portas.
 > Em seguida, ao configurar as políticas de SSPR que incluem a aplicação autenticadora como um método, pelo menos deve ser selecionado um método adicional ao configurar uma política de 1 portão, e pelo menos dois métodos adicionais devem ser selecionados ao configurar uma política de 2 portas.
 > A razão para esta exigência é porque a experiência de registo SSPR atual não inclui a opção de registar a aplicação autenticadora. A opção de registar a aplicação autenticadora está incluída com o novo [registo convergente para reset de senha de autosserviço e autenticação de multi-factores Azure (pré-visualização pública)](concept-registration-mfa-sspr-converged.md).
-> Permitir políticas que utilizem apenas a aplicação autenticadora (para políticas de 1 portal), ou a aplicação autenticadora e apenas um método adicional (para políticas de 2 portas), poderia levar a que os utilizadores fossem bloqueados de se registarem para o SSPR até estarem configurados para utilizar em nova experiência de registo.
+> Permitir políticas que utilizem apenas a aplicação autenticadora (para políticas de 1 portal), ou a aplicação autenticadora e apenas um método adicional (para políticas de 2 portas), poderia levar a que os utilizadores fossem impedidos de se registarem para o SSPR até estarem configurados para utilizarem a nova experiência de registo.
 
 ### <a name="change-authentication-methods"></a>Alterar métodos de autenticação
 
@@ -188,7 +188,7 @@ Este controlo designa se os utilizadores que visitam o portal de reset de palavr
 
 ### <a name="on-premises-active-directory-password-filters"></a>Filtros de senha de diretório ativo no local
 
-O reset da palavra-passe autosserviço Azure AD executa o equivalente a uma redefinição de senha iniciada pela administração no Diretório Ativo. Se estiver a utilizar um filtro de palavra-passe de terceiros para impor regras de senha personalizadas e exigir que este filtro de senha seja verificado durante o reset da palavra-passe do autosserviço Azure AD, certifique-se de que a solução de filtro de senha de terceiros está configurada para ser aplicada no cenário de reset de palavra-passe de administrador. [A proteção de palavras-passe Azure AD para o Diretório Ativo](concept-password-ban-bad-on-premises.md) do Windows Server é suportada por predefinição.
+O reset da palavra-passe autosserviço Azure AD executa o equivalente a uma redefinição de senha iniciada pela administração no Diretório Ativo. Se estiver a utilizar um filtro de palavra-passe de terceiros para impor regras de senha personalizadas e exigir que este filtro de senha seja verificado durante o reset da palavra-passe do autosserviço Azure AD, certifique-se de que a solução de filtro de senha de terceiros está configurada para ser aplicada no cenário de redefinição da palavra-passe de administração. [A proteção de palavras-passe Azure AD para o Diretório Ativo](concept-password-ban-bad-on-premises.md) do Windows Server é suportada por predefinição.
 
 ## <a name="password-reset-for-b2b-users"></a>Reset de palavra-passe para utilizadores B2B
 

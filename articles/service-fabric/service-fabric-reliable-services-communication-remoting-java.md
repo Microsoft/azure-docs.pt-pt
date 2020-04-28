@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: eef63d7a2c8a4b15938dfbffd7db5f9d1b22d426
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426639"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Serviço de remo em Java com Serviços Fiáveis
@@ -19,7 +19,7 @@ ms.locfileid: "75426639"
 >
 >
 
-Para serviços que não estão ligados a um determinado protocolo de comunicação ou stack, como WebAPI, Windows Communication Foundation (WCF), ou outros, o quadro de Serviços Fiáveis fornece um mecanismo de remoing para configurar procedimentoremoto de forma rápida e fácil serviços.  Este artigo discute como configurar procedimentoremoto remoto exige serviços escritos com Java.
+Para serviços que não estão ligados a um determinado protocolo de comunicação ou stack, como WebAPI, Windows Communication Foundation (WCF), ou outros, o quadro de Serviços Fiáveis fornece um mecanismo de remopara configurar de forma rápida e fácil os serviços de procedimento remoto.  Este artigo discute como configurar procedimentoremoto remoto exige serviços escritos com Java.
 
 ## <a name="set-up-remoting-on-a-service"></a>Configurar remoting em um serviço
 A instalação de remopara um serviço é feita em dois passos simples:

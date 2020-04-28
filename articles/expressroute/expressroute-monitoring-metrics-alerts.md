@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
 ms.openlocfilehash: 268a7e7c94285d3c4fdcb0c5fb91b685c09b58c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75436917"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
@@ -29,7 +29,7 @@ Para ver **Métricas,** navegue para a página *do Monitor Azure* e clique em *M
 Uma vez selecionada uma métrica, a agregação padrão será aplicada. Opcionalmente, pode aplicar a divisão, que mostrará a métrica com diferentes dimensões.
 
 ### <a name="available-metrics"></a>Métricas Disponíveis
-|**Métricas**|**Categoria**|**Dimensão(s)**|**Características ou características**|
+|**Métrica**|**Categoria**|**Dimensão(s)**|**Características ou características**|
 | --- | --- | --- | --- |
 |Disponibilidade ARP|Disponibilidade|<ui><li>Peer (router Primary/Secondary ExpressRoute)</ui></li><ui><li> Tipo de observação (Privado/Público/Microsoft)</ui></li>|ExpressRoute|
 |Disponibilidade de BGP|Disponibilidade|<ui><li> Peer (router Primary/Secondary ExpressRoute)</ui></li><ui><li> Tipo de observação</ui></li>|ExpressRoute|

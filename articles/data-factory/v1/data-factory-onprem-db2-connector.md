@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74931794"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mova dados do DB2 utilizando a Atividade de Cópia da Fábrica de Dados Do Azure
@@ -320,19 +320,19 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |
 | Xml |Byte[] |
-| Char |Cadeia |
-| Rio Varchar |Cadeia |
-| LongVarchar |Cadeia |
-| DB2DynArray |Cadeia |
+| Char |String |
+| Rio Varchar |String |
+| LongVarchar |String |
+| DB2DynArray |String |
 | Binário |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Gráfico |Cadeia |
-| Vargraphic |Cadeia |
-| Longvargraphic |Cadeia |
-| Estação Clob |Cadeia |
+| Gráfico |String |
+| Vargraphic |String |
+| Longvargraphic |String |
+| Estação Clob |String |
 | Blobs |Byte[] |
-| DbClob |Cadeia |
+| DbClob |String |
 | SmallInt |Int16 |
 | Número inteiro |Int32 |
 | BigInt |Int64 |
@@ -346,7 +346,7 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |
 | Xml |Byte[] |
-| Char |Cadeia |
+| Char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para aprender a mapear colunas no conjunto de dados de origem para colunas no conjunto de dados do lavatório, consulte colunas de conjunto de [dados de mapeamento na Fábrica](data-factory-map-columns.md)de Dados Azure .

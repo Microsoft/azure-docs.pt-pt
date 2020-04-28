@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
 ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386736"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
@@ -774,7 +774,7 @@ Para obter mais informações, consulte os seguintes recursos:
 
 * [Parte 1 dos Cloud Services do Azure: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerir os Serviços cloud](cloud-services-how-to-manage-portal.md)
-* [Storage do Azure](https://docs.microsoft.com/azure/storage/)
+* [Armazenamento Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um fornecedor de serviços cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
 

@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 13d74fbb4a7c133ca2365fd2cbfce4b3d2bea72e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75350625"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticar um problema de encaminhamento de máquina virtual
 
-Neste artigo, aprende-se a diagnosticar um problema de encaminhamento visualizando as rotas que são eficazes para uma interface de rede numa máquina virtual (VM). O Azure cria várias rotas padrão para cada subnet de rede virtual. Pode substituir as rotas padrão do Azure definindo rotas numa tabela de rotas e, em seguida, associando a tabela de rotas a uma subnet. A combinação de rotas que cria, as rotas padrão do Azure e quaisquer rotas propagadas da sua rede no local através de um gateway Azure VPN (se a sua rede virtual estiver ligada à sua rede no local) através do protocolo de gateway fronteiriço (BGP), são as rotas eficazes para todas as interfaces de rede numa subnet. Se não estiver familiarizado com conceitos de rede virtual, interface de rede ou de encaminhamento, consulte [a visão geral da rede virtual,](virtual-networks-overview.md)interface de [rede](virtual-network-network-interface.md)e visão geral do [Encaminhamento](virtual-networks-udr-overview.md).
+Neste artigo, aprende-se a diagnosticar um problema de encaminhamento visualizando as rotas que são eficazes para uma interface de rede numa máquina virtual (VM). O Azure cria várias rotas padrão para cada subnet de rede virtual. Pode substituir as rotas padrão do Azure definindo rotas numa tabela de rotas e, em seguida, associando a tabela de rotas a uma subnet. A combinação de rotas que cria, as rotas padrão do Azure e quaisquer rotas propagadas da sua rede no local através de um portal Azure VPN (se a sua rede virtual estiver ligada à sua rede no local) através do protocolo de gateway fronteiriço (BGP), são as rotas eficazes para todas as interfaces de rede numa subnet. Se não estiver familiarizado com conceitos de rede virtual, interface de rede ou de encaminhamento, consulte [a visão geral da rede virtual,](virtual-networks-overview.md)interface de [rede](virtual-network-network-interface.md)e visão geral do [Encaminhamento](virtual-networks-udr-overview.md).
 
 ## <a name="scenario"></a>Cenário
 

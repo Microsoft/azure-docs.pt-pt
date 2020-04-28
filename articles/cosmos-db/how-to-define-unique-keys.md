@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.openlocfilehash: fa62495a7b51c9a06a91102299378c15e811eae0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74872116"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Defina chaves únicas para um recipiente Azure Cosmos
@@ -19,7 +19,7 @@ Este artigo apresenta as diferentes formas de definir [chaves únicas](unique-ke
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure Cosmos](create-sql-api-dotnet.md#create-account) ou selecione uma existente.
 
@@ -129,7 +129,7 @@ client.database('database').containers.create({
 });
 ```
 
-## <a name="use-the-python-sdk"></a>Use o Python SDK
+## <a name="use-the-python-sdk"></a>Utilizar o SDK Python
 
 Ao criar um novo recipiente utilizando o [Python SDK,](https://pypi.org/project/azure-cosmos/)podem ser especificados constrangimentos fundamentais únicos como parte do dicionário passado como parâmetro.
 

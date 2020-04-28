@@ -8,10 +8,10 @@ ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: cd9bb92b3ed86c3a57b5fc70411a4593335acedb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75431495"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Converter o armazenamento de discos geridos pela Converte de Standard para Premium ou Premium para Standard
@@ -131,7 +131,7 @@ az vm start --ids $vmId
 
 Siga estes passos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione o VM da lista de **máquinas Virtuais**.
 3. Se o VM não estiver parado, selecione **Stop** na parte superior do painel de **visão geral** vM e espere que o VM pare.
 4. No painel para o VM, selecione **Discos** do menu.

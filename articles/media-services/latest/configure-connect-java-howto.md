@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6b0f21c3fa7a9c827f7201f4b899a33ea77eaf08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74888500"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Ligação aos Media Services v3 API - Java
@@ -122,7 +122,7 @@ Quando executa o `pom.xml`comando, os , `App.java`e outros ficheiros são criado
 ## <a name="see-also"></a>Consulte também
 
 - [Conceitos de Serviços de Media](concepts-overview.md)
-- [Java SDK](https://aka.ms/ams-v3-java-sdk)
+- [SDK Java](https://aka.ms/ams-v3-java-sdk)
 - [Java reference](https://aka.ms/ams-v3-java-ref) (Referência de Java)
 - [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
 

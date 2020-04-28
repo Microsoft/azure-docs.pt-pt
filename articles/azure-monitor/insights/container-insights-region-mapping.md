@@ -4,10 +4,10 @@ description: Este artigo descreve os mapeamentos da região suportados entre o M
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.openlocfilehash: a058f9cac987bb5c7130019f50370c6a176b09ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75403429"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Mapeamentos da região apoiados pelo Azure Monitor para contentores
