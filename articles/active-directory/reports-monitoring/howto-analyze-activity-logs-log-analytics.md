@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d6212692465270182db541889bed5f03a08a345
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74008277"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analise registos de atividade da Azure AD com registos do Monitor Azure
@@ -47,7 +47,7 @@ Para acompanhar, precisa de:
     
 ## <a name="navigate-to-the-log-analytics-workspace"></a>Navegue para o espaço de trabalho log Analytics
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 2. Selecione **Diretório Ativo Azure**e, em seguida, selecione **Registos** da secção **de Monitorização** para abrir o seu espaço de trabalho Log Analytics. O espaço de trabalho abrirá com uma consulta padrão.
 

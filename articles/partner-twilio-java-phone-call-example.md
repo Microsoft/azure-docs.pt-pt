@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 168ec65cfd0ff4e87c33324daa353b554111c8aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73838562"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Como fazer uma chamada telefónica usando Twilio em uma aplicação Java em Azure
@@ -31,7 +31,7 @@ Terá de fazer o seguinte para usar o código neste tópico:
    O código neste tópico foi escrito usando o Jar TwilioJava-3.3.8 pré-construído.
 3. Adicione o JAR ao seu caminho de construção Java.
 4. Se estiver a utilizar o Eclipse para criar esta aplicação Java, inclua o Jar Twilio no ficheiro de implementação de aplicações (WAR) utilizando a função de montagem de implementação do Eclipse. Se não estiver a utilizar o Eclipse para criar esta aplicação Java, certifique-se de que o Twilio JAR está incluído na mesma função Azure que a sua aplicação Java, e adicionado ao percurso de classe da sua aplicação.
-5. Certifique-se de que a sua loja de cacerts contém o certificado Equifax Secure Certificate Authority com impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (o número de série é 35:DE:F4:CF e a impressão digital SHA1 é D2:32:09:D3:D3:D3:D3:D3:D3:D3:D3:D4 3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Este é o certificado da autoridade [https://api.twilio.com][twilio_api_service] do certificado (CA) para o serviço, que é chamado quando utiliza APIs Twilio. Para obter informações sobre a adição deste certificado CA à loja de cacert da sua JDK, consulte adicionar um Certificado à Loja de [Certificados Java CA][add_ca_cert].
+5. Certifique-se de que o seu keystore cacerts contém o certificado Equifax Secure Certificate Authority com impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (o número de série é 35:DE:F4:CF e a impressão digital SHA1 é D2:32:09:23:D3:14:23:21:74:E4:0D:7F:9D:62:97:86:63:3A). Este é o certificado da autoridade [https://api.twilio.com][twilio_api_service] do certificado (CA) para o serviço, que é chamado quando utiliza APIs Twilio. Para obter informações sobre a adição deste certificado CA à loja de cacert da sua JDK, consulte adicionar um Certificado à Loja de [Certificados Java CA][add_ca_cert].
 
 Além disso, a familiaridade com a informação na [Creating a Hello World Application Using the Azure Toolkit for Eclipse][azure_java_eclipse_hello_world], ou com outras técnicas para hospedar aplicações Java em Azure se não estiver a usar o Eclipse, é altamente recomendado.
 

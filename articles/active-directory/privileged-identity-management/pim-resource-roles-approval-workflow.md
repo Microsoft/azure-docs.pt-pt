@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e779f633efccf7b594c193e165a584d22b1d653b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74021975"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-privileged-identity-management"></a>Aprovar ou negar pedidos de funções de recurso Azure na Gestão de Identidade Privilegiada
@@ -32,7 +32,7 @@ Siga os passos deste artigo para aprovar ou negar pedidos de funções de recurs
 
 Como um aprovador delegado, receberá uma notificação por e-mail quando um pedido de função de recurso Azure estiver pendente da sua aprovação. Pode ver estes pedidos pendentes na Gestão de Identidade Privilegiada.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Open **Azure AD Privileged Identity Management.**
 

@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8f1d20e9a6a78d99a23fe4b98aeb4f3eb8359da7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890962"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Implementar o acelerador de soluções de monitorização remota localmente - Código de Estúdio Visual
@@ -35,7 +35,7 @@ Para completar a implementação local, necessita das seguintes ferramentas inst
 * [.NET Core](https://dotnet.microsoft.com/download)
 * [Estivador](https://www.docker.com)
 * [Nginx](https://nginx.org/en/download.html)
-* [Código de estúdio visual](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [Extensão C# do Código VS](https://code.visualstudio.com/docs/languages/csharp)
 * [Node.js v8](https://nodejs.org/) - este software é um pré-requisito para o CLI PCS que os scripts usam para criar recursos Azure. Não use Node.js v10
 

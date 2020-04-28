@@ -9,10 +9,10 @@ ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 86d03e980a233a60e4f3a6541462264dae0862af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74005566"
 ---
 Este artigo fornece orientações para a construção de aplicações de alto desempenho utilizando o Armazenamento Premium Azure. Pode utilizar as instruções fornecidas neste documento combinadas com as melhores práticas de desempenho aplicáveis às tecnologias utilizadas pela sua aplicação. Para ilustrar as diretrizes, usamos o SQL Server a correr no Armazenamento Premium como exemplo ao longo deste documento.

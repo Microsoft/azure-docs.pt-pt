@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: 4eeaa187142a6d0d97b12f685ebc455f3844606f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73825864"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastres para aplicações usando piscinas elásticas SQL Database
@@ -84,7 +84,7 @@ Se ocorrer uma paragem na região primária, as etapas de recuperação para col
 * Falhar imediatamente nas bases de dados de gestão para a região DR (3).
 * Altere a cadeia de ligação da aplicação para apontar para a região DR. Agora todas as novas contas e bases de dados dos inquilinos são criadas na região de DR. Os clientes de ensaio existentes vêem os seus dados temporariamente indisponíveis.
 * Falhar nas bases de dados pagas do arrendatário para a piscina na região de DR para restaurar imediatamente a sua disponibilidade (4). Uma vez que o failover é uma rápida alteração do nível de metadados, considere uma otimização onde as falhas individuais são desencadeadas a pedido pelas ligações do utilizador final.
-* Se o seu tamanho eDTU de piscina secundária ou valor vCore fosse inferior ao principal porque as bases de dados secundárias apenas requeriam a capacidade de processar os registos de mudança enquanto eram secundários, aumentar imediatamente a capacidade do pool agora para acomodar toda a carga de trabalho de todos os inquilinos (5).
+* Se o seu tamanho eDTU de piscina secundária ou o valor vCore fosse inferior ao primário porque as bases de dados secundárias apenas requeriam a capacidade de processar os registos de mudança enquanto eram secundários, aumentaria imediatamente a capacidade do pool agora para acomodar toda a carga de trabalho de todos os inquilinos (5).
 * Crie o novo conjunto elástico com o mesmo nome e a mesma configuração na região DR para as bases de dados dos clientes experimentais (6).
 * Uma vez criada a piscina dos clientes experimentais, utilize geo-restauro para restaurar as bases de dados individuais de inquilinos experimentais na nova piscina (7). Considere desencadear as restaurações individuais através das ligações do utilizador final ou utilize outro esquema prioritário específico para a aplicação.
 

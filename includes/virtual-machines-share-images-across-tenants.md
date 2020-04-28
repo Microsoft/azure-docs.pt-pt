@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73903688"
 ---
 Mas, se quiser partilhar imagens fora do seu inquilino Azure, em escala, deverá criar um registo de aplicações para facilitar a partilha.  A utilização de uma aplicação pode permitir cenários de partilha mais complexos, como: 

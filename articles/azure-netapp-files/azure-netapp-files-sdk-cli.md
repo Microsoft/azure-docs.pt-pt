@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: b-juche
 ms.openlocfilehash: fba762a53ec562bdbd52468716ce6e44eb717aaa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73887193"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDKs do Azure NetApp Files e ferramentas da CLI
@@ -35,7 +35,7 @@ A tabela abaixo lista os SDKs suportados.  Pode encontrar detalhes sobre os SDKs
 |    Python  |  [Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
 |    Ir    |    [Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
 |    Java |     [Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) |
-|    Javascript    |    [Azure/azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
+|    JavaScript    |    [Azure/azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
 |    Ruby   |    [Azure/azure-sdk-for-ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
 
 ## <a name="cli-tools"></a>Ferramentas CLI

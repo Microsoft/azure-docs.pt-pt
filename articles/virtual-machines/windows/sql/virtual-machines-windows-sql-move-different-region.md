@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 3b84119cdcc1bb7e8603de64e3d23c69dac70cc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74022297"
 ---
 # <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Mova o SQL Server VM para outra região dentro do Azure com serviços de recuperação de sites Azure
@@ -63,7 +63,7 @@ Prepare tanto a fonte SQL Server VM como a região alvo para a mudança.
 - Certifique-se de que cria um recurso-alvo para cada componente identificado no layout de rede de origem. Este passo é importante para garantir que os seus VMs possuam todas as funcionalidades e funcionalidades na região alvo que você tinha na região de origem. 
     - A Recuperação do Site Azure descobre e cria automaticamente uma rede virtual quando ativa a replicação para o VM de origem. Também pode pré-criar uma rede e atribuí-la ao VM no fluxo do utilizador para permitir a replicação. É necessário criar manualmente quaisquer outros recursos na região alvo.
 - Para criar os recursos de rede mais utilizados que são relevantes para si com base na configuração vm de origem, consulte a seguinte documentação: 
-    - [Grupos de segurança da rede](../../../virtual-network/tutorial-filter-network-traffic.md) 
+    - [Grupos de segurança de rede](../../../virtual-network/tutorial-filter-network-traffic.md) 
     - [Equilibrador de carga](../../../load-balancer/tutorial-load-balancer-basic-internal-portal.md)
     - [Endereço IP público](../../../virtual-network/virtual-network-public-ip-address.md)
     - Para quaisquer componentes adicionais de rede, consulte a [documentação](../../../virtual-network/virtual-networks-overview.md)de rede .

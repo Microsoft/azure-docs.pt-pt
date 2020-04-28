@@ -15,10 +15,10 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87da43100c7494937ddc842e0f903ba3a360959e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74022895"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Descubra os recursos do Azure para gerir na Gestão de Identidade Privilegiada
@@ -29,7 +29,7 @@ Quando cria a Privilegiada Gestão de Identidade para os recursos Do Azure, prec
 
 ## <a name="discover-resources"></a>Detetar recursos
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Open **Azure AD Privileged Identity Management.**
 

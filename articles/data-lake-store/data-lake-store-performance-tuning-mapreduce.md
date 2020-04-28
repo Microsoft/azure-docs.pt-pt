@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: a645049665bc1d51efa94a879b9d2e4e5529282f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73904597"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para MapReduce em HDInsight e Azure Data Lake Storage Gen1

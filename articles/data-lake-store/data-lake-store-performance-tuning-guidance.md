@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
 ms.openlocfilehash: 2521700e0f07691541ee6cbbf085a8be72f08129
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73904629"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Tune Azure Data Lake Storage Gen1 para desempenho

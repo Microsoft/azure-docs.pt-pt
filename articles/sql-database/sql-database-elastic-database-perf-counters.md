@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
 ms.openlocfilehash: de481dad9dd39b301a21142c67b1baf2209f76e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823890"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Crie contadores de desempenho para acompanhar o desempenho do gestor de mapas de fragmentos

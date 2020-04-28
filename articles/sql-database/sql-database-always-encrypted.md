@@ -13,17 +13,17 @@ ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
 ms.openlocfilehash: 82c3c3274a8a9d66019ce906ee7be47cedac7470
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73822049"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Sempre Encriptado: Proteja dados sensíveis e guarde chaves de encriptação na loja de certificados Windows
 
 Este artigo mostra-lhe como proteger dados sensíveis numa base de dados SQL com encriptação de base de dados utilizando o [Assistente Sempre Encriptado](https://msdn.microsoft.com/library/mt459280.aspx) no Estúdio de [Gestão de Servidores SQL (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Também mostra como armazenar as suas chaves de encriptação na loja de certificados Windows.
 
-Sempre Encriptado é uma nova tecnologia de encriptação de dados na Base de Dados Azure SQL e No Servidor SQL que ajuda a proteger dados sensíveis em repouso no servidor, durante o movimento entre cliente e servidor, e enquanto os dados estão em uso, garantindo que os dados sensíveis nunca aparecem como texto simples dentro do sistema de base de dados. Depois de encriptar dados, apenas aplicações de clientes ou servidores de aplicações que tenham acesso às teclas podem aceder a dados de texto simples. Para obter informações detalhadas, consulte [Sempre Encriptado (Motor de Base de Dados)](https://msdn.microsoft.com/library/mt163865.aspx).
+Sempre Encriptado é uma nova tecnologia de encriptação de dados na Base de Dados SQL do Azure e no SQL Server que ajuda a proteger dados sensíveis em repouso no servidor, durante o movimento entre o cliente e o servidor, e enquanto os dados estão em uso, garantindo que os dados sensíveis nunca aparecem como texto simples dentro do sistema de base de dados. Depois de encriptar dados, apenas aplicações de clientes ou servidores de aplicações que tenham acesso às teclas podem aceder a dados de texto simples. Para obter informações detalhadas, consulte [Sempre Encriptado (Motor de Base de Dados)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 Depois de configurar a base de dados para utilizar Sempre Encriptado, irá criar uma aplicação de cliente em C# com o Visual Studio para trabalhar com os dados encriptados.
 
@@ -46,7 +46,7 @@ Para este tutorial, você precisará:
 
 ## <a name="create-a-blank-sql-database"></a>Criar uma base de dados SQL vazia
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique **em Criar um recurso** > **Data + Storage** > **SQL Database**.
 3. Crie uma base de dados **em branco** chamada **Clinic** num servidor novo ou existente. Para obter instruções detalhadas sobre a criação de uma base de dados no portal Azure, consulte a sua primeira base de [dados Azure SQL](sql-database-single-database-get-started.md).
 

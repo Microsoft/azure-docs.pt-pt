@@ -8,10 +8,10 @@ ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: e97783d1a32916cad151f1d0858a8190d0005fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73831975"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implementar e configurar firewall Azure utilizando o Azure CLI

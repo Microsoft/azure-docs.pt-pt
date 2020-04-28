@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: b90736b3ed1c1f69488fde4a386cf215d751c362
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74012862"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescrever http pedido e cabeçalhos de resposta com Portal de Aplicação Azure - Portal Azure
@@ -67,7 +67,7 @@ Neste exemplo, modificaremos um URL de reorientação reescrevendo o cabeçalho 
 
    - Introduza o nome para o conjunto de reescrita na caixa **nome.**
    - Selecione uma ou mais das regras listadas na lista de regras de **encaminhamento associados.** Só pode selecionar regras que não tenham sido associadas a outros conjuntos de reescrita. As regras que já foram associadas a outros conjuntos de reescrita são diminuídas.
-   - Selecione **Next**.
+   - Selecione **Seguinte**.
    
      ![Adicionar nome e associação](media/rewrite-http-headers-portal/name-and-association.png)
 

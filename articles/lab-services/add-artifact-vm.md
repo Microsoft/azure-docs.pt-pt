@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 27fec279582d845972b87ac635c87c16c239924e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73901311"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Adicionar um artefacto a uma VM
@@ -31,7 +31,7 @@ Para saber como criar artefactos personalizados, consulte o artigo: [Criar artef
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure 
-1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Da lista de laboratórios, selecione o laboratório que contém o VM com o qual quer trabalhar.  
 1. Selecione **As minhas máquinas virtuais.**

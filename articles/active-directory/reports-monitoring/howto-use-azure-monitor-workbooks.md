@@ -15,10 +15,10 @@ ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74014367"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como utilizar os livros de trabalho do Azure Monitor para relatórios de Diretório Ativo Azure
@@ -81,7 +81,7 @@ Deve estar numa das seguintes funções, bem como ter acesso ao espaço de traba
 
 Para aceder a livros:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Navegue para **o Azure Ative Directory** > **Monitoring** > **Books**. 
 
@@ -186,7 +186,7 @@ Os livros de trabalho contêm consultas de log in sessão que podem ajudar os ad
 ### <a name="instructions"></a>Instruções 
 Para aceder ao livro de trabalho para Insights de Acesso Condicional, selecione o livro de informação de **acesso condicional** insights na secção acesso condicional. Este livro mostra o impacto esperado de cada política de Acesso Condicional no seu inquilino. Selecione uma ou mais políticas de Acesso Condicional da lista de abandono escolar e reduza o âmbito do livro aplicando os seguintes filtros: 
 
-- **Intervalo de Tempo**
+- **Intervalo de tempo**
 
 - **Utilizador**
 

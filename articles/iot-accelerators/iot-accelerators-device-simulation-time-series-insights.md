@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73889334"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use insights da Série de Tempo para visualizar a telemetria enviada do acelerador de solução de simulação de dispositivo
@@ -55,7 +55,7 @@ Os seguintes passos utilizam o Azure CLI na Casca de Nuvem Azure para criar o gr
 
 [Azure Time Series Insights](../../articles/time-series-insights/time-series-insights-overview.md) é um serviço de análise, armazenamento e visualização totalmente gerido para gerir dados da série de tempo em escala IoT na nuvem. Para criar um novo ambiente time series Insights:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Criar um recurso** > **Internet of Things** > **Time Series Insights:**
 
@@ -105,7 +105,7 @@ Crie uma nova fonte de evento para se conectar ao seu hub IoT. Utilize o grupo d
     | Nome da política do hub IoT | **iothubowner** |
     | Chave política do hub de iot | Este campo é povoado automaticamente. |
     | Grupo de consumidores do hut IoT | **dispositivosimulationtsi** |
-    | Formato de serialização de eventos | **Rio JSON** |
+    | Formato de serialização de eventos | **JSON** |
     | Nome da propriedade Carimbo de data/hora | Deixar em branco |
 
     ![Criar fonte de evento](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)

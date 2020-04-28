@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ddb4d0ff1339f1427c5041528cdbe464a345b37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73847007"
 ---
 # <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Rever o acesso às funções de recurso Azure na Gestão de Identidade Privilegiada
@@ -37,7 +37,7 @@ Pode aprovar ou negar o acesso com base no facto de ainda utilizar este papel ou
 
 Siga estes passos para encontrar e completar a revisão de acesso:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione **Diretório Ativo Azure** e abra a Gestão de **Identidade Privilegiada.**
 1. Selecione **Rever o acesso**.
 

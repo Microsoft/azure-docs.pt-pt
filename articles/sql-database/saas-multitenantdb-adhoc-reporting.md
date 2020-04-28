@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
 ms.openlocfilehash: c0d1829c52041446b4feb43d8af262265e2680fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73822176"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Executar consultas de análise ad hoc em várias bases de dados Azure SQL

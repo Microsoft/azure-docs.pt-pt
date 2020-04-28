@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
 ms.openlocfilehash: de5f23bf1e8acd8a5fcd0cf8e1526f88667800c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73827122"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Ligue o Excel a uma única base de dados na base de dados Azure SQL e crie um relatório
@@ -79,10 +79,10 @@ Para guardar os dados de ligação permanentemente, pode criar um ficheiro .odc 
 
       ![Nova caixa de diálogo de ligação](media/sql-database-connect-excel/new-connection.png)
 
-2. No **Assistente de Ligação**de Dados, escreva o nome do seu servidor e as credenciais de Base de Dados SQL. Selecione **Next**. 
+2. No **Assistente de Ligação**de Dados, escreva o nome do seu servidor e as credenciais de Base de Dados SQL. Selecione **Seguinte**. 
    1. Selecione a base de dados que contém os seus dados a partir da queda. 
    2. Selecione a tabela ou veja que está interessado. Escolhemos vGetAllCategories.
-   3. Selecione **Next**. 
+   3. Selecione **Seguinte**. 
 
       ![Assistente de ligação de dados](media/sql-database-connect-excel/data-connection-wizard.png) 
 

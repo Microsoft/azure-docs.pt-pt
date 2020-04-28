@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7424e92f8520d13137b6ac8787523095058a005f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74022117"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Conceder acesso a outros administradores para gerir a Gestão de Identidade Privilegiada
@@ -32,7 +32,7 @@ Certifique-se de que existem sempre pelo menos dois utilizadores numa função d
 
 ## <a name="grant-access-to-manage-pim"></a>Conceder acesso à gestão da PIM
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Em Azure AD, abra **a Gestão de Identidade Privilegiada.**
 
@@ -70,7 +70,7 @@ Certifique-se de que existem sempre pelo menos dois utilizadores numa função d
 
 Antes de remover alguém do papel de Administrador de Funções Privilegiadas, certifique-se sempre de que ainda haverá pelo menos dois utilizadores atribuídos ao mesmo.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Open **Azure AD Privileged Identity Management.**
 

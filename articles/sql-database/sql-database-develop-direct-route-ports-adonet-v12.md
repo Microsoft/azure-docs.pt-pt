@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 04/03/2019
 ms.openlocfilehash: c0012b61cf43d01afd5e7f5f52948310b5eb8420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73828067"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas para além da porta 1433 para ADO.NET 4.5

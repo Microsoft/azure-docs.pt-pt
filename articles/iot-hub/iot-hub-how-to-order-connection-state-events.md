@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.openlocfilehash: 210c2e74305ba99b4ac3a12625d0b7f5fc47ba43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73954257"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar eventos de ligação do dispositivo do Hub IoT com o Azure Cosmos DB

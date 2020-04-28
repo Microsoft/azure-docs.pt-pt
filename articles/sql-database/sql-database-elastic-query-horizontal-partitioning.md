@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 79abaade22fc107fa4c848607ff48232eeeb58ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823766"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Reportagem através de bases de dados de nuvem escalada (pré-visualização)
@@ -156,7 +156,7 @@ Depois de definir a sua fonte de dados externa e as suas tabelas externas, pode 
 
 ## <a name="example-querying-horizontal-partitioned-databases"></a>Exemplo: consulta de bases de dados horizontais divididas
 
-A seguinte consulta realiza uma ligação tridireccional entre armazéns, encomendas e linhas de encomendas e utiliza vários agregados e um filtro seletivo. Assume (1) divisória horizontal (sharding) e (2) que os armazéns, encomendas e linhas de ordem são esfumaçados pela coluna id do armazém, e que a consulta elástica pode co-localizar as juntas nos fragmentos e processar a parte cara da consulta nos fragmentos em paralelo.
+A seguinte consulta realiza uma ligação tridireccional entre armazéns, encomendas e linhas de encomendas e utiliza vários agregados e um filtro seletivo. Assume (1) divisória horizontal (sharding) e (2) que os armazéns, encomendas e linhas de encomenda são esfumaçados pela coluna id do armazém, e que a consulta elástica pode co-localizar as juntas nos fragmentos e processar a parte cara da consulta nos fragmentos em paralelo.
 
 ```sql
     select  

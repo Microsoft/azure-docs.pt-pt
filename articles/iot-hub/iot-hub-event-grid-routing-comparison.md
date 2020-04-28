@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 877467b65d346c871dd93f4b3f96b2c1664fa4b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73906799"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Compare o encaminhamento de mensagens e a grelha de eventos para o Hub IoT
@@ -34,7 +34,7 @@ Embora tanto o encaminhamento de mensagens como a Rede de Eventos permitam a con
 | **Mensagens e eventos do dispositivo** | Sim, o encaminhamento de mensagens pode ser usado para dados de telemetria, relatar alterações gémeas do dispositivo, eventos de ciclo de vida do dispositivo e eventos de mudança de twin digital (parte da [pré-visualização pública IoT Plug e Play).](../iot-pnp/overview-iot-plug-and-play.md) | Sim, a Grelha de Eventos pode ser usada para dados de telemetria, mas também pode reportar quando os dispositivos são criados, eliminados, conectados e desligados do IoT Hub |
 | **Ordenação** | Sim, a ordem dos acontecimentos é mantida.  | Não, a ordem dos acontecimentos não está garantida. | 
 | **Filtragem** | Filtragem rica em propriedades de aplicação de mensagens, propriedades do sistema de mensagens, corpo de mensagem, etiquetas gémeas do dispositivo e propriedades gémeas do dispositivo. A filtragem não é aplicada a eventos digitais de mudança de gémeos. Por exemplo, consulte [Message Routing Query Syntax](iot-hub-devguide-routing-query-syntax.md). | Filtragem com base no tipo de evento, tipo de assunto e atributos em cada evento. Por exemplo, consulte [Compreender eventos de filtragem em Assinaturas de Grelha](../event-grid/event-filtering.md)de Eventos . Ao subscrever eventos de telemetria, pode aplicar filtros adicionais nos dados para filtrar as propriedades da mensagem, corpo de mensagem e dispositivo gémeo no seu Hub IoT, antes de publicar na Event Grid. Veja [como filtrar eventos.](../iot-hub/iot-hub-event-grid.md#filter-events) |
-| **Pontos Finais** | <ul><li>Event Hubs</li> <li>Armazenamento de Blobs do Azure</li> <li>Fila do Service Bus</li> <li>Tópicos de ônibus de serviço</li></ul><br>As IoT Hub SKUs pagas (S1, S2 e S3) estão limitadas a 10 pontos finais personalizados. Podem ser criadas 100 rotas por Hub IoT. | <ul><li>Funções do Azure</li> <li>Automatização do Azure</li> <li>Event Hubs</li> <li>Aplicações Lógicas</li> <li>Blob de Armazenamento</li> <li>Tópicos Personalizados</li> <li>Armazenamento de filas</li> <li>Microsoft Flow</li> <li>Serviços de terceiros através do WebHooks</li></ul><br>São apoiados 500 pontos finais por Hub IoT. Para obter a lista mais atualizada de pontos finais, consulte os manipuladores de [eventos da Rede](../event-grid/overview.md#event-handlers)de Eventos . |
+| **Pontos Finais** | <ul><li>Hubs de Eventos</li> <li>Armazenamento de Blobs do Azure</li> <li>Fila do Service Bus</li> <li>Tópicos de ônibus de serviço</li></ul><br>As IoT Hub SKUs pagas (S1, S2 e S3) estão limitadas a 10 pontos finais personalizados. Podem ser criadas 100 rotas por Hub IoT. | <ul><li>Funções do Azure</li> <li>Automatização do Azure</li> <li>Hubs de Eventos</li> <li>Aplicações Lógicas</li> <li>Blob de Armazenamento</li> <li>Tópicos Personalizados</li> <li>Armazenamento de filas</li> <li>Microsoft Flow</li> <li>Serviços de terceiros através do WebHooks</li></ul><br>São apoiados 500 pontos finais por Hub IoT. Para obter a lista mais atualizada de pontos finais, consulte os manipuladores de [eventos da Rede](../event-grid/overview.md#event-handlers)de Eventos . |
 | **Custo** | Não há nenhuma taxa separada para o encaminhamento de mensagens. É cobrada apenas ingresso de telemetria no IoT Hub. Por exemplo, se tiver uma mensagem direcionada para três pontos finais diferentes, é cobrado apenas por uma mensagem. | Não há nenhuma acusação do IoT Hub. O Event Grid oferece as primeiras 100.000 operações por mês gratuitamente, e depois $0,60 por milhão de operações. |
 
 ## <a name="similarities"></a>Semelhanças

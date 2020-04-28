@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: stewu
 ms.openlocfilehash: c975af1799d427651b76bb9fde5ff765afed3f86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73904566"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para a utilização da PowerShell com o Azure Data Lake Storage Gen1
@@ -24,7 +24,7 @@ Este artigo descreve as propriedades que pode sintonizar para obter um melhor de
 | Propriedade            | Predefinição | Descrição |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Este parâmetro permite-lhe escolher o número de threads paralelos para carregar ou transferir cada ficheiro. Este número representa os fios máximos que podem ser atribuídos por ficheiro, mas pode obter menos fios dependendo do seu cenário (por exemplo, se estiver a carregar um ficheiro de 1 KB, obtém um fio mesmo que peça 20 fios).  |
-| ConcurrentFileCount | 10      | Este parâmetro destina-se especificamente ao carregamento ou transferência de pastas. Este parâmetro determina o número de ficheiros simultâneos que podem ser carregados ou transferidos. Este número representa o número máximo de ficheiros simultâneos que podem ser carregados ou descarregados de uma só vez, mas pode obter menos condivisões dependendo do seu cenário (por exemplo, se estiver a carregar dois ficheiros, obtém dois uploads de ficheiros simultâneos mesmo que pergunte para 15). |
+| ConcurrentFileCount | 10      | Este parâmetro destina-se especificamente ao carregamento ou transferência de pastas. Este parâmetro determina o número de ficheiros simultâneos que podem ser carregados ou transferidos. Este número representa o número máximo de ficheiros simultâneos que podem ser carregados ou descarregados de uma só vez, mas pode obter menos condivisões dependendo do seu cenário (por exemplo, se estiver a carregar dois ficheiros, obtém dois uploads simultâneos de ficheiros mesmo que peça 15). |
 
 **Exemplo:**
 

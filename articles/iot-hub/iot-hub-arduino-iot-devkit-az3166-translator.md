@@ -9,10 +9,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
 ms.openlocfilehash: 8e840a1ae7161ea3e7b370889a1f0fb648ca120e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73953363"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Use IoT DevKit AZ3166 com Funções Azure e Serviços Cognitivos para fazer um tradutor de línguas
@@ -30,7 +30,7 @@ Para completar os passos neste tutorial, faça primeiro as seguintes tarefas:
 ## <a name="create-azure-cognitive-service"></a>Criar serviço cognitivo azure
 
 1. No portal Azure, clique em **Criar um recurso** e procurar o **Discurso.** Preencha o formulário para criar o Serviço de Fala.
-  ![Serviço de voz](media/iot-hub-arduino-iot-devkit-az3166-translator/speech-service.png)
+  ![Serviço de fala](media/iot-hub-arduino-iot-devkit-az3166-translator/speech-service.png)
 
 1. Vá ao serviço de Fala que acabou de criar, clique na secção **Keys** para copiar e anote a **Chave1** para o DevKit aceder ao mesmo.
   ![Chaves de cópia](media/iot-hub-arduino-iot-devkit-az3166-translator/copy-keys.png)

@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 11/07/2018
 ms.openlocfilehash: e3afc8aa58551b995070ffaca978c8e7c8454da3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73822123"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação autónoma de inquilino único que utiliza a Base de Dados Azure SQL

@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: edf810dfc975eebaf261eac7b89106c9e29c759c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74022388"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-an-azure-vm"></a>Utilize modelos de quickstart Azure para configurar um grupo de disponibilidade para o SQL Server num VM Azure
@@ -60,7 +60,7 @@ Adicionar VMs de servidor SQL ao grupo de recursos *SqlVirtualMachineGroups* é 
 
    | **Campo** | Valor |
    | --- | --- |
-   | **Assinatura** |  A subscrição onde existem os seus VMs do Servidor SQL. |
+   | **Subscrição** |  A subscrição onde existem os seus VMs do Servidor SQL. |
    |**Grupo de recursos** | O grupo de recursos onde residem os seus VMs do Servidor SQL. | 
    |**Nome do cluster failover** | O nome que deseja para o seu novo cluster de falhas do Windows. |
    | **Lista Vm existente** | Os VMs do Servidor SQL que pretende participar no grupo de disponibilidade e fazer parte deste novo cluster. Separe estes valores com uma vírem e um espaço (por exemplo: *SQLVM1, SQLVM2*). |
@@ -110,7 +110,7 @@ Só precisas de criar o equilibrador interno de carga. No passo 4, o modelo de a
    | **Sub-rede** | Selecione a sub-rede em que as instâncias do Servidor SQL estão dentro. |
    | **Atribuição de endereçoIP** |**Estático** |
    | **Endereço IP privado** | Especifique um endereço IP disponível a partir da sub-rede. |
-   | **Assinatura** |Se tiver várias subscrições, este campo pode aparecer. Selecione a subscrição que pretende associar a este recurso. Normalmente é a mesma subscrição que todos os recursos para o grupo de disponibilidade. |
+   | **Subscrição** |Se tiver várias subscrições, este campo pode aparecer. Selecione a subscrição que pretende associar a este recurso. Normalmente é a mesma subscrição que todos os recursos para o grupo de disponibilidade. |
    | **Grupo de recursos** |Selecione o grupo de recursos em que os casos do Servidor SQL estão. |
    | **Localização** |Selecione a localização Azure onde os casos do Servidor SQL estão. |
    | &nbsp; | &nbsp; |

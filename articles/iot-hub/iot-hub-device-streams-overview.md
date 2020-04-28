@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
 ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890455"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivos Do Hub IoT (pré-visualização)
@@ -22,7 +22,7 @@ Os fluxos de *dispositivos* Azure IoT Hub facilitam a criação de túneis TCP b
 
 Utilizando fluxos de dispositivos IoT Hub, os dispositivos permanecem seguros e só terão de abrir ligações TCP de saída ao ponto final de streaming do hub IoT sobre a porta 443. Uma vez estabelecido um fluxo, as aplicações do lado do serviço e do lado do dispositivo terão acesso programático a um objeto de cliente WebSocket para enviar e receber bytes crus uns aos outros. As garantias de fiabilidade e ordenamento fornecidas por este túnel estão a par da TCP.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 Os fluxos de dispositivos IoT Hub proporcionam os seguintes benefícios:
 

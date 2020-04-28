@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/22/2019
 ms.openlocfilehash: e642454807511e8e0bc0b6b6ca7af837e03de2cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73821341"
 ---
 # <a name="choose-the-right-deployment-option-in-azure-sql"></a>Escolha a opção de implementação certa no Azure SQL
@@ -27,7 +27,7 @@ Saiba como cada opção de implementação se enquadra na plataforma de dados Az
 
 Desde migrações de elevador esporão, até modernização de aplicações existentes, até à construção de serviços modernos em nuvem, o Azure SQL é uma plataforma Moderna SQL que oferece várias opções de implementação, alimentadas por um motor líder da indústria Microsoft SQL Server. O Azure SQL foi concebido para suportar uma grande variedade de padrões de aplicação com diferentes níveis de controlo sobre a plataforma subjacente para satisfazer os requisitos de migração e modernização mais exigentes. O Azure SQL elimina em escala a complexidade da gestão de diversas coleções de aplicações baseadas em ServidorEs SQL, proporcionando uma única experiência de gestão unificada.
 
-Um dos primeiros aspetos a compreender em qualquer debate do Azure versus bases de dados do SQL Server no local é que pode utilizar todas. A plataforma de dados da Microsoft aproveita a tecnologia SQL Server e disponibiliza-a através de máquinas físicas no local, ambientes privados em nuvem, ambientes privados de nuvem e nuvem pública. O SQL Server em máquinas virtuais Azure (máquinas virtuais SQL) permite-lhe atender necessidades de negócio únicas e diversificadas através de uma combinação de implementações no local e implantações hospedadas em nuvem, utilizando ao mesmo conjunto de produtos de servidores, ferramentas de desenvolvimento e conhecimentos especializados através destes ambientes.
+Um dos primeiros aspetos a compreender em qualquer debate do Azure versus bases de dados do SQL Server no local é que pode utilizar todas. A plataforma de dados da Microsoft aproveita a tecnologia SQL Server e disponibiliza-a através de máquinas físicas no local, ambientes privados em nuvem, ambientes privados de nuvem e nuvem pública. O SQL Server em máquinas virtuais Azure (máquinas virtuais SQL) permite-lhe atender necessidades de negócio únicas e diversificadas através de uma combinação de implementações no local e implantações hospedadas em nuvem, utilizando ao mesmo conjunto de produtos de servidores, ferramentas de desenvolvimento e conhecimentos especializados em todos estes ambientes.
 
    ![Opções do SQL Server na nuvem: SQL server em IaaS ou base de dados SQL SaaS na nuvem.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
@@ -102,11 +102,11 @@ Para obter mais informações sobre preços, consulte os seguintes recursos:
 
 - [Preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
 - [Preços de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machines/) para [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) e para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
-- [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/)
+- [Calculadora de Preços Azure](https://azure.microsoft.com/pricing/calculator/)
 
 ### <a name="administration"></a>Administração
 
-Para muitas empresas, a decisão de fazer a transição para um serviço em nuvem passa tanto por descartar a complexidade de administração como pelo custo. Com o IaaS e o PaaS, a Microsoft administra a infraestrutura subjacente e replica automaticamente todos os dados para fornecer recuperação de desastres, configura e atualiza o software de base de dados, gere o equilíbrio de carga, e faz falha transparente se houver falha do servidor dentro de um centro de dados.
+Para muitas empresas, a decisão de fazer a transição para um serviço em nuvem passa tanto por descartar a complexidade de administração como pelo custo. Com o IaaS e o PaaS, a Microsoft administra a infraestrutura subjacente e replica automaticamente todos os dados para fornecer recuperação de desastres, configurae e melhora o software de base de dados, gere o equilíbrio de carga e falha transparente se houver uma falha de servidor dentro de um centro de dados.
 
 - Com bases de **dados SQL e instâncias geridas pela SQL,** pode continuar a administrar a sua base de dados, mas já não precisa de gerir o motor de base de dados, o sistema operativo ou o hardware. Exemplos de itens que pode continuar a administrar incluem bases de dados e inícios de sessão, otimização de índices e consultas, e auditoria e segurança. Além disso, configurar alta disponibilidade para outro centro de dados requer uma configuração e administração mínimas.
 - Com **máquinas virtuais SQL,** tem controlo total sobre o sistema operativo e a configuração da instância do Servidor SQL. Com uma VM, cabe-lhe a si decidir quando atualizar o sistema operativo e o software de base de dados e quando instalar software adicional, tal como o antivírus. Algumas funcionalidades automatizadas são fornecidas para simplificar significativamente a aplicação de patches, a cópia de segurança e a elevada disponibilidade. Além disso, pode controlar o tamanho da VM, o número de discos e as respetivas configurações de armazenamento. O Azure permite-lhe alterar o tamanho de uma VM conforme necessário. Para obter informações, consulte o artigo [Máquina Virtual e Tamanhos do Serviço em Nuvem do Azure](../virtual-machines/windows/sizes.md).

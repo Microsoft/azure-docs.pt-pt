@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
 ms.openlocfilehash: 3277318e01362df8fc21ff7ca769aaeb8006abc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73827999"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementar e explorar uma aplicação de multi-inquilinos escacadas

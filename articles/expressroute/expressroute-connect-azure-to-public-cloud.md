@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
 ms.openlocfilehash: b8a454c2a104dfe8545cf734bf0b020b8f749bb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73889632"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Conectando Azure com nuvens públicas

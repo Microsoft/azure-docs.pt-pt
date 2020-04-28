@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 09/25/2018
 ms.openlocfilehash: 3c2460c6f5e0905f45106148ecc3e8a949cf221f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73820691"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gerir dados históricos em Tabelas Temporais com política de retenção
@@ -122,7 +122,7 @@ A tarefa de limpeza das tabelas com índice agrupado de rowstore requer que o í
 
 *Msg 13766, Nível 16, Estado 1 <br> </br> Não pode deixar cair o índice agrupado 'WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory' porque está a ser usado para limpeza automática de dados envelhecidos. Considere colocar HISTORY_RETENTION_PERIOD ao INFINITE na tabela temporal versão do sistema correspondente se precisar de deixar cair este índice.*
 
-A limpeza do índice de colunas agrupadas funciona da melhor forma se as linhas históricas forem inseridas na ordem ascendente (ordenada pelo final da coluna do período), o que é sempre o caso quando a tabela de história é povoada exclusivamente pelo mecanismo SYSTEM_VERSIONIOING. Se as filas na tabela de história não forem encomendadas por coluna de fim de período (o que pode acontecer se migrar dados históricos existentes), deve recriar o índice de lojas de colunas agrupadas em cima do índice de loja de remo de árvore B que é devidamente encomendado, para alcançar o ideal desempenho.
+A limpeza do índice de colunas agrupadas funciona da melhor forma se as linhas históricas forem inseridas na ordem ascendente (ordenada pelo final da coluna do período), o que é sempre o caso quando a tabela de história é povoada exclusivamente pelo mecanismo SYSTEM_VERSIONIOING. Se as filas na tabela de história não forem encomendadas por coluna de fim de período (o que pode acontecer se migrar dados históricos existentes), deve recriar o índice de lojas de colunas agrupadas em cima do índice de loja de remo de árvore B que é devidamente encomendado, para obter um desempenho ótimo.
 
 Evite reconstruir o índice de colunas agrupadas na tabela de história com o período de retenção finita, pois pode alterar a encomenda nos grupos de linhas naturalmente impostas pela operação de versão do sistema. Se precisar de reconstruir o índice de lojas de colunas agrupadas na tabela de história, faça-o recriando-o em cima do índice b-tree compatível, preservando a encomenda nos grupos de remo necessários para a limpeza regular de dados. A mesma abordagem deve ser tomada se criar uma tabela temporal com uma tabela de história existente que tenha agrupado o índice de colunas sem ordem de dados garantida:
 

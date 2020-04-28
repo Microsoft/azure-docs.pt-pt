@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73931311"
 ---
 # <a name="deploy-a-trusted-security-partner-preview"></a>Implementar um parceiro de segurança fidedigno (pré-visualização)
@@ -53,7 +53,7 @@ Leva até 30 minutos para que a inscrição da funcionalidade seja concluída. E
 8. Se pretender apenas implantar um fornecedor de segurança de terceiros no centro, **selecione Firewall Azure: Ativado/Desativado** para o definir para **Desativado**. 
 9. Selecione **Seguinte: Parceiros de Segurança Fidedignos**.
 10. Selecione **Trusted Security Partner** para defini-lo para **Ativado**. Selecione um parceiro. 
-11. Selecione **Next**. 
+11. Selecione **Seguinte**. 
 12. Reveja o conteúdo e, em seguida, selecione **Criar**.
 
 A implantação do gateway VPN pode demorar mais de 30 minutos.

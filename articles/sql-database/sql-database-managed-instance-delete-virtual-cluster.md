@@ -11,10 +11,10 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 06/26/2019
 ms.openlocfilehash: 496d67a73207fd17182c31c5adad25c1fbe60c4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73820467"
 ---
 # <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Eliminar uma subnet após eliminar uma instância gerida pela Base de Dados Azure SQL

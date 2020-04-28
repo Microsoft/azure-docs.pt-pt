@@ -9,10 +9,10 @@ ms.date: 09/25/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5104c3b4446a8d3747ce7cc1648ef05dd117eb3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74013780"
 ---
 O Storage Explorer 1.10.0 permite que os utilizadores carreguem, descarreguem e copiem discos geridos, bem como criem instantâneos. Devido a estas capacidades adicionais, você pode usar o Storage Explorer para migrar dados do local para O Azure, e migrar dados através das regiões de Azure.

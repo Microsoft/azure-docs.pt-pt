@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 12/18/2018
 ms.openlocfilehash: c589d9619da8b5150d0fb4752625571c48393552
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73826388"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise de inquilinos cruzados usando dados extraídos - app de inquilino único

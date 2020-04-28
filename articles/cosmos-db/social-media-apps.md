@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
 ms.openlocfilehash: 8428e417f5f86edca77edae6ca4b7ef84e5ff425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73827304"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Indo social com Azure Cosmos DB
@@ -248,7 +248,7 @@ Este artigo lança alguma luz sobre as alternativas de criar redes sociais compl
 
 ![Diagrama de interação entre serviços Azure para redes sociais](./media/social-media-apps/social-media-apps-azure-solution.png)
 
-A verdade é que não há bala de prata para este tipo de cenários. É a sinergia criada pela combinação de grandes serviços que nos permitem construir grandes experiências: a velocidade e liberdade do Azure Cosmos DB para fornecer uma grande aplicação social, a inteligência por trás de uma solução de pesquisa de primeira classe como a Pesquisa Cognitiva Azure, a flexibilidade dos Serviços de Aplicações Azure para alojar nem mesmo aplicações agnósticas linguísticas, mas processos de fundo poderosos e a expansível Azure Storage e Azure SQL Database para armazenar quantidades massivas de dados e o poder analítico da Aprendizagem automática Azure criar conhecimento e inteligência que possam fornecer feedback aos seus processos e ajudar-nos a entregar o conteúdo certo aos utilizadores certos.
+A verdade é que não há bala de prata para este tipo de cenários. É a sinergia criada pela combinação de grandes serviços que nos permitem construir grandes experiências: a velocidade e liberdade do Azure Cosmos DB para fornecer uma grande aplicação social, a inteligência por trás de uma solução de pesquisa de primeira classe como a Pesquisa Cognitiva Azure, a flexibilidade dos Serviços de Aplicações Azure para alojar nem mesmo aplicações agnósticas linguísticas, mas poderosos processos de fundo e a expansível Azure Storage e Azure SQL Database para armazenar quantidades massivas de dados e o poder analítico da Máquina Azure Aprender a criar conhecimento e inteligência que possam fornecer feedback aos seus processos e ajudar-nos a entregar o conteúdo certo aos utilizadores certos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
