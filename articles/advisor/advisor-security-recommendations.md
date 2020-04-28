@@ -4,10 +4,10 @@ description: Utilize o Azure Advisor para ajudar a melhorar a segurança das sua
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: 5a4b7e9a9d9a7919155db361fd2c96ed98e6e5a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75443043"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Tornar os recursos mais seguros com o Consultor Azure

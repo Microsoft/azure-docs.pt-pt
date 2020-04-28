@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75445137"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo das consultas no Azure Cosmos DB
@@ -91,7 +91,7 @@ Considere as seguintes boas práticas ao otimizar consultas de custo:
 
 * **Colocação de vários tipos de entidades**
 
-   Tente colocar vários tipos de entidades dentro de um único ou menor número de recipientes. Este método beneficia não só do ponto de vista dos preços, mas também da execução e das transações de consulta. As consultas são consultadas a um único recipiente; e as transações atómicas através de vários registos através de procedimentos/gatilhos armazenados são reparadas numa chave de partição dentro de um único recipiente. A colocação de entidades dentro do mesmo contentor pode reduzir o número de viagens de ida e volta em rede para resolver relações através de registos. Assim, aumenta o desempenho de ponta a ponta, permite transações atómicas em vários registos para um conjunto de dados maior, e como resultado reduz os custos. Se a colocação de vários tipos de entidades dentro de um único ou menor número de contentores é difícil para o seu cenário, normalmente porque está a migrar uma aplicação existente e não quer fazer alterações de código - deve então considerar o fornecimento entrada ao nível da base de dados.  
+   Tente colocar vários tipos de entidades dentro de um único ou menor número de recipientes. Este método beneficia não só do ponto de vista dos preços, mas também da execução e das transações de consulta. As consultas são consultadas a um único recipiente; e as transações atómicas através de vários registos através de procedimentos/gatilhos armazenados são reparadas numa chave de partição dentro de um único recipiente. A colocação de entidades dentro do mesmo contentor pode reduzir o número de viagens de ida e volta em rede para resolver relações através de registos. Assim, aumenta o desempenho de ponta a ponta, permite transações atómicas em vários registos para um conjunto de dados maior, e como resultado reduz os custos. Se colocar vários tipos de entidades dentro de um único ou menor número de contentores é difícil para o seu cenário, geralmente porque está a migrar uma aplicação existente e não quer efetuar alterações de código - deve então considerar o fornecimento de entrada ao nível da base de dados.  
 
 * **Medir e sintonizar para unidades de pedido mais baixos/segunda utilização**
 

@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457636"
 ---
 # <a name="design-for-querying"></a>Design das consultas
@@ -37,12 +37,12 @@ Os seguintes exemplos assumem que o serviço de mesa está a armazenar entidades
 
 | *Nome da coluna* | *Tipo de dados* |
 | --- | --- |
-| **Chave de Partição** (Nome do Departamento) |Cadeia |
-| **RowKey** (Id do empregado) |Cadeia |
-| **Primeiro nome** |Cadeia |
-| **Apelido** |Cadeia |
+| **Chave de Partição** (Nome do Departamento) |String |
+| **RowKey** (Id do empregado) |String |
+| **Primeiro nome** |String |
+| **Apelido** |String |
 | **Idade** |Número inteiro |
-| **Endereço de e-mail** |Cadeia |
+| **Endereço de e-mail** |String |
 
 O artigo Visão geral do armazenamento da [tabela Azure](table-storage-overview.md) descreve algumas das principais características do serviço De Mesa Azure que têm uma influência direta na conceção para consulta. Estes resultados resultam nas seguintes orientações gerais para a conceção de consultas de serviço de mesa. Note que a sintaxe de filtro utilizada nos exemplos abaixo é do serviço mesa REST API, para mais informações ver [Consultas](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 

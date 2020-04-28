@@ -4,10 +4,10 @@ description: Uma visão geral do Tecido de Serviço e a utilização de recipien
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458217"
 ---
 # <a name="service-fabric-and-containers"></a>Tecido de serviço e recipientes
@@ -33,7 +33,7 @@ Para entrar e experimentar recipientes em Tecido de Serviço, experimente um arr
 
 Os contentores resolvem o problema de executar aplicações de forma fiável em diferentes ambientes informáticos, proporcionando um ambiente imutável para a aplicação a funcionar. Os contentores envolvem uma aplicação e todas as suas dependências, como bibliotecas e ficheiros de configuração, na sua própria 'caixa' isolada que contém tudo o que é necessário para executar o software dentro do contentor. Onde quer que o recipiente esteja em funcionamento, a aplicação no seu interior tem sempre tudo o que precisa para ser executada, como as versões certas das suas bibliotecas dependentes, quaisquer ficheiros de configuração e qualquer outra coisa que precise de executar.
 
-Os contentores funcionam diretamente em cima do núcleo e têm uma visão isolada do sistema de ficheiros e de outros recursos. Uma aplicação num contentor não tem conhecimento de quaisquer outras aplicações ou processos fora do seu contentor. Cada aplicação e o seu tempo de funcionamento, dependências e bibliotecas de sistemas funcionam dentro de um contentor com acesso total e privado à visão isolada do próprio contentor do sistema operativo. Além de facilitar a disponibilização de todas as dependências da sua aplicação, necessita de funcionar em diferentes ambientes de computação, a segurança e o isolamento de recursos são benefícios importantes da utilização de contentores com tecido de serviço-- que de outra forma executa serviços em um processo.
+Os contentores funcionam diretamente em cima do núcleo e têm uma visão isolada do sistema de ficheiros e de outros recursos. Uma aplicação num contentor não tem conhecimento de quaisquer outras aplicações ou processos fora do seu contentor. Cada aplicação e o seu tempo de funcionamento, dependências e bibliotecas de sistemas funcionam dentro de um contentor com acesso total e privado à visão isolada do próprio contentor do sistema operativo. Além de facilitar a disponibilização de todas as dependências da sua aplicação, necessita de funcionar em diferentes ambientes informáticos, a segurança e o isolamento de recursos são benefícios importantes da utilização de contentores com tecido de serviço- que de outra forma executa serviços num processo.
 
 Em comparação com as máquinas virtuais, os recipientes têm as seguintes vantagens:
 

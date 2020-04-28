@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 82802ceae8f9fdd24d1f5642d80d90ebfd8b92a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75460662"
 ---
 # <a name="yaml-configuration-options-to-customize-the-build-tasks"></a>Opções de configuração YAML para personalizar as tarefas de construção
@@ -133,7 +133,7 @@ Este artigo lista todas as opções de configuração YAML disponíveis em cada 
 | Formato de saída | pickList | sempre | Verdadeiro | json | checkstyle, codeFrame, filesList, json, msbuild, pmd, prosa, elegante, verbose, vso | A [formatter](https://palantir.github.io/tslint/formatters/) a usar para gerar saída. Note que o formato JSON é compatível com a Análise de Post.
 | NodeMemory | string | sempre | Falso |  |  | Uma quantidade explícita de memória em MBs para alocar ao nó para executar tSLint. Exemplo: 8000<br/><br/>Mapas para `--max_old_space=<value>` a opção CLI para `v8 option`o nó, que é a .
 | Versão de ferramentas | pickList | RuleLibrary != microsoft | Verdadeiro | mais recente | 4.0.0, 4.0.1, 4.0.2, 4.1.0, 4.1.1, 4.2.0, 4.3.0, 4.3.1, 4.4.0, 4.4.1, 4.4.2, 4.5.0, 4.5.1, 5.0.0, 5.1.0, 5.2.0, 5.3, 5.3.2, 5.3,0 | A [versão](https://github.com/palantir/tslint/releases) da TSLint para descarregar e executar.
-| TypeScriptVersion | pickList | sempre | Verdadeiro | mais recente | 0.8.0, 0.8.1, 0.8.2, 0.8.3, 0.9.0, 0.9.1, 0.9.5, 0.9.7, 1.0.0, 1.0.1, 1.3.0, 1.4.1, 1.5.3, 1.6.2, 1.7.3, 1.7.5, 1.8.0, 1.8.10, 1.8.2, 1.8.5, 1.8.6, 1.8.7, 1.8.9, 1.9.0, 2.0.0, 2.0.10, 2.0.2, 2.0.3, 2.0.6, 2.0.7, 2.0.8, 2.0.9, 2.1.1, 2.1.4, 2.1.5, 2.1.6, 2.2.0, 2.2.1, personalizado, mais recente | A versão da [máquina de escrever](https://www.npmjs.com/package/typescript) para descarregar e usar.<br/>**Nota:** Esta tem de ser a mesma versão do TypeScript que é usada para compilar o seu código.
+| TypeScriptVersion | pickList | sempre | Verdadeiro | mais recente | 0.8.0, 0.8.1, 0.8.2, 0.8.3, 0.9.0, 0.9.1, 0.9.5, 0.9.7, 1.0.0, 1.0.10, 1.3.0, 1.4.1, 1.5.3, 1.6.2, 1.7.3, 1.7.5, 1.8.0, 1.8.10, 1.8.2, 1.8.5, 1.8.5, 1.8.5, 1.8.5, 1.8.2, 1.8.5, 1.8.8, 1.8.5, 1.8.2, 1.8.5, 1.8.5, 1.8.8,5, 1.8.2, 1.8.5, 1.8.5, 1.8.5, 1.8.5, 1.8.2, 1.8.5, 1.8.2, 1.8.5, 1.8.5, 1.8.8,5, 1.8.5, 1.8.2, 1.8.5, 1.8.8, 1.8.5, 1.8.8, 1.8.5, 1.8.5, 1.8.5, 1.8.5, 1.8.5, 1.8.8 1.8.6, 1.8.7, 1.8.9, 1.9.0, 2.0.0, 2.0.10, 2.0.2, 2.0.3, 2.0.6, 2.0.6, 2.0.0 0.7, 2.0.8, 2.0.9, 2.1.1, 2.1.4, 2.1.5, 2.1.6, 2.2.0, 2.2.1, personalizado, mais recente | A versão da [máquina de escrever](https://www.npmjs.com/package/typescript) para descarregar e usar.<br/>**Nota:** Esta tem de ser a mesma versão do TypeScript que é usada para compilar o seu código.
 | TypeScriptVersionCustom | string | TypeScriptVersion == personalizado | Verdadeiro | mais recente |  | A versão da [máquina de escrever](https://www.npmjs.com/package/typescript) para descarregar e usar.<br/>**Nota:** Esta tem de ser a mesma versão do TypeScript que é usada para compilar o seu código.
 | MicrosoftContribVersion | pickList | RuleLibrary == microsoft |  | mais recente | 4.0.0, 4.0.1, 5.0.0, 5.0.1, mais recente | A versão do [tslint-microsoft-contrib](https://www.npmjs.com/package/tslint-microsoft-contrib) (Regras SDL) para descarregar e usar.</br>**Nota:** A versão do [tslint](https://www.npmjs.com/package/tslint) será escolhida que seja compatível com a versão escolhida para tslint-microsoft-contrib. As atualizações para tslint-microsoft-contrib serão fechadas por esta tarefa de construção, até que um período de teste possa ocorrer.
 

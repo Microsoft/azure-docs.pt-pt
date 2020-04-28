@@ -1,6 +1,6 @@
 ---
 title: Amostra PowerShell - Lista de informações estendidas para aplicações proxy de aplicação
-description: Exemplo powerShell que lista todas as aplicações de proxy de aplicação do Diretório Ativo Azure (Azure AD) juntamente com o ID da aplicação (AppId), nome (DisplayName), URL externo (ExternalUrl), URL interno (InternalUrl) e tipo de autenticação ( Tipo de Autenticação Externa).
+description: Exemplo powerShell que lista todas as aplicações de proxy de aplicação do Diretório Ativo Azure (Azure AD) juntamente com o ID da aplicação (AppId), nome (DisplayName), URL externo (ExternalUrl), URL interno (InternalUrl) e tipo de autenticação (ExternalAuthenticationType).
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f58de8c081dbb0323a2d9638777e29d879172072
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75482143"
 ---
 # <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Obtenha todas as aplicações de Procuração de Aplicações e lista informações estendidas

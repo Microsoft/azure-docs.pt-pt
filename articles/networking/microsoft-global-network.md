@@ -14,10 +14,10 @@ ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
 ms.openlocfilehash: 10a061163447a60f1c25b386ef28028436284650
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75453061"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft
@@ -38,7 +38,7 @@ Quer se ligue de Londres a Tóquio, ou de Washington DC a Los Angeles, o desempe
 
 Por exemplo, se um utilizador em Londres tenta aceder a um serviço em Tóquio, então o tráfego da Internet entra numa das nossas bordas em Londres, passa pela Microsoft WAN através da França, dos nossos caminhos trans-arabia entre a Europa e a Índia, e depois para o Japão onde o serviço está hospedado. O tráfego de resposta é simétrico. Isto é por vezes referido como [encaminhamento de batata fria,](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) o que significa que o tráfego permanece na rede da Microsoft o máximo possível antes de o entregarmos.  
   
-Então, isso significa algum tráfego quando se usa os serviços da Microsoft? Sim, qualquer tráfego entre centros de dados, dentro do Microsoft Azure ou entre serviços da Microsoft como Máquinas Virtuais, Office 365, XBox, DBs SQL, Armazenamento e redes virtuais são encaminhados dentro da nossa rede global e nunca através da Internet pública, para garantir o ideal desempenho e integridade.  
+Então, isso significa algum tráfego quando se usa os serviços da Microsoft? Sim, qualquer tráfego entre centros de dados, dentro do Microsoft Azure ou entre serviços da Microsoft como Máquinas Virtuais, Office 365, XBox, DBs SQL, Armazenamento e redes virtuais são encaminhados dentro da nossa rede global e nunca através da Internet pública, para garantir o melhor desempenho e integridade.  
  
 Os investimentos maciços em fibra e diversidade em caminhos de metro, terrestres e submarinos são cruciais para mantermos consistentes e de alto nível de serviço, ao mesmo tempo que alimentamos o crescimento extremo da nossa nuvem e serviços online. As recentes adições à nossa rede global são o nosso cabo submarino [MAREA,](https://www.submarinecablemap.com/#/submarine-cable/marea) o primeiro Open Line System (OLS) da indústria sobre o submar, entre Bilbau, Espanha e Virginia Beach, Virginia, EUA, bem como a [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) entre Nova Iorque, EUA e Dublin, Irlanda e [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) entre Tóquio, Japão e Portland, Oregon, EUA. 
  

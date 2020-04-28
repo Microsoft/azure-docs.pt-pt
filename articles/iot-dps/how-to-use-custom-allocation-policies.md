@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75453945"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como usar políticas de atribuição personalizadas
@@ -99,7 +99,7 @@ Nesta secção, você usa a Casca de Nuvem Azure para criar um serviço de provi
 
 Nesta secção, cria-se uma função Azure que implementa a sua política de atribuição personalizada. Esta função decide em que centro de IoT divisional um dispositivo deve ser registado com base em se o seu ID de registo contém a corda **-contoso-tstrsd-007** ou **-contoso-hpsd-088**. Também define o estado inicial do dispositivo twin com base no facto de o dispositivo ser uma torradeira ou uma bomba de calor.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). A partir da sua página inicial, selecione **+ Crie um recurso**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). A partir da sua página inicial, selecione **+ Crie um recurso**.
 
 2. Na caixa de pesquisa *do Mercado,* escreva "App de Funções". A partir da lista de drop-down selecione **App função**, e, em seguida, selecione **Criar**.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75463337"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia para converter funções web e trabalhadores para serviços apátridas de tecido de serviço
@@ -18,7 +18,7 @@ Este artigo descreve como migrar as suas Funções Web e Trabalhadores da Cloud 
 ## <a name="cloud-service-project-to-service-fabric-application-project"></a>Projeto de serviço na nuvem para projeto de aplicação de Tecido de Serviço
  Um projeto de Serviço cloud e um projeto de Aplicação de Tecido de Serviço têm uma estrutura semelhante e ambos representam a unidade de implementação para a sua aplicação - isto é, cada um define o pacote completo que é implementado para executar a sua aplicação. Um projeto de Serviço de Nuvem contém uma ou mais Funções Web ou Trabalhadores. Da mesma forma, um projeto de Aplicação de Tecido de Serviço contém um ou mais serviços. 
 
-A diferença é que o projeto Cloud Service acopla a implementação da aplicação com uma implementação vM e, assim, contém configurações de configuração VM no mesmo, enquanto o projeto de Aplicação de Tecido de Serviço apenas define uma aplicação que será implementada para um conjunto de VMs existentes em um cluster de Tecido de Serviço. O cluster Service Fabric em si só é implantado uma vez, seja através de um modelo de Gestor de Recursos ou através do portal Azure, e várias aplicações de Tecido de Serviço podem ser implantadas para o mesmo.
+A diferença é que o projeto Cloud Service acopla a implementação da aplicação com uma implementação vM e, assim, contém configurações de configuração VM no mesmo, enquanto o projeto de Aplicação de Tecido de Serviço apenas define uma aplicação que será implementada para um conjunto de VMs existentes num cluster de Tecido de Serviço. O cluster Service Fabric em si só é implantado uma vez, seja através de um modelo de Gestor de Recursos ou através do portal Azure, e várias aplicações de Tecido de Serviço podem ser implantadas para o mesmo.
 
 ![Comparação de projetos de Tecido de Serviço e Cloud Services][3]
 
@@ -104,7 +104,7 @@ Existem várias diferenças fundamentais entre o ciclo de vida e a vida útil do
 * **Ciclo de vida:** A maior diferença é que um Papel de Trabalhador é um VM e, por isso, o seu ciclo de vida está ligado ao VM, que inclui eventos para quando o VM começa e para. Um serviço de tecido de serviço tem um ciclo de vida separado do ciclo de vida VM, pelo que não inclui eventos para quando o VM hospedeiro ou máquina começa e para, uma vez que não estão relacionados.
 * **Vida útil:** Uma instância de função `Run` operária reciclará se o método sair. No `RunAsync` entanto, o método de um serviço de Tecido de Serviço pode esgotar-se e a instância de serviço permanecerá em pé. 
 
-O Service Fabric fornece um ponto de entrada opcional de configuração de comunicação para serviços que ouvem pedidos de clientes. Tanto o RunAsync como o ponto de entrada de comunicação são substituições opcionais nos serviços de Tecido de Serviço - o seu serviço pode optar por apenas ouvir pedidos de clientes, ou apenas executar um ciclo de processamento, ou ambos - razão pela qual o método RunAsync é permitido sair sem reiniciar a instância de serviço, porque pode continuar a ouvir pedidos de clientes.
+O Service Fabric fornece um ponto de entrada opcional de configuração de comunicação para serviços que ouvem pedidos de clientes. Tanto o RunAsync como o ponto de entrada de comunicação são substituições opcionais nos serviços de Tecido de Serviço - o seu serviço pode optar por apenas ouvir pedidos de clientes, ou apenas executar um ciclo de processamento, ou ambos - razão pela qual o método RunAsync é autorizado a sair sem reiniciar a instância de serviço, porque pode continuar a ouvir pedidos de clientes.
 
 ## <a name="application-api-and-environment"></a>API de aplicação e ambiente
 O ambiente cloud Services API fornece informações e funcionalidades para a atual instância VM, bem como informações sobre outras instâncias de papel VM. O Service Fabric fornece informações relacionadas com o seu tempo de funcionamento e algumas informações sobre o nó em que um serviço está atualmente a funcionar. 

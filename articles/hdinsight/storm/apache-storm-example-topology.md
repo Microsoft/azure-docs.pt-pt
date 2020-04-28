@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
 ms.openlocfilehash: 302ba583f11b15be98832316b1ea05c7f9be931f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75530668"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Exemplo Apache Storm topoologias e componentes para Tempestade Apache no HDInsight
@@ -25,8 +25,8 @@ Segue-se uma lista de exemplos criados e mantidos pela Microsoft para utilizaç�
 | [Spout do Hub de Eventos e fonte bolt](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Fonte para o Spout e Bolt do Hub de Eventos |Java |
 | [Desenvolver topoologias baseadas em Java para apache storm no HDInsight][5797064f] |Maven |Java |
 | [Desenvolva topoologias C# para Apache Storm no HDInsight usando o Estúdio Visual][16fce2d1] |Ferramentas HDInsight para estúdio visual |C#, Java |
-| [Processe eventos a partir de Hubs de Eventos Azure com Tempestade Apache em HDInsight (C#)][844d1d81] |Event Hubs |C# e Java |
-| [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) (Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight [Java]) |Event Hubs |Java |
+| [Processe eventos a partir de Hubs de Eventos Azure com Tempestade Apache em HDInsight (C#)][844d1d81] |Hubs de Eventos |C# e Java |
+| [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) (Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight [Java]) |Hubs de Eventos |Java |
 | [Processar dados de sensores de veículos a partir de Centros de Eventos usando apache storm no HDInsight][246ee964] |Hubs de eventos, Cosmos DB, Blob de Armazenamento Azure (WASB) |C#, Java |
 | [Extrato, Transformação e Carga (ETL) dos Hubs de Eventos Azure para Apache HBase, utilizando a Tempestade Apache no HDInsight][b4b68194] |Hubs de eventos, HBase |C# |
 | [Projeto de topologia de tempestade modelo C# para trabalhar com serviços Azure da Tempestade Apache no HDInsight][ce0c02a2] |Hubs de eventos, Cosmos DB, Base de Dados SQL, HBase, SignalR |C#, Java |

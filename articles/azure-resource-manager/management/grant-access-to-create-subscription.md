@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
 ms.openlocfilehash: b77efd7e5cf7ff016605e0ba2e74cff9ea8dab89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75478880"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso à criação de subscrições da Azure Enterprise (pré-visualização)
@@ -80,7 +80,7 @@ Para [criar subscrições sob uma conta de inscrição,](programmatically-create
 
     Utilize `principalName` a propriedade para identificar a conta a que pretende conceder acesso ao Proprietário RBAC. Copie `ObjectId` a conta. Por exemplo, se quisesse conceder ao Dono rBAC acesso SignUpEngineering@contoso.com ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```à conta de inscrição, copiaria . Repasse esta identificação do objeto em algum lugar para `enrollmentAccountObjectId`que possa usá-lo no próximo passo como .
 
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
     Utilize o comando da [lista de listas de inscrição az](https://aka.ms/EASubCreationPublicPreviewCLI) para listar todas as contas de inscrição a que tem acesso. Selecione **Experimente** para abrir a [Casca de Nuvem Azure](https://shell.azure.com/). Para colar o código, clique à direita nas janelas da concha e na **pasta**selecionada .
 
@@ -164,7 +164,7 @@ Para [criar subscrições sob uma conta de inscrição,](programmatically-create
     New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli-2)
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli-2)
 
     Executar a seguinte atribuição de [funções az criar](../../active-directory/role-based-access-control-manage-access-azure-cli.md) comando, ```<enrollmentAccountObjectId>``` substituindo pelo `name` copiado no primeiro passo (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Substitua-a ```<userObjectId>``` pelo ID do objeto recolhido no segundo passo.
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: 4a0717bf7a284668af4808acae3050cc7f42f836
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442533"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorize as suas APIs com a Azure API Management, Event Hubs e Moesif
@@ -95,7 +95,7 @@ Ao construir a mensagem completa para enviar para o centro do `application/http`
 <set-variable name="message-id" value="@(Guid.NewGuid())" />
 ```
 
-Poderíamos ter criado a mensagem de pedido, armazenando-a numa variável até que a resposta fosse devolvida e depois enviado o pedido e resposta como uma única mensagem. No entanto, enviando o pedido e a resposta de forma independente e usando um id de mensagem para correlacionar os dois, obtemos um pouco mais de flexibilidade no tamanho da mensagem, a capacidade de tirar partido de várias divisórias, mantendo a ordem da mensagem e o pedido aparecerá no nosso painel de login mais cedo. Pode também haver alguns cenários em que uma resposta válida nunca é enviada para o centro do evento, possivelmente devido a um erro fatal de pedido no serviço de Gestão API, mas ainda temos um registo do pedido.
+Poderíamos ter criado a mensagem de pedido, armazenando-a numa variável até que a resposta fosse devolvida e depois enviado o pedido e resposta como uma única mensagem. No entanto, enviando o pedido e a resposta de forma independente e usando um id de mensagem para correlacionar os dois, obtemos um pouco mais de flexibilidade no tamanho da mensagem, a capacidade de tirar partido de várias divisórias, mantendo a ordem de mensagem e o pedido aparecerá no nosso painel de registo mais cedo. Pode também haver alguns cenários em que uma resposta válida nunca é enviada para o centro do evento, possivelmente devido a um erro fatal de pedido no serviço de Gestão API, mas ainda temos um registo do pedido.
 
 A política de enviar a mensagem http resposta parece semelhante ao pedido e, por isso, a configuração de política completa é a seguinte:
 

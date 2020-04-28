@@ -13,10 +13,10 @@ ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3b3edbbe037c3874d639476e516b3732b7573d9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75443382"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Escolha o protocolo da federação certa para a sua aplicação multi-inquilino
@@ -46,7 +46,7 @@ A tabela seguinte compara
 
 O AUth 2.0 é um protocolo [padrão para](https://oauth.net/2/) a indústria de autorização. OIDC (OpenID Connect) é uma camada de autenticação de identidade padrão da [indústria](https://openid.net/connect/) construída em cima do protocolo OAuth 2.0.
 
-### <a name="benefits"></a>Vantagens
+### <a name="benefits"></a>Benefícios
 
 A Microsoft recomenda a utilização do OIDC/OAuth 2.0, uma vez que têm autenticação e autorização incorporadas nos protocolos. Com a SAML, deve implementar ainda a autorização.
 
@@ -74,7 +74,7 @@ A linguagem de marcação de afirmação de segurança (SAML) é normalmente uti
 
 Web Services Federation (WSFed) é um padrão da [indústria](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) geralmente usado para aplicações web que são desenvolvidos usando a plataforma .Net.
 
-### <a name="benefits"></a>Vantagens
+### <a name="benefits"></a>Benefícios
 
 O SAML 2.0 é um padrão maduro e a maioria das plataformas tecnológicas suportam bibliotecas de código aberto para o SAML 2.0. Pode fornecer aos seus clientes uma interface de administração para configurar o SAML SSO. Podem configurar saml SSO para a AD Microsoft Azure, e qualquer outro fornecedor de identidade que suporte o SAML 2
 

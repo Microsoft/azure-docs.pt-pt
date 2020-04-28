@@ -4,10 +4,10 @@ description: Gerir os Segredos da Aplicação para que possa criar e implementar
 ms.date: 4/2/2019
 ms.topic: conceptual
 ms.openlocfilehash: d7946092a0bebe374404870fcd711ad33cc98b11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75461930"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gerir os segredos de aplicação da malha de tecido de serviço
@@ -95,7 +95,7 @@ Segue-se um exemplo de como declarar os recursos da Mesh Secrets num ficheiro YA
 ## <a name="declare-mesh-secretsvalues-resources"></a>Declarar segredos de malha/recursos de valores
 Os recursos da Malha Secrets/Values têm uma dependência dos recursos da Malha Secrets definidos no passo anterior.
 
-No que diz respeito à relação entre os campos "recursos" da secção "valor:" e "nome:": a segunda parte da corda "nome:" delimitada por um cólon é o número de versão usado para um segredo, e o nome antes do cólon precisa de corresponder ao valor secreto da Malha para o qual tem um dependência. Por exemplo, ```name: mysecret:1.0```para o elemento , o número ```mysecret``` da versão é ```"value": "mysecret"```1.0 e o nome deve coincidir com o previamente definido .
+No que diz respeito à relação entre os campos "recursos" da secção "valor:" e "nome:": a segunda parte da corda "nome:" delimitada por um cólon é o número de versão usado para um segredo, e o nome antes do cólon precisa de corresponder ao valor secreto da Malha para o qual tem uma dependência. Por exemplo, ```name: mysecret:1.0```para o elemento , o número ```mysecret``` da versão é ```"value": "mysecret"```1.0 e o nome deve coincidir com o previamente definido .
 
 >
 Segue-se um exemplo de como declarar os recursos da Malha Secrets/Values num ficheiro JSON:

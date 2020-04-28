@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75530736"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Pressione as notificações de segurança dos Centros de Notificação Do Azure
@@ -32,7 +32,7 @@ ms.locfileid: "75530736"
 
 ## <a name="overview"></a>Descrição geral
 
-O suporte de notificação push no Microsoft Azure permite-lhe aceder a uma infraestrutura push de fácil utilização, multiplataforma e escalada, que simplifica consideravelmente a implementação de notificações push tanto para aplicações de consumo como para empresas para dispositivos móveis plataformas.
+O suporte de notificação push no Microsoft Azure permite-lhe aceder a uma infraestrutura push de fácil utilização, multiplataforma e dimensionada, que simplifica consideravelmente a implementação de notificações push para aplicações de consumidores e empresas para plataformas móveis.
 
 Devido a restrições regulamentares ou de segurança, por vezes, um pedido pode querer incluir algo na notificação que não pode ser transmitido através da infraestrutura padrão de notificação push. Este tutorial descreve como obter a mesma experiência enviando informações sensíveis através de uma ligação segura e autenticada entre o dispositivo cliente e o backend da aplicação.
 

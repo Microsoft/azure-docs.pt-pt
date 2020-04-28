@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 2b7a9c44a84e3ce15eaec22c8f57bb48f79dae05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75464633"
 ---
 # <a name="report-and-check-service-health"></a>Comunicar e verificar o estado de funcionamento dos serviços
@@ -19,7 +19,7 @@ Há três maneiras de informar a saúde do serviço:
 
 * Utilize objetos [de partição](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) ou [códigos de activaçãoContexto.](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext)  
   Pode utilizar `Partition` os `CodePackageActivationContext` e objetos para relatar a saúde dos elementos que fazem parte do contexto atual. Por exemplo, o código que funciona como parte de uma réplica só pode reportar a saúde nessa réplica, na partição a que pertence, e na aplicação da sua parte.
-* `FabricClient`Utilize.   
+* Utilize`FabricClient`.   
   Pode utilizar `FabricClient` para reportar a saúde do código de serviço se o cluster não estiver [seguro](service-fabric-cluster-security.md) ou se o serviço estiver a funcionar com privilégios administrativos. A maioria dos cenários do mundo real não usam aglomerados não seguros, nem proporcionam privilégios administrativos. Com, `FabricClient`pode reportar saúde em qualquer entidade que faça parte do cluster. Idealmente, no entanto, o código de serviço só deve enviar relatórios relacionados com a sua própria saúde.
 * Utilize as APIs REST no cluster, aplicação, aplicação implementada, serviço, pacote de serviço, partição, réplica ou nó. Isto pode ser usado para reportar a saúde de dentro de um recipiente.
 

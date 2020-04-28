@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 283ad2c63bb59771dab7881522e737f773ab1705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75463379"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Conheça as diferenças entre serviços de nuvem e tecido de serviço antes de migrar aplicações.
@@ -37,7 +37,7 @@ O modelo de aplicação Service Fabric tem uma série de vantagens:
 * Gestão de aplicações distribuídas. O Service Fabric é uma plataforma que não só acolhe aplicações distribuídas, como também ajuda a gerir o seu ciclo de vida independentemente do vm de hospedagem ou ciclo de vida da máquina.
 
 ## <a name="application-architecture"></a>Arquitetura da aplicação
-A arquitetura de uma aplicação cloud Services geralmente inclui numerosas dependências de serviços externos, tais como Service Bus, Azure Table e Blob Storage, SQL, Redis, e outros para gerir o estado e dados de uma aplicação e comunicação entre web e Funções de trabalhador numa implantação de Serviços cloud. Um exemplo de uma aplicação completa dos Serviços cloud pode parecer assim:  
+A arquitetura de uma aplicação cloud Services geralmente inclui numerosas dependências de serviços externos, tais como Service Bus, Azure Table e Blob Storage, SQL, Redis, e outros para gerir o estado e dados de uma aplicação e comunicação entre funções Web e Trabalhadornuma implementação de Serviços cloud. Um exemplo de uma aplicação completa dos Serviços cloud pode parecer assim:  
 
 ![Arquitetura de Serviços cloud][9]
 

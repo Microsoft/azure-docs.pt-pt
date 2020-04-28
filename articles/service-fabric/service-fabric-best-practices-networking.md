@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: de2a74ad2d61de18d2150b72be3251e5b5583f2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551799"
 ---
 # <a name="networking"></a>Redes
@@ -19,7 +19,7 @@ ms.locfileid: "75551799"
 Reveja os padrões de rede de [tecidos](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) de serviço Azure para aprender a criar clusters que utilizam as seguintes funcionalidades: rede virtual ou subnet existente, endereço IP público estático, balanceador de carga interna ou equilibrista de carga interna e externo.
 
 ## <a name="infrastructure-networking"></a>Networking de Infraestruturas
-Maximize o desempenho da sua Máquina Virtual com Networking Acelerado, declarando a propriedade enabledNetworking no seu modelo de Gestor de Recursos, o seguinte snippet é de uma Rede de Configurações de Configurações de Conjunto de Escala de Máquina Virtual que permite a ligação acelerada:
+Maximize o desempenho da sua Máquina Virtual com networking acelerado, declarando a propriedade enabledNetworking no seu modelo de Gestor de Recursos, o seguinte corte é de uma Rede de Configurações de Configurações de Configurações de Configuração de Conjunto de Escala de Máquina Virtual que permite a rede acelerada:
 
 ```json
 "networkInterfaceConfigurations": [

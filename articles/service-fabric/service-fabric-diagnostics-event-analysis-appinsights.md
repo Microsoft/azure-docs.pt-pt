@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 5c80dc9f350fec30469a9bce2ed836c276ef3a7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75464748"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análise de eventos e visualização com Insights de Aplicação
@@ -57,11 +57,11 @@ Certifique-se de que faz as alterações necessárias nos seus filtros, bem como
 
 ## <a name="application-insights-sdk"></a>Insights de aplicação SDK
 
-Recomenda-se utilizar o EventFlow e o WAD como soluções de agregação, pois permitem uma abordagem mais modular aos diagnósticos e monitorização, ou seja, se quiser alterar as suas saídas do EventFlow, não requer qualquer alteração à sua instrumentação real, apenas um simples modificação no seu ficheiro de config. Se, no entanto, decidir investir na utilização de Insights de Aplicação e não for provável que mude para uma plataforma diferente, deverá procurar utilizar o novo SDK da Application Insights para agregar eventos e enviá-los para Application Insights. Isto significa que deixará de ter de configurar o EventFlow para enviar os seus dados para Insights de Aplicação, mas irá instalar o pacote NuGet de Tecido de Serviço da ApplicationInsight. Os detalhes sobre o pacote podem ser encontrados [aqui.](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)
+Recomenda-se utilizar o EventFlow e o WAD como soluções de agregação, pois permitem uma abordagem mais modular aos diagnósticos e monitorização, ou seja, se pretender alterar as suas saídas do EventFlow, não necessita de alterações na sua instrumentação real, apenas uma simples modificação no seu ficheiro config. Se, no entanto, decidir investir na utilização de Insights de Aplicação e não for provável que mude para uma plataforma diferente, deverá procurar utilizar o novo SDK da Application Insights para agregar eventos e enviá-los para Application Insights. Isto significa que deixará de ter de configurar o EventFlow para enviar os seus dados para Insights de Aplicação, mas irá instalar o pacote NuGet de Tecido de Serviço da ApplicationInsight. Os detalhes sobre o pacote podem ser encontrados [aqui.](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)
 
-O suporte da [Application Insights para Microservices e Contentores](https://azure.microsoft.com/blog/app-insights-microservices/) mostra-lhe algumas das novas funcionalidades que estão a ser trabalhadas (atualmente ainda em versão beta), que lhe permitem ter opções de monitorização fora da caixa mais ricas com insights de aplicação. Estes incluem rastreio de dependência (usado na construção de um AppMap de todos os seus serviços e aplicações em um cluster e a comunicação entre eles), e uma melhor correlação de vestígios provenientes dos seus serviços (ajuda a identificar melhor um problema no fluxo de trabalho de uma aplicação ou serviço).
+O suporte da [Application Insights para Microservices e Contentores](https://azure.microsoft.com/blog/app-insights-microservices/) mostra-lhe algumas das novas funcionalidades que estão a ser trabalhadas (atualmente ainda em versão beta), que lhe permitem ter opções de monitorização fora da caixa mais ricas com insights de aplicação. Estes incluem o rastreio da dependência (usado na construção de um AppMap de todos os seus serviços e aplicações num cluster e a comunicação entre eles), e uma melhor correlação de vestígios provenientes dos seus serviços (ajuda a identificar melhor um problema no fluxo de trabalho de uma aplicação ou serviço).
 
-Se estiver a desenvolver-se em .NET e provavelmente utilizará alguns dos modelos de programação do Service Fabric, e estiver disposto a usar os Application Insights como plataforma para visualizar e analisar dados de eventos e registos, recomendamos que vá através dos Insights de Aplicação Rota SDK como o seu fluxo de trabalho de monitorização e diagnóstico. Leia [isto](../azure-monitor/app/asp-net-more.md) e [este para](../azure-monitor/app/asp-net-trace-logs.md) começar a usar insights de aplicação para recolher e exibir os seus registos.
+Se estiver a desenvolver-se em .NET e provavelmente utilizará alguns dos modelos de programação do Service Fabric, e estiver disposto a usar o Application Insights como plataforma para visualizar e analisar dados de eventos e registos, recomendamos que vá através da rota SDK de Insights de Aplicação como o seu fluxo de trabalho de monitorização e diagnóstico. Leia [isto](../azure-monitor/app/asp-net-more.md) e [este para](../azure-monitor/app/asp-net-trace-logs.md) começar a usar insights de aplicação para recolher e exibir os seus registos.
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Navegar no recurso Application Insights no portal Azure
 

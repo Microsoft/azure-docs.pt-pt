@@ -8,10 +8,10 @@ ms.author: shhurst
 ms.topic: article
 ms.date: 12/03/2019
 ms.openlocfilehash: 81e7c12b04c1ebd9691c11d76f387f7d42490180
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75456563"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Manuseie mensagens grandes com chunking em Aplicativos Azure Logic
@@ -115,7 +115,7 @@ Estes passos descrevem o processo detalhado que as Apps Lógicas usam para carre
 
    | Aplicativos lógicos solicitam campo de cabeçalho | Valor | Tipo | Descrição |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | pedaços | Cadeia | Indica que o conteúdo é carregado em pedaços |
+   | **x-ms-transfer-mode** | pedaços | String | Indica que o conteúdo é carregado em pedaços |
    | **x-ms-conteúdo-comprimento** | <*comprimento do conteúdo*> | Número inteiro | Todo o tamanho do conteúdo em bytes antes de chunking |
    ||||
 
@@ -124,7 +124,7 @@ Estes passos descrevem o processo detalhado que as Apps Lógicas usam para carre
    | Campo de cabeçalho de resposta endpoint | Tipo | Necessário | Descrição |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Número inteiro | Não | O tamanho sugerido em bytes |
-   | **Localização** | Cadeia | Sim | A localização do URL onde enviar as mensagens HTTP PATCH |
+   | **Localização** | String | Sim | A localização do URL onde enviar as mensagens HTTP PATCH |
    ||||
 
 3. A sua aplicação lógica cria e envia mensagens http patch de seguimento - cada uma com esta informação:
@@ -135,16 +135,16 @@ Estes passos descrevem o processo detalhado que as Apps Lógicas usam para carre
 
      | Aplicativos lógicos solicitam campo de cabeçalho | Valor | Tipo | Descrição |
      |---------------------------------|-------|------|-------------|
-     | **Gama de Conteúdos** | <*alcance*> | Cadeia | A gama de bytes para a parte atual do conteúdo, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo: "bytes=0-1023/10100" |
-     | **Tipo de conteúdo** | <*tipo de conteúdo*> | Cadeia | O tipo de conteúdo em pedaços |
-     | **Comprimento do conteúdo** | <*comprimento do conteúdo*> | Cadeia | O comprimento do tamanho em bytes do pedaço atual |
+     | **Gama de Conteúdos** | <*alcance*> | String | A gama de bytes para a parte atual do conteúdo, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo: "bytes=0-1023/10100" |
+     | **Tipo de conteúdo** | <*tipo de conteúdo*> | String | O tipo de conteúdo em pedaços |
+     | **Comprimento do conteúdo** | <*comprimento do conteúdo*> | String | O comprimento do tamanho em bytes do pedaço atual |
      |||||
 
 4. Após cada pedido de PATCH, o ponto final confirma o recibo de cada pedaço respondendo com o código de estado "200" e os seguintes cabeçalhos de resposta:
 
    | Campo de cabeçalho de resposta endpoint | Tipo | Necessário | Descrição |
    |--------------------------------|------|----------|-------------|
-   | **Alcance** | Cadeia | Sim | A gama de bytes para conteúdos que tenha sido recebido pelo ponto final, por exemplo: "bytes=0-1023" |   
+   | **Alcance** | String | Sim | A gama de bytes para conteúdos que tenha sido recebido pelo ponto final, por exemplo: "bytes=0-1023" |   
    | **x-ms-chunk-size** | Número inteiro | Não | O tamanho sugerido em bytes |
    ||||
 
