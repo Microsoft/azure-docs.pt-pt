@@ -16,10 +16,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: b1578547fbca4caaecb209021569f0fbb2f1ae24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74790629"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Como fornecer máquinas virtuais SQL Server com PowerShell Azure
@@ -138,7 +138,7 @@ Execute este cmdlet para criar o seu novo grupo de recursos.
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 A máquina virtual requer recursos de armazenamento para o disco do sistema operativo e para os dados do Servidor SQL e ficheiros de registo. Para a simplicidade, vaicriar um único disco para ambos. Pode anexar discos adicionais mais tarde utilizando o cmdlet do [Disco Add-Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azuredisk) para colocar os dados do SQL Server e registar ficheiros em discos dedicados. Utilize o cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) para criar uma conta de armazenamento padrão no seu novo grupo de recursos. Especifique as variáveis que previamente inicializou para o nome da conta de armazenamento, nome Sku de armazenamento e localização.
 
 Execute este cmdlet para criar a sua nova conta de armazenamento.

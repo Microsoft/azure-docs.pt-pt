@@ -18,10 +18,10 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: f2dcc714bc9052dd51f114e24f0b9bd74b87480c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74186393"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restringir o acesso à rede aos recursos PaaS com pontos finais de serviço de rede virtual utilizando o Azure CLI
@@ -158,7 +158,7 @@ az network nsg rule create \
 
 Os passos necessários para restringir o acesso de rede a recursos criados através de serviços do Azure ativados para pontos finais de serviço varia de serviço para serviço. Veja a documentação relativa aos serviços individuais para obter os passos específicos dos mesmos. O restante deste artigo inclui medidas para restringir o acesso à rede de uma conta de Armazenamento Azure, como exemplo.
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Crie uma conta de armazenamento Azure com a criação de uma conta de [armazenamento Az.](/cli/azure/storage/account) Substitua `<replace-with-your-unique-storage-account-name>` por um nome único em todas as localizações do Azure, entre 3-24 caracteres de comprimento, utilizando apenas números e letras minúsculas.
 

@@ -4,10 +4,10 @@ description: Amostra de tarefas de registo de contentores azure (Tarefas ACR) pa
 ms.topic: article
 ms.date: 11/14/2019
 ms.openlocfilehash: 49df3bf565052a729ac3c587bd2ba11a299d05f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74456093"
 ---
 # <a name="acr-tasks-samples"></a>Amostras de tarefas ACR

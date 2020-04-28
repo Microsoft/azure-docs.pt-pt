@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: d8dd0c86fbc520d0bd3ef6034891bd9871774b4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74232730"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar funções duráveis como WebJobs
@@ -126,7 +126,7 @@ Funções Duráveis no contexto do WebJobs difere um pouco das Funções Duráve
 O WebJobs SDK não suporta as seguintes funcionalidades de Funções Azure:
 
 * [Atributo nome de função](#functionname-attribute)
-* [Gatilho HTTP](#http-trigger)
+* [Acionador HTTP](#http-trigger)
 * [Funções Duráveis HTTP gestão API](#http-management-api)
 
 ### <a name="functionname-attribute"></a>Atributo nome de função

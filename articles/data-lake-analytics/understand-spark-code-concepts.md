@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
 ms.openlocfilehash: bdb38e36a9f1344a3adde15d349a2ec176c0fe95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74424013"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Compreender o código Apache Spark para desenvolvedores U-SQL
@@ -32,9 +32,9 @@ Antes de começar a migrar os scripts U-SQL do Azure Data Lake Analytics para a 
 
 U-SQL é uma linguagem de consulta declarativa semelhante a SQL que usa um paradigma de fluxo de dados e permite incorporar e escalar facilmente o código de utilizador escrito em .NET (por exemplo C#), Python e R. As extensões de utilizador podem implementar expressões simples ou funções definidas pelo utilizador, mas também podem fornecer ao utilizador a capacidade de implementar os chamados operadores definidos pelo utilizador que implementam operadores personalizados para realizar transformações de nível de linha, extrações e saída de escrita.
 
-Spark é um quadro de escala que oferece várias ligações linguísticas em Scala, Java, Python, .NET etc. onde você escreve principalmente o seu código em uma dessas línguas, criar abstrações de dados chamados conjuntos de dados distribuídos resilientes (RDD), dataframes e conjuntos de dados e conjuntos de dados e conjuntos de dados e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de dados e e conjuntos de em seguida, use uma linguagem específica de domínio linq (DSL) para transformá-los. Também fornece o SparkSQL como uma sublinguagem declarativa sobre o dataframe e abstrações de conjunto de dados. A DSL disponibiliza duas categorias de operações, transformações e ações. Aplicar transformações nas abstrações de dados não executará a transformação, mas sim construirá o plano de execução que será submetido para avaliação com uma ação (por exemplo, escrever o resultado numa tabela ou arquivo temporário, ou imprimir o resultado).
+Spark é um quadro de escala que oferece várias ligações linguísticas em Scala, Java, Python, .NET etc. onde escreve principalmente o seu código numa destas línguas, cria abstrações de dados chamadas conjuntos de dados distribuídos resilientes (RDD), dataframes e conjuntos de dados e, em seguida, usa uma linguagem específica de domínio (DSL) semelhante a LINQ para transformá-los. Também fornece o SparkSQL como uma sublinguagem declarativa sobre o dataframe e abstrações de conjunto de dados. A DSL disponibiliza duas categorias de operações, transformações e ações. Aplicar transformações nas abstrações de dados não executará a transformação, mas sim construirá o plano de execução que será submetido para avaliação com uma ação (por exemplo, escrever o resultado numa tabela ou arquivo temporário, ou imprimir o resultado).
 
-Assim, ao traduzir um script U-SQL para um programa Spark, terá de decidir qual a linguagem que pretende utilizar para pelo menos gerar a abstração do quadro de dados (que é atualmente a abstração de dados mais utilizada) e se quer escrever o declarativo transformações de fluxo de dados utilizando o DSL ou o SparkSQL. Em alguns casos mais complexos, poderá ter de dividir o seu script U-SQL numa sequência de Spark e outros passos implementados com funções azure Batch ou Azure.
+Assim, ao traduzir um script U-SQL para um programa Spark, terá de decidir qual a linguagem que pretende utilizar para pelo menos gerar a abstração do quadro de dados (que é atualmente a abstração de dados mais utilizada) e se pretende escrever as transformações declarativas de fluxo de dados utilizando o DSL ou o SparkSQL. Em alguns casos mais complexos, poderá ter de dividir o seu script U-SQL numa sequência de Spark e outros passos implementados com funções azure Batch ou Azure.
 
 Além disso, o Azure Data Lake Analytics oferece u-SQL em um ambiente de serviço de trabalho sem servidores, enquanto tanto os Azure Databricks como o Azure HDInsight oferecem spark em forma de serviço de cluster. Ao transformar a sua aplicação, terá de ter em conta as implicações de criar, dimensionar, escalar e desativar os clusters.
 
@@ -48,7 +48,7 @@ Os scripts U-SQL seguem o seguinte padrão de processamento:
 
 O script é avaliado preguiçosamente, o que significa que cada passo de extração e transformação é composto numa árvore de expressão e avaliado globalmente (o fluxo de dados).
 
-Os programas de faíscasão semelhantes na medida em que utilizaria conectores Spark para ler os dados e criar os dataframes, depois aplicar as transformações nos quadros de dados usando o DSL ou o SparkSQL, e depois escrever o resultado em ficheiros, tabelas temporárias de Spark, alguns tipos de linguagem de programação, ou a consola.
+Os programas de faíscas são semelhantes na medida em que utilizaria conectores Spark para ler os dados e criar os dataframes, depois aplicar as transformações nos quadros de dados usando o DSL ou o SparkSQL semelhantes a LINQ, e depois escrever o resultado em ficheiros, tabelas temporárias de Spark, alguns tipos de linguagem de programação ou na consola.
 
 ## <a name="transform-net-code"></a>Transforme o código .NET
 
@@ -151,7 +151,7 @@ Uma grande diferença é que os Scripts U-SQL podem fazer uso dos seus objetos d
 
 A Spark fornece suporte para os conceitos da loja Hive Meta, principalmente bases de dados e tabelas, para que possa mapear bases de dados u-SQL e schemas para bases de dados da Hive, e tabelas U-SQL para tabelas Spark (ver [dados móveis armazenados em tabelas U-SQL),](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)mas não tem suporte para vistas, funções de valor de mesa (TVFs), procedimentos armazenados, conjuntos U-SQL, fontes externas.
 
-Os objetos de código U-SQL, tais como vistas, TVFs, procedimentos armazenados e conjuntos podem ser modelados através de funções de código e bibliotecas em Spark e referenciados utilizando a função da língua anfitriã e mecanismos de abstração processual (por exemplo, através da importação Módulos Python ou funções de referência scala).
+Os objetos de código U-SQL, tais como vistas, TVFs, procedimentos armazenados e conjuntos podem ser modelados através de funções de código e bibliotecas em Spark e referenciados utilizando a função da língua anfitriã e mecanismos de abstração processual (por exemplo, através da importação de módulos Python ou referenciando funções Scala).
 
 Se o catálogo U-SQL tiver sido utilizado para partilhar objetos de dados e códigos entre projetos e equipas, então devem ser utilizados mecanismos equivalentes para a partilha (por exemplo, Maven para partilhar objetos de código).
 

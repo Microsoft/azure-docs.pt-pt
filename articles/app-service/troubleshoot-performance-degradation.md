@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
 ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74688303"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Problemas de desempenho lento de aplicações no Serviço de Aplicações Azure
@@ -109,7 +109,7 @@ O Profiler de Insights de Aplicação fornece estatísticas sobre o tempo de res
 ##### <a name="use-remote-profiling"></a>Utilizar perfis remotos
 No Azure App Service, aplicações web, aplicações API, back ends móveis e WebJobs podem ser perfilados remotamente. Escolha esta opção se tiver acesso ao recurso da aplicação e souber reproduzir o problema, ou se sabe o intervalo de tempo exato que o problema de desempenho acontece.
 
-O Perfil Remoto é útil se o uso do processo do CPU for elevado e o seu processo estiver a decorrer mais devagar do que o esperado, ou se a latência dos pedidos http for superior ao normal, pode remotamente perfilar o seu processo e obter as pilhas de chamadas de amostragem cpU para analisar o processo atividade e código caminhos quentes.
+O Perfil Remoto é útil se o uso do PROCESSO for elevado e o seu processo estiver a decorrer mais devagar do que o esperado, ou se a latência dos pedidos http for superior ao normal, pode remotamente perfilar o seu processo e obter as pilhas de chamadas de amostragem cpU para analisar a atividade do processo e codificar caminhos quentes.
 
 Para mais informações, consulte o suporte de Perfis Remotos no Serviço de [Aplicações Azure](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
 

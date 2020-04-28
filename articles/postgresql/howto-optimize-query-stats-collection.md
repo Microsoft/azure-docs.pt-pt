@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: f467f01118470eb51f7decf3bd6457917c566723
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74770174"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Otimizar a recolha de estatísticas de consulta numa Base de Dados Azure para PostgreSQL - Servidor Único
@@ -38,5 +38,5 @@ A funcionalidade [Query Store](concepts-query-store.md) na Base de Dados Azure p
 Considere `pg_stat_statements.track = NONE` a definição no [portal Azure](howto-configure-server-parameters-using-portal.md) ou utilizando o [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 Para obter mais informações, consulte: 
-- [Cenários de utilização da Loja de Consultas](concepts-query-store-scenarios.md) 
+- [Cenários de utilização do Arquivo de Consultas](concepts-query-store-scenarios.md) 
 - [Melhores práticas do Query Store](concepts-query-store-best-practices.md) 

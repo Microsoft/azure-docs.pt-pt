@@ -12,15 +12,15 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08dbb81b91def2fd464ecc85c2d2eaf45ed189d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74271785"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Compreender as fichas do utilizador na colaboração Azure AD B2B
 
-Se quiser saber como é o símbolo para um utilizador de colaboração B2B, aqui estão os detalhes do token do portador e conteúdo simbólico para um hóspede do Azure Ative Directory (Azure AD) e um hóspede da conta microsoft no inquilino de recursos (para tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). Para ver o conteúdo da JSON Web Token (JWT), utilize [https://jwt.io/](https://jwt.io/) ou [https://jwt.ms/](https://jwt.ms/).
+Se quiser saber como é o símbolo para um utilizador de colaboração B2B, aqui estão os detalhes do portal e conteúdo simbólico para um hóspede azure Ative Directory (Azure AD) e um hóspede da conta microsoft no inquilino de recursos (para tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). Para ver o conteúdo da JSON Web Token (JWT), utilize [https://jwt.io/](https://jwt.io/) ou [https://jwt.ms/](https://jwt.ms/).
 
 ## <a name="azure-ad-guest-token"></a>Ficha de hóspede da Azure AD
 ```

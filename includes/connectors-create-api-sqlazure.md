@@ -5,10 +5,10 @@ ms.author: estfan
 ms.topic: include
 ms.date: 11/08/2019
 ms.openlocfilehash: ea0ae1b1527aa1f527c8ac8fbcd3b4e4f6b6fe2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789206"
 ---
 * Se estiver a utilizar a Base de Dados Azure SQL, siga os passos em [Connect to Azure SQL Database](#connect-azure-sql-db).

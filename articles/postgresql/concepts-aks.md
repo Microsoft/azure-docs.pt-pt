@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.date: 5/6/2019
 ms.topic: conceptual
 ms.openlocfilehash: 46aa411826dd3ea578a2d98b0fe631ab0a12ef4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74769885"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Ligação do Serviço Azure Kubernetes e base de dados Azure para PostgreSQL - Servidor Único

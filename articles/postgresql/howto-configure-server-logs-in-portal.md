@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 3da48a9b6d3acb1f2811bc279de7963fa1d83918
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74763696"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Configure e aceda à Base de Dados Azure para registos postgresQL - Servidor Único do portal Azure
@@ -23,7 +23,7 @@ Os passos neste artigo exigem que tenha [base de dados Azure para servidor Postg
 ## <a name="configure-logging"></a>Configurar a exploração madeireira
 Configure o acesso aos registos de consulta e registos de erros. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione o servidor da Base de Dados do Azure para PostgreSQL.
 

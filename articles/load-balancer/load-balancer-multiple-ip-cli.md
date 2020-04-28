@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
 ms.openlocfilehash: 69d324647af014a5122c404929c104a9077d5f13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74225296"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Equilíbrio de carga em várias configurações IP usando O ClI Azure

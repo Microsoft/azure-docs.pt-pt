@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74379107"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Resolução de problemas híbrido Azure Ative Directory juntou-se a dispositivos de nível inferior 
@@ -39,7 +39,7 @@ Este artigo fornece-lhe orientações de resolução de problemas sobre como res
 **O que deve saber:** 
 
 - A ad ida a Hybrid Azure para dispositivos Windows de nível inferior funciona de forma ligeiramente diferente da do Windows 10. Muitos clientes não percebem que precisam de AD FS (para domínios federados) ou SSO Seamless configurado (para domínios geridos).
-- Para clientes com domínios federados, se o Ponto de Ligação de Serviço (SCP) foi configurado de tal forma que aponta para o nome de domínio gerido (por exemplo, contoso.onmicrosoft.com, em vez de contoso.com), então o Hybrid Azure AD Join para dispositivos Windows de nível inferior não trabalhar.
+- Para os clientes com domínios federados, se o Service Connection Point (SCP) foi configurado de tal forma que aponta para o nome de domínio gerido (por exemplo, contoso.onmicrosoft.com, em vez de contoso.com), então o Hybrid Azure AD Join para dispositivos Windows de nível inferior não funcionará.
 - O número máximo de dispositivos por utilizador aplica-se atualmente também aos dispositivos híbridos azure ad de nível inferior. 
 - O mesmo dispositivo físico aparece várias vezes em Azure AD quando vários utilizadores de domínio assinam o híbrido azure ad de nível inferior a dispositivos.  Por exemplo, se *jdoe* e *jharnett* iniciars sessão num dispositivo, é criado um registo separado (DeviceID) para cada um deles no separador **USER** info. 
 - Também pode obter várias entradas para um dispositivo no separador informação do utilizador devido a uma reinstalação do sistema operativo ou a uma reinscrição manual.

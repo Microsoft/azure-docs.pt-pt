@@ -15,16 +15,16 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a218e956c72f8005e533db7b8800e98ee72ce223
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74233118"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Ative Directory versão 2 cmdlets para gestão de grupo
 
 > [!div class="op_single_selector"]
-> - [Portal Azure](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [Portal do Azure](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 > - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
@@ -256,7 +256,7 @@ Agora, se quisermos verificar os membros do grupo de um utilizador com objectid 
     https://graph.windows.net/85b5ff1e-0402-400c-9e3c-0f9e965325d1/$metadata#Collection(Edm.String)             {31f1ff6c-d48c-4f8a-b2e1-abca7fd399df}
 ```
 
-O valor devolvido é uma lista de grupos dos quais este utilizador é membro. Também pode aplicar este método para verificar a adesão de Contactos, Grupos ou Principados de Serviços para uma determinada lista de grupos, utilizando Select-AzureADGroupIdsContactIsMemberOf, Select-AzureADGroupIdsGroupIsMemberOf ou Select-AzureADGroupIdsServicePrincipaisMemberOf
+O valor devolvido é uma lista de grupos dos quais este utilizador é membro. Também pode aplicar este método para verificar a adesão de Contactos, Grupos ou Principados de Serviços para uma determinada lista de grupos, utilizando Select-AzureADGroupIdsContactIsMemberOf, Select-AzureADGroupIdsGroupIsMemberOf ou Select-AzureADGroupIdsServicePrincipaIsMemberOf
 
 ## <a name="disable-group-creation-by-your-users"></a>Desativar a criação de grupo pelos seus utilizadores
 

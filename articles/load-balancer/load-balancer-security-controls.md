@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: allensu
 ms.openlocfilehash: 6043e574697489b6566641c352bc21a2b6d87f51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74214906"
 ---
 # <a name="security-controls-for-azure-load-balancer"></a>Controlos de segurança para o Equilíbrio de Carga Azure

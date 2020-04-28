@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74225245"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Obtenha métricas de utilização do Balancer de Carga utilizando a API REST
@@ -37,7 +37,7 @@ Os seguintes cabeçalhos são obrigatórios:
 
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
-|*Tipo de conteúdo:*|Necessário. Definido como `application/json`.|  
+|*Content-Type:*|Necessário. Definido como `application/json`.|  
 |*Authorization:*|Necessário. Definido como um  [token de acesso `Bearer`](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros URI
@@ -49,7 +49,7 @@ Os seguintes cabeçalhos são obrigatórios:
 | loadBalancerName | O nome do Equilíbrio de Carga Azure. |
 | nomes métricos | Lista separada da vírmeta das [métricas válidas](/azure/load-balancer/load-balancer-standard-diagnostics)do Balancer de Carga . |
 | api-version | A versão API a utilizar para o pedido.<br /><br /> Este documento abrange a `2018-01-01`versão api, incluída no URL acima.  |
-| tempospan | O tempo da consulta. É uma corda com o `startDateTime_ISO/endDateTime_ISO`seguinte formato. Este parâmetro opcional está definido para devolver um dia de dados no exemplo. |
+| timespan | O tempo da consulta. É uma corda com o `startDateTime_ISO/endDateTime_ISO`seguinte formato. Este parâmetro opcional está definido para devolver um dia de dados no exemplo. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo do pedido

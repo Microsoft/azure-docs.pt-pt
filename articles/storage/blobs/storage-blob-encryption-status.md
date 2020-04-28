@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 5cef0e94a43b3ef16d45f7f43658f962e07b5345
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74707584"
 ---
 # <a name="check-the-encryption-status-of-a-blob"></a>Verifique o estado de encriptação de uma bolha
@@ -26,7 +26,7 @@ Este artigo mostra como determinar se uma dada bolha foi encriptada.
 
 Utilize o portal Azure, PowerShell ou Azure CLI para determinar se uma bolha é encriptada sem código.
 
-### <a name="azure-portal"></a>[Portal Azure](#tab/portal)
+### <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para utilizar o portal Azure para verificar se uma bolha foi encriptada, siga estes passos:
 
@@ -56,7 +56,7 @@ Para determinar quando a bolha foi criada, verifique o valor da propriedade **Cr
 $blob.ICloudBlob.Properties.IsServerEncrypted
 ```
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/cli)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
 Para utilizar o Azure CLI para verificar se uma bolha foi encriptada, verifique a propriedade **IsServerEncrypted** da blob. Lembre-se de substituir os valores do espaço reservado em suportes angulares por valores próprios:
 

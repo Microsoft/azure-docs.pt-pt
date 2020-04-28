@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 10/17/2019
 ms.author: amverma
 ms.openlocfilehash: 7f7907482da886d9da17ef1e7844b205f3e4b906
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74196770"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>Ativar a InfiniBand com o SR-IOV

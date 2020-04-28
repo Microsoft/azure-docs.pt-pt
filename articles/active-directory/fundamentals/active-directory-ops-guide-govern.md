@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 4826bcdc85e0c6189c51aa262014fe154bb479b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74535460"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guia de referência de operações de governação do Diretório Ativo Azure
@@ -94,7 +94,7 @@ Com o tempo, os utilizadores podem acumular acesso aos recursos à medida que se
 
 Os hackers muitas vezes visam contas de administração e outros elementos de acesso privilegiado para obter rapidamente acesso a dados e sistemas sensíveis.Uma vez que os utilizadores com funções privilegiadas tendem a acumular-se ao longo do tempo, é importante rever e gerir regularmente o acesso à administração e proporcionar acesso privilegiado aos recursos Azure AD e Azure.
 
-Se não existir nenhum processo na sua organização para gerir contas privilegiadas, ou se tem atualmente administradores que usam as suas contas regulares de utilizadores para gerir serviços e recursos, deve começar imediatamente a usar contas separadas, por exemplo uma para o dia-a-dia regular atividades; o outro para acesso privilegiado e configurado com MFA. Melhor ainda, se a sua organização tiver uma subscrição Azure AD Premium P2, então deverá implementar imediatamente a [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure#license-requirements) (PIM). No mesmo sinal, deve também rever essas contas privilegiadas e [atribuir papéis menos privilegiados,](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) se aplicável.
+Se não existir nenhum processo na sua organização para gerir contas privilegiadas, ou se tem atualmente administradores que utilizam as suas contas regulares de utilizadores para gerir serviços e recursos, deve começar imediatamente a utilizar contas separadas, por exemplo, uma para atividades regulares do dia-a-dia; o outro para acesso privilegiado e configurado com MFA. Melhor ainda, se a sua organização tiver uma subscrição Azure AD Premium P2, então deverá implementar imediatamente a [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure#license-requirements) (PIM). No mesmo sinal, deve também rever essas contas privilegiadas e [atribuir papéis menos privilegiados,](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) se aplicável.
 
 Outro aspeto da gestão privilegiada da conta que deve ser implementada é a definição de [avaliações](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) de acesso para essas contas, manual ou [automatizada através da PIM.](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review)
 
@@ -113,7 +113,7 @@ Para evitar que seja inadvertidamente bloqueado fora do seu inquilino porque nã
 
 ### <a name="privileged-access-to-azure-ea-portal"></a>Acesso privilegiado ao portal Azure EA
 
-O [portal Azure Enterprise Agreement (Azure EA)](https://azure.microsoft.com/blog/create-enterprise-subscription-experience-in-azure-portal-public-preview/) permite criar subscrições Azure contra um master Enterprise Agreement, que é um papel poderoso dentro da empresa. É comum arrancar a criação deste portal antes mesmo de colocar a AD Azure no lugar, por isso é necessário usar identidades Azure AD para bloqueá-lo, remover contas pessoais do portal, garantir que a delegação adequada está no lugar, e mitigar o risco de bloqueio .
+O [portal Azure Enterprise Agreement (Azure EA)](https://azure.microsoft.com/blog/create-enterprise-subscription-experience-in-azure-portal-public-preview/) permite criar subscrições Azure contra um master Enterprise Agreement, que é um papel poderoso dentro da empresa. É comum arrancar a criação deste portal antes mesmo de colocar a AD Azure no lugar, por isso é necessário usar identidades Azure AD para bloqueá-lo, remover contas pessoais do portal, garantir que a delegação adequada está no lugar, e mitigar o risco de bloqueio.
 
 Para ser claro, se o nível de autorização do portal EA está atualmente definido para "modo misto", deve remover quaisquer contas da Microsoft de todos os [acessos privilegiados](https://support.skype.com/en/faq/FA12059/what-is-a-microsoft-account) no portal EA e configurar o portal EA para utilizar apenas contas Azure AD. Se as funções delegadas do portal EA não estiverem configuradas, também deve encontrar e implementar funções delegadas para departamentos e contas.
 

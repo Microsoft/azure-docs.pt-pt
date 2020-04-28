@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
 ms.openlocfilehash: add55c29bb93d8dce9ad69bd9850a1db02ea5afe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687771"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrija uma Colmeia Apache fora do erro de memória no Azure HDInsight
@@ -85,7 +85,7 @@ O erro permanece ao utilizar uma máquina virtual maior (por exemplo, D12).
 
 As nossas equipas de apoio e engenharia juntos encontraram um dos problemas que causaram o erro de memória foi uma [questão conhecida descrita no Apache JIRA:](https://issues.apache.org/jira/browse/HIVE-8306)
 
-"Quando a hive.auto.convert.converte.join.noconditionaltask = true we check noconditionaltask.size and if the sum of tables sizes in the map join is less noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation don't take em conta as despesas gerais introduzidas pela diferente implementação hashTable como resultados se a soma dos tamanhos de entrada for menor do que o tamanho da tarefa nocondicionada por uma pequena margem de consultas atingirá OOM."
+"Quando a hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum of tables sizes in the map join is less noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation don't take to to do overhead introduceed by different HashTable implementation as results if the sum of input sizes is small than the noconditionaltask size by a small marginries
 
 O ficheiro **hive.auto.convert.join.noconditionaltask** in the hive-site.xml file was definido para **verdadeiro:**
 

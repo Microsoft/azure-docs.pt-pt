@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/20/2019
 ms.author: vilibert
 ms.openlocfilehash: 37cb201751f72918838efe5837aa0e357d483f24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74408745"
 ---
 # <a name="troubleshoot-azure-linux-virtual-machines-boot-errors"></a>Problemas de sucação de Bluee Linux Erros de arranque de máquinas virtuais
@@ -40,7 +40,7 @@ Troubleshoot a Linux VM ligando o disco OS a um VM de recuperação utilizando o
 - [bash Scripts de Recuperação](https://github.com/sribs/azure-support-scripts)
 
 - [CLI](troubleshoot-recovery-disks-linux.md)
-- [Portal Azure](troubleshoot-recovery-disks-portal-linux.md)
+- [Portal do Azure](troubleshoot-recovery-disks-portal-linux.md)
 
 
 ## <a name="disk-swap-video"></a>Vídeo de troca de disco:

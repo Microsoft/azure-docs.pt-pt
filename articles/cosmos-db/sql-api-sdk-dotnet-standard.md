@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 07/12/2019
 ms.author: dech
 ms.openlocfilehash: 7471544e920266c8d23ccc18f4370bbdf66c11a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74707294"
 ---
 # <a name="azure-cosmos-db-net-standard-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET Standard SDK para SQL API: Descarregue e descarregue notas
@@ -24,7 +24,7 @@ ms.locfileid: "74707294"
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java assíncrono](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
-> * [Pitão](sql-api-sdk-python.md)
+> * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)

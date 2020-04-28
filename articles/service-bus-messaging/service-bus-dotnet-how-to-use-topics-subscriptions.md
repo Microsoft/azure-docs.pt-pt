@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
 ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74560102"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Service Bus

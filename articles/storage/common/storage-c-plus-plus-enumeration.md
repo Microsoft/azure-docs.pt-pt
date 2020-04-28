@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
 ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74269455"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar Recursos do Armazenamento do Microsoft Azure em C++
@@ -201,4 +201,4 @@ Para mais informações sobre o Armazenamento Azure e a Biblioteca de Clientes p
 * [Como utilizar o Armazenamento de Filas a partir do C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Biblioteca de Clientes de Armazenamento Azure para documentação C++ API.](https://azure.github.io/azure-storage-cpp/)
 * [Blog da equipe de armazenamento azure](https://blogs.msdn.com/b/windowsazurestorage/)
-* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentação de Armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/)

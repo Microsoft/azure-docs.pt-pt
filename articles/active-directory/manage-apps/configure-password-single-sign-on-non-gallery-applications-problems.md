@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed8bafe7f5bc28cf37205107f8ab6dd5cdb4907c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74274138"
 ---
 # <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problemas de configuração de um único sinal de senha para uma aplicação não-galeria

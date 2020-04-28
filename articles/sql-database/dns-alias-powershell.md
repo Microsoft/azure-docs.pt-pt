@@ -13,10 +13,10 @@ ms.author: rohitna
 ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 ms.date: 05/14/2019
 ms.openlocfilehash: 9232a99ddd29201e6743c09455d79e9ba22b3b9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74420400"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell para DNS Alias para Base de Dados SQL Azure
@@ -93,7 +93,7 @@ Remove-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName2 -ServerName 
     -Name $sqlServerDnsAliasName;
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Os comandos utilizados são os seguintes:
 

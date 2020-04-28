@@ -8,10 +8,10 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 03f773e286697a12188f238cf2f422a18a20054f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687300"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Conecte-se de forma segura para apoiar os recursos finais de um ambiente de Serviço de Aplicações
@@ -42,7 +42,7 @@ Uma configuração comum do Servidor SQL tem um ponto final de escuta na porta 1
 Existem duas abordagens para restringir o tráfego a este ponto final:
 
 * [Listas de Controlo de Acesso][NetworkAccessControlLists] à Rede (Rede ACLs)
-* [Grupos de Segurança de Rede][NetworkSecurityGroups]
+* [Grupos de Segurança da Rede][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>Restringir o acesso com uma rede ACL
 A porta 1433 pode ser protegida através de uma lista de controlo de acesso à rede.  O exemplo abaixo dos endereços de clientes whitelists originários do interior de uma rede virtual, e bloqueia o acesso a todos os outros clientes.

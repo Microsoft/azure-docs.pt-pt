@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 2305a02e5b094ec9e98f39363ddbd0c39221ab0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74768899"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Bibliotecas de ligação para base de dados Azure para PostgreSQL - Servidor Único
@@ -19,7 +19,7 @@ Este artigo lista bibliotecas e controladores que os desenvolvedores podem usar 
 ## <a name="client-interfaces"></a>Interfaces de cliente
 A maioria das bibliotecas de clientes linguísticos usados para se conectar ao servidor PostgreSQL são projetos externos e são distribuídos de forma independente. As bibliotecas listadas são suportadas nas plataformas Windows, Linux e Mac, para a ligação à Base de Dados Azure para PostgreSQL. Vários exemplos de arranque rápido estão listados na secção Passos Seguintes.
 
-| **Língua** | **Interface do cliente** | **Informações adicionais** | **Transferir** |
+| **Idioma** | **Interface do cliente** | **Informações adicionais** | **Transferir** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
 | Python | [psycopg](http://initd.org/psycopg/) | DB API 2.0-compliant | [Transferir](http://initd.org/psycopg/download/) |
 | PHP | [php-pgsql](https://secure.php.net/manual/en/book.pgsql.php) | Extensão da base de dados | [Instalar](https://secure.php.net/manual/en/pgsql.installation.php) |

@@ -8,10 +8,10 @@ ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 7c4025e393c196fb98455bac26e94e5f252840b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687503"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Imagem personalizada, multi-contentor ou imagem de plataforma incorporada?
@@ -41,13 +41,13 @@ Recipiente personalizado:
 * [Executar um contentor personalizado](quickstart-docker-go.md)
 
 Multi-contentor:
-* [Criar aplicativo multi-contentores](quickstart-multi-container.md)
+* [Criar aplicação com vários contentores](quickstart-multi-container.md)
 
 Os seguintes artigos começam com o App Service no Linux com uma imagem de plataforma incorporada:
 
 * [.NET Core](quickstart-dotnetcore.md)
 * [PHP](quickstart-php.md)
-* [Nó.js](quickstart-nodejs.md)
+* [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
-* [Pitão](quickstart-python.md)
+* [Python](quickstart-python.md)
 * [Ruby](quickstart-ruby.md)

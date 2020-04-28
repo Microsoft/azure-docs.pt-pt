@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 371cb9ade54da42af1ed75c3e9857b6d1a7a0f4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74276977"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Opções de suporte de âncoras espaciais Azure

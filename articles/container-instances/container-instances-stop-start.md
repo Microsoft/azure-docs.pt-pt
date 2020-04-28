@@ -4,10 +4,10 @@ description: Aprenda a parar manualmente ou a iniciar um grupo de contentores em
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: c9f8afea33c65df940d02823ec394697d2786d6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74533426"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Paragem manual ou start de contentores em instâncias de contentores de Azure

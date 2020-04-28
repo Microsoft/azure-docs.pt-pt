@@ -16,10 +16,10 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c344c25a696500182030ff849a001ad586c92032
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74232166"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Utilize uma identidade gerida atribuída ao sistema Windows VM para aceder ao Armazenamento Azure através de uma credencial SAS
@@ -31,7 +31,7 @@ Este tutorial mostra-lhe como usar uma identidade atribuída ao sistema para uma
 Um Serviço SAS fornece a capacidade de conceder acesso limitado a objetos numa conta de armazenamento, por tempo limitado e um serviço específico (no nosso caso, o serviço de blob), sem expor uma chave de acesso à conta. Pode utilizar uma credencial de SAS como habitualmente ao fazer operações de armazenamento, por exemplo, ao utilizar o SDK de Armazenamento. Para este tutorial, demonstramos o upload e o download de uma bolha usando o Azure Storage PowerShell. Vai aprender a:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage
+> * Criar uma conta de armazenamento
 > * Conceder o acesso da VM a um SAS da conta de armazenamento no Resource Manager 
 > * Obter um token de acesso com a identidade da VM e utilizá-lo para obter o SAS a partir do Resource Manager 
 
@@ -41,7 +41,7 @@ Um Serviço SAS fornece a capacidade de conceder acesso limitado a objetos numa 
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage 
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
 Se ainda não tiver uma, irá agora criar uma conta de armazenamento. Também pode saltar este passo e conceder o acesso de identidade gerido pelo seu VM à credencial SAS de uma conta de armazenamento existente. 
 

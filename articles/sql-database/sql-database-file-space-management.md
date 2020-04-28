@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 007bbffbd7c4fcad339f88eb78991eb39fb829e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74420977"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gerir espaço de arquivo para bases de dados individuais e agrumos na Base de Dados Azure SQL

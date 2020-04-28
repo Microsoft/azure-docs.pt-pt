@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74559353"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ganhe visibilidade em todo o inquilino para o Centro de Segurança Azure
@@ -39,7 +39,7 @@ Para uma visão detalhada dos grupos de gestão, consulte o artigo do Organize o
 Pode organizar subscrições em grupos de gestão e aplicar as suas políticas de governação aos grupos de gestão. Todas as subscrições num grupo de gestão herdam automaticamente as políticas aplicadas ao grupo de gestão. Embora os grupos de gestão não sejam obrigados a embarcar no Centro de Segurança, é altamente recomendado que crie pelo menos um grupo de gestão para que o grupo de gestão de raízes seja criado. Após a criação do grupo, todas as subscrições sob o seu inquilino Azure AD estarão ligadas a ele. Para obter instruções para o PowerShell e mais informações, consulte Criar grupos de [gestão para gestão](../azure-resource-manager/management-groups-create.md)de recursos e organização.
 
  
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os grupos** > de gestão de**serviços**.
 3. Na página principal, selecione **grupo New Management.** 
 
@@ -52,7 +52,7 @@ Pode organizar subscrições em grupos de gestão e aplicar as suas políticas d
 5.  Selecione **Guardar**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Ver grupos de gestão no portal Azure
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Para visualizar grupos de gestão, selecione **Todos os serviços** sob o menu principal do Azure.
 3. Em **Geral,** selecione **Grupos de Gestão**.
 
@@ -93,7 +93,7 @@ Para ganhar visibilidade a todas as subscrições, os administradores dos inquil
 
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Atribuir funções RBAC aos utilizadores através do portal Azure: 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Para visualizar grupos de gestão, selecione **Todos os serviços** sob o menu principal do Azure e, em seguida, selecione **Grupos de Gestão**.
 1.  Selecione um grupo de gestão e clique **em detalhes**.
 
@@ -140,7 +140,7 @@ Para ganhar visibilidade a todas as subscrições, os administradores dos inquil
 ### <a name="open-or-refresh-security-center"></a>Open ou refresh Security Center
 Uma vez que tenha acesso elevado, abra ou refresque o Azure Security Center para verificar se tem visibilidade em todas as subscrições sob o seu inquilino Azure AD. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Certifique-se de que seleciona todas as subscrições do seletor de subscrição que gostaria de ver no Security Center.
 
     ![Screenshot do seletor de subscrição](./media/security-center-management-groups/subscription-selector.png)

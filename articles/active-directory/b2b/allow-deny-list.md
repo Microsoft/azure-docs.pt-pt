@@ -13,10 +13,10 @@ ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74273429"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Allow or block invitations to B2B users from specific organizations (Permitir ou bloquear convites para utilizadores B2B de organizações específicas)
@@ -41,7 +41,7 @@ Este é o cenário mais típico, onde a sua organização quer trabalhar com qua
 
 Para adicionar uma lista de negação:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione**as definições**de**utilizador** >  **do Diretório** > Ativo Azure .
 3. Em **utilizadores externos,** selecione **Gerir as definições**de colaboração externa .
 4. Sob restrições de **Colaboração,** selecione **convites Denegação para os domínios especificados**.
@@ -62,7 +62,7 @@ Se quiser utilizar uma lista de autorizações, certifique-se de que passa tempo
 
 Para adicionar uma lista de permitir:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione**as definições**de**utilizador** >  **do Diretório** > Ativo Azure .
 3. Em **utilizadores externos,** selecione **Gerir as definições**de colaboração externa .
 4. Sob restrições de **colaboração,** selecione **Permitir convites apenas para os domínios especificados (mais restritivos)**.

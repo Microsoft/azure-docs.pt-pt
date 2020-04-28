@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74483539"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação após desastre com o DNS do Azure e o Gestor de Tráfego
@@ -119,7 +119,7 @@ Este passo pode ser executado manualmente ou através da automatização. Pode s
 Uma vez que o servidor DNS está fora da zona de falha ou de desastre, é isolado contra qualquer tempo de inatividade. Isto permite ao utilizador arquiteto um cenário simples de failover que é rentável e funcionará todo o tempo assumindo que o operador tem conectividade de rede durante o desastre e pode fazer a reviravolta. Se a solução for escrita, então deve-se garantir que o servidor ou o serviço que executa o script devem ser isolados contra o problema que afeta o ambiente de produção. Além disso, tenha em mente o Baixo TTL que foi colocado contra a zona para que nenhum resolver em todo o mundo mantenha o ponto final em cache por muito tempo e os clientes possam aceder ao site dentro da RTO. Para uma luz de espera e piloto frio, uma vez que pode ser necessária alguma atividade pré-aperto e outra suinicultura – deve-se também dar tempo suficiente antes de fazer a viragem.
 
 ## <a name="automatic-failover-using-azure-traffic-manager"></a>Falha automática utilizando o Gestor de Tráfego Azure
-Quando você tem arquiteturas complexas e múltiplos conjuntos de recursos capazes de executar a mesma função, você pode configurar Azure Traffic Manager (com base em DNS) para verificar a saúde dos seus recursos e encaminhar o tráfego do recurso não saudável para o saudável recurso. No exemplo seguinte, tanto a região primária como a região secundária têm uma implantação completa. Esta implementação inclui os serviços de nuvem e uma base de dados sincronizada. 
+Quando se tem arquiteturas complexas e múltiplos conjuntos de recursos capazes de desempenhar a mesma função, pode configurar o Gestor de Tráfego Azure (com base no DNS) para verificar a saúde dos seus recursos e encaminhar o tráfego do recurso não saudável para o recurso saudável. No exemplo seguinte, tanto a região primária como a região secundária têm uma implantação completa. Esta implementação inclui os serviços de nuvem e uma base de dados sincronizada. 
 
 ![Falha automática utilizando o Gestor de Tráfego Azure](./media/disaster-recovery-dns-traffic-manager/automatic-failover-using-traffic-manager.png)
 

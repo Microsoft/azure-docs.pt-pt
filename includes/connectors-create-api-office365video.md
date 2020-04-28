@@ -5,10 +5,10 @@ author: ecfan
 ms.author: estfan
 ms.date: 11/03/2016
 ms.openlocfilehash: c0dcba2dd003dfebdd9ce67bf4d78082c32824ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789495"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos

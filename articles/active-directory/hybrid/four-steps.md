@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d3eb98f543e17981be0d5b9ab08fa4e146659b47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74206783"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quatro passos para uma forte fundação de identidade com o Azure Ative Directory
@@ -41,7 +41,7 @@ Esta secção cobre as suas opções de gestão do acesso dos utilizadores a app
 
 ### <a name="make-apps-available-to-your-users-seamlessly"></a>Disponibilize as aplicações aos seus utilizadores sem problemas
 
-A Azure AD permite que os administradores [adicionem aplicações](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal) à galeria de aplicações da Enterprise no [portal Azure.](https://portal.azure.com/) A adição de aplicações à galeria de aplicações da Enterprise facilita a configuração de aplicações para utilizar o Azure AD como fornecedor de identidade. Permite também gerir o acesso dos utilizadores à aplicação com políticas de Acesso Condicional e configurar um único registo (SSO) para aplicações para que os utilizadores não tenham de introduzir as suas palavras-passe repetidamente e sejam automaticamente assinados tanto no local como aplicações baseadas em nuvem.
+A Azure AD permite que os administradores [adicionem aplicações](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal) à galeria de aplicações da Enterprise no [portal Azure.](https://portal.azure.com/) A adição de aplicações à galeria de aplicações da Enterprise facilita a configuração de aplicações para utilizar o Azure AD como fornecedor de identidade. Permite também gerir o acesso dos utilizadores à aplicação com políticas de Acesso Condicional e configurar o único registo (SSO) para aplicações para que os utilizadores não tenham de introduzir as suas palavras-passe repetidamente e sejam automaticamente assinados tanto no local como nas aplicações baseadas na nuvem.
 
 Uma vez que as aplicações são adicionadas à galeria Azure AD, os utilizadores podem ver aplicações que lhes são atribuídas e pesquisar e solicitar outras aplicações conforme necessário. A Azure AD fornece [vários métodos](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences) para os utilizadores acederem às suas apps:
 
@@ -117,7 +117,7 @@ O método mais simples e recomendado para permitir a autenticação em nuvem par
 
 Quer escolha PHS ou PTA, não se esqueça de ativar o [Single Sign-on Seamless](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) para permitir que os utilizadores acedam a aplicações na nuvem sem introduzir constantemente o seu nome de utilizador e palavra-passe na aplicação ao utilizar dispositivos Windows 7 e 8 na sua rede corporativa. Sem um único sinal, os utilizadores devem lembrar-se de senhas específicas da aplicação e assinar em cada aplicação. Da mesma forma, o pessoal de TI precisa de criar e atualizar as contas dos utilizadores para cada aplicação, como o Office 365, Box e Salesforce. Os utilizadores precisam de se lembrar das suas palavras-passe, além de passarem o tempo a assinar em cada aplicação. Fornecer um mecanismo de inscrição única padronizado a toda a empresa é crucial para a melhor experiência do utilizador, redução de risco, capacidade de reporte e governação.
 
-Para organizações que já utilizam AD FS ou outro fornecedor de autenticação no local, mudar-se para a Azure AD uma vez que o seu fornecedor de identidade pode reduzir a complexidade e melhorar a disponibilidade. A menos que tenha casos de uso específico para a utilização da federação, recomendamos a migração da autenticação federada para PHS e Seamless SSO ou PTA e Seamless SSO para usufruir dos benefícios de uma pegada no local reduzida e da flexibilidade que a nuvem oferece com melhorias experiências de utilizador. Para mais informações, consulte [Migrate da federação para a sincronização de hash de senha para o Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/hybrid/plan-migrate-adfs-password-hash-sync).
+Para organizações que já utilizam AD FS ou outro fornecedor de autenticação no local, mudar-se para a Azure AD uma vez que o seu fornecedor de identidade pode reduzir a complexidade e melhorar a disponibilidade. A menos que tenha casos de uso específico para a utilização da federação, recomendamos que a migração da autenticação federada para PHS e SSO sem emenda ou PTA e Seamless SSO desfrute dos benefícios de uma pegada no local reduzida e da flexibilidade que a nuvem oferece com experiências melhoradas do utilizador. Para mais informações, consulte [Migrate da federação para a sincronização de hash de senha para o Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/hybrid/plan-migrate-adfs-password-hash-sync).
 
 ### <a name="enable-automatic-deprovisioning-of-accounts"></a>Permitir o desprovisionamento automático das contas
 
@@ -170,7 +170,7 @@ Registos e relatórios de segurança fornecem-lhe um registo eletrónico de ativ
 
 ### <a name="assign-least-privileged-admin-roles-for-operations"></a>Atribuir funções de administrador menos privilegiadas para operações
 
-Ao pensar na sua abordagem às operações, há alguns níveis de administração a considerar. O primeiro nível coloca o ónus da administração no seu administrador global. Usar sempre o papel de administrador global, pode ser apropriado para empresas mais pequenas. Mas para organizações maiores com pessoal de secretária de ajuda e administradores responsáveis por tarefas específicas, atribuir o papel de administrador global pode ser um risco de segurança, uma vez que fornece a esses indivíduos a capacidade de gerir tarefas que estão acima e além o que devem ser capazes de fazer.
+Ao pensar na sua abordagem às operações, há alguns níveis de administração a considerar. O primeiro nível coloca o ónus da administração no seu administrador global. Usar sempre o papel de administrador global, pode ser apropriado para empresas mais pequenas. Mas para organizações maiores com pessoal de secretária de ajuda e administradores responsáveis por tarefas específicas, atribuir o papel de administrador global pode ser um risco de segurança, uma vez que fornece a esses indivíduos a capacidade de gerir tarefas que estão acima e além do que devem ser capazes de fazer.
 
 Neste caso, deve considerar o próximo nível de administração. Utilizando o Azure AD, pode designar os utilizadores finais como "administradores limitados" que podem gerir tarefas em funções menos privilegiadas. Por exemplo, pode atribuir ao seu pessoal de secretária de ajuda a função do leitor de [segurança](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#security-reader) para lhes fornecer a capacidade de gerir funcionalidades relacionadas com a segurança com acesso apenas para leitura. Ou talvez faça sentido atribuir o papel de administrador de [autenticação](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#authentication-administrator) a indivíduos para lhes dar a capacidade de redefinir credenciais não-senhas ou ler e configurar a Azure Service Health.
 
@@ -196,9 +196,9 @@ As organizações que não têm uma solução SIEM podem descarregar o [Power BI
 
 ### <a name="understand-your-support-call-drivers"></a>Compreenda o seu apoio chamar motoristas
 
-Ao implementar uma solução de identidade híbrida, tal como delineado neste artigo, deverá, em última análise, notar uma redução das suas chamadas de apoio. Questões comuns como senhas esquecidas e bloqueios de conta são atenuadas através da implementação da redefinição da palavra-passe do autosserviço do Azure, permitindo ao mesmo tempo o acesso à aplicação self-service permite que os utilizadores se autodescubram e solicitem acesso a aplicações sem dependerem sobre o seu pessoal de TI.
+Ao implementar uma solução de identidade híbrida, tal como delineado neste artigo, deverá, em última análise, notar uma redução das suas chamadas de apoio. Questões comuns como senhas esquecidas e bloqueios de conta são atenuadas através da implementação da redefinição da palavra-passe do autosserviço do Azure, permitindo ao mesmo tempo o acesso à aplicação self-service permite que os utilizadores se autodescubram e solicitem acesso a aplicações sem depender do seu pessoal de TI.
 
-Se não observar uma redução nas chamadas de apoio, recomendamos que analise os seus controladores de chamada de suporte, numa tentativa de confirmar se o acesso à aplicação SSPR ou self-service foi configurado corretamente ou se existem outros problemas novos que possam ser sistematicamente sistematicamente endereçado.
+Se não observar uma redução nas chamadas de apoio, recomendamos que analise os seus controladores de chamada de suporte, numa tentativa de confirmar se o acesso à aplicação SSPR ou self-service foi configurado corretamente ou se existem outros problemas novos que possam ser sistematicamente abordados.
 
 *"Na nossa jornada de transformação digital, precisávamos de um fornecedor de gestão de identidade e acesso fiável para facilitar uma integração perfeita, mas segura, entre nós, parceiros e fornecedores de serviços na nuvem, para um ecossistema eficaz; A Azure AD foi a melhor opção oferecendo-nos as capacidades e visibilidade necessárias que nos permitiram detetar e responder aos riscos."* --- [Yazan Almasri, Diretor Global de Segurança da Informação, Aramex](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en)
 

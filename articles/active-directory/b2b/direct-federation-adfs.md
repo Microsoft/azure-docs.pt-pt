@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e350d6338b6ca589ab18d068ef6a314363fe205c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74272835"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exemplo: Federação Direta com Serviços da Federação de Diretório Ativo (AD FS) (pré-visualização)
@@ -77,7 +77,7 @@ Um servidor AD FS já deve ser configurado e funcionando antes de iniciar este p
 3. No âmbito **das ações,** selecione **Adicionar Confiança no Partido .** 
 4. No add trust wizard para **Select Data Source,** utilize a opção **Dados de Importação sobre a parte que depende publicada online ou numa rede local**. Especifique este https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xmlURL de metadados da federação- . Deixe outras seleções padrão. Selecione **Fechar**.
 5. O feiticeiro das Regras de Reclamação de **Edição** abre.
-6. No assistente de regras de reclamação de **edição,** selecione **Adicionar Regra**. Em Escolher O Tipo de **Regra, selecione** **Enviar Atributos LDAP como Reclamações**. Selecione **Next**.
+6. No assistente de regras de reclamação de **edição,** selecione **Adicionar Regra**. Em Escolher O Tipo de **Regra, selecione** **Enviar Atributos LDAP como Reclamações**. Selecione **Seguinte**.
 7. Na regra de **reclamação configurada,** especifique os seguintes valores: 
 
    - **Nome da regra da reclamação**: Regra de reclamação de e-mail 
@@ -133,7 +133,7 @@ Um servidor AD FS já deve ser configurado e funcionando antes de iniciar este p
 1. No âmbito **das ações,** selecione **Adicionar Confiança no Partido .**  
 1. No assistente fiduciário do grupo, para **Select Data Source,** utilize a opção **Dados de Importação sobre a parte que depende publicada online ou numa rede local**. Especifique este `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml`URL de metadados da federação: .  Deixe outras seleções padrão. Selecione **Fechar**.
 1. O feiticeiro das Regras de Reclamação de **Edição** abre. 
-1. No assistente de regras de reclamação de **edição,** selecione **Adicionar Regra**. Em Escolha O Tipo de **Regra, selecione** **Enviar Reclamações usando uma regra personalizada**. Selecione *Next*. 
+1. No assistente de regras de reclamação de **edição,** selecione **Adicionar Regra**. Em Escolha O Tipo de **Regra, selecione** **Enviar Reclamações usando uma regra personalizada**. Selecione *Seguinte*. 
 1. Na regra de **reclamação configurada,** especifique os seguintes valores:
 
    - **Nome da regra da reclamação**: Emissão Id imutável  
@@ -141,7 +141,7 @@ Um servidor AD FS já deve ser configurado e funcionando antes de iniciar este p
 
 1. Selecione **Concluir**. 
 1. A janela Regras de Reclamação de **Edição** mostrará a nova regra. Clique em **Aplicar**.  
-1. No mesmo assistente de regras de reclamação de **edição,** selecione **Adicionar Regra**. No Tipo de Regra da **Cohose,** selecione **Enviar Atributos LDAP como Reclamações**. Selecione **Next**.
+1. No mesmo assistente de regras de reclamação de **edição,** selecione **Adicionar Regra**. No Tipo de Regra da **Cohose,** selecione **Enviar Atributos LDAP como Reclamações**. Selecione **Seguinte**.
 1. Na regra de **reclamação configurada,** especifique os seguintes valores: 
 
    - **Nome da regra da reclamação**: Regra de reclamação de e-mail  

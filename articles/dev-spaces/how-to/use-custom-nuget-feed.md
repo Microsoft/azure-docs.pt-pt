@@ -9,10 +9,10 @@ description: Utilize um feed NuGet personalizado para aceder e utilizar pacotes 
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contentores Azure, contentores
 manager: gwallace
 ms.openlocfilehash: 39984a3b3a1be64a497fb8088559ccfcdee4f1c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74325731"
 ---
 # <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Use um feed nuGet personalizado com espaços Azure Dev

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
 ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74666380"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema e agregação de dados em Análise de Tráfego
@@ -170,8 +170,8 @@ Listados abaixo estão os campos no esquema e o que significam
 1. S2S – (Site A Site) Um dos endereços IP pertence à Rede Virtual Azure, enquanto o outro endereço IP pertence à rede de clientes (Site) ligado à Rede Virtual Azure através do gateway VPN ou da Rota Expresso.
 1. P2S - (Point To Site) Um dos endereços IP pertence à Rede Virtual Azure, enquanto o outro endereço IP pertence à rede de clientes (Site) ligado à Rede Virtual Azure através do gateway VPN.
 1. AzurePublic - Um dos endereços IP pertence à Rede Virtual Azure, enquanto o outro endereço IP pertence a endereços IP públicos internos do Azure pertencentes à Microsoft. Os endereços IP públicos do cliente não fazem parte deste tipo de fluxo. Por exemplo, qualquer VM de propriedade de cliente que enviasse tráfego para um Serviço Azure (ponto final de armazenamento) seria categorizado sob este tipo de fluxo.
-1. ExternalPublic - Um dos endereços IP pertence à Rede Virtual Azure, enquanto o outro endereço IP é um IP público que não está em Azure, não é reportado como malicioso nos feeds DAAS Que a Análise de Tráfego consome para o intervalo de processamento entre " FlowIntervalStartTime_t" e "FlowIntervalEndTime_t".
-1. MaliciousFlow - Um dos endereços IP pertence à rede virtual azul, enquanto o outro endereço IP é um IP público que não está em Azure e é relatado como malicioso nos feeds ASC que o Traffic Analytics consome para o intervalo de processamento entre " FlowIntervalStartTime_t" e "FlowIntervalEndTime_t".
+1. ExternalPublic - Um dos endereços IP pertence à Rede Virtual Azure, enquanto o outro endereço IP é um IP público que não está no Azure, não é reportado como malicioso nos feeds DA ASC que a Traffic Analytics consome para o intervalo de processamento entre "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t".
+1. MaliciousFlow - Um dos endereços IP pertence à rede virtual azure, enquanto o outro endereço IP é um IP público que não está no Azure e é relatado como malicioso nos feeds ASC que o Traffic Analytics consome para o intervalo de processamento entre "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t".
 1. UnknownPrivate - Um dos endereços IP pertence à Rede Virtual Azure, enquanto o outro endereço IP pertence à gama IP privada, tal como definido no RFC 1918 e não pôde ser mapeado pela Traffic Analytics para um site de propriedade de clientes ou rede virtual Azure.
 1. Desconhecido – Incapaz de mapear os endereços IP nos fluxos com a topologia do cliente em Azure, bem como no local (site).
 1. Alguns nomes de \_campo \_são anexados com s ou d. Estes NÃO significam origem e destino, mas indicam os tipos de dados string e decimal respectivamente.

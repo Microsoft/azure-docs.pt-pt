@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: chrisseg
 ms.openlocfilehash: 4a9acfd6098ed45fd92c7e3047b5d1446eeddbd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74325227"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Utilize o conector Ethereum Blockchain com aplicações lógicas azure
@@ -176,7 +176,7 @@ O endereço final do Serviço Azure Blockchain RPC é necessário para ligar a u
 
 **Para utilizar o portal Azure:**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Vá ao seu membro do Serviço Azure Blockchain. Selecione **os nódosos de transação** e o link de nó de transação predefinido.
 
     ![Página de nós de transação com a seleção (nó padrão)](./media/ethereum-logic-app/transaction-nodes.png)
