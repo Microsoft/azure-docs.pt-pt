@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67184212"
 ---
 É importante perceber que existem duas formas de configurar um ouvinte de grupo de disponibilidade em Azure. As formas diferem no tipo de equilíbrio de carga Azure que utiliza quando cria o ouvinte. A tabela que se segue descreve as diferenças:

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: ac1dc43a2b89bc1cc748947ec08e6ada87edbfcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65066988"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Otimizar o tempo de consulta com a estratégia de armazenamento de mesa TOAST 

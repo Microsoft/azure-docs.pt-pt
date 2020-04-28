@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68717356"
 ---
 # <a name="monitor-site-recovery"></a>Monitorizar o Site Recovery

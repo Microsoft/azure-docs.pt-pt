@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
 ms.openlocfilehash: ede5e2587f1f4d99193e621965b68f75fbad27f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67184157"
 ---
 Agora que aprendeu o básico do armazenamento do Azure Blob, siga estes links para aprender sobre tarefas de armazenamento mais complexas.

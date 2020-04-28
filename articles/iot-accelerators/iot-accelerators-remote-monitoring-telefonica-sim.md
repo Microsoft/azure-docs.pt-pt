@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61442244"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrar dados SIM na solução de Monitorização Remota

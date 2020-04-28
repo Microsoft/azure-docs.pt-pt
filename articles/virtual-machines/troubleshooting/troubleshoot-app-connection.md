@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71058127"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Troubleshoot application connectivity issues on virtual machines in Azure (Resolver problemas de conectividade de aplicações em máquinas virtuais no Azure)

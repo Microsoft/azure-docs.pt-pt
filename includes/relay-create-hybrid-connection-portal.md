@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: ceb2626a43ed44338bb0faad475ae2333af2de9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67184491"
 ---
 Certifique-se que já [criou um espaço de nomes do Reencaminhamento][namespace-how-to].
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu do lado esquerdo, selecione **Todos os recursos**.
 3. Selecione o espaço de nomes onde pretende criar a ligação híbrida. Neste caso, trata-se de **mynewns**.  
 4. Em **Espaço de nomes de reencaminhamento**, selecione **Ligações Híbridas**.

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60397282"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Data transfer for small datasets with low to moderate network bandwidth (Transferência de dados para conjuntos de dados pequenos com pouca largura de banda de rede ou com largura de banda moderada)

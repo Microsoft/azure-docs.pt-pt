@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: cb34ea44c069f067d13a6480531a94a1a515f380
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70241249"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connect to Azure Cosmos DB Cassandra API from Spark (Ligar à API para Cassandra do Azure Cosmos DB a partir do Spark)

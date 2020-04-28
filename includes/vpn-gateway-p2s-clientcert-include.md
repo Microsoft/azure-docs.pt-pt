@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67184121"
 ---
 Cada computador cliente que se conectem a um VNet com uma ligação Ponto-a-Local deve ter um certificado de cliente instalado. Gera-se a partir do certificado de raiz e instala-o em cada computador cliente. Se não instalar um certificado de cliente válido, a autenticação falhará quando o cliente tentar ligar-se ao VNet.

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: victorh
 ms.openlocfilehash: 0c161510d106343d88e7c77c72a1d1750fe25040
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67184184"
 ---
 ## <a name="prerequisite-install-the-azure-powershell-module"></a>Pré-requisito: instalar o módulo Azure PowerShell

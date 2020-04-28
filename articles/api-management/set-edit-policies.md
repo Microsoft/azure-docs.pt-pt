@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70071708"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Como definir ou editar as políticas de Gestão de API do Azure
@@ -29,7 +29,7 @@ Para obter informações detalhadas sobre políticas, consulte [Políticas na Ge
 
 Para definir ou editar uma política, siga os seguintes passos:
 
-1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Navegue até à sua instância APIM.
 3. Clique no separador **APIs**.
 

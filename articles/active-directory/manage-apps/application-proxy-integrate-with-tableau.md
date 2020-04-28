@@ -14,10 +14,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1aa99e7e71ad78a62c1a9da303b2ecc8347ebeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65783853"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Procuração de candidatura de diretório ativo Azure e Tableau 

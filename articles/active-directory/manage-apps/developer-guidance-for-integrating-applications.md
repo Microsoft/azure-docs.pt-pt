@@ -14,10 +14,10 @@ ms.author: mimart
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba54f8042c20a00f8d559ddce28e007a93afaace
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67108288"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicativos de linha de negócio para o Azure Ative Directory

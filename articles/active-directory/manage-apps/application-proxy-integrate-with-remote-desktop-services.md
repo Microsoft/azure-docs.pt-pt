@@ -17,10 +17,10 @@ ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67108469"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publique o ambiente de trabalho remoto com procuração de aplicação ad azure

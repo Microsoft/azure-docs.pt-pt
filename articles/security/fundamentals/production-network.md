@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68726696"
 ---
 # <a name="the-azure-production-network"></a>A rede de produção azure
@@ -47,7 +47,7 @@ Os dispositivos externos de equilíbrio de carga estão localizados atrás dos r
 
 Por padrão, a Microsoft aplica o Hypertext Transfer Protocol Secure (HTTPS) para todo o tráfego que seja transmitido aos navegadores web dos clientes, incluindo o início de sessão e todo o tráfego posterior. A utilização de TLS v1.2 permite que um túnel seguro para o tráfego flua. Os ACLs no acesso e nos routers centrais asseguram que a fonte do tráfego é consistente com o esperado.
 
-Uma distinção importante nesta arquitetura, quando é comparada com a arquitetura de segurança tradicional, é que não existem firewalls de hardware dedicados, dispositivos especializados de deteção de intrusões ou prevenção, ou outros aparelhos de segurança que normalmente são esperado antes de serem feitas ligações ao ambiente de produção azure. Os clientes geralmente esperam estes dispositivos de firewall de hardware na rede Azure; no entanto, nenhum está empregado dentro de Azure. Quase exclusivamente, essas funcionalidades de segurança são incorporadas no software que gere o ambiente Azure para fornecer mecanismos de segurança robustos e multi-camadas, incluindo capacidades de firewall. Além disso, o âmbito do limite e a extensão associada de dispositivos de segurança críticos é mais fácil de gerir e inventar, como mostra a ilustração anterior, porque é gerido pelo software que está a executar o Azure.
+Uma distinção importante nesta arquitetura, quando é comparada com a arquitetura de segurança tradicional, é que não existem firewalls de hardware dedicados, dispositivos especializados de deteção de intrusões ou prevenção, ou outros aparelhos de segurança que normalmente são esperados antes de serem feitas ligações ao ambiente de produção do Azure. Os clientes geralmente esperam estes dispositivos de firewall de hardware na rede Azure; no entanto, nenhum está empregado dentro de Azure. Quase exclusivamente, essas funcionalidades de segurança são incorporadas no software que gere o ambiente Azure para fornecer mecanismos de segurança robustos e multi-camadas, incluindo capacidades de firewall. Além disso, o âmbito do limite e a extensão associada de dispositivos de segurança críticos é mais fácil de gerir e inventar, como mostra a ilustração anterior, porque é gerido pelo software que está a executar o Azure.
 
 ## <a name="core-security-and-firewall-features"></a>Características de segurança e firewall do núcleo
 O Azure implementa funcionalidades robustas de segurança de software e firewall a vários níveis para impor funcionalidades de segurança que normalmente são esperadas num ambiente tradicional para proteger o limite de autorização de segurança central.

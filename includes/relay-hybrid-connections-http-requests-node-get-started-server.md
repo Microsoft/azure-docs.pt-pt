@@ -9,10 +9,10 @@ ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: fdd4e26839661ab9765b7d496e7f60c3686ba637
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67184496"
 ---
 ### <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
 ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67534707"
 ---
 1. Estabeleça uma ligação remota de ambiente de trabalho à máquina que executa o servidor de processo. 

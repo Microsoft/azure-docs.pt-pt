@@ -9,10 +9,10 @@ ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 922ac7eb6cb9676af65700a6a2fe7fbae35a0dc5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67184792"
 ---
 Os passos para esta tarefa utilizam um VNet com base nos valores da lista de referência de configuração seguinte. Definições e nomes adicionais também estão descritos nesta lista. Não usamos esta lista diretamente em nenhum dos passos, embora adicionemos variáveis com base nos valores desta lista. Pode copiar a lista para usar como referência, substituindo os valores por si próprio.

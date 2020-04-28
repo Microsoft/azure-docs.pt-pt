@@ -10,10 +10,10 @@ ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: b8c7d2ba1c782c3b6ae3034d6a9aab5eb19be954
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70813631"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gerencie o Azure Data Lake Analytics usando uma aplicação Java

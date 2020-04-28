@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: aeca3550b5fc58694779e7e54ce6ca547ba30e17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67184874"
 ---
 Todos os Blobs no armazenamento do Azure têm de residir num contentor. O contentor faz parte do nome do blob. Por exemplo, `mycontainer` é o nome do contentor nestes URIs de exemplo de blob:

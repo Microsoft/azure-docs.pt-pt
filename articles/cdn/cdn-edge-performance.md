@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67593905"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de extremidade na CDN do Microsoft Azure
@@ -153,7 +153,7 @@ Cada relatório deste módulo contém um gráfico e estatísticas sobre a largur
 | Resumo de hora a hora |Permite-lhe visualizar as tendências de tráfego horária sem especifice. Cada barra neste gráfico representa uma hora numa data específica. O tamanho da barra indica o número total de acessos que ocorreram durante aquela hora. |
 | Protocolos |Apresenta a avaria do tráfego entre os protocolos HTTP e HTTPS. Um gráfico de donuts indica a percentagem de acessos que ocorreram para cada tipo de protocolo. |
 | Métodos HTTP |Permite-lhe ter uma noção rápida dos métodos HTTP que estão a ser utilizados para solicitar os seus dados. Tipicamente, os métodos de pedido http mais comuns são GET, HEAD e POST. Um gráfico de donuts indica a percentagem de acessos que ocorreram para cada tipo de método de pedido http. |
-|  URLs |Contém um gráfico que exibe os 10 URLs solicitados. É apresentada uma barra para cada URL. A altura da barra indica quantos acessos que o URL em particular gerou ao longo do tempo coberto pelo relatório. As estatísticas dos 100 URLs solicitados são apresentadas diretamente abaixo deste gráfico. |
+| URLs |Contém um gráfico que exibe os 10 URLs solicitados. É apresentada uma barra para cada URL. A altura da barra indica quantos acessos que o URL em particular gerou ao longo do tempo coberto pelo relatório. As estatísticas dos 100 URLs solicitados são apresentadas diretamente abaixo deste gráfico. |
 | CNAMEs |Contém um gráfico que exibe os 10 MELHORES CNAMEs utilizados para solicitar ativos ao longo do período de tempo de um relatório. As estatísticas relativas aos 100 CNAMEs solicitados são apresentadas diretamente abaixo deste gráfico. |
 | Origens |Contém um gráfico que exibe os 10 melhores servidores De CDN ou de origem do cliente a partir dos quais os ativos foram solicitados durante um determinado período de tempo. As estatísticas dos 100 servidores cdn ou de origem do cliente solicitados são apresentadas diretamente abaixo deste gráfico. Os servidores de origem do cliente são identificados pelo nome definido na opção Nome do Diretório. |
 | Geo POPs |Mostra quanto do seu tráfego está a ser encaminhado através de um determinado ponto de presença (POP). A abreviatura de três letras representa um POP na nossa rede de CDN. |

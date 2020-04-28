@@ -8,10 +8,10 @@ ms.date: 09/01/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 19ca835ca8211202cd358ac2ec3695675183a372
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70240769"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restaurar os dados de uma cópia de segurança em Azure Cosmos DB 

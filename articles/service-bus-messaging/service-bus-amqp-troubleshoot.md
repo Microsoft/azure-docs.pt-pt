@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/03/2019
 ms.author: aschhab
 ms.openlocfilehash: 85d24a9e7c753ec5dba80c4f259dd3fb51d9c14b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60402790"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Erros da AMQP no Ônibus de Serviço Azure

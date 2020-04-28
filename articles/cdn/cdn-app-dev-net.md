@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67594167"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introdução à programação do CDN do Azure
 > [!div class="op_single_selector"]
-> * [Nó.js](cdn-app-dev-node.md)
+> * [Node.js](cdn-app-dev-node.md)
 > * [.NET](cdn-app-dev-net.md)
 > 
 > 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
 ms.openlocfilehash: 28537ac2389fbb1ca43ca4014515564bddeba4ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69872493"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT

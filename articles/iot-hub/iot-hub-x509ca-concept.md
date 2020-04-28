@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61320506"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Compreensão conceptual dos certificados De X.509 CA na indústria ioT
@@ -103,7 +103,7 @@ A autenticação do certificado X.509 CA oferece soluções elegantes para desaf
 
 ![Hierarquia da cadeia de certificados](./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png)
 
-Acima da cascata de certificados na cadeia apresenta a entrega lógica da autoridade. Muitas cadeias de abastecimento seguem esta entrega lógica em que cada CA intermediário é assinado na cadeia enquanto recebe todos os certificados ca a montante, e o último CA intermédio finalmente assina cada dispositivo e injeta todos os certificados de autoridade da cadeia para o dispositivo. Isto é comum quando a empresa de fabrico de contratos com uma hierarquia de fábricas encomenda uma determinada fábrica para fazer a fabricação. Embora a hierarquia possa ter vários níveis de profundidade (por exemplo, por geografia/tipo de produto/linha de fabrico), apenas a fábrica no final pode interagir com o dispositivo, mas a cadeia é mantida a partir do topo da hierarquia.
+Acima da cascata de certificados na cadeia apresenta a entrega lógica da autoridade. Muitas cadeias de abastecimento seguem esta entrega lógica em que cada CA intermédio é assinado na cadeia enquanto recebe todos os certificados ca a montante, e o último CA intermédio finalmente assina cada dispositivo e injeta todos os certificados de autoridade da cadeia no dispositivo. Isto é comum quando a empresa de fabrico de contratos com uma hierarquia de fábricas encomenda uma determinada fábrica para fazer a fabricação. Embora a hierarquia possa ter vários níveis de profundidade (por exemplo, por geografia/tipo de produto/linha de fabrico), apenas a fábrica no final pode interagir com o dispositivo, mas a cadeia é mantida a partir do topo da hierarquia.
 
 As cadeias alternativas podem ter diferentes ca intermédias interagindo com o dispositivo, caso em que a AC interagindo com o dispositivo injeta conteúdo da cadeia de certificados nessa altura. Os modelos híbridos também são possíveis onde apenas alguns dos CA têm interação física com o dispositivo.
 
@@ -129,4 +129,4 @@ No nosso exemplo, cada Smart-X-Widget carregaria o seu certificado exclusivo do 
 
 ![Fluir de um cert para outro, desafio pop do centro](./media/iot-hub-x509ca-concept/device-pop-flow.png)
 
-Note que a base da confiança depende da proteção de chaves privadas, incluindo chaves privadas do dispositivo. Por isso, não podemos sublinhar suficientemente a importância de chips de silicone seguros sob a forma de Módulos Seguros de Hardware (HSM) para proteger chaves privadas do dispositivo, e a melhor prática geral de nunca partilhar chaves privadas, como uma fábrica que confia outra com a sua chave privada.
+Note que a base da confiança depende da proteção de chaves privadas, incluindo chaves privadas do dispositivo. Por isso, não podemos sublinhar suficientemente a importância de chips de silicone seguros sob a forma de Módulos Seguros de Hardware (HSM) para proteger as chaves privadas do dispositivo, e a melhor prática geral de nunca partilhar chaves privadas, como uma fábrica que confia outra com a sua chave privada.

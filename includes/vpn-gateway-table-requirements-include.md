@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: dc018b5d09c9b33c10cd2d54ac6572537e05ed25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67184146"
 ---
 A tabela seguinte lista os requisitos para gateways VPN baseados em políticas e routebased. Esta tabela aplica-se aos modelos de implementação clássica e Resource Manager. Para o modelo clássico, os gateways VPN baseados em políticas são os mesmos que gateways estáticos, e gateways baseados em rota são os mesmos que gateways Dinâmicos.

@@ -9,10 +9,10 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.service: event-hubs
 ms.openlocfilehash: 531426656fe833752c9c4685688c00de3894895b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69991936"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Processe dados do seu centro de eventos usando o Azure Stream Analytics 
@@ -26,7 +26,7 @@ Aqui estão os principais benefícios dos Hubs de Eventos Azure e da integraçã
 
 ## <a name="end-to-end-flow"></a>Fluxo de ponta a ponta
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Navegue para o espaço de nome do Seu **Event Hubs** e navegue depois para o centro de **eventos,** que tem os dados de entrada. 
 1. Selecione Dados de **Processo** na página do centro do evento.  
 
