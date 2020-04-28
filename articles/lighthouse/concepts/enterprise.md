@@ -4,10 +4,10 @@ description: As capacidades do Farol Azure podem ser usadas para simplificar a g
 ms.date: 09/25/2019
 ms.topic: conceptual
 ms.openlocfilehash: 91089a6fb1a965191489e87027ef508c7ebe2aa2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75749205"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse em cenários empresariais
@@ -26,7 +26,7 @@ Ao centralizar as operações de gestão em vários inquilinos, terá de determi
 
 Por exemplo, digamos que a sua organização tem um único inquilino a quem chamaremos *inquilino A.* A sua organização adquire então mais dois inquilinos, *inquilino B* e *Inquilino C,* e tem razões comerciais que exigem que os mantenha como inquilinos separados.
 
-A sua organização quer usar as mesmas definições políticas, práticas de backup e processos de segurança em todos os inquilinos. Uma vez que já tem utilizadores (incluindo grupos de utilizadores e diretores de serviço) que são responsáveis pela realização destas tarefas dentro do Tenant A, pode embarcar em todas as subscrições dentro do Tenant B e Tenant C para que os mesmos utilizadores em Tenant A possam realizar essas tarefas.
+A sua organização quer usar as mesmas definições políticas, práticas de backup e processos de segurança em todos os inquilinos. Uma vez que já tem utilizadores (incluindo grupos de utilizadores e diretores de serviço) responsáveis pela realização destas tarefas dentro do Tenant A, pode embarcar em todas as subscrições dentro do Tenant B e Tenant C para que os mesmos utilizadores do Tenant A possam executar essas tarefas.
 
 ![Utilizadores em Inquilino A gerindo recursos em Inquilino B e Inquilino C](../media/enterprise-azure-lighthouse.jpg)
 
@@ -42,7 +42,7 @@ As empresas com governação interna ou externa e guarda-costas de conformidade 
 
 ## <a name="onboarding-process-considerations"></a>Considerações de processo de embarque
 
-As subscrições (ou grupos de recursos dentro de uma subscrição) podem ser a bordo da gestão de recursos delegados do Azure, quer através da implementação de modelos do Gestor de Recursos Azure, quer através de ofertas de Serviços Geridos publicadas no Azure Marketplace, quer em privado quer publicamente.
+As subscrições (ou grupos de recursos dentro de uma subscrição) podem ser a bordo da gestão de recursos delegados do Azure, quer através da implementação de modelos do Gestor de Recursos Azure, quer através de ofertas de Serviços Geridos publicadas no Azure Marketplace, privada ou publicamente.
 
 Uma vez que os utilizadores empresariais normalmente poderão ter acesso direto aos inquilinos da empresa, e não há necessidade de comercializar ou promover uma oferta de gestão, é geralmente mais rápido e simples de implantar diretamente com os modelos do Gestor de Recursos Azure. Embora nos refiramos a prestadores de serviços e clientes na orientação de [embarque,](../how-to/onboard-customer.md)as empresas podem usar os mesmos processos.
 
@@ -50,7 +50,7 @@ Se preferir, os inquilinos dentro de uma empresa podem ser abordados [publicando
 
 ## <a name="terminology-notes"></a>Notas de terminologia
 
-Para a gestão de inquilinos cruzados dentro da empresa, as referências aos prestadores de serviços na documentação do Farol Azure podem ser entendidas como aplicáveis ao inquilino gerente dentro de uma empresa — ou seja, o inquilino que inclui os utilizadores que irão gerir os recursos em outros inquilinos através da gestão de recursos delegados do Azure. Da mesma forma, as referências aos clientes podem ser entendidas como aplicáveis aos inquilinos que estão a delegar recursos a gerir através dos utilizadores no inquilino gestor.
+Para a gestão de inquilinos transversais dentro da empresa, as referências aos prestadores de serviços na documentação do Farol Azure podem ser entendidas como aplicáveis ao inquilino gerente dentro de uma empresa — ou seja, o inquilino que inclui os utilizadores que irão gerir recursos noutros inquilinos através da gestão de recursos delegados do Azure. Da mesma forma, as referências aos clientes podem ser entendidas como aplicáveis aos inquilinos que estão a delegar recursos a gerir através dos utilizadores no inquilino gestor.
 
 Por exemplo, no exemplo acima descrito, o Inquilino A pode ser considerado como o inquilino prestador de serviços (o inquilino gerente) e o Inquilino B e Inquilino C podem ser considerados como os inquilinos do cliente.
 

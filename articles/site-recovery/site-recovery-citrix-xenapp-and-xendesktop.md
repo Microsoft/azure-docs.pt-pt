@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74084544"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>configurar a recuperação de desastres para uma implantação de Citrix XenApp e XenDesktop de vários níveis
@@ -21,7 +21,7 @@ ms.locfileid: "74084544"
 Citrix XenDesktop é uma solução de virtualização de desktop que fornece desktops e aplicações como um serviço ondemand para qualquer utilizador, em qualquer lugar. Com a tecnologia de entrega FlexCast, o XenDesktop pode fornecer aplicações e desktops de forma rápida e segura aos utilizadores.
 Hoje em dia, o Citrix XenApp não fornece quaisquer capacidades de recuperação de desastres.
 
-Uma boa solução de recuperação de desastres, deve permitir a modelação de planos de recuperação em torno das arquiteturas de aplicações complexas acima referidas e também ter a capacidade de adicionar passos personalizados para lidar com mapeamentos de aplicações entre vários níveis, proporcionando um clique único solução de tiro segura em caso de desastre que conduza a um RTO mais baixo.
+Uma boa solução de recuperação de desastres, deve permitir a modelação de planos de recuperação em torno das arquiteturas de aplicações complexas acima referidas e também ter a capacidade de adicionar passos personalizados para lidar com mapeamentos de aplicações entre vários níveis, proporcionando assim uma solução de tiro certeiro de um clique em caso de desastre que conduza a um RTO mais baixo.
 
 Este documento fornece orientações passo a passo para a construção de uma solução de recuperação de desastres para as suas implementações no local Citrix XenApp nas plataformas vSphere Hyper-V e VMware. Este documento também descreve como realizar um teste failover (exercício de recuperação de desastres) e falha não planeada para Azure usando planos de recuperação, as configurações e pré-requisitos suportados.
 

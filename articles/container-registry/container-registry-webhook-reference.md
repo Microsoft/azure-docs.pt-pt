@@ -4,10 +4,10 @@ description: Referência para a carga útil da JSON para pedidos de webhook num 
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74455971"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência webhook do registo de contentores azure
@@ -38,9 +38,9 @@ Webhook acionado quando uma imagem de recipiente é empurrada para um repositór
 
 |Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
-|`id`|Cadeia|A identificação do evento webhook.|
+|`id`|String|A identificação do evento webhook.|
 |`timestamp`|DateTime|O momento em que o evento webhook foi desencadeado.|
-|`action`|Cadeia|A ação que desencadeou o evento webhook.|
+|`action`|String|A ação que desencadeou o evento webhook.|
 |[alvo](#target)|Tipo complexo|O alvo do evento que desencadeou o evento webhook.|
 |[pedido](#request)|Tipo complexo|O pedido que gerou o evento webhook.|
 
@@ -48,21 +48,21 @@ Webhook acionado quando uma imagem de recipiente é empurrada para um repositór
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
-|`mediaType`|Cadeia|O tipo MIME do objeto referenciado.|
+|`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo. O mesmo que o campo length.|
-|`digest`|Cadeia|A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API.|
+|`digest`|String|A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API.|
 |`length`|Int32|O número de bytes do conteúdo. O mesmo que o campo size.|
-|`repository`|Cadeia|O nome do repositório.|
-|`tag`|Cadeia|O nome da etiqueta de imagem.|
+|`repository`|String|O nome do repositório.|
+|`tag`|String|O nome da etiqueta de imagem.|
 
 ### <a name="request"></a><a name="request"></a>pedido
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
-|`id`|Cadeia|A identificação do pedido que iniciou o evento.|
-|`host`|Cadeia|O nome de anfitrião acessível externamente da instância de registo, conforme especificado pelo cabeçalho do anfitrião HTTP sobre os pedidos de entrada.|
-|`method`|Cadeia|O método de pedido que gerou o evento.|
-|`useragent`|Cadeia|O cabeçalho do agente utilizador do pedido.|
+|`id`|String|A identificação do pedido que iniciou o evento.|
+|`host`|String|O nome de anfitrião acessível externamente da instância de registo, conforme especificado pelo cabeçalho do anfitrião HTTP sobre os pedidos de entrada.|
+|`method`|String|O método de pedido que gerou o evento.|
+|`useragent`|String|O cabeçalho do agente utilizador do pedido.|
 
 ### <a name="payload-example-image-push-event"></a>Exemplo de carga útil: evento de impulso de imagem
 
@@ -102,22 +102,22 @@ Webhook desencadeado quando um gráfico helm é empurrado para um repositório.
 
 |Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
-|`id`|Cadeia|A identificação do evento webhook.|
+|`id`|String|A identificação do evento webhook.|
 |`timestamp`|DateTime|O momento em que o evento webhook foi desencadeado.|
-|`action`|Cadeia|A ação que desencadeou o evento webhook.|
+|`action`|String|A ação que desencadeou o evento webhook.|
 |[alvo](#helm_target)|Tipo complexo|O alvo do evento que desencadeou o evento webhook.|
 
 ### <a name="target"></a><a name="helm_target"></a>alvo
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
-|`mediaType`|Cadeia|O tipo MIME do objeto referenciado.|
+|`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo.|
-|`digest`|Cadeia|A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API.|
-|`repository`|Cadeia|O nome do repositório.|
-|`tag`|Cadeia|O nome da etiqueta da carta.|
-|`name`|Cadeia|O nome da ficha.|
-|`version`|Cadeia|A versão do gráfico.|
+|`digest`|String|A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API.|
+|`repository`|String|O nome do repositório.|
+|`tag`|String|O nome da etiqueta da carta.|
+|`name`|String|O nome da ficha.|
+|`version`|String|A versão do gráfico.|
 
 ### <a name="payload-example-chart-push-event"></a>Exemplo de carga útil: gráfico push event
 
@@ -152,9 +152,9 @@ Webhook desencadeado quando um repositório de imagem ou manifesto é eliminado.
 
 |Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
-|`id`|Cadeia|A identificação do evento webhook.|
+|`id`|String|A identificação do evento webhook.|
 |`timestamp`|DateTime|O momento em que o evento webhook foi desencadeado.|
-|`action`|Cadeia|A ação que desencadeou o evento webhook.|
+|`action`|String|A ação que desencadeou o evento webhook.|
 |[alvo](#delete_target)|Tipo complexo|O alvo do evento que desencadeou o evento webhook.|
 |[pedido](#delete_request)|Tipo complexo|O pedido que gerou o evento webhook.|
 
@@ -162,18 +162,18 @@ Webhook desencadeado quando um repositório de imagem ou manifesto é eliminado.
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
-|`mediaType`|Cadeia|O tipo MIME do objeto referenciado.|
-|`digest`|Cadeia|A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API.|
-|`repository`|Cadeia|O nome do repositório.|
+|`mediaType`|String|O tipo MIME do objeto referenciado.|
+|`digest`|String|A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API.|
+|`repository`|String|O nome do repositório.|
 
 ### <a name="request"></a><a name="delete_request"></a>pedido
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
-|`id`|Cadeia|A identificação do pedido que iniciou o evento.|
-|`host`|Cadeia|O nome de anfitrião acessível externamente da instância de registo, conforme especificado pelo cabeçalho do anfitrião HTTP sobre os pedidos de entrada.|
-|`method`|Cadeia|O método de pedido que gerou o evento.|
-|`useragent`|Cadeia|O cabeçalho do agente utilizador do pedido.|
+|`id`|String|A identificação do pedido que iniciou o evento.|
+|`host`|String|O nome de anfitrião acessível externamente da instância de registo, conforme especificado pelo cabeçalho do anfitrião HTTP sobre os pedidos de entrada.|
+|`method`|String|O método de pedido que gerou o evento.|
+|`useragent`|String|O cabeçalho do agente utilizador do pedido.|
 
 ### <a name="payload-example-image-delete-event"></a>Exemplo de carga útil: imagem apagar evento
 
@@ -214,22 +214,22 @@ Webhook acionado quando um gráfico de Helm ou repositório é eliminado.
 
 |Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
-|`id`|Cadeia|A identificação do evento webhook.|
+|`id`|String|A identificação do evento webhook.|
 |`timestamp`|DateTime|O momento em que o evento webhook foi desencadeado.|
-|`action`|Cadeia|A ação que desencadeou o evento webhook.|
+|`action`|String|A ação que desencadeou o evento webhook.|
 |[alvo](#chart_delete_target)|Tipo complexo|O alvo do evento que desencadeou o evento webhook.|
 
 ### <a name="target"></a><a name="chart_delete_target"></a>alvo
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
-|`mediaType`|Cadeia|O tipo MIME do objeto referenciado.|
+|`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo.|
-|`digest`|Cadeia|A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API.|
-|`repository`|Cadeia|O nome do repositório.|
-|`tag`|Cadeia|O nome da etiqueta da carta.|
-|`name`|Cadeia|O nome da ficha.|
-|`version`|Cadeia|A versão do gráfico.|
+|`digest`|String|A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API.|
+|`repository`|String|O nome do repositório.|
+|`tag`|String|O nome da etiqueta da carta.|
+|`name`|String|O nome da ficha.|
+|`version`|String|A versão do gráfico.|
 
 ### <a name="payload-example-chart-delete-event"></a>Exemplo de carga útil: gráfico apagar evento
 

@@ -4,10 +4,10 @@ description: Detalhes sobre como as imagens do seu contentor Docker são armazen
 ms.topic: article
 ms.date: 03/21/2018
 ms.openlocfilehash: f66c3dd95edfe5035c46857cb6f9aa59d8a6a0e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74456202"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagem de contentor no Registo de Contentores de Azure
@@ -36,7 +36,7 @@ A tabela seguinte descreve os limites de imagem e armazenamento do contentor em 
 | Imagens | Sem limite |
 | Camadas | Sem limite |
 | Etiquetas | Sem limite|
-| Storage | 5 TB |
+| Armazenamento | 5 TB |
 
 Um número muito elevado de repositórios e etiquetas pode ter impacto no desempenho do seu registo. Elimine periodicamente repositórios, etiquetas e imagens não utilizados como parte da sua rotina de manutenção do registo. Os recursos de registo apagados, como repositórios, imagens e *etiquetas, não podem* ser recuperados após a eliminação. Para obter mais informações sobre a eliminação de recursos de registo, consulte Apagar imagens de contentores no Registo de [Contentores de Azure](container-registry-delete.md).
 

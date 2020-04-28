@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: b8d7f995997b828c2323b3e6934b97354c2f8c8b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1e86317999a34e4ab4cb94f93fb788e3e7314cea
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255248"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193059"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir acesso a dados de log e espaços de trabalho no Monitor Azure
 
@@ -39,7 +39,7 @@ Pode visualizar o atual modo de controlo de acesso ao espaço de trabalho na pá
 
 ![Ver modo de controlo de acesso ao espaço de trabalho](media/manage-access/view-access-control-mode.png)
 
-1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 1. No portal Azure, selecione espaços de trabalho Log Analytics > seu espaço de trabalho.
 
 Pode alterar esta definição a partir da página **Propriedades** do espaço de trabalho. A alteração da definição será desativada se não tiver permissão para configurar o espaço de trabalho.
@@ -226,7 +226,7 @@ Consulte [a Definição](#table-level-rbac) do controlo de acesso por mesa abaix
 
     * Conceda aos utilizadores as seguintes permissões no espaço de trabalho: 
 
-        * `Microsoft.OperationalInsights/workspaces/read`– necessário para que a utilização possa enumerar o espaço de trabalho e abrir a lâmina do espaço de trabalho no portal Azure
+        * `Microsoft.OperationalInsights/workspaces/read`– necessário para que o utilizador possa enumerar o espaço de trabalho e abrir a lâmina do espaço de trabalho no portal Azure
         * `Microsoft.OperationalInsights/workspaces/query/read`– necessário para cada utilizador que possa executar consultas
         * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`– poder ler registos de entrada da AD Azure
         * `Microsoft.OperationalInsights/workspaces/query/Update/read`– para poder ler registos de soluções de Gestão de Atualização

@@ -15,10 +15,10 @@ ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74896063"
 ---
 # <a name="creating-filters-with-cli"></a>Criação de filtros com CLI 
@@ -132,4 +132,4 @@ A tabela que se segue mostra alguns exemplos de URLs com filtros:
 
 ## <a name="see-also"></a>Consulte também
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+[CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: e493b07814821496f941a4b81402ba0b49acbede
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cc2b7871c7141a0e466bf8620351c5beed0c684
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248830"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165693"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conceber a sua implementação de Registos de Monitores Azure
 
-O Azure Monitor armazena dados de [registo](data-platform-logs.md) num espaço de trabalho do Log Analytics, que é um recurso Azure e um contentor onde os dados são recolhidos, agregados e servem como limite administrativo. Embora possa implementar um ou mais espaços de trabalho na sua subscrição Azure, existem várias considerações que deve compreender para garantir que a sua implementação inicial está a seguir as nossas diretrizes para lhe fornecer um custo eficaz, manejável e escalável implantação que satisfaz as suas organizações precisa.
+O Azure Monitor armazena dados de [registo](data-platform-logs.md) num espaço de trabalho do Log Analytics, que é um recurso Azure e um contentor onde os dados são recolhidos, agregados e servem como limite administrativo. Embora possa implementar um ou mais espaços de trabalho na sua subscrição Azure, existem várias considerações que deve compreender para garantir que a sua implementação inicial está a seguir as nossas orientações para lhe fornecer uma implementação rentável, manejável e escalável, atendendo às necessidades das suas organizações.
 
 Os dados de um espaço de trabalho são organizados em tabelas, cada uma das quais armazena diferentes tipos de dados e tem o seu próprio conjunto único de propriedades com base no recurso que gera os dados. A maioria das fontes de dados escreverá para as suas próprias tabelas num espaço de trabalho de Log Analytics.
 
@@ -129,7 +129,7 @@ Para aprender a alterar o modo de controlo de acesso no portal, com o PowerShell
 
 O Azure Monitor é um serviço de dados de alta escala que serve milhares de clientes que enviam terabytes de dados todos os meses a um ritmo crescente. O limiar da taxa de ingestão padrão é fixado em **6 GB/min** por espaço de trabalho. Este é um valor aproximado, uma vez que o tamanho real pode variar entre os tipos de dados dependendo do comprimento do registo e da sua relação de compressão. Este limite não se aplica aos dados enviados por agentes ou pela API do [Coletor](data-collector-api.md)de Dados .
 
-Se enviar dados a uma taxa mais elevada para um único espaço de trabalho, alguns dados são retirados e um evento é enviado para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Se o seu volume de ingestão continuar a exceder o limite de taxa ou se estiver à espera de o atingir em breve, poderá solicitar um aumento para o seu espaço de trabalho abrindo um pedido de apoio.
+Se enviar dados a uma taxa mais elevada para um único espaço de trabalho, alguns dados são retirados e um evento é enviado para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Se o seu volume de ingestão continuar a exceder o limite de taxa ou se estiver à LAIngestionRate@microsoft.com espera de o atingir em breve, poderá solicitar um aumento para o seu espaço de trabalho enviando um e-mail para ou abrindo um pedido de apoio.
  
 Para ser notificado sobre tal evento no seu espaço de trabalho, crie uma regra de alerta de [registo](alerts-log.md) utilizando a seguinte consulta com base lógica de alerta no número de resultados do que zero.
 
@@ -146,13 +146,13 @@ Operation
 
 Este cenário abrange um único design de espaço de trabalho na subscrição das suas organizações de TI que não é limitado pela soberania de dados ou conformidade regulamentar, ou precisa de mapear para as regiões que os seus recursos estão implantados dentro. Permite às suas organizações segurança e administração de TI a capacidade de alavancar a melhor integração com a gestão de acesso seleções azure e um controlo de acesso mais seguro.
 
-Todos os recursos, soluções de monitorização e Insights como Application Insights e Azure Monitor para VMs, infraestruturas de apoio e aplicações mantidas pelas diferentes equipas estão configuradas para encaminhar os seus dados de registo recolhidos para as organizações de TI espaço de trabalho partilhado centralizado. Os utilizadores de cada equipa têm acesso a registos de recursos a que lhes foi dado acesso.
+Todos os recursos, soluções de monitorização e Insights como Application Insights e Azure Monitor para VMs, infraestruturas de apoio e aplicações mantidas pelas diferentes equipas estão configuradas para encaminhar os seus dados de registo recolhidos para as organizações de TI centralizadas do espaço de trabalho partilhado. Os utilizadores de cada equipa têm acesso a registos de recursos a que lhes foi dado acesso.
 
 Depois de ter implantado a sua arquitetura de espaço de trabalho, pode impor isso aos recursos do Azure com [a Política Azure.](../../governance/policy/overview.md) Fornece uma forma de definir políticas e garantir o cumprimento dos seus recursos Azure para que enviem todos os seus registos de recursos para um determinado espaço de trabalho. Por exemplo, com máquinas virtuais Azure ou conjuntos de escala de máquinas virtuais, pode utilizar as políticas existentes que avaliam a conformidade do espaço de trabalho e os resultados do relatório, ou personalizar para remediar se não for em conformidade.  
 
 ## <a name="workspace-consolidation-migration-strategy"></a>Estratégia de migração de consolidação do espaço de trabalho
 
-Para os clientes que já implantaram vários espaços de trabalho e estão interessados em consolidar-se para o modelo de acesso ao contexto de recursos, recomendamos que tome uma abordagem incremental para migrar para o modelo de acesso recomendado, e não tente alcançar isso rápida ou agressivamente. Seguindo uma abordagem faseada do plano, migrar, validar e reformar-se seguindo uma linha temporal razoável ajudará a evitar quaisquer incidentes não planeados ou impacto inesperado nas suas operações na nuvem. Se não tiver uma política de retenção de dados por razões de conformidade ou negócio, terá de avaliar o tempo adequado para reter dados no espaço de trabalho de onde está a migrar durante o processo. Enquanto está a reconfigurar os recursos para reportar ao espaço de trabalho partilhado, ainda pode analisar os dados no espaço de trabalho original, se necessário. Uma vez concluída a migração, se for governado para reter dados no espaço de trabalho original antes do final do período de retenção, não os elimine.
+Para os clientes que já implantaram vários espaços de trabalho e estão interessados em consolidar-se para o modelo de acesso ao contexto de recursos, recomendamos que tome uma abordagem incremental para migrar para o modelo de acesso recomendado, e não tente alcançar isso de forma rápida ou agressiva. Seguindo uma abordagem faseada do plano, migrar, validar e reformar-se seguindo uma linha temporal razoável ajudará a evitar quaisquer incidentes não planeados ou impacto inesperado nas suas operações na nuvem. Se não tiver uma política de retenção de dados por razões de conformidade ou negócio, terá de avaliar o tempo adequado para reter dados no espaço de trabalho de onde está a migrar durante o processo. Enquanto está a reconfigurar os recursos para reportar ao espaço de trabalho partilhado, ainda pode analisar os dados no espaço de trabalho original, se necessário. Uma vez concluída a migração, se for governado para reter dados no espaço de trabalho original antes do final do período de retenção, não os elimine.
 
 Ao planear a sua migração para este modelo, considere o seguinte:
 

@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74792437"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Adicione parceiros comerciais às contas de integração de Aplicações Lógicas Azure
@@ -35,7 +35,7 @@ Num acordo, especifica os detalhes para o tratamento de mensagens recebidas e sa
 
 ## <a name="create-partner"></a>Criar parceiro
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. No menu Azure principal, selecione **Todos os serviços.** Na caixa de pesquisa, insira "integração", e selecione **contas integrais.**
 

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.custom: mvc
 ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74533667"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de contentores azure e orquestradores de contentores
@@ -48,7 +48,7 @@ Como começam rapidamente e faturam pelo segundo, um ambiente baseado exclusivam
 
 Para cargas de trabalho de longa duração e estáveis, orquestrar contentores num conjunto de máquinas virtuais dedicadas é tipicamente mais barato do que executar os mesmos contentores com instâncias de contentores Azure. No entanto, os casos de contentores oferecem uma ótima solução para expandir e contrair rapidamente a sua capacidade global para lidar com picos inesperados ou de curta duração no uso.
 
-Em vez de escalonar o número de máquinas virtuais no seu cluster, em seguida, colocar recipientes adicionais nessas máquinas, o orquestrador pode simplesmente agendar os recipientes adicionais em Instâncias de Contentores Azure, e apagá-los quando já não estão necessário.
+Em vez de aumentar o número de máquinas virtuais no seu cluster, em seguida, colocar recipientes adicionais nessas máquinas, o orquestrador pode simplesmente agendar os recipientes adicionais em Instâncias de Contentores Azure, e eliminá-los quando já não são necessários.
 
 ## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Implementação da amostra: nós virtuais para o Serviço Azure Kubernetes (AKS)
 

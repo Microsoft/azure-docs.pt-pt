@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: fbd6f7cd3ade753c659464522408aa715cce48f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609745"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configurar atores fiáveis--ReliableDictionaryActorStateProvider
@@ -85,7 +85,7 @@ A configuração predefinida é gerada pelo modelo do Estúdio Visual e deve ser
 | CheckpointThresholdinMB |MB |200 |Quantidade de espaço de ficheiro de registo após o qual o estado está posto de controlo. |
 | MaxRecordSizeInKB |KB |1024 |Maior tamanho de registo que o replicador pode escrever no registo. Este valor deve ser um múltiplo de 4 e superior a 16. |
 | OptimizeLogForLowerDiskUsage |Booleano |true |Quando verdadeiro, o registo é configurado de modo a que o ficheiro de registo dedicado da réplica seja criado utilizando um ficheiro ntfs escasso. Isto reduz o uso real do espaço do disco para o ficheiro. Quando falso, o ficheiro é criado com alocações fixas, que proporcionam o melhor desempenho de escrita. |
-| SharedLogid |guia |"" |Especifica um guia único a utilizar para identificar o ficheiro de registo partilhado utilizado com esta réplica. Normalmente, os serviços não devem utilizar esta configuração. No entanto, se o SharedLogId for especificado, então o SharedLogPath também deve ser especificado. |
+| SharedLogid |guid |"" |Especifica um guia único a utilizar para identificar o ficheiro de registo partilhado utilizado com esta réplica. Normalmente, os serviços não devem utilizar esta configuração. No entanto, se o SharedLogId for especificado, então o SharedLogPath também deve ser especificado. |
 | SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde será criado o ficheiro de registo partilhado para esta réplica. Normalmente, os serviços não devem utilizar esta configuração. No entanto, se o SharedLogPath for especificado, então o SharedLogId também deve ser especificado. |
 
 ## <a name="sample-configuration-file"></a>Ficheiro de configuração de exemplo

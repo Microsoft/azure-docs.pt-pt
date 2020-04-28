@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74792465"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gerir metadados de artefactos em contas de integração com aplicações da Lógica Azure e Pacote de Integração Empresarial
@@ -25,7 +25,7 @@ Pode definir metadados personalizados para artefactos em contas de integração 
 
 * Uma conta de [integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) básica que tem os artefactos onde pretende adicionar metadados, por exemplo: 
 
-  * [Partner](logic-apps-enterprise-integration-partners.md)
+  * [Parceiro](logic-apps-enterprise-integration-partners.md)
   * [Contrato](logic-apps-enterprise-integration-agreements.md)
   * [Esquema](logic-apps-enterprise-integration-schemas.md)
   * [Mapa](logic-apps-enterprise-integration-maps.md)

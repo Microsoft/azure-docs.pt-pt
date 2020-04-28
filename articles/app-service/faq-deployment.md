@@ -10,10 +10,10 @@ ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74671690"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>FAQs de implementação para Aplicações Web do Azure
@@ -33,7 +33,7 @@ Para mais informações, consulte [A implementação da sua aplicação para o S
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Vejo uma mensagem de erro quando tento ser lançada do Estúdio Visual. Como resolvo este erro?
 
-Se vir a seguinte mensagem, poderá estar a utilizar uma versão mais antiga do SDK: "Erro durante a implementação do recurso 'YourResourceName' no grupo de recursos 'YourResourceGroup': MissingRegistrationForLocation: A subscrição não está registada para o componentes do tipo de recurso na localização 'Centro dos EUA'. Reinscreva-se para este fornecedor de forma a ter acesso a este local." 
+Se vir a seguinte mensagem, poderá estar a utilizar uma versão mais antiga do SDK: "Erro durante a implementação do recurso 'YourResourceName' no grupo de recursos 'YourResourceGroup': MissingRegistrationForLocation: A subscrição não está registada para os componentes do tipo de recurso no local 'Central US'. Reinscreva-se para este fornecedor de forma a ter acesso a este local." 
 
 Para resolver este erro, atualize para o [mais recente SDK](https://azure.microsoft.com/downloads/). Se vir esta mensagem e tiver o mais recente SDK, envie um pedido de apoio.
 

@@ -4,10 +4,10 @@ description: Aprenda a usar webhooks para desencadear eventos quando as ações 
 ms.topic: article
 ms.date: 05/24/2019
 ms.openlocfilehash: 5e6fd2d9f4c7727365a8e2fe3893aafebfeb7bd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74454371"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilização de webhooks de registo de contentores Azure
@@ -23,7 +23,7 @@ Para mais informações sobre pedidos de webhook, consulte a referência do esqu
 
 ## <a name="create-webhook---azure-portal"></a>Criar webhook - Portal Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue para o registo de contentores no qual pretende criar um webhook.
 1. Em **Serviços,** selecione **Webhooks**.
 1. **Selecione Adicionar** na barra de ferramentas webhook.

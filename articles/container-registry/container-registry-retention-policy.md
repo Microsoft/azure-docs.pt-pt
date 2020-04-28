@@ -4,10 +4,10 @@ description: Saiba como ativar uma política de retenção no seu registo de con
 ms.topic: article
 ms.date: 10/02/2019
 ms.openlocfilehash: 912616b6ab95cdff91e70477c7d6de476ccfdfa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74454809"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Estabeleça uma política de retenção para manifestos não marcados

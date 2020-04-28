@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74706369"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação de desastres para uma aplicação sharePoint de vários níveis para recuperação de desastres usando a Recuperação do Site Azure
@@ -136,7 +136,7 @@ Um plano de recuperação permite sequenciar a falha de vários níveis numa apl
 
 Pode implantar os scripts de recuperação de sítios azure mais utilizados na sua conta Automation clicando no botão 'Deploy to Azure' abaixo. Quando estiver a utilizar qualquer guião publicado, certifique-se de que segue a orientação no script.
 
-[![Desdobre para Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Implementar no Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Adicione um script de pré-ação ao 'Grupo 1' para falhar no grupo de disponibilidade SQL. Utilize o script 'ASR-SQL-FailoverAG' publicado nos scripts da amostra. Certifique-se de que segue a orientação no script e faça as alterações necessárias no script adequadamente.
 

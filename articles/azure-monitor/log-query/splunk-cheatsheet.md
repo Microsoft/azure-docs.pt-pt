@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: 6346055f1169bfa533d5dbfe441ecf27fb0d78a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75397751"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk para consulta de log Do Monitor Azure
@@ -40,14 +40,14 @@ O quadro seguinte especifica funções no Monitor Azure que são equivalentes à
 |Splunk | Azure Monitor |Comentário
 |---|---|---
 |strcat | strcat()| (1) |
-|dividir  | divisão() | (1) |
+|dividir  | split() | (1) |
 |if     | iff()   | (1) |
 |número | todouble()<br>tolong()<br>toint() | (1) |
-|superior<br>menor |toime()<br>tolower()|(1) |
-| substituir | substituir() | (1)<br> Note também `replace()` que, embora leve três parâmetros em ambos os produtos, os parâmetros são diferentes. |
+|superior<br>menor |toupper()<br>tolower()|(1) |
+| substituir | replace() | (1)<br> Note também `replace()` que, embora leve três parâmetros em ambos os produtos, os parâmetros são diferentes. |
 | substr | substring() | (1)<br>Note também que Splunk usa índices de base única. O Monitor Azure regista índices de base zero. |
 | tolower |  tolower() | (1) |
-| toia | toime() | (1) |
+| toia | toupper() | (1) |
 | jogo | jogos regex |  (2)  |
 | regex | jogos regex | Em Splunk, `regex` é um operador. No Monitor Azure, é um operador relacional. |
 | searchmatch | == | Em Splunk, `searchmatch` permite procurar a corda exata.
@@ -156,8 +156,8 @@ Juntar-se em Splunk tem limitações significativas. O subquery tem um limite de
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **aderir** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
-| Azure Monitor | **aderir** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
+| Splunk | **juntar-se** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
+| Azure Monitor | **juntar-se** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
 | | |
 
 

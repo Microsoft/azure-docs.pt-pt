@@ -4,10 +4,10 @@ description: Descreve como os manifestos são usados para descrever aplicações
 ms.topic: conceptual
 ms.date: 8/12/2019
 ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75349967"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Formulários de aplicação e serviço de tecido de serviço
@@ -162,7 +162,7 @@ Tal como os manifestos de serviço, os atributos **da Versão** são cordas não
 **As políticas** (não definidas no exemplo anterior) descrevem as políticas de recolha de registos, [predefinição de execução,](service-fabric-application-runas-security.md) [saúde,](service-fabric-health-introduction.md#health-policies)e [de acesso](service-fabric-application-runas-security.md) à segurança a definir ao nível da aplicação, incluindo se o(s) serviço(s) tem acesso ao tempo de execução do Tecido de Serviço.
 
 > [!NOTE] 
-> Por predefinição, as aplicações de Tecido de Serviço têm acesso ao tempo de execução do Tecido de Serviço, sob a forma de um ponto final que aceita pedidos específicos de aplicação, e variáveis ambientais que apontam para caminhos de ficheiros no anfitrião que contém ficheiros específicos do Tecido e da aplicação . Considere desativar este acesso quando a aplicação acolhe código não confiável (isto é, código cuja proveniência é desconhecida, ou que o proprietário da aplicação sabe não ser seguro de executar). Para mais informações, consulte [as melhores práticas de segurança em Tecido de Serviço](service-fabric-best-practices-security.md#platform-isolation). 
+> Por predefinição, as aplicações de Tecido de Serviço têm acesso ao tempo de execução do Tecido de Serviço, sob a forma de um ponto final que aceita pedidos específicos de aplicação, e variáveis ambientais que apontam para caminhos de ficheiros no anfitrião que contém ficheiros específicos do Tecido e da aplicação. Considere desativar este acesso quando a aplicação acolhe código não confiável (isto é, código cuja proveniência é desconhecida, ou que o proprietário da aplicação sabe não ser seguro de executar). Para mais informações, consulte [as melhores práticas de segurança em Tecido de Serviço](service-fabric-best-practices-security.md#platform-isolation). 
 >
 
 **Os diretores** (não definidos no exemplo anterior) descrevem os diretores de segurança (utilizadores ou grupos) necessários para [executar serviços e recursos de serviço seguros.](service-fabric-application-runas-security.md)  Os diretores são referenciados nas **secções** políticas.

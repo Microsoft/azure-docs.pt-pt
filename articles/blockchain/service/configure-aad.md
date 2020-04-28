@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 682ab282036fcd592e66942d08a84cdce46d8915
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74455863"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Como configurar o acesso ao Diretório Ativo Azure para o Serviço Azure Blockchain
@@ -29,7 +29,7 @@ Pode conceder acesso tanto ao nível dos membros como ao nó. A concessão de di
 
 Para conceder permissão de acesso ao nível dos membros.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegar para controlo de **acesso (IAM) > Adicionar > Adicionar atribuição de funções**.
 1. Selecione a função **blockchain Member Node Access (Preview)** e adicione o objeto de ID Azure AD a que deseja conceder acesso. O objeto de ID Azure AD pode ser:
 

@@ -4,10 +4,10 @@ description: Descreve o desenvolvimento, implantação, teste, modernização, m
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: beeb1f1512cf94582dd561fa768f2e8e6649d686
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75378009"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida da aplicação do Service Fabric
@@ -41,7 +41,7 @@ Ver [Começar com Atores Fiáveis](service-fabric-reliable-actors-get-started.md
 
 Consulte [a implementação de uma aplicação,](service-fabric-deploy-remove-applications.md) por exemplo.
 
-## <a name="test"></a>Test
+## <a name="test"></a>Teste
 1. Depois de ser implantado para o cluster de desenvolvimento local ou para um cluster de teste, um desenvolvedor de *serviços* executa o cenário de teste de failover incorporado utilizando as classes [**FailoverTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) e [**FailoverTestScenario,**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) ou o [cmdlet **Invoke-ServiceFabricFailoverTestScenario** ](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps). O cenário de teste failover executa um serviço especificado através de transições importantes e falhas para garantir que ainda está disponível e funcionando.
 2. Em seguida, o desenvolvedor de *serviçoexecuta* o cenário de teste de caos incorporado utilizando as classes [**ChaosTestScenarioParâmetros**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) e [**ChaosTestScenario,**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) ou o [ **cmdlet Invoke-ServiceFabricChaosTestScenario** ](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). O cenário de teste do caos induz aleatoriamente várias falhas no nó, no pacote de código e nas réplicas no cluster.
 3. O *desenvolvedor* de [serviçotesta a comunicação serviço-a-serviço](service-fabric-testability-scenarios-service-communication.md) através da autoria de cenários de teste que movem réplicas primárias em torno do cluster.
@@ -83,5 +83,5 @@ Para obter mais informações sobre o desenvolvimento, teste e gestão de aplica
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Implementar uma aplicação](service-fabric-deploy-remove-applications.md)
-* [Atualização de aplicações](service-fabric-application-upgrade.md)
+* [Atualização da aplicação](service-fabric-application-upgrade.md)
 * [Visão geral da testabilidade](service-fabric-testability-overview.md)

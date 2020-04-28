@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 0819ca02d088aeb9ada5de1269467f70242bbcca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609915"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitorização de desempenho com a extensão de Diagnóstico seleções do Windows Azure
@@ -189,7 +189,7 @@ Aqui está um exemplo de uma configuração com o contador para o *Tempo Total* 
     New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-1. Uma vez que a atualização termine (demora entre 15 a 45 minutos dependendo se é a primeira implementação e o tamanho do seu grupo de recursos), a WAD deve estar a recolher os contadores de desempenho e a enviá-los para a mesa chamada WADPerformanceCountersTable na conta de armazenamento associada ao seu cluster. Consulte os seus contadores de desempenho em Insights de Aplicação [adicionando o AI Sink ao modelo de Gestor](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)de Recursos .
+1. Uma vez que a atualização termine (demora entre 15 a 45 minutos dependendo se é a primeira implementação e o tamanho do seu grupo de recursos), a WAD deve estar a recolher os contadores de desempenho e a enviá-los para a tabela chamada WADPerformanceCountersTable na conta de armazenamento associada ao seu cluster. Consulte os seus contadores de desempenho em Insights de Aplicação [adicionando o AI Sink ao modelo de Gestor](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)de Recursos .
 
 ## <a name="next-steps"></a>Passos seguintes
 * Colete mais contadores de desempenho para o seu cluster. Consulte [as métricas](service-fabric-diagnostics-event-generation-perf.md) de desempenho para obter uma lista de contadores que deve recolher.

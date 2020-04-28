@@ -4,10 +4,10 @@ description: Forneça acesso a imagens no seu registo de contentores privados ut
 ms.topic: article
 ms.date: 10/04/2019
 ms.openlocfilehash: 37da784c8e95a5f5b924532e4a019552924a1a3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74455402"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do Registo de Contentores Azure com diretores de serviço
@@ -42,7 +42,7 @@ Para acesso individual a um registo, como quando puxa manualmente uma imagem de 
 
 Pode encontrar os scripts de amostra anteriores para o Azure CLI no GitHub, bem como versões para o Azure PowerShell:
 
-* [Azure CLI][acr-scripts-cli]
+* [CLI do Azure][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="authenticate-with-the-service-principal"></a>Autenticar com o diretor de serviço

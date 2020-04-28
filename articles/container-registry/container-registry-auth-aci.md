@@ -4,10 +4,10 @@ description: Saiba como fornecer acesso a imagens no seu registo de contentores 
 ms.topic: article
 ms.date: 04/23/2018
 ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74456514"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticar com registo de contentores Azure de instâncias de contentores azure
@@ -44,7 +44,7 @@ az container create \
 
 Pode encontrar os scripts de amostra anteriores para o Azure CLI no GitHub, bem como versões para o Azure PowerShell:
 
-* [Azure CLI][acr-scripts-cli]
+* [CLI do Azure][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Passos seguintes

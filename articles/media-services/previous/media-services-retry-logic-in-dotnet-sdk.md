@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61094658"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Redelógica de retry no SDK de Serviços de Media para .NET  
@@ -37,7 +37,7 @@ Ao trabalhar com os serviços do Microsoft Azure, podem ocorrer falhas transitó
 ## <a name="exception-types"></a>Tipos de exceção
 O quadro seguinte descreve exceções que o Media Services SDK para manuseios .NET ou não trata de algumas operações que podem causar falhas transitórias.  
 
-| Exceção | Pedido web | Storage | Consulta | SaveChanges |
+| Exceção | Pedido web | Armazenamento | Consulta | SaveChanges |
 | --- | --- | --- | --- | --- |
 | Exceção web<br/>Para mais informações, consulte a secção de códigos de [estado WebException.](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) |Sim |Sim |Sim |Sim |
 | DataServiceClientException<br/> Para mais informações, consulte [os códigos](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)de estado de erro HTTP . |Não |Sim |Sim |Sim |
@@ -52,7 +52,7 @@ O quadro seguinte descreve exceções que o Media Services SDK para manuseios .N
 ### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a>Códigos de estado da WebException
 A tabela que se segue mostra para as quais o erro WebException codifica a lógica de retry. A enumeração [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) define os códigos de estado.  
 
-| Estado | Pedido web | Storage | Consulta | SaveChanges |
+| Estado | Pedido web | Armazenamento | Consulta | SaveChanges |
 | --- | --- | --- | --- | --- |
 | Falha de ligação |Sim |Sim |Sim |Sim |
 | Falha na resolução de nomes |Sim |Sim |Sim |Sim |
@@ -70,7 +70,7 @@ A tabela que se segue mostra para as quais o erro WebException codifica a lógic
 ### <a name="http-error-status-codes"></a><a name="HTTPStatusCode"></a>Códigos de estado de erro HTTP
 Quando as operações de Query e SaveChanges lançam DataServiceClientException, DataServiceQueryException ou DataServiceQueryException, o código de erro HTTP é devolvido na propriedade StatusCode.  A tabela que se segue mostra quais códigos de erro a lógica de retry é implementada.  
 
-| Estado | Pedido web | Storage | Consulta | SaveChanges |
+| Estado | Pedido web | Armazenamento | Consulta | SaveChanges |
 | --- | --- | --- | --- | --- |
 | 401 |Não |Sim |Não |Não |
 | 403 |Não |Sim<br/>Manusear repetições com esperas mais longas. |Não |Não |

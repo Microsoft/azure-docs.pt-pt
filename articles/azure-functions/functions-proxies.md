@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74849195"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalho com proxies de funções azure
@@ -243,7 +243,7 @@ Uma configuração de exemplo pode parecer a seguinte:
 > [!NOTE] 
 > Neste exemplo, o corpo de resposta é `backendUri` definido diretamente, pelo que não é necessária nenhuma propriedade. O exemplo mostra como você pode usar proxies de funções Azure para ridicularizar APIs.
 
-[Portal Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [GATILHOS HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

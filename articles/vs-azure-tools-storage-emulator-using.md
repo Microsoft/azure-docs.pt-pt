@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
 ms.openlocfilehash: a6f853924416cce2440ca15767044029b20e651f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75450730"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configuração e Utilização do Emulador de Armazenamento com Estúdio Visual
@@ -37,7 +37,7 @@ Para obter informações detalhadas sobre o emulador de armazenamento, incluindo
 Para aceder ao emulador de armazenamento a partir de código dentro de uma função, você vai querer configurar uma cadeia de ligação que aponta para o emulador de armazenamento e que pode ser posteriormente alterada para apontar para uma conta de armazenamento Azure. Uma cadeia de ligação é uma definição de configuração que o seu papel pode ler no tempo de execução para se ligar a uma conta de armazenamento. Para obter mais informações sobre como criar cordas de ligação, consulte as cordas de ligação de [Configuração Azure .](/azure/storage/common/storage-configure-connection-string)
 
 > [!NOTE]
-> Pode devolver uma referência à conta emulador de armazenamento do seu código utilizando a propriedade **DevelopmentStorageAccount.** Esta abordagem funciona corretamente se quiser aceder ao emulador de armazenamento a partir do seu código, mas se planeia publicar a sua aplicação no Azure, terá de criar uma cadeia de ligação para aceder à sua conta de armazenamento Azure e modificar o seu código para utilizar essa ligação. corda antes de publicá-lo. Se estiver a alternar frequentemente entre a conta de emulador de armazenamento e uma conta de armazenamento Azure, uma cadeia de ligação simplificará este processo.
+> Pode devolver uma referência à conta emulador de armazenamento do seu código utilizando a propriedade **DevelopmentStorageAccount.** Esta abordagem funciona corretamente se pretender aceder ao emulador de armazenamento a partir do seu código, mas se planeia publicar a sua aplicação no Azure, terá de criar uma cadeia de ligação para aceder à sua conta de armazenamento Azure e modificar o seu código para utilizar essa cadeia de ligação antes de publicá-la. Se estiver a alternar frequentemente entre a conta de emulador de armazenamento e uma conta de armazenamento Azure, uma cadeia de ligação simplificará este processo.
 
 ## <a name="initializing-and-running-the-storage-emulator"></a>Inicializar e executar o emulador de armazenamento
 

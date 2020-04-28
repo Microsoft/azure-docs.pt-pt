@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74790732"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Criar e gerir acordos de parceiros comerciais em Aplicações Lógicas Azure
@@ -40,7 +40,7 @@ Para criar acordos para a troca de mensagens RosettaNet, consulte [as mensagens 
 
 ## <a name="create-agreements"></a>Criar acordos
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 No menu Azure principal, selecione **Todos os serviços.** Na caixa de pesquisa, introduza "integração" como filtro. A partir dos resultados, selecione este recurso: **Contas de integração**
 
    ![Encontre a sua conta de integração](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)

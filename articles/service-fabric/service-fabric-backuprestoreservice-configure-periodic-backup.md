@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
 ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610153"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compreender a configuração periódica de backup no Tecido de Serviço Azure
@@ -136,7 +136,7 @@ Após a definição da política de backup para satisfazer os requisitos de back
 No Tecido de Serviço, a relação entre aplicação, serviço e partições é hierárquica, como explicado no [modelo de Aplicação.](./service-fabric-application-model.md) A política de backup pode ser associada quer a uma _aplicação,_ _serviço,_ quer a uma _divisão_ na hierarquia. A política de backup propaga-se hierárquicamente ao próximo nível. Assumindo que existe apenas uma política de backup criada e associada a uma _aplicação,_ todas as divisórias imponentes pertencentes a todos os _serviços de estado confiáveis_ e _atores fiáveis_ da _aplicação_ serão apoiadas usando a política de backup. Ou se a política de backup estiver associada a um serviço fiável e _audato,_ todas as suas divisórias serão apoiadas usando a política de backup.
 
 ### <a name="overriding-backup-policy"></a>Política de backup primordial
-Pode haver um cenário em que a cópia de segurança de dados com o mesmo calendário de backup é necessária para todos os serviços da aplicação, exceto para serviços específicos onde a necessidade é ter backup de dados usando um horário de frequência mais elevado ou levando backup para uma conta de armazenamento diferente ou fileshare. Para abordar tais cenários, o serviço de restauro de backup fornece facilidade para anular a política propagada no âmbito de serviço e partilha. Quando a política de backup está associada ao _serviço_ ou _à partilha,_ substitui a política de backup propagada, se houver.
+Pode haver um cenário em que a cópia de segurança de dados com o mesmo calendário de backup é necessária para todos os serviços da aplicação, exceto para serviços específicos onde a necessidade é ter backup de dados usando um horário de frequência mais elevado ou levar backup para uma conta de armazenamento diferente ou partilha de ficheiros. Para abordar tais cenários, o serviço de restauro de backup fornece facilidade para anular a política propagada no âmbito de serviço e partilha. Quando a política de backup está associada ao _serviço_ ou _à partilha,_ substitui a política de backup propagada, se houver.
 
 ### <a name="example"></a>Exemplo
 

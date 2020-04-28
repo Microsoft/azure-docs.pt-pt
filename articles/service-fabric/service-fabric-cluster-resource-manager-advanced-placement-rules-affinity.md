@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7bfd261802fbf891b8f45079255783cb1e8ac7d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551748"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configurar e usar afinidade de serviço em Tecido de Serviço
@@ -67,7 +67,7 @@ Hoje o Cluster Resource Manager não é capaz de modelar cadeias de relacionamen
 ![Cadeias vs. Estrelas no Contexto das Relações de Afinidade][Image2]
 </center>
 
-Outra coisa a notar sobre as relações de afinidade hoje em dia é que são direcionais por defeito. Isto significa que a regra da afinidade apenas impõe que a criança colocada com o progenitor. Não garante que o progenitor esteja localizado com a criança. Portanto, se houver uma violação de afinidade e corrigir a violação por alguma razão não é viável mover a criança para o nó dos pais, então - mesmo que mover o progenitor para o nó da criança teria corrigido a violação - o progenitor não será transferido para o nó da criança. Definir a config [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) true removeria a direccionalidade. Também é importante notar que a relação de afinidade não pode ser perfeita ou instantaneamente aplicada, uma vez que diferentes serviços têm com diferentes ciclos de vida e podem falhar e mover-se independentemente. Por exemplo, digamos que o pai de repente falha em outro nó porque se despenhou. O Cluster Resource Manager e o Failover Manager lidam primeiro com a falha, uma vez que manter os serviços em alta, consistente e disponível é a prioridade. Uma vez que a falha termine, a relação de afinidade é quebrada, mas o Gestor de Recursos do Cluster acha que está tudo bem até notar que a criança não está localizada com o progenitor. Este tipo de verificações são realizados periodicamente. Mais informações sobre a forma como o Cluster Resource Manager avalia os constrangimentos está disponível [neste artigo](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), e [este](service-fabric-cluster-resource-manager-balancing.md) fala mais sobre como configurar a cadência em que estes constrangimentos são avaliados.   
+Outra coisa a notar sobre as relações de afinidade hoje em dia é que são direcionais por defeito. Isto significa que a regra da afinidade apenas impõe que a criança colocada com o progenitor. Não garante que o progenitor esteja localizado com a criança. Portanto, se houver uma violação de afinidade e corrigir a violação por alguma razão não é viável mover a criança para o nó dos pais, então, mesmo que mover o progenitor para o nó da criança teria corrigido a violação, o progenitor não será transferido para o nó da criança. Definir a config [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) true removeria a direccionalidade. Também é importante notar que a relação de afinidade não pode ser perfeita ou instantaneamente aplicada, uma vez que diferentes serviços têm com diferentes ciclos de vida e podem falhar e mover-se independentemente. Por exemplo, digamos que o pai de repente falha em outro nó porque se despenhou. O Cluster Resource Manager e o Failover Manager lidam primeiro com a falha, uma vez que manter os serviços em alta, consistente e disponível é a prioridade. Uma vez que a falha termine, a relação de afinidade é quebrada, mas o Gestor de Recursos do Cluster acha que está tudo bem até notar que a criança não está localizada com o progenitor. Este tipo de verificações são realizados periodicamente. Mais informações sobre a forma como o Cluster Resource Manager avalia os constrangimentos está disponível [neste artigo](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), e [este](service-fabric-cluster-resource-manager-balancing.md) fala mais sobre como configurar a cadência em que estes constrangimentos são avaliados.   
 
 
 ### <a name="partitioning-support"></a>Apoio à partilha

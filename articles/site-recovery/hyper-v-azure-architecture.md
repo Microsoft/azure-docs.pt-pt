@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74082670"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Hyper-V para o Azure
@@ -31,7 +31,7 @@ A tabela e o gráfico que se seguem proporcionam uma visão de alto nível dos c
 --- | --- | ---
 **Azure** | Uma subscrição Azure, conta de armazenamento Azure e rede Azure. | Os dados replicados a partir de cargas de trabalho VM no local são armazenados na conta de armazenamento. Os VMs azure são criados com os dados de carga de trabalho replicados quando ocorre a falha do seu site no local.<br/><br/> As VMs do Azure ligam-se à rede virtual do Azure quando são criadas.
 **Hyper-V** | Durante a implantação da Recuperação do Local, você reúne anfitriões e clusters hyper-V em sites hiper-V. Instala o agente azure de recuperação e serviços de recuperação em cada hospedeiro Hiper-V autónomo ou em cada nó de cluster Hyper-V. | O Fornecedor orquestra a replicação com o Site Recovery através da Internet. O agente do Site Recovery trata da replicação de dados.<br/><br/> As comunicações provenientes do Fornecedor e do agente são seguras e encriptadas. Também são encriptados os dados replicados no armazenamento do Azure.
-**VMs de Hyper-V** | Um ou mais VMs a correr no Hyper-V. | Nada precisa de ser explicitamente instalado em VMs.
+**VMs Hyper-V** | Um ou mais VMs a correr no Hyper-V. | Nada precisa de ser explicitamente instalado em VMs.
 
 
 **Arquitetura hyper-V para Azure (sem VMM)**
@@ -48,7 +48,7 @@ A tabela e o gráfico que se seguem proporcionam uma visão de alto nível dos c
 **Azure** | Uma subscrição Azure, conta de armazenamento Azure e rede Azure. | Os dados replicados a partir de cargas de trabalho VM no local são armazenados na conta de armazenamento. Os VMs azure são criados com os dados replicados quando ocorre a falha do seu site no local.<br/><br/> As VMs do Azure ligam-se à rede virtual do Azure quando são criadas.
 **Servidor VMM** | O servidor VMM tem uma ou mais clouds que contêm anfitriões Hyper-V. | Instala o Fornecedor de Recuperação do Site no servidor VMM, para orquestrar a replicação com a Recuperação do Site e registar o servidor no cofre dos Serviços de Recuperação.
 **Anfitrião Hyper-V** | Um ou mais anfitriões/clusters de Hyper-V geridos pelo VMM. |  Instala o agente de Serviços de Recuperação em cada anfitrião hiper-V ou nó de cluster.
-**VMs de Hyper-V** | Uma ou mais VMs em execução num servidor de anfitrião Hyper-V. | Nada tem de estar explicitamente instalado nas VMs.
+**VMs Hyper-V** | Uma ou mais VMs em execução num servidor de anfitrião Hyper-V. | Nada tem de estar explicitamente instalado nas VMs.
 **Redes** | Redes lógicas e de VMs configuradas no servidor VMM. A rede VM deve estar ligada a uma rede lógica que está associada à nuvem. | As redes VM estão mapeadas para redes virtuais Azure. Quando os VMs Azure são criados após a falha, são adicionados à rede Azure que está mapeada para a rede VM.
 
 **Arquitetura hyper-V para Azure (com VMM)**

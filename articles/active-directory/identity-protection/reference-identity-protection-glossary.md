@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74232349"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário de Proteção de Identidade do Diretório Ativo Azure
@@ -54,7 +54,7 @@ Um estado de deteção de risco definido manualmente por um utilizador de Prote�
 Uma deteção de risco desencadeada quando são detetados dois insins para o mesmo utilizador, em que pelo menos um deles é proveniente de um local de inscrição atípico, e onde o tempo entre os sign-ins é menor do que o tempo mínimo que levaria para viajar fisicamente entre estes locais.  
 
 ### <a name="investigation"></a>Investigação
-O processo de revisão das atividades, registos e outras informações relevantes relacionadas com uma deteção de risco para decidir se são necessárias medidas de reparação ou mitigação, compreender se e como a identidade foi comprometida, e entender como a identidade foi comprometida, e entender como a comprometeu a comprometida identidade foi usado.
+O processo de revisão das atividades, registos e outras informações relevantes relacionadas com uma deteção de risco para decidir se são necessárias medidas de reparação ou mitigação, compreender se e como a identidade foi comprometida, e entender como a identidade comprometida foi usada.
 
 ### <a name="leaked-credentials"></a>Credenciais vazadas
 Uma deteção de risco desencadeada quando as credenciais atuais do utilizador (nome de utilizador e palavra-passe) são encontradas publicamente na web Dark pelos nossos investigadores.
@@ -62,7 +62,7 @@ Uma deteção de risco desencadeada quando as credenciais atuais do utilizador (
 ### <a name="mitigation"></a>Mitigação
 Uma ação para limitar ou eliminar a capacidade de um intruso explorar uma identidade ou dispositivo comprometido sem restaurar a identidade ou dispositivo para um estado seguro. Uma mitigação não resolve deteções de risco anteriores associadas à identidade ou dispositivo.
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>Multi-factor authentication
 Um método de autenticação que requer dois ou mais métodos de autenticação, que podem incluir algo que o utilizador tem, tal certificado; algo que o utilizador sabe, como nomes de utilizador, palavras-passe ou frases de passe; atributos físicos, como uma impressão digital; e atributos pessoais, como uma assinatura pessoal.
 
 ### <a name="offline-detection"></a>Deteção offline
@@ -78,7 +78,7 @@ A parte de uma política de segurança que descreve as circunstâncias que desen
 Uma ação para prevenir danos à organização através de abuso de identidade ou dispositivo suspeito ou conhecido por ser comprometido. Uma ação de prevenção não protege o dispositivo ou a identidade e não resolve deteções de risco anteriores.
 
 ### <a name="privileged-user"></a>Privilegiado (utilizador)
-Um utilizador que, no momento de uma deteção de risco, tivesse permissões administrativas permanentes ou temporárias a um ou mais recursos no Diretório Ativo azure, tais como administrador global, administrador de faturação, administrador de serviço, administrador de utilizador e palavra-passe Administrador. 
+Um utilizador que, no momento de uma deteção de risco, tivesse permissões administrativas permanentes ou temporárias a um ou mais recursos no Diretório Ativo do Azure, tais como administrador global, administrador de faturação, administrador de serviço, administrador de utilizador e administrador de passwords. 
 
 ### <a name="real-time"></a>Tempo real
 Ver deteção em tempo real.

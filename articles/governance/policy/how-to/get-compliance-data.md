@@ -3,12 +3,12 @@ title: Obter dados de conformidade de políticas
 description: As avaliações e efeitos da Política Azure determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos Azure.
 ms.date: 02/01/2019
 ms.topic: how-to
-ms.openlocfilehash: 891c9c72d8e83dc8f9adb930e8ebd11b70f6aad8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d4d9c530a7f9c4683f522a08a30e23437d1774cc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280641"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194011"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenha dados de conformidade dos recursos do Azure
 
@@ -96,11 +96,11 @@ Os efeitos também necessitam que a condição de existência seja FALSE para es
 
 Por exemplo, assuma que tem um grupo de recursos – ContsoRG, com algumas contas de armazenamento (destacadas a vermelho) que estão expostas a redes públicas.
 
-![Contas de armazenamento expostas a redes públicas](../media/getting-compliance-data/resource-group01.png)
+:::image type="content" source="../media/getting-compliance-data/resource-group01.png" alt-text="Contas de armazenamento expostas a redes públicas" border="false":::
 
 Neste exemplo, é preciso ter cuidado com os riscos de segurança. Agora que criou uma atribuição de políticas, é avaliada para todas as contas de armazenamento no grupo de recursos ContosoRG. Audita as três contas de armazenamento não conformes, alterando consequentemente os seus Estados para **não conformes.**
 
-![Contas de armazenamento não conformes auditadas](../media/getting-compliance-data/resource-group03.png)
+:::image type="content" source="../media/getting-compliance-data/resource-group03.png" alt-text="Contas de armazenamento não conformes auditadas" border="false":::
 
 Além de **conformes** e **incumpridores,** as políticas e recursos têm três outros Estados:
 
@@ -113,17 +113,17 @@ A Política Azure utiliza os **campos de tipo** e **nome** na definição para d
 A percentagem de conformidade é determinada dividindo os recursos **conformes** por _recursos totais._
 _Os recursos totais_ são definidos como a soma dos recursos **conformes,** **incompatíveis**e **conflituosos.** Os números globais de conformidade são a soma de recursos distintos que são **compatíveis** divididos pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e apenas um é **incompatível.** A conformidade global com os recursos é de 95% (19 em 20).
 
-![Exemplo de conformidade de política a partir da página compliance](../media/getting-compliance-data/simple-compliance.png)
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Exemplo de conformidade de política a partir da página compliance" border="false":::
 
 ## <a name="portal"></a>Portal
 
 O portal Azure apresenta uma experiência gráfica de visualização e compreensão do estado de conformidade no seu ambiente. Na página **Política,** a opção **Overview** fornece detalhes sobre os âmbitos disponíveis sobre o cumprimento de políticas e iniciativas. Juntamente com o estado de conformidade e a contagem por atribuição, contém um gráfico que mostra a conformidade nos últimos sete dias. A página **compliance** contém grande parte desta mesma informação (exceto o gráfico), mas fornece opções adicionais de filtragem e triagem.
 
-![Exemplo da página de conformidade com a política do Azure](../media/getting-compliance-data/compliance-page.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Exemplo da página de conformidade com a política do Azure" border="false":::
 
 Uma vez que uma política ou iniciativa pode ser atribuída a diferentes âmbitos, a tabela inclui a margem para cada atribuição e o tipo de definição que foi atribuído. O número de recursos não conformes e políticas não conformes para cada atribuição também são fornecidos. Clicar numa política ou iniciativa na tabela fornece uma análise mais profunda do cumprimento dessa atribuição em particular.
 
-![Exemplo da página de Detalhes de Conformidade política do Azure](../media/getting-compliance-data/compliance-details.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Exemplo da página de Detalhes de Conformidade política do Azure" border="false":::
 
 A lista de recursos no separador de conformidade de **recursos** mostra o estado de avaliação dos recursos existentes para a atribuição atual. O separador não é **compatível,** mas pode ser filtrado.
 Os eventos (apêndice, auditoria, negação, implantação) desencadeados pelo pedido de criação de um recurso são mostrados ao abrigo do separador **Eventos.**
@@ -131,19 +131,17 @@ Os eventos (apêndice, auditoria, negação, implantação) desencadeados pelo p
 > [!NOTE]
 > Para uma política de motores AKS, o recurso mostrado é o grupo de recursos.
 
-![Exemplo de eventos de conformidade com a política do Azure](../media/getting-compliance-data/compliance-events.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Exemplo de eventos de conformidade com a política do Azure" border="false":::
 
 Para os recursos do modo Fornecedor de [Recursos,](../concepts/definition-structure.md#resource-provider-modes) no separador de conformidade do **Recurso,** selecionando o recurso ou clicando à direita na linha e selecionando os detalhes de conformidade do **View** abre os detalhes de conformidade do componente. Esta página também oferece separadores para ver as políticas que são atribuídas a este recurso, eventos, eventos de componentes e alterar histórico.
 
-![Exemplo de detalhes de conformidade da componente de política azure](../media/getting-compliance-data/compliance-components.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Exemplo de detalhes de conformidade da componente de política azure" border="false":::
 
 De volta à página de conformidade de recursos, clique à direita na linha do evento que deseja reunir mais detalhes e selecionar **registos**de atividade do Show . A página de registo de atividade abre e é pré-filtrada para a pesquisa mostrando detalhes para a atribuição e os eventos. O registo de atividade fornece contexto e informação adicional sobre esses eventos.
 
-![Exemplo do Registo de Atividade de Conformidade de Política Azure](../media/getting-compliance-data/compliance-activitylog.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Exemplo do Registo de Atividade de Conformidade de Política Azure" border="false":::
 
 ### <a name="understand-non-compliance"></a>Compreender o incumprimento
-
-<a name="change-history-preview"></a>
 
 Quando um recursos é determinado a **não cumprir,** existem muitas razões possíveis. Para determinar a razão pela qual um recurso não está **em conformidade** ou para encontrar a alteração responsável, consulte determinar o [incumprimento](./determine-non-compliance.md).
 
@@ -396,8 +394,7 @@ Trent Baker
 
 Se tiver um [espaço](../../../log-analytics/log-analytics-overview.md) de `AzureActivity` trabalho log Analytics com a [solução Activity Log Analytics](../../../azure-monitor/platform/activity-log-collect.md) ligada à sua subscrição, também `AzureActivity` pode ver resultados de incumprimento do ciclo de avaliação utilizando simples consultas Kusto e a tabela. Com detalhes nos registos do Monitor Azure, os alertas podem ser configurados para ter cuidado com o incumprimento.
 
-
-![Conformidade política azure usando registos do Monitor Azure](../media/getting-compliance-data/compliance-loganalytics.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Conformidade política azure usando registos do Monitor Azure" border="false":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -16,13 +16,13 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68297773"
 ---
-# <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP performance tuning for Azure VMs (Otimização do desempenho do TCP/IP para as VMs do Azure)
+# <a name="tcpip-performance-tuning-for-azure-vms"></a>Sintonização de desempenho TCP/IP para VMs Azure
 
 Este artigo discute técnicas comuns de afinação de desempenho tCP/IP e algumas coisas a considerar quando as utiliza para máquinas virtuais em funcionamento no Azure. Proporcionará uma visão geral básica das técnicas e explorará como podem ser afinadas.
 

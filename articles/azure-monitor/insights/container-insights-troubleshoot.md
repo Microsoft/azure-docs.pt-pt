@@ -4,10 +4,10 @@ description: Este artigo descreve como pode resolver problemas e resolver proble
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 17a2817b320599b2aa2c331c354d316b9d864a32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75403385"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Resolução de problemas do Monitor Azure para contentores
@@ -21,7 +21,7 @@ Durante o processo de embarque ou atualização, a atribuição da função de E
 
 Também pode conceder manualmente este papel do portal Azure executando os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, digite **Kubernetes.** À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Azure Kubernetes**.
 3. Na lista de clusters kubernetes, selecione um da lista.
 2. A partir do menu à esquerda, clique no controlo de **acesso (IAM)**.

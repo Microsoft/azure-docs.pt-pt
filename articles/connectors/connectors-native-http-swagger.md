@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
 ms.openlocfilehash: b34fdc36bd0b1ce294a92b2ae8fa5da01568e5a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74787374"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Ligue para os pontos finais do REST utilizando aplicações da Lógica Azure
@@ -42,7 +42,7 @@ Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e o c
 
 Este gatilho incorporado envia um pedido http para um URL para um ficheiro Swagger que descreve uma API REST e devolve uma resposta que contém o conteúdo desse ficheiro.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
 
 1. No designer, na caixa de pesquisa, introduza "swagger" como filtro. A partir da lista **de Gatilhos,** selecione o gatilho **HTTP + Swagger.**
 
@@ -78,7 +78,7 @@ Este gatilho incorporado envia um pedido http para um URL para um ficheiro Swagg
 
 Esta ação incorporada faz um pedido http para o URL para o ficheiro Swagger que descreve uma API REST e devolve uma resposta que contém o conteúdo desse ficheiro.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
 
 1. Sob o degrau onde pretende adicionar a ação HTTP + Swagger, selecione **Novo passo**.
 
