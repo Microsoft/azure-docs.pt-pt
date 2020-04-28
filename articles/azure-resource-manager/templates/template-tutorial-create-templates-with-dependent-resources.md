@@ -2,15 +2,15 @@
 title: Modelo com recursos dependentes
 description: Saiba como criar um modelo do Azure Resource Manager com vários recursos e como implementá-lo com o portal do Azure
 author: mumian
-ms.date: 04/10/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e589fa8ae5627746ec1f04e2098a7b592f00dc24
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: cf876d3c7c100f001ba81082d792e81a777c7315
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684926"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193042"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Criar modelos ARM com recursos dependentes
 
@@ -23,7 +23,7 @@ Neste tutorial, vai criar uma conta de armazenamento, uma máquina virtual, uma 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Abrir um modelo de Início rápido
+> * Abrir um modelo de Início Rápido
 > * Explorar o modelo
 > * Implementar o modelo
 
@@ -44,7 +44,7 @@ Para concluir este artigo, precisa de:
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-Os modelos Azure QuickStart são um repositório para modelos ARM. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Os modelos Azure Quickstart é um repositório para modelos ARM. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. A partir do Código do Estúdio Visual, selecione **File**>**Open File**.
 2. em **Nome de ficheiro**, cole o seguinte URL:
@@ -118,9 +118,33 @@ Ao especificar as dependências, o Resource Manager implementa a solução de fo
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-1. Siga as instruções em [Desdobrar o modelo](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para abrir a Cloud Shell e carregar o modelo revisto.
+1. Inscreva-se na [Casca de Nuvem Azure](https://shell.azure.com)
+
+1. Escolha o seu ambiente preferido selecionando **powerShell** ou **Bash** (para CLI) no canto superior esquerdo.  É necessário reiniciar o Shell quando mudar.
+
+    ![Ficheiro de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
+
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou anteriormente. Depois de fazer o upload do ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
 
 1. Executar o seguinte script PowerShell para implementar o modelo.
+
+    # <a name="cli"></a>[CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    echo "Enter the virtual machine admin username:" &&
+    read adminUsername &&
+    echo "Enter the DNS label prefix:" &&
+    read dnsLabelPrefix &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location $location &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters adminUsername=$adminUsername dnsLabelPrefix=$dnsLabelPrefix
+    ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
@@ -141,19 +165,7 @@ Ao especificar as dependências, o Resource Manager implementa a solução de fo
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Execute o seguinte comando do PowerShell para listar a máquina virtual recentemente criada:
-
-    ```azurepowershell
-    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
-    $resourceGroupName = "${projectName}rg"
-    $vmName = "SimpleWinVM"
-
-    Get-AzVM -Name $vmName -ResourceGroupName $resourceGroupName
-    
-    Write-Host "Press [ENTER] to continue ..."
-    ```
-
-    O nome da máquina virtual está hard-coded como **SimpleWinVM** dentro do modelo.
+    ---
 
 1. Faça o RDP à máquina virtual para verificar se a máquina virtual foi criada com êxito.
 

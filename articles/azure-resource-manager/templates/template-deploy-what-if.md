@@ -3,14 +3,14 @@ title: Implementação do modelo o que-se (Pré-visualização)
 description: Determine quais as mudanças que acontecerão aos seus recursos antes de implementar um modelo de Gestor de Recursos Azure.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/27/2020
 ms.author: jgao
-ms.openlocfilehash: b8e94d0b4f364e2873dfc21792a67f11c33483bf
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: b5b19bf9d630230fbdb8cec41cc77718bbbb4585
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010193"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192387"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM que-se operação (Pré-visualização)
 
@@ -23,7 +23,9 @@ Pode utilizar a operação "what-if" com os comandos PowerShell ou as operaçõe
 
 ## <a name="install-powershell-module"></a>Instalar módulo PowerShell
 
-Para utilizar o what-if no PowerShell, instale uma versão de pré-visualização do módulo Az.Resources a partir da galeria PowerShell.
+Para utilizar o que-se no PowerShell, tem de ter powerShell Core (6.x ou 7.x). Se tiver PowerShell 5.x ou mais cedo, [atualize a sua versão do PowerShell](/powershell/scripting/install/installing-powershell).
+
+Depois de se certificar de que tem a versão correta do PowerShell, instale uma versão de pré-visualização do módulo Az.Resources a partir da galeria PowerShell.
 
 ### <a name="install-preview-version"></a>Instalar versão de pré-visualização
 

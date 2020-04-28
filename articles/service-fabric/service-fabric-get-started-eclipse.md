@@ -5,12 +5,12 @@ author: rapatchi
 ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: b779873488f1fff754d4105249b28f545738c11b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d37c7be65eb0c03065c095196a6fec39a2509a3f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258424"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193433"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in do Service Fabric para desenvolvimento de aplicações Java de Eclipse
 O Eclipse é um dos ambientes de desenvolvimento integrados (IDEs) mais utilizados para programadores Java. Neste artigo, descrevemos como configurar o seu ambiente de desenvolvimento do Eclipse para funcionar com o Azure Service Fabric. Saiba como instalar o plug-in do Service Fabric e criar uma aplicação do Service Fabric e implementá-la num cluster do Service Fabric local ou remoto no Eclipse. 
@@ -102,7 +102,7 @@ Depois de ter construído a sua aplicação Service Fabric, siga estes passos pa
 
 3.  A partir do menu de contexto, clique em **Implementar Aplicação**.
 4.  Pode acompanhar o progresso da operação de implantação na janela consola.
-5.  Para verificar se a sua aplicação está em execução, [http://localhost:19080/Explorer](http://localhost:19080/Explorer)abra o Service Fabric Explorer no seu cluster local numa janela de navegador . Expanda o nó de **Aplicações** e certifique-se de que a sua aplicação está em execução. 
+5.  Para verificar se a sua aplicação está em execução, `http://localhost:19080/Explorer`abra o Service Fabric Explorer no seu cluster local numa janela de navegador . Expanda o nó de **Aplicações** e certifique-se de que a sua aplicação está em execução. 
 
 Para aprender a desinserma a sua aplicação em Eclipse utilizando o cluster local, consulte o [serviço Debug a Java em Eclipse](./service-fabric-debugging-your-application-java.md).
 

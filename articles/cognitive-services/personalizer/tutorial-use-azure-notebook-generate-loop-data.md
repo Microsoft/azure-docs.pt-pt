@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 02/03/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 03e8b658f7edf4640d738e5ea3af84953185d0f5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 1f004fe1dae58faaded0b872dcdebdb4e9af66aa
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76986840"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193008"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Use personalizer em Caderno Azure
 

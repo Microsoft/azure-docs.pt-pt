@@ -6,22 +6,22 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: c709890ae6c57a001c6a0e9df4e973bd3bd24602
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d703ea38c39ed556102271ac0cf9a609ce449bc3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258265"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195923"
 ---
 # <a name="using-custom-security-policies"></a>Usando políticas de segurança personalizadas
 
 Para ajudar a proteger os seus sistemas e ambiente, o Azure Security Center gera recomendações de segurança. Estas recomendações baseiam-se nas melhores práticas da indústria, incorporadas na política genérica de segurança por defeito fornecida a todos os clientes. Também podem vir do conhecimento do Security Center sobre a indústria e normas regulamentares.
 
-Com esta funcionalidade, pode adicionar as suas próprias iniciativas *personalizadas.* Em seguida, receberá recomendações se o seu ambiente não seguir as políticas que cria. Quaisquer iniciativas personalizadas que crie aparecerão ao lado das iniciativas incorporadas no painel de conformidade regulamentar descrito no tutorial Melhorar a [sua conformidade regulamentar.](security-center-compliance-dashboard.md)
+Com esta funcionalidade, pode adicionar as suas próprias iniciativas *personalizadas.* Em seguida, receberá recomendações se o seu ambiente não seguir as políticas que cria. Quaisquer iniciativas personalizadas que crie aparecerão ao lado das iniciativas incorporadas no painel de controlo regulamentar, conforme descrito no tutorial Melhorar a [sua conformidade regulamentar.](security-center-compliance-dashboard.md)
 
-Conforme discutido [aqui](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) na documentação da Política Azure, quando especifica um local para a sua iniciativa personalizada, deve ser um grupo de gestão ou uma subscrição. 
+Conforme discutido na [documentação da Política Azure,](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location)quando especifica um local para a sua iniciativa personalizada, deve ser um grupo de gestão ou uma subscrição. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Para adicionar uma iniciativa personalizada à sua subscrição 
 
@@ -53,7 +53,7 @@ Conforme discutido [aqui](https://docs.microsoft.com/azure/governance/policy/con
     1. Selecione as políticas para incluir e clique em **Adicionar**.
     1. Introduza os parâmetros desejados.
     1. Clique em **Guardar**.
-    1. Na página de iniciativas personalizadas Add, clique em atualizar e a sua nova iniciativa será mostrada como disponível.
+    1. Na página de iniciativas personalizadas Adicionar, clique em atualizar. A sua nova iniciativa será mostrada como disponível.
     1. Clique em **Adicionar** e atribua-o à sua subscrição.
 
     > [!NOTE]
@@ -68,6 +68,75 @@ Conforme discutido [aqui](https://docs.microsoft.com/azure/governance/policy/con
 1. Para ver as recomendações resultantes para a sua política, clique em **Recomendações** da barra lateral para abrir a página de recomendações. As recomendações aparecerão com uma etiqueta "Personalizada" e estarão disponíveis dentro de aproximadamente uma hora.
 
     [![Recomendações personalizadas](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+
+## <a name="enhancing-your-custom-recommendations-with-detailed-information"></a>Melhorar as suas recomendações personalizadas com informações detalhadas
+
+As recomendações incorporadas fornecidas com o Centro de Segurança Azure incluem detalhes como níveis de gravidade e instruções de reparação. Se quiser adicionar este tipo de informação às suas recomendações personalizadas para que apareça no portal Azure ou onde quer que aceda às suas recomendações, terá de utilizar a API REST. 
+
+Os dois tipos de informação que pode adicionar são:
+
+- **RemediaçãoDescrição** - Corda
+- **Severidade** – Enum [Baixo, Médio, Alto]
+
+Os metadados devem ser adicionados à definição de política para uma política que faça parte da iniciativa personalizada. Deve estar na propriedade 'SecurityCenter', como mostra:
+
+```json
+ "metadata": {
+    "securityCenter": {
+        "RemediationDescription": "Custom description goes here",
+        "Severity": "High",
+    },
+```
+
+Abaixo está um exemplo de uma política personalizada, incluindo a propriedade metadados/securityCenter:
+
+  ```json
+  {
+"properties": {
+    "displayName": "Security - ERvNet - AuditRGLock",
+    "policyType": "Custom",
+    "mode": "All",
+    "description": "Audit required resource groups lock",
+    "metadata": {
+        "securityCenter": {
+            "remediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
+            "severity": "High",
+        },
+    },
+    "parameters": {
+        "expressRouteLockLevel": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Lock level",
+                "description": "Required lock level for ExpressRoute resource groups."
+            },
+            "allowedValues": [
+                "CanNotDelete",
+                "ReadOnly"
+            ]
+        }
+    },
+    "policyRule": {
+        "if": {
+            "field": "type",
+            "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+        },
+        "then": {
+            "effect": "auditIfNotExists",
+            "details": {
+                "type": "Microsoft.Authorization/locks",
+                "existenceCondition": {
+                    "field": "Microsoft.Authorization/locks/level",
+                    "equals": "[parameters('expressRouteLockLevel')]"
+                }
+            }
+        }
+    }
+}
+}
+  ```
+
+Para mais um exemplo de utilização da propriedade securityCenter, consulte [esta secção da documentação](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples)REST API .
 
 
 ## <a name="next-steps"></a>Passos seguintes

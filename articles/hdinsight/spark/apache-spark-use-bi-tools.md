@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,mvc
+ms.custom: hdinsightactive,mvc,seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: dd0b4d1b0998bd4b13a17fb8345b87924bc27e1d
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 4eb10298ac683c991835f86582d82fb952b314b2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869978"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195116"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analise os dados da Apache Spark usando o Power BI no HDInsight
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 694cc83ffce20a8744d7452a8f6d67c9ce23641c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61447068"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187233"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um painel personalizado ao painel no UI web de solução de monitorização remota
 
@@ -29,7 +29,7 @@ O painel de exemplo neste artigo apresenta na página do painel existente.
 Para completar os passos neste guia de como orientar, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
 
 - [Git](https://git-scm.com/downloads)
-- [Nó.js](https://nodejs.org/download/)
+- [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -90,7 +90,7 @@ Se a UI web ainda não estiver a funcionar localmente, execute o seguinte comand
 npm start
 ```
 
-O comando anterior executa [http://localhost:3000/dashboard](http://localhost:3000/dashboard)a UI localmente em . Navegue na página **do Dashboard** para ver o novo painel.
+O comando anterior executa `http://localhost:3000/dashboard`a UI localmente em . Navegue na página **do Dashboard** para ver o novo painel.
 
 ## <a name="next-steps"></a>Passos seguintes
 

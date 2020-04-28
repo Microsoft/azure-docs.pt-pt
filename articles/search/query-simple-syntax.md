@@ -7,24 +7,23 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/12/2020
-ms.openlocfilehash: 066190ff6b735d30db351ff90c0b6e5173b7f583
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/24/2020
+ms.openlocfilehash: dfd75ad2c6ae246bfe6ee8b983744b3db07a841f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258869"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194946"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta simples em Pesquisa Cognitiva Azure
 
-A Pesquisa Cognitiva Azure implementa duas línguas de consulta baseadas em Lucene: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e o [Lucene Query Parser.](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 
+A Pesquisa Cognitiva Azure implementa duas línguas de consulta baseadas em Lucene: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e o [Lucene Query Parser.](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)
 
-Na Pesquisa Cognitiva Azure, a simples sintaxe de consulta exclui operações de pesquisa difusas. Em vez disso, use a sintaxe lucene completa para [pesquisa fuzzy](search-query-fuzzy.md).
+O simples parser é mais flexível e tentará interpretar um pedido mesmo que não seja perfeitamente composto. Devido a esta flexibilidade, é o padrão para consultas na Pesquisa Cognitiva Azure. 
 
-> [!NOTE]
-> A simples sintaxe de consulta é usada para expressões de consulta passadas no parâmetro de pesquisa da API de [Documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents) de **Pesquisa,** não confundir com a [sintaxe OData](query-odata-filter-orderby-syntax.md) utilizada para o parâmetro [$filter](search-filters.md) daquela API. Estas diferentes sintaxes têm as suas próprias regras para construir consultas, fugir de cordas, e assim por diante.
->
-> A Azure Cognitive Search fornece uma [sintaxe de consulta lucene completa](query-lucene-syntax.md) alternativa para consultas mais complexas no parâmetro de **pesquisa.** Para saber mais sobre a consulta de arquitetura e benefícios de cada sintaxe, veja como funciona a pesquisa completa de [texto em Azure Cognitive Search](search-lucene-query-architecture.md).
+A simples sintaxe é utilizada para `search` as expressões de consulta passadas no parâmetro de um pedido de [Documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents)de Busca , para não confundir com a [sintaxe OData](query-odata-filter-orderby-syntax.md) utilizada para o parâmetro [de expressões $filter](search-filters.md) da mesma API de Documentos de Busca. Os `search` `$filter` parâmetros e parâmetros têm sintaxe diferente, com as suas próprias regras para construir consultas, escapar de cordas, e assim por diante.
+
+Embora o simples parser seja baseado na classe [Apache Lucene Simple Query Parser,](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) a implementação em Azure Cognitive Search exclui a pesquisa fuzzy. Se precisar de [pesquisa duvidosa](search-query-fuzzy.md) ou outros formulários de consulta avançada, considere a [sintaxe de consulta lucene alternativa completa.](query-lucene-syntax.md)
 
 ## <a name="invoke-simple-parsing"></a>Invocar simples parsing
 
@@ -38,24 +37,24 @@ Por mais simples que isto pareça, há um aspeto da execução de consulta na Pe
 
 ### <a name="precedence-operators-grouping"></a>Operadores de precedência (agrupamento)
 
-Pode utilizar parênteses para criar subqueries, incluindo operadores dentro da declaração parêntestica. Por exemplo, `motel+(wifi||luxury)` procurará documentos que contenham o termo "motel" e "wifi" ou "luxo" (ou ambos).
+Pode utilizar parênteses para criar subqueries, incluindo operadores dentro da declaração parêntestica. Por exemplo, `motel+(wifi|luxury)` procurará documentos que contenham o termo "motel" e "wifi" ou "luxo" (ou ambos).
 
-O agrupamento de campo é semelhante, mas traça o agrupamento para um único campo. Por exemplo, `hotelAmenities:(gym+(wifi||pool))` procura no campo "hotelAmenities" para "ginásio" e "wifi", ou "ginásio" e "piscina".  
+O agrupamento de campo é semelhante, mas traça o agrupamento para um único campo. Por exemplo, `hotelAmenities:(gym+(wifi|pool))` procura no campo "hotelAmenities" para "ginásio" e "wifi", ou "ginásio" e "piscina".  
 
 ### <a name="escaping-search-operators"></a>Operadores de pesquisa escapando  
 
-Para utilizar qualquer um dos operadores de pesquisa como parte do texto de pesquisa,`\`escape ao personagem preserndo-o com um único backslash ( ). Por exemplo, para uma `https://`pesquisa `://` de wildcard em , onde `search=https\:\/\/*`faz parte da corda de consulta, você especificaria . Da mesma forma, um padrão de `\+1 \(800\) 642\-7676`número de telefone escapado pode parecer este .
+Na simples sintaxe, os operadores de pesquisa incluem estes caracteres:`+ | " ( ) ' \`  
 
-Os caracteres especiais que requerem a fuga incluem:`- * ? \ /`  
+Se algum destes caracteres fizer parte de um símbolo no índice, escape-o`\`preserndo-o com um único backslash ( ) na consulta. Por exemplo, suponha que usou um analisador personalizado para tokenization de todo o termo, e o seu índice contém a corda "Luxury+Hotel". Para obter uma correspondência exata neste símbolo, `search=luxury\+hotel`insira um personagem de fuga: . 
 
-Para tornar as coisas simples para os casos mais típicos, existem duas exceções a esta regra em que não é necessária uma fuga:  
+Para tornar as coisas simples para os casos mais típicos, existem duas exceções a esta regra em que não é necessária escapar:  
 
-+ O operador `-` NÃO só precisa de ser escapado se for o primeiro personagem depois do espaço branco, não se estiver a meio de um termo. Por exemplo, o seguinte GUID é `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`válido sem o carácter de fuga: .
++ O operador `-` NÃO só precisa de ser escapado se for o primeiro personagem depois de um espaço branco. Se `-` aparecer no meio (por exemplo, dentro `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`), pode saltar a fuga.
 
-+ O operador `*` de sufixo só precisa de ser escapado se for o último personagem antes do espaço branco, não se estiver a meio de um termo. Por exemplo, `4*4=16` não requer um corte nas costas.
++ O sufixo `*` só precisa de ser escapado se for o último personagem antes de um espaço branco. Se `*` o que aparece no meio `4*4=16`(por exemplo, em ), não é necessária fuga.
 
 > [!NOTE]  
-> Embora escapar mantém os tokens juntos, [a análise lexical](search-lucene-query-architecture.md#stage-2-lexical-analysis) durante a indexação pode desmontá-las. Por exemplo, o analisador lucene padrão irá apagar e quebrar palavras sobre hífens, whitespace e outros caracteres. Se precisar de caracteres especiais na corda de consulta, pode precisar de um analisador que os preserve no índice. Algumas escolhas incluem [analisadores](index-add-language-analyzers.md)de linguagem natural da Microsoft, que preserva palavras hifenizadas, ou um analisador personalizado para padrões mais complexos. Para mais informações, consulte [termos parciais, padrões e caracteres especiais.](search-query-partial-matching.md)
+> Por padrão, o analisador padrão eliminará e quebrará palavras sobre hífenes, espaço branco, ampersands e outros caracteres durante a [análise lexical](search-lucene-query-architecture.md#stage-2-lexical-analysis). Se precisar de caracteres especiais para permanecer na corda de consulta, pode precisar de um analisador que os preserve no índice. Algumas escolhas incluem [analisadores](index-add-language-analyzers.md)de linguagem natural da Microsoft, que preserva palavras hifenizadas, ou um analisador personalizado para padrões mais complexos. Para mais informações, consulte [termos parciais, padrões e caracteres especiais.](search-query-partial-matching.md)
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codificar caracteres inseguros e reservados em URLs
 
@@ -73,7 +72,7 @@ Você pode incorporar operadores boolean (E, OU, NÃO) em uma corda de consulta 
 
 ### <a name="and-operator-"></a>E operador`+`
 
-O e o operador é um sinal positivo. Por exemplo, `wifi+luxury` procurará documentos que contenham ambos `wifi` e `luxury`.
+O e o operador é um sinal positivo. Por exemplo, `wifi + luxury` procurará documentos que contenham ambos `wifi` e `luxury`.
 
 ### <a name="or-operator-"></a>Operador ou`|`
 
@@ -109,8 +108,9 @@ Uma pesquisa de prazo é uma consulta para um ou mais termos, onde qualquer um d
 
 ## <a name="see-also"></a>Consulte também  
 
++ [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Exemplos de consulta para pesquisa simples](search-query-simple-examples.md)
 + [Exemplos de consulta para pesquisa completa lucene](search-query-lucene-examples.md)
-+ [Documentos de pesquisa &#40;pesquisa cognitiva azure REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Pesquisar Documentos com a API REST)
 + [Sintaxe de consulta Lucene](query-lucene-syntax.md)
 + [Sintaxe da expressão OData](query-odata-filter-orderby-syntax.md) 

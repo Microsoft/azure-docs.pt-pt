@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 80ce7f893b4828125cd9b63ffe33b7c0d873e899
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: cd41c162d44320fc19af904118f202423e68e96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146896"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195354"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 

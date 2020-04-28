@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/02/2020
-ms.openlocfilehash: e9e9b10cc9bae029fe11fb2bd1f8b76cf120744a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/27/2020
+ms.openlocfilehash: c9ac8d7ea465a26d29bf8f8fbc15dcefaf9d7575
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417815"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187284"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Fluxos de dados de resolução de problemas na Fábrica de Dados de Azure
 
@@ -44,7 +44,7 @@ Este artigo explora métodos comuns de resolução de problemas para fluxos de d
 
 - **Mensagem**: Transmissão de erros de tempo de encontro, certifique-se de que o fluxo de transmissão produz dados dentro de 60 segundos em corridas de depuração e 300 segundos em corridas de emprego
 - **Causas**: A transmissão tem um prazo padrão de 60 segundos em corridas de depuração e 300 segundos em corridas de emprego. O fluxo escolhido para transmissão parece ser grande para produzir dados dentro deste limite.
-- **Recomendação**: Evite transmitir grandes fluxos de dados onde o processamento possa demorar mais de 60 segundos. Escolha um fluxo menor para transmitir. Grandes mesas SQL/DW e ficheiros de origem são tipicamente maus candidatos.
+- **Recomendação**: Verifique o separador Otimize sobre as transformações de fluxo de dados para Aderir, Existe e Procurar. A opção predefinida para Transmissão é "Auto". Se isto estiver definido, ou se estiver a definir manualmente o lado esquerdo ou direito para transmitir em "Fixo", então pode definir uma configuração de tempo de funcionamento de integração Azure maior ou desligar a transmissão. A abordagem recomendada para um melhor desempenho nos fluxos de dados é permitir que a Spark transmita usando "Auto" e utilize um Azure IR otimizado de memória.
 
 ### <a name="error-code-df-executor-conversion"></a>Código de erro: DF-Executor-Conversão
 

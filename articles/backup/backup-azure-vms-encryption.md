@@ -3,12 +3,12 @@ title: Back up e restaurar VMs Azure encriptados
 description: Descreve como fazer backup e restaurar vMs Azure encriptados com o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 98febe9f91cb4b71d546300d4e65ade073d19e67
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ea4d2830fb9db9f95ba8ab87626a79d94aaecb8a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461774"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187941"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Back up e restaurar Azure VM encriptado
 
@@ -103,7 +103,7 @@ O backup inicial será executado de acordo com o horário, mas você pode execut
 
 ## <a name="provide-permissions"></a>Fornecer permissões
 
-O Azure VM precisa de acesso apenas para apoiar as chaves e segredos, juntamente com os VMs associados.
+O Azure Backup precisa de acesso apenas para apoiar as chaves e segredos, juntamente com os VMs associados.
 
 - O seu Cofre Chave está associado ao inquilino da AD Azure da subscrição Azure. Se for **um utilizador membro,** o Azure Backup adquire acesso ao Cofre chave sem mais ações.
 - Se for **um utilizador convidado,** deve fornecer permissões para que o Azure Backup aceda ao cofre da chave.

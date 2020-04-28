@@ -3,12 +3,12 @@ title: Tutorial de upgrade de aplicativo sintetizado de tecido de serviço
 description: Este artigo percorre a experiência de implementar uma aplicação Service Fabric, alterar o código e lançar uma atualização utilizando o Visual Studio.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: db814b972db1aee56be0858c9ff5d1c382640642
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: acde2f4e51bee29d2eefb0d5fbb54fbe421a41f1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464820"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195872"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Tutorial de upgrade de aplicação service Fabric usando Visual Studio
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ A seleção **De publicação** traz um pop-up e pode definir o **perfil Target*
 
 ![Publicação de uma aplicação de Tecido de Serviço][image2]
 
-Agora pode clicar em **Publicar** na caixa de diálogo. Pode utilizar [o Service Fabric Explorer para ver o cluster e a aplicação.](service-fabric-visualizing-your-cluster.md) A aplicação Objetos Visuais tem um serviço [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) web a que pode ir digitando na barra de endereços do seu navegador.  Deve ver 10 objetos visuais flutuantes a moverem-se no ecrã.
+Agora pode clicar em **Publicar** na caixa de diálogo. Pode utilizar [o Service Fabric Explorer para ver o cluster e a aplicação.](service-fabric-visualizing-your-cluster.md) A aplicação Objetos Visuais tem um serviço `http://localhost:8081/visualobjects/` web a que pode ir digitando na barra de endereços do seu navegador.  Deve ver 10 objetos visuais flutuantes a moverem-se no ecrã.
 
 **NOTA:** Se a `Cloud.xml` implementação do perfil (Tecido de Serviço Azure), a aplicação deve estar disponível em **http://{ServiceFabricName}.{ Região}.cloudapp.azure.com:8081/objetos visuais/**. Certifique-se de `8081/TCP` que configurado no Balancer de carga (encontre o Balancer de carga no mesmo grupo de recursos que a instância do Tecido de Serviço).
 

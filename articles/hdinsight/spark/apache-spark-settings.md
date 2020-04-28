@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cd16d898408bff46cee13b4df63cd3386d0581b1
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137846"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188162"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
 

@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições políticas são usadas para estabelecer convenções para os recursos azure na sua organização.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 329692c7220810af1d47fe7036e727bb49284810
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 5d4a86f4d9f74cf17229467f19a3afa8bebcf40f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82117289"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187771"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -629,7 +629,7 @@ A lista de pseudónimos está sempre a crescer. Para encontrar quais pseudónimo
 
   Utilize a [extensão da Política Azure para](../how-to/extension-for-vscode.md) o Código do Estúdio Visual para visualizar e descobrir pseudónimos para propriedades de recursos.
 
-  ![Extensão da Política Azure para Código de Estúdio Visual](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Extensão da Política Azure para Código de Estúdio Visual" border="false":::
 
 - Azure Resource Graph
 

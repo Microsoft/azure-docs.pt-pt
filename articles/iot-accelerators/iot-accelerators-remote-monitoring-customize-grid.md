@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e27c1c4303129467c0bd05152570e26f129585a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61447102"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186293"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione uma grelha personalizada ao uI web de solução de monitorização remota
 
@@ -29,7 +29,7 @@ A grelha de exemplo neste artigo mostra os dados do serviço que o Add um servi�
 Para completar os passos neste guia de como orientar, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
 
 - [Git](https://git-scm.com/downloads)
-- [Nó.js](https://nodejs.org/download/)
+- [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -182,7 +182,7 @@ Se a UI web ainda não estiver a funcionar localmente, execute o seguinte comand
 npm start
 ```
 
-O comando anterior executa [http://localhost:3000/dashboard](http://localhost:3000/dashboard)a UI localmente em . Navegue na página **Exemplo** para ver os dados de visualização da grelha do serviço.
+O comando anterior executa `http://localhost:3000/dashboard`a UI localmente em . Navegue na página **Exemplo** para ver os dados de visualização da grelha do serviço.
 
 ## <a name="select-rows"></a>Selecione linhas
 

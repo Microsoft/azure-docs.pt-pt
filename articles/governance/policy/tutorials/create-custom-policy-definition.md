@@ -3,12 +3,12 @@ title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você cria uma definição de política personalizada para a Política Azure para impor regras comerciais personalizadas sobre os seus recursos Azure.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238945"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190712"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -73,7 +73,7 @@ Existem várias formas de olhar para um [modelo de Gestor](../../../azure-resour
 A forma mais simples de encontrar propriedades é olhar para um recurso existente do mesmo tipo. Os recursos já configurados com a definição que pretende impor também fornecem o valor para comparar.
 Veja a página do **modelo de exportação** (em **Definições)** no portal Azure para esse recurso específico.
 
-![Página do modelo de exportação no recurso existente](../media/create-custom-policy-definition/export-template.png)
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Página do modelo de exportação no recurso existente" border="false":::
 
 Fazê-lo para uma conta de armazenamento revela um modelo semelhante a este exemplo:
 

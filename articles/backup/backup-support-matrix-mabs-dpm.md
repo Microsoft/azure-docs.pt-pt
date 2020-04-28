@@ -3,12 +3,12 @@ title: MABS & System Center DPM support matrix
 description: Este artigo resume o suporte de backup Azure quando utiliza o Microsoft Azure Backup Server (MABS) ou o System Center DPM para fazer backup no local e nos recursos Do VM Do Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6664f7b226b75b364fd1c83f2abc56b5a275eff9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d3b9dbf0440809578fca113ee6674b79a5d7fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77582658"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193280"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com O Servidor de Backup Microsoft Azure ou DPM do System Center
 
@@ -58,7 +58,7 @@ Para obter mais informações:
 
 O DPM/MABS pode ser implantado conforme resumido na tabela seguinte.
 
-**Implantação** | **Suporte** | **Detalhes**
+**Implementação** | **Suporte** | **Detalhes**
 --- | --- | ---
 **Implantado no local** | Servidor físico<br/><br/>VM do Hyper-V<br/><br/> VMware VM | Se o DPM/MABS for instalado como vMware VM, apenas faz backup VMs VMware e cargas de trabalho que estão em execução nesses VMs.
 **Implantado como um VM de pilha de azure** | Apenas MABS | O DPM não pode ser usado para apoiar os VMs do Azure Stack.
@@ -125,17 +125,17 @@ Pode fazer o backup dos seus dados através do Azure ExpressRoute com o público
 
 Com o público: Garantir o acesso aos seguintes domínios/endereços:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
 
 Com o peering da Microsoft, selecione os seguintes serviços/regiões e valores comunitários relevantes:
 
-* Diretório Ativo Azure (12076:5060)
-* Região do Microsoft Azure (de acordo com a localização do seu cofre de Serviços de Recuperação)
-* Armazenamento Azure (de acordo com a localização do seu cofre dos Serviços de Recuperação)
+- Diretório Ativo Azure (12076:5060)
+- Região do Microsoft Azure (de acordo com a localização do seu cofre de Serviços de Recuperação)
+- Armazenamento Azure (de acordo com a localização do seu cofre dos Serviços de Recuperação)
 
 Para mais detalhes, consulte os requisitos de [encaminhamento expressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
@@ -146,7 +146,7 @@ Para mais detalhes, consulte os requisitos de [encaminhamento expressRoute](http
 
 A conectividade com o serviço de backup Azure é necessária para que as cópias de segurança funcionem corretamente, e a subscrição Azure deve estar ativa. A tabela que se segue mostra o comportamento se estas duas coisas não ocorrerem.
 
-**MABS para Azure** | **Assinatura** | **Cópia de segurança/Restauro**
+**MABS para Azure** | **Subscrição** | **Cópia de segurança/Restauro**
 --- | --- | ---
 Ligada | Ativa | Volte para o disco DPM/MABS.<br/><br/> De volta a Azure.<br/><br/> Restaurar do disco.<br/><br/> Restaurar de Azure.
 Ligada | Expirado/deprovisionado | Sem reforços para o disco ou para o Azure.<br/><br/> Se a subscrição estiver caducada, pode restaurar a partir do disco ou do Azure.<br/><br/> Se a subscrição for desativada, não pode restaurar a partir do disco ou do Azure. Os pontos de recuperação do Azure são eliminados.

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: ad696f37c89bab87ce9854bc3ba2a995cd0ea569
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 1eb3da3759f5fca1bc5d675a9b2d61fcf9358bd4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82142167"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195473"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualizar o dados do Apache Hive com o Microsoft Power BI através do ODBC no Azure HDInsight
 

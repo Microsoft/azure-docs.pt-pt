@@ -3,12 +3,12 @@ title: Restaurar chave chave cofre & segredo para VM encriptado
 description: Saiba como restaurar a chave do cofre e o segredo em Backup Azure usando powerShell
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.openlocfilehash: 35bcb919cadd46c603b1f2ad49742c5435f873d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 826b3917fda820ed02cde425ca5a394bffec0df1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75450057"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186826"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurar a chave do Key Vault e o segredo para VMs encriptadas utilizando o Azure Backup
 
@@ -92,7 +92,7 @@ Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $sec
 
 > [!NOTE]
 >
-> * O valor para $secretname pode ser obtido referindo-se à saída de $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl e usando https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 texto após segredos/ por exemplo, URL secreto de saída é e nome secreto é B3284AAA-DAAAA-B393-60CAA848AAAAAAAAAAAAA
+> * O valor para $secretname pode ser obtido referindo-se à saída de $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl e usando `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` texto após segredos/ por exemplo, URL secreto de saída é e nome secreto é B3284AAA-DAAAA-B393-60CAA848AAAAAAAAAAAAA
 > * O valor da etiqueta DiskEncryptionKeyFileName é o mesmo que o nome secreto.
 >
 >
@@ -128,7 +128,7 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 
 > [!NOTE]
 >
-> * O valor para $secretname pode ser obtido referindo-se à saída de $rp1. KeyAndSecretDetails.SecretUrl e usando texto após segredos/ por https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 exemplo, URL secreto de saída é e nome secreto é B3284AAAA-DAAA-4AAA-B393-60CAA848AAAAAAAA
+> * O valor para $secretname pode ser obtido referindo-se à saída de $rp1. KeyAndSecretDetails.SecretUrl e usando texto após segredos/ por `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` exemplo, URL secreto de saída é e nome secreto é B3284AAAA-DAAA-4AAA-B393-60CAA848AAAAAAAA
 > * O valor da etiqueta DiskEncryptionKeyFileName é o mesmo que o nome secreto.
 > * Valor para DiskEncryptionKeyEncryptionKeyURL pode ser obtido a partir do cofre da chave depois de restaurar as chaves de volta e usando o cmdlet [Get-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/get-azurekeyvaultkey)
 >

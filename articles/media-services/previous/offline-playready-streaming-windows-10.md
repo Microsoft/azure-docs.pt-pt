@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 350b8d111652511627ddf67236f63248a5489015
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 001d408eaa7ce637bd7cc1f1183dd8748cddf539
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74970453"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189527"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Offline PlayReady Streaming for Windows 10 (Transmissão em Fluxo Offline do PlayReady para Windows 10)  
 
@@ -65,12 +65,12 @@ Abaixo estão dois conjuntos de ativos de teste, o primeiro que usa a entrega da
 #1 de ativos:
 
 * URL de descarregamento progressivo:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (AMS):[https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
+* PlayReady LA_URL (AMS):`https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
 #2 de ativos:
 
 * URL de descarregamento progressivo:[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (on-prem):[https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* PlayReady LA_URL (on-prem):`https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
 
 Para testes de reprodução, usei uma aplicação Universal Windows no Windows 10. Nas [amostras universais do Windows 10,](https://github.com/Microsoft/Windows-universal-samples)existe uma amostra básica do leitor chamada [Amostra de Streaming Adaptativo](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Tudo o que temos de fazer é adicionar o código para escolhermos o vídeo descarregado e usá-lo como fonte, em vez de adaptar a fonte de streaming. As alterações estão no manipulador de eventos de clique do botão:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 97acac61d0397a4e13fb64d39a6aba92e4de2afd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f01ea47a01c700580e8c3172d1b445a098c164f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80123310"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187499"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -167,4 +167,4 @@ Se a sua conta não for atribuída a uma das funções anteriores, deve ser atri
 
 - Saiba como criar uma [topologia de rede hub and spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Criar uma rede virtual de peering usando scripts de amostra [PowerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou usando [modelos](template-samples.md) de Gestor de Recursos Azure
-- Criar e aplicar [a política azure](policy-samples.md) para redes virtuais
+- Criar e atribuir definições de [política azure](policy-samples.md) para redes virtuais

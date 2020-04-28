@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: c899d3b4d132ee51679f8c7b4fd1c578417500db
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 3b5f371a936c850ad4d09cfb6a8c75ffad32cba2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605274"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195609"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Join an Azure-SSIS integration runtime to a virtual network (Associar um runtime de integração do Azure-SSIS a uma rede virtual)
 
@@ -293,7 +293,7 @@ Esses recursos serão criados quando o seu IR Azure-SSIS começar. Serão apagad
 
 Certifique-se de que não tem nenhum bloqueio de recursos no grupo/subscrição de recursos a que pertencem os endereços IP públicos estáticos/rede virtual. Se configurar um bloqueio de leitura/exclusão, iniciar e parar o seu IR Azure-SSIS falhará, ou deixará de responder.
 
-Certifique-se de que não tem uma política Azure que impeça a criação dos seguintes recursos ao abrigo do grupo/subscrição de recursos a que pertencem os endereços IP públicos estáticos da rede virtual/seus endereços IP públicos estáticos: 
+Certifique-se de que não tem uma atribuição de Política Azure que impeça a criação dos seguintes recursos ao abrigo do grupo/subscrição de recursos a que pertencem os endereços IP públicos da rede virtual/sua edição: 
 - Microsoft.Network/LoadBalancers 
 - Microsoft.Network/NetworkSecurityGroups 
 - Microsoft.Network/PublicIPAddresss 

@@ -2,13 +2,13 @@
 title: Funções do modelo - data
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com datas.
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: 364b41e9e92cb248a7bd2fac5a41eb535adbf440
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.date: 04/27/2020
+ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084792"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192302"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funções de data para modelos ARM
 
@@ -242,3 +242,7 @@ O exemplo seguinte mostra como usar um valor a partir da função ao definir um 
     }
 }
 ```
+
+## <a name="next-steps"></a>Passos seguintes
+
+* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

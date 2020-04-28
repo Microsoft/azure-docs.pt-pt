@@ -4,14 +4,14 @@ description: Utilize modelos do Gestor de Recursos Azure para criar e configurar
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/27/2020
 ms.author: mjbrown
-ms.openlocfilehash: 1c4f1a1920d98052231eaa3a7d5c0454441c88ee
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 14c3438c5d6e7bed110f9e0dbfcd04655c3e9121
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390883"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193263"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Resource Manager templates for Azure Cosmos DB (Modelos do Azure Resource Manager para o Azure Cosmos DB)
 
@@ -24,6 +24,7 @@ As seguintes tabelas incluem links para modelos de Gestor de Recursos Azure para
 |[Criar uma conta Azure Cosmos, base de dados, contentor](manage-sql-with-resource-manager.md#create-resource) | Este modelo cria uma conta API SQL (Core) em duas regiões com dois recipientes com entrada de base de dados partilhada e um recipiente com entrada dedicada. A entrada pode ser atualizada resubmetendo o modelo com o valor de propriedade de entrada atualizado. |
 |[Criar uma conta Azure Cosmos, base de dados e contentor com um procedimento armazenado, gatilho e UDF](manage-sql-with-resource-manager.md#create-sproc) | Este modelo cria uma conta API SQL (Core) em duas regiões com um procedimento armazenado, gatilho e UDF para um recipiente. |
 |[Criar um ponto final privado para uma conta azure cosmos existente](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Este modelo cria um ponto final privado para uma conta API Azure Cosmos SQL existente numa rede virtual existente. |
+|[Criar uma conta Azure Cosmos de nível livre](manage-sql-with-resource-manager.md#free-tier) |  Este modelo cria uma conta Azure Cosmos DB em nível livre. |
 
 ## <a name="mongodb-api"></a>API do MongoDB
 

@@ -3,12 +3,12 @@ title: Use powerShell para fazer o backup cargas de trabalho do DPM
 description: Saiba como implementar e gerir o Backup Azure para o Gestor de Proteção de Dados (DPM) usando o PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 06c138a4015a0b730369e091fc57a34d2190051d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea1de4a328721deafc8a4706ad4597cec3c3defe
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616742"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194589"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
 
@@ -103,7 +103,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Instalação do agente de backup Azure num servidor DPM
 
-Antes de instalar o agente De reserva Azure, é necessário que o instalador seja descarregado e presente no Windows Server. Pode obter a versão mais recente do instalador a partir do [Microsoft Download Center](https://aka.ms/azurebackup_agent) ou da página do Painel de Instrumentos de Recuperação dos Serviços de Recuperação. Guarde o instalador para um local facilmente\*acessível como *C:\Downloads .
+Antes de instalar o agente De reserva Azure, é necessário que o instalador seja descarregado e presente no Windows Server. Pode obter a versão mais recente do instalador a partir do [Microsoft Download Center](https://aka.ms/azurebackup_agent) ou da página do Painel de Instrumentos de Recuperação dos Serviços de Recuperação. Guarde o instalador para `C:\Downloads\*`um local facilmente acessível como .
 
 Para instalar o agente, execute o seguinte comando numa consola PowerShell elevada **no servidor DPM:**
 
@@ -268,7 +268,7 @@ A lista de servidores em que o Agente DPM está instalado e está a ser gerida p
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}
 ```
 
-Agora, obtenha a lista ```$server``` de fontes de dados sobre a utilização do cmdlet [Get-DPMDatasource.](https://docs.microsoft.com/powershell/module/dataprotectionmanager/get-dpmdatasource?view=systemcenter-ps-2019) Neste exemplo estamos a filtrar o volume *D:\\ * que queremos configurar para cópia de segurança. Esta fonte de dados é adicionada ao Grupo de Proteção utilizando o cmdlet [Add-DPMChildDatasource.](https://docs.microsoft.com/powershell/module/dataprotectionmanager/add-dpmchilddatasource?view=systemcenter-ps-2019) Lembre-se de usar o ```$MPG``` objeto de grupo de proteção *modificável* para fazer as adições.
+Agora, obtenha a lista ```$server``` de fontes de dados sobre a utilização do cmdlet [Get-DPMDatasource.](https://docs.microsoft.com/powershell/module/dataprotectionmanager/get-dpmdatasource?view=systemcenter-ps-2019) Neste exemplo estamos a filtrar `D:\` o volume que queremos configurar para cópia de segurança. Esta fonte de dados é adicionada ao Grupo de Proteção utilizando o cmdlet [Add-DPMChildDatasource.](https://docs.microsoft.com/powershell/module/dataprotectionmanager/add-dpmchilddatasource?view=systemcenter-ps-2019) Lembre-se de usar o ```$MPG``` objeto de grupo de proteção *modificável* para fazer as adições.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains "D:\" }

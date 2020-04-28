@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: 6ed0d743f9b9cdc136b8f52f4d9d02583fc63eb9
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 9e53b6bdb041bfac5a82ed607b75b25ab0513f57
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81870184"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188009"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conecte a rede do seu laboratório com uma rede virtual de pares nos Serviços de Laboratório Azure
 
@@ -30,7 +30,7 @@ O epeering de rede virtual permite-lhe ligar perfeitamente as redes virtuais Azu
 
 Poderá ter de ligar a rede do seu laboratório a uma rede virtual de pares em alguns cenários, incluindo os seguintes:
 
-- As máquinas virtuais no laboratório têm software que se conecta a servidores de licença supérum para adquirir licença
+- As máquinas virtuais do laboratório têm software que se conecta aos servidores de licenças no local para adquirir licença.
 - As máquinas virtuais no laboratório precisam de acesso a conjuntos de dados (ou quaisquer outros ficheiros) nas partilhas da rede da universidade.
 
 Algumas redes no local estão ligadas à Rede Virtual Azure, quer através do [ExpressRoute](../../expressroute/expressroute-introduction.md) quer [do Portal da Rede Virtual.](../../vpn-gateway/vpn-gateway-about-vpngateways.md) Estes serviços devem ser criados fora dos Serviços de Laboratório Azure. Para saber mais sobre a ligação de uma rede no local ao Azure utilizando o ExpressRoute, consulte a visão geral da [ExpressRoute](../../expressroute/expressroute-introduction.md). Para a conectividade no local utilizando um Portal de Rede Virtual, o gateway, a rede virtual especificada, e a conta de laboratório devem estar todos na mesma região.

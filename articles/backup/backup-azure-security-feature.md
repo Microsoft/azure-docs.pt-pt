@@ -4,12 +4,12 @@ description: Saiba como usar funcionalidades de segurança no Azure Backup para 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 7213f26493a118c2cb32f8f9935b4954176b99a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24dc108ce4d9c991b1e062c0435b38a63899a249
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586398"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186775"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger backups híbridos que usam Backup Azure
 
@@ -21,10 +21,10 @@ As preocupações com questões de segurança, como malware, ransomware e intrus
 
 > [!NOTE]
 > As funcionalidades de segurança não devem ser ativadas se estiver a utilizar a infraestrutura como cópia de segurança VM de serviço (IaaS). Estas funcionalidades ainda não estão disponíveis para backup IaaS VM, pelo que permitir-lhes não terá qualquer impacto. As funcionalidades de segurança só devem ser ativadas se estiver a utilizar: <br/>
->  * **Agente de backup Azure.** Versão de agente mínimo 2.0.9052. Depois de ter ativado estas funcionalidades, deverá fazer o upgrade para esta versão do agente para realizar operações críticas. <br/>
->  * **Servidor de backup Azure**. Versão 2.0.9052 do agente de backup Minimum Azure com atualização do Servidor de Backup Azure 1. <br/>
->  * **Gestor de Proteção de Dados do Centro**de Sistemas . Versão 2.0.9052 do agente de backup Minimum Azure 2.0.9052 com Data Protection Manager 2012 R2 UR12 ou Data Protection Manager 2016 UR2. <br/>
-
+>
+> - **Agente de backup Azure.** Versão de agente mínimo 2.0.9052. Depois de ter ativado estas funcionalidades, deverá fazer o upgrade para esta versão do agente para realizar operações críticas. <br/>
+> - **Servidor de backup Azure**. Versão 2.0.9052 do agente de backup Minimum Azure com atualização do Servidor de Backup Azure 1. <br/>
+> - **Gestor de Proteção de Dados do Centro**de Sistemas . Versão 2.0.9052 do agente de backup Minimum Azure 2.0.9052 com Data Protection Manager 2012 R2 UR12 ou Data Protection Manager 2016 UR2. <br/>
 
 > [!NOTE]
 > Estas funcionalidades estão disponíveis apenas para o cofre dos Serviços de Recuperação. Todos os cofres recém-criados dos Serviços de Recuperação têm estas funcionalidades ativadas por padrão. Para os cofres dos Serviços de Recuperação existentes, os utilizadores permitem estas funcionalidades utilizando os passos mencionados na secção seguinte. Após a ativação das funcionalidades, aplicam-se a todos os computadores do agente De recuperação, às instâncias do Servidor de Backup Azure e aos servidores do Gestor de Proteção de Dados registados no cofre. Permitir esta definição é uma ação única e não pode desativar estas funcionalidades depois de as ativar.

@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: b52af8f41f32c224fd7c4fa0f5c539b23d231f49
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: ae98325d98df1ac8a06e0c0bc950d89cc6b77eda
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149306"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192268"
 ---
 # <a name="confidential-computing-on-azure"></a>Computação confidencial em Azure
 
@@ -28,7 +28,8 @@ A computação confidencial Azure permite isolar os seus dados sensíveis enquan
 ## <a name="overview"></a>Descrição geral
 <p><p>
 
-> [!VIDEO https://www.youtube.com/embed/Qu6sP0XDMU8]
+
+> [!VIDEO https://www.youtube.com/embed/rT6zMOoLEqI]
 
 Sabemos que proteger os seus dados em nuvem é importante. Ouvimos as suas preocupações. Aqui estão apenas algumas perguntas que os nossos clientes podem ter ao mover cargas de trabalho sensíveis para a nuvem: 
 
@@ -76,7 +77,7 @@ Em máquinas virtuais de computação confidencial azure, uma parte do hardware 
 
 ![Modelo VM](media/overview/hardware-backed-enclave.png)
 
-A infraestrutura de computação confidencial Azure é atualmente composta por uma especialidade SKU de máquinas virtuais (VMs). Estes VMs funcionam em processadores Intel com Software Extension Guard (Intel SGX). [Intel SGX](https://intel.com/sgx) é o componente que permite o aumento da proteção que iluminamos com computação confidencial. 
+A infraestrutura de computação confidencial Azure é atualmente composta por uma especialidade SKU de máquinas virtuais (VMs). Estes VMs funcionam em processadores Intel com Extensão de Guarda de Software (Intel SGX). [Intel SGX](https://intel.com/sgx) é o componente que permite o aumento da proteção que iluminamos com computação confidencial. 
 
 Hoje, o Azure oferece o [DCsv2-Series](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) construído sobre a tecnologia Intel SGX para criação de enclave baseado em hardware. Pode construir aplicações seguras baseadas em enclaves para executar na série DCsv2 de VMs para proteger os dados da sua aplicação e código em uso. 
 

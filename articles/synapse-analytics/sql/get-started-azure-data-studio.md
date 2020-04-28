@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: edf5a6a6a0f17c21abb818a0d41d0d0b1c39949c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 561ea1a4f3577e037708c3b090188c59bd3c4aad
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81423804"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187550"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Ligue-se ao Synapse SQL com o Azure Data Studio (pré-visualização)
 
@@ -61,11 +61,11 @@ Para utilizar o Diretório Ativo Azure, é necessário escolher o tipo de autent
 
 ![Autenticação do AAD](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-Esta imagem mostra os detalhes de **ligação** para **autenticação do Windows:**
+A imagem que se segue mostra os **detalhes de ligação** para **autenticação do Windows:**
 
 ![Autenticação do Windows](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-Esta imagem mostra os detalhes de **ligação** utilizando **o Login SQL:**
+A imagem que se segue mostra os **detalhes de ligação** utilizando **o Login SQL:**
 
 ![Início de sessão do SQL](./media/get-started-azure-data-studio/2-database-details.png)
 

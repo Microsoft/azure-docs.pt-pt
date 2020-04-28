@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/07/2020
-ms.openlocfilehash: 4f9b43b6f800bb47942ccc00fee0fac4536d2ec0
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 7d741e2fc787c057ebfcdeceeab2ea096df3f9ca
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81640586"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195218"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escala automaticamente os clusters Azure HDInsight
 

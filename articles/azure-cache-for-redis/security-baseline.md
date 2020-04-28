@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 172ac4e13201457f62d722236dff130a312cfdeb
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: b9568d352b22d9c48789f2648489be0444823fff
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81755511"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195991"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Linha de base de segurança azure para Azure Cache para Redis
 
@@ -709,7 +709,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Orientação**: Utilize a marcação, os grupos de gestão e as assinaturas separadas, se for caso disso, para organizar e rastrear o Azure Cache para instâncias Redis e recursos conexos. Conciliar o inventário regularmente e garantir que os recursos não autorizados sejam eliminados da subscrição atempadamente.
 
-Além disso, utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+Além disso, utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
 
 - Tipos de recursos não permitidos
 
@@ -735,7 +735,7 @@ Como criar e utilizar Tags:https://docs.microsoft.com/azure/azure-resource-manag
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor para os recursos Azure não aprovados
 
-**Orientação**: Utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
 
 Tipos de recursos não permitidos
 
@@ -863,7 +863,7 @@ Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/gover
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Manter configurações seguras de recursos Azure
 
-**Orientação:** Utilize a política azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
+**Orientação**: Utilize a Política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
 Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -921,7 +921,7 @@ Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/gover
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementar monitorização automatizada de configuração para os serviços Do Azure
 
-**Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.Cache" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Utilize a política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente as configurações para o seu Azure Cache para instâncias Redis e recursos conexos.
+**Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.Cache" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Use a Política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente as configurações para o seu Azure Cache para instâncias Redis e recursos conexos.
 
 Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

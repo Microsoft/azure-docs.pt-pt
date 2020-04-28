@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/14/2020
-ms.openlocfilehash: 1b3e3cd39edccd0952ce44d9cb050ca1d0c724ea
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/27/2020
+ms.openlocfilehash: 8ea26fc041f3fa6194ced65b3e3b9055848ead49
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605316"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188773"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de dados de mapeamento de fluxos de dados e afinação
 
@@ -151,7 +151,13 @@ A fixação de propriedades de produção e lote em sumidouros CosmosDB só prod
 
 ## <a name="join-performance"></a>Junte-se ao desempenho
 
-Gerir o desempenho de juntas no fluxo de dados é uma operação muito comum que irá realizar ao longo do ciclo de vida das suas transformações de dados. Na ADF, os fluxos de dados não requerem que os dados sejam classificados antes de aderirem, uma vez que estas operações são realizadas à medida que o haxixe se junta à Spark. No entanto, pode beneficiar de um melhor desempenho com a otimização "Broadcast" Join. Isto evitará baralhar empurrando para baixo o conteúdo de ambos os lados da sua relação de união para o nó de Faísca. Isto funciona bem para tabelas mais pequenas que são usadas para procurar referências. Tabelas maiores que podem não caber na memória do nó não são bons candidatos para otimização de transmissão.
+Gerir o desempenho de juntas no fluxo de dados é uma operação muito comum que irá realizar ao longo do ciclo de vida das suas transformações de dados. Na ADF, os fluxos de dados não requerem que os dados sejam classificados antes de aderirem, uma vez que estas operações são realizadas à medida que o haxixe se junta à Spark. No entanto, pode beneficiar de um melhor desempenho com a otimização "Broadcast" Join que se aplica às transformações de Joins, Exists e Lookup.
+
+Isto evitará baralhadas no voo empurrando para baixo o conteúdo de ambos os lados da sua relação de união para o nó de Spark. Isto funciona bem para tabelas mais pequenas que são usadas para procurar referências. Tabelas maiores que podem não caber na memória do nó não são bons candidatos para otimização de transmissão.
+
+A configuração recomendada para fluxos de dados com muitas operações de adesão é manter o conjunto de otimização para "Auto" para "Broadcast" e usar uma configuração de tempo de execução de integração azure otimizada de memória. Se estiver a experimentar erros de memória ou a tempo de transmissão durante as execuções de fluxo de dados, pode desligar a otimização da transmissão. No entanto, isto resultará em fluxos de dados de desempenho mais lentos. Opcionalmente, pode instruir o fluxo de dados para empurrar para baixo apenas o lado esquerdo ou direito da união, ou ambos.
+
+![Definições de transmissão](media/data-flow/newbroad.png "Definições de transmissão")
 
 Outra otimização de Join é construir as suas juntas de forma a evitar a tendência da Spark para implementar juntas cruzadas. Por exemplo, quando incluir valores literais nas suas condições de adesão, a Spark pode ver isso como um requisito para executar primeiro um produto cartesiano completo, em seguida, filtrar os valores unidos. Mas se garantir que tem valores de coluna em ambos os lados da sua condição de união, pode evitar este produto cartesiano induzido pela Spark e melhorar o desempenho das suas juntas e fluxos de dados.
 

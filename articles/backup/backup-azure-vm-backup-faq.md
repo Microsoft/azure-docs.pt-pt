@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: accfc57055f70254814c889de875f5360878bcd9
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: a6746944e34b8bd2fbb115baaabece96ee93dd1e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81757468"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190100"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes -Back up Azure VMs
 
@@ -163,8 +163,17 @@ O VM é apoiado utilizando as definições de horário e retenção na política
 ### <a name="how-do-i-move-a-vm-backed-up-by-azure-backup-to-a-different-resource-group"></a>Como posso mover um VM apoiado pelo Azure Backup para um grupo de recursos diferente?
 
 1. Pare temporariamente a cópia de segurança e guarde os dados de backup.
-2. Mova o VM para o grupo de recursos alvo.
-3. Reativar a cópia de segurança no mesmo cofre ou no cofre novo.
+2. Para mover máquinas virtuais configuradas com Backup Azure, faça os seguintes passos:
+
+   1. Encontre a localização da sua máquina virtual.
+   2. Encontre um grupo de recursos `AzureBackupRG_<location of your VM>_1`com o seguinte padrão de nomeação: . Por exemplo, *AzureBackupRG_westus2_1*
+   3. No portal Azure, verifique **tipos de mostrar em oposição.**
+   4. Encontre o recurso com o tipo **Microsoft.Compute/restorePointCollections** que tem o padrão `AzureBackup_<name of your VM that you're trying to move>_###########`de nomeação .
+   5. Apague este recurso. Esta operação elimina apenas os pontos de recuperação instantâneas, não os dados de back-up no cofre.
+   6. Depois de concluída a operação de eliminação, pode mover a sua máquina virtual.
+
+3. Mova o VM para o grupo de recursos alvo.
+4. Retome a reserva.
 
 Pode restaurar o VM dos pontos de restauro disponíveis que foram criados antes da operação de mudança.
 

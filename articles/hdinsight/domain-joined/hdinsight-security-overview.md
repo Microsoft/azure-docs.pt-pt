@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
+ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 797767e0c463161f29e486aef7db0ccaf459e299
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 492c248b9a68b39b37984b978944b4f7ef34d756
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733561"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190117"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança da empresa em Azure HDInsight
 

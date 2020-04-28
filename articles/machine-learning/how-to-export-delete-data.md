@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
-ms.date: 03/06/2020
+ms.date: 04/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4abef0146b4bf0cfaa254d196b0ca68f0d8ac883
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50234eb356314039b8023f0442207ae0b762676e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218279"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191639"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportar ou eliminar os seus dados do espaço de trabalho do serviço de aprendizagem automática
 
@@ -252,12 +252,3 @@ No designer onde criou a sua experiência, elimine os ativos individuais:
 
 Para eliminar conjuntos de dados no designer, utilize o portal Azure ou o Storage Explorer para navegar para contas de armazenamento conectadas e eliminar conjuntos de dados lá. O desregistar conjuntos de dados no designer apenas remove o ponto de referência no armazenamento.
 
-## <a name="export-data-in-the-designer"></a>Dados de exportação no designer
-
-No designer onde criou a sua experiência, os dados de exportação acrescentou:
-
-1. À esquerda, selecione **Datasets**.
-
-1. Na lista, selecione o conjunto de dados para exportar
-
-    ![Transferir dados](./media/how-to-export-delete-data/unregister-dataset.png)

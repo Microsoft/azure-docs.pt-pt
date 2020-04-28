@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 10d81de48c0d8f56c7c3fd26e3fd82a8c3df84c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94cdeff36553268d691fc968036c5264e77fddc2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474684"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188812"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Escala elástica uma conta API Da API do Azure Cosmos DB Cassandra
 
@@ -34,7 +34,7 @@ Se precisar minimizar a latência, existe um espectro de opções para gerir a e
 * [Manualmente usando o portal Azure](#use-azure-portal)
 * [Programáticamente utilizando as características do plano de controlo](#use-control-plane)
 * [Programáticamente utilizando comandos CQL com um SDK específico](#use-cql-queries)
-* [Dinamicamente usando o Piloto Automático](#use-autopilot)
+* [Dinamicamente usando a escala automática](#use-autoscale)
 
 As secções seguintes explicam as vantagens e desvantagens de cada abordagem. Em seguida, pode decidir sobre a melhor estratégia para equilibrar as necessidades de escala do seu sistema, o custo global e as necessidades de eficiência para a sua solução.
 
@@ -46,23 +46,23 @@ A vantagem deste método é que é uma forma simples de gerir a capacidade de en
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>Use o plano de controlo
 
-A API do Azure Cosmos DB para Cassandra fornece a capacidade de ajustar a entrada programáticamente utilizando as nossas várias funcionalidades de plano de controlo. Consulte os artigos [Azure Resource Manager,](manage-cassandra-with-resource-manager.md) [Powershell](powershell-samples-cassandra.md)e [Azure CLI](cli-samples-cassandra.md) para obter orientação e amostras.
+A API do Azure Cosmos DB para Cassandra fornece a capacidade de ajustar a entrada programáticamente utilizando as nossas várias funcionalidades de plano de controlo. Consulte os artigos [Azure Resource Manager,](manage-cassandra-with-resource-manager.md) [PowerShell](powershell-samples-cassandra.md)e [Azure CLI](cli-samples-cassandra.md) para obter orientação e amostras.
 
-A vantagem deste método é que pode automatizar a escala para cima ou para baixo de recursos com base num temporizador para responder à atividade máxima, ou períodos de baixa atividade. Veja [aqui](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) a nossa amostra para saber como o conseguir usando funções Azure e Powershell.
+A vantagem deste método é que pode automatizar a escala para cima ou para baixo de recursos com base num temporizador para responder à atividade máxima, ou períodos de baixa atividade. Veja [aqui](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) a nossa amostra para saber como o conseguir usando funções Azure e PowerShell.
 
-Uma desvantagem com esta abordagem pode ser o facto de não poder responder às necessidades imprevisíveis de mudança de escala em tempo real. Em vez disso, poderá ter de alavancar o contexto de aplicação no seu sistema, ao nível cliente/SDK, ou utilizar o [Autopilot](provision-throughput-autopilot.md).
+Uma desvantagem com esta abordagem pode ser o facto de não poder responder às necessidades imprevisíveis de mudança de escala em tempo real. Em vez disso, poderá ter de alavancar o contexto de aplicação no seu sistema, ao nível cliente/SDK, ou utilizar a [Escala Automática](provision-throughput-autoscale.md).
 
 ## <a name="use-cql-queries-with-a-specific-sdk"></a><a id="use-cql-queries"></a>Utilize consultas CQL com um SDK específico
 
 Pode escalar o sistema dinamicamente com código executando os [comandos CQL ALTER](cassandra-support.md#keyspace-and-table-options) para a base de dados ou contentor dada.
 
-A vantagem desta abordagem é que permite responder às necessidades de escala de forma dinâmica e personalizada que se adequa à sua aplicação. Com esta abordagem, ainda pode alavancar as taxas e taxas padrão de RU/s. Se as necessidades de escala do seu sistema forem maioritariamente previsíveis (cerca de 70% ou mais), usar SDK com CQL pode ser um método mais rentável de escala automática do que usar o Autopilot. A desvantagem desta abordagem é que pode ser bastante complexo implementar repetições, enquanto a limitação das taxas pode aumentar a latência.
+A vantagem desta abordagem é que permite responder às necessidades de escala de forma dinâmica e personalizada que se adequa à sua aplicação. Com esta abordagem, ainda pode alavancar as taxas e taxas padrão de RU/s. Se as necessidades de escala do seu sistema forem maioritariamente previsíveis (cerca de 70% ou mais), usar SDK com CQL pode ser um método mais rentável de escala automática do que usar a escala automática. A desvantagem desta abordagem é que pode ser bastante complexo implementar repetições, enquanto a limitação das taxas pode aumentar a latência.
 
-## <a name="use-autopilot"></a><a id="use-autopilot"></a>Utilizar o Piloto Automático
+## <a name="use-autoscale"></a><a id="use-autoscale"></a>Utilizar dimensionamento automático
 
-Além da forma manual ou programática de fornecimento de entrada, também pode configurar recipientes de cosmos Azure no modo Autopilot. O modo piloto automático escalará automaticamente e instantaneamente as suas necessidades de consumo dentro das gamas DERU especificadas sem comprometer os SLAs. Para saber mais, consulte os recipientes e bases de [dados Create Azure Cosmos em artigo](provision-throughput-autopilot.md) de modo piloto automático.
+Além da forma manual ou programática de fornecer a produção, também pode configurar recipientes de cosmos Azure em modo de escala automática. O modo de escala automática escalará automaticamente e instantaneamente as suas necessidades de consumo dentro das gamas DERU especificadas sem comprometer os SLAs. Para saber mais, consulte os recipientes e bases de [dados Create Azure Cosmos em artigo](provision-throughput-autoscale.md) modo de escala automática.
 
-A vantagem desta abordagem é que é a forma mais fácil de gerir as necessidades de escala no seu sistema. Garante não aplicar a limitação das taxas **dentro das gamas DERU configuradas**. A desvantagem é que, se as necessidades de escala no seu sistema forem previsíveis, o Autopilot pode ser uma forma menos rentável de lidar com as suas necessidades de escala do que utilizar o plano de controlo sob medida ou as abordagens de nível SDK acima mencionadas.
+A vantagem desta abordagem é que é a forma mais fácil de gerir as necessidades de escala no seu sistema. Garante não aplicar a limitação das taxas **dentro das gamas DERU configuradas**. A desvantagem é que, se as necessidades de escala no seu sistema forem previsíveis, a escala automática pode ser uma forma menos rentável de lidar com as suas necessidades de escala do que utilizar o plano de controlo sob medida ou as abordagens de nível SDK acima mencionadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

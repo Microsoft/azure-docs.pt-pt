@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: b1e6b674edc155e0aa6c88ad360eb59864eebee4
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: e2a2f6abfd6b7c644e95649f3c9832e4cc986037
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81771979"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188451"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Ações de script de resolução de problemas em Azure HDInsight
 

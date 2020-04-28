@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74fa6949716119d85eac5b142ac9e3c651a0a5d0
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: a58ea58ebf6fdc7d8521d204ac42fcbadeca39a4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398269"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189305"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Sintonize os hiperparâmetros para o seu modelo com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -184,7 +184,7 @@ O script de `val_accuracy` treino calcula o e regista-o como "precisão", que é
 
 <a name='specify-early-termination-policy'/>
 
-## <a name="specify-early-termination-policy"></a>Especificar a política de rescisão antecipada
+## <a name="specify-early-termination-policy"></a><a name="early-termination"></a>Especificar a política de rescisão antecipada
 
 Acabar com o mau desempenho corre automaticamente com uma política de rescisão antecipada. A rescisão reduz o desperdício de recursos e, em vez disso, utiliza estes recursos para explorar outras configurações de parâmetros.
 

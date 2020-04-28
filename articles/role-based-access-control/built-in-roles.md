@@ -15,12 +15,12 @@ ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 14ff86bc47ab6de55d840c4b986c99caf2d4e99c
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 78e5c219d83198f3bf4c329c33018caad2b0cc62
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81482033"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194929"
 ---
 # <a name="azure-built-in-roles"></a>Papéis azure embutidos
 
@@ -335,7 +335,7 @@ Permite-lhe gerir o acesso dos utilizadores aos recursos do Azure.
 > | **Ações** |  |
 > | */ler | Leia os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.Authorization/* | Gerir a autorização |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -392,11 +392,11 @@ Permite-lhe gerir máquinas virtuais clássicas, mas não ter acesso a elas, e n
 > | Microsoft.ClassicStorage/storageAccounts/images/read | Devolve a imagem da conta de armazenamento. (Depreciado. Utilize 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lista as chaves de acesso das contas de armazenamento. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Devolva a conta de armazenamento com a conta dada. |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -513,7 +513,7 @@ Permite-lhe gerir máquinas virtuais, mas não aceder a elas, e não a rede virt
 > | Microsoft.Compute/discos/ler | Obtenha as propriedades de um Disco |
 > | Microsoft.Compute/disks/delete | Elimina o Disco |
 > | Microsoft.DevTestLab/horários/* |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Junta-se a uma piscina de endereço sinuoso de entrada de aplicação. Não alertável. |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Junta-se a uma piscina de endereço sapateado de equilíbrio de carga. Não alertável. |
 > | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Junta-se a uma piscina NAT de entrada de equilibrista de carga. Não é alertável. |
@@ -539,12 +539,12 @@ Permite-lhe gerir máquinas virtuais, mas não aceder a elas, e não a rede virt
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devolve detalhes de utilização para um cofre de serviços de recuperação. |
 > | Microsoft.RecoveryServices/Vaults/write | Create Vault operation cria um recurso Azure de tipo 'cofre' |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.SqlVirtualMachine/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devolve as chaves de acesso da conta de armazenamento especificada. |
 > | Microsoft.Armazenamento/armazenamentoContas/leitura | Devolve a lista de contas de armazenamento ou obtém as propriedades para a conta de armazenamento especificada. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -681,10 +681,10 @@ Pode gerir os pontos finais da CDN, mas não pode conceder acesso a outros utili
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/resultados de operação/* |  |
 > | Microsoft.Cdn/perfis/pontos finais/* |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -735,10 +735,10 @@ Pode ver pontos finais de CDN, mas não pode fazer alterações.
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/resultados de operação/* |  |
 > | Microsoft.Cdn/perfis/pontos finais/*/read |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -789,10 +789,10 @@ Pode gerir perfis de CDN e seus pontos finais, mas não pode conceder acesso a o
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/resultados de operação/* |  |
 > | Microsoft.Cdn/perfis/* |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -843,10 +843,10 @@ Pode ver perfis de CDN e seus pontos finais, mas não pode fazer alterações.
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/resultados de operação/* |  |
 > | Microsoft.Cdn/perfis/*/ler |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -895,11 +895,11 @@ Permite-lhe gerir redes clássicas, mas não ter acesso a elas.
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.ClassicNetwork/* | Criar e gerir redes clássicas |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -946,12 +946,12 @@ Permite-lhe gerir zonas dNS e recordes em DNS Azure, mas não permite controlar 
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Network/dnsZones/* | Criar e gerir zonas e registos dNS |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -998,12 +998,12 @@ Permite-lhe gerir redes, mas não ter acesso a elas.
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Network/* | Criar e gerir redes |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -1050,12 +1050,12 @@ Permite-lhe gerir os perfis do Traffic Manager, mas não permite controlar quem 
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Network/trafficManagerProfiles/* |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -1116,12 +1116,12 @@ Pode criar e gerir um cluster Avere vFXT.
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Junta-se a uma rede virtual. Não alertável. |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Junta recursos como conta de armazenamento ou base de dados SQL a uma subnet. Não é alertável. |
 > | Microsoft.Network/networkSecurityGroups/join/action | Junta-se a um grupo de segurança da rede. Não alertável. |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Storage/*/read |  |
 > | Microsoft.Storage/storageAccounts/* | Criar e gerir contas de armazenamento |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Recursos/subscrições/recursosGroups/recursos/read | Obtém os recursos para o grupo de recursos. |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -1274,7 +1274,7 @@ Permite-lhe gerir o serviço de backup, mas não pode criar cofres e dar acesso 
 > | Microsoft.RecoveryServices/Vaults/read | A operação Get Vault recebe um objeto que representa o recurso Azure do tipo 'cofre' |
 > | Microsoft.RecoveryServices/Vaults/RegisteredIdentities/* | Criar e gerir identidades registadas |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Criar e gerir o uso do cofre dos Serviços de Recuperação |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Armazenamento/armazenamentoContas/leitura | Devolve a lista de contas de armazenamento ou obtém as propriedades para a conta de armazenamento especificada. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
@@ -1292,7 +1292,7 @@ Permite-lhe gerir o serviço de backup, mas não pode criar cofres e dar acesso 
 > | Microsoft.RecoveryServices/operations/read | Operação devolve a lista de Operações para um Fornecedor de Recursos |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o Estado da Operação para uma determinada Operação |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Enumerar todas as intenções de proteção de reserva |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -1406,7 +1406,7 @@ Permite-lhe gerir serviços de backup, exceto remoção de backup, criação de 
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Get Containers pode ser utilizada para registar os contentores para um recurso. |
 > | Microsoft.RecoveryServices/Vaults/RegisteredIdentities/write | A operação do contentor de registo pode ser utilizada para registar um contentor com o Serviço de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devolve detalhes de utilização para um cofre de serviços de recuperação. |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Armazenamento/armazenamentoContas/leitura | Devolve a lista de contas de armazenamento ou obtém as propriedades para a conta de armazenamento especificada. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
@@ -1427,7 +1427,7 @@ Permite-lhe gerir serviços de backup, exceto remoção de backup, criação de 
 > | Microsoft.RecoveryServices/operations/read | Operação devolve a lista de Operações para um Fornecedor de Recursos |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o Estado da Operação para uma determinada Operação |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Enumerar todas as intenções de proteção de reserva |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -1638,11 +1638,11 @@ Permite-lhe gerir contas de armazenamento clássicas, mas não ter acesso a elas
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.ClassicStorage/storageAccounts/* | Criar e gerir contas de armazenamento |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -1732,9 +1732,9 @@ Permite-lhe gerir tudo ao abrigo do Serviço data box, exceto dar acesso a outro
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Databox/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -1789,7 +1789,7 @@ Permite-lhe gerir o Serviço de Caixas de Dados, exceto criar detalhes de encome
 > | Microsoft.Databox/locations/regionConfiguration/action | Este método devolve as configurações para a região. |
 > | Microsoft.Databox/locations/validateAddress/action | Valida o endereço de envio e fornece endereços alternativos, se houver. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -1841,11 +1841,11 @@ Permite-lhe submeter, monitorizar e gerir os seus próprios empregos, mas não c
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.BigAnalytics/contas/* |  |
 > | Microsoft.DataLakeAnalytics/contas/* |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | Microsoft.BigAnalytics/contas/Delete |  |
 > | Microsoft.BigAnalytics/accounts/TakeOwnership/action |  |
@@ -1965,14 +1965,14 @@ Permite a gestão de contas de armazenamento. Fornece acesso à chave da conta, 
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Insights/diagnósticoDefinições/* | Cria, atualiza ou lê a definição de diagnóstico para o Servidor de Análise |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Junta recursos como conta de armazenamento ou base de dados SQL a uma subnet. Não é alertável. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/* | Criar e gerir contas de armazenamento |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -2592,12 +2592,12 @@ Permite-lhe gerir os serviços de pesquisa, mas não aceder aos mesmos.
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Search/searchServices/* | Criar e gerir serviços de pesquisa |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -2644,11 +2644,11 @@ Permite-lhe gerir os planos web para websites, mas não ter acesso aos mesmos.
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Web/serverFarms/* | Criar e gerir quintas de servidores |
 > | Microsoft.Web/hostingEnvironments/Join/Action | Junta-se a um Ambiente de Serviço de Aplicações |
 > | **NotActions** |  |
@@ -2698,12 +2698,12 @@ Permite-lhe gerir websites (não planos web), mas não ter acesso aos mesmos.
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Insights/componentes/* | Criar e gerir componentes insights |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Web/certificados/* | Criar e gerir certificados de website |
 > | Microsoft.Web/listSitesAssignedToHostName/read | Obtenha nomes de sites atribuídos ao nome de anfitrião. |
 > | Microsoft.Web/serverFarms/join/action |  |
@@ -3097,7 +3097,7 @@ Pode ler os dados da conta Azure Cosmos DB. Consulte o Contribuinte de [Conta Do
 > | Microsoft.Insights/MetricDefinitions/read | Ler definições métricas |
 > | Microsoft.Insights/Metrics/read | Leia as métricas |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -3144,12 +3144,12 @@ Permite-lhe gerir as contas da Azure Cosmos DB, mas não aceder aos dados. Imped
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.DocumentDb/databaseAccounts/* |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Junta recursos como conta de armazenamento ou base de dados SQL a uma subnet. Não é alertável. |
 > | **NotActions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
@@ -3249,11 +3249,11 @@ Pode gerir as contas da Azure Cosmos DB. Azure Cosmos DB é anteriormente conhec
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.DocumentDb/databaseAccounts/* | Criar e gerir contas da Azure Cosmos DB |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Junta recursos como conta de armazenamento ou base de dados SQL a uma subnet. Não é alertável. |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -3303,11 +3303,11 @@ Permite-lhe gerir caches Redis, mas não ter acesso a eles.
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.Cache/redis/* | Criar e gerir caches Redis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -3354,14 +3354,14 @@ Permite-lhe gerir as bases de dados SQL, mas não ter acesso a elas. Além disso
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/servidores/bases de dados/* | Criar e gerir bases de dados SQL |
 > | Microsoft.Sql/servidores/leitura | Devolva a lista de servidores ou obtenha as propriedades para o servidor especificado. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Insights/metrics/read | Leia as métricas |
 > | Microsoft.Insights/metricDefinitions/read | Ler definições métricas |
 > | **NotActions** |  |
@@ -3462,17 +3462,17 @@ Permite-lhe gerir instâncias geridas pelo SQL e configurar a rede necessária, 
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Network/networkSecurityGroups/* |  |
 > | Microsoft.Network/routeTables/* |  |
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Network/virtualNetworks/subnets/* |  |
 > | Microsoft.Network/virtualNetworks/* |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Insights/metrics/read | Leia as métricas |
 > | Microsoft.Insights/metricDefinitions/read | Ler definições métricas |
 > | **NotActions** |  |
@@ -3528,10 +3528,10 @@ Permite-lhe gerir as políticas relacionadas com a segurança dos servidores e b
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Junta recursos como conta de armazenamento ou base de dados SQL a uma subnet. Não é alertável. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Sql/managedInstances/bases de dados/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/bases de dados/recommendedSensibilidadeLabels/* |  |
@@ -3569,7 +3569,7 @@ Permite-lhe gerir as políticas relacionadas com a segurança dos servidores e b
 > | Microsoft.Sql/servidores/leitura | Devolva a lista de servidores ou obtenha as propriedades para o servidor especificado. |
 > | Microsoft.Sql/servidores/securityAlertPolicies/* | Criar e gerir as políticas de alerta de segurança do servidor SQL |
 > | Microsoft.Sql/servidores/vulnerabilidadeS/* |  |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -3652,13 +3652,13 @@ Permite-lhe gerir servidores e bases de dados SQL, mas não aceder aos mesmos, e
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/servidores/* | Criar e gerir servidores SQL |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Insights/metrics/read | Leia as métricas |
 > | Microsoft.Insights/metricDefinitions/read | Ler definições métricas |
 > | **NotActions** |  |
@@ -3897,11 +3897,11 @@ Criar e gerir fábricas de dados, bem como recursos infantis dentro delas.
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.DataFactory/dataFábrica/* | Criar e gerir fábricas de dados e recursos infantis dentro delas. |
 > | Microsoft.DataFactory/fábricas/* | Criar e gerir fábricas de dados e recursos infantis dentro delas. |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.EventGrid/eventSubscriptions/write | Criar ou atualizar um eventoSubscrição |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -4002,9 +4002,9 @@ Permite-lhe ler e modificar as configurações do cluster HDInsight.
 > | Microsoft.HDInsight/clusters/configurações/* |  |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Recursos/implementações/operações/leitura | Obtém ou lista operações de implantação. |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -4102,14 +4102,14 @@ O Log Analytics Contributor pode ler todos os dados de monitorização e editar 
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lista as chaves de acesso das contas de armazenamento. |
 > | Microsoft.Compute/virtualMachines/extensions/* |  |
 > | Microsoft.HybridCompute/machines/extensões/write | Instala ou atualiza uma extensão Azure Arc |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Insights/diagnósticoDefinições/* | Cria, atualiza ou lê a definição de diagnóstico para o Servidor de Análise |
 > | Microsoft.OperationalInsights/* |  |
 > | Microsoft.OperationsManagement/* |  |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/grupos de recursos/implementações/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devolve as chaves de acesso da conta de armazenamento especificada. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -4165,7 +4165,7 @@ O Log Analytics Reader pode visualizar e pesquisar todos os dados de monitoriza�
 > | */ler | Leia os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.OperationalInsights/workspaces/analytics/consulta/ação | Procure usando um motor novo. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executa uma consulta de pesquisa |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera as chaves partilhadas para o espaço de trabalho. Estas teclas são usadas para ligar os agentes da Microsoft Operational Insights ao espaço de trabalho. |
 > | **Ações de Dados** |  |
@@ -4262,19 +4262,19 @@ Permite-lhe criar, ler, atualizar, apagar e gerir chaves dos Serviços Cognitivo
 > | Microsoft.CognitiveServices/* |  |
 > | Microsoft.Features/Features/read | Obtém as características de uma subscrição. |
 > | Microsoft.Features/providers/features/read | Obtém a funcionalidade de uma subscrição num determinado fornecedor de recursos. |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Insights/diagnósticoDefinições/* | Cria, atualiza ou lê a definição de diagnóstico para o Servidor de Análise |
 > | Microsoft.Insights/logDefinis/read | Ler definições de registo |
 > | Microsoft.Insights/metricdefinições/read | Ler definições métricas |
 > | Microsoft.Insights/metrics/read | Leia as métricas |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/implementações/operações/leitura | Obtém ou lista operações de implantação. |
 > | Microsoft.Recursos/subscrições/resultados de operação/leitura | Obtenha os resultados da operação de subscrição. |
 > | Microsoft.Recursos/subscrições/leitura | Obtém a lista de assinaturas. |
 > | Microsoft.Recursos/subscrições/grupos de recursos/implementações/* |  |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -4382,7 +4382,7 @@ Permite-lhe ler e listar chaves dos Serviços Cognitivos.
 > | Microsoft.Recursos/subscrições/resultados de operação/leitura | Obtenha os resultados da operação de subscrição. |
 > | Microsoft.Recursos/subscrições/leitura | Obtém a lista de assinaturas. |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -4592,11 +4592,11 @@ Pode gerir o serviço e as APIs
 > | **Ações** |  |
 > | Microsoft.ApiManagement/service/* | Criar e gerir o serviço de Gestão API |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -4652,11 +4652,11 @@ Pode gerir o serviço, mas não as APIs
 > | Microsoft.ApiManagement/service/updatehostname/action | Configurar, atualizar ou remover nomes de domínio personalizados para um Serviço de Gestão API |
 > | Microsoft.ApiManagement/service/write | Criar ou atualizar a instância do Serviço de Gestão aPI |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obtenha chaves associadas ao utilizador |
 > | **Ações de Dados** |  |
@@ -4715,11 +4715,11 @@ Acesso apenas a leitura ao serviço e APIs
 > | Microsoft.ApiManagement/service/*/read | Ler instâncias do Serviço de Gestão da API |
 > | Microsoft.ApiManagement/service/read | Ler metadados para uma instância do Serviço de Gestão da API |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obtenha chaves associadas ao utilizador |
 > | **Ações de Dados** |  |
@@ -5035,10 +5035,10 @@ Permite-lhe gerir as operações de subscrição de eventos EventGrid.
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Listar subscrições globais de eventos por tipo tópico |
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | Lista de assinaturas de eventos regionais |
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Lista de assinaturas de eventos regionais por tópico |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -5137,12 +5137,12 @@ Permite-lhe gerir as contas da Intelligent Systems, mas não ter acesso a elas.
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.IntelligentSystems/accounts/* | Criar e gerir contas de sistemas inteligentes |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -5191,18 +5191,18 @@ Permite-lhe gerir aplicações lógicas, mas não alterar o acesso às mesmas.
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lista as chaves de acesso das contas de armazenamento. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Devolva a conta de armazenamento com a conta dada. |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Insights/metricAlerts/* |  |
 > | Microsoft.Insights/diagnósticoDefinições/* | Cria, atualiza ou lê a definição de diagnóstico para o Servidor de Análise |
 > | Microsoft.Insights/logdefinitions/* | Esta permissão é necessária para os utilizadores que necessitem de acesso a Registos de Atividade através do portal. Lista as categorias de registo no Registo de Atividades. |
 > | Microsoft.Insights/metricDefinitions/* | Ler definições métricas (lista dos tipos métricos disponíveis para um recurso). |
 > | Microsoft.Logic/* | Gere os recursos das Aplicações Lógicas. |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/resultados de operação/leitura | Obtenha os resultados da operação de subscrição. |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Devolve as chaves de acesso da conta de armazenamento especificada. |
 > | Microsoft.Armazenamento/armazenamentoContas/leitura | Devolve a lista de contas de armazenamento ou obtém as propriedades para a conta de armazenamento especificada. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Web/connectionGateways/* | Criar e gerir um Gateway de Ligação. |
 > | Microsoft.Web/connections/* | Criar e gerir uma Ligação. |
 > | Microsoft.Web/customApis/* | Cria e gere uma API personalizada. |
@@ -5280,7 +5280,7 @@ Permite-lhe ler, ativar e desativar aplicações lógicas, mas não editá-las o
 > | Microsoft.Recursos/implementações/operações/leitura | Obtém ou lista operações de implantação. |
 > | Microsoft.Recursos/subscrições/resultados de operação/leitura | Obtenha os resultados da operação de subscrição. |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Web/connectionGateways/*/read | Leia gateways de ligação. |
 > | Microsoft.Web/connections/*/read | Leia ligações. |
 > | Microsoft.Web/customApis/*/read | Leia a API personalizada. |
@@ -5347,10 +5347,10 @@ Criar, Ler, Atualizar e Eliminar identidade atribuída ao utilizador
 > | Microsoft.ManagedIdentity/userAssignedIdentities/write | Cria uma nova identidade atribuída ao utilizador ou atualiza as etiquetas associadas a uma identidade atribuída ao utilizador existente |
 > | Microsoft.ManagedIdentity/userAssignedIdentidades/delete | Elimina uma identidade atribuída a um utilizador existente |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -5400,10 +5400,10 @@ Ler e Atribuir identidade atribuída ao utilizador
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/atribuir/ação |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -5462,10 +5462,10 @@ Colaborador Azure Sentinel
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obter fontes de dados sob um espaço de trabalho. |
 > | Microsoft.Insights/livros/* |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -5530,10 +5530,10 @@ Leitor de Sentinela Azure
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obter fontes de dados sob um espaço de trabalho. |
 > | Microsoft.Insights/livros/leitura | Leia um livro |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -5602,10 +5602,10 @@ Resposta Sentinela Azure
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obter fontes de dados sob um espaço de trabalho. |
 > | Microsoft.Insights/livros/leitura | Leia um livro |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -5663,11 +5663,11 @@ Permite-lhe gerir cofres chave, mas não acesso a eles.
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.KeyVault/* |  |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | Microsoft.KeyVault/locations/deletedVaults/purga/ação | Purgue um cofre de chave suave apagado |
 > | Microsoft.KeyVault/hsmPools/* |  |
@@ -5720,13 +5720,13 @@ Pode ver políticas de segurança, ver estados de segurança, editar políticas 
 > | Microsoft.Autorizações/políticasAtribuição/* | Criar e gerir atribuições políticas |
 > | Microsoft.Autorizações/políticasDefinições/* | Criar e gerir definições políticas |
 > | Microsoft.Authorization/policySetDefinis/* | Criar e gerir conjuntos de políticas |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Management/managementGroups/read | Lista de grupos de gestão para o utilizador autenticado. |
 > | Microsoft.operationalInsights/workspaces/*/read | Ver dados de análise de registo |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Security/* | Criar e gerir componentes e políticas de segurança |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -5820,12 +5820,12 @@ Este é um papel legado. Por favor, use o Administrador de Segurança em vez dis
 > | Microsoft.ClassicCompute/*/read | Ler informações de configuração máquinas virtuais clássicas |
 > | Microsoft.ClassicCompute/virtualMachines/*/write | Escreva configuração para máquinas virtuais clássicas |
 > | Microsoft.ClassicNetwork/*/read | Leia informações de configuração sobre a rede clássica |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Security/* | Criar e gerir componentes e políticas de segurança |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -5875,12 +5875,12 @@ Pode ver recomendações e alertas, ver políticas de segurança, ver estados de
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.operationalInsights/workspaces/*/read | Ver dados de análise de registo |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Security/*/read | Ler componentes e políticas de segurança |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Management/managementGroups/read | Lista de grupos de gestão para o utilizador autenticado. |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -6043,7 +6043,7 @@ Permite-lhe criar, gerir, apagar os seus laboratórios geridos sob as suas Conta
 > | Microsoft.LabServices/labAccounts/getPricingAndAvailability/action | Obtenha os preços e disponibilidade de combinações de tamanhos, geografias e sistemas operativos para a conta de laboratório. |
 > | Microsoft.LabServices/labAccounts/getRestrictionsAndUsage/action | Obtenha restrições de núcleo e utilização para esta subscrição |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -6100,9 +6100,9 @@ Pode gerir componentes de Insights de Aplicação
 > | Microsoft.Insights/componentes/* | Criar e gerir componentes insights |
 > | Microsoft.Insights/webtests/* | Criar e gerir testes web insights |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -6151,11 +6151,11 @@ Dá permissão ao utilizador para visualizar e descarregar imagens de depuraçã
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Insights/componentes/*/read |  |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -6205,7 +6205,7 @@ Pode ler todos os dados de monitorização e editar definições de monitorizaç
 > | Microsoft.AlertsManagement/alertsSSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
 > | Microsoft.Insights/activityLogAlerts/* |  |
-> | Microsoft.Insights/AlertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/AlertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Insights/componentes/* | Criar e gerir componentes insights |
 > | Microsoft.Insights/DiagnosticSettings/* | Cria, atualiza ou lê a definição de diagnóstico para o Servidor de Análise |
 > | Microsoft.Insights/tipos de eventos/* | Lista de eventos de Registo de Atividades (eventos de gestão) numa subscrição. Esta permissão é aplicável tanto ao acesso programático como ao portal ao Registo de Atividades. |
@@ -6222,7 +6222,7 @@ Pode ler todos os dados de monitorização e editar definições de monitorizaç
 > | Microsoft.OperationalInsights/workspaces/search/action | Executa uma consulta de pesquisa |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Recupera as chaves partilhadas para o espaço de trabalho. Estas teclas são usadas para ligar os agentes da Microsoft Operational Insights ao espaço de trabalho. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Leia/escreva/elimine as configurações de informação de armazenamento de análise de registo. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.WorkloadMonitor/monitores/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.AlertsManagement/smartDetectorAlertRules/* |  |
@@ -6295,7 +6295,7 @@ Permite a publicação de métricas contra recursos Azure
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Insights/Register/Action | Registe o fornecedor Microsoft Insights |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -6342,7 +6342,7 @@ Pode ler todos os dados de monitorização (métricas, registos, etc.). Ver tamb
 > | **Ações** |  |
 > | */ler | Leia os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executa uma consulta de pesquisa |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -6480,10 +6480,10 @@ Criar e Gerir Empregos utilizando os Runbooks automation.
 > | Microsoft.Automação/automatizaçãoContas/empregos/suspensão/ação | Suspende um trabalho de Automação Azure |
 > | Microsoft.Automação/automatizaçãoContas/empregos/escrita | Cria um trabalho de Automação Azure |
 > | Microsoft.Automação/automatizaçãoContas/empregos/saída/leitura | Obtém a saída de um emprego |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -6550,12 +6550,12 @@ Operadores de Automação são capazes de iniciar, parar, suspender e retomar po
 > | Microsoft.Automação/automatizaçãoContas/livros de execução/leitura | Obtém um livro de execução da Automação Azure |
 > | Microsoft.Automação/automatizaçãoContas/horários/leitura | Obtém um ativo de agenda de Automação Azure |
 > | Microsoft.Automação/automatizaçãoContas/horários/escrita | Cria ou atualiza um ativo de programação da Automação Azure |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Automação/automatizaçãoContas/empregos/saída/leitura | Obtém a saída de um emprego |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -6617,10 +6617,10 @@ Leia as propriedades do Runbook - para ser capaz de criar Jobs do livro de corri
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.Automação/automatizaçãoContas/livros de execução/leitura | Obtém um livro de execução da Automação Azure |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -6765,7 +6765,7 @@ Permite ler o acesso aos dados de faturação
 > | Microsoft.Consumo/*/leitura |  |
 > | Microsoft.Management/managementGroups/read | Lista de grupos de gestão para o utilizador autenticado. |
 > | Microsoft.CostManagement/*/read |  |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -6814,8 +6814,8 @@ Pode gerir definições de plantas, mas não atribuí-las.
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.Blueprint/blueprints/* | Crie e gerencie definições de plantas ou artefactos de plantas. |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -6862,8 +6862,8 @@ Pode atribuir plantas publicadas existentes, mas não pode criar novas plantas. 
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.Blueprint/blueprintAssignments/* | Criar e gerir tarefas de plantas. |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -6912,7 +6912,7 @@ Pode ver os custos e gerir a configuração de custos (por exemplo, orçamentos,
 > | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Recursos/subscrições/leitura | Obtém a lista de assinaturas. |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Advisor/configurações/leitura | Obter configurações |
 > | Microsoft.Advisor/recomendações/leitura | Lê recomendações |
 > | Microsoft.Management/managementGroups/read | Lista de grupos de gestão para o utilizador autenticado. |
@@ -6968,7 +6968,7 @@ Pode ver os dados de custos e a configuração (por exemplo, orçamentos, export
 > | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Recursos/subscrições/leitura | Obtém a lista de assinaturas. |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Advisor/configurações/leitura | Obter configurações |
 > | Microsoft.Advisor/recomendações/leitura | Lê recomendações |
 > | Microsoft.Management/managementGroups/read | Lista de grupos de gestão para o utilizador autenticado. |
@@ -7023,7 +7023,7 @@ Permite a criação de recursos de aplicação geridos.
 > | Microsoft.Soluções/aplicações/* |  |
 > | Microsoft.Soluções/registo/ação | Registe-se em Soluções. |
 > | Microsoft.Recursos/subscrições/recursosGroups/* |  |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -7112,7 +7112,7 @@ Permite-lhe ler recursos numa aplicação gerida e solicitar acesso ao JIT.
 > | --- | --- |
 > | **Ações** |  |
 > | */ler | Leia os recursos de todos os tipos, exceto segredos. |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -7288,11 +7288,11 @@ Permite-lhe gerir as contas e aplicações da New Relic Application Performance 
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | NewRelic.APM/contas/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -7392,7 +7392,7 @@ Utilizadores com direitos de criar/modificar a política de recursos, criar bilh
 > | Microsoft.Autorizações/definições de políticas/* | Criar e gerir definições políticas |
 > | Microsoft.Authorization/policysetdefinis/* | Criar e gerir conjuntos de políticas |
 > | Microsoft.PolicyInsights/* |  |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -7438,7 +7438,7 @@ Permite-lhe gerir o serviço de recuperação do site, exceto criação de cofre
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Network/virtualNetworks/read | Obtenha a definição de rede virtual |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna utilizada pelo serviço |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp é operação interna utilizada pelo serviço |
@@ -7460,11 +7460,11 @@ Permite-lhe gerir o serviço de recuperação do site, exceto criação de cofre
 > | Microsoft.RecoveryServices/Vaults/monitoralerts/* | Leia os alertas para o cofre dos serviços de recuperação |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfiguras/notificationConfiguração/leitura |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Armazenamento/armazenamentoContas/leitura | Devolve a lista de contas de armazenamento ou obtém as propriedades para a conta de armazenamento especificada. |
 > | Microsoft.RecoveryServices/vaults/replicationOperationStatus/read | Leia qualquer estado de operação de replicação do cofre |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -7532,7 +7532,7 @@ Permite-lhe falhar e falhar, mas não realizar outras operações de gestão de 
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.Network/virtualNetworks/read | Obtenha a definição de rede virtual |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna utilizada pelo serviço |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp é operação interna utilizada pelo serviço |
@@ -7585,10 +7585,10 @@ Permite-lhe falhar e falhar, mas não realizar outras operações de gestão de 
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devolve detalhes de utilização para um cofre de serviços de recuperação. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação Vault Token pode ser usada para conseguir o Vault Token para operações de backend do nível do cofre. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Armazenamento/armazenamentoContas/leitura | Devolve a lista de contas de armazenamento ou obtém as propriedades para a conta de armazenamento especificada. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -7715,7 +7715,7 @@ Permite-lhe visualizar o estado de Recuperação do Site, mas não realizar outr
 > | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devolve detalhes de utilização para um cofre de serviços de recuperação. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação Vault Token pode ser usada para conseguir o Vault Token para operações de backend do nível do cofre. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -7787,7 +7787,7 @@ Permite-lhe criar e gerir pedidos de suporte
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -7833,9 +7833,9 @@ Permite-lhe gerir etiquetas em entidades, sem fornecer acesso às próprias enti
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Recursos/subscrições/recursosGroups/recursos/read | Obtém os recursos para o grupo de recursos. |
 > | Microsoft.Recursos/subscrições/recursos/leitura | Obtém recursos de uma subscrição. |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | Microsoft.Resources/tags/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -7888,11 +7888,11 @@ Permite-lhe gerir os serviços bizTalk, mas não ter acesso a eles.
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
 > | Microsoft.BizTalkServices/BizTalk/* | Criar e gerir serviços BizTalk |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -7939,12 +7939,12 @@ Permite-lhe gerir as coleções de emprego do Scheduler, mas não ter acesso a e
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |
-> | Microsoft.Insights/alertRules/* | Criar e gerir as regras de alerta insights |
+> | Microsoft.Insights/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
-> | Microsoft.Recursos/implementações/* | Criar e gerir implementações de grupos de recursos |
+> | Microsoft.Recursos/implementações/* | Criar e gerir uma implantação |
 > | Microsoft.Recursos/subscrições/recursosGroups/read | Obtém ou lista grupos de recursos. |
 > | Microsoft.Scheduler/jobcollections/* | Criar e gerir coleções de emprego |
-> | Microsoft.Support/* | Criar e gerir bilhetes de apoio |
+> | Microsoft.Support/* | Criar e atualizar um bilhete de apoio |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 4f8863d706d623d613ac156cf202c3b7b12f2ae0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e0442b6aa1404ae5f57445179979496faa09863
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74168435"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194980"
 ---
 # <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Ingerir dados azure HPC Cache - método msrsync
 
@@ -19,7 +19,7 @@ Este artigo dá instruções ``msrsync`` detalhadas para utilizar o utilitário 
 
 Para saber mais sobre a mudança de dados para o armazenamento Blob para o seu Cache Azure HPC, leia [os dados do Move para o armazenamento da Blob Azure](hpc-cache-ingest.md).
 
-A ``msrsync`` ferramenta pode ser usada para mover dados para um alvo de armazenamento de backend para o Cache Azure HPC. Esta ferramenta foi concebida para otimizar o ``rsync`` uso da largura de banda executando vários processos paralelos. Está disponível no GitHub em https://github.com/jbd/msrsync.
+A ``msrsync`` ferramenta pode ser usada para mover dados para um alvo de armazenamento traseiro para o Cache Azure HPC. Esta ferramenta foi concebida para otimizar o ``rsync`` uso da largura de banda executando vários processos paralelos. Está disponível no GitHub em https://github.com/jbd/msrsync.
 
 ``msrsync``separa o diretório de origem em "baldes" separados e, em seguida, executa processos individuais ``rsync`` em cada balde.
 

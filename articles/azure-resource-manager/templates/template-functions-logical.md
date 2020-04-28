@@ -2,13 +2,13 @@
 title: Funções do modelo - lógica
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para determinar valores lógicos.
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: f058baa32e5f93a4177913287a5e9873fa7a9acb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 0072593e7d7830e75e2386bcfdd2907a873c7a87
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156315"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192319"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
 
@@ -179,8 +179,8 @@ A saída do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| simOutput | Cadeia | sim |
-| noOutput | Cadeia | não |
+| simOutput | String | sim |
+| noOutput | String | não |
 | objetoSaída | Objeto | { "teste": "value1" } |
 
 O [seguinte modelo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) de exemplo mostra como usar esta função com expressões que são apenas condicionalmente válidas.
@@ -295,6 +295,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
             "value": "[not(equals(1, 2))]"
         }
     }
+}
 ```
 
 A saída do exemplo anterior é:
@@ -357,8 +358,5 @@ A saída do exemplo anterior é:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte os modelos de [Gestor de Recursos Azure da Autoria](template-syntax.md).
-* Para fundir vários modelos, consulte [Utilizar modelos ligados com](linked-templates.md)o Gestor de Recursos Azure .
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Azure](copy-resources.md).
-* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo de Gestor](deploy-powershell.md)de Recursos Azure .
+* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 

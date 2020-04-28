@@ -3,12 +3,12 @@ title: Identificar recursos em não conformidade
 description: Este guia acompanha-o através da remediação de recursos que não estão em conformidade com as políticas da Política Azure.
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 71af5c81e0dce4d5c0a0461534f634db36bd66a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4846b6eb1ea03c6706a610cab16ec376d19b060
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471392"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195235"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não conformes com a Política Azure
 
@@ -19,7 +19,7 @@ Os recursos que não estão em conformidade com uma **implementação IfNotExist
 Quando a Política Azure executa o modelo na definição de política **implementaDaIfNotExists,** fá-lo usando uma [identidade gerida](../../../active-directory/managed-identities-azure-resources/overview.md).
 A Política Azure cria uma identidade gerida para cada atribuição, mas deve ter detalhes sobre quais as funções para conceder a identidade gerida. Se a identidade gerida faltar a papéis, este erro é demonstrado durante a atribuição da apólice ou de uma iniciativa. Ao utilizar o portal, a Política Azure concede automaticamente à identidade gerida as funções listadas assim que a atribuição começar. A _localização_ da identidade gerida não afeta a sua operação com a Política Azure.
 
-![Identidade gerida - papel em falta](../media/remediate-resources/missing-role.png)
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Identidade gerida - função desaparecida" border="false":::
 
 > [!IMPORTANT]
 > Se um recurso modificado por **deployIfNotExists** ou **modificar** estiver fora do âmbito da atribuição de políticas ou o modelo aceder a propriedades em recursos fora do âmbito da atribuição de políticas, a identidade gerida da atribuição deve ter [acesso manualmente](#manually-configure-the-managed-identity) ou a implementação da reparação falhará.
@@ -128,11 +128,11 @@ Para criar uma tarefa de **reparação,** siga estes passos:
 
 1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
 
-   ![Pesquisa de Política em Todos os Serviços](../media/remediate-resources/search-policy.png)
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Pesquisa de Política em Todos os Serviços" border="false":::
 
 1. Selecione **Remediação** no lado esquerdo da página Política Azure.
 
-   ![Selecione Remediação na página Política](../media/remediate-resources/select-remediation.png)
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Selecione Remediação na página Política" border="false":::
 
 1. Todos os **implementaçõesIfNotExists** e **modificam** as atribuições políticas com recursos não conformes estão incluídos nas **Políticas para remediar** o separador e a tabela de dados. Clique numa política com recursos que não são compatíveis. A nova página de tarefas de **reparação** abre.
 
@@ -141,17 +141,17 @@ Para criar uma tarefa de **reparação,** siga estes passos:
 
 1. Na nova página de tarefas de **reparação,** filtre os recursos para remediar utilizando as elipses do **Âmbito** para recolher recursos infantis de onde a política é atribuída (incluindo até aos objetos de recursos individuais). Além disso, utilize o drop-down dos **Locais** para filtrar ainda mais os recursos. Apenas os recursos enumerados na tabela serão remediados.
 
-   ![Remediar - selecione quais recursos para remediar](../media/remediate-resources/select-resources.png)
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Remediar - selecione quais recursos para remediar" border="false":::
 
 1. Inicie a tarefa de reparação uma vez filtrados os recursos clicando em **Remediar**. A página de conformidade de políticas abre-se ao separador de tarefas de **reparação** para mostrar o estado das tarefas progredir. As implementações criadas pela tarefa de reparação começam imediatamente.
 
-   ![Remediar - progresso das tarefas de reparação](../media/remediate-resources/task-progress.png)
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Remediar - progresso das tarefas de reparação" border="false":::
 
 1. Clique na tarefa de **reparação** a partir da página de conformidade de política para obter detalhes sobre o progresso. A filtragem utilizada para a tarefa é mostrada juntamente com uma lista dos recursos que estão a ser remediados.
 
 1. A partir da página de **tarefade reparação,** clique à direita num recurso para visualizar a implementação da tarefa de reparação ou o recurso. No final da linha, clique em **eventos relacionados** para ver detalhes como uma mensagem de erro.
 
-   ![Remediar - menu de contexto de tarefa de recursos](../media/remediate-resources/resource-task-context-menu.png)
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Remediar - menu de contexto de tarefa de recursos" border="false":::
 
 Os recursos utilizados através de uma tarefa de **reparação** são adicionados ao separador **Recursos Implantados** na página de conformidade de políticas.
 

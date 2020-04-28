@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 76fcdb52df88be2c4033140f4bc71b28424d7f38
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 1dd716a279f7a09e7d9152ee34ff5c7bdac201dc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687782"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188247"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>O que é ml serviços em Azure HDInsight
 

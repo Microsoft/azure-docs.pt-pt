@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1f0708f0674633ddfee8b84388a2d96f2a04636
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bfb0cc61b61328df86c27498a1007f2372fb9548
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74899957"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867453"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -50,9 +50,7 @@ Assim que configurar a Gestão de Identidade Privilegiada, verá **tarefas,** **
 
 ## <a name="who-can-do-what"></a>Quem pode fazer o quê?
 
-Se for a primeira pessoa a utilizar a Gestão de Identidade Privilegiada, é-lhe atribuído automaticamente as funções de Administrador de [Segurança](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) e Administrador de [Funções Privilegiadas](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) no diretório.
-
-Para funções de AD Azure na Gestão de Identidade Privilegiada, apenas um utilizador que esteja no papel de Administrador de Funções Privilegiadas pode gerir atribuições para outros administradores. Pode [conceder acesso a outros administradores para gerir a Gestão de Identidade Privilegiada.](pim-how-to-give-access-to-pim.md) Administradores Globais, Administradores de Segurança, leitores globais e leitores de segurança também podem ver atribuições a funções da Azure AD na Gestão de Identidade Privilegiada.
+Para funções de AD Azure na Gestão de Identidade Privilegiada, apenas um utilizador que esteja no cargo de administrador privilegiado ou administrador global pode gerir atribuições para outros administradores. Pode [conceder acesso a outros administradores para gerir a Gestão de Identidade Privilegiada.](pim-how-to-give-access-to-pim.md) Administradores Globais, Administradores de Segurança, leitores globais e leitores de segurança também podem ver atribuições a funções da Azure AD na Gestão de Identidade Privilegiada.
 
 Para funções de recursos Azure na Gestão de Identidade Privilegiada, apenas um administrador de subscrição, um proprietário de recursos ou um administrador de acesso ao utilizador de recursos pode gerir atribuições para outros administradores. Os utilizadores que sejam Administradores de Papel Privilegiado, Administradores de Segurança ou Leitores de Segurança não têm, por defeito, acesso a tarefas de visualização de funções de recursos Azure na Gestão de Identidade Privilegiada.
 

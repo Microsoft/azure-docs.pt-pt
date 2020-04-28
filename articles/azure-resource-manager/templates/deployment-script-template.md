@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: f84707adfa406011989c8f9bfdf1e8d9270698a6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 99db4ec61a515301224691d7c2e4e3c905fee1c1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984798"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188914"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -190,7 +190,7 @@ Além de scripts inline, também pode utilizar ficheiros de script externos. Ape
 
 Para ver um exemplo, selecione [aqui](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
-Os ficheiros de script externos devem estar acessíveis.  Para proteger os seus ficheiros de script que são armazenados em contas de armazenamento Azure, consulte [Tutorial: Proteja os artefactos nas implementações](./template-tutorial-secure-artifacts.md)do modelo do Gestor de Recursos Azure .
+Os ficheiros de script externos devem estar acessíveis.  Para proteger os seus ficheiros de script que são armazenados em contas de armazenamento Azure, consulte [O modelo ARM privado com token SAS](./secure-template-with-sas-token.md).
 
 É responsável por garantir a integridade dos scripts referenciados pelo script de implementação, seja **primaryScriptUri** ou **SupportScriptUris**.  Referência apenas scripts em que confia.
 

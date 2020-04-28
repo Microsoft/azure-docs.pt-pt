@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8bda712523faa90f32a12fe7eecce27dccf3a55c
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: e850f719f64d1d845ca11ccefeefea2c8dc7fa26
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81756629"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195660"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança azure para lote
 
@@ -154,7 +154,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Orientação**: Utilize etiquetas para grupos de serviços de rede (NSGs) e outros recursos relacionados com a segurança da rede e fluxo de tráfego que estejam associados aos seus conjuntos de lotes Azure. Para regras nsg individuais, utilize o campo "Descrição" para especificar a necessidade e/ou duração do negócio (etc.) para quaisquer regras que permitam o tráfego de/para uma rede.
 
-Utilize qualquer uma das definições políticas do Azure incorporadas relacionadas com a marcação, tais como "Exigir etiqueta e seu valor" para garantir que todos os recursos são criados com etiquetas e notificá-lo de recursos não marcados existentes.
+Utilize qualquer uma das definições de Política Azure incorporadas relacionadas com a marcação, tais como "Exigir etiqueta e seu valor" para garantir que todos os recursos são criados com etiquetas e notificá-lo de recursos não marcados existentes.
 
 Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou realizar ações em recursos baseados nas suas etiquetas.
 
@@ -771,7 +771,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor para recursos azure não aprovados
 
-**Orientação**: Utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
 
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
@@ -816,7 +816,7 @@ Como criar consultas com o Azure Graph:https://docs.microsoft.com/azure/governan
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Utilizar apenas os serviços Azure aprovados
 
-**Orientação**: Utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
 
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
@@ -899,7 +899,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="73-maintain-secure-configurations-for-all-azure-resources"></a>7.3: Manter configurações seguras para todos os recursos azure
 
-**Orientação**: Utilize a política azure [negar] e [implementar se não existir] para impor configurações seguras para os recursos Azure relacionados com a sua conta de Lote e piscinas (tais como redes virtuais, subredes, Firewalls Azure, Contas de Armazenamento Azure, etc.). Pode utilizar pseudónimos da Política Azure a partir dos seguintes espaços de nome para criar políticas personalizadas:
+**Orientação**: Utilize a Política Azure [negar] e [implementar se não existir] para impor definições seguras para os recursos Azure relacionados com a sua conta de Lote e piscinas (tais como redes virtuais, subredes, Firewalls Azure, Contas de Armazenamento Azure, etc.). Pode utilizar pseudónimos da Política Azure a partir dos seguintes espaços de nome para criar políticas personalizadas:
 
 - Microsoft.Batch
 
@@ -926,7 +926,7 @@ Compreender efeitos políticos do Azure:https://docs.microsoft.com/azure/governa
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Configuração segura dos recursos azure
 
-**Orientação**: Se utilizar definições políticas personalizadas do Azure para as suas contas, piscinas ou recursos relacionados, utilize o Azure Repos para armazenar e gerir de forma segura o seu código.
+**Orientação**: Se utilizar definições de Política Azure personalizadas para as suas contas, piscinas ou recursos relacionados, utilize o Azure Repos para armazenar e gerir de forma segura o seu código.
 
 Como armazenar código em Azure DevOps:
 

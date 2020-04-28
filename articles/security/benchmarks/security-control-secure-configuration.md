@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bfa16f59155e420209ab6370056a7c612b5327e4
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: e3d43239dabe75bc2b25319945c2c6b08d726d2a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759055"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193110"
 ---
 # <a name="security-control-secure-configuration"></a>Controlo de Segurança: Configuração segura
 
@@ -62,7 +62,7 @@ Utilize recomendações do Azure Security Center para manter as configurações 
 |--|--|--|
 | 7.3 | 5.2 | Cliente |
 
-Use a política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.  Além disso, pode utilizar modelos do Gestor de Recursos Azure para manter a configuração de segurança dos seus recursos Azure exigidos pela sua organização. 
+Use a Política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.  Além disso, pode utilizar modelos do Gestor de Recursos Azure para manter a configuração de segurança dos seus recursos Azure exigidos pela sua organização. 
 
 - [Compreender os efeitos da política azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: dd8ff7d6e86f8534fcb14812d4ddd6dc0b3d7039
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: dad01212be3589af7167082ff22c624fa776772a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146956"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193127"
 ---
 # <a name="security-control-network-security"></a>Controlo de Segurança: Segurança da Rede
 
@@ -164,7 +164,7 @@ Também pode utilizar as Plantas Azure para simplificar as implementações azur
 
 Utilize etiquetas para NSGs e outros recursos relacionados com a segurança da rede e fluxo de tráfego. Para regras nsg individuais, utilize o campo "Descrição" para especificar a necessidade e/ou duração do negócio (etc.) para quaisquer regras que permitam o tráfego de/para uma rede.
 
-Utilize qualquer uma das definições políticas do Azure incorporadas relacionadas com a marcação, tais como "Exigir etiqueta e seu valor" para garantir que todos os recursos são criados com Tags e notificá-lo de recursos não marcados existentes.
+Utilize qualquer uma das definições de Política Azure incorporadarelacionadas com a marcação, tais como "Exigir etiqueta e seu valor" para garantir que todos os recursos são criados com Tags e notificá-lo de recursos não marcados existentes.
 
 Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou realizar ações em recursos baseados nas suas Tags.
 

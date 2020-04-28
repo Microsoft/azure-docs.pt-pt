@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 428db340ce43463939ce71ffadd4188060f3e732
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b86429c90f436007116a45c6dbab443d6cc889e0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073104"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188557"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Utilize a Política Azure para restringir a instalação de extensões em VMs do Windows
 
-Se pretender evitar a utilização ou instalação de determinadas extensões nos seus VMs windows, pode criar uma política Azure utilizando o PowerShell para restringir as extensões para VMs dentro de um grupo de recursos. 
+Se pretender evitar a utilização ou instalação de determinadas extensões nos seus VMs windows, pode criar uma definição de Política Azure utilizando o PowerShell para restringir as extensões para VMs dentro de um grupo de recursos. 
 
 Este tutorial utiliza o Azure PowerShell dentro da Cloud Shell, que é constantemente atualizada para a versão mais recente. 
 

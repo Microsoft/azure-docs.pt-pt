@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: e061baa8e7eb73bae0a78f4215f0d48610e85fcb
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 4dd42c6eabf02bc7a4eb956b9cd5ab2aec28176b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686737"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186208"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribuição de parceiro sacial do Mercado Comercial e da atribuição do uso do cliente
 
@@ -37,10 +37,10 @@ A atribuição de utilização do cliente suporta três opções de implementaç
 
 ## <a name="create-guids"></a>Criar GUIDs
 
-Um GUID é um identificador de referência único que tem 32 dígitos hexadecimais. Para criar GUIDs para rastreio, deve utilizar um gerador GUID. A equipa de Armazenamento Azure criou um [formulário de gerador GUIA](https://aka.ms/StoragePartners) que lhe enviará um GUIA do formato correto e pode ser reutilizado nos diferentes sistemas de rastreio.
+Um GUID é um identificador de referência único que tem 32 dígitos hexadecimais. Para criar GUIDs para rastreio, deve utilizar um gerador GUID. A equipa de Armazenamento Azure criou um [formulário de gerador GUIA](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) que lhe enviará um GUIA do formato correto e pode ser reutilizado nos diferentes sistemas de rastreio.
 
 > [!NOTE]
-> É altamente recomendável que utilize o [formulário de gerador GUID do Azure Storage](https://aka.ms/StoragePartners) para criar o seu GUID. Para mais informações, consulte as [nossas FAQ.](#faq)
+> É altamente recomendável que utilize o [formulário de gerador GUID do Azure Storage](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) para criar o seu GUID. Para mais informações, consulte as [nossas FAQ.](#faq)
 
 Recomendamos que crie um GUID único para cada canal de oferta e distribuição para cada produto. Pode optar por utilizar um único GUID para os múltiplos canais de distribuição do produto se não quiser que o relatório seja dividido.
 
@@ -61,7 +61,7 @@ Depois de adicionar um GUID ao seu modelo ou no agente utilizador, e registar o 
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard).
 
-1. Inscreva-se como editor de [marketplace comercial.](https://aka.ms/JoinMarketplace)
+1. Inscreva-se como editor de [marketplace comercial.](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)
 
    * Os parceiros são obrigados a [ter um perfil no Partner Center.](https://docs.microsoft.com/azure/marketplace/become-publisher) É encorajado a listar a oferta no Azure Marketplace ou appSource.
    * Os parceiros podem registar vários GUIDs.
@@ -286,7 +286,7 @@ Também pode receber orientação técnica de um Consultor Técnico do Microsoft
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Como apresentar um pedido de consulta técnica
 
-1. Visite [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney).
+1. Visite [os Serviços Técnicos parceiros.](https://partner.microsoft.com/training/partner-technical-services)
 1. Selecione infraestrutura e gestão cloud, e uma nova página será aberta para você ver a viagem técnica.
 1. Em Serviços de Implantação, clique no botão enviar um pedido
 1. Inscreva-se na utilização da sua Conta MSA (conta MPN) ou da sua AAD (conta Partner Dashboard); com base nas suas credenciais de inscrição, será aberto um formulário de pedido online:
@@ -295,7 +295,7 @@ Também pode receber orientação técnica de um Consultor Técnico do Microsoft
     * Introduza um título e a descrição do problema (forneça o máximo de detalhes possível).
 1. Clique em Submeter
 
-Ver instruções passo a passo com [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions)imagens em .
+Ver instruções passo a passo com imagens em [Utilizar Serviços Técnicos de Pré-venda e Implantação](https://support.microsoft.com/help/3121537/using-technical-presales-and-deployment-services#request%20a%20technical%20consultation).
 
 ### <a name="whats-next"></a>Passos seguintes
 

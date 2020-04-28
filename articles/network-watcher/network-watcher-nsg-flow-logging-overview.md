@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: a1674f51d5b877a1296e9a457c6acf61a507c82e
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: ed14d3fb1cd3d9d8af37088811ce62b050778a95
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82131401"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189808"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução à exploração de fluxos de exploração de grupos de segurança da rede
 
@@ -51,7 +51,7 @@ Os registos de fluxo são a fonte da verdade para toda a atividade da rede no se
 - Os registos são recolhidos através da plataforma Azure e não afetam de forma alguma os recursos dos clientes ou o desempenho da rede.
 - Os registos são escritos no formato JSON e mostram fluxos de saída e de entrada numa base de regra NSG.
 - Cada registo de registo contém a interface de rede (NIC) que o fluxo se aplica a informações de 5-tuple, a informação de passagem da decisão de tráfego & (apenas versão 2). Consulte o _Formato de Registo_ abaixo para mais detalhes.
-- Os Registos de Fluxo têm uma funcionalidade de retenção que permite eliminar automaticamente os registos até um ano após a sua criação
+- Os Registos de Fluxo têm uma funcionalidade de retenção que permite eliminar automaticamente os registos até um ano após a sua criação. **NOTA:** A retenção só está disponível se utilizar contas de [armazenamento v2 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
 
 **Conceitos-chave**
 
@@ -365,13 +365,13 @@ Ativar o **registo de fluxo nsg em todos os NSGs ligados a um recurso**: O regis
 
 ## <a name="troubleshooting-common-issues"></a>Resolução de problemas comuns
 
-### <a name="i-could-not-enable-nsg-flow-logs"></a>**Não conseguir ativar Registos do Fluxo do NSG**
+**Não conseguir ativar Registos do Fluxo do NSG**
 
 - **Microsoft.Insights** fornecedor de recursos não está registado
 
 Se recebeu um erro _AuthorizationFailed_ ou _GatewayAuthenticationFailed_, talvez não tenha ativado o fornecedor de recursos do Microsoft Insights na sua subscrição. [Siga as instruções](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#register-insights-provider) para ativar o fornecedor Microsoft Insights.
 
-### <a name="i-have-enabled-nsg-flow-logs-but-do-not-see-data-in-my-storage-account"></a>**Ativei os Registos do Fluxo do NSG, mas não vejo dados na minha conta de armazenamento**
+**Ativei os Registos do Fluxo do NSG, mas não vejo dados na minha conta de armazenamento**
 
 - **Tempo de configuração**
 
@@ -381,21 +381,21 @@ Os Registos do Fluxo do NSG podem demorar até 5 minutos a aparecer na conta de 
 
 Por vezes, poderá não ver os registos porque as VMs não estão ativas ou porque existem filtros de origem num Gateway de Aplicação ou noutros dispositivos que estão a bloquear o tráfego para os NSGs.
 
-### <a name="i-want-to-automate-nsg-flow-logs"></a>**Quero automatizar os Registos de Fluxo do NSG**
+**Quero automatizar os Registos de Fluxo do NSG**
 
 O suporte para a automatização através de modelos ARM não está disponível atualmente para os Registos de Fluxo do NSG. Leia o anúncio da [funcionalidade](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) para mais informações.
 
 ## <a name="faq"></a>FAQ
 
-### <a name="what-does-nsg-flow-logs-do"></a>**O que faz o NSG Flow Logs?**
+**O que faz o NSG Flow Logs?**
 
 Os recursos da rede Azure podem ser combinados e geridos através de Grupos de Segurança da [Rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview). Os registos de fluxo NSG permitem-lhe registar informações de fluxo de 5 tuple sobre todo o tráfego através dos seus NSGs. Os registos de fluxo bruto são escritos numa conta de Armazenamento Azure de onde podem ser processados, analisados, consultados ou exportados conforme necessário.
 
-### <a name="does-using-flow-logs-impact-my-network-latency-or-performance"></a>**A utilização de Registos de Fluxo afeta a minha latência ou desempenho da rede?**
+**A utilização de Registos de Fluxo afeta a minha latência ou desempenho da rede?**
 
 Os dados de registos de fluxo são recolhidos fora do caminho do tráfego da sua rede, pelo que não afeta a entrada ou a latência da rede. Pode criar ou eliminar registos de fluxo sem qualquer risco de impacto no desempenho da rede.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-firewall"></a>**Como uso registos de fluxo NSG com uma conta de armazenamento atrás de uma firewall?**
+**Como uso registos de fluxo NSG com uma conta de armazenamento atrás de uma firewall?**
 
 Para utilizar uma conta de Armazenamento atrás de uma firewall, tem de fornecer uma exceção para que os Serviços Microsoft Fifiados acedam à sua conta de armazenamento:
 
@@ -407,11 +407,11 @@ Para utilizar uma conta de Armazenamento atrás de uma firewall, tem de fornecer
 
 Pode verificar os registos de armazenamento após alguns minutos; deve ver um carimbo de data/hora atualizado ou um novo ficheiro JSON criado.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>**Como uso os Registos de Fluxo NSG com uma conta de Armazenamento atrás de um ponto final de serviço?**
+**Como uso os Registos de Fluxo NSG com uma conta de Armazenamento atrás de um ponto final de serviço?**
 
 Os registos de fluxo NSG são compatíveis com os Pontos Finais do Serviço sem necessitar de qualquer configuração extra. Consulte o tutorial sobre a ativação de [pontos finais](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) de serviço na sua rede virtual.
 
-### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>**Qual é a diferença entre as versões de registos de fluxo 1 & 2?**
+**Qual é a diferença entre as versões de registos de fluxo 1 & 2?**
 
 A versão 2 do Flow Logs introduz o conceito de _Flow State_ & armazena informações sobre bytes e pacotes transmitidos. [Ler mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
 

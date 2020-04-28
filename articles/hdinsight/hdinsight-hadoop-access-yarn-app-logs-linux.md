@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 7da6536e78a0b981306e3909b06a674cbb8cbaa1
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 726cf362e62f0ef914dfaea090a08c224bd5d8d6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106275"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192506"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Aceder aos registos de aplicações do YARN apache hadoop no HDInsight baseado em Linux
 

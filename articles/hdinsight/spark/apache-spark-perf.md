@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 5012b5abf12beadbcb18f21fe2fe6ebfb076598a
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 736653e82f753341fbbdfb795f229145bba96162
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617974"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188196"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Otimizar os empregos da Apache Spark no HDInsight
 

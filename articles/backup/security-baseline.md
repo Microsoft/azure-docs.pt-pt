@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9be6c174e30514ef81cd5fa020d50ffa238317be
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: acc8ceaa96f6fddafdbf4aa74ab9e43a1a60714a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160892"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195677"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Linha de base de segurança azure para backup
 
@@ -608,7 +608,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Resour
 
 **Orientação**: Utilize a marcação, os grupos de gestão e as assinaturas separadas, se for caso disso, para organizar e rastrear os recursos do Azure. Conciliar o inventário regularmente e garantir que os recursos não autorizados sejam eliminados da subscrição atempadamente.
 
-Além disso, utilize a política do Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas: Tipos de recursos não autorizados
+Além disso, utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas: Tipos de recursos não autorizados
 
 - [Como criar subscrições adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -738,7 +738,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Manter configurações seguras de recursos Azure
 
-**Orientação:** Utilize a política azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
+**Orientação**: Utilize a Política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
 - [Como configurar e gerir a Política Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -758,7 +758,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Configuração segura dos recursos Do Azure
 
-**Orientação**: Se utilizar definições políticas personalizadas do Azure, utilize o Azure DevOps ou o Azure Repos para armazenar e gerir de forma segura o seu código.
+**Orientação**: Se utilizar definições de política azure personalizadas, utilize O Azure DevOps ou o Azure Repos para armazenar e gerir de forma segura o seu código.
 
 - [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
@@ -796,7 +796,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementar monitorização automatizada de configuração para os serviços Do Azure
 
-**Orientação**: Utilize definições de política azure incorporadas, bem como pseudónimos da Política Azure no espaço de nome "Microsoft.RecoveryServices" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Utilize a política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente as configurações dos seus recursos Azure.
+**Orientação**: Utilize definições de política azure incorporadas, bem como pseudónimos da Política Azure no espaço de nome "Microsoft.RecoveryServices" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Use a Política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente as configurações para os seus recursos Azure.
 
 - [Como configurar e gerir a Política Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 15a4c9b16b102310fd02f8db3a4fb93cff84882b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a860b005457c6e02187423a3ffbbc63fe7c758b1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314058"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187533"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize as equipas da Microsoft no ambiente de trabalho do Windows Virtual
 
@@ -31,7 +31,7 @@ Antes de poder utilizar as Equipas microsoft no Windows Virtual Desktop, terá d
 
 ## <a name="use-unoptimized-microsoft-teams"></a>Utilize equipas microsoft não otimizadas
 
-Pode utilizar equipas Microsoft não otimizadas nos ambientes do Windows Virtual Desktop para aproveitar as funcionalidades completas de chat e colaboração das Microsoft Teams, bem como chamadas áudio. A qualidade do áudio nas chamadas variará em função da configuração do anfitrião, uma vez que as chamadas não otimizadas utilizam mais do CPU do anfitrião.
+Pode utilizar as Equipas Microsoft nos ambientes do Windows Virtual Desktop para alavancar as funcionalidades de chat e colaboração das Microsoft Teams. O Windows Virtual Desktop não suporta equipas em otimizações de áudio/vídeo VDI (AV). As chamadas e reuniões não são apoiadas. Se as políticas da sua organização o permitirem, ainda pode fazer chamadas de áudio e juntar-se a reuniões com áudio, mas a qualidade de áudio não otimizada nas chamadas variará em função da configuração do anfitrião e pode não ser fiável. Para saber mais, consulte as Equipas sobre a consideração de desempenho do [VDI.](https://docs.microsoft.com/microsoftteams/teams-for-vdi#teams-on-vdi-performance-considerations)
 
 ### <a name="prepare-your-image-for-teams"></a>Prepare a sua imagem para as equipas
 
@@ -66,8 +66,8 @@ Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma inst
       ```
 
       > [!NOTE]
-      > Se instalar equipas com a definição de MSI ALLUSER=1, as atualizações automáticas serão desativadas. Recomendamos que atualize as Equipas pelo menos uma vez por mês.
-      
-### <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto para uma piscina de anfitriões
+      > Se instalar equipas com a definição de MSI ALLUSER=1, as atualizações automáticas serão desativadas. Recomendamos que atualize as Equipas pelo menos uma vez por mês. Para saber mais sobre a implementação da aplicação de ambiente de trabalho teams, consulte a aplicação de ambiente de [trabalho das Equipas para o VM](https://docs.microsoft.com/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm).
+
+## <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto para uma piscina de anfitriões
 Personalizar as propriedades do Protocolo de Ambiente de Trabalho Remoto (RDP) de um pool anfitrião, como experiência de multimonitor, permitindo a reorientação do Microfone e do áudio, permite-lhe oferecer uma experiência ideal para os seus utilizadores com base nas suas necessidades. Pode personalizar propriedades RDP no Windows Virtual Desktop utilizando o parâmetro **-CustomRdpProperty** no **set-RdsHostPool** cmdlet.
 Consulte as definições de [ficheiroRD Suportadas](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) para obter uma lista completa de propriedades suportadas e os seus valores predefinidos.

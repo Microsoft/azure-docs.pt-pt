@@ -4,14 +4,14 @@ description: Como definir alvos de armazenamento para que o seu Cache Azure HPC 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.author: rohogue
-ms.openlocfilehash: cecafd9209b095270e9a06ca59ffef162326efc2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.date: 04/23/2020
+ms.author: v-erkel
+ms.openlocfilehash: dde29d02f3dbf10ca068d6b3f1ef6c326c206370
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538006"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195048"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 

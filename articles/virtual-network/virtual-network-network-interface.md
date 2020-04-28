@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69dc34c3989adee3af69613617368c29072a7650
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244943"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186106"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -273,4 +273,4 @@ Para executar tarefas em interfaces de rede, a sua conta deve ser atribuída à 
 - Crie um único NIC VM com vários endereços IPv4 utilizando o [Azure CLI](virtual-network-multiple-ip-addresses-cli.md) ou [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 - Crie um único NIC VM com um endereço IPv6 privado (atrás de um Equilíbrio de Carga Azure) utilizando o modelo [Azure CLI,](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)ou [Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Criar uma interface de rede utilizando scripts de amostra [PowerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou utilizando o modelo de Gestor de [Recursos](template-samples.md) Azure
-- Criar e aplicar [a política azure](policy-samples.md) para redes virtuais
+- Criar e atribuir definições de [política azure](policy-samples.md) para redes virtuais

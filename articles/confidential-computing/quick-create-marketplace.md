@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 50752dfefae1aab28e0b7e51d8c94cf5f04a5099
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 90e8aa4da88542648bec612553282ffe11b09eda
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149313"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192285"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Quickstart: Implemente um VM de Computação Confidencial Azure no Mercado
 
@@ -21,7 +21,7 @@ Inicie-se com a computação confidencial azure usando o Azure Marketplace para 
 
 Este tutorial é recomendado se quiser começar rapidamente a implantar uma máquina virtual de computação confidencial. Os VMs são executados em hardware de especialidade e requerem inputs de configuração específicos para funcionar como pretendido. A oferta de mercado descrita neste quickstart facilita a sua implementação, restringindo a entrada do utilizador.
 
-Se estiver interessado em implementar uma máquina virtual de computação confidencial com uma configuração mais personalizada, siga os passos de implementação da [máquina virtual Do portal Azure Confidential Compute.](quick-create-portal.md)
+Se estiver interessado em implementar uma máquina virtual de computação confidencial com uma configuração mais personalizada, siga os passos de implementação da [máquina virtual Do portal Azure Confidential Compute](quick-create-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

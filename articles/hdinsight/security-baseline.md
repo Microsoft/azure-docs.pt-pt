@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2ddb9a9c205135707d7d96beb106074baa1ce324
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 62188aefffd05af49bb00c242b266e808b991c84
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758274"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188179"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança azure para HDInsight
 
@@ -164,7 +164,7 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Orientação**: Utilize etiquetas para o grupo de segurança da rede (NSGs) e outros recursos relacionados com a segurança da rede e fluxo de tráfego que estejam associados ao seu cluster Azure HDInsight. Para regras nsg individuais, utilize o campo "Descrição" para especificar a necessidade e/ou duração do negócio (etc.) para quaisquer regras que permitam o tráfego de/para uma rede.
 
-Utilize qualquer uma das definições políticas do Azure incorporadas relacionadas com a marcação, tais como "Exigir etiqueta e seu valor" para garantir que todos os recursos são criados com Tags e notificá-lo de recursos não marcados existentes.
+Utilize qualquer uma das definições de Política Azure incorporadarelacionadas com a marcação, tais como "Exigir etiqueta e seu valor" para garantir que todos os recursos são criados com Tags e notificá-lo de recursos não marcados existentes.
 
 Pode utilizar a interface de linha de comando Azure PowerShell ou Azure (CLI) para procurar ou realizar ações em recursos baseados nas suas Tags.
 
@@ -832,7 +832,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor para os recursos Azure não aprovados
 
-**Orientação**: Utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
 
 - Tipos de recursos não permitidos
 
@@ -881,7 +881,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Utilizar apenas os serviços Azure aprovados
 
-**Orientação**: Utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
 
 - Tipos de recursos não permitidos
 
@@ -963,7 +963,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Manter configurações seguras de recursos Azure
 
-**Orientação:** Utilize a política azure [negar] e [implementar se não existir] para impor configurações seguras para os seus clusters Azure HDInsight e recursos conexos.
+**Orientação:** Utilize a Política Azure [negar] e [implementar se não existir] para impor configurações seguras para os seus clusters Azure HDInsight e recursos conexos.
 
 Como configurar e gerir a Política Azure:
 
@@ -988,7 +988,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Configuração segura dos recursos Do Azure
 
-**Orientação**: Se utilizar definições políticas personalizadas do Azure, utilize o Azure DevOps ou o Azure Repos para armazenar e gerir de forma segura o seu código.
+**Orientação**: Se utilizar definições de política azure personalizadas, utilize O Azure DevOps ou o Azure Repos para armazenar e gerir de forma segura o seu código.
 
 Como armazenar código em Azure DevOps:
 

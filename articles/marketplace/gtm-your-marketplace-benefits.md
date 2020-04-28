@@ -5,20 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 2249dde8578dcd5cc3444aeef6b51c8afb2f31fa
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: abc71d644b44b432d0ebf2a8c849554fe8db0256
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160601"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190338"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
 Publicou no mercado, agora quer ver a sua oferta ser bem sucedida. Oferecemos-lhe os benefícios - vendas, técnicos e marketing - que precisa para acelerar o crescimento da sua oferta.
 
-Quando for em direto com a sua oferta, a equipa de Marketplace Rewards irá trabalhar consigo sobre os seus benefícios elegíveis. Os benefícios do Marketplace Rewards acumulam-se com base no seu envolvimento e vendas no mercado comercial. Quanto mais te envolves, mais voltas.
+Uma vez que a sua oferta esteja ao vivo no Azure Marketplace ou AppSource, vá ao [Partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) para aceder e ativar os seus benefícios de marketing, vendas e técnicos elegíveis. Os benefícios do Marketplace Rewards acumulam-se com base no seu envolvimento e vendas no mercado comercial. Quanto mais te envolves, mais voltas.
 
 ## <a name="marketplace-rewards"></a>Recompensas do Mercado
 
@@ -41,7 +41,19 @@ Descrições detalhadas de todos os benefícios do programa podem ser encontrada
 Os seus passos para começar são fáceis:
 
 1. Publique uma oferta no Microsoft AppSource ou no Azure Marketplace.
-2. A equipa contacta o "proprietário" ou o "contacto primário" por oferta de mercado. É uma boa prática entrar num indivíduo ou num pseudónimo que verifica regularmente: info@company.com mensagens enviadas a pseudónimos como muitas vezes perdem-se.
+2. Vá ao [dashboard](https://partner.microsoft.com/dashboard/directory)Partner Center , selecione separador **de benefícios** de Vendas e Marketing na página Marketplace Rewards para ver a sua lista de benefícios.
+3. Para ativar o benefício de vendas e marketing, deve primeiro atribuir um contacto de marketing da empresa. Este contacto receberá comunicações de acompanhamento sobre as suas Recompensas do Mercado.
+4. Para adicionar ou atualizar as suas informações de contacto de marketing, vá ao topo do separador de benefícios de Vendas e Marketing na página Marketplace Rewards e, em seguida, selecione **Adicionar, atualizar ou alterar**.  Em seguida, faça o seguinte:
+
+    1. Selecione um utilizador da lista. Se o utilizador que pretende atribuir não estiver na lista, pode adicionar novos utilizadores nas **definições da Conta**.
+    1. Forneça um endereço de e-mail para o utilizador diferente do endereço de e-mail associado à conta partner center da sua empresa. Enviaremos instruções por e-mail para usar o seu benefício Marketplace Rewards para o endereço de e-mail do seu contacto de marketing designado.
+    1. Forneça o telefone de contacto e o idioma preferido para este contacto de marketing. Depois de terminar de introduzir estas informações, selecione **Utilizador designador**.
+    1. Depois de atualizar o contacto de marketing, selecione **Activate** para o benefício que pretende começar a utilizar. Assim que ativar um benefício, o seu contacto de marketing será contactado por um membro da equipa de Recompensas dentro de uma semana.
+
+**Benefícios técnicos**
+
+1. Pode utilizar o seu benefício técnico para solicitar assistência técnica durante as fases de pré-venda, design, implementação e desenvolvimento de aplicações das suas soluções cloud e híbridas. Para solicitar assistência, preencha o formulário de pedido e, em seguida, selecione **Enviar pedido**.
+2. Como utilizar os benefícios de patrocínio do Azure será partilhado através de um e-mail à medida que desbloquear estes benefícios.
 
 >[!Note]
 >Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, consulte dentro da sua organização quem é o proprietário da oferta em questão, procurando no Partner Center. Devem ter a comunicação e os próximos passos. <br> <br> Se não conseguir determinar o proprietário, ou se o proprietário deixou a sua empresa, pode levantar um bilhete de apoio na [Ajuda e Suporte.](https://partner.microsoft.com/support/v2/?stage=1)

@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
-ms.date: 01/15/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: fe800280a7a652b5d9a397a21a5b0a66b40af4dc
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d35f11125809167c4834b33f913d9369a6402ac0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76122923"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188885"
 ---
 [Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer?view=azure-python) | Pacote[de código fonte](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | da biblioteca[(pipi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Samples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
@@ -37,7 +37,7 @@ Há vários passos para usar este arranque rápido:
 
 [!INCLUDE [Create Azure resource for Personalizer](create-personalizer-resource.md)]
 
-[!INCLUDE [!Change model frequency](change-model-frequency.md)]
+[!INCLUDE [Change model frequency](change-model-frequency.md)]
 
 ## <a name="install-the-python-library-for-personalizer"></a>Instale a biblioteca Python para Personalizar
 
@@ -103,7 +103,7 @@ As ações representam as escolhas de conteúdo a partir das quais pretende que 
 
 O ciclo de aprendizagem personalizer é um ciclo de chamadas [De Rank](#request-the-best-action) e [Reward.](#send-a-reward) Neste arranque rápido, cada chamada de classificação, para personalizar o conteúdo, é seguida por uma chamada de recompensa para dizer ao Personalizer o quão bem o serviço foi executado.
 
-O código seguinte passa por um ciclo de pedir ao utilizador as suas preferências na linha de comando, enviando essa informação ao Personalizer para selecionar a melhor ação, apresentando a seleção ao cliente para escolher entre a lista, enviando depois uma recompensa para Personalizer sinalizando como o serviço se saiu bem na sua seleção.
+O código seguinte passa por um ciclo de pedir ao utilizador as suas preferências na linha de comando, enviando essa informação ao Personalizer para selecionar a melhor ação, apresentando a seleção ao cliente para escolher entre a lista, enviando depois uma recompensa ao Personalizer sinalizando o quão bem o serviço fez na sua seleção.
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=mainLoop&highlight=9,10,29)]
 

@@ -6,15 +6,15 @@ author: Ramakoni1
 ms.author: ramakoni
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: dab310d998f082fdf7aea770939cc68ed2e1e5c2
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 392329d254615406204d67a4e135b6857e13a57d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100231"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192557"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Perguntas frequentes
 

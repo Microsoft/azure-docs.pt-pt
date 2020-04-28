@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0228f317e2d3380f2387dd557a27203eb3abc4ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c90f4166bf88a8df18a93e84903c93461b904d2c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240268"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187267"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione uma página personalizada ao uI web de solução de monitorização remota
 
@@ -29,7 +29,7 @@ Outros guias de como-fazer estendem este cenário para adicionar mais funcionali
 Para completar os passos neste guia de como orientar, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
 
 - [Git](https://git-scm.com/downloads)
-- [Nó.js](https://nodejs.org/download/)
+- [Node.js](https://nodejs.org/download/)
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>Prepare um ambiente de desenvolvimento local para a UI
 
@@ -142,7 +142,7 @@ npm install
 npm start
 ```
 
-O comando anterior executa [http://localhost:3000/dashboard](http://localhost:3000/dashboard)a UI localmente em .
+O comando anterior executa `http://localhost:3000/dashboard`a UI localmente em .
 
 Sem ligar a sua instância local da UI web a uma instância implantada do acelerador de soluções, vê erros no painel de instrumentos. Estes erros não afetam a sua capacidade de testar a sua nova página.
 

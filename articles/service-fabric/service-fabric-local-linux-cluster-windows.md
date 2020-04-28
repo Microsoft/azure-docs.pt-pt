@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: 9f60b9d9b919a72250038ede2a2bd53278df79cb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1798d57f9fc4004fd2c7d1f1901fcddf850626c2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309008"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193331"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Instale um cluster de tecido de serviço Linux na sua máquina de desenvolvimento do Windows
 
@@ -89,7 +89,7 @@ Para configurar um recipiente Docker local e ter um cluster de tecido de serviç
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. O cluster demorará um curto período de tempo a iniciar, pode ver os registos utilizando [http://localhost:19080](http://localhost:19080)o seguinte comando ou saltar para o painel de instrumentos para ver a saúde dos clusters:
+5. O cluster irá demorar pouco tempo a iniciar. Pode ver registos com o comando seguinte ou avançar para o dashboard para ver o estado de funcionamento dos clusters `http://localhost:19080`:
 
     ```powershell 
     docker logs sftestcluster

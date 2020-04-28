@@ -6,13 +6,14 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: aee0576654827351fa5ff9b3c29b57d0d4148d3e
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 64fe56ff506cf256dd7e317984551949f9ffad06
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116609"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189369"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Clusters Scale Azure HDInsight
 

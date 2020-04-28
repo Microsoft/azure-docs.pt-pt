@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2402e72d2ef9fcda46f2f40bff48759262ee30e0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840626"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189050"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Análise de Tráfego frequentemente fez perguntas
 
@@ -134,7 +134,7 @@ Sim, a sua conta de Armazenamento Azure pode estar numa subscrição, e o seu es
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso armazenar registos crus numa subscrição diferente?
 
-Não. Pode armazenar registos brutos em qualquer conta de armazenamento onde um NSG esteja habilitado para registos de fluxo. No entanto, tanto a conta de armazenamento como os registos brutos devem estar na mesma subscrição e região.
+Sim. Pode configurar os Registos de Fluxo nsg para serem enviados para uma conta de armazenamento localizada numa subscrição diferente, desde que tenha os privilégios apropriados, e que a conta de armazenamento esteja localizada na mesma região que o NSG. O NSG e a conta de armazenamento de destino também devem partilhar o mesmo Inquilino De Diretório Ativo Azure.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>E se eu não conseguir configurar um NSG para análise de tráfego devido a um erro "não encontrado"?
 

@@ -3,12 +3,12 @@ title: Upgrade de app de tecido de serviço usando PowerShell
 description: Este artigo percorre a experiência de implementar uma aplicação Service Fabric, alterar o código e lançar uma atualização usando o PowerShell.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: b113b5a1042518e3b0d86e53796c5fe49afed418
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d277df6959ea3e7985514f81faed520f163c6012
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426788"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195889"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Upgrade de aplicação de tecido de serviço usando PowerShell
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Construir e publicar a aplicação clicando corretamente no projeto de aplicaç�
 
 Depois de construir o projeto no Estúdio Visual, pode utilizar o pacote de comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) para copiar o pacote de aplicações para a ImageStore. Se pretender verificar o pacote de aplicações localmente, utilize o [Cmdlet Test-ServiceFabricApplicationPackage.](/powershell/module/servicefabric/test-servicefabricapplicationpackage) O próximo passo é registar a aplicação no tempo de execução do Tecido de Serviço utilizando o [cmdlet Register-ServiceFabricApplicationType.](/powershell/module/servicefabric/register-servicefabricapplicationtype) O passo seguinte é iniciar uma instância da aplicação utilizando o cmdlet [New-ServiceFabricApplication.](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)  Estes três passos são análogos à utilização do item do menu **Deploy** no Estúdio Visual.  Uma vez concluído o fornecimento, deve limpar o pacote de aplicação copiado da loja de imagens de forma a reduzir os recursos consumidos.  Se um tipo de pedido já não for necessário, este não deve ser registado pelo mesmo motivo. Consulte [a Implementação e remova as aplicações utilizando](service-fabric-application-upgrade-tutorial-powershell.md) o PowerShell para obter mais informações.
 
-Agora, pode usar [o Service Fabric Explorer para ver o cluster e a aplicação.](service-fabric-visualizing-your-cluster.md) A aplicação tem um serviço web que pode [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) ser navegado no Internet Explorer digitando na barra de endereços.  Deve ver alguns objetos visuais flutuantes a moverem-se no ecrã.  Além disso, pode utilizar o [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) para verificar o estado da aplicação.
+Agora, pode usar [o Service Fabric Explorer para ver o cluster e a aplicação.](service-fabric-visualizing-your-cluster.md) A aplicação tem um serviço web que pode `http://localhost:8081/visualobjects` ser navegado no Internet Explorer digitando na barra de endereços.  Deve ver alguns objetos visuais flutuantes a moverem-se no ecrã.  Além disso, pode utilizar o [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) para verificar o estado da aplicação.
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Passo 2: Atualizar a amostra de Objetos Visuais
 Note-se que com a versão que foi implantada no Passo 1, os objetos visuais não giram. Vamos atualizar esta aplicação para uma onde os objetos visuais também giram.

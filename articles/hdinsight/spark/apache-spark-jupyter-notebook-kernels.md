@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 01aad05995f4df5181a82bdedf630d4082760c38
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: f7f460b01674359847427296e4526fc5771658f0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137438"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191962"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para o caderno Jupyter em clusters Apache Spark em Azure HDInsight
 

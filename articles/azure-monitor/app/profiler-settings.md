@@ -6,17 +6,17 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f66a23c0562ec9f1987bd119a45b7b767f2dfe46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671635"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188931"
 ---
 # <a name="configure-application-insights-profiler"></a>Configure Perfil de Insights de Aplicação
 
 ## <a name="updated-profiler-agent"></a>Agente de perfil atualizado
-O gatilho funciona apenas com a versão 2.6 ou mais recente do agente de perfis. Se estiver a executar um Serviço de Aplicações Azure, o seu agente será atualizado automaticamente. Pode ver que versão do agente está a executar se for ao URL kudu para o seu website https://yourwebsite.scm.azurewebsites.net/diagnosticservicese anexar \DiagnosticServices até ao fim, assim: . O Webjob do Perfil de Insights de Aplicação deve ver a versão 2.6 ou mais recente. Pode forçar uma atualização reiniciando a sua aplicação web. 
+O gatilho funciona apenas com a versão 2.6 ou mais recente do agente de perfis. Se estiver a executar um Serviço de Aplicações Azure, o seu agente será atualizado automaticamente. Pode ver que versão do agente está a executar se for ao URL kudu para o seu website `https://yourwebsite.scm.azurewebsites.net/diagnosticservices`e anexar \DiagnosticServices até ao fim, assim: . O Webjob do Perfil de Insights de Aplicação deve ver a versão 2.6 ou mais recente. Pode forçar uma atualização reiniciando a sua aplicação web. 
 
 Se estiver a executar o perfil num VM ou cloud Service, precisa de ter a versão 16.0.4 ou mais recente do Windows Azure Diagnostics (WAD) ou mais recente. Pode verificar a versão do WAD iniciando login no seu VM e olhando para este diretório: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. O nome do diretório é a versão do WAD que está instalada. O agente Azure VM atualizará o WAD automaticamente quando estiverem disponíveis novas versões.
 

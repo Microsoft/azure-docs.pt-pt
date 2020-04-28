@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 04/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: db9e86706ecd4e5b2526e1d801dda45ed6b345c6
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: ec0894818c0c246223749e1efcf7ea9e5ebee463
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887253"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194538"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Monitorização Azure Cosmos DB
 Quando se tem aplicações críticas e processos de negócio baseados nos recursos do Azure, pretende monitorizar esses recursos para a sua disponibilidade, desempenho e operação. Este artigo descreve os dados de monitorização gerados pelas bases de dados da Azure Cosmos e como pode utilizar as funcionalidades do Azure Monitor para analisar e alertar sobre estes dados.
@@ -35,6 +35,9 @@ As seguintes secções baseiam-se neste artigo descrevendo os dados específicos
 [O Azure Monitor para o Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md) baseia-se na [funcionalidade de livros de livros do Azure Monitor](../azure-monitor/app/usage-workbooks.md) e utiliza os mesmos dados de monitorização recolhidos para o Cosmos DB descritos nas secções abaixo. Utilize esta ferramenta para uma visão do desempenho global, falhas, capacidade e saúde operacional de todos os seus recursos Azure Cosmos DB numa experiência interativa unificada, e aproveite as outras funcionalidades do Azure Monitor para análise detalhada e alerta. 
 
 ![Monitor Azure para Cosmos DB](media/monitor-cosmos-db/azure-monitor-cosmos-db.png)
+
+> [!NOTE]
+> Ao criar recipientes, certifique-se de que não cria dois recipientes com o mesmo nome, mas invólucrodiferente. Isto porque algumas partes da plataforma Azure não são sensíveis a casos, o que pode resultar em confusão/colisão de telemetria e ações em contentores com tais nomes.
 
 ## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Ver métricas de nível de operação para Azure Cosmos DB
 

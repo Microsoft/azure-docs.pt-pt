@@ -3,12 +3,12 @@ title: Melhore a excelência operacional para as suas subscrições do Azure com
 description: Use O Advisor para otimizar e amadurecer em excelência operacional para as suas subscrições do Azure
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: f34284ba62bd5dea98345ebe73365b332d38ee78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4133fbe40c0fc1bdaf9c3f734bc19f94437c9acb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443077"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187421"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>Alcançar a excelência operacional com o Azure Advisor
 
@@ -32,18 +32,18 @@ O Azure Advisor irá detetar regras de alerta que tenham consultas inválidas es
 
 ## <a name="follow-best-practices-using-azure-policy"></a>Siga as melhores práticas usando a Política Azure
 
-O Azure Policy é um serviço do Azure que utiliza para criar, atribuir e gerir políticas. Estas políticas impõem diferentes regras e efeitos sobre os recursos. Abaixo estão as recomendações políticas do Azure para ajudá-lo a alcançar a excelência operacional: 
+O Azure Policy é um serviço do Azure que utiliza para criar, atribuir e gerir políticas. Estas políticas impõem diferentes regras e efeitos sobre os recursos. Abaixo estão as recomendações da Política Azure para ajudá-lo a alcançar a excelência operacional: 
 1. Gerir etiquetas utilizando a Política Azure: Esta política adiciona ou substitui a etiqueta e o valor especificados quando qualquer recurso é criado ou atualizado. Os recursos existentes podem ser corrigidos ao acionar uma tarefa de remediação. Além disso, isto não modifica etiquetas em grupos de recursos.
 2. Impor requisitos de geoconformidade utilizando a Política Azure: A política permite-lhe restringir as localizações que a sua organização pode especificar ao implementar recursos. 
 3. Especifique a máquina virtual permitida SKUs para implementações: Esta política permite especificar um conjunto de SKUs de máquina virtual que a sua organização pode implementar.
-4. Impor 'VMs de auditoria que não usam discos geridos' utilizando a política do Azure
-5. Utilize 'Herdar uma etiqueta de grupos de recursos' utilizando a política Azure: A política adiciona ou substitui a etiqueta e o valor especificados do grupo de recursos-mãe quando qualquer recurso é criado ou atualizado. Os recursos existentes podem ser corrigidos ao acionar uma tarefa de remediação.
+4. Imponha “Auditar VMs que não utilizam discos geridos” com o Azure Policy
+5. Utilize 'Herdar uma etiqueta de grupos de recursos' utilizando a Política Azure: A política adiciona ou substitui a etiqueta e o valor especificados do grupo de recursos-mãe quando qualquer recurso é criado ou atualizado. Os recursos existentes podem ser corrigidos ao acionar uma tarefa de remediação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre recomendações do Advisor, consulte:
 * [Introdução ao Consultor](advisor-overview.md)
-* [Introdução](advisor-get-started.md)
+* [Começar](advisor-get-started.md)
 * [Recomendações de Custos Consultivos](advisor-cost-recommendations.md)
 * [Recomendações de Desempenho Do Conselheiro](advisor-performance-recommendations.md)
 * [Recomendações de Alta Disponibilidade Do Conselheiro](advisor-high-availability-recommendations.md)

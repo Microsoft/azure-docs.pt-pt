@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 95dd7be118e869aed02bb55918ab0cefa0d05d03
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 4601a7f5da8d6e4eda2ee433fe52d08a6341ce6c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998859"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186021"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuais
 
@@ -111,7 +111,7 @@ O Azure utiliza o controlo de [acesso baseado em funções](../role-based-access
 
 A Política Azure permite-lhe criar, atribuir e gerir definições de políticas. As definições de políticas impõem regras diferentes sobre os seus recursos, para que os recursos se mantenham em conformidade com os seus padrões organizacionais e acordos de nível de serviço. A Política Azure executa uma avaliação dos seus recursos, procurando recursos que não estão em conformidade com as definições políticas que tem. Por exemplo, pode definir e aplicar uma política que permite a criação de redes virtuais em apenas um grupo ou região de recursos específicos. Outra política pode exigir que cada subnet tenha um grupo de segurança de rede associado a ela. As políticas são então avaliadas na criação e atualização de recursos.
 
-As políticas são aplicadas à seguinte hierarquia: grupo de gestão, subscrição e grupo de recursos. Saiba mais sobre [a política do Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implemente algumas amostras de [modelode política](policy-samples.md) de rede virtual.
+As políticas são aplicadas à seguinte hierarquia: grupo de gestão, subscrição e grupo de recursos. Saiba mais sobre [a Política Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implemente [algumas definições](policy-samples.md)de política de rede virtual Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

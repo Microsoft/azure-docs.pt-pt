@@ -2,13 +2,13 @@
 title: Funções do modelo - numérico
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com números.
 ms.topic: conceptual
-ms.date: 11/08/2017
-ms.openlocfilehash: 2ca5c539036d002b83b8141132a0ebf2530dc6af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: dc15ade453fc5ea4dc031ced0377892f4f8cf27d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156349"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192353"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funções numéricas para modelos ARM
 
@@ -25,11 +25,8 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com os inteir
 * [mul](#mul)
 * [sub](#sub)
 
-<a id="add" />
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="add"></a>adicionar
+
 `add(operand1, operand2)`
 
 Devolve a soma dos dois inteiros fornecidos.
@@ -86,21 +83,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | adicionarResultado | int | 8 |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
-```
-
-<a id="copyindex" />
-
 ## <a name="copyindex"></a>copyIndex
+
 `copyIndex(loopName, offset)`
 
 Devolve o índice de um ciclo de iteração.
@@ -114,39 +98,58 @@ Devolve o índice de um ciclo de iteração.
 
 ### <a name="remarks"></a>Observações
 
-Esta função é sempre utilizada com um objeto **de cópia.** Se não for previsto qualquer valor para **compensação,** o valor atual da iteração é devolvido. O valor da iteração começa a zero. Pode utilizar loops de iteração ao definir recursos ou variáveis.
+Esta função é sempre utilizada com um objeto **de cópia.** Se não for previsto qualquer valor para **compensação,** o valor atual da iteração é devolvido. O valor da iteração começa a zero.
 
 A propriedade **loopName** permite especificar se o copyIndex está se referindo a uma iteração de recursos ou iteração de propriedade. Se não for previsto qualquer valor para **o loopName,** a iteração do tipo de recurso atual é utilizada. Forneça um valor para **loopName** quando iterar uma propriedade.
 
-Para obter uma descrição completa de como utiliza o **copyIndex,** consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Do Azure](copy-resources.md).
+Para mais informações sobre o uso da cópia, consulte:
 
-Para um exemplo de utilização do **copyIndex** ao definir uma variável, consulte [Variáveis](template-syntax.md#variables).
+* [Iteração de recursos em modelos ARM](copy-resources.md)
+* [Iteração de propriedade em modelos ARM](copy-properties.md)
+* [Iteração variável em modelos ARM](copy-variables.md)
+* [Iteração de saída em modelos ARM](copy-outputs.md)
 
 ### <a name="example"></a>Exemplo
 
 O exemplo seguinte mostra um ciclo de cópia e o valor do índice incluído no nome.
 
 ```json
-"resources": [
-  {
-    "name": "[concat('examplecopy-', copyIndex())]",
-    "type": "Microsoft.Web/sites",
-    "copy": {
-      "name": "websitescopy",
-      "count": "[parameters('count')]"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageCount": {
+            "type": "int",
+            "defaultValue": 2
+        }
     },
-    ...
-  }
-]
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": "[parameters('storageCount')]"
+            }
+        }
+    ],
+    "outputs": {}
+}
 ```
 
 ### <a name="return-value"></a>Valor devolvido
 
 Um inteiro que representa o índice atual da iteração.
 
-<a id="div" />
-
 ## <a name="div"></a>div
+
 `div(operand1, operand2)`
 
 Devolve a divisão inteiro dos dois inteiros fornecidos.
@@ -203,21 +206,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
-```
-
-<a id="float" />
-
 ## <a name="float"></a>float
+
 `float(arg1)`
 
 Converte o valor para um número de ponto flutuante. Só utiliza esta função ao passar parâmetros personalizados para uma aplicação, como uma Aplicação Lógica.
@@ -229,6 +219,7 @@ Converte o valor para um número de ponto flutuante. Só utiliza esta função a
 | arg1 |Sim |corda ou int |O valor para converter para um número de ponto flutuante. |
 
 ### <a name="return-value"></a>Valor devolvido
+
 Um número de ponto flutuante.
 
 ### <a name="example"></a>Exemplo
@@ -249,9 +240,8 @@ O exemplo que se segue mostra como usar o flutuador para passar parâmetros para
             },
 ```
 
-<a id="int" />
-
 ## <a name="int"></a>int
+
 `int(valueToConvert)`
 
 Converte o valor especificado para um inteiro.
@@ -297,21 +287,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
-```
-
-<a id="max" />
-
 ## <a name="max"></a>máximo
+
 `max (arg1)`
 
 Devolve o valor máximo de um conjunto de inteiros ou de uma lista separada de inteiros.
@@ -361,21 +338,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
-<a id="min" />
-
 ## <a name="min"></a>min
+
 `min (arg1)`
 
 Devolve o valor mínimo de um conjunto de inteiros ou de uma lista separada de inteiros.
@@ -425,21 +389,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
-<a id="mod" />
-
 ## <a name="mod"></a>mod
+
 `mod(operand1, operand2)`
 
 Devolve o restante da divisão inteiro usando os dois inteiros fornecidos.
@@ -452,6 +403,7 @@ Devolve o restante da divisão inteiro usando os dois inteiros fornecidos.
 | operand2 |Sim |int |O número que é usado para dividir, não pode ser 0. |
 
 ### <a name="return-value"></a>Valor devolvido
+
 Um inteiro representando o restante.
 
 ### <a name="example"></a>Exemplo
@@ -495,21 +447,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
-```
-
-<a id="mul" />
-
 ## <a name="mul"></a>mul
+
 `mul(operand1, operand2)`
 
 Devolve a multiplicação dos dois inteiros fornecidos.
@@ -566,21 +505,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
-```
-
-<a id="sub" />
-
 ## <a name="sub"></a>sub
+
 `sub(operand1, operand2)`
 
 Devolve a subtração dos dois inteiros fornecidos.
@@ -593,6 +519,7 @@ Devolve a subtração dos dois inteiros fornecidos.
 | operand2 |Sim |int |O número que é subtraído. |
 
 ### <a name="return-value"></a>Valor devolvido
+
 Um inteiro representando a subtração.
 
 ### <a name="example"></a>Exemplo
@@ -636,21 +563,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | subResultado | int | 4 |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
-```
-
 ## <a name="next-steps"></a>Passos seguintes
-* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte os modelos de [Gestor de Recursos Azure da Autoria](template-syntax.md).
-* Para fundir vários modelos, consulte [Utilizar modelos ligados com](linked-templates.md)o Gestor de Recursos Azure .
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Azure](copy-resources.md).
-* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo de Gestor](deploy-powershell.md)de Recursos Azure .
 
+* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Azure](copy-resources.md).

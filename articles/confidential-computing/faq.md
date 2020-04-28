@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 2bd9430fc6f48d72faa2c1850af0bb8432a7c5f5
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: e9cb691ef60f612672078a9ef84db904c79cbc87
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149505"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189450"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Perguntas frequentes para a Computação Confidencial Azure
 
@@ -47,7 +47,7 @@ Se o seu problema azure não for abordado neste artigo, visite os fóruns do Azu
 
 1. **Qual é a diferença entre DCsv2-Series e VMs da série DC?**
 
-   Os VMs da série DC funcionam em processadores Intel de 6 núcleos mais antigos com SGX. Estes têm memória menos total, menos memória EPC (Enclave Page Cage) e estão disponíveis em menos regiões. Estes VMs só estão disponíveis nos EUA Leste e Europa Ocidental estão disponíveis em dois tamanhos: Standard_DC2s e Standard_DC4s. Eles não irão GA e só podem ser implantados na instância de Mercado [De Computação Confidencial DC-Series [Pré-visualização]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview)
+   Os VMs da série DC funcionam em processadores Intel de 6 núcleos mais antigos com Intel SGX. Estes têm memória menos total, menos memória EPC (Enclave Page Cage) e estão disponíveis em menos regiões. Estes VMs só estão disponíveis nos EUA Leste e Europa Ocidental estão disponíveis em dois tamanhos: Standard_DC2s e Standard_DC4s. Eles não irão GA e só podem ser implantados na instância de Mercado [De Computação Confidencial DC-Series [Pré-visualização]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview)
 
 1. **As máquinas virtuais DCSV2 estão disponíveis globalmente?**
 

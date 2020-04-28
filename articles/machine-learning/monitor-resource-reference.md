@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 03/06/2020
-ms.openlocfilehash: 958794cda60d0ce1b0d223b9b5a6c03283022a6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 1abd52c98cb1fa6ebe1014fc7a65e756d038d683
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78927554"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187601"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Referência de dados de monitorização de machine learning azure
 
@@ -163,6 +163,22 @@ Seguem-se dimensões que podem ser utilizadas para filtrar métricas de quota:
 | Nome do Cluster | Todas as métricas de quota | O nome da instância computacional. |
 | Nome da família Vm | Percentagem de utilização de quotas | O nome da família VM usada pelo aglomerado. |
 | Prioridade Vm | Percentagem de utilização de quotas | A prioridade do VM.
+
+**Recurso**
+
+| Métrica | Unidade | Descrição |
+| ----- | ----- | ----- |
+| CpuUtilização | Percentagem | Quanto por cento da CPU foi utilizada para um dado nó durante uma corrida/trabalho. Esta métrica só é publicada quando um trabalho está a correr num nó. Um trabalho pode usar um ou mais nós. Esta métrica é publicada por nó. |
+| GpuUtilização | Percentagem | Quanta percentagem de GPU foi utilizada para um dado nó durante uma corrida/trabalho. Um nó pode ter uma ou mais GPUs. Esta métrica é publicada por GPU por nó. |
+
+Seguem-se dimensões que podem ser utilizadas para filtrar métricas de recursos:
+
+| Dimensão | Descrição |
+| ----- | ----- |
+| CreatedTime | |
+| DeviceId | IDENTIFICAÇÃO do dispositivo (GPU). Disponível apenas para GpuUtilização. |
+| NodeId | Identificação do nó criado onde o trabalho está a funcionar. |
+| Runid | Identificação da corrida/trabalho. |
 
 **Executar**
 

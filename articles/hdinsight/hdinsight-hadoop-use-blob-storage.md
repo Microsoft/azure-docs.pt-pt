@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: cd6ba50cf81b93da887134e89d75313acb6bd936
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 220e73536a892e798139ca54913e09e097c22432
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869863"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191945"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utilizar o armazenamento do Azure com clusters do Azure HDInsight
 

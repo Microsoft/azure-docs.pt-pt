@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: 803783eddfbffd5c3dbab7353ee00dd7f11a09e5
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618905"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186639"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Erros de criação de cluster
 
@@ -244,7 +244,7 @@ As seguintes políticas geralmente impactam a criação de clusters:
 
 ### <a name="resolution"></a>Resolução
 
-Eliminar ou desativar a política Azure baseada em subscrições ao criar o Cluster HDInsight.
+Eliminar ou desativar a atribuição de política azure baseada em subscrição enquanto cria o Cluster HDInsight.
 
 ---
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75768967"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190304"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra no Azure Logic Apps
 
@@ -36,14 +36,18 @@ Neste tutorial, ficará a saber como:
 
 + Uma conta do [Twitter](https://twitter.com/) ativa. 
 + Uma conta do [Outlook.com](https://outlook.com/) (para o envio de notificações).
-+ Este artigo utiliza como ponto de partida os recursos criados na função [Criar a primeira função a partir do portal do Azure](functions-create-first-azure-function.md).  
+
+> [!NOTE]
+> Se pretender utilizar o conector Gmail, apenas as contas de negócio g-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar o conector Gmail apenas com aplicações e serviços aprovados pela Google, ou pode criar uma aplicação de [cliente da Google para usar para autenticação no seu conector Gmail.](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) Para mais informações, consulte as políticas de [segurança e privacidade dos dados para os conectores da Google em Aplicações Lógicas Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+
++ Este artigo utiliza como ponto de partida os recursos criados na função [Criar a primeira função a partir do portal do Azure](functions-create-first-azure-function.md).
 Se ainda não o fez, conclua estes passos agora para criar a sua aplicação de funções.
 
 ## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
 
 As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos individuais. Utilize a API de Análise de Texto para detetar o sentimento dos tweets que estão a ser monitorizados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Clique em **Criar um recurso** no canto superior esquerdo do portal Azure.
 

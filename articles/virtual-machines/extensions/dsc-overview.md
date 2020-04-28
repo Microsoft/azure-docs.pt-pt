@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: c03487b100ddb066416072c6c06773890db86e0a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115317"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188540"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao processador da extensão Desired State Configuration do Azure
 
@@ -188,7 +188,7 @@ O portal recolhe a seguinte entrada:
 
 - **Configuração Argumentos**: Se a função de configuração tiver argumentos, introduza-os aqui no **formato nome1=valor1,argumentName2=value2**. Este formato é um formato diferente no qual os argumentos de configuração são aceites em cmdlets PowerShell ou modelos de Gestor de Recursos.
 
-- **Arquivo De Dados de Configuração PSD1**: Este campo é opcional. Se a sua configuração necessitar de um ficheiro de dados de configuração em .psd1, utilize este campo para selecionar o campo de dados e carregá-lo para o armazenamento de blob do utilizador. O ficheiro de dados de configuração é protegido por um token SAS no armazenamento de blob.
+- **Arquivo De Dados de Configuração PSD1**: A sua configuração requer um ficheiro de dados de configuração em .psd1, utilize este campo para selecionar o ficheiro de dados e carregá-lo para o armazenamento de blob do utilizador. O ficheiro de dados de configuração é protegido por um token SAS no armazenamento de blob.
 
 - **Versão WMF**: Especifica a versão da Estrutura de Gestão do Windows (WMF) que deve ser instalada no seu VM. A definição desta propriedade para a mais recente instala a versão mais recente da WMF. Atualmente, os únicos valores possíveis para este imóvel são 4.0, 5.0, 5.1, e mais recentes. Estes valores possíveis estão sujeitos a atualizações. O valor predefinido é **mais recente.**
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: b646ee9b727d5adf4ec1c8b5c769b3d8f5c0fc1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a82ca2b8e0a2da594d14b525bf5fabbf5f74eb53
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252038"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188999"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Especificações técnicas azure Data Box Edge
 
@@ -98,7 +98,7 @@ A tabela seguinte enumera as dimensões do pacote de envio em milímetros e pole
 
 ### <a name="enclosure-weight"></a>Peso do recinto
 
-O pacote do dispositivo pesa 66 libras. e requer duas pessoas para lidar com isto. O peso do dispositivo depende da configuração do recinto.
+O pacote do dispositivo pesa 61 libras. e requer duas pessoas para lidar com isto. O peso do dispositivo depende da configuração do recinto.
 
 |     Recinto                                 |     Peso          |
 |-----------------------------------------------|---------------------|

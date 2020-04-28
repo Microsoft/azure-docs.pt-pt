@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 434d4adb763fd0e0a29c065ce051bfd4fa461180
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: f78157fc0873787ce13ed4e9e62ebfd3d3271d5f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770742"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192081"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalize os clusters Azure HDInsight utilizando ações de script
 
@@ -334,6 +335,6 @@ Para um exemplo de utilização do .NET SDK para recuperar o histórico de scrip
 
 * [Desenvolver scripts de ação de script para HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Adicione armazenamento adicional a um cluster HDInsight](hdinsight-hadoop-add-storage.md)
-* [Ações de script de resolução de problemas](troubleshoot-script-action.md)
+* [Resolução de problemas de ações de script](troubleshoot-script-action.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/cluster-provisioning-states.png "Estágios durante a criação de cluster"

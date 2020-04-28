@@ -3,12 +3,12 @@ title: Instale o seu ambiente de desenvolvimento em Linux
 description: Instale o runtime e o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir esta configuração, estará pronto para criar aplicações.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 6cedd97144a3fd32d9af8582e24ad5c12914e575
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 000d615d779ed14eb1698cf297075480a07c71ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682629"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193416"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -179,7 +179,7 @@ Inicie um cluster local após a conclusão da instalação.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Abra um navegador web e vá`http://localhost:19080/Explorer`ao Service Fabric [Explorer](http://localhost:19080/Explorer) ( ). Quando o cluster for iniciado, verá o dashboard do Service Fabric Explorer. Pode demorar alguns minutos até o cluster estar totalmente configurado. Se o browser falhar em abrir o URL ou se o Service Fabric Explorer não indicar que o sistema está preparado, aguarde alguns minutos e tente novamente.
+2. Abra um navegador web e vá`http://localhost:19080/Explorer`ao Service Fabric **Explorer** ( ). Quando o cluster for iniciado, verá o dashboard do Service Fabric Explorer. Pode demorar alguns minutos até o cluster estar totalmente configurado. Se o browser falhar em abrir o URL ou se o Service Fabric Explorer não indicar que o sistema está preparado, aguarde alguns minutos e tente novamente.
 
     ![Service Fabric Explorer no Linux][sfx-linux]
 

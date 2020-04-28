@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 10c66ba175484d8b95f26ef9330753151a92969b
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 631c9b37cf1fec0d39c3c362c6bc303a576d6b7c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106037"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187335"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VMs de arranque/paragem durante solução off-hours na Automação Azure
 
@@ -148,7 +148,7 @@ A tabela seguinte lista as variáveis criadas na sua conta De automação. Só m
 >[!NOTE]
 >Para a `External_WaitTimeForVMRetryInSeconds`variável, o valor predefinido foi atualizado de 600 para 2100. 
 
-Em todos os cenários, `External_Stop_ResourceGroupNames`as `External_ExcludeVMNames` variáveis `External_Start_ResourceGroupNames`, e são necessárias para direcionar os VMs, exceto para as listas de VM separadas da vírlém para o **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**e **ScheduledStartStop_Parent** livros de execução. Ou seja, os seus VMs devem pertencer a grupos de recursos-alvo para que as ações de início e stop ocorram. A lógica funciona semelhante à política do Azure, na medida em que pode visar a subscrição ou grupo de recursos e ter ações herdadas por VMs recém-criados. Esta abordagem evita ter de manter um horário separado para cada VM e gerir partidas e paragens em escala.
+Em todos os cenários, `External_Stop_ResourceGroupNames`as `External_ExcludeVMNames` variáveis `External_Start_ResourceGroupNames`, e são necessárias para direcionar os VMs, exceto para as listas de VM separadas da vírlém para o **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**e **ScheduledStartStop_Parent** livros de execução. Ou seja, os seus VMs devem pertencer a grupos de recursos-alvo para que as ações de início e stop ocorram. A lógica funciona semelhante à Política Azure, na medida em que pode visar a subscrição ou grupo de recursos e ter ações herdadas por VMs recém-criados. Esta abordagem evita ter de manter um horário separado para cada VM e gerir partidas e paragens em escala.
 
 ### <a name="schedules"></a>Agendas
 

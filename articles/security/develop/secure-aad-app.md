@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: 58deae64bdde27580b85b00a1c87ba115e24478a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 5b04bbbbe5425e65f3ed4ff82d9700dec6dd2c39
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159903"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188332"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Desenvolver aplicativo seguro para uma aplicação Azure AD
 ## <a name="overview"></a>Descrição geral
@@ -35,7 +35,7 @@ Ao desenvolver e implementar esta aplicação, você vai aprender a
 - Implemente a Web App Azure, dedicada isolada com acesso frontal à firewall. 
 - Crie e configure uma instância de Gateway de Aplicação Azure com uma firewall que utilize o Top 10 Ruleset oWASP. 
 - Ativar a encriptação de dados em trânsito e em repouso utilizando os serviços Azure. 
-- Criar o centro de política e segurança azure para avaliar as compliancies. 
+- Criar o Azure Policy and Security Center para avaliar a conformidade. 
 
 Depois de desenvolver e implementar esta aplicação, terá configurado a seguinte aplicação web de amostra, juntamente com as medidas de configuração e segurança descritas.
 

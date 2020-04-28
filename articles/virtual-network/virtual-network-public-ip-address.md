@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: a03ace1553bd845d8a221e458fd47f3d8aa3d611
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: de680e7cb542e7606b80ad46934f4ad7256bfb92
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146529"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186072"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou eliminar endereços IP públicos
 
@@ -118,4 +118,4 @@ Para executar tarefas em endereços IP públicos, a sua conta deve ser atribuíd
 ## <a name="next-steps"></a>Passos seguintes
 
 - Crie um endereço IP público utilizando scripts de amostra [PowerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou utilizando [modelos](template-samples.md) de Gestor de Recursos Azure
-- Criar e aplicar [a política azure](policy-samples.md) para endereços IP públicos
+- Criar e atribuir definições de [política azure](policy-samples.md) para endereços IP públicos

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/09/2020
+ms.date: 04/27/2020
 ms.author: aahi
-ms.openlocfilehash: b3c112876bfd2578e6ebaa95c6902aa9b8f832d9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 99a62daf6dced88efd9bda591a0ca44a8b259a75
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79203462"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195643"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como: Detetar o sentimento utilizando a API de Análise de Texto
 
@@ -58,7 +58,9 @@ A Análise de Sentimento supor o texto com rótulos de sentimento (descrito abai
 
 ### <a name="sentiment-labeling"></a>Rotulagem de sentimentos
 
-A Análise de Sentimento st23 pode devolver pontuações e etiquetas a nível de frase e documento. As pontuações e `positive` `negative`etiquetas `neutral`são, e . A nível de `mixed` documento, o rótulo de sentimento também pode ser devolvido sem pontuação. O sentimento do documento é determinado abaixo:
+A Análise de Sentimento st3 devolve rótulos `negative`de `neutral`sentimento a nível de frase e documentos (`positive`e ) juntamente com pontuações de confiança. O `mixed` rótulo de sentimento também pode ser devolvido ao nível do documento. 
+
+O sentimento do documento é determinado abaixo:
 
 | Sentimento de sentença                                                                            | Etiqueta de documento devolvido |
 |-----------------------------------------------------------------------------------------------|-------------------------|

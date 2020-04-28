@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/13/2020
-ms.openlocfilehash: 88392e4e61c28d4fe821c8176242246d10e52b23
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/27/2020
+ms.openlocfilehash: 8d4e9a1e255884b9250879ab486d7a4e2849473a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770901"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192098"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Crie clusters baseados em Linux no HDInsight utilizando o portal Azure
 
@@ -141,11 +141,6 @@ Alguns dos ícones da janela são explicados da seguinte forma:
 |SSH + Login cluster|Fornece informações necessárias para aceder ao cluster utilizando o SSH.|
 |Eliminar|Elimina o cluster HDInsight.|
 
-## <a name="customize-clusters"></a>Personalizar clusters
-
-* [Personalize os clusters HDInsight usando bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
-* [Personalize os clusters HDInsight baseados em Linux usando ações de script](hdinsight-hadoop-customize-cluster-linux.md)
-
 ## <a name="delete-the-cluster"></a>Eliminar o cluster
 
 Consulte [eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](./hdinsight-delete-cluster.md).
@@ -160,5 +155,4 @@ Criou com sucesso um cluster HDInsight. Agora aprende a trabalhar com o teu agru
 
 * [Use a Colmeia Apache com HDInsight](hadoop/hdinsight-use-hive.md)
 * [Começa com Apache HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Desenvolva topoologias java para tempestade Apache no HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Criar uma aplicação autónoma usando o Scala](spark/apache-spark-create-standalone-application.md)
+* [Personalize os clusters HDInsight baseados em Linux usando ações de script](hdinsight-hadoop-customize-cluster-linux.md)

@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
-ms.date: 01/15/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 7fd63841cabd91d46dd311f571fd100bbcfdd0fe
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 0b09f15eb05a94bb62f4484ac362467fbdb0af8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76122888"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188883"
 ---
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | Pacote[de código fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | da biblioteca[(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [Samples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
@@ -112,7 +112,7 @@ Em seguida, crie um método para devolver um cliente Personalizer. O parâmetro 
 
 ## <a name="get-food-items-as-rankable-actions"></a>Obtenha itens alimentares como ações de classificação
 
-As ações representam as escolhas de conteúdo a partir das quais pretende que o Personalizer selecione o melhor item de conteúdo. Adicione os seguintes métodos à classe Programa para representar o conjunto de ações e suas funcionalidades.
+As ações representam as escolhas de conteúdo a partir das quais pretende que o Personalizer selecione o melhor item de conteúdo. Adicione os seguintes métodos à classe Programa para representar o conjunto de ações e suas funcionalidades. 
 
 [!code-csharp[Food items as actions](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createAction)]
 
@@ -132,7 +132,7 @@ Ambos os `GetKey` métodos utilizam o método para ler a seleção do utilizador
 
 O ciclo de aprendizagem personalizer é um ciclo de chamadas [De Rank](#request-the-best-action) e [Reward.](#send-a-reward) Neste arranque rápido, cada chamada de Rank, para personalizar o conteúdo, é seguida por uma chamada de Recompensa para dizer ao Personalizer o quão bem o serviço foi executado.
 
-Os seguintes ciclos de código através de um ciclo de pedir ao utilizador as suas preferências na linha de comando, enviando essa informação ao Personalizer para selecionar a melhor ação, apresentando a seleção ao cliente para escolher entre a lista, em seguida, enviando uma pontuação de recompensa para Personalizer sinalizando como o serviço se saiu bem na sua seleção.
+O código seguinte passa por um ciclo de pedir ao utilizador as suas preferências na linha de comando, enviando essa informação ao Personalizer para selecionar a melhor ação, apresentando a seleção ao cliente para escolher entre a lista, enviando depois uma pontuação de recompensa ao Personalizer sinalizando o quão bem o serviço fez na sua seleção.
 
 [!code-csharp[Learning loop](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=mainLoop)]
 

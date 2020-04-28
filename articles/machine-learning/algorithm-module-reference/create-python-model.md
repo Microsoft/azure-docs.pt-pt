@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: c8be0882452dc120f538394a5481769e26e3fa15
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 0285520c2733cd6e190f9055824cdfed0ce4b842
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682810"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189859"
 ---
 # <a name="create-python-model-module"></a>Criar módulo modelo Python
 
@@ -36,7 +36,7 @@ A utilização deste módulo requer conhecimentos intermédios ou especializados
 > Tenha muito cuidado ao escrever o seu guião e certifique-se de que não existe nenhum erro de sintaxe, como por exemplo, a utilização de um objeto não declarado ou de um módulo não importado.
 
 > [!NOTE]
-Preste também atenção extra à lista de módulos pré-instalados no [Script Execute Python](execute-python-script.md). Importar apenas módulos pré-instalados. Por favor, não instale pacotes extras como "pip instalar xgboost" neste script, caso contrário serão levantados erros ao ler modelos em módulos de streaming.
+> Preste também atenção extra à lista de módulos pré-instalados no [Script Execute Python](execute-python-script.md). Importar apenas módulos pré-instalados. Por favor, não instale pacotes extras como "pip instalar xgboost" neste script, caso contrário serão levantados erros ao ler modelos em módulos de streaming.
   
 Este artigo mostra como usar o **Modelo Create Python** com um simples oleoduto. Aqui está um diagrama do oleoduto:
 
@@ -88,9 +88,9 @@ Este artigo mostra como usar o **Modelo Create Python** com um simples oleoduto.
 
    ```
 
-1. Ligue o módulo **Create Python Model** que acabou de criar para treinar **modelo** e modelo de **pontuação**.
+2. Ligue o módulo **Create Python Model** que acabou de criar para treinar **modelo** e modelo de **pontuação**.
 
-1. Se precisar de avaliar o modelo, adicione um módulo [execute Python Script](execute-python-script.md) e edite o script Python.
+3. Se precisar de avaliar o modelo, adicione um módulo [execute Python Script](execute-python-script.md) e edite o script Python.
 
    O seguinte script é o código de avaliação da amostra:
 
@@ -103,7 +103,7 @@ Este artigo mostra como usar o **Modelo Create Python** com um simples oleoduto.
    # imports up here can be used to 
    import pandas as pd
 
-   # The entry point function can contain up to two input arguments:
+   # The entry point function MUST have two input arguments:
    #   Param<dataframe1>: a pandas.DataFrame
    #   Param<dataframe2>: a pandas.DataFrame
    def azureml_main(dataframe1 = None, dataframe2 = None):

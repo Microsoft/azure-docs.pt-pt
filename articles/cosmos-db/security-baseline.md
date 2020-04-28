@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7e927b398bd95160e02ee915eb98ea3cb78d68fe
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: e5c57ba56ce236bcf07478e1784eec6d4c632d1c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758684"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195252"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Linha de Base de Segurança Azure para Cosmos DB
 
@@ -684,7 +684,7 @@ Como criar e utilizar Tags:https://docs.microsoft.com/azure/azure-resource-manag
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor para os recursos Azure não aprovados
 
-**Orientação**: Utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
 
 - Tipos de recursos não permitidos
 
@@ -811,7 +811,7 @@ Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/gover
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Manter configurações seguras de recursos Azure
 
-**Orientação:** Utilize a política azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
+**Orientação**: Utilize a Política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
 Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -832,7 +832,7 @@ Compreender efeitos políticos do Azure:https://docs.microsoft.com/azure/governa
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Configuração segura dos recursos Do Azure
 
-**Orientação**: Se utilizar definições políticas personalizadas do Azure para o seu Cosmos DB ou recursos conexos, utilize o Azure Repos para armazenar e gerir de forma segura o seu código.
+**Orientação**: Se utilizar definições de Política Azure personalizadas para o seu Cosmos DB ou recursos conexos, utilize o Azure Repos para armazenar e gerir de forma segura o seu código.
 
 Documentação Azure https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops Repos:https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -868,7 +868,7 @@ Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/gover
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementar monitorização automatizada de configuração para os serviços Do Azure
 
-**Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.DocumentDB" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Use a política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente configurações para as suas instâncias de DB Do Cosmos do Azure e recursos conexos. 
+**Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.DocumentDB" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Use a Política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente configurações para as suas instâncias de DB Do Cosmos do Azure e recursos conexos. 
 
 Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

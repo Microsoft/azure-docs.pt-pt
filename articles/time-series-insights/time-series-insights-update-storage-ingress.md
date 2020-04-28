@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 95a579cacc339360295f5f25fa6415ab29cd68ff
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: e3af10e5e9b56b537fedf0af7ffa7ddb37030c73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673906"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189186"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e ingresso na Pré-visualização de Insights da Série De Tempo azure
 
@@ -23,7 +23,7 @@ Este artigo descreve atualizações ao armazenamento de dados e ingresso para a 
 
 ## <a name="data-ingress"></a>Ingressos de dados
 
-O seu ambiente Azure Time Series Insights contém um motor de *ingestão* para recolher, processar e armazenar dados da série time. 
+O seu ambiente Azure Time Series Insights contém um motor de *ingestão* para recolher, processar e armazenar dados da série time.
 
 Existem algumas considerações a ter em conta para garantir que todos os dados que chegam são processados, para alcançar uma escala elevada de ingresso, e minimizar a *latência de ingestão* (o tempo detempo tomado pela Time Series Insights para ler e processar dados a partir da fonte do evento) ao [planear o seu ambiente](time-series-insights-update-plan.md).
 
@@ -31,7 +31,7 @@ Time Series Insights Preview Políticas de ingresso de dados determinam de onde 
 
 ### <a name="ingress-policies"></a>Políticas de ingresso
 
-*A entrada de dados* envolve como os dados são enviados para um ambiente de pré-visualização da Série De Tempo Azure Insights. 
+*A entrada de dados* envolve como os dados são enviados para um ambiente de pré-visualização da Série De Tempo Azure Insights.
 
 A configuração das chaves, a formatação e as melhores práticas são resumidas abaixo.
 
@@ -42,10 +42,11 @@ A Pré-visualização da Série de Tempo Azure suporta as seguintes fontes de ev
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-A Pré-visualização da Série de Tempo Azure suporta um máximo de duas fontes de eventopor exemplo. Quando ligar uma fonte de eventos, o seu ambiente TSI irá ler todos os eventos atualmente armazenados no seu Hub de Iot ou Evento, a começar pelo evento mais antigo. 
+A Pré-visualização da Série de Tempo Azure suporta um máximo de duas fontes de eventopor exemplo. Quando ligar uma fonte de eventos, o seu ambiente TSI irá ler todos os eventos atualmente armazenados no seu Hub de Iot ou Evento, a começar pelo evento mais antigo.
 
-> [!IMPORTANT] 
-> * Pode sentir alta latência inicial ao ligar uma fonte de evento ao seu ambiente de pré-visualização. 
+> [!IMPORTANT]
+>
+> * Pode sentir alta latência inicial ao ligar uma fonte de evento ao seu ambiente de pré-visualização.
 > A latência de fonte de eventos depende do número de eventos atualmente no seu Hub IoT ou Hub de Eventos.
 > * A alta latência diminuirá após os dados de origem do evento serem ingeridos pela primeira vez. Envie um bilhete de apoio através do portal Azure se sentir alta latência.
 
@@ -60,11 +61,11 @@ Os tipos de dados suportados são:
 | **bool** | Um tipo de dados com `true` `false`um de dois estados: ou . |
 | **dataTempo** | Representa um instante no tempo, tipicamente expresso como uma data e hora do dia. Expresso no formato [ISO 8601.](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | **double** | Um ponto flutuante De precisão dupla 64 [bits IEEE 754.](https://ieeexplore.ieee.org/document/8766229) |
-| **cadeia** | Valores de texto, compostos por caracteres Unicode.          |
+| **string** | Valores de texto, compostos por caracteres Unicode.          |
 
 #### <a name="objects-and-arrays"></a>Objetos e matrizes
 
-Pode enviar tipos complexos, como objetos e matrizes como parte da carga útil do seu evento, mas os seus dados serão submetidos a um processo de achatamento quando armazenados. 
+Pode enviar tipos complexos, como objetos e matrizes como parte da carga útil do seu evento, mas os seus dados serão submetidos a um processo de achatamento quando armazenados.
 
 Informações detalhadas que descrevem como moldar os seus eventos JSON, enviar tipo complexo e achatamento de objetos aninhados estão disponíveis em [Como moldar a JSON para ingresso e consulta](./time-series-insights-update-how-to-shape-events.md) para ajudar no planeamento e otimização.
 
@@ -78,7 +79,7 @@ Recomendamos que utilize as seguintes melhores práticas:
 
 * Compreenda como otimizar e moldar os seus dados JSON, bem como as limitações atuais na pré-visualização, lendo [como moldar a JSON para ingresso e consulta](./time-series-insights-update-how-to-shape-events.md).
 
-### <a name="ingress-scale-and-preview-limitations"></a>Escala de ingresso e limitações de pré-visualização 
+### <a name="ingress-scale-and-preview-limitations"></a>Escala de ingresso e limitações de pré-visualização
 
 As limitações de ingresso de pré-visualização da Série de Tempo Azure são descritas abaixo.
 
@@ -93,7 +94,8 @@ Em geral, as taxas de ingresso são vistas como o fator do número de dispositiv
 
 Por padrão, a pré-visualização time Series Insights pode ingerir dados de entrada a uma taxa de **até 1 megabyte por segundo (MBps) por ambiente Time Series Insights**. Existem limitações adicionais [por partição](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#hub-partitions-and-per-partition-limits)do hub.
 
-> [!TIP] 
+> [!TIP]
+>
 > * O apoio ambiental para ingerir velocidades até 16 MBps pode ser fornecido medendo a pedido.
 > * Contacte-nos se necessitar de uma maior entrada, submetendo um bilhete de apoio através do portal Azure.
  
@@ -117,7 +119,7 @@ Por padrão, a pré-visualização time Series Insights pode ingerir dados de en
 
 Ao planear o seu ambiente Time Series Insights, é importante considerar a configuração da(s) fonte do evento que estará conectando a Time Series Insights. Tanto o Azure IoT Hub como os Centros de Eventos utilizam divisórias para permitir a escala horizontal para o processamento de eventos. 
 
-Uma *partição* é uma sequência ordenada de eventos realizados num centro. A contagem de partição é definida durante a fase de criação do hub e não pode ser alterada. 
+Uma *partição* é uma sequência ordenada de eventos realizados num centro. A contagem de partição é definida durante a fase de criação do hub e não pode ser alterada.
 
 Para os Centros de Eventos que partem as melhores práticas, reveja [quantas divisórias preciso?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
 
@@ -132,7 +134,7 @@ A Pré-visualização da Série de Tempo Azure tem atualmente um limite geral **
 
 Quando um dispositivo é criado no IoT Hub, é permanentemente atribuído a uma partição. Ao fazê-lo, o IoT Hub é capaz de garantir a encomenda de eventos (uma vez que a atribuição nunca muda).
 
-Uma atribuição de divisória fixa também impacta as instâncias da Time Series Insights que estão a ingerir dados enviados do IoT Hub a jusante. Quando as mensagens de vários dispositivos são encaminhadas para o hub utilizando o mesmo ID do dispositivo gateway, podem chegar à mesma divisória ao mesmo tempo potencialmente excedendo os limites de escala de divisórias por divisória. 
+Uma atribuição de divisória fixa também impacta as instâncias da Time Series Insights que estão a ingerir dados enviados do IoT Hub a jusante. Quando as mensagens de vários dispositivos são encaminhadas para o hub utilizando o mesmo ID do dispositivo gateway, podem chegar à mesma divisória ao mesmo tempo potencialmente excedendo os limites de escala de divisórias por divisória.
 
 **Impacto:**
 
@@ -145,6 +147,7 @@ Para mitigar esta circunstância, recomendamos as seguintes melhores práticas:
 
 > [!IMPORTANT]
 > Para ambientes que utilizam o IoT Hub como fonte de evento, calcule a taxa de ingestão utilizando o número de dispositivos hub utilizados para se certificar de que a taxa fica abaixo dos 0,5 MBps por limitação de divisória sintetizadora em pré-visualização.
+>
 > * Mesmo que vários eventos cheguem simultaneamente, o limite de Pré-Visualização não será ultrapassado.
 
   ![Diagrama de partição do hub iot](media/concepts-ingress-overview/iot-hub-partiton-diagram.png)
@@ -186,7 +189,7 @@ Para obter uma descrição completa do armazenamento de Blob Azure, leia a intro
 
 Quando cria um ambiente payG de pré-visualização da Série De Tempo Azure, é criada uma conta V1 de uso geral de armazenamento azure como a sua loja de frio de longo prazo.  
 
-A Pré-visualização da Série de Tempo Azure retém até duas cópias de cada evento na sua conta de Armazenamento Azure. Uma cópia armazena eventos encomendados pelo tempo de ingestão, permitindo sempre o acesso a eventos numa sequência ordenada pelo tempo. Com o tempo, a Time Series Insights Preview também cria uma cópia reparticionada dos dados para otimizar para a consulta performante time series Insights. 
+A Pré-visualização da Série de Tempo Azure retém até duas cópias de cada evento na sua conta de Armazenamento Azure. Uma cópia armazena eventos encomendados pelo tempo de ingestão, permitindo sempre o acesso a eventos numa sequência ordenada pelo tempo. Com o tempo, a Time Series Insights Preview também cria uma cópia reparticionada dos dados para otimizar para a consulta performante time series Insights.
 
 Durante a Pré-visualização pública, os dados são armazenados indefinidamente na sua conta de Armazenamento Azure.
 
@@ -194,7 +197,7 @@ Durante a Pré-visualização pública, os dados são armazenados indefinidament
 
 Para garantir a consulta de desempenho e disponibilidade de dados, não edite ou elimine quaisquer blobs que a Time Series Insights Preview cria.
 
-#### <a name="accessing-time-series-insights-preview-cold-store-data"></a>Aceder a Time Series Insights Preview dados da loja de frio 
+#### <a name="accessing-time-series-insights-preview-cold-store-data"></a>Aceder a Time Series Insights Preview dados da loja de frio
 
 Além de aceder aos seus dados do explorador de [pré-visualização](./time-series-insights-update-explorer.md) da Time Series Insights e da Consulta da Série de [Tempo,](./time-series-insights-update-tsq.md)também poderá querer aceder aos seus dados diretamente a partir dos ficheiros Parquet armazenados na loja de frio. Por exemplo, pode ler, transformar e limpar dados num caderno jupyter, depois usá-lo para treinar o seu modelo de Aprendizagem automática Azure no mesmo fluxo de trabalho spark.
 
@@ -223,6 +226,7 @@ Time Series Insights Preview armazena cópias dos seus dados da seguinte forma:
 Em ambos os casos, a propriedade temporal do ficheiro Parquet corresponde ao tempo de criação de bolhas. Os dados `PT=Time` na pasta são preservados sem alterações uma vez que esteja escrito no ficheiro. Os dados `PT=TsId` na pasta serão otimizados para consulta ao longo do tempo e não são estáticos.
 
 > [!NOTE]
+>
 > * `<YYYY>`mapas para uma representação de quatro dígitos.
 > * `<MM>`mapas para uma representação de dois dígitos meses.
 > * `<YYYYMMDDHHMMSSfff>`mapas para uma representação de carimbo`YYYY`de tempo com`MM`quatro dígitos ano`DD`( ), dois`HH`dígitos (),`MM`dia de dois`SS`dígitos ( ),`fff`dois dígitos de minuto ( ), dois dígitos segundo ( e milissegundo de três dígitos ).

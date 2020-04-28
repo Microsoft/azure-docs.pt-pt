@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7cdaa9699b15000359c438bcc410e300415b759a
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81379949"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191741"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho
 

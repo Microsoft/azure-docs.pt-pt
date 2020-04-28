@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/28/2020
-ms.openlocfilehash: 8420cba043e7fc9285b473b877f0ff10212e9fda
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 9f280aafabd59878ee24a9c3fe809dd027a97284
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605319"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187856"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são fluxos de dados de mapeamento?
 
@@ -71,9 +71,9 @@ Se colocar toda a sua lógica dentro de um único fluxo de dados, a ADF executa 
 
 Esta opção pode ser mais desafiante para seguir e resolver problemas porque as suas regras de negócio e lógica de negócio podem ser misturadas. Esta opção também não proporciona muita reutilização.
 
-##### <a name="execute-data-flows-serially"></a>Executar fluxos de dados em série
+##### <a name="execute-data-flows-sequentially"></a>Executar fluxos de dados sequencialmente
 
-Se executar as suas atividades de fluxo de dados em série no pipeline e tiver definido um TTL na configuração Do IR Do Azure, então a ADF reutiliza os recursos computacionais (VMs), resultando em tempos de execução posteriores mais rápidos. Ainda recebeum novo contexto spark para cada execução.
+Se executar as suas atividades de fluxo de dados em sequência no pipeline e tiver definido um TTL na configuração Do IR Do Azure, então a ADF reutilizará os recursos de computação (VMs) resultando em tempos de execução posteriores mais rápidos. Ainda receberá um novo contexto spark para cada execução.
 
 Destas três opções, esta ação provavelmente leva mais tempo para executar de ponta a ponta. Mas proporciona uma separação limpa das operações lógicas em cada passo de fluxo de dados.
 

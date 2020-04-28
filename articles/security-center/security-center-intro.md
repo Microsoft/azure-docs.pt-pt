@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: d2e7e157156a4049a5db37b1d5c0e02773adbcc3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: a02abd931dddd410882dd67a73a5b5fab6dc8cf9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879552"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194895"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -61,7 +61,7 @@ O Azure Security Center permite-lhe reforçar a sua postura de segurança. Isto 
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Gerir a política e conformidade da organização
 
-É uma garantia básica para saber e certificar-se de que as suas cargas de trabalho estão seguras, e começa com políticas de segurança personalizadas em vigor. Como todas as políticas no Security Center são construídas em cima dos controlos políticos do Azure, você está recebendo toda a gama e flexibilidade de uma **solução política de classe mundial**. No Security Center, pode definir as suas políticas para funcionar em grupos de gestão, através de subscrições e até mesmo para um inquilino inteiro.
+É uma garantia básica para saber e certificar-se de que as suas cargas de trabalho estão seguras, e começa com políticas de segurança personalizadas em vigor. Como todas as políticas no Centro de Segurança são construídas em cima dos controlos da Política Azure, você está recebendo toda a gama e flexibilidade de uma **solução política de classe mundial**. No Security Center, pode definir as suas políticas para funcionar em grupos de gestão, através de subscrições e até mesmo para um inquilino inteiro.
 
 ![Dashboard Centro de Segurança](media/security-center-intro/sc-dashboard.png)
 

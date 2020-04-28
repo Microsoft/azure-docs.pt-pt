@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
-ms.openlocfilehash: 6d535bcc2e0831baae658796f76c8087d74c6a85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 948347f38b4b0fefe1e61cc4560eaa46e1bfd6f0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587214"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187975"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Eliminar bolhas de armazenamento de registo de fluxo de fluxo do grupo de segurança da rede no Observador da Rede
 
-Atualmente, existe um problema em que os registos de fluxo do grupo de segurança de [rede (NSG)](network-watcher-nsg-flow-logging-overview.md) para O Observador de Rede não são automaticamente eliminados do armazenamento blob com base em definições de política de retenção. Tem agora de executar um script PowerShell para eliminar manualmente os registos de fluxo da sua conta de armazenamento, tal como descrito neste artigo.
+Caso necessite de eliminar manualmente os registos de fluxo da sua conta de armazenamento, pode utilizar o script PowerShell abaixo.
+Este script apenas elimina bolhas de armazenamento mais antigas do que a política de retenção existente especificada pelo utilizador.
 
 ## <a name="run-powershell-script-to-delete-nsg-flow-logs"></a>Executar script PowerShell para eliminar registos de fluxo NSG
  

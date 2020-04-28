@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: e278bcedc48226a59f258ad7d7064fa224737496
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308989"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193399"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -101,7 +101,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. O aglomerado vai demorar um pouco para começar. Quando estiver em funcionamento, pode ver os registos utilizando o seguinte [http://localhost:19080](http://localhost:19080)comando ou saltar para o painel de instrumentos para ver a saúde dos clusters:
+5. O aglomerado vai demorar um pouco para começar. Quando estiver em funcionamento, pode ver os registos utilizando o seguinte `http://localhost:19080`comando ou saltar para o painel de instrumentos para ver a saúde dos clusters:
 
     ```bash 
     docker logs sftestcluster

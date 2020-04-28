@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 5724a9e4308f05a82df84ae6a7d5602747f5a140
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 80b8adfc26cd87e0788852e98fddb0fd3f2e8cd5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81757368"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188591"
 ---
 # <a name="azure-operational-security-best-practices"></a>Boas práticas de Segurança Operacional Azure
 Este artigo fornece um conjunto de boas práticas operacionais para proteger os seus dados, aplicações e outros ativos no Azure.
@@ -216,7 +216,7 @@ Para mais informações, consulte [Criar e gerir políticas para impor o cumprim
 **Detalhe**: Tenha o monitor de funções atribuído através do [portal Azure](../../governance/policy/how-to/get-compliance-data.md#portal) ou através da [linha de comando](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
 **Boas práticas**: A Política Azure é uma representação técnica das políticas escritas de uma organização. Mapeie todas as políticas do Azure para políticas organizacionais para reduzir a confusão e aumentar a consistência.   
-**Detalhe**: Mapeamento documental na documentação da sua organização ou na própria política do Azure, adicionando uma referência à política organizacional na [descrição](../../governance/policy/concepts/definition-structure.md#display-name-and-description) da política azure ou na descrição da [iniciativa](../../governance/policy/concepts/definition-structure.md#initiatives) política Azure.
+**Detalhe**: Mapeamento documental na documentação da sua organização ou na própria definição de Política Azure, adicionando uma referência à política organizacional na definição de [Política Azure](../../governance/policy/concepts/definition-structure.md#display-name-and-description) ou na descrição da [iniciativa Azure Policy.](../../governance/policy/concepts/definition-structure.md#initiatives)
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitor Azure Relatórios de risco da AD
 A grande maioria das falhas de segurança ocorrem quando os atacantes têm acesso a um ambiente roubando a identidade de um utilizador. Descobrir identidades comprometidas não é tarefa fácil. O Azure AD utiliza algoritmos adaptáveis de aprendizagem automática e heurística para detetar ações suspeitas relacionadas com as suas contas de utilizador. Cada ação suspeita detetada é armazenada num registo chamado [deteção de risco.](../../active-directory/reports-monitoring/concept-risk-events.md) As deteções de risco são registadas nos relatórios de segurança da AD Azure. Para mais informações, leia sobre os [utilizadores do relatório](../../active-directory/reports-monitoring/concept-user-at-risk.md) de segurança de risco e o relatório de segurança de [insões de risco](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).

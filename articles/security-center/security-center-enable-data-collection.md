@@ -1,65 +1,63 @@
 ---
 title: Recolha de dados no Centro de Segurança Azure Microsoft Docs
-description: Este artigo descreve como instalar um Agente de Análise de Registos e definir um espaço de trabalho de Log Analytics para armazenar os dados recolhidos.
+description: Este artigo descreve como instalar um agente Delog Analytics e definir um espaço de trabalho log Analytics no qual armazenar os dados recolhidos.
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 61d0a57c541837ab3aebf65e47d757f7ecbe7e40
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 056b9bdd46520790f3ffbd9aca56ad8555e23a3d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435984"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189825"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Data collection in Azure Security Center (Recolha de dados no Centro de Segurança do Azure)
-O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos através do Agente Delog Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos desses dados são: tipo e versão do sistema operativo, registos do sistema operativo (registos de eventos do Windows), processos de execução, nome da máquina, endereços IP e registos registados no utilizador. O Agente Log Analytics também copia ficheiros de despejo de crash para o seu espaço de trabalho.
+O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos através do agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos desses dados são: tipo e versão do sistema operativo, registos do sistema operativo (registos de eventos do Windows), processos de execução, nome da máquina, endereços IP e registos registados no utilizador. O agente Log Analytics também copia ficheiros de despejo de crash para o seu espaço de trabalho.
 
 A recolha de dados é necessária para fornecer visibilidade em atualizações em falta, configurações de segurança soco configuradas mal configuradas, estado de proteção de pontos finais e proteção contra a saúde e ameaças. 
 
-Este artigo descreve como instalar um Agente de Análise de Registos e definir um espaço de trabalho de Log Analytics para armazenar os dados recolhidos. Ambas as operações são necessárias para permitir a recolha de dados. 
+Este artigo descreve como instalar um agente Delog Analytics e definir um espaço de trabalho log Analytics no qual armazenar os dados recolhidos. Ambas as operações são necessárias para permitir a recolha de dados. 
 
 > [!NOTE]
 > - A recolha de dados só é necessária para os recursos da Compute (VMs, conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure). Você pode beneficiar do Azure Security Center mesmo que você não fornecer agentes; no entanto, terá segurança limitada e as capacidades acima listadas não são suportadas.  
 > - Para a lista de plataformas suportadas, consulte [plataformas suportadas no Azure Security Center.](security-center-os-coverage.md)
 > - Armazenar dados no Log Analytics, quer utilize um espaço de trabalho novo ou existente, poderá incorrer em encargos adicionais para o armazenamento de dados. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Ativar o fornecimento automático do Agente de Análise de Registos<a name="auto-provision-mma"></a>
+## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Ativar o fornecimento automático do agente Log Analytics<a name="auto-provision-mma"></a>
 
-Para recolher os dados das máquinas, deverá instalar o Agente de Análise de Registos. A instalação do agente pode ser feita automaticamente (recomendado) ou pode instalar o agente manualmente.  
+Para recolher os dados das máquinas, deverá instalar o agente Log Analytics. A instalação do agente pode ser feita automaticamente (recomendado) ou pode instalar o agente manualmente. Por defeito, o fornecimento automático está desligado.
 
->[!NOTE]
-> O fornecimento automático está desligado por defeito. Para definir o Security Center para instalar o fornecimento automático por padrão, desloque-o para **On**.
->
-
-Quando o fornecimento automático está ligado, o Security Center disponibiliza o Agente DeLog Analytics em todos os VMs Azure suportados e quaisquer novos que sejam criados. O fornecimento automático é fortemente recomendado, mas a instalação de agente manual também está disponível. [Saiba como instalar a extensão do Agente De Analítico de Log](#manual-agent).
+Quando o fornecimento automático está ligado, o Security Center implanta o agente Log Analytics em todos os VMs Azure suportados e quaisquer novos que sejam criados. Recomenda-se o fornecimento automático, mas pode instalar o agente manualmente se necessário (consulte a [instalação manual do agente Log Analytics).](#manual-agent)
 
 
-
-Para permitir o fornecimento automático do Agente de Análise de Registos:
-1. No menu principal do Security Center, selecione **definições de preços &**.
-2. Clique na subscrição aplicável
+Para permitir o fornecimento automático do agente Log Analytics:
+1. A partir do menu do Security Center no portal, selecione **definições de preços &**.
+2. Selecione a subscrição relevante.
 
    ![Selecionar subscrição][7]
 
 3. Selecione **Recolha de Dados**.
 4. No fornecimento **automático,** selecione **On** para ativar o fornecimento automático.
-5. Selecione **Guardar**.
+5. Selecione **Guardar**. O agente será colocado em todos os VMs dentro de 15 minutos. 
+
+>[!TIP]
+> Se um espaço de trabalho tiver de ser aprovisionado, a instalação do agente pode demorar até 25 minutos.
 
    ![Ativar o aprovisionamento automático][1]
 
 >[!NOTE]
 > - Para obter instruções sobre como fornecer uma instalação pré-existente, consulte o [fornecimento automático em caso de instalação de um agente pré-existente](#preexisting).
-> - Para obter instruções sobre o fornecimento manual, consulte [Instale manualmente a extensão do Agente Desativação](#manual-agent).
+> - Para obter instruções sobre o fornecimento manual, consulte [Instale manualmente a extensão do agente Log Analytics](#manual-agent).
 > - Para obter instruções sobre o desativamento automático, consulte [desligar o fornecimento automático](#offprovisioning).
 > - Para obter instruções sobre como embarcar no Centro de Segurança utilizando powerShell, consulte [o auto-embarque do Azure Security Center utilizando o PowerShell](security-center-powershell-onboarding.md).
 >
 
 ## <a name="workspace-configuration"></a>Configuração do espaço de trabalho
-Os dados recolhidos pelo Centro de Segurança são armazenados nas áreas de trabalho do Log Analytics. Pode selecionar para ter dados recolhidos a partir de VMs Azure armazenados em espaços de trabalho criados pelo Security Center ou num espaço de trabalho existente que criou. 
+Os dados recolhidos pelo Centro de Segurança são armazenados nas áreas de trabalho do Log Analytics. Os seus dados podem ser recolhidos a partir de VMs Azure armazenados em espaços de trabalho criados pelo Security Center ou num espaço de trabalho existente que criou. 
 
 A configuração do espaço de trabalho é definida por subscrição, e muitas subscrições podem usar o mesmo espaço de trabalho.
 
@@ -111,7 +109,7 @@ Para selecionar um espaço de trabalho existente no Log Analytics:
 3. Selecione **Guardar**.
 4. Depois de selecionar **Save,** será-lhe perguntado se gostaria de reconfigurar VMs monitorizados que estavam anteriormente ligados a um espaço de trabalho predefinido.
 
-   - Selecione **Não** se pretender que as novas definições do espaço de trabalho se apliquem apenas em novos VMs. As novas definições do espaço de trabalho aplicam-se apenas às instalações de novos agentes; VMs recém-descobertos que não têm o Agente de Análise de Log instalado.
+   - Selecione **Não** se pretender que as novas definições do espaço de trabalho se apliquem apenas em novos VMs. As novas definições do espaço de trabalho aplicam-se apenas às instalações de novos agentes; VMs recém-descobertos que não têm o agente Log Analytics instalado.
    - Selecione **Sim** se quiser que as novas definições do espaço de trabalho se apliquem em todos os VMs. Além disso, cada VM ligado a um centro de segurança criado espaço de trabalho é reconectado ao novo espaço de trabalho alvo.
 
    > [!NOTE]
@@ -123,7 +121,7 @@ Para selecionar um espaço de trabalho existente no Log Analytics:
 
      ![Selecione espaço de trabalho existente][3]
 
-5. Selecione o nível de preços para o espaço de trabalho desejado que pretende definir o Agente De Análise de Log. <br>Para utilizar um espaço de trabalho existente, detete o nível de preços para o espaço de trabalho. Isto irá instalar uma solução de Centro de Segurança no espaço de trabalho se não estiver já presente.
+5. Selecione o nível de preços para o espaço de trabalho desejado que pretende definir o agente Log Analytics. <br>Para utilizar um espaço de trabalho existente, detete o nível de preços para o espaço de trabalho. Isto irá instalar uma solução de Centro de Segurança no espaço de trabalho se não estiver já presente.
 
     a.  No menu principal do Security Center, **selecione definições de preços &**.
      
@@ -194,19 +192,18 @@ Para escolher a sua política de filtragem:
 
 Os seguintes casos de utilização especificam como funciona a provisão automática nos casos em que já existe um agente ou extensão instalado. 
 
-- O Agente de Análise de Registos está instalado na máquina, mas não como uma extensão (agente direto)<br>
-Se o Agente De log analytics estiver instalado diretamente no VM (não como uma extensão Azure), o Security Center instalará a extensão do Agente DeLog Analytics e poderá atualizar o Agente de Análise de Registo para a versão mais recente.
+- O agente Log Analytics está instalado na máquina, mas não como uma extensão (agente direto)<br>
+Se o agente Log Analytics for instalado diretamente no VM (não como uma extensão Azure), o Security Center instalará a extensão do agente Log Analytics e poderá atualizar o agente Log Analytics para a versão mais recente.
 O agente instalado continuará a reportar ao seu espaço de trabalho já configurado, e além disso reportará ao espaço de trabalho configurado no Security Center (Multi-homing é suportado em máquinas Windows).
 Se o espaço de trabalho configurado for um espaço de trabalho do utilizador (não o espaço de trabalho padrão do Security Center), então terá de instalar a solução "security/"securityFree" nele para o Security Center começar a processar eventos a partir de VMs e computadores que reportem a esse espaço de trabalho.<br>
 <br>
 Para as máquinas Linux, o agente multi-homing ainda não é suportado - portanto, se for detetada uma instalação de agente existente, não ocorrerá um fornecimento automático e a configuração da máquina não será alterada.
 <br>
-Para máquinas existentes em assinaturas a bordo do Centro de Segurança antes de 2019-03-17, quando um agente existente for detetado, a extensão do Agente de Análise de Log não será instalada e a máquina não será afetada. Para estas máquinas, consulte a recomendação "Resolver problemas de saúde do agente de monitorização nas suas máquinas" para resolver os problemas de instalação do agente nestas máquinas.
+Para máquinas existentes em assinaturas a bordo do Centro de Segurança antes de 2019-03-17, quando um agente existente for detetado, a extensão do agente Log Analytics não será instalada e a máquina não será afetada. Para estas máquinas, consulte a recomendação "Resolver problemas de saúde do agente de monitorização nas suas máquinas" para resolver os problemas de instalação do agente nestas máquinas.
 
   
 - O agente do Gestor de Operações do Centro de Sistemas está instalado na máquina<br>
-O centro de segurança instalará a extensão do Agente DeLog Analytics lado a lado para o gestor de operações existente. O agente do Gestor de Operações existente continuará a reportar normalmente ao servidor do Gestor de Operações. Note que o agente do Gestor de Operações e o Agente DeLog Analytics partilham bibliotecas comuns de tempo de execução, que serão atualizadas para a versão mais recente durante este processo.
-Nota - Se a versão 2012 do agente do Gestor de Operações estiver instalada, **não** ligue o fornecimento automático.<br>
+O centro de segurança instalará a extensão do agente Log Analytics lado a lado para o gestor de operações existente. O agente do Gestor de Operações existente continuará a reportar normalmente ao servidor do Gestor de Operações. O agente do Gestor de Operações e o agente Log Analytics partilham bibliotecas comuns de tempo de execução, que serão atualizadas para a versão mais recente durante este processo. Se estiver instalada a versão 2012 do agente gestor de operações, **não** permita o fornecimento automático.<br>
 
 - Uma extensão VM pré-existente está presente<br>
     - Quando o Agente de Monitorização é instalado como uma extensão, a configuração da extensão permite reportar apenas um único espaço de trabalho. O Security Center não sobrepor-se às ligações existentes aos espaços de trabalho dos utilizadores. O Security Center armazenará dados de segurança do VM no espaço de trabalho já ligado, desde que a solução "security" ou "securityFree" tenha sido instalada no mesmo. O Security Center pode atualizar a versão de extensão para a versão mais recente neste processo.  
@@ -219,7 +216,7 @@ Pode desligar o fornecimento automático de recursos a qualquer momento, desliga
 
 1. Volte ao menu principal do Centro de Segurança e selecione a política de segurança.
 2. Clique em **configurações de Edição** na linha da subscrição para a qual pretende desativar o fornecimento automático.
-3. Sobre a política de segurança – lâmina de recolha de **dados,** sob **o fornecimento automático** selecione **Off**.
+3. Sobre a política de segurança – página de recolha de **dados,** sob **o fornecimento automático** selecione **Off**.
 4. Selecione **Guardar**.
 
    ![Desativar o fornecimento de automóveis][6]
@@ -231,18 +228,18 @@ Se desligar a provisão automática depois de ter sido previamente ligada:
 -   O Centro de Segurança deixa de recolher dados do espaço de trabalho padrão.
  
 > [!NOTE]
->  A desativação automática não remove o Agente de Análise de Log dos VMs Azure onde o agente foi provisionado. Para obter informações sobre a remoção da extensão OMS, consulte [como remover as extensões OMS instaladas pelo Security Center](faq-data-collection-agents.md#remove-oms).
+>  A desativação automática não remove o agente Log Analytics dos VMs Azure onde o agente foi provisionado. Para obter informações sobre a remoção da extensão OMS, consulte [como remover as extensões OMS instaladas pelo Security Center](faq-data-collection-agents.md#remove-oms).
 >
     
 ## <a name="manual-agent-provisioning"></a>Fornecimento de agentes manuais<a name="manual-agent"></a>
  
-Existem várias formas de instalar manualmente o Agente de Análise de Registos. Ao instalar manualmente, certifique-se de que desativa o fornecimento automático.
+Existem várias formas de instalar manualmente o agente Log Analytics. Ao instalar manualmente, certifique-se de que desativa o fornecimento automático.
 
 ### <a name="operations-management-suite-vm-extension-deployment"></a>Implementação de extensão de extensão VM da Suite de Gestão de Operações 
 
-Pode instalar manualmente o Agente de Análise de Registos, para que o Security Center possa recolher dados de segurança dos seus VMs e fornecer recomendações e alertas.
+Pode instalar manualmente o agente Log Analytics, para que o Security Center possa recolher dados de segurança dos seus VMs e fornecer recomendações e alertas.
 1. Selecione fornecimento automático - OFF.
-2. Crie um espaço de trabalho e detete teo nível de preços para o espaço de trabalho que pretende definir o Agente de Análise de Log:
+2. Crie um espaço de trabalho e detete teo nível de preços para o espaço de trabalho que pretende definir o agente Log Analytics:
 
    a.  No menu principal do Centro de Segurança, selecione a política de **segurança.**
      
@@ -312,7 +309,7 @@ Pode instalar manualmente o Agente de Análise de Registos, para que o Security 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Este artigo mostrou-lhe como funciona a recolha de dados e o fornecimento automático no Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
+Este artigo mostrou-lhe como funciona a recolha de dados e o fornecimento automático no Centro de Segurança. Para saber mais sobre o Centro de Segurança, consulte as seguintes páginas:
 
 * [FAQ do Centro de Segurança do Azure](faq-general.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
 * [Monitorização do estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.

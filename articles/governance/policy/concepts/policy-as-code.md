@@ -3,12 +3,12 @@ title: Criar fluxos de trabalho de Política como Código
 description: Aprenda a desenhar fluxos de trabalho para implementar as definições da Política Azure como código e validar automaticamente os recursos.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd77fdd4011c3e1e83f8dfa9f30045bb72881c25
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74267264"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187737"
 ---
 # <a name="design-policy-as-code-workflows"></a>Criar fluxos de trabalho de Política como Código
 
@@ -25,7 +25,7 @@ O passo de validação deve também ser um componente de outros fluxos de trabal
 
 O fluxo de trabalho geral recomendado da Política como Código se parece com este diagrama:
 
-![Política como visão geral do fluxo de trabalho do código](../media/policy-as-code/policy-as-code-workflow.png)
+:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Política como visão geral do fluxo de trabalho do código" border="false":::
 
 ### <a name="create-and-update-policy-definitions"></a>Criar e atualizar definições políticas
 
@@ -92,7 +92,7 @@ A atribuição deve utilizar o modo de [execução](./assignment-structure.md#en
 > [!NOTE]
 > Embora o modo de aplicação seja útil, não é um substituto para testar completamente uma definição de política sob várias condições. A definição de `PUT` política `PATCH` deve ser testada e as chamadas REST API, recursos conformes e não conformes, e casos de borda como um imóvel em falta do recurso.
 
-Após a implementação da atribuição, utilize o SDK de Política para [obter dados](../how-to/get-compliance-data.md) de conformidade para a nova atribuição. O ambiente utilizado para testar as políticas e atribuições deve dispor de recursos compatíveis e não conformes. Como um bom teste de unidade para código, você quer testar que os recursos são como esperado e que você também não tem falsos positivos ou falsos negativos. Se testar e validar apenas para o que espera, pode haver um impacto inesperado e não identificado da apólice. Para mais informações, consulte [Avaliar o impacto de uma nova política do Azure.](./evaluate-impact.md)
+Após a implementação da atribuição, utilize o SDK de Política para [obter dados](../how-to/get-compliance-data.md) de conformidade para a nova atribuição. O ambiente utilizado para testar as políticas e atribuições deve dispor de recursos compatíveis e não conformes. Como um bom teste de unidade para código, você quer testar que os recursos são como esperado e que você também não tem falsos positivos ou falsos negativos. Se testar e validar apenas para o que espera, pode haver um impacto inesperado e não identificado da apólice. Para mais informações, consulte [Avaliar o impacto de uma nova definição de Política Azure](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Ativar tarefas de reparação
 

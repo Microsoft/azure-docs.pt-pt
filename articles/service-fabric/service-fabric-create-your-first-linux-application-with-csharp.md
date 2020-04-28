@@ -3,12 +3,12 @@ title: 'Crie a sua primeira aplicação Azure Service Fabric no Linux usando C #
 description: Aprenda a criar e implementar uma aplicação de Tecido de Serviço utilizando C# e .NET Core 2.0.
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.openlocfilehash: 202dde933b41a98c1c119f422d47cbdbb0be84ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 556d8dee4efd492fa98755f1ffd1cdc1c9887856
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458134"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193654"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar a sua primeira aplicação do Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ A implementação da aplicação criada é igual à de qualquer outra aplicaçã
 
 Os parâmetros desses comandos encontram-se nos manifestos gerados dentro do pacote de aplicação.
 
-Após a implementação da aplicação, abra um browser e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Em seguida, expanda o nó **Aplicações** e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
+Após a implementação da aplicação, abra um browser e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em `http://localhost:19080/Explorer`. Em seguida, expanda o nó **Aplicações** e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]
 > Para implementar a aplicação num cluster Linux seguro em Azure, é necessário configurar um certificado para validar a sua aplicação com o tempo de execução do Tecido de Serviço. Ao fazê-lo, os seus serviços fiáveis comunicam com as APIs de tempo de execução do Tecido de Serviço subjacentes. Para saber mais, consulte [a Configure uma aplicação De serviços fiáveis para executar em clusters Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  

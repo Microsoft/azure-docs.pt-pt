@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
-ms.openlocfilehash: 2d6cae3a7a41eae05783d3bcc12ec2bfe8220c4c
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 9b771a82d88f9902aeb6022f07811ded8a6e0e62
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82148327"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192838"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-for-azure-cosmos-db"></a>Perguntas frequentes sobre a Cassandra API para Azure Cosmos DB
 
 ## <a name="what-are-some-key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Quais são algumas diferenças fundamentais entre Apache Cassandra e a API Cassandra?
 
-- Apache Cassandra recomenda um limite de 100 MB sobre o tamanho de uma chave de partição. A Cassandra API para Azure Cosmos DB permite até 10 GB por partição.
+- Apache Cassandra recomenda um limite de 100 MB sobre o tamanho de uma chave de partição. A Cassandra API para Azure Cosmos DB permite até 20 GB por partição.
 - Apache Cassandra permite-lhe desativar compromissos duráveis. Pode saltar a escrita para o registo de compromissoe ir diretamente para os memtables. Isto pode levar à perda de dados se o nó descer antes que os memtables sejam lavados para SSTables no disco. A Azure Cosmos DB sempre se compromete a ajudar a prevenir a perda de dados.
 - Apache Cassandra pode ver um desempenho diminuído se a carga de trabalho envolver muitas substituições ou supressões. A razão são lápides que a carga de trabalho de leitura precisa saltar para buscar os dados mais recentes. A Cassandra API não verá um desempenho de leitura reduzido quando a carga de trabalho tem muitas substituições ou supressões.
 - Durante cenários de elevadas cargas de trabalho de substituição, a compactação tem de ser executada para fundir sSTables no disco. (Uma fusão é necessária porque as escritas de Apache Cassandra são apenas anexadas. Várias atualizações são armazenadas como entradas individuais do SSTable que precisam de ser periodicamente fundidas). Esta situação também pode levar a uma redução do desempenho da leitura durante a compactação. Este impacto de desempenho não acontece na API cassandra porque a API não implementa a compactação.

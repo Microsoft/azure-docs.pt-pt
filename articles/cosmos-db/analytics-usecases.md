@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.topic: conceptual
 ms.service: cosmos-db
-ms.date: 09/26/2019
+ms.date: 04/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: adf1db2d737de7004b5ab71c8e0e44d61d1da8c9
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 9b1c3435222ada52c01f21c2c242dc886f566a81
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768510"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192855"
 ---
 # <a name="use-cases-for-built-in-analytics-with-azure-cosmos-db"></a>Casos de utilização para análise incorporada com O Azure Cosmos DB
 

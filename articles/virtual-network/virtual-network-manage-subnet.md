@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: e5b78969f6b4315bb02b3f4152c6eeab94adddb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9ef084e530faa3bcea2cfcf1554a84f543bbf59
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246947"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186089"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
@@ -132,4 +132,4 @@ Para realizar tarefas em subredes, a sua conta deve ser atribuída ao papel de [
 ## <a name="next-steps"></a>Passos seguintes
 
 - Criar uma rede virtual e subredes utilizando scripts de amostra [PowerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou utilizando [modelos](template-samples.md) de Gestor de Recursos Azure
-- Criar e aplicar [a política azure](policy-samples.md) para redes virtuais
+- Criar e atribuir definições de [política azure](policy-samples.md) para redes virtuais

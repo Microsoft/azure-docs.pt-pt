@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: f625f5df4f33c6516bd5c50f97c52404d76757a0
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 913aac7755e6c4f9a4b42d45933728fcc8840bfb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024460"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190015"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu app service ou app Funções Azure para usar login Azure AD
 
@@ -26,6 +26,9 @@ Siga estas boas práticas ao configurar a sua app e autenticação:
 - Dê a cada app do App Service as suas próprias permissões e consentimento.
 - Configure cada app do App Service com o seu próprio registo.
 - Evite a partilha de permissões entre ambientes utilizando registos de aplicações separados para slots de implementação separados. Ao testar um novo código, esta prática pode ajudar a evitar que problemas afetem a aplicação de produção.
+
+> [!NOTE]
+> Esta funcionalidade não está atualmente disponível no plano de consumo linux para funções azure
 
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>Configure com configurações expressas
 

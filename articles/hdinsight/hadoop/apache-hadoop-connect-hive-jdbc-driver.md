@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 803256ab1c5201534cfbd8210f96040ba75081e5
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 87350bae282d9d0dccef9cb2121000f7a0473762
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687301"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195490"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Query Apache Hive through the JDBC driver in HDInsight (Consultar o Apache Hive através do controlador JDBC no HDInsight)
 

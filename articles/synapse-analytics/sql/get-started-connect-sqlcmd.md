@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ff9034e6c31c8d95e862570e3962990dfec8442
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7ccb30cdd77e511572147a0b0f7287f931a45df2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81423755"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186843"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Ligue-se ao Synapse SQL com sqlcmd
 
@@ -48,7 +48,7 @@ A sua cadeia de ligação pode parecer o seguinte exemplo:
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
 ```
 
-**Piscina SQL**
+**Conjunto de SQL**
 
 ```
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -66,7 +66,7 @@ A sua cadeia de ligação pode parecer-se com os seguintes exemplos:
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -G -I
 ```
 
-**Piscina SQL**
+**Conjunto de SQL**
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
@@ -79,7 +79,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 ### <a name="use-sql-pool"></a>Use piscina SQL
 
-Após a ligação, pode emitir quaisquer instruções Transact-SQL suportadas na instância.  Neste exemplo, as consultas são submetidas em modo interativo:
+Após a ligação, pode emitir quaisquer declarações suportadas da [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (T-SQL) contra a instância. Neste exemplo, as consultas são submetidas em modo interativo:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -98,7 +98,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-### <a name="use-sql-on-demand"></a>Use o SQL a pedido
+### <a name="use-sql-on-demand"></a>Utilizar o SQL a pedido
 
 Após a ligação, pode emitir quaisquer declarações de [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (T-SQL) suportadas contra a instância.  No exemplo seguinte, as consultas são submetidas em modo interativo:
 

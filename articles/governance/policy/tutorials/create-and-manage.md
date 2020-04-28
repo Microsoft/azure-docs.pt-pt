@@ -3,12 +3,12 @@ title: 'Tutorial: Construir políticas para impor o cumprimento'
 description: Neste tutorial, você usa políticas para impor padrões, controlar custos, manter a segurança e impor princípios de design de toda a empresa.
 ms.date: 03/24/2020
 ms.topic: tutorial
-ms.openlocfilehash: 15a6c3df26938332d42ecbcfff43f958577062c4
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: dcebbbfcc2f86ace7ea4400a2fdb6f1392f4efe6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239936"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190831"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Criar e gerir políticas para impor o cumprimento
 
@@ -126,7 +126,7 @@ Agora que atribuiu uma definição de política incorporada, pode fazer mais com
 
    A propriedade de _campo_ na regra da política deve ser um valor apoiado. Encontra-se uma lista completa de valores nos campos estruturais de definição de [políticas.](../concepts/definition-structure.md#fields) Um exemplo de um alias poderá ser `"Microsoft.Compute/VirtualMachines/Size"`.
 
-   Para ver mais exemplos do Azure Policy, veja [Exemplos do Azure Policy](../samples/index.md).
+   Para ver mais amostras da Política Azure, consulte [amostras da Política Azure.](../samples/index.md)
 
 1. Selecione **Guardar**.
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 790e2a148385f9da54df82f597c2ca52124dc2be
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 6330a77f5971348c3f63fdaa7602ebba9ddf45ec
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81529876"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186344"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulário com etiquetas utilizando a ferramenta de rotulagem da amostra
 
@@ -61,7 +61,7 @@ Vais usar o motor Docker para executar a ferramenta de rotulagem de amostras. Si
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   Este comando disponibilizará a ferramenta de rotulagem da amostra através de um navegador web. Vai [http://localhost:3000](http://localhost:3000)para.
+   Este comando disponibilizará a ferramenta de rotulagem da amostra através de um navegador web. Aceda a `http://localhost:3000`.
 
 > [!NOTE]
 > Também pode rotular documentos e modelos de comboio utilizando a API REST Do Reconhecimento de Formulários. Para treinar e analisar com a REST API, consulte [O Comboio com etiquetas utilizando a REST API e python](./python-labeled-data.md).

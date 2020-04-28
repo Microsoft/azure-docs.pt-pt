@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a restaurar os dados armazenados em Azure a u
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 25ca8eecaeb615f071340188a23fae7978ddb75c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0494ce8016ff8b09265dd7ced8dc0926fd0c1a43
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409818"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186809"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurar ficheiros no Windows utilizando o modelo de implementação do Gestor de Recursos Azure
 
@@ -49,7 +49,7 @@ Se tiver apagado acidentalmente um ficheiro e pretender restaurá-lo para a mesm
     ![Screenshot do assistente de dados de recuperação selecione página de modo de recuperação](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > A opção de restaurar ficheiros e pastas individuais requer .NET Framework 4.5.2 ou posterior. Se não vir a opção **Individual de ficheiros e pastas,** tem de atualizar o .NET Framework para a versão 4.5.2 ou posterior e tentar novamente.
- 
+
    > [!TIP]
    > A opção **Individual de ficheiros e pastas** permite um acesso rápido aos dados do ponto de recuperação. É adequado para recuperar ficheiros individuais, com tamanhos não superiores a 80 GB, e oferece velocidades de transferência ou cópia até 6 MBps durante a recuperação. A opção **Volume** recupera todos os dados de backup num volume especificado. Esta opção fornece velocidades de transferência mais rápidas (até 60 MBps), o que é ideal para recuperar dados de grandes dimensões ou volumes inteiros.
 

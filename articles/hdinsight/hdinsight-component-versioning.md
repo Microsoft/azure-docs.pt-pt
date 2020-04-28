@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/09/2020
-ms.openlocfilehash: e27b65346ba8d48e36d080d66754db9605259e2b
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 87c3e2439d1b4bef4a58663e3ea06d8bb7cb9b19
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82144410"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192540"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões Apache Hadoop disponíveis com o HDInsight?
 

@@ -4,14 +4,14 @@ description: Saiba como auditar as operações de planos de controlo, tais como 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 04/23/2020
 ms.author: sngun
-ms.openlocfilehash: 32dd598b8fc62c0ec68f86f95b02f9f3d98cedd2
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: d380e4c025b35f0000e13c62422d54dc10079524
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116303"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192872"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar operações de aviões de controlo da Azure Cosmos DB
 

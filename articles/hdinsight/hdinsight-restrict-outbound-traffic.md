@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: d4bf2d1d4beeb00325d54e091a00438073509eef
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: c65e3ad7ed02ddd4e6ed1d60628a738d333e9a9c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641317"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189386"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configure o tráfego de rede de saída para clusters Azure HDInsight usando firewall
 

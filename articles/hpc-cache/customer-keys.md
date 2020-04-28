@@ -4,14 +4,14 @@ description: Como utilizar o Cofre de Chaves Azure com cache Azure HPC para cont
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: a31979763dd1ab5d8f289deef0e30cce27bb0df4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f8a8b8dfedd9c4ac0590dc91e5cdced50d2be6ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538872"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195082"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Utilize chaves de encriptação geridas pelo cliente para cache Azure HPC
 
@@ -101,7 +101,10 @@ Continue com o resto das especificações e crie a cache conforme descrito na [C
 ## <a name="3-authorize-azure-key-vault-encryption-from-the-cache"></a>3. Autorizar encriptação do cofre de chaves Azure a partir da cache
 <!-- header is linked from create article, update if changed -->
 
-Após alguns minutos, o novo Azure HPC Cache aparece no seu portal Azure. Aceda à página **'Overview'** para autorizar o acesso ao seu Cofre de Chaves Azure e ativar a encriptação de chaves gerida pelo cliente. (A cache pode aparecer na lista de recursos antes das mensagens de "implantação em curso" claras.)
+Após alguns minutos, o novo Azure HPC Cache aparece no seu portal Azure. Aceda à página **'Overview'** para autorizar o acesso ao seu Cofre de Chaves Azure e ativar a encriptação de chaves gerida pelo cliente.
+
+> [!TIP]
+> A cache pode aparecer na lista de recursos antes das mensagens de "implantação em curso". Verifique a sua lista de recursos após um minuto ou dois em vez de esperar por uma notificação de sucesso.
 
 Este processo em duas etapas é necessário porque a instância de Cache Azure HPC precisa de uma identidade para passar para o Cofre chave Azure para autorização. A identidade da cache só existe depois de os seus passos iniciais de criação estarem completos.
 
@@ -122,7 +125,9 @@ Depois de autorizar a encriptação, o Azure HPC Cache passa por vários minutos
 
 ## <a name="update-key-settings"></a>Atualizar definições de teclas
 
-Pode alterar o cofre, a chave ou a versão chave para a sua cache a partir do portal Azure. Clique no link de definições de **encriptação** da cache para abrir a página de definições da **tecla do Cliente.** (Não é possível alterar uma cache entre as chaves geridas pelo cliente e as chaves geridas pelo sistema.)
+Pode alterar o cofre, a chave ou a versão chave para a sua cache a partir do portal Azure. Clique no link de definições de **encriptação** da cache para abrir a página de definições da **tecla do Cliente.**
+
+Não é possível alterar uma cache entre as chaves geridas pelo cliente e as chaves geridas pelo sistema.
 
 ![screenshot da página "Definições de teclas do cliente", alcançado clicando em Definições > Encriptação a partir da página cache no portal Azure](media/change-key-click.png)
 
@@ -141,7 +146,7 @@ Depois de escolher os novos valores da chave de encriptação, clique em **Selec
 Estes artigos explicam mais sobre a utilização do Cofre chave Azure e chaves geridas pelo cliente para encriptar dados em Azure:
 
 * [Visão geral da encriptação do armazenamento azure](../storage/common/storage-service-encryption.md)
-* [Encriptação de disco com chaves geridas pelo cliente](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) - Documentação para utilização de Cofre de Chaves Azure e discos geridos, que é semelhante ao processo utilizado com cache Azure HPC
+* [Encriptação de disco com chaves geridas pelo cliente](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) - Documentação para a utilização do Cofre de Chaves Azure com discos geridos, que é um cenário semelhante ao Cache Azure HPC
 
 ## <a name="next-steps"></a>Passos seguintes
 

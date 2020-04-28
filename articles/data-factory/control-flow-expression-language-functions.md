@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: c456e486217886510a1fd2ef1aeabae47d35b53c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1ce6da555bc8777bdb9671df1567f06227b74b6c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417199"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192804"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressões e funções no Azure Data Factory
 
@@ -156,7 +156,7 @@ As funções das cordas funcionam apenas em cordas.
 | --------------- | ---- |
 | [concat](control-flow-expression-language-functions.md#concat) | Combine duas ou mais cordas e devolva a corda combinada. |
 | [terminaCom](control-flow-expression-language-functions.md#endswith) | Verifique se uma corda termina com a subcadeia especificada. |
-| [guia](control-flow-expression-language-functions.md#guid) | Gere um identificador globalmente único (GUID) como uma corda. |
+| [guid](control-flow-expression-language-functions.md#guid) | Gere um identificador globalmente único (GUID) como uma corda. |
 | [indexof](control-flow-expression-language-functions.md#indexof) | Volte a colocar a posição inicial para um substring. |
 | [últimoIndexOf](control-flow-expression-language-functions.md#lastindexof) | Volte a colocar a posição inicial na última ocorrência de um substring. |
 | [substituir](control-flow-expression-language-functions.md#replace) | Substitua uma subcadeia com a corda especificada e devolva a corda atualizada. |
@@ -230,7 +230,7 @@ Estas funções são úteis dentro de condições, podem ser usadas para avaliar
 | [float](control-flow-expression-language-functions.md#float) | Devolva um número de ponto flutuante para obter um valor de entrada. |
 | [int](control-flow-expression-language-functions.md#int) | Devolva a versão inteiro para uma corda. |
 | [json](control-flow-expression-language-functions.md#json) | Devolva o valor ou objeto do tipo JavaScript Object (JSON) para uma corda ou XML. |
-| [cadeia](control-flow-expression-language-functions.md#string) | Devolva a versão de corda por um valor de entrada. |
+| [string](control-flow-expression-language-functions.md#string) | Devolva a versão de corda por um valor de entrada. |
 | [uriComponent](control-flow-expression-language-functions.md#uriComponent) | Devolva a versão codificada por URI para obter um valor de entrada substituindo caracteres url-inseguros por caracteres de fuga. |
 | [uriComponentToBinary](control-flow-expression-language-functions.md#uriComponentToBinary) | Devolva a versão binária para uma corda codificada por URI. |
 | [uriComponentToString](control-flow-expression-language-functions.md#uriComponentToString) | Devolva a versão de corda para uma corda codificada por URI. |
@@ -267,7 +267,7 @@ Estas funções são úteis dentro de condições, podem ser usadas para avaliar
 | [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Volte o componente do dia do mês a partir de uma marca de tempo. |
 | [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | Volte o componente do dia da semana a partir de uma marca de tempo. |
 | [dia ofyear](control-flow-expression-language-functions.md#dayOfYear) | Volte o componente do dia do ano a partir de uma marca de tempo. |
-| [formatoDateTime](control-flow-expression-language-functions.md#formatDateTime) | Devolva a data de uma marca de tempo. |
+| [formatoDateTime](control-flow-expression-language-functions.md#formatDateTime) | Devolva a marca de tempo como uma corda em formato opcional. |
 | [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Volte a colocar a marca atual mais as unidades de tempo especificadas. Consulte também [adicionarToTime](control-flow-expression-language-functions.md#addToTime). |
 | [getPastTime](control-flow-expression-language-functions.md#getPastTime) | Volte a colocar a marca atual menos as unidades de tempo especificadas. Consulte também [subtrairFromTime](control-flow-expression-language-functions.md#subtractFromTime). |
 | [inícioOfDay](control-flow-expression-language-functions.md#startOfDay) | Volte o início do dia para um carimbo temporal. |
@@ -1763,7 +1763,7 @@ E devolver estes resultados:
 
 <a name="guid"></a>
 
-### <a name="guid"></a>guia
+### <a name="guid"></a>guid
 
 Gerar um identificador globalmente único (GUID) como uma corda, por exemplo, "c2ecc88d-88c8-4096-912c-d6f2e2b138ce":
 

@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: cea157e272a2bf464141e592b8e742f314a83233
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa8a020dc4a7e9d4e7de0671b566755e413caeb2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75441909"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191758"
 ---
 # <a name="choose-the-right-consistency-level"></a>Escolher o nível de consistência certo 
 

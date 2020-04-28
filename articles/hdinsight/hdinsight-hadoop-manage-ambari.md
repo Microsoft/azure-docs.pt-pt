@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: 2ed3d6b1088315b580ab8ddc4f12d8d61434ec53
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 53d8da3f5ff715fa34f007272214823ed60e6326
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606543"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192064"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerir clusters do HDInsight através da IU da Web do Apache Ambari
 
@@ -135,7 +135,7 @@ A seleção de qualquer um destes links abre um novo separador no seu navegador,
 
 ### <a name="ambari-users-groups-and-permissions"></a>Utilizadores, grupos e permissões ambari
 
-Trabalhar com utilizadores, grupos e permissões são suportados quando se utiliza um cluster HDInsight [de domínio.](./domain-joined/hdinsight-security-overview.md) Para obter informações sobre a utilização do UI de Gestão Ambari num cluster unido ao domínio, consulte [Gerir os clusters HDInsight unidos](./domain-joined/hdinsight-security-overview.md)pelo domínio .
+Trabalhar com utilizadores, grupos e permissões são suportados quando se utiliza um cluster HDInsight de domínio. Para obter informações sobre a utilização do UI de Gestão Ambari num cluster unido ao domínio, consulte [Gerir os clusters HDInsight unidos](./domain-joined/hdinsight-security-overview.md)pelo domínio .
 
 > [!WARNING]  
 > Não altere a palavra-passe do cão de guarda Ambari (hdinsightwatchdog) no seu cluster HDInsight baseado em Linux. Alterar a palavra-passe quebra a capacidade de utilizar ações de script ou realizar operações de escala com o seu cluster.
@@ -203,7 +203,7 @@ Para configurar um serviço, utilize os seguintes passos:
 
 ## <a name="ambari-views"></a>Vistas de Ambari
 
-A Ambari Views permite que os desenvolvedores liguem elementos uI no UI Web Ambari utilizando o [Apache Ambari Views Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). O HDInsight fornece as seguintes vistas com tipos de cluster Hadoop:
+A Ambari Views permite que os desenvolvedores liguem elementos uI no UI Web Ambari utilizando o Apache Ambari Views Framework. O HDInsight fornece as seguintes vistas com tipos de cluster Hadoop:
 
 * Vista hive: A Vista da Colmeia permite-lhe executar consultas da Hive diretamente do seu navegador web. Pode guardar consultas, visualizar resultados, guardar resultados para o armazenamento do cluster ou baixar resultados para o seu sistema local. Para obter mais informações sobre a utilização de Vistas da Colmeia, consulte [Use Apache Hive Views com HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 

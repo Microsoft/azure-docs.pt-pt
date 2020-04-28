@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: seodec18
+ms.custom: seodec18,seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: c045378b6e69a9bb1b696d3390dadf84a50bd3b7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 2b4756990162817087b0904a764b97526c3545d6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687279"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186656"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>Configurações do Pacote de Segurança Empresarial com Serviços de Domínio de Diretório Ativo Azure em HDInsight
 

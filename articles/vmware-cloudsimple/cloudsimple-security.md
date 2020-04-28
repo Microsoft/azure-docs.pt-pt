@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1a33e20ec540a05885eb13a3828d28ffc9923fff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d86c90828c081a542fa5574493a46e8a2e44640
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024998"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187482"
 ---
 # <a name="cloudsimple-security-overview"></a>Visão geral de segurança CloudSimple
 
@@ -49,7 +49,7 @@ Para dados em repouso no ambiente Private Cloud, pode utilizar encriptação vSA
 
 ### <a name="data-protection-for-data-that-is-required-to-move-through-public-networks"></a>Proteção de Dados para dados que são necessários para circular através de redes públicas
 
-Para proteger os dados que se movem através de redes públicas, pode criar túneis IPsec e SSL VPN para as suas Nuvens Privadas. São suportados métodos comuns de encriptação, incluindo 128 bytes e 256 byte AES. Os dados em trânsito (incluindo autenticação, acesso administrativo e dados do cliente) são encriptados com mecanismos de encriptação padrão (SSH, TLS 1.2 e Secure RDP). A comunicação que transporta informação sensível utiliza os mecanismos padrão de encriptação.
+Para proteger os dados que se movem através de redes públicas, pode criar túneis VPN IPsec e TLS para as suas Nuvens Privadas. São suportados métodos comuns de encriptação, incluindo 128 bytes e 256 byte AES. Os dados em trânsito (incluindo autenticação, acesso administrativo e dados do cliente) são encriptados com mecanismos de encriptação padrão (SSH, TLS 1.2 e Secure RDP). A comunicação que transporta informação sensível utiliza os mecanismos padrão de encriptação.
 
 ### <a name="secure-disposal"></a>Eliminação Segura
 
@@ -75,7 +75,7 @@ Os serviços CloudSimple são construídos em cima da segurança da rede base fo
 
 ### <a name="segmentation"></a>Segmentação
 
-O serviço CloudSimple tem logicamente redes de Camada 2 que restringem o acesso às suas próprias redes privadas no seu ambiente Private Cloud. Pode proteger ainda mais as suas redes Private Cloud utilizando uma firewall. O portal CloudSimple permite definir regras de controlo de tráfego de rede EW e NS para todo o tráfego de rede, incluindo tráfego intra Private Cloud, tráfego inter-Private Cloud, tráfego geral para a Internet, e tráfego de rede para as instalações através da VPN IPsec ou Ligação ExpressRoute.
+O serviço CloudSimple tem logicamente redes de Camada 2 que restringem o acesso às suas próprias redes privadas no seu ambiente Private Cloud. Pode proteger ainda mais as suas redes Private Cloud utilizando uma firewall. O portal CloudSimple permite definir regras de controlo de tráfego de rede EW e NS para todo o tráfego de rede, incluindo tráfego intra Private Cloud, tráfego inter-Private Cloud, tráfego geral para a Internet e tráfego de rede para as instalações através da ligação IPsec VPN ou ExpressRoute.
 
 ## <a name="vulnerability-and-patch-management"></a>Gestão de vulnerabilidades e patch
 

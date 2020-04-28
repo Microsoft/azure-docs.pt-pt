@@ -3,12 +3,12 @@ title: Criar uma aplicação java de função Azure Service Fabric no Linux
 description: Saiba como criar e implementar uma aplicação Java Reliable Actors do Service Fabric em cinco minutos.
 ms.topic: conceptual
 ms.date: 06/18/2018
-ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d09666bad7b4e03b8598191d99a9db717c277d4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458175"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193569"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Criar a sua primeira aplicação Java Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -204,7 +204,7 @@ A implementação da aplicação criada é igual à de qualquer outra aplicaçã
 
 Os parâmetros desses comandos encontram-se nos manifestos gerados dentro do pacote de aplicação.
 
-Após a implementação da aplicação, abra um browser e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+Após a implementação da aplicação, abra um browser e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em `http://localhost:19080/Explorer`.
 Em seguida, expanda o nó **Aplicações** e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]

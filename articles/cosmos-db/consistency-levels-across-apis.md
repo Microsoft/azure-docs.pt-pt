@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: ef7d032d37105549ff7b05f85b953cd420954602
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2851968b102bdcbae95a81352439f39f5837020b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131462"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191792"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 

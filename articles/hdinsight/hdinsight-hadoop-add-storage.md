@@ -6,17 +6,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: 87eb04b7323186175195babf6a602fa12d25176f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: seoapr2020
+ms.date: 04/27/2020
+ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206712"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192489"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicione contas de armazenamento adicionais ao HDInsight
 
-Aprenda a usar as ações do script para adicionar *contas* adicionais de Armazenamento Azure ao HDInsight. Os passos neste documento adicionam uma *conta* de armazenamento a um cluster HDInsight existente. Este artigo aplica-se a *contas* de armazenamento (não a conta de armazenamento de cluster padrão) e não armazenamento adicional, como [o Azure Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) e [o Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Aprenda a usar as ações do script para adicionar *contas* adicionais de Armazenamento Azure ao HDInsight. Os passos neste documento adicionam uma *conta* de armazenamento a um cluster HDInsight existente. Este artigo aplica-se às *contas* de armazenamento (não à conta [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md)de armazenamento de cluster por defeito) e não ao armazenamento adicional, tais como e .
 
 > [!IMPORTANT]  
 > A informação neste documento é sobre a adição de contas de armazenamento adicionais a um cluster após a sua criação. Para obter informações sobre a adição de contas de armazenamento durante a criação do cluster, consulte [Conjunto de clusters em HDInsight com Apache Hadoop, Apache Spark, Apache Kafka, e muito mais](hdinsight-hadoop-provision-linux-clusters.md).
@@ -29,9 +30,9 @@ Aprenda a usar as ações do script para adicionar *contas* adicionais de Armaze
 
 ## <a name="how-it-works"></a>Como funciona
 
-Durante o processamento, o script executa as seguintes ações:
+Durante o processamento, o script faz as seguintes ações:
 
-* Se a conta de armazenamento já existir na configuração core-site.xml para o cluster, o script sai e não são realizadas mais ações.
+* Se a conta de armazenamento já existir na configuração core-site.xml para o cluster, o script sai e não são feitas mais ações.
 
 * Verifica que a conta de armazenamento existe e pode ser acedida através da chave.
 
@@ -39,7 +40,7 @@ Durante o processamento, o script executa as seguintes ações:
 
 * Adiciona a conta de armazenamento ao ficheiro core-site.xml.
 
-* Para e reinicia os serviços [Apache Oozie,](https://oozie.apache.org/) [Apache Hadoop YARN,](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)e [Apache Hadoop HDFS.](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) Parar e iniciar estes serviços permite-lhes usar a nova conta de armazenamento.
+* Para e reinicia os serviços Apache Oozie, Apache Hadoop YARN, Apache Hadoop MapReduce2 e Apache Hadoop HDFS. Parar e iniciar estes serviços permite-lhes usar a nova conta de armazenamento.
 
 > [!WARNING]  
 > A utilização de uma conta de armazenamento num local diferente do cluster HDInsight não é suportada.
@@ -118,13 +119,13 @@ Depois de remover estas teclas e salvar a configuração, precisa reiniciar Oozi
 
 ### <a name="storage-firewall"></a>Firewall de armazenamento
 
-Se optar por proteger a sua conta de armazenamento com as **restrições de Firewalls e redes virtuais** em **redes Selecionadas,** certifique-se de que permite a exceção **Permitir serviços confiáveis da Microsoft...** para que o HDInsight possa aceder à sua conta de armazenamento.
+Se optar por proteger a sua conta de armazenamento com as **restrições de Firewalls e redes virtuais** em **redes Selecionadas,** certifique-se de permitir a exceção **Permitir serviços microsoft fidedignos...** para que o HDInsight possa aceder à sua conta de armazenamento`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Incapaz de aceder ao armazenamento após mudar de tecla
 
 Se alterar a chave para uma conta de armazenamento, o HDInsight já não pode aceder à conta de armazenamento. O HDInsight utiliza uma cópia em cache da chave no core-site.xml para o cluster. Esta cópia em cache deve ser atualizada para combinar com a nova tecla.
 
-Executar novamente a ação do script __não__ atualiza a chave, uma vez que o script verifica para ver se já existe uma entrada para a conta de armazenamento. Se uma entrada já existe, não faz alterações.
+Executar a ação do script novamente **não** atualiza a chave, uma vez que o script verifica para ver se já existe uma entrada para a conta de armazenamento. Se uma entrada já existe, não faz alterações.
 
 Para resolver este problema:  
 1. Retire a conta de armazenamento.
@@ -135,7 +136,7 @@ Para resolver este problema:
 
 ### <a name="poor-performance"></a>Mau desempenho
 
-Se a conta de armazenamento estiver numa região diferente do cluster HDInsight, poderá experimentar um fraco desempenho. O acesso a dados numa região diferente envia tráfego de rede fora do centro de dados regional do Azure e através da internet pública, o que pode introduzir latência.
+Se a conta de armazenamento estiver numa região diferente do cluster HDInsight, poderá experimentar um fraco desempenho. O acesso a dados numa região diferente envia tráfego de rede fora do centro de dados regional do Azure. E através da internet pública, que pode introduzir latência.
 
 ### <a name="additional-charges"></a>Encargos adicionais
 

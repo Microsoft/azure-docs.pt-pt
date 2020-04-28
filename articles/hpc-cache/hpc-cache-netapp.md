@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 38f9d0338ce4c47024d670e6d3ee89a97faecc91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d4dd69b30acb26d02218fe05a60ace9aa855ddc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238685"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194963"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Utilize cache Azure HPC com ficheiros Azure NetApp
 
@@ -50,7 +50,7 @@ Utilize o tamanho mínimo para a subnet delegada ao criar um sistema de Ficheiro
 
 O tamanho mínimo, especificado com a máscara de rede /28, fornece 16 endereços IP. Na prática, o Azure NetApp Files utiliza apenas três dos endereços IP disponíveis para acesso em volume. Isto significa que só precisa de criar três alvos de armazenamento no seu Cache Azure HPC para cobrir todos os volumes.
 
-Se a subnet delegada for demasiado grande, é possível que os volumes de Ficheiros Azure NetApp utilizem mais endereços IP do que uma única instância de Cache Azure HPC pode manusear. Uma única cache pode ter no máximo dez alvos de armazenamento.
+Se a subnet delegada for demasiado grande, é possível que os volumes de Ficheiros Azure NetApp utilizem mais endereços IP do que uma única instância de Cache Azure HPC pode manusear. Uma única cache pode ter no máximo 10 alvos de armazenamento.
 
 O exemplo de quickstart na documentação do Azure NetApp Files utiliza 10.7.0.0.0/16 para a subnet delegada, que dá uma sub-rede demasiado grande.
 

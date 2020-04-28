@@ -8,22 +8,22 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 450328fecde3be0ee0cead174c9d172bf3ac1000
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21e1be094716ac1d43e1f4458b41e855315d1779
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155975"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192991"
 ---
 # <a name="whats-new-in-personalizer"></a>O que há de novo no Personalizer
 
-Saiba o que há de novo no serviço. Estes itens podem incluir notas de lançamento, vídeos, posts de blog e outros tipos de informação. Marque esta página para manter-se atualizado com o serviço.  
+Saiba o que há de novo no serviço. Estes itens podem incluir notas de lançamento, vídeos, posts de blog e outros tipos de informação. Marque esta página para manter-se atualizado com o serviço.
 
-## <a name="release-notes"></a>Notas de versão 
+## <a name="release-notes"></a>Notas de versão
 
-### <a name="march-2020"></a>março de 2020
+### <a name="march-2020"></a>Março de 2020
 
 * TLS 1.2 é agora aplicado para todos os pedidos http para este serviço. Para mais informações, consulte a [segurança dos Serviços Cognitivos Azure.](../cognitive-services-security.md)
 
