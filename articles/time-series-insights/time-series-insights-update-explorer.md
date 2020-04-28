@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: c117510749abcf997e414371faa6dea1dc79ea7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75861766"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Explorador de pré-visualização da Série de Tempo Azure Insights
@@ -220,7 +220,7 @@ O painel de editor de termos de pré-visualização da Série De Tempo tem os se
 | `<`, `>`, `<=`, `>=` | Duplo, Data, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Todos os operands devem ser do mesmo tipo ou ser nulos constantes. |
-| `HAS` | Cadeia | Apenas os literais de corda constantes são permitidos no lado direito. Cordas vazias e NULO não são permitidos. |
+| `HAS` | String | Apenas os literais de corda constantes são permitidos no lado direito. Cordas vazias e NULO não são permitidos. |
 
 Para saber mais sobre operações de consulta suportadas e tipos de dados, leia a Expressão da [Série De Tempo (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 

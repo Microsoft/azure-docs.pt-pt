@@ -4,10 +4,10 @@ description: Saiba mais sobre a serialização de objetos de objetos de tecido d
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75639552"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objetos de coleção confiável em tecido de serviço Azure
@@ -35,7 +35,7 @@ O Gestor de Estado fiável tem serializador incorporado para seguintes tipos:
 - float
 - int
 - uint
-- longo
+- long
 - ulongo
 - curto
 - ucurto

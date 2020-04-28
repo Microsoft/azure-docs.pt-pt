@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: thvankra
 ms.openlocfilehash: 467e9627a2623779bd808ca5aebdf76d8a5eda42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75896639"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Migrar dados relacionais de um a poucos para a conta API Da Azure Cosmos DB SQL
@@ -95,7 +95,7 @@ SELECT [value] FROM OPENJSON(
 
 
 Para o sumidouro da atividade de cópia SqlJsonToBlobText, escolhemos "Texto Delimitado" e apontamos para uma pasta específica@concatno Armazenamento De Blob Azure com um nome de ficheiro único gerado dinamicamente (por exemplo, ' (pipeline). RunId,'.json').
-Uma vez que o nosso ficheiro de texto não é realmente "delimitado" e não queremos que seja analisado em colunas separadas usando vírgulas e queremos preservar as citações duplas ("), definimos "Delimitador de Colunas" para um Separador ("\t") - ou outro personagem que não ocorra nos dados - e "Citação do caráter" para "Sem citação".
+Uma vez que o nosso ficheiro de texto não é realmente "delimitado" e não queremos que seja analisado em colunas separadas usando vírgulas e queremos preservar as citações duplas ("), definimos "Delimitador de Coluna" para um Separador ("\t") - ou outro personagem que não ocorra nos dados - e "Citação do caráter" para "No quote character".
 
 ![Cópia ADF](./media/migrate-relational-to-cosmos-sql-api/adf2.png)
 

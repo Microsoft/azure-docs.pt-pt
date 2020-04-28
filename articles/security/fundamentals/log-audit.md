@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
 ms.openlocfilehash: bd0f42507e22559690e2682a391c53b9c090aa6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75750799"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Exploração madeireira e auditoria de segurança azure
@@ -50,7 +50,7 @@ A tabela seguinte lista os tipos de registos mais importantes disponíveis no Az
 | ------------ | -------- | ------ | ----------- |
 |[Registos de atividade](../../azure-monitor/platform/platform-logs-overview.md)|Eventos de controle-avião sobre recursos do Gestor de Recursos Azure|  Fornece informações sobre as operações que foram realizadas sobre os recursos na sua subscrição.|    Rest API, [Monitor Azure](../../azure-monitor/platform/platform-logs-overview.md)|
 |[Registos de Recursos Azure](../../azure-monitor/platform/platform-logs-overview.md)|Dados frequentes sobre o funcionamento dos recursos do Gestor de Recursos Azure na subscrição|   Fornece informações sobre as operações que o seu próprio recurso realizou.| Azure Monitor|
-|[Relatórios do Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md)|Registos e relatórios | Reporta atividades de registo do utilizador e informações sobre a atividade do sistema sobre utilizadores e gestão de grupos.|[Gráfico API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
+|[Relatórios do Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md)|Registos e relatórios | Reporta atividades de registo do utilizador e informações sobre a atividade do sistema sobre utilizadores e gestão de grupos.|[Graph API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
 |[Máquinas virtuais e serviços em nuvem](../../azure-monitor/learn/quick-collect-azurevm.md)|Serviço de Log de Eventos do Windows e Syslog Linux|  Captura dados do sistema e regista dados nas máquinas virtuais e transfere esses dados para uma conta de armazenamento à sua escolha.|   Windows (utilizando o Armazenamento de Diagnósticos Windows Azure [[WAD]](../../monitoring-and-diagnostics/azure-diagnostics.md)e Linux no Monitor Azure|
 |[Análise de Armazenamento Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Armazenamento de registo, fornece dados métricos para uma conta de armazenamento|Fornece informações sobre pedidos de rastreio, analisa tendências de utilização e diagnostica problemas com a sua conta de armazenamento.|   REST API ou a biblioteca de [clientes](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Registos de fluxo do grupo de segurança da rede (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)|Formato JSON, mostra fluxos de saída e de entrada por regra|Exibe informações sobre o tráfego IP de ingresse e desvia através de um Grupo de Segurança de Rede.|[Observador de Rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md)|

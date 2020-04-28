@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75749952"
 ---
 # <a name="azure-operational-security"></a>Segurança Operacional Azure
@@ -28,7 +28,7 @@ ms.locfileid: "75749952"
 ### <a name="overview"></a>Descrição geral
 Sabemos que a segurança é o trabalho um na nuvem e como é importante que encontre informações precisas e oportunas sobre a segurança do Azure. Uma das melhores razões para utilizar o Azure para as suas aplicações e serviços é tirar partido da grande variedade de ferramentas e capacidades de segurança disponíveis. Estas ferramentas e capacidades ajudam a tornar possível criar soluções seguras na plataforma Segura Azure. O Windows Azure deve fornecer confidencialidade, integridade e disponibilidade de dados dos clientes, permitindo também uma responsabilização transparente.
 
-Para ajudar os clientes a entender melhor a gama de controlos de segurança implementados dentro do Microsoft Azure a partir das perspetivas operacionais do cliente e da Microsoft, este livro branco, "Azure Operational Security", é escrito que fornece um abrangente Veja a segurança operacional disponível com o Windows Azure.
+Para ajudar os clientes a compreender melhor a gama de controlos de segurança implementados dentro do Microsoft Azure a partir das perspetivas operacionais do cliente e da Microsoft, este livro branco, "Azure Operational Security", é escrito que proporciona um olhar abrangente sobre a segurança operacional disponível com o Windows Azure.
 
 ### <a name="azure-platform"></a>Plataforma Azure
 O Azure é uma plataforma pública de serviço na nuvem que suporta uma ampla seleção de sistemas operativos, linguagens de programação, quadros, ferramentas, bases de dados e dispositivos. Pode executar contentores Linux com integração Docker; construir aplicativos com JavaScript, Python, .NET, PHP, Java e Node.js; construir back-ends para dispositivos iOS, Android e Windows. O serviço Azure Cloud suporta as mesmas tecnologias que milhões de desenvolvedores e profissionais de TI já confiam e confiam.
@@ -38,7 +38,7 @@ Quando você constrói, ou migra ativos de TI para, um fornecedor público de se
 A infraestrutura da Azure é projetada desde a instalação até aplicações para hospedar milhões de clientes simultaneamente, e fornece uma base de confiança sobre a qual as empresas podem satisfazer os seus requisitos de segurança. Além disso, o Azure oferece-lhe um vasto leque de opções de segurança configuráveis e a capacidade de controlá-las para que possa personalizar a segurança para satisfazer os requisitos únicos das implementações da sua organização. Este documento irá ajudá-lo a entender como as capacidades de segurança do Azure podem ajudá-lo a cumprir estes requisitos.
 
 ### <a name="abstract"></a>Abstract
-A Segurança Operacional Azure refere-se aos serviços, controlos e funcionalidades disponíveis para os utilizadores para proteger os seus dados, aplicações e outros ativos no Microsoft Azure. A Segurança Operacional Azure baseia-se num quadro que incorpora o conhecimento adquirido através de várias capacidades exclusivas da Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center, e uma profunda consciência do cenário de ameaça à cibersegurança.
+A Segurança Operacional Azure refere-se aos serviços, controlos e funcionalidades disponíveis para os utilizadores para proteger os seus dados, aplicações e outros ativos no Microsoft Azure. A Segurança Operacional Azure baseia-se num quadro que incorpora o conhecimento adquirido através de várias capacidades exclusivas da Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e uma profunda consciência do panorama das ameaças à cibersegurança.
 
 Este livro branco descreve a abordagem da Microsoft à Segurança Operacional Azure dentro da plataforma cloud do Microsoft Azure e abrange os seguintes serviços:
 1.  [Azure Monitor](../../azure-monitor/index.yml)
@@ -275,7 +275,7 @@ Registam-se os seguintes tipos de pedidos autenticados e anónimos.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-A Azure AD também inclui um conjunto completo de capacidades de gestão de identidade, incluindo autenticação multi-factor, registo de dispositivos, gestão de passwords self-service, gestão de grupode self-service, gestão de conta privilegiada, acesso baseado em papéis controlo, monitorização do uso de aplicações, auditoria rica e monitorização e alerta de segurança.
+A Azure AD também inclui um conjunto completo de capacidades de gestão de identidade, incluindo autenticação multi-fator, registo de dispositivos, gestão de passwords self-service, gestão de grupode self-service, gestão privilegiada de conta, controlo de acesso baseado em papéis, monitorização do uso de aplicações, auditoria rica e monitorização e alerta de segurança.
 
 -   Melhorar a segurança da aplicação com a autenticação multifactor Azure AD e acesso condicional.
 

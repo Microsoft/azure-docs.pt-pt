@@ -4,10 +4,10 @@ description: Utilize o Gestor de Recursos Azure para transferir recursos para um
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75891265"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Resolver problemas de movimentação de recursos do Azure para um novo grupo de recursos ou uma nova subscrição
@@ -29,10 +29,10 @@ Alguns serviços requerem considerações adicionais na mudança de recursos. Se
 
 * [Serviços Aplicacionais](./move-limitations/app-service-move-limitations.md)
 * [Serviços de DevOps do Azure](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
-* [Modelo de implantação clássico](./move-limitations/classic-model-move-limitations.md)
+* [Modelo de implementação clássica](./move-limitations/classic-model-move-limitations.md)
 * [Redes](./move-limitations/networking-move-limitations.md)
 * [Serviços de Recuperação](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
-* [Máquinas Virtuais](./move-limitations/virtual-machines-move-limitations.md)
+* [Virtual Machines](./move-limitations/virtual-machines-move-limitations.md)
 
 ## <a name="large-requests"></a>Grandes pedidos
 

@@ -18,10 +18,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70696cdb95fffc1e5faa46ca1b5f2180633ed63a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75932323"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Requisitos de licença para usar Gestão de Identidade Privilegiada
@@ -63,7 +63,7 @@ Aqui estão alguns cenários de licença de exemplo para ajudá-lo a determinar 
 Se expirar uma licença Azure AD Premium P2, EMS E5 ou licença experimental, as funcionalidades de Gestão de Identidade Privilegiada deixarão de estar disponíveis no seu diretório:
 
 - As atribuições permanentes às funções da AD Azure não serão afetadas.
-- O serviço de Gestão de Identidade Privilegiada no portal Azure, bem como as interfaces Graph API cmdlets e PowerShell de Gestão de Identidade Privilegiada, deixarão de estar disponíveis para os utilizadores ativarem funções privilegiadas, gerirem acessoprivilegiado ou realizarem avaliações de acesso de papéis privilegiados.
+- O serviço de Gestão de Identidade Privilegiada no portal Azure, bem como as interfaces Graph API cmdlets e PowerShell de Gestão de Identidade Privilegiada, deixarão de estar disponíveis para os utilizadores ativarem funções privilegiadas, gerirem acessoprivilegiado ou realizarem revisões de acesso de funções privilegiadas.
 - As atribuições de funções elegíveis das funções Azure AD serão removidas, uma vez que os utilizadores deixarão de poder ativar funções privilegiadas.
 - Quaisquer avaliações de acesso em curso das funções da AD Azure terminarão e as configurações de configuração de Gestão de Identidade Privilegiada serão removidas.
 - A Gestão de Identidade Privilegiada deixará de enviar e-mails sobre alterações de atribuição de papéis.

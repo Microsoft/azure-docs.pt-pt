@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75966653"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Orientação de recuperação de desastres para Avere vFXT para Azure
@@ -118,6 +118,6 @@ Para aceder ao recipiente de reserva a partir de um avere vFXT para cluster Azur
 * Saiba mais sobre recuperação de desastres e construção de aplicações resilientes em Azure:
 
   * [Orientações técnicas sobre resiliência do Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-  * [Recuperar de uma perturbação do serviço em toda a região](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
+  * [Recupere de uma interrupção de serviço ao nível da região](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
   * [Recuperação após desastre e elevada disponibilidade para aplicações do Azure](<https://docs.microsoft.com/azure/resiliency/resiliency-disaster-recovery-high-availability-azure-applications>)
   <!-- can't find these in the source tree to use relative links -->

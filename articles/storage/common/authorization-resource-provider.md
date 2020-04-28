@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75972353"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão
@@ -65,8 +65,8 @@ Para exemplos de código que mostrem como autorizar e chamar operações de gest
 
 - [.NET](https://github.com/Azure-Samples/storage-dotnet-resource-provider-getting-started)
 - [Java](https://github.com/Azure-Samples/storage-java-manage-storage-accounts)
-- [Nó.js](https://github.com/Azure-Samples/storage-node-resource-provider-getting-started)
-- [Pitão](https://github.com/Azure-Samples/storage-python-manage)
+- [Node.js](https://github.com/Azure-Samples/storage-node-resource-provider-getting-started)
+- [Python](https://github.com/Azure-Samples/storage-python-manage)
 
 ## <a name="azure-resource-manager-versus-classic-deployments"></a>Gestor de Recursos Azure versus implantações clássicas
 

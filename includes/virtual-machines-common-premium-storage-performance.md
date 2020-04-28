@@ -9,15 +9,15 @@ ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75942741"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho da aplicação
 
-Avaliamos se uma aplicação está a ter um bom desempenho ou não utilizando indicadores de desempenho como, a rapidez com que uma aplicação está a processar um pedido de utilizador, quantos dados uma aplicação está a processar por pedido, quantos pedidos é um tratamento de aplicação em um específico período de tempo, quanto tempo um utilizador tem de esperar para obter uma resposta após a apresentação do seu pedido. Os termos técnicos para estes indicadores de desempenho são, IOPS, Despôs ou Largura de Banda, e Latência.
+Avaliamos se uma aplicação está a ter um bom desempenho ou não utilizando indicadores de desempenho como, a rapidez com que uma aplicação está a processar um pedido do utilizador, quantos dados uma aplicação está a processar por pedido, quantos pedidos é um tratamento de aplicação num determinado período de tempo, quanto tempo um utilizador tem de esperar para obter uma resposta após a apresentação do seu pedido. Os termos técnicos para estes indicadores de desempenho são, IOPS, Despôs ou Largura de Banda, e Latência.
 
 Nesta secção, discutiremos os indicadores comuns de desempenho no contexto do Armazenamento Premium. Na secção seguinte, Recolha de Requisitos de Aplicação, aprenderá a medir estes indicadores de desempenho para a sua aplicação. Mais tarde, na Otimização do Desempenho da Aplicação, irá conhecer os fatores que afetam estes indicadores de desempenho e recomendações para os otimizar.
 

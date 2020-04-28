@@ -10,10 +10,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
 ms.openlocfilehash: d1a59e7ad86191bcc30b7d898d00f327c20fbc5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75945626"
 ---
 # <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
@@ -27,7 +27,7 @@ No nível de cálculo provisionado do modelo de compra baseado em vCore, pode tr
 
 ## <a name="choose-a-license-model"></a>Escolha um modelo de licença
 
-Com o Azure Hybrid Benefit, pode optar por pagar apenas pela infraestrutura Azure subjacente utilizando a licença SQL Server existente para o próprio motor de base de dados SQL (preços base Compute), ou pode pagar tanto pela infraestrutura subjacente como pelo Servidor SQL licença (preço incluído na licença).
+Com o Azure Hybrid Benefit, pode optar por pagar apenas pela infraestrutura Azure subjacente utilizando a licença SQL Server existente para o próprio motor de base de dados SQL (preços base Compute), ou pode pagar tanto pela infraestrutura subjacente como pela licença SQL Server (preço incluído na licença).
 
 Pode escolher ou alterar o seu modelo de licenciamento utilizando o portal Azure ou utilizando uma das seguintes APIs:
 
@@ -40,7 +40,7 @@ Para definir ou atualizar o tipo de licença utilizando o PowerShell:
 - [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance)
 - [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance)
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para definir ou atualizar o tipo de licença utilizando o Azure CLI:
 
@@ -49,7 +49,7 @@ Para definir ou atualizar o tipo de licença utilizando o Azure CLI:
 - [az sql mi criar](/cli/azure/sql/mi#az-sql-mi-create)
 - [az sql mi atualização](/cli/azure/sql/mi#az-sql-mi-update)
 
-# <a name="rest-api"></a>[REST API](#tab/rest)
+# <a name="rest-api"></a>[API REST](#tab/rest)
 
 Para definir ou atualizar o tipo de licença utilizando a API REST:
 

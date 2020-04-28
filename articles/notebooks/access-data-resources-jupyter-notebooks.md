@@ -4,10 +4,10 @@ description: Saiba como aceder a ficheiros, APIs REST, bases de dados e diferent
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646352"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Aceder a dados da cloud num bloco de notas
@@ -75,7 +75,7 @@ O Azure fornece uma série de outros tipos de bases de dados que pode utilizar. 
 - [Base de Dados do Azure para PostgreSQL: utilizar o Python para se ligar e consultar dados](https://docs.microsoft.com/azure/postgresql/connect-python)
 - [Início Rápido: Utilizar a Cache de Redis do Azure com Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
 - [Base de Dados do Azure para MySQL: utilizar o Python para se ligar e consultar dados](https://docs.microsoft.com/azure/mysql/connect-python)
-- [Fábrica de Dados Azure](https://azure.microsoft.com/services/data-factory/)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Assistente de cópia para fábrica de dados azure](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Passos seguintes

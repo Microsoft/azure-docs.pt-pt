@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614677"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters de tecido de serviço em Azure
@@ -109,7 +109,7 @@ Para mais informações, leia [a atualização](service-fabric-cluster-upgrade.m
 Para mais informações consulte [Versões de Cluster Suportadas em Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems)
 
 > [!NOTE]
-> Se decidir implementar o Tecido de Serviço no Windows Server 1709, por favor note que (1) não se trata de um ramo de manutenção a longo prazo, pelo que poderá ter de mover versões no futuro e (2) se implementar contentores, os contentores construídos no Windows Server 2016 não funcionam no Windows Server 1709, e vice-versa (terá que reconstruí-los para implantá-los).
+> Se decidir implementar o Tecido de Serviço no Windows Server 1709, por favor note que (1) não se trata de um ramo de manutenção a longo prazo, pelo que poderá ter de mover versões no futuro, e (2) se implementar contentores, os contentores construídos no Windows Server 2016 não funcionam no Windows Server 1709, e vice-versa (terá de reconstruí-los para os implementar).
 >
 
 

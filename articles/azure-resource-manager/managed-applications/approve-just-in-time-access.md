@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 4a3604a3256fb2d3f4253891bbc28c7685748cd2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651023"
 ---
 # <a name="configure-and-approve-just-in-time-access-for-azure-managed-applications"></a>Configure e aprove o acesso just-in-time para aplicações geridas pelo Azure
@@ -35,7 +35,7 @@ Este artigo centra-se nas ações que os consumidores tomam para permitir o aces
 
 ## <a name="enable-during-deployment"></a>Ativar durante a implantação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Encontre uma entrada no mercado para uma aplicação gerida com JIT habilitado. Selecione **Criar**.
 

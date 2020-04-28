@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
 ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75862582"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Resolução de problemas: Uma ligação VPN site-site Azure não pode ligar e deixa de funcionar
@@ -46,7 +46,7 @@ Compare a chave partilhada para o dispositivo VPN no local com a VPN da Rede Vir
 
 Para visualizar a chave partilhada para a ligação VPN Azure, utilize um dos seguintes métodos:
 
-**Portal Azure**
+**Portal do Azure**
 
 1. Vá à ligação site-site vpn que criou.
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75969297"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de Utilização - Perfis de Cliente
@@ -63,6 +63,6 @@ Esta figura mostra como os gasodutos de dados aparecem no portal Azure depois de
 
 Neste exemplo, a Data Factory é usada para orquestrar atividades que copiam dados de entrada, transformam e processam os dados, e forminam os dados finais para uma Base de Dados Azure SQL.  Também pode visualizar a rede de gasodutos de dados, geri-los e monitorizar o seu estado a partir da UI.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 Ao otimizar a análise do seu perfil de utilizador e alinhando-a com objetivos de negócio, a empresa de jogos é capaz de recolher rapidamente padrões de utilização e analisar a eficácia das suas campanhas de marketing.
 

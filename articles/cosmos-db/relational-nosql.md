@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 1cd80fee51565f2a2c1afa38ed883c10f51a5ee3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75896626"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Compreender as diferenças entre o NoSQL e as bases de dados relacionais
@@ -57,7 +57,7 @@ Azure Cosmos DB é um serviço de base de dados multimodelo, que oferece uma pro
 
 Outra característica particular das bases de dados relacionais é que os schemas são obrigados a ser definidos no momento do desenho. Isto tem benefícios em termos de integridade referencial e conformidade de dados. No entanto, também pode ser restritivo à medida que o pedido cresce. Responder a alterações no esquema através de modelos logicamente separados que partilhem a mesma definição de tabela ou base de dados pode tornar-se complexo ao longo do tempo. Estes casos de utilização beneficiam frequentemente do facto de o esquema ser desviado para o pedido de gestão por registo. Isto requer que a base de dados seja "agnóstica" e permita que os registos sejam "auto-descrição" em termos dos dados neles contidos.
 
-Se estiver a gerir dados cujas estruturas estão constantemente a mudar a um ritmo elevado, especialmente se as transações podem vir de fontes externas onde é difícil impor a conformidade em toda a base de dados, pode querer considerar uma abordagem mais schema-agnóstica utilizando um serviço de base de dados NoSQL gerido como o Azure Cosmos DB.
+Se estiver a gerir dados cujas estruturas estão constantemente a mudar a um ritmo elevado, especialmente se as transações podem vir de fontes externas onde é difícil impor a conformidade através da base de dados, pode querer considerar uma abordagem mais schema-agnóstica utilizando um serviço de base de dados noSQL gerido como o Azure Cosmos DB.
 
 ## <a name="microservices"></a>Microsserviços
 
@@ -78,7 +78,7 @@ Olhando para o primeiro desafio, a regra do polegar nas bases de dados noSQL é 
 
 ![Associações](./media/relational-or-nosql/many-joins.png)
 
-Uma abordagem de boas práticas numa base de dados de documentos NoSQL seria desnormalizar o nome da categoria e etiquetar os nomes diretamente num "documento de produto". No entanto, para manter as categorias, etiquetas e produtos em sincronização, as opções de design para facilitar isso acrescentaram complexidade de manutenção, porque os dados são duplicados em vários registos do produto, em vez de serem uma simples atualização numa "uma a muitos" relação, e uma união para recuperar os dados. 
+Uma abordagem de boas práticas numa base de dados de documentos NoSQL seria desnormalizar o nome da categoria e etiquetar os nomes diretamente num "documento de produto". No entanto, para manter as categorias, etiquetas e produtos em sincronização, as opções de design para facilitar isso acrescentaram complexidade de manutenção, porque os dados são duplicados em vários registos do produto, em vez de serem uma simples atualização numa relação "um a muitos", e uma união para recuperar os dados. 
 
 A compensação é que as leituras são mais eficientes no registo desnormalizado, e tornam-se cada vez mais eficientes à medida que o número de entidades aderiu conceptualmente aumenta. No entanto, tal como a eficiência da leitura aumenta com o aumento do número de entidades associadas num registo desnormalizado, também a complexidade da manutenção de manter as entidades em sincronização. Uma forma de atenuar esta compensação é criar um [modelo de dados híbridos.](https://docs.microsoft.com/azure/cosmos-db/modeling-data#hybrid-data-models)
 

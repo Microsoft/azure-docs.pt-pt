@@ -4,10 +4,10 @@ description: Aprenda a criar um cluster de Tecido de Serviço usando o nome comu
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614558"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementar um cluster de tecido de serviço que usa o nome comum do certificado em vez de impressão digital
@@ -191,7 +191,7 @@ Em seguida, abra o ficheiro *azuredeploy.json* num editor de texto e evoque trê
    > [!NOTE]
    > O campo 'certificateIssuerThumbprint' permite especificar os emitentes esperados de certificados com um nome comum sujeito. Este campo aceita uma enumeração separada da vírcula das impressões digitais SHA1. Note que se trata de um reforço da validação do certificado - no caso de o emitente não estar especificado ou vazio, o certificado será aceite para autenticação se a sua cadeia puder ser construída e acaba numa raiz fidedigna pelo validador. Se o emitente for especificado, o certificado será aceite se a impressão digital do seu emitente direto corresponder a qualquer dos valores especificados neste campo - independentemente de a raiz ser ou não fidedigna. Por favor, note que um PKI pode usar diferentes autoridades de certificação para emitir certificados para o mesmo assunto, pelo que é importante especificar todas as impressões digitais esperadas para um determinado assunto.
    >
-   > Especificar o emitente é considerado uma boa prática; embora omitindo-o continuará a funcionar - para certificados acorrentados a uma raiz de confiança - este comportamento tem limitações e pode ser gradualmente eliminado num futuro próximo. Note também que os clusters implantados no Azure, e protegidos com certificados X509 emitidos por um PKI privado e declarados por sujeito, podem não ser validados pelo serviço Azure Service Fabric (para comunicação cluster-to-service), se a Política de Certificados do PKI não puder ser validada pelo serviço Azure Service Fabric (para comunicação cluster-to-service), se a Política de Certificados do PKI não é detetável, disponível e acessível. 
+   > Especificar o emitente é considerado uma boa prática; embora omitindo-o continuará a funcionar - para certificados acorrentados a uma raiz de confiança - este comportamento tem limitações e pode ser gradualmente eliminado num futuro próximo. Note também que os clusters implantados no Azure, e protegidos com certificados X509 emitidos por um PKI privado e declarados por sujeito, podem não ser validados pelo serviço Azure Service Fabric (para comunicação cluster-to-service), se a Política de Certificados do PKI não for detetável, disponível e acessível. 
 
 ## <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
 Reutilizar o modelo atualizado depois de efazer as alterações.

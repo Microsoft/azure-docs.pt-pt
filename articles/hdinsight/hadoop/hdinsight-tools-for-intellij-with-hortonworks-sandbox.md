@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 05/16/2018
 ms.openlocfilehash: 65a15a8506b88e95e14af8c87bcbe33087301519
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75647837"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Utilize ferramentas HDInsight para IntelliJ com Caixa de Areia Hortonworks
@@ -57,7 +57,7 @@ Nesta secção, cria-se um projeto Scala de amostra utilizando o IntelliJ IDEA. 
 
    ![Intellij cria novo projeto de scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
-2. Selecione **Next**.
+2. Selecione **Seguinte**.
 3. Na próxima caixa de diálogo **new project,** complete os seguintes passos:
 
    1. Na caixa de nome do **Projeto,** insira um nome de projeto.

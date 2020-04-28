@@ -1,14 +1,14 @@
 ---
-title: Introdução aos microserviços no Azure
+title: Introdução aos microsserviços no Azure
 description: Uma visão geral do porquê de construir aplicações em nuvem com uma abordagem de microserviços é importante para o desenvolvimento de aplicações modernas e como o Azure Service Fabric fornece uma plataforma para o conseguir.
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
 ms.openlocfilehash: af18a6cb45808c0af5ec2782a3fd2100e3b7bf99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75750628"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Por que usar uma abordagem de microserviços para construir aplicações

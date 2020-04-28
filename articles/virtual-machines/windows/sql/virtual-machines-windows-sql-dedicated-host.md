@@ -15,10 +15,10 @@ ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: edb2d3fa670475d9b08fe05494035949181a9240
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75834357"
 ---
 # <a name="sql-server-vm-on-an-azure-dedicated-host"></a>SQL Server VM em um anfitrião dedicado Azure 
@@ -69,7 +69,7 @@ Uma vez que é o seu anfitrião, você é elegível para definir a virtualizaç�
 
 **P: Como funciona o Azure Hybrid Benefit para licenças do Windows Server/SQL Server no Anfitrião Dedicado do Azure?**
 
-R: Os clientes podem utilizar o valor das licenças existentes do Windows Server e Do SQL Server com garantia de software, ou licenças de subscrição qualificadas, para pagar uma taxa reduzida no Azure Dedicado Host utilizando o Azure Hybrid Benefit. Os clientes do Windows Server Datacenter e SQL Server Enterprise Edition obtêm virtualização ilimitada (implementem o maior número possível de máquinas virtuais do Windows Server no anfitrião sujeito à capacidade física do servidor subjacente) quando licenciam todo o anfitrião e utilizar o Azure Hybrid Benefit.  Todas as cargas de trabalho do Windows Server e do SQL Server no Anfitrião Dedicado do Azure também são elegíveis para Atualizações de Segurança Estendidas para Windows Server e SQL Server 2008/R2 sem custos adicionais. 
+R: Os clientes podem utilizar o valor das licenças existentes do Windows Server e Do SQL Server com garantia de software, ou licenças de subscrição qualificadas, para pagar uma taxa reduzida no Azure Dedicado Host utilizando o Azure Hybrid Benefit. Os clientes do Windows Server Datacenter e SQL Server Enterprise Edition obtêm virtualização ilimitada (implementem o maior número possível de máquinas virtuais do Windows Server no anfitrião sujeito à capacidade física do servidor subjacente) quando licenciam todo o anfitrião e utilizam o Azure Hybrid Benefit.  Todas as cargas de trabalho do Windows Server e do SQL Server no Anfitrião Dedicado do Azure também são elegíveis para Atualizações de Segurança Estendidas para Windows Server e SQL Server 2008/R2 sem custos adicionais. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

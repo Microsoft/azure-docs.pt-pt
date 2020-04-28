@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75967385"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Fornecimento e implantação de microserviços previsivelmente em Azure
@@ -32,7 +32,7 @@ Neste tutorial, utilizará as seguintes ferramentas. Como não é uma discussão
 Sempre que cria uma aplicação no Azure App Service, por exemplo, o Gestor de Recursos Azure usa um modelo JSON para criar todo o grupo de recursos com os recursos componentes. Um modelo complexo do [Azure Marketplace](/azure/marketplace) pode incluir a base de dados, contas de armazenamento, o plano do Serviço de Aplicações, a própria app, regras de alerta, definições de aplicações, configurações de escala automática e muito mais, e todos estes modelos estão disponíveis para si através do PowerShell. Para obter mais informações sobre os modelos do Gestor de Recursos Azure, consulte os modelos de [gestor de recursos do Azure](../azure-resource-manager/templates/template-syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 para Estúdio Visual
-O mais recente SDK contém melhorias no suporte do modelo de Gestor de Recursos no editor da JSON. Você pode usá-lo para criar rapidamente um modelo de grupo de recursos do zero ou abrir um modelo JSON existente (como um modelo de galeria descarregado) para modificação, povoar o arquivo de parâmetros e até mesmo implementar o grupo de recursos diretamente a partir de um Recurso Azure Solução de grupo.
+O mais recente SDK contém melhorias no suporte do modelo de Gestor de Recursos no editor da JSON. Você pode usá-lo para criar rapidamente um modelo de grupo de recursos de raiz ou abrir um modelo JSON existente (como um modelo de galeria descarregado) para modificação, povoar o arquivo de parâmetros e até mesmo implementar o grupo de recursos diretamente a partir de uma solução do Grupo de Recursos Azure.
 
 Para mais informações, consulte [Azure SDK 2.6 para Visual Studio](https://azure.microsoft.com/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/).
 

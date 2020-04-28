@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
 ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646477"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Resolução de problemas com o Serviço de Provisionamento de Dispositivos Hub Azure IoT
@@ -23,7 +23,7 @@ Problemas de conectividade para dispositivos IoT podem ser difíceis de resolver
 
 O procedimento seguinte descreve como visualizar e configurar alerta na métrica do Serviço de Provisionamento de Dispositivos IoT Hub. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Navegue no seu Serviço de Provisionamento de Dispositivos IoT Hub.
 
@@ -48,7 +48,7 @@ Para saber mais, veja [quais são os alertas clássicos no Microsoft Azure?](../
 
 ## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Usar log analítico para ver e resolver erros
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Navegue pelo seu hub ioT.
 

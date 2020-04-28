@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.custom: seodec18
 ms.openlocfilehash: c85db05e6feeea43023c2391998f837348caed4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75929689"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Adicione bolhas a objetos em Gémeos Digitais Azure
@@ -53,14 +53,14 @@ Os metadados blob JSON estão em conformidade com o seguinte modelo:
 
 | Atributo | Tipo | Descrição |
 | --- | --- | --- |
-| **parentId** | Cadeia | A entidade-mãe para associar a bolha com (espaços, dispositivos ou utilizadores) |
-| **nome** |Cadeia | Um nome amigo do homem para a bolha |
-| **tipo** | Cadeia | O tipo de blob - não pode usar *tipo* e *typeid*  |
+| **parentId** | String | A entidade-mãe para associar a bolha com (espaços, dispositivos ou utilizadores) |
+| **nome** |String | Um nome amigo do homem para a bolha |
+| **tipo** | String | O tipo de blob - não pode usar *tipo* e *typeid*  |
 | **tipoid** | Número inteiro | O ID do tipo blob - não pode usar *o tipo* e a *digitada* |
-| **subtipo** | Cadeia | O subtipo blob - não pode usar *subtipo* e *subtipoid* |
+| **subtipo** | String | O subtipo blob - não pode usar *subtipo* e *subtipoid* |
 | **subtipoId** | Número inteiro | O id subtipo para a bolha - não pode usar *subtipo* e *subtipoid* |
-| **descrição** | Cadeia | Descrição personalizada da bolha |
-| **partilha** | Cadeia | Se a bolha pode ser partilhada`None`- `Tree` `Global`enum [ , ] |
+| **descrição** | String | Descrição personalizada da bolha |
+| **partilha** | String | Se a bolha pode ser partilhada`None`- `Tree` `Global`enum [ , ] |
 
 Os metadados blob são sempre fornecidos como o `.json` primeiro pedaço com **Conteúdo-Tipo** `application/json` ou como um ficheiro. Os dados de ficheiros são fornecidos no segundo pedaço e podem ser de qualquer tipo MIME suportado.
 
@@ -108,18 +108,18 @@ As bolhas devolvidas individualmente estão em conformidade com o seguinte esque
 
 | Atributo | Tipo | Descrição |
 | --- | --- | --- |
-| **ID** | Cadeia | O identificador único para a bolha |
-| **nome** |Cadeia | Um nome amigo do homem para a bolha |
-| **parentId** | Cadeia | A entidade-mãe para associar a bolha com (espaços, dispositivos ou utilizadores) |
-| **tipo** | Cadeia | O tipo de blob - não pode usar *tipo* e *typeid*  |
+| **ID** | String | O identificador único para a bolha |
+| **nome** |String | Um nome amigo do homem para a bolha |
+| **parentId** | String | A entidade-mãe para associar a bolha com (espaços, dispositivos ou utilizadores) |
+| **tipo** | String | O tipo de blob - não pode usar *tipo* e *typeid*  |
 | **tipoid** | Número inteiro | O ID do tipo blob - não pode usar *o tipo* e a *digitada* |
-| **subtipo** | Cadeia | O subtipo blob - não pode usar *subtipo* e *subtipoid* |
+| **subtipo** | String | O subtipo blob - não pode usar *subtipo* e *subtipoid* |
 | **subtipoId** | Número inteiro | O id subtipo para a bolha - não pode usar *subtipo* e *subtipoid* |
-| **partilha** | Cadeia | Se a bolha pode ser partilhada`None`- `Tree` `Global`enum [ , ] |
-| **descrição** | Cadeia | Descrição personalizada da bolha |
+| **partilha** | String | Se a bolha pode ser partilhada`None`- `Tree` `Global`enum [ , ] |
+| **descrição** | String | Descrição personalizada da bolha |
 | **contentInfos** | Matriz | Especifica informações de metadados não estruturadas, incluindo versão |
-| **nome completo** | Cadeia | O nome completo da bolha |
-| **spacePaths** | Cadeia | O caminho espacial |
+| **nome completo** | String | O nome completo da bolha |
+| **spacePaths** | String | O caminho espacial |
 
 Os metadados blob são sempre fornecidos como o `.json` primeiro pedaço com **Conteúdo-Tipo** `application/json` ou como um ficheiro. Os dados de ficheiros são fornecidos no segundo pedaço e podem ser de qualquer tipo MIME suportado.
 

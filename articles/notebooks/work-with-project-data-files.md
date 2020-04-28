@@ -4,10 +4,10 @@ description: Saiba como trazer dados para um projeto de pré-visualização de c
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646981"
 ---
 # <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Trabalhar com ficheiros de dados em projetos de pré-visualização de cadernos Azure

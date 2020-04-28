@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: rambala
 ms.openlocfilehash: 48ec26cc98310dfeb61aa17018c940b431cfbcee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75644261"
 ---
 # <a name="cross-network-connectivity"></a>Conectividade entre redes
@@ -22,7 +22,7 @@ Fabrikam Inc. adquire Contoso Ltd. Após a fusão, Fabrikam quer interligar as r
 
  [![11]][1]
 
-As setas tracejadas no meio da figura acima indicam as interligações de rede desejadas. Especificamente, existem três tipos de ligações cruzadas desejadas: 1) Fabrikam e Contoso VNets cruzam ligação, 2) Cruzamento regional no local e ligações cruzadas VNets (isto é, ligando a rede de instalações de Fabrikam ao Contoso VNet e ligando Contoso rede no local para Fabrikam VNet), e 3) Fabrikam e Contoso on-premise network cross connect. 
+As setas tracejadas no meio da figura acima indicam as interligações de rede desejadas. Especificamente, existem três tipos de ligações cruzadas desejadas: 1) Fabrikam e Contoso VNets cruzam ligações, 2) Cruzamento regional no local e ligações cruzadas VNets (isto é, ligando a rede de instalações de Fabrikam ao Contoso VNet e ligando a rede de Contoso às instalações a Fabrikam VNet) e 3) Fabrikam e Contoso no local. 
 
 A tabela que se segue mostra a tabela de rotas do peering privado da Rota Expresso de Contoso Ltd., antes da fusão.
 

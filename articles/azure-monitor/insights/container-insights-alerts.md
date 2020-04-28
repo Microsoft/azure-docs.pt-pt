@@ -4,10 +4,10 @@ description: Este artigo descreve como criar alertas personalizados com base em 
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75730930"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Como posso configurar alertas para problemas de desempenho no Azure Monitor para contentores
@@ -283,7 +283,7 @@ Siga estes passos para criar um alerta de log no Monitor Azure utilizando uma da
 >O procedimento seguinte para criar uma regra de alerta para a utilização do recurso de contentores requer que mude para um novo alerta de registo API, conforme descrito na preferência da [Switch API para alertas](../platform/alerts-log-api-switch.md)de registo .
 >
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No portal Azure, procure e selecione espaços de **trabalho Log Analytics**.
 3. Na sua lista de espaços de trabalho Log Analytics, selecione o espaço de trabalho que suporta o Monitor Azure para contentores. 
 4. No painel do lado esquerdo, selecione **Registos** para abrir a página de registos do Monitor Azure. Usa esta página para escrever e executar consultas de Log Analytics Azure.

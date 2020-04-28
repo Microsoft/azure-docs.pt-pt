@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: cherylmc
 ms.openlocfilehash: e833e20085d7cfd8f727acb394851e96e7e19368
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864371"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho do ExpressRoute para o aprovisionamento e estados dos circuitos
@@ -104,7 +104,7 @@ Se o estado de prefixo público anunciado for definido para um estado *de valida
 ## <a name="next-steps"></a>Passos seguintes
 * Configurar a ligação do ExpressRoute.
   
-  * [Crie um circuito do ExpressRoute](expressroute-howto-circuit-arm.md)
+  * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md)
   * [Configure o encaminhamento](expressroute-howto-routing-arm.md)
   * [Ligar uma VNet a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)
 

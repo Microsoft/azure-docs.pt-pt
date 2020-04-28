@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 5c8f770855dd8d19a9d313f1b79f9bf8da4b2393
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75771500"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copiar ou apoiar trabalhos da Azure Stream Analytics
@@ -21,7 +21,7 @@ Pode copiar ou fazer cópias dos seus trabalhos de Azure Stream Analytics implan
 ## <a name="before-you-begin"></a>Antes de começar
 * Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
 
-* Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 * Instale [a extensão Azure Stream Analytics para](quick-create-vs-code.md#install-the-azure-stream-analytics-tools-extension) código de estúdio visual ou [ferramentas Azure Stream Analytics para Estúdio Visual](quick-create-vs-code.md#install-the-azure-stream-analytics-tools-extension).  
 

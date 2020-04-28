@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: srrengar
 ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645723"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Parceiros de Monitorização de Tecidos de Serviço Azure
@@ -20,7 +20,7 @@ Este artigo ilustra como se pode monitorizar as suas aplicações, clusters e in
 
 A nossa integração com a Dynatrace fornece muitas funcionalidades fora da caixa para monitorizar os seus clusters de Tecido de Serviço. A instalação do Dynatrace OneAgent nas suas instâncias VMSS dá-lhe contadores de desempenho e uma topologia da implementação do seu Tecido de Serviço até ao nível da App. A Dynatrace também é uma ótima escolha para a monitorização no local. Confira mais funcionalidades listadas no [anúncio](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) e [instruções](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) para ativar a Dynatrace no seu cluster. 
 
-## <a name="datadog"></a>Cão de Dados
+## <a name="datadog"></a>Datadog
 
 Datadog tem uma extensão para VMSS tanto para casos Windows como Linux. Utilizando o Datadog pode recolher registos de eventos do Windows e, assim, recolher eventos da plataforma Service Fabric no Windows. Consulte aqui as instruções sobre como enviar os seus dados de diagnóstico para o [Datadog](https://www.datadoghq.com/blog/azure-monitoring-enhancements/#integrate-with-azure-service-fabric).
 

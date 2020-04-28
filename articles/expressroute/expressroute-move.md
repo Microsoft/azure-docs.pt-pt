@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: ganesr
 ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645910"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mover circuitos ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager
@@ -95,7 +95,7 @@ Siga as instruções descritas em [Mover um circuito ExpressRoute do modelo de i
 * Para obter informações sobre o fluxo de trabalho, veja [Circuito ExpressRoute aprovisiona fluxos de trabalho e estados de circuitos](expressroute-workflows.md).
 * Para configurar a ligação do ExpressRoute:
   
-  * [Crie um circuito do ExpressRoute](expressroute-howto-circuit-arm.md)
+  * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md)
   * [Configure o encaminhamento](expressroute-howto-routing-arm.md)
-  * [Ligue uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)
+  * [Ligar uma rede virtual a um circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 

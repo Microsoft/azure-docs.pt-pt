@@ -4,10 +4,10 @@ description: Como criar e gerir o seu perfil de utilizador e ID do utilizador co
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646284"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>O seu perfil e ID do utilizador para pré-visualização de cadernos Azure

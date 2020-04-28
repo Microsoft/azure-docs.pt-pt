@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 0a9015e33f5456efeac7f7c887995ac4a69f0259
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75941815"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Como utilizar o armazenamento Blob a partir de C++
@@ -262,6 +262,6 @@ Agora que aprendeu o básico do armazenamento de blob, siga estes links para sab
 * [Como utilizar o Armazenamento de Mesa a partir de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Lista De recursos de armazenamento Azure em C++](../storage-c-plus-plus-enumeration.md)
 * [Biblioteca do Cliente de Armazenamento para Referência C++](https://azure.github.io/azure-storage-cpp)
-* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentação de Armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Transferir dados com o utilitário da linha de comando AzCopy](../storage-use-azcopy.md)
 

@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
 ms.openlocfilehash: 33ecef4dde3787546afd28e5f5b31e8dd535fc7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646369"
 ---
 # <a name="azure-sql-database-features"></a>Características da base de dados Azure SQL
@@ -34,7 +34,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 
 | **Recurso SQL** | **Bases de dados individuais e conjuntos elásticos** | **Casos geridos e piscinas de instâncias** |
 | --- | --- | --- |
-| [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sim - ver [loja Cert](sql-database-always-encrypted.md) e [cofre chave](sql-database-always-encrypted-azure-key-vault.md) | Sim - ver [loja Cert](sql-database-always-encrypted.md) e [cofre chave](sql-database-always-encrypted-azure-key-vault.md) |
+| [Sempre Encriptado](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sim - ver [loja Cert](sql-database-always-encrypted.md) e [cofre chave](sql-database-always-encrypted-azure-key-vault.md) | Sim - ver [loja Cert](sql-database-always-encrypted.md) e [cofre chave](sql-database-always-encrypted-azure-key-vault.md) |
 | [Sempre em Grupos de Disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [99.99-99.995% de disponibilidade](sql-database-high-availability.md) é garantida para cada base de dados. Recuperação de desastres é discutida em visão geral da continuidade dos negócios com a Base de [Dados Azure SQL](sql-database-business-continuity.md) | [99.99.%](sql-database-high-availability.md) de disponibilidade é garantida para cada base de dados e [não pode ser gerida pelo utilizador](sql-database-managed-instance-transact-sql-information.md#availability). A recuperação de desastres é discutida em visão geral da continuidade dos negócios com a Base de [Dados Azure SQL.](sql-database-business-continuity.md) Utilize [grupos de falha automática](sql-database-auto-failover-group.md) para configurar o caso secundário Always On Managed em outra região. Outras instâncias do Servidor SQL e bases de dados individuais não podem ser utilizadas como secundárias para instância gerida. |
 | [Anexar uma base de dados](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Não | Não |
 | [Auditoria](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Sim](sql-database-auditing.md)| [Sim,](sql-database-managed-instance-auditing.md)com [algumas diferenças](sql-database-managed-instance-transact-sql-information.md#auditing) |
@@ -134,7 +134,7 @@ A plataforma Azure fornece uma série de capacidades PaaS que são adicionadas c
 | Agrupamentos de recursos | Sim, como [piscinas elásticas](sql-database-elastic-pool.md) | Sim. Um único caso gerido pode ter múltiplas bases de dados que partilham o mesmo conjunto de recursos. Além disso, pode implementar múltiplas instâncias geridas, [por exemplo, piscinas (Pré-visualização)](sql-database-instance-pools.md) que podem partilhar os recursos. |
 | Escalando para cima ou para baixo (online) | Sim, pode alterar DTU ou vCores reservados ou armazenamento máximo com o mínimo de tempo de inatividade. | Sim, pode alterar os vCores reservados ou o armazenamento máximo com o tempo mínimo de inatividade. |
 | [Pseudónimos SQL](https://docs.microsoft.com/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) | Não, use [pseudónimos dNS](dns-alias-overview.md) | Não, use [clicongf](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/Lesson-Learned-33-How-to-make-quot-cliconfg-quot-to-work-with/ba-p/369022) para configurar pseudónimos nas máquinas de clientes. |
-| [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Sim | Sim |
+| [Análise de SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Sim | Sim |
 | [Sincronização de Dados SQL](sql-database-get-started-sql-data-sync.md) | Sim | Não |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Não, [o Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) é um serviço de nuvem Azure separado. | Não, [o Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) é um serviço de nuvem Azure separado. |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sim, com um SSIS gerido em ambiente azure Data Factory (ADF), onde os pacotes são armazenados em SSISDB hospedado sQL Database e executados em Azure SSIS Integration Runtime (IR), ver [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Para comparar as funcionalidades SSIS no servidor de base de dados SQL e na Instância Gerida, consulte Compare uma base de [dados única azure SQL, piscina elástica e instância gerida](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance). | Sim, com um SSIS gerido em ambiente azure Data Factory (ADF), onde os pacotes são armazenados em SSISDB hospedados por Managed Instance e executados em Runtime de Integração Azure SSIS (IR), ver [Create Azure-SSIS IR em ADF.](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime) <br/><br/>Para comparar as funcionalidades SSIS na Base de Dados SQL e na Instância Gerida, consulte Compare uma base de [dados única azure SQL, piscina elástica e instância gerida](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance). |

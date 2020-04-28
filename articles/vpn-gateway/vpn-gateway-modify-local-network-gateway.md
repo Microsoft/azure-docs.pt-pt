@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: cherylmc
 ms.openlocfilehash: dbaef6e0c81a9230b24aa1e85e7fdc421444047d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864000"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>Modificar as definições do gateway de rede local com o PowerShell
@@ -20,9 +20,9 @@ ms.locfileid: "75864000"
 Por vezes, as definições para o seu gateway de rede local AddressPrefix ou gatewayIPAddress mudam. Este artigo mostra-lhe como modificar as definições de gateway da rede local. Também pode modificar estas definições utilizando um método diferente, selecionando uma opção diferente da seguinte lista:
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [Portal do Azure](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
-> * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+> * [CLI do Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 >
 >
 

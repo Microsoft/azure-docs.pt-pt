@@ -4,10 +4,10 @@ description: Aprenda a configurar as células para o modo slideshow num portáti
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75647123"
 ---
 # <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Executar um slideshow de cadernos em Pré-visualização de cadernos Azure

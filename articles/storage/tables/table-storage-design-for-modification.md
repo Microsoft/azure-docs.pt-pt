@@ -9,14 +9,14 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: c95be7afae5c0a84c06b691c8225f32f2aa68260
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75771551"
 ---
 # <a name="design-for-data-modification"></a>Design da modificação de dados
-Este artigo centra-se nas considerações de design para otimizar inserções, atualizações e exclusões. Em alguns casos, você precisará avaliar a compensação entre designs que otimizam para consulta contra designs que otimizam para modificação de dados, tal como você faz em desenhos para bases de dados relacionais (embora as técnicas para gerir as compensações de design são diferente numa base de dados relacional). A secção Table Design Patterns descreve alguns padrões de design detalhados para o serviço de mesa e destaca algumas destas trocas. Na prática, vai descobrir que muitos projetos otimizados para consultas de entidades também funcionam bem para modificar entidades.  
+Este artigo centra-se nas considerações de design para otimizar inserções, atualizações e exclusões. Em alguns casos, terá de avaliar a compensação entre desenhos que otimizam a consulta contra designs que otimizam a modificação de dados tal como faz nos desenhos para bases de dados relacionais (embora as técnicas de gestão das compensações de design sejam diferentes numa base de dados relacional). A secção Table Design Patterns descreve alguns padrões de design detalhados para o serviço de mesa e destaca algumas destas trocas. Na prática, vai descobrir que muitos projetos otimizados para consultas de entidades também funcionam bem para modificar entidades.  
 
 ## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Otimizar o desempenho de inserção, atualização e eliminação de operações
 Para atualizar ou eliminar uma entidade, deve ser capaz de identificá-la utilizando os valores **PartitionKey** e **RowKey.** A este respeito, a sua escolha de **PartitionKey** e **RowKey** para modificar entidades deve seguir critérios semelhantes à sua escolha para apoiar consultas de pontos porque pretende identificar as entidades da forma mais eficiente possível. Não pretende utilizar uma partilha ou digitalização de mesa ineficiente para localizar uma entidade para descobrir os valores **PartitionKey** e **RowKey** que precisa para atualizá-lo ou eliminá-lo.  

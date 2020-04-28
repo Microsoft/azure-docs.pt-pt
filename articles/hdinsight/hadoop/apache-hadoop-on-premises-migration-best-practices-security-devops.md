@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: 4ceefcbbbb53e3ae13f8ced930ae8417fb00965f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75974411"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar no local Apache Hadoop clusters para Azure HDInsight - segurança e DevOps boas práticas
@@ -86,7 +86,7 @@ Para obter mais informações, veja os artigos seguintes:
 - [Visão geral das Redes Virtuais Azure](../../virtual-network/virtual-networks-overview.md)
 - [Visão geral dos Grupos de Segurança da Rede Azure](../../virtual-network/security-overview.md)
 - [Peering da Rede Virtual Azure](../../virtual-network/virtual-network-peering-overview.md)
-- [Guia de segurança de armazenamento azure](../../storage/blobs/security-recommendations.md)
+- [Guia de segurança do Armazenamento do Azure](../../storage/blobs/security-recommendations.md)
 - [Encriptação do serviço de armazenamento Azure em repouso](../../storage/common/storage-service-encryption.md)
 
 ## <a name="use-monitoring--alerting"></a>Utilizar alerta de monitorização &
