@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1c7e18214ec175b8b21d25643098631a044da19c
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: c60c1d33954b5e12038fd66787225f4d0aeba62d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758311"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184712"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de Base de Segurança Azure para Centros de Eventos
 
@@ -675,7 +675,7 @@ Como criar e utilizar Tags:https://docs.microsoft.com/azure/azure-resource-manag
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor para os recursos Azure não aprovados
 
-**Orientação**: Utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
 
 - Tipos de recursos não permitidos
 
@@ -717,7 +717,7 @@ Como criar consultas com o Azure Graph:https://docs.microsoft.com/azure/governan
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Utilizar apenas os serviços Azure aprovados
 
-**Orientação**: Utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
 
 - Tipos de recursos não permitidos
 
@@ -797,7 +797,7 @@ Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/gover
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Manter configurações seguras de recursos Azure
 
-**Orientação:** Utilize a política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos ativados por Hubs de Eventos. 
+**Orientação:** Utilize a Política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos ativados por Hubs de Eventos. 
 
 Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -856,7 +856,7 @@ Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/gover
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementar monitorização automatizada de configuração para os serviços Do Azure
 
-**Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.EventHub" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Utilize a política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente as configurações para as implementações dos seus Hubs de Eventos Azure e recursos conexos.
+**Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.EventHub" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Use a Política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente as configurações para as implementações dos seus Hubs de Eventos Azure e recursos conexos.
 
 Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

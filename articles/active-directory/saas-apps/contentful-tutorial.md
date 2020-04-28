@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd218c61114c1e15009ace5a9a9bd7a536996e86
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b58abede48c0e096f3f54989d783b1e455f8e4d4
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72968653"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82169647"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>Tutorial: Azure Ative Directory integração individual (SSO) com Contentful
 
@@ -46,6 +46,7 @@ Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
 * Suportes satisfeitos **SP e IDP** iniciados SSO
 * Suportes satisfeitos **Just In Time** user provisioning
+* Assim que configurar o Contentful, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
 
 > [!NOTE]
 > O identificador desta aplicação é um valor fixo de cadeia. Apenas uma instância pode ser configurada num inquilino.
@@ -94,6 +95,16 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de Resposta real e URL de Sinal através da cópia do URL ACS (Serviço de Consumidor de Afirmação) da página de configuração SSO em Contentful.
+
+1. A aplicação contentada espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
+
+    ![image](common/default-attributes.png)
+
+1. Além de acima, a aplicação Contentful espera que poucos atributos sejam retransmitidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
+    
+    | Nome |  Atributo fonte|
+    | --------------- | --------- |
+    | e-mail | user.userprincipalname |
 
 1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 

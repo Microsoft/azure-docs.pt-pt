@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7902112c1694bacfeb45b5f20db80d5136642169
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4d2681c09030ff0f36938d7a09e1d1b2e9aa645c
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77047954"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166315"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com o Kit de Ferramentas Azure AD SAML
 
@@ -89,6 +88,9 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
     c. Na caixa de texto **URL resposta,** escreva um URL:`https://samltoolkit.azurewebsites.net/SAML/Consume`
 
+    > [!NOTE]
+    > Estes valores não são valores reais. Atualize estes valores com os valores reais do URL, Identificador e Resposta URL, o que é explicado mais tarde no tutorial.
+
 1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **certificado (Cru)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento do Certificado](common/certificateraw.png)
@@ -154,6 +156,8 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on Azure, conced
     1. Clique **em Escolher File** e faça upload do ficheiro Certificado **(Raw)** que descarregou a partir do portal Azure.
 
     1. Clique em **Criar**.
+
+    1. Copiar os valores de URL de inscrição, identificador e URL ACS na página de configuração SAML Toolkit SSO e colar em caixas de texto respeitadas na **secção de configuração Básica SAML** no portal Azure.
 
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>Criar o utilizador de teste de toolkit Azure AD SAML
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: rohogue
-ms.openlocfilehash: 0a24530810a448a713c01efbc8933b9f22d15b3b
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 72b6b0b78da23fd0891c0571c9137fefbfb0b077
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536374"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186622"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Problemas de configuração nas e problemas de alvo de armazenamento NFS
 
@@ -50,7 +50,7 @@ rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+t
 
 Certifique-se de que todas as ``rpcinfo`` portas devolvidas pela consulta permitem tráfego ilimitado a partir da subnet azure HPC Cache.
 
-Verifique estas definições tanto na própria NAS como em quaisquer firewalls entre o sistema de armazenamento e a sub-rede cache.
+Verifique estas definições tanto na própria NAS como também em quaisquer firewalls entre o sistema de armazenamento e a sub-rede cache.
 
 ## <a name="check-root-access"></a>Verifique o acesso à raiz
 

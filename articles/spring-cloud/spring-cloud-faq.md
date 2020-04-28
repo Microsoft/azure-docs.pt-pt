@@ -6,16 +6,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: 62623bcadb35f21117ddc2601195e34598c2dff5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95260d9a15fdc32c9fddccbcf63ae9fa564fd36a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298763"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176775"
 ---
 # <a name="azure-spring-cloud-faq"></a>FaQ da nuvem de primavera azure
 
-Este artigo responde frequentemente a perguntas sobre a Nuvem de primavera de Azure. 
+Este artigo responde frequentemente a perguntas sobre a Nuvem de primavera de Azure.
 
 ## <a name="general"></a>Geral
 
@@ -92,6 +92,10 @@ Atualmente são apoiados três serviços: Azure Cosmos DB, Azure Database for My
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Posso ver, adicionar ou mover volumes persistentes de dentro das minhas aplicações?
 
 Sim.
+
+### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Quando eu apagar/mover uma instância de serviço Azure Spring Cloud, os seus recursos de extensão serão eliminados/movidos também?
+
+Depende das lógicas dos fornecedores de recursos onde os recursos de extensão pertencem. Os recursos de `Microsoft.AppPlatform` extensão de uma instância não pertencem ao mesmo espaço de nome, pelo que os comportamentos variam de acordo com diferentes fornecedores de recursos. Por exemplo, a operação de eliminação/movimento não irá cascata para os recursos de definição de **diagnóstico.** Se uma nova instância da Nuvem de primavera Azure for aprovisionada com o mesmo ID de recurso que o eliminado, ou se a instância anterior da Nuvem de primavera do Azure for reposta, os recursos de **definição** de diagnóstico anteriores continuam a alargá-lo.
 
 ## <a name="deployment"></a>Implementação
 

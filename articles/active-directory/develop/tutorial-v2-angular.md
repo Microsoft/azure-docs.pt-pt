@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c3c12f78118734c31641b90e6fcb8469ddda30b0
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c645ab45711698e4a6f582678e2a850e15dea62a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678013"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181601"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de uma página única angular
 
@@ -36,16 +36,12 @@ Este tutorial demonstra como uma aplicação angular de uma única página (SPA)
 
 ![Diagrama que mostra como a aplicação de amostra gerada neste tutorial funciona](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-<!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
 
 A aplicação de amostra criada neste tutorial permite que um SPA angular questione o Microsoft Graph API ou um API web que aceita tokens do ponto final da plataforma de identidade da Microsoft. O MSAL para biblioteca angular é um invólucro da biblioteca core MSAL.js. Permite que aplicações Angulares (6+) atentiquem os utilizadores da empresa utilizando o Microsoft Azure Ative Directory, os utilizadores da conta microsoft e os utilizadores de identidade social (como facebook, Google e LinkedIn). A biblioteca também permite que as aplicações tenham acesso aos serviços de nuvem da Microsoft ou ao Microsoft Graph.
 
 Neste cenário, após a adesão de um utilizador, é solicitado um sinal de acesso e adicionado aos pedidos http através do cabeçalho de autorização. A aquisição e renovação simbólicas são tratadas pela MSAL.
 
-<!--end-collapse-->
-
-<!--start-collapse-->
 ### <a name="libraries"></a>Bibliotecas
 
 Este tutorial utiliza a seguinte biblioteca:
@@ -55,9 +51,6 @@ Este tutorial utiliza a seguinte biblioteca:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticação da Microsoft para invólucro angular JavaScript|
 
 Pode encontrar o código fonte para a biblioteca MSAL.js no repositório [AzureAD/microsoft-autenticação-biblioteca-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) no GitHub.
-
-<!--end-collapse-->
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -335,10 +328,7 @@ A primeira vez que começa a iniciar o início da sua inscrição, é-lhe pedido
 
 ![A janela "Permissões solicitadas"](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
-
-
-<!--start-collapse-->
-### <a name="add-scopes-and-delegated-permissions"></a>Adicionar âmbitos e permissões delegadas
+## <a name="add-scopes-and-delegated-permissions"></a>Adicionar âmbitos e permissões delegadas
 
 O Microsoft Graph API requer que o *utilizador.leia* o âmbito para ler o perfil de um utilizador. Por predefinição, este âmbito é adicionado automaticamente em todas as aplicações registadas no portal de registo. Outras APIs para o Microsoft Graph, bem como APIs personalizadas para o seu servidor back-end, podem requerer âmbitos adicionais. Por exemplo, a Microsoft Graph API requer os *Calendários.Leia* o âmbito para listar os calendários do utilizador.
 
@@ -348,8 +338,6 @@ Para aceder aos calendários do utilizador no contexto de uma aplicação, adici
 >O utilizador pode ser solicitado para obter consentimentos adicionais à medida que aumenta o número de âmbitos.
 
 Se uma API de back-end não necessitar de um âmbito (não recomendado), pode utilizar o *clienteId* como âmbito nas chamadas para adquirir fichas.
-
-<!--end-collapse-->
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

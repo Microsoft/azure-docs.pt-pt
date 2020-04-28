@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 3d34ebe22344be8acc6ec3cc974071639293e2b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 586b8d25a9f391487640e9b1f8adb3be0e4be6db
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277765"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166177"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(DEPRECIADO) Monitorize um cluster de serviço de contentores Azure com ELK
 
@@ -28,7 +28,7 @@ Neste artigo, demonstramos como implantar a pilha ELK (Elasticsearch, Logstash, 
 A pilha elk é uma combinação de Elasticsearch, Logstash e Kibana que fornece uma pilha de fim a ponta que pode ser usada para monitorizar e analisar registos no seu cluster.
 
 ## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>Configure a pilha ELK num cluster DC/OS
-Aceda ao seu DC/OS UI via [http://localhost:80/](http://localhost:80/) Once in the DC/OS UI navigate to **Universe**. Procure e instale Elasticsearch, Logstash e Kibana do Universo DC/OS e nessa ordem específica. Pode saber mais sobre a configuração se for ao link **De Instalação Avançada.**
+Aceda ao seu DC/OS UI via `http://localhost:80/` Once in the DC/OS UI navigate to **Universe**. Procure e instale Elasticsearch, Logstash e Kibana do Universo DC/OS e nessa ordem específica. Pode saber mais sobre a configuração se for ao link **De Instalação Avançada.**
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 

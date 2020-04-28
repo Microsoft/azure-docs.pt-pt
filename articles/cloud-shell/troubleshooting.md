@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 0b1b22095c77344ed71762d3d51b12f19d9f1811
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79458057"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189467"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Resolução de problemas & Limitações da Casca de Nuvem Azure
 
@@ -46,8 +46,8 @@ Resoluções conhecidas para problemas de resolução de problemas em Azure Clou
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Diálogo de Armazenamento - Erro: 403 RequestDisallowedByPolicy
 
-- **Detalhes**: Ao criar uma conta de armazenamento através da Cloud Shell, não é bem sucedido devido a uma política Azure colocada pelo seu administrador. A mensagem de erro incluirá:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Resolução**: Contacte o seu administrador Azure para remover ou atualizar a política Azure que nega a criação de armazenamento.
+- **Detalhes**: Ao criar uma conta de armazenamento através da Cloud Shell, não é bem sucedido devido a uma atribuição de Política Azure colocada pelo seu administrador. A mensagem de erro incluirá:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Resolução**: Contacte o seu administrador Azure para remover ou atualizar a atribuição da Política Azure que nega a criação de armazenamento.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Diálogo de Armazenamento - Erro: 400 Operação Proibida
 
@@ -164,7 +164,7 @@ Os códigos de sequência de `5;13R`posição do cursor, por exemplo, podem apar
 
 ## <a name="personal-data-in-cloud-shell"></a>Dados pessoais em Cloud Shell
 
-A Azure Cloud Shell leva os seus dados pessoais a sério, os dados capturados e armazenados pelo serviço Azure Cloud Shell são utilizados para fornecer incumprimentos para a sua experiência, como a sua concha mais recentemente usada, tamanho de fonte preferido, tipo de letra preferido e detalhes de partilha de ficheiros que unidade de nuvem de volta. Caso deseje exportar ou eliminar estes dados, utilize as seguintes instruções.
+A Azure Cloud Shell leva os seus dados pessoais a sério, os dados capturados e armazenados pelo serviço Azure Cloud Shell são utilizados para fornecer predefinições para a sua experiência, como a sua concha mais recentemente usada, tamanho de fonte preferido, tipo de letra preferido e detalhes de partilha de ficheiros que fazem a sua unidade de cloud. Caso deseje exportar ou eliminar estes dados, utilize as seguintes instruções.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

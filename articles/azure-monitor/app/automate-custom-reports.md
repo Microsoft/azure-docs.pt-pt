@@ -4,22 +4,22 @@ description: Automatizar relatórios diários/semanais/mensais personalizados co
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: d91595a863901fcc420611ac644c7856e74320dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf251d63645efc70ee93e84827db47ae3055ae33
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655128"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161520"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados da Azure Application Insights
 
 Relatórios periódicos ajudam a manter uma equipa informada sobre como estão os seus serviços críticos de negócio. Desenvolvedores, equipas DevOps/SRE, e seus gestores podem ser produtivos com relatórios automatizados fornecendo informações fiavelmente sem exigir que todos assinem no portal. Estes relatórios também podem ajudar a identificar aumentos graduais de latenciências, taxas de carga ou falhas que podem não desencadear quaisquer regras de alerta.
 
-Cada empresa tem as suas necessidades únicas de reporte, tais como: 
+Cada empresa tem as suas necessidades únicas de reporte, tais como:
 
 * Agregações percentil específicas de métricas, ou métricas personalizadas num relatório.
 * Tenha diferentes relatórios para roll-ups diários, semanais e mensais de dados para diferentes públicos.
-* Segmentação por atributos personalizados como região, ou ambiente. 
+* Segmentação por atributos personalizados como região, ou ambiente.
 * Agrupar alguns recursos de IA num único relatório, mesmo que possam estar em diferentes assinaturas ou grupos de recursos, etc.
 * Relatórios separados contendo métricas sensíveis enviadas para o público seletivo.
 * Relatórios às partes interessadas que podem não ter acesso aos recursos do portal.
@@ -38,7 +38,7 @@ Pode [consultar programáticamente](https://dev.applicationinsights.io/) os dado
     ![Modelo de função azure](./media/automate-custom-reports/azure-function-template.png)
 
 ## <a name="sample-query-for-a-weekly-digest-email"></a>Amostra de consulta para um e-mail semanal de digestão
-A consulta seguinte mostra a junção em vários conjuntos de dados para um e-mail semanal de digestão como relatório. Personalize-o conforme necessário e use-o com qualquer uma das opções acima listadas para automatizar um relatório semanal.   
+A consulta seguinte mostra a junção em vários conjuntos de dados para um e-mail semanal de digestão como relatório. Personalize-o conforme necessário e use-o com qualquer uma das opções acima listadas para automatizar um relatório semanal.
 
 ```AIQL
 let period=7d;
@@ -70,40 +70,34 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Relatório de digestão programado de Insights de aplicação
 
-1. A partir do portal Azure, selecione **Criar uma** > App de**Função****de Computação** > de Recursos .
+1. Crie uma aplicação de função Azure.(Os Insights de aplicação _são_ necessários apenas se quiser monitorizar a sua nova App de Funções com Insights de Aplicação)
 
-   ![Criar uma aplicação de função de recurso Azure](./media/automate-custom-reports/function-app-01.png)
+   Visite a documentação das Funções Azure para aprender a [criar uma aplicação](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) de função
 
-2. Introduza informações apropriadas para a sua aplicação e selecione _Criar_. (A aplicação Insights _On_ só é necessária se quiser monitorizar a sua nova App de Funções com Insights de Aplicação)
+2. Assim que a sua nova App de Funções tiver concluído a implementação, selecione **Ir para o recurso**.
 
-   ![Criar uma imagem de configuração da aplicação de função de recurso Azure](./media/automate-custom-reports/function-app-02.png)
+3. Selecione **Nova função**.
 
-3. Assim que a sua nova App de Funções tiver concluído a implementação, selecione **Ir para o recurso**.
+   ![Criar uma nova imagem de Função](./media/automate-custom-reports/new-function.png)
 
-4. Selecione **Nova função**.
-
-   ![Criar uma nova imagem de Função](./media/automate-custom-reports/function-app-03.png)
-
-5. Selecione o modelo de **_digestão programado_** para insights de aplicação .
+4. Selecione o modelo de **_digestão programado_** para insights de aplicação .
 
      > [!NOTE]
-     > Por padrão, as aplicações de função são criadas com a versão 2.x runtime. Tem de visar as [funções do Azure](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) na versão **1.x** para utilizar o modelo de digestão programado para insights de aplicação.  ![screenshot tempo de execução](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
-
-
+     > Por padrão, as aplicações de função são criadas com a versão 3.x do tempo de execução. Tem de visar as [funções do Azure](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) na versão **1.x** para utilizar o modelo de digestão programado para insights de aplicação. Vá às definições de funcionamento de configuração > função para alterar a versão tempo de execução. ![screenshot tempo de execução](./media/automate-custom-reports/change-runtime-v.png)
 
    ![Screenshot de modelo de insights de aplicação de nova função](./media/automate-custom-reports/function-app-04.png)
 
-6. Insira um endereço de e-mail apropriado para o seu relatório e selecione **Criar**.
+5. Insira um endereço de e-mail apropriado para o seu relatório e selecione **Criar**.
 
-   ![Screenshot de definições de função](./media/automate-custom-reports/function-app-05.png)
+   ![Screenshot de definições de função](./media/automate-custom-reports/scheduled-digest.png)
 
-7. Selecione a sua plataforma de **aplicação** > de funções**funcionalidades funcionalidades** > definições de**aplicações**.
+6. Selecione a**configuração**da**plataforma** > de **aplicações** > de funções .
 
-    ![Imagem de configuração da aplicação da função Azure](./media/automate-custom-reports/function-app-07.png)
+    ![Imagem de configuração da aplicação da função Azure](./media/automate-custom-reports/config.png)
 
-8. Crie três novas definições ``AI_APP_ID`` ``AI_APP_KEY``de ``SendGridAPI``aplicação com valores correspondentes adequados, e . Selecione **Guardar**.
+7. Crie três novas definições ``AI_APP_ID`` ``AI_APP_KEY``de ``SendGridAPI``aplicação com valores correspondentes adequados, e . Selecione **Guardar**.
 
-     ![Screenshot de interface de integração de funções](./media/automate-custom-reports/function-app-08.png)
+     ![Screenshot de interface de integração de funções](./media/automate-custom-reports/app-settings.png)
     
     (Os valores AI_ podem ser encontrados no âmbito do Acesso API para o Recurso de Insights de Aplicação que pretende reportar. Se não tiver uma chave API de Insights de Aplicação, existe a opção de Criar a **Chave API**.)
     
@@ -114,19 +108,19 @@ availabilityResults
      > [!NOTE]
      > Se não tiver uma conta SendGrid, pode criar uma. A documentação da SendGrid para as Funções Azure está [aqui.](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid) Se apenas quiser uma explicação mínima sobre como configurar sendGrid e gerar uma chave API é fornecida no final deste artigo. 
 
-9. Selecione **Integrar** e em saídas clique **em SendGrid ($return)**.
+8. Selecione **Integrar** e em saídas clique **em SendGrid ($return)**.
 
-     ![Screenshot de saída](./media/automate-custom-reports/function-app-09.png)
+     ![Screenshot de saída](./media/automate-custom-reports/integrate.png)
 
-10. No âmbito da definição de aplicação de **chave SendGridAPI,** selecione a definição de aplicação recém-criada para **SendGridAPI**.
+9. No âmbito da definição de aplicação de **chave SendGridAPI,** selecione a definição de aplicação recém-criada para **SendGridAPI**.
 
-     ![Executar função app screenshot](./media/automate-custom-reports/function-app-010.png)
+     ![Executar função app screenshot](./media/automate-custom-reports/sendgrid-output.png)
 
-11. Executar e testar a sua App de Funções.
+10. Executar e testar a sua App de Funções.
 
      ![Screenshot de teste](./media/automate-custom-reports/function-app-11.png)
 
-12. Verifique o seu e-mail para confirmar que a mensagem foi enviada/recebida com sucesso.
+11. Verifique o seu e-mail para confirmar que a mensagem foi enviada/recebida com sucesso.
 
      ![Imagem de linha de sujeito de e-mail](./media/automate-custom-reports/function-app-12.png)
 
@@ -134,19 +128,19 @@ availabilityResults
 
 Estes passos só se aplicam se ainda não tiver uma conta SendGrid configurada.
 
-1. A partir do portal Azure selecione **Criar uma** pesquisa de recursos para a entrega de **e-mail sendGrid** > Clique **em criar** > e preencher as instruções específicas de criação da SendGrid. 
+1. A partir do portal Azure, selecione **Criar um recurso** > procurar por **SendGrid Email Delivery** > clique em **Criar** > preencher as instruções específicas de criação da SendGrid.
 
-     ![Criar screenshot de recurso sendgrid](./media/automate-custom-reports/function-app-13.png)
+     ![Criar screenshot de recurso sendgrid](./media/automate-custom-reports/sendgrid.png)
 
 2. Uma vez criado seletivamente as Contas SendGrid, selecione **Gerir**.
 
-     ![Configurações Imagem de chave API](./media/automate-custom-reports/function-app-14.png)
+     ![Configurações Imagem de chave API](./media/automate-custom-reports/sendgrid-manage.png)
 
 3. Isto vai lançar o site da SendGrid. Selecione **Definições** > **Teclas API**.
 
      ![Criar e ver a imagem da aplicação chave API](./media/automate-custom-reports/function-app-15.png)
 
-4. Crie uma chave API > escolha **Criar & View** (por favor, reveja a documentação da SendGrid sobre o acesso restrito para determinar qual o nível de permissões adequado para a sua Chave API. O Acesso Integral é selecionado aqui apenas para fins por exemplo.)
+4. Criar uma chave API > escolha **Criar & Vista**. (Reveja a documentação da SendGrid sobre o acesso restrito para determinar o nível de permissões adequado para a sua Chave API. O Acesso Integral é selecionado aqui apenas para fins por exemplo.)
 
    ![Screenshot de acesso completo](./media/automate-custom-reports/function-app-16.png)
 

@@ -3,12 +3,12 @@ title: Utilize definições de diagnóstico para cofres de Serviços de Recupera
 description: Este artigo descreve como usar os eventos de diagnóstico antigos e novos para o Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: f11c9d2a5b48b9cd27ac6e6f8a00eb5ac0ac7a9d
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 4efc00da96493c751c4a85dbdcc280d1ca0ef5ac
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617296"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183709"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Utilize definições de diagnóstico para cofres de Serviços de Recuperação
 
@@ -54,13 +54,13 @@ Depois de os dados entrarem no espaço de trabalho do Log Analytics, são criada
 
 ## <a name="legacy-event"></a>Evento legado
 
-Tradicionalmente, todos os dados de diagnóstico relacionados com a cópia de segurança para um cofre foram contidos num único evento chamado AzureBackupReport. Os seis eventos aqui descritos são, na sua essência, uma decomposição de todos os dados contidos no AzureBackupReport. 
+Tradicionalmente, todos os dados de diagnóstico relacionados com a cópia de segurança para um cofre foram contidos num único evento chamado AzureBackupReport. Os seis eventos aqui descritos são, na sua essência, uma decomposição de todos os dados contidos no AzureBackupReport.
 
 Atualmente, continuamos a apoiar o evento AzureBackupReport para retrocompatibilidade nos casos em que os utilizadores têm consultas personalizadas existentes neste evento. Exemplos são alertas de registo personalizados e visualizações personalizadas. *Recomendamos que se mude para os [novos eventos](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users) o mais cedo possível.* Os novos eventos:
 
-- Tornar os dados muito mais fáceis de trabalhar em consultas de registo.
-- Proporcionar uma melhor descoberta dos esquemas e da sua estrutura.
-- Melhorar o desempenho em ambos os tempos de latência de ingestão e consultas. 
+* Tornar os dados muito mais fáceis de trabalhar em consultas de registo.
+* Proporcionar uma melhor descoberta dos esquemas e da sua estrutura.
+* Melhorar o desempenho em ambos os tempos de latência de ingestão e consultas.
 
 O evento legado no modo de *diagnóstico Azure acabará por ser depreciado. Escolher os novos eventos pode ajudá-lo a evitar migrações complexas mais tarde*. A nossa [solução de reporte](https://docs.microsoft.com/azure/backup/configure-reports) que utiliza o Log Analytics também deixará de suportar dados do evento legado.
 
@@ -73,28 +73,28 @@ O evento legado no modo de *diagnóstico Azure acabará por ser depreciado. Esco
     let VaultUnderAzureDiagnostics = (){
         AzureDiagnostics
         | where TimeGenerated >= RangeStart | where Category == "AzureBackupReport" and OperationName == "Vault" and SchemaVersion_s == "V2"
-        | summarize arg_max(TimeGenerated, *) by ResourceId    
+        | summarize arg_max(TimeGenerated, *) by ResourceId
         | project ResourceId, Category};
     let VaultUnderResourceSpecific = (){
         CoreAzureBackup
-        | where TimeGenerated >= RangeStart | where OperationName == "Vault" 
+        | where TimeGenerated >= RangeStart | where OperationName == "Vault"
         | summarize arg_max(TimeGenerated, *) by ResourceId
         | project ResourceId, Category};
         // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
     let CombinedVaultTable = (){
-        CombinedTable | union isfuzzy = true 
+        CombinedTable | union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),
         (VaultUnderResourceSpecific() )
         | distinct ResourceId, Category};
     CombinedVaultTable | where Category == "AzureBackupReport"
-    | join kind = leftanti ( 
+    | join kind = leftanti (
     CombinedVaultTable | where Category == "CoreAzureBackup"
     ) on ResourceId
     | parse ResourceId with * "SUBSCRIPTIONS/" SubscriptionId:string "/RESOURCEGROUPS" * "MICROSOFT.RECOVERYSERVICES/VAULTS/" VaultName:string
     | project ResourceId, SubscriptionId, VaultName
     ````
 
-1. Utilize a [política azure incorporada](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) em Azure Backup para adicionar uma nova definição de diagnóstico para todos os cofres num âmbito especificado. Esta política adiciona uma nova definição de diagnóstico a cofres que ou não têm uma definição de diagnóstico ou têm apenas uma definição de diagnóstico legado. Esta política pode ser atribuída a toda uma subscrição ou grupo de recursos de cada vez. Deve ter acesso do Proprietário a cada subscrição para a qual a apólice é atribuída.
+1. Utilize as [definições de Política Azure incorporadas](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) em Backup Azure para adicionar uma nova definição de diagnóstico para todos os cofres num âmbito especificado. Esta política adiciona uma nova definição de diagnóstico a cofres que ou não têm uma definição de diagnóstico ou têm apenas uma definição de diagnóstico legado. Esta política pode ser atribuída a toda uma subscrição ou grupo de recursos de cada vez. Deve ter acesso do Proprietário a cada subscrição para a qual a apólice é atribuída.
 
 Pode optar por ter configurações de diagnóstico separadas para o AzureBackupReport e os seis novos eventos até que tenha migrado todas as suas consultas personalizadas para utilizar dados das novas tabelas. A imagem que se segue mostra um exemplo de um cofre que tem duas configurações de diagnóstico. A primeira definição, denominada **Setting1,** envia dados de um evento AzureBackupReport para um espaço de trabalho de Log Analytics no modo de diagnóstico Azure. A segunda definição, denominada **Setting2,** envia dados dos seis novos eventos de backup do Azure para um espaço de trabalho de Log Analytics no modo específico de recursos.
 

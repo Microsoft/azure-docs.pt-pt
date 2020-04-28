@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: fcdd7c13c9e0a5f9e858309bea50bb0264b7b301
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 77c464f51bd17921052b3ae1e9fefb49e777d6c2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460686"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181910"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Encriptação de dados para base de dados Azure para servidor Single PostgreSQL utilizando o Azure CLI
 
@@ -80,7 +80,7 @@ Aprenda a utilizar o Azure CLI para configurar e gerir a encriptação de dados 
     az postgres server key create –name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    Url chave:https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Url chave:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Utilização da encriptação de Dados para restaurar ou replicar servidores
 
@@ -105,7 +105,7 @@ Depois de a Base de Dados Azure para o servidor Single PostgreSQL ser encriptada
     az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### <a name="list-the-key-used"></a>Lista rindo a chave utilizada
 

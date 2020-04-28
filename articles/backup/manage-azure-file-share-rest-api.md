@@ -3,12 +3,12 @@ title: Gerir o Backup de partilha de ficheiros Azure com a Rest API
 description: Aprenda a usar a REST API para gerir e monitorizar as ações de ficheiros Azure que são apoiadas pela Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 9d29b226aff568c91de8e1f19ddc0c64f8169e4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e1d3463aa5d6ee10782e2ee17a7c17ffd64cb61
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444735"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184916"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Gerir o Backup de partilha de ficheiros Azure com a REST API
 

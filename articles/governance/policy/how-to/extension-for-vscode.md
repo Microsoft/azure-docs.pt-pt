@@ -3,12 +3,12 @@ title: Extensão da Política Azure para Código de Estúdio Visual
 description: Aprenda a usar a extensão da Política Azure para o Código do Estúdio Visual para procurar pseudónimos do Gestor de Recursos.
 ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 5e31af652f2746adbf0eda386bdb178c752f5f84
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 0c4e04cc352744fed1c7c2965f8096f0f05c2a50
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641030"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182570"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Utilize a extensão da política azure para o Código do Estúdio Visual
 
@@ -52,7 +52,7 @@ Para um utilizador nacional de nuvem, siga estes passos para definir primeiro o 
 
 1. Selecione a nuvem da nação da lista:
 
-   ![Detete o sinal de cloud do Azure para o Código do Estúdio Visual](../media/extension-for-vscode/set-default-azure-cloud-sign-in.png)
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Detete o sinal de cloud do Azure para o Código do Estúdio Visual" border="false":::
 
 ## <a name="connect-to-an-azure-account"></a>Ligue-se a uma conta Azure
 
@@ -64,13 +64,13 @@ Para avaliar os recursos e os pseudónimos de procura, deve ligar-se à sua cont
 
      A partir da extensão política azure, selecione **Iniciar sessão em Azure**.
 
-     ![Sinal de cloud Azure para Visual Studio Code da extensão da Política Azure](../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png)
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Sinal de cloud Azure para Visual Studio Code da extensão da Política Azure" border="false":::
 
    - Paleta de Comando
 
      A partir da barra de menus, vá **ver** > paleta de**comando,** e **insira Azure: Inscreva-se**.
 
-     ![Sinal de nuvem azure para código de estúdio visual da paleta de comando](../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png)
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Sinal de nuvem azure para código de estúdio visual da paleta de comando" border="false":::
 
 1. Siga o sinal em instruções para iniciar sessão no Azure. Depois de conectado, o nome da sua conta Azure é mostrado na barra de estado na parte inferior da janela Visual Studio Code.
 
@@ -125,7 +125,7 @@ Quando um recurso é selecionado, seja através da interface de pesquisa ou sele
 
 Uma vez aberto um recurso, pairando sobre o nome ou valor do Gestor de Recursos exibe o pseudónimo da Política Azure se existir. Neste exemplo, o recurso `Microsoft.Compute/virtualMachines` é um tipo de recurso e as **propriedades.storageProfile.imageReference.offer** property está sobrepairada. Pairar mostra os pseudónimos correspondentes.
 
-![Hover de extensão da Política Azure mostra pseudónimo de Gestor de Recursos](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Hover de extensão da Política Azure mostra pseudónimo de Gestor de Recursos" border="false":::
 
 ## <a name="search-for-and-view-policies-and-assignments"></a>Pesquisar e ver políticas e atribuições
 

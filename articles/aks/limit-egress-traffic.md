@@ -4,12 +4,12 @@ description: Saiba quais os portos e endereços necessários para controlar o tr
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 2cd7aeea272d22615d3ba3d3db6acc2c84d22cca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: daf17ee4d6518de63dc642fd64acd6b4c5be7d2f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080179"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183930"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlo egress tráfego para nós de cluster no Serviço Azure Kubernetes (AKS)
 
@@ -162,8 +162,8 @@ São necessárias as seguintes regras de aplicação FQDN/aplicação para os cl
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Este endereço é utilizado para o correto funcionamento da Política Azure. (atualmente em pré-visualização no AKS) |
 | raw.githubusercontent.com | HTTPS:443 | Este endereço é usado para retirar as políticas incorporadas do GitHub para garantir o correto funcionamento da Política Azure. (atualmente em pré-visualização no AKS) |
-| *.gk. \<localização\>.azmk8s.io | HTTPS:443    | Add-on de política Azure que fala com gatekeeper audit endpoint funcionando no servidor principal para obter os resultados da auditoria. |
-| dc.services.visualstudio.com | HTTPS:443 | Add-on de política Azure que envia dados de telemetria para aplicações insights ponto final. |
+| *.gk. \<localização\>.azmk8s.io | HTTPS:443    | O add-on Azure Policy que fala com o ponto final da auditoria gatekeeper a funcionar no servidor principal para obter os resultados da auditoria. |
+| dc.services.visualstudio.com | HTTPS:443 | Add-on Azure Policy que envia dados de telemetria para aplicações insights ponto final. |
 
 ## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Exigido por nós baseados no Windows Server (em pré-visualização pública) ativado
 

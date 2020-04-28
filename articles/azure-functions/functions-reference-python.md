@@ -3,12 +3,12 @@ title: Referência de desenvolvedor python para funções Azure
 description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 30f40db33b6aa8b40202c023f301265565257180
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 936d6455f448e0243c7d4de2b9f1b88673a32798
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276689"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185987"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvimento de funções azure Python
 
@@ -629,42 +629,15 @@ from os import listdir
 
 Recomendamos que mantenha os seus testes numa pasta separada da pasta do projeto. Isto impede-o de implementar código de teste com a sua aplicação. 
 
+## <a name="cross-origin-resource-sharing"></a>Partilha de recursos de várias origens
+
+A Azure Functions suporta a partilha de recursos de origem cruzada (CORS). O CORS está configurado [no portal](functions-how-to-use-azure-function-app-settings.md#cors) e através do [Azure CLI](/cli/azure/functionapp/cors). A lista de origens permitida seleções do CORS aplica-se ao nível da aplicação de funções. Com cors ativado, as `Access-Control-Allow-Origin` respostas incluem o cabeçalho. Para obter mais informações, consulte [Partilha de recursos de várias origens](functions-how-to-use-azure-function-app-settings.md#cors). 
+
+O CORS é totalmente suportado para aplicações de função Python.
+
 ## <a name="known-issues-and-faq"></a>Questões conhecidas e FAQ
 
 Todos os problemas conhecidos e pedidos de funcionalidades são rastreados usando a lista de [problemas gitHub.](https://github.com/Azure/azure-functions-python-worker/issues) Se tiver um problema e não encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
-
-### <a name="cross-origin-resource-sharing"></a>Partilha de recursos de várias origens
-
-A Azure Functions suporta a partilha de recursos de origem cruzada (CORS). O CORS está configurado [no portal](functions-how-to-use-azure-function-app-settings.md#cors) e através do [Azure CLI](/cli/azure/functionapp/cors). A lista de origens permitida seleções do CORS aplica-se ao nível da aplicação de funções. Com cors ativado, as `Access-Control-Allow-Origin` respostas incluem o cabeçalho. Para obter mais informações, consulte [Partilha de recursos de várias origens](functions-how-to-use-azure-function-app-settings.md#cors).
-
-A lista de origens permitidas [não é atualmente suportada](https://github.com/Azure/azure-functions-python-worker/issues/444) para aplicações de função Python. Devido a esta limitação, deve `Access-Control-Allow-Origin` definir expressamente o cabeçalho nas suas funções HTTP, como mostra o seguinte exemplo:
-
-```python
-def main(req: func.HttpRequest) -> func.HttpResponse:
-
-    # Define the allow origin headers.
-    headers = {"Access-Control-Allow-Origin": "https://contoso.com"}
-
-    # Set the headers in the response.
-    return func.HttpResponse(
-            f"Allowed origin '{headers}'.",
-            headers=headers, status_code=200
-    )
-``` 
-
-Certifique-se de que também atualiza a sua função.json para suportar o método OPÇÕES HTTP:
-
-```json
-    ...
-      "methods": [
-        "get",
-        "post",
-        "options"
-      ]
-    ...
-```
-
-Este método HTTP é usado pelos navegadores da Web para negociar a lista de origens permitidas. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

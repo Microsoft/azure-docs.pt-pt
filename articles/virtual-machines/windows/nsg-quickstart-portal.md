@@ -1,24 +1,18 @@
 ---
 title: Abrir portas para um VM usando o portal Azure
-description: Saiba como abrir uma porta /criar um ponto final para o seu Windows VM utilizando o modelo de implementação do gestor de recursos no Portal Azure
-services: virtual-machines-windows
-documentationcenter: ''
+description: Saiba como abrir uma porta / crie um ponto final para o seu Windows VM utilizando o Portal Azure
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 130d3315b5a9a6f175bd3d67ed33a034ab5f8dda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1844236a77b688819832b3fe0bf6736beea4bfae
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75371416"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865492"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Como abrir portas a uma máquina virtual com o portal Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]

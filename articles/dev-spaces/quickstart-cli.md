@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este quickstart mostra-lhe como usar o Azure Dev Spaces e a linha de comando para desenvolver uma aplicação no Serviço Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 8ee5cba06d9a526640d9057ee88a681d46392f4f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 337c3cb139e1fe0c35344e49271503b98a59fa7b
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80239702"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166007"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Quickstart: Desenvolver uma aplicação na Kubernetes - Azure Dev Spaces
 Neste guia, vai aprender a:
@@ -107,12 +107,12 @@ Step 7/8 : COPY . .
 Step 8/8 : CMD ["npm", "start"]
 Built container image in 6m 17s
 Waiting for container...13s
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 'http' is available at `http://webfrontend.1234567890abcdef1234.eus.azds.io/`
 Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-Pode ver o serviço a funcionar abrindo o URL público, `azds up` que é exibido na saída a partir do comando. Neste exemplo, o URL *http://webfrontend.1234567890abcdef1234.eus.azds.io/* público é .
+Pode ver o serviço a funcionar abrindo o URL público, `azds up` que é exibido na saída a partir do comando. Neste exemplo, o URL *`http://webfrontend.1234567890abcdef1234.eus.azds.io/`* público é .
 
 > [!NOTE]
 > Quando navega para o `azds up`seu serviço durante a execução, os vestígios de pedido http também são apresentados na saída do `azds up` comando. Estes vestígios podem ajudá-lo a resolver problemas e a depurar o seu serviço. Pode desativar `--disable-http-traces` estes `azds up`vestígios utilizando durante a execução .

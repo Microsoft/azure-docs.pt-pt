@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com Nova Relíquia (Lançamento Limitado) [ Lançamento Limitado) [ Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a New Relic (Lançamento Limitado).
+title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com nova relíquia (por organização) [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a New Relic (Por Organização).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,19 +15,19 @@ ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad229e7964b6e7ad0e3f0d58cfc09669ee2fb301
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 71c00ae8ee60f69f10f2e8281fe4fb7cff6bacd4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77088201"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190032"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-limited-release"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com a Nova Relíquia (Lançamento Limitado)
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-organization"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com nova relíquia (por organização)
 
-Neste tutorial, aprenderá a integrar a Nova Relíquia (Lançamento Limitado) com o Azure Ative Directory (Azure AD). Quando integrar a New Relic (Lançamento Limitado) com a AD Azure, pode:
+Neste tutorial, você vai aprender a integrar A Nova Relíquia (Por Organização) com o Azure Ative Directory (Azure AD). Quando integrar a Nova Relíquia (Por Organização) com a Azure AD, pode:
 
-* Controlo em Azure AD que tem acesso a New Relic (Lançamento Limitado).
-* Ative que os seus utilizadores sejam automaticamente inscritos na New Relic (Lançamento Limitado) com as suas contas Azure AD.
+* Controlo em Azure AD que tem acesso a New Relic (Por Organização).
+* Permita que os seus utilizadores sejam automaticamente inscritos na New Relic (By Organization) com as suas contas Azure AD.
 * Gerencie as suas contas num local central - o portal Azure.
 
 Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -37,46 +37,46 @@ Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o qu
 Para começar, precisa dos seguintes itens:
 
 * Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Nova Relíquia (Lançamento Limitado) assinatura única ativada por assinatura.
+* Nova Relíquia (Por Organização) única subscrição ativada por assinatura.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
-* Nova Relíquia (Lançamento Limitado) suporta **IDP** iniciado SSO
+* Nova Relíquia (Por Organização) apoia **IDP** iniciado SSO
 
 * Assim que configurar a Nova Relíquia, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se a partir do Acesso Condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
 
-## <a name="adding-new-relic-limited-release-from-the-gallery"></a>Adicionar Nova Relíquia (Lançamento Limitado) da galeria
+## <a name="adding-new-relic-by-organization-from-the-gallery"></a>Adicionar Nova Relíquia (Por Organização) da galeria
 
-Para configurar a integração da Nova Relíquia (Versão Limitada) no Azure AD, é necessário adicionar a New Relic (Limited Release) da galeria à sua lista de aplicações saaS geridas.
+Para configurar a integração da Nova Relíquia (Por Organização) no Azure AD, é necessário adicionar a New Relic (By Organization) da galeria à sua lista de aplicações geridas do SaaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
 1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
-1. No **Add da** secção galeria, digite **New Relic (Lançamento Limitado)** na caixa de pesquisa.
-1. Selecione **New Relic (Lançamento Limitado)** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. No **Add da** secção galeria, digite **Nova Relíquia (Por Organização)** na caixa de pesquisa.
+1. Selecione **New Relic (By Organization)** do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-new-relic-limited-release"></a>Configure e teste azure AD único sign-on para New Relic (Lançamento Limitado)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-new-relic-by-organization"></a>Configure e teste Azure AD único sign-on para Nova Relíquia (Por Organização)
 
-Configure e teste Azure AD SSO com Nova Relíquia (Lançamento Limitado) utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em New Relic (Lançamento Limitado).
+Configure e teste Azure AD SSO com Nova Relíquia (Por Organização) utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em New Relic (Por Organização).
 
-Para configurar e testar o Azure AD SSO com nova relíquia (Lançamento Limitado), complete os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com nova relíquia (por organização), complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     * **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
     * Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
-1. **[Configure o SSO da Nova Relíquia (Lançamento Limitado)](#configure-new-relic-limited-release-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
-    * **[Create New Relic (Limited Release) test user](#create-new-relic-limited-release-test-user)** - para ter uma contraparte de B.Simon em New Relic (Lançamento Limitado) que está ligada à representação do utilizador da AD Azure.
+1. **[Configure a Nova Relíquia (Por Organização) SSO](#configure-new-relic-by-organization-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
+    * Criar um novo utilizador de **[teste de Relíquias (Por Organização)](#create-new-relic-by-organization-test-user)** - para ter uma contrapartida de B.Simon em New Relic (Por Organização) que esteja ligada à representação do utilizador da AD Azure.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração da **aplicação New Relic (Limited Release),** encontre a secção **Gerir** e selecione **um único sinal.**
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **da New Relic (Por Organização),** encontre a secção **Gerir** e selecione um **único sinal.**
 1. Na página **de método de inscrição, selecione** **SAML**.
 1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
@@ -117,10 +117,10 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, concedendo acesso à New Relic (Lançamento Limitado).
+Nesta secção, permitirá que b.Simon use o único sign-on Azure, concedendo acesso à New Relic (Por Organização).
 
 1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de aplicações, selecione **New Relic (Lançamento Limitado)**.
+1. Na lista de candidaturas, selecione **New Relic (Por Organização)**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
@@ -133,20 +133,20 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-## <a name="configure-new-relic-limited-release-sso"></a>Configurar nova relíquia (lançamento limitado) SSO
+## <a name="configure-new-relic-by-organization-sso"></a>Configurar nova relíquia (por organização) SSO
 
-Para configurar um único sign-on no lado da **New Relic (Lançamento Limitado),** precisa enviar o Url de **Metadados da Federação de Aplicações** para a equipa de suporte da [New Relic (Lançamento Limitado).](https://support.newrelic.com/) Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sign-on no lado da **Nova Relíquia (Por Organização),** você precisa enviar o Url de **Metadados da Federação de Aplicações** para a nova equipa de suporte de [Relíquias (Por Organização).](https://support.newrelic.com/) Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
 
-### <a name="create-new-relic-limited-release-test-user"></a>Criar novo utilizador de teste de relíquias (lançamento limitado)
+### <a name="create-new-relic-by-organization-test-user"></a>Criar novo utilizador de teste de relíquia (por organização)
 
-Nesta secção, cria-se um utilizador chamado B.Simon em New Relic (Lançamento Limitado). Trabalhe com a equipa de suporte da New Relic [(Limited Release)](https://support.newrelic.com/)para adicionar os utilizadores na plataforma New Relic (Limited Release). Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+Nesta secção, cria-se um utilizador chamado B.Simon em New Relic (Por Organização). Trabalhe com a equipa de suporte da [New Relic (By Organization)](https://support.newrelic.com/) para adicionar os utilizadores na plataforma New Relic (By Organization). Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo New Relic (Lançamento Limitado) no Painel de Acesso, deve ser automaticamente inscrito na Nova Relíquia (Lançamento Limitado) para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando clicar no azulejo New Relic (Por Organização) no Painel de Acesso, deve ser automaticamente inscrito na Nova Relíquia (Por Organização) para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -156,6 +156,6 @@ Quando clicar no azulejo New Relic (Lançamento Limitado) no Painel de Acesso, d
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente nova relíquia (lançamento limitado) com Azure AD](https://aad.portal.azure.com/)
+- [Experimente nova relíquia (por organização) com Azure AD](https://aad.portal.azure.com/)
 
 - [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

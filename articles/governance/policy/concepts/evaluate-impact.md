@@ -1,16 +1,16 @@
 ---
-title: Avaliar o impacto de uma nova política do Azure
+title: Avaliar o impacto de uma nova definição de Política Azure
 description: Compreenda o processo a seguir ao introduzir uma nova definição política no seu ambiente Azure.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 562fa2378356ddc1eac48b6ea5c160ebf655d525
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 394f87c0328bce46d4c7177a336a7861991ad0e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74463520"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187754"
 ---
-# <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Avaliar o impacto de uma nova política do Azure
+# <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Avaliar o impacto de uma nova definição de Política Azure
 
 A Azure Policy é uma ferramenta poderosa para gerir os seus recursos Azure para padrões de negócio e para satisfazer as necessidades de conformidade. Quando pessoas, processos ou oleodutos criam ou atualizam recursos, a Política Azure revê o pedido. Quando o efeito de definição de política é [apêndice](./effects.md#deny) ou [implementação,](./effects.md#deployifnotexists)a política altera o pedido ou adiciona-lhe. Quando o efeito de definição de política é [Auditoria](./effects.md#audit) ou [AuditoriaIfNotExists,](./effects.md#auditifnotexists)a política faz com que seja criada uma entrada de registo de atividade. E quando o efeito de definição de política é [Deny,](./effects.md#deny)a política para a criação ou alteração do pedido.
 

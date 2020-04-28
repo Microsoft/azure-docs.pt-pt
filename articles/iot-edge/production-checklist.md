@@ -4,19 +4,19 @@ description: Saiba como levar a sua solução Azure IoT Edge do desenvolvimento 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/02/2020
+ms.date: 4/24/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f1de8330b950ffa09ce3e8ae168f05021b2ad80c
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
-ms.translationtype: MT
+ms.openlocfilehash: 6ec196408c047682be527ee21735ce809f5916e9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729460"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191843"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implementar a sua solução IoT Edge em produção
 
@@ -136,6 +136,8 @@ Ao passar dos cenários de teste para os cenários de produção, lembre-se de r
 * **Importante**
   * Gerencie o acesso ao seu registo de contentores
   * Use tags para gerir versões
+* **Útil**
+  * Armazenar recipientes de tempo de execução no seu registo privado
 
 ### <a name="manage-access-to-your-container-registry"></a>Gerencie o acesso ao seu registo de contentores
 
@@ -167,6 +169,17 @@ Uma etiqueta é um conceito de estivador que pode usar para distinguir entre ver
 As tags também o ajudam a impor atualizações nos seus dispositivos IoT Edge. Quando empurrar uma versão atualizada de um módulo para o seu registo de contentores, incremente a etiqueta. Em seguida, empurre uma nova implementação para os seus dispositivos com a etiqueta incrementada. O motor do recipiente reconhecerá a etiqueta incrementada como uma nova versão e puxará a versão mais recente do módulo para o seu dispositivo.
 
 Para um exemplo de uma convenção de etiquetas, consulte Atualizar o tempo de [funcionação do IoT Edge](how-to-update-iot-edge.md#understand-iot-edge-tags) para saber como o IoT Edge utiliza tags rolantes e etiquetas específicas para rastrear versões.
+
+### <a name="store-runtime-containers-in-your-private-registry"></a>Armazenar recipientes de tempo de execução no seu registo privado
+
+Você sabe sobre armazenar as suas imagens de recipiente para módulos de código personalizados no seu registo privado do Azure, mas também pode usá-lo para armazenar imagens de contentores públicos, como para os módulos de tempo de execução edgeAgent e edgHub. Ao fazê-lo, poderá ser necessário se tiver restrições de firewall muito apertadas, uma vez que estes recipientes de tempo de execução são armazenados no Registo de Contentores da Microsoft (MCR).
+
+Obtenha as imagens com o comando de puxar o Docker para colocar no seu registo. Esteja ciente de que terá de atualizar as imagens com cada novo lançamento do tempo de execução do IoT Edge.
+
+| Recipiente de tempo de corrida IoT Edge | Comando de puxar docker |
+| --- | --- |
+| [Agente de borda azure IoT](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
+| [HUb borda azure ioT](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
 ## <a name="networking"></a>Redes
 
@@ -203,6 +216,8 @@ Esta lista de verificação é um ponto de partida para as regras de firewall:
    | \*.docker.io  | 443 | Acesso ao Docker Hub (opcional) |
 
 Algumas destas regras de firewall são herdadas do Registo de Contentores De Azure. Para mais informações, consulte [as regras do Configure para aceder a um registo de contentores Azure atrás de uma firewall](../container-registry/container-registry-firewall-access-rules.md).
+
+Se não quiser configurar a sua firewall para permitir o acesso aos registos públicos de contentores, pode armazenar imagens no seu registo de contentores privados, conforme descrito em contentores de tempo de [execução da Loja no seu registo privado](#store-runtime-containers-in-your-private-registry).
 
 ### <a name="configure-communication-through-a-proxy"></a>Configure a comunicação através de um proxy
 

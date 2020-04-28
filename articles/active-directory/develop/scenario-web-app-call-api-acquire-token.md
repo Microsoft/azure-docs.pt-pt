@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1069b4288f8253ccb9a7774b3144d10d85dcdd36
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 40e788099a159e1f60c0af02deccd7e3bef82744
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537122"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181737"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Uma aplicação web que chama APIs web: Adquirir um símbolo para a app
 
 Construíste o objeto de aplicação do teu cliente. Agora, vaiusá-lo para adquirir um símbolo para chamar uma API web. Em ASP.NET ou ASP.NET Core, chamar uma API web é feito no controlador:
 
-- Obtenha um símbolo para a Web API usando a cache simbólica. Para obter este símbolo, `AcquireTokenSilent` chame o método.
+- Obtenha um símbolo para a Web API usando a cache simbólica. Para obter este símbolo, ligue para `AcquireTokenSilent` o método MSAL (ou o equivalente em Microsoft.Identity.Web).
 - Chame a API protegida, passando o sinal de acesso como parâmetro.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
@@ -54,7 +54,7 @@ public async Task<IActionResult> Profile()
 {
  // Acquire the access token.
  string[] scopes = new string[]{"user.read"};
- string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
+ string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
  // Use the access token to call a protected web API.
  HttpClient client = new HttpClient();
@@ -160,6 +160,8 @@ def graphcall():
         ).json()
     return render_template('display.html', result=graph_data)
 ```
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 9f14521c15c3497bed4ffbeba44cb5d78ee4df7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.openlocfilehash: aa3617b30fe1ef9b4d4a6c5fe5aac51bff95bb92
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74047991"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866681"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Problemas de sessão de aplicação Azure Gateway questões de afinidade
 
@@ -97,7 +97,7 @@ Este problema ocorre porque o Internet Explorer e outros navegadores podem não 
 
 #### <a name="resolution"></a>Resolução
 
-Para corrigir este problema, aceda ao Gateway de Aplicação através de um FQDN. Por exemplo, [http://website.com](https://website.com/) [http://appgw.website.com](http://appgw.website.com/) utilizar ou .
+Para corrigir este problema, aceda ao Gateway de Aplicação através de um FQDN. Por exemplo, [http://website.com](https://website.com/) [http://appgw.website.com](http://website.com/) utilizar ou .
 
 ## <a name="additional-logs-to-troubleshoot"></a>Registos adicionais para resolução de problemas
 

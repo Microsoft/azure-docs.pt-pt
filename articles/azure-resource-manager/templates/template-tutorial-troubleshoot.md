@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 737e8a247a232278db73de716647fc5bb890fe39
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239243"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185001"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Implementações do modelo ARM de resolução de problemas
 
@@ -26,24 +26,22 @@ Ambos os tipos de erros devolvem um código de erro que deverá utilizar para re
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar um modelo problemático
-> * Erros de validação de resolução de problemas
-> * Resolver erros de implementação
-> * Limpar recursos
+> - Criar um modelo problemático
+> - Erros de validação de resolução de problemas
+> - Resolver erros de implementação
+> - Limpar recursos
 
 Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [o Use Visual Studio Code para criar modelos ARM](use-vs-code-to-create-template.md).
+- Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [o Use Visual Studio Code para criar modelos ARM](use-vs-code-to-create-template.md).
 
 ## <a name="create-a-problematic-template"></a>Criar um modelo problemático
 
-Abra um modelo chamado [Criar uma conta de armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/) a partir de [modelos De QuickStart Azure,](https://azure.microsoft.com/resources/templates/)e configurar dois problemas de modelo.
+Abra um modelo chamado [Criar uma conta de armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/) a partir de [Modelos De Quickstart Azure,](https://azure.microsoft.com/resources/templates/)e configurar dois problemas de modelo.
 
 1. A partir do Código do Estúdio Visual, selecione **File**>**Open File**.
 2. em **Nome de ficheiro**, cole o seguinte URL:
@@ -51,12 +49,14 @@ Abra um modelo chamado [Criar uma conta de armazenamento padrão](https://azure.
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Selecione **Abrir** para abrir o ficheiro.
 4. Alterar a linha **apiVersion** para a seguinte linha:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
+
     - **apiVersion1** é um nome de elemento inválido. É um erro de validação.
     - A versão DaPi será "2018-07-01".  É um erro de implantação.
 
@@ -64,7 +64,7 @@ Abra um modelo chamado [Criar uma conta de armazenamento padrão](https://azure.
 
 ## <a name="troubleshoot-the-validation-error"></a>Resolução de problemas do erro de validação
 
-Consulte a secção [de modelo de desdobre para](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) implementar o modelo.
+Consulte a secção [de modelo de desdobre para](template-tutorial-create-multiple-instances.md#deploy-the-template) implementar o modelo.
 
 Terá um erro da concha semelhante a:
 
@@ -78,7 +78,7 @@ Utilize o Código do Estúdio Visual para corrigir o problema, alterando a **api
 
 ## <a name="troubleshoot-the-deployment-error"></a>Resolução de problemas do erro de implantação
 
-Consulte a secção [de modelo de desdobre para](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) implementar o modelo.
+Consulte a secção [de modelo de desdobre para](template-tutorial-create-multiple-instances.md#deploy-the-template) implementar o modelo.
 
 Terá um erro da concha semelhante a:
 
@@ -93,7 +93,7 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 
 O erro de implantação pode ser encontrado no portal Azure utilizando o seguinte procedimento:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o grupo de recursos selecionando **grupos de recursos** e, em seguida, o nome do grupo de recursos. Verá **1 Falhado** sob **implantação**.
 
     ![Resolução de problemas tutoriais do Gestor de Recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
@@ -107,7 +107,7 @@ O erro de implantação pode ser encontrado no portal Azure utilizando o seguint
 
 Também pode encontrar o erro dos registos de atividade:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione**registo de atividade**de **monitor** > .
 3. Utilize os filtros para encontrar o tronco.
 

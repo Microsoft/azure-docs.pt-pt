@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f05d33b43df85c49a0c92b60157e2a6448325ac
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 087f2a26449ac866b816403ee155dc2f3653977b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537139"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181754"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Uma aplicação web que chama APIs web: Configuração de código
 
@@ -33,7 +33,7 @@ As seguintes bibliotecas na Microsoft Authentication Library (MSAL) suportam o f
 
 | Biblioteca MSAL | Descrição |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Suporte para as plataformas .NET Framework e .NET Core. Não suportados estão a Universal Windows Platform (UWP), Xamarin.iOS e Xamarin.Android, porque essas plataformas são usadas para construir aplicações de clientes públicos. |
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Suporte para as plataformas .NET Framework e .NET Core. Não suportados estão a Universal Windows Platform (UWP), Xamarin.iOS e Xamarin.Android, porque essas plataformas são usadas para construir aplicações de clientes públicos. Para ASP.NET web apps e APIs web, MSAL.NET é encapsulado numa biblioteca de alto nível chamada Microsoft.Identity.Web|
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL para Python | Suporte para aplicações web Python. |
 | ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL para Java | Suporte para aplicações web Java. |
 
@@ -41,15 +41,24 @@ Selecione o separador para a plataforma em que está interessado:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Uma vez que o acesso ao utilizador é delegado ao middleware de ligação Open ID (OIDC), deve interagir com o processo OIDC. A forma como interages depende da estrutura que usas.
+Para permitir que a sua aplicação web ligue para APIs protegidos `AddWebAppCallsProtectedWebApi` ao utilizar o Microsoft.Identity.Web, basta ligar e especificar um formato de serialização de cache token (por exemplo, cache token na memória):
 
-Para ASP.NET Core, você subscreverá eventos oIDC de middleware:
+```C#
+// This method gets called by the runtime. Use this method to add services to the container.
+public void ConfigureServices(IServiceCollection services)
+{
+    // more code here
 
-- Deixará ASP.NET Core solicitar um código de autorização através do middleware Open ID Connect. ASP.NET ou ASP.NET Core permitirá ao utilizador iniciar sessão e consentir.
-- Subscreverá a aplicação web para receber o código de autorização. Esta subscrição é feita utilizando um delegado C#.
-- Quando o código de autorização for recebido, utilizará bibliotecas MSAL para o resgatar. As fichas de acesso resultantes e as fichas de atualização são armazenadas na cache simbólica. A cache pode ser utilizada noutras partes da aplicação, como os controladores, para adquirir outras fichas silenciosamente.
+    services.AddSignIn(Configuration, "AzureAd");
+            .AddWebAppCallsProtectedWebApi(Configuration,
+                                           initialScopes: new string[] { "user.read" })
+            .AddInMemoryTokenCaches();
 
-Exemplos de código neste artigo e no seguinte são extraídos do tutorial incremental da [aplicação web ASP.NET Core, capítulo 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph). Talvez queira consultar esse tutorial para obter detalhes completos de implementação.
+    // more code here
+}
+```
+
+Se estiver interessado em entender mais sobre a cache simbólica, consulte opções de serialização de [cache token](#token-cache)
 
 > [!NOTE]
 > Para compreender completamente os exemplos de código aqui, é preciso estar familiarizado com [os fundamentos do núcleo ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals), e em particular com a injeção de [dependência](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) e [opções.](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)
@@ -82,254 +91,7 @@ A amostra permite atualmente a MSAL. Python produz o URL de código de autoriza�
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-### <a name="startupcs"></a>Startup.cs
-
-Em ASP.NET Core, `Startup.cs` no ficheiro, `OnAuthorizationCodeReceived` subscreve o evento OpenID Connect. Deste evento, ligue `AcquireTokenFromAuthorizationCode` para o método MSAL.NET. Este método armazena as seguintes fichas na cache simbólica:
-
-- O *sinal de acesso* `scopes`para o solicitado.
-- Um *símbolo refrescante.* Este token será usado para refrescar o token de acesso quando estiver perto de expirar, ou para obter outro símbolo em nome do mesmo utilizador, mas para um recurso diferente.
-
-O [tutor da aplicação ASP.NET Core Web](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) fornece-lhe código reutilizável para as suas aplicações web.
-
-Segue-se o código de [Startup.cs#L40-L42](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Startup.cs#L40-L42). Apresenta chamadas para:
-
-- O `AddMicrosoftIdentityPlatformAuthentication` método, que adiciona autenticação à aplicação web.
-- O `AddMsal` método, que adiciona a capacidade de chamar APIs web.
-- O `AddInMemoryTokenCaches` método, que consiste em escolher uma implementação de cache de token.
-
-```csharp
-public class Startup
-{
-  // Code not shown here
-
-  public void ConfigureServices(IServiceCollection services)
-  {
-      // Token acquisition service based on MSAL.NET
-      // and chosen token-cache implementation
-      services.AddMicrosoftIdentityPlatformAuthentication(Configuration)
-          .AddMsal(Configuration, new string[] { Constants.ScopeUserRead })
-          .AddInMemoryTokenCaches();
-  }
-
-  // Code not shown here
-}
-```
-
-`Constants.ScopeUserRead`é definido em [Constants.cs#L5:](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Infrastructure/Constants.cs#L5)
-
-```csharp
-public static class Constants
-{
-    public const string ScopeUserRead = "User.Read";
-}
-```
-
-Já estudou o conteúdo `AddMicrosoftIdentityPlatformAuthentication` da [aplicação Web que assina nos utilizadores - configuração de código](scenario-web-app-sign-user-app-configuration.md?tabs=aspnetcore#initialization-code).
-
-### <a name="the-addmsal-method"></a>O método AddMsal
-
-O código `AddMsal` para está localizado em [Microsoft.Identity.Web/WebAppServiceCollections.cs#L108-L159](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L108-L159).
-
-```csharp
-
-/// <summary>
-/// Extensions for IServiceCollection for startup initialization
-/// </summary>
-public static class WebAppServiceCollectionExtensions
-{
-  // Code omitted here
-
-  /// <summary>
-  /// Add MSAL support to the web app or web API.
-  /// </summary>
-  /// <param name="services">Service collection to which to add authentication</param>
-  /// <param name="initialScopes">Initial scopes to request at sign-in</param>
-  /// <returns></returns>
-  public static IServiceCollection AddMsal(this IServiceCollection services, IConfiguration configuration, IEnumerable<string> initialScopes, string configSectionName = "AzureAd")
-  {
-      // Ensure that configuration options for MSAL.NET, HttpContext accessor and the Token acquisition service
-      // (encapsulating MSAL.NET) are available through dependency injection.
-      services.Configure<ConfidentialClientApplicationOptions>(options => configuration.Bind(configSectionName, options));
-      services.AddHttpContextAccessor();
-      services.AddTokenAcquisition();
-
-      services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
-      {
-          // Response type
-          options.ResponseType = OpenIdConnectResponseType.CodeIdToken;
-
-          // This scope is needed to get a refresh token when users sign in by using their personal Microsoft accounts.
-          // (It's required by MSAL.NET and automatically provided when users sign in by using work or school accounts.)
-          options.Scope.Add("offline_access");
-          if (initialScopes != null)
-          {
-              foreach (string scope in initialScopes)
-              {
-                  if (!options.Scope.Contains(scope))
-                  {
-                      options.Scope.Add(scope);
-                  }
-              }
-          }
-
-          // Handle the auth redemption by MSAL.NET so that a token is available in the token cache,
-          // where it will be usable from controllers later (by means of the TokenAcquisition service).
-          var handler = options.Events.OnAuthorizationCodeReceived;
-          options.Events.OnAuthorizationCodeReceived = async context =>
-          {
-              var tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
-              await tokenAcquisition.AddAccountToCacheFromAuthorizationCodeAsync(context, options.Scope).ConfigureAwait(false);
-              await handler(context).ConfigureAwait(false);
-          };
-      });
-      return services;
-  }
-}
-```
-
-O `AddMsal` método garante que:
-
-- A aplicação web ASP.NET Core solicita um símbolo de identificação`options.ResponseType = OpenIdConnectResponseType.CodeIdToken`para o utilizador e um código de autenticação ( ).
-- O `offline_access` âmbito é adicionado. Este âmbito obtém o consentimento do utilizador para que a aplicação obtenha um token de atualização.
-- A aplicação subscreve o `OnAuthorizationCodeReceived` evento OIDC e resgata a chamada utilizando MSAL.NET, que é encapsulada aqui num componente reutilizável implementando `ITokenAcquisition`.
-
-### <a name="the-tokenacquisitionaddaccounttocachefromauthorizationcodeasync-method"></a>O método TokenAcquisition.AddAccountToCacheFromAuthorizationCodeAsync
-
-O `TokenAcquisition.AddAccountToCacheFromAuthorizationCodeAsync` método está localizado em [Microsoft.Identity.Web/TokenAcquisition.cs#L101-L145](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L101-L145). Garante que:
-
-- ASP.NET não tenta resgatar o código de autenticação`context.HandleCodeRedemption();`paralelamente à MSAL.NET .
-- As reclamações no token ID estão disponíveis para que a MSAL calcule uma chave de cache simbólica para a conta do utilizador.
-- Se necessário, é criado um exemplo da aplicação MSAL.NET.
-- O código é redimido pela aplicação MSAL.NET.
-- O novo símbolo de identificação é partilhado `context.HandleCodeRedemption(null, result.IdToken);`com ASP.NET Core durante a chamada para . O sinal de acesso não é partilhado com ASP.NET Core. Permanece na cache token MSAL.NET associada ao utilizador, onde está pronto para ser utilizado em controladores core ASP.NET.
-
-Aqui está o código `TokenAcquisition`relevante para:
-
-```csharp
-public class TokenAcquisition : ITokenAcquisition
-{
-  string[] scopesRequestedByMsalNet = new string[]{ "openid", "profile", "offline_access" };
-
-  // Code omitted here for clarity
-
-
-  public async Task AddAccountToCacheFromAuthorizationCodeAsync(AuthorizationCodeReceivedContext context, IEnumerable<string> scopes)
-  {
-   // Code omitted here for clarity
-
-    try
-    {
-      // Because AcquireTokenByAuthorizationCodeAsync is asynchronous, we tell ASP.NET core that we're handing the code
-      // even if it's not done yet, so that it doesn't concurrently call the token endpoint. Otherwise, there will be a
-      // race condition that causes an Azure AD error message ("code already redeemed").
-      context.HandleCodeRedemption();
-
-      // The cache needs the claims from the ID token.
-      // If they're not yet in the HttpContext.User's claims, add them here.
-      if (!context.HttpContext.User.Claims.Any())
-      {
-          (context.HttpContext.User.Identity as ClaimsIdentity).AddClaims(context.Principal.Claims);
-      }
-
-      var application = GetOrBuildConfidentialClientApplication();
-
-      // Don't share the access token with ASP.NET Core. If we share it, ASP.NET will cache it and won't send the OAuth 2.0 request if
-      // a further call to AcquireTokenByAuthorizationCodeAsync is required later for incremental consent (getting a code requesting more scopes).
-      // Do share the ID token, however.
-      var result = await application
-          .AcquireTokenByAuthorizationCode(scopes.Except(_scopesRequestedByMsalNet), context.ProtocolMessage.Code)
-          .ExecuteAsync()
-          .ConfigureAwait(false);
-
-      context.HandleCodeRedemption(null, result.IdToken);
-  }
-  catch (MsalException ex)
-  {
-      Debug.WriteLine(ex.Message);
-      throw;
-  }
- }
-```
-
-### <a name="the-tokenacquisitionbuildconfidentialclientapplication-method"></a>O método TokenAcquisition.BuildConfidentialClientApplication
-
-Em ASP.NET Core, a construção da aplicação `HttpContext`confidencial do cliente utiliza informações que estão no . O `HttpContext` associado ao pedido é acedido `CurrentHttpContext` através da utilização do imóvel. `HttpContext`tem informações sobre o URL para a aplicação web `ClaimsPrincipal`e sobre o utilizador inscrito (em a ).
-
-O `BuildConfidentialClientApplication` método também utiliza a configuração ASP.NET Core. A configuração tem uma secção "AzureAD", e também está ligada a ambos os seguintes elementos:
-
-- A `_applicationOptions` estrutura de dados do tipo [ConfidentialClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet).
-- A `azureAdOptions` instância do tipo [AzureAdOptions,](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs)definida em ASP.NET Core `Authentication.AzureAD.UI`.
-
-Finalmente, a aplicação precisa de manter caches simbólicos. Saberá mais sobre isso na próxima secção.
-
-O código `GetOrBuildConfidentialClientApplication()` para o método está em [Microsoft.Identity.Web/TokenAcquisition.cs#L290-L333](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L290-L333). Utiliza membros que foram injetados por injeção de `TokenAcquisition` dependência (passado no construtor de [Microsoft.Identity.Web/TokenAcquisition.cs#L47-L59](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L47-L59)).
-
-Aqui está o `GetOrBuildConfidentialClientApplication`código para:
-
-```csharp
-public class TokenAcquisition : ITokenAcquisition
-{
-  // Code omitted here for clarity
-
-  // Members
-  private IConfidentialClientApplication application;
-  private HttpContext CurrentHttpContext => _httpContextAccessor.HttpContext;
-
-  // The following members are set by dependency injection in the TokenAcquisition constructor.
-  private readonly AzureADOptions _azureAdOptions;
-  private readonly ConfidentialClientApplicationOptions _applicationOptions;
-  private readonly IMsalAppTokenCacheProvider _appTokenCacheProvider;
-  private readonly IMsalUserTokenCacheProvider _userTokenCacheProvider;
-  private readonly IHttpContextAccessor _httpContextAccessor;
-
-  /// <summary>
-  /// Creates an MSAL confidential client application, if needed.
-  /// </summary>
-  private IConfidentialClientApplication GetOrBuildConfidentialClientApplication()
-  {
-    if (application == null)
-    {
-        application = BuildConfidentialClientApplication();
-    }
-    return application;
-  }
-
-  /// <summary>
-  /// Creates an MSAL Confidential client application
-  /// </summary>
-  /// <param name="claimsPrincipal"></param>
-  /// <returns></returns>
-  private IConfidentialClientApplication BuildConfidentialClientApplication()
-  {
-    var request = CurrentHttpContext.Request;
-    var azureAdOptions = _azureAdOptions;
-    var applicationOptions = _applicationOptions;
-    string currentUri = UriHelper.BuildAbsolute(
-        request.Scheme,
-        request.Host,
-        request.PathBase,
-        azureAdOptions.CallbackPath ?? string.Empty);
-
-    string authority = $"{applicationOptions.Instance}{applicationOptions.TenantId}/";
-
-    var app = ConfidentialClientApplicationBuilder
-        .CreateWithApplicationOptions(applicationOptions)
-        .WithRedirectUri(currentUri)
-        .WithAuthority(authority)
-        .Build();
-
-    // Initialize token cache providers
-    _appTokenCacheProvider?.InitializeAsync(app.AppTokenCache);
-    _userTokenCacheProvider?.InitializeAsync(app.UserTokenCache);
-
-    return app;
-  }
-
-```
-
-### <a name="summary"></a>Resumo
-
-`AcquireTokenByAuthorizationCode`é realmente o método que resgata o código de autorização que ASP.NET solicita, e que recebe as fichas que são adicionadas à MSAL.NET cache de token do utilizador. A partir da cache, as fichas são então usadas no ASP.NET comandos Core.
+Microsoft.Identity.Web simplifica o seu código definindo as definições corretas do OpenID Connect, subscrevendo o evento recebido pelo código e redimindo o código. Não é necessário um código adicional para resgatar o código de autorização.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -510,12 +272,12 @@ O tutorial central ASP.NET usa a injeção de dependência para que você decida
 
 ```csharp
 // Use a distributed token cache by adding:
-    services.AddMicrosoftIdentityPlatformAuthentication(Configuration)
-            .AddMsal(new string[] { scopesToRequest })
+    services.AddSignIn(Configuration, "AzureAd");
+            .AddWebAppCallsProtectedWebApi(Configuration,
+                                           initialScopes: new string[] { "user.read" })
             .AddDistributedTokenCaches();
 
 // Then, choose your implementation.
-
 // For instance, the distributed in-memory cache (not cleared when you stop the app):
 services.AddDistributedMemoryCache()
 

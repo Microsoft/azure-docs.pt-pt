@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e09887b8000a0aeb52879d5306bc0a00da5141f5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72333180"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176146"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Descrição geral de partilha de instantâneos de ficheiros do Azure 
 O Azure Files fornece a capacidade de tirar fotos de partilhas de ações de ficheiros. As imagens de partilha captam o estado de partilha nessa altura. Neste artigo, descrevemos quais as capacidades que as imagens de partilha fornecem e como pode tirar partido delas no seu caso de uso personalizado.
@@ -37,7 +37,7 @@ Após a criação de um instantâneo de partilha, pode ser lido, copiado ou elim
 
 A capacidade de partilha de instantâneos é fornecida ao nível da partilha de ficheiros. A recuperação é fornecida a nível individual de ficheiros, para permitir a restauração de ficheiros individuais. Pode restaurar uma partilha completa de ficheiros utilizando a SMB, a API REST, o portal, a biblioteca do cliente ou a ferramenta PowerShell/CLI.
 
-Uma imagem de partilha de uma parte de ficheiro é idêntica à sua parte base de ficheiros. A única diferença é que um valor **DateTime** é anexado à ação URI para indicar o momento em que o instantâneo de partilha foi tirado. Por exemplo, se uma http://storagesample.core.file.windows.net/mysharepartilha de ficheiros URI for, o snapshot de partilha URI é semelhante a:
+Uma imagem de partilha de uma parte de ficheiro é idêntica à sua parte base de ficheiros. A única diferença é que um valor **DateTime** é anexado à ação URI para indicar o momento em que o instantâneo de partilha foi tirado. Por exemplo, se uma partilha\/de ficheiros URI for http: /storagesample.core.file.windows.net/myshare, o snapshot de partilha URI é semelhante a:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```

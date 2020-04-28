@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: 79310ddf121d6ada10755b198b515fdc9c1114d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b30c912319104726069ae98920f0bc825d7358cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247066"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182859"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
@@ -279,7 +279,7 @@ Uma tabela de rotas contém zero ou mais rotas. Para saber mais sobre as informa
 
 ## <a name="view-effective-routes"></a>Ver rotas eficazes
 
-As rotas eficazes para cada interface de rede anexada a VM são uma combinação de tabelas de rotas que criou, as rotas padrão do Azure e quaisquer rotas propagadas a partir de redes no local através do Border Gateway Protocol (BGP) através de uma rede virtual Azure porta de entrada. Compreender as rotas eficazes para uma interface de rede é útil para resolver problemas de encaminhamento. Pode visualizar as rotas eficazes para qualquer interface de rede que esteja ligada a um VM em execução.
+As rotas eficazes para cada interface de rede anexada a VM são uma combinação de tabelas de rotas que criou, as rotas padrão do Azure e quaisquer rotas propagadas a partir de redes no local através do Border Gateway Protocol (BGP) através de um portal de rede virtual Azure. Compreender as rotas eficazes para uma interface de rede é útil para resolver problemas de encaminhamento. Pode visualizar as rotas eficazes para qualquer interface de rede que esteja ligada a um VM em execução.
 
 1. Vá ao [portal Azure](https://portal.azure.com) para gerir os seus VMs. Procure e selecione **máquinas Virtuais**.
 
@@ -348,4 +348,4 @@ Para realizar tarefas em tabelas e rotas de rotas, a sua conta deve ser atribuí
 ## <a name="next-steps"></a>Passos seguintes
 
 - Crie uma tabela de rotas utilizando scripts de amostra [PowerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou [modelos](template-samples.md) de Gestor de Recursos Azure
-- Criar e aplicar [a política azure](policy-samples.md) para redes virtuais
+- Criar e atribuir definições de [política azure](policy-samples.md) para redes virtuais

@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 04/23/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 3f7c12612dbe37de6b08cb05a64af460296ade93
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 282946a023e4e79ee79b05cc2a317efc5a4056e4
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81394218"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165875"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gerencie os seus utilizadores com o My Staff (pré-visualização)
 
@@ -40,6 +40,24 @@ Depois de configurado a AUs, pode aplicar este âmbito aos seus utilizadores que
 
 > [!Note]
 > Só os utilizadores a quem foi atribuída uma função de administrador podem aceder ao Meu Pessoal. Se ativar o Meu Pessoal para um utilizador que não tenha um papel de administrador, não poderá aceder ao Meu Pessoal.
+
+## <a name="conditional-access"></a>Acesso condicional
+
+Pode proteger o portal My Staff utilizando a política de acesso condicional Azure AD. Use-o para tarefas como exigir a autenticação de vários fatores antes de aceder ao Meu Pessoal.
+
+Recomendamos vivamente que proteja o meu pessoal utilizando políticas de [acesso condicional Azure AD.](https://docs.microsoft.com/azure/active-directory/conditional-access/) Para aplicar uma política de acesso condicional ao Meu Pessoal, deve criar manualmente o diretor de serviço my staff utilizando o PowerShell.
+
+### <a name="apply-a-----conditional-access-policy-to-my-staff"></a>Aplicar uma política de acesso condicional ao meu pessoal
+
+1. Instale os [cmdlets Beta PowerShell](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1)do Microsoft Graph .
+1. Execute os seguintes comandos:
+
+        Connect-Graph -Scopes "Directory.AccessAsUser.All"
+        New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
+
+1. Crie uma política de Acesso Condicional que se aplique à aplicação my staff cloud.
+
+    ![Criar uma política de acesso condicional para a app My Staff](media/my-staff-configure/conditional-access.png)
 
 ## <a name="using-my-staff"></a>Usando o meu pessoal
 

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 21bcaf8636638153ad5e5659ef3e1bff0631d9b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430958"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866262"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificados
 
@@ -80,10 +80,10 @@ A chave endereçada e o segredo obtêm os seus atributos a partir dos atributos 
 ## <a name="partnered-ca-providers"></a>Fornecedores de CA parceiros
 A criação de certificadopode ser concluída manualmente ou utilizando um emitente "Self". A Key Vault também é parceira de certos fornecedores de emitentes para simplificar a criação de certificados. Os seguintes tipos de certificados podem ser encomendados para o cofre chave com estes fornecedores de emitentes parceiros.  
 
-|Fornecedor|Tipo de certificado|  
-|--------------|----------------------|  
-|DigiCert|Key Vault oferece certificados OV ou EV SSL com DigiCert|
-|GlobalSign|Key Vault oferece certificados OV ou EV SSL com GlobalSign|
+|Fornecedor|Tipo de certificado|Configuração de configuração  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault oferece certificados OV ou EV SSL com DigiCert| [Guia de Integração](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|GlobalSign|Key Vault oferece certificados OV ou EV SSL com GlobalSign| [Guia de Integração](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  Um emitente de certificado é uma entidade representada no Cofre chave azure (KV) como recurso CertificateIssuer. É utilizado para fornecer informações sobre a origem de um certificado KV; nome emitente, fornecedor, credenciais e outros detalhes administrativos.
 

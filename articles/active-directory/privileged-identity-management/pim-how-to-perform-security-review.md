@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 04/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76eccb5d62b68865b7a117312be62753f203e2cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6aacf45bf33663c448aa21d63900d69d5d870e0d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73847096"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183403"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Rever o acesso a funções da Azure AD na Gestão de Identidade Privilegiada
 
@@ -31,10 +31,10 @@ Se é um administrador privilegiado ou administrador global interessado em avali
 
 ## <a name="add-a-pim-dashboard-tile"></a>Adicione um azulejo pim dashboard
 
-Se não tiver o serviço de Gestão de Identidade Privilegiada Azure AD fixado no seu painel de instrumentos no seu portal Azure, siga estes passos para começar.
+Se não tiver o serviço de Gestão de Identidade Privilegiada fixado no seu painel de instrumentos no portal Azure, siga estes passos para começar.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Selecione o seu nome de utilizador no canto superior direito do portal Azure e selecione o diretório onde irá operar.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+2. Selecione o seu nome de utilizador no canto superior direito do portal Azure e selecione a organização Azure AD onde estará a operar.
 3. Selecione **Todos os serviços** e utilize a caixa de texto Filtro para procurar **Azure AD Privileged Identity Management**.
 4. Marque **Afixar ao dashboard** e, em seguida, clique em **Criar**. A aplicação de Privileged Identity Management será aberta.
 
@@ -49,7 +49,6 @@ Siga estes passos para encontrar e completar a revisão de acesso:
 4. Escolha **aprovar** ou **negar**. Poderá ter de incluir uma razão para a sua decisão na caixa de texto **Provide uma razão.**  
 5. Feche a lâmina de **funções da Review Azure AD.**
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Efetuar uma revisão de acesso das minhas funções de recurso no PIM](pim-resource-roles-perform-access-review.md)

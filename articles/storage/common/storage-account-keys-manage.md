@@ -6,14 +6,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 04/24/2020
 ms.author: tamram
-ms.openlocfilehash: 50c0980800bbc9b2951bf9107114c1a4d9265558
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4ade2c2e60373298eecf4e85df7fffeae4f45207
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454667"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176634"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gerir as chaves de acesso à conta de armazenamento
 
@@ -23,9 +23,49 @@ A Microsoft recomenda que utilize o Cofre de Chaves Azure para gerir as suas tec
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-## <a name="view-access-keys-and-connection-string"></a>Ver chaves de acesso e fio de ligação
+## <a name="view-account-access-keys"></a>Ver chaves de acesso à conta
 
-[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
+Pode visualizar e copiar as chaves de acesso da sua conta com o portal Azure, PowerShell ou Azure CLI. O portal Azure também fornece uma cadeia de ligação para a sua conta de armazenamento que pode copiar.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Para visualizar e copiar as chaves de acesso à sua conta de armazenamento ou a linha de ligação do portal Azure:
+
+1. Navegue para a sua conta de armazenamento no [portal Azure.](https://portal.azure.com)
+1. Em **Definições**, selecione **Chaves de acesso**. As chaves de acesso da conta são apresentadas, bem como a cadeia de ligação completa para cada chave.
+1. Localize o valor **chave** em **tecla1**e clique no botão **Copiar** a chave da conta.
+1. Alternadamente, pode copiar toda a cadeia de ligação. Encontre o valor da **Cadeia de ligação** em **key1**e clique no botão **Copiar** para copiar a cadeia de ligação.
+
+    :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Screenshot mostrando como ver chaves de acesso no portal Azure":::
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Para recuperar as chaves de acesso à sua conta com o PowerShell, ligue para o comando [Get-AzStorageAccountKey.](/powershell/module/az.Storage/Get-azStorageAccountKey)
+
+O exemplo que se segue recupera a primeira chave. Para recuperar a segunda `Value[1]` tecla, use em vez de `Value[0]`. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios.
+
+```powershell
+$storageAccountKey = `
+    (Get-AzStorageAccountKey `
+    -ResourceGroupName <resource-group> `
+    -Name <storage-account>).Value[0]
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para listar as chaves de acesso à sua conta com o Azure CLI, ligue para o comando da lista de chaves de [armazenamento az,](/cli/azure/storage/account/keys#az-storage-account-keys-list) como mostra o seguinte exemplo. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios. 
+
+```azurecli-interactive
+az storage account keys list \
+  --resource-group <resource-group> \
+  --account-name <storage-account>
+```
+
+---
+
+Pode utilizar qualquer uma das duas teclas para aceder ao Armazenamento Azure, mas em geral é uma boa prática utilizar a primeira tecla e reservar a utilização da segunda tecla para quando estiver a rodar chaves.
+
+Para visualizar ou ler as chaves de acesso de uma conta, o utilizador deve ser um Administrador de Serviço, ou deve ser atribuído uma função RBAC que inclua a **Microsoft.Storage/storageAccounts/listkeys/action**. Algumas funções de RBAC incorporadas que incluem esta ação são as funções **de Proprietário,** **Contribuinte**e Serviço de Serviço chave de conta de **armazenamento.** Para obter mais informações sobre o papel de Administrador de Serviço, consulte funções de administrador de [subscrição Classic, funções Azure RBAC e funções Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre as funções incorporadas para o Armazenamento Azure, consulte a secção de **armazenamento** em [papel azure incorporado para o Azure RBAC.](../../role-based-access-control/built-in-roles.md#storage)
 
 ## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Utilize o Cofre de Chaves Azure para gerir as suas chaves de acesso
 
@@ -43,12 +83,51 @@ Duas chaves de acesso são atribuídas para que possa rodar as chaves. Ter duas 
 > [!WARNING]
 > Regenerar as chaves de acesso pode afetar quaisquer aplicações ou serviços Azure que estejam dependentes da chave da conta de armazenamento. Todos os clientes que utilizem a chave da conta para aceder à conta de armazenamento devem ser atualizados para utilizar a nova chave, incluindo serviços de mídia, aplicações de nuvem, ambiente de trabalho e mobile, e aplicações gráficas de interface de utilizador para o Armazenamento Azure, como [o Azure Storage Explorer.](https://azure.microsoft.com/features/storage-explorer/)
 
-Siga este processo para rodar as chaves da sua conta de armazenamento:
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Atualize as cordas de ligação no seu código de aplicação para utilizar a tecla secundária.
-2. Volte a gerar a chave de acesso primária para a sua conta do Storage. Na lâmina de **Chaves** de Acesso no portal Azure, clique em **Regenerar Key1**, e depois clique **em Sim** para confirmar que pretende gerar uma nova tecla.
-3. Atualize as cadeias de ligação no código para fazer referência à nova chave de acesso primária.
-4. Volte a gerar a chave de acesso secundária da mesma forma.
+Para rodar as chaves de acesso à sua conta de armazenamento no portal Azure:
+
+1. Atualize as cadeias de ligação no seu código de aplicação para fazer referência à chave de acesso secundária para a conta de armazenamento.
+1. Navegue para a sua conta de armazenamento no [portal Azure.](https://portal.azure.com)
+1. Em **Definições**, selecione **Chaves de acesso**.
+1. Para regenerar a chave de acesso primária para a sua conta de armazenamento, selecione o botão **Regenerar** ao lado da chave de acesso primária.
+1. Atualize as cadeias de ligação no código para fazer referência à nova chave de acesso primária.
+1. Volte a gerar a chave de acesso secundária da mesma forma.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Para rodar as chaves de acesso à sua conta de armazenamento com a PowerShell:
+
+1. Atualize as cadeias de ligação no seu código de aplicação para fazer referência à chave de acesso secundária para a conta de armazenamento.
+1. Ligue para o comando [New-AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) para regenerar a chave de acesso primária, como mostra o seguinte exemplo:
+
+    ```powershell
+    New-AzStorageAccountKey -ResourceGroupName <resource-group> `
+      -Name <storage-account> `
+      -KeyName key1
+    ```
+
+1. Atualize as cadeias de ligação no código para fazer referência à nova chave de acesso primária.
+1. Volte a gerar a chave de acesso secundária da mesma forma. Para regenerar a chave `key2` secundária, use como `key1`nome-chave em vez de .
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para rodar as chaves de acesso à sua conta de armazenamento com o Azure CLI:
+
+1. Atualize as cadeias de ligação no seu código de aplicação para fazer referência à chave de acesso secundária para a conta de armazenamento.
+1. Ligue para as chaves da conta de [armazenamento az renovar](/cli/azure/storage/account/keys#az-storage-account-keys-renew) o comando para regenerar a chave de acesso primário, como mostra o seguinte exemplo:
+
+    ```azurecli-interactive
+    az storage account keys renew \
+      --resource-group <resource-group> \
+      --account-name <storage-account>
+      --key primary
+    ```
+
+1. Atualize as cadeias de ligação no código para fazer referência à nova chave de acesso primária.
+1. Volte a gerar a chave de acesso secundária da mesma forma. Para regenerar a chave `key2` secundária, use como `key1`nome-chave em vez de .
+
+---
 
 > [!NOTE]
 > A Microsoft recomenda a utilização de apenas uma das chaves em todas as suas aplicações ao mesmo tempo. Se utilizar a Chave 1 em alguns locais e a Chave 2 noutros, não poderá rodar as chaves sem que alguma aplicação perca acesso.

@@ -8,13 +8,13 @@ ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.openlocfilehash: bcb6cd7393419fb8fc75decb00a8f4165d15668c
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.date: 04/27/2020
+ms.openlocfilehash: d4e7077c338586298c5e7f0805c3d47b08a7a108
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82025276"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184338"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Quickstart: A bordo do Azure Sentinel
 
@@ -55,7 +55,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros de 
 
    >[!NOTE] 
    > - Os espaços de trabalho por defeito criados pelo Azure Security Center não constam da lista; não se pode instalar o Azure Sentinel neles.
-   > - O Azure Sentinel pode funcionar em espaços de trabalho em qualquer [região da AG de Log Analytics,](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) exceto nas regiões da China, Alemanha e Governo azure. Os dados gerados pelo Azure Sentinel (tais como incidentes, marcadores e regras de alerta, que podem conter alguns dados dos clientes provenientes destes espaços de trabalho) são guardados quer na Europa Ocidental (para espaços de trabalho localizados na Europa) quer nos EUA (para todos os espaços de trabalho baseados nos EUA, bem como em qualquer outra região, com exceção da Europa).
+   > - O Azure Sentinel pode funcionar em espaços de trabalho em qualquer [região da AG de Log Analytics,](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) exceto nas regiões da China e alemanha (soberanas). Os dados gerados pelo Azure Sentinel (tais como incidentes, marcadores e regras de alerta, que podem conter alguns dados dos clientes provenientes destes espaços de trabalho) são guardados quer na Europa (para espaços de trabalho localizados na Europa), na Austrália (para espaços de trabalho localizados na Austrália), quer no Leste dos EUA (para espaços de trabalho localizados em qualquer outra região).
 
 1. **Selecione Adicionar Sentinel a Azure**.
   

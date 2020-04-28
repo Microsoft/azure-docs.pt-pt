@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
+ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 871e6b1253b0fc9a5b6ae5d3389982cfdd6af3bd
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 527d2d8cb8086ed6b5e87417e2bc80dd52aa6e63
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82103181"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188417"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>Falhas na criação de recursos em Azure HDInsight
 

@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 0c39ffe40a490ee23ac65f892c46fba2578bce74
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 103545225b15a74d8c2ea0be5e88caa18f3c31cc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441095"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184780"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Criar uma app Angular com a API do Azure Cosmos DB para mongoDB - Adicionar funções CRUD à app
 
@@ -86,7 +86,7 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
 
 5. Execute a aplicação para confirmar que está tudo a funcionar. No Visual Studio Code, guarde todas as alterações, selecione o botão **Depurar**![ícone de Depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png), no lado esquerdo, selecione o botão **Iniciar Depuração**![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
-6. Agora, regresse ao browser e prima F12, na maioria dos computadores, para abrir o separador Ferramentas do programador e Rede. Navegue [http://localhost:3000](http://localhost:3000) para ver as chamadas feitas através da rede.
+6. Agora, regresse ao browser e prima F12, na maioria dos computadores, para abrir o separador Ferramentas do programador e Rede. Navegue para `http://localhost:3000` para ver as chamadas efetuadas através da rede.
 
     ![Separador Redes no Chrome que mostra a atividade de rede](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 

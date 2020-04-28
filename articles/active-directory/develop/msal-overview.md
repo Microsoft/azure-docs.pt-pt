@@ -13,12 +13,12 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 89c5117e59f7856c3bd572bbea297a836b5ad589
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7aa7dea65df507c0bb35a30bf2a68049a7625137
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536221"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181788"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Visão geral da Biblioteca de Autenticação da Microsoft (MSAL)
 A Microsoft Authentication Library (MSAL) permite que os desenvolvedores adquiram [fichas](developer-glossary.md#security-token) do ponto final da plataforma de identidade da Microsoft para aceder a APIs web protegidos. Estas APIs web podem ser o Microsoft Graph, outras APIs da Microsoft, APIs web de terceiros ou a sua própria API web. O MSAL está disponível para .NET, JavaScript, Android e iOS, que suportam muitas arquiteturas e plataformas de aplicações diferentes.
@@ -54,8 +54,8 @@ O MSAL pode ser utilizado em muitos cenários de aplicação, incluindo o seguin
 | [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Quadros JavaScript/TypeScript tais como AngularJS, Ember.js ou Durandal.js|
 | [MSAL para Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [MSAL para iOS e macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS e macOS|
-| [MSAL Java (pré-visualização)](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
-| [MSAL Python (pré-visualização)](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Python|
+| [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Janelas, macOS, Linux|
+| [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Janelas, macOS, Linux|
 
 ## <a name="differences-between-adal-and-msal"></a>Diferenças entre a ADAL e a MSAL
 

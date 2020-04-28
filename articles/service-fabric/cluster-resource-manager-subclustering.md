@@ -5,12 +5,12 @@ author: nipavlo
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: nipavlo
-ms.openlocfilehash: 23782a86d31251cb1a3474e0395df716a2e832df
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7f571a851e4da147240c524b742bcd652bc54181
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430646"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183126"
 ---
 # <a name="balancing-of-subclustered-metrics"></a>Equilíbrio das métricas subagrupadas
 
@@ -24,11 +24,11 @@ Se a carga reportada pelos serviços em nós diferentes difere significativament
 
 Por exemplo, digamos que temos quatro serviços e todos reportam uma carga para métrica1:
 
-* Serviço A – tem uma restrição de colocação "NodeType==Type1", reporta uma carga de 10
-* Serviço B – tem uma restrição de colocação "NodeType==Type1", reporta uma carga de 10
-* Serviço C – tem uma restrição de colocação "NodeType==Type2", reporta uma carga de 100
-* Serviço D – tem uma restrição de colocação "NodeType==Type2", reporta uma carga de 100
-* E temos quatro nós. Dois deles têm nodeType definido como "Type1" e os outros dois são "Type2"
+* Serviço A – tem uma restrição de colocação "NodeType==Frontend", reporta uma carga de 10
+* Serviço B – tem uma restrição de colocação "NodeType==Frontend", reporta uma carga de 10
+* Serviço C – tem uma restrição de colocação "NodeType==Backend", reporta uma carga de 100
+* Serviço D – tem uma restrição de colocação "NodeType==Backend", reporta uma carga de 100
+* E temos quatro nós. Dois deles têm nodeType definido como "Frontend" e os outros dois são "Backend"
 
 E temos a seguinte colocação:
 
@@ -60,8 +60,8 @@ Esta situação acontece quando um grupo de nós permitido para um serviço é u
 Exemplo:
 
 * Serviço A: sem restrição de colocação
-* Serviço B: restrição de colocação "NodeType==Type1"
-* Serviço C: restrição de colocação "NodeType==Type2"
+* Serviço B: restrição de colocação "NodeType==Frontend"
+* Serviço C: restrição de colocação "NodeType==Backend"
 
 Esta configuração cria uma relação subset-superset entre grupos de nó para diferentes serviços.
 
@@ -72,7 +72,7 @@ Esta configuração cria uma relação subset-superset entre grupos de nó para 
 
 Nesta situação, existe a possibilidade de se fazer um equilíbrio sub-óptimo.
 
-O Gestor de Recursos reconhecerá esta situação e produzirá um relatório de saúde aconselhando-o a dividir o Serviço A em dois serviços – Serviço A1 que pode ser colocado em nós tipo1 e serviço A2 que podem ser colocados em nós do Tipo2. Isto vai trazer-nos de volta a uma situação de primeira categoria que pode ser equilibrada da melhor forma.
+O Gestor de Recursos reconhecerá esta situação e produzirá um relatório de saúde aconselhando-o a dividir o Serviço A em dois serviços – Serviço A1 que pode ser colocado em nós frontend e serviço A2 que pode ser colocado em nós backend. Isto vai trazer-nos de volta a uma situação de primeira categoria que pode ser equilibrada da melhor forma.
 
 ### <a name="third-category--subclustering-with-partial-overlap-between-node-sets"></a>Terceira categoria - subagrupamento com sobreposição parcial entre conjuntos de nó
 

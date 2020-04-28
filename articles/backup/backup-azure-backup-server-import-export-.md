@@ -4,12 +4,12 @@ description: Com o Azure Backup, pode enviar dados da rede utilizando o serviço
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 080b0bc53b2058bd186e90f354b8f5bcda510414
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d45716fea92a25b0deea6ee5c1972820341d64a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78197085"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183862"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho de backup offline para DPM e Servidor de Backup Azure
 
@@ -137,7 +137,7 @@ A informação nesta secção ajuda-o a terminar o fluxo de trabalho de backup o
     ![Página de importação](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
     Aqui está a página correspondente no DPM. <br/>
-    
+
     ![Página de importação do Servidor de Backup DPM e Azure](./media/backup-azure-backup-import-export/dpmoffline.png)
 
     As caixas que preenche são:
@@ -242,7 +242,7 @@ O utilitário *AzureOfflineBackupDiskPrep* é utilizado para preparar as unidade
     ![Armazenar informações de envio](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
 
    > [!IMPORTANT]
-   > Certifique-se de que as unidades chegam ao centro de dados Azure no prazo de duas semanas após fornecer as informações de envio utilizando o utilitário *AzureOfflineBackupDiskPrep.* Se não o fizer, as unidades não sejam processadas. 
+   > Certifique-se de que as unidades chegam ao centro de dados Azure no prazo de duas semanas após fornecer as informações de envio utilizando o utilitário *AzureOfflineBackupDiskPrep.* Se não o fizer, as unidades não sejam processadas.
 
 Depois de terminar os passos anteriores, o datacenter Azure está pronto para receber as unidades e processá-los para transferir os dados de backup das unidades para a conta de armazenamento azure de tipo clássico que criou.
 

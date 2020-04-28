@@ -4,12 +4,12 @@ description: Saiba como implementar um modelo de Gestor de Recursos Azure a part
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c8e3eb62fa52caeaa63808b6b9ea199bdff5c4da
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7f134bb836d05d006ef2e474ea48382a671957fe
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80082259"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188829"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutorial: Implementar um modelo local de Gestor de Recursos Azure
 
@@ -37,9 +37,7 @@ Os modelos são ficheiros JSON. Para rever/editar modelos, precisa de um bom edi
 
 ## <a name="review-template"></a>Modelo de revisão
 
-O modelo utilizado neste tutorial é semelhante ao modelo utilizado no [tutorial sobre modelos Quickstart](template-tutorial-quickstart-template.md). Se estiver interessado em criar o modelo, pode passar por esse tutorial. No entanto, não é necessário completar este tutorial.
-
-O modelo implementa uma conta de armazenamento, plano de serviço de aplicações e aplicação web.
+O modelo implementa uma conta de armazenamento, plano de serviço de aplicações e aplicação web. Se você está interessado em criar o modelo, você pode passar por [tutorial sobre modelos Quickstart](template-tutorial-quickstart-template.md). No entanto, não é necessário completar este tutorial.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
@@ -58,7 +56,7 @@ Para começar a trabalhar com o Azure PowerShell/Azure CLI para implementar um m
 Connect-AzAccount
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 az login
@@ -74,7 +72,7 @@ Se tiver várias subscrições do Azure, selecione a subscrição que pretende u
 Select-AzSubscription [SubscriptionID/SubscriptionName]
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 az account set --subscription [SubscriptionID/SubscriptionName]
@@ -97,7 +95,7 @@ New-AzResourceGroup `
   -Location "Central US"
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 echo "Enter a project name that is used to generate resource and resource group names:"
@@ -132,7 +130,7 @@ New-AzResourceGroupDeployment `
 
 Para saber mais sobre o modelo de implantação utilizando o Azure PowerShell, consulte [os recursos de implantação com modelos](./deploy-powershell.md)de Gestor de Recursos e Azure PowerShell .
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 echo "Enter the same project name:"

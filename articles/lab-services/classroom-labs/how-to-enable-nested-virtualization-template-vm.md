@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 59b32834369f76d39bb4a253dad4ec541e7ef999
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c954c4689281838ea8c61c932cdcc3b74bac442
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502005"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184678"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Ativar a virtualização aninhada em uma máquina virtual modelo em Serviços de Laboratório Azure
 
@@ -40,8 +40,8 @@ Para obter mais informações sobre a virtualização aninhada, consulte os segu
 Antes de criar um laboratório com virtualização aninhada, aqui estão algumas coisas a ter em conta.
 
 - Ao criar um novo laboratório, selecione **tamanhos médios (virtualização aninhada)** ou **large (virtualização aninhada)** para o tamanho da máquina virtual. Estes tamanhos de máquina virtual suportam a virtualização aninhada.
-- Escolha um tamanho que proporcione um bom desempenho tanto para o anfitrião como para as máquinas virtuais do cliente.  Lembre-se que, ao utilizar a virtualização, o tamanho que escolher deve ser adequado não apenas para uma máquina, mas para o anfitrião, bem como para quaisquer máquinas de cliente que devem ser executadas simultaneamente.
-- As máquinas virtuais dos clientes não terão acesso aos recursos do Azure, como servidores DNS na rede virtual Azure.
+- Escolha um tamanho que proporcione um bom desempenho tanto para o anfitrião como para as máquinas virtuais do cliente.  Lembre-se que, ao utilizar a virtualização, o tamanho que escolher deve ser adequado não apenas para uma máquina, mas para o hospedeiro, bem como para quaisquer máquinas Hyper-V que executam simultaneamente.
+- As máquinas virtuais dos clientes não terão acesso aos recursos do Azure, como servidores DNS, na rede virtual Azure.
 - A máquina virtual do hospedeiro requer configuração para permitir que a máquina cliente tenha conectividade com a Internet.
 - As máquinas virtuais dos clientes são licenciadas como máquinas independentes. Consulte o [Microsoft Licensing](https://www.microsoft.com/licensing/default) para obter informações sobre o licenciamento para sistemas e produtos de operação da Microsoft. Verifique os acordos de licenciamento para qualquer outro software que esteja a ser utilizado antes de configurar a máquina do modelo.
 
@@ -53,6 +53,17 @@ Este artigo assume que criou uma conta de laboratório e laboratório.  Para obt
 >Selecione **Large (virtualização aninhada)** ou **Média (virtualização aninhada)** para o tamanho da máquina virtual ao criar o laboratório.  A virtualização aninhada não funcionará de outra forma.  
 
 Para se ligar à máquina do modelo, consulte [criar e gerir um modelo](how-to-create-manage-template.md)de sala de aula .
+
+Para permitir a virtualização aninhada, existem algumas tarefas a realizar.  
+
+- Ativar a **função Hyper-V.** A função hyper-V deve ser ativada para a criação e funcionamento de máquinas virtuais Hyper-V na máquina virtual dos Serviços de Laboratório.
+- **Ativar o DHCP**.  Quando a máquina virtual dos Serviços de Laboratório tem a função DHCP ativada, as máquinas virtuais Hyper-V podem ser automaticamente atribuídas a um endereço IP.
+- **Criar rede NAT para VMs Hiper-V**.  A rede NAT está configurada para permitir que as máquinas virtuais Hyper-V tenham acesso à Internet.  As máquinas virtuais Hyper-V podem comunicar entre si.
+
+>[!NOTE]
+>A rede NAT criada no VM de Serviços de Laboratório permitirá que um VM Hyper-V aceda à internet e a outros VMs Hiper-V no mesmo VM de Serviços de Laboratório.  O Hyper-V VM não poderá aceder aos recursos do Azure, como servidores DNS, na rede virtual Azure.
+
+A realização das tarefas acima listadas pode ser feita utilizando um script ou utilizando ferramentas Windows.  Leia as secções abaixo para mais detalhes.
 
 ### <a name="using-script-to-enable-nested-virtualization"></a>Usando o script para permitir a virtualização aninhada
 

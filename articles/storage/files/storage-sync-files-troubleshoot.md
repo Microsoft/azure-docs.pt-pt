@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d46f513fccf9921d4cf47835bc9d5be4c6ffe241
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: 11942a08d46f4b46dc5478fca4b64796b9ce0a7c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607499"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176129"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Podes ter as caches que precisares em todo o mundo.
@@ -303,10 +303,10 @@ Para ver estes erros, execute o script **FileSyncErrorsReport.ps1** PowerShell (
 > Se o script FileSyncErrorsReport.ps1 devoluções "Não foram encontrados erros de ficheiro" ou não enumera erros por item para o grupo de sincronização, a causa é:
 >
 >- Causa 1: A última sessão de sincronização concluída não teve erros por item. O portal deve ser atualizado em breve para mostrar 0 Ficheiros Não Sincronizados. 
->   - Verifique o [ID de evento 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) no registo do evento Telemettry para confirmar que o PerItemErrorCount é 0. 
+>    - Verifique o [ID de evento 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) no registo do evento Telemettry para confirmar que o PerItemErrorCount é 0. 
 >
 >- Causa 2: O registo do evento ItemResults no servidor embrulhado devido a demasiados erros por item e o registo do evento já não contém erros para este grupo de sincronização.
->   - Para evitar este problema, aumente o tamanho do registo do evento ItemResults. O registo do evento ItemResults pode ser encontrado em "Applications and Services Logs\Microsoft\FileSync\Agent" no Visualizador de Eventos. 
+>    - Para evitar este problema, aumente o tamanho do registo do evento ItemResults. O registo do evento ItemResults pode ser encontrado em "Applications and Services Logs\Microsoft\FileSync\Agent" no Visualizador de Eventos. 
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Resolução de problemas por erros de sincronização de ficheiro/diretório
 **Registo de Resultados do artigo - erros de sincronização por item**  
@@ -333,7 +333,7 @@ Para ver estes erros, execute o script **FileSyncErrorsReport.ps1** PowerShell (
 | 0x8000ff | -2147418113 | E_UNEXPECTED | O ficheiro não pode ser sincronizado devido a um erro inesperado. | Se o erro persistir durante vários dias, por favor abra um caso de suporte. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | O ficheiro não pode ser sincronizado porque está a ser utilizado. O ficheiro será sincronizado quando já não estiver em utilização. | Nenhuma ação necessária. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | O ficheiro foi alterado durante a sincronização, por isso tem de ser sincronizado novamente. | Nenhuma ação necessária. |
-| 0x80070017 | -2147024873 | ERROR_CRC | O ficheiro não pode ser sincronizado devido a erro de CRC. Este erro pode ocorrer se um ficheiro hierárquico não tiver sido recolhido antes de apagar um ponto final do servidor ou se o ficheiro for corrupto. | Para resolver este problema, consulte os [ficheiros Tiered não estarem acessíveis no servidor depois](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) de eliminar um ponto final do servidor para remover ficheiros hierárquicos que estejam órfãos. Se o erro continuar a ocorrer após a remoção dos ficheiros hierárquicos, execute o [chkdsk](https://docs.microsoft.com/windows-server/administration/windows-commands/chkdsk) no volume. |
+| 0x80070017 | -2147024873 | ERROR_CRC | O ficheiro não pode ser sincronizado devido a erro de CRC. Este erro pode ocorrer se um ficheiro hierárquico não tiver sido recolhido antes de apagar um ponto final do servidor ou se o ficheiro for corrupto. | Para resolver este problema, consulte os [ficheiros Tiered não estarem acessíveis no servidor depois](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) de eliminar um ponto final do servidor para remover ficheiros hierárquicos que estejam órfãos. Se o erro continuar a ocorrer após a remoção de ficheiros órfãos, execute o [chkdsk](https://docs.microsoft.com/windows-server/administration/windows-commands/chkdsk) no volume. |
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | O ficheiro não pode ser sincronizado porque o número máximo de ficheiros de conflito foi atingido. O Azure File Sync suporta 100 ficheiros de conflito por ficheiro. Para saber mais sobre conflitos de ficheiros, consulte o Azure File Sync [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | Para resolver esta questão, reduza o número de ficheiros de conflito. O ficheiro sincronizará assim que o número de ficheiros de conflito for inferior a 100. |
 
 #### <a name="handling-unsupported-characters"></a>Manuseamento de caracteres não suportados
@@ -1138,7 +1138,7 @@ Se os ficheiros não forem recolhidos:
 | 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | O ficheiro não se reteve devido à falha de autorização na conta de armazenamento. | Para resolver este problema, verifique se [o Azure File Sync tem acesso à conta de armazenamento.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac) |
 | 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | O ficheiro não se relembrou porque a partilha de ficheiros Azure não é acessível. | Verifique se a parte do ficheiro existe e está acessível. Se a parte do ficheiro foi eliminada e recriada, executar as etapas documentadas no [Sync falhou porque a parte do ficheiro Azure foi eliminada e recriada](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) para eliminar e recriar o grupo de sincronização. |
 | 0x800705aaa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | O ficheiro não se reteve devido à insuficiência de recursos do sistema. | Se o erro persistir, investigue qual a aplicação ou o condutor do modo kernel está a esgotar os recursos do sistema. |
-| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | O ficheiro não se lembrou devido à memória insufciente. | Se o erro persistir, investigue qual a aplicação ou o controlador do modo kernel que está a causar a baixa condição de memória. |
+| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | O ficheiro não se recordou devido à falta de memória. | Se o erro persistir, investigue qual a aplicação ou o controlador do modo kernel que está a causar a baixa condição de memória. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | O ficheiro não se reteve devido a um espaço de disco insuficiente. | Para resolver este problema, liberte espaço no volume movendo ficheiros para um volume diferente, aumente o tamanho do volume ou force os ficheiros a nimar utilizando o cmdlet Invoke-StorageSyncCloudTiering. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>Os ficheiros em camadas não são acessíveis no servidor após a eliminação de um ponto final do servidor
@@ -1231,6 +1231,12 @@ Chamadas não intencionais também podem ocorrer noutros cenários, como quando 
 
 > [!NOTE]
 >Utilize o ID 9059 do evento de evento sinuoso para determinar que aplicações estão a causar recordações. Este evento fornece distribuição de recolha de aplicações para um ponto final do servidor e é registado uma vez por hora.
+
+### <a name="tls-12-required-for-azure-file-sync"></a>TLS 1.2 necessário para sincronização de ficheiros Azure
+
+Pode visualizar as definições de TLS no seu servidor olhando para as [definições de registo](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings). 
+
+Se estiver a utilizar um representante, consulte a documentação do seu representante e certifique-se de que está configurado para utilizar o TLS1.2.
 
 ## <a name="general-troubleshooting"></a>Resolução geral de problemas
 Se encontrar problemas com o Azure File Sync num servidor, comece por completar os seguintes passos:

@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 15d7f0621ffbf883d267d389fb634a13aa927430
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 947dd125cf9c5f5874eed380b3d69cff11509e31
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81873358"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187250"
 ---
 # <a name="azure-data-lake-storage-gen1-overview-in-hdinsight"></a>Visão geral do Armazenamento do Lago Azure em HDInsight
 
@@ -84,4 +85,4 @@ Para obter mais informações sobre como aceder aos dados em Data Lake Storage G
 
 * [Introdução ao Armazenamento de Lagos De Dados Azure Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md)
-* [Visão geral do Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
+* [Descrição geral do Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)

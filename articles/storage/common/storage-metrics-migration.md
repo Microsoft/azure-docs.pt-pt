@@ -8,16 +8,16 @@ ms.date: 03/30/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 537369c9466b1083723642ec9e93fcdf25056c5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5d8add293a2ba8f14dc2d2fb8ba3b4228f455b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68855332"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176231"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migração de métricas de armazenamento azure
 
-Alinhado com a estratégia de unificar a experiência de monitor no Azure, o Azure Storage integra métricas à plataforma Azure Monitor. No futuro, o serviço das métricas antigas terminará com uma notificação antecipada baseada na política do Azure. Se você confiar em métricas de armazenamento antigas, você precisa migrar antes da data final do serviço para manter a sua informação métrica.
+Alinhado com a estratégia de unificar a experiência de monitor no Azure, o Azure Storage integra métricas à plataforma Azure Monitor. No futuro, o serviço das métricas antigas terminará com uma notificação antecipada baseada na Política Azure. Se você confiar em métricas de armazenamento antigas, você precisa migrar antes da data final do serviço para manter a sua informação métrica.
 
 Este artigo mostra-lhe como migrar das métricas antigas para as novas métricas.
 

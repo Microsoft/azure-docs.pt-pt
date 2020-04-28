@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 779ee1e057d74b11c5e0ba58dc2fd32b803f1e0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73888818"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187216"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementar o acelerador de solução de monitorização remota localmente - IntelliJ
 
@@ -190,10 +190,10 @@ Cada serviço web abre uma janela Command Prompt e janela do navegador web. No p
 
 Para aceder ao estado dos serviços, aceda aos seguintes URLs:
 
-* IoT-Hub Manager:[http://localhost:9002/v1/status](http://localhost:9002/v1/status)
-* Telemetria do dispositivo:[http://localhost:9004/v1/status](http://localhost:9004/v1/status)
-* config:[http://localhost:9005/v1/status](http://localhost:9005/v1/status)
-* adaptador de armazenamento:[http://localhost:9022/v1/status](http://localhost:9022/v1/status)
+* IoT-Hub Manager:`http://localhost:9002/v1/status`
+* Telemetria do dispositivo:`http://localhost:9004/v1/status`
+* config:`http://localhost:9005/v1/status`
+* adaptador de armazenamento:`http://localhost:9022/v1/status`
 
 ### <a name="start-the-stream-analytics-job"></a>Inicie o trabalho de Stream Analytics
 
@@ -213,7 +213,7 @@ npm install
 npm start
 ```
 
-Quando o comando de **arranque** estiver concluído, o [http://localhost:3000/dashboard](http://localhost:3000/dashboard)seu navegador exibe a página no endereço . Os erros nesta página são esperados. Para visualizar a aplicação sem erros, complete os seguintes passos.
+Quando o comando de **arranque** estiver concluído, o `http://localhost:3000/dashboard`seu navegador exibe a página no endereço . Os erros nesta página são esperados. Para visualizar a aplicação sem erros, complete os seguintes passos.
 
 ### <a name="configure-and-run-nginx"></a>Configure e executar Nginx
 
@@ -226,7 +226,7 @@ Para mais informações sobre a execução de Nginx, consulte [o nginx para wind
 
 ### <a name="connect-to-the-dashboard"></a>Ligue-se ao painel de instrumentos
 
-Para aceder ao dashboard de solução de monitorização remota, aceda ao http://localhost:9000 seu navegador.
+Para aceder ao dashboard de solução de monitorização remota, aceda ao `http://localhost:9000` seu navegador.
 
 ## <a name="clean-up"></a>Limpeza
 

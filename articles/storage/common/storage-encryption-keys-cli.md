@@ -10,12 +10,12 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 796e3b3f46bc83b776826baf6e078c696eda543b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 893c953562e0d150bd5e8110e5473fd24a2aff83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456776"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176350"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configure as chaves geridas pelo cliente com o Cofre de Chave Azure utilizando o Azure CLI
 
@@ -81,7 +81,7 @@ az keyvault set-policy \
 Em seguida, crie uma chave no cofre da chave. Para criar uma chave, ligue para a [chave keyvault criar](/cli/azure/keyvault/key#az-keyvault-key-create). Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios.
 
 ```azurecli-interactive
-az keyvault key create
+az keyvault key create \
     --name <key> \
     --vault-name <key-vault>
 ```

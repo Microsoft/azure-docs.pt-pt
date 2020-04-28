@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ddcb47bfe8ba2b77efd8ff0aed52f1412107f0c5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: d3e4535c05ef077d14ef74310459a84af0f02fd5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456503"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176333"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Utilize chaves geridas pelo cliente no Cofre chave Azure para serviço de importação/exportação
 
@@ -101,9 +101,8 @@ Se receber algum erro relacionado com a chave gerida pelo cliente, utilize a seg
 | Código de erro     |Detalhes     | Recuperável?    |
 |----------------|------------|-----------------|
 | CmkErrorAccessRevogad | Aplicou uma chave gerida pelo cliente, mas o acesso chave é atualmente revogado. Para mais informações, consulte como [ativar o acesso à chave](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Sim, verifique se: <ol><li>O cofre ainda tem o MSI na política de acesso.</li><li>A política de acesso fornece permissões para obter, embrulhar, desembrulhar.</li><li>Se o cofre da chave estiver num vNet atrás da firewall, verifique se o **Allow Microsoft Trust Services** está ativado.</li></ol>                                                                                            |
-| CmkErrorDisabled      | Aplicou uma chave gerida pelo cliente, mas a chave está desativada. Para mais informações, consulte como [ativar a tecla](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Sim, permitindo a versão chave     |
-| CmkErrorNotFound      | Aplicou uma chave gerida pelo cliente, mas não encontra a chave. <br>Se a chave for apagada e purgada após o período de retenção, não poderá recuperar a chave. Se tiver espetado a chave, pode restaurar a chave para resolver este problema. | Não, a chave foi apagada e também foi expurgada após o período de retenção. <br>Sim, só se o cliente tiver a chave apoiada e restaurá-la.  |
-| CmkErrorVaultNotFound | Aplicou uma chave gerida pelo cliente, mas não encontra o cofre associado à chave.<br>Se apagou o cofre da chave, não pode recuperar a chave gerida pelo cliente.  Se você emigrou o cofre chave para outro inquilino, veja [Change um cofre chave id inquilino após um movimento de assinatura](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Não, se o cliente apagou o cofre da chave.<br> Sim, se o cofre principal passou por uma migração de inquilinos, então faça um de: <ol><li>voltar o cofre chave para o velho inquilino.</li><li>definir Identidade = Nenhuma e, em seguida, de volta à Identidade = SystemAssigned, isto elimina e recria a identidade</li></ol>|
+| CmkErrorKeyDisabled      | Aplicou uma chave gerida pelo cliente, mas a chave está desativada. Para mais informações, consulte como [ativar a tecla](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Sim, permitindo a versão chave     |
+| CmkErrorKeyNotFound      | Aplicou uma chave gerida pelo cliente, mas não encontra o cofre associado à chave.<br>Se apagou o cofre da chave, não pode recuperar a chave gerida pelo cliente.  Se você emigrou o cofre chave para outro inquilino, veja [Change um cofre chave id inquilino após um movimento de assinatura](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Se apagar o cofre da chave:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos em [Recuperar um cofre chave](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>Não, se for além da duração da proteção da purga.</li></ol><br>Caso contrário, se o cofre principal foi submetido a uma migração de inquilinos, sim, pode ser recuperado usando um dos degraus abaixo: <ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Definir `Identity = None` e, em seguida, repor o valor para `Identity = SystemAssigned`. Isto elimina e recria a identidade uma vez criada a nova identidade. `Get`Ativar, `Wrap`e `Unwrap` permissões para a nova identidade na política de acesso do cofre chave.</li></ol>|
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,16 +3,16 @@ title: Contadores de eventos em Insights de Aplicação / Microsoft Docs
 description: Monitorize o sistema e custom .NET/.NET Core EventCounters em Insights de Aplicação.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 2094c012e86131073fc66be4f2ac2fb2e81ef4c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1037766587f58a30c20f614726e1241c16e5a16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663594"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187100"
 ---
 # <a name="eventcounters-introduction"></a>Introdução de EventCounters
 
-`EventCounter`é o mecanismo de núcleo .NET/.NET para publicar e consumir contadores ou estatísticas. [Este](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) documento dá uma `EventCounters` visão geral e exemplos sobre como publicá-los e consumi-los. Os EventCounters são suportados em todas as plataformas de OS - Windows, Linux e macOS. Pode ser considerado como um equivalente de plataforma cruzada para os [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) que só é suportado nos sistemas Windows.
+`EventCounter`é o mecanismo de núcleo .NET/.NET para publicar e consumir contadores ou estatísticas. [Este](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) documento dá uma `EventCounters` visão geral e exemplos sobre como publicá-los e consumi-los. Os EventCounters são suportados em todas as plataformas de OS - Windows, Linux e macOS. Pode ser considerado como um equivalente de plataforma cruzada para os [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) que só é suportado nos sistemas Windows.
 
 Embora os utilizadores `EventCounters` possam publicar qualquer costume para satisfazer as suas necessidades, o tempo de execução .NET Core 3.0 publica um conjunto destes contadores por padrão. O documento passará pelos passos necessários `EventCounters` para recolher e visualizar (sistema definido ou definido pelo utilizador) em Insights de Aplicação Azure.
 

@@ -8,12 +8,12 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 87a335f44a31436de735395adbee9035493cbbd2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c3ee0f335741c171c3a7ee1df3eea6dea9c4b728
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263425"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176163"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configure, otimize e problemas AzCopy
 
@@ -72,7 +72,7 @@ Para ver a orientação detalhada `azcopy bench -h` da ajuda para este comando, 
 
 ### <a name="optimize-throughput"></a>Otimizar a entrada
 
-Pode utilizar `cap-mbps` a bandeira nos seus comandos para colocar um teto na taxa de dados de entrada. Por exemplo, o comando seguinte retoma um `10` trabalho e caps de entrada para megabits (MB) por segundo. 
+Pode utilizar `cap-mbps` a bandeira nos seus comandos para colocar um teto na taxa de dados de entrada. Por exemplo, o comando seguinte retoma um `10` trabalho e caps de entrada para megabytes (MB) por segundo. 
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10

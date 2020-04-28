@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 776311d6e6395cbe462f958bd8685fa0259e1fc2
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: dc036ae3cba6aa4d3a689562afffb991fadc8c0a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674192"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867606"
 ---
 # <a name="create-a-power-bi-app"></a>Criar uma aplicação Power BI
 
@@ -221,6 +221,9 @@ Forneça pelo menos um e até três documentos de marketing relacionados em form
 ### <a name="marketplace-images"></a>Imagens do mercado
 
 Forneça logotipos e imagens para usar com a sua oferta. Todas as imagens devem estar em formato .png. Imagens desfocadas serão rejeitadas.
+
+>[!Note]
+>Se tiver algum problema de envio de ficheiros, https://upload.xboxlive.com certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
 
 #### <a name="store-logos"></a>Logotipos de loja
 

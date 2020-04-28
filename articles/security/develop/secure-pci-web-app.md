@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: terrylan
-ms.openlocfilehash: 4fe612db65d985be2f1f1c81d03c3ee735c03889
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4ab3697824ff4a47e7b8f281b531cae610ffdc3b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69992617"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187584"
 ---
 # <a name="develop-a-secure-infrastructure-for-a-pci-app"></a>Desenvolver uma infraestrutura segura para uma aplicação de PCI
 
 ## <a name="overview"></a>Descrição geral
 
-Esta infraestrutura segura para uma aplicação da Indústria de Cartões de Pagamento (PCI) fornece orientação para a implementação de uma plataforma da Indústria de Cartões de Pagamento como um ambiente de serviço (PaaS) adequado para a recolha, armazenamento e recuperação de dados do titular do cartão. Esta solução automatiza a implantação e configuração de recursos Azure para uma arquitetura de referência comum, demonstrando formas de os clientes poderem satisfazer requisitos específicos de segurança e conformidade e servirem de base para os clientes construirem e configure as suas próprias soluções no Azure. A solução implementa um subconjunto de requisitos semelhantes às Normas de Segurança de Dados da Indústria de Cartões de Pagamento (PCI DSS 3.2).
+Esta infraestrutura segura para uma aplicação da Indústria de Cartões de Pagamento (PCI) fornece orientação para a implementação de uma plataforma da Indústria de Cartões de Pagamento como um ambiente de serviço (PaaS) adequado para a recolha, armazenamento e recuperação de dados do titular do cartão. Esta solução automatiza a implantação e configuração de recursos Azure para uma arquitetura de referência comum, demonstrando formas de os clientes poderem satisfazer requisitos específicos de segurança e conformidade e servirem de base para os clientes construirem e configurarem as suas próprias soluções no Azure. A solução implementa um subconjunto de requisitos semelhantes às Normas de Segurança de Dados da Indústria de Cartões de Pagamento (PCI DSS 3.2).
 
 Esta amostra implementa automaticamente uma arquitetura de referência de aplicação web PaaS com controlos de segurança pré-configurados para ajudar os clientes a alcançar a conformidade semelhante aos requisitos do PCI DSS 3.2. A solução consiste em modelos de Gestor de Recursos Azure e scripts PowerShell que guiam a implementação e configuração de recursos.
 
@@ -48,10 +48,10 @@ Ao desenvolver e implementar esta aplicação, aprende-se a:
 
 - Crie uma instância azure key vault e guarde e recupere segredos dele.
 - Implementar base de dados Azure para O SQL Azure, configurar dados seguros e autorizar o acesso aos mesmos.
-- Implemente a aplicação web Azure com o ambiente do App Service, que é um isolado dedicado com aEcess front-end firewall.
+- Implemente a aplicação web Azure com o ambiente do App Service, que é um isolado dedicado com acesso frontal à firewall.
 - Crie e configure uma instância de Gateway de aplicação Azure com uma firewall que utilize [o Top 10 Ruleset OWASP](https://coreruleset.org/).
 - Ativar a encriptação de dados em trânsito e em repouso utilizando os serviços Azure.
-- Criar a política Azure e impressões azuis para avaliar as conformidades
+- Criar a Política Azure e os Projetos Azure para avaliar a conformidade.
 
 Depois de desenvolver e implementar esta aplicação, terá configurado a seguinte aplicação web de amostra, juntamente com as medidas de configuração e segurança descritas.
 
@@ -67,7 +67,7 @@ A arquitetura é constituída por estes componentes:
 - [Insights de aplicação](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Fornece um serviço extensível de Gestão de Desempenho de Aplicações (APM) em várias plataformas.
 - [Cofre de Chaves Azure.](https://docs.microsoft.com/azure/key-vault/) Armazena e encripta os segredos da nossa aplicação e gere a criação de políticas de acesso à sua volta.
 - [Diretório Azure Ative](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis/). Fornece serviço de gestão de identidade e acesso baseado na nuvem, inscreva-se e aceda aos recursos.
-- [DNS do Azure](https://docs.microsoft.com/azure/dns/dns-overview). Fornece o serviço para hospedar o domínio.
+- [Azure DNS.](https://docs.microsoft.com/azure/dns/dns-overview) Fornece o serviço para hospedar o domínio.
 - [Equilíbrio de carga azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview/). Dimensiona as suas aplicações e cria alta disponibilidade para os seus serviços
 - [Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction/). Fornece solução para cenários modernos de armazenamento de dados.
 - [Aplicação Web Azure.](https://docs.microsoft.com/azure/app-service/overview/)  Fornece um serviço baseado em HTTP para hospedar aplicações web.
@@ -185,7 +185,7 @@ As seguintes tecnologias fornecem capacidades para gerir o acesso aos dados do t
 - A autenticação da aplicação é realizada utilizando o Diretório Ativo Azure. Para obter mais informações, veja [Integrating applications with Azure Active Directory (Integrar aplicações com o Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-an-application-integration). Além disso, a encriptação da coluna de dados utiliza o Diretório Ativo Azure para autenticar a aplicação na Base de Dados Azure SQL. Para mais informações, consulte como proteger dados sensíveis na Base de [Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview).
 - O controlo de acesso baseado em funções azure permite aos administradores definir permissões de acesso de grãos finos para conceder apenas a quantidade de acesso que os utilizadores precisam para desempenhar em seus trabalhos. Em vez de dar a cada utilizador permissão sem restrições para os recursos do Azure, os administradores só podem permitir certas ações de acesso aos dados dos titulares do cartão. O acesso por subscrição está limitado ao administrador de subscrição.
 - A Azure Ative Directory Privileged Identity Management permite aos clientes minimizar o número de utilizadores que têm acesso a determinadas informações, como dados do titular do cartão. Os administradores podem usar a Azure Ative Directory Privileged Identity Management para descobrir, restringir e monitorizar identidades privilegiadas e o seu acesso aos recursos. Esta funcionalidade também pode ser utilizada para impor o acesso administrativo a pedido e just-in-time quando necessário.
-- A Azure Ative Directory Identity Protection deteta potenciais vulnerabilidades que afetam as identidades de uma organização, configura respostas automatizadas a ações suspeitas detetadas relacionadas com as identidades de uma organização, e investiga suspeitas incidentes para tomar as medidas apropriadas para resolvê-los.
+- A Azure Ative Directory Identity Protection deteta potenciais vulnerabilidades que afetam as identidades de uma organização, configura respostas automatizadas a ações suspeitas detetadas relacionadas com as identidades de uma organização, e investiga incidentes suspeitos para tomar as medidas adequadas para resolvê-las.
 
 ### <a name="secrets-management"></a>Gestão de segredos
 A solução utiliza o Cofre chave Azure para a gestão de chaves e segredos. O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. As seguintes capacidades do Cofre chave Azure ajudam os clientes a proteger e aceder a esses dados:
@@ -279,5 +279,5 @@ Para implementar os recursos na aplicação de amostracom as funcionalidades de 
 Os seguintes artigos podem ajudá-lo a projetar, desenvolver e implementar aplicações seguras.
 
 - [Design](secure-design.md)
-- [Desenvolver](secure-develop.md)
+- [Programar](secure-develop.md)
 - [Implementar](secure-deploy.md)

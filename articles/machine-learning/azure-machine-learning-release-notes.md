@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 2739e960c4bc6d35ac9ad757e80ed620e5dc04f8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: eaf94bcc894a7ac4d05540239695094856ed8a41
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684651"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186974"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento de Azure Machine Learning
 
@@ -22,6 +22,33 @@ Neste artigo, conheça os lançamentos de Azure Machine Learning.  Para obter o 
 
 Consulte [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs conhecidos e salões.
 
+## <a name="2020-04-27"></a>2020-04-27
+
+### <a name="azure-machine-learning-sdk-for-python-v140"></a>Azure Machine Learning SDK para Python v1.4.0
+
++ **Novas funcionalidades**
+  + Os clusters AmlCompute suportam agora a criação de uma identidade gerida no cluster no momento do provisionamento. Basta especificar se deseja utilizar uma identidade atribuída ao sistema ou uma identidade atribuída ao utilizador e passar um id de identidade no caso deste último. Em seguida, pode configurar permissiosn para aceder a vários recursos como O Armazenamento ou ACR de uma forma que a identidade do computação seja usada para aceder de forma segura aos dados, em vez de uma abordagem baseada em símbolos que a AmlCompute emprega hoje. Consulte a nossa referência sdk para obter mais informações sobre os parâmetros.
+  
+
++ **Alterações interruptivas**
+  + Os clusters AmlCompute suportaram uma funcionalidade de Pré-visualização em torno da criação baseada em execução, que estamos planejando depreciar em duas semanas. Pode continuar a criar metas de computação persistentes, como sempre, utilizando a classe Amlcompute, mas a abordagem específica de especificar o identificador "amlcompute" uma vez que o alvo computacional em run config não será suportado num futuro próximo. 
+
++ **Correções e melhorias de bugs**
+  + **azureml-automl-runtime**
+    + Habilitar suporte para o tipo unhashable ao calcular o número de valores únicos numa coluna.
+  + **azureml-core**
+    + Melhor estabilidade ao ler a partir do Armazenamento De Blob Azure utilizando um TabularDataset.
+    + Documentação melhorada `grant_workspace_msi` para o `Datastore.register_azure_blob_store`parâmetro para .
+    + Bug fixo `datastore.upload` com `src_dir` onde se `/` a `\`discussão terminasse com um ou , não conseguiremos carregar.
+    + Acrescentou uma mensagem de erro atonador ao tentar enviar para uma loja de dados de Armazenamento Azure Blob que não tem uma chave de acesso ou token SAS.
+  + **azureml-interpret**
+    + Adicionado tamanho superior para arquivar para os dados de visualização em explicações carregadas.
+  + **azureml-train-automl-client**
+    + Verificação explícita de label_column_name & weight_column_name parâmetros para que a AutoMLConfig seja de cadeia de tipo.
+  + **azureml-contrib-pipeline-steps**
+    + ParalelaRunStep agora suporta o conjunto de dados como parâmetro de pipeline. O utilizador pode construir o pipeline com conjunto de dados de amostra e pode alterar o conjunto de dados de entrada do mesmo tipo (ficheiro ou tabular) para uma nova execução do gasoduto.
+
+  
 ## <a name="2020-04-13"></a>2020-04-13
 
 ### <a name="azure-machine-learning-sdk-for-python-v130"></a>Azure Machine Learning SDK para Python v1.3.0
@@ -45,13 +72,12 @@ Consulte [a lista de questões conhecidas](resource-known-issues.md) para conhec
     +  API do Ambiente Adicionado new_name para criar uma cópia do objeto ambiente
     +  Environment.docker.base_dockerfile aceita o processo. Se for capaz de resolver um ficheiro, o conteúdo será lido em base_dockerfile propriedade ambiental
     + Repor automaticamente valores mutuamente exclusivos para base_image e base_dockerfile quando o utilizador definir manualmente um valor em Ambiente.docker
-    +  Dataset: falha de descarregamento de conjunto de dados fixo se a trajetória de dados contendo caracteres unicódigo
-    +  Conjunto de dados: mecanismo de montagem de conjunto de dados melhorado para respeitar a exigência mínima de espaço do disco na Computação de Aprendizagem automática Azure, que evita tornar o nó inutilizável e fazer com que o trabalho seja cancelado
     + Adicionado user_managed bandeira na RSection, o que indica se o ambiente é gerido pelo utilizador ou pelo AzureML.
-    + Conjunto de dados: adicionamos um índice para a coluna de séries temporais quando você acede a um conjunto de dados de séries de tempo como um dataframes pandas, que é usado para acelerar o acesso a datas baseadas em séries de tempo.  Anteriormente, o índice tinha o mesmo nome que a coluna do carimbo temporal, confundindo os utilizadores sobre qual é a coluna de carimbos de tempo real e qual é o índice. Não damos nenhum nome específico ao índice, uma vez que não deve ser usado como coluna. 
-  + **azureml-dataprep**
-    + Problema de autenticação de conjunto de dados fixos na nuvem soberana
-    + Falha `Dataset.to_spark_dataframe` fixa para conjuntos de dados criados a partir de lojas de dados Azure PostgreSQL
+    + Dataset: Falha de descarregamento de conjunto de dados fixo se a trajetória de dados contendo caracteres unicódigo.
+    + Conjunto de dados: Mecanismo de montagem de conjunto de dados melhorado para respeitar a exigência mínima de espaço do disco na Computação de Aprendizagem automática Azure, que evita tornar o nó inutilizável e fazer com que o trabalho seja cancelado.
+    + Conjunto de dados: Adicionamos um índice para a coluna de séries temporais quando acede a um conjunto de dados de séries de tempo como um dataframes pandas, que é usado para acelerar o acesso ao acesso a dados baseados em séries de tempo.  Anteriormente, o índice tinha o mesmo nome que a coluna do carimbo temporal, confundindo os utilizadores sobre qual é a coluna de carimbos de tempo real e qual é o índice. Não damos nenhum nome específico ao índice, uma vez que não deve ser usado como coluna. 
+    + Dataset: Problema de autenticação de conjunto de dados fixos na nuvem soberana.
+    + Conjunto de `Dataset.to_spark_dataframe` dados: Falha fixa para conjuntos de dados criados a partir de lojas de dados Azure PostgreSQL.
   + **azureml-interpret**
     + Pontuações globais adicionadas à visualização se os valores de importância local forem escassos
     + Interpretação azureml atualizada para usar interpret-comunidade 0.9.*
@@ -70,6 +96,7 @@ Consulte [a lista de questões conhecidas](resource-known-issues.md) para conhec
   + **azureml-opendatasets**
     + Adicionei telemetria adicional para monitor de serviço.
     + Ativar a porta da frente para a bolha aumentar a estabilidade 
+
 ## <a name="2020-03-23"></a>2020-03-23
 
 ### <a name="azure-machine-learning-sdk-for-python-v120"></a>Azure Machine Learning SDK para Python v1.2.0
@@ -90,7 +117,7 @@ Consulte [a lista de questões conhecidas](resource-known-issues.md) para conhec
     + Adicione melhores mensagens de erro se a coluna de tempo tiver um formato incorreto.
     + Imputação personalizada ativada com valor constante para tarefas de previsão de dados X e y.
   + **azureml-core**
-    + Adicione suporte para carregar ServicePrincipal a partir de variáveis ambientais: AZUREML_SERVICE_PRINCIPAL_ID, AZUREML_SERVICE_PRINCIPAL_TENANT_ID e AZUREML_SERVICE_PRINCIPAL_PASSWORD
+    + Apoio adicional ao serviço de carregamento Principal a partir de variáveis ambientais: AZUREML_SERVICE_PRINCIPAL_ID, AZUREML_SERVICE_PRINCIPAL_TENANT_ID e AZUREML_SERVICE_PRINCIPAL_PASSWORD
     + Introduziu um novo `support_multi_line` `Dataset.Tabular.from_delimited_files`parâmetro para:`support_multi_line=False`Por defeito , todas as quebras de linha, incluindo as dos valores de campo citados, serão interpretadas como uma quebra recorde. Ler dados desta forma é mais rápido e otimizado para execução paralela em vários núcleos de CPU. No entanto, pode resultar na produção silenciosa de mais registos com valores de campo desalinhados. Isto deve ser `True` definido para quando os ficheiros delimitados são conhecidos por conterem quebras de linha citadas.
     + Acrescentou a capacidade de registar ADLS Gen2 no AZURE Machine Learning CLI
     + Renomeado parâmetro 'fine_grain_timestamp' para 'timestamp' e parâmetro 'coarse_grain_timestamp' para 'partition_timestamp' para o método with_timestamp_columns() em TabularDataset para melhor refletir a utilização dos parâmetros.
@@ -150,19 +177,19 @@ Consulte [a lista de questões conhecidas](resource-known-issues.md) para conhec
   + **azureml-core**
     + Os Webservices azureml implantados `INFO` passarão a desemposição à exploração madeireira. Isto pode ser controlado `AZUREML_LOG_LEVEL` definindo a variável ambiental no serviço implantado.
     + Python sdk usa serviço de descoberta para usar o ponto final 'api' em vez de 'pipelines'.
-    + Troque para as novas rotas em todas as chamadas SDK
-    + Altera o encaminhamento de chamadas para o ModelManagementService para uma nova estrutura unificada
+    + Troque para as novas rotas em todas as chamadas SDK.
+    + Alterou o encaminhamento de chamadas para o ModelManagementService para uma nova estrutura unificada.
       + Disponibilizou publicamente o método de atualização do espaço de trabalho.
-      + Adicionado image_build_compute parâmetro no método de atualização do espaço de trabalho para permitir ao utilizador atualizar a computação para construção de imagem
-    +  Acrescentou mensagens de depreciação ao antigo fluxo de trabalho de perfis. CCP de perfis fixos e limites de memória
-    + RSection adicionado como parte do Ambiente para executar trabalhos R
-    +  Validação `Dataset.mount` adicionada para aumentar o erro quando a fonte do conjunto de dados não estiver acessível ou não contiver quaisquer dados.
-    + Adicionado `--grant-workspace-msi-access` como um parâmetro adicional para o Datastore CLI para registar o Contentor Blob Azure que lhe permitirá registar o Blob Container que está por trás de um VNet
+      + Adicione image_build_compute parâmetro no método de atualização do espaço de trabalho para permitir que o utilizador atualize a computação para a construção de imagem.
+    + Acrescentou mensagens de depreciação ao antigo fluxo de trabalho de perfis. Perfis fixos cpu e limites de memória.
+    + RSection adicionado como parte do Ambiente para executar trabalhos R.
+    + Validação `Dataset.mount` adicionada para aumentar o erro quando a fonte do conjunto de dados não estiver acessível ou não contiver quaisquer dados.
+    + Adicionado `--grant-workspace-msi-access` como um parâmetro adicional para o Datastore CLI para registar o Contentor Blob Azure que lhe permitirá registar o Blob Container que está por trás de um VNet.
     + O perfil de instância única foi fixado para elaborar uma recomendação e foi disponibilizado no núcleo sdk.
-    + Corrigiu a questão em _deploy aks.py
+    + Corrigiu a questão em _deploy aks.py.
     + Valida a integridade dos modelos que estão a ser carregados para evitar falhas de armazenamento silenciosos.
     + O utilizador pode agora especificar um valor para a tecla auth ao regenerar as chaves para os serviços web.
-    + Inseto fixo onde as letras maiúsculas não podem ser utilizadas como nome de entrada do conjunto de dados
+    + Inseto fixo onde as letras maiúsculas não podem ser utilizadas como nome de entrada do conjunto de dados.
   + **incumprimentos em azureml**
     + `azureml-dataprep`será agora instalado como `azureml-defaults`parte de . Já não é necessário instalar manualmente o dataprep[fuse] em alvos de cálculo para montar conjuntos de dados.
   + **azureml-interpret**

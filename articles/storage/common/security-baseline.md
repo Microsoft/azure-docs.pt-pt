@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d083ba757004fa477038750ad6210e4bb30659ee
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 184b60f6147089cbdfd855b473b3346d021f7fbc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82120759"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176605"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança azure para armazenamento azure
 
@@ -140,7 +140,7 @@ Também pode utilizar definições de políticas incorporadas relacionadas com a
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: Regras de Configuração do Tráfego de Documentos
 
-**Orientação**: Etiquetas de utilização para grupos de segurança de rede (NSG) e outros recursos relacionados com a segurança da rede e fluxo de tráfego. Para regras nsg individuais, utilize o campo "Descrição" para especificar a necessidade e/ou duração do negócio (etc.) para quaisquer regras que permitam o tráfego de/para uma rede. Utilize qualquer uma das definições políticas do Azure incorporadas relacionadas com a marcação, tais como "Exigir etiqueta e seu valor" para garantir que todos os recursos são criados com Tags e notificá-lo de recursos não marcados existentes. Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou realizar ações em recursos baseados nas suas etiquetas. 
+**Orientação**: Etiquetas de utilização para grupos de segurança de rede (NSG) e outros recursos relacionados com a segurança da rede e fluxo de tráfego. Para regras nsg individuais, utilize o campo "Descrição" para especificar a necessidade e/ou duração do negócio (etc.) para quaisquer regras que permitam o tráfego de/para uma rede. Utilize qualquer uma das definições de Política Azure incorporadarelacionadas com a marcação, tais como "Exigir etiqueta e seu valor" para garantir que todos os recursos são criados com Tags e notificá-lo de recursos não marcados existentes. Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou realizar ações em recursos baseados nas suas etiquetas. 
 
 - [Como criar e usar Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -687,7 +687,7 @@ Além disso, utilize proteção avançada de ameaças para armazenamento azure p
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor para recursos azure não aprovados
 
-**Orientação**: Utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas: 
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas: 
 
  - Tipos de recursos não permitidos 
  - Tipos de recursos permitidos 
@@ -730,7 +730,7 @@ Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recur
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Utilizar apenas os serviços Azure aprovados
 
-**Orientação**: Utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas: 
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas: 
 
 - Tipos de recursos não permitidos 
 - Tipos de recursos permitidos 
@@ -807,7 +807,7 @@ Utilize recomendações do Azure Security Center como base de configuração seg
 
 ### <a name="73-maintain-secure-configurations-for-all-azure-resources"></a>7.3: Manter configurações seguras para todos os recursos azure
 
-**Orientação:** Utilize a política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os recursos da sua conta de Armazenamento. 
+**Orientação**: Utilize a Política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os recursos da sua conta de Armazenamento. 
 
 - [Como configurar e gerir a Política Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 

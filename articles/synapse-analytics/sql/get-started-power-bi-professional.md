@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0ce8f3a447f1896ae6d96d343782f8cdb44d4c6f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a9db42bcd69d9a24a454c02c9bb0e2d339cb4860
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81422565"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185783"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Ligue-se ao Synapse SQL com power bi professional
 
@@ -26,7 +26,7 @@ ms.locfileid: "81422565"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-Neste tutorial, vamos passar por etapas de como ligar o ambiente de trabalho power BI à SQL on-demand (pré-visualização).
+Neste tutorial, vamos percorrer os passos para ligar o ambiente de trabalho power BI à SQL on-demand (pré-visualização).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,12 +57,12 @@ Há dois passos antes da utilização de amostras:
 
 ### <a name="create-database"></a>Criar base de dados
 
-Uma vez que utilizará o ambiente de demonstração, deverá criar a sua própria base de dados para fins de demonstração. A base de dados é necessária para criar pontos de vista. Utilizará esta base de dados em algumas das consultas de amostra nesta documentação.
+Para este artigo de início, deve criar a sua própria base de dados para utilizar como demonstração. É necessária uma base de dados para a criação de pontos de vista. Você usará esta base de dados em algumas das consultas de amostra dentro desta documentação.
 
 > [!NOTE]
-> Note que as bases de dados são utilizadas apenas para visualizar metadados, não para dados reais.
+> As bases de dados são utilizadas apenas para visualizar metadados, não para dados reais.
 >
-> Escreva o nome da base de dados que usa, e vai precisar dele mais tarde.
+> Escreva o nome da base de dados que está a usar, e vai precisar dele mais tarde.
 
 ```sql
 DROP DATABASE IF EXISTS demo;
@@ -70,10 +70,10 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Criar credenciais
 
-Temos de criar credenciais antes que possas fazer consultas. Esta credencial será utilizada pelo serviço on-demand SQL para aceder a ficheiros armazenados.
+Temos de criar credenciais antes que possas fazer consultas. As credenciais serão utilizadas pelo serviço on-demand SQL para aceder a ficheiros armazenados.
 
 > [!NOTE]
-> Note que precisa de criar credenciais para acesso à conta de armazenamento. Embora a SQL on-demand possa aceder a armazenamentos de diferentes regiões, ter armazenamento e espaço de trabalho Azure Synapse na mesma região proporcionará uma melhor experiência de desempenho.
+> Precisa criar credenciais para acesso à conta de armazenamento. Embora a SQL a pedido possa aceder ao armazenamento de diferentes regiões, ter armazenamento e espaço de trabalho Azure Synapse na mesma região proporcionará uma melhor experiência de desempenho.
 
 **Código de snippet sobre como criar credenciais para os recipientes**de dados do Census, executar:
 
@@ -92,17 +92,17 @@ GO
 
 ## <a name="creating-power-bi-desktop-report"></a>Criação de relatório de desktop Power BI
 
-Abra a aplicação de ambiente de trabalho do Open Power BI e selecione a opção "Obter dados".
+Abra a aplicação de ambiente de trabalho Do Power BI e selecione Obter a opção **de dados.**
 ![Abra a aplicação de ambiente de trabalho Do Power BI e selecione obter dados.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### <a name="step-1---select-data-source"></a>Passo 1 - Selecione fonte de dados
 
-Selecione "Azure" no menu e, em seguida, "Base de Dados Azure SQL".
+Selecione **Azure** no menu e, em seguida, **Azure SQL Database**.
 ![Selecione fonte de dados.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>Passo 2 - Selecionar base de dados
 
-Escreva URL para a base de dados e nome da base de dados onde a vista está a residir.
+Escreva o URL para a base de dados e o nome da base de dados onde reside a vista.
 ![Selecione base de dados no ponto final.](./media/get-started-power-bi-professional/step-2-db.png)
 
 ## <a name="next-steps"></a>Passos seguintes

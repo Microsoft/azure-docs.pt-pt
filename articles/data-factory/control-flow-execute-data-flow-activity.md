@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 03/16/2020
-ms.openlocfilehash: 32088dd712cd0c70fc01de48add17a0b6a828dc8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/25/2020
+ms.openlocfilehash: 78ef749f36e9ffd3aae510d201b0700e5e197065
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415336"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183301"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade de Fluxo de Dados na Fábrica de Dados azure
 
@@ -98,7 +98,7 @@ Se o fluxo de dados utilizar conjuntos de dados parametrizados, defina os valore
 
 ### <a name="parameterized-data-flows"></a>Fluxos de dados parametrizados
 
-Se o seu fluxo de dados estiver parametrómetro, defina os valores dinâmicos dos parâmetros de fluxo de dados no separador **Parâmetros.** Pode utilizar a linguagem de expressão do gasoduto ADF (apenas para tipos de cordas) ou a linguagem de expressão de fluxo de dados para atribuir valores de parâmetros dinâmicos ou literais. Para mais informações, consulte [Parâmetros de Fluxo](parameters-data-flow.md)de Dados .
+Se o seu fluxo de dados estiver parametrómetro, defina os valores dinâmicos dos parâmetros de fluxo de dados no separador **Parâmetros.** Pode utilizar a linguagem de expressão do gasoduto ADF ou a linguagem de expressão do fluxo de dados para atribuir valores de parâmetros dinâmicos ou literais. Para mais informações, consulte [Parâmetros de Fluxo](parameters-data-flow.md)de Dados . Se desejar incluir propriedades de gasoduto como parte da sua expressão para passar para um parâmetro de fluxo de dados, escolha as expressões do gasoduto.
 
 ![Execute o exemplo do parâmetro de fluxo de dados](media/data-flow/parameter-example.png "Exemplo de parâmetro")
 

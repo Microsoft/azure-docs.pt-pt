@@ -3,12 +3,12 @@ title: Backup da base de dados do Servidor SQL de resolução de problemas
 description: Informações de resolução de problemas para o backup das bases de dados do SQL Server em execução em VMs Azure com Backup Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 8d49adb0ab741903ccb2989cfeb4ceaef2e8a38d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cec3f8530d8a48a870c672d418d42d12a62aa2a4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408621"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183335"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Backup da base de dados Do Servidor SQL de sessão de problemas utilizando a cópia de segurança do Azure
 
@@ -171,27 +171,25 @@ O VM não é capaz de contactar o serviço Azure Backup devido a problemas de co
 
 Verifique se há um ou mais dos seguintes sintomas antes de desencadear a operação de reregisto:
 
-* Todas as operações (tais como backup, restauro e cópia de segurança configurada) estão a falhar no VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable,** **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent,** **WorkloadExtensionDidntDequeueMsg**.
-* Se a área de Estado de **Reserva** para o item de reserva estiver a mostrar **não alcançável,** exclua todas as outras causas que possam resultar no mesmo estado:
+- Todas as operações (tais como backup, restauro e cópia de segurança configurada) estão a falhar no VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable,** **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent,** **WorkloadExtensionDidntDequeueMsg**.
+- Se a área de Estado de **Reserva** para o item de reserva estiver a mostrar **não alcançável,** exclua todas as outras causas que possam resultar no mesmo estado:
 
-  * Falta de autorização para realizar operações relacionadas com backup no VM.
-  * Encerramento do VM, por isso não podem ocorrer reforços.
-  * Problemas de rede.
+  - Falta de autorização para realizar operações relacionadas com backup no VM.
+  - Encerramento do VM, por isso não podem ocorrer reforços.
+  - Problemas de rede.
 
    ![re-registar vM](./media/backup-azure-sql-database/re-register-vm.png)
 
-
-
-* No caso de um grupo de disponibilidade Always On, os backups começaram a falhar depois de ter alterado a preferência de backup ou após uma falha.
+- No caso de um grupo de disponibilidade Always On, os backups começaram a falhar depois de ter alterado a preferência de backup ou após uma falha.
 
 Estes sintomas podem surgir por uma ou mais das seguintes razões:
 
-* Uma extensão foi eliminada ou desinstalada a partir do portal.
-* Uma extensão foi desinstalada do Painel de **Controlo** no VM em **Desinstalar ou Alterar um Programa**.
-* O VM foi restaurado no tempo através da restauração do disco no local.
-* O VM foi desligado por um período prolongado, pelo que a configuração da extensão expirou.
-* O VM foi eliminado, e outro VM foi criado com o mesmo nome e no mesmo grupo de recursos que o VM eliminado.
-* Um dos nós do grupo de disponibilidade não recebeu a configuração completa de backup. Isto pode acontecer quando o grupo de disponibilidade está registado no cofre ou quando um novo nó é adicionado.
+- Uma extensão foi eliminada ou desinstalada a partir do portal.
+- Uma extensão foi desinstalada do Painel de **Controlo** no VM em **Desinstalar ou Alterar um Programa**.
+- O VM foi restaurado no tempo através da restauração do disco no local.
+- O VM foi desligado por um período prolongado, pelo que a configuração da extensão expirou.
+- O VM foi eliminado, e outro VM foi criado com o mesmo nome e no mesmo grupo de recursos que o VM eliminado.
+- Um dos nós do grupo de disponibilidade não recebeu a configuração completa de backup. Isto pode acontecer quando o grupo de disponibilidade está registado no cofre ou quando um novo nó é adicionado.
 
 Nos cenários anteriores, recomendamos que desencadeie uma nova operação de registo no VM. Consulte [aqui](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) as instruções sobre como executar esta tarefa no PowerShell.
 
@@ -221,7 +219,7 @@ Se o tamanho da cadeia do conteúdo exceder 20.000 bytes, os ficheiros de base d
 
 ### <a name="override-the-default-target-restore-file-path"></a>Anular a trajetória de ficheiro de restauro do alvo padrão
 
-Pode substituir o caminho de ficheiro de restauro do alvo durante a operação de restauro, colocando um ficheiro JSON que contém o mapeamento do ficheiro base de dados para o caminho de restauro do alvo. Crie `database_name.json` um ficheiro e coloque-o no local *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
+Pode substituir o caminho de ficheiro de restauro do alvo durante a operação de restauro, colocando um ficheiro JSON que contém o mapeamento do ficheiro base de dados para o caminho de restauro do alvo. Crie `database_name.json` um ficheiro e `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*`coloque-o no local .
 
 O conteúdo do ficheiro deve estar neste formato:
 

@@ -3,12 +3,12 @@ title: Elimine um cofre dos Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, aprenda a remover dependências e, em seguida, apague um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 69fed6c53914ed7aa16b04b5311ec69966734f25
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 5fcf8004cd5792b30ec57537d5d8ab0bc085dfb3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82025140"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183760"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Elimine um cofre de serviços de recuperação de backup azure
 
@@ -90,6 +90,7 @@ Primeiro, leia a secção **[Antes de começar](#before-you-start)** para entend
 
      Reveja a mensagem de aviso e as instruções na caixa de verificação de consentimento.
     > [!NOTE]
+    >
     >- Se o servidor protegido estiver sincronizado com os serviços Do Azure e os itens de backup existirem, a caixa de verificação de consentimento apresentará o número de itens de backup dependentes e o link para visualizar os itens de backup.
     >- Se o servidor protegido não estiver sincronizado com os serviços Do Azure e os itens de backup existirem, a caixa de verificação de consentimento apresentará apenas o número de itens de backup.
     >- Se não houver itens de reserva, a caixa de verificação de consentimento pedirá a eliminação.

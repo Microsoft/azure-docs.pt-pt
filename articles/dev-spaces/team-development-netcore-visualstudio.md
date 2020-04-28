@@ -9,12 +9,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Este tutorial mostra-lhe como usar o Azure Dev Spaces e o Visual Studio para fazer o desenvolvimento da equipa numa aplicação .NET Core no Serviço Azure Kubernetes
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: b4520ce35807fb022fa39ae9b00347a27e192380
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c84c77fe7a425318700903427ff1c4aaa4e73a11
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78245056"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166041"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Desenvolvimento de equipa utilizando .NET Core e Visual Studio com Espaços Azure Dev
 
@@ -122,7 +122,7 @@ Segue-se um diagrama que o ajudará a compreender como funcionam os diferentes e
 Esta capacidade incorporada do Azure Dev Spaces permite-lhe testar o código ponto a ponto num ambiente partilhado sem que cada programador tenha de recriar a pilha completa de serviços no respetivo espaço. Este tipo de encaminhamento requer que os cabeçalhos de propagação sejam reencaminhados no código da aplicação, conforme ilustrado no passo anterior deste guia.
 
 ### <a name="test-code-running-in-the-_devscott_-space"></a>Código de teste em execução no espaço _dev/scott_
-Para testar a sua nova versão do *mywebapi* em conjunto com o *webfrontend,* abra http://dev.webfrontend.123456abcdef.eus.azds.io) o seu navegador para o URL do ponto de acesso público para *webfrontend* (por exemplo, e vá para a página Sobre. Deverá ver a mensagem original "Hello from webfrontend and Hello from mywebapi" (Olá de webfrontend e Olá de mywebapi).
+Para testar a sua nova versão do *mywebapi* em conjunto com o *webfrontend,* abra `http://dev.webfrontend.123456abcdef.eus.azds.io`o seu navegador para o URL do ponto de acesso público para *webfrontend* (por exemplo, ) e vá para a página Sobre. Deverá ver a mensagem original "Hello from webfrontend and Hello from mywebapi" (Olá de webfrontend e Olá de mywebapi).
 
 Em seguida, adicione o elemento "scott.s." parte para o URL para que\:leia algo como http /scott.s.dev.webfrontend.123456abcdef.eus.azds.io e atualizar o navegador. O ponto de rutura que definiu no seu projeto *mywebapi* deve ser atingido. Clique em F5 para continuar. No browser, deverá ver a nova mensagem "Hello from webfrontend and mywebapi now says something new." (Olá de webfrontend e mywebapi agora indica algo de novo). Isto porque o caminho para o seu código atualizado em *mywebapi* está a correr no espaço _de v/scott._
 

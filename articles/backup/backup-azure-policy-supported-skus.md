@@ -3,18 +3,18 @@ title: SKUs de VM com suporte para o Azure Policy
 description: Um artigo que descreve as VM SKUs suportadas (por Publisher, Image Offer e Image SKU) que são suportadas para as políticas azure incorporadas fornecidas pela Backup
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 1b6a94b0f57ecfea946654c6cae38ac335335e00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4658d1beffe707682e173491edea1eac0db9c811
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74980117"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183624"
 ---
 # <a name="supported-vm-skus-for-azure-policy"></a>SKUs de VM com suporte para o Azure Policy
 
 A Azure Backup fornece uma política incorporada (utilizando a Política Azure) que pode ser atribuída a **todos os VMs Azure num local especificado dentro**de um grupo de subscrição ou de recursos. Quando esta política é atribuída a um dado âmbito, todos os novos VMs criados nesse âmbito são automaticamente configurados para backup para um **cofre existente no mesmo local e subscrição**. A tabela abaixo lista todas as VM SKUs apoiadas por esta política.
 
-### <a name="supported-vms"></a>**VMs suportados**
+## <a name="supported-vms"></a>VMs suportados*
 
 **Nome da política:** Configure cópias de segurança em VMs de um local para um cofre central existente no mesmo local
 
@@ -46,7 +46,7 @@ MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-with-Con
 MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1803-with-Containers-smalldisk
 MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | Toda a imagem skus
 MicrosoftSQLServer | SQL2016SP1-WS2016 | Toda a imagem skus
-MicrosoftSQLServer | SQL2016-WS2016  | Toda a imagem skus
+MicrosoftSQLServer | SQL2016-WS2016 | Toda a imagem skus
 MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Toda a imagem skus
 MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Toda a imagem skus
 MicrosoftSQLServer | SQL2016-WS2012R2 | Toda a imagem skus
@@ -58,7 +58,7 @@ MicrosoftSQLServer | SQL2016-WS2012R2-BYOL | Toda a imagem skus
 MicrosoftRServer | MLServer-WS2016 | Toda a imagem skus
 MicrosoftVisualStudio | VisualStudio | Toda a imagem skus
 MicrosoftVisualStudio | Windows | Toda a imagem skus
-MicrosoftDynamicsAX | Dynamics  | Pré-Req-AX7-Onebox-U8
+MicrosoftDynamicsAX | Dynamics | Pré-Req-AX7-Onebox-U8
 microsoft-anúncios | janelas-data-ciência-vm | Toda a imagem skus
 MicrosoftWindowsDesktop | Windows-10 | Toda a imagem skus
 RedHat | RHEL | 6.7, 6.8, 6.9, 6.10, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7

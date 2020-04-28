@@ -3,12 +3,12 @@ title: Back up SQL Server para Azure como uma carga de trabalho DPM
 description: Uma introdução para apoiar as bases de dados do SQL Server utilizando o serviço de backup Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8cbb8c833bc2933afac300bcc848fd50861011d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01504fcfd81040d75e57ce62a9f77a5bb248d59b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505929"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183794"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Back up SQL Server para Azure como uma carga de trabalho DPM
 
@@ -24,13 +24,14 @@ Para fazer o apoio a uma base de dados do SQL Server para o Azure e recuperá-la
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de começar, certifique-se de que cumpriu os [pré-requisitos](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para a utilização de Backup Azure para proteger as cargas de trabalho. Aqui estão algumas das tarefas pré-requisitos: 
+Antes de começar, certifique-se de que cumpriu os [pré-requisitos](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para a utilização de Backup Azure para proteger as cargas de trabalho. Aqui estão algumas das tarefas pré-requisitos:
+
 * Crie um cofre reserva.
-* Descarregue as credenciais do cofre. 
+* Descarregue as credenciais do cofre.
 * Instale o agente de reserva Azure.
 * Registe o servidor com o cofre.
 
-## <a name="create-a-backup-policy"></a>Criar uma política de backup 
+## <a name="create-a-backup-policy"></a>Criar uma política de backup
 
 Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma política de backup:
 
@@ -59,7 +60,7 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
    >
    >
 
-1. Selecione **Next**. DPM mostra o espaço de armazenamento total disponível. Também mostra a potencial utilização do espaço do disco.
+1. Selecione **Seguinte**. DPM mostra o espaço de armazenamento total disponível. Também mostra a potencial utilização do espaço do disco.
 
     ![Configurar a atribuição de disco](./media/backup-azure-backup-sql/pg-storage.png)
 
@@ -74,7 +75,7 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
     A cópia inicial de cópia de cópia de cópia de cópia de segurança requer a transferência de toda a fonte de dados (base de dados do Servidor SQL). Os dados de backup movem-se do servidor de produção (máquina SQL Server) para o servidor DPM. Se esta cópia de segurança for grande, a transferência dos dados sobre a rede pode causar congestionamento de largura de banda. Por esta razão, os administradores podem optar por utilizar meios amovíveis para transferir **manualmente**a cópia de segurança inicial . Ou podem transferir os dados **automaticamente sobre a rede** num momento determinado.
 
     Após os acabamentos iniciais de backup, as cópias de backup continuam incrementalmente na cópia inicial de cópia de cópia de cópia de cópia de reserva. As cópias de segurança incrementais tendem a ser pequenas e são facilmente transferidas através da rede.
-    
+
 1. Escolha quando fazer uma verificação de consistência. Em seguida, selecione **Seguinte**.
 
     ![Escolha quando fazer uma verificação de consistência](./media/backup-azure-backup-sql/pg-consistent.png)
@@ -106,7 +107,7 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
     * O reforço no sábado às 12:00 é mantido por 104 semanas.
     * O reforço do último sábado do mês às 12:00 é mantido por 60 meses.
     * O reforço do último sábado de março às 12:00 é mantido por 10 anos.
-    
+
     Depois de escolher uma política de retenção, selecione **Next**.
 
 1. Escolha como transferir a cópia de cópia inicial de cópia de reserva para o Azure.
@@ -147,7 +148,7 @@ Para recuperar uma entidade protegida, como uma base de dados do SQL Server, do 
 1. Clique no nome da base de dados e selecione **Recuperar**.
 
     ![Recuperar uma base de dados do Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. DPM mostra os detalhes do ponto de recuperação. Selecione **Next**. Para substituir a base de dados, selecione o tipo de recuperação **Recuperar para a instância original do Servidor SQL**. Em seguida, selecione **Seguinte**.
+1. DPM mostra os detalhes do ponto de recuperação. Selecione **Seguinte**. Para substituir a base de dados, selecione o tipo de recuperação **Recuperar para a instância original do Servidor SQL**. Em seguida, selecione **Seguinte**.
 
     ![Recuperar uma base de dados da sua localização original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 

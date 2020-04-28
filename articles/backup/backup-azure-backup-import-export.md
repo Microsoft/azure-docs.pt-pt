@@ -4,12 +4,12 @@ description: Saiba como pode utilizar o Azure Backup para enviar dados da rede u
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 1359616e074f36a1324a418d5b2c889076ced52d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 642787e17f347bf8233e50c65d26a1661b08fcfb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206763"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183896"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline em Backup Azure
 
@@ -36,7 +36,7 @@ As seguintes funcionalidades de backup do Azure ou cargas de trabalho suportam a
 > * Cópia de segurança de ficheiros e pastas com o Agente de Serviços de Recuperação do Microsoft Azure (MARS), também referido como o Agente de Backup Azure.
 > * Backup de todas as cargas de trabalho e ficheiros com System Center Data Protection Manager (DPM).
 > * Backup de todas as cargas de trabalho e ficheiros com o Microsoft Azure Backup Server.
- 
+
    > [!NOTE]
    > A cópia de segurança offline não é suportada para cópias de segurança do estado do sistema feitas usando o Agente de Backup Azure.
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 401a39d4a65c7aee67d62ed0a6ba77893a11c2d1
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 2403faf23294afbba539c7240e842f928fed83dc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101149"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181295"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -645,7 +645,7 @@ Pode executar tarefas relacionadas com a faturação comum, como atualizar infor
 | microsoft.directy/organization/basic/update | Atualizar propriedades básicas sobre organização em Azure Ative Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
-| microsoft.commerce.billing/allEntities/allTasks | Gerencie todos os aspetos da faturação do Office 365. |
+| microsoft.commerce.billing/allEntities/allTasks | Gerir todos os aspetos da faturação. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Gabinete 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
@@ -755,7 +755,7 @@ Pode gerir todos os aspetos dos serviços Azure AD e Microsoft que utilizam iden
 | microsoft.azure.informationProtection/allEntities/allTasks | Gerir todos os aspetos da Proteção de Informação Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
-| microsoft.commerce.billing/allEntities/allTasks | Gerencie todos os aspetos da faturação do Office 365. |
+| microsoft.commerce.billing/allEntities/allTasks | Gerir todos os aspetos da faturação. |
 | microsoft.intune/allEntities/allTasks | Gerencie todos os aspetos de Intune. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Gerir todos os aspetos do Office 365 Compliance Manager |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gerencie todos os aspetos do Desktop Analytics. |
@@ -1048,7 +1048,7 @@ Pode ler tudo o que um Administrador Global pode, mas não editar nada.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.commerce.billing/allEntities/read    | Leia todos os aspetos da faturação do Office 365. |
+| microsoft.commerce.billing/allEntities/read    | Leia todos os aspetos da faturação. |
 | microsoft.directy/administrativeUnits/basic/read    | Leia propriedades básicas em Unidades administrativas em Diretório Ativo Azure. |
 | microsoft.directy/administrativeUnits/members/read    | Leia a propriedade administrativaUnits.members em Azure Ative Directory. |
 | microsoft.diretório/aplicações/básico/leitura    | Leia as propriedades básicas sobre aplicações no Diretório Ativo Azure. |

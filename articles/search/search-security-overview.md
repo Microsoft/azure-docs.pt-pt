@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 4db9624fbc71e48fcc10ae1d9a1d700d301248a2
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.date: 04/25/2020
+ms.openlocfilehash: 68355ac4238aba3deaa951881bc164fe9dc08e28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759541"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183437"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Segurança e privacidade de dados na Pesquisa Cognitiva Azure
 
@@ -40,7 +40,7 @@ A encriptação estende-se por todo o pipeline de indexação: desde ligações,
 
 | Camada de segurança | Descrição |
 |----------------|-------------|
-| Encriptação de dados em circulação <br>(HTTPS/SSL/TLS) | A Pesquisa Cognitiva Azure ouve na porta HTTPS 443. Do outro lado da plataforma, as ligações aos serviços do Azure são encriptadas. <br/><br/>Todas as interações de pesquisa cognitiva Azure de cliente-a-serviço utilizam encriptação SSL/TLS 1.2. Versões anteriores (1.0 ou 1.1) não são suportadas.|
+| Encriptação de dados em circulação <br>(HTTPS/TLS) | A Pesquisa Cognitiva Azure ouve na porta HTTPS 443. Do outro lado da plataforma, as ligações aos serviços do Azure são encriptadas. <br/><br/>Todas as interações de pesquisa cognitiva Azure de cliente-a-serviço utilizam encriptação TLS 1.2. Versões anteriores (1.0 ou 1.1) não são suportadas.|
 | Encriptação inativa <br>Chaves geridas pela Microsoft | A encriptação é totalmente internalizada no processo de indexação, sem impacto mensurável na indexação do tempo-a-conclusão ou no tamanho do índice. Ocorre automaticamente em todas as indexações, incluindo em atualizações incrementais para um índice que não está totalmente encriptado (criado antes de janeiro de 2018).<br><br>Internamente, a encriptação baseia-se na encriptação do Serviço de [Armazenamento Azure,](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)utilizando [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits.<br><br> A encriptação é interna da Pesquisa Cognitiva Azure, com certificados e chaves de encriptação geridas internamente pela Microsoft, e aplicadas universalmente. Não é possível ligar ou desligar a encriptação, gerir ou substituir as suas próprias chaves, nem visualizar as definições de encriptação no portal ou programaticamente.<br><br>A encriptação em repouso foi anunciada em 24 de janeiro de 2018 e aplica-se a todos os níveis de serviço, incluindo o nível livre, em todas as regiões. Para uma encriptação completa, os índices criados antes dessa data devem ser retirados e reconstruídos para que a encriptação ocorra. Caso contrário, apenas novos dados adicionados após 24 de janeiro são encriptados.|
 | Encriptação inativa <br>Chaves geridas pelo cliente | A encriptação com chaves geridas pelo cliente está agora geralmente disponível para serviços de pesquisa criados em ou depois de janeiro de 2019. Não é suportado em serviços Gratuitos (partilhados).<br><br>Os índices de pesquisa cognitiva azure e os mapas de sinónimo podem agora ser encriptados em repouso com as chaves geridas pelo cliente no Cofre chave Azure. Para saber mais, consulte [Gerir chaves de encriptação em Pesquisa Cognitiva Azure](search-security-manage-encryption-keys.md).<br><br>Esta funcionalidade não está a substituir a encriptação predefinida em repouso, mas sim aplicada além dela.<br><br>Ativar esta funcionalidade aumentará o tamanho do índice e degradará o desempenho da consulta. Com base em observações até à data, pode esperar ver um aumento de 30%-60% em tempos de consulta, embora o desempenho real varie dependendo da definição de índice e dos tipos de consultas. Devido a este impacto de desempenho, recomendamos que apenas ative esta funcionalidade em índices que realmente o exijam.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152ff52ce52b573d7f24cbb2fafc944b1794f6d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22ab3e7403069ed1b579631b88c2ac2c41191ecd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129264"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181329"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planeie a sua direção ativa híbrida Azure aderir à implementação
 
@@ -94,7 +94,7 @@ Como primeiro passo de planeamento, deve rever o seu ambiente e determinar se pr
 Se os dispositivos de domínio do Windows 10 forem [Azure AD registados no](overview.md#getting-devices-in-azure-ad) seu inquilino, poderá levar a um duplo estado de AD Hybrid Azure e dispositivo registado em Azure AD. Recomendamos a atualização para o Windows 10 1803 (com kB4489894 aplicado) ou acima para abordar automaticamente este cenário. Nos lançamentos anteriores a 1803, terá de remover manualmente o estado registado pela Azure AD antes de permitir a adesão da Hybrid Azure AD. Em 1803 e acima de lançamentos, foram feitas as seguintes alterações para evitar este duplo estado:
 
 - Qualquer estado registado em Azure AD existente para um utilizador seria automaticamente removido <i>após a adesão do Hybrid Azure AD e os mesmos registos</i>de utilizador em . Por exemplo, se o Utilizador A tiver um estado registado em AD Azure no dispositivo, o estado duplo para o Utilizador A só é limpo quando o utilizador A iniciar sessão no dispositivo. se houver vários utilizadores no mesmo dispositivo, o estado duplo é limpo individualmente quando esses utilizadores fazem login.
-- Pode evitar que o seu dispositivo de domínio se junte ao registo da AD Azure adicionando esta chave de registo - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:000000001.
+- Pode evitar que o seu dispositivo de domínio se junte ao registo da AD Azure adicionando o seguinte valor de registo ao HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001.
 - No Windows 10 1803, se tiver o Windows Hello for Business configurado, o utilizador precisa de reinstalar o Windows Hello for Business após a limpeza do estado duplo. Esta questão foi abordada com kB4512509
 
 > [!NOTE]

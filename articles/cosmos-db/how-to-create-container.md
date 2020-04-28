@@ -4,24 +4,27 @@ description: Aprenda a criar um recipiente em Azure Cosmos DB utilizando o porta
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/24/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4eaa2974817bfcd8bef83e5139d75a2d4c2ec107
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 809ebe848e38a7c99c96ef44f130da917fb35942
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873714"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161627"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Crie um recipiente Azure Cosmos
 
 Este artigo explica as diferentes formas de criar um recipiente Azure Cosmos (coleção, mesa ou gráfico). Pode utilizar o portal Azure, o Azure CLI ou os SDKs suportados para o mesmo. Este artigo demonstra como criar um recipiente, especificar a chave de partição e fornecer o seu contributo.
 
+> [!NOTE]
+> Ao criar recipientes, certifique-se de que não cria dois recipientes com o mesmo nome, mas invólucrodiferente. Isto porque algumas partes da plataforma Azure não são sensíveis a casos, o que pode resultar em confusão/colisão de telemetria e ações em contentores com tais nomes.
+
 ## <a name="create-a-container-using-azure-portal"></a>Criar um contentor com o portal do Azure
 
 ### <a name="sql-api"></a><a id="portal-sql"></a>SQL API
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure Cosmos,](create-sql-api-dotnet.md#create-account)ou selecione uma conta existente.
 
@@ -37,7 +40,7 @@ Este artigo explica as diferentes formas de criar um recipiente Azure Cosmos (co
 
 ### <a name="azure-cosmos-db-api-for-mongodb"></a><a id="portal-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure Cosmos,](create-mongodb-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
@@ -53,7 +56,7 @@ Este artigo explica as diferentes formas de criar um recipiente Azure Cosmos (co
 
 ### <a name="cassandra-api"></a><a id="portal-cassandra"></a>API de Cassandra
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure Cosmos,](create-cassandra-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
@@ -72,7 +75,7 @@ Este artigo explica as diferentes formas de criar um recipiente Azure Cosmos (co
 
 ### <a name="gremlin-api"></a><a id="portal-gremlin"></a>API do Gremlin
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure Cosmos,](create-graph-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
@@ -87,9 +90,9 @@ Este artigo explica as diferentes formas de criar um recipiente Azure Cosmos (co
 
     ![Screenshot da API Gremlin, adicionar caixa de diálogo gráfico](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
-### <a name="table-api"></a><a id="portal-table"></a>Tabela API
+### <a name="table-api"></a><a id="portal-table"></a>API de Tabela
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure Cosmos,](create-table-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
@@ -168,5 +171,5 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](request-units.md) (Unidades de Pedido no Azure Cosmos DB)
-* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
+* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
 * [Trabalhar com uma conta do Azure Cosmos](account-overview.md)

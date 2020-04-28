@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/15/2020
-ms.openlocfilehash: efe51fbada8ac70b24c16a5c7c1e0e91879e5e9f
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.date: 04/24/2020
+ms.openlocfilehash: 431b89df0ce06736a2e76e58797ded65751bb404
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618688"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165829"
 ---
 # <a name="create-automation-account-using-azure-resource-manager-template"></a>Criar conta de automação usando o modelo de Gestor de Recursos Azure
 
@@ -49,8 +49,6 @@ O modelo JSON está configurado para o solicitar:
 * O nome da conta Automation
 * A região para criar a conta em
 
-O modelo JSON especifica um valor predefinido para os outros parâmetros que provavelmente seriam usados como uma configuração padrão no seu ambiente. Pode armazenar o modelo numa conta de armazenamento Azure para acesso partilhado na sua organização. Para mais informações sobre o trabalho com modelos, consulte Implementar recursos com modelos de Gestor de [Recursos e ClI Azure](../azure-resource-manager/templates/deploy-cli.md).
-
 Os seguintes parâmetros no modelo são definidos com um valor predefinido para o espaço de trabalho log Analytics:
 
 * sku - incumprimentos ao novo nível de preços Per-GB lançado no modelo de preços de abril de 2018
@@ -61,8 +59,15 @@ Os seguintes parâmetros no modelo são definidos com um valor predefinido para 
 >Se criar ou configurar um espaço de trabalho log Analytics numa subscrição que tenha optado pelo novo modelo de preços de abril de 2018, o único nível de preços válido do Log Analytics é **o PerGB2018.**
 >
 
->[!NOTE]
->Antes de utilizar este modelo, reveja [detalhes adicionais](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) para entender totalmente as opções de configuração do espaço de trabalho, tais como o modo de controlo de acesso, o nível de preços, a retenção e o nível de reserva de capacidade. Se é novo em registos do Monitor Azure e ainda não implementou um espaço de trabalho, deverá rever a orientação de design do espaço de [trabalho](../azure-monitor/platform/design-logs-deployment.md) para aprender sobre o controlo de acesso, e uma compreensão das estratégias de implementação do design que recomendamos para a sua organização.
+O modelo JSON especifica um valor predefinido para os outros parâmetros que provavelmente seriam usados como uma configuração padrão no seu ambiente. Pode armazenar o modelo numa conta de armazenamento Azure para acesso partilhado na sua organização. Para mais informações sobre o trabalho com modelos, consulte Implementar recursos com modelos de Gestor de [Recursos e ClI Azure](../azure-resource-manager/templates/deploy-cli.md).
+
+É importante compreender os seguintes detalhes de configuração se for novo no Azure Automation e no Azure Monitor, de forma a evitar erros ao tentar criar, configurar e utilizar um espaço de trabalho log Analytics ligado à sua nova conta Automation.
+
+* Reveja [detalhes adicionais](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) para entender completamente as opções de configuração do espaço de trabalho, tais como o modo de controlo de acesso, o nível de preços, a retenção e o nível de reserva de capacidade.
+
+* Como apenas certas regiões são suportadas para ligar um espaço de trabalho log Analytics e uma conta de Automação na sua subscrição, reveja os [mapeamentos do Espaço de Trabalho](how-to/region-mappings.md) para especificar as regiões suportadas inline ou num ficheiro de parâmetros.
+
+* Se é novo em registos do Monitor Azure e ainda não implementou um espaço de trabalho, deve rever a orientação de design do espaço de [trabalho](../azure-monitor/platform/design-logs-deployment.md) para aprender sobre o controlo de acesso, e compreender as estratégias de implementação do design que recomendamos para a sua organização.
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
@@ -112,32 +117,6 @@ Os seguintes parâmetros no modelo são definidos com um valor predefinido para 
         },
         "location": {
             "type": "string",
-            "allowedValues": [
-                "australiacentral",
-                "australiaeast",
-                "australiasoutheast",
-                "brazilsouth",
-                "canadacentral",
-                "centralindia",
-                "centralus",
-                "eastasia",
-                "eastus",
-                "eastus2",
-                "francecentral",
-                "japaneast",
-                "koreacentral",
-                "northcentralus",
-                "northeurope",
-                "southafricanorth",
-                "southcentralus",
-                "southeastasia",
-                "uksouth",
-                "ukwest",
-                "westcentralus",
-                "westeurope",
-                "westus",
-                "westus2"
-            ],
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }

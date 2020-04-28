@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 119f9c28b5413b8d2db5fa14ea839d1743f3d64a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a273ccad0d30ede3f0ed4ee532d61161074d304
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297633"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188298"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Resolução de problemas: Problemas de ligação ponto-a-local do Azure
 
@@ -282,7 +282,7 @@ Quando o cliente se conecta ao Azure utilizando a ligação VPN ponto-a-local, n
 
 ### <a name="cause"></a>Causa
 
-O cliente VPN ponto-a-site utiliza servidores DNS Azure que estão configurados na rede virtual Azure. Os servidores DNS Do Azure têm precedência sobre os servidores DNS locais que estão configurados no cliente, pelo que todas as consultas dNS são enviadas para os servidores DNS Azure. Se os servidores DNS Do Azure não tiverem os registos dos recursos locais, a consulta falha.
+O cliente VPN ponto-a-site normalmente utiliza servidores DNS Azure que estão configurados na rede virtual Azure. Os servidores DNS Do Azure têm precedência sobre os servidores DNS locais que estão configurados no cliente (a menos que a métrica da interface Ethernet seja mais baixa), pelo que todas as consultas de DNS são enviadas para os servidores DNS Do Azure. Se os servidores DNS Do Azure não tiverem os registos dos recursos locais, a consulta falha.
 
 ### <a name="solution"></a>Solução
 

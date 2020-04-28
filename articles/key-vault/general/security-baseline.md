@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 6e660c1244dd5566fbfb45a6da37d39294354ccb
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 7cb99ee9f52a26bd432a506ddc3ea4c9b13275b5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81756999"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185120"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de Base de Segurança do Azure para o Key Vault
 
@@ -157,7 +157,7 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Orientação**: Utilize etiquetas para recursos relacionados com a segurança da rede e fluxo de tráfego para as instâncias do Cofre chave Azure para fornecer metadados e organização lógica.
 
-Utilize qualquer uma das definições políticas do Azure incorporadas relacionadas com a marcação, tais como "Exigir etiqueta e seu valor" para garantir que todos os recursos são criados com etiquetas e notificá-lo de recursos não marcados existentes.
+Utilize qualquer uma das definições de Política Azure incorporadas relacionadas com a marcação, tais como "Exigir etiqueta e seu valor" para garantir que todos os recursos são criados com etiquetas e notificá-lo de recursos não marcados existentes.
 
 Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou realizar ações em recursos baseados nas suas etiquetas.
 
@@ -905,7 +905,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Manter configurações seguras de recursos Azure
 
-**Orientação:** Utilize a política azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos ativados por cofre seletiva azure. 
+**Orientação:** Utilize a Política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos ativados por cofre seletiva azure. 
 
 Tutorial: Criar e gerir políticas para impor o cumprimento:
 

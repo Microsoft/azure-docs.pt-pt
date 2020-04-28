@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2019
+ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: ce98d2db86c87ac6aa8fa4872bc076714467d32f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9709cd3b6036b384fd9212a522c191d0695b9bb4
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263052"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161729"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário de desenvolvedor de plataforma de identidade microsoft
 
@@ -26,6 +26,8 @@ Este artigo contém definições para alguns dos conceitos e terminologia fundam
 ## <a name="access-token"></a>ficha de acesso
 
 Um tipo de [ficha](#security-token) de segurança emitida por um servidor de [autorização,](#authorization-server)e utilizada por uma [aplicação de cliente](#client-application) para aceder a um servidor de recursos [protegidos.](#resource-server) Tipicamente sob a forma de um [Token Web JSON (JWT),][JWT]o símbolo incorpora a autorização concedida ao cliente pelo proprietário do [recurso,](#resource-owner)para um nível de acesso solicitado. O símbolo contém todas as [reclamações](#claim) aplicáveis sobre o assunto, permitindo que a aplicação do cliente o utilize como forma de credencial ao aceder a um determinado recurso. Isto também elimina a necessidade de o proprietário do recurso expor credenciais ao cliente.
+
+As fichas de acesso só são válidas por um curto período de tempo e não podem ser revogadas. Um servidor de autorização também pode emitir um [token de atualização](#refresh-token) quando o token de acesso for emitido. As fichas de atualização são normalmente fornecidas apenas a aplicações confidenciais do cliente.
 
 As fichas de acesso são por vezes referidas como "User+App" ou "App-Only", dependendo das credenciais representadas. Por exemplo, quando uma aplicação de cliente utiliza o:
 
@@ -138,6 +140,12 @@ Também surgem durante o processo de [consentimento,](#consent) dando ao adminis
 
 Os pedidos de permissão estão configurados na página de **permissões da API** para uma aplicação no [portal Azure,][AZURE-portal]selecionando as "Permissões Delegadas" e "Permissões de Aplicação" (esta última requer a destitução na função Global Admin). Como um [cliente público](#client-application) não pode manter credenciais de forma segura, só pode solicitar permissões delegadas, enquanto um [cliente confidencial](#client-application) tem a capacidade de solicitar permissões delegadas e de aplicação. O objeto de [aplicação](#application-object) do cliente armazena as permissões declaradas na sua [propriedade necessáriaResourceAccess.][Graph-App-Resource]
 
+## <a name="refresh-token"></a>ficha refrescante
+
+Um tipo de ficha de [segurança](#security-token) emitida por um servidor de [autorização,](#authorization-server)e usada por uma [aplicação de cliente](#client-application) para solicitar um novo sinal de [acesso](#access-token) antes do termo do token de acesso. Tipicamente sob a forma de um [Token Web JSON (JWT)][JWT].
+
+Ao contrário dos tokens de acesso, os tokens de atualização podem ser revogados. Se uma aplicação de cliente tentar solicitar um novo sinal de acesso usando um token de atualização que foi revogado, o servidor de autorização negará o pedido, e a aplicação do cliente deixará de ter permissão para aceder ao servidor de [recursos](#resource-server) em nome do proprietário do [recurso.](#resource-owner)
+
 ## <a name="resource-owner"></a>proprietário de recursos
 
 Tal como definido pelo Quadro de [Autorização da OAuth2,][OAuth2-Role-Def]uma entidade capaz de conceder acesso a um recurso protegido. Quando o proprietário do recurso é uma pessoa, é referido como um utilizador final. Por exemplo, quando uma [aplicação de cliente](#client-application) quer aceder à caixa de correio de um utilizador através da [API do Microsoft Graph,][Microsoft-Graph]requer autorização do proprietário do recurso da caixa de correio.
@@ -146,7 +154,7 @@ Tal como definido pelo Quadro de [Autorização da OAuth2,][OAuth2-Role-Def]uma 
 
 Tal como definido pelo Quadro de [Autorização OAuth2,][OAuth2-Role-Def]um servidor que acolhe recursos protegidos, capazes de aceitar e responder a pedidos de recursos protegidos por [aplicações de clientes](#client-application) que apresentam um sinal de [acesso.](#access-token) Também conhecido como servidor de recursos protegidos, ou aplicação de recursos.
 
-Um servidor de recursos expõe APIs e impõe o acesso aos seus recursos protegidos através de [âmbitos](#scopes) e [funções,](#roles)utilizando o Quadro de Autorização OAuth 2.0. Exemplos incluem a [Microsoft Graph API][Microsoft-Graph] que fornece acesso aos dados do inquilino Azure AD, e o Office 365 APIs que fornecem acesso a dados como correio e calendário. 
+Um servidor de recursos expõe APIs e impõe o acesso aos seus recursos protegidos através de [âmbitos](#scopes) e [funções,](#roles)utilizando o Quadro de Autorização OAuth 2.0. Exemplos incluem a [Microsoft Graph API][Microsoft-Graph] que fornece acesso aos dados do inquilino Azure AD, e o Office 365 APIs que fornecem acesso a dados como correio e calendário.
 
 Tal como uma aplicação de cliente, a configuração de identidade da aplicação de recursos é estabelecida através do [registo](#application-registration) num inquilino da AD Azure, fornecendo tanto o objeto principal de aplicação como de serviço. Algumas APIs fornecidas pela Microsoft, como a Microsoft Graph API, têm os principais de serviçopré-registados disponibilizados em todos os inquilinos durante o provisionamento.
 
@@ -168,7 +176,7 @@ Uma convenção de nomeação de boas práticas é usar um formato de "recurso.o
 
 ## <a name="security-token"></a>símbolo de segurança
 
-Um documento assinado contendo reclamações, tais como um token OAuth2 ou uma afirmação SAML 2.0. Para uma [concessão](#authorization-grant)de autorização OAuth2, um [token](#access-token) de acesso (OAuth2) e um [ID Token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) são tipos de fichas de segurança, ambas implementadas como um [JSON Web Token (JWT)][JWT].
+Um documento assinado contendo reclamações, tais como um token OAuth2 ou uma afirmação SAML 2.0. Para uma [bolsa](#authorization-grant)de autorização OAuth2 , um [token](#access-token) de acesso (OAuth2), [token de atualização](#refresh-token), e um [Token ID](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) são tipos de fichas de segurança, todas elas implementadas como um [JSON Web Token (JWT)][JWT].
 
 ## <a name="service-principal-object"></a>objeto principal de serviço
 

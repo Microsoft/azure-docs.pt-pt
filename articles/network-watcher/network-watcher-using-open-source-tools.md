@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: f36db28b58cd57b6407019b378a82632aa6c6228
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32d978ee766f6dbe95bd7158b8060a0302ef8206
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840660"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189067"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualizar padrões de tráfego de rede de e para os seus VMs utilizando ferramentas de código aberto
 
@@ -47,7 +47,7 @@ Pode fazer o upload direto de uma captura de pacotes tirada pelo observador de r
 
 Ao fornecer um link para o CapAnalysis, certifique-se de anexar um token SAS ao URL blob de armazenamento.  Para isso, navegue para a assinatura de acesso partilhado a partir da conta de armazenamento, designe as permissões permitidas e prima o botão Generate SAS para criar um símbolo. Em seguida, pode anexar o token SAS ao URL blob de armazenamento de captura de pacotes.
 
-O URL resultante será parecido com o seguinte URL:http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+O URL resultante será parecido com o seguinte URL:`http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### <a name="analyzing-packet-captures"></a>Analisar capturas de pacotes

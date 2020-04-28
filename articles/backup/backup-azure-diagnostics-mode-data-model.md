@@ -3,12 +3,12 @@ title: Modelo de dados de logs do Azure Monitor
 description: Neste artigo, conheça os detalhes do modelo de dados Do Log Analytics do Azure Monitor para os dados de Backup Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: d14634c5e317682462e77e0549f064c75059f15c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72484923bc94e197cd195c0192b53feb3ef457ce
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586381"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183692"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics modelo de dados para dados de backup do Azure
 
@@ -258,7 +258,7 @@ Esta tabela fornece campos básicos sobre recipientes protegidos. (Foi Protegido
 | ProtectedContainerType_s |Texto |Se o recipiente protegido é um servidor, ou um recipiente |
 | ProtectedContainerProtectionState_s'  |Texto |Estado de proteção do contentor protegido |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 
 Esta tabela fornece detalhes sobre campos relacionados com armazenamento.
 
@@ -459,7 +459,12 @@ Abaixo estão algumas amostras para ajudá-lo a escrever consultas sobre os dado
     | extend Vault= Resource
     | project-away Resource
     ````
-    
+
+## <a name="v1-schema-vs-v2-schema"></a>V1 esquema vs V2 esquema
+Anteriormente, os dados de diagnóstico do Agente de Backup Azure e da cópia de segurança Azure VM foram enviados para a tabela De diagnóstico sinuoso num esquema referido como ***esquema V1***. Posteriormente, foram adicionadas novas colunas para apoiar outros cenários e cargas de trabalho, e os dados de diagnóstico foram empurrados num novo esquema referido como ***esquema V2***. 
+
+Por razões de retrocompatibilidade, os dados de diagnóstico do Agente de Backup Azure e da cópia de segurança Azure VM são atualmente enviados para a tabela De diagnóstico seletiva em esquemav e V2 (com v1 schema agora em rota de depreciação). Pode identificar quais os registos em Log Analytics de esquema V1 filtrando registos de SchemaVersion_s=="V1" nas suas consultas de registo.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Assim que rever o modelo de dados, pode começar a [criar consultas personalizadas](../azure-monitor/learn/tutorial-logs-dashboards.md) em registos do Monitor Azure para construir o seu próprio dashboard.

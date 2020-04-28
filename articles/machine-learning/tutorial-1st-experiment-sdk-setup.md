@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 820332b0692c0c863ed23912fe9913c419769155
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 75ae07de9d5c80245a6e75dcb2c12be9128ff4fe
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273006"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184593"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Começar a criar a sua primeira experiência ML com o Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -90,7 +90,13 @@ Completa as seguintes etapas de experimentação no estúdio Azure Machine Learn
 
 1. Se não forem encontrados VMs, selecione **+ Adicione** para criar a instância computacional VM. 
 
-    1. Quando criar um VM, forneça um nome.  O nome deve estar entre 2 a 16 caracteres. Os caracteres válidos são letras, dígitos e o - personagem, e também devem ser únicos em toda a sua subscrição Azure.
+    1. Quando criar um VM, siga estas regras:  
+        + O nome é necessário e não pode estar vazio.
+        + O nome tem de ser único (num caso insensível) em todos os casos de computação existentes na região azure do espaço de trabalho/instância computacional. Receberá um alerta se o nome que escolher não for único.
+        + Os caracteres válidos são letras maiúsculas e minúsculas, números (0 a 9) e caracteres do traço (-).
+        + O nome deve ter entre 3 e 24 caracteres de comprimento.
+        + O nome deve começar com uma letra (não um número ou um traço).
+        + Se o carácter do traço for utilizado, então deve ser seguido por pelo menos uma letra após o traço. Exemplo: Teste-0, teste-01 são inválidos, enquanto o teste-a0, teste-0a são instâncias válidas.
 
     1.  Selecione o tamanho da Máquina Virtual a partir das escolhas disponíveis.
 

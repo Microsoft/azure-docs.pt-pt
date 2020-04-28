@@ -4,12 +4,12 @@ description: A Azure Policy é um serviço em Azure que utiliza para criar, atri
 ms.topic: article
 ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74c087031a024b0c50d6c40057a4e2eda554be6f
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: a160de1277afea026a16f470c8f76cdc2ec1733f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116082"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184270"
 ---
 # <a name="integration-with-azure-policy"></a>Integração com a Política Azure
 
@@ -26,7 +26,7 @@ As definições políticas descrevem as condições que devem ser satisfeitas. U
 
 Os recursos exigidos pelo Batch incluem: conta, nó de cálculo, piscina, trabalho e tarefa. Assim, você usaria pseudónimos de propriedade para aceder a propriedades específicas para estes recursos. Saiba mais sobre [pseudónimos](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
-Para se certificar de que conhece os pseudónimos atuais e reveja os seus recursos e políticas, utilize a extensão da política Azure para o Código do Estúdio Visual. Pode ser instalado em todas as plataformas que são suportadas pelo Visual Studio Code. Este suporte inclui Windows, Linux e macOS. Consulte [as diretrizes](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode)de instalação .
+Para se certificar de que conhece os pseudónimos atuais e reveja os seus recursos e políticas, utilize a extensão da Política Azure para o Código do Estúdio Visual. Pode ser instalado em todas as plataformas que são suportadas pelo Visual Studio Code. Este suporte inclui Windows, Linux e macOS. Consulte [as diretrizes](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode)de instalação .
 
 
 

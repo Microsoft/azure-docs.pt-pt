@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8666f51b88d2a70a2cb27e3606f24010771c8017
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: a079f42f63e232c21a52bd108b34c3b022dcee5b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460715"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176095"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -266,13 +266,17 @@ Existem duas estratégias para encriptar dados no Windows Server que funcionam e
 
 Para fornecer encriptação abaixo do sistema de ficheiros, o Windows Server fornece uma caixa de entrada BitLocker. O BitLocker é totalmente transparente para o Azure File Sync. A principal razão para usar um mecanismo de encriptação como o BitLocker é prevenir a exfiltração física de dados do seu centro de dados no local por alguém que rouba os discos e para evitar a colocação de um SO não autorizado para realizar leituras/escritos não autorizados aos seus dados. Para saber mais sobre o BitLocker, consulte a [visão geral do BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview).
 
-Os produtos de terceiros que funcionam de forma semelhante ao BitLocker, na medida em que se situam abaixo do volume NTFS, devem funcionar de forma totalmente transparente com o Azure File Sync. 
+Os produtos de terceiros que funcionam de forma semelhante ao BitLocker, na medida em que se sentam abaixo do volume NTFS, devem funcionar de forma totalmente transparente com o Azure File Sync. 
 
 O outro método principal para encriptar dados é encriptar o fluxo de dados do ficheiro quando a aplicação guarda o ficheiro. Algumas aplicações podem fazê-lo de forma nativa, no entanto, normalmente não é o caso. Um exemplo de um método para encriptar o fluxo de dados do ficheiro é a Azure Information Protection (AIP)/Azure Rights Management Services (Azure RMS)/Ative Directory RMS. A principal razão para usar um mecanismo de encriptação como o AIP/RMS é impedir a exfiltração de dados da partilha de ficheiros por pessoas que os copiam para locais alternativos, como uma pen ou enviando-os por e-mail para uma pessoa não autorizada. Quando o fluxo de dados de um ficheiro é encriptado como parte do formato de ficheiro, este ficheiro continuará a ser encriptado na parte do ficheiro Azure. 
 
 O Azure File Sync não opera com o NTFS Encrypted File System (NTFS EFS) ou com soluções de encriptação de terceiros que se sentam acima do sistema de ficheiros, mas abaixo do fluxo de dados do ficheiro. 
 
 ### <a name="encryption-in-transit"></a>Encriptação de dados em circulação
+
+> [!NOTE]
+> O serviço Azure File Sync removerá o suporte para TLS1.0 e 1.1 em agosto de 2020. Todas as versões suportadas do agente DoFicheiro Azure Sync já utilizam O TLS1.2 por padrão. A utilização de uma versão anterior do TLS poderia ocorrer se o TLS1.2 fosse desativado no seu servidor ou se usasse um proxy. Se estiver a utilizar um proxy, recomendamos que verifique a configuração do proxy. As regiões de serviço azure File Sync adicionadas após 5/1/2020 só irão suportar TLS1.2 e o apoio a TLS1.0 e 1.1 será removido das regiões existentes em agosto de 2020.  Para mais informações, consulte o guia de resolução de [problemas.](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync)
+
 O agente Azure File Sync comunica com o seu Serviço de Sincronização de Armazenamento e partilha de ficheiros Azure utilizando o protocolo De sincronização de ficheiros Azure e o protocolo FileREST, ambos utilizando sempre HTTPS sobre a porta 443. O Azure File Sync não envia pedidos não encriptados em HTTP. 
 
 As contas de armazenamento azure contêm um interruptor para exigir encriptação em trânsito, que é ativado por padrão. Mesmo que o interruptor ao nível da conta de armazenamento seja desativado, o que significa que as ligações não encriptadas às suas ações de ficheiro Saqueado são possíveis, o Azure File Sync continuará a utilizar apenas canais encriptados para aceder à sua partilha de ficheiros.

@@ -17,7 +17,7 @@
       items:
         - name: Convite em massa através do PowerShell
           href: bulk-invite-powershell.md
-        - name: Convite em massa através do portal (pré-visualização)
+        - name: Convite em massa através do portal
           href: tutorial-bulk-invite.md
         - name: Reforçar autenticação multifator
           href: b2b-tutorial-require-mfa.md

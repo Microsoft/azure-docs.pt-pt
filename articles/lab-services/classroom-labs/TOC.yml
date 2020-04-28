@@ -108,6 +108,8 @@
           href: how-to-windows-shutdown.md
         - name: Ver informações de suporte (formador)
           href: lab-creator-support-information.md
+        - name: Aceder às VMs dos estudantes a partir da vista do formador
+          href: instructor-access-virtual-machines.md
     - name: Ligar-se a VMs em laboratórios de sala de aula (estudante)
       items:
         - name: Aceder a laboratórios de sala de aula

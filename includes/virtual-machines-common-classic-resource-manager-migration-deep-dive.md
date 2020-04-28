@@ -1,15 +1,15 @@
 ---
-author: cynthn
+author: tanmaygore
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: tanmaygore
-ms.openlocfilehash: 215057640dd08d9ea524d8f6b3bed8b03a8b5b8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: tagore
+ms.openlocfilehash: b86e0d784d26e9e483dd12e20d45189ae8bfb9bd
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77068422"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866197"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrar recursos IaaS do modelo clássico de implantação para O Gestor de Recursos Azure
 Em primeiro lugar, é importante compreender a diferença entre operações de data-plane e gestão-plane na infraestrutura como recursos de serviço (IaaS).

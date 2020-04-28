@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 3c50e82647b22a18edee92f47abc1d136670cacc
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 18af9b395aac24608c0a1383b5abdfeb062f58c1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519677"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184882"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Construa uma aplicação web Node.js utilizando o JavaScript SDK para gerir uma conta SQL API em Azure Cosmos DB 
 
@@ -437,7 +437,7 @@ O segundo formulário contém dois campos de entrada e um botão que permite cri
 
 Agora que construiu a aplicação, pode executá-la localmente usando os seguintes passos:  
 
-1. Para testar a aplicação na `npm start` sua máquina local, corra no [http://localhost:3000](http://localhost:3000) terminal para iniciar a sua aplicação e, em seguida, atualizar a página do navegador. A página deve ser agora apresentada conforme mostrado na captura de ecrã seguinte:
+1. Para testar a aplicação na `npm start` sua máquina local, corra no `http://localhost:3000` terminal para iniciar a sua aplicação e, em seguida, atualizar a página do navegador. A página deve ser agora apresentada conforme mostrado na captura de ecrã seguinte:
    
     ![Captura de ecrã da aplicação MyTodo List numa janela do browser](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 

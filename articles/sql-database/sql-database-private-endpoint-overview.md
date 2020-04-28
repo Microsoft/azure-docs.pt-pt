@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: ab9c5c5c1134d2e09a790a788a3b7e55f807dd9b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4338c179fb8c0eebbb64ac5b33dc5dd8878d0794
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78945373"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176724"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Link privado para Base de Dados EArmazém de Dados Azure SQL
 

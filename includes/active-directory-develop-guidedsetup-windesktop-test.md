@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: f121be4ec8c3d3ab618e2955d9dbd8ab5eea461d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2325509f68ced7c66d9f733b07247ae01301b565
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79129128"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181545"
 ---
 ## <a name="test-your-code"></a>Teste o seu código
 
@@ -46,8 +46,6 @@ Depois de iniciar sessão, deverá consultar as informações de perfil do utili
 |**Nome de utilizador** |<span>user@domain.com</span> |O nome de utilizador utilizado para identificar o utilizador.|
 |**Token Expira** |DateTime |O tempo em que o símbolo expira. A MSAL prolonga a data de validade renovando o símbolo conforme necessário.|
 
-
-<!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre âmbitos e permissões delegadas
 
 O Microsoft Graph API requer que o *utilizador.leia* o âmbito para ler o perfil de um utilizador. Este âmbito é automaticamente adicionado por padrão em todas as aplicações registadas no Portal de Registo de Aplicações. Outras APIs para o Microsoft Graph, bem como APIs personalizadas para o seu servidor back-end, podem requerer âmbitos adicionais. A Microsoft Graph API requer os *Calendários.Leia* o âmbito para listar os calendários do utilizador.
@@ -56,7 +54,5 @@ Para aceder aos calendários do utilizador no contexto de uma aplicação, adici
 
 >[!NOTE]
 >O utilizador pode ser solicitado para obter consentimentos adicionais à medida que aumenta o número de âmbitos.
-
-<!--end-collapse-->
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 3765c70b27fb98518f71a55f00acfe5b831044ec
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146675"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188400"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Aprendizagem automática Azure
 
@@ -78,7 +78,7 @@ A tabela seguinte lista algumas das principais operações de Aprendizagem autom
 Se os papéis incorporados não atenderem às suas necessidades, pode criar papéis personalizados. As funções personalizadas são suportadas apenas para operações no espaço de trabalho e na Computação de Aprendizagem automática. As funções personalizadas podem ter lido, escrito ou apagado permissões no espaço de trabalho e no recurso computacional nesse espaço de trabalho. Pode disponibilizar o papel a um nível específico do espaço de trabalho, a um nível específico de grupo de recursos ou a um nível de subscrição específico. Para mais informações, consulte [Gerir utilizadores e papéis num espaço](how-to-assign-roles.md)de trabalho azure machine learning .
 
 > [!WARNING]
-> A Azure Machine Learning não é atualmente apoiada com a colaboração azure Ative Directory business-to-business.
+> A Azure Machine Learning é apoiada com a colaboração azure Ative Directory business-to-business, mas não é atualmente apoiada com a colaboração entre empresas do Azure Ative Directory.
 
 ### <a name="securing-compute-targets-and-data"></a>Assegurar alvos e dados de computação
 
@@ -385,10 +385,7 @@ Aqui estão os detalhes:
 
 * [Serviços web Secure Azure Machine Learning com TLS](how-to-secure-web-service.md)
 * [Consumir um modelo de Machine Learning implementado como um serviço web](how-to-consume-web-service.md)
-* [Como executar as previsões do lote](how-to-use-parallel-run-step.md)
-* [Monitorize os seus modelos de Aprendizagem automática Azure com Insights de Aplicação](how-to-enable-app-insights.md)
-* [Recolher dados para modelos em produção](how-to-enable-data-collection.md)
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Utilize machine learning azure com firewall azure](how-to-access-azureml-behind-firewall.md)
 * [Utilize machine learning azure com rede virtual Azure](how-to-enable-virtual-network.md)
 * [Boas práticas para a construção de sistemas de recomendação](https://github.com/Microsoft/Recommenders)
 * [Construa uma recomendação em tempo real API no Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

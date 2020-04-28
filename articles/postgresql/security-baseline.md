@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: eb6fc65d15ba7262b38a48e220f01d74bfcee54a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 4a94b0b84290bbf796e951dfee8b3f35b80036ce
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146561"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183165"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Linha de base de segurança azure para base de dados azure para o servidor único postgresQL
 
@@ -146,7 +146,7 @@ Como criar um Projeto Azure:https://docs.microsoft.com/azure/governance/blueprin
 
 **Orientação**: Utilize etiquetas para recursos relacionados com segurança de rede e fluxo de tráfego para a sua Base de Dados Azure para instâncias PostgreSQL para fornecer metadados e organização lógica.
 
-Utilize qualquer uma das definições políticas do Azure incorporadas relacionadas com a marcação, tais como, "Exigir etiqueta e seu valor", para garantir que todos os recursos são criados com etiquetas e notificá-lo de recursos não marcados existentes.
+Utilize qualquer uma das definições de Política Azure incorporadas relacionadas com a marcação, tais como, "Exigir etiqueta e seu valor", para garantir que todos os recursos são criados com etiquetas e notificá-lo de recursos não marcados existentes.
 
 Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou realizar ações em recursos baseados nas suas etiquetas.
 
@@ -696,7 +696,7 @@ Como criar e utilizar etiquetas:https://docs.microsoft.com/azure/azure-resource-
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor para os recursos Azure não aprovados
 
-**Orientação**: Utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
 
 - Tipos de recursos não permitidos
 
@@ -738,7 +738,7 @@ Como criar consultas com o Azure Graph:https://docs.microsoft.com/azure/governan
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Utilizar apenas os serviços Azure aprovados
 
-**Orientação**: Utilize a política azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
+**Orientação**: Utilize a Política Azure para colocar restrições ao tipo de recursos que podem ser criados na subscrição ou s do cliente utilizando as seguintes definições políticas incorporadas:
 
 - Tipos de recursos não permitidos
 
@@ -816,7 +816,7 @@ Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/gover
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Manter configurações seguras de recursos Azure
 
-**Orientação:** Utilize a política azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
+**Orientação**: Utilize a Política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
 Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -836,7 +836,7 @@ Compreender efeitos políticos do Azure:https://docs.microsoft.com/azure/governa
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Configuração segura dos recursos Do Azure
 
-**Orientação**: Se utilizar definições de política personalizadas do Azure para a sua Base de Dados Azure para instâncias PostgreSQL e recursos conexos, utilize o Azure Repos para armazenar e gerir de forma segura o seu código.
+**Orientação**: Se utilizar definições de política azure personalizadas para a sua Base de Dados Azure para instâncias PostgreSQL e recursos conexos, utilize o Azure Repos para armazenar e gerir de forma segura o seu código.
 
 Como armazenar código em Azure DevOps:https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -874,7 +874,7 @@ Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/gover
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementar monitorização automatizada de configuração para os serviços Do Azure
 
-**Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.DBforPostgreSQL" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Utilize a política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente as configurações para a sua Base de Dados Azure para instâncias PostgreSQL e recursos conexos.
+**Orientação**: Utilize pseudónimos da Política Azure no espaço de nome "Microsoft.DBforPostgreSQL" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Utilize a Política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente as configurações para a sua Base de Dados Azure para instâncias PostgreSQL e recursos conexos.
 
 Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

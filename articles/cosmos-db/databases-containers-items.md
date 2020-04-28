@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 43a842c3b6d6d421eca4196c7f3facc7876318cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3874bbe7a5830b0a80b658ac32952fe8985c1c3
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246789"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161695"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhe com bases de dados, contentores e itens em Azure Cosmos DB
 
@@ -64,9 +64,9 @@ Um recipiente Azure Cosmos é um recipiente de itens schema-agnósticos. Itens n
 
 Você pode definir [Time to Live (TTL)](time-to-live.md) em itens selecionados em um recipiente Azure Cosmos ou para que todo o recipiente expurgar graciosamente esses itens do sistema. A Azure Cosmos DB elimina automaticamente os itens quando expiram. Também garante que uma consulta realizada no recipiente não devolve os itens expirados dentro de um limite fixo. Para saber mais, consulte [configure TTL no seu recipiente](how-to-time-to-live.md).
 
-Pode utilizar [o feed](change-feed.md) de alteração para subscrever o registo de operações que é gerido para cada partição lógica do seu recipiente. A alteração do feed fornece o registo de todas as atualizações efetuadas no recipiente, juntamente com as imagens antes e posteriores dos itens. Para mais informações, consulte [Construir aplicações reativas utilizando](serverless-computing-database.md)o feed de mudança . Também pode configurar a duração da retenção para o feed de mudança utilizando a política de alimentação de mudança no recipiente. 
+Pode utilizar [o feed](change-feed.md) de alteração para subscrever o registo de operações que é gerido para cada partição lógica do seu recipiente. A alteração do feed fornece o registo de todas as atualizações efetuadas no recipiente, juntamente com as imagens antes e posteriores dos itens. Para mais informações, consulte [Construir aplicações reativas utilizando](serverless-computing-database.md)o feed de mudança . Também pode configurar a duração da retenção para o feed de mudança utilizando a política de alimentação de mudança no recipiente.
 
-Pode registar [procedimentos armazenados, gatilhos, funções definidas pelo utilizador (UDFs)](stored-procedures-triggers-udfs.md)e [fundir procedimentos](how-to-manage-conflicts.md) para o seu recipiente Azure Cosmos. 
+Pode registar [procedimentos armazenados, gatilhos, funções definidas pelo utilizador (UDFs)](stored-procedures-triggers-udfs.md)e [fundir procedimentos](how-to-manage-conflicts.md) para o seu recipiente Azure Cosmos.
 
 Pode especificar uma [restrição de chave única](unique-keys.md) no seu recipiente Azure Cosmos. Ao criar uma política-chave única, você garante a singularidade de um ou mais valores por chave de partição lógica. Se criar um recipiente utilizando uma política-chave única, não podem ser criados itens novos ou atualizados com valores que dupliquem os valores especificados pela restrição de chave única. Para saber mais, consulte [constrangimentos de chaves únicos.](unique-keys.md)
 
@@ -75,6 +75,9 @@ Um contentor Azure Cosmos é especializado em entidades específicas da API, com
 | Entidade Azure Cosmos | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- |
 |Recipiente Azure Cosmos | Contentor | Tabela | Coleção | Graph | Tabela |
+
+> [!NOTE]
+> Ao criar recipientes, certifique-se de que não cria dois recipientes com o mesmo nome, mas invólucrodiferente. Isto porque algumas partes da plataforma Azure não são sensíveis a casos, o que pode resultar em confusão/colisão de telemetria e ações em contentores com tais nomes.
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Propriedades de um recipiente Azure Cosmos
 

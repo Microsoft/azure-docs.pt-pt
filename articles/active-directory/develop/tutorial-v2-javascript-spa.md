@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 52b7c582848dd24f6d9963a9d37c8f12c5db6149
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 6f0253490d39e69d491dd5fd3ab0d0d0a32d47bb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678032"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181567"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de uma página única JavaScript (SPA)
 
@@ -32,14 +32,10 @@ Este guia demonstra como uma aplicação de uma página única javaScript (SPA) 
 
 ![Mostra como funciona a aplicação de amostragerada por este tutorial](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-<!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
 
 A aplicação de amostra criada por este guia permite que um JavaScript SPA questione o Microsoft Graph API ou um API web que aceita tokens do ponto final da plataforma de identidade da Microsoft. Neste cenário, após a adesão de um utilizador, é solicitado um sinal de acesso e adicionado aos pedidos http através do cabeçalho de autorização. Esta ficha será usada para adquirir o perfil e os e-mails do utilizador através da **MS Graph API**. A aquisição e renovação de token são tratadas pela **Microsoft Authentication Library (MSAL) para JavaScript**.
 
-<!--end-collapse-->
-
-<!--start-collapse-->
 ### <a name="libraries"></a>Bibliotecas
 
 Este guia utiliza a seguinte biblioteca:
@@ -47,8 +43,6 @@ Este guia utiliza a seguinte biblioteca:
 |Biblioteca|Descrição|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de Autenticação microsoft para JavaScript|
-
-<!--end-collapse-->
 
 ## <a name="set-up-your-web-server-or-project"></a>Configurar o seu servidor web ou projeto
 
@@ -400,7 +394,6 @@ Crie um novo ficheiro `authPopup.js`.js chamado , que conterá a sua autenticaç
    }
    ```
 
-<!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
 
 Depois de um **Sign In** utilizador selecionar o botão `signIn` Iniciar `loginPopup` sessão pela primeira vez, o método chama-se para iniciar sessão no utilizador. Este método abre uma janela pop-up com o ponto final da *plataforma de identidade da Microsoft* para solicitar e validar as credenciais do utilizador. Após um inserido bem sucedido, o utilizador é redirecionado para a página original *do índice.html.* Um símbolo é recebido, `msal.js`processado por , e a informação contida no token é emcached. Esta ficha é conhecida como ficha *de identificação* e contém informações básicas sobre o utilizador, como o nome do utilizador. Se planeia utilizar quaisquer dados fornecidos por este token para qualquer finalidade, tem de se certificar de que este token é validado pelo seu servidor backend para garantir que o token foi emitido a um utilizador válido para a sua aplicação.
@@ -427,7 +420,6 @@ O `acquireTokenSilent` método lida com a aquisição e renovação simbólicas 
 
 > [!NOTE]
 > Este quickstart `loginPopup` utiliza `acquireTokenPopup` os métodos e métodos por padrão. Se estiver a usar o Internet Explorer como `loginRedirect` `acquireTokenRedirect` navegador, recomenda-se a utilização e métodos, devido a um [problema conhecido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado com a forma como o Internet Explorer lida com janelas pop-up. Se quiser ver como obter o mesmo `Redirect methods`resultado utilizando, [por favor, veja](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
-<!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-acquired"></a>Ligue para a Microsoft Graph API usando o símbolo que acabou de adquirir
 
@@ -466,13 +458,9 @@ O `acquireTokenSilent` método lida com a aquisição e renovação simbólicas 
    }
    ```
 
-<!--start-collapse-->
-
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Mais informações sobre fazer uma chamada rest contra uma API protegida
 
 Na aplicação da amostra criada `callMSGraph()` por este guia, `GET` o método é utilizado para fazer um pedido http contra um recurso protegido que requer um símbolo. O pedido devolve então o conteúdo ao chamador. Este método adiciona o token adquirido no *cabeçalho*de autorização http . Para a aplicação de amostra criada por este guia, o recurso é o *ponto* final do Microsoft Graph API Me, que exibe as informações de perfil do utilizador.
-
-<!--end-collapse-->
 
 ## <a name="test-your-code"></a>Teste o seu código
 
@@ -502,7 +490,6 @@ Depois de iniciar sessão, as informações do perfil do utilizador são devolvi
 
 ![Resultados da chamada da Microsoft Graph API](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
 
-<!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre âmbitos e permissões delegadas
 
 O Microsoft Graph API requer que o *utilizador.leia* o âmbito para ler o perfil de um utilizador. Por predefinição, este âmbito é adicionado automaticamente em todas as aplicações registadas no portal de registo. Outras APIs para o Microsoft Graph, bem como APIs personalizadas para o seu servidor back-end, podem requerer âmbitos adicionais. Por exemplo, a Microsoft Graph API requer o âmbito *Mail.Read* para listar os e-mails do utilizador.
@@ -511,7 +498,5 @@ O Microsoft Graph API requer que o *utilizador.leia* o âmbito para ler o perfil
 > O utilizador pode ser solicitado para obter consentimentos adicionais à medida que aumenta o número de âmbitos.
 
 Se uma API de back-end não necessitar de um âmbito (não recomendado), pode utilizar o *clienteId* como âmbito nas chamadas para adquirir fichas.
-
-<!--end-collapse-->
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

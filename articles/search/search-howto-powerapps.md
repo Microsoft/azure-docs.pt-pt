@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 04/25/2020
-ms.openlocfilehash: eafd0ced64567ec7b51ff0f8aac19668343867ea
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: e4afa3c122fa6e21b29b6ad52a386096b20aa055
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82129551"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184502"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutorial: Consulta a índice de pesquisa cognitiva de aplicações de energia
 
@@ -214,7 +214,7 @@ Neste passo, crie uma App power com uma caixa de pesquisa, um botão de pesquisa
 
    A imagem a seguir mostra a barra de fórmula para a ação **OnSelect.**
 
-       :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Button OnSelect" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Botão OnSelect" border="true":::
 
    Esta ação fará com que o botão atualize uma nova coleção chamada *azResult* com o resultado da consulta de pesquisa, utilizando o texto na caixa de texto *txtQuery* como o termo de consulta.
 

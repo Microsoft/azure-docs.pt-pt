@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7340f419912324e488dc38e5aa0d884b150a44b7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79365373"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176384"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Recuperação de desastres e falha na conta (pré-visualização)
 
@@ -54,8 +54,8 @@ Para obter mais informações sobre redundância no Armazenamento Azure, consult
 Além disso, tenha em mente estas boas práticas para manter a elevada disponibilidade para os seus dados de Armazenamento Azure:
 
 - **Discos:** Utilize [o Backup Azure](https://azure.microsoft.com/services/backup/) para fazer backup os discos VM utilizados pelas suas máquinas virtuais Azure. Considere também utilizar a Recuperação do [Site Azure](https://azure.microsoft.com/services/site-recovery/) para proteger os seus VMs em caso de desastre regional.
-- **Bolhas de bloco:** Ligue [o soft delete](../blobs/storage-blob-soft-delete.md) para proteger contra supressões e substituições ao nível de objetos, ou copiar bolhas de blocos para outra conta de armazenamento numa região diferente utilizando [a AzCopy,](storage-use-azcopy.md) [Azure PowerShell](storage-powershell-guide-full.md)ou a biblioteca do Movimento de [Dados Azure.](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-- **Ficheiros:** Utilize [o AzCopy](storage-use-azcopy.md) ou [o Azure PowerShell](storage-powershell-guide-full.md) para copiar os seus ficheiros para outra conta de armazenamento numa região diferente.
+- **Bolhas de bloco:** Ligue [o soft delete](../blobs/storage-blob-soft-delete.md) para proteger contra supressões e substituições ao nível de objetos, ou copiar bolhas de blocos para outra conta de armazenamento numa região diferente utilizando [a AzCopy,](storage-use-azcopy.md) [Azure PowerShell](/powershell/module/az.storage/)ou a biblioteca do Movimento de [Dados Azure.](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+- **Ficheiros:** Utilize [o AzCopy](storage-use-azcopy.md) ou [o Azure PowerShell](/powershell/module/az.storage/) para copiar os seus ficheiros para outra conta de armazenamento numa região diferente.
 - **Tabelas:** utilize a [AzCopy](storage-use-azcopy.md) para exportar dados de tabelas para outra conta de armazenamento numa região diferente.
 
 ## <a name="track-outages"></a>Interrupções na pista
@@ -167,7 +167,7 @@ As seguintes funcionalidades e serviços não são suportados para a falha da co
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copiar dados como alternativa ao failover
 
-Se a sua conta de armazenamento estiver configurada para RA-GRS, então leu o acesso aos seus dados utilizando o ponto final secundário. Se preferir não falhar em caso de avaria na região primária, pode utilizar ferramentas como [a AzCopy,](storage-use-azcopy.md) [Azure PowerShell](storage-powershell-guide-full.md)ou a biblioteca do Movimento de [Dados Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar dados da sua conta de armazenamento na região secundária para outra conta de armazenamento numa região não afetada. Em seguida, pode apontar as suas aplicações para essa conta de armazenamento tanto para ler como escrever disponibilidade.
+Se a sua conta de armazenamento estiver configurada para RA-GRS, então leu o acesso aos seus dados utilizando o ponto final secundário. Se preferir não falhar em caso de avaria na região primária, pode utilizar ferramentas como [a AzCopy,](storage-use-azcopy.md) [Azure PowerShell](/powershell/module/az.storage/)ou a biblioteca do Movimento de [Dados Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar dados da sua conta de armazenamento na região secundária para outra conta de armazenamento numa região não afetada. Em seguida, pode apontar as suas aplicações para essa conta de armazenamento tanto para ler como escrever disponibilidade.
 
 > [!CAUTION]
 > Uma falha de conta não deve ser usada como parte da sua estratégia de migração de dados.

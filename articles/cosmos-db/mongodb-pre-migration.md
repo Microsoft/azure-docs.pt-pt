@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: 73ac1a6ffd5fc2b2d52f169e1e0332044638f9f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e867a544de8904274286cb68fc047f3f4b93e0d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75942085"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183318"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de pré-migração para migrações de dados de MongoDB para API da Azure Cosmos DB para MongoDB
 
@@ -30,7 +30,7 @@ Se já preencheu os pré-requisitos acima referidos para a migração, pode migr
 
 Seguem-se características específicas sobre a API da Azure Cosmos DB para o MongoDB:
 
-- **Modelo de capacidade**: A capacidade da base de dados no Azure Cosmos DB baseia-se num modelo baseado em despesas. Este modelo baseia-se em [Unidades de Pedido por segundo,](request-units.md)que é uma unidade que representa o número de operações de base de dados que podem ser executadas contra uma recolha por segundo. Esta capacidade pode ser atribuída a nível de base de [dados ou de recolha,](set-throughput.md)podendo ser aprovisionada num modelo de atribuição, ou utilizando o modelo [AutoPilot](provision-throughput-autopilot.md).
+- **Modelo de capacidade**: A capacidade da base de dados no Azure Cosmos DB baseia-se num modelo baseado em despesas. Este modelo baseia-se em [Unidades de Pedido por segundo,](request-units.md)que é uma unidade que representa o número de operações de base de dados que podem ser executadas contra uma recolha por segundo. Esta capacidade pode ser atribuída a nível de base de [dados ou de recolha,](set-throughput.md)podendo ser aprovisionada num modelo de atribuição, ou utilizando o modelo de escala [automática.](provision-throughput-autoscale.md)
 
 - **Unidades de Pedido**: Cada operação de base de dados tem um custo associado das Unidades de Pedido (RUs) em Azure Cosmos DB. Quando executado, este é subtraído do nível de unidades de pedido disponíveis em um segundo. Se um pedido requer mais RUs do que os RU/s atualmente atribuídos, existem duas opções para resolver o problema - aumentar a quantidade de RUs, ou esperar até que o segundo seguinte comece e, em seguida, rejulgar a operação.
 
@@ -45,7 +45,7 @@ O Serviço de Migração de Bases de Dados Azure para a [API da Azure Cosmos DB 
 |**Tipo de migração**|**Solução**|**Considerações**|
 |---------|---------|---------|
 |Offline|[Ferramenta de migração de dados](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Fácil de configurar e suporta várias fontes <br/>&bull;Não é adequado para grandes conjuntos de dados.|
-|Offline|[Fábrica de Dados Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Fácil de configurar e suporta várias fontes <br/>&bull;Faz uso da biblioteca de executora a granel Azure Cosmos DB <br/>&bull;Adequado para grandes conjuntos de dados <br/>&bull;A falta de controlo significa que qualquer problema durante o curso da migração exigiria um reinício de todo o processo de migração<br/>&bull;A falta de uma fila de cartas mortas significaria que alguns ficheiros erróneos poderiam parar todo o processo de migração. <br/>&bull;Precisa de código personalizado para aumentar a produção de leitura para determinadas fontes de dados|
+|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Fácil de configurar e suporta várias fontes <br/>&bull;Faz uso da biblioteca de executora a granel Azure Cosmos DB <br/>&bull;Adequado para grandes conjuntos de dados <br/>&bull;A falta de controlo significa que qualquer problema durante o curso da migração exigiria um reinício de todo o processo de migração<br/>&bull;A falta de uma fila de cartas mortas significaria que alguns ficheiros erróneos poderiam parar todo o processo de migração. <br/>&bull;Precisa de código personalizado para aumentar a produção de leitura para determinadas fontes de dados|
 |Offline|[Ferramentas Mongo existentes (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull;Fácil de configurar e integrar <br/>&bull;Precisa de manuseamento personalizado para aceleradores|
 |Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull;Serviço de migração totalmente gerido.<br/>&bull;Fornece soluções de hospedagem e monitorização para a tarefa de migração. <br/>&bull;Adequado para grandes conjuntos de dados e cuida da replicação de alterações ao vivo <br/>&bull;Trabalha apenas com outras fontes do MongoDB|
 

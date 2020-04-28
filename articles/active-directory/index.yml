@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 03/17/2020
-  ms.openlocfilehash: cba5540948f87eb6d0631cc11cc0d5e1134307fa
-  ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+  ms.openlocfilehash: 7f953c7de34e5574deb843dc42092103c8d9b87a
+  ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/14/2020
-  ms.locfileid: "81312985"
+  ms.lasthandoff: 04/17/2020
+  ms.locfileid: "81603334"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -210,15 +210,15 @@ conceptualContent:
       text: Ver mais
   - title: Governação de identidade
     links:
+    - url: ./governance/entitlement-management-access-package-first.md
+      itemType: how-to-guide
+      text: Criar um pacote de acesso
     - url: ./governance/create-access-review.md
       itemType: how-to-guide
-      text: Criar uma revisão de acesso
-    - url: ./governance/perform-access-review.md
-      itemType: how-to-guide
-      text: Iniciar uma revisão de acesso
+      text: Criar uma revisão de acesso de um grupo ou aplicação
     - url: ./conditional-access/terms-of-use.md
       itemType: how-to-guide
-      text: Pedir os termos de utilização
+      text: Pedir aos utilizadores que aceitem os termos de utilização
     footerLink:
       url: ./governance/index.yml
       text: Ver mais

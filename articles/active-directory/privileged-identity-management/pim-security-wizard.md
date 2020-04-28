@@ -10,20 +10,23 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04bd0993873568ba7cce368ddd9277ed356b636c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9f12b2b31da4c7fe67eef9674d96b517d4e2bfa
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266575"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867755"
 ---
 # <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Azure AD funções assistente de segurança na Gestão de Identidade Privilegiada
 
 Se é a primeira pessoa a utilizar a Privileged Identity Management (PIM) na sua organização Azure Ative Directory (Azure AD),é-lhe apresentado um assistente para começar. O assistente ajuda-o a compreender os riscos de segurança de identidades privilegiadas e como usar a Gestão de Identidade Privilegiada para reduzir esses riscos. Não precisa de fazer alterações nas atribuições de papéis existentes no assistente, se preferir fazê-lo mais tarde.
+
+> [!Important]
+> O assistente de segurança está temporariamente indisponível. Obrigado pela paciência.
 
 ## <a name="wizard-overview"></a>Visão geral do feiticeiro
 
@@ -32,12 +35,12 @@ Antes de a sua organização começar a utilizar a Gestão de Identidade Privile
 O segundo passo do assistente dá-lhe a oportunidade de alterar as atribuições de funções do administrador.  
 
 > [!WARNING]
-> É importante que tenha pelo menos um administrador global, e mais de um administrador privilegiado com uma conta organizacional (não uma conta Microsoft). Se houver apenas um administrador privilegiado, a organização não pode gerir a Gestão de Identidade Privilegiada se essa conta for eliminada.
+> É importante que tenha pelo menos um administrador global, e mais de um administrador privilegiado com uma conta de trabalho ou escola (não uma conta Microsoft). Se houver apenas um administrador privilegiado, a organização não pode gerir a Gestão de Identidade Privilegiada se essa conta for eliminada.
 > Além disso, mantenha as atribuições de funções permanentes se um utilizador tiver uma conta Microsoft (por outras palavras, uma conta que usam para iniciar sessão em serviços da Microsoft como o Skype e Outlook.com). Se pretender exigir a autenticação de vários fatores para a ativação dessa função, esse utilizador ficará bloqueado.
 
 ## <a name="run-the-wizard"></a>Executar o assistente
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Open **Azure AD Privileged Identity Management.**
 

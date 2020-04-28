@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: b351b9a4edd81da2983cca93127513f9041716bd
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: bfbe311d9768923eee8c1b0cc4f3b4ec1a7ad69a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869848"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186310"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Compare opções de armazenamento para uso com clusters Azure HDInsight
 
@@ -64,8 +65,8 @@ Pode criar clusters utilizando combinações de serviços para armazenamento sec
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral do armazenamento azure](./overview-azure-storage.md)
-* [Visão geral do Armazenamento do Lago Azure Data Gen1](./overview-data-lake-storage-gen1.md)
-* [Visão geral do Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
+* [Descrição geral do Armazenamento do Azure](./overview-azure-storage.md)
+* [Descrição geral do Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
+* [Descrição geral do Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
 * [Introdução ao Armazenamento de Lagos De Dados Azure Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md)

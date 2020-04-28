@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: b8c09d4ac5d0856eb0d448a1cabd9adc567850c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f3b928e657b5c061e624281e1d5a8805283a657
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670615"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186429"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Recolher dados de agentes do Linux recolhidos no Monitor Azure
 [CollectD](https://collectd.org/) é um daemon linux de origem aberta que recolhe periodicamente métricas de desempenho a partir de aplicações e informações de nível do sistema. As aplicações exemplo incluem a Máquina Virtual Java (JVM), o MySQL Server e o Nginx. Este artigo fornece informações sobre a recolha de dados de desempenho a partir do CollectD no Monitor Azure.
@@ -100,7 +100,8 @@ Seguem-se passos básicos para configurar a recolha de dados recolhidos no Monit
 
 3. Reinicie o agente CollectD e Log Analytics para o Linux com os seguintes comandos.
 
-    serviço sudo recolhido restart sudo /opt/microsoft/omsagent/bin/service_control restart
+        sudo service collectd restart
+        sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Métricas colecionadas para conversão de esquemas do Monitor Azure
 Para manter um modelo familiar entre as métricas de infraestrutura já recolhidas pelo agente Log Analytics para o Linux e as novas métricas recolhidas pela CollectD é utilizado o seguinte mapeamento de esquemas:

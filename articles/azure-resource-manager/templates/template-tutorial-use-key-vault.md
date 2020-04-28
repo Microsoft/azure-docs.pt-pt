@@ -2,16 +2,16 @@
 title: Use cofre de chave azure em modelos
 description: Saiba como utilizar o Azure Key Vault para transmitir valores de parâmetros seguros durante a implementação de modelos do Resource Manager
 author: mumian
-ms.date: 04/16/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: c33ad17927dae701e4201e76b7a75690c59dc374
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7fd84fc2e98578772c806f358cb8d6c400e0d994
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536709"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185018"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integrar o cofre de chaves azure na implementação do modelo ARM
 
@@ -161,22 +161,30 @@ Ao utilizar o método de ID estático, não precisa de fazer alterações no fic
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Siga as instruções em [desdobrar o modelo](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Faça o upload tanto de *azuredeploy.json* como *azuredeploy.parson para* Cloud Shell e, em seguida, use o seguinte script PowerShell para implementar o modelo:
+1. Inscreva-se na [Casca de Nuvem Azure](https://shell.azure.com)
 
-```azurepowershell
-$projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
-$location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
+1. Escolha o seu ambiente preferido selecionando **powerShell** ou **Bash** (para CLI) no canto superior esquerdo.  É necessário reiniciar o Shell quando mudar.
 
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile "$HOME/azuredeploy.json" `
-    -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+    ![Ficheiro de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-Write-Host "Press [ENTER] to continue ..."
-```
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Faça o upload de *azuredeploy.json* e *azuredeploy.parameters.json* para Cloud Shell. Depois de fazer o upload do ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
 
-Quando implementar o modelo, use o mesmo grupo de recursos que usou no cofre da chave. Esta abordagem facilita a limpeza dos recursos, porque é necessário eliminar apenas um grupo de recursos em vez de dois.
+1. Executar o seguinte script PowerShell para implementar o modelo.
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
+    $location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroupDeployment `
+        -ResourceGroupName $resourceGroupName `
+        -TemplateFile "$HOME/azuredeploy.json" `
+        -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    Quando implementar o modelo, use o mesmo grupo de recursos que usou no cofre da chave. Esta abordagem facilita a limpeza dos recursos, porque é necessário eliminar apenas um grupo de recursos em vez de dois.
 
 ## <a name="validate-the-deployment"></a>Validar a implementação
 

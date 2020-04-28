@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ba4afa31a1ed7b6e2ddf43787ca32a06e97455ce
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: a865bab690c79288bdffcd7cebe424d1bb1969c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533773"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181546"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Ligue para a Microsoft Graph API a partir de uma aplicação do Windows Desktop
 
@@ -253,7 +253,6 @@ Nesta secção, utiliza-se o MSAL para obter um símbolo para a Microsoft Graph 
         }
     ```
 
-<!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
@@ -273,7 +272,6 @@ Eventualmente, `AcquireTokenSilent` o método falhará. As razões para a falha 
 * O código da amostra trata então `AcquireTokenInteractive`da exceção através da chamada , o que leva o utilizador a iniciar o seu insessão.
 
 * Em vez disso, pode apresentar uma indicação visual aos utilizadores de que é necessário um sinal de inscrição interativo, para que possam selecionar o momento certo para iniciar o seu sessão. Ou a aplicação `AcquireTokenSilent` pode voltar a tentar mais tarde. Este padrão é frequentemente utilizado quando os utilizadores podem utilizar outrafuncionalidade de aplicação sem interrupções -- por exemplo, quando o conteúdo offline está disponível na aplicação. Neste caso, os utilizadores podem decidir quando pretendem iniciar sessão para aceder ao recurso protegido ou atualizar as informações desatualizadas. Em alternativa, a aplicação `AcquireTokenSilent` pode decidir voltar a tentar quando a rede é restaurada depois de ter estado temporariamente indisponível.
-<!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Ligue para a Microsoft Graph API usando o símbolo que acabou de obter
 
@@ -306,11 +304,9 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 }
 ```
 
-<!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Mais informações sobre fazer uma chamada rest contra uma API protegida
 
 Nesta aplicação de amostra, utiliza `GetHttpContentWithToken` o `GET` método para fazer um pedido http contra um recurso protegido que requer um símbolo e, em seguida, devolver o conteúdo ao chamador. Este método adiciona o token adquirido no cabeçalho de autorização http. Para esta amostra, o recurso é o ponto *final* do Microsoft Graph API me, que exibe as informações de perfil do utilizador.
-<!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-a-user"></a>Adicione um método para assinar um utilizador
 
@@ -341,13 +337,11 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-<!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>Mais informações sobre a inscrição do utilizador
 
 O `SignOutButton_Click` método remove os utilizadores da cache de utilizador MSAL, que efetivamente diz à MSAL para esquecer o utilizador atual, de modo a que um pedido futuro de aquisição de um símbolo só tenha sucesso se for feito para ser interativo.
 
 Embora a aplicação nesta amostra suporte utilizadores únicos, a MSAL suporta cenários em que várias contas podem ser assinadas ao mesmo tempo. Um exemplo é uma aplicação de e-mail onde um utilizador tem várias contas.
-<!--end-collapse-->
 
 ## <a name="display-basic-token-information"></a>Mostrar informações básicas de fichas
 
@@ -368,10 +362,8 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 }
 ```
 
-<!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
 
 Além do sinal de acesso que é usado para chamar a API do Microsoft Graph, depois de o utilizador entrar, o MSAL também obtém um token de identificação. Este símbolo contém um pequeno subconjunto de informação que é pertinente para os utilizadores. O `DisplayBasicTokenInfo` método mostra a informação básica contida no símbolo. Por exemplo, exibe o nome e o ID do utilizador, bem como a data de validade do símbolo e a cadeia que representa o próprio símbolo de acesso. Pode selecionar o botão *Call Microsoft Graph API* várias vezes e ver se o mesmo token foi reutilizado para pedidos posteriores. Também pode ver que a data de validade será prorrogada quando a MSAL decidir que é hora de renovar o símbolo.
-<!--end-collapse-->
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
