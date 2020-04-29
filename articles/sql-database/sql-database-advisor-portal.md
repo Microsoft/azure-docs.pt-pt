@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
 ms.openlocfilehash: b0452d51dc472e100ef52536d8e3814ff395292b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214167"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
@@ -28,7 +28,7 @@ Para visualizar e aplicar recomendações de desempenho, precisa das permissões
 
 Utilize os seguintes passos para encontrar recomendações de desempenho no portal Azure:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Vá a todas as bases de**dados SQL**de todos **os serviços** > e selecione a sua base de dados.
 3. Navegue para **a recomendação de desempenho** para visualizar as recomendações disponíveis para a base de dados selecionada.
 
@@ -169,6 +169,6 @@ Monitorize as suas recomendações e continue a aplicá-las para aperfeiçoar o 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) (Arquivo de Consultas)
+* [Arquivo de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Controlo de acesso baseado em funções](../role-based-access-control/overview.md)

@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79213951"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos alargados na Base de Dados SQL
@@ -32,7 +32,7 @@ Este tópico explica como a implementação de eventos alargados na Base de Dado
 Informações adicionais sobre eventos alargados, para a Base de Dados Azure SQL e para o Microsoft SQL Server, estão disponíveis em:
 
 - [Início Rápido: Eventos alargados no Servidor SQL](https://msdn.microsoft.com/library/mt733217.aspx)
-- [Extended Events (Eventos Expandidos)](https://msdn.microsoft.com/library/bb630282.aspx)
+- [Eventos Alargados](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

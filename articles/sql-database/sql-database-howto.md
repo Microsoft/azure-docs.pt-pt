@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 11/14/2019
 ms.openlocfilehash: c3f7b33e4b42b08334cfb687024985c878dc3713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79209438"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Como utilizar a Base de Dados Azure SQL
@@ -27,7 +27,7 @@ Nesta secção pode encontrar vários guias, scripts e explicações que podem a
 - [Copiar uma única base de dados ou base de dados agréis dentro do Azure](sql-database-copy.md)
 - [Importar uma BD de um BACPAC](sql-database-import.md)
 - [Exportar uma BD de um BACPAC](sql-database-export.md)
-- [Carregar dados com bcp](sql-database-load-from-csv-with-bcp.md)
+- [Carregar dados com o BCP](sql-database-load-from-csv-with-bcp.md)
 - [Carregar dados com o ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
 ### <a name="data-sync"></a>Sincronização de dados
@@ -50,7 +50,7 @@ Nesta secção pode encontrar vários guias, scripts e explicações que podem a
 
 ### <a name="extended-events"></a>Eventos expandidos
 
-- [Eventos alargados](sql-database-xevent-db-diff-from-svr.md)
+- [Eventos expandidos](sql-database-xevent-db-diff-from-svr.md)
 - [Armazenar eventos estendidos em arquivo de eventos](sql-database-xevent-code-event-file.md)
 - [Armazenar eventos estendidos em tampão de anel](sql-database-xevent-code-ring-buffer.md)
 
@@ -71,13 +71,13 @@ Nesta secção pode encontrar vários guias, scripts e explicações que podem a
 
 - [Conectividade](sql-database-libraries.md)
 - [Utilizar o Conector do Spark](sql-database-spark-connector.md)
-- [App autenticada](sql-database-client-id-keys.md)
+- [Autenticar aplicação](sql-database-client-id-keys.md)
 - [Utilize lotes para um melhor desempenho](sql-database-use-batching-to-improve-performance.md)
 - [Orientações para conectividade](sql-database-connectivity-issues.md)
 - [Aliases DNS](dns-alias-overview.md)
 - [Configuração DNS pseudónimo PowerShell](dns-alias-powershell.md)
 - [Portas - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
-- [C e C++](sql-database-develop-cplusplus-simple.md)
+- [C e C ++](sql-database-develop-cplusplus-simple.md)
 - [Excel](sql-database-connect-excel.md)
 
 ## <a name="design-applications"></a>Conceber aplicações

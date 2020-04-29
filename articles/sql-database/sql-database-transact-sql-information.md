@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
 ms.openlocfilehash: e0870ac9dc818ca07e149421b486136c76dd61a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79208824"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolução das diferenças Transact-SQL durante a migração para a Base de Dados SQL

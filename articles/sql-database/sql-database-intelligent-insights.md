@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: d7b9ada17871dc7882209b7a8a449a8edcd61a94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214080"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Insights Inteligentes que usam IA para monitorizar e resolver o desempenho da base de dados (Pré-visualização)
@@ -85,7 +85,7 @@ A saída dos Insights Inteligentes pode ser transmitida para um dos vários dest
 - A saída transmitida para os Hubs de Eventos Azure pode ser usada para o desenvolvimento de cenários de monitorização e alerta personalizados
 - A saída transmitida para o Armazenamento Azure pode ser usada para o desenvolvimento de aplicações personalizadas, tais como relatórios personalizados, arquivo de dados de longo prazo e assim por diante.
 
-Integração de Azure SQL Analytics, Azure Event Hub, Armazenamento Azure ou produtos de terceiros para consumo é realizado através de primeiro permitir a exploração de Insights Inteligentes (o log "SQLInsights") na lâmina de definições de diagnóstico de uma base de dados, e depois configurar os dados de registo de Insights Inteligentes para serem transmitidos para um destes destinos.
+A integração do Azure SQL Analytics, Azure Event Hub, Azure Storage ou produtos de terceiros para consumo é realizada através da primeira via de insights inteligentes (o log "SQLInsights") na lâmina de definições de diagnóstico de uma base de dados e, em seguida, configurando dados de registo Smart Insights para serem transmitidos para um desses destinos.
 
 Para obter mais informações sobre como permitir a exploração de Insights Inteligentes e configurar dados de registo de métricas e recursos para ser transmitido para um produto consumista, consulte as métricas da Base de [Dados Azure SQL e o registo de diagnósticos.](sql-database-metrics-diag-logging.md)
 
@@ -169,7 +169,7 @@ O bloqueio excessivo da base de dados denota uma condição em que a contagem de
 
 Outras estatísticas de espera indicam uma condição em que métricas diversas medidaatravés das estatísticas de espera da Loja de Consulta atravessaram um limiar absoluto. Estas estatísticas indicam a degradação do desempenho da carga de trabalho.
 
-Após tempos de espera excessivos, dependendo dos dados disponíveis, os diagnósticos De Insights Inteligentes registam as hashes das consultas afetadas e afetadas degradadas no desempenho, detalhes das métricas que fazem com que as consultas esperem na execução, e tempo de espera medido.
+Após tempos de espera excessivos, dependendo dos dados disponíveis, os diagnósticos De Insights Inteligentes registam as hashes das consultas afetadas e afetadas degradadas no desempenho, detalhes das métricas que fazem com que as consultas esperem na execução, e mediu o tempo de espera.
 
 ## <a name="errored-requests"></a>Pedidos errados
 
