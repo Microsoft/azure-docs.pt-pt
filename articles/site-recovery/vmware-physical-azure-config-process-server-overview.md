@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral da configuração, processo e 
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: cd5ded18d1a8f1f5fd96212d37725bb5db13002f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062095"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Sobre componentes de recuperação do site (configuração, processo, alvo principal)
@@ -33,7 +33,7 @@ Um servidor de processo lida com dados de replicação durante o failover e fail
 
 **Definição** | **Detalhes** | **Ligações**
 --- | --- | ---
-**Implantação**  | Por predefinição, quando o servidor de configuração for implementado, o servidor de processo é instalado. <br/><br/> Um servidor de processo no local é necessário para a recuperação de desastres e replicação de VMware VMware no local e servidores físicos. | [Saiba mais](vmware-azure-architecture.md#architectural-components).
+**Implementação**  | Por predefinição, quando o servidor de configuração for implementado, o servidor de processo é instalado. <br/><br/> Um servidor de processo no local é necessário para a recuperação de desastres e replicação de VMware VMware no local e servidores físicos. | [Saiba mais](vmware-azure-architecture.md#architectural-components).
 **Papel (no local)** | Recebe dados de replicação de máquinas ativadas para replicação. <br/><br/> Otimiza dados de replicação com cache, compressão e encriptação, e envia-os para o Armazenamento Azure. <br/><br/> Realiza uma instalação push do serviço de Mobilidade de Recuperação do Site em VMware VMware no local e servidores físicos que pretende replicar. <br/><br/> Realiza a descoberta automática de máquinas no local. | [Saiba mais](vmware-azure-enable-replication.md).
 **Papel (recuo de Azure)** | Depois de falhar no seu site no local, configura um servidor de processo sintetização em Azure, como um VM Azure, para lidar com o failback para a sua localização no local.<br/><br/> O servidor de processos em Azure é temporário. O VM Azure pode ser eliminado após o failback ser feito. | [Saiba mais](vmware-azure-set-up-process-server-azure.md).
 **Dimensionamento** | Para implementações maiores, no local pode configurar servidores de processos adicionais e scale-out. Servidores adicionais escalam a capacidade, manuseando um maior número de máquinas de replicação, e maiores volumes de tráfego de replicação.<br/><br/> Pode mover máquinas entre dois servidores de processo, de forma a carregar o tráfego de replicação do equilíbrio. | [Saiba mais](vmware-azure-set-up-process-server-scale.md).

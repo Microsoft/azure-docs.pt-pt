@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f8c149279a755eb186a3fdc7891e9b511d18c7f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050537"
 ---
 # <a name="custom-controls-preview"></a>Controlos personalizados (pré-visualização)
@@ -53,7 +53,7 @@ Para editar um controlo personalizado, deve eliminar o controlo atual e criar um
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 
-Os controlos personalizados não podem ser utilizados com a automatização da Proteção de Identidade que exija a autenticação de multi-factores Azure, reposição de senha de autosserviço Azure AD (SSPR), satisfazendo os requisitos de reclamação de autenticação de vários fatores, ou para elevar funções em Privileged Gestor de Identidade (PIM).
+Os controlos personalizados não podem ser utilizados com a automatização da Proteção de Identidade que exija a autenticação de multi-factores Azure, reposição de senha de autosserviço Azure AD (SSPR), satisfazendo os requisitos de reclamação de autenticação de vários fatores, ou para elevar funções no Gestor de Identidade Privilegiado (PIM).
 
 ## <a name="next-steps"></a>Passos seguintes
 

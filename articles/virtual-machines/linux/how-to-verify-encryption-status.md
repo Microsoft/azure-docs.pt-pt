@@ -8,10 +8,10 @@ ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0aaa32c46d915eafffcfac9d95cfdd3a24d4086d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80123428"
 ---
 # <a name="how-to-verify-encryption-status-for-linux"></a>Como verificar o estado de encriptação do Linux 

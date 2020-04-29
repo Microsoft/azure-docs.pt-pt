@@ -7,10 +7,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/27/2019
 ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78250681"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Explore o Monitor Azure para O Azure Cosmos DB (pré-visualização)
@@ -38,7 +38,7 @@ Esta funcionalidade não requer que ative ou configure nada, estas métricas Azu
 
 Para ver a utilização e desempenho das suas contas de armazenamento em todas as suas subscrições, execute os seguintes passos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Procure monitor **e** selecione **Monitor**.
 

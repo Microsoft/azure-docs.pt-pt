@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77918347"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilize o Azure Media Analytics para converter conteúdos de texto em ficheiros de vídeo em texto digital  
@@ -49,7 +49,7 @@ Configuração de tarefa (predefinição). Ao criar uma tarefa com **o Azure Med
 | Nome do atributo | Descrição |
 | --- | --- |
 |AdvancedOutput| Se definir o AdvancedOutput como verdadeiro, a saída JSON conterá dados posicionais para cada palavra (além de frases e regiões). Se não quiser ver estes detalhes, coloque a bandeira em falso. O valor predefinido é false. Para mais informações, consulte [este blog.](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/)|
-| Idioma |(opcional) descreve a linguagem do texto para a qual procurar. Um dos seguintes: AutoDetect (padrão), Árabe, Chinês Simplificado, ChinêsTradicional, Checo, Dinamarquês, Holandês, Inglês, Finlandês, Francês, Alemão, Grego, Húngaro, Italiano, Japonês, Coreano, Norueguês, Polaco, Português, Romeno, Russo, Sérvio, sérvio latino, eslovaco, espanhol, sueco, turco. |
+| Idioma |(opcional) descreve a linguagem do texto para a qual procurar. Um dos seguintes: AutoDetect (padrão), Árabe, Chinês Simplificado, ChinêsTradicional, Checo, Dinamarquês, Holandês, Inglês, Finlandês, Francês, Alemão, Grego, Húngaro, Italiano, Japonês, Coreano, Norueguês, Polaco, Português, Romeno, Russo, Sérvio, Sérvio, Eslovaco, Espanhol, Sueco, Turco. |
 | Orientação de Texto |(opcional) descreve a orientação do texto para o qual procurar.  "Esquerda" significa que o topo de todas as letras são apontados para a esquerda.  O texto predefinido (como o que pode ser encontrado num livro) pode ser chamado de "Up" orientado.  Um dos seguintes: AutoDetect (padrão), Up, Right, Down, Left. |
 | Intervalo de tempo |(opcional) descreve a taxa de amostragem.  O padrão é a cada 1/2 segundo.<br/>Formato JSON – HH:mm:ss. SSS (padrão 00:00:500)<br/>Formato XML – W3C XSD primitivo (PT0.5 padrão) |
 | Regiões de Deteção |(opcional) Uma série de objetos detectantes da Região que especifica as regiões dentro do quadro de vídeo para detetar texto.<br/>Um objeto DetectRegion é feito dos seguintes quatro valores inteiros:<br/>Esquerda – pixels da margem esquerda<br/>Top – pixels da margem superior<br/>Largura – largura da região em píxeis<br/>Altura – altura da região em píxeis |

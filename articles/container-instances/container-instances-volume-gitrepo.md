@@ -4,10 +4,10 @@ description: Aprenda a montar um volume gitRepo para clonar um repositório Git 
 ms.topic: article
 ms.date: 06/15/2018
 ms.openlocfilehash: 405cacd7a1649f95640a8dabf476729e101d03f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78252088"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Monte um volume gitRepo em instâncias de contentores azure

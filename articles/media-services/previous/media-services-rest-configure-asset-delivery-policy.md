@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 09f0371bc189fcf7b25ec3261e2e1f5eaf1892ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78194498"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configurar políticas de entrega de ativos
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Se planeia entregar ativos encriptados dinamicamente, uma das etapas do fluxo de trabalho de entrega de conteúdos dos Serviços de Media é configurar políticas de entrega de ativos. A política de entrega de ativos diz aos Media Services como pretende que o seu ativo seja entregue: no qual o protocolo de streaming deve ser embalado dinamicamente (por exemplo, MPEG DASH, HLS, Smooth Streaming, ou todos), quer queira ou não encriptar dinamicamente seu ativo e como (envelope ou encriptação comum).
+Se planeia entregar ativos encriptados dinamicamente, uma das etapas do fluxo de trabalho de entrega de conteúdos dos Serviços de Media é configurar políticas de entrega de ativos. A política de entrega de ativos diz aos Media Services como pretende que o seu ativo seja entregue: no qual o protocolo de streaming deve ser embalado dinamicamente (por exemplo, MPEG DASH, HLS, Smooth Streaming, ou todos), quer queira ou não encriptar de forma dinâmica o seu ativo e como (envelope ou encriptação comum).
 
 Este tópico discute porquê e como criar e configurar políticas de entrega de ativos.
 

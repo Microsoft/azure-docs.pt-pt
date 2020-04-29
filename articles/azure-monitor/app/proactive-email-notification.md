@@ -7,10 +7,10 @@ ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: f73e5bbdd8585b3367e529a8fa00630042e56cac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671788"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Alteração da notificação de e-mail de Deteção Inteligente
@@ -44,6 +44,6 @@ Se tiver alguma dúvida ou preocupação sobre esta mudança, não hesite em [co
 
 Saiba mais sobre deteção inteligente:
 
-- [Anomalias de falha](../../azure-monitor/app/proactive-failure-diagnostics.md)
+- [Anomalias de falhas](../../azure-monitor/app/proactive-failure-diagnostics.md)
 - [Fugas de memória](../../azure-monitor/app/proactive-potential-memory-leak.md)
 - [Anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md)

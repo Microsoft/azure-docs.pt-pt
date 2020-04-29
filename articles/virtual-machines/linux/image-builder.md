@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.openlocfilehash: 0d36d7db4d85ece8de77040925c535305951562b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066672"
 ---
 # <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Pré-visualização: Crie um VM Linux com o Azure Image Builder

@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: aad4610a44c59ed95cf1ad9777329097886c5bed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164377"
 ---
 # <a name="ev3-and-esv3-series"></a>Séries Ev3 e Esv3
 
-A série Ev3 e Esv3 apresenta o processador Intel® Xeon® 8171M 2.1 GHz (Skylake) ou o Processador Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) numa configuração hiper-roscada, proporcionando uma proposta de melhor valor para a maioria das cargas de trabalho para fins gerais, e trazendo o Ev3 para a maioria das cargas de trabalho para fins gerais, e trazendo o Ev3 para a maioria das cargas de trabalho para fins gerais, e trazendo o Ev3 em alinhamento com o propósito geral VMs da maioria das outras nuvens.  A memória foi expandida (de 7 GiB/vCPU para 8 GiB/vCPU) enquanto os limites do disco e da rede foram ajustados numa base de núcleo para alinhar com a mudança para o hiperthreading. O Ev3 é o seguimento dos tamanhos vm de alta memória das famílias D/Dv2.
+A série Ev3 e Esv3 apresenta o processador Intel® Xeon® 8171M 2.1 GHz (Skylake) ou o processador Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) numa configuração hiper-roscada, proporcionando uma proposta de melhor valor para a maioria das cargas de trabalho para fins gerais, e colocando o Ev3 em alinhamento com o propósito geral VMs da maioria das outras nuvens.  A memória foi expandida (de 7 GiB/vCPU para 8 GiB/vCPU) enquanto os limites do disco e da rede foram ajustados numa base de núcleo para alinhar com a mudança para o hiperthreading. O Ev3 é o seguimento dos tamanhos vm de alta memória das famílias D/Dv2.
 
 ## <a name="ev3-series"></a>Série Ev3
 

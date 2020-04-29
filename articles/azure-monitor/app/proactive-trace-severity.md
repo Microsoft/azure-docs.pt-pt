@@ -4,10 +4,10 @@ description: Monitorize os rastreios de aplicação com Insights de aplicação 
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: 30bdd30ac9c49bb79a3c48bae8149ec761756dd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671686"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradação na relação de gravidade dos vestígios (pré-visualização)

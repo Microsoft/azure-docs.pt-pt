@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 4c7eb5e4f22cb432a9d17e6eafa653e62e1f9129
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79529905"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Escolha a opção mariaDB Server certa em Azure
@@ -64,7 +64,7 @@ A Base de Dados Azure para MariaDB proporciona uma elevada disponibilidade incor
 Para obter mais informações sobre os preços, consulte os seguintes artigos:
 * [Base de Dados Azure para preços MariaDB](https://azure.microsoft.com/pricing/details/MariaDB/)
 * [Preços de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* [Calculadora de preços azure](https://azure.microsoft.com/pricing/calculator/)
+* [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/)
 
 ### <a name="administration"></a>Administração
 

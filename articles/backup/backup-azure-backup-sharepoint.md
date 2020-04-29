@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral da proteção do servidor dPM/
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 0199495e3b0eb002e58c096ed9abf05d46f43f97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80054114"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Volte a subir uma quinta SharePoint para Azure com DPM

@@ -12,10 +12,10 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: 67c47b35e84a93d7d9032ad55b425ae2bb6971fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79209500"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-databases-using-azure-portal"></a>Criar alertas para bases de dados Azure SQL e Azure Synapse Analytics usando o portal Azure
@@ -40,7 +40,7 @@ Pode configurar um alerta para fazer o seguinte quando aciona:
 
 Pode configurar e obter informações sobre as regras de alerta usando
 
-* [Portal Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
 * [interface de linha de comando (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)

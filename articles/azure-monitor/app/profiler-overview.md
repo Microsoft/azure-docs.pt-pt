@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671652"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Aplicações de produção de perfil em Azure com Insights de Aplicação
@@ -21,7 +21,7 @@ O Perfil de Insights de Aplicação Azure fornece vestígios de desempenho para 
 O Profiler trabalha com aplicações .NET que são implantadas nos seguintes serviços Azure. Instruções específicas para ativar o Profiler para cada tipo de serviço estão nos links abaixo.
 
 * [Serviço de Aplicações do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços Cloud do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Cloud Services do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais azure e conjuntos de escala de máquinas virtuais](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 * [**PRÉ-VISUALIZAÇÃO** ASP.NET Core Azure Linux Web Apps](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
@@ -122,7 +122,7 @@ O profiler executa aleatoriamente dois minutos por hora em cada máquina virtual
 ## <a name="next-steps"></a>Passos seguintes
 Ativar o Perfil de Insights de Aplicação para a sua aplicação Azure. Veja também:
 * [Serviços Aplicacionais](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços Cloud do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Cloud Services do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais azure e conjuntos de escala de máquinas virtuais](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

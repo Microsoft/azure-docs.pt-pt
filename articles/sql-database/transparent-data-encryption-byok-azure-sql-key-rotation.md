@@ -12,10 +12,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
 ms.openlocfilehash: aaed06ac086893f63fde530e46b936b3fb637766
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067174"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Rode o protetor transparente de encriptação de dados (TDE) utilizando powerShell
@@ -43,7 +43,7 @@ Para obter instruções de instalação do módulo Az, veja [Instalar o Azure Po
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager (RM) ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para mais informações sobre a sua compatibilidade, consulte [A introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para a instalação, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).
 
@@ -72,7 +72,7 @@ Set-AzSqlServerTransparentDataEncryptionProtector -Type AzureKeyVault -KeyId <ke
    -ServerName <logicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Utilize a [chave az keyvault create](/cli/azure/keyvault/key#az-keyvault-key-create), [az sql server criação](/cli/azure/sql/server/key#az-sql-server-key-create), e comandos conjuntos [de teclas tde-chave do servidor az sql.](/cli/azure/sql/server/tde-key#az-sql-server-tde-key-set)
 
@@ -107,7 +107,7 @@ az sql server tde-key set --server-key-type AzureKeyVault --kid <keyVaultKeyId> 
        -ServerName <logicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Os exemplos seguintes utilizam o conjunto de [teclas tde-key do servidor az sql](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector).
 

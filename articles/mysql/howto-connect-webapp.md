@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: ba75daa47ca1f77cd5828d13877238a64deeeb41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062466"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Ligue um serviço de aplicações Azure existente à Base de Dados Azure para servidor MySQL
 Este tópico explica como ligar um serviço de aplicações Azure existente à sua Base de Dados Azure para servidor MySQL.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Inicie sessão no [Portal do Azure](https://portal.azure.com). Crie uma Base de Dados Azure para o servidor MySQL. Para mais detalhes, consulte como criar base de [dados Azure para servidor MySQL a partir do Portal](quickstart-create-mysql-server-database-using-azure-portal.md) ou como criar base de dados [Azure para servidor MySQL utilizando cli](quickstart-create-mysql-server-database-using-azure-cli.md).
+Inicie sessão no [portal do Azure](https://portal.azure.com). Crie uma Base de Dados Azure para o servidor MySQL. Para mais detalhes, consulte como criar base de [dados Azure para servidor MySQL a partir do Portal](quickstart-create-mysql-server-database-using-azure-portal.md) ou como criar base de dados [Azure para servidor MySQL utilizando cli](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 Atualmente existem duas soluções que permitem o acesso de um Serviço de Aplicações Azure a uma Base de Dados Azure para mySQL. Ambas as soluções envolvem a criação de regras de firewall ao nível do servidor.
 

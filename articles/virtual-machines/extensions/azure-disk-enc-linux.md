@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: 22568c7c23771f143f6cd583114949c380d15e3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066925"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Encriptação de disco azure para Linux (Microsoft.Azure.Security.AzureDiskCryptonForLinux)
@@ -147,7 +147,7 @@ Utilizando: `AADClientCertificate`
 | publicador | Microsoft.Azure.Security | string |
 | tipo | AzureDiskCryptonForLinux | string |
 | typeHandlerVersion | 1.1, 0.1 | int |
-| (0.1 esquema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxxx | guia | 
+| (0.1 esquema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxxx | guid | 
 | (0.1 esquema) AADClientSecret | palavra-passe | string |
 | (0.1 esquema) Certificado aADClient | impressão de polegar | string |
 | (opcional) (0.1 esquema) Frase-passe | palavra-passe | string |

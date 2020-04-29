@@ -12,10 +12,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
 ms.openlocfilehash: 5d4d410f6fca566dab14e601972952b5996c331a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80124892"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configure a autenticação de vários fatores para o Estúdio de Gestão de Servidores SQL e a AD Azure

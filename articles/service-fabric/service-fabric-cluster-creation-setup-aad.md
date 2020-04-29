@@ -4,10 +4,10 @@ description: Saiba como criar o Azure Ative Directory (Azure AD) para autenticar
 ms.topic: conceptual
 ms.date: 6/28/2019
 ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78193390"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar o Diretório Ativo Azure para autenticação do cliente

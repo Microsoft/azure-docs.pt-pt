@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.openlocfilehash: 0314095a053087a7d490926c41c6ae386c304919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066638"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Armazenamento de ficheiros Mount Azure em VMs Linux usando SMB
@@ -33,7 +33,7 @@ Crie um grupo de recursos chamado *myResourceGroup* na localização *dos EUA Or
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Crie uma nova conta de armazenamento, dentro do grupo de recursos que criou, utilizando a conta de [armazenamento az criar](/cli/azure/storage/account). Este exemplo cria uma conta de armazenamento chamada *mySTORAGEACCT\<random number>* e coloca o nome dessa conta de armazenamento na variável **STORAGEACCT**. Os nomes das contas `$RANDOM` de armazenamento devem ser únicos, utilizando anexações um número até ao fim para torná-lo único.
 

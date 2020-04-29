@@ -13,10 +13,10 @@ ms.reviewer: vanto, carlrab
 ms.date: 02/05/2020
 tags: azure-synapse
 ms.openlocfilehash: 17ca8cbb7a55e9c0d44af099f4884f71b1cd457a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80124763"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection para a Base de Dados SQL do Azure

@@ -12,10 +12,10 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 25784eb161a860398b0741d1d20375cabd1c4eca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78188023"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurar o início e iniciar sessão com uma conta Microsoft utilizando o Diretório Ativo Azure B2C
@@ -24,7 +24,7 @@ ms.locfileid: "78188023"
 
 Para utilizar uma conta Microsoft como fornecedor de [identidade](openid-connect.md) no Azure Ative Directory B2C (Azure AD B2C), precisa de criar uma aplicação no inquilino da AD Azure. O inquilino da Azure AD não é o mesmo que o seu inquilino Azure AD B2C. Se ainda não tiver uma conta Microsoft, pode [https://www.live.com/](https://www.live.com/)conseguir uma em ...
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
 1. Selecione **Novo registo**.

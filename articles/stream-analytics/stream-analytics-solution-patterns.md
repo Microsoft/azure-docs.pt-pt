@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79535787"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Padrões da solução Azure Stream Analytics
@@ -174,7 +174,7 @@ Para o recheio, ainda é importante, pelo menos temporariamente, fornecer mais r
 |**Dashboarding**   |Cria lacuna    |OK para short outage    |Utilização para interrupção prolongada |
 |**Alertas**   |Aceitável |OK para short outage    |Não é necessário |
 |**App de sourcing de eventos** |Aceitável |OK para short outage    |Utilização para interrupção prolongada |
-|**Armazenamento de dados**   |Perda de dados  |Aceitável |Não é necessário |
+|**Armazenagem de dados**   |Perda de dados  |Aceitável |Não é necessário |
 |**Análise offline**  |Perda de dados  |Aceitável |Não é necessário|
 
 ## <a name="putting-it-all-together"></a>Juntar tudo

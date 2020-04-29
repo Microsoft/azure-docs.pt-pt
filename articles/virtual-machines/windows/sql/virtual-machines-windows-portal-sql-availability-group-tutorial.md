@@ -16,10 +16,10 @@ ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060182"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutorial: Configure grupo de disponibilidade no Azure SQL Server VM manualmente
@@ -124,7 +124,7 @@ Adicione o outro Servidor SQL ao cluster.
 
 ### <a name="add-a-cluster-quorum-file-share"></a>Adicione uma partilha de ficheiro quórum cluster
 
-Neste exemplo, o cluster Windows utiliza uma partilha de ficheiros para criar um quórum de cluster. Este tutorial usa um quórum de node e partilha de ficheiros. Para obter mais informações, veja [Compreender as Configurações de Quórum num Cluster de Ativação Pós-falha](https://technet.microsoft.com/library/cc731739.aspx).
+Neste exemplo, o cluster Windows utiliza uma partilha de ficheiros para criar um quórum de cluster. Este tutorial usa um quórum de node e partilha de ficheiros. Para obter mais informações, veja [Compreender as Configurações do Quórum num Cluster de Ativação Pós-falha](https://technet.microsoft.com/library/cc731739.aspx).
 
 1. Ligue-se ao servidor de membro sonante de partilha de ficheiros com uma sessão remota de ambiente de trabalho.
 
@@ -366,7 +366,7 @@ Um balancedor de carga Azure pode ser um balanceor de carga padrão ou um equil�
    | **Sub-rede** |Utilize o nome da sub-rede em que a máquina virtual está.  |
    | **Atribuição de endereçoIP** |Estático |
    | **Endereço IP** |Utilize um endereço disponível a partir da sub-rede. Utilize este endereço para o seu ouvinte de grupo de disponibilidade. Note que isto é diferente do seu endereço IP cluster.  |
-   | **Assinatura** |Utilize a mesma subscrição que a máquina virtual. |
+   | **Subscrição** |Utilize a mesma subscrição que a máquina virtual. |
    | **Localização** |Utilize o mesmo local que a máquina virtual. |
 
    A lâmina do portal Azure deve ser assim:

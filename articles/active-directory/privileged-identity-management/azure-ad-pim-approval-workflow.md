@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73ccfd1ad270072989e9b575fda538b94fd8927c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80049020"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Aprovar ou negar pedidos de funções da Azure AD na Gestão de Identidade Privilegiada
@@ -44,7 +44,7 @@ Siga os passos deste artigo para aprovar ou negar pedidos de funções da Azure 
 
 Como um aprovador delegado, receberá uma notificação por e-mail quando um pedido de função Azure AD estiver pendente da sua aprovação. Pode ver estes pedidos pendentes na Gestão de Identidade Privilegiada.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Open **Azure AD Privileged Identity Management.**
 
@@ -94,7 +94,7 @@ Aqui está algumas informações sobre notificações de fluxo de trabalho:
 
 Como um aprovador delegado, receberá uma notificação por e-mail quando um pedido de função Azure AD estiver pendente da sua aprovação. Pode ver estes pedidos pendentes na Gestão de Identidade Privilegiada.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Open **Azure AD Privileged Identity Management.**
 

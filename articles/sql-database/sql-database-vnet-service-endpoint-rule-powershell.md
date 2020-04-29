@@ -12,10 +12,10 @@ ms.reviewer: genemi, vanto
 ms.date: 03/12/2019
 tags: azure-synapse
 ms.openlocfilehash: 1e8ec394eab1df0aebe394b8acebc74c7ed49e9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80124691"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: Criar um ponto final de serviço virtual e regra VNet para SQL

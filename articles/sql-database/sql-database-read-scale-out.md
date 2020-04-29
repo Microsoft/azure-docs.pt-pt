@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
 ms.openlocfilehash: 1a1b9907cd931716949d92d948a7d541fd2d5057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78206950"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Utilizar réplicas só de leitura para balancear cargas de trabalho de consulta só de leitura

@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066844"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões e funcionalidades de máquinavirtual para Windows
@@ -72,7 +72,7 @@ Os pacotes de extensão são descarregados do repositório de extensão de armaz
 
 Os agentes só podem ser usados para descarregar pacotes de extensão e o estado de reporte. Por exemplo, se uma instalação de extensão precisar de descarregar um script do GitHub (Script Personalizado) ou precisar de acesso ao Armazenamento Azure (Backup Azure), então as portas adicionais de firewall/Network Security Group precisam de ser abertas. As diferentes extensões têm requisitos diferentes, uma vez que são aplicações por si só. Para extensões que requeiram acesso ao Azure Storage ou ao Azure Ative Directory, pode permitir o acesso utilizando etiquetas de [serviço Azure NSG](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para armazenamento ou AzureActiveDirectory.
 
-O Agente Convidado do Windows não dispõe de suporte de servidor proxy para que redirecione os pedidos de tráfego do agente através do IP, o que significa que o Agente Convidado do Windows contará com o seu proxy personalizado (se tiver um) para aceder a recursos na internet ou no Anfitrião através de IP 168.63.129.16.
+O Windows Guest Agent não dispõe de suporte proxy para redirecionar os pedidos de tráfego do agente através do IP 168.63.129.16.
 
 ## <a name="discover-vm-extensions"></a>Descubra extensões VM
 
@@ -430,4 +430,4 @@ Também pode remover uma extensão no portal Azure da seguinte forma:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre extensões VM, consulte [extensões de máquinas virtuais Azure e funcionalidades de visão geral](overview.md).
+Para obter mais informações sobre as extensões de VM, veja [Descrição geral das funcionalidades e extensões de máquinas virtuais do Azure](overview.md).

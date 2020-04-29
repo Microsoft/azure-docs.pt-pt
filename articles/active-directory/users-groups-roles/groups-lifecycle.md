@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 562b551bc8a46a45135bf6a9a8e328b4b0e74f98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80048252"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configure a política de expiração para os grupos do Office 365
@@ -121,7 +121,7 @@ Quando um grupo expira e é eliminado, então 30 dias após a eliminação os da
 
 ## <a name="how-office-365-group-expiration-works-with-retention-policy"></a>Como o Office 365 expiração do grupo funciona com a política de retenção
 
-A política de retenção é configurada através do Centro de Segurança e Conformidade. Se tiver criado uma política de retenção para os grupos do Office 365, quando um grupo expira e é eliminado, as conversas em grupo na caixa de correio do grupo e os ficheiros no site do grupo são mantidos no contentor de retenção pelo número específico de dias definidos na retenção política. Os utilizadores não verão o grupo ou o seu conteúdo após a expiração, mas podem recuperar os dados do site e da caixa de correio através da descoberta de e-mails.
+A política de retenção é configurada através do Centro de Segurança e Conformidade. Se tiver criado uma política de retenção para os grupos do Office 365, quando um grupo expira e é eliminado, as conversas em grupo na caixa de correio de grupo e os ficheiros no site do grupo são mantidos no contentor de retenção pelo número específico de dias definidos na política de retenção. Os utilizadores não verão o grupo ou o seu conteúdo após a expiração, mas podem recuperar os dados do site e da caixa de correio através da descoberta de e-mails.
 
 ## <a name="powershell-examples"></a>Exemplos powerShell
 

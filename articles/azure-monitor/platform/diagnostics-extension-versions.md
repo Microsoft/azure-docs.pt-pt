@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
 ms.openlocfilehash: 4dd91363cdebf18e6303238816e8269065a6a317
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672247"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Versão e histórico de configuração de configuração de configuração de configuração de diagnóstico do Windows Azure (WAD)
@@ -175,7 +175,7 @@ Ao migrar de Azure SDK 2.5 para Azure SDK 2.6 ou posterior, se tiver uma conta d
 
 #### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Como o Estúdio Visual determina a conta de armazenamento de diagnósticos
 * Se for especificada uma cadeia de ligação de diagnóstico no ficheiro .cscfg, o Visual Studio utiliza-o para configurar a extensão de diagnóstico ao publicar e ao gerar ficheiros xml de configuração pública durante a embalagem.
-* Se não for especificada a cadeia de ligação de diagnóstico no ficheiro .cscfg, então o Visual Studio volta a utilizar a conta de armazenamento especificada no ficheiro .wadcfgx para configurar a extensão de diagnóstico ao publicar e gerar os ficheiros xml de configuração pública quando a embalagem.
+* Se não for especificada a cadeia de ligação de diagnóstico no ficheiro .cscfg, o Visual Studio volta a utilizar a conta de armazenamento especificada no ficheiro .wadcfgx para configurar a extensão de diagnóstico ao publicar e gerar os ficheiros xml de configuração pública durante a embalagem.
 * A cadeia de ligação de diagnósticono ficheiro .cscfg tem precedência sobre a conta de armazenamento no ficheiro .wadcfgx. Se uma cadeia de ligação de diagnóstico for especificada no ficheiro .cscfg, então o Visual Studio usa-o e ignora a conta de armazenamento em .wadcfgx.
 
 #### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>O que faz as cordas de ligação de armazenamento de desenvolvimento "Atualizar..." caixa de verificação fazer?

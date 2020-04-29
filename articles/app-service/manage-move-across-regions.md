@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 7e68f12ce062831ad361c88345188aca61922c4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77925712"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Mova uma app de Serviço de Aplicações para outra região
@@ -31,7 +31,7 @@ Identifique todos os recursos do Serviço de Aplicações que está a utilizar. 
 
 - Aplicações do Serviço de Aplicações
 - [Planos do Serviço de Aplicações](overview-hosting-plans.md)
-- [Ranhuras de implantação](deploy-staging-slots.md)
+- [Blocos de implementação](deploy-staging-slots.md)
 - [Domínios personalizados adquiridos em Azure](manage-custom-dns-buy-domain.md)
 - [Certificados SSL](configure-ssl-certificate.md)
 - [Integração da Rede Virtual Azure](web-sites-integrate-with-vnet.md)

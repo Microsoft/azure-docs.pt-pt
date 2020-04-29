@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.topic: how-to
 ms.service: lab-services
 ms.openlocfilehash: bd92d53e09774183edadff0f949820f8feec6180
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80109254"
 ---
 # <a name="view-support-information-lab-user-in-azure-lab-services"></a>Ver informações de suporte (utilizador de laboratório em Serviços de Laboratório Azure)

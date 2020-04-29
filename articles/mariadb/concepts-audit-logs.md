@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/19/2020
 ms.openlocfilehash: e8d5abd81feb86ba48fc442ee95615cb52230a24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063817"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Registos de Auditoria na Base de Dados Azure para MariaDB

@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 9ea5811fa20ea4866655de74d79ff3905ba03f16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164411"
 ---
 # <a name="dv3-and-dsv3-series"></a>Séries Dv3 e Dsv3
 
-A série Dv3 funciona na Intel® Xeon® processadores 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), ou os processadores Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) numa configuração hiper-roscada, proporcionando uma proposta de melhor valor para a maioria dos processadores gerais cargas de trabalho propositadas. A memória foi expandida (de ~3.5 GiB/vCPU para 4 GiB/vCPU) enquanto os limites do disco e da rede foram ajustados numa base de núcleo para alinhar com o movimento para o hiperthreading. A série Dv3 já não tem os tamanhos VM de alta memória da série D/Dv2, estes foram movidos para a memória otimizada [ev3 e série Esv3.](ev3-esv3-series.md)
+A série Dv3 funciona nos processadores Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), ou os processadores Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) numa configuração hiper-roscada, proporcionando uma proposta de melhor valor para a maioria das cargas de trabalho gerais. A memória foi expandida (de ~3.5 GiB/vCPU para 4 GiB/vCPU) enquanto os limites do disco e da rede foram ajustados numa base de núcleo para alinhar com o movimento para o hiperthreading. A série Dv3 já não tem os tamanhos VM de alta memória da série D/Dv2, estes foram movidos para a memória otimizada [ev3 e série Esv3.](ev3-esv3-series.md)
 
 Exemplo, os casos de utilização da série D incluem aplicações de nível empresarial, bases de dados relacionais, caches na memória e análise.
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
 ms.openlocfilehash: 5a65982c5c13eb4e4273efcfd8d14910b0f35572
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78197152"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de Carga Standard e Zonas de Disponibilidade
@@ -97,12 +97,12 @@ Evite introduzir dependências inter-zonas não intencionais, o que anulará os 
 
 - Se a sua aplicação tiver dois componentes como um endereço IP e uma máquina virtual com disco gerido, e é garantido que são redundantes em zona e zona 1, respectivamente, o seu serviço de ponta a ponta sobreviverá à falha da zona 2, zona 3 ou ambas, a menos que a zona 1 tenha falhado.  No entanto, perde alguma capacidade de raciocinar sobre a saúde do seu serviço se tudo o que está a observar é a capacidade de acesso à frontenda.  Considere desenvolver um modelo de saúde e capacidade mais extenso.  Você pode usar conceitos de zona redundante e zonal juntos para expandir a perceção e a gestão.
 
-- Se a sua aplicação tiver dois componentes como um frontend de balancedor de carga redundante e uma escala de máquina virtual de zona transversal definida em três zonas, os seus recursos em zonas não afetadas por falhas estarão disponíveis, mas a sua capacidade de serviço de ponta a ponta pode ser degradada durante a falha da zona. Do ponto de vista da infraestrutura, a sua implantação pode sobreviver a uma ou mais falhas de zona, o que levanta as seguintes questões:
+- Se a sua aplicação tiver dois componentes como um frontend de balancedor de carga redundante e uma escala virtual de área cruzada definida em três zonas, os seus recursos em zonas não afetadas por falhas estarão disponíveis, mas a sua capacidade de serviço de ponta a ponta pode ser degradada durante a falha da zona. Do ponto de vista da infraestrutura, a sua implantação pode sobreviver a uma ou mais falhas de zona, o que levanta as seguintes questões:
   - Compreende como razões de candidatura sobre tais falhas e capacidade degradada?
   - Precisa de salvaguardas ao seu serviço para forçar uma falha a um par de regiões, se necessário?
   - Como vai monitorizar, detetar e mitigar tal cenário? Poderá utilizar diagnósticos Standard Load Balancer para aumentar a monitorização do seu desempenho de serviço de ponta a ponta. Considere o que está disponível e o que pode precisar de aumento para uma imagem completa.
 
-- As zonas podem tornar as falhas mais facilmente compreendidas e contidas.  No entanto, a falha na zona não é diferente de outras falhas quando se trata de conceitos como timeouts, repetições e algoritmos de backoff. Embora o Azure Load Balancer forneça caminhos redundantes em zonas e tente recuperar rapidamente, a um nível de pacote em tempo real, retransmissões ou reestabelecimentos podem ocorrer durante o início de uma falha e é importante entender como a sua aplicação lida com falhas. O teu esquema de equilíbrio de carga vai sobreviver, mas tens de planear o seguinte:
+- As zonas podem tornar as falhas mais facilmente compreendidas e contidas.  No entanto, a falha na zona não é diferente de outras falhas quando se trata de conceitos como timeouts, repetições e algoritmos de backoff. Embora o Azure Load Balancer forneça caminhos redundantes em zonas e tente recuperar rapidamente, a um nível de pacote em tempo real, podem ocorrer retransmissões ou reestabelecimentos durante o início de uma falha e é importante entender como a sua aplicação lida com falhas. O teu esquema de equilíbrio de carga vai sobreviver, mas tens de planear o seguinte:
   - Quando uma zona falha, o seu serviço de ponta a ponta entende isto e se o Estado está perdido, como vai se recuperar?
   - Quando uma zona retorna, a sua aplicação entende como convergir com segurança?
 

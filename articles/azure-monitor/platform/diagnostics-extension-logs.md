@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672400"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Recolher dados da extensão de diagnóstico do Azure aos Registos do Monitor do Azure
@@ -24,13 +24,13 @@ A extensão de diagnóstico azure armazena dados numa conta de Armazenamento Azu
 
 | Tipo de log | Tipo de Recurso | Localização |
 | --- | --- | --- |
-| Registos do IIS |Máquinas Virtuais <br> Papéis web <br> Funções dos trabalhadores |ficheiros de logfiles wad-iis (Depósito blob) |
-| Syslog |Máquinas Virtuais |LinuxsyslogVer2v0 (Armazenamento de Mesa) |
+| Registos do IIS |Virtual Machines <br> Papéis web <br> Funções dos trabalhadores |ficheiros de logfiles wad-iis (Depósito blob) |
+| Syslog |Virtual Machines |LinuxsyslogVer2v0 (Armazenamento de Mesa) |
 | Eventos Operacionais de Tecido de Serviço |Nódosos de tecido de serviço |WADServiceFabricSystemEventTable |
 | Eventos fiáveis de ator de tecido de serviço |Nódosos de tecido de serviço |WADServiceFabricReliableActorEventTable |
 | Eventos de serviço fiáveis de serviço |Nódosos de tecido de serviço |WADServiceFabricReliableServiceEventTable |
-| Registos do Evento Windows |Nódosos de tecido de serviço <br> Máquinas Virtuais <br> Papéis web <br> Funções dos trabalhadores |WADWindowsEventLogsTable (Armazenamento de Mesa) |
-| Registos Windows ETW |Nódosos de tecido de serviço <br> Máquinas Virtuais <br> Papéis web <br> Funções dos trabalhadores |WADETWEventtable (Armazenamento de Mesa) |
+| Registos do Evento Windows |Nódosos de tecido de serviço <br> Virtual Machines <br> Papéis web <br> Funções dos trabalhadores |WADWindowsEventLogsTable (Armazenamento de Mesa) |
+| Registos Windows ETW |Nódosos de tecido de serviço <br> Virtual Machines <br> Papéis web <br> Funções dos trabalhadores |WADETWEventtable (Armazenamento de Mesa) |
 
 ## <a name="data-types-not-supported"></a>Tipos de dados não suportados
 

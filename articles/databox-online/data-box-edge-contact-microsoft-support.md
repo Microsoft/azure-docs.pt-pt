@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: c93a2e2f3162891e72cf6d57f3df6c3ceaf0c7fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80064978"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box-edge-and-azure-data-box-gateway"></a>Abra um bilhete de suporte para Azure Data Box Edge e Azure Data Box Gateway

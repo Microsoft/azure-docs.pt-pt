@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/10/2019
 ms.openlocfilehash: 2f2ca4b56445b3f399477e396de579d8a8c539e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80127029"
 ---
 # <a name="azure-notification-hubs-and-google-firebase-cloud-messaging-migration"></a>Hubs de notificação Azure e migração de mensagens cloud da base de incêndio do Google
@@ -49,7 +49,7 @@ Aqui estão algumas respostas a perguntas comuns que ouvimos dos clientes:
 
 Se/quando decidir fazer upgrade para os SDKs e bibliotecas da FCM para tirar partido de novas funcionalidades, a sua chave GCM continuará a funcionar. Pode mudar para a utilização de uma chave FCM, se desejar, mas certifique-se de que está a adicionar base de fogo ao seu projeto GCM existente ao criar o novo projeto Firebase. Isto garantirá a retrocompatibilidade com os seus clientes que estão a executar versões mais antigas da app que ainda utilizam SDKs gcm e bibliotecas.
 
-Se estiver a criar um novo projeto FCM e não se ligar ao projeto GCM existente, uma vez que atualiza os Centros de Notificação com o novo segredo da FCM, perderá a capacidade de empurrar notificações para as instalações atuais da aplicação, uma vez que a nova chave FCM não tem qualquer ligação com o antigo GCM. projeto.
+Se estiver a criar um novo projeto FCM e não se ligar ao projeto GCM existente, uma vez que atualiza os Centros de Notificação com o novo segredo da FCM, perderá a capacidade de empurrar notificações para as instalações atuais da aplicação, uma vez que a nova chave FCM não tem qualquer ligação com o antigo projeto GCM.
 
 **Q:** Porque é que estou a receber este e-mail sobre os antigos pontos finais da GCM a serem usados? O que tenho que fazer?
 

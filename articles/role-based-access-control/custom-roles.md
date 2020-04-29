@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9454962e210781559f2fdceb1c36f499c4ae8ff7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062176"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Custom roles for Azure resources (Funções personalizadas para recursos do Azure)
@@ -97,10 +97,10 @@ Um papel personalizado tem as seguintes propriedades.
 
 | Propriedade | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- |
-| `Name` | Sim | Cadeia | O nome de exibição do papel personalizado. Embora uma definição de função seja um grupo de gestão ou um recurso de nível de subscrição, uma definição de função pode ser usada em múltiplas subscrições que partilham o mesmo diretório Azure AD. Este nome de exibição deve ser único no âmbito do diretório Azure AD. Pode incluir letras, números, espaços e personagens especiais. O número máximo de caracteres é de 128. |
-| `Id` | Sim | Cadeia | A identificação única do papel personalizado. Para o Azure PowerShell e o Azure CLI, este ID é gerado automaticamente quando cria uma nova função. |
-| `IsCustom` | Sim | Cadeia | Indica se este é um papel personalizado. Pronto `true` para papéis personalizados. |
-| `Description` | Sim | Cadeia | A descrição do papel personalizado. Pode incluir letras, números, espaços e personagens especiais. O número máximo de caracteres é 1024. |
+| `Name` | Sim | String | O nome de exibição do papel personalizado. Embora uma definição de função seja um grupo de gestão ou um recurso de nível de subscrição, uma definição de função pode ser usada em múltiplas subscrições que partilham o mesmo diretório Azure AD. Este nome de exibição deve ser único no âmbito do diretório Azure AD. Pode incluir letras, números, espaços e personagens especiais. O número máximo de caracteres é de 128. |
+| `Id` | Sim | String | A identificação única do papel personalizado. Para o Azure PowerShell e o Azure CLI, este ID é gerado automaticamente quando cria uma nova função. |
+| `IsCustom` | Sim | String | Indica se este é um papel personalizado. Pronto `true` para papéis personalizados. |
+| `Description` | Sim | String | A descrição do papel personalizado. Pode incluir letras, números, espaços e personagens especiais. O número máximo de caracteres é 1024. |
 | `Actions` | Sim | Corda[] | Uma série de cordas que especifica as operações de gestão que a função permite ser executadas. Para mais informações, consulte [Ações](role-definitions.md#actions). |
 | `NotActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de `Actions`gestão que estão excluídas das permitidas . Para mais informações, consulte [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de dados que a função permite ser executada aos seus dados dentro desse objeto. Se criar um papel `DataActions`personalizado com , esse papel não pode ser atribuído no âmbito do grupo de gestão. Para mais informações, consulte [DataActions](role-definitions.md#dataactions). |

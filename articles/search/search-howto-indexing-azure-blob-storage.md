@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 5df1198e6681431738f886eb7c3ad549936eab1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067648"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no Armazenamento de Blob Azure com pesquisa cognitiva azure
@@ -31,7 +31,7 @@ O indexante blob pode extrair texto dos seguintes formatos documentais:
 ## <a name="setting-up-blob-indexing"></a>Configuração da indexação de blob
 Pode configurar um indexador de armazenamento Azure Blob utilizando:
 
-* [Portal Azure](https://ms.portal.azure.com)
+* [Portal do Azure](https://ms.portal.azure.com)
 * [API de](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) pesquisa cognitiva azure
 * Pesquisa Cognitiva Azure [.NET SDK](https://aka.ms/search-sdk)
 

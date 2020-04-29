@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 4ed8ada306720b7a8b44ddd59cefe399238c906a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80128057"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Conteúdo de streaming com integração de CDN
@@ -71,7 +71,7 @@ Para atingir este objetivo, um ponto final de streaming (origem) e CDN precisam 
 - A origem dos Serviços de Media precisa de ter a "inteligência" (Origin-Assist) para informar a CDN do próximo objeto à prefetch.
 - O CDN faz a prefetch e o cache (parte CDN-prefetch). A CDN também precisa de ter a "inteligência" para informar a origem, seja uma prefetch ou uma busca regular, lidar com as respostas de 404, e uma maneira de evitar um loop prefetch interminável.
 
-### <a name="benefits"></a>Vantagens
+### <a name="benefits"></a>Benefícios
 
 Os benefícios da funcionalidade *Origin-Assist CDN-Prefetch* incluem:
 

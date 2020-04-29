@@ -4,10 +4,10 @@ description: As últimas atualizações para SDKs de Insights de Aplicação.
 ms.topic: conceptual
 ms.date: 05/17/2017
 ms.openlocfilehash: fcd20e1d14cebb9a5f5cc8ff2f7ae3f16fa594cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671516"
 ---
 # <a name="sdk-release-notes---application-insights"></a>Notas de Versão do SDK - Application Insights
@@ -18,7 +18,7 @@ Aqui estão as notas de lançamento detalhadas e as instruções de atualizaçã
     - Para a versão 2.12 e mais recente: [.NET SDKs (Incluindo ASP.NET, ASP.NET Core e Adaptadores de Exploração Madeireira)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
     - Para lançamentos mais antigos:
       - [ASP.NET Web Server SDK](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)
-      - [.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
+      - [SDK .NET](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
       - [.NET Agropecuária sintetizadora](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/releases)
       - [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Java](https://github.com/Microsoft/ApplicationInsights-Java)

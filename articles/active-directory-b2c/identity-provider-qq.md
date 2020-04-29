@@ -11,10 +11,10 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b0f15124c64e5cca54112987d486ddadaca79452
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78187992"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurar o início e iniciar sessão com uma conta QQ utilizando o Diretório Ativo Azure B2C
@@ -47,7 +47,7 @@ Para utilizar uma conta QQ como fornecedor de identidade no Azure Ative Director
 
 ## <a name="configure-qq-as-an-identity-provider"></a>Configure qQ como um fornecedor de identidade
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. No portal Azure, procure e selecione **Azure AD B2C**.
 1. Selecione **fornecedores de identidade**e, em seguida, selecione **QQ (Pré-visualização)**.

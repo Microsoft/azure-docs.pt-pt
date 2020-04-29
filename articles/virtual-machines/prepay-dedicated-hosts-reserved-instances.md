@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
 ms.openlocfilehash: 57123abfe7f343a75d264d43afb88f9de1409e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78207748"
 ---
 # <a name="save-costs-with-a-reserved-instance-of-azure-dedicated-hosts"></a>Poupe custos com uma instância reservada de anfitriões dedicados azure
@@ -119,7 +119,7 @@ Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio.
+Se tiver dúvidas ou precisar de ajuda,  [crie um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -129,9 +129,9 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
 - [O que são Reservas Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
 
-- [Usando anfitriões dedicados azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+- [Utilizar o Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
 
-- [Preços dedicados dos anfitriões](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
+- [Preços do Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
 - [Gerir Reservas no Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
 

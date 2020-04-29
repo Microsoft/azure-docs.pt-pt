@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
 ms.openlocfilehash: 30055ba1befc68d015e3e3162d8db11a2916f3d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80124971"
 ---
 # <a name="connect-windows-security-events"></a>Ligar aos eventos de segurança do Windows 
 
-O conector Security Events permite transmitir todos os eventos de segurança dos seus sistemas Windows (servidores e estações de trabalho, físicos e virtuais) para o seu espaço de trabalho Azure Sentinel. Isto permite-lhe visualizar eventos de segurança do Windows nos seus dashboards, usá-los na criação de alertas personalizados e confiar neles para melhorar as suas investigações, dando-lhe mais informações sobre a rede da sua organização e expandindo as suas operações de segurança capacidades. Pode selecionar quais os eventos a transmitir entre os seguintes conjuntos:<a name="event-sets"></a>
+O conector Security Events permite transmitir todos os eventos de segurança dos seus sistemas Windows (servidores e estações de trabalho, físicos e virtuais) para o seu espaço de trabalho Azure Sentinel. Isto permite-lhe visualizar eventos de segurança do Windows nos seus dashboards, usá-los na criação de alertas personalizados e confiar neles para melhorar as suas investigações, dando-lhe mais informações sobre a rede da sua organização e expandindo as suas capacidades de operações de segurança. Pode selecionar quais os eventos a transmitir entre os seguintes conjuntos:<a name="event-sets"></a>
 
 - **Todos os eventos** - Todos os eventos de segurança do Windows e AppLocker.
 - **Common** - Um conjunto padrão de eventos para fins de auditoria. Neste conjunto está incluído um rasto completo de auditoria do utilizador. Por exemplo, contém eventos de inscrição do utilizador e de inscrição do utilizador (iDs de evento 4624, 4634). Existem também ações de auditoria, tais como alterações de grupos de segurança, operações principais do controlador de domínio Kerberos e outros tipos de eventos em conformidade com as melhores práticas aceites.
@@ -40,7 +40,7 @@ O conector Security Events permite transmitir todos os eventos de segurança dos
     | Conjunto de eventos | IDs de eventos recolhidos |
     | --- | --- |
     | **Mínimo** | 1102, 4624, 4625, 4657, 4663, 4688, 4700, 4702, 4719, 4720, 4722, 4723, 4724, 4727, 4728, 4732, 4735, 4737, 4739, 4740, 4754, 4755, 4756, 4767, 4799, 4825, 4946, 4948, 4956, 5024, 5033, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222 |
-    | **Common** | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, 4624, 4625, 4634, 4647, 4648, 4649, 4657, 4661, 4662, 4663, 4665, 4666, 4667, 4688, 4670, 4672, 4673, 4674, 4675, 4689, 4697, 4700, 4702 , 4704, 4705, 4716, 4717, 4718, 4719, 4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4733, 4732, 4735, 4737, 4738, 4739, 4740, 4742, 4744, 4745, 4746, 4750, 4751, 4752, 4754, 4755, 4756, 4757, 4760, 4761, 4762, 4764, 4767, 4768, 4771, 4774, 4778, 4779, 4781, 4793 , 4797, 4798, 4799, 4800, 4801, 4802, 4803, 4825, 4826, 4870, 4886, 4887, 4888, 4893, 4898, 4902, 4904, 4905, 4907, 4931, 4932, 4933, 4946, 4948, 4956, 4985, 5024, 5033, 5059, 5136, 5137, 5140, 5145, 5632, 6144, 6145, 6272, 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003 , 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
+    | **Common** | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, 4624, 4625, 4634, 4647, 4648, 4649, 4657, 4661, 4662, 4663, 4665, 4666, 4667, 4688, 4670, 4672, 4673, 4674, 4675, 4689, 4697, 4700, 4702, 4704, 4705, 4716, 4717, 4718, 4719, 4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729 , 4733, 4732, 4735, 4737, 4738, 4739, 4740, 4742, 4744, 4745, 4746, 4750, 4751, 4752, 4754, 4755, 4756, 4757, 4760, 4761, 4762, 4764, 4767, 4768, 4771, 4774, 4778, 4779, 4781, 4793, 4797, 4798, 4799, 4800, 4801, 4802, 4803, 4825, 4826, 4870, 4886, 4887, 4888, 4893, 4898, 4902, 4904, 4905, 4907, 4931, 4932, 4933, 4946, 4948, 4956, 4985, 5024, 5033, 5059, 5136, 5137 , 5140, 5145, 5632, 6144, 6145, 6272, 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
 
 > [!NOTE]
 > A recolha de Eventos de Segurança no contexto de um único espaço de trabalho pode ser configurada a partir do Azure Security Center ou do Azure Sentinel, mas não ambos. Se estiver a embarcar no Azure Sentinel num espaço de trabalho que já está a funcionar no Azure Security Center, e está pronto para recolher Eventos de Segurança, tem duas opções:

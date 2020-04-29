@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
 ms.openlocfilehash: 7429a9d5e9a803f0e9a6f900c5d81e77e7477a48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214496"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurar e utilizar registos do Monitor Azure com uma aplicação SQL Database SaaS multitenant
@@ -152,4 +152,4 @@ Experimente o tutorial de análise do [Inquilino.](saas-dbpertenant-log-analytic
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Tutoriais adicionais que se baseiam na implementação inicial de aplicações de bases de dados SaaS de bilhetes de base de dados SaaS por inquilino](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Registos do Monitor Azure](../azure-monitor/insights/azure-sql.md)
+* [Registos do Azure Monitor](../azure-monitor/insights/azure-sql.md)

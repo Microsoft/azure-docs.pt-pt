@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
 ms.openlocfilehash: 9ac6927df63d51830a58773e32ad0968920c0867
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80061768"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
@@ -47,10 +47,10 @@ Pode experimentar algumas destas operações utilizando os seguintes exemplos:
 
 | | O portal do Azure | Azure PowerShell |
 |---|---|---|
-| Alterar a retenção de backup | [Base de dados individual](sql-database-automated-backups.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instância gerida](sql-database-automated-backups.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de dados individual](sql-database-automated-backups.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Alterar a retenção de backup a longo prazo | [Base de dados individual](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Instância gerida - N/A  | [Base de dados individual](sql-database-long-term-backup-retention-configure.md)<br/>Instância gerida - N/A  |
-| Restaurar uma base de dados a partir de um ponto no tempo | [Base de dados individual](sql-database-recovery-using-backups.md#point-in-time-restore) | [Base de dados individual](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| Restaurar uma base de dados eliminada | [Base de dados individual](sql-database-recovery-using-backups.md) | [Base de dados individual](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| Alterar a retenção de backup | [Base de dados única](sql-database-automated-backups.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instância gerida](sql-database-automated-backups.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de dados única](sql-database-automated-backups.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Alterar a retenção de backup a longo prazo | [Base de dados única](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Instância gerida - N/A  | [Base de dados única](sql-database-long-term-backup-retention-configure.md)<br/>Instância gerida - N/A  |
+| Restaurar uma base de dados a partir de um ponto no tempo | [Base de dados única](sql-database-recovery-using-backups.md#point-in-time-restore) | [Base de dados única](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| Restaurar uma base de dados eliminada | [Base de dados única](sql-database-recovery-using-backups.md) | [Base de dados única](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | Restaurar uma base de dados do armazenamento de Azure Blob | Base de dados única - N/A <br/>Instância gerida - N/A  | Base de dados única - N/A <br/>[Instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 
@@ -89,7 +89,7 @@ As cópias de segurança que ocorrem antes do período de retenção são automa
 A Base de Dados Azure SQL calcula o seu armazenamento total de reserva de retenção como um valor cumulativo. A cada hora, este valor é reportado ao oleoduto de faturação Azure, que é responsável por agregar este uso de hora em hora para calcular o seu consumo no final de cada mês. Após a queda da base de dados, o consumo diminui à medida que os backups envelhecem. Depois de os backups se tornarem mais antigos do que o período de retenção, a faturação para.
 
    > [!IMPORTANT]
-   > As cópias de segurança de uma base de dados são retidas durante o período de retenção especificado, mesmo que a base de dados tenha sido retirada. Ao deixar cair e recriar uma base de dados pode frequentemente economizar nos custos de armazenamento e cálculo, pode aumentar os custos de armazenamento de backup porque a Microsoft mantém uma cópia de segurança para o período de retenção especificado (que é de 7 dias no mínimo) para cada base de dados abandonada, cada uma tempo que é derrubado.
+   > As cópias de segurança de uma base de dados são retidas durante o período de retenção especificado, mesmo que a base de dados tenha sido retirada. Ao deixar cair e recriar uma base de dados pode frequentemente economizar nos custos de armazenamento e cálculo, pode aumentar os custos de armazenamento de backup porque a Microsoft mantém uma cópia de segurança para o período de retenção especificado (que é de 7 dias no mínimo) para cada base de dados largada, sempre que é baixada.
 
 ### <a name="monitor-consumption"></a>Monitorizar o consumo
 

@@ -11,10 +11,10 @@ ms.reviewer: ''
 ms.date: 09/27/2019
 manager: dcscontentpm
 ms.openlocfilehash: cf2d9b218fe63414af2446b8562d3ba187b2d395
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79535770"
 ---
 # <a name="azure-sql-database-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Serviço de importação/exportação de base de dados Azure SQL demora muito tempo a importar ou exportar uma base de dados

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
 ms.openlocfilehash: e2c4e5b6c10b06d82a1933962cb2d97e031876a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80068023"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming ao vivo com Azure Media Services v3
@@ -77,7 +77,7 @@ A transcrição ao vivo é uma funcionalidade que pode utilizar com Eventos Ao V
 
 Para compreender o fluxo de trabalho em streaming ao vivo nos Serviços de Media v3, tem de rever e compreender primeiro os seguintes conceitos: 
 
-- [Pontos finais de streaming](streaming-endpoint-concept.md)
+- [Pontos Finais de Transmissão em fluxo](streaming-endpoint-concept.md)
 - [Eventos em Direto e Saídas em Direto](live-events-outputs-concept.md)
 - [Localizadores de Transmissão em Fluxo](streaming-locators-concept.md)
 

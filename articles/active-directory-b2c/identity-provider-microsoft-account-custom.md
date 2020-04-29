@@ -12,10 +12,10 @@ ms.date: 02/19/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b7d8fbddc86c0d05d7b0d4ce46cb06c5fc92a2cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78188125"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta Microsoft utilizando políticas personalizadas no Diretório Ativo Do Azure B2C
@@ -33,7 +33,7 @@ Este artigo mostra-lhe como ativar o início de sessão para utilizadores a part
 
 Para ativar o início de sessão para utilizadores com uma conta Microsoft, é necessário registar uma aplicação dentro do inquilino Da Azure. O inquilino da Azure AD não é o mesmo que o seu inquilino Azure AD B2C.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
 1. Selecione **Novo registo**.
@@ -51,7 +51,7 @@ Para ativar o início de sessão para utilizadores com uma conta Microsoft, é n
 
 Se quiser obter `family_name` as `given_name` reclamações e reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Procure e selecione **Azure Active Directory**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Procure e selecione **Azure Active Directory**.
 1. A partir da secção **Gerir,** selecione registos de **Aplicações**.
 1. Selecione a aplicação que pretende configurar reclamações opcionais na lista.
 1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)**.
@@ -64,7 +64,7 @@ Se quiser obter `family_name` as `given_name` reclamações e reclamações da A
 
 Agora que criou a aplicação no seu inquilino DaD Azure, precisa de guardar o segredo do cliente dessa aplicação no seu inquilino Azure AD B2C.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.

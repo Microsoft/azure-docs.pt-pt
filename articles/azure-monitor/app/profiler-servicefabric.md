@@ -7,17 +7,17 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 664d6eb377185613a1a5670daf6747b482c79d9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671618"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Aplicações de tecido de serviço Azure ao vivo de perfil com Insights de Aplicação
 
 Também pode implementar o Perfil de Insights de Aplicação nestes serviços:
 * [Serviço de Aplicações do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços Cloud do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Cloud Services do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 ## <a name="set-up-the-environment-deployment-definition"></a>Configurar a definição de implantação do ambiente

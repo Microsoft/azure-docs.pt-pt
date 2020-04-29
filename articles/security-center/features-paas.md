@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
 ms.openlocfilehash: 85460724071347a768a924f34290a75d2383b4c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78209366"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Cobertura de recurso para serviços Azure PaaS<a name="paas-services"></a>
@@ -26,7 +26,7 @@ A tabela abaixo mostra a disponibilidade de funcionalidades do Azure Security Ce
 
 |Serviço|Recomendações (Grátis)|Alertas de segurança (Standard)|Avaliação de vulnerabilidade (Standard)|
 |:----|:----:|:----:|:----:|
-|App Service do Azure|✔|✔|-|
+|Serviço de Aplicações do Azure|✔|✔|-|
 |Conta De Automação Azure|✔|-|-|
 |Conta do Azure Batch|✔|-|-|
 |Armazenamento de Blobs do Azure|✔|✔|-|

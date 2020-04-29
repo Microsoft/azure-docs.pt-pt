@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
 ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78252590"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Ligue-se em privado a uma conta Azure Cosmos usando o Azure Private Link
@@ -147,7 +147,7 @@ Nesta secção, você irá ligar-se em privado à conta Azure Cosmos usando o Pr
 
 1. Introduza a cadeia de ligação colando as informações anteriormente copiadas.
 
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 
 1. Selecione **Ligar**.
 

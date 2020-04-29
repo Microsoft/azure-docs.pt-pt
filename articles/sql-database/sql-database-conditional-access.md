@@ -12,10 +12,10 @@ ms.custom: sql-data-warehouse
 ms.date: 02/06/2020
 tag: azure-synpase
 ms.openlocfilehash: cd56ccf2e6a4ceb0d81c25b5b9e795176be66b77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80124896"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-azure-synapse-analytics"></a>Acesso Condicional (MFA) com Base de Dados Azure SQL e Azure Synapse Analytics

@@ -9,10 +9,10 @@ ms.date: 03/23/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 6303644ada5c6f093611dba94daf8006f8cc5819
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79536909"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Criar uma conta BlockBlobStorage
@@ -35,7 +35,7 @@ Nenhum.
 
 Este artigo de como fazer requer o módulo Azure PowerShell Az versão 1.2.0 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão atual. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-Az-ps)(Instalar o módulo do Azure PowerShell).
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Pode iniciar sessão no Azure e executar comandos Azure CLI de uma de duas formas:
 
@@ -62,7 +62,7 @@ Também pode instalar e utilizar a CLI do Azure localmente. Este artigo de como 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -72,7 +72,7 @@ Inscreva-se na sua subscrição Azure com o `Connect-AzAccount` comando e siga a
 Connect-AzAccount
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para lançar a Azure Cloud Shell, inscreva-se no [portal Azure.](https://portal.azure.com)
 
@@ -155,7 +155,7 @@ Para criar uma conta BlockBlobStorage no portal Azure, siga estes passos:
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
 
-## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+## <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para criar uma conta de bloco sinuoso utilizando o Azure CLI, tem de instalar primeiro o Azure CLI v. 2.0.46 ou uma versão posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 

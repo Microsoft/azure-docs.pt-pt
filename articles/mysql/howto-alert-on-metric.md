@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: c917804b42bc987228bbb2542682fe9fb308a467
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067883"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Utilize o portal Azure para criar alertas sobre métricas para a Base de Dados Azure para mySQL 
@@ -25,8 +25,8 @@ Pode configurar um alerta para fazer as seguintes ações quando dispara:
 * Chamar um webhook
 
 Pode configurar e obter informações sobre as regras de alerta usando:
-* [Portal Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta sobre uma métrica do portal Azure

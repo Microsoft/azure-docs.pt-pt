@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 8ea85b560f35c79b3d5066d794f587345810b5d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77920863"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instale o Agente De Máquina Virtual Azure em modo offline 
@@ -127,5 +127,5 @@ Então `Get-AzureVM` comande o comando. Note que a propriedade **GuestAgentStatu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral do Agente De MáquinaS Virtuais Azure](../extensions/agent-windows.md)
+- [Descrição geral do Agente da Máquina Virtual do Azure](../extensions/agent-windows.md)
 - [Extensões e funcionalidades de máquinavirtual para Windows](../extensions/features-windows.md)

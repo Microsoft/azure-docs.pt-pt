@@ -9,10 +9,10 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: ae14a9fd8fc8479eac596fb694e12e3e0a9027f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067301"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Consulta multi-fragmento utilizando ferramentas de base de dados elásticas

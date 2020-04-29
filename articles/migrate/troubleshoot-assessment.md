@@ -8,10 +8,10 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
 ms.openlocfilehash: 205b52201edb849abab02809b58ff9dc77a32a29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80127667"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Resolver problemas de avaliação/visualização de dependência
@@ -73,7 +73,7 @@ Para mostrar como isto pode afetar as recomendações, vamos dar um exemplo:
 Temos um VM no local com quatro núcleos e oito GB de memória, com 50% de utilização de CPU e 50% de utilização da memória, e um fator de conforto especificado de 1,3.
 
 -  Se a avaliação for **As on-premis , recomenda-se**um Azure VM SKU com quatro núcleos e 8 GB de memória.
-- Se a avaliação for baseada no desempenho, com base na utilização eficaz do CPU e da memória (50% de 4 núcleos * 1,3 = 2,6 núcleos e 50% da memória de 8-GB * 1,3 = memória 5,3-GB), o VM SKU mais barato de quatro núcleos (contagem de núcleo suportado mais próximo) e oito GB de memória (suportado mais próximo) tamanho da memória) é recomendado.
+- Se a avaliação for baseada no desempenho, com base na utilização eficaz do CPU e da memória (50% de 4 núcleos * 1,3 = 2,6 núcleos e 50% da memória de 8-GB * 1,3 = memória 5,3-GB), recomenda-se o VM SKU mais barato de quatro núcleos (contagem de núcleo suportado mais próximo) e oito GB de memória (tamanho de memória suportado mais próximo).
 - [Saiba mais](concepts-assessment-calculation.md#types-of-assessments) sobre o tamanho da avaliação.
 
 ## <a name="azure-disk-skus-bigger-than-on-premises"></a>SKUs de disco azul maior do que no local
@@ -83,7 +83,7 @@ A Avaliação do Servidor Migratório Azure pode recomendar um disco maior com b
 - Se os critérios de dimensionamento **forem baseados no desempenho,** e o tipo de armazenamento for definido como **Automático,** o IOPS e os valores de entrada do disco são considerados ao identificar o tipo de disco-alvo (Standard HDD, Standard SSD ou Premium). Recomenda-se então um SKU de disco do tipo de disco, e a recomendação considera os requisitos de tamanho do disco no local.
 - Se os critérios de dimensionamento **forem baseados no desempenho,** e o tipo de armazenamento for **Premium,** recomenda-se um disco premium SKU em Azure com base nos requisitos de iopS, de entrada e tamanho do disco no local. A mesma lógica é utilizada para executar o dimensionamento do disco quando os **critérios de** dimensionamento são Como no local e o tipo de armazenamento é **Standard HDD,** **Standard SSD**ou **Premium**.
 
-Como exemplo, se tiver um disco no local com 32 GB de memória, mas o iOPS agregado para o disco é 800 IOPS, a Avaliação do Servidor recomenda um disco premium (devido aos requisitos mais elevados do IOPS), e recomenda um SKU de disco que possa suportar o IOPS necessário e tamanho. A correspondência mais próxima neste exemplo seria P15 (256 GB, IOPS de 1100). Embora o tamanho exigido pelo disco no local fosse de 32 GB, a Avaliação do Servidor recomenda um disco maior devido à elevada exigência de IOPS do disco no local.
+Como exemplo, se tiver um disco no local com 32 GB de memória, mas o iOPS agregado para o disco é de 800 IOPS, a Avaliação do Servidor recomenda um disco premium (devido aos requisitos mais elevados do IOPS), e recomenda um SKU de disco que possa suportar os IOPS e o tamanho necessários. A correspondência mais próxima neste exemplo seria P15 (256 GB, IOPS de 1100). Embora o tamanho exigido pelo disco no local fosse de 32 GB, a Avaliação do Servidor recomenda um disco maior devido à elevada exigência de IOPS do disco no local.
 
 ## <a name="utilized-corememory-percentage-missing"></a>Percentagem de núcleo/memória utilizada em falta
 
@@ -152,7 +152,7 @@ Após a migração de máquinas com visualização de dependência habilitada pa
 
 Recolha os registos de tráfego da rede da seguinte forma:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Pressione o F12 para iniciar ferramentas de desenvolvimento. Se necessário, limpe as entradas claras na definição de **navegação.**
 3. Selecione o separador **Rede** e comece a capturar o tráfego da rede:
    - No Chrome, **selecione Conservar**. A gravação deve começar automaticamente. Um círculo vermelho indica que o tráfego está a ser capturado. Se o círculo vermelho não aparecer, selecione o círculo preto para iniciar.

@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c1912e670a9cf1c178b58cefbd33171f15be2483
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79218255"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guia para a linguagem de especificação da rede neural Net# para o Estúdio de Aprendizagem automática Azure (clássico)
@@ -211,7 +211,7 @@ Existem dois conjuntos de propriedades que controlam o enchimento, sendo as prop
 
     Um único valor Boolean é estendido para ser uma tuple do comprimento correto com todos os componentes iguais ao valor especificado.
 
-    Se o valor para uma dimensão for verdadeiro, a fonte é logicamente acolchoada nessa dimensão com células de valor zero para suportar aplicações adicionais de kernel, de modo que os nós centrais do primeiro e último núcleo nessa dimensão são os primeiros e últimos nós em que dimensão na camada de origem. Assim, o número de nós "bonecos" em cada dimensão é `(InputShape[d] - 1) / Stride[d] + 1` determinado automaticamente, para encaixar exatamente os núcleos na camada de origem acolchoada.
+    Se o valor para uma dimensão for verdadeiro, a fonte é logicamente acolchoada nessa dimensão com células de valor zero para suportar aplicações adicionais de núcleo, de modo que os nós centrais do primeiro e último núcleo nessa dimensão são os primeiros e últimos nós nessa dimensão na camada. Assim, o número de nós "bonecos" em cada dimensão é `(InputShape[d] - 1) / Stride[d] + 1` determinado automaticamente, para encaixar exatamente os núcleos na camada de origem acolchoada.
 
     Se o valor para uma dimensão for Falso, os núcleos são definidos de modo a que o número de nós de cada lado que ficam de fora seja o mesmo (até uma diferença de 1). O valor padrão deste atributo é um tuple com todos os componentes iguais ao Falso.
 

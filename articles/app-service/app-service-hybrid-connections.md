@@ -8,10 +8,10 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
 ms.openlocfilehash: ec842530f3cae26b869a649617f279d204b98fcc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80047782"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Conexões híbridas do serviço de aplicações Azure
@@ -216,7 +216,7 @@ Para utilizar esta API, precisa da chave de envio e do ID de recurso de retransm
 
 ## <a name="secure-your-hybrid-connections"></a>Proteja as suas Conexões Híbridas ##
 
-Uma conexão híbrida existente pode ser adicionada a outras Aplicações Web do Serviço de Aplicações por qualquer utilizador que tenha permissões suficientes no relé de ônibus de serviço azure subjacente. Isto significa que se tiver de impedir que outros reutilizem essa mesma Ligação Híbrida (por exemplo, quando o recurso-alvo é um serviço que não tenha quaisquer medidas de segurança adicionais em vigor para impedir o acesso não autorizado), deve bloquear o acesso ao Azure Retransmissão de ônibus de serviço.
+Uma conexão híbrida existente pode ser adicionada a outras Aplicações Web do Serviço de Aplicações por qualquer utilizador que tenha permissões suficientes no relé de ônibus de serviço azure subjacente. Isto significa que, se tiver de impedir que outros reutilizem essa mesma Ligação Híbrida (por exemplo, quando o recurso-alvo é um serviço que não tenha quaisquer medidas de segurança adicionais em vigor para impedir o acesso não autorizado), tem de bloquear o acesso ao Relé de Autocarros de Serviço Azure.
 
 Qualquer `Reader` pessoa com acesso ao Retransmissor poderá _ver_ a Ligação Híbrida ao tentar adicioná-la à sua Web App no Portal Azure, mas não poderá _adicioná-la_ por não ter permissão para recuperar a cadeia de ligação que é utilizada para estabelecer a ligação ao relé. Para adicionar com sucesso a Ligação Híbrida, devem ter a `listKeys` permissão (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`). A `Contributor` função ou qualquer outra função que inclua esta permissão no Retransmissor permitirá que os utilizadores utilizem a Conexão Híbrida e adicioná-la às suas próprias Aplicações Web.
 

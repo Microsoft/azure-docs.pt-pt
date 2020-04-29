@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-october2019
 ms.openlocfilehash: ca0831fd7554058d21e315b67d6965579af1d38b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060921"
 ---
 # <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Como utilizar o armazenamento de fila Azure v2.1 da Python

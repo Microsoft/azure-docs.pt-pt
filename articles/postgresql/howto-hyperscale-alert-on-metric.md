@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 3/16/2020
 ms.openlocfilehash: 80c061f72ce827df8f8354a5881c032c6f874fe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063149"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Utilize o portal Azure para configurar alertas sobre métricas para a Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
@@ -25,8 +25,8 @@ Pode configurar um alerta para fazer as seguintes ações quando dispara:
 * Chame um gancho de teia.
 
 Pode configurar e obter informações sobre as regras de alerta usando:
-* [Portal Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta sobre uma métrica do portal Azure

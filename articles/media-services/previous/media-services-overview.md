@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
 ms.openlocfilehash: 1c2d6287a89c7816c30cf26978859c07dba0251d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78197509"
 ---
 # <a name="azure-media-services-overview"></a>Descrição geral dos Serviços de Multimédia do Azure 
@@ -63,11 +63,11 @@ Para compilar soluções de Media Services, pode utilizar:
     
         * [Pacote NuGet](https://www.nuget.org/packages/windowsazure.mediaservices/)
         * [Código fonte GitHub](https://github.com/Azure/azure-sdk-for-media-services)
-    * [Azure SDK para Java](https://github.com/Azure/azure-sdk-for-java),
+    * [Azure SDK para Java,](https://github.com/Azure/azure-sdk-for-java)
     * [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php),
     * [Media Services do Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Esta é uma versão não Microsoft de um SDK Node.js. Esta é mantida por uma comunidade e não tem atualmente uma cobertura de 100% das APIs do AMS).
 * Ferramentas existentes:
-    * [Portal Azure](https://portal.azure.com/)
+    * [Portal do Azure](https://portal.azure.com/)
     * [Explorador de Media Services do Azure](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE – Azure Media Services Explorer, uma aplicação Winforms/C# para Windows)
 
 > [!NOTE]

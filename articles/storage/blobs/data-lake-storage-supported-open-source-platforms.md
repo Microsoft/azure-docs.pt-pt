@@ -9,17 +9,17 @@ ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 422b814f1d9738ca4f03d08dfecc6761b764f997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78196030"
 ---
 # <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Plataformas de código aberto que suportam Azure Data Lake Storage Gen2
 
 Este artigo lista as plataformas de código aberto que suportam data lake storage Gen2.  
 
-## <a name="supported-open-source-platforms"></a>Plataformas de código aberto suportadas
+## <a name="supported-open-source-platforms"></a>Plataformas open source suportadas
 
 Esta tabela lista as plataformas de código aberto que suportam data lake storage Gen2.
 

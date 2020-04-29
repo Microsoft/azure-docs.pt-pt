@@ -1,5 +1,5 @@
 ---
-title: Ferramentas de desempenho linux
+title: Ferramentas de desempenho do Linux
 titleSuffix: Azure Kubernetes Service
 description: Aprenda a resolver problemas comuns ao utilizar o Serviço Azure Kubernetes (AKS)
 services: container-service
@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
 ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77925608"
 ---
 # <a name="linux-performance-troubleshooting"></a>Tiroteio em Problemas de Desempenho linux

@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
 ms.openlocfilehash: 2ec3276b9b02c29b80d46e5fd31298c909857182
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78197169"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do Axinom para entregar licenças de Widevine para Serviços de Multimédia do Azure 
@@ -178,7 +178,7 @@ Claro, há várias maneiras de obter a identificação chave. Por exemplo, pode-
 
 ## <a name="summary"></a>Resumo
 
-Com a mais recente adição de suporte da Widevine tanto na Proteção de Conteúdos dos Serviços de Mídia Azure como no Azure Media Player, somos capazes de implementar o streaming de DASH + Multi-native-DRM (PlayReady + Widevine) com tanto o serviço de licença PlayReady na licença AMS e Widevine servidor da Axinom para os seguintes navegadores modernos:
+Com a mais recente adição de suporte widevine tanto na Proteção de Conteúdos dos Serviços de Mídia Azure como no Azure Media Player, somos capazes de implementar o streaming de DASH + Multi-native-DRM (PlayReady + Widevine) com o serviço de licença PlayReady em AMS e o servidor de licença Widevine da Axinom para os seguintes navegadores modernos:
 
 * Chrome
 * Microsoft Edge no Windows 10

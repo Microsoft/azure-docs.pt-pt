@@ -16,10 +16,10 @@ ms.date: 03/29/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: c80a4c07e0649612b4c024cac79833c4b730f55e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060175"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Pré-requisitos para criar sempre em grupos de disponibilidade em SQL Server em máquinas virtuais Azure
@@ -41,7 +41,7 @@ Este tutorial assume que você tem uma compreensão básica de SQL Server Sempre
 Precisa de uma conta do Azure. Pode [abrir uma conta Azure gratuita](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) ou ativar benefícios de subscrição do [Visual Studio.](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits)
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Clique **+** para criar um novo objeto no portal.
 
    ![Novo objeto](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -86,7 +86,7 @@ Para criar a rede virtual:
    | **Espaço de endereço** |10.33.0.0/24 |
    | **Nome da sub-rede** |Administrador |
    | **Intervalo de endereços subnet** |10.33.0.0/29 |
-   | **Assinatura** |Especifique a subscrição que pretende utilizar. **A subscrição** fica em branco se tiver apenas uma subscrição. |
+   | **Subscrição** |Especifique a subscrição que pretende utilizar. **A subscrição** fica em branco se tiver apenas uma subscrição. |
    | **Grupo de recursos** |Escolha **utilizar o uso existente** e escolha o nome do grupo de recursos. |
    | **Localização** |Especifique a localização Azure. |
 
@@ -128,7 +128,7 @@ A tabela que se segue resume as definições de configuração da rede:
 | **Intervalo de endereços subnet** |Este valor depende das gamas de endereços disponíveis na sua subscrição. Um valor típico é 10.0.0.0/24. |
 | **Nome da sub-rede** |**sqlsubnet** |
 | **Intervalo de endereços subnet** |Este valor depende das gamas de endereços disponíveis na sua subscrição. Um valor típico é 10.0.1.0/24. |
-| **Assinatura** |Especifique a subscrição que pretende utilizar. |
+| **Subscrição** |Especifique a subscrição que pretende utilizar. |
 | **Grupo de Recursos** |**SQL-HA-RG** |
 | **Localização** |Especifique a mesma localização que escolheu para o grupo de recursos. |
 
@@ -179,7 +179,7 @@ A tabela que se segue mostra as definições para estas duas máquinas:
 | **Tipo de disco da VM** |SSD |
 | **Nome de utilizador** |DomainAdmin |
 | **Palavra-passe** |Contoso!0000 |
-| **Assinatura** |*A sua subscrição* |
+| **Subscrição** |*A sua subscrição* |
 | **Grupo de recursos** |SQL-HA-RG |
 | **Localização** |*A sua localização* |
 | **Tamanho** |DS1_V2 |

@@ -8,10 +8,10 @@ ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
 ms.openlocfilehash: 566d6ccf43024692e19bcd6639fe5cfbbba0660d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80056413"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho do temporizador para funções azure 
@@ -109,7 +109,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo seguinte utiliza uma ligação do gatilho do temporizador cuja configuração é descrita no ficheiro *fun.json.* A [função Python](functions-reference-python.md) real que utiliza a ligação é descrita no ficheiro * __init__.py.* O objeto passado para a função é de tipo [azure.functions.TimerRequest object](/python/api/azure-functions/azure.functions.timerrequest). A lógica da função escreve para os registos indicando se a invocação atual se deve a uma ocorrência de horário perdido. 
 
@@ -190,7 +190,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 

@@ -7,10 +7,10 @@ ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6ef0675e3ae3f7a5da38138177f3033051723411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537113"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar o Monitor Azure para a sua aplicação Python
@@ -24,7 +24,7 @@ O Azure Monitor suporta rastreios distribuídos, recolha métrica e registo de a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Criar um recurso Deinsights de Aplicação no Monitor Azure
 
@@ -454,7 +454,7 @@ Para obter informações mais detalhadas sobre como utilizar consultas e registo
 
 * [Rastreio de pedidos de entrada](./../../azure-monitor/app/opencensus-python-dependency.md)
 * [Rastreio de pedidos de saída](./../../azure-monitor/app/opencensus-python-request.md)
-* [Application map](./../../azure-monitor/app/app-map.md) (Mapeamento de aplicações)
+* [Mapa de aplicações](./../../azure-monitor/app/app-map.md)
 * [Monitorização do desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)
 
 ### <a name="alerts"></a>Alertas

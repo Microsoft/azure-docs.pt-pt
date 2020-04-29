@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: e975e1757b77b4aab52a59d1f0709ef9cadae94e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066871"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Encriptação de disco azure para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
@@ -145,7 +145,7 @@ Utilizando: `AADClientCertificate`
 | publicador | Microsoft.Azure.Security | string |
 | tipo | Encriptação AzureDisk | string |
 | typeHandlerVersion | 2.2, 1.1 | string |
-| (1.1 esquema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxxx | guia | 
+| (1.1 esquema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxxx | guid | 
 | (1.1 esquema) AADClientSecret | palavra-passe | string |
 | (1.1 esquema) Certificado aADClient | impressão de polegar | string |
 | Operação de encriptação | EnableEncryption, EnableEncryptionFormatAll | string | 
