@@ -16,10 +16,10 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a7c469be4a1d8aba23857b1ba52ee829c126a431
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267433"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utilize o StorSimple Device Manager para gerir alertas para o StorSimple Virtual Array

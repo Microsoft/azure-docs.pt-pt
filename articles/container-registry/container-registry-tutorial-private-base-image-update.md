@@ -4,10 +4,10 @@ description: Neste tutorial, configura uma Tarefa de Registo de Contentores Azur
 ms.topic: tutorial
 ms.date: 01/22/2020
 ms.openlocfilehash: e8aae8a91288d470c801dc4d82cfa6b44369d832
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77617703"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Tutorial: Automatiza imagem de contentor constrói-se quando uma imagem de base é atualizada em outro registo de contentores privados 

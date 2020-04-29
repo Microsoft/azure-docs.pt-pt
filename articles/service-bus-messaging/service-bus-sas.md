@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259477"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso de ônibus de serviço com assinaturas de acesso partilhado
@@ -290,7 +290,7 @@ A tabela que se segue mostra os direitos de acesso necessários para várias ope
 | Obtenha a descrição do tópico |Gerir |Qualquer endereço de tópico válido |
 | Configurar a regra de autorização para um tópico |Gerir |Qualquer endereço de tópico válido |
 | Enviar para o tópico |Enviar |Qualquer endereço de tópico válido |
-| **Assinatura** | | |
+| **Subscrição** | | |
 | Criar uma subscrição |Gerir |Qualquer endereço espaço de nome |
 | Eliminar subscrição |Gerir |.. /myTopic/Subscrições/mySubscription |
 | Enumerar assinaturas |Gerir |.. /myTopic/Subscrições |
@@ -310,7 +310,7 @@ A tabela que se segue mostra os direitos de acesso necessários para várias ope
 Para mais informações sobre mensagens do Service Bus, consulte os seguintes tópicos.
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Como usar as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
+* [Como utilizar as filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [Azure portal]: https://portal.azure.com

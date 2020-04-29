@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: e155321c2727bf4ee871ef7be7b61b6a523ec1fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256136"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detetáveis de estrangulamentos de desempenho de consulta na Base de Dados Azure SQL
@@ -59,7 +59,7 @@ As seguintes secções discutem como resolver consultas com plano de execução 
 
 ### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a>Consultas que têm problemas com plano sensível de parâmetros (PSP)
 
-Um problema de plano sensível parametro (PSP) acontece quando o optimizador de consultas gera um plano de execução de consulta que é ideal apenas para um valor de parâmetro específico (ou conjunto de valores) e o plano cached não é então ideal para valores de parâmetros que são usados em consecutivas execuções. Planos que não são ideais podem então causar problemas de desempenho de consulta e degradar a carga de trabalho geral.
+Um problema de plano sensível parametro (PSP) acontece quando o optimizador de consultas gera um plano de execução de consulta que é ideal apenas para um valor de parâmetro específico (ou conjunto de valores) e o plano cached não é então ideal para valores de parâmetros que são usados em execuções consecutivas. Planos que não são ideais podem então causar problemas de desempenho de consulta e degradar a carga de trabalho geral.
 
 Para obter mais informações sobre o cheiro dos parâmetros e o processamento de consultas, consulte o guia de [arquitetura de processamento de consultas.](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing)
 

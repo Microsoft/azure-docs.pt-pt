@@ -12,10 +12,10 @@ ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
 ms.openlocfilehash: 9f518df02b1923513fd014be53646a9a1be8465e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268629"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FaQ de hiperescala de base de dados Azure SQL
@@ -57,7 +57,7 @@ Os níveis de serviço baseados em vCore são diferenciados com base na disponib
 
 ### <a name="who-should-use-the-hyperscale-service-tier"></a>Quem deve usar o nível de serviço de hiperescala
 
-O nível de serviço Hyperscale destina-se a clientes que possuam grandes bases de dados do SQL Server no local e querem modernizar as suas aplicações movendo-se para a nuvem, ou para clientes que já estão a usar a Base de Dados Azure SQL e querem expandir significativamente o potencial para o crescimento da base de dados. A hiperescala também se destina a clientes que procuram alto desempenho e alta escalabilidade. Com a Hiperescala, obtém-se:
+O nível de serviço Hyperscale destina-se a clientes que possuam grandes bases de dados do SQL Server no local e queiram modernizar as suas aplicações movendo-se para a nuvem, ou para clientes que já estão a utilizar a Base de Dados Azure SQL e que queiram expandir significativamente o potencial de crescimento da base de dados. A hiperescala também se destina a clientes que procuram alto desempenho e alta escalabilidade. Com a Hiperescala, obtém-se:
 
 - Tamanho da base de dados até 100 TB
 - Backups de base de dados rápidos independentemente do tamanho da base de dados (cópias de segurança são baseadas em instantâneos de armazenamento)
@@ -115,7 +115,7 @@ A Hiperscale suporta todas as cargas de trabalho do SQL Server, mas está otimiz
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-azure-sql-database-hyperscale"></a>Como posso escolher entre o Azure SQL Data Warehouse e o Azure SQL Database Hyperscale
 
-Se está atualmente a executar consultas de análise interativa usando o SQL Server como armazém de dados, a Hyperscale é uma ótima opção porque pode alojar pequenos e médios armazéns de dados (como alguns TB até 100 TB) a um custo mais baixo, e pode migrar os seus dados do SQL Server cargas de trabalho de armazém para Hyperscale com alterações mínimas de código T-SQL.
+Se está atualmente a executar consultas de análise interativa utilizando o SQL Server como armazém de dados, a Hyperscale é uma ótima opção porque pode alojar pequenos e médios armazéns de dados (como algumas TB até 100 TB) a um custo mais baixo, e pode migrar as suas cargas de trabalho de armazém de dados Do SQL Server para Hyperscale com alterações mínimas de código T-SQL.
 
 Se estiver a fazer análises de dados em larga escala com consultas complexas e taxas de ingestão sustentadas superiores a 100 MB/s, ou a utilizar o Parallel Data Warehouse (PDW), a Teradata ou outros armazéns de dados de processamento paralelo massivamente (MPP), o SQL Data Warehouse pode ser a melhor escolha.
   

@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266874"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Resolução de mensagens de erro do RDP específicas para uma VM do Windows no Azure
@@ -89,7 +89,7 @@ Um computador baseado no Windows pode validar as credenciais de uma conta local 
 
 Se promoveu o seu VM a um controlador de domínio numa nova floresta de Diretório ativo, a conta de administrador local com a sua assinatura é convertida numa conta equivalente com a mesma senha na nova floresta e domínio. A conta local é então apagada.
 
-Por exemplo, se você assinou com a conta local DC1\DCAdmin, e depois promoveu a máquina virtual como um controlador de domínio em uma nova floresta para o domínio corp.contoso.com, a conta local DC1\DCAdmin é eliminada e uma nova conta de domínio (CORP\DCAdmin) é criado com a mesma senha.
+Por exemplo, se você assinou com a conta local DC1\DCAdmin, e depois promoveu a máquina virtual como um controlador de domínio numa nova floresta para o domínio corp.contoso.com, a conta local DC1\DCAdmin é eliminada e uma nova conta de domínio (CORP\DCAdmin) é criada com a mesma senha.
 
 Certifique-se de que o nome da conta é um nome que a máquina virtual pode verificar como uma conta válida e que a palavra-passe está correta.
 

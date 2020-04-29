@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
 ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257488"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de Automatização do Azure aos planos de recuperação
@@ -251,7 +251,7 @@ Pode usar o mesmo guião para diferentes planos de recuperação. Introduza dife
 
 Para implementar scripts de amostra na sua conta Automation, clique no botão **Deploy para Azure.**
 
-[![Desdobre para Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Implementar no Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 Este vídeo dá outro exemplo. Demonstra como recuperar uma aplicação WordPress de dois níveis ao Azure:
 

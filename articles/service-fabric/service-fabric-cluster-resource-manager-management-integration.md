@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258749"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração de gestor de recursos cluster com gestão de cluster de tecido de serviço
@@ -93,7 +93,7 @@ Vamos falar de cada um dos diferentes constrangimentos nestes relatórios de sa�
 ## <a name="blocklisting-nodes"></a>Nódosos blocklisting
 Outra mensagem de saúde que o Gestor de Recursos de Cluster relata é quando os nós estão bloqueados. Pode pensar na listagem de bloqueiocomo uma restrição temporária que é automaticamente aplicada para si. Os nódosos são bloqueados quando experimentam falhas repetidas ao lançar casos desse tipo de serviço. Os nódosos estão bloqueados por tipo de serviço. Um nó pode ser bloqueado para um tipo de serviço, mas não outro. 
 
-Verá o blocklisting fazer efeito frequentemente durante o desenvolvimento: algum bug faz com que o seu anfitrião de serviço se despenhe no arranque. O Serviço Fabric tenta criar o anfitrião do serviço algumas vezes, e a falha continua a ocorrer. Após algumas tentativas, o nó fica bloqueado, e o Gestor de Recursos do Cluster tentará criar o serviço em outro lugar. Se essa falha continuar a acontecer em vários nós, é possível que todos os nós válidos do cluster acabem bloqueados. A blocklisting também pode remover tantos nódosos que não podem lançar com sucesso o serviço para cumprir a escala desejada. Normalmente, verá erros ou avisos adicionais do Cluster Resource Manager indicando que o serviço está abaixo da réplica ou contagem de instâncias desejada, bem como mensagens de saúde que indicam qual é a falha que está a levar à listagem de bloqueios no primeiro lugar.
+Verá o blocklisting fazer efeito frequentemente durante o desenvolvimento: algum bug faz com que o seu anfitrião de serviço se despenhe no arranque. O Serviço Fabric tenta criar o anfitrião do serviço algumas vezes, e a falha continua a ocorrer. Após algumas tentativas, o nó fica bloqueado, e o Gestor de Recursos do Cluster tentará criar o serviço em outro lugar. Se essa falha continuar a acontecer em vários nós, é possível que todos os nós válidos do cluster acabem bloqueados. A blocklisting também pode remover tantos nódosos que não podem lançar com sucesso o serviço para cumprir a escala desejada. Normalmente, verá erros ou avisos adicionais do Cluster Resource Manager indicando que o serviço está abaixo da réplica ou contagem de instâncias desejada, bem como mensagens de saúde que indicam qual é a falha que está a levar à listagem de bloqueios em primeiro lugar.
 
 Blocklisting não é uma condição permanente. Após alguns minutos, o nó é removido da lista de bloqueios e o Tecido de Serviço pode voltar a ativar os serviços nesse nó. Se os serviços continuarem a falhar, o nó está novamente bloqueado para esse tipo de serviço. 
 

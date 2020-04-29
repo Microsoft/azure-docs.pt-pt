@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.openlocfilehash: 1e7c3e06c8aa49f9a23d3cc600ee6f60218c2fbd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72170144"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos do Python do Azure Cosmos DB

@@ -17,10 +17,10 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0f0c678f2426d9de58d2ab337c56243394b4d0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266536"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FaQs e questões conhecidas com identidades geridas para recursos Azure

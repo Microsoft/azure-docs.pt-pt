@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
 ms.openlocfilehash: 365275d291244d3c08f856d2d919c7ee7d79161a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239645"
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258541"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos de Tecido de Serviço 
@@ -64,7 +64,7 @@ Mais detalhes sobre upgrades de cluster podem ser encontrados [aqui](service-fab
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | Aplicações Criadas | Ciclo de Vida | Foi criada uma nova aplicação | CM | Informativo | 
 | 29625 | AplicaçãoEliminada | Ciclo de Vida | Uma aplicação existente foi eliminada | CM | Informativo | 
-| 23083 | ApplicationProcessExited | Ciclo de Vida | Um processo dentro de uma aplicação saiu | Hosting | Informativo | 
+| 23083 | ApplicationProcessExited | Ciclo de Vida | Um processo dentro de uma aplicação saiu | Alojamento | Informativo | 
 
 **Eventos de upgrade de aplicações**
 
@@ -135,9 +135,9 @@ Mais detalhes sobre atualizações de aplicações podem ser encontrados [aqui](
 
 | Eventid | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
-| 23074 | ContentorAtivado | Um contentor começou | Hosting | Informativo | 1 |
-| 23075 | ContentorDeactivado | Um contentor parou. | Hosting | Informativo | 1 |
-| 23082 | Contentor-Brexit | Um contentor saiu - Verifique a bandeira de InesperadoTerm | Hosting | Informativo | 1 |
+| 23074 | ContentorAtivado | Um contentor começou | Alojamento | Informativo | 1 |
+| 23075 | ContentorDeactivado | Um contentor parou. | Alojamento | Informativo | 1 |
+| 23082 | Contentor-Brexit | Um contentor saiu - Verifique a bandeira de InesperadoTerm | Alojamento | Informativo | 1 |
 
 ## <a name="health-reports"></a>Relatórios de saúde
 
@@ -260,8 +260,8 @@ Aqui está uma lista completa de eventos fornecidos pelo Service Fabric antes da
 | 29629 | ClusterUpgradeRollback | CM | Informativo |
 | 29630 | ClusterUpgradeRollbackComplete | CM | Informativo |
 | 29631 | ClusterUpgradeDomainComplete | CM | Informativo |
-| 23074 | ContentorAtivado | Hosting | Informativo |
-| 23075 | ContentorDeactivado | Hosting | Informativo |
+| 23074 | ContentorAtivado | Alojamento | Informativo |
+| 23075 | ContentorDeactivado | Alojamento | Informativo |
 | 29620 | Aplicações Criadas | CM | Informativo |
 | 29621 | UpgradeStart de aplicações | CM | Informativo |
 | 29622 | Upgrade de aplicaçõesComplete | CM | Informativo |

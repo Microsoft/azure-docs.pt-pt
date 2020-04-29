@@ -4,10 +4,10 @@ description: Escala rés em conjunto de tecido de serviço para dentro ou fora p
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 26ef13f38d525e4e493ad933bfb906dd36ed0070
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258736"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Reduzir ou aumentar horizontalmente um cluster

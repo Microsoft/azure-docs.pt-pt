@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 713217a933c646cc4d04759f5697bbc0312827ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268863"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Referência gerida aPI para casos geridos pela Base de Dados Azure SQL

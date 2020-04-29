@@ -17,10 +17,10 @@ ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
 ms.openlocfilehash: ee5e50bdba0a798d335641dc8a0c7ae69832d8f6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74979855"
 ---
 # <a name="integrate-app-service-with-application-gateway-using-cli"></a>Integrar o Serviço de Aplicações com Gateway de Aplicações utilizando o CLI

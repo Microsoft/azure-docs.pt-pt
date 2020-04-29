@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 0b0942b517c8dc83c048bd1203a58d9861515dfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257410"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Requisitos do servidor de configuração para recuperação de desastres VMware para O Azure

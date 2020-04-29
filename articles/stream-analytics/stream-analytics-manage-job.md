@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239309"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analise os dados da chamada telefónica com o Stream Analytics e visualize os resultados no dashboard Power BI
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 Antes de começar, faça as seguintes ações:
 
 * Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [portal do Azure](https://portal.azure.com/).
 * Transfira a aplicação geradora de eventos de chamadas telefónicas [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) no Centro de Transferências da Microsoft ou obtenha o código fonte no [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * Irá precisar de uma conta do Power BI.
 
@@ -43,7 +43,7 @@ Para que o Stream Analytics possa analisar o fluxo de dados de chamadas fraudule
 
 Utilize os passos seguintes para criar um Hub de Eventos e enviar dados de chamadas para esse Hub de Eventos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Criar um recurso** > **Internet of Things** > **Event Hubs**.
 
    ![Criar um Hub de Eventos Azure no portal](media/stream-analytics-manage-job/find-event-hub-resource.png)

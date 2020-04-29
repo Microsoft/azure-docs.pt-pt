@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
 ms.openlocfilehash: 756ce6c8551d259fc27855489b4276d90c7aa771
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77670377"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Responder a eventos com Alertas do Azure Monitor
@@ -26,7 +26,7 @@ Neste tutorial, ficará a saber como:
 Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente [ligada à área de trabalho do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
-Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em . 
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-alerts"></a>Criar alertas
 Os alertas são criados por regras de alerta no Azure Monitor e podem executar automaticamente consultas guardadas ou pesquisa de registos personalizadas em intervalos regulares.  Pode criar alertas com base em métricas de desempenho específicas ou quando determinados eventos são criados, ausência de um evento ou um número de eventos é criado numa janela de tempo específica.  Por exemplo, os alertas podem ser utilizados para notificar quando a utilização da CPU excede determinado limiar, quando é detetada uma atualização em falta ou quando é gerado um evento depois da deteção que determinado serviço Windows ou Linux daemon não está a ser executado.  Se os resultados da pesquisa de registos corresponderem a critérios específicos, será criado um alerta. A regra pode, em seguida, executar automaticamente uma ou mais ações, como notificá-lo do alerta proativamente ou invocar outro processo. 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258944"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric

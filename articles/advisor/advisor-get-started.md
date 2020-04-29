@@ -4,10 +4,10 @@ description: Começa com o Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259633"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
@@ -19,7 +19,7 @@ Saiba como aceder ao Advisor através do portal Azure, obter recomendações e i
 
 ## <a name="get-recommendations"></a>Obter recomendações
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, clique em **Advisor**.  Se não vir o Advisor no painel esquerdo, clique em **Todos os serviços.**  No painel de menude serviço, em **Monitorização e Gestão,** clique em **Advisor**. O painel advisor é apresentado.
 

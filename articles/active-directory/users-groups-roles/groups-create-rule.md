@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266380"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Diretório Ativo do Azure

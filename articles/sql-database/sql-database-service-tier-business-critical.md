@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
 ms.openlocfilehash: fc328c34c1543a75fdc885087d44b28e24c0850a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268681"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Nível crítico de negócios - Base de Dados Azure SQL
@@ -44,7 +44,7 @@ Além disso, o cluster Business Critical tem uma capacidade incorporada de [Leit
 
 ## <a name="when-to-choose-this-service-tier"></a>Quando escolher este nível de serviço?
 
-O nível de serviço Business Critical foi concebido para as aplicações que requerem respostas de baixa latência do armazenamento ssd subjacente (1-2 ms em média), recuperação rápida se a infraestrutura subjacente falhar, ou precisar de relatórios de descarregamento, análise e leitura apenas consultas à réplica secundária legível gratuitamente da base de dados primária.
+O nível de serviço Business Critical foi concebido para as aplicações que requerem respostas de baixa latência do armazenamento ssd subjacente (1-2 ms em média), recuperação rápida se a infraestrutura subjacente falhar, ou precisar de relatórios de scarregamento, análise e consultas apenas de leitura para a réplica secundária legível gratuitamente da base de dados primária.
 
 As principais razões pelas quais deve escolher o nível de serviço Business Critical em vez do nível de Propósito Geral são:
 -   Requisitos de latência baixos da IO – a carga de trabalho que necessita da resposta rápida da camada de armazenamento (1-2 milissegundos em média) deve utilizar o nível Business Critical. 

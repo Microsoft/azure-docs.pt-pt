@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
 ms.openlocfilehash: 27f465e6864d0ff639e825c8a816d86648bd8853
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268811"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Restaurar uma base de dados SQL num caso gerido até um ponto anterior no tempo
@@ -44,8 +44,8 @@ O quadro seguinte mostra cenários de restauro pontual para casos geridos:
 
 |           |Restaurar o DB existente para a mesma instância gerida| Restaurar o DB existente para outra instância gerida|Restaurar caiu DB para a mesma instância gerida|Restaurar caiu DB para outra instância gerida|
 |:----------|:----------|:----------|:----------|:----------|
-|**Portal Azure**| Sim|Não |Sim|Não|
-|**Azure CLI**|Sim |Sim |Não|Não|
+|**Portal do Azure**| Sim|Não |Sim|Não|
+|**CLI do Azure**|Sim |Sim |Não|Não|
 |**PowerShell**| Sim|Sim |Sim|Sim|
 
 ## <a name="restore-an-existing-database"></a>Restaurar uma base de dados existente
@@ -54,7 +54,7 @@ Restaurar uma base de dados existente na mesma instância utilizando o portal Az
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Vá à sua instância de gestão e selecione a base de dados que pretende restaurar.
 3. Selecione **Restaurar** na página de base de dados:
 
@@ -106,7 +106,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
 
 Para mais detalhes, consulte [Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Se ainda não tiver o Azure CLI instalado, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -223,7 +223,7 @@ $databaseName = "<Source database>"
 Remove-AzSqlInstanceDatabase -Name $databaseName -InstanceName $managedInstanceName -ResourceGroupName $resourceGroupName
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Utilize o seguinte comando Azure CLI para retirar uma base de dados existente de uma instância gerida:
 

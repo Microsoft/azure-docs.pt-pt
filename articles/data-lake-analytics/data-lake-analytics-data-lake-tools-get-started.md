@@ -10,10 +10,10 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260348"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio

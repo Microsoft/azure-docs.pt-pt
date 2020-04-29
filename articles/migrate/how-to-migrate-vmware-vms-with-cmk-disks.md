@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
 ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79269487"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>VMs migratórios para VMs Azure habilitados com encriptação do lado do servidor e chaves geridas pelo cliente

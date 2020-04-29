@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 1d1368ef8ffb474c6bec1240f567f043961597fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265574"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Crie clusters HDInsight com Azure Data Lake Storage Gen1 utilizando o portal Azure
@@ -45,7 +45,7 @@ Nesta secção, cria-se um cluster HDInsight com contas de Data Lake Storage Gen
 
 Para criar um cluster HDInsight com uma conta Gen1 de Armazenamento de Data Lake como conta de armazenamento padrão:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Siga [os clusters Create](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obter informações gerais sobre a criação de clusters HDInsight.
 3. Na lâmina **de armazenamento,** sob o tipo de **armazenamento primário,** selecione **Azure Data Lake Storage Gen1**, e, em seguida, introduza as seguintes informações:
 
@@ -64,7 +64,7 @@ As seguintes instruções criam um cluster HDInsight com uma conta de armazename
 
 Para criar um cluster HDInsight com uma conta Gen1 de Armazenamento de Data Lake como uma conta de armazenamento adicional:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Siga [os clusters Create](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obter informações gerais sobre a criação de clusters HDInsight.
 3. Na lâmina **de armazenamento,** sob o tipo de **armazenamento primário,** selecione **Armazenamento Azure,** e introduza as seguintes informações:
 

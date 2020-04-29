@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 22744ecbced40b3195f4d047227b1e2a37228102
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260907"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Visão geral do processamento de transações de ônibus de serviço
@@ -101,7 +101,7 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 
 Consulte os seguintes artigos para obter mais informações sobre as filas de ônibus de serviço:
 
-* [Como usar as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
+* [Como utilizar as filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Entidades de ônibus de serviço de cadeia com auto-encaminhamento](service-bus-auto-forwarding.md)
 * [Amostra autoavançada](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
 * [Transações Atómicas com amostra de ônibus de serviço](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)

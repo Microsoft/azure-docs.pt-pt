@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: ce49dcaa06288ba9e7a4d232338c727064d59685
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267771"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerencie os seus controladores de dispositivoS StorSimple
@@ -124,21 +124,21 @@ Execute os seguintes passos para redefinir o seu dispositivo Microsoft Azure Sto
 ## <a name="questions-and-answers-about-managing-device-controllers"></a>Perguntas e respostas sobre a gestão dos controladores de dispositivos
 Nesta secção, resumimos algumas das perguntas frequentes sobre a gestão dos controladores de dispositivos StorSimple.
 
-**P.** O que acontece se ambos os controladores do meu dispositivo estiverem saudáveis e ligados e eu reiniciar ou desligar o controlador ativo?
+**Q.** O que acontece se ambos os controladores do meu dispositivo estiverem saudáveis e ligados e eu reiniciar ou desligar o controlador ativo?
 
 **A.** Se ambos os controladores do seu dispositivo estiverem saudáveis e ligados, é solicitado para confirmação. Pode optar por:
 
 * **Reiniciar o controlador ativo** – É notificado de que reiniciar um controlador ativo fez com que o dispositivo falhasse no controlador passivo. O controlador reinicia.
 * **Desligue um controlador ativo** – É notificado de que desligar um controlador ativo resulta em tempo de inatividade. Também é necessário premir o botão de alimentação do dispositivo para ligar o controlador.
 
-**P.** O que acontece se o controlador passivo do meu dispositivo não estiver disponível ou desligado e eu reiniciar ou desligar o controlador ativo?
+**Q.** O que acontece se o controlador passivo do meu dispositivo não estiver disponível ou desligado e eu reiniciar ou desligar o controlador ativo?
 
 **A.** Se o controlador passivo do seu dispositivo não estiver disponível ou desligado, e optar por:
 
 * **Reiniciar o controlador ativo** – É notificado de que a continuação da operação resultará numa interrupção temporária do serviço, e é solicitado para confirmação.
 * **Desligue um controlador ativo** – É notificado de que a continuação da operação resulta em tempo de inatividade. Também é necessário premir o botão de alimentação de um ou ambos os controladores para ligar o dispositivo. Foi solicitado para confirmação.
 
-**P.** Quando é que o controlador reinicia ou desliga?
+**Q.** Quando é que o controlador reinicia ou desliga?
 
 **A.** Reiniciar ou desligar um controlador pode falhar se:
 
@@ -146,15 +146,15 @@ Nesta secção, resumimos algumas das perguntas frequentes sobre a gestão dos c
 * Um reinício do controlador já está em andamento.
 * Uma paragem do controlador já está em andamento.
 
-**P.** Como pode descobrir se um controlador foi reiniciado ou desligado?
+**Q.** Como pode descobrir se um controlador foi reiniciado ou desligado?
 
 **A.** Pode verificar o estado do controlador na lâmina do controlador. O estado do controlador indicará se um controlador está em processo de reiniciar ou desligar. Além disso, a lâmina **alerta** contém um alerta informativo se o controlador for reiniciado ou desligado. As operações de reinício e de paragem do controlador também são registadas nos registos de atividade. Para mais informações sobre os registos de atividade, vá ver [os registos de atividade](storsimple-8000-service-dashboard.md#view-the-activity-logs).
 
-**P.** Existe algum impacto no I/O como resultado da falha do controlador?
+**Q.** Existe algum impacto no I/O como resultado da falha do controlador?
 
 **A.** As ligações TCP entre iniciadores e controlador ativo serão recriadas em resultado da falha do controlador, mas serão restabelecidas quando o controlador passivo assumir a operação. Pode haver uma pausa temporária (menos de 30 segundos) na atividade de E/S entre os iniciadores e o dispositivo durante esta operação.
 
-**P.** Como posso devolver o meu controlador ao serviço depois de ter sido desligado e removido?
+**Q.** Como posso devolver o meu controlador ao serviço depois de ter sido desligado e removido?
 
 **A.** Para devolver um controlador ao serviço, deve inseri-lo no chassis conforme descrito em [Substituir um módulo de controlador no seu dispositivo StorSimple](storsimple-8000-controller-replacement.md).
 

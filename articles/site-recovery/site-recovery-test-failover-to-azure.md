@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257527"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Faça um teste failover (broca de recuperação de desastres) para Azure 

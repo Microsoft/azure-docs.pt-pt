@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: pepogors
 ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258918"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade de cluster de tecido de serviço
@@ -88,7 +88,7 @@ O nível de durabilidade é utilizado para indicar ao sistema os privilégios qu
 
 ### <a name="recommendations-for-when-to-use-silver-or-gold-durability-levels"></a>Recomendações para quando utilizar níveis de durabilidade de Prata ou Ouro
 
-Use durabilidade prateada ou dourada para todos os tipos de nós que acolhem serviços estatais que espera escalar (reduzir a contagem de casos vm) frequentemente, e você prefere que as operações de implantação sejam atrasadas e a capacidade de ser reduzida em favor da simplificação desta escala operações. Os cenários de escala para fora (adicionando casos de VMs) não jogam na sua escolha do nível de durabilidade, só a escala-in faz.
+Use durabilidade prateada ou dourada para todos os tipos de nós que acolhem serviços estatais que espera escalar (reduzir a contagem de casos vm) com frequência, e prefere que as operações de implantação sejam atrasadas e a capacidade de ser reduzida em favor da simplificação destas operações de escala. Os cenários de escala para fora (adicionando casos de VMs) não jogam na sua escolha do nível de durabilidade, só a escala-in faz.
 
 ### <a name="changing-durability-levels"></a>Alteração dos níveis de durabilidade
 - Tipos de nó com níveis de durabilidade de Prata ou Ouro não podem ser desclassificados para Bronze.

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258320"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida do ator, recolha automática de lixo e eliminação manual

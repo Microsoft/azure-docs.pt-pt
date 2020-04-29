@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266289"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e questões conhecidas usando grupos para gerir licenciamento no Diretório Ativo Azure

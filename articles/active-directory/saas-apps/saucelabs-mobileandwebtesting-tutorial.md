@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 8933cb90672e49305cd0fb7dc5e4f8f04f94093e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67091563"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutorial: Integração de Diretório Ativo Azure com Laboratórios de Molho - Teste Móvel e Web

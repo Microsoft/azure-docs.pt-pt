@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267628"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Problemas de resolução de problemas Problemas Problemas Problemas Problemas Problemas De implementação de dispositivos

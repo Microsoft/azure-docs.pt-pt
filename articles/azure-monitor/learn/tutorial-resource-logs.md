@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
 ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78269199"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Recolher e analisar registos de recursos de um recurso Azure

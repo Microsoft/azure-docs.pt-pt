@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
 ms.openlocfilehash: b6802d97b964b8863f6c2fce0cebfe16782b46fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79269214"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerir o esquema numa aplicação SaaS utilizando o padrão base de dados por inquilino com base de dados Azure SQL
@@ -38,7 +38,7 @@ Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
 * A aplicação Wingtip Tickets SaaS Database Per Tenant está implementada. Para implantar em menos de cinco minutos, consulte Implementar e explorar a base de [dados Wingtip Tickets SaaS por aplicação de inquilino](saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Está instalada a versão mais recente do SQL Server Management Studio (SSMS). [Transferir e instalar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+* Está instalada a versão mais recente do SQL Server Management Studio (SSMS). [Descarregue e instale SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
 > Este tutorial utiliza funcionalidades do serviço de Base de Dados SQL que estão numa pré-visualização limitada (tarefas da Base de Dados Elástica). Se desejar fazer este tutorial, forneça SaaSFeedback@microsoft.com o seu ID de subscrição com subject=Elastic Jobs Preview. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Esta pré-visualização é SaaSFeedback@microsoft.com limitada, por isso contacte para questões relacionadas ou suporte.

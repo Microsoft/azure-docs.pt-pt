@@ -4,10 +4,10 @@ description: Controle o mapeamento das amostras da planta dos media. Cada contro
 ms.date: 02/24/2020
 ms.topic: sample
 ms.openlocfilehash: bdc4ef65c6d61a9d4217d7873bb29bd787842e71
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78201907"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto dos Media
@@ -241,7 +241,7 @@ Revistei o mapeamento de controlo da amostra de projeto dos Media. Em seguida, v
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
-- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

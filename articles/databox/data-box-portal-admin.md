@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259997"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utilize o portal Azure para administrar a sua Caixa de Dados Azure e caixa de dados Azure Heavy

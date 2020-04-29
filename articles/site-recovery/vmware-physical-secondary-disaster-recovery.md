@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256812"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar recuperação após desastre de máquinas virtuais do VMware ou servidores físicos no local para um site secundário
@@ -34,7 +34,7 @@ Durante 2018 e 2019, serão lançadas duas atualizações:
 
 Após a Atualização 8, não serão lançadas mais atualizações. Haverá um suporte de fixação de fixação limitado para os sistemas operativos adicionados no Update 8, e correções de bugs com base no melhor esforço.
 
-A Azure Site Recovery continua a inovar fornecendo aos clientes VMware e Hyper-V uma solução DRaaS perfeita e de melhor classe com o Azure como local de recuperação de desastres. A Microsoft recomenda que os clientes existentes da InMage /ASR Scout considerem usar o cenário VMware da Azure Site Recovery para o Azure para as suas necessidades de continuidade de negócio. O cenário VMware da Azure Site Recovery para Azure é uma solução DR de classe empresarial para aplicações VMware, que oferece RPO e RTO de minutos, suporte para replicação e recuperação de aplicações multi-VM, embarque sem emenda, monitorização abrangente, e vantagem significativa da TCO.
+A Azure Site Recovery continua a inovar fornecendo aos clientes VMware e Hyper-V uma solução DRaaS perfeita e de melhor classe com o Azure como local de recuperação de desastres. A Microsoft recomenda que os clientes existentes da InMage /ASR Scout considerem usar o cenário VMware da Azure Site Recovery para o Azure para as suas necessidades de continuidade de negócio. O cenário VMware da Azure Site Recovery para O Vie é uma solução DR de classe empresarial para aplicações VMware, que oferece RPO e RTO de minutos, suporte para replicação e recuperação de aplicações multiVM, embarque sem emenda, monitorização abrangente e vantagem significativa do TCO.
 
 ### <a name="scenario-migration"></a>Migração de cenário
 Como alternativa, recomendamos a criação de uma recuperação de desastres para VMware VMware no local e máquinas físicas replicando-as para Azure. Proceda da seguinte forma:
@@ -231,7 +231,7 @@ Scout Update 5 é uma atualização cumulativa. Contém todas as correções do 
     * A proteção fixa e única do cluster do nó falha devido a um problema de desajuste scsi. 
     * Falha a proteção fixa do servidor de cluster Do Windows P2V se estiverem presentes os discos de cluster do alvo. 
     
-* Fixo: Durante a proteção de reinicializador, se o servidor-alvo principal selecionado não estiver no mesmo servidor ESXi que a máquina de origem protegida (durante a proteção para a frente), então o vContinuum apanha o servidor-alvo principal errado durante a recuperação do failback e a recuperação operação falha.
+* Fixo: Durante a proteção de reinicializador, se o servidor de alvo principal selecionado não estiver no mesmo servidor ESXi que a máquina de origem protegida (durante a proteção para a frente), então o vContinuum capta o servidor-alvo principal errado durante a recuperação do reinicializador e a operação de recuperação falha.
 
 > [!NOTE]
 > * As correções do cluster P2V aplicam-se apenas aos clusters físicos de MSCS que estão recentemente protegidos com a Atualização 5 do Scout de Recuperação do Local. Para instalar as correções do cluster em clusters P2V MSCS protegidos com atualizações mais antigas, siga as etapas de atualização mencionadas na secção 12 das Notas de Lançamento do Escuteiro de [Recuperação](https://aka.ms/asr-scout-release-notes)do Local .
@@ -311,7 +311,7 @@ A atualização 3 corrige os seguintes problemas:
 * As seguintes correções de segurança foram adicionadas no RX:
     * Bypass de autorização através de adulteração de parâmetros: Acesso restrito a utilizadores não aplicáveis.
     * Falsificação de pedido transversal: O conceito de token de página foi implementado, e gera aleatoriamente para cada página. Isto significa que há apenas um único sinal de inscrição para o mesmo utilizador, e a atualização da página não funciona. Em vez disso, redireciona para o tablier.
-    * Upload de ficheiro malicioso: Os ficheiros estão restritos a extensões específicas: z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmif, rmiv, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmiv, rmiv, rmif, rmiv, rmif, rmif, rmif, rmif, rmif, rmiv, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmif, rmi , sdc, sitd, swf, sxc, sxw, alcatrão, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, e zip.
+    * Upload de ficheiro malicioso: Os ficheiros estão restritos a extensões específicas: z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, wm, w xlsx, xml e zip.
     * Escrita inter-site persistente: Validações de entrada foram adicionadas.
 
 ### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Scout de recuperação do site Azure 8.0.1 Atualização 2 (Atualização 03Dec15)

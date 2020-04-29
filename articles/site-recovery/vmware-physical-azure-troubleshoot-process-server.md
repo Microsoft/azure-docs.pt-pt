@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 812cd0293f9627b7438e9870d8985e71dae1d147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256864"
 ---
 # <a name="troubleshoot-the-process-server"></a>Resolução de problemas no servidor de processos
@@ -71,7 +71,7 @@ Os serviços que devem estar a funcionar no servidor de processos são resumidos
 
 Para todos os serviços, com exceção do Agente de Serviços de Recuperação do Microsoft Azure (obengine), verifique se o StartType está definido para **Automático** ou **Automático (Arranque Atrasado)**.
  
-**Implantação** | **Serviços de funcionamento**
+**Implementação** | **Serviços de funcionamento**
 --- | ---
 **Servidor de processos no servidor de configuração** | ProcessServer; Monitor de servidor esquelésdo; cxprocessserver; InMage PushInstall; Serviço de upload de registo (LogUpload); Serviço de Aplicação de Escuteiros InMage; Agente de Serviços de Recuperação do Microsoft Azure (motor de motor); InMage Scout VX Agent-Sentinel/Outpost (svagents); tmansvc; World Wide Web Publishing Service (W3SVC); Mysql; Serviço de Recuperação de Sites do Microsoft Azure (dra)
 **Processserver funcionando como um servidor autónomo** | ProcessServer; Monitor de servidor esquelésdo; cxprocessserver; InMage PushInstall; Serviço de upload de registo (LogUpload); Serviço de Aplicação de Escuteiros InMage; Agente de Serviços de Recuperação do Microsoft Azure (motor de motor); InMage Scout VX Agent-Sentinel/Outpost (svagents); Tmansvc.

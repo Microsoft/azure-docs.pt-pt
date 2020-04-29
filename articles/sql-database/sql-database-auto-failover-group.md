@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 2/10/2020
 ms.openlocfilehash: 6d87d3373711d12df3f2cced26ef35ae951ad41e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79269838"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir falhas transparentes e coordenadas de várias bases de dados
@@ -25,13 +25,13 @@ Os grupos de falha automática são uma funcionalidade de Base de Dados SQL que 
 > [!NOTE]
 > Ao trabalhar com bases de dados individuais ou agréns num servidor de base de dados SQL e pretender vários secundários nas mesmas regiões ou regiões diferentes, utilize [geo-replicação ativa.](sql-database-active-geo-replication.md) 
 
-Quando se está a utilizar grupos de falha automática com uma política automática de failover, qualquer falha que tenha impacto numa ou várias bases de dados do grupo resulta em falha automática. Normalmente, estes são incidentes que não podem ser auto-atenuados pelas operações automáticas de alta disponibilidade incorporadas. Os exemplos de disparos de failover incluem um incidente causado por um anel de inquilino SQL ou anel de controlo sendo para baixo devido a uma fuga de memória de kernel oss em vários nós computacionais, ou um incidente causado por um ou mais anéis de inquilino sendo parabaixo porque um cabo de rede errado foi cortado durante um cabo de rede errado durante um cabo de rede errado foi cortado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado foi cortado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo desmantelamento de hardware de rotina.  Para mais informações, consulte a Alta Disponibilidade da Base de [Dados SQL](sql-database-high-availability.md).
+Quando se está a utilizar grupos de falha automática com uma política automática de failover, qualquer falha que tenha impacto numa ou várias bases de dados do grupo resulta em falha automática. Normalmente, estes são incidentes que não podem ser auto-atenuados pelas operações automáticas de alta disponibilidade incorporadas. Os exemplos de disparos de failover incluem um incidente causado por um anel de inquilino SQL ou anel de controlo sendo parabaixo devido a uma fuga de memória de kernel oss em vários nós computacionais, ou um incidente causado por um ou mais anéis de inquilino sendo abatido porque um cabo de rede errado foi cortado durante o desmantelamento de hardware de rotina.  Para mais informações, consulte a Alta Disponibilidade da Base de [Dados SQL](sql-database-high-availability.md).
 
 Além disso, os grupos de auto-failover fornecem pontos finais de leitura e ouvintes que permanecem inalterados durante as failovers. Quer utilize ativação manual ou automática de failover, a falha comuta todas as bases de dados secundárias do grupo para primária. Após a falha da base de dados, o registo dNS é automaticamente atualizado para redirecionar os pontos finais para a nova região. Para obter os dados específicos de RPO e RTO, consulte [a visão geral da continuidade do negócio](sql-database-business-continuity.md).
 
 Quando estiver a utilizar grupos de falha automática com uma política de failover automática, qualquer falha que tenha impacto nas bases de dados no servidor de base de dados SQL ou na instância gerida resulta em falha automática. Pode gerir o grupo de falhas automáticas utilizando:
 
-- [Portal Azure](sql-database-implement-geo-distributed-database.md)
+- [Portal do Azure](sql-database-implement-geo-distributed-database.md)
 - [Azure CLI: Failover Group](scripts/sql-database-add-single-db-to-failover-group-cli.md)
 - [PowerShell: Failover Group](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - [REST API: Failover group](/rest/api/sql/failovergroups).
@@ -76,7 +76,7 @@ Para alcançar a continuidade real do negócio, adicionar redundância na base d
 
   Ao adicionar bases de dados, piscinas elásticas ou instâncias geridas a um grupo de failover, há uma fase inicial de sementeir antes do início da replicação de dados. A fase inicial de sementesão é a operação mais longa e cara. Uma vez que a sementeing inicial esteja concluída, os dados são sincronizados e, em seguida, apenas alterações de dados subsequentes são replicadas. O tempo que a semente inicial leva a concluir depende do tamanho dos seus dados, do número de bases de dados replicadas e da velocidade da ligação entre as entidades do grupo failover. Em circunstâncias normais, a velocidade típica de sementesão é de 50-500 GB por hora para uma única base de dados ou piscina elástica, e 18-35 GB por hora para um caso gerido. A sementesão é realizada para todas as bases de dados em paralelo. Pode utilizar a velocidade de sementeira indicada, juntamente com o número de bases de dados e o tamanho total dos dados para estimar quanto tempo demorará a fase inicial de sementeira até que a replicação de dados comece.
 
-  Para os casos geridos, a velocidade da ligação da Rota Expresso entre as duas instâncias também deve ser considerada ao estimar o tempo da fase inicial de sementeira. Se a velocidade da ligação entre as duas instâncias for mais lenta do que a necessária, é provável que o tempo de semente seja notavelmente afetado. Pode utilizar a velocidade de sementeira indicada, o número de bases de dados, o tamanho total dos dados e a velocidade de ligação para estimar quanto tempo demorará a fase inicial de sementeira até que a replicação de dados comece. Por exemplo, para uma única base de dados de 100 GB, a fase inicial das sementes demoraria entre 2,8 e 5,5 horas se o link for capaz de empurrar 35 GB por hora. Se o link só puder transferir 10 GB por hora, então a sementede de uma base de dados de 100 GB levará cerca de 10 horas. Se existirem várias bases de dados para replicar, a sementeira será executada paralelamente e, quando combinada com uma velocidade de ligação lenta, a fase inicial de sementeir pode demorar consideravelmente mais tempo, especialmente se a sementeira paralela de dados de todas as bases de dados exceder a disponível largura de banda de ligação. Se a largura de banda da rede entre duas instâncias for limitada e estiver a adicionar múltiplas instâncias geridas a um grupo de failover, considere adicionar múltiplas instâncias geridas ao grupo failover sequencialmente, um a um.
+  Para os casos geridos, a velocidade da ligação da Rota Expresso entre as duas instâncias também deve ser considerada ao estimar o tempo da fase inicial de sementeira. Se a velocidade da ligação entre as duas instâncias for mais lenta do que a necessária, é provável que o tempo de semente seja notavelmente afetado. Pode utilizar a velocidade de sementeira indicada, o número de bases de dados, o tamanho total dos dados e a velocidade de ligação para estimar quanto tempo demorará a fase inicial de sementeira até que a replicação de dados comece. Por exemplo, para uma única base de dados de 100 GB, a fase inicial das sementes demoraria entre 2,8 e 5,5 horas se o link for capaz de empurrar 35 GB por hora. Se o link só puder transferir 10 GB por hora, então a sementede de uma base de dados de 100 GB levará cerca de 10 horas. Se existirem várias bases de dados para replicar, a sementeira será executada paralelamente e, quando combinada com uma velocidade de ligação lenta, a fase inicial de sementeir pode demorar consideravelmente mais tempo, especialmente se a sementeira paralela de dados de todas as bases de dados exceder a largura de banda de ligação disponível. Se a largura de banda da rede entre duas instâncias for limitada e estiver a adicionar múltiplas instâncias geridas a um grupo de failover, considere adicionar múltiplas instâncias geridas ao grupo failover sequencialmente, um a um.
 
   
 - **Zona DNS**
@@ -413,7 +413,7 @@ Como discutido anteriormente, grupos de auto-failover e geo-replicação ativa t
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |Desencadeia a falha de um grupo de falhas para a instância secundária|
 | [Remover-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/remove-azsqldatabaseinstancefailovergroup) | Remove um grupo de failover|
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ### <a name="manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>Gerir a falha da base de dados SQL com bases de dados únicas e piscinas elásticas
 

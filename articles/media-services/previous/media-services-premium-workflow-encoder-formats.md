@@ -15,13 +15,13 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79269760"
 ---
-# <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow formats and codecs (Formatos e codecs do Media Encoder Premium Workflow)
+# <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow formatos e codecs
 
 > [!NOTE]
 > O processador de mídia Media Encoder Premium Workflow, discutido neste tópico, não está disponível na China. 

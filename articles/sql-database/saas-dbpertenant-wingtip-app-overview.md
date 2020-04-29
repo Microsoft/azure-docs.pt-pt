@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 46cdcd5f768278dbc729f48e450c68a63be604be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256500"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introdução a uma aplicação SaaS multiarrendatária que utiliza o padrão de base de dados por inquilino com Base de Dados SQL

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257904"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analise o relatório do Planejador de Implantação de Desenvolvimento de Sítios Azure

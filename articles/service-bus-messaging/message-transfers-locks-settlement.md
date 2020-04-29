@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: aschhab
 ms.openlocfilehash: a2c353d612280981a83b32463d34efdc70878495
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260998"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagens, bloqueios e acordo
@@ -26,7 +26,7 @@ A capacidade central de um corretor de mensagens como o Service Bus é aceitar m
 
 Quando um cliente envia uma mensagem, normalmente quer saber se a mensagem foi devidamente transferida e aceite pelo corretor ou se ocorreu algum tipo de erro. Este reconhecimento positivo ou negativo liquida o cliente e o corretor compreensão sobre o estado de transferência da mensagem e é assim referido como *liquidação*.
 
-Da mesma forma, quando o corretor transfere uma mensagem para um cliente, o corretor e o cliente querem estabelecer uma compreensão sobre se a mensagem foi processada com sucesso e pode, portanto, ser removida, ou se a entrega ou processamento da mensagem falhou, e assim o mensagem pode ter que ser entregue novamente.
+Da mesma forma, quando o corretor transfere uma mensagem para um cliente, o corretor e o cliente querem estabelecer uma compreensão sobre se a mensagem foi processada com sucesso e pode, portanto, ser removida, ou se a entrega ou processamento da mensagem falhou, e assim a mensagem pode ter de ser entregue novamente.
 
 ## <a name="settling-send-operations"></a>Regularizar as operações de envio
 
@@ -40,9 +40,9 @@ Um remetente pode colocar várias mensagens no fio em rápida sucessão sem ter 
 
 A estratégia para lidar com o resultado das operações de envio pode ter um impacto de desempenho imediato e significativo para a sua aplicação. Os exemplos nesta secção são escritos em C# e aplicam-se equivalentemente para java futures.
 
-Se a aplicação produzir explosões de mensagens, ilustradas aqui com um loop simples, e se aguardasse a conclusão de cada operação de envio antes de enviar a próxima mensagem, formas de API sincronizadas ou assíncronas, enviando 10 mensagens apenas após 10 sequencial de ida e volta completa para liquidação.
+Se a aplicação produzir explosões de mensagens, ilustradas aqui com um loop simples, e se aguardasse a conclusão de cada operação de envio antes de enviar a próxima mensagem, formas de API sincronizadas ou assíncronas, o envio de 10 mensagens só completa após 10 viagens de ida e volta sequenciais para liquidação.
 
-Com uma distância de ida e volta de 70 milisegundos de 70 milisegundos de ida e volta de um local para o Service Bus e dando apenas 10 ms para o Service Bus aceitar e armazenar cada mensagem, o seguinte loop demora pelo menos 8 segundos, sem contar o tempo de transferência de carga útil ou o potencial efeitos de congestionamento da rota:
+Com uma distância de ida e volta de 70 milisegundos de 70 milissegundos de ida e volta de um local para o Service Bus e dando apenas 10 ms para o Bus de Serviço aceitar e armazenar cada mensagem, o seguinte loop demora pelo menos 8 segundos, sem contar o tempo de transferência de carga útil ou potenciais efeitos de congestionamento da rota:
 
 ```csharp
 for (int i = 0; i < 100; i++)

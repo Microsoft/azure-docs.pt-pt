@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.openlocfilehash: 878a8d660495c932cc8fa44bb1ed06e79576729b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75650059"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Obter recursos num grupo de recursos gerido e redimensionar VMs com a CLI do Azure

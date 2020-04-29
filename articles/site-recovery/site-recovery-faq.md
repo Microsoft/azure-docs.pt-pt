@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
 ms.openlocfilehash: a9d0ae4a6e60a72bbb1148aca1a75c44506b2e9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257683"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Questões gerais sobre recuperação do site azure
@@ -22,7 +22,7 @@ Este artigo resume frequentemente perguntas sobre a Recuperação do Site Azure.
 ## <a name="general"></a>Geral
 
 ### <a name="what-does-site-recovery-do"></a>O que faz a Recuperação de Sites?
-A Recuperação do Site contribui para a sua estratégia de continuidade de negócios e recuperação de desastres (BCDR), orquestrando e automatizando a replicação de VMs Azure entre regiões, máquinas virtuais no local e servidores físicos para Azure, e máquinas no local para um centro de dados secundário. [Saiba mais](site-recovery-overview.md).
+A Recuperação do Site contribui para a sua estratégia de continuidade de negócios e recuperação de desastres (BCDR), orquestrando e automatizando a replicação de VMs Azure entre regiões, máquinas virtuais no local e servidores físicos para O Azure, e máquinas no local para um centro de dados secundário. [Saiba mais](site-recovery-overview.md).
 
 ### <a name="can-i-protect-a-virtual-machine-that-has-a-docker-disk"></a>Posso proteger uma máquina virtual que tem um disco do Docker?
 

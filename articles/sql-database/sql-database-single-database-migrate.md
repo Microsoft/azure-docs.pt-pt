@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
 ms.openlocfilehash: 9cec91ccc80b9072b1a3da756f26f47eb88b951c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268616"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração da base de dados SQL Server para base de dados Azure SQL

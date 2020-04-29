@@ -12,10 +12,10 @@ author: Blackmist
 ms.date: 03/06/2020
 ms.custom: seodec18
 ms.openlocfilehash: 127a0a2b7f7573db91df9347169e90de3e14c4c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79270098"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a um espaço de trabalho azure machine learning
@@ -43,8 +43,8 @@ Para obter mais informações sobre papéis específicos incorporados, consulte 
 Se for proprietário de um espaço de trabalho, pode adicionar e remover funções para o espaço de trabalho. Também pode atribuir funções aos utilizadores. Utilize os seguintes links para descobrir como gerir o acesso:
 - [Azure portal UI](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
-- [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-- [REST API](/azure/role-based-access-control/role-assignments-rest)
+- [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
+- [API REST](/azure/role-based-access-control/role-assignments-rest)
 - [Modelos do Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
 
 Se tiver instalado o CLI de [aprendizagem automática Azure,](reference-azure-machine-learning-cli.md)também pode utilizar um comando CLI para atribuir funções aos utilizadores.

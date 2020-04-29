@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
 ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266991"
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar o PerfInsights
@@ -83,7 +83,7 @@ São recolhidas informações sobre a máquina virtual Linux, sistema operativo,
   - Mesa de encaminhamento de rede
   - Portas abertas e estatuto
 
-- Storage
+- Armazenamento
   - Lista de dispositivos de bloco
   - Lista de partições
   - Lista de pontos de montagem

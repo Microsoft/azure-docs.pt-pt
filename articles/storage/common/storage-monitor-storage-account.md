@@ -9,10 +9,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268291"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorizar uma conta de armazenamento no portal do Azure

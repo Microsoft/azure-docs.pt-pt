@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
 ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268967"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configurar sincronização de dados SQL entre a Base de Dados Azure SQL e o Servidor SQL no local
@@ -85,7 +85,7 @@ Na secção Base de **Dados dos Membros,** adicione opcionalmente uma Base de Da
   | Definição                       | Descrição |
   | ----------------------------- | ------------------------------------------------- |
   | **Nome membro sincronizado** | Forneça um nome para o novo membro da sincronização. Este nome é distinto do próprio nome da base de dados. |
-  | **Assinatura** | Selecione a subscrição Azure associada para efeitos de faturação. |
+  | **Subscrição** | Selecione a subscrição Azure associada para efeitos de faturação. |
   | **Servidor Azure SQL** | Selecione o servidor de base de dados SQL existente. |
   | **Base de Dados SQL do Azure** | Selecione a base de dados SQL existente. |
   | **Direções de sincronização** | Selecione **Sincronização Bidirecional,** **Para o Hub,** ou **a partir do Hub**. |

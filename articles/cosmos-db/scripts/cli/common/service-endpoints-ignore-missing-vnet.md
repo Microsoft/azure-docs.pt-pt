@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 9/25/2019
 ms.openlocfilehash: 46e93e864034c451e1da1848a318ab176a292b6e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71275564"
 ---
 # <a name="connect-an-existing-azure-cosmos-account-with-virtual-network-service-endpoints-using-azure-cli"></a>Conecte uma conta Azure Cosmos existente com pontos finais de serviço de rede virtual utilizando o Azure CLI

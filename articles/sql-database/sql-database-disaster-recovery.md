@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
 ms.openlocfilehash: d28edd28dcbe31bfe63c2d0a9c3e975967efef04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256383"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar uma Base de Dados SQL Azure ou falhar a um secundário
@@ -41,7 +41,7 @@ Para conhecer cenários de continuidade de negócios e as características que s
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Prepare-se para o evento de uma paralisação
 
-Para o sucesso com a recuperação para outra região de dados usando grupos de failover ou backups geo-redundantes, você precisa preparar um servidor em outra falha de data center para se tornar o novo servidor primário se a necessidade surgir, bem como ter passos bem definidos documentados e testado para garantir uma recuperação suave. Estes passos de preparação incluem:
+Para o sucesso com a recuperação para outra região de dados, utilizando grupos de failover ou backups geo-redundantes, é necessário preparar um servidor noutra paragem do data center para se tornar o novo servidor primário, caso a necessidade surja, bem como ter passos bem definidos documentados e testados para garantir uma recuperação suave. Estes passos de preparação incluem:
 
 - Identifique o servidor de base de dados SQL noutra região para se tornar o novo servidor primário. Para geo-restauro, este é geralmente um servidor na [região emparelhada](../best-practices-availability-paired-regions.md) para a região em que a sua base de dados está localizada. Isto elimina o custo adicional de tráfego durante as operações de georestauro.
 - Identificar e definir opcionalmente as regras de firewall IP de nível de servidor necessárias para que os utilizadores acedam à nova base de dados primária.

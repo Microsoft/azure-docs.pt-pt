@@ -9,10 +9,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268408"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas de análise de armazenamento azure (Clássico)

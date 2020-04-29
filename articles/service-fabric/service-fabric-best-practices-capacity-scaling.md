@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.openlocfilehash: bf228e17ca24df9833f96f0c6fd3ef232cdf7ae6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258996"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planeamento e escalação de capacidades para tecido de serviço Azure

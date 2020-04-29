@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
 ms.openlocfilehash: a4c435b4874301fe6fb804085c5b265954cd4f5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256318"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Limites de recursos das bases de dados individuais com o modelo de compra de DTUs

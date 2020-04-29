@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
 ms.openlocfilehash: 8046e4f42db50db15c840a13b95ae1f3620a8c7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266926"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>An internal error occurs when you try to connect to an Azure VM through Remote Desktop (Um erro interno ocorre quando se tenta ligar a uma VM do Azure através do Ambiente de Trabalho Remoto)

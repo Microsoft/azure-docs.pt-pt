@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79269734"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave

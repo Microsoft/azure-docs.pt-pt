@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c69f6c1f587285c5c52280c4c49008764d5b20d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265600"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticação de utilizador final com Azure Data Lake Storage Gen1 usando Python

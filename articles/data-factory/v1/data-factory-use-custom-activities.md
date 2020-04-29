@@ -13,10 +13,10 @@ ms.author: abnarain
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265730"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
@@ -382,7 +382,7 @@ O método devolve um dicionário que pode ser usado para acorrentar atividades p
 15. Carregue MyDotNetActivity.zip como uma bolha para o recipiente de atividade sucinta num armazenamento de blob Azure de **uso geral** (não armazenamento blob quente/fresco) que é referido pelo AzureStorageLinkedService.
 
 > [!IMPORTANT]
-> Se adicionar este projeto de atividade .NET a uma solução no Estúdio Visual que contém um projeto data Factory, e adicionar uma referência ao projeto de atividade .NET do projeto de aplicação data Factory, não precisa de realizar os dois últimos passos de criação manual do zip arquivar e carregá-lo para o armazenamento de bolhas Azure de propósito geral. Quando publica entidades da Data Factory utilizando o Visual Studio, estes passos são automaticamente feitos pelo processo de publicação. Para mais informações, consulte o projeto Data Factory na secção [Estúdio Visual.](#data-factory-project-in-visual-studio)
+> Se adicionar este projeto de atividade .NET a uma solução no Visual Studio que contém um projeto data Factory, e adicionar uma referência ao projeto de atividade .NET do projeto de aplicação data Factory, não precisa de realizar os dois últimos passos de criação manual do ficheiro zip e de o upload para o armazenamento de blob Azure de propósito geral. Quando publica entidades da Data Factory utilizando o Visual Studio, estes passos são automaticamente feitos pelo processo de publicação. Para mais informações, consulte o projeto Data Factory na secção [Estúdio Visual.](#data-factory-project-in-visual-studio)
 
 ## <a name="create-a-pipeline-with-custom-activity"></a>Criar um oleoduto com atividade personalizada
 Criou uma atividade personalizada e carregou o ficheiro zip com binários para um recipiente de blob numa Conta de Armazenamento Azure de **propósito geral.** Nesta secção, cria-se uma fábrica de dados Azure com um pipeline que utiliza a atividade personalizada.

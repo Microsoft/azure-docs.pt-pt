@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265184"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo utilizador

@@ -1,6 +1,6 @@
 ---
 title: Atualizar o perfil & informação de conta do portal My Apps - Azure AD
-description: Saiba como atualizar o seu perfil e as informações sobre o seu trabalho ou conta escolar, incluindo alterar a sua palavra-passe, ligar a palavra-passe, atualizar os seus métodos de verificação de segurança, visualizar os termos de utilização da sua organização e assinar fora em todos os lugares que assinou usando o seu trabalho ou conta escolar.
+description: Saiba como atualizar o seu perfil e informações sobre o seu trabalho ou conta escolar, incluindo alterar a sua palavra-passe, ligar a palavra-passe, atualizar os seus métodos de verificação de segurança, ver os termos de utilização da sua organização e assinar em todos os lugares que assinou usando o seu trabalho ou conta escolar.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266341"
 ---
 # <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Atualize o seu perfil e informações sobre contas no portal My Apps

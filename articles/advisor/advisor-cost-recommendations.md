@@ -4,10 +4,10 @@ description: Utilize o Azure Advisor para otimizar o custo das suas implementaç
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259698"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Azure Advisor
@@ -52,7 +52,7 @@ O Azure Advisor utilizará informações sobre a contagem de objetos de armazena
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Como aceder às recomendações de custos no Consultor Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Procure e selecione [**Advisor**](https://aka.ms/azureadvisordashboard) a partir de qualquer página.
 
@@ -62,7 +62,7 @@ O Azure Advisor utilizará informações sobre a contagem de objetos de armazena
 
 Para saber mais sobre recomendações do Advisor, consulte:
 * [Introdução ao Consultor](advisor-overview.md)
-* [Introdução](advisor-get-started.md)
+* [Começar](advisor-get-started.md)
 * [Recomendações de Desempenho Do Conselheiro](advisor-performance-recommendations.md)
 * [Recomendações de Alta Disponibilidade Do Conselheiro](advisor-high-availability-recommendations.md)
 * [Recomendações de segurança do conselheiro](advisor-security-recommendations.md)

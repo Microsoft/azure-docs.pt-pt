@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267914"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Substituir uma unidade de disco no seu dispositivo da série StorSimple 8000

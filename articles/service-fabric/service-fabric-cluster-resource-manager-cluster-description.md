@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258775"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descreva um cluster de tecido de serviço usando cluster Resource Manager
@@ -112,7 +112,7 @@ O modelo mais comum é a matriz FD/UD, onde os domínios de avaria e os domínio
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Falhas e atualização de restrições de domínio e comportamento resultante
 ### <a name="default-approach"></a>Abordagem padrão
-Por padrão, o Cluster Resource Manager mantém os serviços equilibrados entre domínios de falha e atualização. Isto é modelado como um [constrangimento.](service-fabric-cluster-resource-manager-management-integration.md) A restrição para os domínios de avaria e atualização afirma: "Para uma determinada partição de serviço, nunca deve haver uma diferença maior do que uma no número de objetos de serviço (instâncias de serviço apátridas ou réplicas de serviço satisfeitutos) entre quaisquer dois domínios no mesmo nível de hierarquia.
+Por padrão, o Cluster Resource Manager mantém os serviços equilibrados entre domínios de falha e atualização. Isto é modelado como um [constrangimento.](service-fabric-cluster-resource-manager-management-integration.md) O constrangimento para os domínios de avaria e atualização afirma: "Para uma determinada partição de serviço, nunca deve haver uma diferença maior do que uma no número de objetos de serviço (instâncias de serviço apátridas ou réplicas de serviço sinuosos) entre quaisquer dois domínios no mesmo nível de hierarquia."
 
 Digamos que esta restrição proporciona uma garantia de "diferença máxima". A restrição para domínios de avaria e atualização previne certos movimentos ou arranjos que violem a regra.
 

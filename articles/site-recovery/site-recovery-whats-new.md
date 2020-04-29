@@ -4,10 +4,10 @@ description: Fornece um resumo de novas funcionalidades e as mais recentes atual
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: abb1592bcacf025e9a052d7a9222f6fb3d2b72d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257436"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
@@ -20,7 +20,7 @@ Pode seguir e subscrever notificações de atualização do Site Recovery no can
 
 Para componentes de Recuperação do Site, suportamos versões N-4, onde N é a versão mais recente lançada. Estes estão resumidos na tabela seguinte.
 
-**Atualização** |  **Configuração unificada** | **O óvulo do servidor de configuração** | **Agente de serviço de mobilidade** | **Fornecedor de recuperação de site** | **Agente de Serviços de Recuperação**
+**Atualizar** |  **Configuração unificada** | **O óvulo do servidor de configuração** | **Agente de serviço de mobilidade** | **Fornecedor de recuperação de site** | **Agente de Serviços de Recuperação**
 --- | --- | --- | --- | --- | ---
 [Rollup 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Rollup 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
@@ -39,7 +39,7 @@ Para componentes de Recuperação do Site, suportamos versões N-4, onde N é a 
 
 [A atualização do rollup 45](https://support.microsoft.com/help/4550047/update-rollup-45-for-azure-site-recovery) fornece as seguintes atualizações:
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Atualizações aos agentes e fornecedores de recuperação do site conforme detalhado no rollup.
 **Correções/melhorias de problemas** | Uma série de correções e melhorias conforme detalhado no rollup.
@@ -50,7 +50,7 @@ Para componentes de Recuperação do Site, suportamos versões N-4, onde N é a 
 
 [A atualização do rollup 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Não houve atualizações para os fornecedores e agentes de Recuperação do Site.
 **Correções/melhorias de problemas** | Uma série de correções e melhorias conforme detalhado no rollup.
@@ -64,7 +64,7 @@ As máquinas virtuais Azure suportam agora vMs ativados para encriptação em re
 
 [A atualização do rollup 43](https://support.microsoft.com/help/4537047/update-rollup-43-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Atualizações aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup)
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup)
@@ -76,7 +76,7 @@ As máquinas virtuais Azure suportam agora vMs ativados para encriptação em re
 
 [A atualização do rollup 42](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Atualizações aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup)
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup)
@@ -123,7 +123,7 @@ Para a recuperação de desastres de VMs Azure para uma região secundária, ou 
 
 [A atualização do rollup 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Atualizações aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup)
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup)
@@ -154,7 +154,7 @@ As novas funcionalidades para a Recuperação de Desastres de VMware para azure 
 
 [A atualização do rollup 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Atualizações aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup)
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup)
@@ -194,7 +194,7 @@ Conta de armazenamento | A Recuperação do Site suporta agora o uso de contas d
 
 [O rollup atualizado 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Atualizações aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup)
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup)
@@ -215,7 +215,7 @@ As novas funcionalidades para a recuperação de desastres da VM Azure estão re
 
 [O rollup atualizado 38](https://support.microsoft.com/help/4513507/) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Atualizações aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup)
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup)
@@ -236,7 +236,7 @@ Pode agora replicar discos até 8 TB, quando se replica a um VM Azure com discos
 
 [O rollup atualizado 37](https://support.microsoft.com/help/4508614/) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Atualizações aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup)
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup)
@@ -258,7 +258,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 [O rollup atualizado 36](https://support.microsoft.com/help/4503156) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Uma atualização aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup)
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup)
@@ -291,7 +291,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 [A atualização do rollup 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Uma atualização aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup)
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup)
@@ -302,7 +302,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
-**Managed disks** | A replicação de VMware VMs e servidores físicos no local está agora diretamente a gerir discos em Azure. Os dados no local são enviados para uma conta de armazenamento de cache em Azure, e os pontos de recuperação são criados em discos geridos na localização alvo. Isto garante que não precisa de gerir várias contas de armazenamento de alvos.
+**Discos geridos** | A replicação de VMware VMs e servidores físicos no local está agora diretamente a gerir discos em Azure. Os dados no local são enviados para uma conta de armazenamento de cache em Azure, e os pontos de recuperação são criados em discos geridos na localização alvo. Isto garante que não precisa de gerir várias contas de armazenamento de alvos.
 **Servidor de configuração** | A Recuperação do Site suporta agora servidores de configuração com vários NICs. Adicione adaptadores adicionais ao VM do servidor de configuração antes de registar o servidor de configuração no cofre. Se adicionar mais tarde, precisa de voltar a registar o servidor no cofre.
 
 
@@ -312,7 +312,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 [O rollup atualizado 34](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Uma atualização aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup).
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup).
@@ -322,7 +322,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 [A atualização do rollup 33](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Uma atualização aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup).
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup).
@@ -362,7 +362,7 @@ A ligação acelerada em rede permite a virtualização de I/O de raiz única (S
 
 [O rollup atualizado 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Uma atualização aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup).
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup).
@@ -389,7 +389,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 [A atualização do rollup 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Uma atualização aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup).
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup).
@@ -444,7 +444,7 @@ A recuperação de desastres de VMs Azure incorre nos custos de licenciamento da
 
 [A atualização do rollup 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Uma atualização aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup).
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup).
@@ -454,7 +454,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
-**Apoio da região** | Apoio de recuperação do site adicionado para Austrália Central 1 e Austrália Central 2.
+**Suporte de região** | Apoio de recuperação do site adicionado para Austrália Central 1 e Austrália Central 2.
 **Suporte para encriptação de disco** | Suporte adicionado para recuperação de desastres de VMs Azure encriptados com Encriptação de Disco Azure (ADE) com a aplicação Azure AD. [Saiba mais](azure-to-azure-how-to-enable-replication-ade-vms.md).
 **Exclusão do disco** | Os discos não inicializados são agora automaticamente excluídos durante a replicação do VM Azure.
 **Armazenamento ativado por firewall (PowerShell)** | Suporte adicionado para [contas de armazenamento ativadas por firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Pode replicar VMs Azure com discos não geridos em contas de armazenamento ativadas por firewall para outra região do Azure para recuperação de desastres.<br/><br/> Pode utilizar contas de armazenamento ativadas por firewall como contas de armazenamento de alvos para discos não geridos.<br/><br/> Suportado apenas usando powerShell.
@@ -464,7 +464,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 [O rollup atualizado 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Uma atualização aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup).
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup).
@@ -476,7 +476,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 [A atualização do rollup 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Uma atualização aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup).
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup).
@@ -505,7 +505,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 [A atualização do rollup 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery) fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Uma atualização aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup).
 **Correções/melhorias de problemas** | Uma série de correções e melhorias (conforme detalhado no rollup).

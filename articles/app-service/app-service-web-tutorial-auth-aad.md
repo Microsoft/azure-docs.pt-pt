@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: 46750383c1436a2d053d6db7fed858c7c0f8a9fe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78226299"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar utilizadores ponto a ponto no Serviço de Aplicações do Azure

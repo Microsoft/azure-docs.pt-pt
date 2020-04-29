@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
 ms.openlocfilehash: b98331a9cdb359aeefac5db1546f3a15b54010ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268746"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Recuperar uma base de dados Azure SQL utilizando cópias de dados automatizadas

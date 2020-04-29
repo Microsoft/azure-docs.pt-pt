@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: sngun
 ms.openlocfilehash: 1f2051addfa1266b754d230c3804834c63f89002
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78274080"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desenvolver uma aplicação web ASP.NET Core MVC com o Azure Cosmos DB utilizando o .NET SDK

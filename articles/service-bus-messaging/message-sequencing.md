@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261661"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Sequência de mensagens e carimbos de data/hora
@@ -28,7 +28,7 @@ Para os casos em que a ordem absoluta das mensagens é significativa e/ou em que
 
 O valor **SequenceNumber** é um inteiro único de 64 bits atribuído a uma mensagem, uma vez que é aceite e armazenado pelo corretor e funciona como seu identificador interno. Para entidades divididas, os 16 bits mais altos refletem o identificador de partição. Os números da sequência passam para zero quando o intervalo de 48/64 bits está esgotado.
 
-O número da sequência pode ser confiado como um identificador único, uma vez que é atribuído por uma autoridade central e neutra e não por clientes. Também representa a verdadeira ordem de chegada, e é mais precisa do que um carimbo de tempo como critério de encomenda, porque os selos de tempo podem não ter uma resolução suficientemente alta a taxas de mensagem extremas e podem estar sujeitos a (ainda que mínimo) relógio distorcido em situações em que o corretor pode não ter uma resolução suficientemente alta a taxas extremas de mensagem e pode estar sujeito a (ainda que mínimo) relógio distorcido em situações em que o corretor pode não ter uma resolução suficientemente alta a taxas de mensagem extremas e pode estar sujeito a (ainda que mínimo) relógio distorcido em situações em que o corretor pode não ter uma resolução suficientemente alta a taxas de mensagem extremas e pode estar sujeito a (ainda que mínimo) relógio distorcido em situações em que o corretor pode não ter uma resolução suficientemente alta transições de propriedade entre nós.
+O número da sequência pode ser confiado como um identificador único, uma vez que é atribuído por uma autoridade central e neutra e não por clientes. Representa também a verdadeira ordem de chegada, e é mais precisa do que um carimbo de tempo como critério de encomenda, porque os selos temporais podem não ter uma resolução suficientemente alta a taxas de mensagem extremas e podem estar sujeitos a (ainda que mínimo) de supor que o corretor transição entre nós.
 
 A ordem de chegada absoluta é, por exemplo, em cenários empresariais em que um número limitado de bens oferecidos são servidos numa base de primeiro a chegar primeiro a ser servido enquanto os fornecimentos duram; venda de bilhetes de concerto são um exemplo.
 

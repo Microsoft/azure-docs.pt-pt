@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258489"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Tecido de serviço para código de estúdio visual
@@ -25,8 +25,8 @@ Este artigo fornece uma visão geral dos requisitos e configuração da extensã
 
 Devem ser instalados os seguintes pré-requisitos em todos os ambientes.
 
-* [Código de estúdio visual](https://code.visualstudio.com/)
-* [Nó.js](https://nodejs.org/)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Node.js](https://nodejs.org/)
 * [Git](https://git-scm.com/)
 * [SDK de tecido de serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
 * Yeoman Generators - instale os geradores apropriados para a sua aplicação

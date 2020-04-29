@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
 ms.openlocfilehash: 30b2ba92174996ea2bae34e7553a3258d8ebee27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268889"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Quickstart: Configure uma ligação ponto-a-local a uma base de dados Azure SQL Gerida a partir do local
@@ -63,7 +63,7 @@ Este guia de início rápido:
 
 ## <a name="create-a-vpn-connection-to-your-managed-instance"></a>Crie uma ligação VPN à sua Instância Gerida
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Abra o grupo de recursos no qual criou o portal de rede virtual e, em seguida, abra o recurso de gateway da rede virtual.
 3. Selecione **a configuração ponto-a-site** e, em seguida, selecione **transferir o cliente VPN**.
 

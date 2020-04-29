@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6f660426c41b37dd27438c28cbf603bdbf1e58b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79269201"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerir o esquema numa aplicação SaaS que utiliza bases de dados SQL multi-inquilinos

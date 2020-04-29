@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 864a9243a9f737506fd4d8cbc3940d7a86711f20
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67091653"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: Integração de Diretório Ativo Azure com ScreenSteps
@@ -130,7 +130,7 @@ Para configurar o único sinal de Azure AD com screenSteps, execute os seguintes
 
 1. Clique em **Definições de Conta**.
 
-    ![Gestão de contas](./media/screensteps-tutorial/ic778523.png "Gestão de contas")
+    ![Gestão de conta](./media/screensteps-tutorial/ic778523.png "Gestão de contas")
 
 1. Clique **em Iniciar Um Único Sinal**.
 

@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
 ms.openlocfilehash: 91a0e4b052571a509ec7122e4440a8eaf58839be
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77670428"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de runtime com o Azure Application Insights

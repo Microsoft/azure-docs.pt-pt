@@ -13,10 +13,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 915675af1e646f2cb77e36c0018ed372ff9496fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79263234"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual é a condição de localização no Acesso Condicional do Diretório Ativo Azure? 

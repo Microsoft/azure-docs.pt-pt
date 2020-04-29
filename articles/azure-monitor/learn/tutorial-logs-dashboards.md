@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 06/19/2019
 ms.custom: mvc
 ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77661537"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e partilhar dashboards dos dados do Log Analytics
@@ -27,7 +27,7 @@ Os dashboards do Log Analytics podem visualizar todas as suas consultas de regis
 Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente [ligada à área de trabalho do Log Analytics](quick-collect-azurevm.md).  
  
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
-Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em . 
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-shared-dashboard"></a>Criar um dashboard partilhado
 Selecione **Dashboard** para abrir o seu painel de [instrumentos](../../azure-portal/azure-portal-dashboards.md)predefinido . O seu painel de instrumentos será diferente do exemplo abaixo.

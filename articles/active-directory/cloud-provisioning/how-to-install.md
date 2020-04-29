@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79263351"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalar o agente do aprovisionamento na cloud do Azure AD Connect
@@ -45,7 +45,7 @@ Para instalar o agente, siga estes passos.
    ![Microsoft Azure AD Connect Provisioning Agent Screen](media/how-to-install/install1.png)</br>
 
 1. Após esta operação terminar, o assistente de configuração começa. Inscreva-se na sua conta de administrador global da AD Azure.
-1. No ecrã **Connect Ative Directy,** selecione **Adicionar Diretório**. Em seguida, inscreva-se na sua conta de administrador de Diretório Ativo. Esta operação adiciona o seu diretório no local. Selecione **Next**.
+1. No ecrã **Connect Ative Directy,** selecione **Adicionar Diretório**. Em seguida, inscreva-se na sua conta de administrador de Diretório Ativo. Esta operação adiciona o seu diretório no local. Selecione **Seguinte**.
 
    ![Conecte ecrã de Diretório Ativo](media/how-to-install/install3.png)</br>
 

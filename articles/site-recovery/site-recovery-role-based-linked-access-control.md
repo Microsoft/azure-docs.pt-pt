@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257579"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerir o acesso à recuperação do site com controlo de acesso baseado em funções (RBAC)
@@ -39,7 +39,7 @@ Um utilizador precisa das seguintes permissões para completar a replicação de
 >Certifique-se de que as permissões relevantes são adicionadas de acordo com o modelo de implementação (Gestor de Recursos/ Clássico) utilizado para a implantação de recursos.
 
 > [!NOTE]
-> Se estiver a permitir a replicação de um VM Azure e pretender permitir que a Recuperação do Site gere atualizações, então, ao mesmo tempo que permite a replicação, poderá também querer criar uma nova conta Automation, caso em que precisaria de autorização para criar uma conta de automação na mesma assinatura como o cofre também.
+> Se estiver a permitir a replicação de um VM Azure e pretender permitir que a Recuperação do Site gere atualizações, então ao mesmo tempo que permite a replicação, poderá também querer criar uma nova conta Automation, caso em que precisaria de autorização para criar uma conta de automação na mesma subscrição que o cofre.
 
 | **Tipo de recurso** | **Modelo de implantação** | **Permissão** |
 | --- | --- | --- |
@@ -62,7 +62,7 @@ Um utilizador precisa das seguintes permissões para completar a replicação de
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Clássica | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Storage | Resource Manager | Microsoft.Armazenamento/armazenamentoContas/leitura |
+| Armazenamento | Resource Manager | Microsoft.Armazenamento/armazenamentoContas/leitura |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Clássica | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
@@ -75,6 +75,6 @@ Considere utilizar as [funções incorporadas](../role-based-access-control/buil
 * [Controlo de Acesso baseado em funções](../role-based-access-control/role-assignments-portal.md): Comece com o RBAC no portal Azure.
 * Saiba como gerir o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
-  * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
+  * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
 * [Resolução de problemas do Controlo de Acesso baseado em papéis](../role-based-access-control/troubleshooting.md): Obtenha sugestões para corrigir questões comuns.

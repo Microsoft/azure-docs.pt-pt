@@ -9,10 +9,10 @@ ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
 ms.openlocfilehash: 3ed00b1c68c41bc392b09c97dd47c9cdb8fa890d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77661730"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de métricas e de registos do Azure com o Armazenamento do Azure

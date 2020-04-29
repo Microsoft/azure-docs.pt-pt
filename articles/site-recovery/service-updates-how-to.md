@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257826"
 ---
 # <a name="service-updates-in-site-recovery"></a>Atualizações de serviço na Recuperação do Site

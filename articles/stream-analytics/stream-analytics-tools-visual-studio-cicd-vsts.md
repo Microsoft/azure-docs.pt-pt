@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75354442"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implementar uma tarefa do Azure Stream Analytics com CI/CD através do Azure Pipelines
