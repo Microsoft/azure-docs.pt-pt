@@ -10,13 +10,13 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
 ms.openlocfilehash: 90c3cc2e096b9b58465987bc53f718c5d06c6203
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78899116"
 ---
-# <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Empregos de programadores do Azure migrate para apps lógicas azure
+# <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar tarefas do Azure Scheduler para o Azure Logic Apps
 
 > [!IMPORTANT]
 > [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Programador Azure, que está [a ser reformado.](#retire-date) Para continuar a trabalhar com os trabalhos que criou no Scheduler, por favor, emigre para as Aplicações Lógicas Azure o mais rapidamente possível, seguindo este artigo. 
@@ -220,7 +220,7 @@ Para saber mais sobre o manuseamento de exceções, consulte [erros e exceções
 **P:** Onde posso obter apoio para migrar os meus empregos de Agendadores? <br>
 **R:** Aqui estão algumas formas de obter apoio:
 
-**Portal Azure**
+**Portal do Azure**
 
 Se a sua subscrição Azure tiver um plano de suporte pago, pode criar um pedido de suporte técnico no portal Azure. Caso contrário, pode selecionar uma opção de suporte diferente.
 
@@ -231,7 +231,7 @@ Se a sua subscrição Azure tiver um plano de suporte pago, pode criar um pedido
    | Propriedade | Valor |
    |---------|-------|
    | **Tipo de emissão** | **Parte Técnica** |
-   | **Assinatura** | <*sua assinatura Azure*> |
+   | **Subscrição** | <*sua assinatura Azure*> |
    | **Serviço** | Sob **monitorização & Management,** selecione **Scheduler**. Se não encontrar o **Scheduler,** selecione **todos os serviços** primeiro. |
    ||| 
 

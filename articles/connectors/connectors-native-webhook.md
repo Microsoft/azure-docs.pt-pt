@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
 ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656287"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Criar e executar fluxos de trabalho automatizados baseados em eventos utilizando webhooks HTTP em Aplicações lógicas azure
@@ -67,7 +67,7 @@ Para obter mais informações, veja estes tópicos:
 
 Este gatilho incorporado chama o ponto final de subscrição no serviço alvo e regista um URL de callback com o serviço alvo. A sua aplicação lógica aguarda então `HTTP POST` que o serviço alvo envie um pedido para o URL de callback. Quando este evento acontece, o gatilho dispara e passa quaisquer dados no pedido junto ao fluxo de trabalho.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
 
 1. Na caixa de pesquisa do `http webhook` designer, introduza como filtro. A partir da lista **de Gatilhos,** selecione o gatilho **HTTP Webhook.**
 
@@ -107,7 +107,7 @@ Este gatilho incorporado chama o ponto final de subscrição no serviço alvo e 
 
 Esta ação incorporada chama o ponto final de subscrição no serviço alvo e regista um URL de callback com o serviço alvo. A sua aplicação lógica faz então uma `HTTP POST` pausa e aguarda que o serviço alvo envie um pedido para o URL de callback. Quando este evento acontece, a ação passa quaisquer dados no pedido junto ao fluxo de trabalho. Se a operação terminar com sucesso, a ação desabre a partir do ponto final, e a sua aplicação lógica continua a executar o fluxo de trabalho restante.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
 
    Este exemplo utiliza o gatilho HTTP Webhook como primeiro passo.
 

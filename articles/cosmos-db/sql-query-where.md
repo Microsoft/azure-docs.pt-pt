@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
 ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898788"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>ONDE a cláusula em Azure Cosmos DB
@@ -75,7 +75,7 @@ Pode utilizar os seguintes operadores binários suportados:
 |Bitwise    | \|, &,  <<, >>, >>>  (turno direito de preenchimento zero) |
 |Lógico    | E, OU, NÃO      |
 |Comparação | =, &lt;!=, &gt; &lt;=, &gt;=, <> |
-|Cadeia     |  \|\|(concatenato) |
+|String     |  \|\|(concatenato) |
 
 As seguintes consultas utilizam operadores binários:
 
@@ -109,6 +109,6 @@ Também pode usar referências de propriedade em consultas. Por exemplo, `SELECT
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Começar](sql-query-getting-started.md)
+- [Introdução](sql-query-getting-started.md)
 - [Na palavra-chave](sql-query-keywords.md#in)
 - [Cláusula FROM](sql-query-from.md)

@@ -11,10 +11,10 @@ ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.openlocfilehash: 43fc32e910c51e8b70e15aa49584a18e5b703fca
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631584"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Utilize horários de manutenção para gerir atualizações de serviços e manutenção
@@ -54,7 +54,7 @@ Por padrão, todos os casos de armazém de dados recém-criados têm uma janela 
 
 Para ver o calendário de manutenção que foi aplicado à sua piscina SYnapse SQL, complete os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione a piscina SQL Synapse que pretende ver.
 3. A piscina SQL selecionada abre na lâmina de visão geral. O horário de manutenção que é aplicado ao armazém de dados aparece abaixo do horário de **manutenção.**
 
@@ -70,7 +70,7 @@ As janelas primárias e secundárias devem ter intervalos diurnos separados. Um 
 
 Para alterar o horário de manutenção da sua piscina SYnapse SQL, complete os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione o pool SQL Synapse que pretende atualizar. A página abre na lâmina de visão geral.
 Abra a página para configurações de horáriode manutenção selecionando o link resumo do Horário de **Manutenção** na lâmina de visão geral. Ou, selecione a opção Agenda de **Manutenção** no menu de recursos do lado esquerdo.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77190423"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automação para parceiros Virtuais WAN
@@ -46,13 +46,13 @@ Compreenda a experiência esperada do cliente em conjunto com o Azure Virtual WA
   2. O utilizador irá criar um serviço principal de acesso ao grupo de recursos para o sistema no local (o seu controlador de sucursal ou software de provisionamento de dispositivos VPN) para escrever informações de sucursais em Azure Virtual WAN.
   3. O utilizador pode decidir neste momento iniciar sessão na Sua UI e configurar as credenciais principais do serviço. Uma vez concluído, o seu controlador deverá ser capaz de carregar informações do ramo com a automatização que irá fornecer. O equivalente manual deste no lado Azure é 'Create Site'.
   4. Assim que a informação do Site (dispositivo de ramificação) estiver disponível no Azure, o utilizador ligará o site a um hub. Um hub virtual é uma rede virtual gerida pela Microsoft. O hub contém vários pontos finais de serviço para ativar a conectividade da rede no local (vpnsite). O hub é o núcleo da sua rede numa região. Só pode haver um hub por região de Azure e o ponto final vpn (vpngateway) no seu interior é criado durante este processo. O gateway VPN é um gateway escalável que dimensiona adequadamente com base na largura de banda e necessidades de ligação. Pode optar por automatizar o hub virtual e a criação de vpngateway a partir do painel de controlador do seu dispositivo de ramificação.
-  5. Uma vez que o Hub virtual está associado ao site, um ficheiro de configuração é gerado para o utilizador descarregar manualmente. É aqui que entra a sua automatização e torna a experiência do utilizador perfeita. Em vez de o utilizador ter de descarregar manualmente e configurar o dispositivo de ramificação, pode definir a automatização e fornecer uma experiência mínima de clique no seu UI, aliviando assim problemas típicos de conectividade, tais como desfasamento de chave partilhada, parâmetro IPSec incompatibilidade, capacidade de configuração de ficheiros, etc.
+  5. Uma vez que o Hub virtual está associado ao site, um ficheiro de configuração é gerado para o utilizador descarregar manualmente. É aqui que entra a sua automatização e torna a experiência do utilizador perfeita. Em vez de o utilizador ter de descarregar manualmente e configurar o dispositivo de ramificação, pode definir a automatização e proporcionar uma experiência mínima de clique no seu UI, aliviando assim problemas típicos de conectividade, tais como desfasamento de chave partilhada, desajuste do parâmetro IPSec, legibilidade de ficheiros de configuração, etc.
   6. No final deste passo na sua solução, o utilizador terá uma ligação local-local sem emenda entre o dispositivo do ramo e o hub virtual. Também pode configurar ligações adicionais em outros centros. Cada ligação é um túnel ativo. O seu cliente pode optar por utilizar um ISP diferente para cada uma das ligações para o túnel.
   7. Considere fornecer capacidades de resolução e monitorização de problemas na interface de gestão do CPE. Os cenários típicos incluem "Cliente incapaz de aceder aos recursos do Azure devido a um problema cpe", "Mostrar parâmetros IPsec no lado do CPE" etc.
 
 ## <a name="automation-details"></a><a name ="understand"></a>Detalhes da automação
 
-###  <a name="access-control"></a><a name="access"></a>Controlo de acessos
+###  <a name="access-control"></a><a name="access"></a>Controlo de acesso
 
 Os clientes devem ser capazes de criar um controlo de acesso adequado para o Wan Virtual no UI do dispositivo. Isto é recomendado usando um Diretor de Serviço Azure. O acesso baseado no principal do serviço fornece ao controlador do dispositivo a autenticação adequada para carregar informações do ramo. Para mais informações, consulte [Criar o principal de serviço.](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) Embora esta funcionalidade esteja fora da oferta Azure Virtual WAN, listamos abaixo dos passos típicos dados para configurar o acesso em Azure após os quais os detalhes relevantes são incorporados no painel de gestão do dispositivo
 

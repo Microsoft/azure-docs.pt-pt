@@ -4,10 +4,10 @@ description: Utilize o Gestor de Recursos Azure para transferir os recursos do S
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80655777"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Mover orientação para recursos do Serviço de Aplicações

@@ -10,10 +10,10 @@ ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898594"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Construir horários avançados e recorrências para empregos no Programador Azure
@@ -67,11 +67,11 @@ Esta tabela fornece uma visão geral de alto nível para os principais elementos
 | Elemento | Necessário | Descrição | 
 |---------|----------|-------------|
 | **startTime** | Não | Um valor de string DateTime no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho começa pela primeira vez num horário básico. <p>Para horários complexos, o trabalho começa o mais cedo que **o início.** | 
-| **recurrence** | Não | A recorrência rege-se quando o trabalho funciona. O objeto **de recorrência** suporta estes elementos: **frequência,** **intervalo,** **agendamento,** **contagem,** contagem e **fim Tempo.** <p>Se utilizar o elemento **de recorrência,** deve também utilizar o elemento **de frequência,** enquanto outros elementos de **recorrência** são opcionais. |
+| **recorrência** | Não | A recorrência rege-se quando o trabalho funciona. O objeto **de recorrência** suporta estes elementos: **frequência,** **intervalo,** **agendamento,** **contagem,** contagem e **fim Tempo.** <p>Se utilizar o elemento **de recorrência,** deve também utilizar o elemento **de frequência,** enquanto outros elementos de **recorrência** são opcionais. |
 | **frequência** | Sim, quando se usa **a recorrência.** | A unidade de tempo entre ocorrências e apoios a estes valores: "Minuto", "Hora", "Dia", "Semana", "Mês" e "Ano" | 
 | **intervalo** | Não | Um inteiro positivo que determina o número de unidades de tempo entre ocorrências com base na **frequência**. <p>Por exemplo, se o **intervalo** for de 10 e a **frequência** for "Semana", o trabalho repete-se a cada 10 semanas. <p>Aqui está o maior número de intervalos para cada frequência: <p>- 18 meses <br>- 78 semanas <br>- 548 dias <br>- Durante horas e minutos, o intervalo é de 1 <= *intervalo* <> <= 1000. | 
 | **agenda** | Não | Define alterações na recorrência com base nas notas de minutoespecificadas, marcas de horas, dias da semana e dias do mês | 
-| **count** | Não | Um inteiro positivo que especifica o número de vezes que o trabalho corre antes de terminar. <p>Por exemplo, quando um trabalho diário tem **contagem** marcada para 7, e a data de início é segunda-feira, o trabalho termina no domingo. Se a data de início já tiver passado, a primeira execução é calculada a partir do tempo de criação. <p>Sem **tempo final** ou **contagem,** o trabalho funciona infinitamente. Não podes usar a **contagem** e o fim do **tempo** no mesmo trabalho, mas a regra que termina em primeiro lugar é honrada. | 
+| **contar** | Não | Um inteiro positivo que especifica o número de vezes que o trabalho corre antes de terminar. <p>Por exemplo, quando um trabalho diário tem **contagem** marcada para 7, e a data de início é segunda-feira, o trabalho termina no domingo. Se a data de início já tiver passado, a primeira execução é calculada a partir do tempo de criação. <p>Sem **tempo final** ou **contagem,** o trabalho funciona infinitamente. Não podes usar a **contagem** e o fim do **tempo** no mesmo trabalho, mas a regra que termina em primeiro lugar é honrada. | 
 | **endTime** | Não | Um valor de cadeia de data ou datano [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho deixa de funcionar. Pode definir um valor para o **tempo final** que está no passado. <p>Sem **tempo final** ou **contagem,** o trabalho funciona infinitamente. Não podes usar a **contagem** e o fim do **tempo** no mesmo trabalho, mas a regra que termina em primeiro lugar é honrada. |
 |||| 
 
@@ -162,7 +162,7 @@ A tabela seguinte descreve os elementos de agenda detalhadamente:
 
 | Nome JSON | Descrição | Valores válidos |
 |:--- |:--- |:--- |
-| **minutes** |Minutos da hora em que o trabalho corre. |Uma série de inteiros. |
+| **minutos** |Minutos da hora em que o trabalho corre. |Uma série de inteiros. |
 | **horas** |Horas do dia em que o trabalho funciona. |Uma série de inteiros. |
 | **weekDays** |Dias da semana o trabalho corre. Só pode ser especificado com frequência semanal. |Uma matriz de qualquer um dos seguintes valores (o tamanho máximo da matriz é 7):<br />- "Segunda-feira"<br />- "Terça-feira"<br />- "Quarta-feira"<br />- "Quinta-feira"<br />- "Sexta-feira"<br />- "Sábado"<br />- "Domingo"<br /><br />Não é sensível ao caso. |
 | **monthlyOccurrences** |Determina quais os dias do mês em que o trabalho corre. Só pode ser especificado com uma frequência mensal. |Uma variedade de **objetos mensais Ocorrências:**<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **dia** é o dia da semana o trabalho corre. Por exemplo, *{Domingo}* é todos os domingos do mês. Necessário.<br /><br />**ocorrência** é a ocorrência do dia durante o mês. Por exemplo, *{Domingo, -1}* é o último domingo do mês. Opcional. |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: lbosq
 ms.openlocfilehash: dc9a5616aa2bb1f7e09045b9cfe4f4d7e9c69be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898314"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelação de dados de gráficos para API Azure Cosmos DB Gremlin
@@ -47,12 +47,12 @@ Seguem-se as melhores práticas para as propriedades nos objetos gráficos:
 
 | Objeto | Propriedade | Tipo | Notas |
 | --- | --- | --- |  --- |
-| Vértice | ID | Cadeia | Aplicada exclusivamente por partição. Se um valor não for fornecido após a inserção, será armazenado um GUID gerado automaticamente. |
-| Vértice | label | Cadeia | Esta propriedade é usada para definir o tipo de entidade que o vértice representa. Se um valor não for fornecido, será utilizado um "vértice" de valor predefinido. |
+| Vértice | ID | String | Aplicada exclusivamente por partição. Se um valor não for fornecido após a inserção, será armazenado um GUID gerado automaticamente. |
+| Vértice | label | String | Esta propriedade é usada para definir o tipo de entidade que o vértice representa. Se um valor não for fornecido, será utilizado um "vértice" de valor predefinido. |
 | Vértice | propriedades | String, Boolean, Numeric | Uma lista de propriedades separadas armazenadas como pares de valor-chave em cada vértice. |
 | Vértice | chave de partição | String, Boolean, Numeric | Esta propriedade define onde o vértice e as suas bordas de saída serão armazenadas. Leia mais sobre [a partilha de gráficos](graph-partitioning.md). |
-| Microsoft Edge | ID | Cadeia | Aplicada exclusivamente por partição. Gerado automaticamente por padrão. As bordas geralmente não têm a necessidade de ser recuperadas exclusivamente por um ID. |
-| Microsoft Edge | label | Cadeia | Esta propriedade é usada para definir o tipo de relação que dois vértices têm. |
+| Microsoft Edge | ID | String | Aplicada exclusivamente por partição. Gerado automaticamente por padrão. As bordas geralmente não têm a necessidade de ser recuperadas exclusivamente por um ID. |
+| Microsoft Edge | label | String | Esta propriedade é usada para definir o tipo de relação que dois vértices têm. |
 | Microsoft Edge | propriedades | String, Boolean, Numeric | Uma lista de propriedades separadas armazenadas como pares de valor-chave em cada borda. |
 
 > [!NOTE]

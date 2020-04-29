@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 04/02/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 085880122e9a80e976cfe59686748b58aeba1922
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80620860"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-group-policy-local-users--groups-policy"></a>A Máquina Virtual não responde ao aplicar a política "Política de Grupo Utilizadores Locais & Grupos"

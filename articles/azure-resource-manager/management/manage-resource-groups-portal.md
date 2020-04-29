@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: 622c0cb8d58dddcdb13c7dc9412ada3f2e2d93e4
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632978"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerir os grupos de recursos do Gestor de Recursos Azure utilizando o portal Azure
@@ -32,7 +32,7 @@ O grupo de recursos armazena metadados sobre os recursos. Por conseguinte, quand
 
 ## <a name="create-resource-groups"></a>Criar grupos de recursos
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **grupos de recursos**
 
     ![adicionar grupo de recursos](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
@@ -52,7 +52,7 @@ O grupo de recursos armazena metadados sobre os recursos. Por conseguinte, quand
 
 ## <a name="list-resource-groups"></a>Lista de grupos de recursos
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Para listar os grupos de recursos, selecione **grupos de recursos**
 
     ![navegar em grupos de recursos](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
@@ -61,7 +61,7 @@ O grupo de recursos armazena metadados sobre os recursos. Por conseguinte, quand
 
 ## <a name="open-resource-groups"></a>Grupos de recursos abertos
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Grupos de recursos**.
 3. Selecione o grupo de recursos que pretende abrir.
 

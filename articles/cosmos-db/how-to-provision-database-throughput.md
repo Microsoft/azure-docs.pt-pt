@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: ef7d06dfb074a3453f5589284cbdaf079c48d111
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78933774"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Provisão para uma base de dados em Azure Cosmos DB
@@ -21,7 +21,7 @@ Este artigo explica como fornecer o resultado numa base de dados em Azure Cosmos
 
 ### <a name="sql-core-api"></a><a id="portal-sql"></a>API de SQL (Core)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure Cosmos,](create-sql-api-dotnet.md#create-account)ou selecione uma conta Azure Cosmos existente.
 
@@ -79,6 +79,6 @@ session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisio
 Consulte os seguintes artigos para conhecer sobre a provisão disponibilizada em Azure Cosmos DB:
 
 * [Dimensionamento global de débito aprovisionado](scaling-throughput.md)
-* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
+* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
 * [Como aprovisionar o débito para um contentor](how-to-provision-container-throughput.md)
 * [Unidades de pedido e débito no Azure Cosmos DB](request-units.md)

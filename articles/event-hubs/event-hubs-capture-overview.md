@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/12/2020
 ms.author: shvija
 ms.openlocfilehash: c166f4cace6a8cc25b36a84f4614033801e69a51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265015"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capture eventos através de Hubs de Eventos Azure em Armazenamento De Blob Azure ou Armazenamento de Lago de Dados Azure
@@ -98,7 +98,7 @@ Uma amostra completa de ponta a ponta está disponível no repositório streamin
 
 - [HDInsight: Ficheiros de endereços no armazenamento do Azure][HDInsight: Address files in Azure storage]
 - [Azure Databricks: Armazenamento Azure Blob][Azure Databricks: Azure Blob Storage]
-- [Serviço Azure Kubernetes](https://docs.microsoft.com/azure/aks/spark-job) 
+- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/spark-job) 
 
 ### <a name="use-avro-tools"></a>Use ferramentas Avro
 
@@ -148,7 +148,7 @@ O Event Hubs Capture é a forma mais fácil de obter dados no Azure. Utilizando 
 
 Saiba como ativar esta funcionalidade utilizando o portal Azure e o modelo do Gestor de Recursos Azure:
 
-- [Utilizar o portal do Azure para ativar a Captura dos Hubs de Eventos](event-hubs-capture-enable-through-portal.md)
+- [Utilizar o portal do Azure para ativar a Recolha dos Hubs de Eventos](event-hubs-capture-enable-through-portal.md)
 - [Use um modelo de Gestor de Recursos Azure para permitir a captura de hubs de eventos](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
 

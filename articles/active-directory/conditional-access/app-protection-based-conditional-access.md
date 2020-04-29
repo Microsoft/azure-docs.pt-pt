@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6b282962cc713487b8ee5113b02b8533a1538fff
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631902"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como: Exigir a política de proteção de aplicações e uma aplicação de cliente aprovada para acesso a aplicações na nuvem com acesso condicional
@@ -142,5 +142,5 @@ Reveja o artigo Como criar e atribuir políticas de [proteção de aplicações,
 
 [Componentes de acesso condicional](concept-conditional-access-policies.md)
 
-[Políticas de Acesso Condicional comuns](concept-conditional-access-policy-common.md)
+[Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

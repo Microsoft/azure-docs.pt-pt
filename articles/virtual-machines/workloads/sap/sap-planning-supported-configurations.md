@@ -17,10 +17,10 @@ ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 564c648a550b41017ffc684ca19ff03612fc63d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79137633"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carga de trabalho da SAP em cenários de suporte à máquina virtual azure
@@ -170,7 +170,7 @@ A configuração também pode ser exibida como:
 
 ![Configuração DBMS e ASCS HA](./media/sap-planning-supported-configurations/high-available-3-tier-configuration.png)
 
-Do lado direito dos gráficos, os serviços centrais sap altamente disponíveis são mostrados. Além de ter os serviços SAP Central protegidos com um quadro de cluster failover que pode falhar em caso de problema, há uma necessidade para uma participação nFS ou SMB altamente disponível, ou um disco partilhado Windows para garantir que o diretório de transporte sapmnt e global são disponível independentemente da existência de um único VM. Algumas das soluções adicionais, como o Windows Failover Cluster Server e o Pacemaker vão exigir um equilíbrio de carga Azure para direcionar ou redirecionar o tráfego para um nó saudável.
+Do lado direito dos gráficos, os serviços centrais sap altamente disponíveis são mostrados. Além de ter os serviços SAP Central protegidos com um quadro de cluster failover que pode falhar em caso de problema, há uma necessidade de uma participação nFS ou SMB altamente disponível, ou um disco partilhado windows para garantir que o diretório de transportes sapmnt e global está disponível independentemente da existência de um único VM. Algumas das soluções adicionais, como o Windows Failover Cluster Server e o Pacemaker vão exigir um equilíbrio de carga Azure para direcionar ou redirecionar o tráfego para um nó saudável.
 
 Na lista mostrada, não há qualquer menção ao sistema operativo Oracle Linux. A Oracle Linux não apoia o Pacemaker como uma estrutura de cluster. Se quiser implementar o seu sistema SAP no Oracle Linux e necessitar de um quadro de alta disponibilidade para a Oracle Linux, precisa de trabalhar com fornecedores de terceiros. Um dos fornecedores é o SIOS com a sua Suite de Proteção para Linux que é apoiada pela SAP no Azure. Para mais informações leia a nota SAP #1662610 - Detalhes de suporte para a Suíte de [Proteção SIOS para Linux](https://launchpad.support.sap.com/#/notes/1662610) para mais detalhes.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
 ms.openlocfilehash: 845c53ec970777901ae8d1c0abf5032ac705d3e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79264924"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
@@ -109,7 +109,7 @@ Para obter mais informações e etapas de configuração para o público, consul
 
 A Microsoft verifica se os "prefixos públicos anunciados" e "Peer ASN" (ou 'Customer ASN') são-lhe atribuídos no Registo de Encaminhamento de Internet. Se estiver a receber os prefixos públicos de outra entidade e se a atribuição não for registada com o registo de encaminhamento, a validação automática não estará concluída e exigirá validação manual. Se a validação automática falhar, verá a mensagem 'Validação necessária'.
 
-Se vir a mensagem 'Validação necessária', recolha os documentos que mostrem que os prefixos públicos são atribuídos à sua organização pela entidade que está listada como proprietária dos prefixos no registo de encaminhamento e submeta estes documentos para validação manual por abertura de um bilhete de apoio como mostrado abaixo.
+Se vir a mensagem 'Validação necessária', recolha os documentos que mostram que os prefixos públicos são atribuídos à sua organização pela entidade que está listada como proprietária dos prefixos no registo de encaminhamento e submeta estes documentos para validação manual, abrindo um bilhete de apoio como mostrado abaixo.
 
 ![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
 
@@ -158,7 +158,7 @@ Consulte [aqui](https://docs.microsoft.com/azure/expressroute/designing-for-high
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Como implemento a redundância no peering da Microsoft?
 
-É altamente recomendado quando os clientes estão a usar o microsoft peering para aceder a serviços públicos Azure como O Armazenamento Azure ou Azure SQL, bem como clientes que estão usando a Microsoft peering para o Office 365 que eles implementam vários circuitos em diferentes peering locais para evitar pontos únicos de falha. Os clientes podem anunciar o mesmo prefixo em ambos os circuitos e usar [as predespesas AS PATH](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) ou anunciar diferentes prefixos para determinar o caminho a partir do local.
+É altamente recomendado quando os clientes estão a usar a Microsoft a espreitar para aceder a serviços públicos do Azure como o Azure Storage ou o Azure SQL, bem como aos clientes que estão a usar a Microsoft a espreitar o Office 365 que implementam múltiplos circuitos em diferentes locais de observação para evitar pontos únicos de falha. Os clientes podem anunciar o mesmo prefixo em ambos os circuitos e usar [as predespesas AS PATH](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) ou anunciar diferentes prefixos para determinar o caminho a partir do local.
 
 Consulte [aqui](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) para projetar para alta disponibilidade.
 
@@ -277,7 +277,7 @@ O tempo de espera é 180. As mensagens de manutenção são enviadas a cada 60 s
 
 Sim, pode tentar aumentar a largura de banda do seu circuito ExpressRoute no portal Azure, ou utilizando o PowerShell. Se houver capacidade disponível na porta física em que o seu circuito foi criado, a sua mudança é bem sucedida. 
 
-Se a sua mudança falhar, significa que ou não há capacidade suficiente na porta atual e precisa de criar um novo circuito ExpressRoute com maior largura de banda, ou que não haja capacidade adicional nesse local, caso em que não será capaz de aumentar o largura de banda. 
+Se a sua mudança falhar, significa que ou não resta capacidade suficiente na porta atual e precisa de criar um novo circuito ExpressRoute com maior largura de banda, ou que não haja capacidade adicional nesse local, caso em que não será capaz de aumentar a largura de banda. 
 
 Também terá de acompanhar o seu fornecedor de conectividade para garantir que atualizam os aceleradores dentro das suas redes para suportar o aumento da largura de banda. No entanto, não é possível reduzir a largura de banda do seu circuito ExpressRoute. Tem de criar um novo circuito ExpressRoute com largura de banda mais baixa e eliminar o circuito antigo.
 

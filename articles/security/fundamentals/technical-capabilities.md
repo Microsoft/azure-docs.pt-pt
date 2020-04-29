@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
 ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76845355"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure
@@ -27,9 +27,9 @@ Este artigo fornece uma introdução aos serviços de segurança em Azure que o 
 
 ## <a name="azure-platform"></a>Plataforma Azure
 
-O [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) é uma plataforma cloud composta por serviços de infraestruturas e aplicações, com serviços de dados integrados e análises avançadas, e ferramentas e serviços de desenvolvedores, hospedados nos centros de dados públicos da Microsoft. Os clientes usam o Azure para muitas capacidades e cenários diferentes, desde a computação básica, networking e armazenamento, até serviços de aplicações móveis e web, até cenários de nuvem completa como Internet das Coisas, e podem ser usados com tecnologias de código aberto, e implementados como nuvem híbrida ou hospedado dentro do datacenter de um cliente. O Azure fornece tecnologia em nuvem como blocos de construção para ajudar as empresas a poupar custos, inovar rapidamente e gerir sistemas de forma proativa. Quando você constrói, ou migra ativos de TI para um fornecedor de nuvem, você está contando com as habilidades dessa organização para proteger suas aplicações e dados com os serviços e os controles que eles fornecem para gerir a segurança dos seus ativos baseados na nuvem.
+O [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) é uma plataforma cloud composta por serviços de infraestruturas e aplicações, com serviços de dados integrados e análises avançadas, e ferramentas e serviços de desenvolvedores, hospedados nos centros de dados públicos da Microsoft. Os clientes usam o Azure para muitas capacidades e cenários diferentes, desde a computação básica, networking e armazenamento, até serviços de aplicações móveis e web, até cenários de nuvem completa como Internet das Coisas, e podem ser usados com tecnologias de código aberto, e implementados como nuvem híbrida ou hospedados dentro do datacenter de um cliente. O Azure fornece tecnologia em nuvem como blocos de construção para ajudar as empresas a poupar custos, inovar rapidamente e gerir sistemas de forma proativa. Quando você constrói, ou migra ativos de TI para um fornecedor de nuvem, você está contando com as habilidades dessa organização para proteger suas aplicações e dados com os serviços e os controles que eles fornecem para gerir a segurança dos seus ativos baseados na nuvem.
 
-O Microsoft Azure é o único fornecedor de computação em nuvem que oferece uma plataforma de aplicação segura e consistente e um serviço de infraestruturas como um serviço para as equipas trabalharem dentro das suas diferentes habilidades em nuvem e níveis de complexidade do projeto, com serviços de dados integrados e análises que descobrem inteligência a partir de dados onde quer que existam, tanto em plataformas da Microsoft como não-Microsoft, quadros abertos e ferramentas, proporcionando escolha para integrar a nuvem com as instalações, bem como implementar serviços de nuvem Azure dentro centros de dados no local. Como parte da Microsoft Trusted Cloud, os clientes confiam no Azure para a segurança líder do setor, fiabilidade, conformidade, privacidade e a vasta rede de pessoas, parceiros e processos para apoiar organizações na nuvem.
+O Microsoft Azure é o único fornecedor de computação em nuvem que oferece uma plataforma de aplicação segura e consistente e um serviço de infraestruturas como um serviço para as equipas trabalharem dentro das suas diferentes habilidades em nuvem e níveis de complexidade do projeto, com serviços de dados integrados e análises que descobrem inteligência a partir de dados onde quer que ela exista, tanto em plataformas microsoft como não-Microsoft, quadros abertos e ferramentas, proporcionando escolha para integrar a nuvem com as instalações, bem como implementar serviços de nuvem Azure dentro de instalações de dados. Como parte da Microsoft Trusted Cloud, os clientes confiam no Azure para a segurança líder do setor, fiabilidade, conformidade, privacidade e a vasta rede de pessoas, parceiros e processos para apoiar organizações na nuvem.
 
 Com o Microsoft Azure, pode:
 
@@ -53,7 +53,7 @@ O Azure ajuda-o a proteger informações pessoais e empresariais, permitindo-lhe
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-As soluções de gestão de identidade e acesso da Microsoft ajudam a proteger o acesso a aplicações e recursos através do datacenter corporativo e na nuvem, permitindo níveis adicionais de validação, tais como a autenticação de vários fatores e o Acesso Condicional políticas. A monitorização de atividades suspeitas através de relatórios de segurança avançada, de auditorias e de alertas ajuda a mitigar potenciais problemas de segurança. [O Azure Ative Directory Premium](../../active-directory/active-directory-whatis.md) fornece um único sinal para milhares de aplicações na nuvem e acesso a aplicações web que executa no local.
+As soluções de gestão de identidade e acesso da Microsoft ajudam a proteger o acesso a aplicações e recursos através do datacenter corporativo e na nuvem, permitindo níveis adicionais de validação, tais como a autenticação de vários fatores e políticas de Acesso Condicional. A monitorização de atividades suspeitas através de relatórios de segurança avançada, de auditorias e de alertas ajuda a mitigar potenciais problemas de segurança. [O Azure Ative Directory Premium](../../active-directory/active-directory-whatis.md) fornece um único sinal para milhares de aplicações na nuvem e acesso a aplicações web que executa no local.
 
 Os benefícios de segurança do Azure Ative Directory (Azure AD) incluem a capacidade de:
 
@@ -73,7 +73,7 @@ Seguem-se as principais capacidades de gestão de identidade do Azure:
 
 - Início de sessão único
 
-- Multi-Factor Authentication
+- Multi-factor authentication
 
 - Relatórios de monitorização de segurança, alertas e relatórios baseados em machine learning
 
@@ -95,7 +95,7 @@ Muitas organizações confiam no software como um serviço (SaaS) aplicações c
 
 Não só os utilizadores não têm de gerir vários conjuntos de nomes de utilizadores e palavras-passe, como o acesso à aplicação pode ser automaticamente provisionado ou desprovisionado com base em grupos organizacionais e no seu estatuto de funcionário. [A Azure AD introduz controlos](../../active-directory/active-directory-enterprise-apps-manage-sso.md) de governança de segurança e acesso que lhe permitem gerir centralmente o acesso dos utilizadores através das aplicações SaaS.
 
-#### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+#### <a name="multi-factor-authentication"></a>Multi-factor authentication
 
 [A Autenticação Multi-Factor (MFA) azure](../../active-directory/authentication/multi-factor-authentication.md) é um método de autenticação que requer a utilização de mais de um método de verificação e adiciona uma segunda camada crítica de segurança aos insines e transações do utilizador. [O MFA ajuda a salvaguardar](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicações, ao mesmo tempo que satisfaz a procura do utilizador por um processo simples de iniciar sessão. Fornece autenticação forte através de uma gama de opções de verificação : chamada telefónica, mensagem de texto ou código de notificação ou verificação de aplicações móveis e fichas oAuth de terceiros.
 
@@ -362,7 +362,7 @@ O Microsoft Antimalware para Serviços de Nuvem Azure e Máquinas Virtuais é um
 
 ## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Garantir a conformidade: Lista de verificação de diligências dos serviços na nuvem
 
-A Microsoft desenvolveu a Lista de Verificação de Due Diligence dos [Serviços Cloud](https://aka.ms/cloudchecklist.download) para ajudar as organizações a exercitarem as devidas diligências, uma vez que consideram uma mudança para a nuvem. Fornece uma estrutura para uma organização de qualquer dimensão e tipo - empresas privadas e organizações do sector público, incluindo governo a todos os níveis e sem fins lucrativos - para identificar o seu próprio desempenho, serviço, gestão de dados e objetivos de governação e requisitos. Isto permite-lhes comparar as ofertas de diferentes fornecedores de serviços na nuvem, formando finalmente a base para um acordo de serviço na nuvem.
+A Microsoft desenvolveu a Lista de Verificação de Due Diligence dos [Serviços Cloud](https://aka.ms/cloudchecklist.download) para ajudar as organizações a exercitarem as devidas diligências, uma vez que consideram uma mudança para a nuvem. Fornece uma estrutura para uma organização de qualquer dimensão e tipo - empresas privadas e organizações do setor público, incluindo governo a todos os níveis e sem fins lucrativos - para identificar o seu próprio desempenho, serviço, gestão de dados e objetivos e requisitos de governação. Isto permite-lhes comparar as ofertas de diferentes fornecedores de serviços na nuvem, formando finalmente a base para um acordo de serviço na nuvem.
 
 A lista de verificação fornece um quadro que alinha cláusula a cláusula com uma nova norma internacional para acordos de serviços na nuvem, ISO/IEC 19086. Esta norma oferece um conjunto unificado de considerações para as organizações ajudá-las a tomar decisões sobre a adoção em nuvem, e criar um terreno comum para comparar ofertas de serviços em nuvem.
 
@@ -386,7 +386,7 @@ Além disso, a lista de verificação:
 
 ![validação de segurança (detetar)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 
-A Segurança Operacional Azure baseia-se num quadro que incorpora o conhecimento adquirido através de várias capacidades exclusivas da Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Centre , e uma profunda consciência do cenário de ameaça à cibersegurança.
+A Segurança Operacional Azure baseia-se num quadro que incorpora o conhecimento adquirido através de várias capacidades exclusivas da Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Centre e uma profunda consciência do panorama das ameaças à cibersegurança.
 
 ### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
 
@@ -515,6 +515,6 @@ Saiba mais sobre segurança lendo alguns dos nossos tópicos de segurança aprof
 
 - [Gestão de identidades e acessos](https://www.microsoft.com/en-us/trustcenter/security/identity)
 
-- [Segurança de rede](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
+- [Segurança da rede](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 
 - [Gestão de ameaças](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)

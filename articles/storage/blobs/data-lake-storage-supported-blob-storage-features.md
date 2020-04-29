@@ -9,10 +9,10 @@ ms.date: 04/03/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: b270ce3cd15dbd1e8dd53bd60376a87d6e08f75c
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80637219"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funcionalidades de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
@@ -21,7 +21,7 @@ As funcionalidades de armazenamento blob, tais como [a exploração madeireira d
 
 Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com o Azure Data Lake Storage Gen2. Os itens que aparecem nestas tabelas vão mudar ao longo do tempo à medida que o apoio continua a expandir-se.
 
-## <a name="supported-blob-storage-features"></a>Recursos de armazenamento Blob suportados
+## <a name="supported-blob-storage-features"></a>Funcionalidades suportadas do Armazenamento de Blobs
 
 > [!NOTE]
 > O nível de suporte refere-se apenas à forma como a funcionalidade é suportada com data lake storage Gen2.
@@ -37,7 +37,7 @@ Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com
 |Comandos Azure CLI de armazenamento blob|Disponível em Geral|[Quickstart: Criar, descarregar e listar bolhas com o Azure CLI](storage-quickstart-blobs-cli.md)|
 |APIs de armazenamento de blob|Disponível em Geral|[Quickstart: Biblioteca de clientes de armazenamento Azure Blob v12 para .NET](storage-quickstart-blobs-dotnet.md)<br>[Quickstart: Gerir bolhas com Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Quickstart: Gerir bolhas com Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Quickstart: Gerir bolhas com JavaScript v12 SDK em Node.js](storage-quickstart-blobs-nodejs.md)|
 |Nível de acesso de arquivo|Pré-visualização|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
-|Políticas de gestão do ciclo de vida|Pré-visualização|[Gerir o ciclo de vida do Armazenamento de blobs do Azure](storage-lifecycle-management-concepts.md)|
+|Políticas de gestão do ciclo de vida|Pré-visualização|[Gerir o ciclo de vida do Armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md)|
 |Registos de diagnósticos|Disponível em Geral|[Registo da análise de Armazenamento do Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Feed de alterações|Ainda não apoiado|[Alterar suporte para alimentação no armazenamento de Blob Azure](storage-blob-change-feed.md)|
 |Falha na conta|Ainda não apoiado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|

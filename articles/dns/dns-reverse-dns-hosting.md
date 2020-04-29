@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: 78fc3428274be5e1998abe9189bea996f15e278c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79454266"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Hospedeira inverte zonas de procura dNS em DNS Azure
@@ -28,7 +28,7 @@ Este artigo percorre-o através dos passos para criar a sua primeira zona dNS de
 
 ## <a name="create-a-reverse-lookup-dns-zone"></a>Criar uma zona dNS de procura inversa
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No menu **Hub,** selecione **New** > **Networking**, e, em seguida, selecione **a zona DNS**.
 
    ![Seleção "zona DNS"](./media/dns-reverse-dns-hosting/figure1.png)

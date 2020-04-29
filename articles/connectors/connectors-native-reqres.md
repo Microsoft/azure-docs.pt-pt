@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
 ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656309"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos de entrada em HTTPS em Aplicações Lógicas Azure
@@ -48,7 +48,7 @@ Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e a a
 
 Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só* pode receber pedidos HTTPS recebidos. Quando este evento acontece, o gatilho dispara e executa a aplicação lógica. Para obter mais informações sobre a definição json subjacente do gatilho e como chamar este gatilho, consulte o tipo de [gatilho do Pedido](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [call, trigger ou nest workflows com pontos finais HTTP em Aplicações Lógicas Azure](../logic-apps/logic-apps-http-endpoint.md).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Criar uma aplicação lógica em branco.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Criar uma aplicação lógica em branco.
 
 1. Depois da Logic App Designer abrir, na caixa de pesquisa, insira "http request" como filtro. A partir da lista de gatilhos, selecione o **gatilho quando um pedido HTTP é recebido,** que é o primeiro passo no fluxo de trabalho da aplicação lógica.
 

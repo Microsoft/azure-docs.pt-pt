@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: c2cc4986542404281424286882c046dec39f5daf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371295"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Link privado para base de dados azure para MySQL
@@ -53,7 +53,7 @@ Com private link, você pode permitir acesso cross-premises ao ponto final priva
 
 Os pontos finais privados são necessários para ativar o Private Link. Isto pode ser feito utilizando os seguintes guias de como fazer.
 
-* [Portal Azure](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal)
+* [Portal do Azure](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Processo de Aprovação

@@ -11,10 +11,10 @@ ms.custom: ''
 manager: mtillman
 ms.author: mblythe
 ms.openlocfilehash: accdfbd939fad73ca7d008450c358d366e7f8b70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76900739"
 ---
 # <a name="export-or-delete-user-settings"></a>Exportar ou eliminar as definições de utilizador
@@ -31,7 +31,7 @@ Pode utilizar configurações e funcionalidades no portal Azure para criar uma e
 
 ## <a name="export-or-delete-your-portal-settings"></a>Exportar ou eliminar as definições do portal
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. No cabeçalho do portal, ![](media/azure-portal-export-delete-settings/settings-icon.png) selecione definições de ícone **Definições**.
 

@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: 31ac43ec796d305b8a8f4b62ea09481e262b6b3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80256985"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Alavancar a paralelização da consulta no Azure Stream Analytics
@@ -271,7 +271,7 @@ A solução [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree
 
 [O Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) suporta a escrita em paralelo, chamado Partição Herdada, mas não está ativado por padrão. No entanto, permitir a partilha herdada, juntamente com uma consulta totalmente paralela, pode não ser suficiente para obter maiores resultados. Os sql write as rubricas dependem significativamente da configuração da base de dados SQL Azure e do esquema de mesa. O artigo [sQL Output Performance](./stream-analytics-sql-output-perf.md) tem mais detalhes sobre os parâmetros que podem maximizar a sua produção de escrita. Como se nota na saída do Azure Stream Analytics para o artigo da Base de [Dados Azure SQL,](./stream-analytics-sql-output-perf.md#azure-stream-analytics) esta solução não escala linearmente como um gasoduto totalmente paralelo para além de 8 divisórias e pode precisar de ser repartitentada antes da saída do SQL (ver [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). As SKUs premium são necessárias para manter altas taxas de IO, juntamente com as despesas gerais de backups de registo acontecendo a cada poucos minutos.
 
-#### <a name="cosmos-db"></a>Cosmos DB
+#### <a name="cosmos-db"></a>BD do Cosmos
 |Taxa de ingestão (eventos por segundo) | Unidades de Streaming | Recursos de Saída  |
 |-------|-------|---------|
 |  Mil   |  3    | 20K RU  |
