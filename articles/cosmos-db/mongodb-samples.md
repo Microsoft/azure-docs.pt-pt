@@ -9,10 +9,10 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 28ee64f70cd281a2563a855fb1fca91f229ec7bd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61330603"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Construa uma aplicação utilizando a API do Node.js e da Azure Cosmos DB para o MongoDB 
@@ -21,7 +21,7 @@ ms.locfileid: "61330603"
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Node.js para MongoDB](mongodb-samples.md)
-> * [Nó.js](sql-api-nodejs-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
 >
 
 Este exemplo mostra-lhe como construir uma aplicação de consola utilizando a API de Node.js e Azure Cosmos DB para MongoDB.

@@ -9,10 +9,10 @@ ms.date: 06/14/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 4e699707db02de07f3d1ebb7d1fa8d0575a10aa3
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67836941"
 ---
 FtP e Git local podem implantar-se numa aplicação web Azure utilizando um utilizador de *implementação*. Assim que configurar o utilizador de implementação, pode utilizá-lo para todas as suas implementações Azure. O seu nome de utilizador de implementação de nível de conta e palavra-passe são diferentes das credenciais de subscrição do Azure. 

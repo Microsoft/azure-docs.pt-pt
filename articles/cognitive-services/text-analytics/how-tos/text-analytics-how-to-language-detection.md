@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70387797"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemplo: Detetar linguagem com Análise de Texto
@@ -159,7 +159,7 @@ Em alguns casos, pode ser difícil desambiguar línguas com base na entrada. Pod
 
 Por exemplo, "Impossível" é comum tanto ao inglês como ao francês e, se for dado com um contexto limitado, a resposta basear-se-á na sugestão do país "EUA". Se o texto tiver origem em França, este país poderá ser dado como sugestão.
 
-**Entrada**
+**Input**
 
 ```json
     {
@@ -228,7 +228,7 @@ Se o analisador não conseguir analisar a `(Unknown)`entrada, ela devolve . Um e
 
 O conteúdo de linguagem mista dentro do mesmo documento devolve a língua com a maior representação no conteúdo, mas com uma classificação positiva mais baixa. O rating reflete a força marginal da avaliação. No seguinte exemplo, a entrada é uma mistura de inglês, espanhol e francês. O analisador conta carateres em cada segmento para determinar o idioma predominante.
 
-**Entrada**
+**Input**
 
 ```json
     {

@@ -9,10 +9,10 @@ ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67184254"
 ---
 Algumas cargas de trabalho de base de dados como o SQL Server ou o Oracle requerem alta memória, armazenamento e largura de banda em I/S, mas não uma contagem de núcleo elevada. Muitas cargas de trabalho na base de dados não são intensivas em CPU. O Azure oferece certos tamanhos vM onde pode limitar a contagem vCPU VM para reduzir o custo de licenciamento de software, mantendo ao mesmo tempo a mesma memória, armazenamento e largura de banda I/S.

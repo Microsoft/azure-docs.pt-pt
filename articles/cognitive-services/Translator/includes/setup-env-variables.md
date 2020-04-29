@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: c737447c3a3bd2d76d3ed620b7c61aaa81250130
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70393824"
 ---
 ## <a name="set-up"></a>Configurar
@@ -23,4 +23,4 @@ Os Serviços Cognitivos Azure são representados por recursos Azure que subscrev
 Depois de obter uma chave da sua subscrição ou recurso experimental, crie duas [variáveis ambientais:](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)
 
 * `TRANSLATOR_TEXT_SUBSCRIPTION_KEY`- A chave de subscrição do seu recurso De Texto tradutor.
-* `TRANSLATOR_TEXT_ENDPOINT`- O ponto final global do Texto tradutor. `https://api.cognitive.microsofttranslator.com/`Utilize.
+* `TRANSLATOR_TEXT_ENDPOINT`- O ponto final global do Texto tradutor. Utilize`https://api.cognitive.microsofttranslator.com/`.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60499890"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisitos de utilização e apresentação da API de Pesquisa do Bing
@@ -167,5 +167,5 @@ As secções anteriores de utilização e os requisitos de visualização das AP
 
 ## <a name="gdpr-compliance"></a>Conformidade com o RGPD  
 
-No que diz respeito a quaisquer dados pessoais sujeitos ao Regulamento Geral de Proteção de Dados (RGPD) da União Europeia e que é processado em relação a chamadas para as APIs de Pesquisa, Bing Spell Check API ou Bing Autosuggest API, você entende que você e microsoft são controladores de dados independentes no âmbito do RGPD. É responsável independentemente pelo seu cumprimento ao RGPD.  
+No que diz respeito a quaisquer dados pessoais sujeitos ao Regulamento Geral de Proteção de Dados (RGPD) da União Europeia e que é tratado em relação a chamadas para as APIs de Pesquisa, Bing Spell Check API ou Bing Autosuggest API, você entende que você e a Microsoft são controladores de dados independentes sob o RGPD. É responsável independentemente pelo seu cumprimento ao RGPD.  
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: ea3bda1dd51a7c3a2e5e3f8b669d7138898f1595
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67088662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Tutorial: Integração de Diretório Ativo Azure com TigerText Secure Messenger
@@ -51,7 +51,7 @@ TigerText Secure Messenger suporta um único sign-on iniciado por SP (SSO).
 
 Para configurar a integração do TigerText Secure Messenger em Azure AD, precisa adicionar tigerText Secure Messenger do Azure Marketplace à sua lista de aplicações geridas saaS:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com?azure-portal=true).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com?azure-portal=true).
 1. No painel esquerdo, selecione **Azure Active Directory**.
 
     ![A opção Azure Ative Diretório](common/select-azuread.png)

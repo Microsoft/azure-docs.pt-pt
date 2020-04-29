@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/07/2018
 ms.author: wolfma
 ms.openlocfilehash: 22507b7432a200a5c24c7063ca644b1b82eb5481
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67184553"
 ---
 | Caminho | Descrição |

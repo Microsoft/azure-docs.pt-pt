@@ -9,7 +9,7 @@ ms.date: 05/24/2018
 ms.author: dekapur
 ms.custom: include file
 ms.openlocfilehash: 1c76f84248b674c79ba41953be3358f5c52ead97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
