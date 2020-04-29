@@ -4,10 +4,10 @@ description: Utilize a operação de cópia num modelo de Gestor de Recursos Azu
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: ed0c2d87c48a18b0a065f6c76e1e69142a9df048
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80153306"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteração variável em modelos ARM

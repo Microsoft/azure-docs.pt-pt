@@ -15,10 +15,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9cf5a9c81ca1d7a42a5a8e342dee55f335656c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154428"
 ---
 # <a name="web-api"></a>API Web
@@ -48,7 +48,7 @@ Tanto a identidade da aplicação como os tipos de identidade de utilizador dele
 ### <a name="delegated-user-identity-with-openid-connect"></a>Identidade de utilizador delegada com OpenID Connect
 
 1. Um utilizador é inscrito numa aplicação web utilizando a AD Azure (ver a secção Web Browser para aplicação web acima). Se o utilizador da aplicação web ainda não tiver consentido em permitir que a aplicação web ligue para a Web API em seu nome, o utilizador terá de consentir. A aplicação apresentará as permissões necessárias e, se alguma delas for em permissões de nível de administrador, um utilizador normal no diretório não poderá consentir. Este processo de consentimento aplica-se apenas a pedidos de multi-inquilinos, e não a pedidos de inquilino único, uma vez que o pedido já terá as permissões necessárias. Quando o utilizador inscreveu, a aplicação web recebeu um documento de identificação com informações sobre o utilizador, bem como um código de autorização.
-1. Utilizando o código de autorização emitido pela Azure AD, a aplicação web envia um pedido ao ponto final simbólico da Azure AD que inclui o código de autorização, detalhes sobre a aplicação do cliente (ID de aplicação e redirecionamento URI), e o recurso pretendido (ID de aplicação) URI para a Web API).
+1. Utilizando o código de autorização emitido pela Azure AD, a aplicação web envia um pedido ao ponto final simbólico da Azure AD que inclui o código de autorização, detalhes sobre a aplicação do cliente (ID de aplicação e redirecionamento URI), e o recurso pretendido (ID de aplicação URI para a Web API).
 1. O código de autorização e informações sobre a aplicação web e a Web API são validados pela Azure AD. Após uma validação bem sucedida, a Azure AD devolve duas fichas: um símbolo de acesso JWT e um token de atualização JWT.
 1. Ao longo do HTTPS, a aplicação web utiliza o token de acesso JWT devolvido para adicionar a cadeia JWT com uma designação "Bearer" no cabeçalho de autorização do pedido à Web API. A Web API valida então o símbolo JWT, e se a validação for bem sucedida, devolve o recurso desejado.
 
@@ -58,7 +58,7 @@ Tanto a identidade da aplicação como os tipos de identidade de utilizador dele
 1. A aplicação web requer um código de autorização para adquirir um token de acesso, pelo que emite um pedido através do navegador para o ponto final de autorização da Azure AD, fornecendo o ID de aplicação e redirecionando o URI para a aplicação web após a autenticação bem sucedida. O utilizador entra em anúncio de Azure.
 1. Se o utilizador da aplicação web ainda não tiver consentido em permitir que a aplicação web ligue para a Web API em seu nome, o utilizador terá de consentir. A aplicação apresentará as permissões necessárias e, se alguma delas for em permissões de nível de administrador, um utilizador normal no diretório não poderá consentir. Este consentimento aplica-se tanto ao pedido de inquilino único como a vários inquilinos. No caso único do inquilino, um administrador pode executar o consentimento do administrador para consentir em nome dos seus utilizadores. Isto pode ser `Grant Permissions` feito utilizando o botão no [portal Azure](https://portal.azure.com). 
 1. Depois de o utilizador ter consentido, a aplicação web recebe o código de autorização que necessita para adquirir um token de acesso.
-1. Utilizando o código de autorização emitido pela Azure AD, a aplicação web envia um pedido ao ponto final simbólico da Azure AD que inclui o código de autorização, detalhes sobre a aplicação do cliente (ID de aplicação e redirecionamento URI), e o recurso pretendido (ID de aplicação) URI para a Web API).
+1. Utilizando o código de autorização emitido pela Azure AD, a aplicação web envia um pedido ao ponto final simbólico da Azure AD que inclui o código de autorização, detalhes sobre a aplicação do cliente (ID de aplicação e redirecionamento URI), e o recurso pretendido (ID de aplicação URI para a Web API).
 1. O código de autorização e informações sobre a aplicação web e a Web API são validados pela Azure AD. Após uma validação bem sucedida, a Azure AD devolve duas fichas: um símbolo de acesso JWT e um token de atualização JWT.
 1. Ao longo do HTTPS, a aplicação web utiliza o token de acesso JWT devolvido para adicionar a cadeia JWT com uma designação "Bearer" no cabeçalho de autorização do pedido à Web API. A Web API valida então o símbolo JWT, e se a validação for bem sucedida, devolve o recurso desejado.
 

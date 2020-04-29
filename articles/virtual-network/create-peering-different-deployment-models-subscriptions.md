@@ -14,10 +14,10 @@ ms.date: 09/15/2017
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 6823514e284f75f0580578dcabaa1b1bdcbe2f59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239845"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar uma rede virtual de peering - diferentes modelos de implementação e subscrições
@@ -272,7 +272,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 ## <a name="delete-resources"></a><a name="delete"></a>Eliminar recursos
 Quando terminar este tutorial, talvez queira apagar os recursos que criou no tutorial, para que não incorra em taxas de utilização. A eliminação de um grupo de recursos também elimina todos os recursos que estão no grupo de recursos.
 
-### <a name="azure-portal"></a><a name="delete-portal"></a>Portal Azure
+### <a name="azure-portal"></a><a name="delete-portal"></a>Portal do Azure
 
 1. Na caixa de pesquisa do portal, introduza **o myResourceGroupA**. Nos resultados da pesquisa, clique em **myResourceGroupA**.
 2. Na lâmina **myResourceGroupA,** clique no ícone **Delete.**
@@ -281,7 +281,7 @@ Quando terminar este tutorial, talvez queira apagar os recursos que criou no tut
 5. Na lâmina **myVnetB,** clique em **Apagar**.
 6. Para confirmar a eliminação, clique em **Sim** na caixa **de rede virtual Delete.**
 
-### <a name="azure-cli"></a><a name="delete-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a name="delete-cli"></a>CLI do Azure
 
 1. Inicie sessão no Azure utilizando o CLI para eliminar a rede virtual (Gestor de Recursos) com o seguinte comando:
 

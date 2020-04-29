@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 10/18/2019
 ms.author: dsindona
 ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275769"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>APIs de Cumprimento SaaS, versão 2 

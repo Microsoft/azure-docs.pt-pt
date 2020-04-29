@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 9a6bd3cab41c69075f5170a8a3aad4f059d970e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80159052"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pré-pagamento para Base de Dados Azure para recursos computacionais MariaDB com capacidade reservada
@@ -37,7 +37,7 @@ Por exemplo, suponhamos que está a executar uma base de dados gen5 – 32 vCore
 
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Comprar Base de Dados Azure para a capacidade reservada mariaDB
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione todas as reservas **de serviços** > **Reservations**.
 3.  Selecione **Adicionar** e, em seguida, no painel de reservas de compra, selecione Base de **Dados Azure para MariaDB** para comprar uma nova reserva para as suas bases de dados MariaDB.
 4.  Preencha os campos necessários. Bases de dados existentes ou novas que correspondam aos atributos que seleciona qualificam-se para obter o desconto de capacidade reservado. O número real da sua Base de Dados Azure para servidores MariaDB que obtêm o desconto depende do âmbito e quantidade selecionados.
@@ -60,7 +60,7 @@ A tabela seguinte descreve os campos necessários.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para mais informações, consulte [trocas de self-service e reembolsos para Reservas Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
 
 ## <a name="vcore-size-flexibility"></a>flexibilidade do tamanho vCore
 
@@ -68,7 +68,7 @@ a flexibilidade do tamanho vCore ajuda-o a escalar para cima ou para baixo dentr
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio.
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -78,7 +78,7 @@ Para aprender a gerir a Base de Dados Azure para a capacidade reservada da Maria
 Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
 * [O que são Reservas Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
-* [Gerir Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+* [Gerir o Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
 * [Compreender o desconto das Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
 * [Compreender a utilização de reservas na sua subscrição Pay As You Go](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mariadb)
 * [Compreender a utilização de reservas na inscrição Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)

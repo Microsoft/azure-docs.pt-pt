@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 0e161cf83662df671b8cfb100ddc12c3b3e7359f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80158151"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Alargar a Central Azure IoT com regras personalizadas utilizando stream analytics, funções azure e SendGrid
@@ -97,7 +97,7 @@ Utilize o [portal Azure para criar uma aplicação](https://portal.azure.com/#cr
 | Plano de Alojamento | Plano de Consumo |
 | Localização | E.U.A. Leste |
 | Pilha de Tempo de Execução | .NET |
-| Storage | Criar novo |
+| Armazenamento | Criar novo |
 
 ### <a name="sendgrid-account"></a>Conta SendGrid
 
@@ -328,7 +328,7 @@ No site do gestor de [aplicações Azure IoT Central,](https://aka.ms/iotcentral
 
 Aguarde até que o estado de exportação **esteja em funcionamento** antes de continuar.
 
-## <a name="test"></a>Test
+## <a name="test"></a>Teste
 
 Para testar a solução, pode desativar a exportação contínua de dados da IoT Central para dispositivos parados simulados:
 

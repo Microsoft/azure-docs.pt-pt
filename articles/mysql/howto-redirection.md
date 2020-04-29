@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: f987d5d9640c3bfef61320df379a68eae2f4712b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246340"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Ligue-se à Base de Dados Azure para MySQL com reorientação
@@ -18,7 +18,7 @@ ms.locfileid: "80246340"
 Este tópico explica como ligar uma aplicação à sua Base de Dados Azure para o servidor MySQL com o modo de redirecionamento. A redirecionamento tem como objetivo reduzir a latência da rede entre aplicações de clientes e servidores MySQL, permitindo que as aplicações se conectem diretamente aos nós do servidor.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Inicie sessão no [Portal do Azure](https://portal.azure.com). Crie uma Base de Dados Azure para servidor MySQL com a versão do motor 5.6, 5.7 ou 8.0. Para mais detalhes, consulte como criar base de [dados Azure para servidor MySQL a partir do Portal](quickstart-create-mysql-server-database-using-azure-portal.md) ou como criar base de dados [Azure para servidor MySQL utilizando cli](quickstart-create-mysql-server-database-using-azure-cli.md).
+Inicie sessão no [portal do Azure](https://portal.azure.com). Crie uma Base de Dados Azure para servidor MySQL com a versão do motor 5.6, 5.7 ou 8.0. Para mais detalhes, consulte como criar base de [dados Azure para servidor MySQL a partir do Portal](quickstart-create-mysql-server-database-using-azure-portal.md) ou como criar base de dados [Azure para servidor MySQL utilizando cli](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 A reorientação só é suportada atualmente quando o **SSL está ativado** na sua Base de Dados Azure para o servidor MySQL. Para mais detalhes sobre como configurar o SSL, consulte [A Utilização de SSL com Base de Dados Azure para MySQL](howto-configure-ssl.md#step-3--enforcing-ssl-connections-in-azure).
 

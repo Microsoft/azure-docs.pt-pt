@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 78ed2d85729cce94e8dfa579545f558d2cfe4651
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502974"
 ---
-# <a name="train-anomaly-detection-model"></a>Modelo de deteção de anomalias do comboio
+# <a name="train-anomaly-detection-model"></a>Preparar Modelo de Deteção de Anomalias
 
 Este artigo descreve como usar o módulo modelo de deteção de **anomalias** do comboio em Azure Machine Learning designer (pré-visualização) para criar um modelo de deteção de anomalias treinado.
 
@@ -24,7 +24,7 @@ O módulo toma como entrada um conjunto de parâmetros de modelo para o modelo d
 
 Para obter mais informações sobre os algoritmos de deteção de anomalias fornecidos no designer, consulte estes tópicos: 
 
-+ [Deteção de anomalias baseada em PCA](pca-based-anomaly-detection.md)  
++ [Deteção de Anomalias Baseada em PCA](pca-based-anomaly-detection.md)  
 
 ## <a name="how-to-configure-train-anomaly-detection-model"></a>Como configurar o modelo de deteção de anomalias do comboio 
 

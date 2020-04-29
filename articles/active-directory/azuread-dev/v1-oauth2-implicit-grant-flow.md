@@ -15,10 +15,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: eaa3844bfbbef8cb71dbe8691cab894c921ce00a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154513"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Compreender o fluxo implícito de subvenção OAuth2 no Diretório Ativo azure (AD)
@@ -52,7 +52,7 @@ Atualmente, o método preferido de proteger chamadas para uma API Web é usar a 
 
 O fluxo implícito de subvenção não emite fichas de atualização, principalmente por razões de segurança. Um token refrescante não é tão estreitamente traçado como fichas de acesso, concedendo muito mais energia, permitindo muito mais danos no caso de ser vazado. No fluxo implícito, as fichas são entregues no URL, daí que o risco de interceção seja maior do que na concessão do código de autorização.
 
-No entanto, uma aplicação JavaScript tem outro mecanismo à sua disposição para renovar fichas de acesso sem solicitar repetidamente ao utilizador credenciais. A aplicação pode usar um iframe oculto para realizar novos pedidos simbólicos contra o ponto final de autorização do Azure AD: desde que o navegador ainda tenha uma sessão ativa (leia-se: tem um cookie de sessão) contra o domínio DaA Azure, o pedido de autenticação pode ocorre ndo com sucesso sem qualquer necessidade de interação do utilizador.
+No entanto, uma aplicação JavaScript tem outro mecanismo à sua disposição para renovar fichas de acesso sem solicitar repetidamente ao utilizador credenciais. A aplicação pode utilizar um iframe oculto para realizar novos pedidos simbólicos contra o ponto final de autorização do Azure AD: desde que o navegador ainda tenha uma sessão ativa (leia-se: tem um cookie de sessão) contra o domínio DaA Azure, o pedido de autenticação pode ocorrer com sucesso sem qualquer necessidade de interação do utilizador.
 
 Este modelo concede à aplicação JavaScript a capacidade de renovar independentemente os tokens de acesso e até adquirir novos para uma nova API (desde que o utilizador previamente consentiu por eles). Isto evita o fardo acrescido de adquirir, manter e proteger um artefacto de alto valor, como um símbolo de atualização. O artefacto que torna possível a renovação silenciosa, o cookie de sessão Azure AD, é gerido fora da aplicação. Outra vantagem desta abordagem é que um utilizador pode assinar a partir do Azure AD, utilizando qualquer uma das aplicações assinadas no Azure AD, funcionando em qualquer um dos separadores do navegador. Isto resulta na eliminação do cookie de sessão Azure AD, e a aplicação JavaScript perderá automaticamente a capacidade de renovar fichas para o utilizador assinado.
 

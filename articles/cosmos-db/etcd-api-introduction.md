@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: acd87fac5ec2edc40d27d98f073e13c0acae8d8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c7fcb1429438ee024cb226b63cfcdcab05ed9f8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79498590"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Introdução ao Azure Cosmos DB etcd API (pré-visualização)
@@ -50,7 +50,7 @@ A Azure Cosmos DB oferece escalabilidade elástica para ler e escrever pedidos e
 
 ### <a name="security--enterprise-readiness"></a>Segurança & prontidão da empresa
 
-Quando os dados etcd são armazenados no Azure Cosmos DB, os desenvolvedores da Kubernetes obtêm automaticamente a [encriptação incorporada em repouso](database-encryption-at-rest.md), [certificações e conformidade,](compliance.md)e [capacidades](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) de backup e restauro suportadas pela Azure Cosmos DB. 
+Quando os dados etcd são armazenados no Azure Cosmos DB, os desenvolvedores da Kubernetes obtêm automaticamente a [encriptação incorporada em repouso](database-encryption-at-rest.md), [certificações e conformidade,](compliance.md)e [capacidades](online-backup-and-restore.md) de backup e restauro suportadas pela Azure Cosmos DB. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

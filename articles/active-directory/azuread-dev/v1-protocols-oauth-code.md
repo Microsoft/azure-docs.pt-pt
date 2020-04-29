@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 3ec7cf5a45ce31cde923dce521636589cfcda786
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154462"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações Web do Azure Active Directory através do fluxo de concessão de código do OAuth 2.0
@@ -36,7 +36,7 @@ O fluxo de código de autorização OAuth 2.0 é descrito na [secção 4.1 da es
 ## <a name="register-your-application-with-your-ad-tenant"></a>Registar a aplicação com o inquilino do AD
 Em primeiro lugar, registe a sua candidatura junto do seu inquilino azure Ative Directory (Azure AD). Esta ação dar-lhe-á um ID de Aplicação para a aplicação e ativá-lo-á para receber tokens.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
    
 1. Escolha o seu inquilino Azure AD selecionando a sua conta no canto superior direito da página, seguido selecionando a navegação do **Diretório switch** e, em seguida, selecionando o inquilino apropriado. 
    - Ignore este passo se tiver apenas um inquilino Azure AD sob a sua conta, ou se já selecionou o inquilino da AD Azure apropriado.

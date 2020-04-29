@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 7b0c7a30580d3863a78e85b8b45287a598bbf394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80247355"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrar da rede anexado ao armazenamento (NAS) para uma implantação híbrida em nuvem com O Sincronizado de Ficheiros Azure
@@ -196,7 +196,7 @@ A segunda vez terminará mais rápido, porque só precisa de transportar mudanç
 
 Repita este processo até estar convencido de que o tempo que leva para completar um RoboCopy para uma localização específica está dentro de uma janela aceitável para o tempo de inatividade.
 
-Quando considera o tempo de inatividade aceitável e está preparado para desligar a localização nas: Para desativar o acesso do utilizador, tem a opção de alterar OS ACLs na raiz de partilha de modo a que os utilizadores não possam mais aceder ao local ou dar qualquer outro passo apropriado que impede que o conteúdo mude nesta pasta no seu NAS.
+Quando considera o tempo de inatividade aceitável e está preparado para desligar a localização nas: Para desativar o acesso do utilizador, tem a opção de alterar OS ACLs na raiz de partilha de modo a que os utilizadores não possam mais aceder ao local ou dar qualquer passo apropriado que impeça que o conteúdo mude nesta pasta na sua NAS.
 
 Executar uma última rodada roboCopy. Vai apanhar quaisquer alterações que possam ter sido perdidas.
 O tempo que este último passo demora, depende da velocidade da varredura RoboCopy. Pode estimar o tempo (que é igual ao seu tempo de inatividade) medindo o tempo que o percurso anterior demorou.

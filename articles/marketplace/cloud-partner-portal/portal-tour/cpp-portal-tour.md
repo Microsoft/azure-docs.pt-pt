@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dsindona
 ms.openlocfilehash: 53378be9b72792b320699341e4b6b16b20217687
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278319"
 ---
 # <a name="cloud-partner-portal-tour"></a>Tour do portal do parceiro de nuvem

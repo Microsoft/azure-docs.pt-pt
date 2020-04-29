@@ -15,10 +15,10 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: a301029f30a77f4e62ad3529aac488a81c12566e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154530"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que utilizam a identidade de utilizador delegada no fluxo em nome
@@ -51,7 +51,7 @@ Registe o serviço de nível médio e a aplicação do cliente na Azure AD.
 
 ### <a name="register-the-middle-tier-service"></a>Registe o serviço de nível médio
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Na barra superior, selecione a sua conta e procure na lista **de Diretórios** para selecionar um inquilino de Diretório Ativo para a sua candidatura.
 1. Selecione **Mais Serviços** no painel esquerdo e escolha **o Diretório Ativo Azure**.
 1. Selecione **registos de aplicativos** e, em seguida, **novo registo**.
@@ -69,7 +69,7 @@ Registe o serviço de nível médio e a aplicação do cliente na Azure AD.
 
 ### <a name="register-the-client-application"></a>Registar o pedido de cliente
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Na barra superior, selecione a sua conta e procure na lista **de Diretórios** para selecionar um inquilino de Diretório Ativo para a sua candidatura.
 1. Selecione **Mais Serviços** no painel esquerdo e escolha **o Diretório Ativo Azure**.
 1. Selecione **registos de aplicativos** e, em seguida, **novo registo**.

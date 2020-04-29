@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
 ms.openlocfilehash: 19ca17f66f6818ed4c3ef532e2030cc03f0e73ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062954"
 ---
 # <a name="security-alerts-schemas"></a>Alertas de segurança schemas
@@ -157,7 +157,7 @@ Pode visualizar os alertas de segurança em eventos no Registo de Atividade, pro
 |**nome fornecedor de recursos**|Os subcampos de valor e valor localizados são constantes - "Microsoft.Security"|
 |**recursosType**|Os subcampos de valor e valor localizados são constantes - "Microsoft.Security/locations/alerts"|
 |**recursosId**|O ID de recurso Azure totalmente qualificado|
-|**status**|Os subcampos de valor e valor localizados são constantes - "Ativo"|
+|**estado**|Os subcampos de valor e valor localizados são constantes - "Ativo"|
 |**subEstatuto**|Os subcampos de valor e valor localizados estão vazios|
 |**submissãoTimestamp**|O carimbo de tempo utc da submissão do evento ao Registo de Atividades|
 |**subscriptionId**|A identificação de subscrição do recurso comprometido|

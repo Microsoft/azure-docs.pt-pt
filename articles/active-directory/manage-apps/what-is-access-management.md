@@ -15,10 +15,10 @@ ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 489b15423add03d69070bc32057af97396a85309
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79409071"
 ---
 # <a name="managing-access-to-apps"></a>Gerir o acesso a apps
@@ -27,7 +27,7 @@ A gestão contínua do acesso, avaliação de utilização e reporte continuam a
 
 ## <a name="how-does-azure-active-directory-help"></a>Como ajuda o Azure Ative Directory?
 
-A Azure AD apoia uma gestão extensiva do acesso a aplicações configuradas, permitindo às organizações alcançar facilmente as políticas de acesso adequadas que vão desde a atribuição automática, baseada em atributos (cenários ABAC ou RBAC) através de delegação e incluindo gestão de administradores. Com o Azure AD, você pode facilmente alcançar políticas complexas, combinando vários modelos de gestão para uma única aplicação e pode até mesmo reutilizar regras de gestão em aplicações com o mesmo público.
+A Azure AD apoia uma gestão extensiva do acesso a aplicações configuradas, permitindo às organizações alcançar facilmente as políticas de acesso adequadas que vão desde a atribuição automática, baseada em atributos (cenários ABAC ou RBAC) através da delegação e incluindo a gestão de administradores. Com o Azure AD, você pode facilmente alcançar políticas complexas, combinando vários modelos de gestão para uma única aplicação e pode até mesmo reutilizar regras de gestão em aplicações com o mesmo público.
 
 Com a AD Azure, o relatório de utilização e atribuição está totalmente integrado, permitindo aos administradores reportarfacilmente sobre o estado de atribuição, erros de atribuição e até mesmo uso.
 

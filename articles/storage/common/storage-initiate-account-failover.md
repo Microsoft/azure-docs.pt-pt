@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 0c619224201d6225d5e5c127b342f71f2f7fced9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79535357"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Iniciar uma falha na conta de armazenamento (pré-visualização)
@@ -96,7 +96,7 @@ Para iniciar uma falha de conta a partir da PowerShell, execute o seguinte coman
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+## <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para utilizar o Azure CLI para iniciar uma falha de conta, execute os seguintes comandos:
 

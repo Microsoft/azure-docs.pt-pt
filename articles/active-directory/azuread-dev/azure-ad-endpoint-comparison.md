@@ -14,10 +14,10 @@ ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, n
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 67a54a2cd4fa071fd47bcebb9aa53fd11fefd61e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154921"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Porquê atualizar a plataforma de identidade da Microsoft (v2.0)?
@@ -51,7 +51,7 @@ As permissões definidas diretamente no registo da candidatura são **estáticas
 
 * A aplicação precisa de conhecer todos os recursos a que alguma vez acederia com antecedência. Foi difícil criar apps que pudessem aceder a um número arbitrário de recursos.
 
-Com o ponto final da plataforma de identidade da Microsoft, pode ignorar as permissões estáticas definidas na informação de registo da aplicação no portal Azure e solicitar permissões incrementalmente, o que significa pedir um conjunto mínimo de permissões antecipadamente e crescendo mais com o tempo à medida que o cliente usa funcionalidades adicionais de aplicação. Para isso, pode especificar os âmbitos de que a sua aplicação `scope` necessita a qualquer momento, incluindo os novos âmbitos do parâmetro ao solicitar um sinal de acesso - sem a necessidade de os definir predefinindo nas informações de registo da aplicação. Se o utilizador ainda não tiver consentido com novos âmbitos adicionados ao pedido, serão solicitados a consentir apenas com as novas permissões. Para saber mais, consulte [permissões, consentimento e âmbitos.](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
+Com o ponto final da plataforma de identidade da Microsoft, pode ignorar as permissões estáticas definidas nas informações de registo da aplicação no portal Azure e solicitar permissões incrementalmente, o que significa pedir um conjunto mínimo de permissões antecipadamente e crescer mais com o tempo, à medida que o cliente utiliza funcionalidades adicionais de aplicações. Para isso, pode especificar os âmbitos de que a sua aplicação `scope` necessita a qualquer momento, incluindo os novos âmbitos do parâmetro ao solicitar um sinal de acesso - sem a necessidade de os definir predefinindo nas informações de registo da aplicação. Se o utilizador ainda não tiver consentido com novos âmbitos adicionados ao pedido, serão solicitados a consentir apenas com as novas permissões. Para saber mais, consulte [permissões, consentimento e âmbitos.](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 
 Permitir que uma aplicação solicite `scope` permissões dinamicamente através do parâmetro dá aos desenvolvedores o controlo total sobre a experiência do utilizador. Também pode carregar frontalmente a sua experiência de consentimento e pedir todas as permissões num pedido de autorização inicial. Se a sua aplicação necessitar de um grande número de permissões, pode recolher essas permissões do utilizador de forma incremental, uma vez que tenta utilizar determinadas funcionalidades da aplicação ao longo do tempo.
 

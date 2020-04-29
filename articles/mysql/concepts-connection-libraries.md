@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 5f83f937b8d9ec50ec7dc6ec781bff1f435eb45a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537198"
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Bibliotecas de ligação para base de dados Azure para MySQL
@@ -19,7 +19,7 @@ Este artigo lista cada biblioteca ou controlador que os programas de clientes po
 ## <a name="client-interfaces"></a>Interfaces de cliente
 A MySQL oferece conectividade padrão do controlador de base de dados para usar o MySQL com aplicações e ferramentas compatíveis com os padrões da indústria ODBC e JDBC. Qualquer sistema que funcione com a ODBC ou a JDBC pode utilizar o MySQL.
 
-| **Língua** | **Plataforma** | **Recurso Adicional** | **Transferir** |
+| **Idioma** | **Plataforma** | **Recurso Adicional** | **Transferir** |
 | :----------- | :------------| :-----------------------| :------------|
 | PHP | Windows, Linux | [MsQL motorista nativo para PHP - mysqlnd](https://dev.mysql.com/downloads/connector/php-mysqlnd/) | [Transferir](https://secure.php.net/downloads.php) |
 | ODBC | Windows, Linux, Mac OS X e unix | [Guia de desenvolvimento do Conector MySQL/ODBC](https://dev.mysql.com/doc/connector-odbc/en/) | [Transferir](https://dev.mysql.com/downloads/connector/odbc/) |

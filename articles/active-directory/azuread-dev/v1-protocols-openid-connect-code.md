@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: eef8174056be7e6be35cea56788c0a519d02944e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154445"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso a aplicações Web com o OpenID Connect e o Azure Active Directory
@@ -32,7 +32,7 @@ O OpenID Connect é a nossa recomendação se estiver a construir uma aplicaçã
 ## <a name="register-your-application-with-your-ad-tenant"></a>Registar a aplicação com o inquilino do AD
 Em primeiro lugar, registe a sua candidatura junto do seu inquilino azure Ative Directory (Azure AD). Esta ação dar-lhe-á um ID de Aplicação para a aplicação e ativá-lo-á para receber tokens.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
    
 1. Escolha o seu inquilino Azure AD selecionando a sua conta no canto superior direito da página, seguido selecionando a navegação do **Diretório switch** e, em seguida, selecionando o inquilino apropriado. 
    - Ignore este passo se tiver apenas um inquilino Azure AD sob a sua conta, ou se já selecionou o inquilino da AD Azure apropriado.

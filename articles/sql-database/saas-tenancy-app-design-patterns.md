@@ -11,10 +11,10 @@ ms.reviewer: billgib, sstein
 ms.date: 01/25/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 956d74467c69d9924d26f9cae8d902a6ddd84496
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067495"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de arrendamento de base de dados Multi-inquilinos SaaS
@@ -184,7 +184,7 @@ A tabela que se segue resume as diferenças entre os principais modelos de arren
 
 | Medida | Aplicação autónoma | Base de dados por inquilino | Multi-inquilino sharded |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Dimensionamento | Médio<br />1-100 | Muito alta <br />1-100.000 | Ilimitado<br />1-1.000.000 |
+| Escala | Médio<br />1-100 | Muito alta <br />1-100.000 | Ilimitado<br />1-1.000.000 |
 | Isolamento de inquilinos | Muito alta  | Alta | Baixo; exceto para qualquer inquilino único (que está sozinho em um MT db). |
 | Custo da base de dados por inquilino | Alto; é dimensionado para picos. | Baixo; piscinas usadas. | O mais baixo, para pequenos inquilinos em DBs MT. |
 | Monitorização e gestão de desempenho | Por inquilino apenas | Agregado + por inquilino | Agregado; embora seja por inquilino apenas para solteiros. |

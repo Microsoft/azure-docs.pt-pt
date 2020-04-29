@@ -7,17 +7,17 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 43004f8c52bbec17f78ed4be024cf75224dbd179
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530245"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gerir uma Base de Dados Azure para servidor MariaDB utilizando o portal Azure
 Este artigo mostra-lhe como gerir a sua Base de Dados Azure para servidores MariaDB. As tarefas de gestão incluem a análise e o dimensionamento de armazenamento, o reset da palavra-passe de administrador e os detalhes do servidor de visualização.
 
 ## <a name="sign-in"></a>Iniciar sessão
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Criar um servidor
 Visite o [quickstart](quickstart-create-mariadb-server-database-using-azure-portal.md) para aprender a criar e começar com uma Base de Dados Azure para servidor MariaDB.

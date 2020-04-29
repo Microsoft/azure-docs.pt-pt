@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
 ms.openlocfilehash: 1ef8742bc4f8de2d08d9bb4fc98b3df6f9420737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235032"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configure pontos finais IPv6 na amostra de script de rede virtual (pré-visualização)
 
-Este artigo mostra-lhe como implementar uma aplicação de dupla pilha (IPv4 + IPv6) no Azure que inclui uma rede virtual de dupla pilha com uma subnet de dupla pilha, um equilibrador de carga com configurações frontais duplas (IPv4 + IPv6), VMs com NICs que têm uma configuração IP dupla, regras do grupo de segurança da rede dupla (e dois IPs públicos).
+Este artigo mostra-lhe como implementar uma aplicação dual stack (IPv4 + IPv6) no Azure que inclui uma rede virtual de dupla pilha com uma subnet de dupla pilha, um equilibrador de carga com configurações frontais duplas (IPv4 + IPv6), VMs com NICs que têm uma configuração IP dupla, regras de grupo de segurança de dupla rede e IPs públicos duplos.
 
 Pode executar o script a partir do [Azure Cloud Shell](https://shell.azure.com/bash) ou a partir de uma instalação local da CLI do Azure. Se utilizar a CLI localmente, este script requer que esteja a executar a versão 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI, também terá de executar o `az login` para criar uma ligação com o Azure.
 

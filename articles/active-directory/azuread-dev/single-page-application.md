@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154751"
 ---
 # <a name="single-page-applications"></a>Aplicações de página única
@@ -61,7 +61,7 @@ A utilização do ADAL.js ajuda a:
 * Refrescante um símbolo expirado
 * Solicitando um sinal de acesso para chamar um recurso Web API
 
-Após uma autenticação bem sucedida, a Azure AD escreve um cookie no navegador do utilizador para estabelecer uma sessão. Note que a sessão existe entre o utilizador e a AD Azure (não entre o utilizador e a aplicação web). Quando um símbolo expira, a ADAL.js usa esta sessão para obter silenciosamente outro símbolo. A ADAL.js usa um iFrame oculto para enviar e receber o pedido usando o protocolo de subvenção implícita OAuth. A ADAL.js também pode usar este mesmo mecanismo para obter silenciosamente fichas de acesso para outros recursos da Web API que a aplicação chama desde que estes recursos suportem a partilha de recursos de origem cruzada (CORS), estão registados no diretório do utilizador, e qualquer consentimento exigido foi dado pelo utilizador durante o sessão.
+Após uma autenticação bem sucedida, a Azure AD escreve um cookie no navegador do utilizador para estabelecer uma sessão. Note que a sessão existe entre o utilizador e a AD Azure (não entre o utilizador e a aplicação web). Quando um símbolo expira, a ADAL.js usa esta sessão para obter silenciosamente outro símbolo. A ADAL.js usa um iFrame oculto para enviar e receber o pedido usando o protocolo de subvenção implícita OAuth. A ADAL.js também pode usar este mesmo mecanismo para obter silenciosamente fichas de acesso para outros recursos Web API que a aplicação chama desde que estes recursos suportem a partilha de recursos de origem cruzada (CORS), e quaisquer consentimentos necessários foram dados pelo utilizador durante o início de sessão.
 
 ## <a name="next-steps"></a>Passos seguintes
 

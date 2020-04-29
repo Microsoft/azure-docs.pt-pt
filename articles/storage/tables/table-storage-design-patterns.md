@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: 5478163a6103bcc84b4f3608d7513c6e7cb11c01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79529344"
 ---
 # <a name="table-design-patterns"></a>Padrões de design da tabela
@@ -272,7 +272,7 @@ Com entidades de departamento armazenadas com estas propriedades, agora pode rec
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Há alguns custos associados ao armazenamento de alguns dados duas vezes. O benefício de desempenho (resultante de menos pedidos ao serviço de armazenamento) normalmente supera o aumento marginal dos custos de armazenamento (e este custo é parcialmente compensado por uma redução do número de transações que você precisa para obter os detalhes de um departamento ).  
+* Há alguns custos associados ao armazenamento de alguns dados duas vezes. O benefício de desempenho (resultante de menos pedidos ao serviço de armazenamento) normalmente supera o aumento marginal dos custos de armazenamento (e este custo é parcialmente compensado por uma redução do número de transações que você precisa para obter os detalhes de um departamento).  
 * Deve manter a consistência das duas entidades que armazenam informação sobre gestores. Pode lidar com a questão da consistência utilizando EGTs para atualizar várias entidades numa única transação atómica: neste caso, a entidade do departamento e a entidade colaboradora do gestor do departamento são armazenadas na mesma partilha.  
 
 ### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
@@ -378,7 +378,7 @@ Um dos desenhos possíveis é utilizar a data e a hora do pedido de login no **R
 Esta abordagem evita os hotspots de partição porque a aplicação pode inserir e eliminar entidades de login para cada utilizador numa divisória separada. No entanto, esta abordagem pode ser dispendiosa e morosa se tiver um grande número de entidades porque primeiro precisa de realizar uma digitalização de tabela para identificar todas as entidades a eliminar, e depois deve apagar cada entidade antiga. Pode reduzir o número de viagens de ida e volta ao servidor necessárias para eliminar as entidades antigas, emitindo vários pedidos de eliminação em EGTs.  
 
 ### <a name="solution"></a>Solução
-Utilize uma tabela separada para cada dia de tentativas de login. Você pode usar o design da entidade acima para evitar hotspots quando você está inserindo entidades, e apagar entidades antigas é agora simplesmente uma questão de apagar uma mesa todos os dias (uma única operação de armazenamento) em vez de encontrar e apagar centenas e milhares de pessoas entidades de login todos os dias.  
+Utilize uma tabela separada para cada dia de tentativas de login. Pode utilizar o design da entidade acima para evitar hotspots quando está a inserir entidades, e apagar entidades antigas é agora simplesmente uma questão de apagar uma tabela todos os dias (uma única operação de armazenamento) em vez de encontrar e apagar centenas e milhares de entidades individuais de login todos os dias.  
 
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
@@ -489,7 +489,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 Aumente a escalabilidade quando tiver um grande volume de inserções espalhando as inserções em várias divisórias.  
 
 ### <a name="context-and-problem"></a>Contexto e problema
-As entidades de pré-gastos ou despesas com as suas entidades armazenadas normalmente resultam na aplicação adicionando novas entidades à primeira ou última partição de uma sequência de divisórias. Neste caso, todas as inserções em qualquer momento estão a ocorrer na mesma divisória, criando um hotspot que impede o serviço de mesa de encaixe de carga em vários nós, e possivelmente fazendo com que a sua aplicação atinja os alvos de escalabilidade para partição. Por exemplo, se tiver uma aplicação que regista o acesso à rede e ao acesso de recursos pelos colaboradores, então uma estrutura de entidade, como mostrado abaixo, pode resultar em que a partição da hora atual se torne um hotspot se o volume de transações atingir o alvo de escalabilidade para um Partição individual:  
+As entidades de pré-gastos ou despesas com as suas entidades armazenadas normalmente resultam na aplicação adicionando novas entidades à primeira ou última partição de uma sequência de divisórias. Neste caso, todas as inserções em qualquer momento estão a ocorrer na mesma divisória, criando um hotspot que impede o serviço de mesa de equilibrar a carga em vários nós, e possivelmente fazendo com que a sua aplicação atinja os alvos de escalabilidade para a partição. Por exemplo, se tiver uma aplicação que regista o acesso à rede e ao acesso de recursos pelos colaboradores, então uma estrutura de entidade, como mostrado abaixo, pode resultar na partilha da hora atual tornando-se um hotspot se o volume de transações atingir o alvo de escalabilidade para uma partição individual:  
 
 ![Estrutura de entidades](media/storage-table-design-guide/storage-table-design-IMAGE26.png)
 
@@ -543,7 +543,7 @@ O Storage Analytics utiliza uma convenção de nomeação para bolhas que lhe pe
 
 Armazenamento Analytics tampões registam mensagens internamente e, em seguida, atualiza periodicamente a bolha apropriada ou cria uma nova com o mais recente lote de entradas de registo. Isto reduz o número de escritos que deve executar ao serviço de blob.  
 
-Se estiver a implementar uma solução semelhante na sua própria aplicação, deve considerar como gerir a compensação entre a fiabilidade (escrever cada entrada de registo no armazenamento de blob à medida que acontece) e custo e escalabilidade (atualizações de tampão na sua aplicação e escrita los para blob armazenamento em lotes).  
+Se estiver a implementar uma solução semelhante na sua própria aplicação, deve considerar como gerir a compensação entre a fiabilidade (escrever cada entrada de registo no armazenamento de blob à medida que acontece) e custo e escalabilidade (atualizações de tampão na sua aplicação e escrevê-las para armazenamento de bolhas em lotes).  
 
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como armazenar dados de registo:  
@@ -667,7 +667,7 @@ do
 } while (continuationToken != null);  
 ```
 
-Ao utilizar fichas de continuação explicitamente, pode controlar quando a sua aplicação recuperar o próximo segmento de dados. Por exemplo, se a sua aplicação cliente permitir que os utilizadores páginam através das entidades armazenadas numa tabela, um utilizador pode decidir não páginar através de todas as entidades recuperadas pela consulta para que a sua aplicação utilize apenas um sinal de continuação para recuperar o próximo segmento quando o utilizador tinha terminado de paging através de todas as entidades do segmento atual. Esta abordagem tem vários benefícios:  
+Ao utilizar fichas de continuação explicitamente, pode controlar quando a sua aplicação recuperar o próximo segmento de dados. Por exemplo, se a sua aplicação cliente permitir que os utilizadores páginam através das entidades armazenadas numa tabela, um utilizador pode decidir não páginar através de todas as entidades recuperadas pela consulta, pelo que a sua aplicação apenas utilizaria um sinal de continuação para recuperar o próximo segmento quando o utilizador tivesse terminado de prestar a conhecer todas as entidades do segmento atual. Esta abordagem tem vários benefícios:  
 
 * Permite-lhe limitar a quantidade de dados a recuperar do serviço Tabela e que se move sobre a rede.  
 * Permite-lhe realizar IO assíncrono em .NET.  

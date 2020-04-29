@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0303bac88f34c895a4a680cd5bff0e9d1513d2e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80059940"
 ---
 # <a name="generate-and-export-certificates-for-user-vpn-connections"></a>Certificados de geração e exportação para ligações VPN do utilizador

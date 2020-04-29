@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 6d054064e236e121e02bf58a0eb73b5a62f24a09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278268"
 ---
 # <a name="hosted-test-drive"></a>Versão de Teste Alojada
 
-Um Test Drive hospedado remove a complexidade da configuração por hospedagem da Microsoft e mantém o serviço que executa o fornecimento e desprovisionamento do utilizador Test Drive. Este artigo é para editores que têm a sua oferta no AppSource ou estão a construir um novo e querem oferecer um Test Drive Hospedado, que se conecta com uma Dynamics 365 para envolvimento com o cliente, Dinâmica 365 para Finanças e Operações, ou Dynamics 365 Business Central instância.
+Um Test Drive hospedado remove a complexidade da configuração por hospedagem da Microsoft e mantém o serviço que executa o fornecimento e desprovisionamento do utilizador Test Drive. Este artigo é para editores que têm a sua oferta no AppSource ou estão a construir um novo e querem oferecer um Test Drive Hospedado, que se conecta com uma Dinâmica 365 para envolvimento com o cliente, Dinâmica 365 para Finanças e Operações, ou a instância Da Dinâmica 365 Business Central.
 
 ## <a name="how-to-publish-a-test-drive"></a>Como publicar um Test Drive
 

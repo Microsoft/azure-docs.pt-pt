@@ -4,10 +4,10 @@ description: Descreve como implantar condicionalmente um recurso num modelo de G
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.openlocfilehash: f170710118c0e3de6f3643b6216ed55b83b5c7df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80153425"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Implantação condicional em modelos ARM

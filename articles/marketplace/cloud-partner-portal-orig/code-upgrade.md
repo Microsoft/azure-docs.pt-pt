@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: dsindona
 ms.openlocfilehash: db5ec661e575d7a6d2f994040a9fb452bd87b507
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80276160"
 ---
 # <a name="upgrading-code-to-the-latest-platform"></a>Atualizar código para a mais recente plataforma

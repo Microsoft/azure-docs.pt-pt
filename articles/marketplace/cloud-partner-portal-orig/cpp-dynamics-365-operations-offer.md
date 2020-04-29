@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: dsindona
 ms.openlocfilehash: 64216c5f224ed3f9926523d316a725fa9cac1c61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80276126"
 ---
 # <a name="dynamics-365-for-finance-and-operations-offer"></a>Dinâmica 365 para oferta de Finanças e Operações

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 3/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 299980b67caaea85fbfb40cb1a30ee50fa32d0f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80131404"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consulta um recipiente Azure Cosmos

@@ -9,10 +9,10 @@ ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 4deae235ed15d02874ab5cb3470c62e934324364
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80234298"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure
@@ -192,7 +192,7 @@ Uma vez que não apague as imagens de uma bolha, pode clicar em **Promover** par
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -244,7 +244,7 @@ Para verificar se a eliminação suave está ligada, utilize o seguinte comando:
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Para permitir a eliminação suave, atualize as propriedades de serviço de um cliente blob:
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dsindona
 ms.openlocfilehash: 51aea17247ed36c465086b5f5b1132ab1cd56922
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80276041"
 ---
 # <a name="how-to-fill-out-the-storefront-details-form"></a>Como preencher o formulário Dedetalhes da Montra

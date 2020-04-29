@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: 9da922de38d820864b3f83de80fe64eb3ac792e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246726"
 ---
 # <a name="deploy-azure-sql-database-edge-preview"></a>Implementar a pré-visualização da borda da base de dados Azure SQL
@@ -23,7 +23,7 @@ A Pré-visualização do Edge De base de dados Azure SQL é um motor de base de 
 ## <a name="before-you-begin"></a>Antes de começar
 
 * Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [portal do Azure](https://portal.azure.com/).
 * Envie aqui um [pedido,](https://azure.microsoft.com/services/sql-database-edge/#contact)para que a subscrição seja ativada para a implementação do SQL Database Edge.
 * Crie um [Hub Azure IoT.](../iot-hub/iot-hub-create-through-portal.md)
 * Registe um [Dispositivo IoT Edge a partir do portal Azure](../iot-edge/how-to-register-device-portal.md).

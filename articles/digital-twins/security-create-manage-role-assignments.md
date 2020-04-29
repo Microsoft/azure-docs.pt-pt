@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1c83ca0abfd17db873bec62f0a0d052703862a45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77110403"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerir atribuições de papéis em Gémeas Digitais Azure
@@ -38,11 +38,11 @@ O quadro abaixo descreve cada atributo:
 
 | Atributo | Nome | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- | --- |
-| roleId | Identificador de definição de papel | Sim | Cadeia | A identificação única da atribuição de funções desejada. Encontre definições de papéis e o seu identificador consultando a API do sistema ou revendo a tabela abaixo. |
-| objectId | Identificador de objetos | Sim | Cadeia | Um ID de Diretório Ativo Azure, identificação principal do objeto de serviço ou nome de domínio. O que ou a quem a atribuição do papel é atribuída. A atribuição de funções deve ser formatada de acordo com o seu tipo associado. Para `DomainName` o objectIdType, o objectid deve começar com o `“@”` personagem. |
-| objectIdType | Tipo de identificador de objeto | Sim | Cadeia | O tipo de identificador de objetos usado. Consulte **os ObjectIdTypes Suportados** abaixo. |
-| path | Caminho espacial | Sim | Cadeia | O caminho de `Space` acesso completo ao objeto. Um exemplo é `/{Guid}/{Guid}`. Se um identificador precisar da atribuição de `"/"`funções para todo o gráfico, especifique . Este personagem designa a raiz, mas o seu uso é desencorajado. Siga sempre o Princípio do Menos Privilégio. |
-| inquilinoId | Identificador de inquilino | Varia | Cadeia | Na maioria dos casos, uma identificação de inquilino do Azure Ative Directory. Não autorizados `DeviceId` `TenantId` e ObjectIdTypes. Necessário para `UserId` `ServicePrincipalId` e ObjectIdTypes. Opcional para o ObjectIdType do Nome de Domínio. |
+| roleId | Identificador de definição de papel | Sim | String | A identificação única da atribuição de funções desejada. Encontre definições de papéis e o seu identificador consultando a API do sistema ou revendo a tabela abaixo. |
+| objectId | Identificador de objetos | Sim | String | Um ID de Diretório Ativo Azure, identificação principal do objeto de serviço ou nome de domínio. O que ou a quem a atribuição do papel é atribuída. A atribuição de funções deve ser formatada de acordo com o seu tipo associado. Para `DomainName` o objectIdType, o objectid deve começar com o `“@”` personagem. |
+| objectIdType | Tipo de identificador de objeto | Sim | String | O tipo de identificador de objetos usado. Consulte **os ObjectIdTypes Suportados** abaixo. |
+| path | Caminho espacial | Sim | String | O caminho de `Space` acesso completo ao objeto. Um exemplo é `/{Guid}/{Guid}`. Se um identificador precisar da atribuição de `"/"`funções para todo o gráfico, especifique . Este personagem designa a raiz, mas o seu uso é desencorajado. Siga sempre o Princípio do Menos Privilégio. |
+| inquilinoId | Identificador de inquilino | Varia | String | Na maioria dos casos, uma identificação de inquilino do Azure Ative Directory. Não autorizados `DeviceId` `TenantId` e ObjectIdTypes. Necessário para `UserId` `ServicePrincipalId` e ObjectIdTypes. Opcional para o ObjectIdType do Nome de Domínio. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificadores de definição de funções suportados
 
@@ -163,10 +163,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Valor do parâmetro** | **Necessário** |  **Tipo** |  **Descrição** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  Verdadeiro | Cadeia |   O objectid para o objectIdType userId. |
-| YOUR_PATH | Verdadeiro | Cadeia |   O caminho escolhido para verificar o acesso. |
-| YOUR_ACCESS_TYPE |  Verdadeiro | Cadeia |   *Ler,* *Criar,* *Atualizar*ou *Excluir* |
-| YOUR_RESOURCE_TYPE | Verdadeiro | Cadeia |  *Dispositivo*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *Endpoint*, *KeyStore,* *Matcher,* *Ontology,* *Report*, *RoleDefinition,* *Sensor*, *SensorExtendedProperty,* *Space,* *SpaceBlobMetadata,* *SpaceExtendedProperty, SpaceExtendedProperty,* *SpaceResource,* *SpaceRoleAssignment,* *System,* * UerDefinedFunction*, *Utilizador,* *UserBlobMetadata*ou *UserExtendedProperty* |
+| YOUR_USER_ID |  Verdadeiro | String |   O objectid para o objectIdType userId. |
+| YOUR_PATH | Verdadeiro | String |   O caminho escolhido para verificar o acesso. |
+| YOUR_ACCESS_TYPE |  Verdadeiro | String |   *Ler,* *Criar,* *Atualizar*ou *Excluir* |
+| YOUR_RESOURCE_TYPE | Verdadeiro | String |  *Dispositivo*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *Endpoint*, *KeyStore,* *Matcher,* *Ontology,* *Report*, *RoleDefinition,* *Sensor*, *SensorExtendedProperty*, *SpaceBlobMetadata*, *Space* *SpaceExtendedProperty, SpaceExtendedProperty, SpaceExtendedProperty,* *SpaceResource,* *SpaceRoleAssignment,* *System,* *UerDefinedFunction,* *User,* *UserBlobMetadata,* ou *UserExtendedProperty* |
 
 Um pedido bem sucedido `true` devolverá uma booleana ou `false` para indicar se o tipo de acesso foi atribuído ao utilizador para o caminho e recurso dado.
 

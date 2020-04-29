@@ -10,17 +10,17 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 03/24/2020
 ms.openlocfilehash: d5c48b6036065f6182912c21c144cab80fc3cfbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246709"
 ---
 # <a name="what-is-azure-sql-database-edge-preview"></a>O que é a pré-visualização da borda da base de dados Azure SQL?
 
 A Pré-visualização do Edge De base de dados Azure SQL é um motor de base de dados relacional otimizado, orientado para implementações IoT e IoT Edge. Fornece capacidades para criar uma camada de armazenamento e processamento de dados de alto desempenho para aplicações e soluções IoT. O Azure SQL Database Edge fornece capacidades para transmitir, processar e analisar dados relacionais e não relacionais, como jSON, gráfico e dados da série time, o que a torna a escolha certa para uma variedade de aplicações IoT modernas.
 
-O Azure SQL Database Edge baseia-se nas versões mais recentes do [Microsoft SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database-edge/toc.json), que fornece capacidades de desempenho, segurança e processamento de consultas líderes na indústria. Uma vez que o Azure SQL Database Edge é construído no mesmo motor que o SQL Server e o Azure SQL Database, fornece a mesma área de superfície de programação T-SQL que facilita e acelera o desenvolvimento de aplicações ou soluções e, ao mesmo tempo, torna a aplicação portabilidade entre dispositivos IoT Edge, centros de dados e a nuvem diretamente para a frente.
+O Azure SQL Database Edge baseia-se nas versões mais recentes do [Microsoft SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database-edge/toc.json), que fornece capacidades de desempenho, segurança e processamento de consultas líderes na indústria. Uma vez que o Azure SQL Database Edge é construído no mesmo motor que o SQL Server e o Azure SQL Database, fornece a mesma área de superfície de programação T-SQL que facilita e acelera o desenvolvimento de aplicações ou soluções e, ao mesmo tempo, torna a portabilidade da aplicação entre dispositivos IoT Edge, centros de dados e a nuvem diretamente para a frente.
 
 ## <a name="deployment-models"></a>Modelos de implantação
 

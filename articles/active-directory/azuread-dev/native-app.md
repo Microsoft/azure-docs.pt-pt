@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9ecf711f5442b6f21de53d2735ad1c94d7cb6223
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154802"
 ---
 # <a name="native-apps"></a>Aplicações nativas
@@ -36,7 +36,7 @@ Se estiver a utilizar as Bibliotecas de Autenticação AD, a maioria dos detalhe
 
 1. Utilizando um pop-up de navegador, a aplicação nativa faz um pedido para o ponto final de autorização em Azure AD. Este pedido inclui o ID de aplicação e o uri redirecionamento da aplicação nativa, como mostrado no portal Azure, e o ID de aplicação URI para a Web API. Se o utilizador ainda não assinou, é solicitado a assinar novamente
 1. A Azure AD autentica o utilizador. Se for um pedido multi-inquilino e o consentimento for necessário para usar a aplicação, o utilizador será obrigado a consentir se ainda não o tiver feito. Após a concessão do consentimento e após a autenticação bem sucedida, a Azure AD emite uma resposta de código de autorização de volta ao redirecionamento URI da aplicação cliente.
-1. Quando a Azure AD emite uma resposta de código de autorização de volta ao URI redirecionado, a aplicação do cliente para a interação do navegador e extrai o código de autorização da resposta. Utilizando este código de autorização, o pedido do cliente envia um pedido ao ponto final simbólico da Azure AD que inclui o código de autorização, detalhes sobre a aplicação do cliente (ID de aplicação e redirecionamento URI), e o recurso pretendido (ID de aplicação URI para o Web API).
+1. Quando a Azure AD emite uma resposta de código de autorização de volta ao URI redirecionado, a aplicação do cliente para a interação do navegador e extrai o código de autorização da resposta. Utilizando este código de autorização, o pedido do cliente envia um pedido ao ponto final simbólico da Azure AD que inclui o código de autorização, detalhes sobre a aplicação do cliente (ID de aplicação e redirecionamento URI), e o recurso pretendido (id uri de aplicação para a Web API).
 1. O código de autorização e informações sobre a aplicação do cliente e a Web API são validados pela Azure AD. Após uma validação bem sucedida, a Azure AD devolve duas fichas: um símbolo de acesso JWT e um token de atualização JWT. Além disso, a Azure AD devolve informações básicas sobre o utilizador, tais como o nome de exibição e identificação do inquilino.
 1. Ao longo do HTTPS, a aplicação do cliente utiliza o token de acesso JWT devolvido para adicionar a cadeia JWT com uma designação "Bearer" no cabeçalho de Autorização do pedido à Web API. A Web API valida então o símbolo JWT, e se a validação for bem sucedida, devolve o recurso desejado.
 1. Quando o token de acesso expirar, a aplicação do cliente receberá um erro que indica que o utilizador precisa de autenticar novamente. Se a aplicação tiver um token de atualização válido, pode ser usado para adquirir um novo sinal de acesso sem pedir ao utilizador que volte a iniciar sessão. Se o token de atualização expirar, a aplicação terá de autenticar interactivamente o utilizador mais uma vez.

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2b99a80a90df8fcfc5efe6dfa0c2cd7e8e5e04e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050888"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e fornecedores de terceiros para utilizadores convidados (pré-visualização)
@@ -33,7 +33,7 @@ Quando cria uma federação direta com o IDP de um parceiro, os novos utilizador
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Quando é que um utilizador convidado é autenticado com a federação direta?
 Depois de configurar a federação direta com uma organização, quaisquer novos utilizadores convidados que convidar serão autenticados usando a federação direta. É importante notar que a criação da federação direta não altera o método de autenticação para os utilizadores convidados que já resgataram um convite de si. Eis alguns exemplos:
  - Se os utilizadores convidados já tiverem reembolsado os seus convites, e posteriormente configurar a federação direta com a sua organização, esses utilizadores convidados continuarão a utilizar o mesmo método de autenticação que utilizaram antes de configurar em direção à federação direta.
- - Se criar uma federação direta com uma organização parceira e convidar utilizadores convidados, e depois a organização parceira se mudar para a Azure AD, os utilizadores convidados que já resgataram convites continuarão a utilizar a federação direta, desde que o direto continue a utilizar a federação direta, desde que o direto A política da federação no seu inquilino existe.
+ - Se criar uma federação direta com uma organização parceira e convidar utilizadores convidados, e depois a organização parceira se mudar para a Azure AD, os utilizadores convidados que já resgataram convites continuarão a utilizar a federação direta, desde que exista a política direta da federação no seu inquilino.
  - Se eliminar a federação direta com uma organização parceira, qualquer utilizador convidado que utilize atualmente a federação direta não poderá iniciar o seu acesso.
 
 Em qualquer um destes cenários, pode atualizar o método de autenticação de um utilizador convidado, apagando a conta de utilizador convidado do seu diretório e reconvidando-a.

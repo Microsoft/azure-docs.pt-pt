@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
 ms.openlocfilehash: 19fdcc7b590c6ad6873c7808ae26d218bbda7f5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80158979"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportar alertas e recomendações de segurança
@@ -127,6 +127,6 @@ Neste artigo, aprendeu a configurar as exportações contínuas das suas recomen
 Para material relacionado, consulte a seguinte documentação: 
 
 - [Documentação dos Hubs de Eventos do Azure](https://docs.microsoft.com/azure/event-hubs/)
-- [Documentação do Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
-- [Documentação do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
+- [Documentação Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
+- [Documentação do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/)
 - [Automação de fluxo de trabalho e tipos de dados de exportação contínua schemas](https://aka.ms/ASCAutomationSchemas)

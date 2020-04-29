@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.openlocfilehash: 056e23f0f0cf1a3a1c70042cef3c92dd41f14f82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80247015"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no Armazenamento Azure
@@ -46,7 +46,7 @@ O alojamento em sites estáticos é uma funcionalidade que você tem que ativar 
 
     ![Ativar hospedagem de site estático para uma conta de armazenamento](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 <a id="cli" />
 
@@ -149,7 +149,7 @@ Estas instruções mostram-lhe como carregar ficheiros utilizando a versão do S
    >[!NOTE]
    > O Storage Explorer define automaticamente `text/html` esta propriedade para extensões comumente reconhecidas, tais como `.html`. No entanto, em alguns casos, terá que definir isto por si mesmo. Se não configurar esta `text/html`propriedade para , o navegador irá pedir aos utilizadores para descarregarem o ficheiro em vez de renderizarem o conteúdo. Para definir esta propriedade, clique no ficheiro e clique em **Propriedades**.
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Faça upload de objetos para o recipiente *$web* a partir de um diretório de origem.
 
@@ -202,7 +202,7 @@ No painel que aparece ao lado da página geral da conta da sua conta de armazena
 
 ![Métrica de sites estáticos de armazenamento azure](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 <a id="cli-find-url" />
 

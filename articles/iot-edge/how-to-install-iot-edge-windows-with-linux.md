@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.openlocfilehash: 8a4579e092bbc4fd58954f1ce1f1dad3a8ddbbba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80133168"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Use ioT Edge nas janelas para executar recipientes Linux
@@ -57,9 +57,9 @@ Pode ler mais sobre as diferentes opções e parâmetros de instalação no arti
 
 1. Se ainda não o fez, registe um novo dispositivo IoT Edge e recupere a cadeia de ligação do dispositivo. Copie a cadeia de ligação para utilizar mais tarde nesta secção. Pode completar este passo utilizando as seguintes ferramentas:
 
-   * [Portal Azure](how-to-register-device.md#register-in-the-azure-portal)
-   * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
-   * [Código de estúdio visual](how-to-register-device.md#register-with-visual-studio-code)
+   * [Portal do Azure](how-to-register-device.md#register-in-the-azure-portal)
+   * [CLI do Azure](how-to-register-device.md#register-with-the-azure-cli)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Execute o PowerShell como um administrador.
 
