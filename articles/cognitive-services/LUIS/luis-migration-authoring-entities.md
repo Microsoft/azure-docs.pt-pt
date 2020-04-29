@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: diberry
 ms.openlocfilehash: b5dbcd9033d9a41e43ea907d043e0c0486b236db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75563836"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migrar para a entidade autora da V3

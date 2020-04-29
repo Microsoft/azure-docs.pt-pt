@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 36071cdee25cfa99fc54b0e5c0c0aa822cb5fe2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68662840"
 ---
 # <a name="what-is-reinforcement-learning"></a>O que é a Aprendizagem de Reforço?
@@ -33,13 +33,13 @@ Embora existam muitos subtipos e estilos de aprendizagem de reforço, é assim q
 * A sua aplicação fornece informações sobre cada alternativa e o contexto do utilizador.
 * A sua aplicação calcula uma _pontuação de recompensa._
 
-Ao contrário de algumas abordagens para a aprendizagem de reforço, personalizer não requer uma simulação para trabalhar. Os seus algoritmos de aprendizagem são projetados para reagir a um mundo exterior (versus controlá-lo) e aprender a partir de cada ponto de dados com a compreensão de que é uma oportunidade única que custa tempo e dinheiro para criar, e que há um arrependimento não-zero (perda de recompensa possível) se desempenho sub-óptimo acontece.
+Ao contrário de algumas abordagens para a aprendizagem de reforço, personalizer não requer uma simulação para trabalhar. Os seus algoritmos de aprendizagem são projetados para reagir a um mundo exterior (versus controlá-lo) e aprender a partir de cada ponto de dados com a compreensão de que é uma oportunidade única que custa tempo e dinheiro para criar, e que há um arrependimento não-zero (perda de possível recompensa) se o desempenho sub-ideal acontecer.
 
 ## <a name="what-type-of-reinforcement-learning-algorithms-does-personalizer-use"></a>Que tipo de algoritmos de aprendizagem de reforço utiliza o Personalizer?
 
 A versão atual do Personalizer usa **bandidos contextuais,** uma abordagem à aprendizagem de reforço que é enquadrada em torno de tomar decisões ou escolhas entre ações discretas, num dado contexto.
 
-A _memória de decisão_, o modelo que foi treinado para capturar a melhor decisão possível, dado um contexto, utiliza um conjunto de modelos lineares. Estes têm mostrado repetidamente resultados de negócio e são uma abordagem comprovada, em parte porque podem aprender com o mundo real muito rapidamente sem precisar de formação multi-passe, e em parte porque podem complementar modelos de aprendizagem supervisionados e neurais profundos modelos de rede.
+A _memória de decisão_, o modelo que foi treinado para capturar a melhor decisão possível, dado um contexto, utiliza um conjunto de modelos lineares. Estes têm mostrado repetidamente resultados de negócio e são uma abordagem comprovada, em parte porque podem aprender com o mundo real muito rapidamente sem precisardede sondar multi-passes, e em parte porque podem complementar modelos de aprendizagem supervisionados e modelos de rede neural profunda.
 
 A alocação de tráfego de exploração/exploração é feita aleatoriamente seguindo a percentagem definida para a exploração, e o algoritmo padrão para exploração é epsilon-ganancioso.
 

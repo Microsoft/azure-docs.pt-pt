@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74806101"
 ---
-# <a name="evaluate-custom-speech-accuracy"></a>Avaliar a precisão da fala personalizada
+# <a name="evaluate-custom-speech-accuracy"></a>Avaliar a precisão da Voz Personalizada
 
 Neste documento, você aprenderá a medir quantitativamente a qualidade do modelo de discurso-texto da Microsoft ou do seu modelo personalizado. Os dados de transcrição audio + com etiqueta humana são necessários para testar a precisão, devendo ser fornecidos 30 minutos a 5 horas de áudio representativo.
 
@@ -62,7 +62,7 @@ Depois de o seu teste ter sido criado com sucesso, pode comparar os resultados l
 
 ## <a name="side-by-side-comparison"></a>Comparação lado a lado
 
-Uma vez concluído o teste, indicado pela alteração de estado para *Sucesso,* encontrará um número WER para ambos os modelos incluídos no seu teste. Clique no nome do teste para ver a página de detalhes de teste. Esta página de detalhes lista todas as expressões no seu conjunto de dados, indicando os resultados de reconhecimento dos dois modelos juntamente com a transcrição do conjunto de dados submetido. Para ajudar a inspecionar a comparação lado a lado, pode alternar vários tipos de erros, incluindo inserção, eliminação e substituição. Ao ouvir o áudio e comparar os resultados do reconhecimento em cada coluna, que mostra a transcrição com rótulo humano e os resultados de dois modelos de fala a texto, pode decidir qual o modelo que satisfaz as suas necessidades e onde estão formações e melhorias adicionais Necessário.
+Uma vez concluído o teste, indicado pela alteração de estado para *Sucesso,* encontrará um número WER para ambos os modelos incluídos no seu teste. Clique no nome do teste para ver a página de detalhes de teste. Esta página de detalhes lista todas as expressões no seu conjunto de dados, indicando os resultados de reconhecimento dos dois modelos juntamente com a transcrição do conjunto de dados submetido. Para ajudar a inspecionar a comparação lado a lado, pode alternar vários tipos de erros, incluindo inserção, eliminação e substituição. Ao ouvir o áudio e comparar os resultados do reconhecimento em cada coluna, que mostra a transcrição com rótulo humano e os resultados de dois modelos de fala a texto, pode decidir qual o modelo que satisfaz as suas necessidades e onde são necessários treinos e melhorias adicionais.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: diberry
 ms.openlocfilehash: 0b69c1fb070431ad61858322dce461f6496c35d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73490816"
 ---
 # <a name="exploration-and-exploitation"></a>Exploração e exploração

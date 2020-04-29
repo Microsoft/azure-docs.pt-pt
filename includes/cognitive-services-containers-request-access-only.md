@@ -5,10 +5,10 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 247cf2c76368572efd5603bd879d49a3d7365c78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67704266"
 ---
 O formulário solicita informações sobre si, a sua empresa e o cenário de utilizador para o qual utilizará o recipiente. Depois de ter enviado o formulário, a equipa do Serviço Cognitivo Azure revê-o para garantir que satisfaz os critérios de acesso ao registo de contentores privados.

@@ -12,10 +12,10 @@ ms.date: 11/08/2019
 ms.author: diberry
 ms.service: cognitive-services
 ms.openlocfilehash: 66a3350dee60772ce706af8995179dcd8c485b64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73904330"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicione intenção sintetmente para determinar a intenção do utilizador de declarações

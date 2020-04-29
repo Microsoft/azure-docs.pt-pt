@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 03/05/2020
 ms.openlocfilehash: 2504245a14eee5308e046148f8073cf34ffa8143
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79485989"
 ---
 1. [Crie um espaço de trabalho azure machine learning.](../articles/machine-learning/how-to-manage-workspace.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
 ms.openlocfilehash: d35c02386b7bcb18781dcbd8c209da43d590868c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76169514"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
@@ -55,7 +55,7 @@ Onde *{Os seus termos* de pesquisa} são as suas palavras-chave de pesquisa.
 
 Os clientes azure podem criar e gerir pedidos de apoio no portal Azure.
 
-* [Portal Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portal azure para o governo dos Estados Unidos](https://portal.azure.us)
 
 ## <a name="create-a-github-issue"></a>Criar um problema GitHub

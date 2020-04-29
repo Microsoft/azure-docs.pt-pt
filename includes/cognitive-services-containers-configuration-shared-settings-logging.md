@@ -5,10 +5,10 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 873fd8cbc211f098c93b8fb3fbe701e4a34d8487
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68320534"
 ---
 As `Logging` definições gerem ASP.NET suporte de registo core para o seu recipiente. Pode utilizar as mesmas definições e valores de configuração para o seu recipiente que utiliza para uma aplicação core ASP.NET. 
@@ -52,7 +52,7 @@ O `Disk` fornecedor de registo suporta as seguintes definições de configuraç�
 
 | Nome | Tipo de dados | Descrição |
 |------|-----------|-------------|
-| `Format` | Cadeia | O formato de saída para ficheiros de registo.<br/> **Nota:** Este valor deve `json` ser definido para permitir o prestador de registos. Se este valor for especificado sem especificar também um suporte de saída enquanto se instantaneamente um recipiente, ocorre um erro. |
+| `Format` | String | O formato de saída para ficheiros de registo.<br/> **Nota:** Este valor deve `json` ser definido para permitir o prestador de registos. Se este valor for especificado sem especificar também um suporte de saída enquanto se instantaneamente um recipiente, ocorre um erro. |
 | `MaxFileSize` | Número inteiro | O tamanho máximo, em megabytes (MB), de um ficheiro de registo. Quando o tamanho do ficheiro de registo atual se encontra ou excede este valor, um novo ficheiro de registo é iniciado pelo fornecedor de registo. Se -1 for especificado, o tamanho do ficheiro de registo é limitado apenas pelo tamanho máximo do ficheiro, se houver, para o suporte de saída. O valor predefinido é 1. |
 
 Para obter mais informações sobre a configuração ASP.NET suporte de registo core, consulte a configuração do [ficheiro Definições](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).

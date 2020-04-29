@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
 ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75531484"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizagem automática
@@ -25,7 +25,7 @@ Os Serviços Cognitivos fornecem capacidades de aprendizagem automática para re
 |Categoria de serviço|Objetivo|
 |--|--|
 |[Decisão](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crie aplicações que obtenham recomendações para assegurar uma tomada de decisões informada e eficiente.|
-|[Língua](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permita às suas aplicações processar linguagem natural com scripts pré-criados, avaliar sentimentos e aprender a reconhecer o que os utilizadores pretendem.|
+|[Idioma](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permita às suas aplicações processar linguagem natural com scripts pré-criados, avaliar sentimentos e aprender a reconhecer o que os utilizadores pretendem.|
 |[Procurar](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Adicione APIs da Pesquisa do Bing às suas aplicações e tire partida da capacidade de lidar com milhares de milhões de páginas Web, imagens, vídeos e notícias com uma única chamada à API.|
 |[Voz](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converta voz em texto e texto em voz natural. Traduza de um idioma para outro e ative o reconhecimento e a verificação de orador.|
 |[Visão](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Reconheça, identifique, legende, indexe e modere as suas imagens, vídeos e conteúdo com tinta digital.|
@@ -93,7 +93,7 @@ Os seguintes dados categorizam cada serviço pelo tipo de dados que permite ou e
 |--|--|--|--|
 |[Detetor de Anomalias](./Anomaly-Detector/overview.md)|x|x|x|
 |Pesquisa do Bing |x|||
-|[Visão Computorizada](./Computer-vision/Home.md)|x|||
+|[Imagem Digitalizada](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Visão Personalizada](./Custom-Vision-Service/home.md)||x||
 |[Rostos](./Face/Overview.md)|x|x||
@@ -106,7 +106,7 @@ Os seguintes dados categorizam cada serviço pelo tipo de dados que permite ou e
 |[Reconhecedor de Altifalantes](./speaker-recognition/home.md)||x||
 |[Texto-a-fala da fala (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Discurso-a-texto (STT)](speech-service/speech-to-text.md)|x|x||
-|[Tradução da Fala](speech-service/speech-translation.md)|x|||
+|[Tradução de Voz](speech-service/speech-translation.md)|x|||
 |[Análise de Texto](./text-analytics/overview.md)|x|||
 |[Texto do Tradutor](./translator/translator-info-overview.md)|x|||
 |[Texto tradutor - tradutor personalizado](./translator/custom-translator/overview.md)||x||

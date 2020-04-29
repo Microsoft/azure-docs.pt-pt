@@ -5,10 +5,10 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/5/2019
 ms.openlocfilehash: 993b0e8cc5b1ec482b2f6041dfc970dc7e7409dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68229339"
 ---
 Preencha e submeta o formulário de pedido de pedidos de formulário de pedidos de [informação](https://aka.ms/VisionContainersPreview) para solicitar o acesso ao recipiente. O formulário solicita informações sobre si, a sua empresa e o cenário de utilizador para o qual utilizará o recipiente. Depois de submeter o formulário, a equipa de Serviços Cognitivos Azure revê-o para se certificar de que satisfaz os critérios de acesso ao registo de contentores privados.

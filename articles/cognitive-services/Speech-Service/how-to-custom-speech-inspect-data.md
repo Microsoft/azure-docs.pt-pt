@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 60b415f69800885f37ee53cc4f090098f5ebf1f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74806084"
 ---
-# <a name="inspect-custom-speech-data"></a>Inspecione os dados da fala personalizada
+# <a name="inspect-custom-speech-data"></a>Inspecionar dados da Voz Personalizada
 
 > [!NOTE]
 > Esta página assume que leu os dados do [teste preparem os dados para a Fala Personalizada](how-to-custom-speech-test-data.md) e tenha enviado um conjunto de dados para inspeção.

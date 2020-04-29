@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: 4cd8d0901ce23fb227bb6919dee18f5aa3d063ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77088972"
 ---
 A versão 3 do API text analytics permite-lhe escolher a versão do modelo que é mais atual para os seus dados. Utilize o `model-version` parâmetro opcional para selecionar a versão do modelo que é desejada para os seus pedidos. Se este parâmetro não for especificado, a `latest`API não será a versão estável mais recente. Apesar de poder utilizar a versão mais recente do modelo em qualquer pedido, apenas algumas funcionalidades são atualizadas em cada versão. O quadro abaixo descreve quais as funcionalidades que foram atualizadas em cada versão do modelo:

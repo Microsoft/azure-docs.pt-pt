@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: db764a73aa1bb18ef2fc0f8f6e5ffe8fd60d388c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74075688"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência API v7 de pesquisa de negócios local Bing
@@ -73,14 +73,14 @@ O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna ne
   
 |Nome|Valor|Tipo|Necessário|  
 |----------|-----------|----------|--------------|
-|<a name="count" />count|O número de resultados a devolver, a `offset` começar pelo índice especificado pelo parâmetro.|Cadeia|Não|   
-|<a name="localCategories" />locaiSCategorias|Lista de opções que definem a pesquisa por categoria de negócio.  Ver pesquisa de [Categorias de Negócios Locais](local-categories.md)|Cadeia|Não|  
-|<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API local business search atualmente apenas suporta o mercado e a linguagem en-us.<br /><br />|Cadeia|Sim|
+|<a name="count" />contar|O número de resultados a devolver, a `offset` começar pelo índice especificado pelo parâmetro.|String|Não|   
+|<a name="localCategories" />locaiSCategorias|Lista de opções que definem a pesquisa por categoria de negócio.  Ver pesquisa de [Categorias de Negócios Locais](local-categories.md)|String|Não|  
+|<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API local business search atualmente apenas suporta o mercado e a linguagem en-us.<br /><br />|String|Sim|
 |<a name="offset"/>compensado|O índice para iniciar os `count` resultados especificados pelo parâmetro.|Número inteiro|Não|  
-|<a name="query" />q|O termo de pesquisa do utilizador.|Cadeia|Não|  
-|<a name="responseformat" />respostaForma|O tipo de mídia a utilizar para a resposta. Seguem-se os possíveis valores insensíveis aos casos.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> O padrão é JSON. Para obter informações sobre os objetos JSON que a resposta contém, consulte [Objetos de Resposta](#response-objects).<br /><br />  Se especificar jsonLd, o corpo de resposta inclui objetos JSON-LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON-LD](https://json-ld.org/).|Cadeia|Não|  
-|<a name="safesearch" />safeSearch|É um filtro utilizado para filtrar conteúdo para adultos. Os valores seguintes são os possíveis valores do filtro, não sensíveis a maiúsculas e minúsculas.<br /><ul><li>Off&mdash;Return webpages com texto adulto, imagens ou vídeos.<br /><br/></li><li>Páginas&mdash;web de Retorno Moderado com texto adulto, mas não imagens ou vídeos para adultos.<br /><br/></li><li>Strict&mdash;Não devolva páginas web com texto, imagens ou vídeos para adultos.</li></ul><br /> A predefinição é Moderado.<br /><br /> **NOTA:** Se o pedido vier de um mercado que `safeSearch` a política de bing para `safeSearch` adultos requer que é definido para Strict, Bing ignora o valor e usa Strict.<br/><br/>**NOTA:** se utilizar o operador de consulta `site:`, existe a possibilidade de a resposta poder conter conteúdos para adultos, independentemente da definição do parâmetro de consulta `safeSearch`. Utilize `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdos para adultos. |Cadeia|Não|  
-|<a name="setlang" />setLang|O idioma a utilizar nas cadeias da interface de utilizador. Especifique o idioma com o código de idioma ISO 639-1 de duas letras. Por exemplo, o código de idioma de inglês é EN. A predefinição é EN (inglês).<br /><br /> Embora seja opcional, deve indicar sempre o idioma. Normalmente, `setLang` é definido como o mesmo idioma especificado por `mkt`, a não ser que o utilizador queira que as cadeias da interface de utilizador sejam apresentadas noutro idioma.<br /><br /> Este parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Além disso, todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|Cadeia|Não| 
+|<a name="query" />q|O termo de pesquisa do utilizador.|String|Não|  
+|<a name="responseformat" />respostaForma|O tipo de mídia a utilizar para a resposta. Seguem-se os possíveis valores insensíveis aos casos.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> O padrão é JSON. Para obter informações sobre os objetos JSON que a resposta contém, consulte [Objetos de Resposta](#response-objects).<br /><br />  Se especificar jsonLd, o corpo de resposta inclui objetos JSON-LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON-LD](https://json-ld.org/).|String|Não|  
+|<a name="safesearch" />safeSearch|É um filtro utilizado para filtrar conteúdo para adultos. Os valores seguintes são os possíveis valores do filtro, não sensíveis a maiúsculas e minúsculas.<br /><ul><li>Off&mdash;Return webpages com texto adulto, imagens ou vídeos.<br /><br/></li><li>Páginas&mdash;web de Retorno Moderado com texto adulto, mas não imagens ou vídeos para adultos.<br /><br/></li><li>Strict&mdash;Não devolva páginas web com texto, imagens ou vídeos para adultos.</li></ul><br /> A predefinição é Moderado.<br /><br /> **NOTA:** Se o pedido vier de um mercado que `safeSearch` a política de bing para `safeSearch` adultos requer que é definido para Strict, Bing ignora o valor e usa Strict.<br/><br/>**NOTA:** se utilizar o operador de consulta `site:`, existe a possibilidade de a resposta poder conter conteúdos para adultos, independentemente da definição do parâmetro de consulta `safeSearch`. Utilize `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdos para adultos. |String|Não|  
+|<a name="setlang" />setLang|O idioma a utilizar nas cadeias da interface de utilizador. Especifique o idioma com o código de idioma ISO 639-1 de duas letras. Por exemplo, o código de idioma de inglês é EN. A predefinição é EN (inglês).<br /><br /> Embora seja opcional, deve indicar sempre o idioma. Normalmente, `setLang` é definido como o mesmo idioma especificado por `mkt`, a não ser que o utilizador queira que as cadeias da interface de utilizador sejam apresentadas noutro idioma.<br /><br /> Este parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Além disso, todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|String|Não| 
 
 
 ## <a name="response-objects"></a>Objetos de resposta  
@@ -97,12 +97,12 @@ Define o erro que ocorreu.
   
 |Elemento|Descrição|Tipo|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />código|O código de erro que identifica a categoria de erro. Para obter uma lista de códigos possíveis, consulte [Códigos](#error-codes)de Erro .|Cadeia|  
-|<a name="error-message" />Mensagem|Descrição do erro.|Cadeia|  
-|<a name="error-moredetails" />maisDetalhes|Uma descrição que fornece informações adicionais sobre o erro.|Cadeia|  
-|<a name="error-parameter" />parâmetro|O parâmetro de consulta no pedido que causou o erro.|Cadeia|  
-|<a name="error-subcode" />subCódigo|O código de erro que identifica o erro. Por exemplo, `code` se for `subCode` InvalidRequest, pode ser ParameterInvalid ou ParameterInvalidValue. |Cadeia|  
-|<a name="error-value" />valor|O valor do parâmetro de consulta que não era válido.|Cadeia|  
+|<a name="error-code" />código|O código de erro que identifica a categoria de erro. Para obter uma lista de códigos possíveis, consulte [Códigos](#error-codes)de Erro .|String|  
+|<a name="error-message" />Mensagem|Descrição do erro.|String|  
+|<a name="error-moredetails" />maisDetalhes|Uma descrição que fornece informações adicionais sobre o erro.|String|  
+|<a name="error-parameter" />parâmetro|O parâmetro de consulta no pedido que causou o erro.|String|  
+|<a name="error-subcode" />subCódigo|O código de erro que identifica o erro. Por exemplo, `code` se for `subCode` InvalidRequest, pode ser ParameterInvalid ou ParameterInvalidValue. |String|  
+|<a name="error-value" />valor|O valor do parâmetro de consulta que não era válido.|String|  
   
 
 ### <a name="errorresponse"></a>Resposta de erro  
@@ -110,7 +110,7 @@ O objeto de alto nível que a resposta inclui quando o pedido falha.
   
 |Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|_type|Digite a dica.|Cadeia|  
+|_type|Digite a dica.|String|  
 |<a name="errors" />erros|Uma lista de erros que descrevem as razões pelas quais o pedido falhou.|[Erro](#error)[]|  
 
   
@@ -120,8 +120,8 @@ Define a licença sob a qual o texto ou a foto podem ser utilizados.
   
 |Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|nome|O nome da licença.|Cadeia|  
-|url|O URL para um site onde o utilizador pode obter mais informações sobre a licença.<br /><br /> Use o nome e o URL para criar uma hiperligação.|Cadeia|  
+|nome|O nome da licença.|String|  
+|url|O URL para um site onde o utilizador pode obter mais informações sobre a licença.<br /><br /> Use o nome e o URL para criar uma hiperligação.|String|  
 
 
 ### <a name="link"></a>Ligação  
@@ -129,9 +129,9 @@ Define os componentes de uma hiperligação.
   
 |Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|_type|Digite a dica.|Cadeia|  
-|texto|O texto do visor.|Cadeia|  
-|url|Uma URL. Utilize o URL e o texto de visualização para criar uma hiperligação.|Cadeia|  
+|_type|Digite a dica.|String|  
+|texto|O texto do visor.|String|  
+|url|Uma URL. Utilize o URL e o texto de visualização para criar uma hiperligação.|String|  
   
 
 
@@ -143,8 +143,8 @@ Note que um editor pode fornecer o seu nome ou o seu website ou ambos.
   
 |Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|nome|O nome da editora.|Cadeia|  
-|url|O URL para o site da editora.<br /><br /> Note que a editora pode não fornecer um website.|Cadeia|  
+|nome|O nome da editora.|String|  
+|url|O URL para o site da editora.<br /><br /> Note que a editora pode não fornecer um website.|String|  
   
   
 
@@ -153,13 +153,13 @@ Define informações sobre um negócio local, como um restaurante ou hotel.
   
 |Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|_type|Digite a sugestão, que pode ser definida para uma das seguintes:<br /><br /><ul><li>Hotel</li><li>Negócios Locais<br /></li><li>Restaurante</ul><li>|Cadeia|  
+|_type|Digite a sugestão, que pode ser definida para uma das seguintes:<br /><br /><ul><li>Hotel</li><li>Negócios Locais<br /></li><li>Restaurante</ul><li>|String|  
 |address|O endereço postal de onde a entidade está localizada.|Endereço Postal|  
 |entidadePresentationInfo|Informações adicionais sobre a entidade, tais como sugestões que pode utilizar para determinar o tipo da entidade. Por exemplo, seja um restaurante ou hotel. O `entityScenario` campo está definido para listitem.|EntidadeApresentaçãoInfo|  
-|nome|O nome da entidade.|Cadeia|  
-|telefone|O número de telefone da entidade.|Cadeia|  
-|url|O URL para o site da entidade.<br /><br /> Utilize este URL juntamente com o nome da entidade para criar uma hiperligação que, quando clicada, leva o utilizador ao website da entidade.|Cadeia|  
-|webSearchUrl|O URL para o resultado de pesquisa de Bing para este lugar.|Cadeia| 
+|nome|O nome da entidade.|String|  
+|telefone|O número de telefone da entidade.|String|  
+|url|O URL para o site da entidade.<br /><br /> Utilize este URL juntamente com o nome da entidade para criar uma hiperligação que, quando clicada, leva o utilizador ao website da entidade.|String|  
+|webSearchUrl|O URL para o resultado de pesquisa de Bing para este lugar.|String| 
   
   
 ### <a name="querycontext"></a>Contexto de consulta  
@@ -168,16 +168,16 @@ Define o contexto de consulta que Bing usou para o pedido.
 |Elemento|Descrição|Tipo|  
 |-------------|-----------------|----------|  
 |adultintent|Um valor booleano que indica se a consulta especificada tem intenção adulta. O valor é **verdadeiro** se a consulta tiver intenção adulta; caso contrário, **falso.**|Booleano|  
-|alteraçãoOverrideQuery|A corda de consulta para usar para forçar Bing a usar a corda original. Por exemplo, se a corda de consulta estiver *a abrandar,* a corda de sobreposição será *+saling downwind*. Lembre-se de codificar a corda de consulta que resulta em *%2Bsaling+downwind*.<br /><br /> Este campo só está incluído se a cadeia de consulta original contiver um erro ortográfico.|Cadeia|  
-|alteradoQuery|A corda de consulta usada por Bing para realizar a consulta. Bing usa a corda de consulta alterada se a corda de consulta original contivesse erros ortográficos. Por exemplo, se a `saling downwind`corda de consulta for, `sailing downwind`a corda de consulta alterada será .<br /><br /> Este campo só está incluído se a cadeia de consulta original contiver um erro ortográfico.|Cadeia|  
+|alteraçãoOverrideQuery|A corda de consulta para usar para forçar Bing a usar a corda original. Por exemplo, se a corda de consulta estiver *a abrandar,* a corda de sobreposição será *+saling downwind*. Lembre-se de codificar a corda de consulta que resulta em *%2Bsaling+downwind*.<br /><br /> Este campo só está incluído se a cadeia de consulta original contiver um erro ortográfico.|String|  
+|alteradoQuery|A corda de consulta usada por Bing para realizar a consulta. Bing usa a corda de consulta alterada se a corda de consulta original contivesse erros ortográficos. Por exemplo, se a `saling downwind`corda de consulta for, `sailing downwind`a corda de consulta alterada será .<br /><br /> Este campo só está incluído se a cadeia de consulta original contiver um erro ortográfico.|String|  
 |askUserForLocation|Um valor booleano que indica se bing requer a localização do utilizador para fornecer resultados precisos. Se especificou a localização do utilizador utilizando os cabeçalhos [X-MSEdge-ClientIP](#clientip) e [X-Search-Location,](#location) pode ignorar este campo.<br /><br /> Para consultas conscientes de localização, como "o tempo de hoje" ou "restaurantes perto de mim" que precisam da localização do utilizador para fornecer resultados precisos, este campo está definido para **verdade.**<br /><br /> Para consultas conscientes de localização que incluem a localização (por exemplo, "Seattle weather"), este campo está definido como **falso**. Este campo também está definido como **falso** para consultas que não são conscientes da localização, como "best sellers".|Booleano|  
-|originalQuery|A corda de consulta, conforme especificado no pedido.|Cadeia|  
+|originalQuery|A corda de consulta, conforme especificado no pedido.|String|  
 
 ### <a name="identifiable"></a>Identificável
 
 |Nome|Valor|Tipo|  
 |-------------|-----------------|----------|
-|ID|Um identificador de recursos|Cadeia|
+|ID|Um identificador de recursos|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define um grupo de resultados de pesquisa, como o mainline.
@@ -192,7 +192,7 @@ Define um item de resultado de pesquisa para exibir.
 |Nome|Valor|Tipo|  
 |-------------|-----------------|----------|
 |resultadoÍndice|Um índice de base zero do item na resposta a exibir. Se o item não incluir este campo, exiba todos os itens na resposta. Por exemplo, exibir todos os artigos noticiosos na resposta do Notícias.|Número inteiro|
-|respostaTipo|A resposta que contém o item a exibir. Por exemplo, Notícias.<br /><br />Utilize o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo SearchResponse.<br /><br /> No entanto, utilize o tipo de resposta apenas se este objeto incluir o campo de valor; caso contrário, ignorá-lo.|Cadeia|
+|respostaTipo|A resposta que contém o item a exibir. Por exemplo, Notícias.<br /><br />Utilize o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo SearchResponse.<br /><br /> No entanto, utilize o tipo de resposta apenas se este objeto incluir o campo de valor; caso contrário, ignorá-lo.|String|
 |textualIndex|O índice da resposta em textualAnswers para exibir.| Inteiro não assinado|
 |valor|O ID que identifica uma resposta para exibir ou um item de uma resposta para exibir. Se o ID identificar uma resposta, exiba todos os itens da resposta.|Identificável|
 
@@ -212,7 +212,7 @@ Note que se o serviço suspeitar de um ataque de negação de serviço, o pedido
   
 |Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|_type|Digite a dica, que está definida para SearchResponse.|Cadeia|  
+|_type|Digite a dica, que está definida para SearchResponse.|String|  
 |lugares|Uma lista de entidades relevantes para a consulta de pesquisa.|Objeto JSON|  
 |consultaContexto|Um objeto que contém a corda de consulta que Bing usou para o pedido.<br /><br /> Este objeto contém a corda de consulta tal como introduzida pelo utilizador. Também pode conter uma corda de consulta alterada que Bing usou para a consulta se a corda de consulta continha um erro ortográfico.|[Contexto de consulta](#querycontext)|  
 

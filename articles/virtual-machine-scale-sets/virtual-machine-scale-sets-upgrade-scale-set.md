@@ -8,11 +8,11 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mimckitt
-ms.openlocfilehash: 66fd656b5175547641150a048e57c978dc06d291
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af5998a4207521d49ea4fd7956256aa6c880e6e9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476829"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
@@ -342,7 +342,6 @@ Algumas propriedades só podem ser definidas quando se cria o conjunto de escala
 - Zonas de Disponibilidade
 - Editor de referência de imagem
 - Oferta de referência de imagem
-- Sku de referência de imagem
 - Tipo de conta de armazenamento de disco os gerido
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Propriedades que só podem ser alteradas com base no valor atual

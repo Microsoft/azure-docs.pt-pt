@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77137759"
 ---
-# <a name="train-a-model-for-custom-speech"></a>Treine um modelo para discurso personalizado
+# <a name="train-a-model-for-custom-speech"></a>Preparar um modelo para Voz Personalizada
 
 Treinar um modelo de fala-a-texto pode melhorar a precisão de reconhecimento para o modelo de base da Microsoft. Um modelo é treinado usando transcrições com rótulo humano e texto relacionado. Estes conjuntos de dados, juntamente com dados áudio previamente carregados, são usados para refinar e treinar o modelo de fala-a-texto para reconhecer palavras, frases, siglas, nomes e outros termos específicos do produto. Quanto mais conjuntos de dados no domínio fornecer (dados relacionados com o que os utilizadores vão dizer e o que espera reconhecer), mais preciso será o seu modelo, o que resulta num melhor reconhecimento. Tenha em mente que, ao alimentar dados não relacionados no seu treino, pode reduzir ou ferir a precisão do seu modelo.
 

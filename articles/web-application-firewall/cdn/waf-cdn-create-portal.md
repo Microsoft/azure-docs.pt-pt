@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/18/2020
 ms.author: victorh
 ms.openlocfilehash: 738be1361bfbd944575abceb08781b241336f6e8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79485595"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Tutorial: Criar uma política waf no Azure CDN usando o portal Azure

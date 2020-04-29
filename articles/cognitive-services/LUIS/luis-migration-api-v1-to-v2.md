@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 2f67bf0951ef8928297c71e8fc9f924cf05c63f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68932681"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 para v2 Guia de migração para apps LUIS

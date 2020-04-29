@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77026154"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Características são informações sobre ações e contexto
@@ -157,7 +157,7 @@ Você pode usar vários outros [Serviços Cognitivos Azure,](https://www.microso
 * [Ligar à Entidade](../entitylinking/home.md)
 * [Análise de Texto](../text-analytics/overview.md)
 * [Emoções](../emotion/home.md)
-* [Visão Computorizada](../computer-vision/home.md)
+* [Imagem Digitalizada](../computer-vision/home.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>As ações representam uma lista de opções
 
@@ -172,7 +172,7 @@ Cada ação:
 
 Os algoritmos de aprendizagem automática do Personalizer terão um melhor desempenho quando houver conjuntos de funcionalidades estáveis, mas as chamadas rank não falharão se o conjunto de funcionalidades mudar ao longo do tempo.
 
-Não envie mais de 50 ações quando as ações do Ranking. Estas podem ser as mesmas 50 ações todas as vezes, ou podem mudar. Por exemplo, se tiver um catálogo de produtos de 10.000 itens para uma aplicação de e-commerce, poderá utilizar uma recomendação ou motor de filtragem para determinar o top 40 que um cliente pode gostar, e usar o Personalizer para encontrar o que irá gerar mais recompensa (por exemplo , o utilizador irá adicionar ao cesto) para o contexto atual.
+Não envie mais de 50 ações quando as ações do Ranking. Estas podem ser as mesmas 50 ações todas as vezes, ou podem mudar. Por exemplo, se tiver um catálogo de produtos de 10.000 itens para uma aplicação de e-commerce, poderá utilizar uma recomendação ou motor de filtragem para determinar o top 40 que um cliente pode gostar, e usar o Personalizer para encontrar o que irá gerar mais recompensa (por exemplo, o utilizador irá adicionar ao cabaz) para o contexto atual.
 
 
 ### <a name="examples-of-actions"></a>Exemplos de ações

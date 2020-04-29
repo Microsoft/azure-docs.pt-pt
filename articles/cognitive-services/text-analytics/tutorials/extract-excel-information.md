@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
 ms.openlocfilehash: fd70fe14d3765fb7c21b92f62b4d73564176baa2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78201190"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extrair informações em Excel usando Análise de Texto e Automatização de Energia 
@@ -78,10 +78,10 @@ Adicione as seguintes informações às variáveis que criou. Representam as col
 
 | Ação |Nome   | Tipo | Valor |
 |---------|---------|---|---|
-| Inicializar variável | var_person | Cadeia | Pessoa |
-| Inicializar variável 2 | var_phone | Cadeia | Phone_Number |
-| Inicializar variável 3 | var_plumbing | Cadeia | canalização |
-| Inicializar a variável 4 | var_other | Cadeia | outro | 
+| Inicializar variável | var_person | String | Pessoa |
+| Inicializar variável 2 | var_phone | String | Phone_Number |
+| Inicializar variável 3 | var_plumbing | String | canalização |
+| Inicializar a variável 4 | var_other | String | outro | 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="informação contida nas variáveis de fluxo":::

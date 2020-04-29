@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 768c719211e8a8f2133d3798343d076e795a3da0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273425"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída personname para uma aplicação LUIS

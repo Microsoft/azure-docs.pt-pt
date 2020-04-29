@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: diberry
 ms.openlocfilehash: f8ceef5e80bf15f0ba52a9c289e617018febfb5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77623593"
 ---
 # <a name="offline-evaluation"></a>Avaliação offline
@@ -68,7 +68,7 @@ Quando se faz uma avaliação offline, é muito importante analisar os limites d
 
 As avaliações offline são feitas utilizando um método chamado **Avaliação Contrafactual**.
 
-O personalizer baseia-se no pressuposto de que o comportamento dos utilizadores (e, portanto, recompensas) são impossíveis de prever retrospetivamente (Personalizer não pode saber o que teria acontecido se o utilizador tivesse mostrado algo diferente do que viu), e apenas para aprender com recompensas medidas.
+O personalizer baseia-se no pressuposto de que o comportamento dos utilizadores (e, portanto, recompensas) são impossíveis de prever retrospetivamente (o Personalizer não pode saber o que teria acontecido se o utilizador tivesse mostrado algo diferente do que viu), e apenas para aprender com recompensas medidas.
 
 Este é o processo conceptual utilizado para avaliações:
 

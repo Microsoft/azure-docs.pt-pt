@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
 ms.openlocfilehash: 71ad7c5dd3ad74082da552cd3c45142bc0c2d624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75380631"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Construa um conjunto de dados de treino para um modelo personalizado

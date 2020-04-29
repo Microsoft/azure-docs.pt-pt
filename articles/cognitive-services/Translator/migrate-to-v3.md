@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: eb43d549d3e0cd449c865d533fc8701c4c3912fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73837317"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Texto tradutor API V2 para Migração V3
@@ -45,8 +45,8 @@ A seguinte lista de métodos V2 e V3 identifica os métodos V3 e APIs que fornec
 |:----------- |:-------------|
 | `Translate`     | [Traduzir](reference/v3-0-translate.md)          |
 | `TranslateArray`      | [Traduzir](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [Idiomas](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [Idiomas](reference/v3-0-languages.md)       |
+| `GetLanguageNames`      | [Linguagens](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Linguagens](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Serviço de Discurso da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | `Speak`     | [Serviço de Discurso da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
 | `Detect`     | [Detetar](reference/v3-0-detect.md)         |

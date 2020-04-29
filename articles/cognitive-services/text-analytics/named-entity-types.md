@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: 164e803a6af8a7d1ccdc9c70cc3e42b787857b3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77086916"
 ---
 # <a name="supported-types-for-named-entity-recognition-version-3-preview"></a>Tipos suportados para versão 3 de reconhecimento de entidades nomeadas (pré-visualização)
 
 A API text analytics fornece a capacidade de identificar e desambiguar entidades encontradas em texto. [Denominada Reconhecimento](how-tos/text-analytics-how-to-entity-linking.md) de Entidades (NER) é a capacidade de identificar diferentes entidades em texto e categorizá-las em classes pré-definidas.
 
-## <a name="entity-types"></a>Tipos de entidades
+## <a name="entity-types"></a>Tipos de entidade
 
 Os tipos e subtipos de entidades suportadas (se aplicável) estão listados abaixo:
 

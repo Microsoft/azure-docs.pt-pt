@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
 ms.openlocfilehash: 7070cb3bcd1b519828a750cf4ba6caf7ecb34bbb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76169881"
 ---
 # <a name="get-face-detection-data"></a>Obtenha dados de deteção facial

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: d959f4948d6b848f3b399c1310add06991d72012
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74806325"
 ---
 # <a name="speech-service-for-telephony-data"></a>Serviço de fala para dados de telefonia
@@ -64,7 +64,7 @@ Algumas empresas estão a experimentar fornecer transcrições traduzidas de cha
 
 ### <a name="text-to-speech"></a>Conversão de Texto em Voz
 
-[O texto-a-falar](text-to-speech.md) é outra área importante na implementação de bots que interagem com os clientes. O caminho típico é que o cliente fala, a sua voz é transcrita para texto, o texto é analisado para intenções, uma resposta é sintetizada com base na intenção reconhecida, e então um ativo é emergido ao cliente ou uma resposta de voz sintetizada é gerado. É claro que tudo isto tem de ocorrer rapidamente – por isso a baixa latência é uma componente importante no sucesso destes sistemas.
+[O texto-a-falar](text-to-speech.md) é outra área importante na implementação de bots que interagem com os clientes. O caminho típico é que o cliente fala, a sua voz é transcrita para texto, o texto é analisado para intenções, uma resposta é sintetizada com base na intenção reconhecida, e então um ativo é surgido para o cliente ou uma resposta de voz sintetizada é gerada. É claro que tudo isto tem de ocorrer rapidamente – por isso a baixa latência é uma componente importante no sucesso destes sistemas.
 
 A nossa latência de ponta a ponta é consideravelmente baixa para as várias tecnologias envolvidas, tais como [o Discurso-a-texto,](speech-to-text.md) [LUIS,](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) [Bot Framework](https://dev.botframework.com/), [Texto-a-discurso.](text-to-speech.md)
 
@@ -101,7 +101,7 @@ Internamente estamos a usar as tecnologias acima para suportar as chamadas de cl
 
 ## <a name="real-time-transcription-for-call-center-data"></a>Transcrição em tempo real para dados de call center
 
-Algumas empresas são obrigadas a transcrever conversas em tempo real. A transcrição em tempo real pode ser usada para identificar palavras-chave e desencadear pesquisas de conteúdos e recursos relevantes para a conversa, para monitorizar o sentimento, para melhorar a acessibilidade, ou para fornecer traduções para clientes e agentes que não são nativos falantes.
+Algumas empresas são obrigadas a transcrever conversas em tempo real. A transcrição em tempo real pode ser usada para identificar palavras-chave e desencadear pesquisas de conteúdos e recursos relevantes para a conversa, para monitorizar o sentimento, para melhorar a acessibilidade, ou para fornecer traduções para clientes e agentes que não são falantes nativos.
 
 Para cenários que requerem transcrição em tempo real, recomendamos a utilização do [SDK](speech-sdk.md)do Discurso . Atualmente, o discurso-a-texto está disponível em mais de [20 idiomas](language-support.md), e o SDK está disponível em C++, C#, Java, Python, Node.js, Objective-C e JavaScript. As amostras estão disponíveis em cada idioma no [GitHub.](https://github.com/Azure-Samples/cognitive-services-speech-sdk) Para obter as últimas novidades e atualizações, consulte [as notas de lançamento.](releasenotes.md)
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
 ms.openlocfilehash: cf6e4e4f0bfab43fb738f8415022e55fcbcbd05a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76156459"
 ---
 # <a name="how-to-add-validations-to-custom-command-parameters-preview"></a>Como: Adicionar validações aos parâmetros de comando personalizados (Pré-visualização)

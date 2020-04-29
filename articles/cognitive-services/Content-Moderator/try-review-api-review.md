@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
 ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72757146"
 ---
 # <a name="create-human-reviews-rest"></a>Criar avaliações humanas (REST)
@@ -186,7 +186,7 @@ Selecione **Enviar**. Se a operação for bem `200 OK`sucedida, o estado **respo
 
 Tome nota dos seguintes campos na resposta:
 
-- **status**
+- **estado**
 - **revisorResultTags**: Isto aparece se alguma tag tiver sido adicionada manualmente pela equipa de revisão humana (mostrada o campo **criadoPor).**
 - **metadados**: Isto mostra as etiquetas que foram inicialmente adicionadas na revisão, antes da equipa de revisão humana fazer alterações.
 

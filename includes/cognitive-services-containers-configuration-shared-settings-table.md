@@ -5,10 +5,10 @@ ms.date: 10/02/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 7ccbc6c06419d22add7c52829069bb858cb35cf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73484098"
 ---
 O recipiente tem as seguintes definições de configuração:
@@ -21,5 +21,5 @@ O recipiente tem as seguintes definições de configuração:
 |Sim|[Eula](#eula-setting)| Indica que aceitou a licença para o contentor.|
 |Não|[Fluente](#fluentd-settings)|Escreve registo e, opcionalmente, dados métricos para um servidor Fluente.|
 |Não|HTTP Proxy|Configura um proxy HTTP para fazer pedidos de saída.|
-|Não|[Exploração madeireira](#logging-settings)|Fornece ASP.NET suporte de exploração madeireira Core para o seu recipiente. |
+|Não|[Registo](#logging-settings)|Fornece ASP.NET suporte de exploração madeireira Core para o seu recipiente. |
 |Não|[Montes](#mount-settings)|Lê e escreve dados do computador hospedeiro para o recipiente e do recipiente de volta para o computador hospedeiro.|

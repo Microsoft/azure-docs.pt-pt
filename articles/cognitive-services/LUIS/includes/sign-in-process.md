@@ -11,10 +11,10 @@ ms.date: 02/14/2020
 ms.topic: include
 ms.author: diberry
 ms.openlocfilehash: 155c88ec4766391f70701b17038b915c399d8b0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77371839"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Inscreva-se no portal LUIS
@@ -40,7 +40,7 @@ Um novo utilizador da LUIS precisa seguir este procedimento:
     * **Localização** - a escolha da localização baseia-se na seleção do **grupo de recursos.**
     * **Nível** de preços - o nível de preços determina a transação máxima por segundo e mês.
 
-1. É apresentado um resumo do recurso a criar. Selecione **Next**.
+1. É apresentado um resumo do recurso a criar. Selecione **Seguinte**.
 
     ![Criar recurso de autoria](../media/sign-in/sign-in-confirm-key-selection.png)
 

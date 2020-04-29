@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/30/2019
 ms.author: wolfma
 ms.openlocfilehash: c7332177795a45331749225e0f3dc3856e28a6a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71327038"
 ---
 Para criar um projeto de Estúdio Visual para o desenvolvimento do Windows, é necessário criar o projeto, configurar o Visual Studio para o desenvolvimento do ambiente de trabalho .NET, instalar o Speech SDK e escolher a arquitetura-alvo.

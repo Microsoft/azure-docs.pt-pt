@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: diberry
 ms.openlocfilehash: f292fe5d658133c670c2813f2133492663493257
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74383667"
 ---
 Para tirar partido de [conceitos descomponsáveis,](../luis-concept-model.md#v3-authoring-model-decomposition)comece pela entidade aprendida pela máquina. Siga o tutorial da [entidade aprendida](../tutorial-machine-learned-entity.md) pela máquina para dar passos sobre como criar este tipo de entidade, incluindo exemplos de:
