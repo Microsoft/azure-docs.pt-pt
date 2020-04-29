@@ -1,15 +1,15 @@
 ---
-title: Render um modelo com Unidade
+title: Compor um modelo com o Unity
 description: Quickstart que guia o utilizador através dos passos para renderizar um modelo
 author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
 ms.openlocfilehash: b0af45ba4a6b1ca7f9e751af082ff0db80776ec0
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679787"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Quickstart: Render um modelo com Unidade

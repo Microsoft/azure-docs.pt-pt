@@ -4,10 +4,10 @@ description: Neste arranque rápido, você usa o portal Azure para criar uma atr
 ms.date: 03/24/2020
 ms.topic: quickstart
 ms.openlocfilehash: 3a514478f3cefa49c37c3431a80b578dff480584
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80240012"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Quickstart: Criar uma atribuição de políticas para identificar recursos não conformes

@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: 694d2ae529202223869fcbb2a084e32bccaedbf1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77660228"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Quickstart: Comece a monitorizar a sua aplicação Web Node.js com insights de aplicação Azure
@@ -29,7 +29,7 @@ Com o Azure Application Insights, pode monitorizar facilmente a sua aplicação 
 
 Os Insights de Aplicação podem recolher dados de telemetria de qualquer aplicação ligada à Internet, quer esteja ou não a funcionar no local ou na nuvem. Utilize os passos seguintes para começar a ver estes dados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione **Criar um programador de recursos** > **Ferramentas** > **De aplicação Insights**.
 

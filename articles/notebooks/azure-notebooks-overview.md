@@ -4,10 +4,10 @@ description: Executar os cadernos Jupyter na nuvem utilizando o serviço gratuit
 ms.topic: overview
 ms.date: 04/05/2019
 ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75646335"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Visão geral da pré-visualização dos cadernos azure
@@ -16,7 +16,7 @@ O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e e
 
 [![Exemplos de cadernos Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
-Devido a esta poderosa combinação de código, gráficos e texto explicativo, Jupyter tornou-se popular para muitos usos, incluindo instrução de ciência de dados, limpeza e transformação de dados, simulação numérica, modelação estatística, e o desenvolvimento de modelos de aprendizagem automática.
+Devido a esta poderosa combinação de código, gráficos e texto explicativo, jupyter tornou-se popular para muitos usos, incluindo instrução de ciência de dados, limpeza e transformação de dados, simulação numérica, modelação estatística e desenvolvimento de modelos de aprendizagem automática.
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 

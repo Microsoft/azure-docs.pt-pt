@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
 ms.openlocfilehash: f515d3ad832db7f78f98111ab67628a2874033ff
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81459139"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
@@ -423,7 +423,7 @@ Seguem-se os códigos de erros comuns a procurar quando a encriptação BYOK est
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 - [Descrição geral dos Event Hubs](event-hubs-about.md)
-- [Visão geral do cofre da chave](../key-vault/general/overview.md)
+- [Descrição geral do Key Vault](../key-vault/general/overview.md)
 
 
 

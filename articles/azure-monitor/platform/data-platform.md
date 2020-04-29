@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457268"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados Azure Monitor
@@ -67,7 +67,7 @@ A tabela seguinte compara métricas e registos no Monitor Azure.
 
 | Atributo  | Métricas | Registos |
 |:---|:---|:---|
-| Vantagens | Leve e capaz de cenários quase em tempo real, como alertar. Ideal para deteção rápida de problemas. | Analisado com linguagem de consulta rica. Ideal para análise profunda e identificação de causa raiz. |
+| Benefícios | Leve e capaz de cenários quase em tempo real, como alertar. Ideal para deteção rápida de problemas. | Analisado com linguagem de consulta rica. Ideal para análise profunda e identificação de causa raiz. |
 | Dados | Apenas valores numéricos | Texto ou dados numéricos |
 | Estrutura | Conjunto padrão de propriedades, incluindo tempo de amostra, recurso a ser monitorizado, um valor numérico. Algumas métricas incluem múltiplas dimensões para mais definição. | Conjunto único de propriedades dependendo do tipo de log. |
 | Coleção | Recolhidos em intervalos regulares. | Pode ser recolhido esporadicamente à medida que os eventos desencadeiam um registo a ser criado. |

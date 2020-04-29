@@ -7,10 +7,10 @@ description: Este quickstart mostra-lhe como fazer o desenvolvimento da equipa K
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: 0fe177db420913e5d68807dd803df791653c0914
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78244945"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Quickstart: Desenvolvimento de equipa em Kubernetes - Espaços Azure Dev

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
 ms.openlocfilehash: ebbdda39f019f374f8e5abe951d0180c0dd453f6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457880"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Gateway de Aplicação
@@ -34,7 +34,7 @@ Application Gateway fornece várias métricas de tempo incorporadas relacionadas
 
   Tempo gasto a estabelecer uma ligação com o pedido de backend. 
 
-  Isto inclui a latência da rede, bem como o tempo devida pela pilha de TCP do servidor de backend para estabelecer novas ligações. No caso de TLS, também inclui o tempo gasto em aperto de mão. 
+  Isto inclui a latência da rede, bem como o tempo devida pela pilha de TCP do servidor de backend para estabelecer novas ligações. No caso de TLS, inclui também o tempo decorrido no handshake. 
 
 - **Apoiar primeiro tempo de resposta byte**
 
@@ -46,7 +46,7 @@ Application Gateway fornece várias métricas de tempo incorporadas relacionadas
 
   Intervalo de tempo entre o início do estabelecimento de uma ligação ao servidor de backend e receber o último byte do corpo de resposta. 
 
-  Isto aproxima-se da soma do tempo de resposta do *backend first byte* e do tempo de transferência de dados (este número pode variar muito dependendo do tamanho dos objetos solicitados e da latência da rede do servidor).
+  Isto aproxima a soma do *Tempo de resposta do primeiro byte de back-end* e do tempo de transferência de dados (este número pode variar significativamente consoante o tamanho dos objetos pedidos e a latência da rede do servidor).
 
 - **Tempo total de gateway de aplicação**
 
@@ -84,29 +84,29 @@ Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
    Contagem de TLS e pedidos não-TLS iniciados pelo cliente que estabeleceu a ligação com o Gateway de Aplicação. Para ver a distribuição do protocolo TLS, filtre pela dimensão do Protocolo TLS.
 
-- **Unidades de capacidade atual**
+- **Unidades de capacidade atuais**
 
-   Contagem de unidades de capacidade consumidas para carregar equilibram o tráfego. Existem três determinantes para a unidade de capacidade - unidade de computação, ligações persistentes e entrada. Cada unidade de capacidade é composta no máximo por: 1 unidade de cálculo, ou 2500 ligações persistentes, ou 2,22 Mbps de potência.
+   Contagem de unidades de capacidade consumidas para realizar o balanceamento de carga do tráfego. Existem três determinantes para a unidade de capacidade - unidade de computação, ligações persistentes e entrada. Cada unidade de capacidade é composta no máximo por: 1 unidade de cálculo, ou 2500 ligações persistentes, ou 2,22 Mbps de potência.
 
 - **Unidades de computação atuais**
 
-   Contagem da capacidade do processador consumida. Os fatores que afetam a unidade computacional são ligações TLS/seg, computações de reescrita de URL e processamento de regras WAF. 
+   Contagem da capacidade do processador consumida. Os fatores que afetam a unidade de computação são as ligações TLS/seg., as computações de Reescrita de URLs e o processamento de regras WAF. 
 
 - **Ligações atuais**
 
    O número total de ligações simultâneas ativas dos clientes ao Gateway de Aplicação
    
-- **Unidades estimadas de capacidade faturada**
+- **Unidades de Capacidade Faturadas Estimadas**
 
-  Com o V2 SKU, o modelo de preços é impulsionado pelo consumo. As unidades de capacidade medem o custo baseado no consumo que é cobrado para além do custo fixo. *As unidades estimadas* de capacidade faturada indicam o número de unidades de capacidade que utilizam as quais a faturação é estimada. Isto é calculado como o maior valor entre *as unidades* de capacidade corrente (unidades de capacidade necessárias para carregar o equilíbrio do tráfego) e unidades de *capacidade de faturação fixa* (unidades de capacidade mínima mantidas).
+  Com o SKU v2, o modelo de preços é orientado pelo consumo. As unidades de capacidade medem o custo baseado no consumo cobrado além do custo fixo. *As unidades estimadas* de capacidade faturada indicam o número de unidades de capacidade que utilizam as quais a faturação é estimada. Isto é calculado como o maior valor entre as *Unidades de capacidade atuais* (as unidades de capacidade necessárias para realizar o balanceamento de carga do tráfego) e as *Unidades de capacidade faturadas fixas* (as unidades de capacidade mínimas mantidas em aprovisionamento).
 
-- **Pedidos com Falhas**
+- **Pedidos Falhados**
 
   Número de pedidos que o Application Gateway serviu com códigos de erro de servidor 5xx. Isto inclui os códigos 5xx que são gerados a partir do Gateway de Aplicação, bem como os códigos 5xx que são gerados a partir do backend. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
    
-- **Unidades de Capacidade Facturaveta Fixa**
+- **Unidades de Capacidade Faturadas Fixas**
 
-  O número mínimo de unidades de capacidade mantidas aprovisionadas de acordo com a definição de *unidades* de escala mínima (uma instância traduz-se em 10 unidades de capacidade) na configuração do Gateway de Aplicação.
+  O número mínimo de unidades de capacidade mantidas em aprovisionamento de acordo com a definição *Unidades de escala mínimas* (uma instância traduz-se em 10 unidades de capacidade) na configuração do Gateway de Aplicação.
    
  - **Novas ligações por segundo**
 
@@ -152,15 +152,15 @@ Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
 Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
-- **Utilização do CPU**
+- **Utilização da CPU**
 
-  Apresenta a utilização dos CPUs atribuídos ao Gateway da Aplicação.  Em condições normais, o uso de CPU não deve exceder regularmente 90%, uma vez que isso pode causar latência nos websites hospedados por trás do Gateway de Aplicação e perturbar a experiência do cliente. Pode controlar ou melhorar indiretamente a utilização do CPU modificando a configuração do Gateway de Aplicação, aumentando a contagem de casos ou movendo-se para um tamanho SKU maior, ou fazendo ambos.
+  Apresenta a utilização das CPUs atribuídas ao Gateway de Aplicação.  Em condições normais, a utilização da CPU não deve exceder regularmente os 90%, uma vez que isso pode causar latência nos sites alojados por trás do Gateway de Aplicação e perturbar a experiência do cliente. Pode controlar ou melhorar indiretamente a utilização da CPU ao modificar a configuração do Gateway de Aplicação, aumentar a contagem de instâncias ou mover para um tamanho de SKU maior.
 
 - **Ligações atuais**
 
   Contagem das ligações atuais estabelecidas com gateway de aplicação
 
-- **Pedidos com Falhas**
+- **Pedidos Falhados**
 
   Número de pedidos que o Application Gateway serviu com códigos de erro de servidor 5xx. Isto inclui os códigos 5xx que são gerados a partir do Gateway de Aplicação, bem como os códigos 5xx que são gerados a partir do backend. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
 

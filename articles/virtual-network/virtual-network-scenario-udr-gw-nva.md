@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81455367"
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de aparelho virtual
@@ -41,7 +41,7 @@ A solução abaixo utiliza aparelhos virtuais de firewall para implementar uma r
 ## <a name="considerations"></a>Considerações
 Pode implementar o ambiente explicado acima em Azure utilizando diferentes funcionalidades disponíveis hoje em dia, da seguinte forma.
 
-* **Rede virtual (VNet)**. Um Azure VNet atua de forma semelhante a uma rede no local, e pode ser segmentado em uma ou mais subnets para fornecer isolamento de tráfego, e separação de preocupações.
+* **Rede virtual (VNet)** . Um Azure VNet atua de forma semelhante a uma rede no local, e pode ser segmentado em uma ou mais subnets para fornecer isolamento de tráfego, e separação de preocupações.
 * **Aparelho virtual**. Vários parceiros fornecem aparelhos virtuais no Mercado Azure que podem ser usados para as três firewalls acima descritas. 
 * **Vias definidas pelo utilizador (UDR)**. As tabelas de rotas podem conter UDRs utilizados pela rede Azure para controlar o fluxo de pacotes dentro de uma VNet. Estas tabelas de rotas podem ser aplicadas a subredes. Uma das mais recentes funcionalidades em Azure é a capacidade de aplicar uma tabela de rotas à GatewaySubnet, proporcionando a capacidade de encaminhar todo o tráfego que entra no Azure VNet a partir de uma ligação híbrida a um aparelho virtual.
 * **Encaminhamento IP**. Por predefinição, os pacotes avançados do motor de rede Azure para cartões de interface de rede virtual (NICs) apenas se o endereço IP do destino do pacote corresponder ao endereço IP nic. Portanto, se um UDR definir que um pacote deve ser enviado para um determinado aparelho virtual, o motor de rede Azure deixaria cair esse pacote. Para garantir que o pacote é entregue a um VM (neste caso um aparelho virtual) que não seja o destino real para o pacote, é necessário ativar o ENCaminhamento IP para o aparelho virtual.

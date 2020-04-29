@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
 ms.openlocfilehash: 50fc8b9cefe88a80f3f954ce363139b6a4a38589
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80548392"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é a Rede Virtual NAT?

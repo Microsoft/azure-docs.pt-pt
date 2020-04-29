@@ -1,15 +1,15 @@
 ---
-title: Implementar amostra de unidade para HoloLens
+title: Implementar exemplo do Unity no HoloLens
 description: Quickstart que mostra como colocar a amostra de unidade nos HoloLens
 author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
 ms.openlocfilehash: 75b6629ea924ec17888ec2f981ff85ed917434c9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679738"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Quickstart: Implementar amostra de unidade para HoloLens

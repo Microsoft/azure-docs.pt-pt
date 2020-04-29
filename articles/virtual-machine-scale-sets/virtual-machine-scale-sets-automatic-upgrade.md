@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mimckitt
 ms.openlocfilehash: 70810b21def1672758683abd49f92b86776c9d7b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458986"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>A escala de máquina virtual Azure define atualizações automáticas de imagem de OS

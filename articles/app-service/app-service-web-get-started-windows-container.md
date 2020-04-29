@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: mvc, seodec18
 ms.openlocfilehash: cd6b78e5fd824cc013cc946d23677237923f485e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80047110"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Executar um contentor do Windows personalizado no Azure (Pré-visualização)
@@ -79,7 +79,7 @@ Crie uma aplicação web ASP.NET seguindo estes passos:
 
 ## <a name="create-a-windows-container-app"></a>Criar uma aplicação de contentor do Windows
 
-1. Inicie sessão no [Portal do Azure]( https://portal.azure.com).
+1. Inicie sessão no [portal do Azure]( https://portal.azure.com).
 
 1. Selecione **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 

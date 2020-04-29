@@ -6,13 +6,13 @@ ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
 ms.openlocfilehash: a06c63152cb56be6d94cccc472d2e1d65651d6ce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679955"
 ---
-# <a name="about-azure-remote-rendering"></a>Sobre a renderização remota azure
+# <a name="about-azure-remote-rendering"></a>Acerca do Azure Remote Rendering
 
 > [!IMPORTANT]
 > **A Renderização Remota Azure** está atualmente em pré-visualização pública.

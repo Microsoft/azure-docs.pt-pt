@@ -9,10 +9,10 @@ ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 27f085543869b1a77db9c97ca2e7ae7d3d3b7b88
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80046406"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
@@ -77,9 +77,9 @@ Os artigos seguintes ajudam-no a começar a utilizar o Serviço de Aplicações 
 
 * [.NET Core](quickstart-dotnetcore.md)
 * [PHP](https://docs.microsoft.com/azure/app-service/containers/quickstart-php)
-* [Nó.js](quickstart-nodejs.md)
+* [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
-* [Pitão](quickstart-python.md)
+* [Python](quickstart-python.md)
 * [Ruby](quickstart-ruby.md)
 * [Ir](quickstart-docker-go.md)
 * [Aplicação com vários contentores](quickstart-multi-container.md)

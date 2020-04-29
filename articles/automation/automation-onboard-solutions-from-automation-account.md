@@ -6,10 +6,10 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 57378005bd668fa9c0f2aea70c411bbf911130db
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457659"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Soluções de Gestão de Atualização a bordo, Rastreio de Alterações e Inventário
@@ -112,7 +112,7 @@ As seguintes soluções dependem de um espaço de trabalho log Analytics:
 
 * [Gestão de Atualizações](automation-update-management.md)
 * [Monitorização de Alterações](automation-change-tracking.md)
-* [VMs de arranque/paragem durante o horário de folga](automation-solution-vm-management.md)
+* [Iniciar/Parar VMs durante horas de inatividade](automation-solution-vm-management.md)
 
 Se decidir que já não pretende integrar a sua conta de Automação com um espaço de trabalho de Log Analytics, pode desvincular a sua conta diretamente do portal Azure.  Antes de continuar, primeiro tem de remover as soluções mencionadas anteriormente, caso contrário este processo será impedido de prosseguir. Reveja o artigo para a solução específica que importou para entender os passos necessários para removê-lo.
 

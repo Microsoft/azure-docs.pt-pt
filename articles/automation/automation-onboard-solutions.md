@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
 ms.openlocfilehash: 721157c333e381799ef08930c667c51a51a4fd6a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81457625"
 ---
 # <a name="onboard-update-change-tracking-and-inventory-solutions-to-azure-automation"></a>Atualização onboard, alteração de rastreio e soluções de inventário para a Automação Azure

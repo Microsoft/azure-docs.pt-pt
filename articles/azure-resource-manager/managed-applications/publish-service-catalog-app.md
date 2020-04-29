@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: 48aaca64949aafecff27c76ad7572b3c2fa44732
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81391511"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Quickstart: Criar e publicar uma definição de aplicação gerida

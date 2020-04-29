@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: aschhab
 ms.openlocfilehash: 82a5fbef8c307d60d82b147f04a2a687b8b0433e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81459071"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Ônibus de Serviço Azure em repouso utilizando o portal Azure
@@ -327,6 +327,6 @@ Neste passo, irá atualizar o espaço de nome do Ônibus de serviço com informa
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 - [Visão geral do ônibus de serviço](service-bus-messaging-overview.md)
-- [Visão geral do cofre da chave](../key-vault/general/overview.md)
+- [Descrição geral do Key Vault](../key-vault/general/overview.md)
 
 

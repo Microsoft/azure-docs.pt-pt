@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.reviewer: azfuncdf, antchu
 ms.openlocfilehash: 55098daa69d3e878140b20095b0a3e08811269e1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80257653"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Create your first durable function in JavaScript (Criar a sua primeira função durável em JavaScript)
@@ -52,7 +52,7 @@ Nesta secção, você usa o Código de Estúdio Visual para criar um projeto loc
 
     | Mensagem | Valor | Descrição |
     | ------ | ----- | ----------- |
-    | Selecione um idioma para o seu projeto de aplicação de funções | Javascript | Crie um projeto local de Funções Node.js. |
+    | Selecione um idioma para o seu projeto de aplicação de funções | JavaScript | Crie um projeto local de Funções Node.js. |
     | Selecione uma versão | Funções Azure v3 | Só se vê esta opção quando as Ferramentas Core ainda não estão instaladas. Neste caso, as Ferramentas Core são instaladas na primeira vez que executa a aplicação. |
     | Selecione um modelo para a primeira função do seu projeto | Salta por enquanto | |
     | Selecione como pretende abrir o seu projeto | Abra na janela atual | Reabre o Código VS na pasta selecionada. |
@@ -165,7 +165,7 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
     | Selecione uma conta de armazenamento | Criar uma nova conta de armazenamento |  |
     | Insira o nome da nova conta de armazenamento | *nome único* | Nome da conta de armazenamento para criar |
     | Selecionar um grupo de recursos | *nome único* | Nome do grupo de recursos para criar |
-    | Selecionar uma localização | *.* | Selecione uma região próxima de si |
+    | Selecionar uma localização | *região* | Selecione uma região próxima de si |
 
 1. No painel **Terminal**, copie o ponto final do URL da sua função acionada por HTTP.
 

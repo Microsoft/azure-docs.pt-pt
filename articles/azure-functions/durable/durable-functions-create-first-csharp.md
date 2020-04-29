@@ -7,10 +7,10 @@ ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.openlocfilehash: eda3afdf8deb3336cd0c5293c2422e694caa69c8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80132797"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Crie a sua primeira função durável em C\#
@@ -84,7 +84,7 @@ Os seguintes passos utilizam um modelo para criar o código de função durável
     | Selecione uma conta de armazenamento | Criar uma nova conta de armazenamento |  |
     | Insira o nome da nova conta de armazenamento | *nome único* | Nome da conta de armazenamento para criar |
     | Selecionar um grupo de recursos | *nome único* | Nome do grupo de recursos para criar |
-    | Selecionar uma localização | *.* | Selecione uma região próxima de si |
+    | Selecionar uma localização | *região* | Selecione uma região próxima de si |
 
 Uma classe que contenha as novas funções é adicionada ao projeto. O Código VS também adiciona a cadeia de ligação da conta [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) de armazenamento ao *local.settings.json* e uma referência ao pacote NuGet para o ficheiro do projeto *.csproj.*
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81454684"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados azure-at-rest

@@ -7,10 +7,10 @@ ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
 ms.openlocfilehash: d9815fd27a57acc8b418962e610d2ae1c106edde
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673263"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Ligue a sua função Java ao Armazenamento Azure
@@ -51,7 +51,7 @@ Está pronto para experimentar a nova ligação de saída local.
 
 Como antes, utilize o seguinte comando para construir o projeto e iniciar o funcionamento das Funções localmente:
 
-# <a name="maven"></a>[Rio Maven](#tab/maven)
+# <a name="maven"></a>[Maven](#tab/maven)
 ```bash
 mvn clean package 
 mvn azure-functions:run
@@ -84,7 +84,7 @@ Em seguida, usa o Azure CLI para ver a nova fila e verificar se foi adicionada u
 
 Para atualizar a sua aplicação publicada, volte a executar o seguinte comando:  
 
-# <a name="maven"></a>[Rio Maven](#tab/maven)  
+# <a name="maven"></a>[Maven](#tab/maven)  
 ```bash
 mvn azure-functions:deploy
 ```

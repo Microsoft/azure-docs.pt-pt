@@ -4,10 +4,10 @@ description: Visão geral das áreas de gestão das aplicações e recursos do A
 ms.date: 12/06/2018
 ms.topic: overview
 ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75980907"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Visão geral dos serviços de Gestão em Azure
