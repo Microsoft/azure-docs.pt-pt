@@ -9,10 +9,10 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 05a155584f0cb69191883cb82b3db0af435ccc12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78970106"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Definir e gerir políticas de imutabilidade para armazenamento blob
@@ -59,7 +59,7 @@ Este artigo mostra como definir e gerir políticas de imutabilidade e detém dad
 
 9. Para limpar um porão legal, remova a etiqueta de identificação legal aplicada.
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 A funcionalidade está incluída nos seguintes grupos de comando: `az storage container immutability-policy` e `az storage container legal-hold`. Corre `-h` para eles ver os comandos.
 
@@ -172,7 +172,7 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ![Permitir escritos adicionais de apêndice](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 A funcionalidade está incluída nos seguintes grupos de comando: `az storage container immutability-policy` e `az storage container legal-hold`. Corre `-h` para eles ver os comandos.
 

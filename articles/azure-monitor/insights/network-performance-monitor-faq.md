@@ -7,10 +7,10 @@ author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
 ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79096223"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de Monitor de Desempenho de Rede FAQ
@@ -71,7 +71,7 @@ O NPM limita o número de IPs a 5000 IPs por espaço de trabalho. Se um nó tive
 ## <a name="monitoring"></a>Monitorização
 
 ### <a name="how-are-loss-and-latency-calculated"></a>Como são calculadas perdas e latências
-Os agentes de origem enviam pedidos de TCP SYN (se o TCP for escolhido como protocolo de monitorização) ou pedidos do ICMP ECHO (se o ICMP for escolhido como protocolo de monitorização) para o destino IP a intervalos regulares para garantir que todos os caminhos entre o IP de destino-fonte combinação são cobertos. A percentagem de pacotes recebidos e pacotes de ida e volta é medida para calcular a perda e a latência de cada caminho. Estes dados são agregados ao longo do intervalo de votação e de todos os caminhos para obter os valores agregados de perda e latência para a combinação IP para o intervalo de votação particular.
+Os agentes de origem enviam pedidos de TCP SYN (se o TCP for escolhido como protocolo de monitorização) ou pedidos do ICMP ECHO (se o ICMP for escolhido como protocolo de monitorização) para o destino IP a intervalos regulares para garantir que todos os caminhos entre a combinação IP de destino de origem estejam cobertos. A percentagem de pacotes recebidos e pacotes de ida e volta é medida para calcular a perda e a latência de cada caminho. Estes dados são agregados ao longo do intervalo de votação e de todos os caminhos para obter os valores agregados de perda e latência para a combinação IP para o intervalo de votação particular.
 
 ### <a name="with-what-frequency-does-the-source-agent-send-packets-to-the-destination-for-monitoring"></a>Com que frequência o agente de origem envia pacotes para o destino para monitorização?
 Para as capacidades do Monitor de Desempenho e do Monitor ExpressRoute, a fonte envia pacotes a cada 5 segundos e regista as medições da rede. Estes dados são agregados ao longo de um intervalo de sondagens de 3 minutos para calcular os valores médios e máximos de perda e latência. Para a capacidade do Monitor de Conectividade do Serviço, a frequência de envio dos pacotes para a medição da rede é determinada pela frequência introduzida pelo utilizador para o teste específico enquanto configura o teste.
@@ -206,7 +206,7 @@ HopLatencyValues são fonte para ponto final.
 Por exemplo: Lúpulo - A,B,C. AvgHopLatency - 10,15,20. Isto significa fonte para Uma latência = 10, fonte para latência B = 15 e fonte para latência C é de 20. UI calculará latência de lúpulo A-B como 5 na topologia
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>A solução mostra perda de 100% mas há conectividade entre a fonte e o destino
-Isto pode acontecer se a firewall do hospedeiro ou a firewall intermédia (firewall de rede ou Azure NSG) estiver bloqueando a comunicação entre o agente de origem e o destino sobre a porta que está sendo usada para monitorização por NPM (por padrão a porta é 8084, a menos que o cliente mudou isto).
+Isto pode acontecer se a firewall do hospedeiro ou a firewall intermédia (firewall de rede ou Azure NSG) estiver em bloqueio da comunicação entre o agente de origem e o destino sobre a porta que está a ser utilizada para monitorização por NPM (por padrão a porta é 8084, a menos que o cliente tenha alterado isto).
 
 * Para verificar se a firewall do hospedeiro não está a bloquear a comunicação sobre a porta necessária, veja o estado de saúde dos nós de origem e destino a partir da seguinte vista: Monitor de Desempenho da Rede -> Configuração -> Nós. 
   Se não forem saudáveis, veja as instruções e tome medidas corretivas. Se os nós estiverem saudáveis, mova-se para o passo b. abaixo.

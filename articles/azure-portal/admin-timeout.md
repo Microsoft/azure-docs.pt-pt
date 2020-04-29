@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: e27135d09da7060f2a948e37f6026fe66fbef5b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79096604"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Definir tempo limite de inatividade ao nível do diretório
@@ -24,7 +24,7 @@ A definição de tempo limite de inatividade ajuda a proteger os seus recursos d
 
 Se é administrador global e pretende impor um intervalo de tempo inativo para todos os utilizadores do portal Azure, siga estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Definições** a partir do cabeçalho de página global.
 3. Selecione o intervalo de tempo de nível de **diretório configurar**o texto de link .
 

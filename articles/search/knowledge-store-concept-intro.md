@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 0ad780c04954c09ddfd432b3c7de3dc65f0841bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78942985"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introdução a lojas de conhecimento em Pesquisa Cognitiva Azure
@@ -75,7 +75,7 @@ O tipo de projeção que especifica nesta estrutura determina o tipo de armazena
 
 Um único objeto de `tables`projeção contém um conjunto de, `objects`e `files`para muitos cenários, criar uma projeção pode ser suficiente. 
 
-No entanto, é possível `table` - `object` - `file` criar vários conjuntos de projeções, e pode fazê-lo se quiser relações de dados diferentes. Dentro de um conjunto, os dados estão relacionados, assumindo que essas relações existem e podem ser detetadas. Se criar conjuntos adicionais, os documentos de cada grupo nunca estão relacionados. Um exemplo de utilização de vários grupos de projeção pode ser se quiser os mesmos dados projetados para uso com o seu sistema online e precisa de ser representado de uma forma específica, também quer os mesmos dados projetados para uso num pipeline de ciência de dados que está representado diferente.
+No entanto, é possível `table` - `object` - `file` criar vários conjuntos de projeções, e pode fazê-lo se quiser relações de dados diferentes. Dentro de um conjunto, os dados estão relacionados, assumindo que essas relações existem e podem ser detetadas. Se criar conjuntos adicionais, os documentos de cada grupo nunca estão relacionados. Um exemplo de utilização de vários grupos de projeção pode ser se quiser os mesmos dados projetados para uso com o seu sistema online e precisa de ser representado de uma forma específica, também quer os mesmos dados projetados para uso num pipeline de ciência de dados que é representado de forma diferente.
 
 ## <a name="requirements"></a>Requisitos 
 

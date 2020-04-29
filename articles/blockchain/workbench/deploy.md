@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 141bb8825e47eb2309f9f551990a2976e8f4e209
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943193"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Implementar pré-visualização da bancada azure blockchain
@@ -51,7 +51,7 @@ A bancada azure Blockchain requer a configuração da AD Azure e os registos de 
 
 Uma vez concluídos os passos pré-requisitos, está pronto para implantar a bancada de trabalho blockchain. As seguintes secções descrevem como implementar o quadro.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione a sua conta no canto superior direito e mude para o inquilino AD Azure desejado onde pretende implementar a Bancada de Trabalho Azure Blockchain.
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
 1. Selecione **Blockchain** > **Azure Blockchain Workbench (pré-visualização)**.
@@ -123,7 +123,7 @@ O destacamento pode demorar até 90 minutos. Pode utilizar o portal Azure para m
 
 Uma vez concluída a implantação da bancada blockchain, um novo grupo de recursos contém os seus recursos blockchain Workbench. Os serviços blockchain Workbench são acedidos através de um URL web. Os seguintes passos mostram-lhe como recuperar o URL web da estrutura implantada.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No painel de navegação à esquerda, selecione **Grupos de Recursos**.
 1. Escolha o nome do grupo de recursos especificado ao implementar a bancada blockchain Workbench.
 1. Selecione a direção da coluna **TYPE** para classificar a lista alfabeticamente por tipo.
@@ -178,7 +178,7 @@ Se optar por configurar manualmente ou verificar as definições de AD Azure ant
 A implementação da bancada blockchain requer o registo de uma aplicação Azure AD. Você precisa de um inquilino azure Ative Directory (Azure AD) para registar a app. Você pode usar um inquilino existente ou criar um novo inquilino. Se estiver a utilizar um inquilino Azure AD existente, precisa de permissões suficientes para registar candidaturas, conceder permissões de API graph e permitir o acesso dos hóspedes dentro de um inquilino da AD Azure. Se não tiver permissões suficientes num inquilino da AD Azure existente, crie um novo inquilino.
 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione a sua conta no canto superior direito e mude para o inquilino AD Azure desejado. O inquilino deve ser o inquilino da subscrição da subscrição onde a Bancada de Trabalho azure Blockchain está implantada e você tem permissões suficientes para registar candidaturas.
 1. No painel de navegação do lado esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **registos de aplicações** > **Nova inscrição**.
 
@@ -280,7 +280,7 @@ Se tiver utilizadores convidados no seu inquilino Azure AD, siga os passos adici
 
 Uma vez implantada a bancada de trabalho Azure Blockchain, tem de configurar a aplicação de cliente Azure Ative Directory (Azure AD) **Resposta URL** do URL web da bancada de trabalho blockchain implantado.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Verifique se está no inquilino onde registou o pedido de cliente da Azure AD.
 1. No painel de navegação do lado esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **Registos das aplicações**.
 1. Selecione a aplicação do cliente Azure AD que registou na secção pré-requisito.

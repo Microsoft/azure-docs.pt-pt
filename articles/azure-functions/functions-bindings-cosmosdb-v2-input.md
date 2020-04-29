@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: eabcf40e28927919215979ccc46fa029d19adbfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943429"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Ligação de entrada Azure Cosmos DB para funções Azure 2.x
@@ -925,7 +925,7 @@ Aqui está o código JavaScript:
     };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Esta secção contém os seguintes exemplos que lêem um único documento especificando um valor de id de várias fontes:
 
@@ -1414,7 +1414,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
@@ -1457,7 +1457,7 @@ Quando a função sai com sucesso, quaisquer alterações feitas no documento de
 
 As atualizações não são feitas automaticamente após a saída da função. Em vez `context.bindings.<documentName>In` `context.bindings.<documentName>Out` disso, use e faça atualizações. Consulte o exemplo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os dados são disponibilizados `DocumentList` à função através de um parâmetro. As alterações feitas ao documento não são automaticamente persistiu.
 

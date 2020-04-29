@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78970278"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Crie uma máquina virtual Linux que utilize a autenticação SSH com a API REST
@@ -45,7 +45,7 @@ Os seguintes cabeçalhos são obrigatórios:
 
 | Cabeçalho do pedido   | Descrição |
 |------------------|-----------------|
-| *Tipo de conteúdo:*  | Necessário. Definido como `application/json`. |
+| *Content-Type:*  | Necessário. Definido como `application/json`. |
 | *Authorization:* | Necessário. Definido como um  [token de acesso `Bearer`](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
 
 Para obter informações gerais sobre o trabalho com pedidos da API REST, consulte [Componentes de um pedido/resposta REST API](/rest/api/azure/#components-of-a-rest-api-requestresponse).
@@ -150,5 +150,5 @@ Para obter mais informações sobre as APIs do Azure REST ou outras ferramentas 
 
 - [Fornecedor de computação Azure REST API](/rest/api/compute/)
 - [Introdução à API REST do Azure](/rest/api/azure/)
-- [Azure CLI](/cli/azure/)
+- [CLI do Azure](/cli/azure/)
 - [Módulo do Azure PowerShell](/powershell/azure/overview)

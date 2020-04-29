@@ -7,10 +7,10 @@ ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 121e4699bd6a72f6865d3a6ffdef58c1b3806047
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79082766"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlacionar dados de Insights de Aplicação com fontes de dados personalizadas
@@ -45,7 +45,7 @@ Para começar a enviar dados de registo para o Monitor Azure. Existem várias op
 
 O Application Insights baseia-se na plataforma de registo do Monitor Azure. Podemos, portanto, utilizar [juntas de recursos cruzados](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) para correlacionar quaisquer dados que insinfámos no Monitor Azure com os nossos dados de Informação de Aplicação.
 
-Por exemplo, podemos ingerir o nosso inventário de laboratório e localizações numa mesa chamada "LabLocations_CL" num espaço de trabalho de Log Analytics chamado "myLA". Se quiséssemos então rever os nossos pedidos rastreados na aplicação Application Insights chamada "myAI" e correlacionar os nomes das máquinas que serviram os pedidos para os locais destas máquinas armazenadas na tabela personalizada anteriormente mencionada, podemos executar a seguinte consulta a partir de quer os Insights de Aplicação quer o contexto do Monitor Azure:
+Por exemplo, podemos ingerir o nosso inventário de laboratório e localizações numa mesa chamada "LabLocations_CL" num espaço de trabalho de Log Analytics chamado "myLA". Se quiséssemos então rever os nossos pedidos rastreados na aplicação Application Insights chamada "myAI" e correlacionar os nomes das máquinas que serviram os pedidos para os locais destas máquinas armazenadas na tabela personalizada anteriormente mencionada, podemos executar a seguinte consulta a partir do contexto Application Insights ou Azure Monitor:
 
 ```
 app('myAI').requests

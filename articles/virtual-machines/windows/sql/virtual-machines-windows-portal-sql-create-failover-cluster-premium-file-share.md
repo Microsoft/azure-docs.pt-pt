@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
 ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303227"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configure uma instância de cluster de failover do SQL Server com partilha de ficheiropremium em máquinas virtuais Azure
@@ -42,7 +42,7 @@ Uma coisa a ter em conta é que num cluster de falha de VM Azure IaaS, recomenda
 Deve também ter uma compreensão geral destas tecnologias:
 
 - [Partilha de ficheiros premium Azure](../../../storage/files/storage-how-to-create-premium-fileshare.md)
-- [Grupos de recursos azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
+- [Grupos de recursos do Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > Neste momento, as instâncias de cluster de falha do SQL Server nas máquinas virtuais Azure são suportadas apenas com o modo de [gestão leve](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) da extensão do [agente SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md). Para mudar do modo de extensão completo para leve, elimine o recurso **SQL Virtual Machine** para os VMs correspondentes e, em seguida, registe-os com o fornecedor de recursos SQL VM em modo leve. Ao apagar o recurso **SQL Virtual Machine** utilizando o portal Azure, limpe a caixa de **verificação junto à máquina virtual correta**. A extensão completa suporta funcionalidades como backup automatizado, patching e gestão avançada do portal. Estas funcionalidades não funcionarão para VMs SQL depois de o agente ser reinstalado em modo de gestão leve.
@@ -222,14 +222,14 @@ Para validar o cluster utilizando a UI, dê os seguintes passos numa das máquin
 
 1. Sob **o Gestor do Servidor,** selecione **Ferramentas**e, em seguida, selecione **Failover Cluster Manager**.
 1. Em **Failover Cluster Manager,** selecione **Action**, e, em seguida, selecione **Validate Configuration**.
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 1. Em **Servidores Selecionados ou num Cluster,** introduza os nomes de ambas as máquinas virtuais.
-1. Em **opções**de teste, selecione **apenas testes de execução que selecionei**. Selecione **Next**.
+1. Em **opções**de teste, selecione **apenas testes de execução que selecionei**. Selecione **Seguinte**.
 1. Em **seleção**de testes, selecione todos os testes, exceto para **espaços** de armazenamento e **armazenamento diretos,** como mostrado aqui:
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/cluster-validation.png" alt-text="Selecione testes de validação de clusters":::
 
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 1. Sob **confirmação,** selecione **Seguinte**.
 
 O **Validar um Assistente de Configuração** executa os testes de validação.

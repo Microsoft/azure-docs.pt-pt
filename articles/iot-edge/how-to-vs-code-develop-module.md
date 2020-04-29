@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 10c8008d73390174c44ec503f708c1e2c0011e09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78944305"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Código do Estúdio Visual para desenvolver e depurar módulos para Azure IoT Edge
@@ -172,7 +172,7 @@ Para configurar e iniciar o simulador, execute o comando **Azure IoT Edge: Start
         > [!NOTE]
         > Se o seu `TargetFramework` Núcleo .NET não `launch.json`for consistente com o seu percurso de `launch.json` programa, `TargetFramework` terá de atualizar manualmente o caminho do programa para combinar com o ficheiro .csproj para que o Código do Estúdio Visual possa lançar com sucesso este programa.
 
-   - **Nó.js**
+   - **Node.js**
      - No terminal integrado do Código do Estúdio Visual, altere o diretório para a pasta de *** &lt;nome&gt; do módulo*** e, em seguida, execute o seguinte comando para instalar pacotes de Nó
 
        ```cmd
@@ -317,7 +317,7 @@ Pode saltar esta secção se os seus módulos estiverem a funcionar na mesma má
 
   [Configure o canal SSH na sua máquina](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes) de desenvolvimento `launch.json` e no dispositivo IoT Edge e, em seguida, edite o ficheiro para anexar.
 
-- **Nó.js**
+- **Node.js**
 
   - Certifique-se de que o módulo da máquina a ser depurado está a funcionar e pronto para os desordeiros se fixarem e que a porta 9229 está acessível externamente. Pode verificar isto `http://<target-machine-IP>:9229/json` abrindo a máquina de desbugger. Este URL deve mostrar informações sobre o módulo Node.js a ser depurado.
   
@@ -329,7 +329,7 @@ Pode saltar esta secção se os seus módulos estiverem a funcionar na mesma má
   
   - Na sua máquina de desenvolvimento, abra o Código do Estúdio Visual `launch.json` e edite o ** * &lt;&gt; * ** perfil do seu módulo Remote Debug (Java) para que possa ligar à máquina-alvo. Para saber mais `launch.json` sobre a edição e depuração de Java com o Visual Studio Code, consulte a secção sobre [configurar o debugger](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
 
-- **Pitão**
+- **Python**
 
   - Certifique-se de que a porta 5678 da máquina a depurada está aberta e acessível.
 
@@ -359,7 +359,7 @@ Pode saltar esta secção se os seus módulos estiverem a funcionar na mesma má
 
 ## <a name="build-and-debug-a-module-remotely"></a>Construir e depurar um módulo remotamente
 
-Com as recentes alterações nos motores Docker e Moby para suportar ligações SSH, e uma nova configuração em Ferramentas Azure IoT que permite a injeção de configurações ambientais na paleta de comando do Código do Estúdio Visual e nos terminais Azure IoT Edge, agora pode construir e depurar módulos em dispositivos remotos.
+Com as recentes alterações nos motores Docker e Moby para suportar as ligações SSH, e uma nova configuração em Ferramentas Azure IoT que permite a injeção de configurações ambientais na paleta de comando do Código do Estúdio Visual e nos terminais Azure IoT Edge, pode agora construir e depurar módulos em dispositivos remotos.
 
 Consulte esta entrada no [blog IoT Developer](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) para obter mais informações e instruções passo a passo.
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 50bcd42189b1bcc945d726277975892f07f1baa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78255541"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Escolha a opção certa do MySQL Server em Azure
@@ -64,7 +64,7 @@ A Base de Dados Azure para o MySQL proporciona uma elevada disponibilidade incor
 Para obter mais informações sobre os preços, consulte os seguintes artigos:
 * [Base de Dados Azure para preços MySQL](https://azure.microsoft.com/pricing/details/mysql/)
 * [Preços de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* [Calculadora de preços azure](https://azure.microsoft.com/pricing/calculator/)
+* [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/)
 
 ### <a name="administration"></a>Administração
 

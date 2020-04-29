@@ -11,10 +11,10 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79086893"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Ingestão de dados em Aprendizagem automática azure
@@ -55,7 +55,7 @@ Estes passos e o diagrama seguinte ilustram o fluxo de trabalho de ingestão de 
     
 Saiba como construir um pipeline de ingestão de dados para machine learning com a [Azure Data Factory](how-to-data-ingest-adf.md).
 
-## <a name="use-the-python-sdk"></a>Use o Python SDK 
+## <a name="use-the-python-sdk"></a>Utilizar o SDK Python 
 
 Com o [Python SDK,](https://docs.microsoft.com/python/api/overview/azure/ml)pode incorporar tarefas de ingestão de dados num passo de [pipeline Azure Machine Learning.](how-to-create-your-first-pipeline.md)
 

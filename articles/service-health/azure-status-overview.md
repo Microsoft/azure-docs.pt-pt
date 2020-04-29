@@ -4,10 +4,10 @@ description: Uma visão global para a saúde dos serviços azure
 ms.topic: overview
 ms.date: 06/11/2019
 ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898330"
 ---
 # <a name="azure-status-overview"></a>Visão geral do estado do Azure

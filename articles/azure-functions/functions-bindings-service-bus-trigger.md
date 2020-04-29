@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273571"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho de ônibus de serviço Azure para funções azure
@@ -115,7 +115,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo que se segue demonstra como ler uma mensagem de fila de ônibus de serviço através de um gatilho.
 
@@ -270,7 +270,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
@@ -330,7 +330,7 @@ Estes parâmetros são para a versão 1.x das Funções Azure; para 2.x e [`Mess
 
 Aceda à fila ou `context.bindings.<name from function.json>`à mensagem de tópico utilizando . A mensagem do Ônibus de serviço é transmitida para a função como um objeto de corda ou JSON.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 A mensagem de fila está disponível para `func.ServiceBusMessage`a função através de um parâmetro dado como . A mensagem do Ônibus de serviço é transmitida para a função como um objeto de corda ou JSON.
 

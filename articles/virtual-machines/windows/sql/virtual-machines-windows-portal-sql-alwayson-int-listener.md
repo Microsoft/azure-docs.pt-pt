@@ -15,10 +15,10 @@ ms.date: 02/16/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: aefd7a55090da7f55404d6f551ab61268582ff5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79096329"
 ---
 # <a name="configure-a-load-balancer-for-an-availability-group-on-azure-sql-server-vms"></a>Configure um balancer de carga para um grupo de disponibilidade em VMs de servidor Estivado Azure
@@ -71,7 +71,7 @@ Primeiro, crie o equilibrador de carga.
    | **Sub-rede** |Selecione a sub-rede em que as instâncias do Servidor SQL estão dentro. |
    | **Atribuição de endereçoIP** |**Estático** |
    | **Endereço IP privado** |Especifique um endereço IP disponível a partir da sub-rede. Utilize este endereço IP quando criar um ouvinte no cluster. Num script PowerShell, mais tarde neste artigo, `$ILBIP` utilize este endereço para a variável. |
-   | **Assinatura** |Se tiver várias subscrições, este campo pode aparecer. Selecione a subscrição que pretende associar a este recurso. É normalmente a mesma subscrição que todos os recursos para o grupo de disponibilidade. |
+   | **Subscrição** |Se tiver várias subscrições, este campo pode aparecer. Selecione a subscrição que pretende associar a este recurso. É normalmente a mesma subscrição que todos os recursos para o grupo de disponibilidade. |
    | **Grupo de recursos** |Selecione o grupo de recursos em que os casos do Servidor SQL estão. |
    | **Localização** |Selecione a localização Azure onde os casos do Servidor SQL estão. |
 
@@ -243,7 +243,7 @@ Para adicionar um endereço IP a um equilibrador de carga com o portal Azure, fa
     |**Porto** |Utilize a porta que as instâncias do Servidor SQL estão a utilizar. Uma instância predefinida utiliza a porta 1433, a não ser que a tenha alterado. 
     |**Porto backend** |Use o mesmo valor que o **Porto.**
     |**Piscina de backend** |A piscina que contém as máquinas virtuais com as instâncias do SQL Server. 
-    |**Sonda de saúde** |Escolha a sonda que criou.
+    |**Sonda de estado de funcionamento** |Escolha a sonda que criou.
     |**Persistência da sessão** |Nenhuma
     |**Tempo limite (minutos)** |Padrão (4)
     |**IP flutuante (devolução do servidor direto)** | Ativado
@@ -292,7 +292,7 @@ Se um grupo de disponibilidade participar num grupo de disponibilidade distribu�
    |**Porto** |5022 - A porta para o ouvinte final do [grupo de disponibilidade distribuído](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Pode ser qualquer porta disponível.  
    |**Porto backend** | 5022 - Use o mesmo valor que a **Porta**.
    |**Piscina de backend** |A piscina que contém as máquinas virtuais com as instâncias do SQL Server. 
-   |**Sonda de saúde** |Escolha a sonda que criou.
+   |**Sonda de estado de funcionamento** |Escolha a sonda que criou.
    |**Persistência da sessão** |Nenhuma
    |**Tempo limite (minutos)** |Padrão (4)
    |**IP flutuante (devolução do servidor direto)** | Ativado

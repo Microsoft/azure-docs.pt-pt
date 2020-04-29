@@ -8,10 +8,10 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: 0d03c2df720a4e3ccf57fe0be00c2af4fcf72eb0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78944835"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para armazenamento premium usando a recuperação do site Azure
@@ -215,7 +215,7 @@ Para cenários específicos para máquinas virtuais migratórias, consulte os se
 
 Consulte também os seguintes recursos para saber mais sobre o Armazenamento Azure e as Máquinas Virtuais Azure:
 
-* [Storage do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Máquinas Virtuais Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Selecionar um tipo de disco para VMs IaaS](disks-types.md)
 

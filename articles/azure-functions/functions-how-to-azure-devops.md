@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 5e2fc8fb06248e2cdad9067c56647da6d9626b50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78255758"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua utilizando O Azure DevOps
@@ -88,7 +88,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Pode utilizar uma das seguintes amostras para criar um ficheiro YAML para construir uma aplicação para uma versão específica da Python. Python é suportado apenas para aplicações de funções em linux.
 

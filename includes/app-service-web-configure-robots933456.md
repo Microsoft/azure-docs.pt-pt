@@ -9,10 +9,10 @@ ms.date: 03/02/2020
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 6fc1f4152b2e16e1597c018e5af6e0245b075c3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78255801"
 ---
 ## <a name="robots933456-in-logs"></a>robôs933456 em registos

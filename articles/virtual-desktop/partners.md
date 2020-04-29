@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: e10908a3ce0ad372ab7d05fda9a15481d0efc5a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79127566"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de desktop virtual do Windows
@@ -33,9 +33,9 @@ A Citrix alarga o valor do Windows Virtual Desktop com ferramentas empresariais 
 
 ![Logotipo vMware](./media/partners/vmware.png)
 
-VMware Horizon Cloud no Microsoft Azure dá às organizações a capacidade de ligar a sua própria instância do Microsoft Azure ao simples e intuitivo plano de controlo horizonte cloud, criando uma solução segura, abrangente e com cloud-hosted para a entrega virtualizada Aplicações para janelas e ambientes de trabalho. Com o lançamento do Windows Virtual Desktop, a VMware estabeleceu uma parceria com a Microsoft para alargar a funcionalidade do Windows Virtual Desktop aos clientes que utilizam o Horizon Cloud no Microsoft Azure. Esta funcionalidade estará disponível na Tech Preview até ao final de 2019.
+A VMware Horizon Cloud no Microsoft Azure dá às organizações a capacidade de ligar a sua própria instância do Microsoft Azure ao simples e intuitivo plano de controlo horizonte cloud, criando uma solução segura, abrangente e com cloud-hosted para fornecer aplicações e desktops virtualizados do Windows. Com o lançamento do Windows Virtual Desktop, a VMware estabeleceu uma parceria com a Microsoft para alargar a funcionalidade do Windows Virtual Desktop aos clientes que utilizam o Horizon Cloud no Microsoft Azure. Esta funcionalidade estará disponível na Tech Preview até ao final de 2019.
  
-Como fornecedor aprovado, os benefícios do Windows Virtual Desktop serão estendidos à VMware Horizon Cloud nos clientes do Microsoft Azure, incluindo o Windows 10 Enterprise para várias sessões, o Windows 7 com atualizações de segurança estendidas gratuitas por um período máximo de três anos, e FSLogix. Além disso, os clientes receberão as funcionalidades da classe empresarial da Horizon Cloud, como o suporte de ponto final amplo; mediação global e otimizada em nuvem; opções e configurações flexíveis de ambiente de trabalho; gestão do ambiente-utilizador; e apoio a ambientes híbridos.
+Como fornecedor aprovado, os benefícios do Windows Virtual Desktop serão estendidos à VMware Horizon Cloud nos clientes do Microsoft Azure, incluindo o Windows 10 Enterprise para várias sessões, o Windows 7 com atualizações de segurança estendidas gratuitas até três anos, e o FSLogix. Além disso, os clientes receberão as funcionalidades da classe empresarial da Horizon Cloud, como o suporte de ponto final amplo; mediação global e otimizada em nuvem; opções e configurações flexíveis de ambiente de trabalho; gestão do ambiente-utilizador; e apoio a ambientes híbridos.
 
 - [Registe-se na Pré-visualização tecnológica do Horizonte Cloud no Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Vá ao site do parceiro.](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html)
@@ -54,9 +54,9 @@ A liderança do mercado mundial da 10ZiG em dispositivos endpoint Thin e Zero Cl
 
 ![Logotipo da Cloudhouse](./media/partners/cloudhouse.png)
 
-A Cloudhouse é um fornecedor de serviços de valor acrescentado Windows Virtual Desktop que oferece aos clientes um serviço de migração de aplicações chave na mão que pode mover todas as aplicações, incluindo aquelas que são incompatíveis com os sistemas operativos windows modernos, para o Windows Ambiente de ambiente de trabalho virtual, permitindo aos clientes alavancar verdadeiramente o Windows 10 em várias sessões. 
+A Cloudhouse é um fornecedor de serviços de valor acrescentado Windows Virtual Desktop que oferece aos clientes um serviço de migração de aplicações chave na mão que pode mover todas as aplicações, incluindo aquelas que são incompatíveis com os sistemas operativos windows modernos, para o ambiente de ambiente de trabalho virtual do Windows, permitindo aos clientes alavancar verdadeiramente o Windows 10 em várias sessões. 
 
-Ao aproveitar a tecnologia comprovada de contentorização cloudhouse, o serviço Cloudhouse leva todas as aplicações, incluindo as projetadas para windows XP, Windows 7 ou Windows 8, e implementa-as para um ambiente de trabalho virtual do Windows moderno sem necessidade de alterar código ou impacto experiência do utilizador. A Cloudhouse acrescenta ainda o valor do Windows Virtual Desktop isolando as aplicações do sistema operativo subjacente, permitindo que as atualizações de manutenção do Windows sejam lançadas sem afetar a aplicação contentorizada. 
+Ao aproveitar a tecnologia comprovada de contentorização cloudhouse, o serviço Cloudhouse leva todas as aplicações, incluindo as projetadas para windows XP, Windows 7 ou Windows 8, e implementa-as para um ambiente de trabalho virtual do Windows moderno sem necessidade de alterar a experiência do utilizador de código ou impacto. A Cloudhouse acrescenta ainda o valor do Windows Virtual Desktop isolando as aplicações do sistema operativo subjacente, permitindo que as atualizações de manutenção do Windows sejam lançadas sem afetar a aplicação contentorizada. 
 
 - [Vá ao site do parceiro.](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua)
 
@@ -98,7 +98,7 @@ dispositivoTRUST alarga o valor do Windows Virtual Desktop com a sua tecnologia 
 
 O HP Thin Client é um parceiro aprovado e verificado dos serviços de Ambiente de Trabalho Azure e Windows Virtual da Microsoft. Os Clientes HP Thin com o Windows 10 IoT Enterprise oferecem suporte fora da caixa para cargas de trabalho baseadas em Azure e desktops hospedados no Windows Virtual Desktop. O hardware e o OS estão otimizados para proporcionar uma experiência de melhor classe que fornece efetivamente cargas de trabalho remotas, reduzindo os custos de pegada, hardware e manutenção do OS.
 
-À medida que a HP olhava para as tendências da indústria, os desafios dos clientes e as soluções de virtualização oferecidas durante o processo de desenvolvimento, foram inspirados a inventar o ponto final ideal da nuvem usando uma proposta de valor de quatro pilares: design, gerenciação, segurança e versatilidade. Todos os Clientes Hp Thin são construídos de propósito com decisores de TI em mente. Os Clientes HP Thin são duradouros, seguros, fáceis de implementar e gerir, e poderosos para que possa transitar sem esforço para VDI ou computação em nuvem. O portfólio versátil da HP dá-lhe a liberdade de escolher a solução moderna de ponto final que é a certa para si.
+À medida que a HP olhava para as tendências do setor, os desafios dos clientes e as soluções de virtualização oferecidas durante o processo de desenvolvimento, foram inspirados a inventar o ponto final ideal da nuvem usando uma proposta de valor de quatro pilares: design, gerenciação, segurança e versatilidade. Todos os Clientes Hp Thin são construídos de propósito com decisores de TI em mente. Os Clientes HP Thin são duradouros, seguros, fáceis de implementar e gerir, e poderosos para que possa transitar sem esforço para VDI ou computação em nuvem. O portfólio versátil da HP dá-lhe a liberdade de escolher a solução moderna de ponto final que é a certa para si.
 
 - [Vá ao site do parceiro.](https://hp.com/go/thin)
 
@@ -106,7 +106,7 @@ O HP Thin Client é um parceiro aprovado e verificado dos serviços de Ambiente 
 
 ![Logotipo iGEL](./media/partners/igel.png)
 
-O IGEL é um parceiro aprovado e verificado dos serviços microsoft Azure e Windows Virtual Desktop. O IGEL oferece o IGEL OS, o SISTEMA de vanguarda de próxima geração para espaços de trabalho em nuvem projetados para aceder a aplicações virtuais, desktops e espaços de trabalho em nuvem a partir de um ou mais dispositivos de utilizador com um ponto final leve, simples e seguro baseado em Linux. Uma solução de software independente de plataformas, iGEL OS e seu software de gestão e controlo baseado em servidores, IGEL Universal Management Suite (UMS), compreendem uma solução de gestão e controlo de pontos finais que liberta as empresas para tirar o máximo partido da Azure casos em nuvem e desktops do Windows Virtual Desktop, incluindo desktops multissessões económicas do Windows Virtual, reduzindo ao mesmo tempo os custos de gestão e operações de hardware de ponto final e ponto final.
+O IGEL é um parceiro aprovado e verificado dos serviços microsoft Azure e Windows Virtual Desktop. O IGEL oferece o IGEL OS, o SISTEMA de vanguarda de próxima geração para espaços de trabalho em nuvem projetados para aceder a aplicações virtuais, desktops e espaços de trabalho em nuvem a partir de um ou mais dispositivos de utilizador com um ponto final leve, simples e seguro baseado em Linux. Uma solução de software independente de plataformas, o IGEL OS e o seu software de gestão e controlo baseado em servidores, o IGEL Universal Management Suite (UMS), compreendem uma solução de gestão e controlo de pontos finais que liberta as empresas para tirar o máximo partido das instâncias de nuvem baseadas no Azure e dos desktops virtuais do Windows, incluindo o Ambiente de Trabalho Virtual multi-sessão económico, reduzindo ao mesmo tempo os custos de gestão e operações de hardwapoint final.
  
 O IGEL OS suporta todas as aplicações virtuais populares, desktops e protocolos de clientes do espaço de trabalho na nuvem da Citrix, Microsoft e VMware. Inclui tecnologias integradas de 85 parceiros periféricos, interfaces e protocolos para ajudar as organizações a adotar rapidamente os serviços de Desktop Virtual do Windows nos seus próprios ambientes de utilizador únicos. IGEL OS é um osso final apenas para leitura, modular, que ajuda a protegê-lo de adulteração. Agora também inclui uma completa "cadeia de confiança" que verifica a integridade de todos os principais processos principais em execução no ponto final, desde o hardware de ponto final (alguns modelos selecionados) ou o processo UEFI até aos serviços de nuvem Azure e Windows Virtual Desktop. Com o IGEL OS, as empresas podem subscrever o Windows Virtual Desktop a partir da nuvem Azure com total confiança na integridade, segurança e gestão dos dispositivos de ponto final dos seus utilizadores.
 
@@ -148,7 +148,7 @@ O Liquidware Essentials alarga o valor do Windows Virtual Desktop através da re
 
 ![Logotipo liquit](./media/partners/liquit.png)
 
-O software de agregação e entrega de aplicações Liquit permite às empresas e fornecedores de serviços conectarem-se e combinarem com todas as back-ends do espaço de trabalho (Citrix, VMWare, Windows Virtual Desktop, RDP e Legacy) e oferecer um cliente personalizado e consistente experiência, independentemente do local onde residem as aplicações do cliente. Quando um cliente publica o ícone inteligente, a Liquit decide onde iniciar a aplicação com base na localização, dispositivo e direitos de perfil do cliente.
+O software de agregação e entrega de aplicações liquit permite às empresas e fornecedores de serviços conectarem-se e combinarem com todas as back-ends do espaço de trabalho (Citrix, VMWare, Windows Virtual Desktop, RDP e Legacy) e oferecer uma experiência personalizada e consistente do cliente, independentemente do local onde residem as aplicações do cliente. Quando um cliente publica o ícone inteligente, a Liquit decide onde iniciar a aplicação com base na localização, dispositivo e direitos de perfil do cliente.
 
 Como parceiro de integração certificado, a Liquit ajuda a acelerar a transição para a nuvem sem um atraso de rasgo e substituição. O Windows Virtual Desktop pode facilmente ligar-se a um ambiente existente, criar um espaço de trabalho e fornecer o ambiente de trabalho. Em seguida, pode tirar o seu tempo migrando de plataformas antigas e fazer alterações no back-end sem que os seus utilizadores percebam. Obtenha uma experiência consistente de utilizador final, infraestrutura flexível e mantenha o controlo das suas aplicações, independentemente de onde estejam.
 
@@ -158,7 +158,7 @@ Como parceiro de integração certificado, a Liquit ajuda a acelerar a transiç�
 
 ![Logotipo vsi de login](./media/partners/loginvsi.png)
 
-O Login VSI é um fornecedor de serviços de valor acrescentado do Windows Virtual Desktop e parceiro da Microsoft que fornece software para testes de desempenho de aplicações em ambientes de ambiente de trabalho virtual do Windows. Os clientes que transferem os seus serviços de negócios no local para o Windows Virtual Desktop usam a Login VSI Enterprise Edition para avaliar e manter o desempenho ideal, escalabilidade e disponibilidade de multi-sessões do Windows 10 Enterprise, Windows 10 Enterprise, e O Windows 7 ativou as suas aplicações críticas de negócio.
+O Login VSI é um fornecedor de serviços de valor acrescentado do Windows Virtual Desktop e parceiro da Microsoft que fornece software para testes de desempenho de aplicações em ambientes de ambiente de trabalho virtual do Windows. Os clientes que transferem os seus serviços de negócio supérbio para o Windows Virtual Desktop utilizam o Login VSI Enterprise Edition para avaliar e manter o desempenho ideal, escalabilidade e disponibilidade de multi-sessões do Windows 10 Enterprise, Windows 10 Enterprise e Windows 7 habilitados com as suas aplicações críticas de negócio.
 
 - [Vá ao site do parceiro.](https://www.loginvsi.com/use-cases-initiatives/windows-virtual-desktop)
 
@@ -189,7 +189,7 @@ Quando utilizado com o Windows Virtual Desktop, a Cloudpaging reduz ainda mais o
 
 O PolicyPak Software é um parceiro de Desktop Virtual do Windows que executa a gestão total de configurações para aplicações, desktop, navegadores, Java e definições de segurança. O PolicyPak mantém as definições de ambiente de trabalho, sistema e segurança em conformidade. O PolicyPak melhora o valor do Windows Virtual Desktop adicionando um conjunto de componentes para melhorar a administração incorporada do Windows. Utilize a política de grupo de diretórios ativo existente e/ou O Windows Intune para fornecer as definições do PolicyPak e aumentar a capacidade dos administradores para gerirem as suas máquinas Windows 10. 
 
-Os casos de utilização mais altos para o PolicyPak são remover os direitos de administração locais e superar as solicitações do UAC, bloquear ransomware, gerir vários navegadores, gerir os modos Enterprise e Compatibilidade do Internet Explorer, reduzir o número de GPOs, gerir as Associações de Ficheiros do Windows 10, gerir o Menu inicial e a barra de tarefas do Windows 10 e gerir as funcionalidades do Windows 10 e funcionalidades Opcionais.  
+Os casos de utilização mais importantes para o PolicyPak são remover os direitos de administração locais e superar as solicitações do UAC, bloquear o Ransomware, gerir vários navegadores, gerir os modos Enterprise e Compatibilidade do Internet Explorer, reduzir o número de GPOs, gerir as Associações de Ficheiros do Windows 10, gerir o Menu inicial do Windows 10 e a barra de tarefas e gerir funcionalidades do Windows 10 e funcionalidades Opcionais.  
 
 - [Vá ao site do parceiro.](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html)
 
@@ -220,7 +220,7 @@ A impressão é uma tarefa fundamental em praticamente todos os escritórios e a
 
 A RDPSoft é um parceiro de desktop virtual do Windows que fornece soluções de monitorização, gestão e reporte potentes e baratas. As suas ofertas de Comandante de Ambiente de Trabalho Remoto permitem aos profissionais de TI conhecer a saúde, desempenho, atividade do utilizador, licenciamento e segurança das suas implementações no Windows Virtual Desktop. 
  
-As soluções de Comando remoto de desktop da RDPSoft melhoram a administração do Windows Virtual Desktop. As funcionalidades premium de gestão simplificam a delegação de tarefas de gestão do Windows Virtual Desktop para apoiar o pessoal do balcão, fornecendo assistência remota, sessão de utilizador e gestão de processos. Ao mesmo tempo, a Suite Remote Desktop Commander recolhe métricas ricas sobre desempenho e carga por utilizador, atividade e auditoria do utilizador, qualidade de ligação ao Ambiente de Trabalho Virtual do Windows (latência e largura de banda), licenciamento e segurança num Azure SQL central instância de base de dados para revisão. Com rdpSoft, relatórios históricos ricos e dashboards abrangentes estão apenas a um clique de distância.
+As soluções de Comando remoto de desktop da RDPSoft melhoram a administração do Windows Virtual Desktop. As funcionalidades premium de gestão simplificam a delegação de tarefas de gestão do Windows Virtual Desktop para apoiar o pessoal do balcão, fornecendo assistência remota, sessão de utilizador e gestão de processos. Ao mesmo tempo, a Suite Remote Desktop Commander recolhe métricas ricas sobre desempenho e carga por utilizador, atividade e auditoria do utilizador, qualidade de ligação ao Ambiente de Trabalho Virtual do Windows (latência e largura de banda), licenciamento e segurança numa base de dados Central Azure SQL para revisão. Com rdpSoft, relatórios históricos ricos e dashboards abrangentes estão apenas a um clique de distância.
 
 - [Vá ao site do parceiro](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
 

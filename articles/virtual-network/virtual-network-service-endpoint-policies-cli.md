@@ -18,10 +18,10 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78271192"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gerir a exfiltração de dados para contas de Armazenamento Azure com políticas de ponto final do serviço de rede virtual utilizando o Azure CLI
@@ -152,7 +152,7 @@ az network nsg rule create \
 
 Esta secção enumera etapas para restringir o acesso à rede de uma conta de Armazenamento Azure a partir da subnet dada numa rede Virtual através de ponto final de serviço.
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Crie duas contas de armazenamento Azure com a criação de uma conta de [armazenamento Az.](/cli/azure/storage/account)
 

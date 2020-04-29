@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
 ms.openlocfilehash: 505e2d8eec20853fba3743b40cbe289585d14d61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78305068"
 ---
 | Recurso | Gratuito | Partilhado | Básico | Standard | Premium (v2) | Isolado </th> |
@@ -35,7 +35,7 @@ ms.locfileid: "78305068"
 | [Backups programados](../articles/app-service/manage-backup.md) | | | | Backups programados a cada 2 horas, um máximo de 12 backups por dia (manual + agendado) | Backups programados a cada hora, um máximo de 50 backups por dia (manual + agendado) | Backups programados a cada hora, um máximo de 50 backups por dia (manual + agendado) |
 | [Dimensionamento Automático](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>11</sup> |X |X |X |X |X |X |
-| [Monitorização de pontos finais](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
+| [Monitorização de ponto final](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Slots de encenação](../articles/app-service/deploy-staging-slots.md) por app| | | |5 |20 |20 |
 | SLA | |  |99,95%|99,95%|99,95%|99,95%|  
 

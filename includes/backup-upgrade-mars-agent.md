@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/03/2020
 ms.author: dacurwin
 ms.openlocfilehash: bd298f758d6109b908db01dd2ae3b97e5e2f714a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78673196"
 ---
 ## <a name="upgrade-the-mars-agent"></a>Atualizar o Agente MARS

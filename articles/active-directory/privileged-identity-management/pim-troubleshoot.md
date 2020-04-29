@@ -14,10 +14,10 @@ ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 474f2634e6f7ddc1840548c39ae86cb54c3bf08e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78299691"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Problemas de resolução de problemas com gestão de identidade privilegiada
@@ -28,7 +28,7 @@ Está a ter um problema com a Gestão de Identidade Privilegiada (PIM) no Diret�
 
 ### <a name="problem"></a>Problema
 
-Como proprietário ativo ou administrador de acesso ao utilizador para um recurso Azure, você pode ver o seu recurso dentro da Privileged Identity Management, mas não pode realizar quaisquer ações como fazer uma atribuição elegível ou visualizar uma lista de atribuições de funções do recurso página geral. Qualquer uma destas ações resulta num erro de autorização.
+Como proprietário ativo ou administrador de acesso ao utilizador para um recurso Azure, você é capaz de ver o seu recurso dentro da Privileged Identity Management, mas não pode realizar quaisquer ações como fazer uma atribuição elegível ou visualizar uma lista de atribuições de funções a partir da página de visão geral do recurso. Qualquer uma destas ações resulta num erro de autorização.
 
 ### <a name="cause"></a>Causa
 

@@ -1,5 +1,5 @@
 ---
-title: Adicionar recursos aos ambientes de serviçode integração
+title: Adicionar recursos a ambientes de serviço de integração
 description: Adicione aplicações lógicas, contas de integração, conectores personalizados e conectores geridos ao seu ambiente de serviço de integração (ISE)
 services: logic-apps
 ms.suite: integration
@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 58d2efd0c61045739930ce36ba317b1aa6a40ce8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79164881"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Adicione recursos ao seu ambiente de serviço de integração (ISE) em Aplicações Lógicas Azure
@@ -45,7 +45,7 @@ Para construir aplicações lógicas que funcionam no seu ambiente de serviço d
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
    | **Nome** | Sim | O nome para a aplicação lógica para criar |
-   | **Assinatura** | Sim | O nome da subscrição Azure para usar |
+   | **Subscrição** | Sim | O nome da subscrição Azure para usar |
    | **Grupo de recursos** | Sim | O nome para o grupo de recursos Azure (novo ou existente) para usar |
    | **Localização** | Sim | No âmbito dos ambientes de **serviço integração,** selecione o ISE para utilizar, se ainda não estiver selecionado. <p><p> **Importante**: Para utilizar as suas aplicações lógicas com uma conta de integração, ambas devem utilizar o mesmo ISE. |
    ||||
@@ -77,7 +77,7 @@ Para criar uma conta de integração que utilize um ISE, siga estes passos:
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
    | **Nome** | Sim | O nome para a conta de integração que quer criar |
-   | **Assinatura** | Sim | O nome da subscrição Azure que pretende utilizar |
+   | **Subscrição** | Sim | O nome da subscrição Azure que pretende utilizar |
    | **Grupo de recursos** | Sim | O nome para o grupo de recursos Azure (novo ou existente) para usar |
    | **Nível de preços** | Sim | O nível de preços a utilizar para a conta de integração |
    | **Localização** | Sim | No âmbito dos ambientes de **serviço integração,** selecione o mesmo ISE que as suas aplicações lógicas utilizam, se ainda não for em selecionado. <p><p> **Importante**: Para utilizar a sua conta de integração com aplicações lógicas, ambas devem utilizar o mesmo ISE. |
