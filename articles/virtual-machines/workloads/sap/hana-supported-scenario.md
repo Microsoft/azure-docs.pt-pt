@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 019f462d4264d19bcc4806d91223029a95f9d819
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617170"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários suportados para grandes instâncias HANA
@@ -50,7 +50,7 @@ O design de arquitetura derivado é puramente do ponto de vista da infraestrutur
 Este artigo descreve os detalhes dos dois componentes em cada arquitetura apoiada:
 
 - Ethernet
-- Storage
+- Armazenamento
 
 ### <a name="ethernet"></a>Ethernet
 
@@ -96,7 +96,7 @@ Para a replicação do sistema HANA ou a implementação em escala HANA, não é
 - A Ethernet "D" deve ser utilizada exclusivamente para acesso a dispositivos STONITH para Pacemaker. Esta interface é necessária quando configura rés em replicação do sistema HANA e pretende obter falhas automáticas no sistema operativo utilizando um dispositivo baseado em SBD.
 
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 O armazenamento é reconfigurado com base na topologia solicitada. Os tamanhos de volume e os pontos de montagem variam consoante o número de servidores, o número de SKUs e a topologia configurada. Para mais informações, reveja os cenários necessários (mais tarde neste artigo). Se necessitar de mais armazenamento, pode comprá-lo em incrementos de 1-TB.
 
 >[!NOTE]
@@ -144,7 +144,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -179,7 +179,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -219,7 +219,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -260,7 +260,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -315,7 +315,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Usado para STONITH |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -361,7 +361,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Usado para STONITH |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -420,7 +420,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -461,7 +461,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -497,7 +497,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -536,7 +536,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -581,7 +581,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados em ambas as unidades HLI (Primária e DR):
 
 | Ponto de montagem | Caso de utilização | 
@@ -622,7 +622,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -672,7 +672,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -717,7 +717,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -768,7 +768,7 @@ As seguintes interfaces de rede são reconfiguradas:
 | C | TIPO II | vlan\<inquilinoNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<inquilinoNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 

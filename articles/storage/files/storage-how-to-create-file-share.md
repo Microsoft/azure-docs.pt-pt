@@ -9,10 +9,10 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ed6abbac7c5953eaec4fa4584248d0d98b49ba63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77596926"
 ---
 # <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
@@ -36,7 +36,7 @@ Para obter mais informações sobre estas três opções, consulte Planeamento p
 - Se pretende utilizar o Azure PowerShell, [instale a versão mais recente.](https://docs.microsoft.com/powershell/azure/install-az-ps)
 - Se pretender utilizar o Azure CLI, [instale a versão mais recente.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 As ações de ficheiros Azure são implantadas em contas de armazenamento, que são *objetos*de alto nível que representam um conjunto partilhado de armazenamento. Este conjunto de armazenamento pode ser usado para implementar várias partilhas de ficheiros. 
 
 O Azure suporta vários tipos de contas de armazenamento para diferentes cenários de armazenamento que os clientes podem ter, mas existem dois tipos principais de contas de armazenamento para ficheiros Azure. Que tipo de conta de armazenamento precisa criar depende se pretende criar uma partilha de ficheiros padrão ou uma partilha de ficheiro premium: 
@@ -120,7 +120,7 @@ $storAcct = New-AzStorageAccount `
     -Kind FileStorage 
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 Para criar uma conta de armazenamento utilizando o Azure CLI, usaremos a conta de armazenamento az criar comando. Este comando tem muitas opções; apenas são mostradas as opções necessárias. Para saber mais sobre as opções avançadas, consulte a [ `az storage account create` documentação](/cli/azure/storage/account)do comando.
 
 Para simplificar a criação da conta de armazenamento e posterior partilha de ficheiros, armazenaremos vários parâmetros em variáveis. Pode substituir o conteúdo variável por quaisquer valores que deseje, no entanto note que o nome da conta de armazenamento deve ser globalmente único.
@@ -196,7 +196,7 @@ New-AzRmStorageShare `
 > [!Note]  
 > O nome da partilha de ficheiros tem de ser todo em minúsculas. Para obter detalhes completos sobre a nomeação de partilhas e ficheiros de ficheiros, consulte [nomear e referenciar ações, diretórios, ficheiros e metadados.](https://msdn.microsoft.com/library/azure/dn167011.aspx)
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 Antes de podermos criar uma partilha de ficheiros Azure com o Azure CLI, tem de obter uma chave de conta de armazenamento para autorizar a operação de criação de partilha de ficheiros. Isto pode ser [`az storage account keys list`](/cli/azure/storage/account/keys) feito com o comando:
 
 ```azurecli-interactive

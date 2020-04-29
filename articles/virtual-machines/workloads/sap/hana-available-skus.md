@@ -14,10 +14,10 @@ ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: aad4e3ff3df8b4aeecbbbee7883ba383b9fd0d9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617266"
 ---
 # <a name="available-skus-for-hli"></a>SKUs Disponíveis para HLI
@@ -45,7 +45,7 @@ O serviço SAP HANA on Azure (Grandes Instâncias) com base nos selos da Revisã
 
 [SAP HANA certificada SKUs da lista de grandes instâncias HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) como:
 
-| Solução SAP | CPU | Memória | Storage | Disponibilidade |
+| Solução SAP | CPU | Memória | Armazenamento | Disponibilidade |
 | --- | --- | --- | --- | --- |
 | Otimizado para OLAP: SAP BW, BW/4HANA<br /> ou SAP HANA para carga de trabalho genérica OLAP | SAP HANA no Azure S72<br /> – 2 x Intel® Xeon® Processador E7-8890 v3<br /> 36 núcleos CPU e 72 fios CPU |  768 GB |  3 TB | Não oferecido mais |
 | --- | SAP HANA em Azure S144<br /> – 4 x Intel® Xeon® Processador E7-8890 v3<br /> 72 núcleos cpu e 144 fios CPU |  1,5 TB |  6 TB | Não oferecido mais |
@@ -70,12 +70,12 @@ No âmbito do SAP HANA TDIv5, o SAP permite o dimensionamento específico do cli
 
 Em muitos casos, estas configurações específicas do servidor têm mais memória do que as unidades de servidor certificadas com o SAP. Ao trabalhar com o SAP, os clientes têm a possibilidade de obter suporte SAP e certificar para as configurações do servidor de tamanho cliente específico. No Azure, estão disponíveis os seguintes SKUs padrão HANA Large Instance e na lista de preços da Microsoft para tais projetos de tamanho específicos para o cliente TDIv5.
 
-| SKU|CPU | Memória | Storage | Disponibilidade |
+| SKU|CPU | Memória | Armazenamento | Disponibilidade |
 | ---| --- | --- | --- | --- |
 | S96 | SAP HANA em Azure S96<br /> – 2 x Intel® Xeon® Processador E7-8890 v4<br /> 48 núcleos CPU e 96 fios CPU |  768 GB |  3 TB | Disponível nos selos Revision3 e Revision4|
 
 
-| SKU original que pode ser <br /> estendido na memória | CPU | Memória | Storage | Disponibilidade |
+| SKU original que pode ser <br /> estendido na memória | CPU | Memória | Armazenamento | Disponibilidade |
 | --- | --- | --- | --- | --- |
 | S192m pode ser estendido a | SAP HANA em Azure S192xm<br /> – 4 x Intel® Xeon® Processador E7-8890 v4<br /> 96 núcleos cpu e 192 fios CPU |  6.0 TB |  16 TB | Não oferecido mais |
 | S384xm pode ser estendido a | SAP HANA em Azure S384xxm<br /> – 8 x Intel® Xeon® Processador E7-8890 v4<br /> 192 núcleos cpu e 384 fios CPU |  12.0 TB |  28 TB | Disponível em selos Revision4 |

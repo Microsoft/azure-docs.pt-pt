@@ -9,10 +9,10 @@ ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: d848b92da5d4181832adff8499b3531d020c30c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78155480"
 ---
 Os discos Efémeros SÃO criados no armazenamento da máquina virtual local (VM) e não são guardados para o armazenamento remoto azure. Os discos efémeros os discos operativos funcionam bem para cargas de trabalho apátridas, onde as aplicações são tolerantes a falhas individuais de VM, mas são mais afetadas pelo tempo de implantação de VM ou reimaging as instâncias vm individuais. Com o disco Ephemeral OS, obtém latência de leitura/escrita mais baixa para o disco OS e reimagem vM mais rápida. 
@@ -35,7 +35,7 @@ Principais diferenças entre discos operativos osso persistentes e efémeros:
 | Limite de tamanho para o disco OS      | 2 TiB                                                                                        | Tamanho de cache para o tamanho VM ou 2TiB, o que for menor. Para o tamanho da **cache em GiB,** ver [DS,](../articles/virtual-machines/linux/sizes-general.md) [ES,](../articles/virtual-machines/linux/sizes-memory.md) [M,](../articles/virtual-machines/linux/sizes-memory.md) [FS](../articles/virtual-machines/linux/sizes-compute.md)e [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
 | Tamanhos vm suportados          | Todos                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Suporte do tipo disco           | Disco de Os gerido e não gerido                                                                | Apenas o disco de Os gerido                                                               |
-| Apoio da região              | Todas as regiões                                                                                  | Todas as regiões                              |
+| Suporte de região              | Todas as regiões                                                                                  | Todas as regiões                              |
 | Persistência de dados            | Os dados do disco os escritos para o disco OS são armazenados no Armazenamento Azure                                  | Os dados escritos para o disco OS são armazenados no armazenamento vm local e não são persistidos no Armazenamento Azure. |
 | Estado de stop-deallocalizado      | VMs e instâncias de conjunto de escala podem ser stop-deal localizados e reiniciados do estado de stop-deallocalizado | VMs e instâncias de conjunto de escala não podem ser stop-deal                                  |
 | Suporte especializado do disco osso | Sim                                                                                          | Não                                                                                 |

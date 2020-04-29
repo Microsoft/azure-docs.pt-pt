@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77598311"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
@@ -46,9 +46,9 @@ A funcionalidade de gestão do ciclo de vida está disponível em todas as regi�
 
 Pode adicionar, editar ou remover uma apólice utilizando qualquer um dos seguintes métodos:
 
-* [Portal Azure](https://portal.azure.com)
+* [Portal do Azure](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [APIs REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
 Uma política pode ser lida ou escrita na íntegra. As atualizações parciais não são suportadas. 
@@ -67,7 +67,7 @@ Há duas formas de adicionar uma política através do portal Azure.
 
 #### <a name="azure-portal-list-view"></a>Vista da lista do portal Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No portal Azure, procure e selecione a sua conta de armazenamento. 
 
@@ -88,7 +88,7 @@ Há duas formas de adicionar uma política através do portal Azure.
 9. Selecione **Adicionar** para adicionar a nova política.
 
 #### <a name="azure-portal-code-view"></a>Vista de código do portal Azure
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No portal Azure, procure e selecione a sua conta de armazenamento.
 
@@ -128,7 +128,7 @@ Há duas formas de adicionar uma política através do portal Azure.
 
 6. Para obter mais informações sobre este exemplo da JSON, consulte as secções [política](#policy) e [de regras.](#rules)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 O seguinte script PowerShell pode ser usado para adicionar uma apólice à sua conta de armazenamento. A `$rgname` variável deve ser inicializada com o nome do seu grupo de recursos. A `$accountName` variável deve ser inicializada com o nome da sua conta de armazenamento.
 
@@ -234,7 +234,7 @@ Cada regra dentro da política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo parâmetro | Notas | Necessário |
 |----------------|----------------|-------|----------|
-| `name`         | Cadeia |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra é sensível ao caso.  Deve ser único dentro de uma política. | Verdadeiro |
+| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra é sensível ao caso.  Deve ser único dentro de uma política. | Verdadeiro |
 | `enabled`      | Booleano | Uma boolean opcional para permitir que uma regra seja desativada temporária. O valor padrão é verdadeiro se não estiver definido. | Falso | 
 | `type`         | Um valor enum | O tipo válido `Lifecycle`atual é . | Verdadeiro |
 | `definition`   | Um objeto que define a regra do ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ação. | Verdadeiro |

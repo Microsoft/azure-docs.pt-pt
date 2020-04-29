@@ -13,15 +13,15 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
 ms.openlocfilehash: e9a1024ca3ab68841474ab051c029042df4915b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78254949"
 ---
 # <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Funções personalizadas para SQL Server para SQL Database gerida sondar migrações on-line
 
-O Serviço de Migração de Bases de Dados Azure utiliza um ID APP para interagir com os Serviços Azure. O ID app requer o papel de Contribuinte a nível de Subscrição (que muitos departamentos de segurança corporativa não permitem) ou criação de funções personalizadas que concedem as permissões específicas que o Serviço de Migrações de Base de Dados Azure necessita. Uma vez que existe um limite de 2.000 funções personalizadas no Diretório Ativo do Azure, pode querer combinar todas as permissões exigidas especificamente pelo ID da APP em uma ou duas funções personalizadas, e, em seguida, conceder ao APP ID o papel personalizado em objetos ou grupos de recursos específicos (vs. no id da APP em uma ou duas funções personalizadas, e, em seguida, conceder ao APP ID o papel personalizado em objetos ou grupos de recursos específicos (vs. no the app ID em uma ou duas funções personalizadas, e, em seguida, conceder ao APP ID o papel personalizado em objetos ou grupos de recursos específicos (vs. no the app ID em uma ou duas funções personalizadas, e, em seguida, conceder ao APP ID o papel personalizado em objetos ou grupos de recursos específicos (vs. no nível de subscrição). Se o número de papéis personalizados não for uma preocupação, pode dividir as funções personalizadas por tipo de recurso, para criar três funções personalizadas no total, como descrito abaixo.
+O Serviço de Migração de Bases de Dados Azure utiliza um ID APP para interagir com os Serviços Azure. O ID app requer o papel de Contribuinte a nível de Subscrição (que muitos departamentos de segurança corporativa não permitem) ou criação de funções personalizadas que concedem as permissões específicas que o Serviço de Migrações de Base de Dados Azure necessita. Uma vez que existe um limite de 2.000 funções personalizadas no Diretório Ativo do Azure, pode querer combinar todas as permissões exigidas especificamente pelo ID da APP em uma ou duas funções personalizadas, e, em seguida, conceder ao APP ID o papel personalizado em objetos ou grupos de recursos específicos (vs. ao nível da subscrição). Se o número de papéis personalizados não for uma preocupação, pode dividir as funções personalizadas por tipo de recurso, para criar três funções personalizadas no total, como descrito abaixo.
 
 A secção De Scopes Atribuidores da linha json definição de função permite controlar onde as permissões aparecem no UI de Atribuição de **Funções adicionais** no portal. É provável que queira definir o papel no grupo de recursos ou mesmo ao nível de recursos para evitar a confusão da UI com papéis extra. Note que isto não desempenha a tarefa real.
 

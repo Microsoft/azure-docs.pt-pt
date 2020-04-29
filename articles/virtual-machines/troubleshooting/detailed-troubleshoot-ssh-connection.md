@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: ee6d437915f6c87ce9ef5f9c711d90793a96048c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77920132"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Detailed SSH troubleshooting steps for issues connecting to a Linux VM in Azure (Passos de resolução de problemas de SSH detalhados relacionados com a ligação a uma VM do Linux no Azure)
@@ -51,7 +51,7 @@ O cliente SSH no seu computador pode não conseguir ligar-se ao serviço SSH no 
 * [Computador cliente SSH](#source-1-ssh-client-computer)
 * [Dispositivo de borda da organização](#source-2-organization-edge-device)
 * [Cloud service endpoint e lista de controlo de acesso (ACL)](#source-3-cloud-service-endpoint-and-acl)
-* [Grupos de segurança da rede](#source-4-network-security-groups)
+* [Grupos de segurança de rede](#source-4-network-security-groups)
 * [Azure VM baseado em Linux](#source-5-linux-based-azure-virtual-machine)
 
 ## <a name="source-1-ssh-client-computer"></a>Fonte 1: Computador cliente SSH

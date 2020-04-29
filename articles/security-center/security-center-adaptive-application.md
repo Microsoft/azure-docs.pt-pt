@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/23/2019
 ms.author: memildin
 ms.openlocfilehash: 1dc94c5ec08cc27fb1819ccc16fd766c62aad796
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77604669"
 ---
 # <a name="adaptive-application-controls"></a>Controlos de aplicações adaptáveis
@@ -96,7 +96,7 @@ A secção **Grupos de VMs** contém três separadores:
 > [!NOTE]
 > - O Centro de Segurança precisa de um mínimo de duas semanas de dados para criar uma linha de base e preencher as recomendações exclusivas por grupo de VMs. Os novos clientes do escalão standard do Centro de Segurança devem esperar um comportamento em que, primeiro, os grupos de VMs são apresentados no separador *nenhuma recomendação*.
 > - Os Controlos de Aplicações Adaptáveis do Centro de Segurança não suportam VMs para as quais já esteja ativada uma política do AppLocker por um GPO ou uma política de segurança local.
-> -  Como uma boa prática de segurança, o Security Center tentará sempre criar uma regra de editor para aplicações que são selecionadas para serem permitidas, e apenas se uma aplicação não tiver informações de editor (aka não assinado), será criada uma regra de caminho para o caminho completo do aplicação específica.
+> -  Como uma boa prática de segurança, o Security Center tentará sempre criar uma regra de editor para aplicações selecionadas para serem permitidas, e apenas se uma aplicação não tiver informações de editor (aka não assinado), será criada uma regra de caminho para o caminho completo da aplicação específica.
 >   
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>Editar e monitorizar grupos configurados com o controlo de aplicações

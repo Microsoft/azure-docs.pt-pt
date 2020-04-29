@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617082"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitorizar e resolver problemas do lado do HANA
@@ -105,7 +105,7 @@ Além disso, utilize a ferramenta [IPERF](https://iperf.fr/) de código aberto (
 
 Consulte o site [SAP HANA Troubleshooting: Networking Performance and Connectivity Problems](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) para obter passos detalhados de resolução de problemas.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 Do ponto de vista do utilizador final, uma aplicação (ou o sistema como um todo) funciona lentamente, não responde, ou pode mesmo parecer parar de responder se há problemas com o desempenho de I/S. No separador **Volumes** no Estúdio SAP HANA, pode ver os volumes anexados e quais os volumes utilizados por cada serviço.
 

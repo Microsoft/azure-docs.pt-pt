@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 87457bb103f49be4ca3e7bf9f463c5bf63f3a119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77597842"
 ---
 Para proteger os dados do seu ficheiro Azure, partilha contra perda de dados ou corrupção, todas as ações de ficheiro sinuosa do Azure armazenam várias cópias de cada ficheiro à medida que são escritas. Dependendo dos requisitos da sua carga de trabalho, pode selecionar graus adicionais de redundância. Atualmente, o Azure Files suporta as seguintes opções de redundância de dados:
@@ -24,4 +24,4 @@ Para proteger os dados do seu ficheiro Azure, partilha contra perda de dados ou 
 
 As ações de ficheiro standard Azure suportam todos os quatro tipos de despedimentos, enquanto as ações de ficheiros Premium Azure apenas suportam armazenamento redundante localmente redundante e de zona redundante.
 
-As contas de armazenamento da versão 2 (GPv2) fornecem duas opções adicionais de despedimento que não são suportadas pelo Azure Files: ler armazenamento geo-redundante acessível, muitas vezes referido como RA-GRS, e ler armazenamento acessível geozona-redundante, muitas vezes referido como RA-GZRS. Pode fornecer ações de ficheiros Azure em contas de armazenamento com estas opções definidas, no entanto o Azure Files não suporta a leitura da região secundária. As ações de ficheiros Azure implantadas em contas de armazenamento redundantes de geoou geozona acessíveis serão contabilizadas como armazenamento geo-redundante ou geo-zona redundante, respectivamente.
+As contas de armazenamento da versão 2 (GPv2) fornecem duas opções adicionais de despedimento que não são suportadas pelo Azure Files: ler armazenamento geo-redundante acessível, muitas vezes referido como RA-GRS, e ler armazenamento acessível geo-zona-redundante, muitas vezes referido como RA-GZRS. Pode fornecer ações de ficheiros Azure em contas de armazenamento com estas opções definidas, no entanto o Azure Files não suporta a leitura da região secundária. As ações de ficheiros Azure implantadas em contas de armazenamento redundantes de geoou geozona acessíveis serão contabilizadas como armazenamento geo-redundante ou geo-zona redundante, respectivamente.

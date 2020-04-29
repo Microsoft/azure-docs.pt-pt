@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.openlocfilehash: 742ef62895f3ef64e8fa22ab21d2947bee57776b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77623353"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contentores não divididos para contentores divididos
@@ -130,7 +130,7 @@ Se os novos itens forem inseridos com valores diferentes para a chave de `FeedOp
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](request-units.md) (Unidades de Pedido no Azure Cosmos DB)
-* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
+* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
 * [Trabalhar com uma conta do Azure Cosmos](account-overview.md)
 
 [1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

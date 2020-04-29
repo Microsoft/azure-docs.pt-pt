@@ -14,10 +14,10 @@ ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ca59305b22fcf1e81ef518612910731cb6edea5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617095"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (Grandes Instâncias) no Azure
@@ -134,7 +134,7 @@ Há alguns detalhes que vale a pena mencionar sobre o networking das unidades in
 
 Para obter mais informações sobre os detalhes da Ethernet para a sua arquitetura, consulte os [cenários suportados pelo HLI.](hana-supported-scenario.md)
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 O layout de armazenamento para SAP HANA on Azure (Grandes Instâncias) `service management` é configurado pela SAP HANA on Azure através de diretrizes recomendadas pela SAP. Estas diretrizes estão documentadas no livro branco de [armazenamento SAP HANA.](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 
 

@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: ea448b87f9e6954abecead2934bfb7f4ed04a9c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77920149"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Passos de resolução de problemas detalhados para problemas de ligação de ambiente de trabalho remoto para VMs do Windows no Azure
@@ -59,7 +59,7 @@ O cliente Remote Desktop pode não conseguir contactar o serviço Remote Desktop
 * [Computador cliente de desktop remoto](#source-1-remote-desktop-client-computer)
 * [Dispositivo de borda intranet da organização](#source-2-organization-intranet-edge-device)
 * [Cloud service endpoint e lista de controlo de acesso (ACL)](#source-3-cloud-service-endpoint-and-acl)
-* [Grupos de segurança da rede](#source-4-network-security-groups)
+* [Grupos de segurança de rede](#source-4-network-security-groups)
 * [VM Azure baseado no Windows](#source-5-windows-based-azure-vm)
 
 ## <a name="source-1-remote-desktop-client-computer"></a>Fonte 1: Computador cliente do ambiente de trabalho remoto

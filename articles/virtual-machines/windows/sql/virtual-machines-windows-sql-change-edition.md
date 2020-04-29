@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: bd9622d3e34198402bc45e5d855d05b0c8e35eb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77605454"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Mudança no lugar da edição do SQL Server no Azure VM
@@ -77,7 +77,7 @@ Depois da edição do SQL Server ser desvalorizada, modifique a propriedade da e
 
 Depois de ter mudado a edição do SQL Server utilizando os meios de instalação e ter registado o seu VM SQL Server com o fornecedor de [recursos SQL VM,](virtual-machines-windows-sql-register-with-resource-provider.md)pode então utilizar o portal Azure para modificar a propriedade Edition do SQL Server VM para efeitos de faturação. Para o fazer, siga estes passos: 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Vá ao seu recurso virtual SQL Server. 
 1. Em **definições,** **selecione Configurar**. Em seguida, selecione a sua edição desejada do SQL Server a partir da lista de lançamentos em **Edição**. 
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 9593d60f76802cd515ca85616bce028cf3aa0d49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77589322"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurar uma galeria de imagem partilhada no Azure DevTest Labs
@@ -44,7 +44,7 @@ Se tiver um grande número de imagens geridas que precisa de manter e gostaria d
 - Embora a DevTest Labs faça automaticamente a melhor tentativa para garantir que a galeria de imagens partilhadas reproduz imagens para a região em que o Laboratório existe, nem sempre é possível. Para evitar que os utilizadores tenham problemas em criar VMs a partir destas imagens, certifique-se de que as imagens já estão replicadas para a região do laboratório."
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **Todos os Serviços** no menu de navegação à esquerda.
 1. Selecione **DevTest Labs** da lista.
 1. Da lista de laboratórios, selecione o seu **laboratório.**

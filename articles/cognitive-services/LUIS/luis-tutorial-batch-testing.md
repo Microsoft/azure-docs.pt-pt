@@ -4,10 +4,10 @@ description: Este tutorial demonstra como usar testes de lote para validar a qua
 ms.topic: tutorial
 ms.date: 03/02/2020
 ms.openlocfilehash: c276f0b52f83937fbe3b6fd9e0b7c1a66f665095
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78250487"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: Conjuntos de dados de teste de lote
@@ -24,7 +24,7 @@ Requisitos para o teste do lote:
 
 Ao utilizar uma aplicação diferente deste tutorial, *não* utilize as declarações de exemplo já adicionadas à sua aplicação.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]

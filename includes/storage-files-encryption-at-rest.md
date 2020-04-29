@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: ed061234da27716bfcdaf1cc065568908108f90a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77597866"
 ---
 Todos os dados armazenados em Ficheiros Azure são encriptados em repouso utilizando encriptação do serviço de armazenamento Azure (SSE). A encriptação do serviço de armazenamento funciona de forma semelhante ao BitLocker no Windows: os dados são encriptados abaixo do nível do sistema de ficheiros. Como os dados estão encriptados por baixo do sistema de ficheiros da partilha de ficheiros Azure, uma vez que está codificado para o disco, não é necessário ter acesso à chave subjacente ao cliente para ler ou escrever para a partilha de ficheiros Azure.

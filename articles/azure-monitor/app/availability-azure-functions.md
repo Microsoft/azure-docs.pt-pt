@@ -6,10 +6,10 @@ author: morgangrobin
 ms.author: mogrobin
 ms.date: 11/22/2019
 ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77665804"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Criar e executar testes de disponibilidade personalizados utilizando funções azure
@@ -189,5 +189,5 @@ Pode utilizar Registos (análise) para ver os resultados de disponibilidade, dep
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Mapa de aplicações](../../azure-monitor/app/app-map.md)
-- [Diagnósticos de transações](../../azure-monitor/app/transaction-diagnostics.md)
+- [Mapeamento de Aplicações](../../azure-monitor/app/app-map.md)
+- [Diagnóstico da transação](../../azure-monitor/app/transaction-diagnostics.md)

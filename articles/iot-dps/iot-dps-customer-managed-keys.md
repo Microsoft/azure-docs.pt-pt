@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: menchi
 ms.openlocfilehash: b065135715868094b7e248aebfca35f3b55a4c48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77675146"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-device-provisioning-service"></a>Encriptação de dados em repouso com chaves geridas pelo cliente para o Serviço de Provisionamento de Dispositivos

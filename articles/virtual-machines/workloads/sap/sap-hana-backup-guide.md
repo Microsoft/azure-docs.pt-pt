@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: bb32350597059209e5baf01d53b0c59fdc2344f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78255242"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guia de backup para SAP HANA em Máquinas Virtuais Azure
 
 ## <a name="getting-started"></a>Introdução
 
-O guia de backup para sap HANA em execução em Máquinas virtuais Azure só descreverá tópicos específicos de Azure. Para obter itens relacionados com cópias de segurança Gerais SAP HANA, consulte a documentação sap HANA. Esperamos que esteja familiarizado com as estratégias de backup da base de dados, as razões e motivações para ter uma estratégia de backup sólida e válida, e estamos cientes dos requisitos que a sua empresa tem para o procedimento de backup, período de retenção de backups e restauro procedimento.
+O guia de backup para sap HANA em execução em Máquinas virtuais Azure só descreverá tópicos específicos de Azure. Para obter itens relacionados com cópias de segurança Gerais SAP HANA, consulte a documentação sap HANA. Esperamos que esteja familiarizado com as estratégias de backup da base de dados, as razões e motivações para ter uma estratégia de backup sólida e válida, e estamos cientes dos requisitos que a sua empresa tem para o procedimento de backup, período de retenção de backups e procedimento de restauro.
 
 O SAP HANA é oficialmente suportado em vários tipos de VM Azure, como o Azure M-Series. Para obter uma lista completa das unidades Azure VMs certificadas da SAP HANA e da HANA Large Instance, consulte as [Plataformas IaaS Certificadas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)find Certified . O Microsoft Azure oferece uma série de unidades onde o SAP HANA funciona sem virtualizar em servidores físicos. Este serviço chama-se [HANA Large Instances](hana-overview-architecture.md). Este guia não abrange processos e ferramentas de backup para grandes instâncias HANA. Mas vai limitar-se às máquinas virtuais Azure. Para mais detalhes sobre processos de backup/restauro com as grandes instâncias HANA, leia o artigo [HLI Backup and Restore](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore).
 
