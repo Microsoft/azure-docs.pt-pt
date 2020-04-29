@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: f406edb42204e7ffc94bcbfa1e22b269aea67b32
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74270443"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors"></a>Como criar e localizar âncoras usando âncoras espaciais Azure

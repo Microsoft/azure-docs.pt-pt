@@ -9,10 +9,10 @@ ms.date: 11/27/2019
 ms.author: raiye
 ms.custom: include file
 ms.openlocfilehash: 456d550659c04b2272c048fcd64fe73b1a11522a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74566336"
 ---
 Write Accelerator é uma capacidade de disco para Máquinas Virtuais série M (VMs) em Armazenamento Premium com Discos Geridos Azure exclusivamente. Como o nome indica, o objetivo da funcionalidade é melhorar a latência de I/O de escritas contra o Armazenamento Premium Azure. O Acelerador de Escrita é ideal mente onde as atualizações de ficheiros de registo são necessárias para persistir em disco de uma forma altamente performativa para bases de dados modernas.
@@ -28,9 +28,9 @@ Escrever Acelerador só funciona em conjunto com [discos geridos pelo Azure.](ht
 > [!IMPORTANT]
 > Ativar o acelerador de escrita para o disco do sistema operativo do VM reiniciará o VM.
 >
-> Para ativar o Acelerador de Escrita para um disco Azure existente que NÃO faz parte de um volume construído a partir de vários discos com gestores de discos windows ou volume, Espaços de Armazenamento windows, servidor de ficheiros Windows Scale-out (SOFS), Linux LVM ou MDADM, a carga de trabalho a aceder ao disco Azure precisa ser desligado. As aplicações de base de dados utilizando o disco Azure DEVEM ser desligadas.
+> Para ativar o Acelerador de Escrita para um disco Azure existente que NÃO faz parte de uma construção de volume a partir de vários discos com gestores de discos windows ou volume, Espaços de Armazenamento windows, servidor de ficheiros Windows Scale-out (SOFS), Linux LVM ou MDADM, a carga de trabalho que acede ao disco Azure precisa de ser desligada. As aplicações de base de dados utilizando o disco Azure DEVEM ser desligadas.
 >
-> Se pretender ativar ou desativar o Acelerador de Escrita para um volume existente que é construído a partir de vários discos de armazenamento Premium Azure e listrado utilizando gestores de discos ou volumes do Windows, Espaços de Armazenamento do Windows, servidor de ficheiros Windows Scale-out (SOFS), Linux LVM ou MDADM, todos, todos os discos que construem o volume devem ser ativados ou desativados para o Acelerador de Escrita em passos separados. Antes de **ativar ou desativar o Acelerador de Escrita em tal configuração, desligue o Azure VM**.
+> Se pretender ativar ou desativar o Acelerador de Escrita para um volume existente que é construído a partir de vários discos de armazenamento Premium Azure e listrado utilizando gestores de discos ou volumes windows, Espaços de Armazenamento windows, servidor de ficheiros Windows Scale-out (SOFS), Linux LVM ou MDADM, todos os discos que construem o volume devem ser ativados ou desativados para o Acelerador de Escrita em passos separados. Antes de **ativar ou desativar o Acelerador de Escrita em tal configuração, desligue o Azure VM**.
 
 Ativar o acelerador de escrita para discos OS não deve ser necessário para configurações VM relacionadas com SAP.
 

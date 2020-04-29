@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74085268"
 ---
-Diagnosticar problemas com um serviço de nuvem Microsoft Azure requer a recolha dos ficheiros de registo do serviço em máquinas virtuais à medida que os problemas ocorrem. Pode utilizar a extensão AzureLogCollector a pedido para efetuar uma coleção única de registos de um ou mais VMs de serviço em nuvem (tanto de funções web como de funções de trabalhador) e transferir os ficheiros recolhidos para uma conta de armazenamento Azure – tudo sem iniciar sessão remota mente em qualquer dos VMs.
+Diagnosticar problemas com um serviço de nuvem Microsoft Azure requer a recolha dos ficheiros de registo do serviço em máquinas virtuais à medida que os problemas ocorrem. Pode utilizar a extensão AzureLogCollector a pedido para efetuar uma coleção única de registos de um ou mais VMs de serviço em nuvem (tanto de funções web como de funções de trabalhador) e transferir os ficheiros recolhidos para uma conta de armazenamento Azure – tudo sem iniciar sessão remotamente em qualquer um dos VMs.
 
 > [!NOTE]
 > Descrições para a maioria das informações registadas podem ser encontradas emhttps://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/

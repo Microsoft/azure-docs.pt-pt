@@ -12,10 +12,10 @@ ms.date: 10/01/2018
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.openlocfilehash: f354793e3779f4d9f7be9bae8a21545a15ed1c4c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73464911"
 ---
 # <a name="speaker-recognition-api---preview"></a>Reconhecimento de Altifalantes API - Pré-visualização

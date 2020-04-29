@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1a6858d5eda8227b3f7c1b90dee86f44273a258
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74846356"
 ---
 # <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Utilize deteções de risco para desencadear a autenticação de vários fatores e alterações de palavra-passe
@@ -54,7 +54,7 @@ A ativação das políticas baseadas em risco é um processo simples. Os passos 
 
 A Proteção de Identidade Azure AD inclui uma política predefinida que pode ajudá-lo a registar os seus utilizadores para autenticação multi-factor e identificar facilmente o estado de registo atual. A ativação desta política não começa a pedir aos utilizadores para executarem o Multi-Factor Authentication, mas irá pedir-lhes que façam o pré-registo.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.
 1. Clique em **Registo na MFA**.
 1. Defina Impor Política como **Ativado**.

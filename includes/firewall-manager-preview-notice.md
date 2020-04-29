@@ -9,10 +9,10 @@ ms.date: 10/19/2019
 ms.author: victorh
 ms.custom: include file
 ms.openlocfilehash: dac1eb26c7511d25ef63a7f22a09c1b23c8b7e96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73501394"
 ---
 > [!IMPORTANT]

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
 ms.openlocfilehash: 6ae8afefae9a539812748c0ae5380ddaf1fb084c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75382672"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Quickstart: Procure vídeos usando a API e node.js de pesquisa de vídeo bing
@@ -23,7 +23,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de pesquisa de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Nó.js](https://nodejs.org/en/download/)
+* [Node.js](https://nodejs.org/en/download/)
 
 * O módulo Request para JavaScript
     * Pode instalar este módulo usando`npm install request`

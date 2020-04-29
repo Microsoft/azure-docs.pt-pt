@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74380093"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Quickstart: Exigir que os termos de uso sejam aceites antes de aceder a aplicações na nuvem
@@ -200,11 +200,11 @@ Quando já não for necessário, elimine o utilizador do teste e a política de 
 - Se não souber apagar um utilizador da AD Azure, consulte [Apagar utilizadores do Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 - Para eliminar a sua política, selecione a sua política e, em seguida, clique em **Eliminar** na barra de ferramentas de acesso rápido.
 
-    ![Multi-Factor Authentication](./media/require-tou/33.png)
+    ![Multi-factor authentication](./media/require-tou/33.png)
 
 - Para eliminar os seus termos de utilização, selecione-os e, em seguida, clique em **Eliminar os termos** na barra de ferramentas por cima.
 
-    ![Multi-Factor Authentication](./media/require-tou/29.png)
+    ![Multi-factor authentication](./media/require-tou/29.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 20fe29a6588891c35520db01ac0403fb5b3a85d7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73936145"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores com o Windows Server 2008 para o Azure
@@ -87,7 +87,7 @@ O resto deste tutorial mostra como pode migrar máquinas virtuais de VMware no l
 Execute as seguintes tarefas para preparar a subscrição do Azure e o ambiente de VMware/Físico no local:
 
 1. [Preparar o Azure](tutorial-prepare-azure.md)
-2. Preparar o [VMware](vmware-azure-tutorial-prepare-on-premises.md) no local
+2. Prepare no local [VMware](vmware-azure-tutorial-prepare-on-premises.md)
 
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 

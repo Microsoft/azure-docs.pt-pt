@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 32dff9a165125ab1949560ce36438ae266cd3036
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74090301"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Mova um cofre de serviços de recuperação e configuração de recuperação do site Azure para outra região de Azure

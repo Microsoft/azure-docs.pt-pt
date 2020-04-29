@@ -14,10 +14,10 @@ ms.topic: overview
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.openlocfilehash: bbbea0c943758c2682f7b166e461807d2914f790
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74561683"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introdução aos laboratórios de sala de aula
