@@ -7,10 +7,10 @@ ms.date: 03/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.openlocfilehash: 33f1d154f438b917b79cd299e81c9078e2f2e81d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460403"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Criar programáticamente subscrições do Azure (pré-visualização)
@@ -94,7 +94,7 @@ ObjectId                               | PrincipalName
 ```
 Utilize `principalName` a propriedade para identificar a conta a que pretende que as subscrições sejam faturadas. Copie `ObjectId` a conta. Por exemplo, se quisesse criar subscrições na conta SignUpEngineering@contoso.com de ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```inscrição, copiaria. Repasse esta identificação do objeto em algum lugar para `enrollmentAccountObjectId`que possa usá-lo no próximo passo como .
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Utilize o comando da [lista de listas de inscrição az](https://aka.ms/EASubCreationPublicPreviewCLI) para listar todas as contas de inscrição a que tem acesso.
 
@@ -152,9 +152,9 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 | Nome do Elemento  | Necessário | Tipo   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Não      | Cadeia | O nome de exibição da subscrição. Se não for especificado, está definido para o nome da oferta, como "Microsoft Azure Enterprise".                                 |
-| `offerType`   | Sim      | Cadeia | A oferta da subscrição. As duas opções para a EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilização de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/teste, precisa de ser [ativada utilizando o portal EA).](https://ea.azure.com/helpdocs/DevOrTestOffer)                |
-| `owners`      | Não       | Cadeia | O Id do Objeto de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado.  |
+| `displayName` | Não      | String | O nome de exibição da subscrição. Se não for especificado, está definido para o nome da oferta, como "Microsoft Azure Enterprise".                                 |
+| `offerType`   | Sim      | String | A oferta da subscrição. As duas opções para a EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilização de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/teste, precisa de ser [ativada utilizando o portal EA).](https://ea.azure.com/helpdocs/DevOrTestOffer)                |
+| `owners`      | Não       | String | O Id do Objeto de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado.  |
 
 Na resposta, recebes `subscriptionOperation` um objeto para monitorização. Quando a criação de `subscriptionOperation` subscrição `subscriptionLink` estiver concluída, o objeto devolveria um objeto, que tem o ID de subscrição.
 
@@ -170,16 +170,16 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 | Nome do Elemento  | Necessário | Tipo   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `Name` | Não      | Cadeia | O nome de exibição da subscrição. Se não for especificado, está definido para o nome da oferta, como "Microsoft Azure Enterprise".                                 |
-| `OfferType`   | Sim      | Cadeia | A oferta da subscrição. As duas opções para a EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilização de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/teste, precisa de ser [ativada utilizando o portal EA).](https://ea.azure.com/helpdocs/DevOrTestOffer)                |
-| `EnrollmentAccountObjectId`      | Sim       | Cadeia | O Id do Objeto da conta de inscrição a que a subscrição é criada e faturada. Este valor é um GUID `Get-AzEnrollmentAccount`de que obtém. |
-| `OwnerObjectId`      | Não       | Cadeia | O Id do Objeto de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado.  |
-| `OwnerSignInName`    | Não       | Cadeia | O endereço de e-mail de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado. Pode utilizar este parâmetro `OwnerObjectId`em vez de .|
-| `OwnerApplicationId` | Não       | Cadeia | O ID de aplicação de qualquer diretor de serviço que gostaria de adicionar como Proprietário RBAC na subscrição quando for criado. Pode utilizar este parâmetro `OwnerObjectId`em vez de . Ao utilizar este parâmetro, o diretor de serviço deve ter [lido o acesso ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
+| `Name` | Não      | String | O nome de exibição da subscrição. Se não for especificado, está definido para o nome da oferta, como "Microsoft Azure Enterprise".                                 |
+| `OfferType`   | Sim      | String | A oferta da subscrição. As duas opções para a EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilização de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/teste, precisa de ser [ativada utilizando o portal EA).](https://ea.azure.com/helpdocs/DevOrTestOffer)                |
+| `EnrollmentAccountObjectId`      | Sim       | String | O Id do Objeto da conta de inscrição a que a subscrição é criada e faturada. Este valor é um GUID `Get-AzEnrollmentAccount`de que obtém. |
+| `OwnerObjectId`      | Não       | String | O Id do Objeto de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado.  |
+| `OwnerSignInName`    | Não       | String | O endereço de e-mail de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado. Pode utilizar este parâmetro `OwnerObjectId`em vez de .|
+| `OwnerApplicationId` | Não       | String | O ID de aplicação de qualquer diretor de serviço que gostaria de adicionar como Proprietário RBAC na subscrição quando for criado. Pode utilizar este parâmetro `OwnerObjectId`em vez de . Ao utilizar este parâmetro, o diretor de serviço deve ter [lido o acesso ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Para ver uma lista completa de todos os parâmetros, consulte [New-AzSubscription](/powershell/module/az.subscription).
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Em primeiro lugar, instale esta extensão de pré-visualização executando `az extension add --name subscription`.
 
@@ -191,12 +191,12 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 
 | Nome do Elemento  | Necessário | Tipo   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `display-name` | Não      | Cadeia | O nome de exibição da subscrição. Se não for especificado, está definido para o nome da oferta, como "Microsoft Azure Enterprise".                                 |
-| `offer-type`   | Sim      | Cadeia | A oferta da subscrição. As duas opções para a EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilização de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/teste, precisa de ser [ativada utilizando o portal EA).](https://ea.azure.com/helpdocs/DevOrTestOffer)                |
-| `enrollment-account-object-id`      | Sim       | Cadeia | O Id do Objeto da conta de inscrição a que a subscrição é criada e faturada. Este valor é um GUID `az billing enrollment-account list`de que obtém. |
-| `owner-object-id`      | Não       | Cadeia | O Id do Objeto de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado.  |
-| `owner-upn`    | Não       | Cadeia | O endereço de e-mail de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado. Pode utilizar este parâmetro `owner-object-id`em vez de .|
-| `owner-spn` | Não       | Cadeia | O ID de aplicação de qualquer diretor de serviço que gostaria de adicionar como Proprietário RBAC na subscrição quando for criado. Pode utilizar este parâmetro `owner-object-id`em vez de . Ao utilizar este parâmetro, o diretor de serviço deve ter [lido o acesso ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
+| `display-name` | Não      | String | O nome de exibição da subscrição. Se não for especificado, está definido para o nome da oferta, como "Microsoft Azure Enterprise".                                 |
+| `offer-type`   | Sim      | String | A oferta da subscrição. As duas opções para a EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilização de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/teste, precisa de ser [ativada utilizando o portal EA).](https://ea.azure.com/helpdocs/DevOrTestOffer)                |
+| `enrollment-account-object-id`      | Sim       | String | O Id do Objeto da conta de inscrição a que a subscrição é criada e faturada. Este valor é um GUID `az billing enrollment-account list`de que obtém. |
+| `owner-object-id`      | Não       | String | O Id do Objeto de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado.  |
+| `owner-upn`    | Não       | String | O endereço de e-mail de qualquer utilizador que deseja adicionar como Proprietário RBAC na subscrição quando for criado. Pode utilizar este parâmetro `owner-object-id`em vez de .|
+| `owner-spn` | Não       | String | O ID de aplicação de qualquer diretor de serviço que gostaria de adicionar como Proprietário RBAC na subscrição quando for criado. Pode utilizar este parâmetro `owner-object-id`em vez de . Ao utilizar este parâmetro, o diretor de serviço deve ter [lido o acesso ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Para ver uma lista completa de todos os parâmetros, consulte a [az account criar](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 
@@ -342,12 +342,12 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 
 | Nome do Elemento  | Necessário | Tipo   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Sim      | Cadeia | O nome de exibição da subscrição.|
-| `billingProfileId`   | Sim      | Cadeia | A identificação do perfil de faturação que será cobrado para as acusações da subscrição.  |
-| `skuId` | Sim      | Cadeia | O sku ID que determina o tipo de plano Azure. |
-| `owners`      | Não       | Cadeia | O Id do Objeto de qualquer utilizador ou diretor de serviço que gostaria de adicionar como Proprietário RBAC na subscrição quando for criado.  |
-| `costCenter` | Não      | Cadeia | O centro de custos associado à subscrição. Aparece no ficheiro csv de uso. |
-| `managementGroupId` | Não      | Cadeia | A identificação do grupo de gestão a que a subscrição será adicionada. Para obter a lista de grupos de gestão, consulte Grupos de [Gestão - Lista API](/rest/api/resources/managementgroups/list). Utilize a identificação de um grupo de gestão da API. |
+| `displayName` | Sim      | String | O nome de exibição da subscrição.|
+| `billingProfileId`   | Sim      | String | A identificação do perfil de faturação que será cobrado para as acusações da subscrição.  |
+| `skuId` | Sim      | String | O sku ID que determina o tipo de plano Azure. |
+| `owners`      | Não       | String | O Id do Objeto de qualquer utilizador ou diretor de serviço que gostaria de adicionar como Proprietário RBAC na subscrição quando for criado.  |
+| `costCenter` | Não      | String | O centro de custos associado à subscrição. Aparece no ficheiro csv de uso. |
+| `managementGroupId` | Não      | String | A identificação do grupo de gestão a que a subscrição será adicionada. Para obter a lista de grupos de gestão, consulte Grupos de [Gestão - Lista API](/rest/api/resources/managementgroups/list). Utilize a identificação de um grupo de gestão da API. |
 
 Na resposta, recebes `subscriptionCreationResult` um objeto para monitorização. Quando a criação de `subscriptionCreationResult` subscrição `subscriptionLink` estiver concluída, o objeto devolveria um objeto, que tem o ID de subscrição.
 
@@ -507,9 +507,9 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 
 | Nome do Elemento  | Necessário | Tipo   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Sim      | Cadeia | O nome de exibição da subscrição.|
-| `skuId` | Sim      | Cadeia | A identificação do plano Azure. Use *0001* para subscrições do tipo Microsoft Azure Plan |
-| `resellerId`      | Não       | Cadeia | A identificação mpn do revendedor que estará associado à subscrição.  |
+| `displayName` | Sim      | String | O nome de exibição da subscrição.|
+| `skuId` | Sim      | String | A identificação do plano Azure. Use *0001* para subscrições do tipo Microsoft Azure Plan |
+| `resellerId`      | Não       | String | A identificação mpn do revendedor que estará associado à subscrição.  |
 
 Na resposta, recebes `subscriptionCreationResult` um objeto para monitorização. Quando a criação de `subscriptionCreationResult` subscrição `subscriptionLink` estiver concluída, o objeto devolveria um objeto, que tem o ID de subscrição.
 

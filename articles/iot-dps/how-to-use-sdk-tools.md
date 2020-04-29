@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: b817b3cfe47ed08cae9e7e0b1c2c24363f2ccfed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271528"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Como utilizar as ferramentas fornecidas nos SDKs para simplificar o desenvolvimento do provisionamento
@@ -34,7 +34,7 @@ Os passos para a utilização do simulador TPM são:
 * Para o ambiente de produção, recomendamos a aquisição de um certificado De A X.509 de uma autoridade pública de certificados de raiz.
 * Para o ambiente de teste, pode gerar um certificado de raiz X.509 ou uma cadeia de certificados X.509 utilizando:
     * OpenSSL: Pode utilizar scripts para a geração de certificados:
-        * [Nó.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
+        * [Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
         * [PowerShell ou Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
     * Emulador de composição de identidade do dispositivo (DICE): Dice pode ser usado para identidade e atestado de dispositivocriptográfico com base no protocolo TLS e nos certificados de cliente X.509.  [Saiba](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) mais sobre a identidade do dispositivo com o DICE.

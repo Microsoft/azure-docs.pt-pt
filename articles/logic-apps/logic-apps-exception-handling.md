@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79284034"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Lidar com erros e exceções em Aplicações Lógicas Azure
@@ -71,8 +71,8 @@ Ou, pode especificar manualmente a política `inputs` de retry na secção para 
 
 | Valor | Tipo | Descrição |
 |-------|------|-------------|
-| <*retry-policy-tipo*> | Cadeia | O tipo de política de `default`retry que você quer usar: , `none`, , `fixed`ou`exponential` |
-| <*intervalo de retry*> | Cadeia | O intervalo de repetição em que o valor deve utilizar o [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo `PT5S` por defeito `PT1D`é e o intervalo máximo é . Quando utilizar a política de intervalo seletor exponencial, pode especificar diferentes valores mínimos e máximos. |
+| <*retry-policy-tipo*> | String | O tipo de política de `default`retry que você quer usar: , `none`, , `fixed`ou`exponential` |
+| <*intervalo de retry*> | String | O intervalo de repetição em que o valor deve utilizar o [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo `PT5S` por defeito `PT1D`é e o intervalo máximo é . Quando utilizar a política de intervalo seletor exponencial, pode especificar diferentes valores mínimos e máximos. |
 | <*tentativas de retry*> | Número inteiro | O número de tentativas de retry, que deve ser entre 1 e 90 |
 ||||
 
@@ -80,8 +80,8 @@ Ou, pode especificar manualmente a política `inputs` de retry na secção para 
 
 | Valor | Tipo | Descrição |
 |-------|------|-------------|
-| <*intervalo mínimo*> | Cadeia | Para a política de intervalo exponencial, o menor intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
-| <*intervalo máximo*> | Cadeia | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <*intervalo mínimo*> | String | Para a política de intervalo exponencial, o menor intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <*intervalo máximo*> | String | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 ||||
 
 Aqui está mais informações sobre os diferentes tipos de políticas.

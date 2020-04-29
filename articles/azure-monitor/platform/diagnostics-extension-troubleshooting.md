@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274583"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Resolução de problemas do Diagnóstico do Azure
@@ -37,7 +37,7 @@ Seguem-se os caminhos para alguns troncos e artefactos importantes. Referimo-nos
 | **Caminho de utilidade de recolha de log** | %SystemDrive%\Packages\GuestAgent\ |
 | **Ficheiro de registo MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>. \<Nome de>. DiagnosticStore\WAD0107\Configuração\MonAgentHost.<seq_num>.log |
 
-### <a name="virtual-machines"></a>Virtual Machines
+### <a name="virtual-machines"></a>Máquinas virtuais
 | Artefacto | Caminho |
 | --- | --- |
 | **Ficheiro de configuração de Diagnóstico Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versão>\RuntimeSettings |

@@ -1,5 +1,5 @@
 ---
-title: Use pontos finais privados
+title: Utilizar pontos finais privados
 titleSuffix: Azure Storage
 description: Visão geral dos pontos finais privados para acesso seguro a contas de armazenamento de redes virtuais.
 services: storage
@@ -11,10 +11,10 @@ ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
 ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79299061"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Utilize pontos finais privados para armazenamento azure

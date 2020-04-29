@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277469"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Ligações Azure Functions SendGrid
@@ -201,7 +201,7 @@ module.exports = function (context, input) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo seguinte mostra uma função desencadeada pelo HTTP que envia um e-mail utilizando a ligação SendGrid. Pode fornecer valores predefinidos na configuração de ligação. Por exemplo, o endereço de e-mail *a partir de* e-mail está configurado em *função.json*. 
 
@@ -340,7 +340,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 

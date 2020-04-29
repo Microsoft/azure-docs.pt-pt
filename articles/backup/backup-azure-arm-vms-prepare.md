@@ -4,10 +4,10 @@ description: Descreve como fazer backup de VMs Azure num cofre de Serviços de R
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273517"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Back up VMs Azure em um cofre de serviços de recuperação
@@ -41,7 +41,7 @@ Além disso, há algumas coisas que talvez precises de fazer em algumas circunst
 
  Um cofre armazena backups e pontos de recuperação criados ao longo do tempo, e armazena políticas de backup associadas a máquinas de reserva. Crie um cofre da seguinte forma:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Em busca, digite Serviços de **Recuperação.** Em **Serviços,** clique em **cofres de Serviços**de Recuperação .
 
      ![Pesquisa de cofres de Serviços de Recuperação](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png)
@@ -179,7 +179,7 @@ O ponto de recuperação incremental criado no cofre capturará todo o barulho d
 
 ## <a name="optional-steps"></a>Passos opcionais
 
-### <a name="install-the-vm-agent"></a>Instalar o agente da VM
+### <a name="install-the-vm-agent"></a>Instale o agente VM
 
 O Azure Backup apoia os VMs Azure instalando uma extensão ao agente Azure VM em funcionamento na máquina. Se o seu VM foi criado a partir de uma imagem do Azure Marketplace, o agente está instalado e em execução. Se criar um VM personalizado, ou migrar uma máquina no local, poderá ter de instalar o agente manualmente, como resumiu a tabela.
 

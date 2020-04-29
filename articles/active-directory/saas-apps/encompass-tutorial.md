@@ -17,10 +17,10 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb259ae6ad46824f32854f7012119d534337578e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73157219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-encompass"></a>Tutorial: Integração de Diretório Sonárte Azure com a Encompass

@@ -5,10 +5,10 @@ ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79366819"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utilize funções Azure para ligar a uma base de dados Azure SQL
@@ -29,7 +29,7 @@ Se esta é a sua primeira experiência a trabalhar com funções C#, deve ler a 
 
 Tem de obter a cadeia de ligação para a base de dados criada quando completou A [Create a Azure SQL base](../sql-database/sql-database-get-started-portal.md)de dados no portal Azure .
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione Bases de **dados SQL** do menu à esquerda e selecione a sua base de dados na página de bases de **dados SQL.**
 

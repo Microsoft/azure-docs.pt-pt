@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b29985d40ae3a1bf582099e998e000fed83460f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371652"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastres em Tecido de Serviço Azure
@@ -73,7 +73,7 @@ Quando estiver a executar o Tecido de Serviço em Azure, os domínios de avaria 
 
 Os domínios de upgrade são úteis para modelar áreas onde o software será atualizado ao mesmo tempo. Por isso, os domínios de atualização também definem frequentemente os limites onde o software é retirado durante as atualizações planeadas. As atualizações tanto do Tecido de Serviço como dos seus serviços seguem o mesmo modelo. Para obter mais informações sobre atualizações em rolo, domínios de atualização e o modelo de saúde service Fabric que ajuda a evitar alterações não intencionais que afetam o cluster e o seu serviço, consulte:
 
- - [Atualização de aplicações](service-fabric-application-upgrade.md)
+ - [Atualização da aplicação](service-fabric-application-upgrade.md)
  - [Tutorial de atualização de aplicações](service-fabric-application-upgrade-tutorial.md)
  - [Modelo de saúde de tecido de serviço](service-fabric-health-introduction.md)
 

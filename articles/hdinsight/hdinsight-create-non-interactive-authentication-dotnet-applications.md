@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
 ms.openlocfilehash: 5e6a0586bc750f8972586920c15dbb297295aa20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371278"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar uma aplicação de autenticação não interativa .NET HDInsight
@@ -35,7 +35,7 @@ Atribuir ao seu pedido de AD Azure um [papel,](../role-based-access-control/buil
 
 **Para adicionar a função proprietário à aplicação Azure AD**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue para o grupo de recursos que tem o cluster HDInsight no qual irá executar a sua consulta da Hive mais tarde neste artigo. Se tiver um grande número de grupos de recursos, pode usar o filtro para encontrar o que deseja.
 1. No menu do grupo de recursos, selecione **controlo de acesso (IAM)**.
 1. Selecione o separador de **atribuições de role** para ver as atribuições de funções atuais.

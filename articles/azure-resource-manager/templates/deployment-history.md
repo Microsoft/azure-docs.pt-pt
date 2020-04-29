@@ -5,10 +5,10 @@ tags: top-support-issue
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.openlocfilehash: b0f196f86bed05094b04bfc20c7cef2248a91c65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460301"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Ver histórico de implementação com o Gestor de Recursos Azure
@@ -57,7 +57,7 @@ Para obter a identificação da correlação, use:
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment).CorrelationId
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para listar a implantação de um grupo de recursos, utilize a lista de grupos de [implantação az](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
 
@@ -143,7 +143,7 @@ Para obter a mensagem de estado das operações falhadas, utilize o seguinte com
 ((Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeploy ).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage.error
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para visualizar as operações de implantação para implantação para um grupo de recursos, utilize o comando da lista de operações do [grupo az.](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-deployment-group-operation-list)
 

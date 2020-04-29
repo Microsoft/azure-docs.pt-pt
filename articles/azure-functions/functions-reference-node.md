@@ -5,10 +5,10 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
 ms.openlocfilehash: 345df8e1ea88caa6f8dbe941245c1f989c3e81c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276832"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia de desenvolvedores de funções azure JavaScript
@@ -362,7 +362,7 @@ O `context.res` objeto (resposta) tem as seguintes propriedades:
 | _corpo_    | Um objeto que contém o corpo da resposta.         |
 | _cabeçalhos_ | Um objeto que contém os cabeçalhos de resposta.             |
 | _isRaw_   | Indica que a formatação é ignorada para a resposta.    |
-| _status_  | O código de estado HTTP da resposta.                     |
+| _estado_  | O código de estado HTTP da resposta.                     |
 | _cookies_ | Uma variedade de objetos de cookie HTTP que são definidos na resposta. Um objeto de `name`cookie `value`HTTP tem uma, `maxAge` e `sameSite`outras propriedades de cookies, tais como ou . |
 
 ### <a name="accessing-the-request-and-response"></a>Acesso ao pedido e resposta 

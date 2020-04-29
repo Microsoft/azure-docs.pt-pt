@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/14/2019
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276949"
 ---
 # <a name="manage-your-function-app"></a>Gerir a sua aplicação de funções 
@@ -148,5 +148,5 @@ Quando as funções usam um gatilho HTTP, pode exigir que as chamadas sejam aute
 + [Configure Definições de serviço de aplicações Azure](../app-service/configure-common.md)
 + [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)
 
-[Azure CLI]: /cli/azure/
-[Portal Azure]: https://portal.azure.com
+[CLI do Azure]: /cli/azure/
+[Portal do Azure]: https://portal.azure.com

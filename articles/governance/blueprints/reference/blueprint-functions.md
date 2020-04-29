@@ -4,10 +4,10 @@ description: Descreve as funções disponíveis para utilização com artefactos
 ms.date: 12/09/2019
 ms.topic: reference
 ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280680"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funções para utilização com plantas azure
@@ -109,10 +109,10 @@ Alguns exemplos de recuperação de dados da amostra _myTemplateArtifact_ são:
 | Expressão | Tipo | Valor |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["primeiro", "segundo"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Cadeia | "Primeiro" |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | Cadeia | "O meu valor de corda" |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "Primeiro" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "O meu valor de corda" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Objeto | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Cadeia | "O meu valor" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "O meu valor" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Booleano | Verdadeiro |
 
 ## <a name="concat"></a>concat
@@ -367,7 +367,7 @@ Utilize o nome de exibição da subscrição e a `concat()` função para criar 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Conheça o ciclo de vida da [planta.](../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).

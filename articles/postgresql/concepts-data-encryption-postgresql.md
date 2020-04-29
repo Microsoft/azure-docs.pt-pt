@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: 20e01e681c382e3c9c69f76c95a90f709f409d6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79297027"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Base de Dados Azure para encriptação de dados de servidor único PostgreSQL com uma chave gerida pelo cliente
@@ -27,7 +27,7 @@ Key Vault é um sistema de gestão de chaves externas baseado em nuvem. É altam
 > [!NOTE]
 > Esta funcionalidade está disponível em todas as regiões do Azure onde o Azure Database for PostgreSQL Single server suporta níveis de preços "Propósito Geral" e "Memory Optimized".
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 A encriptação de dados para a Base de Dados Azure para o servidor Single PostgreSQL fornece os seguintes benefícios:
 

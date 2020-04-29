@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
 ms.openlocfilehash: 98fc339e473ffb2bf54e7119634e93046cca1ef3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79415670"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gerir incidentes de segurança no Centro de Segurança Azure
@@ -48,6 +48,6 @@ No Centro de Segurança, um incidente de segurança é uma agregação de todos 
 ## <a name="see-also"></a>Consulte também
 Neste documento, aprendeu a utilizar a capacidade de incidentes de segurança no Centro de Segurança. Para obter informações relacionadas, consulte o seguinte:
 
-* [Proteção contra ameaças no Centro de Segurança Azure](threat-protection.md)
+* [Proteção contra ameaças no Centro de Segurança do Azure](threat-protection.md)
 * [Alertas de segurança no Centro de Segurança do Azure](security-center-alerts-overview.md)
 * [Gerir alertas de segurança](security-center-managing-and-responding-alerts.md)

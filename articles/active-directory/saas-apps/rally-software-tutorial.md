@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: de84d03c3e0e433dbe7bc24c47b1766b32ad7bc4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67093180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Tutorial: Integração de Diretório Ativo Azure com Software de Rali
@@ -132,7 +132,7 @@ Para configurar o único sign-on da Azure AD com o Rally Software, execute os se
 
 2. Na barra de ferramentas na parte superior, clique em **Configurar**, e, em seguida, **selecione Subscrição**.
    
-    ![Assinatura](./media/rally-software-tutorial/ic769531.png "Subscrição")
+    ![Subscrição](./media/rally-software-tutorial/ic769531.png "Subscrição")
 
 3. Clique no botão **Ação.** **Selecione Editar Subscrição** no lado superior direito da barra de ferramentas.
 

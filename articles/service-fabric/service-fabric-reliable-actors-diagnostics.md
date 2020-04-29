@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282331"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnóstico e monitorização do desempenho dos Reliable Actors
@@ -162,5 +162,5 @@ Quando um cliente invoca um método através de um objeto de procuração de ato
 ## <a name="next-steps"></a>Passos seguintes
 * [Como os atores confiáveis usam a plataforma De Tecido de Serviço](service-fabric-reliable-actors-platform.md)
 * [Documentação de referência do ator API](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código da amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código de exemplo](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Fornecedores de EventSource em PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

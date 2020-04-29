@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
 ms.openlocfilehash: 4a27165d929cc9bc5f18e372f7f108887e466e43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79299367"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Piscinas de instância sql de base de dados Azure (pré-visualização) como guiar

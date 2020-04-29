@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79283150"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores de linguagem aos campos de cordas num índice de pesquisa cognitiva azure
@@ -34,7 +34,7 @@ A Azure Cognitive Search suporta 35 analisadores apoiados por Lucene, e 50 anali
 
 ## <a name="comparing-analyzers"></a>Comparar analisadores
 
-Alguns desenvolvedores podem preferir a solução mais familiar, simples e de código aberto da Lucene. Os analisadores de línguas lucene são mais rápidos, mas os analisadores da Microsoft têm capacidades avançadas, como a lemtização, o descomposto de palavras (em línguas como alemão, dinamarquês, holandês, sueco, norueguês, estónio, acabamento, húngaro, eslovaco) e entidade reconhecimento (URLs, e-mails, datas, números). Se possível, deverá fazer comparações tanto dos analisadores microsoft como lucene para decidir qual é o melhor encaixe. 
+Alguns desenvolvedores podem preferir a solução mais familiar, simples e de código aberto da Lucene. Os analisadores de língualucina são mais rápidos, mas os analisadores da Microsoft têm capacidades avançadas, como lemtização, descomposto de palavras (em línguas como alemão, dinamarquês, holandês, sueco, norueguês, estónio, acabamento, húngaro, eslovaco) e reconhecimento de entidades (URLs, e-mails, datas, números). Se possível, deverá fazer comparações tanto dos analisadores microsoft como lucene para decidir qual é o melhor encaixe. 
 
 A indexação com os analisadores da Microsoft é, em média, duas a três vezes mais lenta do que os seus equivalentes Lucene, dependendo do idioma. O desempenho da pesquisa não deve ser significativamente afetado para consultas de tamanho médio. 
 

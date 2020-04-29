@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282279"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnósticos e monitorização de desempenho para Remoting de Serviço Fiável
@@ -91,5 +91,5 @@ Quando um cliente invoca um método através de um objeto de procuração de ser
 | Serviço de Tecido de Serviço |Milissegundos médios para a serialização da resposta |Tempo demorou (em milissegundos) a serializar a mensagem de resposta de serviço no serviço antes de a resposta ser enviada ao cliente |
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Código da amostra](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
+* [Código de exemplo](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [Fornecedores de EventSource em PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

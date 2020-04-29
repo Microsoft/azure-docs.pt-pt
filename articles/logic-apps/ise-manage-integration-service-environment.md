@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: f48106be67763c093a183be01098cab74391752e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79284203"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gerencie o seu ambiente de serviço de integração (ISE) em Aplicações Lógicas Azure
@@ -23,7 +23,7 @@ Este artigo mostra como executar tarefas de gestão para o seu ambiente de servi
 
 ## <a name="view-your-ise"></a>Ver o seu ISE
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Na caixa de pesquisa do portal, insira "ambientes de serviço de integração", e depois selecione Ambientes de Serviço de **Integração.**
 
@@ -180,4 +180,4 @@ Depois de eliminar o ise, poderá ter de esperar até 9 horas antes de tentar el
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Adicionar recursos aos ambientes de serviçode integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Adicionar recursos a ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
 ms.openlocfilehash: 19691a654162ee3855cb257fd42e29d2e1fc0157
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276663"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com ferramentas centrais de funções azure
@@ -328,7 +328,7 @@ func start --build
 func start
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```
 func start
@@ -567,8 +567,8 @@ Para arquivar um pedido de bug ou funcionalidade, [abra um problema GitHub](http
 <!-- LINKS -->
 
 [Ferramentas centrais de funções azure]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portal Azure]: https://portal.azure.com 
-[Nó.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[Portal do Azure]: https://portal.azure.com 
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 ['AzureWebJobsStorage']: functions-app-settings.md#azurewebjobsstorage
 [pacotes de extensão]: functions-bindings-register.md#extension-bundles

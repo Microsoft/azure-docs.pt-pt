@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275103"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Managing and maintaining the Log Analytics agent for Windows and Linux (Gerir e manter o agente do Log Analytics para Windows e Linux)
@@ -32,7 +32,7 @@ Para atualizar o agente num VM do Windows para a versão mais recente não insta
 
 Pode descarregar a versão mais recente do agente Windows a partir do seu espaço de trabalho Log Analytics, executando os seguintes passos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**.
 
@@ -83,7 +83,7 @@ Executar o seguinte comando para atualizar o agente.
 ## <a name="adding-or-removing-a-workspace"></a>Adicionar ou remover um espaço de trabalho
 
 ### <a name="windows-agent"></a>Agente do Windows
-Os passos nesta secção são necessários quando pretende não só reconfigurar o agente do Windows para reportar a um espaço de trabalho diferente ou remover um espaço de trabalho da sua configuração, mas também quando pretende configurar o agente para reportar a mais do que um espaço de trabalho (comummente referido como multi-homing). Configurar o agente do Windows para reportar a vários espaços de trabalho só pode ser realizado após a configuração inicial do agente e utilizando os métodos descritos abaixo.    
+Os passos nesta secção são necessários quando pretende não só reconfigurar o agente do Windows para reportar a um espaço de trabalho diferente ou remover um espaço de trabalho da sua configuração, mas também quando pretende configurar o agente para reportar a mais de um espaço de trabalho (vulgarmente referido como multi-homing). Configurar o agente do Windows para reportar a vários espaços de trabalho só pode ser realizado após a configuração inicial do agente e utilizando os métodos descritos abaixo.    
 
 #### <a name="update-settings-from-control-panel"></a>Definições de atualização do Painel de Controlo
 

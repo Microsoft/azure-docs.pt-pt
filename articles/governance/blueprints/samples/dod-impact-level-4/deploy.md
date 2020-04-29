@@ -4,10 +4,10 @@ description: Desloque os passos para a amostra de planta do Nível de Impacto 4 
 ms.date: 03/06/2020
 ms.topic: sample
 ms.openlocfilehash: c92e24327bc1879b8fea89cf85a50f845e473810
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79415314"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Implementar a amostra de planta do Nível de Impacto DoD 4
@@ -145,7 +145,7 @@ Agora que reviu os passos para implementar a amostra de planta do Nível de Impa
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

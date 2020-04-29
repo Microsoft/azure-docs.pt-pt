@@ -9,10 +9,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 69a48952ef273acb8cf7eb0ec5968e12b962b622
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79454368"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gerir o Azure Data Lake Analytics utilizando a interface de linha de comando Azure (CLI)
@@ -91,7 +91,7 @@ Lista de contas do Lago de Dados Analytics dentro de um grupo de recursos espec�
 Data Lake Analytics suporta atualmente as seguintes duas fontes de dados:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Storage do Azure](../storage/common/storage-introduction.md)
+* [Armazenamento Azure](../storage/common/storage-introduction.md)
 
 Quando criar uma conta Analytics, deve designar uma conta de Armazenamento de Lagos De Dados Azure como a conta de armazenamento padrão. A conta de armazenamento padrão data Lake é usada para armazenar metadados de trabalho e registos de auditoria de emprego. Depois de ter criado uma conta Analytics, pode adicionar contas adicionais de Armazenamento de Data Lake e/ou conta de Armazenamento Azure. 
 

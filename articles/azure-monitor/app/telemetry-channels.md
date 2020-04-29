@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9c292246f947e4d3a364f79b31fe7a1deebd33d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275701"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canais de telemetria em Insights de Aplicação
@@ -33,7 +33,7 @@ Os Insights de Aplicação .NET e .NET Core SDKs com dois canais incorporados:
 
 * `ServerTelemetryChannel`: Um canal mais avançado que tenha políticas de retenção e a capacidade de armazenar dados num disco local. Este canal retenta o envio de telemetria se ocorrerem erros transitórios. Este canal também utiliza armazenamento de disco local para manter itens no disco durante interrupções de rede ou volumes elevados de telemetria. Devido a estes mecanismos de retry e armazenamento de discos locais, este canal é considerado mais fiável e é recomendado para todos os cenários de produção. Este canal é o padrão para [aplicações ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) e [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) que são configuradas de acordo com a documentação oficial. Este canal está otimizado para cenários de servidores com processos de longo prazo. O [`Flush()`](#which-channel-should-i-use) método que é implementado por este canal não é sincronizado.
 
-    Este canal é enviado como o pacote Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel NuGet e é adquirido automaticamente quando utiliza o Microsoft.ApplicationInsights.Web ou Microsoft.ApplicationInsights.AspNetCore NuGet pacote.
+    Este canal é enviado como o pacote Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel NuGet e é adquirido automaticamente quando utiliza o pacote Microsoft.ApplicationInsights.Web ou Microsoft.ApplicationInsights.AspNetCore NuGet.
 
 ## <a name="configure-a-telemetry-channel"></a>Configure um canal de telemetria
 

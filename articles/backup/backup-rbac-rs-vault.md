@@ -5,10 +5,10 @@ ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.openlocfilehash: e2e32ac6981635e3b9885119fdf397783ac32cc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273205"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utilize o Controlo de Acesso baseado em funções para gerir pontos de recuperação de backup do Azure
@@ -80,6 +80,6 @@ A tabela seguinte captura as ações de gestão de Backup e a função correspon
 * [Controlo de Acesso Baseado em Funções](../role-based-access-control/role-assignments-portal.md): Comece com o RBAC no portal Azure.
 * Saiba como gerir o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
-  * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
-  * [REST API](../role-based-access-control/role-assignments-rest.md)
+  * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
+  * [API REST](../role-based-access-control/role-assignments-rest.md)
 * [Resolução de problemas do Controlo de Acesso baseado em papéis](../role-based-access-control/troubleshooting.md): Obtenha sugestões para corrigir questões comuns.

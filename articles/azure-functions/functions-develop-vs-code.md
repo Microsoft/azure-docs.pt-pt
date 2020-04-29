@@ -4,10 +4,10 @@ description: Aprenda a desenvolver e testar funções Azure utilizando a extens�
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: 2d33b7dddf29d37d174bdb7734e9048bc1658840
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277170"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver funções Azure utilizando o Código do Estúdio Visual
@@ -27,7 +27,7 @@ A extensão pode ser utilizada com as seguintes línguas, que são suportadas pe
 * [JavaScript](functions-reference-node.md)
 * [Java](functions-reference-java.md)
 * [PowerShell](functions-reference-powershell.md)
-* [Pitão](functions-reference-python.md)
+* [Python](functions-reference-python.md)
 
 <sup>*</sup>Requer que [desloque](#c-script-projects)o script C# como a sua linguagem padrão de projeto.
 
@@ -302,7 +302,7 @@ Para executar o seu projeto Funções localmente, deve cumprir estes requisitos 
     | **C #** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Ferramentas da CLI de .NET core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger para extensão java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou mais tarde](https://maven.apache.org/) |
     | **JavaScript** | [Nó.js](https://nodejs.org/)<sup>*</sup> |  
-    | **Pitão** | [Extensão python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|
+    | **Python** | [Extensão python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|
 
     <sup>*</sup>Versões LTS ativas e de Manutenção LTS (8.11.1 e 10.14.1 recomendadas).
 

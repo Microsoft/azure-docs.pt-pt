@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
 ms.openlocfilehash: 22d27d50a7d2c304e5d1a04a9a5eaa03d2f0bfa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79366347"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instale aplicações apache hadoop de terceiros no Azure HDInsight
@@ -51,7 +51,7 @@ O procedimento seguinte mostra-lhe como instalar aplicações do HDInsight num c
 
 **Instale uma aplicação HDInsight**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. A partir do menu esquerdo, navegue para **todos os serviços** > **Analytics** > **HDInsight clusters**.
 3. Selecione um cluster HDInsight da lista.  Se não tiver um, tem de criá-lo.  Veja [Create clusters (Criar clusters)](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 4. Na categoria **Definições,** selecione **Aplicações**. Pode ver uma lista de aplicações instaladas na janela principal. 
@@ -75,7 +75,7 @@ O portal mostra uma lista das aplicações do HDInsight instaladas relativas a u
 
 **Lista de propriedades de aplicação E exibição HDInsight**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. A partir do menu esquerdo, navegue para **todos os serviços** > **Analytics** > **HDInsight clusters**.
 3. Selecione um cluster HDInsight da lista.
 4. Na categoria **Definições,** selecione **Aplicações**. Pode ver uma lista de aplicações instaladas na janela principal. 

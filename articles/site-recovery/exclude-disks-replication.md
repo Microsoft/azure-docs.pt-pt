@@ -4,10 +4,10 @@ description: Como excluir discos da replicação para Azure com recuperação do
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 57bf06f0fde85714530c06cbd008db08de7460d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281850"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Excluir discos da recuperação de desastres
@@ -30,7 +30,7 @@ Sim (usando powerShell) | Sim | Sim
 
 ## <a name="exclude-limitations"></a>Excluir limitações
 
-**Limitação** | **VMs do Azure** | **VMs VMware** | **VMs de Hyper-V**
+**Limitação** | **VMs do Azure** | **VMs VMware** | **VMs Hyper-V**
 --- | --- | ---
 **Tipos de disco** | Pode excluir discos básicos da replicação.<br/><br/> Não é possível excluir discos do sistema operativo ou discos dinâmicos. Os discos temporários são excluídos por defeito. | Pode excluir discos básicos da replicação.<br/><br/> Não é possível excluir discos do sistema operativo ou discos dinâmicos. | Pode excluir discos básicos da replicação.<br/><br/> Não é possível excluir discos do sistema operativo. Recomendamos que não exclua discos dinâmicos. A Recuperação do Site não consegue identificar qual vHS é básico ou dinâmico no VM convidado. Se todos os discos de volume dinâmico dependente não forem excluídos, o disco dinâmico protegido torna-se um disco falhado num VM failover, e os dados nesse disco não estão acessíveis.
 **Risque de risadis** | Não podeexcluir um disco que está a replicar-se.<br/><br/> Desative e reative a replicação para o VM. |  Não podeexcluir um disco que está a replicar-se. |  Não podeexcluir um disco que está a replicar-se.

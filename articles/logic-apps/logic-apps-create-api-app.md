@@ -7,10 +7,10 @@ ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
 ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79270540"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Crie APIs personalizados que pode ligar de Aplicações Lógicas Azure
@@ -32,9 +32,9 @@ Você pode hospedar as suas APIs no [Azure App Service](../app-service/overview.
 > 
 > * [ASP.NET.](../app-service/app-service-web-get-started-dotnet.md) 
 > * [Java](../app-service/app-service-web-get-started-java.md)
-> * [Nó.js](../app-service/app-service-web-get-started-nodejs.md)
+> * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Pitão](../app-service/containers/quickstart-python.md)
+> * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
 > Para amostras de aplicações DaPi construídas para aplicações lógicas, visite o repositório ou [blog](https://aka.ms/logicappsblog) [Azure Logic Apps GitHub.](https://github.com/logicappsio)

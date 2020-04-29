@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274349"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Gerente de Operações ao Monitor Azure
@@ -31,7 +31,7 @@ O diagrama seguinte mostra a ligação entre os servidores de gestão e os agent
 
 ![oms-operations-manager-integration-diagram](./media/om-agents/oms-operations-manager-connection.png)
 
-Se as suas políticas de segurança de TI não permitirem que os computadores da sua rede se conectem à Internet, os servidores de gestão podem ser configurados para se ligarem ao portal Log Analytics para receber informações de configuração e enviar dados recolhidos dependendo das soluções habilitado. Para obter mais informações e passos sobre como configurar o seu grupo de gestão de Gestor de Operações para comunicar através de um portal de Log Analytics para o Monitor Azure, consulte [connect computers to Azure Monitor utilizando o gateway Log Analytics](../../azure-monitor/platform/gateway.md).  
+Se as suas políticas de segurança de TI não permitirem que os computadores da sua rede se conectem à Internet, os servidores de gestão podem ser configurados para se ligarem ao portal Log Analytics para receber informações de configuração e enviar dados recolhidos dependendo das soluções ativadas. Para obter mais informações e passos sobre como configurar o seu grupo de gestão de Gestor de Operações para comunicar através de um portal de Log Analytics para o Monitor Azure, consulte [connect computers to Azure Monitor utilizando o gateway Log Analytics](../../azure-monitor/platform/gateway.md).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -179,7 +179,7 @@ Para continuar a seguir o processo de controlo de alterações existente para co
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Mudar de um grupo do Operations Manager para uma nova Área de Trabalho do Log Analytics
 
-1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 1. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics** e, em seguida, crie uma área de trabalho.  
 1. Abra a consola do Operations Manager com uma conta que seja um membro da função Administradores do Operations Manager e selecione a área de trabalho **Administração**.
 1. Expandir o Log Analytics e selecionar **Ligações**.

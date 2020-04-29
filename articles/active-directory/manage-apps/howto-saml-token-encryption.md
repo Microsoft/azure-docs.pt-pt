@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0082d841faf22745e609d38444f4a97553b3c867
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79365871"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Como: Configure Azure AD AD Token encriptação
@@ -34,11 +34,11 @@ Encriptar as afirmações da SAML entre a AD Azure e a aplicação fornece garan
 
 Mesmo sem encriptação simbólica, as fichas SAML da Azure AD nunca são transmitidas na rede de forma clara. A Azure AD exige que as trocas de pedidos/respostas simbólicas ocorram sobre os canais HTTPS/TLS encriptados para que as comunicações entre o IDP, browser e aplicação ocorram sobre links encriptados. Considere o valor da encriptação simbólica para a sua situação em comparação com a sobrecarga de gestão de certificados adicionais.   
 
-Para configurar a encriptação simbólica, é necessário fazer o upload de um ficheiro de certificado X.509 que contenha a chave pública do objeto de aplicação Azure AD que representa a aplicação. Para obter o certificado X.509, pode descarregá-lo a partir da própria aplicação, ou obtê-lo do fornecedor de aplicações nos casos em que o fornecedor de aplicações fornece chaves de encriptação ou nos casos em que a aplicação espera que forneça uma chave privada, pode ser criado usando ferramentas de criptografia, a parte chave privada enviada para a loja chave da aplicação e o certificado de chave pública correspondente enviado para AD Azure.
+Para configurar a encriptação simbólica, é necessário fazer o upload de um ficheiro de certificado X.509 que contenha a chave pública do objeto de aplicação Azure AD que representa a aplicação. Para obter o certificado X.509, pode descarregá-lo a partir da própria aplicação, ou obtê-lo junto do fornecedor de aplicações nos casos em que o fornecedor de aplicações fornece chaves de encriptação ou nos casos em que a aplicação espera que forneça uma chave privada, pode ser criado usando ferramentas de criptografia, a parte chave privada enviada para a loja chave da aplicação e o certificado de chave pública correspondente enviado para a AD Azure.
 
 A Azure AD utiliza o AES-256 para encriptar os dados de afirmação do SAML.
 
-## <a name="configure-saml-token-encryption"></a>Configurar encriptação token SAML
+## <a name="configure-saml-token-encryption"></a>Configurar a encriptação de tokens SAML
 
 Para configurar a encriptação token SAML, siga estes passos:
 

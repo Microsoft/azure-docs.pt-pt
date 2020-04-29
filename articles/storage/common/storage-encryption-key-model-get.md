@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 0df0ba4ce76d249bcb4738b41c94677e061f14ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79409865"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determine qual o modelo de chave de encriptação do Armazenamento Azure está a ser utilizado para a conta de armazenamento
@@ -32,7 +32,7 @@ Para obter mais informações sobre chaves de encriptação, consulte [a encript
 
 Para determinar se uma conta de armazenamento está a usar chaves geridas pela Microsoft ou chaves geridas pelo cliente para encriptação, utilize uma das seguintes abordagens.
 
-# <a name="azure-portal"></a>[Portal Azure](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para verificar o modelo de encriptação da conta de armazenamento utilizando o portal Azure, siga estes passos:
 
@@ -59,7 +59,7 @@ $account.Encryption.KeySource
 
 Se o valor da propriedade `Microsoft.Storage` **KeySource** for , então a conta é encriptada com chaves geridas pela Microsoft. Se o valor da propriedade `Microsoft.Keyvault` **KeySource** for , então a conta é encriptada com chaves geridas pelo cliente.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
 Para verificar o modelo de encriptação da conta de armazenamento utilizando o Azure CLI, ligue para o comando da conta de [armazenamento az](/cli/azure/storage/account#az-storage-account-show) e, em seguida, verifique a propriedade **keySource** para a conta.
 
