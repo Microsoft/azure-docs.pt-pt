@@ -8,10 +8,10 @@ ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75463907"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Quickstart: Criar e gerir a partilha de Ficheiros Azure com máquinas virtuais windows
@@ -22,7 +22,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Preparar o ambiente
 
@@ -31,7 +31,7 @@ Neste arranque rápido, configura os seguintes itens:
 - Uma conta de armazenamento Azure e uma partilha de ficheiros Azure
 - Um Windows Server 2016 Datacenter VM
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Antes de poder trabalhar com uma partilha de ficheiros Azure, tem de criar uma conta de armazenamento Azure. Uma conta de armazenamento v2 de uso geral fornece acesso a todos os serviços de Armazenamento Azure: blobs, ficheiros, filas e mesas. O quickstart cria uma conta de armazenamento v2 de propósito geral, mas os passos para criar qualquer tipo de conta de armazenamento são semelhantes. Uma conta de armazenamento pode conter um número ilimitado de partilhas. Uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento.
 

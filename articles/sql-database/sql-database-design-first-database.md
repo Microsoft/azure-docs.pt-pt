@@ -10,10 +10,10 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75459623"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Tutorial: Conceber uma base de dados relacional numa única base de dados dentro da Base de Dados Azure SQL utilizando SSMS
@@ -44,7 +44,7 @@ Para completar este tutorial, certifique-se de que instalou:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-single-database"></a>Criar uma base de dados única em branco
 
@@ -62,7 +62,7 @@ Siga estes passos para criar uma base de dados única em branco.
     | Definição       | Valor sugerido | Descrição |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nome da base de dados** | *sua Base de Dados* | Para obter nomes de base de dados [válidos, consulte os identificadores da Base de Dados](/sql/relational-databases/databases/database-identifiers). |
-    | **Assinatura** | *sua Subscrição*  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
+    | **Subscrição** | *sua Subscrição*  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
     | **Grupo de recursos** | *seuGrupo de Recursos* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
     | **Selecione fonte** | Base de dados vazia | Especifica que deve ser criada uma base de dados vazia. |
 
