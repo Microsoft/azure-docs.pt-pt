@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/08/2020
 ms.author: aschhab
 ms.openlocfilehash: 8020b12ca892fbf7dec6fed6259526d958fb110f
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80891769"
 ---
 # <a name="message-counters"></a>Contadores de mensagens

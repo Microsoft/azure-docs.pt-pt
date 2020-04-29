@@ -4,10 +4,10 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: c0517375b273384f263e8ba421995d4afb6c193b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982419"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funções de corda para modelos ARM
@@ -25,7 +25,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas no
 * [terminaCom](#endswith)
 * [primeiro](#first)
 * [formato](#format)
-* [guia](#guid)
+* [guid](#guid)
 * [indexof](#indexof)
 * [última](#last)
 * [últimoIndexOf](#lastindexof)
@@ -36,7 +36,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas no
 * [saltar](#skip)
 * [dividir](#split)
 * [começaCom](#startswith)
-* [cadeia](#string)
+* [string](#string)
 * [substring](#substring)
 * [tomar](#take)
 * [toLower](#tolower)
@@ -763,7 +763,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | formatoTeste | String | Olá, Utilizador. Número formato: 8.175.133 |
 
-## <a name="guid"></a>guia
+## <a name="guid"></a>guid
 
 `guid(baseString, ...)`
 

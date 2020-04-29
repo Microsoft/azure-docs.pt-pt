@@ -4,10 +4,10 @@ description: Aprenda a utilizar eficazmente os Registos do Monitor Azure de form
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 9a600cec524c9f715ada9da09dea35f3baa98151
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985206"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorizar os recursos delegados em escala

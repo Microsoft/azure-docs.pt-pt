@@ -6,10 +6,10 @@ ms.subservice: shared-capabilities
 ms.date: 03/23/2020
 ms.topic: conceptual
 ms.openlocfilehash: f917e9c64a932d75fd0f6b14c9e0f35808467355
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80984662"
 ---
 # <a name="managing-azure-automation-data"></a>Gerir os dados da Automatização do Azure

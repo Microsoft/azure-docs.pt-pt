@@ -10,10 +10,10 @@ ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
 ms.openlocfilehash: 0cefa78b6f52cc67df8817f68a9b793ab86b2a7f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878583"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
@@ -26,7 +26,7 @@ Os oleodutos Azure Machine Learning permitem criar fluxos de trabalho nos seus p
 + Flexibilidade
 + Versão e rastreio
 + Modularidade 
-+ Controlo de qualidade
++ Garantia de qualidade
 + Controlo de custos
 
 Estes benefícios tornam-se significativos assim que o seu projeto de aprendizagem automática vai além da exploração pura e da iteração. Mesmo os simples oleodutos de um passo podem ser valiosos. Os projetos de aprendizagem automática estão muitas vezes num estado complexo, e pode ser um alívio fazer da realização precisa de um único fluxo de trabalho um processo trivial.

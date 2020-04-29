@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 312e9db594983f85372285bdff415a2d5dc76ed3
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80984015"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>O que é iPv6 para rede virtual Azure?
@@ -31,7 +31,7 @@ O diagrama seguinte retrata uma simples dupla pilha (IPv4/IPv6) implantação em
 
 ![Diagrama de implantação de rede IPv6](./media/ipv6-support-overview/ipv6-sample-diagram.png)
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 IPv6 para benefícios Azure VNET:
 

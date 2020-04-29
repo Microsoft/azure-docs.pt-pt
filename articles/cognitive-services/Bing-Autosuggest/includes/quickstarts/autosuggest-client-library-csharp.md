@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 04/06/2020
 ms.author: aahi
 ms.openlocfilehash: ac46eb0119ac95cf09e48823686a6c563d8d4d4a
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887537"
 ---
 Começa com a biblioteca de clientes Bing Autosuggest para .NET. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.

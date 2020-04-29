@@ -4,10 +4,10 @@ description: Conheça os requisitos de armazenamento das Funções Azure e sobre
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 48ff2dedd997cccb76b13acdadc895504f656ea3
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80984168"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento para funções azure
@@ -17,7 +17,7 @@ As Funções Azure requerem uma conta de Armazenamento Azure quando cria uma ins
 
 |Serviço de armazenamento  | Utilização de funções  |
 |---------|---------|
-| [Armazenamento Azure Blob](../storage/blobs/storage-blobs-introduction.md)     | Mantenha as ligações de estado e chaves de função.  <br/>Também utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md) |
+| [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md)     | Mantenha as ligações de estado e chaves de função.  <br/>Também utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md) |
 | [Ficheiros do Azure](../storage/files/storage-files-introduction.md)  | Partilha de ficheiros utilizada para armazenar e executar o código da aplicação de funções num Plano de [Consumo](functions-scale.md#consumption-plan). |
 | [Armazenamento de fila azure](../storage/queues/storage-queues-introduction.md)     | Utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md)   |
 | [Armazenamento de mesa azure](../storage/tables/table-storage-overview.md)  |  Utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md)       |

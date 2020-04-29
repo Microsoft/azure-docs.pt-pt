@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 3/18/2020
 ms.author: spelluru
 ms.openlocfilehash: 8fcc46487e7f7c2d075639f10a30cae9950ff31b
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879586"
 ---
 # <a name="lab-account-setup-guide"></a>Guia de configuração de conta de laboratório

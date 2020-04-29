@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/08/2020
 ms.openlocfilehash: 5bb5d5dd5110f176b59a99f6a3aa223184158da5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982315"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Ativar o Monitor Azure para a visão geral dos VMs
@@ -61,7 +61,7 @@ O Monitor Azure para VMs suporta um espaço de trabalho de Log Analytics nas seg
 Se não tiver um espaço de trabalho no Log Analytics, pode criar um utilizando um dos recursos:
 * [CLI do Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
-* [Portal Azure](../../azure-monitor/learn/quick-create-workspace.md)
+* [Portal do Azure](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
 Também pode criar um espaço de trabalho enquanto permite a monitorização de um único Azure VM ou escala de máquina virtual definida no portal Azure.

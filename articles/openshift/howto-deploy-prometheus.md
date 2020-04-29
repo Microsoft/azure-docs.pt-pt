@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometheus, aro, openshift, métricas, chapéu vermelho
 ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886893"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Implante um exemplo de Prometheus autónomo num cluster OpenShift do Chapéu Vermelho Azure

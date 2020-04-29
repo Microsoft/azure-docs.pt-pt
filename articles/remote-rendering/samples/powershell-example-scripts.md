@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80891497"
 ---
 # <a name="example-powershell-scripts"></a>Scripts do PowerShell de exemplo

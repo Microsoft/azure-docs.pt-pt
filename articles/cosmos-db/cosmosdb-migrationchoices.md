@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: bharathb
 ms.openlocfilehash: 34698a215477abdd7d68c3dfe050657ecf049690
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80984900"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opções para migrar os seus dados no local ou na nuvem para O Azure Cosmos DB

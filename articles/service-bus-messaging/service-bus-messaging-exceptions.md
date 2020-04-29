@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
 ms.openlocfilehash: d04902a8d53397b7e7d9712a1c75ce44cc7aa7ad
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80880793"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceções de mensagens de ônibus de serviço

@@ -4,10 +4,10 @@ description: O principal objetivo do plano de continuidade do negócio é criar 
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.openlocfilehash: 5d1501ecc42fe948959075cec7d728f6c9df908a
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80887078"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Crie um plano de continuidade de negócios para o seu serviço QnA Maker

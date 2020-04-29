@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: danlep
 ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80892398"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Grupo de contentores e registos de situações com registos do Monitor Azure

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 7a38ec47d416027e8ea3fa772ae01e4f6264197a
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876840"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte de contentores em Serviços Cognitivos Azure

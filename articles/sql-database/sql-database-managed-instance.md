@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
 ms.openlocfilehash: 04b07ff60c882501c49ad58607db867e7e99897c
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879076"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a base de dados Azure SQL gerida?
@@ -46,7 +46,7 @@ O exemplo gerido combina as melhores funcionalidades disponíveis tanto na Base 
 | --- | --- |
 |Sem compra e gestão de hardware <br>Sem despesas gerais de gestão para gerir infraestruturas subjacentes <br>Fornecimento rápido e escala de serviço <br>Patching automatizado e atualização de versão <br>Integração com outros serviços de dados paaS |99,99% de uptime SLA  <br>Construído em [alta disponibilidade](sql-database-high-availability.md) <br>Dados protegidos com [cópias de segurança automatizadas](sql-database-automated-backups.md) <br>Período de retenção de backup configurável do cliente <br>[Backups iniciados](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) pelo utilizador <br>[Capacidade de restauro](sql-database-recovery-using-backups.md#point-in-time-restore) da base de dados de ponto no tempo |
 |**Segurança e conformidade** | **Gestão**|
-|Ambiente isolado[(integração VNet,](sql-database-managed-instance-connectivity-architecture.md)serviço de inquilino único, computação e armazenamento dedicados) <br>[Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação Azure AD,](sql-database-aad-authentication.md)suporte único de sinalização <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Diretores de servidores Azure AD (logins)</a>  <br>Adere às normas de conformidade iguais às bases de dados Azure SQL <br>[Auditoria SQL](sql-database-managed-instance-auditing.md) <br>[Proteção Avançada de Ameaças](sql-database-managed-instance-threat-detection.md) |API gestor de recursos azure para automatizar prestação e escalação de serviços <br>Funcionalidade do portal Azure para fornecimento e escalagem de serviços manuais <br>Serviço de Migração de Dados
+|Ambiente isolado[(integração VNet,](sql-database-managed-instance-connectivity-architecture.md)serviço de inquilino único, computação e armazenamento dedicados) <br>[Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação Azure AD,](sql-database-aad-authentication.md)suporte único de sinalização <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Diretores de servidores Azure AD (logins)</a>  <br>Adere às normas de conformidade iguais às bases de dados Azure SQL <br>[Auditoria SQL](sql-database-managed-instance-auditing.md) <br>[Proteção Avançada Contra Ameaças](sql-database-managed-instance-threat-detection.md) |API gestor de recursos azure para automatizar prestação e escalação de serviços <br>Funcionalidade do portal Azure para fornecimento e escalagem de serviços manuais <br>Serviço de Migração de Dados
 
 > [!IMPORTANT]
 > A Base de Dados Azure SQL (todas as opções de implementação), foi certificada contra uma série de normas de conformidade. Para mais informações, consulte o [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde pode encontrar a lista mais atual das certificações de conformidade da Base de Dados SQL.

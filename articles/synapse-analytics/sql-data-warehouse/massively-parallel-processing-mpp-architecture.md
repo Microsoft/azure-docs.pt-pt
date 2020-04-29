@@ -11,10 +11,10 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: d204477818ce2733d9f6d1e3dcc7455018456bcb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884837"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura Azure Synapse Analytics (ex-SQL DW)
@@ -37,7 +37,7 @@ O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento d
 
 [Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) aproveita uma arquitetura de escala para distribuir o processamento computacional de dados em vários nódosos. A unidade de escala é uma abstração do poder da computação que é conhecida como uma unidade de armazém de [dados.](what-is-a-data-warehouse-unit-dwu-cdwu.md) A computação é separada do armazenamento, o que lhe permite escalar a computação independentemente dos dados do seu sistema.
 
-![Arquitetura SqL synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
+![Arquitetura SQL do Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
 A SQL Analytics usa uma arquitetura baseada no nó. As aplicações ligam e emitem comandos T-SQL a um nó de Controlo, que é o ponto único de entrada para o SQL Analytics. O nó de Controlo funciona com o motor MPP, que otimiza as consultas para processamento paralelo, e depois passa as operações para os nós da Compute para fazer o seu trabalho em paralelo.
 
@@ -119,6 +119,6 @@ Agora que sabe um pouco sobre o Azure Synapse, aprenda a criar rapidamente [um p
 - [Pedidos de funcionalidades](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Criar pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
 - [Fórum do Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

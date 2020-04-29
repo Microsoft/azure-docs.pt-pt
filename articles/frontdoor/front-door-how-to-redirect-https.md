@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
 ms.openlocfilehash: f1b8c033a3ec230d60c30f6168de8ce013a80ac6
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878005"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Crie uma Porta Da Frente com http para HTTPS redirecionamento usando o portal Azure
@@ -29,7 +29,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 ## <a name="create-a-front-door-with-an-existing-web-app-resource"></a>Crie uma porta da frente com um recurso web app existente
 
-1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 3. Procure a **Porta da Frente** utilizando a barra de pesquisa e assim que encontrar o tipo de recurso, clique em **Criar**.
 4. Escolha uma subscrição e, em seguida, use um grupo de recursos existente ou crie um novo. Note que a localização pedida na UI é apenas para o grupo de recursos. A configuração da Porta Frontal será implantada em todas as [localizações POP da Porta Frontal Azure.](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door)

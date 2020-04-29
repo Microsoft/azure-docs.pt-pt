@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887049"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Utilizar a API REST do modelo de conversão

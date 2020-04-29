@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
 ms.openlocfilehash: 104311904b99cadbbc8c0267a98f2709443608ea
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80891463"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configure os registos de fluxo nsg de um modelo de Gestor de Recursos Azure
 
 > [!div class="op_single_selector"]
-> - [Portal Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [Portal do Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
-> - [API REST](network-watcher-nsg-flow-logging-rest.md)
+> - [REST API](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 

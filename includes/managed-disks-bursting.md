@@ -9,10 +9,10 @@ ms.date: 03/29/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 84736b7f1dcdf8b186fddbced5dd773e008c0dd2
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887453"
 ---
 O modo de rajada do disco é suportado para SSDs Premium. O modo de rajada é suportado para todos os tamanhos de disco SSD Premium <= 512 GiB (P20 ou inferior). Estes tamanhos de disco suportam o modo de rajada numa base do melhor esforço e utilizam um sistema de créditos para gerir as rajadas. Os créditos acumulam-se num registo de rajadas sempre que o tráfego do disco está abaixo do objetivo de desempenho aprovisionado para o tamanho do disco e consome créditos quando o tráfego excede o objetivo. O tráfego do disco é rastreado em relação a IOPS e largura de banda no objetivo aprovisionado. O modo de rajada do disco não ignorará as limitações de tamanho da máquina virtual (VM) no IOPS ou no débito.

@@ -4,10 +4,10 @@ description: O QnA Maker utiliza várias fontes Azure, cada uma com um propósit
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80873910"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos azure para O Fabricante qnA
@@ -174,7 +174,7 @@ Utilize estas chaves ao fazer pedidos ao serviço através de APIs.
 
 |Nome|Localização|Objetivo|
 |--|--|--|
-|Chave de autoria|[Portal Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Estas chaves são utilizadas para aceder às APIs do serviço de [gestão QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Estas APIs permitem-lhe editar as perguntas e respostas na sua base de conhecimentos e publicar a sua base de conhecimento. Estas chaves são criadas quando cria um novo serviço QnA Maker.<br><br>Encontre estas chaves no recurso dos **Serviços Cognitivos** na página **Keys.**|
+|Chave de autoria|[Portal do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Estas chaves são utilizadas para aceder às APIs do serviço de [gestão QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Estas APIs permitem-lhe editar as perguntas e respostas na sua base de conhecimentos e publicar a sua base de conhecimento. Estas chaves são criadas quando cria um novo serviço QnA Maker.<br><br>Encontre estas chaves no recurso dos **Serviços Cognitivos** na página **Keys.**|
 |Chave final de consulta|[Portal do Criador de FAQ](https://www.qnamaker.ai)|Estas teclas são usadas para consultar o ponto final da base de conhecimento publicado para obter uma resposta para uma pergunta do utilizador. Normalmente utiliza este ponto final de consulta no seu chat bot ou no código de aplicação do cliente que se conecta ao serviço QnA Maker. Estas chaves são criadas quando publica a sua base de conhecimento qnA Maker.<br><br>Encontre estas teclas na página de definições do **Serviço.** Encontre esta página no menu do utilizador no canto superior direito da página no menu suspenso.|
 
 ### <a name="subscription-keys"></a>Chaves de subscrição

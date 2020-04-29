@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 07/01/2019
 ms.author: moderakh
 ms.openlocfilehash: 7dad1e929c2beb32605f67219ed30d2fd9a3a394
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985478"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para SQL API: Notas de lançamento e recursos
@@ -34,7 +34,7 @@ O SQL API Async Java SDK difere do SQL API Java SDK, fornecendo operações ass�
 
 | |  |
 |---|---|
-| **SDK Download** | [Rio Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
+| **SDK Download** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
 |**Documentação da API** |[Documentação de referência da API java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable) | 
 |**Contribuir para o SDK** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
 |**Introdução** | [Começar com o SDK Async Java](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 

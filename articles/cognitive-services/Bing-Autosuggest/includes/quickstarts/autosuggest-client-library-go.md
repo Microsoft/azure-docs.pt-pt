@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 04/06/2020
 ms.author: aahi
 ms.openlocfilehash: b352e785673d7c4ed3a9b346758ef0d1fa68b36d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887544"
 ---
 Começa com a biblioteca de clientes Bing Autosuggest para a Go. Siga estes passos para instalar a biblioteca e experimente os nossos exemplos para tarefas básicas. 

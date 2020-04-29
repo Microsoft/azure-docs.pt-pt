@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
 ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981856"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para O Equilíbrio de Carga Azure
@@ -49,7 +49,7 @@ O suporte nativo IPv6 para VMs implantados via Azure Resource Manager fornece:
 3. Ligações iPv6 nativas de entrada e saída
 4. Protocolos suportados como TCP, UDP e HTTP(S) permitem uma gama completa de arquiteturas de serviços
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 Esta funcionalidade permite os seguintes benefícios-chave:
 

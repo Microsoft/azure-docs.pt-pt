@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: cshoe
 ms.openlocfilehash: 54010269e5b61ebf28a29dd3165c4310f3472817
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878209"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua utilizando gitHub Action
@@ -99,7 +99,7 @@ O exemplo que se segue mostra a `actions/setup-python` parte do fluxo de trabalh
         python-version: 3.6
 ```
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 O exemplo que se segue mostra a `actions/setup-dotnet` parte do fluxo de trabalho que utiliza a ação para criar o ambiente:
 
@@ -167,7 +167,7 @@ O exemplo seguinte mostra a parte do fluxo de trabalho que constrói a aplicaç�
         popd
 ```
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 3/18/2020
 ms.author: spelluru
 ms.openlocfilehash: e00b6dd5af1cb489aee9e8b4c9f3337eb02e4b14
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878107"
 ---
 # <a name="classroom-lab-setup-guide"></a>Guia de configuração de laboratório de sala de aula

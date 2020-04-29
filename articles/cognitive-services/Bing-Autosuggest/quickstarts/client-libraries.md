@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: aahi
 ms.openlocfilehash: ea8054c74d90253a0311d05ba63d1d1e6a6ab648
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887551"
 ---
 # <a name="quickstart-use-the-bing-autosuggest-client-library"></a>Quickstart: Use a biblioteca de clientes Bing Autosuggest

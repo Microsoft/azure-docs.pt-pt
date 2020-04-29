@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2020
 ms.author: aschhab
 ms.openlocfilehash: 63bf035d4e19cc1d64998a6ad533812e71ee71b8
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887778"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de resolução de problemas para ônibus de serviço Azure

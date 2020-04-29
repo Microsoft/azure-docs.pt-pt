@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981312"
 ---
 # <a name="security-management-in-azure"></a>Gestão de segurança no Azure
@@ -138,7 +138,7 @@ A aplicação de políticas que inclui os controlos de acesso restritos estabele
 ## <a name="client-configuration"></a>Configuração do cliente
 Recomendamos três configurações primárias para uma estação de trabalho protegida. Os maiores diferenciadores entre essas configurações são o custo, a utilização e a acessibilidade, embora mantendo um perfil de segurança semelhante em todas as opções. A tabela seguinte fornece uma breve análise dos benefícios e riscos de cada uma. (Tenha em atenção que “PC empresarial” refere-se a uma configuração padrão do PC de secretária que seria implementada para todos os utilizadores do domínio, independentemente das funções.)
 
-| Configuração | Vantagens | Contras |
+| Configuração | Benefícios | Contras |
 | --- | --- | --- |
 | Estação de trabalho autónoma protegida |Estação de trabalho controlada de forma apertada |Custo mais elevado para os computadores dedicados |
 | - | Risco reduzido de explorações de aplicações |Esforço de gestão aumentado |

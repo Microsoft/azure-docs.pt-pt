@@ -4,10 +4,10 @@ description: Crie um ponto final SSL ou TLS para um grupo de contentores que fun
 ms.topic: article
 ms.date: 02/14/2020
 ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80984611"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Ativar um ponto final TLS num recipiente de sidecar
