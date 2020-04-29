@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78303941"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
@@ -70,7 +70,7 @@ Neste tutorial, irá:
      > A Recuperação do Site Azure descobre e cria automaticamente uma rede virtual quando ativa a replicação para o VM de origem. Também pode pré-criar uma rede e atribuí-la ao VM no fluxo do utilizador para facilitar a replicação. Como mencionado mais tarde, é necessário criar manualmente quaisquer outros recursos na região alvo.
 
     Para criar os recursos de rede mais utilizados que são relevantes para si com base na configuração vm de origem, consulte a seguinte documentação:
-    - [Grupos de segurança da rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+    - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
     -  [IP público](../virtual-network/virtual-network-public-ip-address.md)
     - Para qualquer outro componente de rede, consulte a [documentação](https://docs.microsoft.com/azure/?pivot=products&panel=network)de rede .

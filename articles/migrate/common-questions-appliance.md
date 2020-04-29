@@ -4,10 +4,10 @@ description: Obtenha respostas a perguntas comuns sobre o aparelho Azure Migrate
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 529ead1baa769ee3e71f6fcf77ef7e020ed196a6
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81529693"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Aparelho migratório Azure: Questões comuns

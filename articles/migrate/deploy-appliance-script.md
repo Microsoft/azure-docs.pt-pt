@@ -4,10 +4,10 @@ description: Aprenda a configurar um aparelho Azure Migrate com um script
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: 0c4d85909bbfa623b5ad8590e973250474d9d95a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81676303"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um aparelho com um guião

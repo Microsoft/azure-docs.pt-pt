@@ -4,10 +4,10 @@ description: Aprenda a montar um aparelho Azure Migrate para avaliar e migrar VM
 ms.topic: article
 ms.date: 03/23/2020
 ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538295"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurar um aparelho para VMs hiper-V

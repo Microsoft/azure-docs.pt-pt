@@ -4,10 +4,10 @@ description: FAQ em Insights de Aplicação.
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.openlocfilehash: 8d4b1e79c48b14ed7dce756468e4c48d633c3f04
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536867"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como... no Application Insights?
