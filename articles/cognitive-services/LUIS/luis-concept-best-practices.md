@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: diberry
 ms.openlocfilehash: 525d450084723a53ae090319d9ebf3f68d63beee
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382396"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Boas práticas para a construção de uma app de compreensão linguística (LUIS)

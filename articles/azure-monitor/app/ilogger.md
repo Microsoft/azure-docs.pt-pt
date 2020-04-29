@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 33effe9cfec6d766d573617ff03b58564e5b34d1
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81313666"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider para registos .NET Core ILogger

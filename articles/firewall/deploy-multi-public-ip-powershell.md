@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: victorh
 ms.openlocfilehash: 21f645e64c9944ed102f538710ea6facc26c7e83
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81314038"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Implementar uma Firewall do Azure com vários endereços IP públicos através do Azure PowerShell

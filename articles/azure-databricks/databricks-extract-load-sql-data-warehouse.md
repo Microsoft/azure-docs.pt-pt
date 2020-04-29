@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
 ms.openlocfilehash: fa7750a6e7888b6ca13c1ec32cabee9bcf803e65
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382727"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados utilizando os Databricks Azure

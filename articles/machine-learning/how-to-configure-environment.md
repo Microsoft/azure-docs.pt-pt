@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
 ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81399016"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configure um ambiente de desenvolvimento para azure machine learning

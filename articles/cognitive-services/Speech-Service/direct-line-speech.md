@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
 ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81402398"
 ---
 # <a name="what-is-direct-line-speech"></a>O que é a Voz do Direct Line?

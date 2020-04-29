@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 406dcdb419dba2e8044a173f4c05028abbaba3da
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312410"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Criar um portal de aplicação com um equilibrador de carga interna (ILB)

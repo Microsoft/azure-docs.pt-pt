@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/02/2020
 ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392730"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)

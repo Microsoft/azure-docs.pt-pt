@@ -10,10 +10,10 @@ author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
 ms.openlocfilehash: accc4766f25f5d58ba2f31c153fe1c5d23413170
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81399071"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Folha de batota de algoritmo de aprendizagem automática para designer de aprendizagem automática azure

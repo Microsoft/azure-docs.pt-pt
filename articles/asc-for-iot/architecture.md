@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 4cc7d1982555f058a4ea23f7d8a6fdc2d83e484d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311755"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Arquitetura do Centro de Segurança do Azure para IoT
@@ -64,7 +64,7 @@ O Azure Security Center for IoT recomendações e alertas (saída de pipeline de
 Neste artigo, aprendeu sobre a arquitetura básica e fluxo de trabalho do Azure Security Center para a solução IoT. Para saber mais sobre os pré-requisitos, como começar e ativar a sua solução de segurança no IoT Hub, consulte os seguintes artigos:
 
 - [Pré-requisitos do serviço](service-prerequisites.md)
-- [Começar](getting-started.md)
+- [Introdução](getting-started.md)
 - [Configurar a sua solução](quickstart-configure-your-solution.md)
 - [Ativar a segurança no IoT Hub](quickstart-onboard-iot-hub.md)
 - [Centro de Segurança Azure para As FAQ iot](resources-frequently-asked-questions.md)

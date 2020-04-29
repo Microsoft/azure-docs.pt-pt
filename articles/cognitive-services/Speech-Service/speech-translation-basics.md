@@ -12,10 +12,10 @@ ms.date: 04/13/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 04ece5ccf91056af02bd450eb760534b82de5959
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399648"
 ---
 # <a name="learn-the-basics-of-speech-translation"></a>Conheça o básico da tradução da fala
@@ -25,7 +25,7 @@ Uma das principais características do serviço da Fala é a capacidade de recon
 > [!TIP]
 > Se ainda não tiveste oportunidade de completar uma das nossas partidas rápidas, encorajamo-lo a chutar os pneus e a tentar a tradução da fala por ti mesmo.
 > * [Traduzir voz para texto](quickstarts/translate-speech-to-text.md)
-> * [Traduzir o discurso para várias línguas](quickstarts/translate-speech-to-text-multiple-languages.md)
+> * [Traduzir voz para vários idiomas](quickstarts/translate-speech-to-text-multiple-languages.md)
 > * [Traduzir voz para voz](quickstarts/translate-speech-to-speech.md)
 
 ::: zone pivot="programming-language-csharp"

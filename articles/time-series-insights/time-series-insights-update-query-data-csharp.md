@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: fbc2cbc29cb23a21e7d3713091fc22f01bb1b15a
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81379821"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Dados de consulta do ambiente de pré-visualização da Série de Tempo Azure insights usando C #

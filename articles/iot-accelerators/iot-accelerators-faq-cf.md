@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: f2f8c08176f80436a339924adb4b2a09338a548a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81313592"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes para acelerador de soluções Connected Factory

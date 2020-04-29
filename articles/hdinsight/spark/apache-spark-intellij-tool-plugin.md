@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
 ms.openlocfilehash: a3884fdfbbc215c305053d8615d690880f4026ea
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81314150"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Utilize o Kit de Ferramentas Azure para o IntelliJ para criar aplicações Apache Spark para cluster HDInsight
@@ -71,7 +71,7 @@ Passos para instalar o plugin Scala:
 
      ![Caixa de diálogo IntelliJ IDEA Novo Projeto](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-5. Selecione **Next**.
+5. Selecione **Seguinte**.
 
 6. Na janela **New Project,** forneça as seguintes informações:  
 

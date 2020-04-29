@@ -4,10 +4,10 @@ description: Conheça o mecanismo de atualização de uma atribuição de planta
 ms.date: 04/15/2020
 ms.topic: how-to
 ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81381796"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de plantas existente
@@ -65,7 +65,7 @@ Não há limite para quantas vezes uma missão pode ser atualizada. Se ocorrer u
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Conheça o ciclo de vida da [planta.](../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: 59faf63312bd7cc657f8b96ca3110707ea997c02
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273614"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configure e aceda a registos de consultas lentas do portal Azure

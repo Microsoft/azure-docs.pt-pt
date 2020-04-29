@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 79983678d13b810a521a00ba2c1978de92a5029f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81309514"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Registe uma aplicação com a plataforma de identidade da Microsoft

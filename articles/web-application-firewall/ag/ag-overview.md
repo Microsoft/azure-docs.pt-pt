@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
 ms.openlocfilehash: e0e5c143e619b1c381a4a618a811883ad189719b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81314349"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Firewall de aplicação web azure no gateway de aplicação azure
@@ -32,7 +32,7 @@ Application Gateway funciona como controlador de entrega de aplicações (ADC). 
 
 As melhorias de segurança do Gateway de aplicação incluem a gestão da política TLS e o suporte tLS de ponta a ponta. A segurança da aplicação é reforçada pela integração da WAF no Application Gateway. A combinação protege as suas aplicações web contra vulnerabilidades comuns. E fornece uma localização central fácil de configurar para gerir.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 Esta secção descreve os benefícios fundamentais que a WAF no Gateway de Aplicação proporciona.
 

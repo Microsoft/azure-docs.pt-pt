@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
 ms.openlocfilehash: f72ef8cc5161bd6f885249e7d39344a57fa2368e
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311421"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>Centro de Segurança Azure para agregação de eventos IoT

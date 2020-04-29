@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: 5aa33529a1957b6e7728b3a87bacf6bb91d987ae
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81378954"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Tutorial: Configure consola de infraestrutura oracle cloud para fornecimento automático de utilizadores

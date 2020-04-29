@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 4/3/2020
 ms.openlocfilehash: 6a1d2f6079280002c868702a6547c8fd359a7c21
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81310131"
 ---
 # <a name="azure-sql-database-serverless"></a>Base de dados Azure SQL sem servidor

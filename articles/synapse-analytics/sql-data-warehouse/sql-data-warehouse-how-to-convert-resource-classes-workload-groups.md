@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5d73ba8f21fe7731fb751d42a8497ff8e1ebba7d
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383632"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Converter classes de recursos para grupos de carga de trabalho

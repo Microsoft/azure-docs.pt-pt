@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.openlocfilehash: 77bba9433052c00df671caf73198ff75356b1c9a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81400158"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz

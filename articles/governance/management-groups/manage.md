@@ -4,10 +4,10 @@ description: Aprenda a visualizar, manter, atualizar e eliminar a hierarquia do 
 ms.date: 04/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: 423d1837c3d5710e24abb94f5411200319e8a8aa
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81381668"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerencie os seus recursos com grupos de gestão

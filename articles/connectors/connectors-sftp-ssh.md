@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/13/2020
 tags: connectors
 ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393639"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorize, crie e gere os ficheiros SFTP utilizando aplicações lógicas SSH e Azure

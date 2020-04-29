@@ -10,10 +10,10 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: badd8ba676ef25c33a5034bb04d616faeb4ef1b0
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392099"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Forward Azure Automation Configuração de relatórios de dados para registos do Monitor Azure

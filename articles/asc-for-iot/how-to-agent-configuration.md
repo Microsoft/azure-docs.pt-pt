@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
 ms.openlocfilehash: e41b7222ca89976674973e1eb700d62765b306f0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311333"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configure agentes de segurança

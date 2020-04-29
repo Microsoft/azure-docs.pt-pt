@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
 ms.openlocfilehash: 74a6adbd2415cfcf7d5d48cff01d189cfd8b73a5
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311476"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Alertas de segurança do Centro de Segurança do Azure para IoT

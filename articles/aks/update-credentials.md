@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/11/2019
 ms.openlocfilehash: 8420771e32aa792aa79a07fdf4362ad0d9b45d48
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392623"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou rodar as credenciais para o Serviço Azure Kubernetes (AKS)

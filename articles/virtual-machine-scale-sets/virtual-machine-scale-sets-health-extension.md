@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: mimckitt
 ms.openlocfilehash: cb5f1d48bb1a95db004d9da553e19a35071c73b0
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273737"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Utilizar a extensão Estado da Aplicação com conjuntos de dimensionamento de máquinas virtuais

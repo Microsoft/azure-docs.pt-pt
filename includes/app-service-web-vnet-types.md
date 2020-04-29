@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: ccompy
 ms.openlocfilehash: c31a5aaa9866a4ce97cd3cd59a8e363834f70587
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312811"
 ---
 * Os sistemas multiarrendatários que suportam toda a gama de planos de preços exceto isolados.

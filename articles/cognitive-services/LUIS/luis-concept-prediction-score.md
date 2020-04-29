@@ -4,10 +4,10 @@ description: Uma pontuação de previsão indica o grau de confiança que o serv
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: 709a34f0a278d8a17267c7544583798d54167dad
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382365"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Os resultados da previsão indicam precisão de previsão para intenções e entidades

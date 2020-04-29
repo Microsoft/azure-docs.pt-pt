@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: trbye
 ms.openlocfilehash: 36243fd5db76a4706318f41b3e2cb3f557c17189
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400682"
 ---
 Neste arranque rápido, você usa o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para reconhecer interativamente o discurso a partir de uma entrada de microfone, e obter a transcrição de texto a partir de áudio capturado. É fácil integrar esta funcionalidade nas suas apps ou dispositivos para tarefas comuns de reconhecimento, como a transcrição de conversas. Também pode ser usado para integrações mais complexas, como usar o Quadro Bot com o SDK de Fala para construir assistentes de voz.

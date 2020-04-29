@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393344"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Hubs de eventos azure como fonte da Grelha de Eventos
 
 Este artigo fornece as propriedades e esquemas para eventos de hubs de eventos.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
 
-## <a name="event-grid-event-schema"></a>Esquema de evento sinuoso do evento Da Grelha de Eventos
+## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
 ### <a name="available-event-types"></a>Tipos de eventos disponíveis
 

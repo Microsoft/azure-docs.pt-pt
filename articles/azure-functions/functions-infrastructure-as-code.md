@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81382530"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de funções em Funções Azure
@@ -650,7 +650,7 @@ Pode utilizar qualquer uma das seguintes formas de implementar o seu modelo:
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
 * [Portal do Azure](../azure-resource-manager/templates/deploy-portal.md)
-* [API REST](../azure-resource-manager/templates/deploy-rest.md)
+* [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Desdobrar para o botão Azure
 

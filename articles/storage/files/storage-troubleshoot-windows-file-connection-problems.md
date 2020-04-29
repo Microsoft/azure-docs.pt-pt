@@ -8,10 +8,10 @@ ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: b4e1ef4fbc3ade38b55fc06f8e4e9a119938581b
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383893"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolver problemas de Ficheiros do Azure no Windows

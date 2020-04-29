@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
 ms.openlocfilehash: b7cca314ec59e46cf17751b1aec28b5c3ea029ed
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81401064"
 ---
 # <a name="long-audio-api-preview"></a>API de áudio longo (pré-visualização)
@@ -75,7 +75,7 @@ Apoiamos formatos flexíveis de saída de áudio. Pode gerar saídas de áudio p
 * áudio-24khz-96kbitrate-mono-mp3
 * áudio-24khz-160kbitrate-mono-mp3
 
-## <a name="quickstarts"></a>Guias de Início Rápido
+## <a name="quickstarts"></a>Guias de Introdução
 
 Oferecemos quickstarts projetados para ajudá-lo a executar a API de Áudio Longo com sucesso. Esta tabela inclui uma lista de quickstarts DaAPi de Áudio Longo organizados por linguagem.
 

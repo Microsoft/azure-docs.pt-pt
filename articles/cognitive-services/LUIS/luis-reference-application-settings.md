@@ -4,10 +4,10 @@ description: As definições de aplicações para aplicações de compreensão l
 ms.topic: reference
 ms.date: 04/14/2020
 ms.openlocfilehash: 9e17736cd6ff5074a6eab76a6cf5bdb8acedc185
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382206"
 ---
 # <a name="application-settings"></a>Definições da aplicação

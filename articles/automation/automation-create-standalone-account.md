@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 72a40363edf0e83eea26ee697ce992226da0db4f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392297"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma

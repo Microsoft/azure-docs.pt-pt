@@ -4,10 +4,10 @@ description: Neste arranque rápido, cria-se as partes básicas de uma app, inte
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.openlocfilehash: 2d601646c43c0f0d99dc6934cf1f1c960e0b0f79
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81382576"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Quickstart: Criar uma nova app no portal LUIS

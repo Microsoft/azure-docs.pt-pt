@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 04/13/2020
 ms.author: trbye
 ms.openlocfilehash: b388c8d8b61e2fc638ae2bce5bc6d9eeb25ee0d4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81401020"
 ---
 # <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Obtenha a lista de vozes de texto-a-fala usando Python

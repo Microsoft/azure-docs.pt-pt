@@ -7,10 +7,10 @@ ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81382873"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidade

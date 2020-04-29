@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: 314445275f99898913bd91eb8abc2a5acdab098a
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81381036"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutorial: Configure Blink para fornecimento automático de utilizadores

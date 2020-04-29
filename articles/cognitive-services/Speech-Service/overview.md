@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: trbye
 ms.openlocfilehash: 464e21caf3105b12f0fbf44dc2aa3674a252d3c6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81401026"
 ---
 # <a name="what-is-the-speech-service"></a>O que é o serviço de Voz?
@@ -35,7 +35,7 @@ Estas características compõem o serviço de Fala. Utilize os links nesta tabel
 | | [Criar modelos de discurso personalizados](#customize-your-speech-experience) | Se estiver a usar o discurso ao texto para reconhecimento e transcrição num ambiente único, pode criar e formar modelos acústicos, linguísticos e de pronúncia personalizados para abordar o ruído ambiente ou o vocabulário específico da indústria. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
 | [Texto-a-discurso](text-to-speech.md) | Conversão de texto em voz | Texto a fala converte texto de entrada em discurso sintetizado semelhante ao humano usando linguagem de marcação da síntese da [fala (SSML)](speech-synthesis-markup.md). Escolha entre vozes padrão e vozes neurais (ver [suporte linguístico).](language-support.md) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Criar vozes personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas únicas à sua marca ou produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Tradução da Fala](speech-translation.md) | Tradução de voz | A tradução da fala permite a tradução da fala em tempo real e multi-linguagem para as suas aplicações, ferramentas e dispositivos. Utilize este serviço para a tradução fala-a-fala e de fala a texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
+| [Tradução de Voz](speech-translation.md) | Tradução de voz | A tradução da fala permite a tradução da fala em tempo real e multi-linguagem para as suas aplicações, ferramentas e dispositivos. Utilize este serviço para a tradução fala-a-fala e de fala a texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
 | [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Assistentes de voz que usam o serviço Speech capacitam os desenvolvedores a criar interfaces de conversação naturais e humanas para as suas aplicações e experiências. O serviço de assistente de voz proporciona uma interação rápida e fiável entre um dispositivo e uma implementação de assistente que utiliza o canal de discurso de linha direta do Bot Framework ou o serviço integrado de Comandos Personalizados (Pré-visualização) para a conclusão da tarefa. | [Sim](voice-assistants.md) | Não |
 
 

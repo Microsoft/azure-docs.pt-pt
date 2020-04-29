@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/01/2020
 ms.topic: tutorial
 ms.openlocfilehash: db1f6a53121e05b29f7e3441af027985a141bc2e
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81310199"
 ---
 # <a name="tutorial-working-with-remote-entities-in-unity"></a>Tutorial: Trabalhar com entidades remotas na Unidade

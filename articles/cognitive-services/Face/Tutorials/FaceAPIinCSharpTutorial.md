@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: b4458920ec8b3e0c302f6e0654891b83ed07264f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81402900"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Criar uma aplicação de quadro de apresentação do Windows (WPF) para exibir dados faciais numa imagem

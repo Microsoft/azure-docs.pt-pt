@@ -7,10 +7,10 @@ author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
 ms.openlocfilehash: f09f5010c18f5ea064b02f0fbbae107bf473e1f8
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81313674"
 ---
 # <a name="how-to-manually-fix-servicenow-sync-problems"></a>Como corrigir manualmente os problemas de sincronização do ServiceNow

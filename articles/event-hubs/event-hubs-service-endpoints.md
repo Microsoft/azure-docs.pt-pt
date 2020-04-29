@@ -12,10 +12,10 @@ ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
 ms.openlocfilehash: 91b08d6130da640adc28a3b7d85bd33f0e876caf
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81390290"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utilize pontos finais de serviço de rede virtual com hubs de eventos Azure

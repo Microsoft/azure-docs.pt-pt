@@ -4,17 +4,17 @@ description: Use padrões para aumentar a intenção e a previsão da entidade, 
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81380773"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicione formatos de expressão de modelo comum para melhorar as previsões
 
 Neste tutorial, use padrões para aumentar a intenção e a previsão da entidade, o que lhe permite fornecer menos declarações de exemplo. O padrão é uma expressão de modelo atribuída a uma intenção, que contém sintaxe para identificar entidades e texto ignorável.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Criar um padrão

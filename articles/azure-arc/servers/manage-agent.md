@@ -9,10 +9,10 @@ ms.author: magoedte
 ms.date: 04/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 5ad2127b4cb9da3ca83aa04bd1885908a88dba62
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81308961"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestão e manutenção do agente máquina conectada

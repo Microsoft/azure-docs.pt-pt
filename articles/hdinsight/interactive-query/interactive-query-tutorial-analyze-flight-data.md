@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
 ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81313748"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando consulta interativa no Azure HDInsight

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/19/2020
 ms.author: danlep
 ms.openlocfilehash: c84ab7833f7c90d5d4b3c340c268fd9f75e20da9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81399407"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores azure nas regiões de Azure

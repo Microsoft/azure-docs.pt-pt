@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
 ms.openlocfilehash: 4a2d9f382045db2aeab80d9ecf5a05b031bcbc9e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400082"
 ---
 Neste arranque rápido, aprenderá a usar o SDK de Dispositivos de Fala para Android para construir um produto ativado pela fala ou usá-lo como um dispositivo de Transcrição de [Conversas.](../conversation-transcription-service.md)

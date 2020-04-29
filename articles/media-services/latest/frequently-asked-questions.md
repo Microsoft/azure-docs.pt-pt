@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
 ms.openlocfilehash: 713acbd098255af2869d7a462c9990f3d7e10bf1
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81309195"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Media v3 frequentemente questionados

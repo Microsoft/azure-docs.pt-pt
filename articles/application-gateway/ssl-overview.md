@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
 ms.openlocfilehash: ae80b49c3bfb40743665768622d3f4a8a6990c12
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311854"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Visão geral da rescisão de TLS e fim para terminar TLS com Gateway de Aplicação

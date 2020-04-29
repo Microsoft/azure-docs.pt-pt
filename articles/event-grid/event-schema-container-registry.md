@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393352"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Registo de contentores azure como fonte da Rede de Eventos
 
 Este artigo fornece as propriedades e esquemas para eventos de registo de contentores.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
 
-## <a name="event-grid-event-schema"></a>Esquema de evento sinuoso do evento Da Grelha de Eventos
+## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
 ### <a name="available-event-types"></a>Tipos de eventos disponíveis
 

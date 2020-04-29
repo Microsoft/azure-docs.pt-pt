@@ -4,10 +4,10 @@ description: Utilize a operação de cópia num modelo de Gestor de Recursos Azu
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81391343"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteração de propriedade em modelos ARM

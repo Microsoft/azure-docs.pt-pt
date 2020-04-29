@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
 ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393468"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos na Grelha de Eventos Azure

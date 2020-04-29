@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 166a48d74d32c8b0a3a59310e693ea96ada29116
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81394361"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Tópicos personalizados na Grelha de Eventos Azure
@@ -75,5 +75,5 @@ As seguintes secções fornecem links para tutoriais para criar tópicos persona
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
 
-- [Tópicos de sistema](system-topics.md)
+- [Tópicos do sistema](system-topics.md)
 - [Domínios](event-domains.md)

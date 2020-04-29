@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: e5369247fc1e31bafb158e83a54bf8badf721d0d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81378837"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>Utilize o seu número de telefone como nome de utilizador (pré-visualização)

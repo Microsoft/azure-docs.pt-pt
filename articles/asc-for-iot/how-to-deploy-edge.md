@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311283"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implemente um módulo de segurança no seu dispositivo IoT Edge
@@ -131,7 +131,7 @@ Complete cada passo para completar a sua implantação IoT Edge para o Azure Sec
 
 1. Selecione **Guardar**.
 
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 
 #### <a name="step-3-specify-routes"></a>Passo 3: Especificar rotas
 
@@ -147,7 +147,7 @@ Complete cada passo para completar a sua implantação IoT Edge para o Azure Sec
     "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
     ```
 
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 
 #### <a name="step-4-review-deployment"></a>Passo 4: Revisão da implantação
 

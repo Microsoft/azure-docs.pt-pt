@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/14/2020
 ms.openlocfilehash: 098aeaa06a26c57744402722aa3eacc51ea85fb7
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81382859"
 ---
 # <a name="collect-and-analyze-azure-activity-log-in-azure-monitor"></a>Recolher e analisar o log da Atividade Azure no Monitor Azure

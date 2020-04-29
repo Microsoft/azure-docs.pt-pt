@@ -4,10 +4,10 @@ description: Delineie as intenções e entidades relevantes da aplicação e, em
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382297"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planeje o seu esquema de aplicação LUIS com domínio sujeito e extração de dados

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 942ccb3d6e4ea5daa325251ae1473d4511ff6e49
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81381172"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Utilizar o PowerShell para sincronizar entre várias Bases de Dados SQL

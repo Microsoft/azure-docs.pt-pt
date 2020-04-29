@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/10/2020
 ms.author: lahugh
 ms.openlocfilehash: 6e0257f8a32d05f49dd67195f22d387319358ef2
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81314138"
 ---
 # <a name="h-series"></a>Série H

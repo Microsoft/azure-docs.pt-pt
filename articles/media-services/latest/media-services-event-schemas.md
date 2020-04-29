@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 02/25/2020
 ms.author: juliako
 ms.openlocfilehash: 3733a641bc116b57556c5ad4f5750bec69e10e9b
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393738"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Rede de Eventos Azure schemas para eventos de Serviços de Media

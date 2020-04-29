@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
 ms.openlocfilehash: 609ac66ca27d5cad7dd2fb295c3a2a721a1cda16
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81392700"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementar um cluster do Serviço Kubernetes do Azure (AKS)

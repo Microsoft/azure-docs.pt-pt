@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 6cd8cca65762de3da6a0e69e93c8d79bbe498dde
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311981"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Criar um portal de aplicação com terminação TLS utilizando o Azure CLI

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
 ms.openlocfilehash: 3ca50a9bad36e0174dc4ee0059c9d01fcc18a5f1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400898"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos

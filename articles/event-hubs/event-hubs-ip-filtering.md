@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
 ms.openlocfilehash: 18212726f0ab921a05a3b640a32754c62958d047
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393131"
 ---
 # <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Configure regras de firewall IP para um espaço de nome do Azure Event Hubs

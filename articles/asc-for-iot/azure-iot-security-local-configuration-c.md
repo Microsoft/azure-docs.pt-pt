@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
 ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311696"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Compreender o ficheiro LocalConfiguration.json - Agente C

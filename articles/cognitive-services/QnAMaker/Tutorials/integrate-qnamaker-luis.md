@@ -12,10 +12,10 @@ ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: b0d28c77966668f919cdf1265f8cc63b4931d5fd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81402709"
 ---
 # <a name="use-a-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Use um bot com QnA Maker e LUIS para distribuir a sua base de conhecimento

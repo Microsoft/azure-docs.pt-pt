@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: e8ddcaf6a5c9ab51147e540e2426ef8c4a1fdd3a
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392376"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Use um alerta para desencadear um livro de execução da Automação Azure

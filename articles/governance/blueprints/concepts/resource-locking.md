@@ -4,10 +4,10 @@ description: Conheça as opções de bloqueio em Plantas Azure para proteger os 
 ms.date: 03/25/2020
 ms.topic: conceptual
 ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383597"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreenda o bloqueio de recursos em Plantas Azure
@@ -182,7 +182,7 @@ Embora **os Diretores excluídos sejam explícitos,** as entradas **excluídas p
 ## <a name="next-steps"></a>Passos seguintes
 
 - Siga o tutorial [de novos recursos protegidos.](../tutorials/protect-new-resources.md)
-- Conheça o ciclo de vida da [planta.](lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).

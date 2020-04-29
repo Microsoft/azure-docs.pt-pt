@@ -4,10 +4,10 @@ description: As expressões são os elementos introduzidos pelo utilizador que a
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: d851082a4ec4a003619826eeffd4f4b856a67824
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382278"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Compreenda quais são as boas declarações para a sua app LUIS

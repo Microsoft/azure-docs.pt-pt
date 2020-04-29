@@ -4,10 +4,10 @@ description: Antes de poder criar quaisquer bases de conhecimento qnA Maker, tem
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.openlocfilehash: 563a56fdb288568e7fe667fa54658400064a560f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81402995"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerir os recursos do Fabricante qna

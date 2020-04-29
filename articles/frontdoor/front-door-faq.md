@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
 ms.openlocfilehash: e2785baab27f5bfc996b57607816062195a19b2b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81313760"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para a Porta da Frente Azure

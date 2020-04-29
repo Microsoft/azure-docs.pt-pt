@@ -4,10 +4,10 @@ description: Lista todos os espaços de nome do fornecedor de recursos para O Ge
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: 55fbe4ae383e5275d185e2a03224e77660a01ef5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81382501"
 ---
 # <a name="resource-providers-for-azure-services"></a>Fornecedores de recursos para serviços Azure
@@ -115,7 +115,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam os
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Gateway de Aplicação](../../application-gateway/index.yml)<br />[Azure Bastion](/azure/bastion/)<br />[Proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md)<br />[DNS do Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Load balancer](../../load-balancer/index.yml)<br />[Observador de Rede](../../network-watcher/index.yml)<br />[Gestor de Tráfego](../../traffic-manager/index.yml)<br />[Rede Virtual](../../virtual-network/index.yml)<br />[WAN Virtual](../../virtual-wan/index.yml)<br />[Gateway de VPN](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Gateway de aplicação](../../application-gateway/index.yml)<br />[Azure Bastion](/azure/bastion/)<br />[Proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md)<br />[DNS do Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Load balancer](../../load-balancer/index.yml)<br />[Observador de Rede](../../network-watcher/index.yml)<br />[Gestor de Tráfego](../../traffic-manager/index.yml)<br />[Rede Virtual](../../virtual-network/index.yml)<br />[WAN Virtual](../../virtual-wan/index.yml)<br />[Gateway de VPN](../../vpn-gateway/index.yml)<br /> |
 | Microsoft.NotificationHubs | [Hubs de Notificação](../../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Azure Migrate](../../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../../azure-monitor/index.yml) |

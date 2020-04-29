@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: b3e6f5746df6197938d3a91de5ff11b1a311d762
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81402957"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Início rápido: detetar rostos numa imagem com a API REST e Go

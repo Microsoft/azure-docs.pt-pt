@@ -4,10 +4,10 @@ description: Utilize o Azure Resource Graph para executar algumas consultas avan
 ms.date: 03/20/2020
 ms.topic: sample
 ms.openlocfilehash: 3d0e7a9be37f9baf471584ee3fe26c52d13b3084
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81381511"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Amostras de consulta de gráfico de recursos avançados

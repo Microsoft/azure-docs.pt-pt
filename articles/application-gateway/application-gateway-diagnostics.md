@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.openlocfilehash: b458537c7cf8a254cd188c565ab1925afa202369
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312660"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Registos de saúde e diagnóstico de back-end para gateway de aplicação

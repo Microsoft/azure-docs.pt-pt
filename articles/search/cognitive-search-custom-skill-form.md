@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: article
 ms.date: 01/21/2020
 ms.openlocfilehash: 713b790c432f0e416392243262aed4b0fcda8892
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81274578"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exemplo: Criar uma habilidade personalizada de Reconhecimento de Formulários

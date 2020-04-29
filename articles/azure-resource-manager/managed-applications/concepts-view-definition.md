@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
 ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81391697"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Ver artefacto de definição em Aplicações Geridas de Azure

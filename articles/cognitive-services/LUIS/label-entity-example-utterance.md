@@ -4,10 +4,10 @@ description: Aprenda a rotular uma entidade aprendida com subcomponentes numa p�
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ea5fbea902c9694d9a8a6a8a5bffcf5e7234bbbd
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382409"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Rotular entidade aprendida por máquinas numa expressão de exemplo

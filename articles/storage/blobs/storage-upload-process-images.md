@@ -9,10 +9,10 @@ ms.date: 03/06/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
 ms.openlocfilehash: e2ee959fb6fc7e8454919c71cfa20e2bb9055dfb
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81393853"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Enviar dados de imagem na nuvem com armazenamento azure

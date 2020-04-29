@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 0d4d21db5185e4564666e526b3edb5ca6d3451e0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81310657"
 ---
 # <a name="get-started-with-azure-security-center-for-iot-device-security-agents"></a>Começar com o Azure Security Center para agentes de segurança de dispositivos IoT

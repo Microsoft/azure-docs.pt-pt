@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: b6ab34019207ccbeec5448b848e501e063707d16
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81384910"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação Python. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.

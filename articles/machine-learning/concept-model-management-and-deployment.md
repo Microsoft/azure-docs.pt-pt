@@ -12,10 +12,10 @@ ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81314296"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Gestão de modelos, implantação e monitorização com Aprendizagem automática Azure
@@ -28,7 +28,7 @@ As Operações de Aprendizagem Automática (MLOps) baseiam-se em princípios e [
 
 * Experimentação e desenvolvimento mais rápidos de modelos
 * Implantação mais rápida de modelos em produção
-* Controlo de qualidade
+* Garantia de qualidade
 
 O Azure Machine Learning fornece as seguintes capacidades de MLOps:
 

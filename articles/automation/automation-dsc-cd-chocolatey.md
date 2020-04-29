@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0c61a431b985e494148500ed0a7aeb106534ed2c
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392126"
 ---
 # <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Fornecer implantação contínua a máquinas virtuais utilizando a Configuração do Estado da Automação e o Chocolatey

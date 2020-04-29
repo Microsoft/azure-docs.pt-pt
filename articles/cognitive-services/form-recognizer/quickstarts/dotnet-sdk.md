@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 8d05f5ad07f9b3affba9442d6caa6e63162b813c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81399409"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Quickstart: Biblioteca de clientes do Reconhecimento de Formulários para .NET

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: cd33d23a506bd86b9651af3d4c3bbca01673a7a4
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312101"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um portal de aplicação com http para https redirection usando o portal Azure
@@ -67,7 +67,7 @@ Export-PfxCertificate `
 
 É necessária uma rede virtual para a comunicação entre os recursos que cria. Neste exemplo, são criadas duas sub-redes: uma para o gateway de aplicação e a outra para os servidores de back-end. Pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicação.
 
-1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 3. Selecione **Rede** e, em seguida, selecione **Gateway de Aplicação** na lista Destaques.
 4. Introduza estes valores para o gateway de aplicação:

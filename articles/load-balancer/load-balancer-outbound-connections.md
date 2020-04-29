@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
 ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393109"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure

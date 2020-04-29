@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
 ms.openlocfilehash: 4b6a2481c18314a44470a020033ffdc4ba1d7259
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81380019"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um sinal de acesso numa aplicação de uma única página angular

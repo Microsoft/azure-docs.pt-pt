@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: b88959d1dd936df0315d7365513ab0c0c5b7df17
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81402928"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Quickstart: Detete rostos numa imagem usando a Face REST API e Node.js

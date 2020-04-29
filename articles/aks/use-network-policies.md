@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.openlocfilehash: a2794f53407be3ce3d7e69caa8039c13217a0356
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392620"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Tráfego seguro entre cápsulas utilizando políticas de rede no Serviço Azure Kubernetes (AKS)

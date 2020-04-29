@@ -12,10 +12,10 @@ ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 75020b0dd58a80f989bd03eb92031d904ebf4c82
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81313694"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Parceiros de inteligência empresarial Azure Synapse Analytics
@@ -23,7 +23,7 @@ ms.locfileid: "81313694"
 Para criar a sua solução completa de armazém de dados utilizando piscina SQL Synapse dentro do Azure Synapse, pode escolher entre uma grande variedade de ferramentas líderes no setor.  Este artigo destaca empresas parceiras da Microsoft com soluções oficiais de inteligência empresarial (BI) que suportam o Azure SQL Data Warehouse.
 
 ## <a name="our-business-intelligence-partners"></a>Os nossos parceiros de inteligência empresarial
-| Partner | Descrição | Website/Link do Produto |
+| Parceiro | Descrição | Website/Link do Produto |
 | ------- | ----------- | -------------------- |
 | ![Rio Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Rio Birst**<br>Birst liga toda a organização através de uma rede de instâncias de BI virtualizadas entrelaçadas no topo de um tecido analítico comum comum comum|[Página do produto](https://www.birst.com/)<br>[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/birst/birst/)<br> |
 | ![Dados clearstory](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**Dados ClearStory (Insights Comerciais Contínuos)**<br>ClearStory Data permite a análise de ciclo rápido através de dados díspares armazenados em piscina SYnapse SQL. Plataforma integrada baseada em Spark e análise de acesso de dados de aplicações e harmonização de conjuntos de dados díspares. Permitem uma exploração rápida e colaborativa que apoia os utilizadores empresariais a serem autossuficientes para obter em rápida informação. |[Página do produto](https://www.clearstorydata.com/product/continuous-insights/)<br> |

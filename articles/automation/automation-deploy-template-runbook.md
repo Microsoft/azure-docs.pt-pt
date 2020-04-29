@@ -7,10 +7,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: powershell, runbook, json, automação azul
 ms.openlocfilehash: 2a6652c988eb77a1c5c7dbf800586b1c5fb756c4
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392198"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implementar um modelo do Azure Resource Manager num runbook do PowerShell da Automatização do Azure

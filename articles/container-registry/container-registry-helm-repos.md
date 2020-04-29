@@ -4,10 +4,10 @@ description: Saiba como armazenar gráficos helm para as suas aplicações Kuber
 ms.topic: article
 ms.date: 03/20/2020
 ms.openlocfilehash: 3f1a68258b758380a66b63e3c3137f1d460d288c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81399383"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Empurre e puxe gráficos helm para um registo de contentores Azure

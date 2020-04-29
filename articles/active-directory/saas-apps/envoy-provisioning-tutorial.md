@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
 ms.openlocfilehash: 68e17ba1dd5981e565e56d6c8137f77d33ad755b
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393502"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Tutorial: Configure enviado para fornecimento automático de utilizadores

@@ -12,10 +12,10 @@ ms.date: 02/04/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 5a21358edae4c61f35993770c22634da9ac83633
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81401975"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listas de frases para discurso-texto

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: victorh
 ms.openlocfilehash: fefbb038cec0c061f1fd191a77164880372555a0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81314329"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Perguntas frequentes para firewall de aplicação web Azure no serviço de porta frontal Azure

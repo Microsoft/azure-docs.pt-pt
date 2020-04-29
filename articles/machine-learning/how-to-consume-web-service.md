@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383384"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo azure machine learning implementado como um serviço web
