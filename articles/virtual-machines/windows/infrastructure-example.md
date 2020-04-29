@@ -9,10 +9,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 43e96b891e60dfcf8bc3c29b202bb60213905372
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869473"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Exemplo de passagem de infraestrutura Azure para VMs Windows

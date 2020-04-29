@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: c4f5f9516e4c96876bbdb3e37680ccf0ce7fea7a
-  ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+  ms.openlocfilehash: b52a66e23e7f1f0324655146d62a56873cfc5eef
+  ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/23/2020
-  ms.locfileid: "82086509"
+  ms.lasthandoff: 04/28/2020
+  ms.locfileid: "82182417"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -1256,13 +1256,13 @@ tools:
     url: azure-resource-manager/templates/index.yml
   - title: Jenkins
     imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
-    url: jenkins/index.yml
+    url: /azure/developer/jenkins
   - title: Terraform
     imageSrc: https://docs.microsoft.com/media/logos/logo_terraform.svg
-    url: terraform/index.yml
+    url: /azure/developer/terraform/
   - title: Ansible
     imageSrc: ./media/index/ansible.svg
-    url: https://docs.microsoft.com/azure/developer/ansible
+    url: /azure/developer/ansible
 additionalContent:
   sections:
   - title: Clouds soberanas

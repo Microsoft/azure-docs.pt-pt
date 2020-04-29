@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870521"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Exigir transferência segura para garantir ligações seguras
@@ -53,12 +53,12 @@ Pode ativar a **propriedade necessária** à transferência Segura quando criar 
 
 Para exigir transferência segura programáticamente, coloque a propriedade _de suporteSHttpsTrafficOnly_ na conta de armazenamento. Pode definir esta propriedade utilizando a API REST, bibliotecas de clientes ou ferramentas:
 
-* [API REST](/rest/api/storagerp/storageaccounts)
+* [REST API](/rest/api/storagerp/storageaccounts)
 * [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
 * [CLI](/cli/azure/storage/account)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/)
 * [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
-* [Python SDK](https://pypi.org/project/azure-mgmt-storage)
+* [SDK Python](https://pypi.org/project/azure-mgmt-storage)
 * [SDK Ruby](https://rubygems.org/gems/azure_mgmt_storage)
 
 ## <a name="require-secure-transfer-with-powershell"></a>Exigir transferência segura com a PowerShell

@@ -6,10 +6,10 @@ ms.author: jumeder
 ms.date: 04/09/2020
 ms.topic: article
 ms.openlocfilehash: f10c736cad9322752d5d552d29ef0c63635628a5
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81868165"
 ---
 # <a name="debug-rendering"></a>Composição de Depuração

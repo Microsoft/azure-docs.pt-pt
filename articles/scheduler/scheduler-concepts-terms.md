@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878396"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades no Azure Scheduler
@@ -252,11 +252,11 @@ Uma tarefa voltará a ocorrer se a definição JSON da tarefa incluir o objeto *
 | **intervalo** | Não | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
 | **agenda** | Não | Varia | Os detalhes das agendas mais complexas e avançadas. Veja **hours**, **hours**, **weekDays**, **months** e **monthDays** | 
 | **horas** | Não | 1 a 24 | Um matriz com a hora marca quando a tarefa será executada | 
-| **minutes** | Não | 0 a 59 | Um matriz com os minutos marca quando a tarefa será executada | 
+| **minutos** | Não | 0 a 59 | Um matriz com os minutos marca quando a tarefa será executada | 
 | **months** | Não | 1 a 12 | Um matriz com os meses marca quando a tarefa será executada | 
 | **monthDays** | Não | Varia | Um matriz com os dias do mês marca quando a tarefa será executada | 
 | **weekDays** | Não | “Segunda-feira”, “Terça-feira”, “Quarta-feira”, “Quinta-feira”, “Sexta-feira”, “Sábado”, “Domingo” | Um matriz com os dias da semana marca quando a tarefa será executada | 
-| **count** | Não | <*nenhum*> | O número de repetições. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
+| **contar** | Não | <*nenhum*> | O número de repetições. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
 | **endTime** | Não | <*nenhum*> | A data e hora para quando parar a periodicidade. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
 ||||
 

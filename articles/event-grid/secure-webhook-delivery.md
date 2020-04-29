@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
 ms.openlocfilehash: 4cb8168cd6d1c19cc797a7cd5454b96131fa35be
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106622"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publique eventos para azure Ative Directory pontos finais protegidos

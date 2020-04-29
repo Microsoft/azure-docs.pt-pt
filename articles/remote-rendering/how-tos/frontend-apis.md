@@ -6,13 +6,13 @@ ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
 ms.openlocfilehash: 04296a3dab61fdb569126abc1bc1f975d69e226d
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681353"
 ---
-# <a name="use-the-azure-frontend-apis-for-authentication"></a>Utilize as APIs Frontend Azure para autenticação
+# <a name="use-the-azure-frontend-apis-for-authentication"></a>Utilizar as APIs de Front-end do Azure para autenticação
 
 Nesta secção, descreveremos como utilizar a API C# para autenticação.
 
@@ -289,4 +289,4 @@ void ConnectToArrInspector(AzureSession session, string hostname)
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma conta](create-an-account.md)
-* [Exemplo de scripts PowerShell](../samples/powershell-example-scripts.md)
+* [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)

@@ -9,10 +9,10 @@ ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ms.openlocfilehash: 6e7723a437e90807063e3c3b7af2bf068dca5b9f
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82100656"
 ---
 # <a name="deploy-spot-vms-using-the-azure-portal"></a>Implementar VMs spot usando o portal Azure

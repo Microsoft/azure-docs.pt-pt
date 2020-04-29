@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
 ms.openlocfilehash: 42d3360b7defaab2ff0a62dc125a213860b13a6a
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133596"
 ---
 # <a name="azure-networking-services-overview"></a>Visão geral dos serviços de networking Azure
@@ -93,7 +93,7 @@ Esta secção descreve serviços de networking em Azure que ajudam a proteger os
 |Serviço|Por que usar?|Cenário|
 |---|---|---|
 |[Proteção DDoS](#ddosprotection) |Alta disponibilidade para as suas aplicações com proteção contra taxas de tráfego IP excedentárias|[Gerir a Proteção DDoS Azure](../virtual-network/manage-ddos-protection.md)|
-|[Firewall de aplicação web](#waf)|<p>[Azure WAF com Application Gateway](../web-application-firewall/ag/ag-overview.md) fornece proteção regional a entidades em espaço de endereçopúblico e privado</p><p>[O Azure WAF com porta frontal](../web-application-firewall/afds/afds-overview.md) proporciona proteção na borda da rede para pontos finais públicos.</p>|<p>[Configure regras de proteção de bots](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Configurar código de resposta personalizado](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Configure regras de restrição IP](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Regra limite de taxa de configuração](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
+|[Firewall de Aplicação Web](#waf)|<p>[Azure WAF com Application Gateway](../web-application-firewall/ag/ag-overview.md) fornece proteção regional a entidades em espaço de endereçopúblico e privado</p><p>[O Azure WAF com porta frontal](../web-application-firewall/afds/afds-overview.md) proporciona proteção na borda da rede para pontos finais públicos.</p>|<p>[Configure regras de proteção de bots](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Configurar código de resposta personalizado](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Configure regras de restrição IP](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Regra limite de taxa de configuração](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
 |[Azure Firewall](#firewall)|O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud que protege os recursos da Rede Virtual do Azure. É uma firewall como um serviço com monitorização de estado com alta disponibilidade integrada e escalabilidade da cloud irrestrita.|<p>[Implementar uma Firewall Azure num Vnet](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[- Implementar uma Firewall Azure numa rede híbrida](../firewall/tutorial-hybrid-ps.md)</p> <p>[Filtrar tráfego de entrada com DNAT de Firewall Azure](../firewall/tutorial-firewall-dnat.md)</p>|
 |[Grupos de segurança de rede](#nsg)|Controlo completo do nó final distribuído granular na VM/subnet para todos os fluxos de tráfego da rede|[Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/tutorial-filter-network-traffic.md)|
 |[Pontos finais de serviço de rede virtual](#serviceendpoints)|Permite-lhe limitar o acesso à rede a alguns recursos de serviço sinuoso para uma subnet de rede virtual|[Restrict network access to PaaS resources](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md) (Restringir o acesso de rede a recursos de PaaS)|
@@ -104,7 +104,7 @@ Esta secção descreve serviços de networking em Azure que ajudam a proteger os
 
 ![Proteção contra DDOS](./media/networking-overview/ddos-protection.png)
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Firewall de aplicação web
+### <a name="web-application-firewall"></a><a name="waf"></a>Firewall de Aplicação Web
 
 O Firewall de [Aplicações Web Azure](../web-application-firewall/overview.md) (WAF) fornece proteção às suas aplicações web a partir de explorações e vulnerabilidades comuns da web, como a injeção de SQL e scripts cross site. A Azure WAF fornece proteção contra caixas das 10 vulnerabilidades do top 10 da OWASP através de regras geridas. Além disso, os clientes também podem configurar regras personalizadas, que são regras geridas pelo cliente para fornecer proteção adicional com base na gama IP de origem, e solicitar atributos como cabeçalhos, cookies, campos de dados de formulário ou parâmetros de cadeia de consulta.
 
@@ -145,7 +145,7 @@ Esta secção descreve serviços de networking no Azure que ajudam a fornecer ap
 |[Azure Front Door Service](#frontdoor)|Permite-lhe definir, gerir e monitorizar o encaminhamento global para o seu tráfego web, otimizando para o melhor desempenho e falha global instantânea para uma elevada disponibilidade.|<p>[Adicionar um domínio personalizado ao Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[Configure HTTPS em um domínio personalizado porta da frente](../frontdoor/front-door-custom-domain-https.md)</p><p>[Configurar a política de firewall de aplicação web de geofiltração](../frontdoor/front-door-tutorial-geo-filtering.md)|
 |[Gestor de Tráfego](#trafficmanager)|Distribui tráfego com base no DNS para serviços em todas as regiões globais do Azure, ao mesmo tempo que proporciona alta disponibilidade e capacidade de resposta|<p> [Encaminhar o tráfego de baixa latência](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[Encaminhar o tráfego para um ponto final prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [Controlar o tráfego com pontos de extremidade ponderados](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[Tráfego de rota com base na localização geográfica do ponto final](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [Encaminhar tráfego com base na sub-rede do utilizador](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
 |[Load balancer](#loadbalancer)|Fornece o equilíbrio regional de carga, encaminhando o tráfego através de zonas de disponibilidade e para os seus VNets. Fornece um equilíbrio interno de carga, encaminhando o tráfego através e entre os seus recursos para construir a sua aplicação regional.|<p> [Balancear carga de tráfego de internet para VMs](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Tráfego de equilíbrio de carga através de VMs dentro de uma rede virtual](../load-balancer/tutorial-load-balancer-basic-internal-portal.md)<p>[Tráfego avançado portuário para uma porta específica em VMs específicos](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Configure regras de equilíbrio de carga e saída](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
-|[Gateway de Aplicação](#applicationgateway)|O Gateway de Aplicação do Azure é um balanceador de carga do tráfego da Web que lhe permite gerir o tráfego para as suas aplicações Web.|<p>[Direcionar o tráfego Web com o Gateway de Aplicação do Azure](../application-gateway/quick-create-portal.md)</p><p>[Tutorial: Configure um portal de aplicação com rescisão de TLS utilizando o portal Azure](../application-gateway/create-ssl-portal.md)</p><p>[Criar um gateway de aplicação com o redirecionamento com base no caminho do URL](../application-gateway/create-url-route-portal.md) </p>|
+|[Gateway de aplicação](#applicationgateway)|O Gateway de Aplicação do Azure é um balanceador de carga do tráfego da Web que lhe permite gerir o tráfego para as suas aplicações Web.|<p>[Direcionar o tráfego Web com o Gateway de Aplicação do Azure](../application-gateway/quick-create-portal.md)</p><p>[Tutorial: Configure um portal de aplicação com rescisão de TLS utilizando o portal Azure](../application-gateway/create-ssl-portal.md)</p><p>[Criar um gateway de aplicação com o redirecionamento com base no caminho do URL](../application-gateway/create-url-route-portal.md) </p>|
 |
 
 ### <a name="content-delivery-network"></a><a name="cdn"></a>Rede de Entrega de Conteúdos
@@ -175,7 +175,7 @@ A imagem seguinte mostra uma aplicação multi-nível virada para a Internet que
 ![Exemplo de Balancer de Carga Azure](./media/networking-overview/load-balancer.png)
 
 
-### <a name="application-gateway"></a><a name="applicationgateway"></a>Gateway de Aplicação
+### <a name="application-gateway"></a><a name="applicationgateway"></a>Gateway de aplicação
 O Gateway de Aplicação do Azure é um balanceador de carga do tráfego da Web que lhe permite gerir o tráfego para as suas aplicações Web. É um Controlador de Entrega de Aplicações (ADC) como um serviço, oferecendo várias capacidades de equilíbrio de carga de camada 7 para as suas aplicações. Para mais informações, consulte o que é o Portal de [Aplicação Azure?](../application-gateway/overview.md)
 
 O diagrama seguinte mostra o encaminhamento baseado em url com o Gateway da Aplicação.

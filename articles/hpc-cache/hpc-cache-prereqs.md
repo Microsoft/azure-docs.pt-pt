@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
 ms.openlocfilehash: 4508ef7583760a7ef7503f8a6f37202af2684d81
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106513"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para Cache Azure HPC

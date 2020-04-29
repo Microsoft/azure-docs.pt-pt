@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5ff9ab8e2fcc1bb3b72f56348a1c86dc173bafc
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "73161503"
+ms.locfileid: "82203867"
 ---
 # <a name="security-frame-session-management"></a>Quadro de segurança: Gestão de sessões
 | Produto/Serviço | Artigo |
@@ -221,7 +221,7 @@ Todas as aplicações baseadas em HTTP que utilizam cookies devem especificar ht
 | **Tecnologias Aplicáveis** | Formulários Web |
 | **Atributos**              | N/D  |
 | **Referências**              | [FormasAutenticação.Requer propriedade SSSL](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| **Passos** | O valor de propriedade RequireSSL é definido no ficheiro de configuração para uma aplicação ASP.NET utilizando o atributo necessário do elemento de configuração. Pode especificar no ficheiro Web.config para a sua aplicação ASP.NET se o SSL (Secure Sockets Layer) é necessário para devolver o cookie de autenticação de formulários ao servidor, definindo o atributo necessário.|
+| **Passos** | O valor de propriedade RequireSSL é definido no ficheiro de configuração para uma aplicação ASP.NET utilizando o atributo necessário do elemento de configuração. Pode especificar no ficheiro Web.config para a sua aplicação ASP.NET se a Segurança da Camada de Transporte (TLS), anteriormente conhecida como SSL (Camada de Tomadas Seguras), é obrigada a devolver o cookie de autenticação de formulários ao servidor, definindo o atributo necessário.|
 
 ### <a name="example"></a>Exemplo 
 O exemplo de código que se segue define o atributo necessário no ficheiro Web.config.

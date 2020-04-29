@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: b3dc111fe62cbae857f3369165ba29cf40e90342
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81427799"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Boas práticas para piscinas SQL em Azure Synapse Analytics
@@ -59,7 +59,7 @@ Os carregamentos do PolyBase podem ser executados com CTAS ou INSERT INTO. O CTA
 
 Para maximizar a entrada ao utilizar ficheiros de texto Gzip, separe ficheiros em 60 ou mais ficheiros para maximizar o paralelismo da sua carga. Para um débito total mais rápido, considere carregar dados em simultâneo. Informações adicionais para os tópicos relevantes para esta secção estão incluídas nos seguintes artigos:
 
-- [Carregar dados](data-loading-overview.md)
+- [Dados de carga](data-loading-overview.md)
 - [Guia para utilizar o PolyBase](data-loading-best-practices.md)
 - [Padrões e estratégias de carregamento de piscina SQL Azure](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)
 - [Dados de carga com fábrica de dados azure](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
@@ -120,7 +120,7 @@ Mais informações sobre o conteúdo relacionado com esta secção estão inclu�
 - [Otimizar as transações](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Partição de mesa](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Tabela TRUNCATE](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [ALTERAR TABELA](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="reduce-query-result-sizes"></a>Reduzir o tamanho dos resultados da consulta
 

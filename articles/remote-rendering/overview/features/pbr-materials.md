@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 64553506f75451c50a87932904f00a7275ea9286
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680261"
 ---
 # <a name="pbr-materials"></a>Materiais PBR
@@ -85,4 +85,4 @@ Nem sempre é possível *converter-se de Especular-Glossiness* para *Metalness-R
 
 * [Materiais de cor](color-materials.md)
 * [Texturas](../../concepts/textures.md)
-* [Meshes](../../concepts/meshes.md)
+* [Malhas](../../concepts/meshes.md)

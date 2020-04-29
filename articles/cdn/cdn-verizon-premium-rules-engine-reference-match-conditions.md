@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: e2361590118668f2cdf22c4a29534b16790b90e4
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253446"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Azure CDN da Verizon Premium governa condições de correspondência do motor
@@ -102,7 +102,7 @@ Nome | Objetivo
 
 A condição de jogo Always aplica um conjunto de funcionalidades padrão a todos os pedidos.
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -129,7 +129,7 @@ Informação-chave:
   - Ignore a Origem Sem Cache
   - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -149,7 +149,7 @@ Informação-chave:
 - O ponto de acesso ao conteúdo identifica o serviço que deve servir o conteúdo solicitado.
 - Não utilize uma declaração e if para combinar certas condições de correspondência. Por exemplo, combinar uma condição de correspondência de Origem CDN com uma condição de correspondência de Origem do Cliente criaria um padrão de correspondência que nunca poderia ser igualado. Por esta razão, duas condições de correspondência de Origem CDN não podem ser combinadas através de uma declaração e IF.
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -178,7 +178,7 @@ Informação-chave:
   - Ignore a Origem Sem Cache
   - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -211,7 +211,7 @@ Informação-chave:
   - Ignore a Origem Sem Cache
   - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 </br>
 
 ---
@@ -243,7 +243,7 @@ Informação-chave:
   - Ignore a Origem Sem Cache
   - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -285,7 +285,7 @@ Esta condição de jogo permite-lhe realizar uma infinidade de personalizações
 
 - Recurso Deny Access (403): Ativar a [função De acesso a negar (403)](cdn-verizon-premium-rules-engine-reference-features.md#deny-access-403) para replicar a parte de permitir ou bloquear a funcionalidade de filtragem do país.
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -301,7 +301,7 @@ Informação-chave:
   - Uma configuração CNAME de borda
 - Não utilize uma declaração e if para combinar certas condições de correspondência. Por exemplo, combinar uma condição de correspondência de Origem do Cliente com uma condição de correspondência de Origem CDN criaria um padrão de correspondência que nunca poderia ser igualado. Por esta razão, duas condições de correspondência de Origem do Cliente não podem ser combinadas através de uma declaração e IF.
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -368,7 +368,7 @@ Data de Lançamento | %{wurfl_cap_release_date} | Uma cadeia que indica o ano e 
 Altura da Resolução | %{wurfl_cap_resolution_height} | Um inteiro que indica a altura do dispositivo em pixels. | 768
 Largura da Resolução | %{wurfl_cap_resolution_width} | Um inteiro que indica a largura do dispositivo em pixels. | 1024
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -388,7 +388,7 @@ Informação-chave:
   - Ignore a Origem Sem Cache
   - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -416,7 +416,7 @@ Informação-chave:
   - Ignore a Origem Sem Cache
   - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -441,7 +441,7 @@ Informação-chave:
   - Ignore a Origem Sem Cache
   - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -472,7 +472,7 @@ Informação-chave:
   - Ignore a Origem Sem Cache
   - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -504,7 +504,7 @@ Informação-chave:
   - Ignore a Origem Sem Cache
   - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -533,7 +533,7 @@ Informação-chave:
   - Ignore a Origem Sem Cache
   - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -555,7 +555,7 @@ Informação-chave:
   - Ignore a Origem Sem Cache
   - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -613,7 +613,7 @@ Informação-chave:
 
 - Utilize a opção **Ignore Case** para controlar se é efetuada uma comparação sensível a casos.
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -656,7 +656,7 @@ Esta condição de jogo é satisfeita quando encontra URLs que terminam com as s
 - .php
 - .html
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -687,7 +687,7 @@ Informação-chave:
 
     Por exemplo, especificar "presentation.ppt" corresponde a um ativo chamado "presentation.ppt", mas não um chamado "presentation.pptx".
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -736,7 +736,7 @@ Por exemplo, ambos os seguintes URLs apontam para o mesmo ativo e, portanto, tê
 
 - Para combinar todos os pedidos feitos a um determinado diretório, utilize o [Diretório de Percursos URL](#url-path-directory) ou a condição de correspondência [url Path Wildcard.](#url-path-wildcard)
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -771,7 +771,7 @@ Informação-chave:
     
 - Os espaços no caminho do URL devem ser substituídos por "%20".
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -837,7 +837,7 @@ Valor                   | Relativamente a    | Resultado
 *.jpg *.gif *.png       | Raiz ou Origem | Este padrão é combinado por todos os URLs CDN ou CNAME de borda que terminam com .jpg, .gif ou .png. Uma forma alternativa de especificar este padrão é com a condição de correspondência de [extensão do caminho do URL](#url-path-extension).
 /images/* /media/*      | Origem         | Este padrão é combinado por CDN ou URLs CNAME de borda cujo caminho relativo começa com uma pasta de "imagens" ou "media". <br />- URL CDN:\/http: /wpc.0001. &lt;domínio&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME de\/borda da amostra: http: /cdn.mydomain.com/images/sales/event1.png
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -874,7 +874,7 @@ Informação-chave:
    - Ignore a Origem Sem Cache
    - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -959,7 +959,7 @@ Utilizador  | João   | Este padrão é combinado quando a corda de consulta par
 Utilizador  | *     | Este padrão é combinado quando a corda de consulta para um URL solicitado contém um parâmetro do Utilizador.
 Email | João\* | Este padrão é combinado quando a corda de consulta para um URL solicitado contém um parâmetro de e-mail que começa com "Joe".
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -1007,7 +1007,7 @@ Informação-chave:
    - Ignore a Origem Sem Cache
    - Max-Stale interno
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -1058,7 +1058,7 @@ O exemplo que se segue demonstra como esta opção funciona em situações espec
 utilizador=joe              | Este padrão é combinado quando a corda de consulta para um URL solicitado é "?user=joe".
 \*utilizador=\* \*optout=\* | Este padrão é combinado quando a consulta de URL cDN contém o utilizador ou o parâmetro optout.
 
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
+[De volta ao topo](#reference-for-rules-engine-match-conditions)
 
 </br>
 

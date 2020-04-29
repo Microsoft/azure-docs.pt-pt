@@ -13,10 +13,10 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
 ms.openlocfilehash: b4e7d827536245a22d168c7d9923c2e5b82830b0
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82111798"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de Conectividade do SQL do Azure

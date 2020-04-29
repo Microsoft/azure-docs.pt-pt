@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 04/10/2020
 ms.openlocfilehash: 87abdb37ff7773b0205a2ce3ee21689a10c459d7
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113538"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-azure-synapse"></a>Encriptação transparente de dados para Base de Dados SQL e Azure Synapse
@@ -127,7 +127,7 @@ Ligue-se à base de dados utilizando um login que seja um administrador ou membr
 
 Não é possível mudar o protetor TDE para uma chave do Key Vault utilizando o Transact-SQL. Utilize o PowerShell ou o portal Azure.
 
-# <a name="rest-api"></a>[API REST](#tab/azure-RESTAPI)
+# <a name="rest-api"></a>[REST API](#tab/azure-RESTAPI)
 Gerencie o TDE utilizando a API REST.
 
 Para configurar o TDE através da API REST, deve estar ligado como O Proprietário, Colaborador ou Gestor de Segurança SQL.

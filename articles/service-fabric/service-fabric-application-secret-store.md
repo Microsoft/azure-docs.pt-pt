@@ -4,10 +4,10 @@ description: Este artigo descreve como usar a Central Secrets Store em Tecido de
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.openlocfilehash: 4087e7ccdcb2281c4a08af155d35a10c66147a85
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770417"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Central Secrets Store em Tecido de Serviço Azure 

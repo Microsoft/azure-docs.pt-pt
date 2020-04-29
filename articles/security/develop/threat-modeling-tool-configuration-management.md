@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ead6a79109c221d31ead96a202e97294ef218c5f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 499e4cb2cb62ccc170637bad60898b38b4ff3be7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687981"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204258"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Quadro de segurança: Gestão de Configuração / Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicação Web** | <ul><li>[Implementar a Política de Segurança do Conteúdo (CSP) e desativar o javascript inline](#csp-js)</li><li>[Ativar o filtro XSS do navegador](#xss-filter)</li><li>[ASP.NET aplicações devem desativar o rastreio e a depuração antes da implantação](#trace-deploy)</li><li>[Aceda a javascripts de terceiros apenas a partir de fontes fidedignas](#js-trusted)</li><li>[Certifique-se de que as páginas ASP.NET autenticadas incorporam defesas ui redressing ou click-jacking](#ui-defenses)</li><li>[Certifique-se de que só são permitidas origens fidedignas se o CORS estiver ativado em aplicações Web ASP.NET](#cors-aspnet)</li><li>[Ativar atributo ValidadoSolicitar em páginas ASP.NET](#validate-aspnet)</li><li>[Utilize versões mais recentes de bibliotecas JavaScript hospedadas localmente](#local-js)</li><li>[Desativar o cheiro automático de MIME](#mime-sniff)</li><li>[Remova os cabeçalhos padrão do servidor nos Web Sites do Windows Azure para evitar a recolha de impressões digitais](#standard-finger)</li></ul> |
-| **Base de Dados** | <ul><li>[Configure uma firewall do Windows para acesso a motor de base de dados](#firewall-db)</li></ul> |
+| **Base de dados** | <ul><li>[Configure uma firewall do Windows para acesso a motor de base de dados](#firewall-db)</li></ul> |
 | **API Web** | <ul><li>[Certifique-se de que só são permitidas origens fidedignas se o CORS estiver ativado na ASP.NET Web API](#cors-api)</li><li>[Criptografe secções dos ficheiros de configuração da Web API que contenham dados sensíveis](#config-sensitive)</li></ul> |
 | **Dispositivo IoT** | <ul><li>[Certifique-se de que todas as interfaces de administração estão seguras com credenciais fortes](#admin-strong)</li><li>[Certifique-se de que o código desconhecido não pode ser executado em dispositivos](#unknown-exe)</li><li>[Criptografe OS e divisórias adicionais do Dispositivo IoT com bit-locker](#partition-iot)</li><li>[Certifique-se de que apenas os serviços/funcionalidades mínimos estão ativados nos dispositivos](#min-enable)</li></ul> |
 | **Gateway de campo iot** | <ul><li>[Criptografe OS e divisórias adicionais de IoT Field Gateway com bit-locker](#field-bit-locker)</li><li>[Certifique-se de que as credenciais de login predefinidas do gateway de campo são alteradas durante a instalação](#default-change)</li></ul> |
@@ -99,7 +99,7 @@ Example: var str="alert(1)"; eval(str);
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Passos** | os JavaScripts de terceiros devem ser referenciados apenas a partir de fontes fidedignas. Os pontos finais de referência devem estar sempre no SSL. |
+| **Passos** | os JavaScripts de terceiros devem ser referenciados apenas a partir de fontes fidedignas. Os pontos finais de referência devem estar sempre no TLS. |
 
 ## <a name="ensure-that-authenticated-aspnet-pages-incorporate-ui-redressing-or-click-jacking-defenses"></a><a id="ui-defenses"></a>Certifique-se de que as páginas ASP.NET autenticadas incorporam defesas ui redressing ou click-jacking
 

@@ -10,10 +10,10 @@ ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
 ms.openlocfilehash: ea6bca1367d4b34aa54b65e92e7cbfdd02642f4c
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086237"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Pontuações de referência computacionais para VMs do Windows

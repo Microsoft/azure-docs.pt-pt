@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f307553a97973d03b0699248373e53e4845aa39a
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869904"
 ---
 # <a name="what-are-security-defaults"></a>O que são incumprimentos de segurança?
@@ -157,4 +157,4 @@ Para desativar os incumprimentos de segurança no seu diretório:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Políticas de Acesso Condicional comuns](../conditional-access/concept-conditional-access-policy-common.md)
+[Políticas comuns de acesso condicional](../conditional-access/concept-conditional-access-policy-common.md)

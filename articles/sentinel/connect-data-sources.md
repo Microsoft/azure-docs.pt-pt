@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
 ms.openlocfilehash: e59359d791729d2136003596d80dd1f31a9a2aac
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82025157"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados

@@ -4,10 +4,10 @@ description: Monitorize as chamadas de dependência das suas instalações ou da
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: 1e30d8036c1fc624d39f027f38e314c6c57360f6
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731499"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreio de dependência em insights de aplicação azure 

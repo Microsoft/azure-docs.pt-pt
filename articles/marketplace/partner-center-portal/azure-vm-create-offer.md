@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: d598f741c5add58a89aa2b7aa01802a7e35f9a19
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869064"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Criar uma oferta de máquina virtual Azure
@@ -37,7 +37,7 @@ A publicação no Azure Marketplace tem os seguintes benefícios:
 Se ainda não o fez, reveja a oferta da [máquina Virtual](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) e este material de máquina virtual Azure:
 
 - Guias quickstart
-  - [Modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/)
+  - [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/)
   - [Modelos GitHub Azure Quickstart](https://github.com/azure/azure-quickstart-templates)
 - Tutoriais
   - [VMs do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)

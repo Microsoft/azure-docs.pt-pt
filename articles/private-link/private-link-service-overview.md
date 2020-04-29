@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280433"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82202218"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço Azure Private Link?
 
@@ -61,7 +61,7 @@ Um serviço de Link Privado especifica as seguintes propriedades:
 
 ### <a name="details"></a>Detalhes
 
-- O serviço private link pode ser acedido a partir de pontos finais privados aprovados na mesma região. O ponto final privado pode ser alcançado a partir da mesma rede virtual, VNets com preços regionais, VNets globalmente espreitados e em instalações usando ligações privadas VPN ou ExpressRoute. 
+- O serviço Private Link pode ser acedido a partir de pontos finais privados aprovados em qualquer região pública. O ponto final privado pode ser alcançado a partir da mesma rede virtual, VNets com preços regionais, VNets globalmente espreitados e em instalações usando ligações privadas VPN ou ExpressRoute. 
  
 - Ao criar um Serviço de Link Privado, é criada uma interface de rede para o ciclo de vida do recurso. Esta interface não é gerível pelo cliente.
  
@@ -88,7 +88,7 @@ Pseudónimo completo: *Prefixo*. {GUID}. *região*.azure.privatelinkservice
 
 ## <a name="control-service-exposure"></a>Exposição ao serviço de controlo
 
-O serviço Private Link oferece-lhe opções para controlar a exposição do seu serviço através da definição de "Visibilidade". Você pode tornar o serviço privado para consumo de diferentes VNets que você possui (apenas permissões RBAC), restringir a exposição a um conjunto limitado de subscrições em que você confia, ou torná-lo público para que todas as subscrições Azure possam solicitar conexões no Private Link serviço. As suas definições de visibilidade decidem se um consumidor pode ou não ligar-se ao seu serviço. 
+O serviço Private Link oferece-lhe opções para controlar a exposição do seu serviço através da definição de "Visibilidade". Pode tornar o serviço privado para consumo de diferentes VNets que possui (apenas permissões RBAC), restringir a exposição a um conjunto limitado de subscrições em que confia, ou torná-lo público para que todas as subscrições do Azure possam solicitar ligações no serviço Private Link. As suas definições de visibilidade decidem se um consumidor pode ou não ligar-se ao seu serviço. 
 
 ## <a name="control-service-access"></a>Acesso ao serviço de controlo
 

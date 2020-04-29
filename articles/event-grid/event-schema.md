@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: babanisa
 ms.openlocfilehash: 7c45b8f634868024a84f9f3b75bb23031c09b40c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82114008"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de evento sinuoso do evento Azure Event Grid
@@ -95,7 +95,7 @@ Para saber mais sobre as propriedades do objeto de dados, consulte a fonte do ev
 
 * [Assinaturas Azure (operações de gestão)](event-schema-subscriptions.md)
 * [Registo de Contentor](event-schema-container-registry.md)
-* [Armazenamento de bolhas](event-schema-blob-storage.md)
+* [Armazenamento de blobs](event-schema-blob-storage.md)
 * [Hubs de Eventos](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)
 * [Serviços de Multimédia](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)

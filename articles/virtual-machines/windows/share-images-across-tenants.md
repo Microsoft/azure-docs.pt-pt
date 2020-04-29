@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/15/2019
 ms.author: cynthn
 ms.openlocfilehash: 7c35799147d276bf4b6f07893b7cd975c5c5823c
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82101200"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Partilhar imagens vM da galeria através dos inquilinos do Azure

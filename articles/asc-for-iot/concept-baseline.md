@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
 ms.openlocfilehash: c52a3e55e3801eaaac885b9a3c364283f74906ba
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311644"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Centro de Segurança Azure para a linha de base ioT e verificações personalizadas

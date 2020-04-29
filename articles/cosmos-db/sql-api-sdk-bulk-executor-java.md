@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
 ms.openlocfilehash: 1a5de2647df5b8092fdcf8e6233f1fddc1690b03
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981329"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Biblioteca executor a granel de Java: Descarregue informações
@@ -34,7 +34,7 @@ ms.locfileid: "80981329"
 | |  |
 |---|---|
 |**Descrição**|A biblioteca de executora a granel permite que as aplicações dos clientes realizem operações a granel nas contas da Azure Cosmos DB. a biblioteca de executores a granel fornece espaços de nome bulkImport e BulkUpdate. O módulo BulkImport pode ingerir a granel documentos de forma otimizada, de modo a que o serviço de entrada previsto para uma recolha seja consumido na sua extensão máxima. O módulo BulkUpdate pode atualizar em massa os dados existentes nos contentores Do Cosmos azure como patches.|
-|**Download sDK**|[Rio Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
+|**Download sDK**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**Biblioteca executora a granel em GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
 | **Documentação da API**| [Documentação de referência da API java](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Introdução**|[Começar com a biblioteca de executor esfarofoneiro Java SDK](bulk-executor-java.md)|

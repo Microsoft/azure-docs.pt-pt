@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: 8d49e2c455bdd27917bb33cbf428b3a6b52facd3
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 92648f5b1720cd8274817d289dae1f4631e8b7e7
+  ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "74132716"
+  ms.lasthandoff: 04/28/2020
+  ms.locfileid: "82195957"
 landingContent:
 - title: Acerca do Content Moderator
   linkLists:
@@ -37,11 +37,11 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET
-      url: dotnet-sdk-quickstart.md
+      url: client-libraries.md?pivots=programming-language-csharp
     - text: Utilizar o SDK Python
-      url: python-sdk-quickstart.md
+      url: client-libraries.md?pivots=programming-language-python
     - text: Utilizar o SDK Java
-      url: java-sdk-quickstart.md
+      url: client-libraries.md?pivots=programming-language-java
   - linkListType: how-to-guide
     links:
     - text: Utilizar a consola da API

@@ -1,5 +1,5 @@
 ---
-title: Gerir a utilização e os custos dos Registos do Monitor Azure [ Microsoft Docs
+title: Gerir a utilização e os custos dos registos do Monitor Azure
 description: Aprenda a alterar o plano de preços e gere o volume de dados e a política de retenção para o seu espaço de trabalho Log Analytics no Monitor Azure.
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 04/28/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 9a7d0530c4f03138fad3e4aaa473d54e1cfd5b0a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 8904d584d453cb0945a11b08ad50688aeb1e1fc0
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686566"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207331"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir o uso e os custos com registos do Monitor Azure
 
@@ -34,7 +34,7 @@ Neste artigo revemos como pode monitorizar proativamente o volume de dados inger
 
 O preço padrão para log Analytics é um modelo **Pay-As-You-Go** baseado no volume de dados ingerido e opcionalmente para uma maior retenção de dados. O volume de dados é medido como o tamanho dos dados que serão armazenados. Cada espaço de trabalho do Log Analytics é cobrado como um serviço separado e contribui para a fatura para a sua subscrição Azure. A quantidade de ingestão de dados pode ser considerável em função dos seguintes fatores: 
 
-  - Número de soluções de gestão ativadas e sua configuração (por exemplo. 
+  - Número de soluções de gestão habilitadas e sua configuração
   - Número de VMs monitorizados
   - Tipo de dados recolhidos de cada VM monitorizado 
   
@@ -42,7 +42,13 @@ Além do modelo Pay-As-You-Go, o Log Analytics tem níveis de Reserva de **Capac
 
 Em todos os níveis de preços, o volume de dados é calculado a partir de uma representação de cadeia dos dados, uma vez que está preparado para ser armazenado. Várias [propriedades comuns a todos os tipos](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) de dados `_ResourceId`não `_ItemId` `_IsBillable` estão incluídas no cálculo do tamanho do evento, incluindo, e `_BilledSize`.
 
-Note ainda que Algumas soluções, como [o Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/) e o [Azure Sentinel,](https://azure.microsoft.com/pricing/details/azure-sentinel/)têm o seu próprio modelo de preços. 
+Além disso, note que algumas soluções, como [o Azure Security Center,](https://azure.microsoft.com/pricing/details/security-center/) [o Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) e a gestão de [Configuração](https://azure.microsoft.com/pricing/details/automation/) têm os seus próprios modelos de preços. 
+
+### <a name="dedicated-clusters"></a>Clusters dedicados
+
+Os Clusters Dedicados ao Registo do Monitor Azure são coleções de espaços de trabalho num único cluster do Azure Data Explorer (ADX) gerido para suportar cenários avançados como [chaves geridas pelo cliente.](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)  Clusters dedicados suportam apenas um modelo de preços de reserva de capacidade a partir de 1000 GB/dia com um desconto de 25% em comparação com os preços pay-As-You-Go. Qualquer utilização acima do nível de reserva será faturada à taxa Pay-As-You-Go. A Reserva de Capacidade do Cluster tem um período de compromisso de 31 dias após o aumento do nível de reserva. Durante o período de compromisso, o nível de reserva de capacidade não pode ser reduzido, mas pode ser aumentado a qualquer momento. Saiba mais sobre a criação de [um Clusters Dedicados](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) e [associando-lhe espaços de trabalho.](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource)  
+
+Como a faturação de dados ingeridos é feita ao nível do cluster, os espaços de trabalho associados a um cluster já não têm um nível de preços. As quantidades de dados ingeridas de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. Note que as dotações por nó do Azure Security Center são aplicadas ao nível do espaço de trabalho antes desta agregação. A retenção de dados ainda é faturada ao nível do espaço de trabalho.  
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Estimando os custos para gerir o seu ambiente 
 
@@ -176,7 +182,7 @@ Logo após o limite diário ser atingido, a recolha de tipos de dados faturados 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite de dados diários a definir
 
-Reveja o uso do [Log Analytics e os custos estimados](usage-estimated-costs.md) para entender a tendência de ingestão de dados e qual é a tampa de volume diária para definir. Deve ser considerado com cuidado, uma vez que não poderá monitorizar os seus recursos após o limite ser atingido. 
+Reveja o uso do [Log Analytics e os custos estimados](usage-estimated-costs.md) para entender a tendência de ingestão de dados e qual é a tampa de volume diária para definir. Deve ser considerado com cuidado, já que ganhou?não pode monitorizar os seus recursos após o limite ser atingido. 
 
 ### <a name="set-the-daily-cap"></a>Definir o boné diário
 
@@ -184,7 +190,7 @@ Os seguintes passos descrevem como configurar um limite para gerir o volume de d
 
 1. Na área de trabalho, selecione **Utilização e custos estimados**, no painel do lado esquerdo.
 2. Na página **de Utilização e custos estimados** para o espaço de trabalho selecionado, clique na **gestão** do volume de dados a partir do topo da página. 
-3. A tampa diária é **OFF** por clique por padrão **on** para o ativar e, em seguida, definir o limite de volume de dados em GB/dia.
+3. A tampa diária é **OFF** por defeito? clique **em ON** para o ativar e, em seguida, definir o limite de volume de dados em GB/dia.
 
     ![Log Analytics configurar limite de dados](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
@@ -245,7 +251,7 @@ union withsource = tt *
 ```
 
 > [!TIP]
-> Utilize `union withsource = tt *` estas consultas com moderação, uma vez que as análises através de tipos de dados são caras para executar. Esta consulta substitui a forma antiga de consultar informações por computador pelo tipo de dados de utilização.  
+> Utilize `union withsource = tt *` estas consultas com moderação, uma vez que as análises através de tipos de dados são [intensivas em recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) para executar. Esta consulta substitui a forma antiga de consultar informações por computador pelo tipo de dados de utilização.  
 
 ## <a name="understanding-ingested-data-volume"></a>Compreender o volume de dados ingerido
 
@@ -451,7 +457,7 @@ Para facilitar esta avaliação, a seguinte consulta pode ser usada para fazer u
 ```kusto
 // Set these parameters before running query
 let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
-let PerNodePrice = 15.; // Enter your price per node / month 
+let PerNodePrice = 15.; // Enter your montly price per monitored nodes
 let PerGBPrice = 2.30; // Enter your price per GB 
 // ---------------------------------------
 let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);

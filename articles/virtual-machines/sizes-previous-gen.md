@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
 ms.openlocfilehash: ac49d2da9d05c9677dbb6f5328874ab3a45ff661
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82081545"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais

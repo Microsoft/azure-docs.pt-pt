@@ -8,10 +8,10 @@ ms.date: 04/09/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 857a46bd3995b39a43279188ae37b78d7cd533ec
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085573"
 ---
 # <a name="using-azure-ultra-disks"></a>Usando discos ultra Azure

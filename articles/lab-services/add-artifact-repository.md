@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: spelluru
 ms.openlocfilehash: 2bb871119bece71c705ad9621a7c76c4b5ed0bc7
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770246"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicione um repositório de artefactos ao seu laboratório em DevTest Labs

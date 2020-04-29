@@ -16,10 +16,10 @@ ms.date: 10/18/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: faf51dbb1f1c3c0346b1ae9104494538efcc2ee7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81259977"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Autoridades de certificados autorizadas por permitir HTTPS personalizado no Azure CDN

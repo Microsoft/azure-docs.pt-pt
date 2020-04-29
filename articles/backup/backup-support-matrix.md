@@ -4,10 +4,10 @@ description: Fornece um resumo das definições de suporte e limitações para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537326"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para Backup Azure

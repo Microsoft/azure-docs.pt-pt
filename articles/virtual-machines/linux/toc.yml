@@ -564,14 +564,14 @@
             - name: Preparar VM existente para inicialização em cloud
               href: cloudinit-prepare-custom-image.md
         - name: Jenkins
-          href: ../../jenkins/overview.md
+          href: /azure/developer/jenkins/overview.md
           items:
             - name: Criar um servidor Jenkins
-              href: ../../jenkins/install-jenkins-solution-template.md
+              href: /azure/developer/jenkins/configure-on-linux-vm.md
             - name: Dimensionar com os agentes de VM
-              href: ../../jenkins/jenkins-azure-vm-agents.md
+              href: /azure/developer/jenkins/scale-deployments-using-vm-agents.md
             - name: Publicar artefactos no Armazenamento
-              href: ../../jenkins/storage-java-jenkins-continuous-integration-solution.md
+              href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository.md
             - name: Proteger o Jenkins
               href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Executar contentores

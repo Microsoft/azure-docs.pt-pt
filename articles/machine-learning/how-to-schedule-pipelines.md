@@ -10,10 +10,10 @@ ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
 ms.openlocfilehash: 8e1e718fa4e6660d72203ac98bb6d427cdba2059
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024562"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Agendar oleodutos de aprendizagem automática com Azure Machine Learning SDK para Python

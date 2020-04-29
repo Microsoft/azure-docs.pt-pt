@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
 ms.openlocfilehash: 5376562d9df35539a33f6746b387a1ff7083b8f1
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81676451"
 ---
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gerir atualizações para várias máquinas virtuais do Azure
