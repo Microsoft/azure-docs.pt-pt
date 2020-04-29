@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: f3299c24bc751263ccd284a4fddb492fba5dd1e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76761190"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Quotas e limites de escala nos Laboratórios DevTest
@@ -35,7 +35,7 @@ Os limites de [subscrição e serviço do Azure](https://docs.microsoft.com/azur
 ## <a name="view-your-usage-and-quotas"></a>Veja o seu uso e quotas
 Estes passos mostram-lhe como ver as quotas atuais na sua subscrição para recursos específicos do Azure, e para ver qual a percentagem de cada quota que utilizou.
 
-1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Mais Serviços**e, em seguida, selecione **Faturação** da lista.
 1. Na lâmina de faturação, selecione uma subscrição.
 4. **Selecione Utilização + quotas**.

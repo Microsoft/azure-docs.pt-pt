@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: clemensv
 ms.openlocfilehash: 68668452152064584d1c419a3053ccb642b103f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514957"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexões híbridas Azure Relay
@@ -120,7 +120,7 @@ Se não houver ouvinte ativo, o serviço devolverá um código de erro 502 "Bad 
 
 O resultado deste modelo de interação é que o cliente remetente sai do aperto de mão com um WebSocket "limpo", que está ligado a um ouvinte e que não precisa de mais preâmbulos ou preparação. Este modelo permite que praticamente qualquer implementação de cliente WebSocket existente aproveite facilmente o serviço de Conexões Híbridas fornecendo um URL corretamente construído na sua camada de cliente WebSocket.
 
-A ligação de pontos de encontro WebSocket que o ouvinte obtém através da interação aceita também é limpa e pode ser entregue a qualquer implementação do servidor WebSocket existente com alguma abstração extra mínima que distingue entre operações de "aceitar" em os ouvintes locais da rede local e as operações remotas de Ligações Híbridas "aceitam".
+A ligação de pontos de encontro WebSocket que o ouvinte obtém através da interação aceita também é limpa e pode ser entregue a qualquer implementação do servidor WebSocket existente com alguma abstração extra mínima que distingue entre operações de "aceitar" nos ouvintes locais da sua estrutura e operações remotas de "aceitação" de Ligações Híbridas.
 
 O modelo http request/response dá ao remetente uma área de superfície de protocolo HTTP em grande parte sem restrições com uma camada de autorização OPCIONAL. O ouvinte obtém uma secção de cabeçalho de pedido HTTP pré-analisada que pode ser transformada num pedido HTTP a jusante ou manuseada como está, com molduras binárias que transportam corpos HTTP. As respostas usam o mesmo formato. As interações com menos de 64 KB de corpo de pedido e resposta podem ser manuseadas sobre uma única Tomada Web que é partilhada para todos os remetentes. Pedidos e respostas maiores podem ser tratados utilizando o modelo de encontro.
 
@@ -458,7 +458,7 @@ Se a ligação WebSocket falhar devido ao facto de a via de ligação híbrida n
 | 403  | Proibido      | O símbolo de segurança não é válido para este caminho e para esta ação.
 | 500  | Erro Interno | Algo correu mal no serviço.
 
-Se a ligação WebSocket for desligada intencionalmente pelo serviço depois de ter sido inicialmente configurada, a razão para o fazer é comunicada utilizando um código de erro de protocolo WebSocket apropriado, juntamente com uma mensagem de erro descritiva que também inclui um ID de rastreio .
+Se a ligação WebSocket for desligada intencionalmente pelo serviço depois de ter sido inicialmente configurada, a razão para o fazer é comunicada utilizando um código de erro de protocolo WebSocket apropriado, juntamente com uma mensagem de erro descritiva que também inclui um ID de rastreio.
 
 | Estatuto WS | Descrição
 | --------- | ------------------------------------------------------------------------------- 

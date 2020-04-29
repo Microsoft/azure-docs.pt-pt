@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720457"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>O ciclo de vida do Processo de Ciência de Dados da Equipa
@@ -31,7 +31,7 @@ O ciclo de vida da TDSP é composto por cinco grandes etapas que são executadas
    1. [Noções sobre empresas](lifecycle-business-understanding.md)
    2. [Aquisição e compreensão de dados](lifecycle-data.md)
    3. [Modelação](lifecycle-modeling.md)
-   4. [Implantação](lifecycle-deployment.md)
+   4. [Implementação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)
 
 Aqui está uma representação visual do ciclo de vida da TDSP: 

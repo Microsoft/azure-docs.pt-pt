@@ -15,10 +15,10 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 502d1fe599accb29ccc99c9e527f8d1c8e1d52b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77201832"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Altere o modelo de licença para uma máquina virtual SQL Server em Azure
@@ -32,7 +32,7 @@ Existem três modelos de licença para um VM que está hospedando O Servidor SQL
 
 O Azure Hybrid Benefit permite a utilização de licenças SQL Server com Garantia de Software ("Licença Qualificada") em máquinas virtuais Azure. Com o Azure Hybrid Benefit, os clientes não são cobrados pelo uso de uma licença SQL Server num VM. Mas ainda têm de pagar pelo custo da computação em nuvem subjacente (isto é, a taxa base), armazenamento e backups. Devem igualmente pagar por I/S associados à sua utilização dos serviços (conforme aplicável).
 
-De acordo com os Termos do Produto da Microsoft: "Os clientes devem indicar que estão a usar base de dados Azure SQL (Instância Gerida, Piscina Elástica e Base de Dados Única), Azure Data Factory, SQL Server Integration Services ou SQL Server Virtual Machines no Azure Benefício Híbrido para o Servidor SQL ao configurar cargas de trabalho no Azure."
+De acordo com os Termos do Produto da Microsoft: "Os clientes devem indicar que estão a usar base de dados Azure SQL (Instância Gerida, Piscina Elástica e Base de Dados Única), Fábrica de Dados Azure, Serviços de Integração de Servidores SQL ou Máquinas Virtuais do Servidor SQL em benefício híbrido Azure para o Servidor SQL ao configurar cargas de trabalho no Azure."
 
 Para indicar a utilização do Azure Hybrid Benefit para o SQL Server num VM Azure e ser conforme, tem três opções:
 
@@ -67,7 +67,7 @@ Pode modificar o modelo de licença diretamente a partir do portal:
 ![Benefício Híbrido Azure no portal](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Pode utilizar o Azure CLI para alterar o modelo de licença.  
 

@@ -10,15 +10,15 @@ ms.author: andyxu
 author: gogowings
 ms.date: 11/04/2019
 ms.openlocfilehash: d8a975487c68a21b2c8b6fa2f07d86c312243f12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79139050"
 ---
 # <a name="consume-azure-machine-learning-events-preview"></a>Consumir eventos de aprendizagem automática azure (pré-visualização)
 
-O Azure Machine Learning gere todo o ciclo de vida do processo de aprendizagem automática, incluindo formação de modelos, implantação de modelos e monitorização. Os eventos de Aprendizagem Automática Azure permitem que as aplicações reajam a eventos durante o ciclo de vida da aprendizagem automática, tais como a conclusão de ensaios, o registo e implementação de modelos, e a deteção de deriva de dados, utilizando o servidor moderno arquiteturas. 
+O Azure Machine Learning gere todo o ciclo de vida do processo de aprendizagem automática, incluindo formação de modelos, implantação de modelos e monitorização. Os eventos de Aprendizagem Automática Azure permitem que as aplicações reajam a eventos durante o ciclo de vida da aprendizagem automática, como a conclusão de ensaios, o registo e implementação de modelos, e a deteção de deriva de dados, utilizando arquiteturas modernas sem servidor. 
 
 Estes eventos são publicados através da [Azure Event Grid.](https://azure.microsoft.com/services/event-grid/) Utilizando o portal Azure, Powershell ou Azure CLI, os clientes podem facilmente subscrever eventos [especificando um ou mais tipos de eventos e condições de filtragem](/azure/event-grid/event-filtering). Os clientes também têm escolha para construir uma vasta gama de manipuladores de eventos, tais como Funções Azure, Aplicações Lógicas Azure ou webhooks genéricos. O Azure Machine Learning, juntamente com a Azure Event Grid, oferece uma plataforma de entrega de eventos de alto nível disponível, fiável e tolerante a falhas para que possa construir aplicações orientadas para eventos.
 

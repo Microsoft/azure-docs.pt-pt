@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4c47dfb8b221b6cb4b6237669ecd17c1637107a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721103"
 ---
 # <a name="process-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Processar dados de blobs do Azure com a análise avançada
@@ -131,7 +131,7 @@ Para gerar características binned, procedemos da seguinte forma:
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="writing-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Escrever dados de volta à blob Azure e consumir em Azure Machine Learning
-Depois de ter explorado os dados e criado as funcionalidades necessárias, pode enviar os dados (amostrados ou caracterizados) para uma bolha Azure e consumi-la no Azure Machine Learning utilizando os seguintes passos: Podem ser criadas funcionalidades adicionais no Azure Machine Learning Estúdio (clássico) também. 
+Depois de ter explorado os dados e criado as funcionalidades necessárias, pode enviar os dados (amostrados ou caracterizados) para uma bolha Azure e consumi-la no Azure Machine Learning utilizando os seguintes passos: Podem ser criadas funcionalidades adicionais no Azure Machine Learning Studio (clássico) também. 
 
 1. Escreva o quadro de dados para o arquivo local
    

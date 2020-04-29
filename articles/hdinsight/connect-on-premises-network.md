@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 2ed7a5b9c81d1b50f80f379a88688b69c49ed382
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78897922"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
@@ -52,7 +52,7 @@ No diagrama seguinte, as linhas verdes são pedidos de recursos que terminam no 
 
 Utilize os seguintes documentos para aprender a criar uma Rede Virtual Azure que esteja ligada à sua rede no local:
 
-* [Usando o portal Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Com o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Utilizar o Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Utilizar a CLI do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
@@ -63,7 +63,7 @@ Utilize os seguintes documentos para aprender a criar uma Rede Virtual Azure que
 
 Estes passos utilizam o [portal Azure](https://portal.azure.com) para criar uma Máquina Virtual Azure. Para outras formas de criar uma máquina virtual, consulte [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md) e [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  Para criar um VM Linux que utilize o software [Bind](https://www.isc.org/downloads/bind/) DNS, utilize os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
   
 1. A partir do menu superior, selecione **+ Criar um recurso**.
 

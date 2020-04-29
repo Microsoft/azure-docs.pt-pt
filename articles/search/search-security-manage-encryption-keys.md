@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76899941"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação-no-resto de conteúdo em Pesquisa Cognitiva Azure usando chaves geridas pelo cliente em Cofre chave Azure
@@ -227,7 +227,7 @@ Para criar uma aplicação AAD no portal:
 1. [Obtenha o ID da aplicação e a chave de autenticação,](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) uma vez que estes serão necessários para criar um índice encriptado. Os valores que terá de fornecer incluem **id de aplicação** e **chave de autenticação.**
 
 >[!Important]
-> Ao decidir utilizar uma aplicação AAD de autenticação em vez de uma identidade gerida, considere que a Pesquisa Cognitiva Azure não está autorizada a gerir a sua aplicação AAD em seu nome, e cabe-lhe a si gerir a sua aplicação AAD, como periódica rotação da chave de autenticação da aplicação.
+> Ao decidir utilizar uma aplicação AAD de autenticação em vez de uma identidade gerida, considere que a Pesquisa Cognitiva Azure não está autorizada a gerir a sua aplicação AAD em seu nome, e cabe-lhe a si gerir a sua aplicação AAD, como a rotação periódica da chave de autenticação da aplicação.
 > Ao alterar uma aplicação AAD ou a sua chave de autenticação, qualquer índice de pesquisa cognitiva Azure ou mapa de sinónimoque utilize essa aplicação deve primeiro ser atualizado para utilizar a nova chave ID\de aplicação **antes** de apagar a aplicação anterior ou a sua chave de autorização, e antes de revogar o seu acesso ao Cofre Chave.
 > Se não o fizer, o mapa de indexação ou sinónimo será inutilizável, uma vez que não será capaz de desencriptar o conteúdo assim que o acesso chave for perdido.   
 
@@ -236,4 +236,4 @@ Para criar uma aplicação AAD no portal:
 Se não estiver familiarizado com a arquitetura de segurança Azure, reveja a documentação da [Segurança Azure,](https://docs.microsoft.com/azure/security/)e em particular, este artigo:
 
 > [!div class="nextstepaction"]
-> [Encriptação de dados em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+> [Encriptação inativa de dados](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

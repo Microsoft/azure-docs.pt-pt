@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 50d21cfe8136b9c794eae5104bbb34e28f7c1661
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759317"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte AMQP 1.0 em Ônibus de serviço
@@ -31,7 +31,7 @@ Além disso, ligar corretores de mensagens de diferentes fornecedores é complic
 
 A indústria de software é um negócio em rápida mudança; novas linguagens de programação e quadros de aplicação são introduzidos a um ritmo por vezes desconcertante. Da mesma forma, os requisitos dos sistemas de TI evoluem ao longo do tempo e os desenvolvedores querem aproveitar as funcionalidades mais recentes da plataforma. No entanto, por vezes, o fornecedor de mensagens selecionado não suporta estas plataformas. Como os protocolos de mensagens são proprietários, não é possível que outros forneçam bibliotecas para estas novas plataformas. Por isso, deve utilizar abordagens como construir gateways ou pontes que lhe permitam continuar a utilizar o produto de mensagens.
 
-O desenvolvimento do Protocolo avançado de Fila de Mensagens (AMQP) 1.0 foi motivado por estas questões. Teve origem no JP Morgan Chase, que, tal como a maioria das empresas de serviços financeiros, são utilizadores pesados de middleware orientado para mensagens. O objetivo era simples: criar um protocolo de mensagens de padrão aberto que possibilitasse a construção de aplicações baseadas em mensagens utilizando componentes construídos com diferentes línguas, quadros e sistemas operativos, todos utilizando componentes de melhor raça a partir de uma gama de fornecedores.
+O desenvolvimento do Protocolo avançado de Fila de Mensagens (AMQP) 1.0 foi motivado por estas questões. Teve origem no JP Morgan Chase, que, tal como a maioria das empresas de serviços financeiros, são utilizadores pesados de middleware orientado para mensagens. O objetivo era simples: criar um protocolo de mensagens de padrão aberto que possibilitasse a construção de aplicações baseadas em mensagens utilizando componentes construídos utilizando diferentes línguas, quadros e sistemas operativos, todos utilizando componentes de melhor raça de uma série de fornecedores.
 
 ## <a name="amqp-10-technical-features"></a>Características técnicas AMQP 1.0
 AmQP 1.0 é um protocolo de mensagens eficiente, fiável e de nível de fio que pode usar para construir aplicações de mensagens robustas, interplataformas e de mensagens. O protocolo tem um objetivo simples: definir a mecânica da transferência segura, fiável e eficiente de mensagens entre duas partes. As mensagens em si são codificadas usando uma representação de dados portáteis que permite que remetedores e recetores heterogéneos troquem mensagens de negócio estruturadas com plena fidelidade. Segue-se um resumo das características mais importantes:

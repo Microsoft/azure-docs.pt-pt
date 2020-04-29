@@ -5,10 +5,10 @@ ms.date: 03/05/2020
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 3084fcf343bc42fe01bf352b6791916d62f63540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672739"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Utilização da bancada de trabalho Azure Blockchain Preview REST API
@@ -19,7 +19,7 @@ A Azure Blockchain Workbench Preview REST API fornece aos desenvolvedores e trab
 
 As APIs da bancada blockchain são acedidas através de um ponto final para a sua implementação. Para obter o URL final da API para a sua implementação:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No painel de navegação à esquerda, selecione **Grupos de Recursos**.
 1. Escolha o nome do grupo de recursos a sua bancada de trabalho blockchain implantada.
 1. Selecione a direção da coluna **TYPE** para classificar a lista alfabeticamente por tipo.

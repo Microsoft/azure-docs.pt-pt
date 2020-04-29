@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
 ms.openlocfilehash: be4009d418f2f8f3dff755e2e990efee593f070b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514226"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Emenda ao Protocolo de Streaming Suave (MS-SSTR) para o HEVC 
@@ -27,9 +27,9 @@ ms.locfileid: "76514226"
 
 Este artigo fornece alterações detalhadas a aplicar à especificação do Protocolo de Streaming Suave [MS-SSTR] para permitir o streaming suave de vídeo codificado hevc. Nesta especificação, delineamos apenas as alterações necessárias para entregar o código de vídeo HEVC. O artigo segue o mesmo esquema de numeração que a especificação [MS-SSTR]. As manchetes vazias apresentadas ao longo do artigo são fornecidas para orientar o leitor para a sua posição na especificação [MS-SSTR].  "(Sem Alteração)" indica que o texto é copiado apenas para fins de esclarecimento.
 
-O artigo fornece requisitos técnicos de implementação para a sinalização do código de vídeo HEVC (utilizando faixas de formato 'hev1' ou 'hvc1') num manifesto de streaming suave e referências normativas são atualizadas para referência às normas mpeg atuais que incluir HEVC, Encriptação Comum de HEVC e nomes de caixas para formato de ficheiro de mídia base ISO foram atualizados para serem consistentes com as especificações mais recentes. 
+O artigo fornece requisitos técnicos de implementação para a sinalização do código de vídeo HEVC (utilizando faixas de formato 'hev1' ou 'hvc1') num manifesto de streaming suave e referências normativas são atualizadas para referência às normas mpeg atuais que incluem HEVC, Common Encryption of HEVC e nomes de caixas para formato de ficheiro si base media foram atualizados de acordo com as especificações mais recentes. 
 
-A especificação referenciada do Protocolo de Streaming Suave [MS-SSTR] descreve o formato de fio utilizado para fornecer meios digitais ao vivo e a pedido, tais como áudio e vídeo, de formas seguintes: de um codificador a um servidor web, de um servidor para outro servidor, e de um servidor a um cliente HTTP.
+A especificação referenciada do Protocolo de Streaming Suave [MS-SSTR] descreve o formato de fio utilizado para fornecer meios digitais ao vivo e a pedido, tais como áudio e vídeo, de formas seguintes: de um codificador a um servidor web, de um servidor para outro servidor, e de um servidor para um cliente HTTP.
 A utilização de uma estrutura de dados baseada em[MPEG-4 ([MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787)permite uma troca perfeita em tempo quase real entre diferentes níveis de qualidade do conteúdo dos meios de comunicação comprimidos. O resultado é uma experiência de reprodução constante para o utilizador final do cliente HTTP, mesmo que as condições de rede e de renderização de vídeo mudem para o computador ou dispositivo do cliente.
 
 ## <a name="11-glossary"></a>1.1 Glossário 

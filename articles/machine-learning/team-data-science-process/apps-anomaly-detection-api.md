@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: a09094cf0d1bd3c2e299e968d7de8410dcd9c3cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721885"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de deteção de anomalias de aprendizagem automática
@@ -32,7 +32,7 @@ Esta API pode detetar os seguintes tipos de padrões anómalos nos dados da sér
 * **Alterações na gama dinâmica de valores**: Por exemplo, ao monitorizar as exceções lançadas por um serviço na nuvem, quaisquer alterações na gama dinâmica de valores podem indicar instabilidade na saúde do serviço,
 * **Picos e Mergulhos**: Por exemplo, ao monitorizar o número de falhas de login num serviço ou no número de check-outs num site de e-commerce, picos ou mergulhos podem indicar comportamentos anormais.
 
-Estes detetores de aprendizagem automática acompanham tais mudanças de valores ao longo do tempo e reportam mudanças contínuas nos seus valores como pontuações de anomalias. Não necessitam de afinação do limiar adhoc e as suas pontuações podem ser usadas para controlar a taxa falsa mente positiva. A API de deteção de anomalias é útil em vários cenários como monitorização de serviços, rastreando KPIIs ao longo do tempo, monitorização de utilização através de métricas como número de pesquisas, número de cliques, monitorização de desempenho através de contadores como memória, CPU, leituras de ficheiros, etc. com o tempo.
+Estes detetores de aprendizagem automática acompanham tais mudanças de valores ao longo do tempo e reportam mudanças contínuas nos seus valores como pontuações de anomalias. Não necessitam de afinação do limiar adhoc e as suas pontuações podem ser usadas para controlar a taxa falsa mente positiva. A API de deteção de anomalias é útil em vários cenários como monitorização de serviços, rastreando KPIIs ao longo do tempo, monitorização de uso através de métricas como número de pesquisas, número de cliques, monitorização de desempenho através de contadores como memória, CPU, leituras de ficheiros, etc. ao longo do tempo.
 
 A oferta de Deteção de Anomalias vem com ferramentas úteis para começar.
 

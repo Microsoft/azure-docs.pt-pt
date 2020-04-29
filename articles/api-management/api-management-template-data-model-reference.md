@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243942"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência do modelo de modelo de gestão da API Azure
@@ -50,7 +50,7 @@ Este tópico descreve a entidade e as representações de tipo para itens comuns
 -   [Produto](#Product)  
 -   [Fornecedor](#Provider)  
 -   [Representação](#Representation)  
--   [Assinatura](#Subscription)  
+-   [Subscrição](#Subscription)  
 -   [Resumo de subscrição](#SubscriptionSummary)  
 -   [Informação da conta do utilizador](#UserAccountInfo)  
 -   [Sessão de inscrição no utilizador](#UseSignIn)  

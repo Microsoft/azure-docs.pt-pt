@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 09558a8d1e4e2dc68cefd2c870f54e008d10b97b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77083568"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Criar uma conta que suporte chaves geridas pelo cliente para mesas e filas
@@ -48,7 +48,7 @@ Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName AllowAccountEncryptionKeyForTables
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para se registar no Azure CLI, ligue para o comando de registo de [características az.](/cli/azure/feature#az-feature-register)
 
@@ -80,7 +80,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName AllowAccountEncryptionKeyForTables
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para verificar o estado do seu registo com o Azure CLI, ligue para o comando de [recurso az.](/cli/azure/feature#az-feature-show)
 
@@ -109,7 +109,7 @@ Para voltar a registar o fornecedor de recursos com a PowerShell, ligue para o c
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para voltar a registar o fornecedor de recursos com o Azure CLI, ligue para o comando do registo do [fornecedor az.](/cli/azure/provider#az-provider-register)
 
@@ -153,7 +153,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
     -EncryptionKeyTypeForQueue Account
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para utilizar o Azure CLI para criar uma conta de armazenamento que se baseie na chave de encriptação da conta, certifique-se de que instalou a versão 2.0.80 do Azure CLI ou posterior. Para mais informações, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).
 
@@ -235,7 +235,7 @@ $account.Encryption.Services.Queue
 $account.Encryption.Services.Table
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para verificar se um serviço numa conta de armazenamento está a usar a chave de encriptação da conta, ligue para o comando da conta de [armazenamento az.](/cli/azure/storage/account#az-storage-account-show) Este comando devolve um conjunto de propriedades da conta de armazenamento e seus valores. Procure o `keyType` campo para cada serviço dentro da propriedade de `Account`encriptação e verifique se está definido para .
 

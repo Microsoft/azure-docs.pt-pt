@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
 ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244813"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) da Rede Virtual do Azure
@@ -69,7 +69,7 @@ Sim. Para mais informações sobre as gamas públicas de endereços IP, consulte
 Sim. Consulte [os limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para mais detalhes. Os espaços de endereço subnet não se sobrepõem uns aos outros.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Existem restrições à utilização de endereços IP dentro destas subredes?
-Sim. O Azure reserva cinco endereços IP em cada sub-rede. These are x.x.x.0-x.x.x.3 and the last address of the subnet. x.x.x.1-x.x.3 é reservado em cada subnet para serviços Azure.   
+Sim. O Azure reserva cinco endereços IP em cada sub-rede. Estes são x.x.x.x.x.3 e o último endereço da sub-rede. x.x.x.1-x.x.3 é reservado em cada subnet para serviços Azure.   
 - x.x.x.0: Endereço de rede
 - x.x.x.1: Reservado pelo Azure para o gateway predefinido
 - x.x.x.2, x.x.x.3: Reservado pelo Azure para mapear os IPs DNS Azure para o espaço VNet
@@ -325,7 +325,7 @@ O primeiro passo é uma operação lateral da rede e o segundo passo é uma oper
 >[!NOTE]
 > Ambas as operações acima descritas devem ser concluídas antes de poder limitar o acesso ao serviço Azure à VNet e subnet permitidas. Só ligar os pontos finais de serviço para o serviço Azure do lado da rede não lhe dá o acesso limitado. Além disso, também deve configurar VNet ACLs no lado do serviço Azure.
 
-Certos serviços (como o SQL e o CosmosDB) permitem exceções à sequência acima através da bandeira **IgnoreMissingVnetServiceEndpoint.** Uma vez definida a bandeira para **True,** os VNet ACLs podem ser definidos no lado do serviço Azure antes de configurar os pontos finais do serviço no lado da rede. Os serviços azure fornecem esta bandeira para ajudar os clientes nos casos em que as firewalls IP específicas estão configuradas nos serviços Do Azure e ligar os pontos finais de serviço do lado da rede pode levar a uma queda de conectividade uma vez que a fonte de IP muda de um endereço iPv4 público para um endereço privado. A instalação de VNet ACLs no lado do serviço Azure antes de definir pontos finais de serviço no lado da rede pode ajudar a evitar uma queda de conectividade.
+Certos serviços (como o SQL e o CosmosDB) permitem exceções à sequência acima através da bandeira **IgnoreMissingVnetServiceEndpoint.** Uma vez definida a bandeira para **True,** os VNet ACLs podem ser definidos no lado do serviço Azure antes de configurar os pontos finais do serviço no lado da rede. Os serviços azure fornecem esta bandeira para ajudar os clientes nos casos em que as firewalls IP específicas estão configuradas nos serviços Do Azure e ligar os pontos finais de serviço do lado da rede pode levar a uma queda de conectividade uma vez que a fonte de IP muda de um endereço IPv4 público para um endereço privado. A instalação de VNet ACLs no lado do serviço Azure antes de definir pontos finais de serviço no lado da rede pode ajudar a evitar uma queda de conectividade.
 
 ### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>Todos os serviços Azure residem na rede virtual Azure fornecida pelo cliente? Como funciona o endpoint do serviço VNet com os serviços Azure?
 
@@ -335,7 +335,7 @@ Quando utiliza a função de pontos finais do serviço VNet (ligar o ponto final
 
 ### <a name="how-does-vnet-service-endpoint-provide-security"></a>Como é que o ponto final do serviço VNet fornece segurança?
 
-A função de ponto final do serviço VNet (ligar o ponto final do serviço VNet no lado da rede e criar ACLs adequados no lado do serviço Azure) limita o acesso ao serviço Azure ao VNet e subnet permitidos, proporcionando assim uma segurança de nível de rede e isolamento do tráfego de serviço Azure. Todo o tráfego que utiliza pontos finais de serviço VNet flui sobre a espinha dorsal da Microsoft, proporcionando assim outra camada de isolamento da internet pública. Além disso, os clientes podem optar por remover totalmente o acesso público à Internet aos recursos de serviço do Azure e permitir o tráfego apenas a partir da sua rede virtual através de uma combinação de firewall IP e VNet ACLs, protegendo assim os recursos de serviço Azure de não autorizados acesso.      
+A função de ponto final do serviço VNet (ligar o ponto final do serviço VNet no lado da rede e criar ACLs adequados no lado do serviço Azure) limita o acesso ao serviço Azure à VNet e subnet permitidas, proporcionando assim uma segurança de nível de rede e isolamento do tráfego de serviço Saque. Todo o tráfego que utiliza pontos finais de serviço VNet flui sobre a espinha dorsal da Microsoft, proporcionando assim outra camada de isolamento da internet pública. Além disso, os clientes podem optar por remover totalmente o acesso público à Internet aos recursos de serviço do Azure e permitir o tráfego apenas a partir da sua rede virtual através de uma combinação de firewall IP e VNet ACLs, protegendo assim os recursos de serviço Azure de acesso não autorizado.      
 
 ### <a name="what-does-the-vnet-service-endpoint-protect---vnet-resources-or-azure-service"></a>O que protege o ponto final do serviço VNet - Recursos VNet ou serviço Azure?
 Os pontos finais do serviço VNet ajudam a proteger os recursos de serviço do Azure. Os recursos VNet são protegidos através de Grupos de Segurança da Rede (NSGs).
@@ -355,7 +355,7 @@ Não, os pontos finais do serviço VNet e os VNet ACLs não são suportados em t
 Por predefinição, os recursos de serviço do Azure obtidos para redes virtuais não são acessíveis a partir de redes no local. Se pretender permitir o tráfego a partir do local, também deve permitir endereços IP públicos (tipicamente, NAT) a partir das suas instalações ou ExpressRoute. Estes endereços IP podem ser adicionados através da configuração de firewall IP para os recursos de serviço Azure.
 
 ### <a name="can-i-use-vnet-service-endpoint-feature-to-secure-azure-service-to-multiple-subnets-within-a-virtual-network-or-across-multiple-virtual-networks"></a>Posso usar a funcionalidade VNet Service Endpoint para garantir o serviço Azure a várias subredes dentro de uma rede virtual ou através de várias redes virtuais?
-Para garantir os serviços azure a várias subredes dentro de uma rede virtual ou através de várias redes virtuais, permitir pontos finais de serviço no lado da rede em cada uma das subredes de forma independente e, em seguida, garantir recursos de serviço Azure a todas as subredes através da criação VNet ACLs apropriados no lado do serviço Azure.
+Para garantir os serviços azure a várias subredes dentro de uma rede virtual ou através de várias redes virtuais, ative pontos finais de serviço no lado da rede em cada uma das subredes de forma independente e, em seguida, garanta os recursos de serviço Azure a todas as subredes, criando ACLs VNet adequados no lado do serviço Azure.
  
 ### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>Como posso filtrar o tráfego de saída de uma rede virtual para os serviços Azure e ainda utilizar pontos finais de serviço?
 Se pretender inspecionar ou filtrar o tráfego destinado a um serviço Azure a partir de uma rede virtual, pode implantar um aparelho virtual de rede dentro da rede virtual. Em seguida, pode aplicar pontos finais de serviço na subrede onde o aparelho virtual da rede é implantado e proteger os recursos de serviço Azure apenas a esta subrede através de VNet ACLs. Este cenário também pode ser útil se pretender restringir o acesso ao serviço Azure da sua rede virtual apenas a recursos específicos do Azure utilizando a filtragem de aparelhos virtuais da rede. Para obter mais informações, veja [saída com aplicações de rede virtual](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).

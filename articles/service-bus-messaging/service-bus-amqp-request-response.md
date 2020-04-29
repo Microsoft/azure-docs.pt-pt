@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: aschhab
 ms.openlocfilehash: 338b411eade35fa357f64131c64b8ef2034c92b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76761088"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Microsoft Azure Service Bus: operações baseadas em pedidos de resposta
@@ -178,7 +178,7 @@ O organismo de mensagem de pedido deve consistir numa secção **de valor amqp**
   
 |Chave|Tipo de Valor|Necessário|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|longo|Sim|Número de sequência a partir do qual começar a espreitar.|  
+|`from-sequence-number`|long|Sim|Número de sequência a partir do qual começar a espreitar.|  
 |`message-count`|int|Sim|Número máximo de mensagens para espreitar.|  
   
 #### <a name="response"></a>Resposta  
@@ -327,7 +327,7 @@ O organismo de mensagem de pedido deve consistir numa secção **de valor amqp**
   
 |Chave|Tipo de Valor|Necessário|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|a partir do número de sequência|longo|Sim|Número de sequência a partir do qual começar a espreitar.|  
+|a partir do número de sequência|long|Sim|Número de sequência a partir do qual começar a espreitar.|  
 |contagem de mensagens|int|Sim|Número máximo de mensagens para espreitar.|  
 |sessão-id|string|Sim|Id da sessão.|  
   

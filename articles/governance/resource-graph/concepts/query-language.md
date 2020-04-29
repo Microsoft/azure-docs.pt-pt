@@ -4,10 +4,10 @@ description: Descreve as tabelas de Gráficos de Recursos e os tipos de dados, o
 ms.date: 03/07/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2f4be4d86a340867e1ad3015ff288f98fc54cecf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78927486"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Compreender a linguagem de consulta do gráfico de recursos azure
@@ -71,10 +71,10 @@ Aqui está a lista de operadores tabular KQL suportados pelo Resource Graph com 
 
 |KQL |Consulta de amostra de gráfico de recursos |Notas |
 |---|---|---|
-|[count](/azure/kusto/query/countoperator) |[Abobadais-chave de contagem](../samples/starter.md#count-keyvaults) | |
+|[contar](/azure/kusto/query/countoperator) |[Abobadais-chave de contagem](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Mostrar valores distintos para um pseudónimo específico](../samples/starter.md#distinct-alias-values) | |
 |[estender](/azure/kusto/query/extendoperator) |[Contar máquinas virtuais por tipo de SO](../samples/starter.md#count-os) | |
-|[aderir](/azure/kusto/query/joinoperator) |[Cofre chave com nome de subscrição](../samples/advanced.md#join) |Junte sabores suportados: [innerunique,](/azure/kusto/query/joinoperator#default-join-flavor) [inner,](/azure/kusto/query/joinoperator#inner-join) [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de `join` 3 numa única consulta. Não são permitidas estratégias de adesão personalizadas, como a adesão à emissão. Pode ser utilizado numa única tabela ou entre as tabelas _de Recursos_ e Contentores de _Recursos._ |
+|[juntar-se](/azure/kusto/query/joinoperator) |[Cofre chave com nome de subscrição](../samples/advanced.md#join) |Junte sabores suportados: [innerunique,](/azure/kusto/query/joinoperator#default-join-flavor) [inner,](/azure/kusto/query/joinoperator#inner-join) [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de `join` 3 numa única consulta. Não são permitidas estratégias de adesão personalizadas, como a adesão à emissão. Pode ser utilizado numa única tabela ou entre as tabelas _de Recursos_ e Contentores de _Recursos._ |
 |[limite](/azure/kusto/query/limitoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinónimo de`take` |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operador legado, `mv-expand` use em vez disso. _RowLimit_ max de 400. O padrão é 128. |
 |[mv-expandir](/azure/kusto/query/mvexpandoperator) |[List Cosmos DB com localizações de escrita específicas](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max de 400. O padrão é 128. |

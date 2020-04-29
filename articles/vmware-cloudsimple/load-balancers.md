@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6c98b699b1d3aba15ce69c519d35d7ce3e90d123
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77014883"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Escolha uma solução de equilíbrio de carga para CloudSimple Private Clouds
@@ -35,7 +35,7 @@ Para saber mais sobre como configurar esta solução, consulte o guia de soluç�
 
 ## <a name="azure-internal-load-balancer"></a>Equilibrador de carga interna Azure
 
-Se optar por executar a sua aplicação numa implementação híbrida onde o nível frontal da web está a funcionar dentro de um Azure vNet na sua subscrição Azure e o nível DB da aplicação está a funcionar em VMware VMs em CloudSimple Private Cloud, pode utilizar carga interna Azure equilibrador (equilíbrio l4) em frente aos seus VMs de nível DB para gestão de tráfego.
+Se optar por executar a sua aplicação numa implementação híbrida onde o nível frontal web está a funcionar dentro de um Azure vNet na sua subscrição Azure e o nível DB da aplicação está a funcionar em VMware VMs em CloudSimple Private Cloud, pode utilizar o equilíbrio dor de carga interna Azure (Equilíbrio de carga L4) em frente aos seus VMs de nível DB para gestão de tráfego.
 
 Para saber mais, consulte a documentação [do Equilíbrio de Carga Interna](../load-balancer/concepts-limitations.md#internalloadbalancer) azure.
 

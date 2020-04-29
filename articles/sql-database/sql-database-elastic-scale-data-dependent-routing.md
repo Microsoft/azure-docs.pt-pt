@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: fbdf8e316368be02ebd0c4bfd320917c20d80777
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77069460"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Utilizar o encaminhamento dependente de dados para encaminhar uma consulta para base de dados apropriada
@@ -69,7 +69,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 * A **ligaçãoString** é utilizada para passar apenas as credenciais de utilizador para a ligação desejada. Nenhum nome de base de dados ou nome do servidor está incluído nesta *ligaçãoString* uma vez que o método determina a base de dados e o servidor usando o **ShardMap**.
 * As **opções** de ligação[(Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) devem ser definidas para **ConnectionOptions.Valide** se um ambiente onde os mapas de fragmentos podem mudar e as linhas podem mover-se para outras bases de dados em resultado de operações de divisão ou fusão. Esta validação envolve uma breve consulta ao mapa local na base de dados do alvo (não ao mapa global do fragmento) antes de a ligação ser entregue à aplicação.
 
-Se a validação contra o mapa local falhar (indicando que a cache está incorreta), o Shard Map Manager questiona o mapa global do fragmento para obter o novo valor correto para a procura, atualizar a cache e obter e devolver a conexão de base de dados apropriada .
+Se a validação contra o mapa local falhar (indicando que a cache está incorreta), o Shard Map Manager questiona o mapa global do fragmento para obter o novo valor correto para a procura, atualizar a cache e obter e devolver a conexão de base de dados apropriada.
 
 Utilize Opções de **Ligação.Nenhuma** apenas quando não são esperadas alterações de mapeamento de fragmentos enquanto uma aplicação estiver online. Nesse caso, os valores em cache podem ser considerados sempre corretos, e a chamada de validação extra de ida e volta para a base de dados do alvo pode ser ignorada com segurança. Isso reduz o tráfego de bases de dados. As opções de **ligação** também podem ser definidas através de um valor num ficheiro de configuração para indicar se as alterações de sharding são esperadas ou não durante um período de tempo.  
 

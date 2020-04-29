@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 106b1f0b765700803d2cd55b5e049fae5be3dfad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76847202"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Estúdio Visual
@@ -55,7 +55,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 |Métrica|Descrição|
 |-|-|
 |**TaxiRide**| O nome da entrada.|
-|**Hub de eventos** | Tipo de fonte de entrada.|
+|**Hub de Eventos** | Tipo de fonte de entrada.|
 |**Eventos**|O número de eventos lidos.|
 |**Fontes de eventos atrasados**|Quantas mais mensagens precisam de ser lidas para os Centros de Eventos e inputs do IoT Hub.|
 |**Eventos em Bytes**|O número de bytes lidos.|

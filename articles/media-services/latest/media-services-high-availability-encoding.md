@@ -14,10 +14,10 @@ ms.custom: ''
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: afaa7545fbcbab016249e73a2247817310c5cdfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78934199"
 ---
 # <a name="media-services-high-availability-encoding"></a>Codificação de alta disponibilidade dos Serviços de Media 
@@ -56,7 +56,7 @@ Seguindo as orientações e as melhores práticas descritas no artigo, reduzirá
     
     * Se tiver empregos no estado programado que não tenham avançado para o estado de processamento em um período razoável de tempo para uma determinada região, remova essa região da sua lista de contas usadas atualmente.  Dependendo dos seus requisitos de negócio, pode decidir cancelar esses postos de trabalho imediatamente e resubmetê-los para a outra região. Ou pode dar-lhes mais tempo para se mudarem para o próximo estado.
     * Dependendo do número de Unidades Reservadas de Meios configuradas na conta e na taxa de submissão, também pode haver empregos no estado em fila que o sistema ainda não apanhou para processamento.  Se a lista de postos de trabalho no Estado em fila for para além de um limite aceitável numa região, esses postos de trabalho podem ser cancelados e submetidos à outra região.  No entanto, este pode ser um sintoma de não ter unidades reservadas de mídia suficientes configuradas na conta para a carga atual.  Pode solicitar uma quota unidade reservada aos meios de comunicação através do Suporte Azure, se necessário.
-    * Se uma região foi removida da lista de contas, monitorize-a para recuperação antes de a adicionar de volta à lista.  A saúde regional pode ser monitorizada através dos postos de trabalho existentes na região (se não foram cancelados e resubmetidos), adicionando a conta de volta à lista após um período de tempo, e por operadores que monitorizam as comunicações do Azure sobre interrupções que podem estar a afetar Serviços Azure Media.
+    * Se uma região foi removida da lista de contas, monitorize-a para recuperação antes de a adicionar de volta à lista.  A saúde regional pode ser monitorizada através dos postos de trabalho existentes na região (se não foram cancelados e resubmetidos), acrescentando a conta de volta à lista após um período de tempo, e por operadores que monitorizam as comunicações do Azure sobre interrupções que podem estar a afetar a Azure Media Services.
     
 Se descobrir que a contagem de MRU está a bater muito, mova a lógica de decreção para a tarefa periódica. Fazer com que a lógica de submissão pré-trabalho compare a contagem de voo com a contagem atual de MRU para ver se precisa de atualizar as MrUs.
 

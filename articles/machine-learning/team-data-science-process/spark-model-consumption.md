@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 3f02690d7c54581ed80b521e8222d1bd5964c878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76718553"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalizar modelos de aprendizagem automática construídos por Faíscas
@@ -331,7 +331,7 @@ Também contém código que mostra como `StandardScalar` escalar dados com o for
 Tempo de execução acima da célula: 11,72 segundos
 
 ## <a name="score-with-the-logistic-regression-model-and-save-output-to-blob"></a>Marque com o Modelo de Regressão Logística e poupe a saída para blob
-O código nesta secção mostra como carregar um Modelo de Regressão Logística que foi guardado no armazenamento de blob Azure e usá-lo para prever se uma gorjeta é ou não paga numa viagem de táxi, pontua-lo com métricas de classificação padrão, e depois guardar e traçar os resultados para o armazenamento blob . Os resultados pontuados são armazenados em objetos RDD. 
+O código nesta secção mostra como carregar um Modelo de Regressão Logística que foi guardado no armazenamento de blob Azure e usá-lo para prever se uma gorjeta é ou não paga numa viagem de táxi, pontua-lo com métricas de classificação padrão, e depois economizar e traçar os resultados para o armazenamento de bolhas. Os resultados pontuados são armazenados em objetos RDD. 
 
     # SCORE AND EVALUATE LOGISTIC REGRESSION MODEL
 

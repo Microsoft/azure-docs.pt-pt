@@ -10,18 +10,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 711071e08a52a0075512bc8b3ffe14707238cdfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77209301"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gerencie o seu serviço de pesquisa cognitiva Azure com a PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Pitão](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Pode executar cmdlets e scripts PowerShell no Windows, Linux ou em [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para criar e configurar a Pesquisa Cognitiva Azure. O módulo **Az.Search** estende o [Azure PowerShell](https://docs.microsoft.com/powershell/) com total paridade às APIs REST de [Gestão](https://docs.microsoft.com/rest/api/searchmanagement) de Pesquisa e a capacidade de executar as seguintes tarefas:

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 7bcfdeec832b14eb53c0dab6cb2f53970d85c804
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76310684"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Definir as preferências do portal do Azure
@@ -29,7 +29,7 @@ Pode alterar as definições predefinidas do portal Azure para satisfazer as sua
 
 ## <a name="change-general-portal-settings"></a>Alterar as definições gerais do portal
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Definições** a partir do cabeçalho de página global.
 
     ![Screenshot mostrando ícones globais de cabeçalho de página com definições destacadas](./media/set-preferences/header-settings.png)

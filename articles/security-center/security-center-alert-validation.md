@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 5146878adf10e452f38fecb115ec40792ffa84f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79140002"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validação de alertas (ficheiro de teste EICAR) no Centro de Segurança Azure
@@ -31,7 +31,7 @@ Para mais informações, consulte [alertas](security-center-alerts-overview.md) 
 
 * [Windows](#validate-windows)
 * [Linux](#validate-linux)
-* [Kubernetes](#validate-kubernetes)
+* [Utilizar o Kubernetes](#validate-kubernetes)
 
 ## <a name="validate-alerts-on-windows-vms"></a>Valide alertas em VMs do Windows<a name="validate-windows"></a>
 

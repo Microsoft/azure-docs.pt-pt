@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
 ms.openlocfilehash: 82710a66cdf7874c745070e49b2c7aff7bc8816d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77117202"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar acesso aos recursos do Azure utilizando identidades geridas em Aplicações Lógicas Azure
@@ -54,7 +54,7 @@ Para configurar a identidade gerida que pretende utilizar, siga o link para essa
 
 Ao contrário das identidades atribuídas ao utilizador, não é preciso criar manualmente a identidade atribuída ao sistema. Para configurar a identidade atribuída ao sistema para a sua aplicação lógica, aqui estão as opções que pode utilizar:
 
-* [Portal Azure](#azure-portal-system-logic-app)
+* [Portal do Azure](#azure-portal-system-logic-app)
 * [Modelos do Azure Resource Manager](#template-system-logic-app)
 
 <a name="azure-portal-system-logic-app"></a>
@@ -132,7 +132,7 @@ Quando o Azure cria a `identity` definição de recursos de aplicações lógica
 
 Para configurar uma identidade gerida atribuída ao utilizador para a sua aplicação lógica, tem primeiro de criar essa identidade como recurso Azure autónomo separado. Aqui estão as opções que pode utilizar:
 
-* [Portal Azure](#azure-portal-user-identity)
+* [Portal do Azure](#azure-portal-user-identity)
 * [Modelos do Azure Resource Manager](#template-user-identity)
 * Azure PowerShell
   * [Criar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
@@ -163,7 +163,7 @@ Para configurar uma identidade gerida atribuída ao utilizador para a sua aplica
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Nome do recurso** | Sim | <*user-atribuído-identidade-nome*> | O nome para dar a identidade atribuída ao utilizador. Este exemplo utiliza "Fabrikam-user-user-designado-identidade". |
-   | **Assinatura** | Sim | <*Nome de assinatura Azure*> | O nome da subscrição Azure para usar |
+   | **Subscrição** | Sim | <*Nome de assinatura Azure*> | O nome da subscrição Azure para usar |
    | **Grupo de recursos** | Sim | <*Nome do grupo azure-recursos*> | O nome para o grupo de recursos usar. Crie um novo grupo ou selecione um grupo existente. Este exemplo cria um novo grupo chamado "fabrikam-managed-identities-RG". |
    | **Localização** | Sim | <*Região azul*> | A região de Azure onde armazenar informações sobre o seu recurso. Este exemplo usa "West US". |
    |||||
@@ -304,8 +304,8 @@ Se o seu modelo também incluir a definição de recursos `identity` da identida
 
 Antes de poder utilizar a identidade gerida da sua aplicação lógica para autenticação, instale acesso a essa identidade no recurso Azure onde pretende utilizar a identidade. Para completar esta tarefa, atribuir o papel adequado a essa identidade no recurso-alvo Azure. Aqui estão as opções que pode utilizar:
 
-* [Portal Azure](#azure-portal-assign-access)
-* [Modelo Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+* [Portal do Azure](#azure-portal-assign-access)
+* [Modelo de Gestor de Recursos Azure](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)) - Para mais informações, consulte adicionar a atribuição de [funções utilizando o Azure RBAC e o Azure PowerShell.](../role-based-access-control/role-assignments-powershell.md)
 * Azure CLI ([az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) - Para mais informações, consulte Adicionar a atribuição de [funções utilizando o Azure RBAC e o Azure CLI](../role-based-access-control/role-assignments-cli.md).
 * [API REST do Azure](../role-based-access-control/role-assignments-rest.md)
@@ -451,7 +451,7 @@ Estes passos mostram como usar a identidade gerida com um gatilho ou ação atra
 
 Para parar de usar uma identidade gerida para a sua aplicação lógica, você tem estas opções:
 
-* [Portal Azure](#azure-portal-disable)
+* [Portal do Azure](#azure-portal-disable)
 * [Modelos do Azure Resource Manager](#template-disable)
 * Azure PowerShell
   * [Remover a atribuição de funções](../role-based-access-control/role-assignments-powershell.md)

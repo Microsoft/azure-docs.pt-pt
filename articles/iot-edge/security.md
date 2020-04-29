@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 3212493963805de3c8845ec494d87fc92d72998a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76760118"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Normas de segurança para Azure IoT Edge
@@ -81,7 +81,7 @@ Para ajudar os clientes a tomar decisões informadas ao adquirir dispositivos Az
 Com a tecnologia IoT a impulsionar diferentes tipos de transformações empresariais, a segurança deve evoluir paralelamente para abordar cenários emergentes. O quadro de segurança Azure IoT Edge começa com uma base sólida sobre a qual se constrói em extebilidade em diferentes dimensões para incluir:
 
 * Serviços de segurança de primeira parte como o Serviço de Provisionamento de Dispositivos para o Hub Azure IoT.
-* Serviços de terceiros, como serviços de segurança geridos para diferentes verticais de aplicações (como industriais ou cuidados de saúde) ou foco tecnológico (como monitorização de segurança em redes de malha, ou serviços de atesta de hardware de silicone) através de uma rica rede de parceiros.
+* Serviços de terceiros como serviços de segurança geridos para diferentes verticais de aplicações (como industriais ou cuidados de saúde) ou foco tecnológico (como monitorização de segurança em redes de malha, ou serviços de atesta de hardware de silicone) através de uma rica rede de parceiros.
 * Sistemas legados para incluir retromontagem com estratégias de segurança alternativas, como usar tecnologia segura que não certificados para autenticação e gestão de identidade.
 * Hardware seguro para adoção de tecnologias de hardware seguras emergentes e contribuições de parceiros de silicone.
 

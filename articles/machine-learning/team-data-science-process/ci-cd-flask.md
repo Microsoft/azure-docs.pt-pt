@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
 ms.openlocfilehash: 42433ec419ac9e02077cd0359e18b5114206f27d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721834"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Criar oleodutos CI/CD para aplicações de IA utilizando pipelines Azure, Docker e Kubernetes
@@ -33,7 +33,7 @@ Para utilizar o código fonte e tutorial descarregados, precisa dos seguintes pr
 
 - O [repositório de código fonte](https://github.com/Azure/DevOps-For-AI-Apps) bifurcado para a sua conta GitHub
 - Uma [Organização Azure DevOps](/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
-- [Azure CLI](/cli/azure/install-azure-cli)
+- [CLI do Azure](/cli/azure/install-azure-cli)
 - Um serviço de [contentores Azure para o cluster Kubernetes (AKS)](/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) para executar comandos e buscar a configuração do cluster AKS 
 - Uma conta de Registo de [Contentores Azure (ACR)](/azure/container-registry/container-registry-get-started-portal)
@@ -64,5 +64,5 @@ O diagrama e os passos seguintes descrevem a arquitetura do gasoduto CI/CD:
 
 - [Processo de Ciência de Dados da Equipa (TDSP)](/azure/machine-learning/team-data-science-process/)
 - [Aprendizagem automática azure (AML)](/azure/machine-learning/)
-- [Azure DevOps](https://azure.microsoft.com/services/devops/)
+- [DevOps do Azure](https://azure.microsoft.com/services/devops/)
 - [Serviços Azure Kubernetes (AKS)](/azure/aks/intro-kubernetes)

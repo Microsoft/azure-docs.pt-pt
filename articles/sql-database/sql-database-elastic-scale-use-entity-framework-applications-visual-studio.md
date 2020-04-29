@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
 ms.openlocfilehash: 1653a904875964d86864c59c718603a6dacdcbda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77087182"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de clientes de base de dados elástica com quadro de entidade
@@ -204,7 +204,7 @@ Os exemplos de código acima ilustram as reescritas de construção predefinidas
 
 A gestão automática do esquema é uma conveniência proporcionada pelo Quadro de Entidades. No contexto de aplicações que utilizam ferramentas de base de dados elásticas, pretende manter esta capacidade de fornecer automaticamente o esquema a fragmentos recém-criados quando as bases de dados são adicionadas à aplicação esfumada. O principal caso de utilização é aumentar a capacidade no nível de dados para aplicações esfumadas utilizando EF. Confiar nas capacidades da EF para a gestão de esquemas reduz o esforço de administração da base de dados com uma aplicação esfarvidada baseada na EF. 
 
-A implantação de schema através das migrações EF funciona melhor em **ligações não abertas.** Isto contrasta com o cenário de encaminhamento dependente de dados que se baseia na ligação aberta fornecida pela API do cliente de base de dados elástica. Outra diferença é a exigência de coerência: Embora desejável para garantir a coerência de todas as ligações de encaminhamento dependentes de dados para proteger contra manipulação simultânea de mapas de fragmentos, não é uma preocupação com a implantação inicial de esquemas para uma nova base de dados que ainda não foi registado no mapa do fragmento, e ainda não foi alocado para segurar fragmentos. Por isso, pode contar com ligações regulares de base de dados para este cenário, em oposição ao encaminhamento dependente de dados.  
+A implantação de schema através das migrações EF funciona melhor em **ligações não abertas.** Isto contrasta com o cenário de encaminhamento dependente de dados que se baseia na ligação aberta fornecida pela API do cliente de base de dados elástica. Outra diferença é a exigência de coerência: Embora desejável garantir a coerência de todas as ligações de encaminhamento dependentes de dados para proteger contra manipulação simultânea de mapas de fragmentos, não é uma preocupação com a implantação inicial de esquemas para uma nova base de dados que ainda não foi registada no mapa do fragmento, e ainda não foi atribuída para guardar fragmentos. Por isso, pode contar com ligações regulares de base de dados para este cenário, em oposição ao encaminhamento dependente de dados.  
 
 Isto leva a uma abordagem em que a implantação de esquemas através das migrações ef é estreitamente associada ao registo da nova base de dados como um fragmento no mapa de fragmentos da aplicação. Isto baseia-se nos seguintes pré-requisitos: 
 

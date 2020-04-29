@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77025066"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Perguntas frequentes sobre a Solução VMware pela CloudSimple
@@ -114,7 +114,7 @@ A CloudSimple oferece estes tipos de anfitriões:
 
 Toda a infraestrutura CloudSimple é monitorizada continuamente pela plataforma CloudSimple e pelas nossas equipas de operações de serviço.  Se for detetada uma falha de hardware, um novo nó é adicionado à sua Cloud Privada e o nó falhado é removido.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 **Que tipo de armazenamento é suportado numa Nuvem Privada?**
 

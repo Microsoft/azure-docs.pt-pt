@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 436a5ab6fb286ce206f981487b6a29d774ecd1a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024913"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>Visão geral das máquinas virtuais CloudSimple
@@ -22,7 +22,7 @@ O CloudSimple permite-lhe gerir máquinas virtuais VMware (VMs) a partir do port
 
 Para criar um VM CloudSimple a partir de Azure, um modelo VM deve existir no seu vCenter De Nuvem Privada.  O modelo é usado para personalizar o sistema operativo e aplicações.  O modelo VM pode ser endurecido para atender às políticas de segurança da empresa.  Pode usar o modelo para criar VMs e depois consumi-los a partir do portal Azure usando um modelo de self-service.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 As máquinas virtuais CloudSimple do portal Azure fornecem um mecanismo de self-service para os utilizadores criarem e gerirem máquinas virtuais VMware.
 

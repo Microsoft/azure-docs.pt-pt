@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 40d0f70b0dabdc02434fa662663a2fd105431f0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905887"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
@@ -20,7 +20,7 @@ Eliminar e gerir aplicações de malha de tecido de serviço.
 | --- | --- |
 | [app](service-fabric-sfctl-mesh-app.md) | Obtenha e elimine os recursos de aplicação. |
 | [código pacote-log](service-fabric-sfctl-mesh-code-package-log.md) | Obtenha os registos do recipiente do pacote de código especificado para a réplica do serviço. |
-| [implementação](service-fabric-sfctl-mesh-deployment.md) | Criar recursos de malha de tecido de serviço. |
+| [implantação](service-fabric-sfctl-mesh-deployment.md) | Criar recursos de malha de tecido de serviço. |
 | [porta de entrada](service-fabric-sfctl-mesh-gateway.md) | Obtenha e elimine os recursos de porta de entrada de malha. |
 | [rede](service-fabric-sfctl-mesh-network.md) | Obtenha e elimine os recursos da rede de malha. |
 | [segredo](service-fabric-sfctl-mesh-secret.md) | Obtenha e elimine os recursos secretos da malha. |

@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
 ms.openlocfilehash: c4366b2718271b1e27325e6946c5016e9230cea4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76835917"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Recursos de base de dados de escala dinâmica com tempo mínimo de inatividade
@@ -37,7 +37,7 @@ A Azure SQL Database oferece o [modelo de compra baseado em DTU](sql-database-se
 - O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece uma mistura de recursos computacionais, de memória e IO em três níveis de serviço para suportar cargas de trabalho leves a pesados de base de dados: Básico, Standard e Premium. Os níveis de desempenho em cada camada fornecem uma mistura diferentes destes recursos, à qual pode adicionar recursos de armazenamento adicionais.
 - O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite-lhe escolher o número de vCores, a quantidade ou memória, e a quantidade e velocidade de armazenamento. Este modelo de compra oferece três níveis de serviço: General Purpose, Business Critical e Hyperscale.
 
-Pode construir a sua primeira aplicação numa pequena base de dados individual a um custo baixo por mês no nível de serviço Basic, Standard ou General Purpose e, em seguida, alterar o seu nível de serviço manual ou programática a qualquer momento para o nível de serviço Premium ou Business Critical para atender ao nível de serviço Premium ou Business Critical para atender ao nível de serviço Premium ou Business Critical para atender ao nível de serviço Premium ou Business Critical para atender ao nível de serviço Premium ou Business Critical para atender ao nível de serviço Premium ou Business Critical para atender ao nível de serviço Premium ou Business Critical para atender o nível de serviço Premium ou Business Critical para atender o nível de serviço Premium ou Business Critical para atender o nível de serviço Premium ou Business Critical para atender o nível de serviço Premium ou necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
+Pode construir a sua primeira aplicação numa pequena base de dados individual a um custo reduzido por mês no nível de serviço Basic, Standard ou General Purpose e, em seguida, alterar o seu nível de serviço manual ou programática a qualquer momento para o nível de serviço Premium ou Business Critical para atender às necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
 
 > [!NOTE]
 > A escalabilidade dinâmica é diferente do dimensionamento automático. A escala automática é quando um serviço escala automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite escalar manual com um tempo mínimo de inatividade.

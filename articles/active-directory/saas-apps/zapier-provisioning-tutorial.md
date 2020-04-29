@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
 ms.openlocfilehash: 4091e4fd544dbc6450bc14bd0e0731c4d3024592
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76992160"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>Tutorial: Configure Zapier para fornecimento automático de utilizadores
@@ -81,7 +81,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
 ### <a name="to-configure-automatic-user-provisioning-for-zapier-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para zapier em Azure AD:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -113,12 +113,12 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
    |Variável|Tipo|
    |---|---|
-   |userName|Cadeia|
+   |userName|String|
    |ativo|Booleano|
-   |id externo|Cadeia|
-   |nome.dadoNome|Cadeia|
-   |nome.familyName|Cadeia|
-   |e-mails[tipo eq "work"].valor|Cadeia|
+   |id externo|String|
+   |nome.dadoNome|String|
+   |nome.familyName|String|
+   |e-mails[tipo eq "work"].valor|String|
 
 10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to Zapier**.
 
@@ -126,7 +126,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
     |Variável|Tipo|
     |---|---|
-    |displayName|Cadeia|
+    |displayName|String|
     |membros|Referência|
 
 12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

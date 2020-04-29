@@ -4,10 +4,10 @@ description: Utilize o Servidor de Backup Azure para fazer backup e restaurar os
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 441a896f2faa67a1380007ebb9474d7c311a4842
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78673127"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>De volta a uma fazenda SharePoint para Azure com MABS

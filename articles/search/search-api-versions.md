@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 178f56354120bf7a65c51f1c9cf54e34bd011d97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79137293"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versões API em Pesquisa Cognitiva Azure
@@ -32,7 +32,7 @@ Abaixo está uma imagem das versões atuais de todas as interfaces de programaç
 
 | Interfaces | Versão principal mais recente | Estado |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |9.0 |Geralmente Disponível, lançado maio de 2019 |
+| [SDK .NET](https://aka.ms/search-sdk) |9.0 |Geralmente Disponível, lançado maio de 2019 |
 | [Pré-visualização de .NET SDK](https://aka.ms/search-sdk-preview) |8.0-pré-visualização |Pré-visualização, lançado abril de 2019 |
 | [API REST do Serviço](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Geralmente disponível |
 | [Serviço REST API 2019-05-06-Pré-visualização](search-api-preview.md) |Antevisão 2019-05-06 |Pré-visualização |

@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245008"
 ---
-# <a name="get-started-guide-for-azure-developers"></a>Inicie guia para desenvolvedores do Azure
+# <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
 ## <a name="what-is-azure"></a>O que é o Azure?
 
@@ -50,7 +50,7 @@ O Azure oferece serviços que suportam o desenvolvimento da sua aplicação e as
 ![Opções de hospedagem de aplicações Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
 
-#### <a name="azure-app-service"></a>App Service do Azure
+#### <a name="azure-app-service"></a>Serviço de Aplicações do Azure
 
 Quando quiser o caminho mais rápido para publicar os seus projetos baseados na web, considere o Azure App Service. O Serviço de Aplicações facilita a extensão das suas aplicações web para apoiar os seus clientes móveis e publicar APIs REST facilmente consumidos. Esta plataforma fornece a autenticação utilizando fornecedores sociais, autoscalcificação baseada no tráfego, testes em produção e implementações contínuas e baseadas em contentores.
 
@@ -255,10 +255,10 @@ O Azure é construído sobre um conjunto de APIs REST que suportam o portal Azur
 Juntamente com as APIs REST, muitos serviços Azure também permitem gerir programáticamente os recursos a partir das suas aplicações, utilizando SDKs Azure específicos da plataforma, incluindo SDKs para as seguintes plataformas de desenvolvimento:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Nó.js](https://docs.microsoft.com/azure/javascript/)
+-   [Node.js](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Pitão](/azure/python/)
+-   [Python](/azure/python/)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 -   [Ir](https://docs.microsoft.com/azure/go)
 

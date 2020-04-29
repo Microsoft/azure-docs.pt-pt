@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245489"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para enriquecimento de IA em Pesquisa Cognitiva Azure
@@ -94,7 +94,7 @@ O tempo máximo de execução varia por nível: vários minutos no nível Livre,
 Para os indexadores programados, a indexação retoma no horário no último bom documento conhecido. Ao utilizar um horário recorrente, o indexante pode fazer o seu caminho através do atraso de imagem ao longo de uma série de horas ou dias, até que todas as imagens não processadas sejam processadas. Para obter mais informações sobre a sintaxe de horário, consulte [passo 3: Criar um indexante](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) ou ver [Como agendar indexadores para pesquisa cognitiva Azure](search-howto-schedule-indexers.md).
 
 > [!NOTE]
-> Se um indexante for definido para um determinado horário, mas falha repetidamente no mesmo documento vezes sem conta cada vez que funciona, o indexante começará a funcionar num intervalo menos frequente (até ao máximo de pelo menos uma vez a cada 24 horas) até que faça progressos com sucesso de novo.  Se acredita ter corrigido qualquer que seja o problema que estava a causar o facto de o indexante estar preso a um determinado ponto, pode realizar uma execução a pedido do indexante, e se isso fizer progressos com sucesso, o indexante voltará ao intervalo de horário definido novamente.
+> Se um indexante estiver definido para um determinado horário, mas falha repetidamente no mesmo documento cada vez mais, cada vez que funciona, o indexante começará a funcionar num intervalo menos frequente (até ao máximo de pelo menos uma vez a cada 24 horas) até que volte a progredir com sucesso.  Se acredita ter corrigido qualquer que seja o problema que estava a causar o facto de o indexante estar preso a um determinado ponto, pode realizar uma execução a pedido do indexante, e se isso fizer progressos com sucesso, o indexante voltará ao intervalo de horário definido novamente.
 
 Para indexação baseada em portal (como descrito no quickstart), escolher a opção indexante`"maxRunTime": "PT1H"`"executar uma vez" limita o processamento para 1 hora ( ). Talvez queira estender a janela de processamento para algo mais longo.
 

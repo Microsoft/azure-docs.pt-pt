@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
 ms.openlocfilehash: 15dd9bf6ac19bdac7bc8b50fc70e0b3b0a4e9a83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77083744"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução ao Reliable Services
@@ -218,7 +218,7 @@ Depois de os serviços começarem a funcionar, pode ver os eventos gerados de Ra
 
 [Implementar uma aplicação](service-fabric-deploy-remove-applications.md)
 
-[Atualização de aplicações](service-fabric-application-upgrade.md)
+[Atualização da aplicação](service-fabric-application-upgrade.md)
 
 [Referência do desenvolvedor para Serviços Fiáveis](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 

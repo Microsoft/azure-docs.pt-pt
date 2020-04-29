@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Aprenda a ativar o Azure Dev Spaces num cluster AKS e instale as ferramentas do lado do cliente.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 ms.openlocfilehash: a6b3be5ceba5e60b99b2f75e060f3321cd3151f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898955"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Ative a Azure Dev Spaces num cluster AKS e instale as ferramentas do lado do cliente
@@ -67,7 +67,7 @@ Antes de poder ativar a Dev Spaces utilizando o portal Azure, precisa de:
 * [Um aglomerado aks][create-aks-portal] numa [região apoiada.][supported-regions]
 
 Para permitir a Azure Dev Spaces utilizando o portal Azure:
-1. Inicie sessão no [Portal do Azure][az-portal].
+1. Inicie sessão no [portal do Azure][az-portal].
 1. Navegue para o seu aglomerado AKS.
 1. Selecione o item do menu *Dev Spaces.*
 1. Alterar *ativar espaços de dev* para *sim* e clicar em *Guardar*.

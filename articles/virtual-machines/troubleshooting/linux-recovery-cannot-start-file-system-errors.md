@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
 ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76842406"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Problemas de resolução de problemas De Linux VM problemas de partida devido a erros no sistema de ficheiros
@@ -179,5 +179,5 @@ Para resolver este problema, insera o VM no modo de emergência utilizando a [co
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Resolução de problemas um VM Linux, ligando o disco OS a um VM de recuperação com o Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Utilize o portal para anexar um disco de dados a um VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
+* [Utilizar o portal para anexar um disco de dados a uma VM do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
 

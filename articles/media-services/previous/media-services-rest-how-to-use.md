@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773667"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services operações REST API visão geral 
@@ -81,15 +81,15 @@ Segue-se um conjunto de cabeçalhos opcionais:
 | Aceitar-Charset |Tipo charset como "UTF-8" |O padrão é UTF-8. |
 | Método X-HTTP |Método HTTP |Permite que clientes ou firewalls que não suportem métodos HTTP como PUT ou DELETE utilizem estes métodos, túneis através de uma chamada GET. |
 | Content-Type |Tipo do conteúdo |Tipo de conteúdo do organismo de pedido em pedidos PUT ou POST. |
-| cliente-request-id |Cadeia |Um valor definido pelo chamador que identifica o pedido dado. Se especificado, este valor será incluído na mensagem de resposta como forma de mapear o pedido. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2k). |
+| cliente-request-id |String |Um valor definido pelo chamador que identifica o pedido dado. Se especificado, este valor será incluído na mensagem de resposta como forma de mapear o pedido. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta STANDARD HTTP suportados por Media Services
 Segue-se um conjunto de cabeçalhos que lhe podem ser devolvidos dependendo do recurso que solicitava e da ação que pretendia realizar.
 
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| pedido-id |Cadeia |Um identificador único para a operação atual, serviço gerado. |
-| cliente-request-id |Cadeia |Um identificador especificado pelo chamador no pedido original, se presente. |
+| pedido-id |String |Um identificador único para a operação atual, serviço gerado. |
+| cliente-request-id |String |Um identificador especificado pelo chamador no pedido original, se presente. |
 | Date |Data RFC 1123 |A data/hora em que o pedido foi processado. |
 | Content-Type |Varia |O tipo de conteúdo do corpo de resposta. |
 | Codificação de conteúdos |Varia |Gzip ou esvaziar, conforme apropriado. |

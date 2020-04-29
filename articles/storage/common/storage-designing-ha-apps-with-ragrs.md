@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 592be1710893791e80dfe4b20e1323e789b33e69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77157097"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Conceber aplicações altamente disponíveis utilizando armazenamento geo-redundante de acesso de leitura
@@ -196,7 +196,7 @@ Para o terceiro cenário, ao bater o ponto final de armazenamento primário torn
 
 ## <a name="handling-eventually-consistent-data"></a>Manuseamento de dados eventualmente consistentes
 
-O armazenamento geo-redundante funciona replicando transações do primário para a região secundária. Este processo de replicação garante que os dados na região secundária são *eventualmente consistentes.* Isto significa que todas as transações na região primária acabarão por aparecer na região secundária, mas que pode haver um atraso antes de aparecerem, e que não há garantias de que as transações cheguem à região secundária na mesma ordem em que foram originalmente aplicados na região primária. Se as suas transações chegarem à região secundária fora de ordem, *poderá* considerar que os seus dados na região secundária estão num estado inconsistente até que o serviço recupere.
+O armazenamento geo-redundante funciona replicando transações do primário para a região secundária. Este processo de replicação garante que os dados na região secundária são *eventualmente consistentes.* Isto significa que todas as transações na região primária acabarão por aparecer na região secundária, mas que pode haver um atraso antes de estas aparecerem, e que não há garantias de que as transações cheguem à região secundária na mesma ordem em que foram inicialmente aplicadas na região primária. Se as suas transações chegarem à região secundária fora de ordem, *poderá* considerar que os seus dados na região secundária estão num estado inconsistente até que o serviço recupere.
 
 A tabela que se segue mostra um exemplo do que pode acontecer quando atualizar os detalhes de um empregado para torná-los membros do papel de *administradores.* Para o bem deste exemplo, isto requer que atualize a entidade **colaboradora** e atualize uma entidade **de função de administrador** com uma contagem do número total de administradores. Note como as atualizações são aplicadas fora de ordem na região secundária.
 

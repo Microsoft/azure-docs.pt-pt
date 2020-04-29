@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 8b45840215092281c7fbc8d499e26b095b374dd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77191032"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Conceitos de skillset e composição em Pesquisa Cognitiva Azure
@@ -45,7 +45,7 @@ Uma vez que um documento está no oleoduto de enriquecimento, é representado co
 |---|---|---|
 |Blob Storage|/documento/conteúdo<br>/documento/normalized_images/*<br>…|/documento/{key1}<br>/documento/{key2}<br>…|
 |SQL|/documento/{column1}<br>/documento/{column2}<br>…|N/D |
-|Cosmos DB|/documento/{key1}<br>/documento/{key2}<br>…|N/D|
+|BD do Cosmos|/documento/{key1}<br>/documento/{key2}<br>…|N/D|
 
  Como as habilidades executam, adicionam novos nós à árvore de enriquecimento. Estes novos nós podem então ser usados como entradas para competências a jusante, projetando para a loja de conhecimento, ou mapeando para campos indexados. Os enriquecimentos não são mutáveis: uma vez criados, os nós não podem ser editados. À medida que as suas habilidades se tornam mais complexas, também a sua árvore de enriquecimento, mas nem todos os nós na árvore de enriquecimento precisam chegar ao índice ou à loja de conhecimento. 
 

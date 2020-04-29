@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 6614e70d130abe46067c657bda3ccdd7000caddc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244007"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões políticas de gestão da API
@@ -108,7 +108,7 @@ O quadro seguinte enumera os tipos de quadro .NET e os seus membros que são per
 |System.Collections.Generic.Queue\<T>|Todos|
 |System.Collections.Generic.Stack\<T>|Todos|
 |Sistema.Converter|Todos|
-|Sistema.Data|(Construtor), AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, Date, Day, DayOfWeek, DayOfYear, DaysInMonth, Hour, IsDaylightSavingTime, IsLeapYear, MaxValue, Millisecond, Minute, MinValue, Month, Now , Parse, Second, Subtract, Ticks, TimeOfDay, Today, ToString, UtcNow, Year|
+|Sistema.Data|(Construtor), AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, Date, Day, DayOfWeek, DayOfYear, DaysInMonth, Hour, IsDaylightSavingTime, IsLeapYear, MaxValue, Millisecond, Minute, MinValue, Month, Now, Parse, Second, Subtract, Ticks, TimeOfDay, Today, ToString, UtcNow, Year|
 |Sistema.DateTimeKind|Utc|
 |Sistema.DataTimeOffset|Todos|
 |Sistema.Decimal|Todos|
@@ -210,7 +210,7 @@ Uma variável nomeada `context` está implicitamente disponível em todas as [ex
 
 |Variável de contexto|Métodos, propriedades e valores de parâmetros permitidos|
 |----------------------|-------------------------------------------------------|
-|contexto|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implantação](#ref-context-deployment)<br /><br /> Decorrido: TimeSpan - intervalo de tempo entre o valor da marca temporal e o tempo atual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Produto](#ref-context-product)<br /><br /> [Pedido](#ref-context-request)<br /><br /> RequestId: Guid - identificador de pedido único<br /><br /> [Resposta](#ref-context-response)<br /><br /> [Assinatura](#ref-context-subscription)<br /><br /> Carimbo de tempo: DataTime - hora em que o pedido foi recebido<br /><br /> Rastreio: bool - indica se o rastreio está ligado ou desligado <br /><br /> [Utilizador](#ref-context-user)<br /><br /> [Variáveis](#ref-context-variables): IReadOnlyDictionary<string, object><br /><br /> vestígio sem efeito (mensagem: corda)|
+|contexto|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implementação](#ref-context-deployment)<br /><br /> Decorrido: TimeSpan - intervalo de tempo entre o valor da marca temporal e o tempo atual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Produto](#ref-context-product)<br /><br /> [Pedir](#ref-context-request)<br /><br /> RequestId: Guid - identificador de pedido único<br /><br /> [Resposta](#ref-context-response)<br /><br /> [Subscrição](#ref-context-subscription)<br /><br /> Carimbo de tempo: DataTime - hora em que o pedido foi recebido<br /><br /> Rastreio: bool - indica se o rastreio está ligado ou desligado <br /><br /> [Utilizador](#ref-context-user)<br /><br /> [Variáveis](#ref-context-variables): IReadOnlyDictionary<string, object><br /><br /> vestígio sem efeito (mensagem: corda)|
 |<a id="ref-context-api"></a>contexto. Rio Api|Id: corda<br /><br /> IsCurrentRevision: bool<br /><br />  Nome: cadeia<br /><br /> Caminho: corda<br /><br /> Revisão: cadeia<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Versão: string |
 |<a id="ref-context-deployment"></a>contexto. Implantação|Região: corda<br /><br /> Nome do serviço: corda<br /><br /> Certificados: IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>contexto. Erro Último|Fonte: corda<br /><br /> Razão: corda<br /><br /> Mensagem: corda<br /><br /> Âmbito: corda<br /><br /> Secção: corda<br /><br /> Caminho: corda<br /><br /> PolicyId: string<br /><br /> Para mais informações sobre o contexto. LastError, consulte [o manuseamento de erros](api-management-error-handling-policies.md).|

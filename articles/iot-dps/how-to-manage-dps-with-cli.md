@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 03ec0b41ad910ff0d1dcdc17148e01ec94ea9fb0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78674523"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Como utilizar o Azure CLI e a extensão IoT para gerir o Serviço de Provisionamento de Dispositivos IoT Hub
@@ -41,7 +41,7 @@ Siga as [instruções de instalação](https://docs.microsoft.com/cli/azure/inst
 
 ## <a name="basic-device-provisioning-service-operations"></a>Operações básicas de serviço de provisionamento de dispositivos
 
-O exemplo mostra-lhe como fazer login na sua conta Azure, criar um Grupo de Recursos Azure (um recipiente que detém recursos relacionados para uma solução Azure), criar um Hub IoT, criar um serviço de fornecimento de dispositivos, listar os serviços de provisionamento de dispositivos existentes e criar um hub ioT ligado com comandos CLI. 
+O exemplo mostra-lhe como fazer login na sua conta Azure, criar um Grupo de Recursos Azure (um recipiente que detém recursos relacionados para uma solução Azure), criar um Hub IoT, criar um serviço de fornecimento de dispositivos, listar os serviços de provisionamento de dispositivos existentes e criar um hub IoT ligado com comandos CLI. 
 
 Conclua os passos de instalação descritos anteriormente antes de começar. Se ainda não tiver uma conta do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free/?v=17.39a) hoje mesmo. 
 

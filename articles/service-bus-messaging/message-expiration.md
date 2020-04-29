@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: e86c92fa1cfb13929d5617502224f479709efdd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76756339"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiração de mensagem (TTL)
 
 A carga útil numa mensagem, ou um comando ou inquérito que uma mensagem transmite a um recetor, está quase sempre sujeita a algum tipo de prazo de validade ao nível da aplicação. Após esse prazo, o conteúdo já não é entregue ou a operação solicitada já não é executada.
 
-Para ambientes de desenvolvimento e teste em que filas e tópicos são frequentemente usados no contexto de execuções parciais de aplicações ou peças de aplicação, também é desejável que mensagens de teste encalhadas sejam recolhidas automaticamente para que o próximo teste possa ser recolhido de forma a que o próximo teste possa ser recolhido de forma a que o próximo teste possa ser recolhido de forma a que o próximo teste possa ser recolhido de forma a que o próximo teste possa ser recolhido automaticamente para que o próximo teste possa ser recolhido de forma a que o próximo teste possa ser recolhido de forma a que o próximo teste possa ser recolhido de forma a que o próximo teste possa ser recolhido de forma a que o próximo teste possa ser recolhido de forma a que o próximo teste possa ser recolhido de forma a que o próximo começar limpo.
+Para ambientes de desenvolvimento e teste em que as filas e tópicos são frequentemente usados no contexto de execuções parciais de aplicações ou peças de aplicação, também é desejável que mensagens de teste encalhadas sejam recolhidas automaticamente para que o próximo teste possa começar limpo.
 
 A expiração de qualquer mensagem individual pode ser controlada definindo a propriedade do sistema [TimeToLive,](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) que especifica uma duração relativa. A expiração torna-se um instante absoluto quando a mensagem é incorporada na entidade. Nessa altura, a propriedade [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) assume o valor [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). A definição de tempo para viver (TTL) numa mensagem intermediada não é aplicada quando não há clientes a ouvir ativamente.
 
@@ -54,7 +54,7 @@ Por exemplo, considere um site que precisa executar de forma fiável empregos em
 
 As filas de ônibus de serviço, tópicos e subscrições podem ser criadas como entidades temporárias, que são automaticamente removidas quando não foram utilizadas por um determinado período de tempo.
  
-A limpeza automática é útil em cenários de desenvolvimento e teste em que as entidades são criadas dinamicamente e não são limpas após a utilização, devido a alguma interrupção do teste ou depuração. Também é útil quando uma aplicação cria entidades dinâmicas, como uma fila de respostas, para receber respostas de volta a um processo de servidor web, ou em outro objeto de vida relativamente curta onde é difícil limpar de forma fiável essas entidades quando o objeto instância desaparece.
+A limpeza automática é útil em cenários de desenvolvimento e teste em que as entidades são criadas dinamicamente e não são limpas após a utilização, devido a alguma interrupção do teste ou depuração. Também é útil quando uma aplicação cria entidades dinâmicas, como uma fila de respostas, para receber respostas de volta a um processo de servidor web, ou em outro objeto de vida relativamente curta onde é difícil limpar de forma fiável essas entidades quando a instância do objeto desaparece.
 
 A funcionalidade está ativada utilizando a propriedade [autoDeleteOnIdle.](/azure/templates/microsoft.servicebus/namespaces/queues) Esta propriedade está definida para a duração pela qual uma entidade deve estar inativa (não utilizada) antes de ser automaticamente eliminada. O valor mínimo para este imóvel é 5.
  

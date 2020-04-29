@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 4ad5e961e390b60784355ff3bc72aca4a2f73e11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77190966"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Como indexar grandes conjuntos de dados na Pesquisa Cognitiva Azure
@@ -36,7 +36,7 @@ A indexação do lote é implementada para pedidos individuais utilizando REST o
 
 Os serviços que são prestados num dos níveis de [preços Standard](search-sku-tier.md) têm frequentemente uma capacidade subutilizada tanto para armazenamento como para cargas de trabalho (consultas ou indexação), o que faz com que o aumento da partilha e da réplica [conta uma](search-capacity-planning.md) solução óbvia para acomodar conjuntos de dados maiores. Para obter os melhores resultados, precisa de ambos os recursos: divisórias para armazenamento e réplicas para o trabalho de ingestão de dados.
 
-O aumento de réplicas e divisórias são eventos de faturação que aumentam o seu custo, mas a menos que esteja continuamente indexando sob a carga máxima, pode adicionar escala durante a duração do processo de indexação, e depois ajustar os níveis de recursos para baixo após a indexação terminado.
+O aumento das réplicas e divisórias são eventos de faturação que aumentam o seu custo, mas a menos que esteja continuamente indexando sob a carga máxima, pode adicionar escala durante a duração do processo de indexação e, em seguida, ajustar os níveis de recursos para baixo após a classificação estar terminada.
 
 ## <a name="option-3-use-indexers"></a>Opção 3: Utilizar indexadores
 
@@ -63,7 +63,7 @@ Em termos práticos, para cargas de índice que se estendem por vários dias, po
 
 Uma estratégia de indexação paralela baseia-se na indexação de múltiplas fontes de dados em uníssono, onde cada definição de fonte de dados especifica um subconjunto dos dados. 
 
-Para requisitos de indexação não rotineiros e computacionalmente intensivos - como o OCR em documentos digitalizados num pipeline de pesquisa cognitiva, análise de imagem ou processamento de linguagem natural - uma estratégia de indexação paralela é muitas vezes a abordagem certa para completar um processo de longo prazo no menor tempo. Se conseguir eliminar ou reduzir pedidos de consulta, indexar paralelamente um serviço que não esteja a lidar simultaneamente com consultas é a sua melhor opção de estratégia para trabalhar através de um grande corpo de conteúdos de processamento lento. 
+Para requisitos de indexação não rotineiros e computacionalmente intensivos - como o OCR em documentos digitalizados num pipeline de pesquisa cognitiva, análise de imagem ou processamento de linguagem natural - uma estratégia de indexação paralela é muitas vezes a abordagem certa para concluir um processo de longo prazo no menor tempo. Se conseguir eliminar ou reduzir pedidos de consulta, indexar paralelamente um serviço que não esteja a lidar simultaneamente com consultas é a sua melhor opção de estratégia para trabalhar através de um grande corpo de conteúdos de processamento lento. 
 
 O processamento paralelo tem estes elementos:
 

@@ -16,10 +16,10 @@ ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897187"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnose and remediate duplicated attribute sync errors (Diagnosticar e resolver erros de sincronização de atributos duplicados)
@@ -139,21 +139,21 @@ O utilizador com atributo conflituoso em Azure AD deve ser limpo antes de poder 
 O utilizador baseado em nuvem em Azure AD não deve ter âncora de origem. A atualização da âncora de origem não é suportada neste caso. A correção manual é necessária a partir do local. 
 
 ## <a name="faq"></a>FAQ
-**P.** O que acontece se a execução da **Correção de Aplicação** falhar?  
+**Q.** O que acontece se a execução da **Correção de Aplicação** falhar?  
 **A.** Se a execução falhar, é possível que o Azure AD Connect esteja a cometer um erro de exportação. Refresque a página do portal e tente novamente após a próxima sincronização. O ciclo de sincronização padrão é de 30 minutos. 
 
 
-**P.** E se o **objeto existente** for o objeto a ser eliminado?  
+**Q.** E se o **objeto existente** for o objeto a ser eliminado?  
 **A.** Se o **objeto existente** for eliminado, o processo não implica uma alteração da Âncora **de Origem**. Normalmente, pode consertá-lo a partir do Diretório Ativo no local. 
 
 
-**P.** Que permissão precisa um utilizador para aplicar a correção?  
+**Q.** Que permissão precisa um utilizador para aplicar a correção?  
 **A.** **A Global Admin**, ou **Colaborador a** partir das definições rBAC, tem permissão para aceder ao processo de diagnóstico e resolução de problemas.
 
 
-**P.** Tenho de configurar o Azure AD Connect ou atualizar o agente Azure AD Connect Health para esta funcionalidade?  
+**Q.** Tenho de configurar o Azure AD Connect ou atualizar o agente Azure AD Connect Health para esta funcionalidade?  
 **A.** Não, o processo de diagnóstico é uma característica completa baseada na nuvem.
 
 
-**P.** Se o objeto existente for apagado suavemente, o processo de diagnóstico tornará o objeto ativo novamente?  
+**Q.** Se o objeto existente for apagado suavemente, o processo de diagnóstico tornará o objeto ativo novamente?  
 **A.** Não, a correção não atualiza os atributos do objeto para além da **Âncora de Origem**.

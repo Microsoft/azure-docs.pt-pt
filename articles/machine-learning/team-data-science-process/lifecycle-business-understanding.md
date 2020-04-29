@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76710331"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>A fase de compreensão do negócio do ciclo de vida do Processo de Ciência de Dados da Equipa
@@ -25,7 +25,7 @@ Este artigo descreve os objetivos, tarefas e resultados associados à fase de co
    1. **Noções sobre empresas**
    2. **Aquisição e compreensão de dados**
    3. **Modelação**
-   4. **Implantação**
+   4. **Implementação**
    5. **Aceitação do cliente**
 
 Aqui está uma representação visual do ciclo de vida da TDSP: 
@@ -88,7 +88,7 @@ Aqui estão os links para cada passo no ciclo de vida do TDSP:
    1. [Noções sobre empresas](lifecycle-business-understanding.md)
    2. [Aquisição e compreensão de dados](lifecycle-data.md)
    3. [Modelação](lifecycle-modeling.md)
-   4. [Implantação](lifecycle-deployment.md)
+   4. [Implementação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)
 
 Fornecemos passeios completos que demonstram todos os passos no processo para cenários específicos. O artigo de [walkthroughs Exemplo](walkthroughs.md) fornece uma lista dos cenários com links e descrições de miniaturas. Os passadiços ilustram como combinar cloud, ferramentas no local e serviços em um fluxo de trabalho ou pipeline para criar uma aplicação inteligente. 

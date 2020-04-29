@@ -14,10 +14,10 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9f817880f938f5d03024e3aacd9b84817a5ac721
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77138291"
 ---
 # <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Adicione atribuições de funções utilizando modelos azure RBAC e Azure Resource Manager
@@ -364,4 +364,4 @@ O seguinte mostra um exemplo da atribuição de funções do Colaborador a um no
 - [Início Rápido: Criar e implementar um modelo do Azure Resource Manager com o portal do Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 - [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
 - [Criar grupos e recursos de recursos ao nível da subscrição](../azure-resource-manager/templates/deploy-to-subscription.md)
-- [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=rbac)
+- [Modelos azure quickstart](https://azure.microsoft.com/resources/templates/?term=rbac)

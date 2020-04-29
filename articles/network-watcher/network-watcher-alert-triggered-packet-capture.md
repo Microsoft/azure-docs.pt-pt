@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: ea506e137d71fc3124a4f93f1e97750a08dd4284
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76842942"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utilize a captura de pacotes para monitorização proactiva da rede com alertas e funções Azure
@@ -77,7 +77,7 @@ O primeiro passo é criar uma função Azure para processar o alerta e criar uma
     |**Definição** | **Valor** | **Detalhes** |
     |---|---|---|
     |**Nome da aplicação**|PacketCaptureExample|O nome da aplicação de funções.|
-    |**Assinatura**|[A sua subscrição] A subscrição para a qual criar a aplicação de funções.||
+    |**Subscrição**|[A sua subscrição] A subscrição para a qual criar a aplicação de funções.||
     |**Grupo de Recursos**|PacketCaptureRG|O grupo de recursos para conter a aplicação de função.|
     |**Plano de Hospedagem**|Plano de Consumo| O tipo de plano que a sua aplicação de função utiliza. As opções são o plano de Serviço de Consumo ou Aplicações Azure. |
     |**Localização**|E.U.A. Central| A região em que criar a aplicação de funções.|
@@ -346,7 +346,7 @@ Vá a uma máquina virtual existente e adicione uma regra de alerta. Documentaç
   |---|---|---|
   |**Nome**|TCP_Segments_Sent_Exceeded|Nome da regra do alerta.|
   |**Descrição**|Segmentos de TCP enviados limiar ultrapassado|A descrição da regra do alerta.|
-  |**Métricas**|Segmentos de TCP enviados| A métrica a usar para desencadear o alerta. |
+  |**Métrica**|Segmentos de TCP enviados| A métrica a usar para desencadear o alerta. |
   |**Condição**|Maior que| A condição de usar ao avaliar a métrica.|
   |**Limiar**|100| O valor da métrica que desencadeia o alerta. Este valor deve ser definido para um valor válido para o seu ambiente.|
   |**Período**|Nos últimos cinco minutos| Determina o período em que procurar o limiar da métrica.|
