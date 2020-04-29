@@ -14,10 +14,10 @@ ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80584539"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, encomenda e paging de entidades dos Serviços de Media
@@ -158,7 +158,7 @@ A tabela que se segue mostra como pode aplicar as opções de filtragem e encome
 
 |Nome da entidade|Nome da propriedade|Filtro|Encomenda|
 |---|---|---|---|
-|[Recursos](https://docs.microsoft.com/rest/api/media/assets/)|nome|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
+|[Elementos](https://docs.microsoft.com/rest/api/media/assets/)|nome|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
 ||propriedades.alternateId |`eq`||
 ||propriedades.assetId |`eq`||
 ||propriedades.criado| `eq`, `gt`, `lt`| `asc` e `desc`|

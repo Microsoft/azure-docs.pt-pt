@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 02/02/2019
 ms.openlocfilehash: de57a46f92fab2486aa7722daf8745a01be1f4f6
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80617587"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Azure Active Directory com o Azure Kubernetes Service

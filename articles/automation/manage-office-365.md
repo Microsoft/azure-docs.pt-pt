@@ -1,17 +1,17 @@
 ---
-title: Gerir os serviços do Office 365 utilizando a Automação Azure
+title: Gerir os serviços do Office 365 com a Automatização do Azure
 description: Diz como usar a Automatização Azure para gerir os serviços de subscrição do Office 365.
 services: automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: 9cb505ced907b143fbd6a5f4f30c818092005bb8
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80550425"
 ---
-# <a name="manage-office-365-services-using-azure-automation"></a>Gerir os serviços do Office 365 utilizando a Automação Azure
+# <a name="manage-office-365-services-using-azure-automation"></a>Gerir os serviços do Office 365 com a Automatização do Azure
 
 Pode utilizar o Azure Automation para a gestão de serviços de subscrição do Office 365, para produtos como o Microsoft Word e o Microsoft Outlook. As interações com o Office 365 são ativadas pelo [Azure Ative Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Consulte [a Utilização de AD Azure na Automação Azure para autenticar o Azure](automation-use-azure-ad.md).
 

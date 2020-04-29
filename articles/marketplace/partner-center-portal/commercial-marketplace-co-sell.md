@@ -8,13 +8,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: e73ba110128f6d4f0bea008840b06572d7aee140
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80517930"
 ---
-# <a name="co-sell-option-in-partner-center"></a>Opção de co-venda no Partner Center
+# <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta no Centro de Parceiros
 
 Fornecer informações sobre o separador Co-sell é inteiramente opcional. É necessário alcançar o co-sell Ready e ip co-sell Ready status. As informações que fornecer serão utilizadas pelas equipas de vendas da Microsoft para saber mais sobre a sua solução ao avaliar o seu ajuste para as necessidades do cliente. Não está disponível diretamente para os clientes. Para mais informações, consulte [a venda através da Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 

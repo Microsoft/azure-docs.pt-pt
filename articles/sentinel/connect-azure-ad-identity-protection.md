@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/17/2019
 ms.author: yelevin
 ms.openlocfilehash: b82ddfef57efaaca0ae43750cd306a63a772b911
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80616832"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Conecte dados da Proteção de Identidade da AD Azure

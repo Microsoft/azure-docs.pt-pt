@@ -8,10 +8,10 @@ ms.date: 03/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: e8a8502b40410df221886cde2fa5f3db15bf3eed
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80549163"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem

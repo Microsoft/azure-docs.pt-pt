@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
 ms.openlocfilehash: 0971b542065972a8f150083245e4ed31e42e2c67
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521633"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância Azure
@@ -62,7 +62,7 @@ Quando nenhuma versão é especificada, um erro é devolvido com uma lista das v
 > [!NOTE]
 > A resposta é uma corda JSON. A resposta de exemplo que se segue é bastante impressa para a legibilidade.
 
-**Pedido**
+**Pedir**
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance"
@@ -142,7 +142,7 @@ Erro de serviço 500     | Voltar a tentar depois de algum tempo
 
 #### <a name="retrieving-network-information"></a>Recuperação de informações da rede
 
-**Pedido**
+**Pedir**
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
@@ -189,7 +189,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 
 #### <a name="retrieving-all-metadata-for-an-instance"></a>Recuperar todos os metadados, por exemplo.
 
-**Pedido**
+**Pedir**
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
@@ -380,7 +380,7 @@ Parte do cenário servido pelo Serviço de Metadados de Instância é fornecer g
 > [!NOTE]
 > Todas as respostas da API são cordas JSON. As seguintes respostas exemplo são bastante impressas para a legibilidade.
 
- **Pedido**
+ **Pedir**
 
  ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
@@ -409,7 +409,7 @@ A bolha de assinatura é uma versão assinada [pkcs7](https://aka.ms/pkcs7) do d
 
 Como prestador de serviços, poderá ser necessário rastrear o número de VMs que executam o seu software ou ter agentes que precisam de rastrear a singularidade do VM. Para obter um ID único para um VM, use o campo do `vmId` Serviço de Metadados de Instância.
 
-**Pedido**
+**Pedir**
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
@@ -427,7 +427,7 @@ Para certos cenários, a colocação de diferentes réplicas de dados é de prim
 Também pode utilizar [Zonas de Disponibilidade](../../availability-zones/az-overview.md) para os casos para tomar estas decisões.
 Pode consultar estes dados diretamente através do Serviço de Metadados de Instância.
 
-**Pedido**
+**Pedir**
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
@@ -443,7 +443,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 
 Como prestador de serviços, poderá receber uma chamada de apoio onde gostaria de saber mais informações sobre o VM. Pedir ao cliente que partilhe os metadados computacionais pode fornecer informações básicas para que o profissional de suporte saiba sobre o tipo de VM no Azure.
 
-**Pedido**
+**Pedir**
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01"
@@ -543,7 +543,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 Azure tem várias nuvens soberanas como [o Governo de Azure.](https://azure.microsoft.com/overview/clouds/government/) Às vezes é preciso o Ambiente Azure para tomar algumas decisões de tempo de corrido. A amostra que se segue mostra como pode alcançar este comportamento.
 
-**Pedido**
+**Pedir**
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
@@ -567,7 +567,7 @@ A nuvem e os valores do Ambiente Azure estão listados abaixo.
 
 As etiquetas podem ter sido aplicadas ao seu Azure VM para logicamente organizá-las numa taxonomia. As etiquetas atribuídas a um VM podem ser recuperadas utilizando o pedido abaixo.
 
-**Pedido**
+**Pedir**
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
@@ -581,7 +581,7 @@ Department:IT;Environment:Test;Role:WebRole
 
 O `tags` campo é uma corda com as etiquetas delimitadas por pontos evícidos. Isto pode ser um problema se os pontos-evípis forem usados nas próprias etiquetas. Se um parser for escrito para extrair programáticamente as `tagsList` etiquetas, deve confiar no campo que é uma matriz JSON sem delimitadores e, consequentemente, mais fácil de analisar.
 
-**Pedido**
+**Pedir**
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=json"
@@ -613,7 +613,7 @@ Os fornecedores de marketplace querem garantir que o seu software está licencia
 > [!NOTE]
 > Requer a instalação do JQ.
 
-**Pedido**
+**Pedir**
 
  ```bash
   # Get the signature
@@ -748,7 +748,7 @@ escreverAcceleratorEnabled | Se escrever Ou não O Acelerador está ativado no d
 
 Segue-se um exemplo de como consultar as informações de armazenamento do VM.
 
-**Pedido**
+**Pedir**
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"

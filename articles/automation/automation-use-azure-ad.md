@@ -1,17 +1,17 @@
 ---
-title: Use a AD Azure na Automação Azure para autenticar o Azure
+title: Utilizar o Azure AD na Automatização do Azure para autenticar para o Azure
 description: Saiba como utilizar o Azure AD dentro da Azure Automation como fornecedor para autenticação no Azure.
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 90338a1ffa79e6c2347832cb2e74633db02ec72d
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548329"
 ---
-# <a name="use-azure-ad-in-azure-automation-to-authenticate-to-azure"></a>Use a AD Azure na Automação Azure para autenticar o Azure
+# <a name="use-azure-ad-in-azure-automation-to-authenticate-to-azure"></a>Utilizar o Azure AD na Automatização do Azure para autenticar para o Azure
 
 O serviço [Azure Ative Directory (AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) permite uma série de tarefas administrativas, tais como gestão de utilizadores, gestão de domínios e configuração de inscrição única. Este artigo descreve como usar a Azure AD dentro da Azure Automation como fornecedor para autenticação ao Azure. 
 

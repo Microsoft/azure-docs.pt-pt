@@ -4,10 +4,10 @@ description: Crie um símbolo com permissões revestidas a repositórios especí
 ms.topic: article
 ms.date: 02/13/2020
 ms.openlocfilehash: 9004c45401833d3070266055dd7eb99a2bb43bde
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618834"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Crie um símbolo com permissões de repositório

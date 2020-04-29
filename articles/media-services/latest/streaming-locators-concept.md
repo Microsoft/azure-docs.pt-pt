@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 41b2d0ad1e072fb2bf5860ae80f8f25f886b37f7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80582677"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
@@ -26,7 +26,7 @@ O processo de criação de um Localizador de **Streaming** chama-se publicação
 
 Ao criar um Localizador de **Streaming,** deve especificar um nome **de Ativo** e um nome de **Política de Streaming.** Para obter mais informações, consulte os seguintes tópicos:
 
-* [Recursos](assets-concept.md)
+* [Elementos](assets-concept.md)
 * [Políticas de Transmissão em Fluxo](streaming-policy-concept.md)
 * [Políticas de Chave de Conteúdo](content-key-policy-concept.md)
 
@@ -100,7 +100,7 @@ Para obter localizadores de streaming com base no nome de Ativo associado, utili
 
 ## <a name="see-also"></a>Consulte também
 
-* [Recursos](assets-concept.md)
+* [Elementos](assets-concept.md)
 * [Políticas de Transmissão em Fluxo](streaming-policy-concept.md)
 * [Políticas de Chave de Conteúdo](content-key-policy-concept.md)
 * [Tutorial: Upload, codificação e streaming de vídeos usando .NET](stream-files-tutorial-with-api.md)
