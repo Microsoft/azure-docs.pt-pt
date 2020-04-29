@@ -11,10 +11,10 @@ author: peterclu
 ms.date: 02/24/2020
 ms.custom: Ignite2019
 ms.openlocfilehash: 01d69bffcf2c17abceba8ba2e0893360bead8b12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477226"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Executar predições em lote com o Azure Machine Learning Designer (pré-visualização)

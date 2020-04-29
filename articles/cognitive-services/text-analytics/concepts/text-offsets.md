@@ -12,10 +12,10 @@ ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
 ms.openlocfilehash: 6e404c710a244f06676edf50c3f5c95a7d681e35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219238"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Compensações de texto na saída da API de Análise de Texto
@@ -43,7 +43,7 @@ A API text Analytics devolve estes elementos texuais também, por conveniência.
 ## <a name="see-also"></a>Consulte também
 
 * [Descrição Geral da Análise de Texto](../overview.md)
-* [Análise de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Análise de sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Reconhecimento de entidades](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Detetar idioma](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Reconhecimento linguístico](../how-tos/text-analytics-how-to-language-detection.md)

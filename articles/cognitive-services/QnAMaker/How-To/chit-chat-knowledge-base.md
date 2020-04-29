@@ -12,10 +12,10 @@ ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220712"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicione chit-chat a uma base de conhecimento

@@ -9,10 +9,10 @@ ms.date: 03/11/2020
 ms.author: egeaney
 ms.custom: include
 ms.openlocfilehash: 2a348827b1c992e0ef0a4592cc0b9c5c0fa0ca19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79372174"
 ---
 ## <a name="about-cognitive-services-encryption"></a>Sobre a encriptação dos Serviços Cognitivos
@@ -27,6 +27,6 @@ Por padrão, a sua subscrição utiliza chaves de encriptação geridas pela Mic
 
 Para subscrições que suportam apenas chaves de encriptação geridas pela Microsoft, não terá uma secção de **Encriptação.**
 
-## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves geridas pelo cliente com cofre de chaves Azure
+## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves geridas pelo cliente com o Azure Key Vault
 
 Existe também uma opção para gerir a sua subscrição com as suas próprias chaves. As chaves geridas pelo cliente (CMK), também conhecidacomo Bring your own key (BYOK), oferecem maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os seus dados.

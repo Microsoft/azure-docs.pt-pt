@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
 ms.openlocfilehash: d1c0652844556b545cf0617032d21b80dd67d198
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79479846"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Fontes de dados de monitorização do Monitor Azure
@@ -73,7 +73,7 @@ O [registo da Atividade Azure](platform-logs-overview.md) inclui registos de sa�
 | Registo de atividades | O registo de Atividades é recolhido na sua própria loja de dados que pode visualizar a partir do menu Do Monitor Do Azure ou usar para criar alertas de registo de Atividade. | [Consulta do log de atividade no portal Azure](activity-log-view.md#azure-portal) |
 | Registos do Azure Monitor | Configure os Registos do Monitor Azure para recolher o registo de atividade para analisá-lo com outros dados de monitorização. | [Recolher e analisar registos de atividade do Azure no espaço de trabalho do Log Analytics no Monitor Azure](activity-log-collect.md) |
 | Storage do Azure | Exportar o registo de atividade para o Armazenamento Azure para arquivamento. | [Registo de Atividade seleção de Arquivo](resource-logs-collect-storage.md)  |
-| Event Hubs | Transmita o registo de atividade para outros locais usando Hubs de Eventos | [Registo de atividade de fluxo para O Centro](resource-logs-stream-event-hubs.md)de Eventos . |
+| Hubs de Eventos | Transmita o registo de atividade para outros locais usando Hubs de Eventos | [Registo de atividade de fluxo para O Centro](resource-logs-stream-event-hubs.md)de Eventos . |
 
 ### <a name="azure-service-health"></a>Azure Service Health
 A [Azure Service Health](../../service-health/service-health-overview.md) fornece informações sobre a saúde dos serviços Azure na sua subscrição em que a sua aplicação e recursos dependem.
@@ -96,7 +96,7 @@ A maioria dos serviços azure enviará [métricas](data-platform-metrics.md) da 
 |:---|:---|:---|
 | Métricas do Monitor Azure | As métricas da plataforma escreverão para a base de dados de métricas do Monitor Azure sem configuração. Aceda às métricas da plataforma de acesso do Metrics Explorer.  | [Getting started with Azure Metrics Explorer](metrics-getting-started.md) (Introdução ao Explorador de Métricas do Azure)<br>[Métricas suportadas com monitor Azure](metrics-supported.md) |
 | Registos do Azure Monitor | Copie as métricas da plataforma para Registos para tendências e outras análises utilizando log Analytics. | [Diagnósticos Azure direto para Log Analytics](resource-logs-collect-workspace.md) |
-| Event Hubs | Transmita métricas para outros locais usando Hubs de Eventos. |[Stream Azure monitorizaos dados para um centro de eventos para consumo por uma ferramenta externa](stream-monitoring-data-event-hubs.md) |
+| Hubs de Eventos | Transmita métricas para outros locais usando Hubs de Eventos. |[Stream Azure monitorizaos dados para um centro de eventos para consumo por uma ferramenta externa](stream-monitoring-data-event-hubs.md) |
 
 ### <a name="resource-logs"></a>Registos do recurso
 [Os registos](platform-logs-overview.md) de recursos fornecem informações sobre o funcionamento _interno_ de um recurso Azure.  Os registos de recursos são criados automaticamente, mas é necessário criar uma definição de diagnóstico para especificar um destino para os mesmos recolhidos para cada recurso.
@@ -106,8 +106,8 @@ Os requisitos de configuração e o conteúdo dos registos de recursos variam po
 | Destino | Descrição | Referência |
 |:---|:---|:---|
 | Registos do Azure Monitor | Envie registos de recursos para registos do Monitor Azure para análise com outros dados de registo recolhidos. | [Recolher registos de recursos azure no espaço de trabalho do Log Analytics no Monitor Azure](resource-logs-collect-storage.md) |
-| Storage | Envie registos de recursos para o Armazenamento Azure para arquivamento. | [Registos de recursos do Archive Azure](resource-logs-collect-workspace.md) |
-| Event Hubs | Transmita registos de recursos para outros locais usando Centros de Eventos. |[Stream Azure regista recursos para um centro de eventos](resource-logs-stream-event-hubs.md) |
+| Armazenamento | Envie registos de recursos para o Armazenamento Azure para arquivamento. | [Registos de recursos do Archive Azure](resource-logs-collect-workspace.md) |
+| Hubs de Eventos | Transmita registos de recursos para outros locais usando Centros de Eventos. |[Stream Azure regista recursos para um centro de eventos](resource-logs-stream-event-hubs.md) |
 
 ## <a name="operating-system-guest"></a>Sistema operativo (convidado)
 Os recursos computacionais em Azure, noutras nuvens, e no local têm um sistema operativo convidado para monitorizar. Com a instalação de um ou mais agentes, pode recolher telemetria do hóspede para o Monitor Azure para analisá-la com as mesmas ferramentas de monitorização que os próprios serviços Do Azure.
@@ -115,13 +115,13 @@ Os recursos computacionais em Azure, noutras nuvens, e no local têm um sistema 
 ![Coleção de recursos de computação Azure](media/data-sources/compute-resources.png)
 
 ### <a name="azure-diagnostic-extension"></a>Extensão de diagnóstico azure
-Ativar a extensão de Diagnóstico Sino Azul para máquinas Azure Virtual permite-lhe recolher registos e métricas do sistema operativo convidado de recursos computacionais Azure, incluindo Azure Cloud Service (clássico) Funções Web e Trabalhadores, Máquinas Virtuais, Máquinavirtual conjuntos de escala, e Tecido de Serviço.
+Ativar a extensão de Diagnóstico Sino Azul para máquinas Azure Virtual permite-lhe recolher registos e métricas do sistema operativo de recursos computacionais Azure, incluindo funções web e operárias do Azure Cloud Service (clássico), Máquinas Virtuais, conjuntos de escala de máquinavirtual e Tecido de Serviço.
 
 | Destino | Descrição | Referência |
 |:---|:---|:---|
-| Storage | A extensão de diagnóstico azure escreve sempre para uma conta de Armazenamento Azure. | [Instalar e configurar extensão de diagnóstico do Windows Azure (WAD)](diagnostics-extension-windows-install.md)<br>[Using Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos) |
+| Armazenamento | A extensão de diagnóstico azure escreve sempre para uma conta de Armazenamento Azure. | [Instalar e configurar extensão de diagnóstico do Windows Azure (WAD)](diagnostics-extension-windows-install.md)<br>[Using Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos) |
 | Métricas do Monitor Azure | Quando configura a Extensão de Diagnóstico para recolher contadores de desempenho, são escritos na base de dados de métricas do Monitor Azure. | [Envie métricas de OS do Hóspede para a loja métrica Do Monitor Azure usando um modelo de Gestor de Recursos para uma máquina virtual do Windows](collect-custom-metrics-guestos-resource-manager-vm.md) |
-| Event Hubs | Configure a Extensão de Diagnóstico para transmitir os dados para outros locais usando centros de eventos.  | [Streaming de dados de diagnóstico sintetizar através de Hubs de Eventos](diagnostics-extension-stream-event-hubs.md)<br>[Using Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos) |
+| Hubs de Eventos | Configure a Extensão de Diagnóstico para transmitir os dados para outros locais usando centros de eventos.  | [Streaming de dados de diagnóstico sintetizar através de Hubs de Eventos](diagnostics-extension-stream-event-hubs.md)<br>[Using Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos) |
 | Registos de Insights de Aplicação | Colete registos e contadores de desempenho do recurso computacional que suporta a sua aplicação para ser analisado com outros dados da aplicação. | [Envie dados de diagnóstico de serviço em nuvem, máquina virtual ou tecido de serviço para Insights de Aplicação](diagnostics-extension-to-application-insights.md) |
 
 
@@ -130,7 +130,7 @@ Instale o agente Log Analytics para uma monitorização e gestão abrangentes da
 
 | Destino | Descrição | Referência |
 |:---|:---|:---|
-| Registos do Azure Monitor | O agente Log Analytics conecta-se ao Monitor Azure diretamente ou através do System Center Operations Manager e permite-lhe recolher dados de fontes de dados que configura ou de monitorizar soluções que fornecem informações adicionais sobre as aplicações funcionando na máquina virtual. | [Fontes de dados do agente no Monitor Azure](agent-data-sources.md)<br>[Conectar Gerente de Operações ao Monitor Azure](om-agents.md) |
+| Registos do Azure Monitor | O agente Log Analytics conecta-se ao Monitor Azure diretamente ou através do System Center Operations Manager e permite-lhe recolher dados de fontes de dados que configura ou de soluções de monitorização que fornecem informações adicionais sobre aplicações em execução na máquina virtual. | [Fontes de dados do agente no Monitor Azure](agent-data-sources.md)<br>[Conectar Gerente de Operações ao Monitor Azure](om-agents.md) |
 | Armazenamento VM | O Monitor Azure para VMs utiliza o agente Log Analytics para armazenar informações sobre o estado de calor num local personalizado. Veja a secção seguinte para obter mais informações.  |
 
 
@@ -155,7 +155,7 @@ Quando ativa os Insights de Aplicação para uma aplicação instalando um pacot
 | Destino | Descrição | Referência |
 |:---|:---|:---|
 | Registos do Azure Monitor | Dados operacionais sobre a sua aplicação, incluindo visualizações de páginas, pedidos de aplicação, exceções e vestígios. | [Analisar dados de registo no Monitor Azure](../log-query/log-query-overview.md) |
-|                    | Informação de dependência entre componentes de aplicação para apoiar o Mapa de Aplicações e a correlação de telemetria. | [Correlação de telemetria em Insights de Aplicação](../app/correlation.md) <br> [Mapa de aplicações](../app/app-map.md) |
+|                    | Informação de dependência entre componentes de aplicação para apoiar o Mapa de Aplicações e a correlação de telemetria. | [Correlação de telemetria em Insights de Aplicação](../app/correlation.md) <br> [Mapeamento de Aplicações](../app/app-map.md) |
 |            | Resultados de testes de disponibilidade que testam a disponibilidade e capacidade de resposta da sua aplicação a partir de diferentes locais na Internet pública. | [Monitorizar a disponibilidade e a capacidade de resposta de qualquer site](../app/monitor-web-app-availability.md) |
 | Métricas do Monitor Azure | Application Insights recolhe métricas que descrevem o desempenho e o funcionamento da aplicação, além de métricas personalizadas que define na sua aplicação na base de dados de métricas do Monitor Azure. | [Métricas baseadas no registo e pré-agregadas no Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[API do Application Insights para métricas e eventos personalizados](../app/api-custom-events-metrics.md) |
 | Storage do Azure | Envie dados de aplicação para o Armazenamento Azure para arquivamento. | [Exportar telemetria a partir do Application Insights](../app/export-telemetry.md) |

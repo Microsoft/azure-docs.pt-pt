@@ -4,10 +4,10 @@ description: Neste artigo, aprenda tarefas comuns para gerir e monitorizar as ba
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: 89fd7f23163d301817e767771257d9bc6f4ed526
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480067"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerir e monitorizar bases de dados do SAP HANA guardadas em cópia de segurança
@@ -32,7 +32,7 @@ Para saber mais sobre monitorização, vá à [Monitorização no portal Azure](
 
 Os alertas são uma forma fácil de monitorizar as cópias de segurança das bases de dados SAP HANA. Os alertas ajudam-no a focar-se nos eventos com que mais se preocupa sem se perder na multiplicidade de eventos que um backup gera. O Azure Backup permite-lhe definir alertas e podem ser monitorizados da seguinte forma:
 
-* Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [portal do Azure](https://portal.azure.com/).
 * No painel do cofre, selecione **Alertas de Backup**.
 
   ![Alertas de backup no painel do cofre](./media/sap-hana-db-manage/backup-alerts-dashboard.png)

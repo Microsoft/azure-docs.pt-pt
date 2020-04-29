@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 0542106f70e96b6c2f63e8ca03d2532de191d365
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477175"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico do Modelo de Solução para manutenção preditiva em aeroespacial
@@ -37,7 +37,7 @@ Os objetivos deste artigo são:
 ## <a name="overview"></a>Descrição geral
 ![Arquitetura de manutenção preditiva](./media/predictive-maintenance-technical-guide/predictive-maintenance-architecture.png)
 
-Ao implementar a solução, ativa serviços Azure, incluindo Hub de Eventos, Stream Analytics, HDInsight, Data Factory e Machine Learning. O diagrama de arquitetura mostra como o modelo de manutenção preditiva para solução aeroespacial é construído. Você pode investigar estes serviços no portal Azure clicando-os no diagrama do modelo de solução criado com a implementação da solução (exceto hDInsight, que é provisionado a pedido quando as atividades de pipeline relacionadas são necessárias para executar e são apagado depois).
+Ao implementar a solução, ativa serviços Azure, incluindo Hub de Eventos, Stream Analytics, HDInsight, Data Factory e Machine Learning. O diagrama de arquitetura mostra como o modelo de manutenção preditiva para solução aeroespacial é construído. Pode investigar estes serviços no portal Azure clicando-os no diagrama do modelo de solução criado com a implementação da solução (exceto o HDInsight, que é provisionado a pedido quando as atividades de gasoduto supor em relação são necessárias para ser executadas e eliminadas posteriormente).
 Descarregue uma [versão em tamanho real do diagrama](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 As seguintes secções descrevem as partes da solução.

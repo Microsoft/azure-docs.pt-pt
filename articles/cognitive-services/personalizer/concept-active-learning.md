@@ -4,10 +4,10 @@ description: As definições de aprendizagem determinam os *hiperparâmetros* do
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219348"
 ---
 # <a name="learning-policy-and-settings"></a>Política de aprendizagem e configurações

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
 ms.openlocfilehash: 0988c8154c63bb408493edf3243078e625c80d53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79371227"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configure Redes virtuais dos Serviços Cognitivos Azure
@@ -43,7 +43,7 @@ O apoio à rede virtual para serviços cognitivos listados abaixo está limitado
 
 > [!div class="checklist"]
 > * [Detetor de Anomalias](./anomaly-detector/index.yml)
-> * [Visão Computorizada](./computer-vision/index.yml)
+> * [Imagem Digitalizada](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Visão Personalizada](./custom-vision-service/index.yml)
 > * [Rostos](./face/index.yml)
@@ -61,7 +61,7 @@ O suporte de rede virtual para serviços cognitivos listados abaixo está limita
 Além de apoiar pontos finais de serviço de rede virtual para os serviços acima, a Cognitive Services também suporta uma etiqueta de serviço para configuração de regras de rede de saída. Os seguintes serviços estão incluídos na etiqueta de serviço CognitiveServicesManagement.
 > [!div class="checklist"]
 > * [Detetor de Anomalias](./anomaly-detector/index.yml)
-> * [Visão Computorizada](./computer-vision/index.yml)
+> * [Imagem Digitalizada](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Visão Personalizada](./custom-vision-service/index.yml)
 > * [Rostos](./face/index.yml)
@@ -71,7 +71,7 @@ Além de apoiar pontos finais de serviço de rede virtual para os serviços acim
 > * [Análise de Texto](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
 > * [Texto do Tradutor](./translator/index.yml)
-> * [Serviço de Discurso](./speech-service/index.yml)
+> * [Serviço de Voz](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Change the default network access rule (Alterar a regra de acesso de rede predefinida)
 
@@ -84,7 +84,7 @@ Por padrão, os recursos dos Serviços Cognitivos aceitam ligações de clientes
 
 Pode gerir as regras de acesso à rede padrão para os recursos dos Serviços Cognitivos através do portal Azure, PowerShell ou do Azure CLI.
 
-# <a name="azure-portal"></a>[Portal Azure](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 1. Vá ao recurso dos Serviços Cognitivos que queira assegurar.
 
@@ -135,7 +135,7 @@ Pode gerir as regras de acesso à rede padrão para os recursos dos Serviços Co
     Update-AzCognitiveServicesAccountNetworkRuleSet @parameters
     ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 1. Instale o [Azure CLI](/cli/azure/install-azure-cli) e [inscreva-se,](/cli/azure/authenticate-azure-cli)ou selecione **Experimente**.
 
@@ -186,7 +186,7 @@ O recurso dos Serviços Cognitivos e as redes virtuais que tiveram acesso podem 
 
 Pode gerir as regras de rede virtual para os recursos dos Serviços Cognitivos através do portal Azure, PowerShell ou do Azure CLI.
 
-# <a name="azure-portal"></a>[Portal Azure](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 1. Vá ao recurso dos Serviços Cognitivos que queira assegurar.
 
@@ -281,7 +281,7 @@ Pode gerir as regras de rede virtual para os recursos dos Serviços Cognitivos a
     Remove-AzCognitiveServicesAccountNetworkRule @parameters
     ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 1. Instale o [Azure CLI](/cli/azure/install-azure-cli) e [inscreva-se,](/cli/azure/authenticate-azure-cli)ou selecione **Experimente**.
 
@@ -361,7 +361,7 @@ Se estiver a utilizar o [ExpressRoute](../expressroute/expressroute-introduction
 
 Pode gerir as regras da rede IP para recursos de Serviços Cognitivos através do portal Azure, PowerShell ou do Azure CLI.
 
-# <a name="azure-portal"></a>[Portal Azure](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 1. Vá ao recurso dos Serviços Cognitivos que queira assegurar.
 
@@ -437,7 +437,7 @@ Pode gerir as regras da rede IP para recursos de Serviços Cognitivos através d
     Remove-AzCognitiveServicesAccountNetworkRule @parameters
     ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 1. Instale o [Azure CLI](/cli/azure/install-azure-cli) e [inscreva-se,](/cli/azure/authenticate-azure-cli)ou selecione **Experimente**.
 

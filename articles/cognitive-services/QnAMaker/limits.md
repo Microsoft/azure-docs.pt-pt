@@ -4,10 +4,10 @@ description: A QnA Maker tem meta-limites para partes da base e serviço de conh
 ms.topic: reference
 ms.date: 02/14/2020
 ms.openlocfilehash: 6375a6c6efc0c7016d9947e04e9479385aa80af5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273342"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker limites e limites de base de conhecimento

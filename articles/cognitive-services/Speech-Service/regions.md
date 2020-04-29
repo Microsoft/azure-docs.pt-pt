@@ -12,10 +12,10 @@ ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220470"
 ---
 # <a name="speech-service-supported-regions"></a>Serviço de fala apoiado regiões

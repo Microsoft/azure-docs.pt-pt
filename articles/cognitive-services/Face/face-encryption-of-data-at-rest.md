@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: egeaney
 ms.openlocfilehash: 793c21bb2341033aa51ff8c639846e57ada4bae3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79372218"
 ---
 # <a name="face-service-encryption-of-data-at-rest"></a>Encriptação de dados do serviço de rosto em repouso
