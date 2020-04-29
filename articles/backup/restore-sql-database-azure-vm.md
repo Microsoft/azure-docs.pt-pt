@@ -4,10 +4,10 @@ description: Este artigo descreve como restaurar as bases de dados do SQL Server
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252457"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar as bases de dados do Servidor SQL em VMs Azure

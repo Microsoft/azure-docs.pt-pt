@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: rohink
 ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250910"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Traffic Manager
@@ -157,7 +157,7 @@ O método de encaminhamento de tráfego **Multivalue** permite-lhe obter múltip
 * [Vou ter o mesmo conjunto de pontos finais quando o encaminhamento MultiValue for usado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
 
 ## <a name="subnet-traffic-routing-method"></a><a name = "subnet"></a>Método de encaminhamento de tráfego de sub-rede
-O método de encaminhamento de tráfego **subnet** permite-lhe mapear um conjunto de endereços IP do utilizador final para pontos finais específicos num perfil. Depois disso, se o Gestor de Tráfego receber uma consulta de DNS para esse perfil, irá inspecionar o endereço IP de origem desse pedido (na maioria dos casos este será o endereço IP de saída do DNS utilizado pelo chamador), determinará a que ponto final está mapeado e devolverá que ponto final na resposta de consulta. 
+O método de encaminhamento de tráfego **subnet** permite-lhe mapear um conjunto de endereços IP do utilizador final para pontos finais específicos num perfil. Depois disso, se o Gestor de Tráfego receber uma consulta de DNS para esse perfil, irá inspecionar o endereço IP de origem desse pedido (na maioria dos casos este será o endereço IP de saída do DNS utilizado pelo chamador), determinará a que ponto final está mapeado e devolverá esse ponto final na resposta à consulta. 
 
 O endereço IP a ser mapeado para um ponto final pode ser especificado como gamas CIDR (por exemplo, 1.2.3.0/24) ou como uma gama de endereços (por exemplo, 1.2.3.4-5.6.7.8). As gamas IP associadas a um ponto final têm de ser únicas dentro desse perfil e não podem ter uma sobreposição com o conjunto de endereçoIP de um ponto final diferente no mesmo perfil.
 Se definir um ponto final sem alcance de endereço, isso funciona como um recuo e retira o tráfego de quaisquer subredes restantes. Se não for incluído nenhum ponto final de recuo, o Traffic Manager envia uma resposta NODATA para quaisquer intervalos indefinidas. Por isso, é altamente recomendável que defina um ponto final de recuo, ou então certifique-se de que todas as gamas ip possíveis são especificadas em todos os seus pontos finais.

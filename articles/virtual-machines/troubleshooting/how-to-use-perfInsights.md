@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250130"
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar o PerfInsights
@@ -145,7 +145,7 @@ Recolhe os seguintes contadores de desempenho:
 
 - \Process, \Processador, \Memória, \Thread, \PhysicalDisk e \LogicalDisk
 - \Cache\Dirty Pages, \Cache\Lazy Write Flushes/seg, \Server\Pool Nonpaged, Failures, and \Server\Pool Paged Failures
-- Contadores selecionados em \Network Interface, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segmentos, \TCPv6\Segmentos, \Network Adapter, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TC4\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv Política de Rede QoS\Pacotes, \Per Processor Network Interface Card Activity, e \Microsoft Winsock BSP
+- Contadores selecionados em \Network Interface, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segmentos, \TCPv6\Segmentos, \Network Adapter, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, \Network QoS Policy\Packets, \Per Processor Network Interface Card Activity, e \Microsoft WinsBSP
 
 #### <a name="for-sql-server-instances"></a>Para casos de Servidor SQL
 - \SQL Server:Buffer Manager, \SQLServer:Estatísticas da piscina de recursos e \SQLServer:Estatísticas SQL\

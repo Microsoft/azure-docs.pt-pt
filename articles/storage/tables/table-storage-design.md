@@ -9,17 +9,17 @@ ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 8df639eea757c374554fa19e57c43cef79308e98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255148"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Criar tabelas escaláveis e de desempenho
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 
-Para conceber tabelas escaláveis e performantes, deve considerar fatores como desempenho, escalabilidade e custo. Se já desenhou esquemas para bases de dados relacionais, estas considerações são familiares, mas embora existam algumas semelhanças entre o modelo de armazenamento de serviço seletiva e modelos relacionais, existem também diferenças importantes. Estas diferenças normalmente levam a diferentes designs que podem parecer contraintuitivos ou errados para alguém familiarizado com bases de dados relacionais, mas faz sentido se você está projetando para uma loja de chave/valor NoSQL, como o serviço De Mesa Azure. Muitas das suas diferenças de design refletem o facto de o serviço Tabela ter sido projetado para suportar aplicações em escala em nuvem que podem conter milhares de milhões de entidades (ou linhas na terminologia relacional da base de dados) de dados ou para conjuntos de dados que devem suportar transações elevadas volumes. Por isso, deve pensar de forma diferente sobre como armazena os seus dados e compreender como funciona o serviço De Mesa. Uma loja de dados NoSQL bem concebida pode permitir que a sua solução escale muito mais e a um custo mais baixo do que uma solução que utiliza uma base de dados relacional. Este guia ajuda-o com estes tópicos.  
+Para conceber tabelas escaláveis e performantes, deve considerar fatores como desempenho, escalabilidade e custo. Se já desenhou esquemas para bases de dados relacionais, estas considerações são familiares, mas embora existam algumas semelhanças entre o modelo de armazenamento de serviço seletiva e modelos relacionais, existem também diferenças importantes. Estas diferenças normalmente levam a diferentes designs que podem parecer contraintuitivos ou errados para alguém familiarizado com bases de dados relacionais, mas faz sentido se você está projetando para uma loja de chave/valor NoSQL, como o serviço De Mesa Azure. Muitas das suas diferenças de design refletem o facto de o serviço Tabela ter sido projetado para suportar aplicações em escala em nuvem que podem conter milhares de milhões de entidades (ou linhas na terminologia relacional da base de dados) de dados ou para conjuntos de dados que devem suportar volumes de transações elevados. Por isso, deve pensar de forma diferente sobre como armazena os seus dados e compreender como funciona o serviço De Mesa. Uma loja de dados NoSQL bem concebida pode permitir que a sua solução escale muito mais e a um custo mais baixo do que uma solução que utiliza uma base de dados relacional. Este guia ajuda-o com estes tópicos.  
 
 ## <a name="about-the-azure-table-service"></a>Sobre o serviço De Mesa Azure
 Esta secção destaca algumas das principais características do serviço tabela que são especialmente relevantes para o design para o desempenho e escalabilidade. Se é novo no Serviço de Armazenamento Azure e mesa, leia primeiro [introdução ao Armazenamento Microsoft Azure](../../storage/common/storage-introduction.md) e inicie-se com o Armazenamento de Mesa [Azure utilizando .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) antes de ler o restante deste artigo. Embora o foco deste guia esteja no serviço Mesa, inclui a discussão dos serviços Azure Queue e Blob, e como poderá utilizá-los com o serviço Mesa.  

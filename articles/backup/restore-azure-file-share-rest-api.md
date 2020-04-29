@@ -4,10 +4,10 @@ description: Saiba como utilizar a REST API para restaurar as partilhas de fiche
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252509"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Restaurar as partilhas de ficheiros Azure usando a API REST

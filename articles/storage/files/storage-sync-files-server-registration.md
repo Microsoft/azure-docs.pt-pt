@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255096"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gerir servidores registados com O Sincronizado de Ficheiros Azure
@@ -106,7 +106,7 @@ Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -St
 Existem vários passos que são necessários para desregistar um servidor com um Serviço de Sincronização de Armazenamento. Vamos ver como desmarcar corretamente um servidor.
 
 > [!Warning]  
-> Não tente resolver problemas com sincronização, tiering na nuvem ou qualquer outro aspeto do Azure File Sync desregistando e registando um servidor, ou removendo e recriando os pontos finais do servidor, a menos que explicitamente instruído por um engenheiro da Microsoft. Desregistar um servidor e remover pontos finais do servidor é uma operação destrutiva, e ficheiros hierárquicos nos volumes com pontos finais do servidor não serão "reconectados" às suas localizações na partilha de ficheiros Azure após o servidor registado e os pontos finais do servidor estarem recriado, o que resultará em erros de sincronização. Note também que os ficheiros hierárquicos que existam fora de um espaço de nome final do servidor podem ser permanentemente perdidos. Os ficheiros hierárquicos podem existir dentro dos pontos finais do servidor, mesmo que o tiering de nuvem nunca tenha sido ativado.
+> Não tente resolver problemas com sincronização, tiering na nuvem ou qualquer outro aspeto do Azure File Sync desregistando e registando um servidor, ou removendo e recriando os pontos finais do servidor, a menos que explicitamente instruído por um engenheiro da Microsoft. Desregistar um servidor e remover pontos finais do servidor é uma operação destrutiva, e os ficheiros hierárquicos nos volumes com pontos finais do servidor não serão "reconectados" às suas localizações na partilha de ficheiros Azure após a recriação dos pontos finais do servidor registado e do servidor, o que resultará em erros de sincronização. Note também que os ficheiros hierárquicos que existam fora de um espaço de nome final do servidor podem ser permanentemente perdidos. Os ficheiros hierárquicos podem existir dentro dos pontos finais do servidor, mesmo que o tiering de nuvem nunca tenha sido ativado.
 
 #### <a name="optional-recall-all-tiered-data"></a>(Opcional) Lembre-se de todos os dados hierárquicos
 Se quiser que os ficheiros que estão atualmente disponíveis após a remoção do Azure File Sync (isto é, uma produção, não um teste, ambiente), lembre-se de todos os ficheiros de cada volume que contenham pontos finais do servidor. Desative o tiering da nuvem para todos os pontos finais do servidor e, em seguida, executar o seguinte cmdlet PowerShell:
@@ -186,7 +186,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 Quando o Azure File Sync estiver hospedado numa máquina virtual que funciona num hospedeiro de virtualização do Windows Server, pode utilizar o Storage QoS (qualidade de armazenamento do serviço) para regular o consumo de IO de armazenamento. A política de QoS de armazenamento pode ser definida como um máximo (ou limite, como a forma como o limite de ArmazensyncNetwork é aplicado acima) ou como um mínimo (ou reserva). A definição de um mínimo em vez de um máximo permite que o Azure File Sync rebente para utilizar a largura de banda de armazenamento disponível se outras cargas de trabalho não estiverem a usá-la. Para mais informações, consulte [Qualidade de Serviço de Armazenamento.](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview)
 
 ## <a name="see-also"></a>Consulte também
-- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
-- [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
+- [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)
-- [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)
+- [Resolver problemas da Sincronização de Ficheiros do Azure](storage-sync-files-troubleshoot.md)

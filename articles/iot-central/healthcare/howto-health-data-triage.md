@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77021649"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Construa um dashboard de fornecedor power BI
@@ -144,7 +144,7 @@ O próximo passo será analisar os dados provenientes do seu Hub de Eventos para
     |Parâmetro|Valor|
     |---|---|
     |Nome|Nome da interface|
-    |Tipo|Cadeia|
+    |Tipo|String|
 
     Prima **Guardar**. 
 

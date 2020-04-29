@@ -9,10 +9,10 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 251f0d8609921bd1d0222d9e30c537ecbb2a04bd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76548276"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-objective-c"></a>Como criar e localizar âncoras utilizando a relocalização grosseira no Objectivo-C

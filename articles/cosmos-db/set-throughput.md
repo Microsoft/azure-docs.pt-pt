@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.openlocfilehash: e7a64776cba00a6840af70cecad5bf9c02b3f38e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251976"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
@@ -28,7 +28,7 @@ A entrada disponibilizada num contentor Azure Cosmos é exclusivamente reservada
 
 A regulação da entrada aprovisionada num recipiente é a opção mais utilizada. Pode escalar elástico a entrada de um recipiente, aprovisionando qualquer quantidade de entrada utilizando Unidades de [Pedido (RUs)](request-units.md). 
 
-A entrada prevista para um recipiente é distribuída uniformemente entre as suas divisórias físicas, e assumindo uma boa chave de partição que distribui as divisórias lógicas uniformemente entre as divisórias físicas, a entrada também é distribuída uniformemente em todos os as divisórias lógicas do recipiente. Não é possível especificar seletivamente a entrada para divisórias lógicas. Uma vez que uma ou mais divisórias lógicas de um recipiente são alojadas por uma divisória física, as divisórias físicas pertencem exclusivamente ao recipiente e suportam a entrada aprovisionada no recipiente. 
+A entrada prevista para um recipiente é distribuída uniformemente entre as suas divisórias físicas, e assumindo uma boa chave de partição que distribui as divisórias lógicas uniformemente entre as divisórias físicas, a entrada também é distribuída uniformemente por todas as divisórias lógicas do recipiente. Não é possível especificar seletivamente a entrada para divisórias lógicas. Uma vez que uma ou mais divisórias lógicas de um recipiente são alojadas por uma divisória física, as divisórias físicas pertencem exclusivamente ao recipiente e suportam a entrada aprovisionada no recipiente. 
 
 Se a carga de trabalho em funcionamento numa divisória lógica consumir mais do que a entrada que foi atribuída a essa partição lógica, as suas operações ficam limitadas. Quando ocorrer a limitação da taxa, pode aumentar a entrada prevista para todo o contentor ou voltar a tentar as operações. Para obter mais informações sobre a partilha, consulte [divisórias lógicas.](partition-data.md)
 

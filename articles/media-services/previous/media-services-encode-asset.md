@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
 ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251105"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Visão geral dos codificadores de meios de comunicação azure on-demand 
@@ -30,14 +30,14 @@ A Azure Media Services oferece múltiplas opções para a codificação de meios
 Ao começar com os Serviços de Media, é importante entender a diferença entre códigos e formatos de ficheiros.
 Os codecs são o software que implementa os algoritmos de compressão/descompressão, enquanto os formatos de ficheiros são recipientes que possuem o vídeo comprimido.
 
-A Media Services fornece uma embalagem dinâmica que lhe permite entregar o seu conteúdo codificado bitrate adaptativo MP4 ou Smooth Streaming em formatos de streaming suportados por Media Services (MPEG DASH, HLS, Smooth Streaming) sem ter de voltar a embalar estes formatos de streaming.
+O Media Services fornece uma embalagem dinâmica que lhe permite entregar o seu conteúdo codificado de bitrate adaptativo MP4 ou Smooth Streaming em formatos de streaming suportados por Media Services (MPEG DASH, HLS, Smooth Streaming) sem ter de voltar a embalar nestes formatos de streaming.
 
 Quando a sua conta De serviços de media é criada, um ponto final de streaming **predefinido** é adicionado à sua conta no estado **Deter.** Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. A faturação para pontos finais de streaming ocorre sempre que o ponto final está em estado de **Corrida.**
 
 A Media Services apoia os seguintes codificadores a pedido que são descritos neste artigo:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Fluxo de Trabalho Premium do Codificador de Multimédia](media-services-encode-asset.md#media-encoder-premium-workflow)
+* [Fluxo de Trabalho Premium de Codificador de Multimédia](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 Este artigo dá uma breve visão geral dos codificadores de meios de comunicação sobre a procura e fornece links para artigos que dão informações mais detalhadas. O tópico também fornece comparação dos codificadores.
 

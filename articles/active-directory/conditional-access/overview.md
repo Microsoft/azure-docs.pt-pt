@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240913"
 ---
 # <a name="what-is-conditional-access"></a>O que é o Acesso Condicional?
@@ -59,7 +59,7 @@ Os sinais comuns que o Acesso Condicional pode ter em conta na tomada de uma dec
 
 ## <a name="common-decisions"></a>Decisões comuns
 
-- Bloquear acesso
+- Bloquear o acesso
    - Decisão mais restritiva
 - Conceder acesso
    - Decisão menos restritiva, pode ainda exigir uma ou mais das seguintes opções:

@@ -11,10 +11,10 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 9879f98e72e22fc0745a9e91f29216cbe74ab8fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255304"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Managing Concurrency in Microsoft Azure Storage (Gerir a Simultaneidade no Armazenamento do Microsoft Azure)
@@ -29,7 +29,7 @@ Este artigo fornece uma visão geral de como a plataforma de armazenamento Azure
 
 ## <a name="azure-storage-simplifies-cloud-development"></a>Armazenamento Azure simplifica desenvolvimento de nuvem
 
-O serviço de armazenamento Azure suporta as três estratégias, embora seja distinto na sua capacidade de fornecer total apoio à conmoeda otimista e pessimista porque foi projetado para abraçar um forte modelo de consistência que garante que quando o O serviço de armazenamento compromete uma operação de inserção de dados ou atualização todos os acessos adicionais a esses dados verão a última atualização. As plataformas de armazenamento que utilizam um eventual modelo de consistência têm um desfasamento entre quando uma escrita é realizada por um utilizador e quando os dados atualizados podem ser vistos por outros utilizadores complicando assim o desenvolvimento das aplicações do cliente de forma a evitar inconsistências de afetando os utilizadores finais.  
+O serviço de armazenamento Azure suporta as três estratégias, embora seja distinto na sua capacidade de fornecer total apoio a uma conmoeda otimista e pessimista, pois foi projetado para abraçar um forte modelo de consistência que garante que quando o serviço de armazenamento compromete uma operação de inserção de dados ou atualização todos os acessos adicionais a esses dados verá a última atualização. As plataformas de armazenamento que utilizam um eventual modelo de consistência têm um desfasamento entre quando uma escrita é realizada por um utilizador e quando os dados atualizados podem ser vistos por outros utilizadores complicando assim o desenvolvimento das aplicações do cliente de forma a evitar que inconsistências afetem os utilizadores finais.  
 
 Além de selecionar uma estratégia de condivisa apropriada, os desenvolvedores também devem estar cientes de como uma plataforma de armazenamento isola as mudanças – particularmente alterações no mesmo objeto através de transações. O serviço de armazenamento Azure utiliza o isolamento instantâneo para permitir que as operações de leitura ocorram simultaneamente com operações de escrita dentro de uma única divisória. Ao contrário de outros níveis de isolamento, o isolamento instantâneo garante que todas as leituras vêem uma imagem consistente dos dados mesmo quando estão a ocorrer atualizações – essencialmente devolvendo os últimos valores comprometidos enquanto uma transação de atualização está a ser processada.  
 
@@ -39,7 +39,7 @@ Pode optar por utilizar modelos de conmoeda otimistas ou pessimistas para gerir 
 
 ### <a name="optimistic-concurrency-for-blobs-and-containers"></a>Conmoeda otimista para bolhas e contentores
 
-O serviço de armazenamento atribui um identificador a todos os objetos armazenados. Este identificador é atualizado sempre que uma operação de atualização é realizada num objeto. O identificador é devolvido ao cliente como parte de uma resposta HTTP GET utilizando o cabeçalho ETag (marca de entidade) que é definido dentro do protocolo HTTP. Um utilizador que efetua uma atualização sobre tal objeto pode enviar o ETag original juntamente com um cabeçalho condicional para garantir que uma atualização só ocorrerá se uma determinada condição for satisfeita – neste caso, a condição é um cabeçalho "If-Match", que requer o Serviço de Armazenamento para garantir que o valor do ETag especificado no pedido de atualização é o mesmo que o armazenado no Serviço de Armazenamento.  
+O serviço de armazenamento atribui um identificador a todos os objetos armazenados. Este identificador é atualizado sempre que uma operação de atualização é realizada num objeto. O identificador é devolvido ao cliente como parte de uma resposta HTTP GET utilizando o cabeçalho ETag (marca de entidade) que é definido dentro do protocolo HTTP. Um utilizador que realize uma atualização sobre tal objeto pode enviar o ETag original juntamente com um cabeçalho condicional para garantir que uma atualização só ocorrerá se uma determinada condição for satisfeita – neste caso, a condição é um cabeçalho "If-Match", que requer o Serviço de Armazenamento para garantir que o valor do ETag especificado no pedido de atualização é o mesmo que o armazenado no Serviço de Armazenamento.  
 
 O esboço deste processo é o seguinte:  
 
@@ -129,7 +129,7 @@ O quadro seguinte resume as operações blob que aceitam cabeçalhos condicionai
 
 Para bloquear uma bolha para uso exclusivo, pode adquirir um contrato de [arrendamento.](https://msdn.microsoft.com/library/azure/ee691972.aspx) Ao adquirir um contrato de arrendamento, especifice quanto tempo precisa do arrendamento: isto pode ser entre 15 a 60 segundos ou infinito, o que equivale a um bloqueio exclusivo. Você pode renovar um arrendamento finito para estender, e você pode liberar qualquer arrendamento quando você terminar com ele. O serviço Blob lança automaticamente arrendamentos finitos quando expiram.  
 
-Os arrendamentos permitem apoiar diferentes estratégias de sincronização, incluindo escrita exclusiva/leitura partilhada, escrita exclusiva/leitura exclusiva e escrita partilhada /leitura exclusiva. Quando existe um contrato de arrendamento, o serviço de armazenamento impõe escritas exclusivas (put, set e delete operations) no entanto, garantir a exclusividade para as operações de leitura requer que o desenvolvedor garanta que todas as aplicações de clientes utilizem um ID de locação e que apenas um cliente de cada vez tem um identificação válida do arrendamento. Leia as operações que não incluem um resultado de ID de locação em leituras partilhadas.  
+Os arrendamentos permitem apoiar diferentes estratégias de sincronização, incluindo escrita exclusiva/leitura partilhada, escrita exclusiva/leitura exclusiva e escrita partilhada /leitura exclusiva. Quando existe um contrato de arrendamento, o serviço de armazenamento impõe escritos exclusivos (put, set e eliminação de operações) no entanto, garantir a exclusividade das operações de leitura requer que o desenvolvedor garanta que todas as aplicações de clientes utilizem um ID de locação e que apenas um cliente de cada vez tem um ID de locação válido. Leia as operações que não incluem um resultado de ID de locação em leituras partilhadas.  
 
 O seguinte C# snippet mostra um exemplo de adquirir um contrato de arrendamento exclusivo por 30 segundos numa bolha, atualizar o conteúdo da bolha e, em seguida, libertar o arrendamento. Se já existe um contrato de arrendamento válido na bolha quando tenta adquirir um novo contrato de arrendamento, o serviço Blob devolve um resultado de situação de conflito "HTTP (409)." O seguinte snippet utiliza um objeto **AccessCondition** para encapsular as informações de locação quando faz um pedido para atualizar a bolha no serviço de armazenamento.  Pode descarregar a amostra completa aqui: [Gerir a Concurrency utilizando o Armazenamento Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -215,7 +215,7 @@ Para utilizar a conmoeda otimista e verificar se outro processo modificou uma en
 
 Note que, ao contrário do serviço Blob, o serviço de mesa requer que o cliente inclua um cabeçalho **If-Match** em pedidos de atualização. No entanto, é possível forçar uma atualização incondicional (último escritor ganha estratégia) e contornar as verificações de condivisões se o cliente definir o cabeçalho **If-Match** para o personagem wildcard (*) no pedido.  
 
-O seguinte C# snippet mostra uma entidade cliente que foi previamente criada ou recuperada tendo o seu endereço de e-mail atualizado. A operação inicial de inserção ou recuperação armazena o valor ETag no objeto do cliente, e porque a amostra utiliza a mesma instância de objeto quando executa a operação de substituição, envia automaticamente o valor ETag de volta para o serviço de mesa, permitindo que o serviço verificar se há violações de moedas. Se outro processo tiver atualizado a entidade no armazenamento de mesa, o serviço devolve uma mensagem de estado HTTP 412 (Pré-condição Falhada).  Pode descarregar a amostra completa aqui: [Gerir a Concurrency utilizando o Armazenamento Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+O seguinte C# snippet mostra uma entidade cliente que foi previamente criada ou recuperada tendo o seu endereço de e-mail atualizado. A operação inicial de inserção ou recuperação armazena o valor ETag no objeto do cliente, e como a amostra utiliza a mesma instância de objeto quando executa a operação de substituição, envia automaticamente o valor ETag de volta para o serviço de mesa, permitindo ao serviço verificar se há violações de moeda. Se outro processo tiver atualizado a entidade no armazenamento de mesa, o serviço devolve uma mensagem de estado HTTP 412 (Pré-condição Falhada).  Pode descarregar a amostra completa aqui: [Gerir a Concurrency utilizando o Armazenamento Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 try

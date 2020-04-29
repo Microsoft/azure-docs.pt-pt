@@ -10,10 +10,10 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
 ms.openlocfilehash: fa6e393500e9deeb91ee84aa5255320003817f08
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76719896"
 ---
 # <a name="tutorial-configure-transactional-replication-between-two-managed-instances-and-sql-server"></a>Tutorial: Configure a replicação transacional entre duas instâncias geridas e o Servidor SQL
@@ -271,12 +271,12 @@ Uma vez configurada a distribuição, pode agora criar a publicação. Para o fa
 1. Ligue-se `sql-mi-publisher` à instância gerida. 
 1. No **Object Explorer,** expanda o nó de **replicação** e clique à direita na pasta **De publicação local.** Selecione **Nova Publicação...**. 
 1. Selecione **Next** para passar pela página de boas-vindas. 
-1. Na página Base de `ReplTutorial` Dados de **Publicação,** selecione a base de dados que criou anteriormente. Selecione **Next**. 
-1. Na página do **tipo Publicação,** selecione **publicação transacional**. Selecione **Next**. 
-1. Na página de **Artigos,** verifique a caixa ao lado das **Tabelas**. Selecione **Next**. 
+1. Na página Base de `ReplTutorial` Dados de **Publicação,** selecione a base de dados que criou anteriormente. Selecione **Seguinte**. 
+1. Na página do **tipo Publicação,** selecione **publicação transacional**. Selecione **Seguinte**. 
+1. Na página de **Artigos,** verifique a caixa ao lado das **Tabelas**. Selecione **Seguinte**. 
 1. Na página **Filter Table Rows,** selecione **Seguinte** sem adicionar filtros. 
-1. Na página do **Snapshot Agent,** verifique imediatamente a caixa ao lado da **Create snapshot e mantenha o instantâneo disponível para inicializar as subscrições**. Selecione **Next**. 
-1. Na página de Segurança do **Agente,** selecione Definições de **Segurança..**. Forneça credenciais de login do SQL Server para utilizar para o agente Snapshot e para se ligar ao Editor. Selecione **OK** para fechar a página de Segurança do **Agente Instantâneo.** Selecione **Next**. 
+1. Na página do **Snapshot Agent,** verifique imediatamente a caixa ao lado da **Create snapshot e mantenha o instantâneo disponível para inicializar as subscrições**. Selecione **Seguinte**. 
+1. Na página de Segurança do **Agente,** selecione Definições de **Segurança..**. Forneça credenciais de login do SQL Server para utilizar para o agente Snapshot e para se ligar ao Editor. Selecione **OK** para fechar a página de Segurança do **Agente Instantâneo.** Selecione **Seguinte**. 
 
    ![Configurar a segurança do Agente Snapshot](media/sql-database-managed-instance-configure-replication-tutorial/snapshot-agent-security.png)
 
@@ -397,7 +397,7 @@ Embora seja possível que esta mensagem de erro seja precisa, e não existam pub
 Consulte o seguinte artigo de funcionalidades de segurança de funcionalidades de segurança de recursos de instância [geridas](sql-database-managed-instance.md#azure-sql-database-security-features) para uma lista completa de formas de proteger a sua base de dados. São discutidos os seguintes recursos de segurança:
 
 - [Auditoria de instância gerida](sql-database-managed-instance-auditing.md) 
-- [Sempre encriptado](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Deteção de ameaças](sql-database-managed-instance-threat-detection.md) 
 - [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
 - [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security) 

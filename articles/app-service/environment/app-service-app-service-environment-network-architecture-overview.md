@@ -8,10 +8,10 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243851"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Visão geral da arquitetura de rede dos ambientes de serviço de aplicações
@@ -70,7 +70,7 @@ O diagrama seguinte mostra um exemplo de uma arquitetura em camadas com aplicaç
 
 No exemplo acima do Ambiente de Serviço de Aplicações "ASE One" tem um endereço IP de saída de 192.23.1.2.  Se uma aplicação em execução nesta App Service Environment fizer uma chamada de saída para uma aplicação que funciona numa segunda App Service Environment ("ASE Two") localizada na mesma rede virtual, a chamada de saída será tratada como uma chamada de "Internet".  Como resultado, o tráfego de rede que chega no segundo App Service Environment mostrará como originário de 192.23.1.2 (ou seja, não a gama de endereços de sub-rede do primeiro Ambiente de Serviço de Aplicações).
 
-Apesar de as chamadas entre diferentes ambientes de serviços de aplicações serem tratadas como chamadas de "Internet", quando ambos os Ambientes de Serviço sinuoso estão localizados na mesma região do Azure, o tráfego de rede permanecerá na rede regional de Azure e não fluirá fisicamente sobre a Internet pública.  Como resultado, você pode usar um grupo de segurança de rede na subnet do segundo App Service Environment para apenas permitir chamadas de entrada a partir do primeiro App Service Environment (cujo endereço IP de saída é 192.23.1.2), garantindo assim uma comunicação segura entre a App Ambientes de Serviço.
+Apesar de as chamadas entre diferentes ambientes de serviços de aplicações serem tratadas como chamadas de "Internet", quando ambos os Ambientes de Serviços de Aplicação estão localizados na mesma região do Azure, o tráfego de rede permanecerá na rede regional de Azure e não fluirá fisicamente pela Internet pública.  Como resultado, pode utilizar um grupo de segurança de rede na subnet do segundo App Service Environment para permitir apenas chamadas de entrada a partir do primeiro App Service Environment (cujo endereço IP de saída é 192.23.1.2), garantindo assim uma comunicação segura entre os Ambientes de Serviço de Aplicações.
 
 ## <a name="additional-links-and-information"></a>Links e Informações Adicionais
 Estão disponíveis detalhes sobre as portas de entrada utilizadas pelos Ambientes de Serviço de Aplicações e utilizando grupos de segurança de rede para controlar o tráfego de entrada [.][controllinginboundtraffic]

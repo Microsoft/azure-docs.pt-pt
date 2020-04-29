@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 32fa54ef0d8eccaf8745ee37cb028d4f3c6d73eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247296"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorize, receba e envie eventos com Hubs de Eventos Azure e Aplicações Lógicas Azure
@@ -33,7 +33,7 @@ Se você é novo em aplicações lógicas, reveja [o que são As Aplicações L�
 
 Para garantir que a sua aplicação lógica pode aceder ao seu Hub de Eventos, verifique as suas permissões e obtenha a cadeia de ligação para o seu espaço de nome Sem Evento.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Vá ao espaço de *nome*do Seu Event Hubs, não a um Hub de Eventos específico. 
 

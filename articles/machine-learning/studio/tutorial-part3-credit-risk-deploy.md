@@ -11,10 +11,10 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ms.openlocfilehash: 9fb0b59374edf322e5e2221b90e912ee2c665bac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79204158"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Implementar modelo de risco de crédito - Azure Machine Learning Studio (clássico)
@@ -98,7 +98,7 @@ Quando clica em **Configurar o Serviço Web,** várias coisas acontecem:
 * O modelo treinado é convertido num único módulo **Modelo Treinado** e armazenado na paleta de módulos à esquerda da tela de experiência (pode encontrá-lo em **Modelos Treinados)**
 * Os módulos utilizados para o treino são removidos; especificamente:
   * [Árvore de Decisões Elevada de Duas Classes][two-class-boosted-decision-tree]
-  * [Modelo de comboio][train-model]
+  * [Preparar Modelo][train-model]
   * [Dividir Dados][split]
   * o segundo módulo [execute R Script][execute-r-script] que foi usado para dados de teste
 * O modelo treinado salvo é adicionado de volta à experiência

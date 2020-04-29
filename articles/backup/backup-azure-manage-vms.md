@@ -5,10 +5,10 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.openlocfilehash: dd4e9dc199048b3faf3da0cadfdf60bdcb26c5bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248154"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure
@@ -30,7 +30,7 @@ Pode gerir backups utilizando o painel de instrumentos e perfurando para VMs ind
 
 Para ver VMs no painel do cofre:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu Hub, **selecione Browse**. Na lista de recursos, escreva **Serviços de Recuperação**. À medida que escreve, a lista é filtrada com base na sua entrada. Selecione **cofres de Serviços**de Recuperação .
 
     ![Criar um cofre dos Serviços de Recuperação ](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
@@ -56,7 +56,7 @@ Para ver VMs no painel do cofre:
 
 Para gerir uma política de backup:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
 2. No azulejo **de backup itens,** selecione **Máquinas Virtuais Azure**.
 
     ![Abra o azulejo de backup itens](./media/backup-azure-manage-vms/contoso-vault-1606.png)

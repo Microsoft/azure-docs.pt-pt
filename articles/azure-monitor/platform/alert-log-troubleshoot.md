@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
 ms.openlocfilehash: acb9784b745fa90fc9cd264162930020e6d64751
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249038"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Alertas de registo de resolução de problemas no Monitor Azure  
@@ -183,7 +183,7 @@ Cada regra de alerta de registo criada no Monitor Azure como parte da sua config
 - Não houve fluxo de dados para a plataforma de análise. A [execução](https://dev.loganalytics.io/documentation/Using-the-API/Errors) da consulta dá um erro porque não há dados para a consulta fornecida.
 - As alterações na [linguagem de consulta](https://docs.microsoft.com/azure/kusto/query/) incluem um formato revisto para comandos e funções. Assim, a consulta fornecida anteriormente numa regra de alerta já não é válida.
 
-[O Azure Advisor](../../advisor/advisor-overview.md) avisa-o sobre este comportamento. É adicionada uma recomendação para a regra específica de alerta de registo no Azure Advisor, na categoria de Alta Disponibilidade com impacto médio e uma descrição de "Reparar a sua regra de alerta de registo para garantir a monitorização". Se uma consulta de alerta na regra de alerta de registo não for retificada depois de o Azure Advisor ter fornecido uma recomendação durante sete dias, o Azure Monitor irá desativar o alerta de registo e garantir que não é faturado desnecessariamente quando a regra não pode ser executada continuamente por um período considerável ( como uma semana).
+[O Azure Advisor](../../advisor/advisor-overview.md) avisa-o sobre este comportamento. É adicionada uma recomendação para a regra específica de alerta de registo no Azure Advisor, na categoria de Alta Disponibilidade com impacto médio e uma descrição de "Reparar a sua regra de alerta de registo para garantir a monitorização". Se uma consulta de alerta de alerta não for retificada depois de o Azure Advisor ter fornecido uma recomendação durante sete dias, o Azure Monitor irá desativar o alerta de registo e garantir que não é faturado desnecessariamente quando a regra não pode ser executada continuamente por um período considerável (como uma semana).
 
 Pode encontrar a hora exata em que o Monitor Azure desativou a regra de alerta de registo, procurando um evento no Registo de [Atividade sinuoso](../../azure-resource-manager/management/view-activity-logs.md).
 

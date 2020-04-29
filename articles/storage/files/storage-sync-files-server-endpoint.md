@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255109"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicione/remova um ponto final do servidor De sincronização de ficheiros Azure
@@ -73,5 +73,5 @@ Para remover o ponto final do servidor:
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Registar/desregistar um servidor com Sincronização de Ficheiros Azure](storage-sync-files-server-registration.md)
-- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
+- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

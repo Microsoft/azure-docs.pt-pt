@@ -4,10 +4,10 @@ description: Desloque os passos para a amostra de plantas do FedRAMP High, inclu
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: 91f208105a07770c557b1f273f3420c03b3d6dcb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77087308"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Implementar a amostra de plantas do FedRAMP High
@@ -144,7 +144,7 @@ Agora que reviu os passos para implementar a amostra de plantas do FedRAMP High,
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

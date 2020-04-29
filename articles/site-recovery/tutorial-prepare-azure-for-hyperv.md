@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74084180"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Prepare os recursos do Azure para a recuperação de desastres hiper-V
@@ -36,7 +36,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 ## <a name="sign-in"></a>Iniciar sessão
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="verify-account-permissions"></a>Verificar permissões de conta
 
@@ -48,7 +48,7 @@ Se acabou de criar uma conta Azure gratuita, é o administrador dessa subscriç�
 
 Para completar estas tarefas, a sua conta deve ser atribuída a função virtual de colaborador da máquina incorporada. Para gerir as operações de recuperação do site num cofre, a sua conta deve ser atribuída a função incorporada do Colaborador de Recuperação do Site.
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As VMs do Azure são criadas a partir do armazenamento quando fizer a ativação pós-falha do local para o Azure. A conta de armazenamento tem de estar na mesma região que o cofre dos Serviços de Recuperação.
 
@@ -63,7 +63,7 @@ As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As
 9. No **Local,** escolha a localização geográfica para a sua conta de armazenamento. Para este tutorial, use a **Europa Ocidental.**
 10. Selecione **Criar** para criar a conta de armazenamento.
 
-   ![Criar uma conta do Storage](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Criar uma conta de armazenamento](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
 
@@ -99,7 +99,7 @@ A rede virtual demora alguns segundos a ser criada. Depois de criado, verá no p
 
 Saiba mais sobre:
 - [Redes Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
+- [Discos geridos](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
 
 
 

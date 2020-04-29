@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251469"
 ---
 # <a name="filters"></a>Filtros
@@ -76,7 +76,7 @@ As condições de propriedade da via filtram descrevem tipos de faixas, valores 
 |---|---|
 |**Bitrate**|Utilize a bitrate da pista para filtrar.<br/><br/>O valor recomendado é uma gama de bitrates, em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: embora possa utilizar um valor bitrate específico, como 250000 (bits por segundo), esta abordagem não é recomendada, uma vez que os bitrates exatos podem oscilar de um Ativo para outro.|
 |**FourCC**|Utilize o valor FourCC da pista para filtragem.<br/><br/>O valor é o primeiro elemento do formato codecs, conforme especificado no [RFC 6381](https://tools.ietf.org/html/rfc6381). Atualmente, os seguintes códigos são suportados: <br/>Para Vídeo: "avc1", "hev1", "hvc1"<br/>Para Áudio: "mp4a", "ec-3"<br/><br/>Para determinar os valores do FourCC para faixas num Ativo, obtenha e examine o ficheiro manifesto.|
-|**Língua**|Utilize a linguagem da pista para filtrar.<br/><br/>O valor é a etiqueta de uma língua que pretende incluir, conforme especificado no RFC 5646. Por exemplo, "en".|
+|**Idioma**|Utilize a linguagem da pista para filtrar.<br/><br/>O valor é a etiqueta de uma língua que pretende incluir, conforme especificado no RFC 5646. Por exemplo, "en".|
 |**Nome**|Utilize o nome da pista para filtrar.|
 |**Tipo**|Utilize o tipo de via para filtrar.<br/><br/>São permitidos os seguintes valores: "vídeo", "áudio" ou "texto".|
 

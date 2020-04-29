@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
 ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251014"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Advanced Media Encoder Premium Workflow tutorials (Tutoriais avançados do Media Encoder Premium Workflow)
@@ -228,7 +228,7 @@ Quando uma saída de ativos multibitáveis é desejada para utilização em comb
 ### <a name="adding-one-or-more-additional-mp4-outputs"></a><a id="MXF_to_MP4_with_dyn_packaging_more_outputs"></a>Adicionar uma ou mais saídas de MP4 adicionais
 Cada ficheiro MP4 do nosso ativo resultante da Azure Media Services suporta uma bitrate e resolução diferentes. Vamos adicionar um ou mais ficheiros de saída MP4 ao fluxo de trabalho.
 
-Para garantir que todos os nossos codificadores de vídeo criados com as mesmas configurações, é mais conveniente duplicar o já existente AVC Video Encoder e configurar outra combinação de resolução e bitrate (vamos adicionar um de 960 x 540 a 25 fotogramas por segundo a 2,5 Mbps ). Para duplicar o codificador existente, copie-o na superfície do designer.
+Para garantir que todos os nossos codificadores de vídeo são criados com as mesmas configurações, é mais conveniente duplicar o já existente AVC Video Encoder e configurar outra combinação de resolução e bitrate (vamos adicionar um de 960 x 540 a 25 fotogramas por segundo a 2,5 Mbps). Para duplicar o codificador existente, copie-o na superfície do designer.
 
 Ligue o pino de saída de vídeo não comprimido da entrada de ficheiros de mídia no nosso novo componente AVC.
 
@@ -946,7 +946,7 @@ Com a cláusula de guarda simples abaixo, podemos verificar se é necessário ap
 
 [Codificação de conteúdos a pedido com o Serviço de Mídia Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-[Media Encoder Premium Workflow Formatos e Codecs](media-services-premium-workflow-encoder-formats.md)
+[Formatos e Codecs de Fluxo de Trabalho Premium do Codificador de Multimédia](media-services-premium-workflow-encoder-formats.md)
 
 [Ficheiros de fluxo de trabalho de amostra](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 

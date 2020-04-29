@@ -7,10 +7,10 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 02/15/2020
 ms.openlocfilehash: ada08de182791c6ecb2b83ef3b924bf40975e1ee
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851281"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer funções azure acesso ao site privado
@@ -45,7 +45,7 @@ Para este tutorial, é importante que compreenda o endereço IP e a sub-rede. Po
 
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -64,7 +64,7 @@ O primeiro passo neste tutorial é criar uma nova máquina virtual dentro de uma
 
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | **Assinatura** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. |
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. |
     | [**Grupo de recursos**](../azure-resource-manager/management/overview.md) | myResourceGroup | Escolha o grupo de recursos para conter todos os recursos para este tutorial.  Usar o mesmo grupo de recursos facilita a limpeza de recursos quando terminar com este tutorial. |
     | **Nome da máquina virtual** | myVM | O nome VM precisa ser único no grupo de recursos |
     | [**Região**](https://azure.microsoft.com/regions/) | (EUA) Centro-Norte dos EUA | Escolha uma região perto de si ou perto das funções a aceder. |
@@ -187,9 +187,9 @@ O próximo passo neste tutorial é criar uma Função Azure desencadeada por HTT
 
 1. Siga uma das seguintes acelerações para criar e implementar a sua aplicação Funções Azure.
 
-    * [Código de estúdio visual](./functions-create-first-function-vs-code.md)
+    * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
-    * [Linha de comandos](./functions-create-first-azure-function-azure-cli.md)
+    * [Linha de comando](./functions-create-first-azure-function-azure-cli.md)
     * [Maven (Java)](./functions-create-first-java-maven.md)
 
 2. Ao publicar o seu projeto Funções Azure, escolha o recurso de aplicação de funções que criou anteriormente neste tutorial.

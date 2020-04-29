@@ -9,10 +9,10 @@ author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
 ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79246477"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de design de mesa de armazenamento de mesa azure: tabelas escaláveis e performantes
@@ -195,12 +195,12 @@ Os seguintes exemplos assumem que o armazenamento de mesa está a armazenar `Tim
 
 | Nome da coluna | Tipo de dados |
 | --- | --- |
-| `PartitionKey`(Nome do departamento) |Cadeia |
-| `RowKey`(Identificação dos empregados) |Cadeia |
-| `FirstName` |Cadeia |
-| `LastName` |Cadeia |
+| `PartitionKey`(Nome do departamento) |String |
+| `RowKey`(Identificação dos empregados) |String |
+| `FirstName` |String |
+| `LastName` |String |
 | `Age` |Número inteiro |
-| `EmailAddress` |Cadeia |
+| `EmailAddress` |String |
 
 Aqui estão algumas diretrizes gerais para a conceção de consultas de armazenamento de mesa. A sintaxe do filtro utilizada nos seguintes exemplos é da API de armazenamento de mesa REST API. Para mais informações, consulte [as entidades de Consulta.](https://msdn.microsoft.com/library/azure/dd179421.aspx)  
 

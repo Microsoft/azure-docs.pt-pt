@@ -8,19 +8,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254472"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Transmita dados como entrada no Stream Analytics
 
 O Stream Analytics tem integração de primeira classe com fluxos de dados azure como inputs de três tipos de recursos:
 
-- [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/)
-- [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) 
-- [Armazenamento Azure Blob](https://azure.microsoft.com/services/storage/blobs/) 
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
+- [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) 
 
 Estes recursos de entrada podem viver na mesma subscrição do Azure que o seu trabalho stream analytics ou uma subscrição diferente.
 
@@ -50,7 +50,7 @@ A tabela a seguir explica cada imóvel na nova página de **entrada** no portal 
 | Propriedade | Descrição |
 | --- | --- |
 | **Pseudónimo de entrada** |Um nome amigável que usa na consulta do trabalho para fazer referência a esta entrada. |
-| **Assinatura** | Escolha a subscrição em que existe o recurso do hub do Evento. | 
+| **Subscrição** | Escolha a subscrição em que existe o recurso do hub do Evento. | 
 | **Espaço de nomes do hub de eventos** | O espaço de nome do Event Hub é um recipiente para um conjunto de entidades de mensagens. Quando cria um novo centro de eventos, também cria o espaço de nome. |
 | **Nome do Hub do Evento** | O nome do centro do evento para usar como entrada. |
 | **Nome da política do Hub de Eventos** | A política de acesso partilhado que dá acesso ao Centro de Eventos. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. Esta opção é automaticamente povoada, a menos que selecione a opção de fornecer manualmente as definições do Event Hub.|
@@ -99,7 +99,7 @@ A tabela seguinte explica cada imóvel na nova página de **entrada** no portal 
 | Propriedade | Descrição |
 | --- | --- |
 | **Pseudónimo de entrada** | Um nome amigável que usa na consulta do trabalho para fazer referência a esta entrada.|
-| **Assinatura** | Escolha a subscrição em que existe o recurso IoT Hub. | 
+| **Subscrição** | Escolha a subscrição em que existe o recurso IoT Hub. | 
 | **IoT Hub** | O nome do IoT Hub para usar como entrada. |
 | **Ponto Final** | O ponto final para o IoT Hub.|
 | **Nome da política de acesso partilhado** | A política de acesso partilhado que dá acesso ao IoT Hub. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. |
@@ -152,7 +152,7 @@ A tabela seguinte explica cada imóvel na nova página de **entrada** no portal 
 | Propriedade | Descrição |
 | --- | --- |
 | **Pseudónimo de entrada** | Um nome amigável que usa na consulta do trabalho para fazer referência a esta entrada. |
-| **Assinatura** | Escolha a subscrição em que existe o recurso IoT Hub. | 
+| **Subscrição** | Escolha a subscrição em que existe o recurso IoT Hub. | 
 | **Conta de armazenamento** | O nome da conta de armazenamento onde estão localizados os ficheiros blob. |
 | **Chave da conta de armazenamento** | A chave secreta associada à conta de armazenamento. Esta opção é automaticamente povoada, a menos que selecione a opção de fornecer manualmente as definições de armazenamento Blob. |
 | **Contentor** | O recipiente para a entrada blob. Os contentores fornecem um agrupamento lógico para bolhas armazenadas no serviço Microsoft Azure Blob. Quando enviar uma bolha para o serviço de armazenamento Azure Blob, deve especificar um recipiente para essa bolha. Pode escolher ou utilizar o recipiente **existente** ou **criar um novo** recipiente para ter um novo recipiente criado.|

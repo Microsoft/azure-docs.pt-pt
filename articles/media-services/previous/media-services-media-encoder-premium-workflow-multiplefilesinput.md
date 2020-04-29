@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251001"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilização de vários ficheiros de entrada e propriedades componentes com Premium Encoder
@@ -470,7 +470,7 @@ Para codificar, siga estes passos:
 * [Introdução de Codificação Premium nos Serviços De Mídia Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Como utilizar a Codificação Premium nos Serviços De Mídia Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Codificação de conteúdos a pedido com a Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
-* [Media Encoder Premium Workflow formats and codecs](media-services-premium-workflow-encoder-formats.md) (Formatos e codecs do Media Encoder Premium Workflow)
+* [Media Encoder Premium Workflow formatos e codecs](media-services-premium-workflow-encoder-formats.md)
 * [Ficheiros de fluxo de trabalho de amostra](https://github.com/Azure/azure-media-services-samples)
 * [Ferramenta Azure Media Services Explorer](https://aka.ms/amse)
 
