@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
 ms.openlocfilehash: 27503defa23b2a35e767156139228aa2e177652f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81405187"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorizado pelo Monitor Azure?

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 56bdaa324420bf274e7cda8ac1c6506e4bc9ad21
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81404059"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Quickstart: Como construir um classificador com Visão Personalizada

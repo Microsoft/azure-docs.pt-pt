@@ -10,10 +10,10 @@ ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 2ef7db244057bc8b3b2e4d938b9f3bdd11c7940a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81406030"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Edição de livros textual na Automação Azure

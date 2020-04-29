@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12101b170066bc52e75f4aa281c6f1c21283c004
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81406475"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gestão de unidades administrativas em Diretório Ativo Azure (pré-visualização)

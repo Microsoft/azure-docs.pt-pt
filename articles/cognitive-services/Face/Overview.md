@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 6714a0c4b967d80ad683ef023b5811423bdcb022
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81403458"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço Azure Face?

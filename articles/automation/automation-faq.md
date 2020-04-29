@@ -8,10 +8,10 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
 ms.openlocfilehash: 3fa29f3df5f0434c4c61e8d12adbb3f55156a29f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81405968"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>A Automação Azure frequentemente fez perguntas

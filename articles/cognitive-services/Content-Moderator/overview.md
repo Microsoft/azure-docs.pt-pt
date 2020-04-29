@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: f28f2bcf5d04c9a6354b8135bd39546b9d8b9bf3
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81404304"
 ---
 # <a name="what-is-azure-content-moderator"></a>O que é o Content Moderator do Azure?
@@ -52,9 +52,9 @@ A tabela seguinte descreve os diferentes tipos de APIs de moderação.
 | ------ | ----------- |
 |[**Moderação de texto**](text-moderation-api.md)| Digitaliza texto para conteúdo ofensivo, conteúdo sexualmente explícito ou sugestivo, profanação e dados pessoais.|
 |[**Listas personalizadas de termos**](try-terms-list-api.md)| Digitaliza texto contra uma lista personalizada de termos, juntamente com os termos incorporados. Utilize listas personalizadas para bloquear ou permitir conteúdo de acordo com as suas próprias políticas de conteúdo.|  
-|[**Moderação de imagem**](image-moderation-api.md)| Procura imagens com conteúdo para adultos ou indecoroso, deteta texto em imagens com a função de OCR (reconhecimento ótico de carateres) e deteta rostos.|
+|[**Moderação de imagens**](image-moderation-api.md)| Procura imagens com conteúdo para adultos ou indecoroso, deteta texto em imagens com a função de OCR (reconhecimento ótico de carateres) e deteta rostos.|
 |[**Listas personalizadas de imagens**](try-image-list-api.md)| Analisa as imagens, comparando-as com uma lista personalizada de imagens. Utilize listas personalizadas de imagens para filtrar instâncias de conteúdo normalmente recorrente, que não pretende classificar novamente.|
-|[**Moderação de vídeo**](video-moderation-api.md)| Analisa vídeos relativamente a conteúdo para adultos ou indecoroso e devolve marcadores de hora para o dito conteúdo.|
+|[**Moderação de vídeos**](video-moderation-api.md)| Analisa vídeos relativamente a conteúdo para adultos ou indecoroso e devolve marcadores de hora para o dito conteúdo.|
 
 ## <a name="review-apis"></a>APIs de revisão
 

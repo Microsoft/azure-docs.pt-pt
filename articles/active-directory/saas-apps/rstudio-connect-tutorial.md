@@ -17,10 +17,10 @@ ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2bb5dd845b03bd94f0a94db50c01b804cf6f55c2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81407105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Integração de Diretório Ativo Azure com rStudio Connect
