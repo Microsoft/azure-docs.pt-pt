@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: c2ac05cb2a6b3bd185d5e3a84df4f3d9a01c5bef
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743262"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gestão da carga de trabalho com aulas de recursos na Azure Synapse Analytics

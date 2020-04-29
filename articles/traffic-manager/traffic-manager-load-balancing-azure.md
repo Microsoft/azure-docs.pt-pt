@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
 ms.openlocfilehash: cccd4a6b0b52608a6a17b73688e18f27088df5b0
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80757199"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilizar serviços de balanceamento de carga no Azure

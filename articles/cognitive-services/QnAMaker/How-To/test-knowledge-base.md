@@ -4,10 +4,10 @@ description: Testar a sua base de conhecimento qnA Maker é uma parte importante
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: da4988ced0b077952ce64e6227d16e58d40ae329
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78927264"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Teste a sua base de conhecimentos em QnA Maker

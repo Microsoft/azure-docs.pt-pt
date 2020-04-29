@@ -5,10 +5,10 @@ services: cognitive-services
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.openlocfilehash: 7c78f9ea261fa636cce50b69524802d0900e9d7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77650202"
 ---
 # <a name="content-types-of-documents-you-can-add-to-a-knowledge-base"></a>Tipos de conteúdo de documentos que pode adicionar a uma base de conhecimento
@@ -43,7 +43,7 @@ Cada tipo indica um formato esperado.
 
 Pode adicionar ficheiros a uma base de conhecimento a partir de uma fonte pública, ou ao seu sistema de ficheiros local, no [portal QnA Maker](https://www.qnamaker.ai).
 
-## <a name="content-format-guidelines"></a>Diretrizes de formato de conteúdo
+## <a name="content-format-guidelines"></a>Diretrizes de formatos de conteúdo
 
 Saiba mais sobre as diretrizes de [formato](../reference-document-format-guidelines.md) para os diferentes ficheiros.
 

@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: f7aa2a341a82d30f7022af49e626a3cd358854b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273471"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>E-mail entidade pré-construída para uma app LUIS

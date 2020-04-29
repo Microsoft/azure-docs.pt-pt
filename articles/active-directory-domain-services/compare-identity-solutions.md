@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 03/30/2020
 ms.author: iainfou
 ms.openlocfilehash: 5925e3374634dd4db4bdc6855949dc3880d8de7c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80655520"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Compare serviços de domínio ativo autogeridos, Diretório Ativo Azure e gerido serviços de domínio de diretório ativo azure

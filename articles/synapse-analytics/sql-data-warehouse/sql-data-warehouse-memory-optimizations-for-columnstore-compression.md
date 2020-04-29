@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: d2cbe9b94c4698a93b93c032ee4dcb421a78e59b
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743066"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do grupo de remo para a loja de colunas

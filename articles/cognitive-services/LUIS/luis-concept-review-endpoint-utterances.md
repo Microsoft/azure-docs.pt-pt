@@ -4,10 +4,10 @@ description: Com aprendizagem ativa, a sua revisão endpoint pronuncia-se para a
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 8d267fc441dc2cbf7f8ae3746486d5e7be55f135
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80546857"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceitos para permitir a aprendizagem ativa através da revisão de expressões de pontos finais

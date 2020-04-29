@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: 09fa22d33377dfcbafd84f0caeb5f33a575b1bce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681665"
 ---
 # <a name="textures"></a>Texturas

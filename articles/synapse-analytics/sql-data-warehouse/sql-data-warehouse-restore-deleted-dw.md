@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: d2e2fdb181b553d330368b043b75159e211dd0d2
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745122"
 ---
 # <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Restaurar uma piscina SQL eliminada usando azure Synapse Analytics
@@ -71,7 +71,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Restaurar uma base de dados eliminada utilizando o portal Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Navegue para o servidor SQL onde o seu armazém de dados eliminado foi hospedado.
 3. Selecione o ícone de bases de **dados Eliminado** na tabela de conteúdos.
 

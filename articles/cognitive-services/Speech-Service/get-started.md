@@ -12,10 +12,10 @@ ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
 ms.openlocfilehash: 4604bfe7c815f79733f99a1a3727e4c68527e7ec
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80656131"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Fala gratuitamente''

@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen
 ms.openlocfilehash: ce2891201331ee1efd861d2f13cec78c0551b6ba
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804576"
 ---
 # <a name="clustering-point-data"></a>Dados de pontos de agrupamento

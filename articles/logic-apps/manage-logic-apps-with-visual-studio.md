@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
 ms.openlocfilehash: 73df5b7f10e038b6894996eb83dec7b6914a4536
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80803195"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerir aplicações lógicas com o Visual Studio

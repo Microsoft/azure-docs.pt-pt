@@ -4,10 +4,10 @@ description: QnA Maker aprende melhor num ciclo iterativo de mudanças de modelo
 ms.topic: conceptual
 ms.date: 02/27/2020
 ms.openlocfilehash: 98fbd81baa717c981486f33cfb2b3a608cec27c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77914957"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida base de conhecimento em QnA Maker

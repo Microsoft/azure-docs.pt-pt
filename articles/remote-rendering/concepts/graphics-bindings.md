@@ -10,10 +10,10 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.openlocfilehash: 8b5db0532f3dcc8b6dfb024238d0cacff2e6d2a1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681886"
 ---
 # <a name="graphics-binding"></a>Ligação gráfica

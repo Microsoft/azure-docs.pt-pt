@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 6fa8bd42eb067124ab6ea1db77e2f3d6fba79638
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745221"
 ---
 # <a name="restore-an-existing-sql-pool"></a>Restaurar uma piscina SQL existente
@@ -89,7 +89,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-an-existing-sql-pool-through-the-azure-portal"></a>Restaurar uma piscina SQL existente através do portal Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Navegue até à piscina SQL da sua vontade de restaurar.
 3. Na parte superior da lâmina de visão geral, selecione **Restaurar**.
 

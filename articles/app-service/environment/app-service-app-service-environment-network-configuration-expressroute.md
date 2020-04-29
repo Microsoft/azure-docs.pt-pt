@@ -8,10 +8,10 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: fc11c6932d625b119ad933f5d4d128b4355530c5
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804440"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalhes de configuração de rede para App Service Environment for PowerApps com Azure ExpressRoute

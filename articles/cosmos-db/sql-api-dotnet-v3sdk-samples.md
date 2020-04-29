@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
 ms.openlocfilehash: 65d34d1e82a46cc5b3d7b0ad3239836acaee6f97
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80585351"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>Os exemplos da Azure Cosmos DB.NET V3 SDK (Microsoft.Azure.Cosmos) para a API SQL

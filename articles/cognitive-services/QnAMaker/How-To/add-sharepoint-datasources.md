@@ -4,10 +4,10 @@ description: Adicione fontes de dados seguras do SharePoint à sua base de conhe
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80294883"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicione uma fonte de dados segura do SharePoint à sua base de conhecimentos

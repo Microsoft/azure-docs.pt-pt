@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/03/2020
 ms.topic: tutorial
 ms.openlocfilehash: 1354ac3cf2c6fc716ac72ae339928fa49171893e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679619"
 ---
 # <a name="tutorial-changing-the-environment-and-materials"></a>Tutorial: Mudar o ambiente e os materiais

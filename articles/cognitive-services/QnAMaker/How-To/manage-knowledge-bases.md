@@ -4,10 +4,10 @@ description: O QnA Maker permite-lhe gerir as suas bases de conhecimento, propor
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 4eb07b30b10826c361f4f9b805b517e372fc5ea1
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80756812"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Criar base de conhecimento e gerir configurações

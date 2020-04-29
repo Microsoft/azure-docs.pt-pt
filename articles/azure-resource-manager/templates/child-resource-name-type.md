@@ -4,10 +4,10 @@ description: Descreve como definir o nome e o tipo para recursos infantis num mo
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743831"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Definir nome e tipo para recursos infantis

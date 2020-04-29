@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: 61c06fca0fe2f2449f67890dd962905642605716
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80366019"
 ---
 # <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Atualização RU/s para uma base de dados ou gráfico para Azure Cosmos DB - Gremlin API

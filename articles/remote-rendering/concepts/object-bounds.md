@@ -1,18 +1,18 @@
 ---
-title: Limites de objetos
+title: Limites dos objetos
 description: Explica como os limites de objetos espaciais podem ser consultados
 author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 1d2dfdb203b05f2f6b7de740718d7407bd88066c
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681717"
 ---
-# <a name="object-bounds"></a>Limites de objetos
+# <a name="object-bounds"></a>Limites dos objetos
 
 Os limites dos objetos representam o volume que uma [entidade](entities.md) e os seus filhos ocupam. Na renderização remota Azure, os limites dos objetos são sempre dados como caixas de *delimitação alinhadas* com o eixo (AABB). Os limites dos objetos podem ser no *espaço local* ou no *espaço mundial.* De qualquer forma, estão sempre alinhados com o eixo, o que significa que as extensões e o volume podem diferir entre a representação espacial local e mundial.
 

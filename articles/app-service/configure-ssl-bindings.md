@@ -7,10 +7,10 @@ ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: 9792181379bfa6f9e0337bf14208fe853c16b745
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80811741"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteja um nome DNS personalizado com uma ligação TLS/SSL no Serviço de Aplicações Azure

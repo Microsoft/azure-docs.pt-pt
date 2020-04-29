@@ -1,18 +1,18 @@
 ---
-title: Materiais de sobreposição durante a conversão do modelo
+title: Substituir materiais durante a conversão de modelos
 description: Explica o fluxo de trabalho sobrepor-se ao material no tempo de conversão
 author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
 ms.openlocfilehash: 90653db4c572877a728964851a99beebf2e823a4
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681483"
 ---
-# <a name="override-materials-during-model-conversion"></a>Materiais de sobreposição durante a conversão do modelo
+# <a name="override-materials-during-model-conversion"></a>Substituir materiais durante a conversão de modelos
 
 Durante a conversão, as definições de material no modelo de origem são utilizadas para definir os [materiais PBR utilizados](../../overview/features/pbr-materials.md) pelo renderizador.
 Às vezes, a [conversão por defeito](../../reference/material-mapping.md) não dá os resultados desejados e é preciso fazer alterações.

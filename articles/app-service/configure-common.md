@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
 ms.openlocfilehash: 18469c94b66acab27b58243e8d15eb924843319b
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811116"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configure uma app de serviço de aplicações no portal Azure

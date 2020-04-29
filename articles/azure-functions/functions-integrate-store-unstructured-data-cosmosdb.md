@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc
 ms.openlocfilehash: d11b7e7d55d0327bdec0a8bd6c73571cf846fd3c
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756648"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Armazenar dados não estruturados usando as funções do Azure e o Azure Cosmos DB
@@ -65,7 +65,7 @@ Tem de ter uma conta do Azure Cosmos DB que utilize a API SQL antes de criar o e
 
 Substitua o código da função existente pelo seguinte código no idioma à sua escolha:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Substitua a função C# existente pelo seguinte código:
 

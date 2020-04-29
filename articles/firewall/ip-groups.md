@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: victorh
 ms.openlocfilehash: e0638cbccd5e3bc282dbdd7d3b5918e29081a12b
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80757155"
 ---
 # <a name="ip-groups-preview-in-azure-firewall"></a>Grupos IP (pré-visualização) em Firewall Azure

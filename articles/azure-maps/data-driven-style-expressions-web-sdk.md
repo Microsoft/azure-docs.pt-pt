@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: d6009a655adcc26ebef31588eff2332a05f3a001
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804729"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo orientadas por dados (Web SDK)

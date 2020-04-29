@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 6a4b078342cbd62209b092a37fa95b08383789be
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673979"
 ---
 Como operador na sua aplicação Azure IoT Central, pode:

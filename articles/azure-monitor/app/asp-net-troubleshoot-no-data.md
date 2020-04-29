@@ -4,10 +4,10 @@ description: Não estás a ver dados em Insights de Aplicação Azure? Tente aqu
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.openlocfilehash: 34fc51f8f656ec0f630bd984ac1b28fbaa5e4dae
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80802591"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Informações de aplicação para .NET/.NET Core

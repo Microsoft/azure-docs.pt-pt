@@ -16,10 +16,10 @@ ms.date: 03/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3015ea26d81505c4f058846dbcb3b7858f79267
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80520132"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netvision-compas"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com netvision Compas

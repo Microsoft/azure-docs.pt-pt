@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: diberry
 ms.openlocfilehash: 9beb6dbbba1c5855b8bfa97fc02f50aa59225d78
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80474848"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API GenerateAnswer e metadados
@@ -46,7 +46,7 @@ Utiliza a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveserv
 Depois de publicar a sua base de conhecimento, quer a partir do [portal QnA Maker,](https://www.qnamaker.ai)quer através da Utilização da [API,](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)poderá obter os detalhes do seu ponto final GenerateAnswer.
 
 Para obter os seus detalhes de ponto final:
-1. Inscreva-se [https://www.qnamaker.ai](https://www.qnamaker.ai)em .
+1. Inicie sessão em [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. Nas **minhas bases de conhecimento,** selecione **'Código de visão'** para a sua base de conhecimentos.
     ![Screenshot das minhas bases de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Obtenha os detalhes do ponto final da GenerateAnswer.

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 60fdd9b0a8fb272da885df97e39804a98e48de67
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80478864"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Tutorial: Integrar o MyWorkDrive com o Diretório Ativo Azure

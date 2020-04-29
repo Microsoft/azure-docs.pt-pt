@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.openlocfilehash: 872eec62e7a629d76533aa6c9906cbdb64c32236
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745557"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janela stream Analytics

@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 4/6/2020
 ms.openlocfilehash: a2c376ec2bd1f03b626c11b0d6a6c3850c9ef8c4
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804593"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Base de Dados Azure para opções de configuração PostgreSQL – Hiperescala (Citus)

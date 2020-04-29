@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
 ms.openlocfilehash: 9a76f72d3f01ab9253c452e49dde171280fe481d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80654422"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: Criar uma confiança florestal de saída para um domínio no local em Azure Ative Directory Domain Services (pré-visualização)

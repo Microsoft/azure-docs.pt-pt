@@ -8,10 +8,10 @@ ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
 ms.openlocfilehash: 7de38097acdbfa1f9c9b90f3051c68dec5465b32
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80758030"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Indexação secundária em Azure Cosmos DB Cassandra API

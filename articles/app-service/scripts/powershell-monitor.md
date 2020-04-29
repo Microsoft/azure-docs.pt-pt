@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
 ms.openlocfilehash: c9b3ab6f8115f68ead478c0de21e4661d3ca032c
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80437936"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>Monitorizar uma aplicação Web com os registos do servidor Web

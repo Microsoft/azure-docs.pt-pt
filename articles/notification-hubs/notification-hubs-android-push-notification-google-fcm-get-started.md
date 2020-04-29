@@ -19,10 +19,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
 ms.openlocfilehash: e6bc4ed94c8b8e62740f81497231a163283ebcb7
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80521559"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase"></a>Tutorial: Enviar notificações push para dispositivos Android usando firebase

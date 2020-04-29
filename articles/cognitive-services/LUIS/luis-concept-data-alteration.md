@@ -4,10 +4,10 @@ description: Saiba como os dados podem ser alterados antes das previsões na Com
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: b3b36351a64a4e1a0bd13d5785a4e0609a80901d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80292064"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de expressão antes ou durante a previsão

@@ -1,18 +1,18 @@
 ---
-title: Renderização unilateral
+title: Composição unilateral
 description: Descreve definições de renderização unifaceda e casos de utilização
 author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.openlocfilehash: 34ee5d4978c6476da407cde33598a5713177078e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80682016"
 ---
-# <a name="single-sided-rendering"></a>Renderização unilateral
+# <a name="single-sided-rendering"></a>Composição unilateral
 
 A maioria dos renderizadores usam [o abate na face traseira](https://en.wikipedia.org/wiki/Back-face_culling) para melhorar o desempenho. No entanto, quando as meshes são cortadas com [aviões cortados,](cut-planes.md)os utilizadores muitas vezes olham para o lado de trás dos triângulos. Se esses triângulos forem abatidos, o resultado não parece convincente.
 
@@ -54,5 +54,5 @@ void ChangeSingleSidedRendering(AzureSession session)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Aviões cortados](cut-planes.md)
+* [Cortar planos](cut-planes.md)
 * [Configurar a conversão do modelo](../../how-tos/conversion/configure-model-conversion.md)

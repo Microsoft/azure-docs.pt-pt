@@ -1,15 +1,15 @@
 ---
-title: Criação de um projeto de unidade do zero
+title: Configurar um projeto do Unity do zero
 description: Explica como configurar um projeto de Unidade em branco para a utilização com a Renderização Remota Azure.
 author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
 ms.openlocfilehash: 33801316e4c0446865169560bb42f98052acba70
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679598"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Tutorial: Criação de um projeto de unidade do zero

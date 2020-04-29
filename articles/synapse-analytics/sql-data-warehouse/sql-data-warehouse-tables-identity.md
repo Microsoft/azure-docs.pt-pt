@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: e681e8ad655c31d5078b56b8f1a49cfd7c664533
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742634"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Utilização da IDENTIDADE para criar chaves de substituição na piscina SYnapse SQL

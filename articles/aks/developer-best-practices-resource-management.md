@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
 ms.openlocfilehash: 0052657c947f8a9ff9c9d6aef86ff16d9a22adae
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80803488"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Boas práticas para os desenvolvedores de aplicações gerirem recursos no Serviço Azure Kubernetes (AKS)

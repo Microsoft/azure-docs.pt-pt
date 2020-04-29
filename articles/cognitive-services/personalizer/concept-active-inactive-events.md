@@ -4,10 +4,10 @@ description: Este artigo discute a utilização de eventos ativos e inativos den
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: a8f27542208965e2b820b9fc45cfcc5353a7f193
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77624255"
 ---
 # <a name="active-and-inactive-events"></a>Eventos ativos e inativos

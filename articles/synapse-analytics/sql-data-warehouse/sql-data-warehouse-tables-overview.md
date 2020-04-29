@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 2802c62acef0d78f8cfa7dd7f06bc34d8eecca4c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742620"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Mesas de design na piscina Synapse SQL
@@ -44,7 +44,7 @@ CREATE SCHEMA wwi;
 
 Para mostrar a organização das mesas na piscina SQL, você poderia usar fato, dim, e int como prefixos para os nomes de mesa. A tabela que se segue mostra alguns dos nomes de schema e tabela saqueados para o WideWorldImportersDW.  
 
-| Tabela WideWorldImportersDW  | Tipo de tabela | Piscina SQL |
+| Tabela WideWorldImportersDW  | Tipo de tabela | Conjunto de SQL |
 |:-----|:-----|:------|:-----|
 | Localidade | Dimensão | wwi. DimCity |
 | Encomenda | Fact | wwi. FactOrder |
@@ -146,7 +146,7 @@ Pode criar uma mesa como uma nova mesa vazia. Também pode criar e povoar uma ta
 
 | Declaração T-SQL | Descrição |
 |:----------------|:------------|
-| [CRIAR TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa vazia definindo todas as colunas e opções da tabela. |
+| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa vazia definindo todas as colunas e opções da tabela. |
 | [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa externa. A definição da mesa é armazenada na piscina SQL. Os dados da tabela são armazenados no armazenamento Azure Blob ou na Azure Data Lake Store. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Povoa uma nova tabela com os resultados de uma declaração selecionada. As colunas de tabela e os tipos de dados baseiam-se nos resultados da declaração selecionada. Para importar dados, esta declaração pode selecionar a partir de uma tabela externa. |
 | [CRIAR TABELA EXTERNA COMO SELECIONADO](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma nova tabela externa exportando os resultados de uma declaração selecionada para um local externo.  A localização é o armazenamento Azure Blob ou a Azure Data Lake Store. |

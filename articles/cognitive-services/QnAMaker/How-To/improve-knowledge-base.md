@@ -4,10 +4,10 @@ description: Melhore a qualidade da sua base de conhecimento com aprendizagem at
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 7fafc23eaf21099ebb974da226d07c351fa19699
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80756724"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar a aprendizagem ativa sugerida questões na base de conhecimentos

@@ -4,10 +4,10 @@ description: O _loop_ Personalizer utiliza machine learning para construir o mod
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 836c207213ac52a60e27da6fc957418187059023
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77623749"
 ---
 # <a name="how-personalizer-works"></a>Como funciona o Personalizador

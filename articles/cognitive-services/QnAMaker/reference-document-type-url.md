@@ -4,10 +4,10 @@ description: Compreenda como os tipos de URLs são usados para importar e criar 
 ms.topic: reference
 ms.date: 01/02/2020
 ms.openlocfilehash: c6c6c7ba19fe7be54733f45997134fddb56a6ba0
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804321"
 ---
 # <a name="urls-supported-for-importing-documents"></a>URLs suportados para importar documentos

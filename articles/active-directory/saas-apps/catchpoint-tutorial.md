@@ -16,10 +16,10 @@ ms.date: 02/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b19e286d299811a950df05f93d221bd710676ea
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80743492"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Tutorial: Azure Ative Directory integração individual de assinatura com Catchpoint
@@ -75,7 +75,7 @@ Complete as seguintes secções:
 
 Siga estes passos no portal Azure para permitir o Azure AD SSO:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Na página de integração da aplicação **Catchpoint,** encontre a secção **Gerir** e selecione **um único sinal .**
 1. Na página **de método de inscrição, selecione** **SAML**.
 1. No **set Up Single Sign-On com** a página SAML, selecione o ícone da caneta para editar as definições básicas de **configuração do SAML.**

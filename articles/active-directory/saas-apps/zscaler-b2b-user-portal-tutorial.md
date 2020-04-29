@@ -16,10 +16,10 @@ ms.date: 03/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c28af94c92fa56d5217aee91053521d2c12b0aef
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80668931"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-b2b-user-portal"></a>Tutorial: Azure Ative Diretório integração de um único sign-on (SSO) com o Portal de Utilizador Zscaler B2B

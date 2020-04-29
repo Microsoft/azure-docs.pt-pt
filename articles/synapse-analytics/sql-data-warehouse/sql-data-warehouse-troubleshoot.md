@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 973d2339db1e55f2cca45025f2d678e5126f4317
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743662"
 ---
 # <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Resolução de problemas sQL Analytics em Azure Synapse

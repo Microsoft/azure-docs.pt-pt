@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
 ms.openlocfilehash: 1f093b5276ee7ab334043e57f97a108267c32c87
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804389"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Boas práticas para a segurança do casulo no Serviço Azure Kubernetes (AKS)

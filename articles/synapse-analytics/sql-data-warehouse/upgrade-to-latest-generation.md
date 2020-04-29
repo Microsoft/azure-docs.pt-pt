@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 13b1f33ffe653627bcf45f6c995e82e741de32ea
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742745"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Otimizar o desempenho através da modernização do pool Azure Synapse Analytics SQL
@@ -65,7 +65,7 @@ Agora pode fazer upgrade perfeitamente para o sql pool Compute Optimized Gen2 no
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-- Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+- Inicie sessão no [portal do Azure](https://portal.azure.com/).
 - Certifique-se de que a piscina SQL está em funcionamento - deve ser migrar para a Gen2
 
 ### <a name="powershell-upgrade-commands"></a>Comandos de upgrade PowerShell
@@ -182,7 +182,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Criar um ponto de restauro definido pelo utilizador utilizando o portal Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue até à piscina SQL para a sua necessidade de criar um ponto de restauro.
 
@@ -196,7 +196,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Restaurar uma base de dados ativa ou pausada utilizando o portal Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Navegue até à piscina SQL da sua vontade de restaurar.
 3. Na parte superior da secção 'Visão Geral', selecione **Restaurar**.
 

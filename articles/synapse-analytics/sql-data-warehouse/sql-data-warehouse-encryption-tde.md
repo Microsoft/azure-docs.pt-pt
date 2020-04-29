@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 247691326e3aa2c8027dd0318b23a2cbfcba1efe
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745240"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Começar com encriptação de dados transparentes (TDE)

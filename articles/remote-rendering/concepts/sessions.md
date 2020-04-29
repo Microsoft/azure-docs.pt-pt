@@ -1,18 +1,18 @@
 ---
-title: Sessões de renderização remota
+title: Sessões do Remote Rendering
 description: Descreve o que é uma sessão de renderização remota
 author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 91a59e1398bf5e68799ad16a20dfb824904edc8a
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681691"
 ---
-# <a name="remote-rendering-sessions"></a>Sessões de renderização remota
+# <a name="remote-rendering-sessions"></a>Sessões do Remote Rendering
 
 Em Azure Remote Rendering (ARR), uma *sessão* é um conceito chave. Este artigo explica o que é exatamente uma sessão.
 

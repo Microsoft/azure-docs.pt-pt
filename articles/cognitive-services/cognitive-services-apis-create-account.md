@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
 ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219480"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Criar um recurso de Serviços Cognitivos utilizando o portal Azure
@@ -49,10 +49,10 @@ Use este quickstart para começar a usar Serviços Cognitivos Azure. Depois de c
 
     | Visão                      | Voz                  | Idioma                          | Decisão             | Pesquisa                 |
     |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
-    | [Visão do computador](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Serviços de Voz](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Leitor imersivo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Detetor de Anomalias](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing Search API V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
+    | [Visão computacional](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Serviços de Fala](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Leitor imersivo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Detetor de Anomalias](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing Search API V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
     | [Serviço de visão personalizada](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Reconhecimento de Orador](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Compreensão de Idiomas (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Pesquisa Personalizada do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
     | [Rostos](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizador](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Pesquisa de Entidades do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
-    | [Reconhecedor de Tinta Digital](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Análise de Texto](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Verificação de feitiço sorhções](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
+    | [Reconhecedor de Tinta Digital](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Análise de Texto](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Verificação Ortográfica do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Texto do Tradutor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Sugestão Automática do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
     ***
 
@@ -63,7 +63,7 @@ Use este quickstart para começar a usar Serviços Cognitivos Azure. Depois de c
     |    |    |
     |--|--|
     | **Nome** | Um nome descritivo para o seu recurso de serviços cognitivos. Por exemplo, *MyCognitiveServicesResource*. |
-    | **Assinatura** | Selecione uma das suas subscrições Azure disponíveis. |
+    | **Subscrição** | Selecione uma das suas subscrições Azure disponíveis. |
     | **Localização** | A localização da sua instância de serviço cognitivo. Diferentes localizações podem introduzir latência, mas não têm impacto na disponibilidade de tempo de execução do seu recurso. |
     | **Nível de preços** | O custo da sua conta de Serviços Cognitivos depende das opções que escolher e do seu uso. Para mais informações, consulte os detalhes dos [preços](https://azure.microsoft.com/pricing/details/cognitive-services/)da API .
     | **Grupo de recursos** | O grupo de recursos Azure que irá conter o seu recurso Serviços Cognitivos. Pode criar um novo grupo ou adicioná-lo a um grupo pré-existente. |
@@ -77,7 +77,7 @@ Use este quickstart para começar a usar Serviços Cognitivos Azure. Depois de c
     |    |    |
     |--|--|
     | **Nome** | Um nome descritivo para o seu recurso de serviços cognitivos. Por exemplo, *TextAnalyticsResource*. |
-    | **Assinatura** | Selecione uma das suas subscrições Azure disponíveis. |
+    | **Subscrição** | Selecione uma das suas subscrições Azure disponíveis. |
     | **Localização** | A localização da sua instância de serviço cognitivo. Diferentes localizações podem introduzir latência, mas não têm impacto na disponibilidade de tempo de execução do seu recurso. |
     | **Nível de preços** | O custo da sua conta de Serviços Cognitivos depende das opções que escolher e do seu uso. Para mais informações, consulte os detalhes dos [preços](https://azure.microsoft.com/pricing/details/cognitive-services/)da API .
     | **Grupo de recursos** | O grupo de recursos Azure que irá conter o seu recurso Serviços Cognitivos. Pode criar um novo grupo ou adicioná-lo a um grupo pré-existente. |

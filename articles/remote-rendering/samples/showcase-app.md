@@ -1,18 +1,18 @@
 ---
-title: Aplicação de montra de unidade
+title: Aplicação de demonstração do Unity
 description: Link para o repositório GitHub que abriga a aplicação showcase
 author: florianborn71
 ms.author: flborn
 ms.date: 04/01/2020
 ms.topic: sample
 ms.openlocfilehash: e1e91a892a1c8b69b3dc7f6c79109377e13bd7ae
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804457"
 ---
-# <a name="unity-showcase-application"></a>Aplicação de montra de unidade
+# <a name="unity-showcase-application"></a>Aplicação de demonstração do Unity
 
 A aplicação de apresentação da Unidade é uma aplicação de amostra baseada em Unidade para demonstrar as funcionalidades de renderização remota azure. Pode funcionar dentro do editor da Unidade e no Hololens 2.
 

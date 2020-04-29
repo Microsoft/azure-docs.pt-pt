@@ -6,10 +6,10 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 149d7963f29bf041cda75fffaac533e0a62ee7a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851687"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Início Rápido: publicar uma base de dados de conhecimento no Criador de FAQ com o Java
@@ -26,7 +26,7 @@ Este início rápido chama as API do Criador de FAQ:
     * httpcliente-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar
-* [Código de estúdio visual](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a sua chave e ponto final (que inclui o nome do recurso), selecione **Quickstart** para o seu recurso no portal Azure.
 * QnA Maker base de conhecimento (KB) `kbid` ID encontrado no URL no parâmetro de corda de consulta, como mostrado abaixo.
 

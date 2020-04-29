@@ -4,10 +4,10 @@ description: O QnA Maker permite-lhe gerir o conteúdo da sua base de conhecimen
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 3cf5dcedd4d2cfa82fda002b71abca1e5bea4b18
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80756739"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Editar pares QnA na sua base de conhecimentos

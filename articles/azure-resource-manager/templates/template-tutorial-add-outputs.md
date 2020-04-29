@@ -6,10 +6,10 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 2ee1a2c7037bde68b7858b57a03c78bd2016ff1c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80743543"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Adicione saídas ao seu modelo ARM
@@ -99,7 +99,7 @@ Fizeste muito nos últimos seis tutoriais. Vamos rever o que fez. Criou um model
 
 Agora, vamos olhar para o grupo de recursos e o histórico de implantação.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
 1. Selecione o grupo de recursos para o quais foi implantado.
 1. Dependendo dos passos que fez, deve ter pelo menos uma e talvez várias contas de armazenamento no grupo de recursos.

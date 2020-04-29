@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: diberry
 ms.openlocfilehash: b2b2b0781abce59628660b669f43110bf91b15e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273497"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída geografiaV2 para uma app LUIS

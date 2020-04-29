@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 10/02/2018
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 6045c61dc9837667bfaf01c685f687fcf5816e4c
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80754207"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função acionada pelo Azure Cosmos DB

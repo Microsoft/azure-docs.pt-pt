@@ -11,10 +11,10 @@ ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
 ms.openlocfilehash: d94ad56508d5e5f1e28a24e82460a68ffce5592f
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80666887"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Migrar os seus dados para a conta Da API de Cassandra em Azure Cosmos DB

@@ -4,10 +4,10 @@ description: Saiba como gerir as atribuições de plantas com o módulo oficial 
 ms.date: 09/30/2019
 ms.topic: how-to
 ms.openlocfilehash: 0868e5e207202511c1981a930870bfdc68a77a8f
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80677432"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Como gerir atribuições com a PowerShell
@@ -379,7 +379,7 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Conheça o ciclo de vida da [planta.](../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).

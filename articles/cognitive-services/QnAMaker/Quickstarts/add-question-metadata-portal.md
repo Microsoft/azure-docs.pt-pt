@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: f067bae55c38fc783c12bf9d0bc6fbcdf881e4e4
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756680"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Quickstart: Adicione perguntas e responda com o portal QnA Maker

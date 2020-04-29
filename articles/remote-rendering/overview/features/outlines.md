@@ -1,18 +1,18 @@
 ---
-title: Renderização de contorno
+title: Composição de contorno
 description: Explica como fazer a renderização do contorno de seleção
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 8b52dbe8cd12e51c42677ce37acbd57ad551ec50
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680833"
 ---
-# <a name="outline-rendering"></a>Renderização de contorno
+# <a name="outline-rendering"></a>Composição de contorno
 
 Os objetos selecionados podem ser realçados visualmente adicionando contornos através do [componente hierárquico](../../overview/features/override-hierarchical-state.md)de sobreposição do estado . Este capítulo explica como os parâmetros globais para a renderização de contornos são alterados através da API cliente.
 

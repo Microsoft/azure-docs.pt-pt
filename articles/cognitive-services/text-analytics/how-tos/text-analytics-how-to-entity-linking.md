@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
 ms.openlocfilehash: 243086ddaae47eba20eea6877fe6d7f8f9889290
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79203496"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o Reconhecimento de EntidadeS Nomeadas em Análise de Texto
@@ -49,7 +49,7 @@ Consulte o [suporte linguístico](../language-support.md#sentiment-analysis-key-
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-### <a name="entity-types"></a>Tipos de entidades
+### <a name="entity-types"></a>Tipos de entidade
 
 O chamado Reconhecimento de Entidades v3 fornece deteção expandida em vários tipos. Atualmente, ner v3 pode reconhecer as seguintes categorias de entidades:
 
@@ -76,7 +76,7 @@ Ligação de entidades
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-### <a name="entity-types"></a>Tipos de entidades
+### <a name="entity-types"></a>Tipos de entidade
 
 > [!NOTE]
 > Denominada Versão 2 de Reconhecimento de Entidades (NER) suporta apenas as seguintes entidades. O NER v3 está em pré-visualização pública, e amplia consideravelmente o número e a profundidade das entidades reconhecidas em texto.   

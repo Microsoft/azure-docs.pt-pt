@@ -6,10 +6,10 @@ ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: de7ec961672db2f3120e00f1a42b33f71e7ab092
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80437821"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutorial: Adicione parâmetros ao seu modelo ARM

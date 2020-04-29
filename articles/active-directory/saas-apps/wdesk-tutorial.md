@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 04/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 349a9920adc0d9353ee8e8e821f54bc2ea2f2616
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80666963"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com a Wdesk

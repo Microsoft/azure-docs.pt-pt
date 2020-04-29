@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745504"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Boas práticas para carregar dados usando piscina SYnapse SQL

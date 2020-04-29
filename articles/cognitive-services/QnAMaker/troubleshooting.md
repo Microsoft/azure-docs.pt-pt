@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: diberry
 ms.openlocfilehash: 7847e21dbcf07f669d6802fffdd1e43623a72340
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804355"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Resolução de problemas para O Criador de QnA

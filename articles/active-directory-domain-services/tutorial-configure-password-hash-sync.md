@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
 ms.openlocfilehash: 4bf85a8e38a3cfc46fe4dbaf86639899e7267178
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80676598"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Ativar a sincronização de senhas em Serviços de Domínio de Diretório Ativo Azure para ambientes híbridos

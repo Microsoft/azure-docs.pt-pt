@@ -1,18 +1,18 @@
 ---
-title: Modelos de amostra
+title: Modelos de exemplo
 description: Lista fontes para modelos de amostra.
 author: florianborn71
 ms.author: flborn
 ms.date: 01/29/2020
 ms.topic: sample
 ms.openlocfilehash: 0c28d36c7934fbbac0ddd11562c8dc237b0360ee
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679486"
 ---
-# <a name="sample-models"></a>Modelos de amostra
+# <a name="sample-models"></a>Modelos de exemplo
 
 Este artigo lista alguns recursos para dados de amostra que podem ser usados para testar o serviço de renderização remota Azure.
 

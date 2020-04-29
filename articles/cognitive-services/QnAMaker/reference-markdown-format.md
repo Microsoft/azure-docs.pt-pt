@@ -4,10 +4,10 @@ description: Segue-se a lista de formatos de marcação que pode utilizar no tex
 ms.topic: reference
 ms.date: 01/09/2020
 ms.openlocfilehash: 3fb7d73afdfd5ab7f1fb56a685b21538b97c8ea4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77045398"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Formato de markdown suportado no texto de resposta qnA Maker

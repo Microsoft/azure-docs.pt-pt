@@ -4,10 +4,10 @@ description: Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a pa
 ms.topic: conceptual
 ms.date: 02/08/2020
 ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80756819"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Criar, treinar e publicar a sua base de conhecimento qnA Maker

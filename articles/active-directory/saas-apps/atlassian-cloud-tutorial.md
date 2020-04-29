@@ -16,10 +16,10 @@ ms.date: 03/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46c48d6f7d751e6d767921fad21e6213c6b1203b
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80384029"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integrar nuvem atlassiana com diretório ativo Azure

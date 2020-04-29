@@ -12,10 +12,10 @@ ms.topic: sample
 ms.date: 09/05/2019
 ms.author: iainfou
 ms.openlocfilehash: e99ad2d53bc26b4e13a34097baaec929058a61a0
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80654809"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Ativar serviços de domínio de diretório ativo Azure usando powerShell

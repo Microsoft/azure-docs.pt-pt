@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 03/17/2020
 ms.author: mjbrown
 ms.openlocfilehash: 51880e12f5f422acc0df05fa40da5f40f0ede3d3
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365959"
 ---
 # <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Liste e obtenha bases de dados e contentores para Azure Cosmos DB - SQL (Core) API

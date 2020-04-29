@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
 ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80810243"
 ---
 # <a name="azure-application-gateway-features"></a>Funcionalidades de Gateway de Aplicação Azure
@@ -23,7 +23,7 @@ O [Gateway de Aplicação do Azure](overview.md) é um balanceador de carga do t
 O Gateway de Aplicação inclui as seguintes funcionalidades:
 
 - [Cessação da camada de tomadas seguras (SSL/TLS)](#secure-sockets-layer-ssltls-termination)
-- [Autoscalcificação](#autoscaling)
+- [Dimensionamento automático](#autoscaling)
 - [Redundância da zona](#zone-redundancy)
 - [VIP estático](#static-vip)
 - [Firewall de Aplicação Web](#web-application-firewall)

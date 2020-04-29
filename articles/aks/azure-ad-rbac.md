@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.openlocfilehash: ad195085c049776bf0db418c57f2c72830f1adff
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80803574"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controlar o acesso aos recursos de cluster utilizando o controlo de acesso baseado em funções e identidades do Azure Ative Directory no Serviço Azure Kubernetes

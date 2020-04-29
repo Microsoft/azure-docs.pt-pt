@@ -5,10 +5,10 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.openlocfilehash: 3cfd442d49de2661d68de3c4e4b3575119504eb4
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804423"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mova um cofre de serviços de recuperação através de assinaturas e grupos de recursos do Azure

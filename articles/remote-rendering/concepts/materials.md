@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.openlocfilehash: 8551e17ddd71e76aca0c85b9768f564ae0e5f049
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681847"
 ---
 # <a name="materials"></a>Materiais

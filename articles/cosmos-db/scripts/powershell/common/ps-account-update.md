@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 03/21/2020
 ms.author: mjbrown
 ms.openlocfilehash: d3df2e91624f9b5d82d534a1d525fa6866f1a489
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80366078"
 ---
 # <a name="update-the-regions-on-an-azure-cosmos-db-account-using-powershell"></a>Atualize as regiões numa conta Azure Cosmos DB usando powerShell

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
 ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80744141"
 ---
 # <a name="language-and-region-support-for-luis"></a>Apoio à língua e à região para o LUIS

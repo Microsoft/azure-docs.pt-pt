@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
 ms.openlocfilehash: d9c666fd6fcf020908b6fc5bdd639261853ad9c6
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811538"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs

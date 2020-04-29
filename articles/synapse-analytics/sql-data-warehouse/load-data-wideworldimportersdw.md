@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
 ms.openlocfilehash: 16263a23c978e3486ff7c5d9281117f850cb885c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80744372"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: Carregue dados para piscina Azure Synapse Analytics SQL
@@ -42,7 +42,7 @@ Antes de começar este tutorial, transfira e instale a versão mais recente do [
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Criar um armazém de dados em branco na piscina SQL
 

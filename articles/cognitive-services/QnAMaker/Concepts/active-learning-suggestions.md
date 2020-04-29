@@ -4,10 +4,10 @@ description: Sugestões de aprendizagem ativa permitem-lhe melhorar a qualidade 
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.openlocfilehash: edbe06b12fbb97473b28ccca968fd3e7d8366152
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804225"
 ---
 # <a name="active-learning-suggestions"></a>Sugestões de aprendizagem ativa

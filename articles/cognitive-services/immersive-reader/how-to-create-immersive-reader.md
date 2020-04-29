@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
 ms.openlocfilehash: 41efe4592c65ae3cdd85ce1b212554e50691905a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78330724"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Criar um recurso Imersivo do Leitor e configurar a autenticação do Diretório Ativo Azure

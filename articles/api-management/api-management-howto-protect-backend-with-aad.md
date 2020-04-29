@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
 ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804372"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protect an API by using OAuth 2.0 with Azure Active Directory and API Management (Proteger uma API com o OAuth 2.0 com o Azure Active Directory e a Gestão de API)

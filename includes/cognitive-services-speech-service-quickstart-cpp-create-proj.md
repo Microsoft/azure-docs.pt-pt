@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
 ms.openlocfilehash: 72e9334b4df58b1b90288cb7363a7d94bb531661
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80659608"
 ---
 Para criar um projeto de Estúdio Visual para desenvolvimento de desktop C++, você precisa configurar opções de desenvolvimento do Estúdio Visual, criar o projeto, selecionar a arquitetura-alvo e instalar o Speech SDK.

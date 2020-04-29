@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
 ms.openlocfilehash: dc09d517d95b5a3f2a88504a14f1451d1de5ffc9
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80639165"
 ---
 # <a name="configure-rhelcentos-7-for-speech-sdk"></a>Configure RHEL/CentOS 7 para SDK de Fala

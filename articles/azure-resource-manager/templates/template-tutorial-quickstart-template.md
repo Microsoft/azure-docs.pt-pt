@@ -6,10 +6,10 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 4b82e02ecc009e587b89d1fd151fd13f75a4bcf8
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80408515"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: Use modelos Azure Quickstart

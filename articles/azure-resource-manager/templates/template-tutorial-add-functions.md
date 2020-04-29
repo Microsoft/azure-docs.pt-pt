@@ -6,10 +6,10 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: e4984b286bf031b66272919a487d09a90f972ce0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80410967"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adicionar funções de modelo ao seu modelo ARM
@@ -79,7 +79,7 @@ az deployment group create \
 
 Pode verificar a implantação explorando o grupo de recursos a partir do portal Azure.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
 1. Selecione o grupo de recursos para o quais foi implantado.
 1. Você vê que um recurso de conta de armazenamento foi implementado e tem a mesma localização que o grupo de recursos.

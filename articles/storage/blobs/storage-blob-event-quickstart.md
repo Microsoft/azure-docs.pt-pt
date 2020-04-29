@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: ad5662a722db764d09c1ead528a98c09c1d3df7f
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745527"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Quickstart: Route storage events to web endpoint with Azure CLI
@@ -45,7 +45,7 @@ O exemplo seguinte cria um grupo de recursos com o nome `<resource_group_name>` 
 az group create --name <resource_group_name> --location westcentralus
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Os eventos de armazenamento de blobs estão disponíveis em contas de armazenamento para fins gerais v2 e contas de armazenamento de Blobs. As contas de armazenamento de **Fins gerais v2** suportam todas as funcionalidades de todos os serviços de armazenamento, incluindo Blobs, Ficheiros, Filas e Tabelas. Uma conta de **armazenamento Blob** é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como bolhas (objetos) no Armazenamento Azure. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
 

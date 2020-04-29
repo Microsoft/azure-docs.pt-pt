@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2020
 ms.author: radeltch
 ms.openlocfilehash: 06ee1b6184e69ace68adcbfa36ad2384dc9fdd99
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811572"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server em Azure

@@ -1,18 +1,18 @@
 ---
-title: Criar uma conta de renderização remota Azure
+title: Criar uma conta do Azure Remote Rendering
 description: Descreve os passos para criar uma conta para a renderização remota de Azure
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.openlocfilehash: b9b72fb9e80c588eb3e6642d0228bffa50b35c6e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681301"
 ---
-# <a name="create-an-azure-remote-rendering-account"></a>Criar uma conta de renderização remota Azure
+# <a name="create-an-azure-remote-rendering-account"></a>Criar uma conta do Azure Remote Rendering
 
 Este capítulo guia-o através dos passos para criar uma conta para o serviço de **renderização remota Azure.** Uma conta válida é obrigatória para completar qualquer um dos quickstarts ou tutoriais.
 
@@ -97,4 +97,4 @@ Se tiver adicionado as três funções, a sua conta de Renderização Remota Azu
 
 * [Autenticação](authentication.md)
 * [Utilização das APIs Frontend Azure para autenticação](frontend-apis.md)
-* [Exemplo de scripts PowerShell](../samples/powershell-example-scripts.md)
+* [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)

@@ -4,10 +4,10 @@ description: Compreenda como os tipos de URLs são usados para importar e criar 
 ms.topic: reference
 ms.date: 04/06/2020
 ms.openlocfilehash: 799e85e2200d3caa29c9b76bc57a62fc883d246d
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804338"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Diretrizes de formato para documentos e URLs importados

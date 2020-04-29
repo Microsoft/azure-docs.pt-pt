@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
 ms.openlocfilehash: 9a981aeb08ec46900994fd599b592b9f16034f34
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680534"
 ---
 # <a name="spatial-queries"></a>Consultas espaciais
@@ -82,5 +82,5 @@ A Hit tem as seguintes propriedades:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Limites de objetos](../../concepts/object-bounds.md)
+* [Limites dos objetos](../../concepts/object-bounds.md)
 * [Estados hierárquicos dominantes](override-hierarchical-state.md)

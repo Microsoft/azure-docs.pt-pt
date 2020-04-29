@@ -4,10 +4,10 @@ description: Uma base de conhecimento do QnA Maker consiste num conjunto de conj
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80756781"
 ---
 # <a name="question-and-answer-set-concepts"></a>Conceitos de conjunto de perguntas e respostas

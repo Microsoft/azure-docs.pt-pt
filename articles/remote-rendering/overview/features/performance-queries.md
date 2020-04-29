@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.openlocfilehash: 9a28dee2d1e6d1355b729a56e8eeb8447e4ed8c8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80682029"
 ---
 # <a name="server-side-performance-queries"></a>Consultas de desempenho do lado do servidor

@@ -1,18 +1,18 @@
 ---
-title: Obtenha informações sobre um modelo convertido
+title: Obter informações sobre um modelo convertido
 description: Descrição de todos os parâmetros de conversão do modelo
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
 ms.openlocfilehash: d5f843add0649682bae8c472bc50b6beea33bf93
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681522"
 ---
-# <a name="get-information-about-a-converted-model"></a>Obtenha informações sobre um modelo convertido
+# <a name="get-information-about-a-converted-model"></a>Obter informações sobre um modelo convertido
 
 O ficheiro arrAsset produzido pelo serviço de conversão destina-se exclusivamente ao consumo pelo serviço de renderização. Pode haver momentos, no entanto, em que pretende aceder a informações sobre um modelo sem iniciar uma sessão de renderização. Por isso, o serviço de conversão coloca um ficheiro JSON ao lado do ficheiro arrAsset no recipiente de saída. Por exemplo, se `buggy.gltf` um ficheiro for convertido, o `buggy.info.json` recipiente de `buggy.arrAsset`saída conterá um ficheiro chamado ao lado do ativo convertido . Contém informações sobre o modelo de origem, o modelo convertido, e sobre a conversão em si.
 
@@ -128,4 +128,4 @@ Esta secção regista informações calculadas a partir do ativo convertido.
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Conversão de modelo](model-conversion.md)
-* [Configurar a conversão do modelo](configure-model-conversion.md)
+* [Configurar a conversão de modelos](configure-model-conversion.md)

@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: amishu
 zone_pivot_groups: programming-languages-set-twelve
 ms.openlocfilehash: bd6b500a823bde654da4442704b75451806d6a46
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80637279"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Utilize a entrada de áudio comprimido codec com o SDK do Discurso

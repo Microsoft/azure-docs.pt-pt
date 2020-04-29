@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
 ms.openlocfilehash: 5db99a9d500b05fa6886dce2f29087920f8a1790
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80658655"
 ---
 Para criar um projeto de Estúdio Visual para o desenvolvimento da Universal Windows Platform (UWP), é necessário configurar opções de desenvolvimento do Estúdio Visual, criar o projeto, selecionar a arquitetura-alvo, configurar a captura de áudio e instalar o Speech SDK.

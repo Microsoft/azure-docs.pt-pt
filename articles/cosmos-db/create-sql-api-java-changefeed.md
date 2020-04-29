@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: anfeldma
 ms.openlocfilehash: 5eab523dde2a13a85b0c8ff5bcbb3ecb5912e78e
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80586702"
 ---
 # <a name="tutorial---an-end-to-end-async-java-sql-api-application-sample-with-change-feed"></a>Tutorial - uma amostra de aplicação Async Java SQL API de ponta a ponta com Change Feed

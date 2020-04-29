@@ -1,18 +1,18 @@
 ---
-title: Mapeamento de material para formatos de modelo
+title: Mapeamento de materiais para formatos de modelos
 description: Descreve a conversão padrão dos formatos de origem do modelo para o material PBR
 author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
 ms.openlocfilehash: ce287ed94066aac4b900d2ddb02579a54b8550f6
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680391"
 ---
-# <a name="material-mapping-for-model-formats"></a>Mapeamento de material para formatos de modelo
+# <a name="material-mapping-for-model-formats"></a>Mapeamento de materiais para formatos de modelos
 
 Quando um ativo de origem é [convertido como modelo,](../how-tos/conversion/model-conversion.md)o conversor cria [materiais](../concepts/materials.md) para cada [malha](../concepts/meshes.md). A forma como os materiais são criados pode ser [ultrapassada.](../how-tos/conversion/override-materials.md) No entanto, por padrão, a conversão criará [materiais PBR](../overview/features/pbr-materials.md). Uma vez que todos os formatos de ficheiros de origem, como o FBX, utilizam as suas próprias convenções para definir materiais, essas convenções devem ser mapeadas para os parâmetros de materiais PBR da Renderização Remota Azure. 
 

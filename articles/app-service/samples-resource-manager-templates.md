@@ -8,10 +8,10 @@ ms.date: 01/04/2019
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
 ms.openlocfilehash: 2d77dcbd07a67e3ba50d70770515416b45fbc7a3
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80637912"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Modelos de Gestor de Recursos Azure para serviço de aplicações
@@ -45,7 +45,7 @@ Para conhecer a sintaxe jSON e propriedades para recursos de Serviços de Aplica
 | [App com base de dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Implementa uma aplicação de Serviço de Aplicações e uma base de dados SQL ao nível básico de serviço. |
 | [App com uma conexão de armazenamento Blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Implementa uma aplicação de Serviço de Aplicações com uma cadeia de conexão de armazenamento Azure Blob. Em seguida, pode utilizar o armazenamento Blob a partir da aplicação. |
 | [App com um Cache Azure para Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Implementa uma aplicação de Serviço de Aplicações com um Azure Cache para Redis. |
-|**Ambiente de serviço de aplicativos**||
+|**Ambiente do Serviço de Aplicações**||
 | [Criar um Ambiente de Serviço de Aplicações v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | Cria um ambiente de Serviço de Aplicações v2 na sua rede virtual. |
 | [Criar um ambiente de Serviço de Aplicações v2 com um endereço ILB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | Cria um ambiente de Serviço de Aplicações v2 na sua rede virtual com um endereço de balanceador de carga interno privado. |
 | [Configura o certificado SSL predefinido para um ambiente de Serviço de Aplicações ILB ou um ambiente de Serviço de Aplicações v2 ILB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-ase-ilb-configure-default-ssl) | Configura o certificado padrão TLS/SSL para um ambiente de serviço de aplicações ILB ou um ambiente de serviço de aplicações ILB v2. |

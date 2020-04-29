@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
 ms.openlocfilehash: 29dcb3c0e74482fd6670d1a0983e751043379d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80371609"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de lançamento: Dispositivos de fala SDK
@@ -55,7 +55,7 @@ As seguintes secções listam alterações nos lançamentos mais recentes.
 - A nova tecnologia de palavras-chave traz melhorias significativas de qualidade, ver Breaking Changes.
 - Novo oleoduto de processamento de áudio para um melhor reconhecimento de campo.
 
-**Quebrar alterações**
+**Alterações interruptivas**
 
 - Devido à nova tecnologia de palavras-chave, todas as palavras-chave devem ser recriadas no nosso portal de palavras-chave melhorado. Para remover totalmente as palavras-chave antigas do dispositivo desinstalar a aplicação antiga.
   - adb uninstall com.microsoft.cognitiveservices.speech.samples.sdsdkstarterapp
@@ -70,7 +70,7 @@ As seguintes secções listam alterações nos lançamentos mais recentes.
 - Manuseamento atualizado de palavras-chave, ver Breaking Changes.
 - A aplicação da amostra adiciona a escolha da linguagem tanto para reconhecimento da fala como para tradução.
 
-**Quebrar alterações**
+**Alterações interruptivas**
 
 - [A instalação de uma palavra-chave](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) foi simplificada, agora faz parte da aplicação e não necessita de instalação separada no dispositivo.
 - O reconhecimento das palavras-chave mudou e dois eventos são apoiados.
@@ -89,7 +89,7 @@ As seguintes secções listam alterações nos lançamentos mais recentes.
 - A precisão do reconhecimento da fala será melhorada com o nosso algoritmo de processamento de áudio melhorado
 - É fixado um bug de sessão áudio de reconhecimento contínuo.
 
-**Quebrar alterações**
+**Alterações interruptivas**
 
 - Com esta libertação são introduzidas várias alterações de rutura. Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes relativos às APIs.
 - Os ficheiros do modelo KWS não são compatíveis com dispositivos de fala SDK 1.0.1. Os ficheiros de palavras-chave existentes serão eliminados após a escrita dos novos ficheiros de palavras-chave no dispositivo.

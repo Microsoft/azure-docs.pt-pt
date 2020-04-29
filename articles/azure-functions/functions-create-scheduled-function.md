@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 03/28/2018
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: e100a2d3a3718b302a44cbdecf462a99d9c823e0
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756493"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é acionada por um temporizador

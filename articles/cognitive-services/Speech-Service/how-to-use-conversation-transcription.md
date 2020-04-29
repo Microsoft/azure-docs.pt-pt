@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
 ms.openlocfilehash: e2c9c0aadc8e443f07f60f3ccddb4a1b6dd661b1
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80520917"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Transcrição de conversação em tempo real (Pré-visualização)
@@ -218,4 +218,4 @@ public class MyConversationTranscriber
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Transcrição de Conversas Assíncrona](how-to-async-conversation-transcription.md)
+> [Transcrição de Conversa assíncrona](how-to-async-conversation-transcription.md)

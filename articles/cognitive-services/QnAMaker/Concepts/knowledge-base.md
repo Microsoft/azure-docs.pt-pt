@@ -4,10 +4,10 @@ description: Uma base de conhecimento do QnA Maker consiste num conjunto de conj
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804287"
 ---
 # <a name="importing-from-data-sources"></a>Importar a partir de origens de dados

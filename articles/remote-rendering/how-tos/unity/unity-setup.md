@@ -1,18 +1,18 @@
 ---
-title: Configurar a renderização remota para a unidade
+title: Configurar o Remote Rendering para o Unity
 description: Como inicializar a Renderização Remota Azure num projeto de Unidade
 author: jakrams
 ms.author: jakras
 ms.date: 02/27/2020
 ms.topic: how-to
 ms.openlocfilehash: 0415c0e7ee1432521c3cc2026feff5fc2a41d77e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681145"
 ---
-# <a name="set-up-remote-rendering-for-unity"></a>Configurar a renderização remota para a unidade
+# <a name="set-up-remote-rendering-for-unity"></a>Configurar o Remote Rendering para o Unity
 
 Para permitir a renderização remota azure (ARR) em Unidade, fornecemos métodos dedicados que cuidam de alguns aspetos específicos da Unidade.
 
@@ -78,5 +78,5 @@ Por exemplo, como configurar `ARRServiceUnity` e usar ver [Tutorial: Criar um pr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Instale o pacote de renderização remota para a unidade](install-remote-rendering-unity-package.md)
+* [Instalar o pacote do Remote Rendering para o Unity](install-remote-rendering-unity-package.md)
 * [Tutorial: Criação de um projeto de unidade do zero](../../tutorials/unity/project-setup.md)

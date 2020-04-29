@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 7cbcaefcc087c9f1c7c09668a27fbdef9a4802d3
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681080"
 ---
 # <a name="color-materials"></a>Materiais de cor
@@ -55,4 +55,4 @@ As seguintes propriedades são específicas dos materiais de cor:
 
 * [Materiais PBR](pbr-materials.md)
 * [Texturas](../../concepts/textures.md)
-* [Meshes](../../concepts/meshes.md)
+* [Malhas](../../concepts/meshes.md)

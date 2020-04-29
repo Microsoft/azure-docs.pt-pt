@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
 ms.openlocfilehash: 831baabcc26130d9b2c730afd85f2ed4b3842690
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756351"
 ---
 # <a name="connect-alerts-from-microsoft-defender-advanced-threat-protection"></a>Conecte alertas da Proteção avançada de ameaças do Microsoft Defender 

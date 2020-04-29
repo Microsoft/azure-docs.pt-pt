@@ -6,10 +6,10 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 78608d3acdfea07f21ccc42e8d530ff502fbb0b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851929"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c-with-rest"></a>Quickstart: Criar uma base de conhecimento no Fabricante QnA usando C# com REST

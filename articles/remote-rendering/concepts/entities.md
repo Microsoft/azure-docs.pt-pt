@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: d7b9ecd048b080ae0ec9fd3fb7a4fb35009551b8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681951"
 ---
 # <a name="entities"></a>Entidades
@@ -84,4 +84,4 @@ A consulta terá sucesso mesmo que o objeto não possua metadados.
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Componentes](components.md)
-* [Limites de objetos](object-bounds.md)
+* [Limites dos objetos](object-bounds.md)

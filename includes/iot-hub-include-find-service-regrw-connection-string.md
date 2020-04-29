@@ -9,10 +9,10 @@ ms.date: 04/03/2020
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 1a0502568c1673bcd7f57d3e9bc9c95ed90bbefa
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80757011"
 ---
 <!-- This tells how to create a custom shared access policy that has service connect and registry RW permissions for your IoT hub and get the connection string for it-->

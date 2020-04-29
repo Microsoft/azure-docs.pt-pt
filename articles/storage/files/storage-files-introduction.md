@@ -8,10 +8,10 @@ ms.date: 03/10/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: aff6f99c119ba2854fd7923d2a15efb2e1a6b601
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80666799"
 ---
 # <a name="what-is-azure-files"></a>O que são os Ficheiros do Azure?

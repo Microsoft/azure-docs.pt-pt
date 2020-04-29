@@ -4,10 +4,10 @@ description: Neste tutorial, você usa uma amostra de planta para criar uma defi
 ms.date: 03/25/2020
 ms.topic: tutorial
 ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80677081"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente a partir de uma amostra de plantas

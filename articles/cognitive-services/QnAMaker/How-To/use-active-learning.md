@@ -4,10 +4,10 @@ description: Melhore a qualidade da sua base de conhecimento com aprendizagem at
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 33b3c547b0aea9a1e235bf8a05d01aa16b468a71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80071135"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento

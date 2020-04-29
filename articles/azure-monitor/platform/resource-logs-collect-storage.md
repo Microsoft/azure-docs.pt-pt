@@ -8,10 +8,10 @@ ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 787640ef08ee91220f42065af155c372247f0136
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804610"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Registos de recursos do Archive Azure para conta de armazenamento

@@ -12,10 +12,10 @@ ms.date: 02/25/2020
 ms.author: oliversc
 ms.custom: seodec18
 ms.openlocfilehash: 7bab0a28ba2b75903b6bdf4708e6aa0a98bdc9e5
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80607407"
 ---
 # <a name="release-notes"></a>Notas de versão
@@ -94,7 +94,7 @@ Mantenha-se saudável!
 - JavaScript: Suporte `FromHost API` adicional para facilitar o uso com recipientes on-prem e nuvens soberanas. Consulte a documentação [aqui.](speech-container-howto.md)
 - JavaScript: Agora `NODE_TLS_REJECT_UNAUTHORIZED` honramos graças a uma contribuição de [orgads](https://github.com/orgads). Veja os detalhes [aqui.](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75)
 
-**Quebrar alterações**
+**Alterações interruptivas**
 
 - `OpenSSL`foi atualizado para a versão 1.1.1b e está está está ligado estáticamente à biblioteca central do Speech SDK para o Linux. Isto pode causar uma rutura `OpenSSL` se a sua `/usr/lib/ssl` caixa de entrada não tiver sido instalada no diretório do sistema. Por favor, verifique a [nossa documentação](how-to-configure-openssl-linux.md) em documentos do Speech SDK para resolver o problema.
 - Mudamos o tipo de dados `WordLevelTimingResult.Offset` `int` devolvido `long` para C# `WordLevelTimingResults` para permitir o acesso ao quando os dados da fala são superiores a 2 minutos.
@@ -135,7 +135,7 @@ Mantenha-se saudável!
 - Suporte `KeywordRecognizer` adicional no Windows (UWP), Android e iOS através dos pacotes NuGet e Unity
 - Acrescentou a API de Conversa Remota java para fazer Transcrição de Conversação em lotes assíncronos.
 
-**Quebrar alterações**
+**Alterações interruptivas**
 
 - Funcionalidades De Transcrição de `Microsoft.CognitiveServices.Speech.Transcription`Conversação movidas sob espaço de nome.
 - Parte dos métodos de Transcrição `Conversation` de Conversa são transferidos para uma nova classe.
@@ -442,7 +442,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 - Apoio ao Objectivo-C no iOS. Confira o nosso [início rápido objective-C para iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Suporte para JavaScript no navegador. Confira o nosso [JavaScript quickstart](quickstart-js-browser.md).
 
-**Quebrar alterações**
+**Alterações interruptivas**
 
 - Com esta libertação, são introduzidas várias alterações de rutura.
   Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes.
@@ -461,7 +461,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 
 - Exponha informações adicionais sobre erros de erro sobre erros de ligação.
 
-**Quebrar alterações**
+**Alterações interruptivas**
 
 - Em Java (Android), a `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` função já não requer um parâmetro de percurso. Agora o caminho é automaticamente detetado em todas as plataformas suportadas.
 - O acessório da propriedade `EndpointUrl` em Java e C# foi removido.
@@ -490,7 +490,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 - O resultado do reconhecimento contém mais campos. São compensados a partir do início e duração áudio (ambos em carrapatos) do `InitialSilenceTimeout` texto `InitialBabbleTimeout`reconhecido e valores adicionais que representam o estatuto de reconhecimento, por exemplo, e .
 - Apoiar autorizaçõesToken para criar instâncias de fábrica.
 
-**Quebrar alterações**
+**Alterações interruptivas**
 
 - Eventos `NoMatch` de reconhecimento: o `Error` tipo de evento foi fundido no evento.
 - SpeechOutputFormat em C# foi `OutputFormat` renomeado para se manter alinhado com C++.

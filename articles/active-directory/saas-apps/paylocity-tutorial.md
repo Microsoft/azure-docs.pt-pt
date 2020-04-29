@@ -16,10 +16,10 @@ ms.date: 01/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d2324343a31c3f3930975eea47659d023b9bbb94
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80667583"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com paylocity

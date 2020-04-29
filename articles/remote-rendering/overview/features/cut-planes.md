@@ -1,18 +1,18 @@
 ---
-title: Aviões cortados
+title: Cortar planos
 description: Explica o que são os aviões cortados e como usá-los
 author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.openlocfilehash: 8075d9cd4530bafb12a338830baf0fe22eb03bce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681028"
 ---
-# <a name="cut-planes"></a>Aviões cortados
+# <a name="cut-planes"></a>Cortar planos
 
 Um *plano de corte* é uma característica visual que corta pixels de um lado de um plano virtual, revelando o interior das [malshes.](../../concepts/meshes.md)
 A imagem abaixo demonstra o efeito. A esquerda mostra a malha original, à direita pode olhar para dentro da malha:

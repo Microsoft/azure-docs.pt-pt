@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: diberry
 ms.openlocfilehash: 7560fdcbfc77ea2655e8af641794478ead4c11c7
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80631452"
 ---
 # <a name="use-descriptors-to-boost-signal-of-word-list"></a>Use descritores para aumentar o sinal da lista de palavras

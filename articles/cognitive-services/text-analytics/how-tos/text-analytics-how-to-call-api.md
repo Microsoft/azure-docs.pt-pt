@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219304"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
@@ -80,9 +80,9 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 
 5. Colá-lo em alguns documentos JSON num formato válido para a análise pretendida. Para obter mais informações sobre uma determinada análise, consulte os tópicos abaixo:
 
-  + [Deteção de idioma](text-analytics-how-to-language-detection.md)  
+  + [Deteção de linguagem](text-analytics-how-to-language-detection.md)  
   + [Extração de frase-chave](text-analytics-how-to-keyword-extraction.md)  
-  + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md)  
+  + [Análise de sentimentos](text-analytics-how-to-sentiment-analysis.md)  
   + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md)  
 
 
@@ -93,7 +93,7 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 ## <a name="see-also"></a>Consulte também 
 
  [Visão geral da análise de texto](../overview.md)  
- [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)
+ [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

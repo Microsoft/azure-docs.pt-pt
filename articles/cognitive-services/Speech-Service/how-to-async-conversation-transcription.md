@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: amishu
 ms.openlocfilehash: 57543f4a3779145ce66259eec1abac195b63c7ba
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80384301"
 ---
 # <a name="asynchronous-conversation-transcription-preview"></a>Transcrição de Conversação Assíncrona (Pré-visualização)

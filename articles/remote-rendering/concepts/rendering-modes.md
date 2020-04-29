@@ -1,18 +1,18 @@
 ---
-title: Modos de renderização
+title: Modos de composição
 description: Descreve os diferentes modos de renderização do lado do servidor
 author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f2b1031659864ae338bb0aa320c048ea23c21f3
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681704"
 ---
-# <a name="rendering-modes"></a>Modos de renderização
+# <a name="rendering-modes"></a>Modos de composição
 
 A renderização remota oferece dois modos principais de funcionamento, o modo **TileBasedComposition** e o modo **DepthBasedComposition.** Estes modos determinam como a carga de trabalho é distribuída por vários GPUs no servidor. O modo tem de ser especificado no momento da ligação e não pode ser alterado durante o tempo de funcionamento.
 

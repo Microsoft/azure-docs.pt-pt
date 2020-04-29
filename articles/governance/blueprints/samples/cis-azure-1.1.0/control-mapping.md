@@ -4,10 +4,10 @@ description: Mapeamento de recomendações da amostra de projeto de referência 
 ms.date: 11/04/2019
 ms.topic: sample
 ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80656971"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendações da amostra de projeto de referência da CIS Microsoft Azure Foundations
@@ -456,7 +456,7 @@ Agora que reviu o mapeamento de controlo do projeto de referência da CIS Micros
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
-- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

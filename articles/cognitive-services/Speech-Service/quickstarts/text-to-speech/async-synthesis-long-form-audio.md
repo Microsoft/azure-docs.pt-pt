@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: d3cd330001bcf53e7bd4fb9e6955c76a9ef20511
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78331081"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Quickstart: Síntese assíncrona para áudio de longa forma em Python (Pré-visualização)

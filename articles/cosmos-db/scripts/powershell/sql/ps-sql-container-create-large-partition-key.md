@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 03/17/2020
 ms.author: mjbrown
 ms.openlocfilehash: 7746154fe89b655d09345a2de655fa85a0d4cbae
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365928"
 ---
 # <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-db-account-using-powershell"></a>Crie um recipiente com uma grande chave de partição numa conta Azure Cosmos DB usando powerShell

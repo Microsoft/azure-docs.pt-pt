@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: 08a9682434605fffde73c835e7a9e9d6971d7ff0
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80803387"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Utilize um endereço IP público estático para o tráfego de egress no Serviço Azure Kubernetes (AKS)

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: f5588503825281f407ddbbc2c1c57cd94a9c7ee6
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804712"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Utilizar o Diretório Ativo Azure para autenticação com postgreSQL

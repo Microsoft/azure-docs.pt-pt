@@ -1,18 +1,18 @@
 ---
-title: Vida útil do objeto e do recurso
+title: Duração dos objetos e recursos
 description: Explica a gestão vitalícia para diferentes tipos
 author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: d031ff4a6ee86da2843f0f18ac428c50f7cfc121
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681873"
 ---
-# <a name="object-and-resource-lifetime"></a>Vida útil do objeto e do recurso
+# <a name="object-and-resource-lifetime"></a>Duração dos objetos e recursos
 
 A renderização remota azure distingue entre dois tipos: **objetos** e **recursos.**
 

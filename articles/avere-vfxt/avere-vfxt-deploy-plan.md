@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: 6acc1ffd197ddba4290ff7c0751b259d98a70927
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80754389"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT

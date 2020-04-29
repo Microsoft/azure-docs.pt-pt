@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80755039"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migração para O Ficheiro Sincronizado Azure

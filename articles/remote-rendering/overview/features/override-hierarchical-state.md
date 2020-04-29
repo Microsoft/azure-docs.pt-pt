@@ -1,18 +1,18 @@
 ---
-title: Estado hierárquico sobreposição
+title: Substituição do estado hierárquico
 description: Explica o conceito de estado hierárquico sobrepor componentes.
 author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.openlocfilehash: f3be073857cc8583669ab26f306760478479e2ae
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680794"
 ---
-# <a name="hierarchical-state-override"></a>Estado hierárquico sobreposição
+# <a name="hierarchical-state-override"></a>Substituição do estado hierárquico
 
 Em muitos casos, é necessário alterar dinamicamente a aparência de partes de um [modelo](../../concepts/models.md), por exemplo, ocultar subgrafias ou mudar peças para renderização transparente. A alteração dos materiais de cada peça envolvida não é prática, uma vez que requer iterar em todo o gráfico de cena, e gerir a clonagem e atribuição de materiais em cada nó.
 
@@ -83,5 +83,5 @@ A renderização transparente coloca mais carga de trabalho nas GPUs do servidor
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Contornos](../../overview/features/outlines.md)
-* [Modos de renderização](../../concepts/rendering-modes.md)
+* [Modos de composição](../../concepts/rendering-modes.md)
 * [Consultas espaciais](../../overview/features/spatial-queries.md)

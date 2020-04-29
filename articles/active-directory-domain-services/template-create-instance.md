@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 01/14/2020
 ms.author: iainfou
 ms.openlocfilehash: b44547998b7ed7159e43bcbbfb4b4456d2a232e9
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80654558"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Criar um domínio gerido por Serviços de Domínio de Diretório Ativo Azure utilizando um modelo de Gestor de Recursos Azure

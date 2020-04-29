@@ -10,10 +10,10 @@ ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
 ms.openlocfilehash: 721e5414fc4753cd5d58a17fc7ed51ea99868778
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80810388"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Preparar novamente modelos com o Azure Machine Learning Designer (pré-visualização)

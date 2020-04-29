@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: mvc, devcenter, cc996988-fb4f-47
 ms.openlocfilehash: a96d2ede80b4c57e7b85048379a4bfb66cacfd52
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80754857"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure

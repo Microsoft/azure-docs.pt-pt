@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: b6f61de23ab4b637cfb5b8ee365ddea9764bf515
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80810201"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementar um serviço de fusão de divisão para mover dados entre bases de dados fiadas

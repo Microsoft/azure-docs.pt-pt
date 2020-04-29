@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 1d77acf9f076bbb9a4f4da5c592a0443b8585299
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656113"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Guia de Início Rápido: Analisar uma imagem remota com a API REST e o JavaScript na Imagem Digitalizada

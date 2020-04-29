@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
 ms.openlocfilehash: fece1155d2f707f11dda9f3896bd8a08deff1557
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80802388"
 ---
 # <a name="http-features"></a>Características http
@@ -41,7 +41,7 @@ Consulte o [artigo HTTP APIs](durable-functions-http-api.md) para obter uma desc
 
 A [ligação do cliente de orquestração](durable-functions-bindings.md#orchestration-client) expõe APIs que podem gerar cargas de resposta http convenientes. Por exemplo, pode criar uma resposta contendo ligações às APIs de gestão para uma instância de orquestração específica. Os seguintes exemplos mostram uma função http-trigger que demonstra como usar esta API para uma nova instância de orquestração:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
@@ -114,7 +114,7 @@ Começando com as Funções Duráveis 2.0, as orquestrações podem consumir de 
 
 O seguinte código de exemplo mostra uma função orquestradora fazendo um pedido http de saída:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -172,7 +172,7 @@ As Funções Duráveis suportam nativamente chamadas a APIs que aceitam fichas d
 
 O seguinte código é um exemplo de uma função de orquestrador .NET. A função faz chamadas autenticadas para reiniciar uma máquina virtual utilizando as [máquinas virtuais REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines)do Gestor de Recursos Azure .
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("RestartVm")]

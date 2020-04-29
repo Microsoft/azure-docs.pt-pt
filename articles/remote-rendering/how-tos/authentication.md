@@ -6,13 +6,13 @@ ms.author: flborn
 ms.date: 02/12/2019
 ms.topic: how-to
 ms.openlocfilehash: fbc27f2fa3b7517151c4bcdbec5b146e83dd868e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681639"
 ---
-# <a name="configure-authentication"></a>Autenticação configurada
+# <a name="configure-authentication"></a>Configurar a autenticação
 
 A renderização remota Azure utiliza o mesmo mecanismo de autenticação que [as Âncoras Espaciais Azure (ASA)](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp). Os clientes precisam de definir *o AccountKey,* *AutenticaçãoToken*ou *AccessToken* para ligar com sucesso às APIs rest. *O AccountKey* pode ser obtido no separador "Teclas" para a conta de renderização remota no portal Azure. *AutenticaçãoToken* é um símbolo Azure AD, que pode ser obtido através da [biblioteca ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). *AccessToken* é um símbolo de MR, que pode ser obtido a partir do Azure Mixed Reality Security Token Service (STS).
 
@@ -33,4 +33,4 @@ Para ajudar a controlar o nível de acesso concedido a aplicações, serviços o
 
 * [Criar uma conta](create-an-account.md)
 * [Utilização das APIs Frontend Azure para autenticação](frontend-apis.md)
-* [Exemplo de scripts PowerShell](../samples/powershell-example-scripts.md)
+* [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)
