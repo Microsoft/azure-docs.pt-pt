@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 74cb88bc1ace87155a35163ca8f9d3d6c4242ae0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80046619"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrar uma aplicação ASP.NET para o Serviço de Aplicações do Azure com um contentor do Windows (Pré-visualização)
@@ -157,7 +157,7 @@ No separador **Docker,** configure o seu recipiente Windows personalizado como m
 |**Origem da Imagem**| Registo de contentores azure |
 |**Registo**| Selecione [o registo que criou anteriormente](#publish-to-azure-container-registry). |
 |**Imagem**| amostra de fonte personalizada |
-|**Etiqueta**| mais recente |
+|**Tag**| mais recente |
 
 ### <a name="complete-app-creation"></a>Criação de aplicação concluída
 

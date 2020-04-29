@@ -6,11 +6,11 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c80ab4acd745717e2e68ae7d9dc818594ad1ce9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79501463"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado no Azure Cosmos DB
@@ -47,7 +47,7 @@ Considere o fornecimento de **uma base de dados Azure Cosmos (contendo um conjun
 
 **Considere um híbrido das duas estratégias acima:**
 
-1. Como mencionado anteriormente, o Azure Cosmos DB permite-lhe misturar e combinar as duas estratégias acima, para que agora possa ter alguns contentores dentro da base de dados Azure Cosmos, que podem partilhar o resultado aprovisionado na base de dados, bem como alguns contentores dentro da mesma base de dados , que podem ter montantes dedicados de entrada aprovisionada. 
+1. Como mencionado anteriormente, o Azure Cosmos DB permite-lhe misturar e combinar as duas estratégias acima referidas, para que agora possa ter alguns contentores dentro da base de dados Azure Cosmos, que podem partilhar o resultado aprovisionado na base de dados, bem como alguns contentores dentro da mesma base de dados, que podem ter quantidades dedicadas de entrada aprovisionada. 
 
 2. Pode aplicar as estratégias acima para criar uma configuração híbrida, onde tem ambos os níveis de base de dados aprovisionados com alguns recipientes que têm uma entrada dedicada.
 
@@ -155,7 +155,7 @@ Os seguintes passos ajudam-no a tornar as suas soluções altamente escaláveis 
 
 1. Se tiver sobressaltado significativamente a entrada em contentores e bases de dados, deve rever as RUs aprovisionadas vs consumidas e afinar as cargas de trabalho.  
 
-2. Um método para estimar a quantidade de entrada reservada exigida pela sua aplicação é registar a taxa da unidade de pedido RU associada à execução de operações típicas contra um recipiente ou base de dados representativo da Azure Cosmos utilizado pela sua aplicação e em seguida, estimar o número de operações que antecipa realizar a cada segundo. Certifique-se de medir e incluir consultas típicas e seu uso também. Para aprender a estimar os custos de consultas de RU programáticamente ou usando o portal ver [Otimizar o custo das consultas](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). 
+2. Um método para estimar a quantidade de entrada reservada exigida pela sua aplicação é registar a taxa da unidade de pedido RU associada à execução de operações típicas contra um recipiente ou base de dados representativo do Azure Cosmos utilizado pela sua aplicação e, em seguida, estimar o número de operações que antecipa realizar a cada segundo. Certifique-se de medir e incluir consultas típicas e seu uso também. Para aprender a estimar os custos de consultas de RU programáticamente ou usando o portal ver [Otimizar o custo das consultas](online-backup-and-restore.md). 
 
 3. Outra forma de obter operações e os seus custos em RUs é permitindo registos do Monitor Azure, o que lhe dará a repartição da operação/duração e a cobrança de pedidos. A Azure Cosmos DB fornece o pedido de cobrança de cada operação, para que cada carga de operação possa ser armazenada de volta da resposta e depois usada para análise. 
 

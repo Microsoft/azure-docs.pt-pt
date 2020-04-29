@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: swmachan
 ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80052402"
 ---
 # <a name="translator-text-api-30-translate"></a>Texto tradutor API 3.0: Traduzir

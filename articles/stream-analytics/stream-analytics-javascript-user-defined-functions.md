@@ -9,10 +9,10 @@ ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 03/23/2020
 ms.openlocfilehash: 58d750b47f3f6a2bcfbf23399ca249131e7876ae
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80235398"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador JavaScript no Azure Stream Analytics
@@ -81,23 +81,23 @@ As funções definidas pelo utilizador do JavaScript do Stream Analytics suporta
 
 Existem diferenças nos tipos que a linguagem de consulta do Stream Analytics e do JavaScript suportam. Esta tabela lista os mapeamentos de conversão entre os dois:
 
-Stream Analytics | Javascript
+Stream Analytics | JavaScript
 --- | ---
 bigint | Number (o JavaScript só pode representar números inteiros até precisamente 2^53)
 DateTime | Date (o JavaScript só suporta milissegundos)
 double | Número
-nvarchar(MAX) | Cadeia
+nvarchar(MAX) | String
 Record | Objeto
 Matriz | Matriz
 NULL | Null
 
 Seguem-se conversões do JavaScript para o Stream Analytics:
 
-Javascript | Stream Analytics
+JavaScript | Stream Analytics
 --- | ---
 Número | Bigint (se o número for redondo e entre long.MinValue e long.MaxValue; caso contrário, é duplo)
 Date | DateTime
-Cadeia | nvarchar(MAX)
+String | nvarchar(MAX)
 Objeto | Record
 Matriz | Matriz
 Null, Undefined | NULL
@@ -135,4 +135,4 @@ FROM
 ## <a name="next-steps"></a>Passos seguintes
 
 * [UDF de Aprendizagem Automática](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
-* [C# UDF](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)
+* [UDF em C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)

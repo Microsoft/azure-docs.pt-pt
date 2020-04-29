@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: swmachan
 ms.openlocfilehash: 8d26efec2783d6f121c319e46b1b505b6e1b1e09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79498927"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de pedido para texto de tradutor

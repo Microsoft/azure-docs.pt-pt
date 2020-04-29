@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
 ms.openlocfilehash: 1ff13d8ef0ca4c6cf499c3245d3ef14370283075
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80066393"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Quickstart: Criar um portal NAT utilizando o portal Azure
@@ -29,7 +29,7 @@ Se preferir, pode fazer estes passos utilizando o [Azure CLI,](quickstart-create
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
 

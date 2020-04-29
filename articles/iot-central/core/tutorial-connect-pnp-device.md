@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 42098d54725cc12691839b63c508efbecf042aa0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80064424"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Tutorial: Utilize um modelo de capacidade do dispositivo para criar um dispositivo IoT Plug and Play (pré-visualização) e conectá-lo à sua aplicação IoT Central
@@ -38,7 +38,7 @@ Para completar este tutorial, é necessário instalar o seguinte software na sua
 * [Git.](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/) - quando instalar **cMake**, selecione a opção **Adicionar CMake ao sistema PATH**.
 * [Código de estúdio visual.](https://code.visualstudio.com/)
-* [Nó.js](https://nodejs.org/)
+* [Node.js](https://nodejs.org/)
 * A `dps-keygen` utilidade:
 
     ```cmd/sh

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: dapine
 ms.openlocfilehash: c86d806c408c2e8226e632a0b15e1e8729c987f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80131539"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança dos Serviços Cognitivos Azure
@@ -161,7 +161,7 @@ public class Program {
 }
 ```
 
-# <a name="nodejs"></a>[Nó.js](#tab/node-js)
+# <a name="nodejs"></a>[Node.js](#tab/node-js)
 
 Para mais informações, consulte <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
 
@@ -171,7 +171,7 @@ const value =
     process.env.ENVIRONMENT_VARIABLE_KEY;
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Para mais informações, consulte <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
 

@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ecd49b340810f92727f0fc98f84031c8cbf68179
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481182"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS
@@ -113,7 +113,7 @@ O administrador do inquilino especificado como inquilino de acesso restrito pode
 - **Utilizador**
 - **Aplicação**
 - **Estado**
-- **Data**
+- **Date**
 - **Data (UTC)** (onde utc é tempo universal coordenado)
 - **Método MFA Auth** (método de autenticação multifactor)
 - **Detalhe MFA Auth** (detalhe de autenticação multifactor)

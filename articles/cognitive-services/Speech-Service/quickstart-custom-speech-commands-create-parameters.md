@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
 ms.openlocfilehash: 96312bac369cfa5fe3cb8a00fd63ecfbec624918
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80348535"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Quickstart: Criar um Comando Personalizado com parâmetros (Pré-visualização)
@@ -40,7 +40,7 @@ Neste artigo, vamos alargar esta aplicação com parâmetros para que possa manu
    | É Global          | sem controlo           | Caixa de verificação indicando se um valor para este parâmetro é globalmente aplicado a todos os Comandos do projeto |
    | Necessário           | verificado             | Caixa de verificação indicando se é necessário um valor para este parâmetro antes de completar o Comando          |
    | Modelo de resposta  | "- Dentro ou fora?"      | Um pedido para pedir o valor deste parâmetro quando não é conhecido                                       |
-   | Tipo               | Cadeia              | O tipo de parâmetro, como número, corda ou hora da data                                               |
+   | Tipo               | String              | O tipo de parâmetro, como número, corda ou hora da data                                               |
    | Configuração      | Lista de Cordas         | Para cordas, uma Lista de Cordas limita as inputs a um conjunto de valores possíveis                                      |
    | Valores da lista de cordas | on, off             | Para um parâmetro da Lista de Cordas, o conjunto de valores possíveis e os seus sinónimos                                |
 
@@ -52,7 +52,7 @@ Neste artigo, vamos alargar esta aplicação com parâmetros para que possa manu
    | É Global          | sem controlo             | Caixa de verificação indicando se um valor para este parâmetro é globalmente aplicado a todos os Comandos do projeto |
    | Necessário           | verificado               | Caixa de verificação indicando se é necessário um valor para este parâmetro antes de completar o Comando          |
    | Modelo de resposta  | "- Que dispositivo?"     | Um pedido para pedir o valor deste parâmetro quando não é conhecido                                       |
-   | Tipo               | Cadeia                | O tipo de parâmetro, como número, corda ou hora da data                                               |
+   | Tipo               | String                | O tipo de parâmetro, como número, corda ou hora da data                                               |
    | Configuração      | Lista de Cordas           | Para cordas, uma Lista de Cordas limita as inputs a um conjunto de valores possíveis                                      |
    | Valores da lista de cordas | tv, fã               | Para um parâmetro da Lista de Cordas, o conjunto de valores possíveis e os seus sinónimos                                |
    | Sinónimos (tv)      | televisão, televisão     | Sinónimos opcionais para cada valor possível de um parâmetro de lista de cordas                                      |
