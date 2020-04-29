@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
 ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77666948"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Plan hiper-V capacidade de máquina virtual com a solução capacidade e desempenho (depreciada)
@@ -88,7 +88,7 @@ Clique no azulejo capacidade e desempenho para abrir o painel de capacidade e de
 - **Anfitriões**
     - **Utilização do CPU anfitrião** Mostra uma tendência gráfica da utilização do CPU dos computadores hospedeiros e uma lista de anfitriões, com base no período de tempo selecionado. Passe sobre a tabela de linhas para ver detalhes para um determinado ponto no tempo. Clique na tabela para ver mais detalhes na pesquisa de registo. Clique em qualquer nome de anfitrião para abrir a pesquisa de registo e ver detalhes do contador CPU para VMs hospedados.
     - **Utilização da memória** do anfitrião Mostra uma tendência gráfica da utilização da memória dos computadores hospedeiros e uma lista de anfitriões, com base no período de tempo selecionado. Passe sobre a tabela de linhas para ver detalhes para um determinado ponto no tempo. Clique na tabela para ver mais detalhes na pesquisa de registo. Clique em qualquer nome de anfitrião para abrir a pesquisa de registo e ver detalhes do contador de memória para VMs hospedados.
-- **Máquinas Virtuais**
+- **Virtual Machines**
     - **Utilização do CPU vm** Mostra uma tendência gráfica da utilização do CPU de máquinas virtuais e uma lista de máquinas virtuais, com base no período de tempo selecionado. Passe sobre a tabela de linhas para ver detalhes para um ponto específico no tempo para os 3 VMs top 3. Clique na tabela para ver mais detalhes na pesquisa de registo. Clique em qualquer nome VM para abrir a pesquisa de registo e ver detalhes agregados do contador cpu para o VM.
     - **Utilização da memória VM** Mostra uma tendência gráfica da utilização da memória de máquinas virtuais e uma lista de máquinas virtuais, com base no período de tempo selecionado. Passe sobre a tabela de linhas para ver detalhes para um ponto específico no tempo para os 3 VMs top 3. Clique na tabela para ver mais detalhes na pesquisa de registo. Clique em qualquer nome VM para abrir a pesquisa de registo e ver detalhes agregados do contador de memória para o VM.
     - **VM Total DeIOTos** de disco Mostra uma tendência gráfica do iOPS total do disco para máquinas virtuais e uma lista de máquinas virtuais com o IOPS para cada um, com base no período de tempo selecionado. Passe sobre a tabela de linhas para ver detalhes para um ponto específico no tempo para os 3 VMs top 3. Clique na tabela para ver mais detalhes na pesquisa de registo. Clique em qualquer nome VM para abrir a pesquisa de registo e ver detalhes de contador iOPS de disco agregado para o VM.

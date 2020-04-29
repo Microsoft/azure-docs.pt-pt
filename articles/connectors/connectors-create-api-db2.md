@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77651387"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Acesso e gestão de recursos IBM DB2 utilizando aplicações lógicas azure
@@ -85,7 +85,7 @@ Para configurar a sua ligação, forneça estes detalhes de ligação quando sol
 | **Ligar através do gateway no local** | Não | Aplica-se apenas para ligações no local. |
 | **Nome de ligação** | Sim | O nome da sua ligação, por exemplo, "MyLogicApp-DB2-connection" |
 | **Servidor** | Sim | O endereço ou pseudónimo número de porta do cólon para o seu servidor DB2, por exemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota:** Este valor é uma cadeia que representa um endereço TCP/IP ou pseudónimo, quer no formato IPv4 quer iPv6, seguido de um cólon e um número de porta TCP/IP. |
-| **Base de Dados** | Sim | O nome da sua base de dados <p><p>**Nota:** Este valor é uma cadeia que representa uma nomede base de dados relacional DRDA (RDBNAM): <p>- DB2 para z/OS aceita uma cadeia de 16 bytes onde a base de dados é conhecida como uma localização "IBM DB2 para z/OS". <br>- DB2 para i aceita uma cadeia de 18 bytes onde a base de dados é conhecida como uma base de dados relacional "IBM DB2 for i". <br>- DB2 para LUW aceita uma corda de 8 bytes. |
+| **Base de dados** | Sim | O nome da sua base de dados <p><p>**Nota:** Este valor é uma cadeia que representa uma nomede base de dados relacional DRDA (RDBNAM): <p>- DB2 para z/OS aceita uma cadeia de 16 bytes onde a base de dados é conhecida como uma localização "IBM DB2 para z/OS". <br>- DB2 para i aceita uma cadeia de 18 bytes onde a base de dados é conhecida como uma base de dados relacional "IBM DB2 for i". <br>- DB2 para LUW aceita uma corda de 8 bytes. |
 | **Nome de utilizador** | Sim | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 pois aceito uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma corda de 30 bytes. |
 | **Palavra-passe** | Sim | A sua senha para a base de dados |
 ||||
@@ -105,7 +105,7 @@ Antes de criar a sua ligação, já deve ter o seu portal de dados instalado no 
 | **Ligar através do gateway no local** | Sim | Aplica-se quando deseja uma ligação no local e mostra as propriedades de ligação no local. |
 | **Nome de ligação** | Sim | O nome da sua ligação, por exemplo, "MyLogicApp-DB2-connection" | 
 | **Servidor** | Sim | O endereço ou pseudónimo número da porta do cólon para o seu servidor DB2, por exemplo, "myDB2server:50000" <p><p>**Nota:** Este valor é uma cadeia que representa um endereço TCP/IP ou pseudónimo, quer no formato IPv4 quer iPv6, seguido de um cólon e um número de porta TCP/IP. |
-| **Base de Dados** | Sim | O nome da sua base de dados <p><p>**Nota:** Este valor é uma cadeia que representa uma nomede base de dados relacional DRDA (RDBNAM): <p>- DB2 para z/OS aceita uma cadeia de 16 bytes onde a base de dados é conhecida como uma localização "IBM DB2 para z/OS". <br>- DB2 para i aceita uma cadeia de 18 bytes onde a base de dados é conhecida como uma base de dados relacional "IBM DB2 for i". <br>- DB2 para LUW aceita uma corda de 8 bytes. |
+| **Base de dados** | Sim | O nome da sua base de dados <p><p>**Nota:** Este valor é uma cadeia que representa uma nomede base de dados relacional DRDA (RDBNAM): <p>- DB2 para z/OS aceita uma cadeia de 16 bytes onde a base de dados é conhecida como uma localização "IBM DB2 para z/OS". <br>- DB2 para i aceita uma cadeia de 18 bytes onde a base de dados é conhecida como uma base de dados relacional "IBM DB2 for i". <br>- DB2 para LUW aceita uma corda de 8 bytes. |
 | **Autenticação** | Sim | O tipo de autenticação para a sua ligação, por exemplo, "Básico" <p><p>**Nota:** Selecione este valor da lista, que inclui Basic ou Windows (Kerberos). |
 | **Nome de utilizador** | Sim | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 pois aceito uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma corda de 30 bytes. |
 | **Palavra-passe** | Sim | A sua senha para a base de dados |

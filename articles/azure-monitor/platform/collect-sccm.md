@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
 ms.openlocfilehash: 3140c0de6fbe090e3d040202cd581c455f03b6d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77655261"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Conectar gestor de configuração ao Monitor Azure
@@ -125,7 +125,7 @@ Se uma palavra-passe ou chave secreta do cliente expirar ou estiver perdida, ter
 
 ## <a name="import-collections"></a>Coleções de importação
 
-Depois de ter adicionado uma ligação Log Analytics ao Gestor de Configuração e instalado o agente no computador que executa a função do site de ponto de ligação do Gestor de Configuração, o próximo passo é importar coleções do Gestor de Configuração em Azure Monitor como grupos informáticos.
+Depois de ter adicionado uma ligação Log Analytics ao Gestor de Configuração e instalado o agente no computador que executa a função do site de ponto de ligação do Gestor de Configuração, o próximo passo é importar coleções do Gestor de Configuração no Monitor De Configuração como grupos informáticos.
 
 Depois de ter concluído a configuração inicial para importar coleções de dispositivos da sua hierarquia, as informações de recolha são recuperadas a cada 3 horas para manter a adesão atual. Pode optar por desativar isto a qualquer momento.
 

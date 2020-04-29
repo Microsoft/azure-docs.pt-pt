@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.openlocfilehash: c6a230f6abeab45c56aab2db40b8b1defcc06d90
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77598702"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -185,7 +185,7 @@ Para criar um cluster pacemaker básico para este servidor IBM Db2, consulte [a
 
 Antes de iniciar a instalação de um ambiente SAP baseado no IBM Db2 LUW, reveja a seguinte documentação:
 
-+ Documentação azure
++ Documentação do Azure
 + Documentação SAP
 + Documentação IBM
 

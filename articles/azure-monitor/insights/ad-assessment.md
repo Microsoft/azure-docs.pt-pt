@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
 ms.openlocfilehash: 57c474c8391168702154b71e0c454253ab921dc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77667232"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimize your Active Directory environment with the Active Directory Health Check solution in Azure Monitor (Otimizar o ambiente do Active Directory com a solução Verificação de Estado de Funcionamento do Active Directory no Azure Monitor)
@@ -47,7 +47,7 @@ Depois de ter adicionado a solução e de concluído um cheque, são mostradas i
 Para efetuar a verificação de saúde contra os seus controladores de domínio que são membros do domínio a avaliar, cada controlador de domínio nesse domínio requer um agente e conectividade ao Monitor Azure utilizando um dos seguintes métodos suportados:
 
 1. Instale o [agente Log Analytics para Windows](../../azure-monitor/platform/agent-windows.md) se o controlador de domínio ainda não estiver monitorizado pelo System Center 2016 - Diretor de Operações ou Gestor de Operações 2012 R2.
-2. Se for monitorizado com o System Center 2016 - Diretor de Operações ou Diretor de Operações 2012 R2 e o grupo de gestão não estiver integrado com o Monitor Azure, o controlador de domínio pode ser multi-alojado com o Monitor Azure para recolher dados e encaminhar-se para o serviço e ainda ser monitorizado pelo Gestor de Operações.  
+2. Se for monitorizado com o System Center 2016 - Diretor de Operações ou Diretor de Operações 2012 R2 e o grupo de gestão não estiver integrado no Monitor Azure, o controlador de domínio pode ser multi-alojado com o Azure Monitor para recolher dados e encaminhar-se para o serviço e ainda ser monitorizado pelo Gestor de Operações.  
 3. Caso contrário, se o seu grupo de gestão do Gestor de Operações estiver integrado ao serviço, terá de adicionar os controladores de domínio para recolha de dados pelo serviço, seguindo os passos em [computadores geridos por agentes adicionais](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de ativar a solução no seu espaço de trabalho.  
 
 O agente no seu controlador de domínio que reporta a um grupo de gestão do Gestor de Operações, recolhe dados, reencaminha para o seu servidor de gestão atribuído, e depois é enviado diretamente de um servidor de gestão para o Monitor De operações.  Os dados não estão escritos nas bases de dados do Gestor de Operações.  

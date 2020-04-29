@@ -8,10 +8,10 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663543"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorize grupos de recursos com monitor Azure (pré-visualização)
@@ -49,7 +49,7 @@ A página de insights do grupo de recursos fornece várias outras ferramentas am
    | [**Alertas**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Ver, criar e gerir os seus alertas. |
    | [**Métricas**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Visualize e explore os seus dados baseados na métrica.    |
    | [**Registos de atividade**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Eventos de nível de subscrição que ocorreram em Azure.  |
-   | [**Application map**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) (Mapeamento de aplicações) | Navegue na topologia da sua aplicação distribuída para identificar estrangulamentos de desempenho ou pontos de falha. |
+   | [**Mapa de aplicações**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Navegue na topologia da sua aplicação distribuída para identificar estrangulamentos de desempenho ou pontos de falha. |
 
 ## <a name="failures-and-performance"></a>Falhas e desempenho
 

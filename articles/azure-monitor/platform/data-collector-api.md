@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
 ms.openlocfilehash: f12e9e90b99a055945c34398ff5351334c344253
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77666757"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envie dados de registo para o Monitor Azure com a Http Data Collector API (pré-visualização pública)
@@ -134,7 +134,7 @@ Para identificar o tipo de dados de uma propriedade, o Azure Monitor adiciona um
 
 | Tipo de dados de propriedade | Sufixo |
 |:--- |:--- |
-| Cadeia |_s |
+| String |_s |
 | Booleano |_b |
 | Double |_d |
 | Date/time |_t |
@@ -196,7 +196,7 @@ Esta tabela lista o conjunto completo de códigos de estado que o serviço pode 
 | 404 |Não encontrado | | Ou o URL fornecido está incorreto, ou o pedido é demasiado grande. |
 | 429 |Muitos pedidos | | O serviço está a registar um elevado volume de dados da sua conta. Por favor, tente o pedido mais tarde. |
 | 500 |Erro interno do servidor |Erro não especificado |O serviço encontrou um erro interno. Por favor, tente novamente o pedido. |
-| 503 |Serviço Indisponível |ServiçoIndisponível |O serviço atualmente não está disponível para receber pedidos. Por favor, tente o seu pedido. |
+| 503 |Serviço Indisponível |ServiceUnavailable |O serviço atualmente não está disponível para receber pedidos. Por favor, tente o seu pedido. |
 
 ## <a name="query-data"></a>Consultar dados
 Para consultar os dados apresentados pela API do Coletor de Dados do Monitor Azure HTTP, procure registos com **Tipo** que seja igual ao valor **do LogType** que especificou, anexado com **_CL**. Por exemplo, se usasse **o MyCustomLog,** devolveria todos os registos com `MyCustomLog_CL`.

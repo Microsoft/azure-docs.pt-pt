@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a apoiar um Azure VM singular ou vários VMs 
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76705450"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Volte a fazer um VM Azure a partir das definições vm
@@ -31,7 +31,7 @@ Para fazer backup os VMs Azure, o Azure Backup instala uma extensão no agente V
 
 ## <a name="back-up-from-azure-vm-settings"></a>Back up from Azure VM settings
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **todos os serviços** e no Filtro, escreva **máquinas virtuais,** e, em seguida, clique em **máquinas virtuais**.
 3. A partir da lista de VMs selecione o VM que pretende fazer apoio.
 4. No menu VM, clique em **Backup**.

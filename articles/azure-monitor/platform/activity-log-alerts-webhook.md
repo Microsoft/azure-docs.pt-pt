@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
 ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669051"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividade do Azure
@@ -282,7 +282,7 @@ Para obter detalhes específicos sobre os alertas de registo de atividade de not
 | operationName |Nome da operação. |
 | propriedades |Propriedades do evento. |
 | status |Cadeia. Estado da operação. Os valores comuns incluem Iniciado, Em Progresso, Bem Sucedido, Falhado, Ativo e Resolvido. |
-| subEstatuto |Normalmente inclui o código de estado HTTP da chamada REPOUSA correspondente. Também pode incluir outras cordas que descrevem um subestatuto. Os valores comuns do subestatuto incluem OK (Código de Estado HTTP: 200), Criado (Código de Estado HTTP: 201), Aceito (Código de Estado HTTP: 202), Sem Conteúdo (Código de Estado HTTP: 204), Pedido De Mau Pedido (Código de Estado HTTP: 400), Não Encontrado (Código de Estado HTTP: 404), Conflito (Código de Estado HTTP: 409 ), Erro do servidor interno (Código de Estado HTTP: 500), Serviço Indisponível (Código de Estado HTTP: 503) e Timeout gateway (Código de Estado HTTP: 504). |
+| subEstatuto |Normalmente inclui o código de estado HTTP da chamada REPOUSA correspondente. Também pode incluir outras cordas que descrevem um subestatuto. Os valores comuns do subestatuto incluem OK (Código de Estado HTTP: 200), Criado (Código de Estado HTTP: 201), Aceito (Código de Estado HTTP: 202), Sem Conteúdo (Código de Estado HTTP: 204), Pedido De Mau Pedido (Código de Estado HTTP: 400), Não Encontrado (Código de Estado HTTP: 404), Conflito (Código de Estado HTTP: 409), Erro do Servidor Interno (Código de Estado HTTP: 500), Serviço Indisponível (Código de Estado HTTP: 503) e Timeout gateway (Código de Estado HTTP) : 504). |
 
 Para obter detalhes específicos sobre todos os outros alertas de registo de atividade, consulte a [visão geral do registo de atividade do Azure](../../azure-monitor/platform/platform-logs-overview.md).
 

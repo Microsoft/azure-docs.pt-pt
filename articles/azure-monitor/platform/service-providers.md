@@ -7,10 +7,10 @@ author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
 ms.openlocfilehash: ed398e12ee90f2eef2cfa78e2ed02701e6012517
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658885"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registos de Monitores Azure para prestadores de serviços

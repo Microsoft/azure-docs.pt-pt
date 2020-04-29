@@ -7,17 +7,17 @@ author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
 ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662524"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorização do seu serviço de armazenamento com o Monitor Azure para armazenamento (pré-visualização)
 
 O Azure Monitor para armazenamento (pré-visualização) fornece uma monitorização abrangente das suas contas de Armazenamento Azure, proporcionando uma visão unificada do desempenho, capacidade e disponibilidade dos seus serviços de Armazenamento Azure. Você pode observar a capacidade de armazenamento, e o desempenho de duas maneiras, ver diretamente a partir de uma conta de armazenamento ou vista do Monitor Azure para ver através de grupos de contas de armazenamento. 
 
-Este artigo irá ajudá-lo a compreender a experiência que o Azure Monitor para armazenamento (pré-visualização) fornece para obter conhecimentos acionáveis sobre a saúde e desempenho das contas de Armazenamento em escala, com capacidade para se concentrar em hotspots e diagnosticar latência, estrangulamento, e problemas de disponibilidade.
+Este artigo irá ajudá-lo a compreender a experiência que o Azure Monitor para armazenamento (pré-visualização) oferece para obter conhecimentos acionáveis sobre a saúde e desempenho das contas de Armazenamento em escala, com capacidade para se concentrar em hotspots e diagnosticar problemas de latência, estrangulamento e disponibilidade.
 
 ## <a name="introduction-to-azure-monitor-for-storage-preview"></a>Introdução ao Monitor Azure para Armazenamento (pré-visualização)
 
@@ -46,7 +46,7 @@ Do Azure Monitor, pode visualizar detalhes de transações, latências e capacid
 
 Para ver a utilização e disponibilidade das suas contas de armazenamento em todas as suas subscrições, execute os seguintes passos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **Monitor** a partir do painel da mão esquerda no portal Azure, e sob a secção **Insights,** selecione Contas de **Armazenamento (pré-visualização)**.
 
@@ -112,7 +112,7 @@ Selecionar qualquer um dos botões para **falhas,** **desempenho,** **disponibil
 
 Quer tenha selecionado um valor nas colunas Disponibilidade , **Latência E2E,** **Latência**do Servidor, e tipo de erro de **transação/Erros** do livro de trabalho da **conta** de armazenamento múltiplo, ou selecionando qualquer um dos botões para **falhas,** **desempenho,** **disponibilidade**e **capacidade** do livro de visão **geral** a partir de uma conta de armazenamento específica, cada um entrega um conjunto de informações interativas relacionadas com armazenamento adaptadas a essa categoria. **Availability**  
 
-* **A disponibilidade** abre o livro **de disponibilidade.** Mostra o estado de saúde atual do serviço de armazenamento Azure, uma tabela que mostra o estado de saúde disponível de cada objeto categorizado pelo serviço de dados definido na conta de armazenamento com uma linha de tendência que representa a faixa de tempo selecionada, e um gráfico de tendência de disponibilidade para cada serviço de dados na conta.  
+* **A disponibilidade** abre o livro **de disponibilidade.** Mostra o estado de saúde atual do serviço de armazenamento Azure, uma tabela que mostra o estado de saúde disponível de cada objeto categorizado pelo serviço de dados definido na conta de armazenamento com uma linha de tendência que representa o intervalo de tempo selecionado, e um gráfico de tendência de disponibilidade para cada serviço de dados na conta.  
 
     ![Exemplo de relatório de disponibilidade](./media/storage-insights-overview/storage-account-availability-01.png)
 

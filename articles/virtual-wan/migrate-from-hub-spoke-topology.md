@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8aa4fe143c78d2053ce8c48e4866a5522057aa0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063026"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrar para Azure Virtual WAN
@@ -23,7 +23,7 @@ Para obter informações sobre os benefícios que o Azure Virtual WAN permite à
 ![hub e](./media/migrate-from-hub-spoke-topology/hub-spoke.png)
 figura falada:**Azure Virtual WAN**
 
-O modelo de conectividade hub-and-spoke do Azure Virtual Datacenter (VDC) foi adotado por milhares de nossos clientes para alavancar o comportamento de encaminhamento transitório padrão da Azure Networking de forma a construir redes de nuvem simples e escalável. O Azure Virtual WAN baseia-se nestes conceitos e introduz novas capacidades que permitem topoologias de conectividade global, não só entre locais no local e o Azure, mas também permitindo que os clientes aproveitem a escala da rede Microsoft para aumentar a sua redes globais existentes.
+O modelo de conectividade hub-and-spoke do Azure Virtual Datacenter (VDC) foi adotado por milhares de nossos clientes para alavancar o comportamento de encaminhamento transitório padrão da Azure Networking de forma a construir redes de nuvem simples e escalável. O Azure Virtual WAN baseia-se nestes conceitos e introduz novas capacidades que permitem topoologias de conectividade global, não só entre locais no local e o Azure, mas também permitindo que os clientes aproveitem a escala da rede Microsoft para aumentar as suas redes globais existentes.
 
 Este artigo mostra como migrar um ambiente híbrido existente para o WAN Virtual.
 
@@ -146,7 +146,7 @@ Redesenhou agora a nossa rede Azure para fazer do centro virtual WAN o ponto cen
 ![Antigo centro torna-se Serviços Partilhados falado](./media/migrate-from-hub-spoke-topology/figure6.png)
 Figura**6: Centro vdc-e-falou com migração virtual WAN**
 
-Como o centro virtual WAN é uma entidade gerida e não permite a implantação de recursos personalizados, como máquinas virtuais, o bloco de serviços partilhados existe agora como uma rede virtual falada e acolhe funções como entrada na Internet via Portal de Aplicação Azure ou aparelho virtualizado de rede. O tráfego entre o ambiente de serviços partilhados e as máquinas virtuais de backend agora transita o centro gerido por WAN virtual.
+Como o hub Virtual WAN é uma entidade gerida e não permite a implantação de recursos personalizados, como máquinas virtuais, o bloco de serviços partilhados existe agora como uma rede virtual falada e acolhe funções como a entrada de internet através do Portal de Aplicações Azure ou do aparelho virtualizado da rede. O tráfego entre o ambiente de serviços partilhados e as máquinas virtuais de backend agora transita o centro gerido por WAN virtual.
 
 ### <a name="step-7-optimize-on-premises-connectivity-to-fully-utilize-virtual-wan"></a>Passo 7: Otimizar a conectividade no local para utilizar totalmente o WAN Virtual
 

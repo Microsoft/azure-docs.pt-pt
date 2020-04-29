@@ -8,10 +8,10 @@ ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77659667"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Troubleshooting metrics charts (Resolução de problemas de gráficos de métricas)
@@ -78,7 +78,7 @@ Este problema pode ocorrer quando o dashboard foi criado com uma métrica que fo
 
 ## <a name="chart-shows-dashed-line"></a>Gráfico mostra linha tracejada
 
-Os gráficos de métricas azure usam o estilo de linha tracejado para indicar que há um valor em falta (também conhecido como "valor nulo") entre dois pontos de dados de grãos de tempo conhecidos. Por exemplo, se no selecionador de tempo escolheu granularidade de tempo "1 minuto" mas a métrica foi reportada às 07:26, 07:27, 07:29 e 07:30 (note uma diferença de minutos entre os pontos de segundo e terceiro dados), então uma linha tracejada ligará 07:27 e 07:29 e uma linha sólida liga-se todos os outros pontos de dados. A linha tracejada desce para zero quando a métrica usa **a contagem** e a agregação da **soma.** Para as **agregações avg**, **min** ou **max,** a linha tracejada liga dois pontos de dados conhecidos mais próximos. Além disso, quando os dados estão em falta no lado mais à direita ou mais à esquerda do gráfico, a linha tracejada expande-se para a direção do ponto de dados em falta.
+Os gráficos de métricas azure usam o estilo de linha tracejado para indicar que há um valor em falta (também conhecido como "valor nulo") entre dois pontos de dados de grãos de tempo conhecidos. Por exemplo, se no selecionador de tempo tiver escolhido granularidade de tempo "1 minuto", mas a métrica foi reportada às 07:26, 07:27, 07:29 e 07:30 (note uma diferença de minutos entre os segundo si e o terceiro pontos de dados), então uma linha tracejada ligará 07:27 e 07:29 e uma linha sólida ligará todos os outros pontos de dados. A linha tracejada desce para zero quando a métrica usa **a contagem** e a agregação da **soma.** Para as **agregações avg**, **min** ou **max,** a linha tracejada liga dois pontos de dados conhecidos mais próximos. Além disso, quando os dados estão em falta no lado mais à direita ou mais à esquerda do gráfico, a linha tracejada expande-se para a direção do ponto de dados em falta.
   ![imagem da métrica](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
 
 **Solução:** Este comportamento é por desígnio. É útil para identificar pontos de dados em falta. O gráfico de linha é uma escolha superior para visualizar tendências de métricas de alta densidade, mas pode ser difícil de interpretar para as métricas com valores escassos, especialmente quando corelacionar valores com grão de tempo é importante. A linha tracejada facilita a leitura destes gráficos, mas se o gráfico ainda não for claro, considere ver as métricas com um tipo de gráfico diferente. Por exemplo, um gráfico de enredo disperso para a mesma métrica mostra claramente cada vez que o grão visualizaa ![apenas um ponto quando há um valor e ignorando completamente o ponto de dados quando o valor está em falta: imagem métrica](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)

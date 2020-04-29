@@ -4,10 +4,10 @@ description: Saiba como estimar melhor os custos que pode incorrer ao executar a
 ms.date: 9/20/2019
 ms.topic: conceptual
 ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76963993"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimativa dos custos do plano de consumo
@@ -238,4 +238,4 @@ customMetrics
 > [Saiba mais sobre aplicações de função de monitorização](functions-monitoring.md)
 
 [página de preços]:https://azure.microsoft.com/pricing/details/functions/
-[Portal Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

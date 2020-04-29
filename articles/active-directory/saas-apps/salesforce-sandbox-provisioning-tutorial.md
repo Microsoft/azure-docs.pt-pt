@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48df954f680c6774b0aa189453615156f4f0b4a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063276"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configure Salesforce Sandbox para fornecimento automático de utilizadores
@@ -51,7 +51,7 @@ Antes de configurar e ativar o serviço de provisionamento, tem de decidir quais
 
 ## <a name="enable-automated-user-provisioning"></a>Ativar o fornecimento automatizado de utilizadores
 
-Esta secção guia-o através da ligação do seu AD Azure à conta de utilizador da Salesforce Sandbox que presta a API, e configurao o serviço de provisionamento para criar, atualizar e desativar as contas de utilizador atribuídas na Salesforce Sandbox com base no utilizador e no grupo atribuição em Azure AD.
+Esta secção guia-o através da ligação do seu AD Azure à conta de utilizador da Salesforce Sandbox, e configurando o serviço de provisionamento para criar, atualizar e desativar as contas de utilizador atribuídas na Salesforce Sandbox com base na atribuição de utilizador e grupo em Azure AD.
 
 >[!Tip]
 >Também pode optar por ativar um único signo baseado em SAML para a Salesforce Sandbox, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático, embora estas duas funcionalidades se elogiem mutuamente.

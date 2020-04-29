@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: e38e1255b1a84ab5d3fd37e16eb65c76001dbfa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938439"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Descrição geral das Medições de Utilizador Reais do Gestor de Tráfego
@@ -27,9 +27,9 @@ As Medições Reais de Utilizador permitem medir as medições de latência da r
 
 ## <a name="how-real-user-measurements-work"></a>Como funcionam as medições reais do utilizador
 
-As medições reais do utilizador funcionam fazendo com que as aplicações do seu cliente meçam a latência nas regiões do Azure, tal como é visto nas redes de utilizador final em que são utilizadas. Por exemplo, se tiver uma página web que é acedida pelos utilizadores em diferentes locais (por exemplo, nas regiões norte-americanas), pode utilizar Medições reais de utilizador com método de encaminhamento de desempenho para levá-los à melhor região Azure em que o seu servidor aplicação é hospedada.
+As medições reais do utilizador funcionam fazendo com que as aplicações do seu cliente meçam a latência nas regiões do Azure, tal como é visto nas redes de utilizador final em que são utilizadas. Por exemplo, se tiver uma página web que seja acedida pelos utilizadores em diferentes locais (por exemplo, nas regiões norte-americanas), pode utilizar medições reais de utilizador com método de encaminhamento de desempenho para levá-los à melhor região Azure em que a aplicação do servidor está hospedada.
 
-Começa por incorporar um Azure fornecido JavaScript (com uma chave única) nas suas páginas web. Uma vez feito, sempre que um utilizador visita essa página web, o JavaScript consulta o Traffic Manager para obter informações sobre as regiões azure que deve medir. O serviço devolve um conjunto de pontos finais ao guião que depois medem estas regiões consecutivamente, baixando uma única imagem de pixel alojada naquelas regiões do Azure e observando a latência entre o momento em que o pedido foi enviado e o momento em que o primeiro byte foi recebido . Estas medições são depois reportadas ao serviço do Gestor de Tráfego.
+Começa por incorporar um Azure fornecido JavaScript (com uma chave única) nas suas páginas web. Uma vez feito, sempre que um utilizador visita essa página web, o JavaScript consulta o Traffic Manager para obter informações sobre as regiões azure que deve medir. O serviço devolve um conjunto de pontos finais ao guião que depois medem estas regiões consecutivamente, baixando uma única imagem de pixel alojada naquelas regiões do Azure e observando a latência entre o momento em que o pedido foi enviado e o momento em que o primeiro byte foi recebido. Estas medições são depois reportadas ao serviço do Gestor de Tráfego.
 
 Com o tempo, isto acontece muitas vezes e em muitas redes levando o Traffic Manager a obter informações mais precisas sobre as características de latência das redes em que os seus utilizadores finais residem. Esta informação começa a ser incluída nas decisões de encaminhamento tomadas pelo Traffic Manager. Como resultado, leva a uma maior precisão nas decisões com base nas Medições reais do Utilizador enviadas.
 

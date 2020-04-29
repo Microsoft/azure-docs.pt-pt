@@ -8,10 +8,10 @@ ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 81309f0b5781e6302887a5b079ed359e70659834
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658987"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Monitor Azure
@@ -120,7 +120,7 @@ A monitorização dos dados , particularmente ficheiros de registo, pode conter 
 
 Todos estes três tipos de dados podem ser armazenados numa conta de armazenamento ou transmitidos para o Event Hub, ambos recursos Azure de uso geral. Porque estes são recursos de uso geral, criando, apagando e acedendo a eles é uma operação privilegiada reservada a um administrador. Sugerimos que utilize as seguintes práticas para monitorizar recursos relacionados com a monitorização para evitar o uso indevido:
 
-* Utilize uma única conta de armazenamento dedicada para monitorizar dados. Se necessitar de separar os dados de monitorização em várias contas de armazenamento, nunca partilhe a utilização de uma conta de armazenamento entre dados de monitorização e não monitorização, pois isso pode inadvertidamente dar àqueles que apenas precisam de acesso a dados de monitorização (por exemplo, um SIEM de terceiros) acesso a dados não monitorizados.
+* Utilize uma única conta de armazenamento dedicada para monitorizar dados. Se necessitar de separar os dados de monitorização em várias contas de armazenamento, nunca partilhe o uso de uma conta de armazenamento entre dados de monitorização e não monitorização, pois isso pode inadvertidamente dar a quem apenas precisa de acesso a dados de monitorização (por exemplo, um SIEM de terceiros) acesso a dados não monitorizadores.
 * Utilize um único e dedicado espaço de nome saque de ônibus de serviço ou hub de eventos em todas as definições de diagnóstico pela mesma razão que acima.
 * Limite o acesso a contas de armazenamento relacionadas com monitorização ou centros de eventos, mantendo-os num grupo de recursos separados, e [utilize o âmbito](../../role-based-access-control/overview.md#scope) das suas funções de monitorização para limitar o acesso apenas a esse grupo de recursos.
 * Nunca conceda a permissão do ListKeys para contas de armazenamento ou centros de eventos no âmbito de subscrição quando um utilizador apenas precisa de acesso a dados de monitorização. Em vez disso, dê estas permissões ao utilizador num âmbito de recurso ou de recursos (se tiver um grupo de recursos de monitorização dedicado).

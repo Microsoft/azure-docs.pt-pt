@@ -4,10 +4,10 @@ description: Como os Insights de Aplicação se enquadram no ciclo devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669697"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos avançados de aplicações Web e serviços com o Application Insights
@@ -130,7 +130,7 @@ O Cliente DNN disse: "A Application Insights forneceu-nos a parte em falta da eq
 ### <a name="configuring-application-insights"></a>Configurar insights de aplicação
 O Visual Studio e o Eclipse dispõem de ferramentas para configurar os pacotes SDK corretos para o projeto que está a desenvolver. Há um comando de menu para adicionar Insights de Aplicação.
 
-Se por acaso estiver a utilizar uma estrutura de registo de vestígios como Log4N, NLog ou System.Diagnostics.Trace, então obtém a opção de enviar os registos para A aplicação Insights juntamente com a outra telemetria, para que possa facilmente correlacionar os vestígios com pedidos, dependência chamadas, e exceções.
+Se por acaso estiver a utilizar uma estrutura de registo de vestígios como Log4N, NLog ou System.Diagnostics.Trace, então obtém a opção de enviar os registos para A aplicação Insights juntamente com a outra telemetria, para que possa facilmente correlacionar os vestígios com pedidos, chamadas de dependência e exceções.
 
 ### <a name="search-telemetry-in-visual-studio"></a>Telemetria de pesquisa em Estúdio Visual
 Ao desenvolver e depurar uma funcionalidade, pode ver e pesquisar a telemetria diretamente no Estúdio Visual, utilizando as mesmas instalações de pesquisa que no portal web.

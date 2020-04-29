@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
 ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77665498"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
 
 Um desafio comum enfrentado quando se lida com alertas é vasculhar o ruído para descobrir o que realmente importa - os grupos inteligentes pretendem ser a solução para esse problema.  
 
-Os grupos inteligentes são automaticamente criados usando algoritmos de aprendizagem automática para combinar alertas relacionados que representam uma única questão.  Quando um alerta é criado, o algoritmo adiciona-o a um novo grupo inteligente ou a um grupo inteligente existente baseado em informações como padrões históricos, propriedades semelhantes e estrutura semelhante. Por exemplo, se % cpU em várias máquinas virtuais numa subscrição simultaneamente picos que conduzem a muitos alertas individuais, e se tais alertas ocorreram juntos em qualquer momento no passado, estes alertas provavelmente serão agrupados em um único Grupo Inteligente, sugerindo um potencial causa raiz comum. Isto significa que, para alguém que resolue os alertas, os grupos inteligentes não só lhes permitem reduzir o ruído gerindo alertas relacionados como uma única unidade agregada, como também os guia para possíveis causas de raiz comuns para os seus alertas.
+Os grupos inteligentes são automaticamente criados usando algoritmos de aprendizagem automática para combinar alertas relacionados que representam uma única questão.  Quando um alerta é criado, o algoritmo adiciona-o a um novo grupo inteligente ou a um grupo inteligente existente baseado em informações como padrões históricos, propriedades semelhantes e estrutura semelhante. Por exemplo, se % do CPU em várias máquinas virtuais numa subscrição simultaneamente aumentar, levando a muitos alertas individuais, e se esses alertas ocorrerem juntos a qualquer momento no passado, estes alertas serão provavelmente agrupados num único Grupo Inteligente, sugerindo uma potencial causa de raiz comum. Isto significa que, para alguém que resolue os alertas, os grupos inteligentes não só lhes permitem reduzir o ruído gerindo alertas relacionados como uma única unidade agregada, como também os guia para possíveis causas de raiz comuns para os seus alertas.
 
 Atualmente, o algoritmo apenas considera alertas do mesmo serviço de monitor dentro de uma subscrição. Os grupos inteligentes podem reduzir até 99% do ruído de alerta através desta consolidação. Pode ver a razão pela qual os alertas foram incluídos num grupo na página de detalhes do grupo inteligente.
 

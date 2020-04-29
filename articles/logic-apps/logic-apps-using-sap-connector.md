@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
 ms.openlocfilehash: 39ab222f64d964e95b16e043c9cdeccd8170ace3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77651020"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar-se a sistemas SAP a partir de Azure Logic Apps
 
 > [!IMPORTANT]
-> Os anteriores connectores sap application Server e SAP Message Server são depreciados em 29 de fevereiro de 2020. O atual conector SAP consolida estes conectores SAP anteriores para que não tenha de alterar o tipo de ligação, é totalmente compatível com conectores anteriores, fornece muitas capacidades adicionais e continua a utilizar a biblioteca de conectores SAP .Net ( SAP NCo).
+> Os anteriores connectores sap application Server e SAP Message Server são depreciados em 29 de fevereiro de 2020. O atual conector SAP consolida estes conectores SAP anteriores para que não tenha de alterar o tipo de ligação, é totalmente compatível com conectores anteriores, fornece muitas capacidades adicionais e continua a utilizar a biblioteca de conector SAP .Net (SAP NCo).
 >
 > Para aplicações lógicas que utilizam os conectores mais antigos, [por favor, emigre para o mais recente conector](#migrate) antes da data de depreciação. Caso contrário, estas aplicações lógicas sofrerão falhas de execução e não poderão enviar mensagens para o seu sistema SAP.
 

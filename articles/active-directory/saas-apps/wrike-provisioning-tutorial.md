@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: 5dd4f5ac6152c22b5e2a84ecc0774672bcd5590b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77064197"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Tutorial: Configure Wrike para fornecimento automático de utilizadores
@@ -113,7 +113,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 ### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para Wrike em Azure AD
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** > **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** > **Todas as aplicações**.
 
     ![Todas as aplicações](common/enterprise-applications.png)
 

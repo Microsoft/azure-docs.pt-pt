@@ -1,6 +1,6 @@
 ---
 title: Subnet Azure Traffic Manager sobreposição usando Azure PowerShell [ Microsoft Docs
-description: Este artigo irá ajudá-lo a entender como a subposição da subnet do Gestor de Tráfego é usada para sobrepor o método de encaminhamento de um perfil do Gestor de Tráfego para direcionar o tráfego para um ponto final baseado no endereço IP do utilizador final através da gama IP pré-definida para mapeamentos de pontofinal usando O Azure PowerShell.
+description: Este artigo irá ajudá-lo a entender como a subposição da subnet do Traffic Manager é usada para sobrepor o método de encaminhamento de um perfil do Traffic Manager para direcionar o tráfego para um ponto final baseado no endereço IP do utilizador final através da gama IP pré-definida para mapeamentos de pontos finais usando o Azure PowerShell.
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
@@ -10,10 +10,10 @@ ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: rohink
 ms.openlocfilehash: 323093ec78a9486d19496b0ee90e37cb42eea341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938428"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Subnet do Gestor de Tráfego sobreposição usando Azure Powershell

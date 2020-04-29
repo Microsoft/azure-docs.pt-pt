@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
 ms.openlocfilehash: 002f210048c18c6dd99dfb5981bacce8666ee563
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76936771"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Como gerir zonas DNS no portal Azure
@@ -25,7 +25,7 @@ ms.locfileid: "76936771"
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [ClI clássico azure](dns-operations-dnszones-cli-nodejs.md)
-> * [Azure CLI](dns-operations-dnszones-cli.md)
+> * [CLI do Azure](dns-operations-dnszones-cli.md)
 
 Este artigo mostra-lhe como gerir as suas zonas DeNs utilizando o portal Azure. Também pode gerir as suas zonas DNS utilizando o [Azure CLI](dns-operations-dnszones-cli.md) de plataforma cruzada ou o Azure [PowerShell](dns-operations-dnszones.md).
 
@@ -42,7 +42,7 @@ Este artigo mostra-lhe como gerir as suas zonas DeNs utilizando o portal Azure. 
    | **Definição** | **Valor** | **Detalhes** |
    |---|---|---|
    |**Nome**|contoso.com|O nome da zona DNS|
-   |**Assinatura**|[A sua subscrição]|Selecione uma subscrição para criar a zona DNS.|
+   |**Subscrição**|[A sua subscrição]|Selecione uma subscrição para criar a zona DNS.|
    |**Grupo de recursos**|**Criar novo:** contosoDNSRG|Crie um grupo de recursos. O nome do grupo de recursos tem de ser exclusivo dentro da subscrição que selecionou. Para saber mais sobre grupos de recursos, leia o artigo de visão geral [do Gestor de Recursos.](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups)|
    |**Localização**|E.U.A. Oeste||
 

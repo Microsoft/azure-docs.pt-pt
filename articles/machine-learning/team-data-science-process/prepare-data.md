@@ -12,16 +12,16 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: caedcf313ab809e9607907545f26ca1b62bbeca7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720049"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tarefas para preparar dados para machine learning otimizado
 Os dados de pré-processamento e limpeza são tarefas importantes que devem ser realizadas antes de um conjunto de dados poder ser utilizado para a formação de modelos. Os dados brutos são muitas vezes barulhentos e pouco fiáveis, e podem estar a perder valores. A utilização destes dados para modelação pode produzir resultados enganadores. Estas tarefas fazem parte do Processo de Ciência de Dados da Equipa (TDSP) e normalmente seguem uma exploração inicial de um conjunto de dados usado para descobrir e planear o pré-processamento necessário. Para obter instruções mais detalhadas sobre o processo TDSP, consulte os passos delineados no Processo de Ciência de Dados da [Equipa](overview.md).
 
-Tarefas de pré-processamento e limpeza, como a tarefa de exploração de dados, podem ser realizadas em uma grande variedade de ambientes, tais como SQL ou Hive ou Azure Machine Learning Studio (clássico), e com várias ferramentas e idiomas, como R ou Python, dependendo de onde os seus dados é armazenado e como é formatado. Uma vez que a TDSP é de natureza iterativa, estas tarefas podem decorrer em várias etapas no fluxo de trabalho do processo.
+Tarefas de pré-processamento e limpeza, como a tarefa de exploração de dados, podem ser realizadas em uma grande variedade de ambientes, tais como SQL ou Hive ou Azure Machine Learning Studio (clássico), e com várias ferramentas e idiomas, como R ou Python, dependendo do local onde os seus dados são armazenados e como são formatados. Uma vez que a TDSP é de natureza iterativa, estas tarefas podem decorrer em várias etapas no fluxo de trabalho do processo.
 
 Este artigo introduz vários conceitos e tarefas de processamento de dados que podem ser realizadas antes ou depois de ingerir dados no Azure Machine Learning Studio (clássico).
 

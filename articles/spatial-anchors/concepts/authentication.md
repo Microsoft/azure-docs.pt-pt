@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: df27a77c202951a6c789703f12712e75bd8b5906
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77656992"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização às Âncoras Espaciais Azure
@@ -31,7 +31,7 @@ As chaves de conta permitem-lhe começar rapidamente a utilizar o serviço De â
 
 Os tokens de autenticação Azure AD podem ser obtidos de duas formas:
 
-- Se estiver a construir uma aplicação empresarial, e a sua empresa estiver a utilizar o Azure AD como seu sistema de identidade, poderá utilizar a autenticação Azure AD baseada no utilizador na sua aplicação e conceder acesso às suas contas de âncoraespacial espacial utilizando os seus grupos de segurança AD Azure existentes, ou diretamente para os utilizadores da sua organização.
+- Se estiver a construir uma aplicação empresarial, e a sua empresa estiver a utilizar o Azure AD como seu sistema de identidade, poderá utilizar a autenticação Azure AD baseada no utilizador na sua aplicação e conceder acesso às suas contas de âncora espacial utilizando os grupos de segurança AD Azure existentes, ou diretamente para os utilizadores da sua organização.
 - Caso contrário, recomenda-se que obtenha fichas AD Azure de um serviço web que suporte a sua aplicação. A utilização de um serviço web de suporte é o método recomendado de autenticação para aplicações de produção, uma vez que evita incorporar as credenciais de acesso às Âncoras Espaciais Azure na sua aplicação de cliente.
 
 ## <a name="account-keys"></a>Chaves de conta

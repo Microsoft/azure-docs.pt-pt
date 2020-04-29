@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/06/2020
 ms.openlocfilehash: 383366fa3e436c79bed28a7c47f1e9daa5f0d9de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77060184"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-and-azure-monitor-logs"></a>Como monitorizar a disponibilidade do cluster com os registos Apache Ambari e Azure Monitor
 
 Os clusters HDInsight incluem tanto a Apache Ambari, que fornece informações de saúde num relance e alertas predefinidos, bem como a integração de registos do Azure Monitor, que fornece métricas e registos que se questionam, bem como alertas configuráveis.
 
-Este doc mostra como usar estas ferramentas para monitorizar o seu cluster e percorre alguns exemplos para configurar um alerta Ambari, monitorizar a taxa de disponibilidade do nó, e criar um alerta do Monitor Azure que dispara quando um batimento cardíaco não foi recebido de um ou mais nós em cinco horas.
+Este doc mostra como usar estas ferramentas para monitorizar o seu cluster e percorre alguns exemplos para configurar um alerta Ambari, monitorizar a taxa de disponibilidade do nó, e criar um alerta do Monitor Azure que dispara quando um batimento cardíaco não é recebido de um ou mais nós em cinco horas.
 
 ## <a name="ambari"></a>Ambari
 

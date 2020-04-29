@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.openlocfilehash: 393356bd8604f6e7622acd778817681aad31f1f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76935012"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utilize o Kit de Ferramentas Azure para o IntelliJ para depurar aplicações Apache Spark remotamente no HDInsight através de VPN
@@ -100,7 +100,7 @@ Recomendamos que também crie um cluster Apache Spark no Azure HDInsight que fa�
 
     a. Selecione **HDInsight** > **Spark no HDInsight (Scala)**.
 
-    b. Selecione **Next**.
+    b. Selecione **Seguinte**.
 1. Na próxima caixa de diálogo **New Project,** faça o seguinte e, em seguida, selecione **Terminar:**
 
     - Introduza um nome do projeto e localização.

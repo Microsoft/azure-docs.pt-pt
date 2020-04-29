@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: curtand
 ms.openlocfilehash: ee868ded0dc3a46f2ec20d0141aa2576cbf71f45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062341"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurar uma chave de segurança como o seu método de verificação
@@ -92,7 +92,7 @@ Você deve criar a sua chave de segurança e dar-lhe um PIN único antes de pode
 
     Voltará à instalação da sua nova caixa **de métodos de entrada.**
 
-7. Selecione **Next**.
+7. Selecione **Seguinte**.
 
 8. Volte à página de informações de **Segurança,** escreva um nome que reconhecerá mais tarde para a sua nova chave de segurança e, em seguida, selecione **Next**.
 

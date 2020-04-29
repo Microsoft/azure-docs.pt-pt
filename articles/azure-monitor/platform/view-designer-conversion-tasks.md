@@ -7,10 +7,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 5559dac916262998d621b40757398088ec613609
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658749"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Ver designer para trabalhos de conversão tarefas comuns
@@ -155,4 +155,4 @@ Isto irá inserir dropdowns para permitir o acesso às suas várias subscriçõe
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Conversões de azulejos](view-designer-conversion-tiles.md)
+- [Conversões de mosaico](view-designer-conversion-tiles.md)

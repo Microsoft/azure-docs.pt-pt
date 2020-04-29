@@ -6,10 +6,10 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.openlocfilehash: 0396bd8d150c6145a39f36e7be9e6e2dcacef2c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669952"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Acompanhe os pedidos de entrada com openCensus Python
@@ -131,8 +131,8 @@ Primeiro, instrumente a sua aplicação Python com o mais recente [OpenCensus Py
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Mapa de aplicações](../../azure-monitor/app/app-map.md)
+* [Mapeamento de Aplicações](../../azure-monitor/app/app-map.md)
 * [Disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Procurar](../../azure-monitor/app/diagnostic-search.md)
 * [Consulta de log (Analytics)](../../azure-monitor/log-query/log-query-overview.md)
-* [Diagnósticos de transações](../../azure-monitor/app/transaction-diagnostics.md)
+* [Diagnóstico da transação](../../azure-monitor/app/transaction-diagnostics.md)

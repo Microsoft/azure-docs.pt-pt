@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
 ms.openlocfilehash: 7886764a69eefa68be071a801bea65ae995fbdc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938503"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Usando o PowerShell para gerir o Gestor de Tráfego
@@ -115,7 +115,7 @@ Em todos os três casos, os pontos finais podem ser adicionados de duas formas:
 
 Serviços de referência azure endpoints hospedados em Azure. São apoiados dois tipos de pontos finais Do Azure:
 
-1. App Service do Azure
+1. Serviço de Aplicações do Azure
 2. Os recursos Azure PublicIpAddress (que podem ser ligados a um equilibrador de carga ou a uma máquina virtual NIC). O PublicIpAddress deve ter um nome DNS atribuído para ser utilizado no Traffic Manager.
 
 Em cada caso:

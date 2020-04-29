@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77657168"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral da segurança das Máquinas Virtuais Azure
@@ -61,7 +61,7 @@ Para uma proteção ainda mais poderosa, considere utilizar o [Windows Defender 
 * [Proteção da próxima geração](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Proteção e resposta de pontofinal](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Investigação e remediação automatizadas](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Pontuação segura](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
+* [Classificação de segurança](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
 * [Caça avançada](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Gestão e APIs](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Proteção contra Ameaças da Microsoft](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
@@ -167,7 +167,7 @@ Os TEEs garantem que não há forma de visualizar os dados ou as operações no 
 Saiba mais:
 
 * [Introdução de computação confidencial azure](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
-* [Computação confidencial azure](https://azure.microsoft.com/blog/azure-confidential-computing/)  
+* [Computação confidencial do Azure](https://azure.microsoft.com/blog/azure-confidential-computing/)  
 
 ## <a name="next-steps"></a>Passos seguintes
 

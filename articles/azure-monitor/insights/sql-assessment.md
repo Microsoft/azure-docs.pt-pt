@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
 ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662489"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize o seu ambiente SQL com a solução SQL Server Health Check no Monitor Azure
@@ -45,7 +45,7 @@ Depois de ter adicionado a solução e de ser concluída uma avaliação, são m
 Para efetuar a verificação de saúde contra os seus servidores SQL Server, eles requerem um agente e conectividade para o Monitor Azure usando um dos seguintes métodos suportados:
 
 1. Instale o [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) se o servidor ainda não estiver monitorizado pelo System Center 2016 - Diretor de Operações ou Gestor de Operações 2012 R2.
-2. Se for monitorizado com o System Center 2016 - Diretor de Operações ou Gestor de Operações 2012 R2 e o grupo de gestão não estiver integrado com o Monitor Azure, o servidor pode ser multi-homed com log Analytics para recolher dados e encaminhar para o serviço e ainda ser monitorizado pelo Gestor de Operações.  
+2. Se for monitorizado com o System Center 2016 - Diretor de Operações ou Gestor de Operações 2012 R2 e o grupo de gestão não estiver integrado no Monitor Azure, o servidor pode ser multi-alojado com o Log Analytics para recolher dados e encaminhar-se para o serviço e ainda ser monitorizado pelo Gestor de Operações.  
 3. Caso contrário, se o seu grupo de gestão do Gestor de Operações estiver integrado ao serviço, terá de adicionar os controladores de domínio para recolha de dados pelo serviço, seguindo os passos em [computadores geridos por agentes adicionais](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de ativar a solução no seu espaço de trabalho.  
 
 O agente no seu Servidor SQL que reporta a um grupo de gestão do Gestor de Operações, recolhe dados, reencaminha para o seu servidor de gestão atribuído, e depois é enviado diretamente de um servidor de gestão para o Monitor Azure.  Os dados não estão escritos nas bases de dados do Gestor de Operações.  
@@ -155,7 +155,7 @@ Antes de poder utilizar uma solução de avaliação no Monitor Azure, tem de te
 Consulte as avaliações de conformidade resumidas para a sua infraestrutura e, em seguida, faça recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Ver recomendações para uma área de foco e tomar medidas corretivas
-1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Monitorizar**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Monitorizar**.
 3. Na secção **Insights** do menu, selecione **Mais**.  
 4. Na página **'Overview',** clique no azulejo **SQL Health Check.**

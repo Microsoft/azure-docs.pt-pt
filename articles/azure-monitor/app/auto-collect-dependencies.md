@@ -7,10 +7,10 @@ ms.author: nimolnar
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: eaafe19f5112b433d50a34aa551aa84d196726a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77665821"
 ---
 # <a name="dependency-auto-collection"></a>Coleção automática da dependência
@@ -76,7 +76,7 @@ Abaixo está a lista de chamadas de dependência suportadas atualmente que são 
 | [Rio Bunyan](https://www.npmjs.com/package/bunyan) | 1.x |
 | [Winston](https://www.npmjs.com/package/winston) | 2.x - 3.x |
 
-## <a name="javascript"></a>Javascript
+## <a name="javascript"></a>JavaScript
 
 | Bibliotecas de comunicação | Versões |
 | ------------------------|----------|

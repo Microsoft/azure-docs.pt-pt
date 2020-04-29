@@ -17,10 +17,10 @@ ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 880f1c601cf4132fdec9e5d25b1bf1f2ff175ab7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77650542"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Diretrizes de desempenho para o SQL Server nas Máquinas Virtuais do Azure

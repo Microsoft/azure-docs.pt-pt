@@ -14,10 +14,10 @@ ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fd1267711871b3e55f1a6229e46ae27b360322f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617046"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>SAP HANA sobre migração de grandes instâncias azure para máquinas virtuais azure
@@ -75,7 +75,7 @@ Ao embarcar num servidor HLI, tanto a Microsoft Service Management como os clien
 ### <a name="allow-network-connectivity-for-new-vms-and-or-virtual-network"></a>Permitir a conectividade da rede para novos VMs e, ou rede virtual 
 Na implantação do HLI de um cliente, a rede foi criada com base nas informações descritas no artigo [SAP HANA (Grandes Instâncias) arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)de rede. Além disso, o encaminhamento de tráfego de rede é feito da forma descrita na secção 'Encaminhamento em Azure'.
 - Ao configurar um novo VM como alvo de migração, Se for colocado na rede virtual existente com gamas de endereços IP já autorizadas a ligar-se ao HLI, não é necessária mais nenhuma atualização de conectividade.
-- Se o novo Azure VM for colocado numa nova Rede Virtual Microsoft Azure, poderá estar noutra região, e espreitar com a rede virtual existente, a chave de serviço ExpressRoute e o Id de Recursos do fornecimento original de HLI são utilizáveis para permitir o acesso a este novo virtual gama IP de rede.  Coordene com a Microsoft Service Management para permitir a conectividade da rede virtual.  Nota: Para minimizar a latência da rede entre as camadas de aplicação e base de dados, tanto as camadas de aplicação como de base de dados devem estar na mesma rede virtual.  
+- Se o novo Azure VM for colocado numa nova Rede Virtual Microsoft Azure, poderá estar noutra região, e espreitar com a rede virtual existente, a chave de serviço ExpressRoute e o Id de Recursos do fornecimento original de HLI são utilizáveis para permitir o acesso a esta nova gama IP da rede virtual.  Coordene com a Microsoft Service Management para permitir a conectividade da rede virtual.  Nota: Para minimizar a latência da rede entre as camadas de aplicação e base de dados, tanto as camadas de aplicação como de base de dados devem estar na mesma rede virtual.  
 
 ### <a name="existing-app-layer-availability-set-availability-zones-and-proximity-placement-group-ppg"></a>Conjunto de disponibilidade de camada de aplicativo existente, zonas de disponibilidade e Grupo de Colocação de Proximidade (PPG)
 O atual modelo de implantação é feito para satisfazer determinados objetivos de nível de serviço.  Neste movimento, certifique-se de que a infra-estrutura-alvo irá cumprir ou exceder os objetivos definidos.  
@@ -115,7 +115,7 @@ Quer o novo SAP HANA VM aterre numa nova ou existente vnet/subnet, representa um
 ### <a name="vm-sizing-recommendation"></a>Recomendação de dimensionamento VM
 Esta migração é também uma oportunidade para o tamanho certo do seu motor de computação HANA.  Pode-se usar [as vistas do sistema](https://help.sap.com/viewer/7c78579ce9b14a669c1f3295b0d8ca16/Cloud/3859e48180bb4cf8a207e15cf25a7e57.html) HANA em conjunto com o HANA Studio para entender o consumo de recursos do sistema, o que permite o dimensionamento certo para impulsionar a eficiência de gastos.
 
-### <a name="storage"></a>Storage 
+### <a name="storage"></a>Armazenamento 
 O desempenho do armazenamento é um dos fatores que impacta a experiência do utilizador da aplicação SAP.  Base num dado VM SKU, existem configurações de armazenamento mínimo [publicadas SAP HANA Azure configurações](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)de armazenamento de máquinas virtuais . Recomendamos rever estas especificações mínimas e comparar com as estatísticas existentes do sistema HLI para garantir uma capacidade e desempenho adequados para o novo VM HANA.
 
 Se configurar o PPG para o novo VM HANA e as suas severs associadas, submeta um bilhete de apoio para inspecionar e garantir a co-localização do armazenamento e do VM. Uma vez que a sua solução de backup poderá ter de ser alterada, o custo de armazenamento também deve ser revisitado para evitar surpresas de gastos operacionais.

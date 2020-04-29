@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: d5a03fde564b14baee97f50fa63fd58bf83694b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938347"
 ---
 # <a name="traffic-manager-traffic-view"></a>Vista de tráfego do gestor de tráfego
@@ -34,7 +34,7 @@ Por exemplo, pode utilizar o Traffic View para entender quais as regiões que t�
 ## <a name="how-traffic-view-works"></a>Como funciona a Vista de Tráfego
 
 Traffic View funciona fazendo com que o Gestor de Tráfego olhe para as consultas recebidas nos últimos sete dias contra um perfil que tem esta funcionalidade ativada. A partir das informações de perguntas de entrada, o Traffic View extrai a fonte IP do DNS resolver que é usada como representação da localização dos utilizadores. Estes são então agrupados a uma granularidade de nível DNS para criar regiões de base de utilizadores utilizando a informação geográfica dos endereços IP mantidos pelo Gestor de Tráfego. O Gestor de Tráfego olha então para as regiões de Azure para as quais a consulta foi encaminhada e constrói um mapa de fluxo de tráfego para os utilizadores dessas regiões.  
-No passo seguinte, o Traffic Manager correlaciona a região da base de utilizadores com o mapeamento da região de Azure com as tabelas de latência da inteligência da rede que mantém para diferentes redes de utilizadores finais entenderem a latência média sentida pelos utilizadores dessas regiões quando ligação às regiões de Azure. Todos estes cálculos são então combinados a um nível ip local de DNS antes de ser apresentado a si. Pode consumir a informação de várias formas.
+No passo seguinte, o Traffic Manager correlaciona a região da base de utilizadores com o mapeamento da região de Azure com as tabelas de latência da inteligência da rede que mantém para diferentes redes de utilizadores finais entenderem a latência média sentida pelos utilizadores dessas regiões quando se ligam às regiões do Azure. Todos estes cálculos são então combinados a um nível ip local de DNS antes de ser apresentado a si. Pode consumir a informação de várias formas.
 
 A frequência da atualização de dados da visualização de tráfego depende de múltiplas variáveis de serviço interno. No entanto, os dados são geralmente atualizados uma vez a cada 24 horas.
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
 ms.openlocfilehash: 0a21af683d9fa7849d3e96c545983c9f40a8d4c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76935325"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registos do Azure Monitor para o Balanceador de Carga Básico público
@@ -38,7 +38,7 @@ Pode utilizar diferentes tipos de registos em Azure para gerir e resolver proble
 
 O registo de atividades é ativado automaticamente para todos os recursos do Resource Manager. Ative o registo de registos de sondas de eventos e saúde para começar a recolher os dados disponíveis através desses registos. Utilize os seguintes passos para ativar a exploração madeireira.
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com). Se ainda não tiver um equilibrador de carga, [crie um equilibrante](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) de carga antes de continuar.
+Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver um equilibrador de carga, [crie um equilibrante](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) de carga antes de continuar.
 
 1. No portal, clique em **grupos de recursos.**
 2. Selecione ** \<o nome do grupo de recursos>** onde está o seu equilibrador de carga.

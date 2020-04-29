@@ -6,10 +6,10 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.openlocfilehash: e400669fd96518adead74a81fc332767c5f9b23b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669935"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Dependências de pista com OpenCensus Python
@@ -166,8 +166,8 @@ config_integration.trace_integrations(['sqlalchemy'])
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Mapa de aplicações](../../azure-monitor/app/app-map.md)
+* [Mapeamento de Aplicações](../../azure-monitor/app/app-map.md)
 * [Disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Procurar](../../azure-monitor/app/diagnostic-search.md)
 * [Consulta de log (Analytics)](../../azure-monitor/log-query/log-query-overview.md)
-* [Diagnósticos de transações](../../azure-monitor/app/transaction-diagnostics.md)
+* [Diagnóstico da transação](../../azure-monitor/app/transaction-diagnostics.md)
