@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 111e6e2f80c3460f363c496b7b32befdca16250d
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81115113"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Ligar de forma privada a uma conta de armazenamento com o Ponto Final Privado do Azure
@@ -181,9 +181,9 @@ Nesta secção, irá ligar-se em privado à conta de armazenamento utilizando o 
 4. Selecione **contas de Armazenamento** com o clique certo.
 5. Selecione **Ligar a um armazenamento azul**.
 6. Selecione **Utilize uma corda de ligação**.
-7. Selecione **Next**.
+7. Selecione **Seguinte**.
 8. Introduza a cadeia de ligação colando as informações anteriormente copiadas.
-9. Selecione **Next**.
+9. Selecione **Seguinte**.
 10. Selecione **Ligar**.
 11. Navegue nos recipientes Blob a partir da minha conta de armazenamento 
 12. (Opcionalmente) Crie pastas e/ou ficheiros de upload para *a minha conta de armazenamento*. 

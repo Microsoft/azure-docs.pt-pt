@@ -4,10 +4,10 @@ description: Aprenda a escalar um cluster de tecido de serviço adicionando um c
 ms.topic: article
 ms.date: 02/13/2019
 ms.openlocfilehash: 4dbb9e4fbfeb27c5b8b13f70207888cf37bbb0e0
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80998933"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Aumentar verticalmente um nó do tipo primário do cluster do Service Fabric

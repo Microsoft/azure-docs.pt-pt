@@ -6,10 +6,10 @@ manager: gwallace
 ms.topic: article
 ms.date: 03/24/2020
 ms.openlocfilehash: b121830192a2b88185bbbbc9a92934e51b32a61c
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114654"
 ---
 # <a name="integrate-azure-ad-in-azure-kubernetes-service-preview"></a>Integrar o Azure AD no Serviço Azure Kubernetes (Pré-visualização)

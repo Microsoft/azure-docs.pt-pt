@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: 373e7838327d11b1b54278ee0c16c6e6ae554b0b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253497"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN da Verizon Premium governa características do motor
@@ -180,7 +180,7 @@ Desativado | O cabeçalho de resposta age é excluído da resposta enviada ao so
 
 **Comportamento predefinido**: Desativado.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -199,7 +199,7 @@ Desativado|Faz com que os POPs ignorem os parâmetros de estrangulamento da larg
 
 **Comportamento predefinido:** Habilitado.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -218,7 +218,7 @@ Prebuf segundos|Defina esta opção para o número de segundos para os POPs espe
 
 **Comportamento predefinido:** Deficiente.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -242,7 +242,7 @@ Desativado|Faz com que os POPs cache ativos de acordo com a política de cache d
 
 --->
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -260,7 +260,7 @@ Informação-chave:
 
 **Comportamento predefinido:** Apenas as respostas GET são em cache.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -284,7 +284,7 @@ Informação-chave:
 
 **Comportamento predefinido:** 14 Kb
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -305,7 +305,7 @@ Remover| Esta opção garante `Cache-Control` que um cabeçalho não esteja incl
 
 **Comportamento predefinido:** Sobrepor.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -383,7 +383,7 @@ Este tipo de configuração geraria a seguinte chave cache-chave do parâmetro d
 
     /800001/Origin/folder/asset.htm
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -404,7 +404,7 @@ Novo Caminho|Defina o caminho relativo para a nova tecla cache. Um caminho relat
 
 **Comportamento predefinido:** A chave de cache de um pedido é determinada pelo pedido URI.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -422,7 +422,7 @@ Informação-chave:
 - Utilize apenas caracteres alfanuméricos.
 - Esta funcionalidade não afeta o comportamento da regra. Destina-se apenas a fornecer uma área onde possa fornecer informações para referência futura ou que possa ajudar na resolução de problemas da regra.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -470,7 +470,7 @@ Devido à forma como as definições de cache são rastreadas, esta funcionalida
 - URL Consulta Wildcard
 - Parâmetro de consulta de URL
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -498,7 +498,7 @@ Informação-chave:
 - Os caracteres wildcard, como os asteriscos, não são suportados.
 - Antes de adicionar esta funcionalidade a uma regra, certifique-se de que define a opção Desativação de Compressão na página de Compressão para a plataforma à qual esta regra é aplicada.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -529,7 +529,7 @@ Informação-chave:
 
 **Valor predefinido:** -
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -558,7 +558,7 @@ Desativado|O cabeçalho de resposta X-EC-Debug será excluído da resposta.
 
 **Comportamento predefinido:** Deficiente.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -602,7 +602,7 @@ Devido à forma como as definições de cache são rastreadas, esta funcionalida
 - URL Consulta Wildcard
 - Parâmetro de consulta de URL
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -622,7 +622,7 @@ Desativado| Restaura o comportamento padrão. O comportamento predefinido é per
 > [!TIP]
    > Uma utilização possível para esta funcionalidade é associá-la a uma condição de jogo do 'Cabeçalho de Pedido' para bloquear o acesso aos refereredores HTTP que estão a utilizar links inline para o seu conteúdo.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -643,7 +643,7 @@ Remover| Garante que `Expires` um cabeçalho não está incluído com a resposta
 
 **Comportamento predefinido:** Sobreescrever
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -664,7 +664,7 @@ Informação-chave:
 
 **Comportamento predefinido:** Fora
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -685,7 +685,7 @@ Desativado|Os pedidos não serão redirecionados.
 
 **Comportamento predefinido:** Deficiente.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -729,7 +729,7 @@ Devido à forma como as definições de cache são rastreadas, esta funcionalida
 - URL Consulta Wildcard
 - Parâmetro de consulta de URL
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -746,7 +746,7 @@ Informação-chave:
 
 **Comportamento predefinido:** HTTP Progressive Download suporta os meios MP4 e F4V por padrão.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -769,7 +769,7 @@ O estado de cache que é reportado para um pedido que pode `TCP_Client_Refresh_M
 
 **Comportamento predefinido:** Deficiente.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -813,7 +813,7 @@ Devido à forma como as definições de cache são rastreadas, esta funcionalida
 - URL Consulta Wildcard
 - Parâmetro de consulta de URL
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -832,7 +832,7 @@ Desativado|Restaura o comportamento padrão. O comportamento padrão é honrar o
 
 **Comportamento predefinido:** Deficiente.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -881,7 +881,7 @@ Devido à forma como as definições de cache são rastreadas, esta funcionalida
 - URL Consulta Wildcard
 - Parâmetro de consulta de URL
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -898,7 +898,7 @@ Desativado|Restaura o comportamento padrão. O comportamento padrão é ignorar 
 
 **Comportamento predefinido:** Deficiente.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -917,7 +917,7 @@ Informação-chave:
 
 **Valor Predefinido:** 10.000 pedidos
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -957,7 +957,7 @@ Informação-chave:
     - x-forward-for
     - Todos os nomes do cabeçalho que começam com "x-ec" estão reservados.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1005,7 +1005,7 @@ Informação-chave:
     - aviso
     - Todos os nomes do cabeçalho que começam com "x-ec" estão reservados.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1024,7 +1024,7 @@ Desativado|Os pedidos só podem gerar uma versão totalmente emcachedo do conte�
 
 **Comportamento predefinido:** Deficiente.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1042,7 +1042,7 @@ Informação-chave:
 
 **Comportamento predefinido:** Fora, fora. A revalidação só pode ocorrer depois de expirada a TTL do conteúdo em cache.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1069,7 +1069,7 @@ Os seguintes cabeçalhos HTTP estão incluídos na lista predefinida:
 
 **Comportamento predefinido:** Todos os cabeçalhos de pedido específicos da CDN serão encaminhados para o servidor de origem.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1090,7 +1090,7 @@ Esta funcionalidade não é necessária para a correta entrega de cache e conte�
 
 **Comportamento predefinido:** Deficiente.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1112,7 +1112,7 @@ Informação-chave:
 
 **Comportamento predefinido:** O caching só está habilitado para respostas que gerem um código de estado de 200 OK.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1138,7 +1138,7 @@ Certifique-se de que o nome do cabeçalho especificado não corresponde a nenhum
     - x-forward-for
     - Todos os nomes do cabeçalho que começam com "x-ec" estão reservados.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1155,7 +1155,7 @@ Desativado|O erro do servidor de origem é encaminhado para o solicitador.
 
 **Comportamento predefinido:** Deficientes
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1174,7 +1174,7 @@ Informação-chave:
 
 **Comportamento predefinido:** Fora, fora. A revalidação deve ter lugar antes de o conteúdo solicitado poder ser servido.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1201,7 +1201,7 @@ Desativado| Restaura o comportamento padrão. O comportamento predefinido é per
 
 Não utilize Token Auth com uma condição de correspondência always.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1252,7 +1252,7 @@ A configuração acima pode ser alcançada executando os seguintes passos:
 
 O cabeçalho WWW-Authenticate só é aplicável para 401 códigos de resposta.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1277,7 +1277,7 @@ Desativado|Restaura o comportamento padrão. O comportamento padrão é para as 
 
 **Comportamento predefinido:** Deficiente.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1300,7 +1300,7 @@ Desativado|Um símbolo pode ser especificado como um parâmetro de corda de cons
 
 **Comportamento predefinido:** Deficiente. Um símbolo pode ser especificado como um parâmetro de corda de consulta indefinida no URL de pedido.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1344,7 +1344,7 @@ Esta redirecção de URL pode ser ![alcançada através da seguinte configuraç�
 - A variável do Regime de Pedido (%{scheme}) é alavancada na opção Destino, que garante que o regime do pedido permanece inalterado após a reorientação.
 - Os segmentos de URL que foram capturados a partir do pedido são anexados ao novo URL via "$1".
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1405,7 +1405,7 @@ Esta funcionalidade inclui critérios de correspondência que devem ser cumprido
 - URL Consulta Regex
 - URL Consulta Wildcard
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1415,7 +1415,7 @@ Esta funcionalidade inclui critérios de correspondência que devem ser cumprido
 
 **Finalidade:** Apenas para uso interno.
 
-[Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
+[De volta ao topo](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 

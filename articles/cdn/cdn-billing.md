@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: d3a2dfba98f83d34c3e83ec865e3b692f7dbacd2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81254228"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Compreender a faturação da CDN do Azure
@@ -91,7 +91,7 @@ Cada vez que um CDN POP precisa preencher a sua cache, faz um pedido à origem p
 Se utilizar um dos seguintes serviços Azure como origem CDN, não será cobrado a partir da transferência de Dados da Origem para os PoPs cDN. 
 
 - Storage do Azure
-- Serviços Azure Media
+- Serviços de Multimédia do Azure
 - Máquinas Virtuais do Azure
 - Rede Virtual
 - Load balancer

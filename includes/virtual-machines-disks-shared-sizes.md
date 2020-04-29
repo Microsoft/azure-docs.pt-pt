@@ -9,10 +9,10 @@ ms.date: 04/06/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0b185d545e129c941d5df2e8ce86ee684174b666
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81008359"
 ---
 Por enquanto, apenas discos ultra e SSDs premium podem ativar discos partilhados. Diferentes tamanhos de `maxShares` disco podem ter um limite `maxShares` diferente, que não pode exceder ao definir o valor. Para SSDs premium, os tamanhos do disco que suportam a partilha dos seus discos são P15 e maiores.

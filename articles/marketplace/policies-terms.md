@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: dsindona
 ms.openlocfilehash: d2fdf40dde287a65548f1db04d34ed3cf67d0374
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262167"
 ---
-# <a name="commercial-marketplace-policies-and-terms"></a>Políticas e termos de mercado comercial
+# <a name="commercial-marketplace-policies-and-terms"></a>Políticas e termos do marketplace comercial
 
 >[!Note]
 >"Mercado comercial da Microsoft", uma plataforma detida ou operada pela Microsoft, no entanto, nomeada, através da qual as ofertas podem ser apresentadas ou adquiridas pelos clientes. Salvo especificação em contrário, o mercado comercial inclui o Microsoft Azure Marketplace e o Microsoft AppSource.

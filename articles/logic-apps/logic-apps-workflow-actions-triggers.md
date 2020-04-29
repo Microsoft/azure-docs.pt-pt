@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.openlocfilehash: 7e14cc00d1bd716b3e4880e585b05447d2e55e2b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81257441"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guia de referência schema para tipos de gatilho e ação em Aplicativos Lógicos Azure
@@ -853,7 +853,7 @@ Estas ações ajudam-no a controlar a execução do fluxo de trabalho e incluem 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Execute as mesmas ações em loop para cada item de uma matriz. | 
 | [**Se**](#if-action) | Executar ações com base em se a condição especificada é verdadeira ou falsa. | 
-| [**Âmbito de aplicação**](#scope-action) | Executar ações com base no estado do grupo a partir de um conjunto de ações. | 
+| [**Âmbito**](#scope-action) | Executar ações com base no estado do grupo a partir de um conjunto de ações. | 
 | [**Comutador**](#switch-action) | Executar ações organizadas em casos em que valores de expressões, objetos ou fichas correspondem aos valores especificados por cada caso. | 
 | [**Até**](#until-action) | Executar ações em loop até que a condição especificada seja verdadeira. | 
 |||  

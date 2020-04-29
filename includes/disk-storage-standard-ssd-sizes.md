@@ -9,10 +9,10 @@ ms.date: 03/28/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: ef257d056b20bacbca58baa5ac97fa77a492fefd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81275299"
 ---
 | Tamanhos SSD padrão | E1 | E2 | E3 | E4 | E6 | E10 | E15 | E20 | E30 | E40 | E50 | E60 | E70 | E80 |

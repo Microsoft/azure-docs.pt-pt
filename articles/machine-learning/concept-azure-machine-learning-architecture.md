@@ -11,10 +11,10 @@ author: Blackmist
 ms.date: 03/17/2020
 ms.custom: seoapril2019, seodec18
 ms.openlocfilehash: 9f1d23f11cf73680a8861c9f1ac6cbd40ad497a4
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81257339"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona o Azure Machine Learning: Arquitetura e conceitos
@@ -69,7 +69,7 @@ Utilize estas ferramentas para aprendizagem automática azure:
         * [Roteiro de treino](#training-scripts)
         * [Estimadores](#estimators)
     * [Pontos Finais](#endpoints)
-        * [Serviço Web](#web-service-endpoint)
+        * [Serviço web](#web-service-endpoint)
         * [Módulos IoT](#iot-module-endpoints)
     * [Dataset & datastores](#datasets-and-datastores)
     * [Os destinos de computação](#compute-targets)

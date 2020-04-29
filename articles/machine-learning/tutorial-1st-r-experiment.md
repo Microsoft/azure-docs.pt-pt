@@ -11,10 +11,10 @@ author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
 ms.openlocfilehash: 5b1c6561519bc25c2b7ac77f0a25eff89413a07a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81256489"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Tutorial: Use R para criar um modelo de aprendizagem automática

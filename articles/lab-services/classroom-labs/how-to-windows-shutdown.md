@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 3/30/2020
 ms.author: spelluru
 ms.openlocfilehash: 7b839df5940ab26e5c1a99a1bda1fbd2545f8cc4
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113123"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guia para controlar o comportamento de encerramento do Windows

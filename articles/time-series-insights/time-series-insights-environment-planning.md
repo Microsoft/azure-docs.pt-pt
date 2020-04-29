@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: seodec18
 ms.openlocfilehash: 85910ee5467ecc9f4fe3c1a8bc13110b6f218e5c
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81272717"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planeie o seu ambiente Ga da Série De Tempo Azure Insights

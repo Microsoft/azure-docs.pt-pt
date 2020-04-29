@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010312"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache Azure para redis
@@ -50,7 +50,7 @@ Pode visualizar e configurar as seguintes definições utilizando o **Menu de Re
     * [Fechaduras](#locks)
     * [Script de automatização](#automation-script)
 * Administração
-    * [Importar dados](#importexport)
+    * [Dados de importação](#importexport)
     * [Exportar dados](#importexport)
     * [Reiniciar](#reboot)
 * [Monitorização](#monitoring)
@@ -290,7 +290,7 @@ As definições na secção **Administração** permitem-lhe executar as seguint
 
 ![Administração](./media/cache-configure/redis-cache-administration.png)
 
-* [Importar dados](#importexport)
+* [Dados de importação](#importexport)
 * [Exportar dados](#importexport)
 * [Reiniciar](#reboot)
 

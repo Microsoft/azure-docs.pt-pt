@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 04/09/2020
 ms.openlocfilehash: 3252ecb030234e4c5543c07dfb4fc702f850a73e
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80998979"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os conjuntos elásticos ajudam a gerir e dimensionar múltiplas Bases de Dados SQL do Azure

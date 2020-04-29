@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 03/03/2020
 ms.openlocfilehash: b19c1ed5aa556a2cfb633ac6fbc0cf9f95d0337f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81256982"
 ---
 # <a name="sample-datasets-in-azure-machine-learning-designer-preview"></a>Conjuntos de dados de amostras em designer de aprendizagem automática Azure (pré-visualização)

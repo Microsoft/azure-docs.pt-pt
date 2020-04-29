@@ -13,10 +13,10 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
 ms.openlocfilehash: ed8dd902ac490b4e6a0f172029bf3ffa1d44acee
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81251848"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Autenticar a Azure Synapse Analytics
@@ -49,7 +49,7 @@ Por predefinição, a sua ligação liga-se à base de dados *principal* e não 
 
 A autenticação [do Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) é um mecanismo de ligação à piscina SQL utilizando identidades no Azure Ative Directory (Azure AD). Com a autenticação do Diretório Ativo Azure, pode gerir centralmente as identidades dos utilizadores de bases de dados e outros serviços da Microsoft numa localização central. A gestão central de ID fornece um único lugar para gerir os utilizadores do Azure Synapse e simplifica a gestão da permissão.
 
-### <a name="benefits"></a>Vantagens
+### <a name="benefits"></a>Benefícios
 
 Os benefícios do Diretório Ativo Azure incluem:
 

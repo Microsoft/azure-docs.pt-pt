@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113334"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal azure ative diretório (pré-visualização)
@@ -227,7 +227,7 @@ Utilize a tabela abaixo para entender melhor como resolver erros que pode encont
 |Código de Erro|Descrição|
 |---|---|
 |Conflito, Conflito de Entrada|Corrija os valores de atributos conflituosos em Azure AD ou na aplicação, ou reveja a configuração do atributo correspondente se a conta de utilizador conflituosa fosse compatível e assumido. Reveja a seguinte [documentação](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) para obter mais informações sobre a configuração de atributos correspondentes.|
-|Pedidos De TooMany|A aplicação alvo rejeitou esta tentativa de atualizar o utilizador porque está sobrecarregado e recebe muitos pedidos. Não há nada a fazer. Esta tentativa será automaticamente retirada. A Microsoft também foi notificada deste problema.|
+|TooManyRequests|A aplicação alvo rejeitou esta tentativa de atualizar o utilizador porque está sobrecarregado e recebe muitos pedidos. Não há nada a fazer. Esta tentativa será automaticamente retirada. A Microsoft também foi notificada deste problema.|
 |InternalServerError |A aplicação alvo devolveu um erro inesperado. Pode haver um problema de serviço com a aplicação-alvo que está a impedir que isso funcione. Esta tentativa será automaticamente retirada em 40 minutos.|
 |Direitos Insuficientes, MétodoNão Permitido, Não Permitido, Não Autorizado| A Azure AD conseguiu autenticar com a aplicação-alvo, mas não foi autorizada a realizar a atualização. Por favor, reveja quaisquer instruções fornecidas pela aplicação-alvo, bem como o respetivo [tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)de aplicação.|
 |Entidade Não Processável|A aplicação alvo devolveu uma resposta inesperada. A configuração da aplicação-alvo pode não estar correta, ou pode haver um problema de serviço com a aplicação-alvo que está a impedir que isso funcione.|

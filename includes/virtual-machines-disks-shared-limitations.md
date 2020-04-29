@@ -9,10 +9,10 @@ ms.date: 04/09/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 1e53dda2c6cb293a9204f344d152daa1937aa38b
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81008362"
 ---
 Durante a pré-visualização, a ativação de discos partilhados só está disponível para um subconjunto de tipos de discos. Atualmente, apenas discos ultra e SSDs premium podem ativar discos partilhados. Cada disco gerido que tenha discos partilhados está sujeito às seguintes limitações, organizadas por tipo de disco:

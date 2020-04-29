@@ -9,10 +9,10 @@ ms.date: 04/13/2020
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 208f4f7b4c2d8562d5237a40f52e4774ea5c5606
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81272479"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configure PHP no Serviço de Aplicações Azure

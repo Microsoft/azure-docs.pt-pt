@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: allensu
 ms.openlocfilehash: 737803f5b7fcddb07787afbb48354b4ca922e9ed
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81259753"
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios Personalizados de Verizon

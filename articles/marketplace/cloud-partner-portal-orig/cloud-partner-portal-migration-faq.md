@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mingshen
 ms.openlocfilehash: 672153eba4aa2b739b67694f939c4796b39ac4c6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81274383"
 ---
 # <a name="frequently-asked-questions-for-migrating-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes para migrar do Portal do Parceiro cloud para o Partner Center

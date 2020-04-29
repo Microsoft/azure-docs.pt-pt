@@ -4,10 +4,10 @@ description: Mostra quais os tipos de suporte dos tipos de recursos Azure. Forne
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: c971d3af102faf99f97aac261882797460d71f37
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255032"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte de etiquetas para recursos Azure

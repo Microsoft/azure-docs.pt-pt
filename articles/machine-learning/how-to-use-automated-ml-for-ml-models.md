@@ -12,10 +12,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
 ms.openlocfilehash: 0d6fa02578814c4c5d034be05cbc63093d70603b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81257237"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com o Azure Machine Learning
@@ -74,7 +74,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.
         Linhas de salto | Indica quantas, se houver, são ignoradas linhas no conjunto de dados.
     
-        Selecione **Next**.
+        Selecione **Seguinte**.
 
     1. O formulário **Schema** é inteligentemente povoado com base nas seleções na **forma Definições e pré-visualização.** Aqui configure o tipo de dados para cada coluna, reveja os nomes das colunas e selecione quais as colunas a **não incluir** para a sua experiência. 
             
@@ -82,7 +82,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
     1. O formulário **de detalhes confirmar** é um resumo das informações previamente povoadas nos **formulários de informação** e definições básicas **e pré-visualização.** Também tem a opção de criar um perfil de dados para o seu conjunto de dados utilizando um cálculo ativado por perfis. Saiba mais sobre [o perfil de dados.](#profile)
 
-        Selecione **Next**.
+        Selecione **Seguinte**.
 1. Selecione o seu conjunto de dados recém-criado assim que aparecer. Também é capaz de visualizar uma pré-visualização do conjunto de dados e estatísticas da amostra. 
 
 1. No formulário **de execução Configure,** introduza um nome único de experiência.
@@ -104,7 +104,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
     >[!NOTE]
     > O seu nome de cálculo indicará se o cálculo que seleciona/cria está *ativado*por perfis . (Consulte o [perfil de dados](#profile) da secção para obter mais detalhes).
 
-    Selecione **Next**.
+    Selecione **Seguinte**.
 
 1. No formulário de **tipo de tarefa e configurações,** selecione o tipo de tarefa: classificação, regressão ou previsão. Veja [como definir tipos de tarefas](how-to-define-task-type.md) para mais informações.
 

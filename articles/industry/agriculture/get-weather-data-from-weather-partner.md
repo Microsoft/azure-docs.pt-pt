@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
 ms.openlocfilehash: 66fa4e7d3edf839ab1e497e86362bcfc979dc279
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81266165"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obtenha dados meteorológicos dos parceiros meteorológicos
@@ -222,7 +222,7 @@ Além de armazenar, consultar e visualizar dados meteorológicos, a TSI também 
 
 ## <a name="appendix"></a>Anexo
 
-|        Partner   |  Detalhes   |
+|        Parceiro   |  Detalhes   |
 | ------- | -------             |
 |     DockerDetails - nome de imagem         |          Nome da imagem do Docker. Por exemplo, docker.io/azurefarmbeats/farmbeats-noaa (imagem em hub.docker.com) ou myazureacr.azurecr.io/mydockerimage (imagem no Registo de Contentores Azure) e assim por diante. Se não for fornecido nenhum registo, o predefinido é hub.docker.com      |
 |          DockerDetails - imageTag             |         Nome da etiqueta da imagem do estivador. Padrão é "mais recente"     |

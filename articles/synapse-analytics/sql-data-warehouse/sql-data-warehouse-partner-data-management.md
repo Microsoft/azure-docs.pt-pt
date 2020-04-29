@@ -12,10 +12,10 @@ ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 1d36da49bfdddaa612a71652504584c32b66490d
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261448"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Parceiros de gestão de dados da Azure Synapse Analytics
@@ -23,7 +23,7 @@ ms.locfileid: "81261448"
 Para criar a sua solução de armazém de dados utilizando a funcionalidade de piscina SYnapse SQL da Azure Synapse, tem uma grande variedade de ferramentas líderes no setor para escolher. Este artigo destaca as empresas parceiras da Microsoft com ferramentas e soluções de gestão de dados que suportam o Azure Synapse.
 
 ## <a name="data-management-partners"></a>Parceiros de gestão de dados
-| Partner | Descrição | Website/Link do Produto |
+| Parceiro | Descrição | Website/Link do Produto |
 | ------- | ----------- | -------------------- |
 | ![Armazenagem de Dados Coffing](./media/sql-data-warehouse-partner-data-management/coffing-data-warehousing-logo.png) |**Armazenagem de Dados Coffing**<br>O Coffing Data Warehousing fornece o Nexus Camaleon, uma ferramenta com 10 anos de design dedicado a sistemas de consulta. Nexus está disponível como uma ferramenta de consulta para uma piscina SQL Azure Synapse. Use nexus para consultar computadores internos e em nuvem e juntar dados em diferentes plataformas. Relatório de cliques de ponto! |[Página do produto](https://www.coffingdw.com/software/nexus/)<br> |
 | ![Inbrein](./media/sql-data-warehouse-partner-data-management/inbrein-logo.png) |**Inbrein MicroERD**<br>A Inbrein MicroERD fornece as ferramentas necessárias para criar um modelo de dados preciso, reduzir a redundância de dados, melhorar a produtividade e observar os padrões. Utilizando o seu UI, que foi desenvolvido com base em vastas experiências de utilizador, um modelador pode trabalhar em modelos DB de forma fácil e conveniente. Pode desfrutar continuamente de novas e melhoradas funções do MicroERD através de rápidas melhorias funcionais e atualizações. |[Página do produto](http://microerd.com/)<br> |

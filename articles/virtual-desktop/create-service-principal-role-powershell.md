@@ -9,10 +9,10 @@ ms.date: 09/09/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 322ff2be4b90a945305915432a8191db9f4efee2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81252562"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar diretores de serviço e atribuições de funções utilizando a PowerShell

@@ -9,10 +9,10 @@ ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
 ms.openlocfilehash: cbf43f60a438c740c087ddd2344c982da09da634
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81007822"
 ---
 A tabela que se segue mostra o limite de utilização para o nível de preços Azure Maps S0. O limite de utilização depende do nível de preços. 

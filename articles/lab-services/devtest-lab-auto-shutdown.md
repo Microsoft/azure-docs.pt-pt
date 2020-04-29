@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: spelluru
 ms.openlocfilehash: 7cdc9f9a4503c786065b6d514f61fe17eae4ce5e
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81270915"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configure o encerramento automático para laboratório e computação de máquinas virtuais em Azure DevTest Labs
