@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
 ms.openlocfilehash: 6e1ab30e8b4cf44f7d1f82fd94fb9bf854915557
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79478256"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obtenha credenciais para aceder à API dos Serviços de Media  
@@ -27,7 +27,7 @@ Quando utiliza a autenticação Azure AD para aceder à API dos Serviços De Com
 - **Autenticação do principal de serviço** (recomendado)
 
     Autenticar um serviço. As aplicações que usam normalmente este método de autenticação são aplicações que executam serviços de daemon, serviços de nível médio ou empregos programados: aplicações web, aplicações de função, aplicações lógicas, APIs ou um microserviço.
-- **Autenticação do utilizador**
+- **Autenticação de utilizador**
 
     Autenticar uma pessoa que está a usar a app para interagir com os recursos dos Media Services. A aplicação interativa deve primeiro solicitar ao utilizador credenciais. Um exemplo é uma aplicação de consola de gestão usada por utilizadores autorizados para monitorizar trabalhos de codificação ou streaming ao vivo. 
 

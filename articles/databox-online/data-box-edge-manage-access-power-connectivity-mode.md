@@ -1,23 +1,23 @@
 ---
-title: Modo de acesso, potência e conectividade ao dispositivo Azure Data Box Gateway
-description: Descreve como gerir o acesso, energia e o modo de conectividade para o dispositivo Azure Data Box Gateway que ajuda a transferir dados para o Azure
+title: Acesso, potência e conectividade ao dispositivo Azure Data Box Edge Microsoft Docs
+description: Descreve como gerir o acesso, energia e o modo de conectividade para o dispositivo Azure Data Box Edge que ajuda a transferir dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
-ms.subservice: gateway
+ms.subservice: edge
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: e4d85bd460c39964c9f42ac946e3522f5f129c1c
+ms.openlocfilehash: be4b780161003470622cb367d78138cfeffe341b
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "79474446"
+ms.locfileid: "79454337"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerencie o modo de acesso, potência e conectividade para o seu Portal de Caixa de Dados Azure
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Gerencie o modo de acesso, potência e conectividade para o seu Bluee Data Box Edge
 
-Este artigo descreve como gerir o modo de acesso, potência e conectividade para o seu Portal de Dados Azure. Estas operações são realizadas através da UI web local ou do portal Azure.
+Este artigo descreve como gerir o modo de acesso, potência e conectividade para o seu Bluee Data Box Edge. Estas operações são realizadas através da UI web local ou do portal Azure.
 
 Neste artigo, vai aprender a:
 
@@ -26,9 +26,10 @@ Neste artigo, vai aprender a:
 > * Gerir o modo de conectividade
 > * Gerir o poder
 
+
 ## <a name="manage-device-access"></a>Gerir o acesso ao dispositivo
 
-O acesso ao seu dispositivo Data Box Gateway é controlado pela utilização de uma palavra-passe do dispositivo. Pode alterar a palavra-passe através da UI web local. Também pode redefinir a palavra-passe do dispositivo no portal Azure.
+O acesso ao seu dispositivo Data Box Edge é controlado pela utilização de uma palavra-passe do dispositivo. Pode alterar a palavra-passe através da UI web local. Também pode redefinir a palavra-passe do dispositivo no portal Azure.
 
 ### <a name="change-device-password"></a>Alterar a palavra-passe do dispositivo
 
@@ -37,9 +38,9 @@ Siga estes passos na UI local para alterar a senha do dispositivo.
 1. Na web local UI, vá à **Manutenção > alteração**de passwords.
 2. Introduza a senha atual e, em seguida, a nova senha. A palavra-passe fornecida deve estar entre 8 e 16 caracteres. A palavra-passe deve ter 3 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais. Confirme a nova senha.
 
-    ![Alterar palavra-passe](media/data-box-gateway-manage-access-power-connectivity-mode/change-password-1.png)
+    ![Alterar palavra-passe](media/data-box-edge-manage-access-power-connectivity-mode/change-password-1.png)
 
-3. Clique em **Alterar a palavra-passe**.
+3. Selecione **Alterar a palavra-passe**.
  
 ### <a name="reset-device-password"></a>Redefinir a palavra-passe do dispositivo
 
@@ -47,16 +48,16 @@ O fluxo de trabalho de reset não requer que o utilizador relembre a palavra-pas
 
 1. No portal Azure, vá ao **Overview > Reset palavra-passe de administrador**.
 
-    ![Repor palavra-passe](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Repor palavra-passe](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
- 
-2. Introduza a nova senha e confirme-a. A palavra-passe fornecida deve estar entre 8 e 16 caracteres. A palavra-passe deve ter 3 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais. Clique em **Redefinir**.
 
-    ![Repor palavra-passe](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+2. Introduza a nova senha e confirme-a. A palavra-passe fornecida deve estar entre 8 e 16 caracteres. A palavra-passe deve ter 3 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais. Selecione **Repor**.
+
+    ![Repor palavra-passe](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gerir o acesso a recursos
 
-Para criar o seu Portal de Borda/Caixa de Dados, IoT Hub e recurso de Armazenamento Azure, precisa de permissões como colaborador ou superior a nível de grupo de recursos. Também precisa que os fornecedores de recursos correspondentes sejam registados. Para quaisquer operações que envolvam chave de ativação e credenciais, também são necessárias permissões para a API do Gráfico de Diretório Ativo Azure. Estes são descritos nas seguintes secções.
+Para criar o seu Portal de Borda/Caixa de Dados, IoT Hub e recurso de Armazenamento Azure, precisa de permissões como colaborador ou superior a nível de grupo de recursos. Também precisa que os fornecedores de recursos correspondentes sejam registados. Para quaisquer operações que envolvam chave de ativação e credenciais, também são necessárias permissões para a API do Microsoft Graph. Estes são descritos nas seguintes secções.
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Gerir permissões da Microsoft Graph API
 
@@ -65,7 +66,7 @@ Ao gerar a chave de ativação para o dispositivo Data Box Edge, ou realizar qua
 -  Criar uma parte com uma conta de armazenamento associada.
 -  Criar um utilizador que possa aceder às ações do dispositivo.
 
-Você deve `User` ter acesso ao inquilino do Diretório `Read all directory objects`Ativo como você precisa ser capaz de . Não pode ser um utilizador convidado, pois não `Read all directory objects`tem permissão para. Se for um convidado, as operações como a geração de uma chave de ativação, a criação de uma partilha no dispositivo Data Box Edge e a criação de um utilizador falharão.
+Você deve `User` ter acesso ao inquilino do Diretório `Read all directory objects`Ativo como você precisa ser capaz de . Não pode ser um utilizador convidado, pois não `Read all directory objects`tem permissão para. Se for um hóspede, então as operações como a geração de uma chave de ativação, a criação de uma parte no seu dispositivo Data Box Edge, a criação de um utilizador, a configuração da função de computação Edge, a palavra-passe do dispositivo de reset falhará.
 
 Para obter mais informações sobre como fornecer acesso aos utilizadores à Microsoft Graph API, consulte a referência das [permissões](https://docs.microsoft.com/graph/permissions-reference)do Microsoft Graph .
 
@@ -98,9 +99,11 @@ Para obter mais informações sobre como registar um fornecedor de recursos, con
 
 ## <a name="manage-connectivity-mode"></a>Gerir o modo de conectividade
 
-Para além do modo normal de predefinição, o seu dispositivo também pode funcionar em modo parcialmente desligado ou desligado. Cada um destes modos é descrito como abaixo:
+Para além do modo de defeito totalmente ligado, o seu dispositivo também pode funcionar no modo parcialmente ligado ou totalmente desligado. Cada um destes modos é descrito como abaixo:
 
-- **Parcialmente desligado** – Neste modo, o dispositivo não pode enviar nenhum dado para as ações, no entanto pode ser gerido através do portal Azure.
+- **Totalmente ligado** - Este é o modo padrão normal em que o dispositivo funciona. Tanto o upload da nuvem como o download de dados estão ativados neste modo. Pode utilizar o portal Azure ou a UI web local para gerir o dispositivo.
+
+- **Parcialmente desligado** – Neste modo, o dispositivo não pode fazer o upload ou descarregar quaisquer dados de partilha, no entanto, podem ser geridos através do portal Azure.
 
     Este modo é normalmente utilizado quando se encontra numa rede de satélite sumido e o objetivo é minimizar o consumo de largura de banda da rede. O consumo mínimo de rede pode ainda ocorrer para as operações de monitorização do dispositivo.
 
@@ -111,25 +114,24 @@ Para além do modo normal de predefinição, o seu dispositivo também pode func
 Para alterar o modo do dispositivo, siga estes passos:
 
 1. Na web uI local do seu dispositivo, vá para **configurações de Configuração > Cloud**.
-2. Desative o **upload e o download da Cloud.**
-3. Para executar o dispositivo em modo parcialmente desligado, ative a **gestão do portal Azure**.
+2. A partir da lista de desistências, selecione o modo em que pretende operar o dispositivo. Pode selecionar a partir de **Totalmente ligado,** **parcialmente ligado**, e **totalmente desligado**. Para executar o dispositivo em modo parcialmente desligado, ative a **gestão do portal Azure**.
 
-    ![Modo conectividade](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-1.png)
+    ![Modo conectividade](media/data-box-edge-manage-access-power-connectivity-mode/connectivity-mode.png)
  
-4. Para executar o dispositivo em modo desligado, desative a gestão do **portal Azure**. Agora o dispositivo só pode ser gerido através da UI web local.
-
-    ![Modo conectividade](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
-
 ## <a name="manage-power"></a>Gerir o poder
 
-Pode desligar ou reiniciar o seu dispositivo virtual utilizando a UI web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Esta ação minimiza qualquer possibilidade de corrupção de dados.
+Pode desligar ou reiniciar o seu dispositivo físico utilizando a UI web local. Recomendamos que antes de reiniciar, desative as ações no servidor de dados e, em seguida, no dispositivo. Esta ação minimiza qualquer possibilidade de corrupção de dados.
 
 1. Na web local UI, vá para **as definições**de Manutenção > Energia .
-2. Clique em **Desligar** ou **Reiniciar** dependendo do que pretende fazer.
+2. Selecione **Desligar** ou **Reiniciar** dependendo do que pretende fazer.
 
-    ![Definições de energia](media/data-box-gateway-manage-access-power-connectivity-mode/shut-down-restart-1.png)
+    ![Definições de energia](media/data-box-edge-manage-access-power-connectivity-mode/shut-down-restart-1.png)
 
-3. Quando solicitado para confirmação, clique **em Sim** para prosseguir.
+3. Quando solicitado para confirmação, selecione **Sim** para prosseguir.
 
 > [!NOTE]
-> Se desligar o dispositivo virtual, terá de ligar o dispositivo através da gestão do hipervisor.
+> Se desligar o dispositivo físico, terá de premir o botão de alimentação do dispositivo para o ligar.
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Saiba como [gerir ações.](data-box-edge-manage-shares.md)

@@ -14,10 +14,10 @@ ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: eacdfe8211c97e75b6609f5e11b681f84ae55846
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79472089"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Desenvolver com Media Services v3 APIs
@@ -65,10 +65,10 @@ Nos seguintes números, os números representam o fluxo dos pedidos por ordem cr
 Consulte as seguintes amostras que mostram como se conectar com o diretor de serviço da Azure AD:
 
 * [Conecte-se com o REST](media-rest-apis-with-postman.md)  
-* [Connect with Java](configure-connect-java-howto.md) (Ligar com Java)
-* [Connect with .NET](configure-connect-dotnet-howto.md) (Ligar com .NET)
-* [Connect with Node.js](configure-connect-nodejs-howto.md) (Ligar com Node.js)
-* [Connect with Python](configure-connect-python-howto.md) (Ligar com Python)
+* [Ligar com Java](configure-connect-java-howto.md)
+* [Ligar com .NET](configure-connect-dotnet-howto.md)
+* [Ligar com Node.js](configure-connect-nodejs-howto.md)
+* [Ligar com Python](configure-connect-python-howto.md)
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
@@ -120,10 +120,10 @@ Apenas uma operação de longa duração é suportada para um dado Live Event ou
 
 |SDK|Referência|
 |---|---|
-|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[Referência a .NET](https://aka.ms/ams-v3-dotnet-ref)|
-|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Referência a Java](https://aka.ms/ams-v3-java-ref)|
-|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Referência a Python](https://aka.ms/ams-v3-python-ref)|
-|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Referência a Node.js](/javascript/api/overview/azure/mediaservices/management)| 
+|[SDK .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Referência a .NET](https://aka.ms/ams-v3-dotnet-ref)|
+|[SDK Java](https://aka.ms/ams-v3-java-sdk)|[Referência a Java](https://aka.ms/ams-v3-java-ref)|
+|[SDK Python](https://aka.ms/ams-v3-python-sdk)|[Referência a Python](https://aka.ms/ams-v3-python-ref)|
+|[SDK Node.js](https://aka.ms/ams-v3-nodejs-sdk) |[Referência a Node.js](/javascript/api/overview/azure/mediaservices/management)| 
 |[SDK Go](https://aka.ms/ams-v3-go-sdk) |[Referência a Go](https://aka.ms/ams-v3-go-ref)|
 |[SDK Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
@@ -148,7 +148,7 @@ Confira o artigo da [comunidade Azure Media Services](media-services-community.m
 
 ## <a name="see-also"></a>Consulte também
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+[CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>Passos seguintes
 

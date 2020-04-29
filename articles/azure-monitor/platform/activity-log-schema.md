@@ -8,10 +8,10 @@ ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: c2f171c79423e0cfe8b57c05b8248679f9ada9f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79472746"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de evento de log de atividade azure
@@ -132,7 +132,7 @@ Esta categoria contém o registo de todas as operações de criação, atualiza�
 | operationName |Nome da operação. |
 | propriedades |Conjunto `<Key, Value>` de pares (isto é, um Dicionário) descrevendo os detalhes do evento. |
 | status |Cordas descrevendo o estado da operação. Alguns valores comuns são: Iniciado, em progresso, bem sucedido, falhado, ativo, resolvido. |
-| subEstatuto |Normalmente, o código de estado HTTP da chamada REPOUSA correspondente, mas também pode incluir outras cordas descrevendo um subestatuto, tais como estes valores comuns: OK (Código de Estado HTTP: 200), Criado (Código de Estado HTTP: 201), Aceito (Código de Estado HTTP: 202), Sem Conteúdo (Http Status: 200), Código: 204), Pedido De Mau Pedido (Código de Estado HTTP: 400), Não Encontrado (Código de Estado HTTP: 404), Conflito (Código de Estado HTTP: 409), Erro do Servidor Interno (Código de Estado HTTP: 500), Serviço Indisponível (Código de Estado HTTP: 503), Timeout gateway (Código de Estado HTTP: 504). |
+| subEstatuto |Normalmente, o código de estado HTTP da chamada REPOUSA correspondente, mas também pode incluir outras cordas que descrevem um subestatuto, tais como estes valores comuns: OK (Código de Estado HTTP: 200), Criado (Código de Estado HTTP: 201), Aceito (Código de Estado HTTP: 202), Sem Conteúdo (Código de Estado HTTP: 204), Pedido De Mau Pedido (Código de Estado HTTP: 400), Não Encontrado (Código de Estado HTTP: 404), Conflito (Código HTTP HTTP) : 409), Erro do Servidor Interno (Código de Estado HTTP: 500), Serviço Indisponível (Código de Estado HTTP: 503), Prazo gateway (Código de Estado HTTP: 504). |
 | eventoTimestamp |Carimbo de tempo quando o evento foi gerado pelo serviço Azure processando o pedido correspondente ao evento. |
 | submissãoTimestamp |Hora do tempo quando o evento ficou disponível para consulta. |
 | subscriptionId |ID de subscrição azure. |
