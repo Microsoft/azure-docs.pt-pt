@@ -4,10 +4,10 @@ description: Instale uma análise de dependência sem agente na Avaliação do S
 ms.topic: how-to
 ms.date: 2/24/2020
 ms.openlocfilehash: af767bf73a3b9a6f2a91298987f11974499fd694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79455711"
 ---
 # <a name="set-up-agentless-dependency-visualization"></a>Configurar a visualização da dependência sem agente 

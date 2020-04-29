@@ -1,5 +1,5 @@
 ---
-title: Atribuição de Dirichlet latente
+title: Alocação Latente de Dirichlet
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar o módulo latent Dirichlet Allocation para agrupar texto não classificado em várias categorias.
 services: machine-learning
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 03/11/2020
 ms.openlocfilehash: 1384491489c175ffc338f80a99aa8d5050f835d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80109228"
 ---
-# <a name="latent-dirichlet-allocation"></a>Atribuição de Dirichlet latente
+# <a name="latent-dirichlet-allocation"></a>Alocação Latente de Dirichlet
 
 Este artigo descreve como usar o módulo **latent Dirichlet Allocation** em Azure Machine Learning designer (pré-visualização), para agrupar texto não classificado em várias categorias. 
 

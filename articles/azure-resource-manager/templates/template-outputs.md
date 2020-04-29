@@ -4,10 +4,10 @@ description: Descreve como definir valores de saída num modelo de Gestor de Rec
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460029"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Saídas no modelo de Gestor de Recursos Azure
@@ -95,7 +95,7 @@ Para obter valores de saída a partir do histórico de implementação, pode usa
   -Name <deployment-name>).Outputs.resourceID.value
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az deployment group show \

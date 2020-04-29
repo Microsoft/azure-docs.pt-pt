@@ -12,10 +12,10 @@ ms.author: dfurman
 ms.reviewer: carlrab
 ms.date: 03/13/2019
 ms.openlocfilehash: 014f9edca1706c39930c6e48bb64cd8873bcace9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79473732"
 ---
 # <a name="resource-management-in-dense-elastic-pools"></a>Gestão de recursos em conjuntos elásticos densos
@@ -86,7 +86,7 @@ A utilização de recursos depende de múltiplos fatores que mudam ao longo do t
 
 Não mova bases de **dados "quentes".** Se a contenção de recursos ao nível do pool for causada principalmente por um pequeno número de bases de dados altamente utilizadas, pode ser tentador mover estas bases de dados para um pool menos utilizado, ou torná-las bases de dados autónomas. No entanto, fazê-lo enquanto uma base de dados permanece altamente utilizada não é recomendada, porque a operação de movimento irá degradar ainda mais o desempenho, tanto para a base de dados que está a ser deslocada, como para todo o pool. Em vez disso, ou aguarde até que a utilização elevada diminua, ou mova bases de dados menos utilizadas em vez de aliviar a pressão dos recursos ao nível da piscina. Mas a movimentação de bases de dados com uma utilização muito baixa não beneficia, neste caso, porque não reduz materialmente a utilização de recursos ao nível da piscina.
 
-**Crie novas bases de dados numa piscina de "quarentena".** Nos cenários em que novas bases de dados são criadas frequentemente, como aplicações que utilizam o modelo de inquilino-por-base de dados, existe o risco de uma nova base de dados colocada num conjunto elástico existente consumir inesperadamente recursos significativos e afetar outras bases de dados. e processos internos na piscina. Para mitigar este risco, crie um pool separado de "quarentena" com ampla alocação de recursos. Utilize esta piscina para novas bases de dados com padrões de consumo de recursos ainda desconhecidos. Uma vez que uma base de dados tenha permanecido nesta piscina para um ciclo de negócios, como uma semana ou um mês, e o seu consumo de recursos é conhecido, pode ser transferido para uma piscina com capacidade suficiente para acomodar este uso adicional de recursos.
+**Crie novas bases de dados numa piscina de "quarentena".** Nos cenários em que novas bases de dados são criadas frequentemente, como aplicações que utilizam o modelo de inquilino-por-base de dados, existe o risco de uma nova base de dados colocada num conjunto elástico existente consumir inesperadamente recursos significativos e afetar outras bases de dados e processos internos na piscina. Para mitigar este risco, crie um pool separado de "quarentena" com ampla alocação de recursos. Utilize esta piscina para novas bases de dados com padrões de consumo de recursos ainda desconhecidos. Uma vez que uma base de dados tenha permanecido nesta piscina para um ciclo de negócios, como uma semana ou um mês, e o seu consumo de recursos é conhecido, pode ser transferido para uma piscina com capacidade suficiente para acomodar este uso adicional de recursos.
 
 **Evite servidores lógicos excessivamente densos.** A Base de Dados Azure SQL [suporta](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server) até 5000 bases de dados por servidor lógico. Os clientes que usam piscinas elásticas com milhares de bases de dados podem considerar colocar várias piscinas elásticas num único servidor, com o número total de bases de dados até ao limite suportado. No entanto, servidores lógicos com muitos milhares de bases de dados criam desafios operacionais. As operações que requerem a enumeração de todas as bases de dados de um servidor, por exemplo, visualizando bases de dados no portal, serão mais lentas. Erros operacionais, tais como modificação incorreta de logins de nível de servidor ou regras de firewall, afetarão um maior número de bases de dados. A eliminação acidental do servidor lógico necessitará de assistência do Microsoft Support para recuperar bases de dados no servidor eliminado, e causará uma interrupção prolongada para todas as bases de dados afetadas.
 

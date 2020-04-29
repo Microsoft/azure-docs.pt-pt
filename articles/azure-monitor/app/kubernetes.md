@@ -6,10 +6,10 @@ author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
 ms.openlocfilehash: 56a0cb66f5b54c817067970ab369d7ca471a1696
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80132348"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Monitorização de aplicações de instrumentação zero para aplicações hospedadas pela Kubernetes
@@ -35,7 +35,7 @@ O Azure Monitor aproveita agora a tecnologia de malha de serviço no seu cluster
 
 Ao utilizar a monitorização de aplicações de instrumentação zero para aplicações hospedadas pela Kubernetes, poderá utilizar:
 
-- [Mapa de aplicações](../../azure-monitor/app/app-map.md)
+- [Mapeamento de Aplicações](../../azure-monitor/app/app-map.md)
 - [Métricas de live stream](../../azure-monitor/app/live-stream.md)
 - [Dashboards](../../azure-monitor/app/overview-dashboard.md)
 - [Explorador de Métricas](../../azure-monitor/platform/metrics-getting-started.md)

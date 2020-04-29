@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
 ms.openlocfilehash: 90b3c3fd18bc9211c731ccf16dd646a64a4a1116
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80133098"
 ---
 # <a name="application-gateway-components"></a>Componentes de gateway de aplicação
@@ -57,7 +57,7 @@ O Application Gateway suporta quatro protocolos: HTTP, HTTPS, HTTP/2 e WebSocket
 
 Utilize um ouvinte HTTPS para a rescisão de TLS. Um ouvinte HTTPS descarrega o trabalho de encriptação e desencriptação para o seu portal de aplicações, para que os seus servidores web não sejam sobrecarregados com a sobrecarga.
 
-### <a name="custom-error-pages"></a>Páginas de erros personalizadas
+### <a name="custom-error-pages"></a>Páginas de erro personalizadas
 
 O Gateway de aplicação permite-lhe criar páginas de erro personalizadas em vez de apresentar páginas de erro predefinidas. Pode utilizar a sua própria imagem e esquema corporativos através de uma página de erro personalizada. O Application Gateway apresenta uma página de erro personalizada quando um pedido não consegue chegar ao backend.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 8a2d275501816dd504130b255b73a752c5615f0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80247287"
 ---
 # <a name="updated-ndv2-series"></a>Série NDv2 atualizada
@@ -20,7 +20,7 @@ A máquina virtual da série NDv2 é uma nova adição à família GPU projetada
 
 O NDv2 é alimentado por 8 GPUs ligados a NVIDIA Tesla V100 NVLINK, cada um com 32 GB de memória GPU. Cada NDv2 VM também tem 40 núcleos Intel Xeon Platinum 8168 (Skylake) e 672 GiB de memória do sistema.
 
-Os casos NDv2 proporcionam um excelente desempenho para as cargas de trabalho de HPC e IA utilizando os núcleos de computação otimizados pela CUDA GPU, e as muitas ferramentas de IA, ML e analytics que suportam a aceleração do GPU 'out-of-box', tais como TensorFlow, Pytorch, Caffe, RAPIDS, entre outros quadros.
+Os casos NDv2 proporcionam um excelente desempenho para as cargas de trabalho de HPC e IA utilizando os núcleos de computação otimizados pela CUDA GPU, e as muitas ferramentas de IA, ML e analíticos que suportam a aceleração do GPU 'fora da caixa', tais como TensorFlow, Pytorch, Caffe, RAPIDS e outras estruturas.
 
 Criticamente, o NDv2 é construído para cargas de trabalho computacionalmente intensas (aproveitando 8 GPUs por VM) e scale-out (aproveitando vários VMs que trabalham em conjunto). A série NDv2 suporta agora a rede de backend 100-Gigabit InfiniBand EDR, semelhante à disponível na série HB de HPC VM, para permitir o agrupamento de alto desempenho para cenários paralelos, incluindo formação distribuída para IA e ML. Esta rede de backend suporta todos os principais protocolos InfiniBand, incluindo os empregados pelas bibliotecas NCCL2 da NVIDIA, permitindo um agrupamento sem emenda de GPUs.
 

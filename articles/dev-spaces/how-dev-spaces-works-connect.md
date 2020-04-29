@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Descreve os processos fo usando os Espaços Azure Dev para ligar o seu computador de desenvolvimento ao seu cluster de serviço Azure Kubernetes
 keywords: Espaços Azure Dev, Espaços Dev, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
 ms.openlocfilehash: a74a5a623006ccd64441023c2c4bc9ad3dcb517e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241715"
 ---
 # <a name="how-connecting-your-development-computer-to-your-aks-cluster-works"></a>Como ligar o seu computador de desenvolvimento ao seu cluster AKS funciona
@@ -37,7 +37,7 @@ Assim que se conecta ao seu cluster, o tráfego é encaminhado para o seu comput
 
 ## <a name="running-code-on-your-development-computer"></a>Código de execução no seu computador de desenvolvimento
 
-Depois de estabelecer uma ligação ao seu cluster AKS, pode executar qualquer código de forma nativa no seu computador, sem contentorização. Qualquer tráfego de rede que o agente remoto receba é redirecionado para a porta local especificada durante a ligação para que o seu código de funcionamento nativo possa aceitar e processar esse tráfego. As variáveis, volumes e segredos ambientais do seu cluster são disponibilizados para codificar o seu computador de desenvolvimento. Além disso, devido às entradas de ficheiros dos anfitriões e reencaminhamento de portas adicionados ao seu computador de desenvolvimento pela Azure Dev Spaces, o seu código pode enviar tráfego de rede para serviços em funcionamento no seu cluster usando os nomes de serviço do seu cluster, e que o tráfego é encaminhado para o serviços que estão funcionando no seu cluster.
+Depois de estabelecer uma ligação ao seu cluster AKS, pode executar qualquer código de forma nativa no seu computador, sem contentorização. Qualquer tráfego de rede que o agente remoto receba é redirecionado para a porta local especificada durante a ligação para que o seu código de funcionamento nativo possa aceitar e processar esse tráfego. As variáveis, volumes e segredos ambientais do seu cluster são disponibilizados para codificar o seu computador de desenvolvimento. Além disso, devido às entradas de ficheiros dos anfitriões e ao reencaminhamento de portas adicionado ao seu computador de desenvolvimento pela Azure Dev Spaces, o seu código pode enviar tráfego de rede para serviços em funcionamento no seu cluster utilizando os nomes de serviço do seu cluster, e que o tráfego é encaminhado para os serviços que estão a ser encaminhados no seu cluster.
 
 Uma vez que o seu código está a ser executado no seu computador de desenvolvimento, tem a flexibilidade para utilizar qualquer ferramenta que normalmente utilize para o desenvolvimento para executar o seu código e desinbugijá-lo. O tráfego é encaminhado entre o seu computador de desenvolvimento e o seu cluster durante todo o tempo em que está conectado. Esta ligação persistente permite-lhe iniciar, parar e reiniciar o seu código o quanto necessário sem ter de restabelecer uma ligação.
 
