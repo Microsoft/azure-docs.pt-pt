@@ -12,10 +12,10 @@ manager: jroth
 ms.reviewer: maghan
 ms.date: 10/09/2018
 ms.openlocfilehash: 5d74cd0fcd524f00d79eb3fbab386c602a413766
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414201"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Apêndice Atividade Variável na Fábrica de Dados Azure

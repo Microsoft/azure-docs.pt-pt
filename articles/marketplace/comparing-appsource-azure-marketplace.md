@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
 ms.openlocfilehash: 78d77ce176c07aed22433f29365b2d338ea32c03
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414560"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Comparando o Microsoft AppSource e o Azure Marketplace
@@ -28,7 +28,7 @@ Para escolher uma montra, identifique primeiro o público-alvo para a sua oferta
 
 A tabela seguinte descreve os benefícios da utilização de uma montra:
 
-| Vantagens | Azure Marketplace | AppSource |
+| Benefícios | Azure Marketplace | AppSource |
 |:--- |:--- | :--- |
 | **Flexibilidade de faturação** | O Azure Marketplace suporta tipos de ofertas gratuitas, experimentais, BYOL e transatas. As ofertas transatas são baseadas no consumo ou baseadas em subscrições. As ofertas baseadas no consumo são faturadas por uso horário e podem proporcionar um período livre inicial. Os serviços baseados em subscrições são faturados mensalmente ou anualmente por assento ou taxa fixa.| O AppSource suporta tipos de oferta gratuitos, experimentais, BYOL e transatas. As ofertas transact são produtos SaaS baseados em subscrição que podem ser faturados mensalmente ou anualmente por assento ou taxa fixa. |
 |**Ligações com outros parceiros**  | Atualmente, não pode ligar um prestador de serviços ou parceiros de entrega à sua oferta. | Liga fornecedores de software independentes, integradores de sistemas e fornecedores de serviços geridos a cenários específicos de implementação. Pode vender colaborativamente a novos clientes. |

@@ -9,10 +9,10 @@ author: peterclu
 ms.author: peterclu
 ms.date: 04/15/2020
 ms.openlocfilehash: 1ae0b4bda584e86bc3a25f6cd5181175fc7fa282
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81411910"
 ---
 > [!NOTE]

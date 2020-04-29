@@ -4,10 +4,10 @@ description: Este artigo aborda alguns tópicos avançados relativos à atualiza
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414489"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Upgrade de aplicação service Fabric: Tópicos avançados

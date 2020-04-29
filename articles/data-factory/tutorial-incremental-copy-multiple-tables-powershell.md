@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
 ms.openlocfilehash: aa4dbfbaff620c25042d2603dab543661ec2cd14
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81410016"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregue miseravelmente dados de várias tabelas no Servidor SQL para uma Base de Dados SQL Azure
@@ -821,7 +821,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
 4. Na página da **fábrica de Dados,** selecione **Author & Monitor** para lançar a Azure Data Factory num separador.
 
 5. Na página **Let's start,** selecione **Monitor** no lado esquerdo. 
-![Instâncias de Pipeline](media/doc-common-process/get-started-page-monitor-button.png)    
+![Pipeline Runs](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. Pode ver todas as execuções de pipelines e os respetivos estados. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito**. Para verificar os parâmetros transmitidos para o pipeline, selecione a ligação na coluna **Parâmetros**. Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro**.
 

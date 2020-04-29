@@ -4,10 +4,10 @@ description: Aprenda as melhores práticas para trabalhar com Coleções Fiávei
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81409797"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhar com as Reliable Collections

@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como implementar aplicação Service Fabric 
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415635"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Implementar aplicação de tecido de serviço com uma identidade gerida atribuída pelo utilizador

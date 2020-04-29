@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como atribuir uma identidade gerida atribuí
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415658"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Implementar aplicação de tecido de serviço com identidade gerida atribuída pelo sistema
