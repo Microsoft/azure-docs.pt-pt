@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
 ms.openlocfilehash: c79c1fd687e329b97a854a3ff66a3cf95076b5d6
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80384233"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurar dPDK numa máquina virtual Linux
@@ -52,7 +52,7 @@ As seguintes distribuições do Mercado Azure são suportadas:
 
 Para qualquer versão linux kernel que não esteja listada, consulte [Patches para construir um kernel Linux afinado em Azure.](https://github.com/microsoft/azure-linux-kernel) Para mais informações, [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com)também pode contactar. 
 
-## <a name="region-support"></a>Apoio da região
+## <a name="region-support"></a>Suporte de região
 
 Todas as regiões azure apoiam o DPDK.
 

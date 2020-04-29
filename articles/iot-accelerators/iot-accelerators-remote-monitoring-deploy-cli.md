@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80258299"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementar o acelerador de solução de monitorização remota utilizando o CLI
@@ -71,7 +71,7 @@ Uma implementação básica cria os seguintes serviços na sua subscrição Azur
 | Contagem | Recurso                       | Tipo         | Usado para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina Virtual Linux](https://azure.microsoft.com/services/virtual-machines/) | Padrão D1 V2  | Hospedagem de microserviços |
-| 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 - Nível standard | Gestão e comunicação de dispositivos |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 - Nível standard | Gestão e comunicação de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Armazenar dados de configuração, regras, alertas e outros armazenamentos frios |  
 | 1     | [Conta de Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Armazenamento para VM e pontos de verificação de streaming |
 | 1     | [Aplicação Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hospedar aplicação web frontal |
@@ -91,8 +91,8 @@ Uma implementação padrão cria os seguintes serviços na sua subscrição Azur
 
 | Contagem | Recurso                                     | SKU / Tamanho      | Usado para |
 |-------|----------------------------------------------|-----------------|----------|
-| 1     | [Serviço Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service)| Utilize um serviço de orquestração de contentores Kubernetes totalmente gerido, incumprimentos a 3 agentes|
-| 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 - Nível standard | Gestão, comando e controlo de dispositivos |
+| 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Utilize um serviço de orquestração de contentores Kubernetes totalmente gerido, incumprimentos a 3 agentes|
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 - Nível standard | Gestão, comando e controlo de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Armazenar dados de configuração e telemetria do dispositivo como regras, alertas e mensagens |
 | 5     | [Contas de Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 para armazenamento vm, e 1 para os pontos de verificação de streaming |
 | 1     | [Serviço de Aplicações](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway de aplicação sobre TLS |

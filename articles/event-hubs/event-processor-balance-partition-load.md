@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 01/16/2020
 ms.author: shvija
 ms.openlocfilehash: bf90120157bf64bd62a3b5ec9d8a6b2c6260e024
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80398298"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibre a carga de partição em vários casos da sua aplicação

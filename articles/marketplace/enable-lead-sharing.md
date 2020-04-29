@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
 ms.openlocfilehash: b41a29fb3548937e9071cfb9f065dd46f63df83e
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387619"
 ---
 # <a name="enable-lead-sharing"></a>Ativar a partilha de oportunidades potenciais

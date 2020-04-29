@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 1ff8c382813654b1dee38a99bf2cc0ca67afbedd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76313832"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como usar centros de notificação da Python
@@ -380,7 +380,7 @@ A execução do seu código Python deve produzir uma notificação que apareça 
 
 ### <a name="enabling-the-debug-property"></a>Habilitar `debug` a propriedade
 
-Ao ativar a bandeira de depuração ao inicializar o NotificationHub, vê um pedido e um despejo de resposta detalhados em HTTP, bem como o NotificationOutcome, como o seguinte, onde pode compreender o que os cabeçalhos http são passados no pedido e qual foi a resposta http recebido do Centro de Notificação:
+Ao ativar a bandeira de depuração ao inicializar o NotificationHub, vê um pedido e um despejo de resposta detalhados em HTTP, bem como o NotificationOutcome, como o seguinte, onde pode compreender o que os cabeçalhos http são passados no pedido e qual a resposta http foi recebida do Centro de Notificação:
 
 ![][1]
 
@@ -390,7 +390,7 @@ Por exemplo, vê-se um resultado detalhado do Centro de Notificação.
     ```xml
     <Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
     ```
-- Se não houver alvos encontrados para qualquer notificação push, então é provável que veja a seguinte saída como resposta (o que indica que não foram encontrados registos para entregar a notificação provavelmente porque os registos tinham alguma sinuosa tags)
+- Se não houver alvos encontrados para qualquer notificação push, então é provável que veja a seguinte saída como resposta (o que indica que não foram encontrados registos para entregar a notificação provavelmente porque os registos tinham algumas etiquetas desajustadas)
     ```xml
     '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="https://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
     ```

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: dsindona
 ms.openlocfilehash: 62e25a252d6a4981bddd50361d01110ec10a6e2c
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387670"
 ---
 # <a name="register-in-dev-center"></a>Registar no Dev Center  
@@ -134,7 +134,7 @@ O banco e a informação fiscal são necessários para todas as ofertas comercia
 5.  Clique no botão Seguinte.  
 
 
-## <a name="frequently-asked-questions"></a>Perguntas Mais Frequentes: 
+## <a name="frequently-asked-questions"></a>Perguntas frequentes: 
 
 * **Que editores requerem um registo de conta de Dev Center?** 
   > Editora que está a publicar no tipo de listagem Transact: VM, aplicações Azure: modelos de soluções e aplicações geridas.  

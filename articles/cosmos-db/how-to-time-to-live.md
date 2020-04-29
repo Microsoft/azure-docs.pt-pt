@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: anfeldma
 ms.openlocfilehash: 72653a3b28181316a2bf7dd7e73f2685c3afcf73
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80384267"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configure o tempo para viver em Azure Cosmos DB
@@ -21,7 +21,7 @@ No Azure Cosmos DB, pode optar por configurar o Time to Live (TTL) ao nível do 
 
 Utilize os seguintes passos para dar tempo a viver num recipiente sem validade. Ative isto para permitir que o TTL seja ultrapassado ao nível do item. Também pode definir o TTL inserindo um valor não zero durante segundos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Crie uma nova conta Azure Cosmos ou selecione uma conta existente.
 
@@ -173,11 +173,11 @@ Além de definir um tempo padrão para viver num recipiente, pode definir uma ho
 
 * Se a TTL for desativada ao nível do contentor, o campo TTL no item será ignorado até que a TTL seja reativada no recipiente.
 
-### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Portal Azure
+### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Portal do Azure
 
 Utilize os seguintes passos para dar tempo a viver num item:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Crie uma nova conta Azure Cosmos ou selecione uma conta existente.
 
@@ -482,4 +482,4 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 Saiba mais sobre o tempo para viver no seguinte artigo:
 
-* [Hora de viver](time-to-live.md)
+* [Time to live](time-to-live.md)

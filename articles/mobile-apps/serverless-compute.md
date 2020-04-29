@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: d6a2bbc984a8808d2cd8a9b292e55d80f43f2e9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240137"
 ---
 # <a name="build-mobile-back-end-components-with-compute-services"></a>Construir componentes móveis de back-end com serviços de computação
@@ -43,13 +43,13 @@ Utilize os seguintes serviços para ativar capacidades de computação sem servi
 - Modelo de preços pay-per-use significa que você paga apenas pelo tempo gasto a executar o seu código.
 
 **Referências**
-- [Portal Azure](https://portal.azure.com)
+- [Portal do Azure](https://portal.azure.com)
 - [Documentação das Funções do Azure](/azure/azure-functions/)
 - [Guia do programador das Funções do Azure](/azure/azure-functions/functions-reference)
-- [Arranques rápidos](/azure/azure-functions/functions-create-first-function-vs-code)
+- [Guias de Início Rápido](/azure/azure-functions/functions-create-first-function-vs-code)
 - [Amostras](/samples/browse/?products=azure-functions&languages=csharp)
 
-## <a name="azure-app-service"></a>App Service do Azure
+## <a name="azure-app-service"></a>Serviço de Aplicações do Azure
 Com o [Azure App Service,](https://azure.microsoft.com/services/app-service/)pode construir e hospedar aplicações web e APIs RESTful na linguagem de programação à sua escolha sem gerir infraestruturas. Oferece autoscalcificação e alta disponibilidade, suporta tanto o Windows como o Linux, e permite implementações automatizadas do GitHub, Azure DevOps ou qualquer repo Git.
 
 **Principais funcionalidades**
@@ -62,9 +62,9 @@ Com o [Azure App Service,](https://azure.microsoft.com/services/app-service/)pod
 - A integração do Estúdio Visual com ferramentas dedicadas no Visual Studio dinamiza o trabalho de criação, implantação e depuração.
 
 **Referências**
-- [Portal Azure](https://portal.azure.com/)
+- [Portal do Azure](https://portal.azure.com/)
 - [Documentação do Serviço de Aplicações Azure](/azure/app-service/)
-- [Arranques rápidos](/azure/app-service/app-service-web-get-started-dotnet)
+- [Guias de Início Rápido](/azure/app-service/app-service-web-get-started-dotnet)
 - [Amostras](/azure/app-service/samples-cli)
 - [Tutoriais](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 
@@ -80,9 +80,9 @@ Com o [Azure App Service,](https://azure.microsoft.com/services/app-service/)pod
 - Treine modelos de aprendizagem automática com a utilização de ferramentas como tensorFlow e KubeFlow.
 
 **Referências**
-- [Portal Azure](https://portal.azure.com/)
+- [Portal do Azure](https://portal.azure.com/)
 - [Documentação do Serviço Azure Kubernetes](/azure/aks/)
-- [Arranques rápidos](/azure/aks/kubernetes-walkthrough-portal)
+- [Guias de Início Rápido](/azure/aks/kubernetes-walkthrough-portal)
 - [Tutoriais](/azure/aks/tutorial-kubernetes-prepare-app)
 
 ## <a name="azure-container-instances"></a>Azure Container Instances
@@ -97,8 +97,8 @@ Com o [Azure App Service,](https://azure.microsoft.com/services/app-service/)pod
 - Recipientes Linux e Windows agendados com a mesma API.
 
 **Referências**
-- [Portal Azure](https://portal.azure.com/)
+- [Portal do Azure](https://portal.azure.com/)
 - [Documentação do Azure Container Instances](/azure/container-instances/)
-- [Arranques rápidos](/azure/container-instances/container-instances-quickstart-portal)
+- [Guias de Início Rápido](/azure/container-instances/container-instances-quickstart-portal)
 - [Amostras](https://azure.microsoft.com/resources/samples/?sort=0&term=aci)
 - [Tutoriais](/azure/container-instances/container-instances-tutorial-prepare-app)

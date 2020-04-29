@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: 3e400f62ed4afcb40d5d68aeb357d47083445802
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76988180"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de migração e desenvolvimento de aplicações da Azure Cosmos DB NoSQL
@@ -19,13 +19,13 @@ Da migração noSQL ao desenvolvimento de aplicações, pode escolher entre uma 
 
 ## <a name="migration-tools"></a>Ferramentas de migração
 
-|**Partner**  |**Capacidades & experiência**  |**Países/regiões apoiados**  |**Contacto**  |
+|**Parceiro**  |**Capacidades & experiência**  |**Países/regiões apoiados**  |**Contacto**  |
 |---------|---------|---------|---------|
 |![Rio Striim][2]    |  [Mova dados em tempo real para O Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) a partir de uma grande variedade de fontes de dados. <br/> A Striim simplifica a recolha e o movimento em tempo real de dados a partir de uma grande variedade de fontes no local, incluindo documentos empresariais e bases de dados relacionais, sensores e ficheiros de registo no Azure Cosmos DB. |   EUA   |  [Web site](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Parceiros Integradores de Sistemas
 
-|**Partner**  |**Capacidades & experiência**  |**Países/regiões apoiados**  |**Contacto**  |
+|**Parceiro**  |**Capacidades & experiência**  |**Países/regiões apoiados**  |**Contacto**  |
 |---------|---------|---------|---------|
 | ![10ª Magnitude][13] | Migração NoSQL; Desenvolvimento de novas aplicações | EUA | [Web site](https://www.10thmagnitude.com/)|
 |![Altoros Development LLC][3]    |  Migração NoSQL, <br/> Inovação de aplicativos (aplicações existentes), <br/> Desenvolvimento de novas aplicações |   EUA, Noruega, Finlândia, Bielorrússia, Argentina |  [Web site](https://www.altoros.com/)     |

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: 820005bca008ea3bdb59659c815da3ec36beb0d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241040"
 ---
 # <a name="add-authentication-and-manage-user-identities-in-your-mobile-apps"></a>Adicione a autenticação e gerencie as identidades dos utilizadores nas suas aplicações móveis
@@ -53,9 +53,9 @@ Utilize os seguintes serviços para permitir a autenticação do utilizador nas 
 - Capture dados de inscrição, preferência e conversão para os clientes.
 
 **Referências**
-- [Portal Azure](https://portal.azure.com/)
+- [Portal do Azure](https://portal.azure.com/)
 - [Documentação Azure AD B2C](/azure/active-directory-b2c/)
-- [Arranques rápidos](/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app)
+- [Guias de Início Rápido](/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app)
 - [Amostras](/azure/active-directory-b2c/code-samples)
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
@@ -70,7 +70,7 @@ Utilize os seguintes serviços para permitir a autenticação do utilizador nas 
 - Capacidade de gerir o acesso à escala.
 
 **Referências**
-- [Portal Azure](https://portal.azure.com/)
+- [Portal do Azure](https://portal.azure.com/)
 - [O que é o Azure AD?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Introdução ao Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
-- [Arranques rápidos](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Guias de Início Rápido](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)

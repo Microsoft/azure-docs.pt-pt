@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4caa248f6972609ecb6bf71dd521c68d78cebd70
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80383961"
 ---
 # <a name="azure-active-directory-risk-detections"></a>Deteção de risco de Diretório Ativo Azure
@@ -82,7 +82,7 @@ Este tipo de deteção de risco identifica utilizadores que assinaram com sucess
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Deslocação impossível para localizações atípicas
 
-Este tipo de deteção de risco identifica dois sign-ins originários de locais geograficamente distantes, onde pelo menos um dos locais também pode ser atípico para o utilizador, dado o comportamento passado. Entre vários outros fatores, este algoritmo de aprendizagem automática tem em conta o tempo entre os dois sign-ins e o tempo que o utilizador teria demorado a viajar do primeiro local para o segundo, indicando que um utilizador diferente está a usar o mesmo credenciais.
+Este tipo de deteção de risco identifica dois sign-ins originários de locais geograficamente distantes, onde pelo menos um dos locais também pode ser atípico para o utilizador, dado o comportamento passado. Entre vários outros fatores, este algoritmo de aprendizagem automática tem em conta o tempo entre os dois sign-ins e o tempo que o utilizador teria demorado a viajar do primeiro local para o segundo, indicando que um utilizador diferente está a usar as mesmas credenciais.
 
 O algoritmo ignora "falsos positivos" óbvios que contribuem para as condições de viagem impossíveis, como VPNs e locais regularmente utilizados por outros utilizadores da organização. O sistema tem um período inicial de aprendizagem de 14 dias durante os quais aprende o comportamento de entrada de um novo utilizador. 
 
@@ -153,7 +153,7 @@ O nível de risco para este tipo de deteção de risco é **Médio** porque um e
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Deslocação impossível para localizações atípicas
 
-Viajar impossível é geralmente um bom indicador de que um hacker foi capaz de assinar com sucesso. No entanto, podem ocorrer falsos positivos quando um utilizador viaja usando um novo dispositivo ou usando uma VPN que normalmente não é usada por outros utilizadores da organização. Outra fonte de falsos positivos são as aplicações que incorretamente passam os IPs do servidor como IPs do cliente, que podem dar a aparência de entradas em olugar a partir do centro de dados onde o back-end dessa aplicação é hospedado (muitas vezes estes são centros de dados da Microsoft, que podem dar a aparência de entradas em omôl-do-centro de dados onde o back-end dessa aplicação é hospedado (muitas vezes estes são centros de dados da Microsoft, que pode dar a aparência de inscrições em então a partir de endereços IP propriedade da Microsoft). Como resultado destes falsos positivos, o nível de risco para esta deteção de risco é **Médio**.
+Viajar impossível é geralmente um bom indicador de que um hacker foi capaz de assinar com sucesso. No entanto, podem ocorrer falsos positivos quando um utilizador viaja usando um novo dispositivo ou usando uma VPN que normalmente não é usada por outros utilizadores da organização. Outra fonte de falsos positivos são as aplicações que incorretamente passam os IPs do servidor como IPs do cliente, que podem dar a aparência de entradas a partir do centro de dados onde o back-end dessa aplicação é hospedado (muitas vezes estes são datacenters da Microsoft, que podem dar a aparência de sign-ins em olugar de endereços IP da Microsoft). Como resultado destes falsos positivos, o nível de risco para esta deteção de risco é **Médio**.
 
 > [!TIP]
 > Pode reduzir a quantidade de falsos positivos reportados para este tipo de deteção de risco configurando [localizações nomeadas](../active-directory-named-locations.md). 

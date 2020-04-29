@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18~~~~
 ms.openlocfilehash: 79628ed44753577023464ef6208027e1b7996d30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77087257"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Crie um conjunto de dados de referência para o seu ambiente Time Series Insights usando o portal Azure
@@ -34,7 +34,7 @@ Os dados de referência não são acompanhados retroativamente. Assim, apenas os
 
 ## <a name="add-a-reference-data-set"></a>Adicione um conjunto de dados de referência
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Localize o ambiente atual da Série De Tempo Azure Insights. Selecione **Todos os recursos** no menu do lado esquerdo do portal Azure. Selecione o seu ambiente do Time Series Insights.
 

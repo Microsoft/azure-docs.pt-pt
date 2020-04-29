@@ -9,10 +9,10 @@ ms.service: azure-spatial-anchors
 ms.date: 02/26/2020
 ms.topic: conceptual
 ms.openlocfilehash: df28fc6b5e3a1ddd9813919c8afbf21f65d731b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471091"
 ---
 # <a name="building-in-unity-with-azure-spatial-anchors"></a>Edifício em Unidade com Âncoras Espaciais Azure

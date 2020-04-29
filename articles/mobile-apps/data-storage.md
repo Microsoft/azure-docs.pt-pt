@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: 166847325fa9094136f1c2a143f1751420f05f66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240918"
 ---
 # <a name="store-sync-and-query-mobile-application-data-from-the-cloud"></a>Armazenar, sincronizar e consultar dados de aplicações móveis da nuvem
@@ -52,7 +52,7 @@ Utilize os seguintes serviços para gerir e armazenar dados de aplicações móv
 - Latista garantida no percentil 99 em todo o mundo.
 
 **Referências**
-- [Portal Azure](https://portal.azure.com) 
+- [Portal do Azure](https://portal.azure.com) 
 - [Documentação azure Cosmos DB](/azure/cosmos-db/introduction)
 
 ## <a name="azure-sql-database"></a>Base de Dados SQL do Azure
@@ -69,5 +69,5 @@ Utilize os seguintes serviços para gerir e armazenar dados de aplicações móv
     - A Base de Dados Azure SQL é verificada pelos principais auditores em nuvem como parte do âmbito das principais certificações e aprovações de conformidade azure, tais como HIPAA BAA, ISO/IEC 27001:2005, FedRAMP e Cláusulas de Modelo da UE.
 
 **Referências**
-- [Portal Azure](https://portal.azure.com) 
+- [Portal do Azure](https://portal.azure.com) 
 - [Documentação da Base de Dados SQL do Azure](/azure/sql-database/) 

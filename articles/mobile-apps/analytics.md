@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: 4dc3cea4497c55dda0d8da2ca29201615dadff19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241084"
 ---
 # <a name="analyze-and-understand-mobile-application-use"></a>Analisar e compreender o uso de aplicações móveis
@@ -57,7 +57,7 @@ O Azure Monitor inclui [os Application Insights,](/azure/azure-monitor/app/app-i
      - Coortes para nomear e guardar grupos específicos de utilizadores ou eventos para que possam ser facilmente referenciados a partir de outras ferramentas de análise.
 
 **Referências**
-- [Portal Azure](https://portal.azure.com/)
+- [Portal do Azure](https://portal.azure.com/)
 - [Analise a sua aplicação móvel com o App Center e os Insights de Aplicação](/azure/azure-monitor/learn/mobile-center-quickstart)
 - [Use app center Analytics com insights de aplicação](/azure/azure-monitor/app/usage-overview)
 
@@ -74,4 +74,4 @@ O Azure Monitor inclui [os Application Insights,](/azure/azure-monitor/app/app-i
 **Referências**
 - [Portal PlayFab](https://developer.playfab.com/en-US/sign-up)
 - [Análise](/gaming/playfab/#pivot=documentation&panel=analytics)
-- [Arranques rápidos](/gaming/playfab/#pivot=documentation&panel=quickstarts) 
+- [Guias de Início Rápido](/gaming/playfab/#pivot=documentation&panel=quickstarts) 

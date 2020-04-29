@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.openlocfilehash: 1257bf4dfb0d5b2c4995cac760290f97293a0c0f
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80382975"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões em que existe azure Media Services v3
@@ -98,7 +98,7 @@ Os seguintes pontos finais são importantes de saber quando se conectam às cont
 
 ## <a name="see-also"></a>Consulte também
 
-* [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Regiões de Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Localizações azure](https://azure.microsoft.com/global-infrastructure/locations/)
 

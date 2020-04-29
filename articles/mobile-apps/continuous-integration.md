@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: 0560f47b832ec2965d9b567e1aeff78baa9c247c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240930"
 ---
 # <a name="automate-the-lifecycle-of-your-apps-with-continuous-build-and-integration"></a>Automatizar o ciclo de vida das suas apps com construção e integração contínuas
@@ -63,6 +63,6 @@ Com o poder adicional dos serviços do Visual Studio App Center, pode automatiza
 **Referências**
 - [Começar com o guia azure pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops)
 - [Introdução ao Azure DevOps](https://app.vsaex.visualstudio.com/signup/) 
-- [Arranques rápidos](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2)
+- [Guias de Início Rápido](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2)
 
 Para ajudá-lo a escolher o serviço certo para as construções da sua aplicação, consulte o artigo que compara o [App Center Build vs. Azure Pipelines](/appcenter/build/choose-between-services).

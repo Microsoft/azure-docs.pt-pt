@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: bc59857cdb843dfff54e69f2226f13cfe70df8f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235335"
 ---
 # <a name="engage-with-your-application-users-by-sending-push-notifications"></a>Envolva-se com os utilizadores da sua aplicação enviando notificações push
@@ -67,7 +67,7 @@ Com o [App Center Push,](/appcenter/push/)pode enviar mensagens direcionadas par
 - Ganhe suporte de plataforma para iOS, Android, Windows, Kindle e Baidu.
         
 **Referências**
-- [Portal Azure](https://portal.azure.com) 
+- [Portal do Azure](https://portal.azure.com) 
 - [Começar com hubs de notificação Azure](/azure/notification-hubs/)
-- [Arranques rápidos](/azure/notification-hubs/create-notification-hub-portal)
+- [Guias de Início Rápido](/azure/notification-hubs/create-notification-hub-portal)
 - [Amostras](/azure/notification-hubs/samples)

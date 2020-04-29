@@ -10,10 +10,10 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 6fb776b4c1ff537401a23eb272526b3043fdb1e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235729"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registe um dispositivo Azure IoT Edge
@@ -64,7 +64,7 @@ Existem várias formas de realizar a maioria das operações no Código VS. Este
 ### <a name="prerequisites-for-visual-studio-code"></a>Pré-requisitos para Código de Estúdio Visual
 
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) na sua subscrição Azure
-* [Código de estúdio visual](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) para Código de Estúdio Visual
 
 ### <a name="sign-in-to-access-your-iot-hub"></a>Inscreva-se para aceder ao seu hub IoT

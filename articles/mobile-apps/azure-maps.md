@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: aa2931440b538346d9f1aa9d0ec967f1a812d56b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241019"
 ---
 # <a name="geospatial-apis-to-add-maps-spatial-analytics-and-mobility-solutions-with-azure-maps"></a>APIs geoespaciais para adicionar mapas, análise espacial e soluções de mobilidade com mapas Azure
@@ -30,7 +30,7 @@ ms.locfileid: "80241019"
 - **Mobilidade**: Fornece informações de localização em tempo real em serviços de trânsito público nas proximidades. Paragens, informações de rota e estimativas de tempo de viagem estão incluídas.
 
 ## <a name="references"></a>Referências
-  - [Portal Azure](https://portal.azure.com) 
+  - [Portal do Azure](https://portal.azure.com) 
   - [Documentação do Azure Maps](/azure/azure-maps/about-azure-maps)
   - [Guia para programadores](/azure/azure-maps/how-to-use-android-map-control-library)
   - [Azure Maps Android SDK](/azure/azure-maps/how-to-use-android-map-control-library)

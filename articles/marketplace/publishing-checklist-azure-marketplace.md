@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
 ms.openlocfilehash: 0409933a3cd4bb535427cf61bd06207d53d5a96e
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387721"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>Publicar Lista de Verificação para o Azure Marketplace    

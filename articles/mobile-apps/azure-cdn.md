@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: 1daff5c610092b009b122d05655ea637d5da5c3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241031"
 ---
 # <a name="content-delivery-network-on-azure-with-azure-content-delivery-network"></a>Rede de entrega de conteúdos no Azure com rede de entrega de conteúdos Azure
@@ -29,8 +29,8 @@ ms.locfileid: "80241031"
   - Utilize a geofiltração para restringir o conteúdo da Rede de Entrega de Conteúdos por país ou região.
 
 ## <a name="references"></a>Referências
-  - [Portal Azure](https://portal.azure.com)
+  - [Portal do Azure](https://portal.azure.com)
   - [Documentação da Rede de Entrega de Conteúdos Azure](/azure/cdn/)
   - [Começar com a Rede de Entrega de Conteúdos Azure](/azure/cdn/cdn-create-new-endpoint)
-  - [Arranques rápidos](/azure/cdn/cdn-create-new-endpoint)
+  - [Guias de Início Rápido](/azure/cdn/cdn-create-new-endpoint)
 

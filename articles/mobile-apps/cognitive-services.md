@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: a3955379248c284066ec57d67e61654ac664bfa5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240950"
 ---
 # <a name="cognitive-services-helps-to-solve-business-problems-by-using-ai"></a>Serviços Cognitivos ajudam a resolver problemas de negócio usando IA
@@ -34,7 +34,7 @@ ms.locfileid: "80240950"
     - ID do orador e autenticação
     - Tradução da fala em tempo real
 
-- **Língua**
+- **Idioma**
     - Compreensão linguística contextual, análise de intenção personalizada
     - Análise de sentimentos, deteção de frases-chave
     - Tradução de texto até 60 idiomas
@@ -55,8 +55,8 @@ ms.locfileid: "80240950"
 - Suporte para contentores para serviços cognitivos
 
  ## <a name="references"></a>Referências
-   - [Portal Azure](https://portal.azure.com) 
+   - [Portal do Azure](https://portal.azure.com) 
    - [Documentação dos Serviços Cognitivos (Cognitive Services documentation)](/azure/cognitive-services/welcome)
-   - [Arranques rápidos](/azure/cognitive-services/cognitive-services-apis-create-account)
+   - [Guias de Início Rápido](/azure/cognitive-services/cognitive-services-apis-create-account)
    - [Suporte de contentor](/azure/cognitive-services/cognitive-services-container-support)
-   - [Arranques rápidos](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
+   - [Guias de Início Rápido](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)

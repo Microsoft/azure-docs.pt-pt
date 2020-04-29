@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: dsindona
 ms.openlocfilehash: 63708f426ced01fc7b837cc7c82ef178e4e78f95
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387755"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promova o seu negócio com a Microsoft 

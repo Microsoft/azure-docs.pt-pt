@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.openlocfilehash: 9713d963978e34ad874dc032676a6e1f14e4657c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77210947"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrar da CouchBase para a Azure Cosmos DB SQL API
@@ -186,7 +186,7 @@ Consultas N1QL é a maneira de definir consultas na Base de Sofá.
 
 |Consulta N1QL | Consulta Azure CosmosDB|
 |-------------------|-------------------|
-|SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India' and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan'] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0   | SELECT c.id,c FROM c JOIN m in c.country='India' WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
+|SELECT`TravelDocument`META(.id AS `TravelDocument`id, `TravelDocument` `_type` .* FROM WHERE = "com.xx.xx.xx.xx.xxx.xxx.xxxx" e país = 'Índia' e ANY m em Vistos SATISFIES m.type == 'Multi-Entry' e m.Country IN ['Índia', Butão'] ORDEM BY ` Validity` DESC LIMIT 25 OFFSET 0   | SELECT c.id,c FROM c JOIN m in c.country='India' WHERE c._type = " com.xx.xx.xx.xx.xxx.xxx.xxxx" e c.country = 'Índia' e m.type = 'Multi-Entry' e m.Country IN ('Índia', 'Butão') ORDER BY c.Validade DESC OFFSET 0 LIMIT 25 |
 
 Pode notar as seguintes alterações nas suas consultas N1QL:
 

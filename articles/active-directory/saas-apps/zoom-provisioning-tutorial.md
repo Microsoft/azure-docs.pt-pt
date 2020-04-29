@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
 ms.openlocfilehash: 94c261da0c935cb7a41dde768069099b4e5ed251
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80384080"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutorial: Configure zoom para fornecimento automático de utilizadores
@@ -89,7 +89,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
 ### <a name="to-configure-automatic-user-provisioning-for-zoom-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para zoom em Azure AD:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -121,12 +121,12 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
    |Atributo|Tipo|
    |---|---|
-   |userName|Cadeia|
+   |userName|String|
    |ativo|Booleano|
-   |nome.dadoNome|Cadeia|
-   |nome.familyName|Cadeia|
-   |e-mails[tipo eq "trabalho"]|Cadeia|
-   |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:department|Cadeia|
+   |nome.dadoNome|String|
+   |nome.familyName|String|
+   |e-mails[tipo eq "trabalho"]|String|
+   |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:department|String|
 
 10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

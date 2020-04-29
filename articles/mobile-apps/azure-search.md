@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: 48703001317533981f360baacb330b6878a3857e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240989"
 ---
 # <a name="ai-powered-cloud-service-with-azure-cognitive-search"></a>Serviço de nuvem movido a IA com pesquisa cognitiva azure
@@ -32,10 +32,10 @@ ms.locfileid: "80240989"
 Encontre uma descrição detalhada sobre [as funcionalidades](/azure/search/search-what-is-azure-search#feature-descriptions)de Pesquisa Cognitiva Azure .
 
 ## <a name="references"></a>Referências
-- [Portal Azure](https://portal.azure.com) 
-- [Documentação do Azure Cognitive Search](/azure/search/)
+- [Portal do Azure](https://portal.azure.com) 
+- [Documentação de Pesquisa Cognitiva Azure](/azure/search/)
 - [Guia para programadores](https://azure.microsoft.com/resources/iot-developers-guide/)
 - [Como usar a Pesquisa Cognitiva Azure](/azure/search/search-what-is-azure-search#how-to-use-azure-cognitive-search)
-- [Arranques rápidos](/azure/search/search-create-service-portal)
+- [Guias de Início Rápido](/azure/search/search-create-service-portal)
 
  

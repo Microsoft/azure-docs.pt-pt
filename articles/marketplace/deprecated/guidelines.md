@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 9156126ff2a3dbe936dc426c6f5097c6bba7b7b7
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387614"
 ---
 # <a name="guidelines"></a>Diretrizes  

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: 242a929e4a4ebe00dd0a2101b27ab8a8bef3fbeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240819"
 ---
 # <a name="build-real-time-applications-with-azure-signalr-service"></a>Construa aplicações em tempo real com o Serviço De Sinalização Azure
@@ -24,6 +24,6 @@ Com o [Serviço De Sinalização Azure,](https://azure.microsoft.com/services/si
 - Oferece APIs ricos para diferentes padrões de mensagens para enviar mensagens para uma determinada conexão, todas as ligações, ou um subconjunto de conexões que pertencem a um utilizador específico ou foram colocadas num grupo arbitrário.
 
 ## <a name="references"></a>Referências
-   - [Portal Azure](https://portal.azure.com)
+   - [Portal do Azure](https://portal.azure.com)
    - [Documentação do Serviço De Sinalização Azure](/azure/azure-signalr/signalr-overview)
    - [Tutoriais](/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions)

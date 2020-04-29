@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
 ms.openlocfilehash: a75be23e2e8215d86aebcfd7f4317f2f597d3c5b
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80385083"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Rede adaptável endurecendo no Centro de Segurança Azure
@@ -31,7 +31,7 @@ O Endurecimento da Rede Adaptável fornece recomendações para endurecer ainda 
 Por exemplo, digamos que a regra nsg existente é permitir o tráfego a partir de 140.20.30.10/24 na porta 22. A recomendação da Rede Adaptativa de Endurecimento, com base na análise, seria reduzir o intervalo e permitir o tráfego a partir de 140.23.30.10/29 – que é uma gama IP mais estreita, e negar todo o tráfego para aquele porto.
 
 >[!TIP]
-> Recomendações de endurecimento da rede adapttiva só são suportadas nas seguintes portas específicas (tanto para a UDP como para a TCP): 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 203, 203 , 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 6379, 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017, 37215
+> Recomendações de endurecimento da rede adapttiva só são suportadas nas seguintes portas específicas (tanto para a UDP como para a TCP): 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 514, 51 636, 873, 1433, 1434, 1900, 2049, 2301, 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 698, 6989, 6989, 6989, 6989, 6989, 6986, 6900, 5900 , 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017, 37215
 
 
 ![Visão de endurecimento da rede](./media/security-center-adaptive-network-hardening/traffic-hardening.png)

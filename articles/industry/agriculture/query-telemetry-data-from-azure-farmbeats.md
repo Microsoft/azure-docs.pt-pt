@@ -1,18 +1,18 @@
 ---
-title: Consulta de dados de telemetria ingeridos
+title: Consultar dados telemétricos ingeridos
 description: Este artigo descreve como consultar dados de telemetria ingeridos.
 author: sunasing
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
 ms.openlocfilehash: f717903b3f953e04c793092c86802f2006de7e82
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80349811"
 ---
-# <a name="query-ingested-telemetry-data"></a>Consulta de dados de telemetria ingeridos
+# <a name="query-ingested-telemetry-data"></a>Consultar dados telemétricos ingeridos
 
 Este artigo descreve como consultar dados de sensores ingeridos a partir de Azure FarmBeats.
 

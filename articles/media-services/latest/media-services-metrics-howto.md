@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: c230e1e950bb924631032940642a6202acf4ade8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80382941"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorizar as métricas dos Serviços de Multimédia
@@ -74,4 +74,4 @@ Para obter outras métricas, substitua "Egress" pelo nome métrico que lhe inter
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Registos de diagnóstico](media-services-diagnostic-logs-howto.md)
+[Registos de diagnósticos](media-services-diagnostic-logs-howto.md)
