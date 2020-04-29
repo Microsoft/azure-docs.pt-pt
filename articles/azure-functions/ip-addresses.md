@@ -4,10 +4,10 @@ description: Saiba como encontrar endereços IP de entrada e saída para aplica�
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656772"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP em Funções Azure
@@ -25,7 +25,7 @@ Os endereços IP estão associados a aplicações de funções, não a funções
 
 Cada aplicação de função tem um único endereço IP de entrada. Para encontrar o endereço IP:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue para a aplicação de funções.
 3. Selecione **Funcionalidades de plataforma**.
 4. Selecione **Propriedades**, e o endereço IP de entrada aparece no **endereço IP virtual**.
@@ -115,7 +115,7 @@ Se necessitar de endereços IP estáticos e dedicados, recomendamos [ambientes](
 
 Para saber se a sua aplicação de função funciona num Ambiente de Serviço de Aplicações:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue para a aplicação de funções.
 3. Selecione o separador **Descrição Geral**.
 4. O nível de plano de serviço de aplicações aparece no **âmbito do plano/nível**de preços do App Service . O nível de preços do ambiente do serviço de aplicações é **isolado.**

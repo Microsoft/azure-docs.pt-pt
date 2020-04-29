@@ -9,10 +9,10 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668029"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Problemas de domínio e problemas de certificado TLS/SSL no Serviço de Aplicações Azure
@@ -88,7 +88,7 @@ Este problema pode ocorrer por qualquer uma das seguintes razões:
 
     **Solução**: Se o certificado estiver marcado como fraude e não for resolvido após 24 horas, siga estes passos:
 
-    1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+    1. Inicie sessão no [portal do Azure](https://portal.azure.com).
     2. Vá aos Certificados de Serviço de **Aplicações**e selecione o certificado.
     3. Selecione passo de **configuração** > do certificado**2: Verifique** > **a verificação do domínio**. Este passo envia um aviso de e-mail ao fornecedor de certificados Azure para resolver o problema.
 
@@ -190,7 +190,7 @@ O Serviço de Aplicações sincroniza automaticamente o seu certificado dentro d
 
 Pode forçar uma sincronização do certificado:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione Certificados de Serviço de **Aplicações**e, em seguida, selecione o certificado.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione Certificados de Serviço de **Aplicações**e, em seguida, selecione o certificado.
 2. Selecione **Rekey e Sync,** e, em seguida, selecione **Sync**. A sincronização leva algum tempo para terminar. 
 3. Quando a sincronização estiver concluída, vê a seguinte notificação: "Atualizou com sucesso todos os recursos com o certificado mais recente."
 

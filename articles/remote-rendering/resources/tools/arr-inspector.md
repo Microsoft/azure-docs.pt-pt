@@ -1,18 +1,18 @@
 ---
-title: A ferramenta de inspeção ArrInspector
+title: Ferramenta de inspeção ArrInspector
 description: Manual do utilizador da ferramenta ArrInspector
 author: florianborn71
 ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
 ms.openlocfilehash: e3acfc15b0c12822e48009bef4aabadac701fb2d
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680079"
 ---
-# <a name="the-arrinspector-inspection-tool"></a>A ferramenta de inspeção ArrInspector
+# <a name="the-arrinspector-inspection-tool"></a>Ferramenta de inspeção ArrInspector
 
 O ArrInspector é uma ferramenta baseada na web usada para inspecionar uma sessão de renderização remota Azure em execução. Destina-se a ser utilizado para fins de depuração, para inspecionar a estrutura da cena que está a ser renderizada, mostrar as mensagens de registo e monitorizar o desempenho ao vivo no servidor.
 

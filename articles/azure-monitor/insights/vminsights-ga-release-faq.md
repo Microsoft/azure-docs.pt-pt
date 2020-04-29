@@ -1,16 +1,16 @@
 ---
 title: O Monitor Azure para VMs (GA) frequentemente fez perguntas / Microsoft Docs
-description: O Azure Monitor para VMs é uma solução no Azure que combina monitorização de saúde e desempenho do sistema operativo Azure VM, bem como descobrir automaticamente componentes e dependências de aplicações com outros recursos e mapeia a comunicação entre los. Este artigo responde a perguntas comuns sobre a libertação da AG.
+description: O Azure Monitor para VMs é uma solução no Azure que combina monitorização de saúde e desempenho do sistema operativo Azure VM, bem como descobrir automaticamente componentes e dependências de aplicações com outros recursos e mapeia a comunicação entre eles. Este artigo responde a perguntas comuns sobre a libertação da AG.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
 ms.openlocfilehash: 3d250ef1aba979be04a44acaf31a3d685f162e37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80283893"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Monitor Azure para VMs Geralmente disponíveis (GA) Perguntas frequentes

@@ -7,10 +7,10 @@ ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294907"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerir as regras de deteção inteligente de Insights de Aplicação utilizando modelos de Gestor de Recursos Azure
@@ -192,6 +192,6 @@ Este modelo de Gestor de Recursos Azure demonstra configurar uma regra de alerta
 
 Saiba mais sobre a deteção automática:
 
-- [Anomalias de falha](../../azure-monitor/app/proactive-failure-diagnostics.md)
+- [Anomalias de falhas](../../azure-monitor/app/proactive-failure-diagnostics.md)
 - [Fugas de memória](../../azure-monitor/app/proactive-potential-memory-leak.md)
 - [Anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md)

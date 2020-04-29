@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437515"
 ---
 # <a name="references"></a>Referências
@@ -44,7 +44,7 @@ Telemetria  | A telemetria fornece a capacidade de ler mensagens de telemetria p
 Tarefa  | O trabalho corresponde a qualquer fluxo de trabalho de atividades que são executadas no sistema FarmBeats para obter uma saída desejada. Cada trabalho está associado a uma identificação de trabalho e tipo de trabalho.
 Tipo de Trabalho  | JobType corresponde a diferentes tipos de trabalho suportados pelo sistema. Estão incluídos os tipos de trabalho definidos pelo sistema e definidos pelo utilizador.
 Tipo alargado  | ExtendedType corresponde à lista de tipos definidos pelo sistema e pelo utilizador no sistema. ExtendedType ajuda a configurar um novo sensor, cena ou tipo de ficheiro de cena no sistema FarmBeats.
-Partner  | O parceiro corresponde ao parceiro de integração de sensores e imagens para farmBeats.
+Parceiro  | O parceiro corresponde ao parceiro de integração de sensores e imagens para farmBeats.
 Cena  | A cena corresponde a qualquer produção gerada no contexto de uma quinta. Cada cena tem uma identificação de cena, fonte de cena, tipo de cena e identificação da fazenda associada a ele. Cada identificação da cena pode ter vários ficheiros de cena associados.
 CenaFile |O SceneFile corresponde a todos os ficheiros gerados para uma única cena. Um único ID de cena pode ter vários IDs do SceneFile associados a ele.
 Regra  |A regra corresponde a uma condição para que os dados relacionados com a exploração desencadeiem um alerta. Cada regra está no contexto dos dados de uma fazenda.

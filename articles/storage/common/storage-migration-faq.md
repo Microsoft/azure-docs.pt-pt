@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
 ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668554"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração do Armazenamento do Azure
@@ -225,7 +225,7 @@ Quando cria uma conta de armazenamento, seleciona a região primária para a con
 
 Consulte os seguintes artigos:
 
--  [Guia de segurança de armazenamento azure](../blobs/security-recommendations.md)
+-  [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md)
 
 -  [Encriptação do Serviço de Armazenamento do Azure para Dados Inativos](storage-service-encryption.md)
 

@@ -14,10 +14,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 855a050afa14144f8963f24398c6b7b3939ef562
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656471"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Alterar o nível de preços de um espaço de nome de centros de notificação Azure
@@ -40,7 +40,7 @@ Ao utilizar o portal Azure, pode alterar o nível de preços para um espaço de 
 
 O procedimento seguinte mostra como alterar o nível de preços para um espaço de nome na página do espaço de nome. Quando muda o nível para um espaço de nome, aplica-se a todos os centros desse espaço de nome.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** no menu esquerdo.
 3. Selecione **Espaços de Nomes** do Hub de Notificação na secção **Internet das Coisas.** Se selecionar o asterisco ()`*`ao lado do texto, é adicionado à barra de navegação esquerda em **FAVORITOS**. Ajuda-o a aceder à página de espaços de nome mais rápido. Depois de adicioná-lo aos FAVORITOS, selecione Espaços de Nomes do **Hub de Notificação**.
 
@@ -64,7 +64,7 @@ O procedimento seguinte mostra como alterar o nível de preços para um espaço 
 
 O procedimento seguinte mostra como alterar o nível de preços para um espaço de nome na página do hub. Mesmo que você faça estes passos a partir da página do hub, você realmente muda o nível de preços para o espaço de nome e todos os hubs no espaço de nome.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** no menu esquerdo.
 3. Selecione Centros de **Notificação** na secção **Internet das Coisas.**
 4. Selecione o seu **centro**de notificação .

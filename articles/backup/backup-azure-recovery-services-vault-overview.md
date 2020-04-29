@@ -4,10 +4,10 @@ description: Uma visão geral e comparação entre cofres de Serviços de Recupe
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80436968"
 ---
 # <a name="recovery-services-vaults-overview"></a>Descrição geral dos Cofres dos Serviços de Recuperação
@@ -59,7 +59,7 @@ As seguintes secções contêm links para artigos que explicam como usar um cofr
 > [!NOTE]
 > O cofre dos Serviços de Recuperação não pode ser criado com o mesmo nome se tiver sido apagado dentro de 24 horas. Use um nome de recurso diferente ou escolha um grupo de recursos diferente ou volte a tentar novamente após 24 horas.
 
-### <a name="back-up-data"></a>Dados de back up
+### <a name="back-up-data"></a>Fazer cópias de segurança de dados
 
 - [Back up a Azure VM](backup-azure-vms-first-look-arm.md)
 - [Back up Windows Server ou Windows workstation](backup-try-azure-backup-in-10-mins.md)

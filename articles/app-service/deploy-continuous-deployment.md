@@ -7,10 +7,10 @@ ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 847de2c2c8916558d542473d9b7c80fd5552dbf7
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437254"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua para o Serviço de Aplicações Azure
@@ -177,7 +177,7 @@ Para aplicações Windows, pode configurar manualmente a implementação contín
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Investigar questões comuns com implantação contínua](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
-* [Utilizar a PowerShell Azure](/powershell/azureps-cmdlets-docs)
+* [Utilizar o Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Documentação git](https://git-scm.com/documentation)
 * [Kudu do projeto](https://github.com/projectkudu/kudu/wiki)
 

@@ -4,10 +4,10 @@ description: Fornece um resumo das definições de suporte e limitações ao apo
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: d86ce94c62ec9f25b364e9fdc963e3043b274722
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80389295"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
@@ -24,7 +24,7 @@ Outras matrizes de apoio:
 
 Eis como pode fazer backup e restaurar os VMs Azure com o serviço de backup Azure.
 
-**Cenário** | **Backup** | **Agente** |**Restaurar**
+**Cenário** | **Cópia de segurança** | **Agente** |**Restauro**
 --- | --- | --- | ---
 Backup direto dos VMs Azure  | Apoia todo o VM.  | Não é necessário um agente adicional no VM Azure. A Azure Backup instala e utiliza uma extensão do [agente Azure VM](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) que está a funcionar no VM. | Restaurar da seguinte forma:<br/><br/> - **Criar um VM básico.** Isto é útil se o VM não tiver uma configuração especial, como vários endereços IP.<br/><br/> - **Restaurar o disco VM**. Restaurar o disco. Em seguida, anexe-o a um VM existente, ou crie um novo VM a partir do disco utilizando o PowerShell.<br/><br/> - **Substitua o disco VM**. Se existir um VM e utilizar discos geridos (não encriptados), pode restaurar um disco e utilizá-lo para substituir um disco existente no VM.<br/><br/> - **Restaurar ficheiros/pastas específicos**. Pode restaurar ficheiros/pastas de um VM em vez de todo o VM.
 Backup direto de VMs Azure (apenas Windows)  | Volte a fazer um backfiles/pastas/volume específicos. | Instale o agente dos Serviços de [Recuperação Azure.](backup-azure-file-folder-backup-faq.md)<br/><br/> Pode executar o agente MARS juntamente com a extensão de reserva para o agente Azure VM fazer o backup do VM ao nível de ficheiro/pasta. | Restaurar pastas/ficheiros específicos.
@@ -112,7 +112,7 @@ Pontos de recuperação no disco DPM/MABS | 64 para servidores de ficheiros e 44
 
 ## <a name="support-for-file-level-restore"></a>Suporte para restauro ao nível de ficheiros
 
-**Restaurar** | **Apoiado**
+**Restauro** | **Apoiado**
 --- | ---
 Restaurar ficheiros através de sistemas operativos | Pode restaurar ficheiros em qualquer máquina que tenha o mesmo (ou compatível) SISTEMA que o VM suportado. Consulte a [tabela Os Compatível](backup-azure-restore-files-from-vm.md#system-requirements).
 Restaurar ficheiros de VMs encriptados | Não suportado.
@@ -125,7 +125,7 @@ Restaurar ficheiros com definições especiais de rede | Restaurar não suportad
 
 A tabela seguinte resume o suporte para backup durante as tarefas de gestão vm, tais como adicionar ou substituir discos VM.
 
-**Restaurar** | **Apoiado**
+**Restauro** | **Apoiado**
 --- | ---
 Restaurar através da subscrição/região/zona. | Não suportado.
 Restaurar a um VM existente | Utilize a opção de substituição do disco.

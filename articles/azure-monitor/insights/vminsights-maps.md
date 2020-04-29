@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
 ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80283859"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Utilize a função Map do Monitor Azure para VMs para entender os componentes da aplicação
@@ -19,7 +19,7 @@ No Azure Monitor para VMs, pode ver componentes de aplicações descobertos em m
 Para obter informações sobre a configuração do Monitor Azure para VMs, consulte [o Monitor Enable Azure para VMs](vminsights-enable-overview.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="introduction-to-the-map-experience"></a>Introdução à experiência do Mapa
 Antes de mergulhar na experiência do Mapa, deve entender como apresenta e visualiza a informação. Quer selecione a funcionalidade Map diretamente de um VM ou do Monitor Azure, a funcionalidade Map apresenta uma experiência consistente. A única diferença é que do Monitor Azure, um mapa mostra todos os membros de uma aplicação ou cluster de vários níveis.

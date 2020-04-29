@@ -6,10 +6,10 @@ ms.date: 01/23/2019
 ms.reviewer: lagayhar
 ms.subservice: alerts
 ms.openlocfilehash: 28fd59556a586b85a6d3caf188d9e02c11d31e3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295087"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas em insights de aplicação
@@ -96,7 +96,7 @@ Para melhor controlar a sua segurança e privacidade recomendamos que especifiqu
 
 Para cancelar a subscrição de notificações de e-mail geradas por uma determinada regra de alerta, remova o seu endereço de e-mail do campo de destinatários de **email da Notificação.**
 
-Se o seu endereço de e-mail não estiver listado explicitamente, recomendamos que desative a opção de notificar automaticamente todos os membros de determinadas funções e, em vez disso, listar todos os e-mails dos utilizadores que necessitem de receber notificações para essa regra de alerta no e-mail de notificação campo de destinatários.
+Se o seu endereço de e-mail não estiver listado explicitamente, recomendamos que desative a opção de notificar automaticamente todos os membros de determinadas funções e, em vez disso, listar todos os e-mails dos utilizadores que necessitem de receber notificações para essa regra de alerta no campo de destinatários de e-mail de notificação.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
 

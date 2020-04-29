@@ -4,10 +4,10 @@ description: Saiba como montar um volume secreto para armazenar informações co
 ms.topic: article
 ms.date: 04/03/2020
 ms.openlocfilehash: 756828e71174246450245938595c8872afc62961
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80657156"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Monte um volume secreto em instâncias de contentores azure
