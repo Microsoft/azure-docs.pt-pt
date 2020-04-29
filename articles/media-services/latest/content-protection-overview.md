@@ -16,10 +16,10 @@ ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: c1c9440f7ec70cea98f270f04c3030c800dd0fde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79461117"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteja o seu conteúdo com encriptação dinâmica de Media Services
@@ -265,5 +265,5 @@ Confira o artigo da [comunidade Azure Media Services](media-services-community.m
 * [Proteger com ADRM](protect-with-drm.md)
 * [Conceber sistema de proteção de conteúdos multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md)
 * [Encriptação do lado do armazenamento](storage-account-concept.md#storage-side-encryption)
-* [Perguntas frequentes](frequently-asked-questions.md)
+* [Perguntas mais frequentes](frequently-asked-questions.md)
 * [Manipulador de ficha web JSON](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

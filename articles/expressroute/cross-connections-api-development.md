@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: mialdrid
 ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77187016"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>Desenvolvimento e integração da API da ExpressRoute CrossConnnections
@@ -24,7 +24,7 @@ O recurso expressRouteCrossConnections é um recurso-sombra para o circuito Expr
 
 Os parceiros ExpressRoute gerem a configuração da camada 2 e da camada 3 através da emissão de operações REST contra o recurso expressRouteCrossConnections.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 Benefícios de se mudar para o recurso expressRouteCrossConnections:
 

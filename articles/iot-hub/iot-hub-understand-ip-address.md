@@ -8,10 +8,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.openlocfilehash: c609f2a3843481442e97061739a806de60a680b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79367572"
 ---
 # <a name="iot-hub-ip-addresses"></a>Endereços IP do IoT Hub

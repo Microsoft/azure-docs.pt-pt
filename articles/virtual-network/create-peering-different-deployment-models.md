@@ -17,10 +17,10 @@ ms.date: 11/15/2018
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 61df13e78dc7115d4f4d45ab18b9ffdae107dc96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77023264"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Criar um peering de rede virtual - diferentes modelos de implementação, mesma subscrição
@@ -43,7 +43,7 @@ Pode utilizar o portal Azure, a [interface de linha de comando](#cli) Azure (CLI
 
 ## <a name="create-peering---azure-portal"></a>Criar o peering - Portal Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). A conta com a sua inscrição deve ter as permissões necessárias para criar um epeering de rede virtual. Para obter uma lista de permissões, consulte [permissões de verificação](virtual-network-manage-peering.md#requirements-and-constraints)de rede virtual .
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). A conta com a sua inscrição deve ter as permissões necessárias para criar um epeering de rede virtual. Para obter uma lista de permissões, consulte [permissões de verificação](virtual-network-manage-peering.md#requirements-and-constraints)de rede virtual .
 2. Clique **+ Novo,** clique em **Rede,** em seguida, clique em **rede virtual**.
 3. Na lâmina de **rede virtual Criar,** introduzir ou selecionar valores para as seguintes definições, clique em **Criar:**
     - **Nome**: *myVnet1*
@@ -210,13 +210,13 @@ Complete os seguintes passos utilizando o clássico CLI azure e o Azure CLI. Pod
 
 Quando terminar este tutorial, talvez queira apagar os recursos que criou no tutorial, para que não incorra em taxas de utilização. A eliminação de um grupo de recursos também elimina todos os recursos que estão no grupo de recursos.
 
-### <a name="azure-portal"></a><a name="delete-portal"></a>Portal Azure
+### <a name="azure-portal"></a><a name="delete-portal"></a>Portal do Azure
 
 1. Na caixa de pesquisa do portal, introduza **o myResourceGroup**. Nos resultados da pesquisa, clique no **myResourceGroup**.
 2. Na lâmina **myResourceGroup,** clique no ícone **Delete.**
 3. Para confirmar a eliminação, na caixa **TYPE The RESOURCE GROUP NAME,** introduza o **myResourceGroup**, e, em seguida, clique **em Apagar**.
 
-### <a name="azure-cli"></a><a name="delete-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a name="delete-cli"></a>CLI do Azure
 
 1. Utilize o Azure CLI para eliminar a rede virtual (Gestor de Recursos) com o seguinte comando:
 

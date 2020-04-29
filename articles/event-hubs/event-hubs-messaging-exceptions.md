@@ -14,10 +14,10 @@ ms.custom: seodec18
 ms.date: 01/16/2020
 ms.author: shvija
 ms.openlocfilehash: de5b95bd10bf72f60ba5d63c4b3a799556fcce33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76309783"
 ---
 # <a name="troubleshooting-guide-for-azure-event-hubs"></a>Guia de resolução de problemas para hubs de eventos de Azure
@@ -59,7 +59,7 @@ A tabela seguinte lista tipos de exceções de mensagens e suas causas, e notas 
 
 Esta exceção pode acontecer se o número máximo de recetores (5) já tiver sido aberto a nível de grupo por consumidor.
 
-#### <a name="event-hubs"></a>Event Hubs
+#### <a name="event-hubs"></a>Hubs de Eventos
 O Event Hubs tem um limite de 20 grupos de consumidores por Event Hub. Quando tenta criar mais, recebe uma [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ### <a name="timeoutexception"></a>TimeoutException

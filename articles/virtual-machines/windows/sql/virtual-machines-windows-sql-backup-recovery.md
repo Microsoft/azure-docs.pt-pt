@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: e4c126bbac73accb984f1040a7fea1740d919233
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249779"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Cópia de Segurança e Restauro para SQL Server em Máquinas Virtuais do Azure

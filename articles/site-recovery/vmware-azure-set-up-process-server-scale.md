@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257150"
 ---
 # <a name="scale-with-additional-process-servers"></a>Escala com servidores de processos adicionais

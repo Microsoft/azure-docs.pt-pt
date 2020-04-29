@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: c5e02e791185db3713c67b8ff97b8f7eebe9da77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76310735"
 ---
 # <a name="azure-portal-overview"></a>Descrição geral do portal do Azure

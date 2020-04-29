@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
 ms.openlocfilehash: 615dc1b7bd1a31069a542ebb7ea44693c404cb40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79499105"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Elevada disponibilidade e recuperação após desastre do Hub IoT
@@ -136,6 +136,6 @@ Aqui está um resumo das opções HA/DR apresentadas neste artigo que podem ser 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [O que é o Hub IoT do Azure?](about-iot-hub.md)
+* [O que é o IoT Hub do Azure?](about-iot-hub.md)
 * [Comece com IoT Hubs (Quickstart)](quickstart-send-telemetry-dotnet.md)
 * [Tutorial: Execute a falha manual para um hub IoT](tutorial-manual-failover.md)

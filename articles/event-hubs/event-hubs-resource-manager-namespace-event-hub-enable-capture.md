@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/12/2020
 ms.author: shvija
 ms.openlocfilehash: 0b20c73ed0590f3afc19db43b4b55dd3ff6bde8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79453875"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Criar um espaço de nomes com o hub de eventos e ativar a captura utilizando um modelo
@@ -45,11 +45,11 @@ Para os modelos completos, clique nas seguintes ligações do GitHub:
 
 Com esTe modelo, implementa um espaço de nomes de Hubs de Eventos com o hub de um evento e também ativa a [Captura de Hubs de Eventos](event-hubs-capture-overview.md). A Captura de Hubs de Eventos permite a transmissão automática de dados nos Hubs de Eventos para um armazenamento de Blobs ou do Azure do Azure Data Lake Store, dentro de um tempo ou intervalo de tamanho especificado. Clique no botão seguinte para ativar a Captura de Hubs de Eventos no Armazenamento do Azure:
 
-[![Desdobre para Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
+[![Implementar no Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
 Clique no botão seguinte para ativar a Captura de Hubs de Eventos no Azure Data Lake Store:
 
-[![Desdobre para Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
+[![Implementar no Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parâmetros
 

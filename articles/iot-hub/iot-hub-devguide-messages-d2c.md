@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
 ms.openlocfilehash: d10744f2536cdf89115cdccd0bea6f1e5155774c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79370462"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Use o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-cloud para diferentes pontos finais
@@ -91,7 +91,7 @@ As filas de ônibus de serviço e tópicos usados como pontos finais do Hub IoT 
 > Se o seu recurso de ônibus de serviço tiver configurações de firewall que restringem a conectividade do IoT Hub, considere usar [a microsoft confiável primeira exceção de primeira parte](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (disponível em regiões selecionadas para centros IoT com identidade de serviço gerida).
 
 
-### <a name="event-hubs"></a>Event Hubs
+### <a name="event-hubs"></a>Hubs de Eventos
 
 Além do ponto final compatível com os Hubs incorporados no evento, também pode direcionar dados para pontos finais personalizados de Hubs de Eventos tipo. 
 
@@ -144,7 +144,7 @@ Ao direcionar as mensagens de telemetria dispositivo-nuvem utilizando pontos fin
 
 Na maioria dos casos, o aumento médio da latência é inferior a 500 ms. Pode monitorizar a latência utilizando **o Encaminhamento: latência de mensagens/eventos** ou **d2c.endpoints.latency.builtIn.events** IoT Hub metric. Criar ou apagar qualquer rota após a primeira não afeta a latência de ponta a ponta.
 
-## <a name="monitoring-and-troubleshooting"></a>Monitorização e resolução de problemas
+## <a name="monitoring-and-troubleshooting"></a>Monitorizar e resolver problemas
 
 O IoT Hub fornece várias métricas relacionadas com o encaminhamento e pontos finais para lhe dar uma visão geral da saúde do seu hub e mensagens enviadas. Pode combinar informação a partir de múltiplas métricas para identificar a causa principal para problemas. Por exemplo, use **o Encaminhamento métrico: as mensagens de telemetria caíram** ou **d2c.telemetria.egress.caiu** para identificar o número de mensagens que foram retiradas quando não correspondiam a consultas em nenhuma das rotas e a rota de recuo foi desativada. [As métricas do IoT Hub](iot-hub-metrics.md) listam todas as métricas que são ativadas por padrão para o seu Hub IoT.
 

@@ -16,10 +16,10 @@ ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: aa0810818bf7cfea21f925ee639b4b5a50dcb23b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79246126"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure
@@ -677,7 +677,7 @@ Os modelos de três níveis no Gestor de Recursos Azure também suportam cenári
 
 Aqui é onde você pode obter modelos de Gestor de Recursos Azure para o cenário de exemplo que descrevemos neste artigo:
 
-* [Imagem azure marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
+* [Imagem do Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
 * [Imagem personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
 
 Para preparar a infraestrutura para o modelo arquitetônico 1:
@@ -768,7 +768,7 @@ Você pode usar este modelo de Gestor de Recursos Azure para SAP para ajudar a s
 
 Aqui é onde você pode obter modelos de Gestor de Recursos Azure para este cenário de implementação:
 
-* [Imagem azure marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [Imagem do Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
 * [Imagem personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
 
 

@@ -9,10 +9,10 @@ ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 91a1b6cc877b31fbcef638e34d3147d3377ce85c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476122"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Criar e modificar o epeering para um circuito ExpressRoute usando o CLI
@@ -20,9 +20,9 @@ ms.locfileid: "79476122"
 Este artigo ajuda-o a criar e gerir a configuração/a peering de encaminhamento para um circuito ExpressRoute no modelo de implementação do Gestor de Recursos utilizando o CLI. Também pode verificar o estado, atualizar ou eliminar e desprovisionar os pares para um circuito ExpressRoute. Se pretender utilizar um método diferente para trabalhar com o seu circuito, selecione um artigo da seguinte lista:
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
-> * [Azure CLI](howto-routing-cli.md)
+> * [CLI do Azure](howto-routing-cli.md)
 > * [O público espreita](about-public-peering.md)
 > * [Vídeo - Peering privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Vídeo - Microsoft peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
@@ -127,7 +127,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 > [!IMPORTANT]
 > A Microsoft verifica se os "prefixos públicos anunciados" e "Peer ASN" (ou 'Customer ASN') são-lhe atribuídos no Registo de Encaminhamento de Internet. Se estiver a receber os prefixos públicos de outra entidade e se a atribuição não for registada com o registo de encaminhamento, a validação automática não estará concluída e exigirá validação manual. Se a validação automática falhar, verá 'PublicprefixesState' como 'Validação necessária' na saída do comando acima. 
 > 
-> Se vir a mensagem 'Validação necessária', recolha os documentos que mostrem que os prefixos públicos são atribuídos à sua organização pela entidade que está listada como proprietária dos prefixos no registo de encaminhamento e submeta estes documentos para validação manual por abertura de um bilhete de apoio como mostrado abaixo. 
+> Se vir a mensagem 'Validação necessária', recolha os documentos que mostram que os prefixos públicos são atribuídos à sua organização pela entidade que está listada como proprietária dos prefixos no registo de encaminhamento e submeta estes documentos para validação manual, abrindo um bilhete de apoio como mostrado abaixo. 
 > 
 >
 

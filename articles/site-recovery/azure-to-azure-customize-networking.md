@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
 ms.openlocfilehash: 96ffa34166797945afc04c66b03fe151d26c65bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76292863"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalizar as configurações de rede da VM do Azure de destino
@@ -27,7 +27,7 @@ Saiba como a Recuperação do Site proporciona recuperação de desastres para [
 
 Pode fornecer as seguintes configurações de recursos chave para o VM failover enquanto replica VMs Azure:
 
-- [Balanceador de carga interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+- [Equilibrador de carga interna](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 - [IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Grupo de segurança](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) da rede tanto para a sub-rede como para o NIC
 

@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
 ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79278002"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como escalar o Cache Azure para Redis
@@ -31,7 +31,7 @@ Se determinar que o seu cache já não satisfaz os requisitos da sua aplicação
 ## <a name="scale-a-cache"></a>Escalar uma cache
 Para escalar a sua cache, [navegue até à cache](cache-configure.md#configure-azure-cache-for-redis-settings) no [portal Azure](https://portal.azure.com) e clique em **Escala** a partir do **menu Recurso**.
 
-![Dimensionamento](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![Escala](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 Selecione o nível de preços desejado a partir da lâmina seleta de **nível** de preços e clique **em Selecionar**.
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/30/2020
 ms.author: spelluru
 ms.openlocfilehash: a32d26629bb9efed4a4f1f49eee2f0534e1873a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76960506"
 ---
 #  <a name="diagnostic-logs-for-an-azure-event-grid-topic"></a>Registos de diagnóstico para um tópico da grelha de eventos Azure
@@ -28,7 +28,7 @@ As definições de diagnóstico permitem que os utilizadores da Rede de Eventos 
 
 ## <a name="steps-for-enabling-diagnostic-logs-for-a-topic"></a>Passos para ativar registos de diagnóstico para um tópico
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue para o tópico da grelha de eventos para o qual pretende ativar as definições de registo de diagnóstico. 
 3. Selecione **definições** de diagnóstico sob **monitorização** no menu esquerdo.
 4. Na página de **definições** de Diagnóstico, selecione **Adicionar Nova Definição de Diagnóstico**. 

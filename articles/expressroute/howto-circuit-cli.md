@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: cherylmc
 ms.openlocfilehash: b967e1d8751a9c6a5214fef5241d57e954ad9f17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476156"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Criar e modificar um circuito do ExpressRoute através da CLI
@@ -23,7 +23,7 @@ Este artigo descreve como criar um circuito Azure ExpressRoute utilizando a Inte
 > * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI do Azure](howto-circuit-cli.md)
-> * [Modelo Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
+> * [Modelo de Gestor de Recursos Azure](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo - Portal Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >

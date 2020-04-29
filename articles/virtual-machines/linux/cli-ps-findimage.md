@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 0026c70a3a1a6b5e635e6b43e74b557d4218e6d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250312"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Localizar imagens de VM do Linux no Azure Marketplace com o CLI do Azure

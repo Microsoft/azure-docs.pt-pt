@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
 ms.openlocfilehash: f58bb534728660b85f7d16910dde7a37914fd571
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249766"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Elevada disponibilidade e recuperação após desastre para SQL Server em Máquinas Virtuais do Azure
@@ -147,7 +147,7 @@ Para obter mais informações sobre a conectividade do cliente, consulte:
 Deverá implementar a sua solução HADR com o pressuposto de que pode haver períodos de tempo com elevada latência de rede entre a sua rede no local e o Azure. Ao implantar réplicas para o Azure, deve utilizar um compromisso assíncrono em vez de comprometer-se sincronizado com o modo de sincronização. Ao implementar servidores de espelhos de base de dados tanto no local como no Azure, utilize o modo de alto desempenho em vez do modo de alta segurança.
 
 ### <a name="geo-replication-support"></a>Suporte de geo-replicação
-A geo-replicação nos discos Azure não suporta o ficheiro de dados e o ficheiro de registo da mesma base de dados a armazenar em discos separados. GrS replica alterações em cada disco de forma independente e assíncrona. Este mecanismo garante a ordem de escrita dentro de um único disco na cópia geo-replicada, mas não através de cópias geo-replicadas de vários discos. Se configurar uma base de dados para armazenar o seu ficheiro de dados e o seu ficheiro de registo em discos separados, os discos recuperados após um desastre podem conter uma cópia mais atualizada do ficheiro de dados do que o ficheiro de registo, que quebra o registo de escrita no SQL Server e as propriedades acidadas de transações. Se não tiver a opção de desativar a geo-replicação na conta de armazenamento, deverá manter todos os dados e ficheiros de registo para uma determinada base de dados no mesmo disco. Se tiver de utilizar mais de um disco devido ao tamanho da base de dados, terá de implementar uma das soluções de recuperação de desastres acima listadas para garantir a redundância de dados.
+A geo-replicação nos discos Azure não suporta o ficheiro de dados e o ficheiro de registo da mesma base de dados a armazenar em discos separados. GrS replica alterações em cada disco de forma independente e assíncrona. Este mecanismo garante a ordem de escrita dentro de um único disco na cópia geo-replicada, mas não através de cópias geo-replicadas de vários discos. Se configurar uma base de dados para armazenar o seu ficheiro de dados e o seu ficheiro de registo em discos separados, os discos recuperados após um desastre podem conter uma cópia mais atualizada do ficheiro de dados do que o ficheiro de registo, que quebra o registo de gravação no SQL Server e as propriedades acidas das transações. Se não tiver a opção de desativar a geo-replicação na conta de armazenamento, deverá manter todos os dados e ficheiros de registo para uma determinada base de dados no mesmo disco. Se tiver de utilizar mais de um disco devido ao tamanho da base de dados, terá de implementar uma das soluções de recuperação de desastres acima listadas para garantir a redundância de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 Se precisar de criar uma máquina virtual Azure com o Servidor SQL, consulte [o provisionamento de uma máquina virtual do Servidor SQL no Azure](virtual-machines-windows-portal-sql-server-provision.md).

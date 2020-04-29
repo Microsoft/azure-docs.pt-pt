@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260192"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisitos do sistema De Gateway de Caixa de Dados Azure

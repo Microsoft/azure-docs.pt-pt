@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: fdd809bcba703dbd8f9ee1e7c18185fd20e4586f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476139"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ligue uma rede virtual a um circuito ExpressRoute usando o CLI
@@ -19,9 +19,9 @@ ms.locfileid: "79476139"
 Este artigo ajuda-o a ligar redes virtuais (VNets) aos circuitos Azure ExpressRoute utilizando o CLI. Para ligar o Azure CLI, as redes virtuais devem ser criadas utilizando o modelo de implementação do Gestor de Recursos. Podem estar na mesma subscrição, ou parte de outra subscrição. Se pretender utilizar um método diferente para ligar o vNet a um circuito ExpressRoute, pode selecionar um artigo da seguinte lista:
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Azure CLI](howto-linkvnet-cli.md)
+> * [CLI do Azure](howto-linkvnet-cli.md)
 > * [Vídeo - Portal Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-linkvnet-classic.md)
 > 

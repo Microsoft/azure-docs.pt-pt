@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
 ms.openlocfilehash: 00de9c803ef796eda8da609a4009e0a8cfcb3664
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79455372"
 ---
 # <a name="registration-management"></a>Gestão de registos
@@ -118,7 +118,7 @@ Neste caso, utiliza apenas os direitos de escuta para aceder aos seus centros de
 
 Registar-se a partir do dispositivo é o método mais simples, mas tem algumas desvantagens:
 
-- Uma aplicação de cliente só pode atualizar as suas tags quando a aplicação estiver ativa. Por exemplo, se um utilizador tiver dois dispositivos que registam tags relacionadas com equipas desportivas, quando o primeiro dispositivo se registar para uma etiqueta adicional (por exemplo, Seahawks), o segundo dispositivo não receberá as notificações sobre os Seahawks até que a aplicação no segundo dispositivo esteja executado uma segunda vez. De uma forma mais geral, quando as etiquetas são afetadas por vários dispositivos, gerir etiquetas a partir do backend é uma opção desejável.
+- Uma aplicação de cliente só pode atualizar as suas tags quando a aplicação estiver ativa. Por exemplo, se um utilizador tiver dois dispositivos que registam tags relacionadas com equipas desportivas, quando o primeiro dispositivo se registar para uma etiqueta adicional (por exemplo, Seahawks), o segundo dispositivo não receberá as notificações sobre os Seahawks até que a aplicação no segundo dispositivo seja executada uma segunda vez. De uma forma mais geral, quando as etiquetas são afetadas por vários dispositivos, gerir etiquetas a partir do backend é uma opção desejável.
 - Uma vez que as aplicações podem ser pirateadas, garantir o registo a etiquetas específicas requer cuidados extra, como explica o artigo [Segurança](notification-hubs-push-notification-security.md).
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Código de exemplo para registar com um centro de notificação a partir de um dispositivo usando uma instalação
