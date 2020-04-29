@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 69225da1506ced879363b10b098d939df93cbfba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502362"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 migração para O Sincronizado de Ficheiros Azure
@@ -198,7 +198,7 @@ A segunda vez terminará mais rápido, porque só precisa de transportar mudanç
 
 Repita este processo até estar convencido de que o tempo que demora a concluir é um tempo de inatividade aceitável.
 
-Quando considerar o tempo de inatividade aceitável e estiver preparado para desligar a localização StorSimple, então faça-o agora: Por exemplo, remova a parte SMB para que nenhum utilizador possa aceder à pasta ou dar qualquer outro passo apropriado que impeça que o conteúdo mude neste pasta no StorSimple.
+Quando considerar o tempo de inatividade aceitável e estiver preparado para desligar a localização StorSimple, faça-o agora: Por exemplo, remova a parte SMB para que nenhum utilizador possa aceder à pasta ou dar qualquer outro passo apropriado que impeça que o conteúdo mude nesta pasta no StorSimple.
 
 Executar uma última rodada roboCopy. Isto vai captar quaisquer alterações que possam ter sido perdidas.
 O tempo que este último passo demora, depende da velocidade da varredura RoboCopy. Pode estimar o tempo (que é igual ao seu tempo de inatividade) medindo o tempo que o percurso anterior demorou.
