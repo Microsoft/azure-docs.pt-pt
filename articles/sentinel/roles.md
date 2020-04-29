@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: yelevin
 ms.openlocfilehash: e7629a53190433c6c331ce372476b0ed768fc5eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77587180"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões em Azure Sentinel

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
 ms.openlocfilehash: 119690b9046821ab538d879e1209c6ef77277370
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77370678"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutorial: Configure PureCloud by Genesys para o fornecimento automático de utilizadores
@@ -74,7 +74,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
 ### <a name="to-configure-automatic-user-provisioning-for-purecloud-by-genesys-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para PureCloud por Genesys em Azure AD:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -106,14 +106,14 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
      |Atributo|Tipo|
      |---|---|
-     |userName|Cadeia|
+     |userName|String|
      |ativo|Booleano|
-     |displayName|Cadeia|
-     |e-mails[tipo eq "work"].valor|Cadeia|
-     |título|Cadeia|
-     |telefoneNumbers[tipo eq "mobile"].valor|Cadeia|
-     |telefoneNumbers[tipo eq "trabalho"].valor|Cadeia|
-     |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:department|Cadeia|
+     |displayName|String|
+     |e-mails[tipo eq "work"].valor|String|
+     |título|String|
+     |telefoneNumbers[tipo eq "mobile"].valor|String|
+     |telefoneNumbers[tipo eq "trabalho"].valor|String|
+     |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:department|String|
      |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:manager|Referência|
 
 10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to PureCloud by Genesys**.
@@ -122,8 +122,8 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
       |Atributo|Tipo|
       |---|---|
-      |displayName|Cadeia|
-      |id externo|Cadeia|
+      |displayName|String|
+      |id externo|String|
       |membros|Referência|
 
 12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

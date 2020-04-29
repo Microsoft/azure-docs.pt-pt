@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de60dc5095ce4ab4d0219a388c445b08f544e1f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77159034"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerir certificados para inscrição única federada no Diretório Ativo azure
@@ -109,6 +109,6 @@ Se um certificado estiver prestes a expirar, pode renová-lo usando um procedime
 ## <a name="related-articles"></a>Artigos relacionados
 
 - [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md) (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
-- [Gestão de aplicações com o Microsoft Azure Active Directory](what-is-application-management.md)
+- [Gestão de aplicações com o Azure Active Directory](what-is-application-management.md)
 - [Inscrição única para candidaturas no Diretório Ativo do Azure](what-is-single-sign-on.md)
 - [Debug SAML com base em assinaturaúnica para aplicações no Diretório Ativo Azure](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

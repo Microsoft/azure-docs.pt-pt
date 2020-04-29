@@ -4,10 +4,10 @@ description: O Microsoft Azure Backup Server oferece-lhe capacidades de backup m
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 61430ce06d3e441fcfe0443eaaf5de3755b04624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77582811"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>What's new in Microsoft Azure Backup Server (Novidades no Microsoft Azure Backup Server)

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 53d336aff3177a76c5e02266ffb8484bd9945119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77530266"
 ---
 # <a name="signalr-service-input-binding-for-azure-functions"></a>Ligação de entrada do serviço SignalR para funções azure
@@ -92,7 +92,7 @@ module.exports = async function (context, req, connectionInfo) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo seguinte mostra uma ligação de informação de ligação SignalR num ficheiro *function.json* e uma [função Python](functions-reference-python.md) que utiliza a ligação para devolver as informações de ligação.
 
@@ -224,7 +224,7 @@ module.exports = async function (context, req, connectionInfo) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Pode definir `userId` a propriedade da ligação ao valor de `{headers.x-ms-client-principal-id}` um `{headers.x-ms-client-principal-name}`dos cabeçalhos utilizando uma [expressão vinculativa:](./functions-bindings-expressions-patterns.md)ou .
 

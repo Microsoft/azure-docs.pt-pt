@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: 162e60ac8d33dc5d1951a58b0a9643b668608d7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77188808"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
@@ -27,7 +27,7 @@ A API text analytics é atualizada de forma contínua. Para se manter atualizado
 
 Como parte da versão unificada do [Azure SDK,](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290)o Text Analytics API v3 SDK está agora disponível como pré-visualização pública para as seguintes linguagens de programação:
    * [C #](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-csharp)
-   * [Pitão](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-python)
+   * [Python](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-python)
    * [JavaScript (Node.js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
    * [Java](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-java)
 
@@ -92,7 +92,7 @@ Apoia o inglês`en`,`ja`japonês ,`zh-Hans`chinês simplificado`zh-Hant`,`fr`chi
 
 * [O que é a API de Análise de Texto?](overview.md)  
 * [Cenários de utilizador acionáveis](text-analytics-user-scenarios.md)
-* [Análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Deteção de idioma](how-tos/text-analytics-how-to-language-detection.md)
+* [Análise de sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Deteção de linguagem](how-tos/text-analytics-how-to-language-detection.md)
 * [Reconhecimento de entidades](how-tos/text-analytics-how-to-entity-linking.md)
 * [Extração de frase-chave](how-tos/text-analytics-how-to-keyword-extraction.md)

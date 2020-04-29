@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
 ms.openlocfilehash: 3b423a25b6b13ad543ef4a74bc0335ce19f5766d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77461816"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configure um grupo de failover para a Base de Dados Azure SQL
@@ -372,7 +372,7 @@ Crie o portal de rede virtual primária utilizando o portal Azure.
  
     | **Campo** | Valor |
     | --- | --- |
-    | **Assinatura** |  A subscrição onde é a sua principal instância gerida. |
+    | **Subscrição** |  A subscrição onde é a sua principal instância gerida. |
     | **Nome** | O nome para o seu portal de rede virtual. | 
     | **Região** | A região onde o seu caso secundário gerido é. |
     | **Tipo de gateway** | Selecione **VPN**. |
@@ -433,7 +433,7 @@ Repita os passos na secção anterior para criar a sub-rede virtual e a porta de
 
    | **Campo** | Valor |
    | --- | --- |
-   | **Assinatura** |  A subscrição onde é a sua instância secundária gerida. |
+   | **Subscrição** |  A subscrição onde é a sua instância secundária gerida. |
    | **Nome** | O nome para o seu `secondary-mi-gateway`portal de rede virtual, como . | 
    | **Região** | A região onde o seu caso secundário gerido é. |
    | **Tipo de gateway** | Selecione **VPN**. |

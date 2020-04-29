@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77252232"
 ---
 # <a name="automate-mobility-service-installation"></a>Instalação do Selfmate Mobility Service
@@ -44,7 +44,7 @@ A tabela que se segue resume ferramentas e processos para automatizar a implanta
 
 **Ferramenta** | **Detalhes** | **Instruções**
 --- | --- | ---
-**Configuration Manager** | 1. Verifique se tem os [pré-requisitos](#prerequisites) listados acima. <br/><br/> 2. Implemente a recuperação de desastres configurando o ambiente de origem, incluindo o download de um ficheiro OVA para implementar o servidor de configuração de recuperação do site como vMware VM utilizando um modelo OVF.<br/><br/> 3. Registe o servidor de configuração com o serviço de recuperação do site, configure o ambiente-alvo Do Azure e configure uma política de replicação.<br/><br/> 4. Para a implementação automatizada do Serviço de Mobilidade, cria uma quota de rede contendo a frase-passe do servidor de configuração e os ficheiros de instalação do Serviço de Mobilidade.<br/><br/> 5. Cria um pacote de Gestor de Configuração contendo a instalação ou atualizações e prepara-se para a implantação do Serviço de Mobilidade.<br/><br/> 6. Em seguida, pode ativar a replicação ao Azure para as máquinas que têm o Serviço de Mobilidade instalado. | [Automatizar com Gestor de Configuração](#automate-with-configuration-manager)
+**Gestor de configuração** | 1. Verifique se tem os [pré-requisitos](#prerequisites) listados acima. <br/><br/> 2. Implemente a recuperação de desastres configurando o ambiente de origem, incluindo o download de um ficheiro OVA para implementar o servidor de configuração de recuperação do site como vMware VM utilizando um modelo OVF.<br/><br/> 3. Registe o servidor de configuração com o serviço de recuperação do site, configure o ambiente-alvo Do Azure e configure uma política de replicação.<br/><br/> 4. Para a implementação automatizada do Serviço de Mobilidade, cria uma quota de rede contendo a frase-passe do servidor de configuração e os ficheiros de instalação do Serviço de Mobilidade.<br/><br/> 5. Cria um pacote de Gestor de Configuração contendo a instalação ou atualizações e prepara-se para a implantação do Serviço de Mobilidade.<br/><br/> 6. Em seguida, pode ativar a replicação ao Azure para as máquinas que têm o Serviço de Mobilidade instalado. | [Automatizar com Gestor de Configuração](#automate-with-configuration-manager)
 **JetPatch** | 1. Verifique se tem os [pré-requisitos](#prerequisites) listados acima. <br/><br/> 2. Implemente a recuperação de desastres, criando o ambiente de origem, incluindo o descarregamento e implementação do JetPatch Agent Manager para a recuperação do site azure no ambiente de recuperação do site, utilizando um modelo OVF.<br/><br/> 3. Registe o servidor de configuração com a Recuperação do Site, configure o ambiente-alvo Do Azure e configure uma política de replicação.<br/><br/> 4. Para a implementação automatizada, inicialize e complete a configuração do JetPatch Agent Manager.<br/><br/> 5. No JetPatch pode criar uma política de recuperação do site para automatizar a implementação e atualização do agente do Serviço de Mobilidade. <br/><br/> 6. Em seguida, pode ativar a replicação ao Azure para as máquinas que têm o Serviço de Mobilidade instalado. | [Automatizar com o JetPatch Agent Manager](https://jetpatch.com/microsoft-azure-site-recovery-deployment-guide/)<br/><br/> [Instalação de agente de resolução de problemas no JetPatch](https://kc.jetpatch.com/hc/articles/360035981812)
 
 ## <a name="automate-with-configuration-manager"></a>Automatizar com Gestor de Configuração
@@ -355,7 +355,7 @@ cd /tmp
     **Parâmetro** | **Valor do Windows** | **Valor linux**
     --- | --- | ---
     **Nome** | Instalar o Microsoft Azure Mobility Service (Windows) | Instale o Microsoft Azure Mobility Service (Linux).
-    **Linha de comandos** | instalar.morcego | ./install_linux.sh
+    **Linha de comando** | instalar.morcego | ./install_linux.sh
     **Programa pode correr** | Se um utilizador está ou não ligado | Se um utilizador está ou não ligado
     **Outros parâmetros** | Utilize a definição predefinida | Utilize a definição predefinida
 

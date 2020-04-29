@@ -11,10 +11,10 @@ author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253eb23be03c1cc0f2abf4ad1fed734426dc287d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77154824"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Tutorial: Eventos de inscrição de utilizador seguros com autenticação de multi-factor Azure
@@ -113,7 +113,7 @@ Agora inscreva-se no portal Azure. Como o portal Azure foi configurado na polít
 
 Se já não pretender utilizar a política de acesso condicional para permitir a autenticação multi-factor Azure configurada como parte deste tutorial, elimine a política utilizando os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure e selecione **Azure Ative Directory,** em seguida, escolha **segurança** do menu do lado esquerdo.
 1. Selecione **acesso Condicional**e, em seguida, escolha a política que criou, como *mfa pilot*
 1. Escolha **Apagar**e, em seguida, confirme que pretende eliminar a política.

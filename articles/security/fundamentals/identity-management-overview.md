@@ -1,6 +1,6 @@
 ---
 title: Funcionalidades de segurança azure que ajudam na gestão de identidades Microsoft Docs
-description: " Este artigo fornece uma visão geral das principais funcionalidades de segurança do Azure que ajudam na gestão da identidade. As soluções de gestão de identidade e acesso da Microsoft ajudam a proteger o acesso a aplicações e recursos através do datacenter corporativo e na nuvem, permitindo níveis adicionais de validação, como a Autenticação multi-Factor e o Acesso Condicional políticas. "
+description: " Este artigo fornece uma visão geral das principais funcionalidades de segurança do Azure que ajudam na gestão da identidade. As soluções de gestão de identidade e acesso da Microsoft ajudam a proteger o acesso a aplicações e recursos através do datacenter corporativo e na nuvem, permitindo níveis adicionais de validação, tais como a autenticação multi-factor e as políticas de acesso condicional. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -17,10 +17,10 @@ ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77565898"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança da gestão de identidade azure
@@ -56,7 +56,7 @@ SSO significa poder aceder a todas as aplicações e recursos que precisa para f
 
 Muitas organizações dependem de aplicações SaaS como Office 365, Box e Salesforce para a produtividade dos utilizadores. Historicamente, o pessoal de TI precisava de criar e atualizar individualmente as contas dos utilizadores em cada aplicação SaaS, e os utilizadores tinham de se lembrar de uma palavra-passe para cada aplicação SaaS.
 
-A Azure AD alarga os ambientes de Diretório Ativo no local para a nuvem, permitindo que os utilizadores utilizem a sua conta organizacional primária para assinar não só para os seus dispositivos e recursos da empresa, mas também para todas as aplicações web e SaaS de que necessitam para o seu trabalho.
+A Azure AD alarga os ambientes de Diretório Ativo no local para a nuvem, permitindo que os utilizadores utilizem a sua conta organizacional primária para assinar não só para os seus dispositivos e recursos da empresa, mas também para todas as aplicações web e SaaS de que necessitam para os seus empregos.
 
 Não só os utilizadores não têm de gerir vários conjuntos de nomes de utilizadores e palavras-passe, como pode fornecer ou desfornecer o acesso de aplicação automaticamente, com base nos seus grupos organizacionais e no seu estado de funcionário. A Azure AD introduz controlos de governança de segurança e acesso com os quais pode gerir centralmente o acesso dos utilizadores através das aplicações SaaS.
 

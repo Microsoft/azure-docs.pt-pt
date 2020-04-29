@@ -15,10 +15,10 @@ ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
 ms.openlocfilehash: fbc6d6fa8f9a3b424eaec1f04a61b5ca24fe14fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77161788"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso 
@@ -352,6 +352,6 @@ Em ambos os casos anteriores, a autenticação do utilizador mantém-se na mesma
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Perguntas frequentes](frequently-asked-questions.md)
+* [Perguntas mais frequentes](frequently-asked-questions.md)
 * [Visão geral da proteção de conteúdos](content-protection-overview.md)
 * [Proteja o seu conteúdo com a DRM](protect-with-drm.md)

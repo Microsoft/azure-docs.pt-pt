@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
 ms.openlocfilehash: c24a840716841d04537ac5b77bcaf26fca4b78cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77561954"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Botas VM Linux para O Resgate Grub
@@ -67,6 +67,6 @@ Siga os passos de mitigação abaixo, dependendo do erro que recebe:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral do Agente De MáquinaS Virtuais Azure](../extensions/agent-windows.md)
+* [Descrição geral do Agente da Máquina Virtual do Azure](../extensions/agent-windows.md)
 * [Extensões e funcionalidades de máquinavirtual para Windows](../extensions/features-windows.md)
 

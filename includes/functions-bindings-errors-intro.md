@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 629de079f7cc7d95d10f8ff951a47b8b8fc62dad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77474173"
 ---
 Os erros levantados numa Funções Azure podem vir de qualquer uma das seguintes origens:
@@ -33,7 +33,7 @@ Capturar e publicar erros é fundamental para monitorizar a saúde da sua aplica
 
 Os seguintes gatilhos têm suporte integrado de retry:
 
-* [Armazenamento Azure Blob](../articles/azure-functions/functions-bindings-storage-blob.md)
+* [Armazenamento de Blobs do Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
 * [Armazenamento de fila azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Ônibus de serviço Azure (fila/tópico)](../articles/azure-functions/functions-bindings-service-bus.md)
 

@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: 070de0f65e890c38acd5075286b349e95cd19f3b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77371639"
 ---
 Utilize a biblioteca de clientes autoras (LUIS) autorada do nome.js para:
@@ -30,7 +30,7 @@ Utilize a biblioteca de clientes autoras (LUIS) autorada do nome.js para:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Recurso de autor de compreensão linguística: [Criar um no portal Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-* [Nó.js](https://nodejs.org)
+* [Node.js](https://nodejs.org)
 
 ## <a name="setting-up"></a>Configuração
 

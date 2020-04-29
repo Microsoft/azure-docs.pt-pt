@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be447b001b0b2e14999aac98ba2125f8cbfe9853
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77186618"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Quickstart: Bloquear o acesso quando um risco de sessão é detetado com acesso condicional do Diretório Ativo Azure  
@@ -57,7 +57,7 @@ Esta secção mostra como criar a política de acesso condicional necessária. N
 | Utilizadores e grupos | Alain Charon  |
 | Aplicativos em nuvem | Todas as aplicações em nuvem |
 | Risco de inscrição | Médio |
-| Concessão | Bloquear acesso |
+| Concessão | Bloquear o acesso |
 
 ![Criar política](./media/app-sign-in-risk/130.png)
 
@@ -161,7 +161,7 @@ Na secção anterior, aprendeu a avaliar um sinal de inscrição simulado. Além
 
 Para testar a sua política, tente iniciar sessão no seu [portal Azure](https://portal.azure.com) como **Alan Charon** usando o Tor Browser. A sua tentativa de inscrição deve ser bloqueada pela sua política de acesso condicional.
 
-![Multi-Factor Authentication](./media/app-sign-in-risk/118.png)
+![Multi-factor authentication](./media/app-sign-in-risk/118.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -170,7 +170,7 @@ Quando já não for necessário, elimine o utilizador do teste, o Tor Browser e 
 - Se não souber apagar um utilizador da AD Azure, consulte [Apagar utilizadores do Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 - Para eliminar a sua política, selecione a sua política e, em seguida, clique em **Eliminar** na barra de ferramentas de acesso rápido.
 
-   ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)
+   ![Multi-factor authentication](./media/app-sign-in-risk/33.png)
 
 - Para obter instruções para remover o Navegador Tor, consulte [Desinstalar](https://tb-manual.torproject.org/uninstalling/).
 

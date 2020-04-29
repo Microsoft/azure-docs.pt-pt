@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: thweiss
 ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77585905"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Encontre a unidade de pedidos de carga em Azure Cosmos DB
@@ -25,7 +25,7 @@ Se estiver a usar a API SQL, tem várias opções para encontrar o consumo de RU
 
 Atualmente, pode encontrar a taxa de pedido no portal Azure apenas para uma consulta SQL.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure Cosmos](create-sql-api-dotnet.md#create-account) e alimente-a com dados, ou selecione uma conta Azure Cosmos existente que já contenha dados.
 
@@ -148,7 +148,7 @@ while (query.hasMoreResults()) {
 
 Para mais informações, consulte [Quickstart: Construa uma app Node.js utilizando uma conta API Azure Cosmos DB SQL](create-sql-api-nodejs.md). 
 
-### <a name="use-the-python-sdk"></a>Use o Python SDK
+### <a name="use-the-python-sdk"></a>Utilizar o SDK Python
 
 O `CosmosClient` objeto do [Python SDK](https://pypi.org/project/azure-cosmos/) expõe um `last_response_headers` dicionário que mapeia todos os cabeçalhos devolvidos pela Http API subjacente para a última operação executada. A taxa de pedido `x-ms-request-charge` está disponível sob a chave:
 
@@ -172,7 +172,7 @@ A carga RU é exposta por `getLastRequestStatistics`um comando de base de [dados
 
 Atualmente, pode encontrar a taxa de pedido no portal Azure apenas para uma consulta.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) e alimente-a com dados, ou selecione uma conta existente que já contenha dados.
 
@@ -309,6 +309,6 @@ Para aprender sobre otimizar o seu consumo de RU, consulte estes artigos:
 * [Otimizar o débito aprovisionado no Azure Cosmos DB](optimize-cost-throughput.md)
 * [Otimizar o custo das consultas no Azure Cosmos DB](optimize-cost-queries.md)
 * [Dimensionamento global de débito aprovisionado](scaling-throughput.md)
-* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
+* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
 * [Provisão para um contentor](how-to-provision-container-throughput.md)
 * [Monitor e depuração com métricas em Azure Cosmos DB](use-metrics.md)

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: erhopf
 ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77469022"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de inquilino (pré-visualização)
@@ -55,7 +55,7 @@ Para desligar a instância modelo do inquilino:
 
 Para utilizar o seu modelo de inquilino com o Speech SDK, precisa de um recurso da Fala e da sua chave de subscrição associada.
 
-1. Inicie sessão no [Portal do Azure](https://aka.ms/azureportal).
+1. Inicie sessão no [portal do Azure](https://aka.ms/azureportal).
 1. Selecione **Criar um recurso**.
 1. Na caixa **de pesquisa,** escreva **Discurso**.
 1. Na lista de resultados, selecione **'Falar'** e, em seguida, selecione **Criar**.

@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
 ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77587928"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Deteção avançada de ataques multiestágios em Azure Sentinel
@@ -71,7 +71,7 @@ Este cenário encontra-se atualmente em pré-visualização pública.
 
 ### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Ligação de saída à IP com histórico de tentativas de acesso não autorizadas seguida de tráfego anómalo sinalizado pela firewall palo Alto Networks
 
-Neste cenário, o Azure Sentinel deteta um alerta de que a Microsoft Defender Advanced Threat Protection detetou uma ligação de saída a um endereço IP com um histórico de tentativas de acesso não autorizadas que levam a que a atividade anómala seja detetada pelo Palo Alto. Redes Firewall. Isto foi iniciado pela conta {nome da conta} com SID ID {sid} em {time}. O endereço IP de saída para a ligação foi {IndividualIp}. Depois disso, a atividade invulgar foi detetada pela Firewall palo Alto Networks em {TimeGenerated}. Isto indica que o tráfego malicioso entrou na sua rede. O endereço IP de destino para o tráfego de rede é {DestinationIP}.
+Neste cenário, o Azure Sentinel deteta um alerta de que a Microsoft Defender Advanced Threat Protection detetou uma ligação de saída a um endereço IP com um histórico de tentativas de acesso não autorizadas que levam a que a atividade anómala seja detetada pela Firewall palo Alto Networks. Isto foi iniciado pela conta {nome da conta} com SID ID {sid} em {time}. O endereço IP de saída para a ligação foi {IndividualIp}. Depois disso, a atividade invulgar foi detetada pela Firewall palo Alto Networks em {TimeGenerated}. Isto indica que o tráfego malicioso entrou na sua rede. O endereço IP de destino para o tráfego de rede é {DestinationIP}.
 
 Este cenário encontra-se atualmente em pré-visualização pública.
 

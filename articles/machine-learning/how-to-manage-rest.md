@@ -10,10 +10,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.openlocfilehash: 419dbd998abc5cbd2da64a990e13d46f3fb2efbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77580633"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Criar, executar e eliminar recursos Do Azure ML utilizando o REST
@@ -203,11 +203,11 @@ Note que para listar `history/v1.0` experiências o caminho começa `modelmanage
 
 |Área|Caminho|Referência|
 |-|-|-|
-|Artefactos|artefacto/v2.0/|[Referência aPI REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|Lojas de dados|datastore/v1.0/|[Referência aPI REST](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|Otimização de hiperparâmetros|hiperdrive/v1.0/|[Referência aPI REST](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Modelos|modelge/v1.0/|[Referência aPI REST](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|Histórico de execuções|execução/v1.0/ e história/v1.0/|[Referência aPI REST](https://docs.microsoft.com/rest/api/azureml/runs)|
+|Artefactos|artefacto/v2.0/|[Referência da API REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
+|Lojas de dados|datastore/v1.0/|[Referência da API REST](https://docs.microsoft.com/rest/api/azureml/datastores)|
+|Otimização de hiperparâmetros|hiperdrive/v1.0/|[Referência da API REST](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
+|Modelos|modelge/v1.0/|[Referência da API REST](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
+|Histórico de execuções|execução/v1.0/ e história/v1.0/|[Referência da API REST](https://docs.microsoft.com/rest/api/azureml/runs)|
 
 Você pode explorar a API REST usando o padrão geral de:
 

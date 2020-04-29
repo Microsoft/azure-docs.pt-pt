@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cb959b94807678187363d3132ece273584f13a0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77590748"
 ---
 Guarde no seu armazenamento de disco Azure com capacidade reservada. Reservas de armazenamento de discos Azure combinadas com instâncias de máquina virtual reservadas Azure permitem-lhe baixar os custos totais da sua máquina virtual (VM). O desconto de reserva é aplicado automaticamente aos discos correspondentes no âmbito de reserva selecionado. Devido a esta aplicação automática, não precisa de atribuir uma reserva a um disco gerido para obter os descontos.
@@ -69,7 +69,7 @@ Siga estes passos para adquirir a capacidade reservada:
    |Elemento  |Descrição  |
    |---------|---------|
    |**Âmbito**   |  Quantas subscrições podem usar o benefício de faturação associado à reserva. Este valor também especifica como a reserva é aplicada a subscrições específicas. <br/><br/> Se selecionar **Shared**, o desconto de reserva é aplicado à capacidade de Armazenamento Azure em todas as subscrições dentro do seu contexto de faturação. O contexto de faturação baseia-se na forma como se inscreveu no Azure. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes pay-as-you-go, o âmbito partilhado inclui todas as subscrições individuais com taxas de pagamento criadas pelo administrador da conta.  <br/><br/>  Se selecionar **subscrição Única,** o desconto de reserva é aplicado à capacidade de Armazenamento Azure na subscrição selecionada. <br/><br/> Se selecionar um grupo de **recursos únicos,** o desconto de reserva é aplicado à capacidade de Armazenamento Azure na subscrição selecionada e no grupo de recursos selecionados da subscrição. <br/><br/> Pode alterar o âmbito da reserva depois de comprar a reserva.  |
-   |**Assinatura**  | A subscrição que usa para pagar a reserva de Armazenamento Azure. O método de pagamento da subscrição selecionada é utilizado para cobrar os custos. A subscrição deve ser um dos seguintes tipos:<br/><ul><li> Acordo Empresarial (números de oferta MS-AZR-0017P e MS-AZR-0148P). Para uma subscrição da Enterprise, os encargos são deduzidos do saldo de compromisso monetário da inscrição ou cobrados como overage.</li><br/><li>Subscrição individual com taxas pay-as-you-go (números de oferta MS-AZR-0003P e MS-AZR-0023P). Para uma subscrição individual com taxas de pagamento, os encargos são cobrados para o cartão de crédito ou método de pagamento de fatura na subscrição.</li></ul>    |
+   |**Subscrição**  | A subscrição que usa para pagar a reserva de Armazenamento Azure. O método de pagamento da subscrição selecionada é utilizado para cobrar os custos. A subscrição deve ser um dos seguintes tipos:<br/><ul><li> Acordo Empresarial (números de oferta MS-AZR-0017P e MS-AZR-0148P). Para uma subscrição da Enterprise, os encargos são deduzidos do saldo de compromisso monetário da inscrição ou cobrados como overage.</li><br/><li>Subscrição individual com taxas pay-as-you-go (números de oferta MS-AZR-0003P e MS-AZR-0023P). Para uma subscrição individual com taxas de pagamento, os encargos são cobrados para o cartão de crédito ou método de pagamento de fatura na subscrição.</li></ul>    |
    | **Discos** | O SKU que quer criar. |
    | **Região** | A região onde a reserva está em vigor. |
    | **Frequência de faturação** | Quantas vezes a conta é cobrada para a reserva. As opções incluem **Mensal e** **Frontal**. |
@@ -88,7 +88,7 @@ Depois de adquirir uma reserva, é automaticamente aplicada a quaisquer recursos
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas dentro de determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Pode cancelar, trocar ou reembolsar reservas dentro de determinadas limitações. Para mais informações, consulte [trocas de self-service e reembolsos para Reservas Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
 ## <a name="expiration-of-a-reservation"></a>Expiração de uma reserva
 
@@ -98,7 +98,7 @@ Receberá uma notificação por e-mail 30 dias antes da expiração da reserva e
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido](https://go.microsoft.com/fwlink/?linkid=2083458)de apoio.
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passos seguintes
 

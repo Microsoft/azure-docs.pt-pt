@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
 ms.openlocfilehash: 9302cadf0b900c9faac382bad86b51cea7d828fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77443521"
 ---
 # <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Como adicionar proprietários adicionais a um laboratório existente nos Serviços de Laboratório Azure
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como você, como administrador, pode adicionar donos adic
 ## <a name="add-user-to-the-reader-role-for-the-lab-account"></a>Adicione o utilizador ao papel do leitor para a conta de laboratório
 Para adicionar um utilizador como proprietário adicional a um laboratório existente, tem primeiro de dar ao utilizador permissões de **leitura** na conta de laboratório.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços** no menu esquerdo. Procure **por Serviços laboratoriais**e, em seguida, selecione-os.
 3. Selecione a sua conta de **laboratório** da lista. 
 2. Na **página da Conta Lab,** selecione Controlo de **Acesso (IAM)** no menu esquerdo. 

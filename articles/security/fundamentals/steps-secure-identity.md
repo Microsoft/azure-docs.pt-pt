@@ -12,10 +12,10 @@ ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
 ms.openlocfilehash: e0db8edfdfa380697a1d8d7e262a7a84da2fb7d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77565541"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco passos para garantir a sua infraestrutura de identidade
@@ -193,7 +193,7 @@ O reset de [palavra-passe self-service](../../active-directory/authentication/qu
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementar o autosserviço e o acesso à aplicação
 
-A Azure AD oferece a capacidade de os não administradores gerirem o acesso aos recursos, utilizando grupos de segurança, grupos do Office 365, funções de aplicação e catálogos de pacotes de acesso.  [A gestão do grupo self-service](../../active-directory/users-groups-roles/groups-self-service-management.md) permite aos proprietários de grupos gerir os seus próprios grupos, sem necessidade de ser atribuído um papel administrativo. Os utilizadores também podem criar e gerir grupos do Office 365 sem depender dos administradores para lidar em seus pedidos, e os grupos não utilizados expiram automaticamente.  [A gestão do direito da Azure AD](../../active-directory/governance/entitlement-management-overview.md) permite ainda a delegação e visibilidade, com fluxos de trabalho de pedidos de acesso abrangente e expiração automática.  Pode delegar a não administradores a capacidade de configurar os seus próprios pacotes de acesso para grupos, equipas, aplicações e sites SharePoint Online que possuem, com políticas personalizadas para quem é obrigado a aprovar o acesso, incluindo configurar os sites dos colaboradores que possuem, com políticas personalizadas para quem é obrigado a aprovar o acesso, incluindo configurar os sites dos colaboradores. gestores e patrocinadores de parceiros de negócios como aprovadores.
+A Azure AD oferece a capacidade de os não administradores gerirem o acesso aos recursos, utilizando grupos de segurança, grupos do Office 365, funções de aplicação e catálogos de pacotes de acesso.  [A gestão do grupo self-service](../../active-directory/users-groups-roles/groups-self-service-management.md) permite aos proprietários de grupos gerir os seus próprios grupos, sem necessidade de ser atribuído um papel administrativo. Os utilizadores também podem criar e gerir grupos do Office 365 sem depender dos administradores para lidar em seus pedidos, e os grupos não utilizados expiram automaticamente.  [A gestão do direito da Azure AD](../../active-directory/governance/entitlement-management-overview.md) permite ainda a delegação e visibilidade, com fluxos de trabalho de pedidos de acesso abrangente e expiração automática.  Pode delegar a não administradores a capacidade de configurar os seus próprios pacotes de acesso para grupos, equipas, aplicações e sites SharePoint Online que possuam, com políticas personalizadas para quem é obrigado a aprovar o acesso, incluindo configurar os gestores dos colaboradores e patrocinadores de parceiros de negócios como aprovadores.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementar avaliações de acesso a Anúncio saqueadas
 

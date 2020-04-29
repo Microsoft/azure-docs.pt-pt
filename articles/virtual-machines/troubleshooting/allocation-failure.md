@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77484405"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Resolver problemas de falhas de alocação ao criar, reiniciar ou redimensionar VMs no Azure
@@ -83,7 +83,7 @@ Tente [reimplantar o VM](https://docs.microsoft.com/azure/virtual-machines/troub
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Falhas de alocação em tamanhos de VM mais antigos [Av1, Dv1, DSv1, D15v2, DS15v2, etc.]
 
-À medida que expandimos a infraestrutura azure, implementamos hardware de nova geração que foi projetado para suportar os mais recentes tipos de máquinas virtuais. Algumas das séries vMs mais antigas não funcionam na nossa infraestrutura de última geração. Por esta razão, os clientes podem ocasionalmente experimentar falhas de atribuição para estas SKUs legados. Para evitar este problema, encorajamos os clientes que estão a usar máquinas virtuais da série legacy a considerar em mudar-se para os VMs mais recentes equivalentes de acordo com as seguintes recomendações: Estes VMs estão otimizados para o hardware mais recente e vão permitir-lhe tirar partido de melhor preços e desempenho. 
+À medida que expandimos a infraestrutura azure, implementamos hardware de nova geração que foi projetado para suportar os mais recentes tipos de máquinas virtuais. Algumas das séries vMs mais antigas não funcionam na nossa infraestrutura de última geração. Por esta razão, os clientes podem ocasionalmente experimentar falhas de atribuição para estas SKUs legados. Para evitar este problema, encorajamos os clientes que estão a usar máquinas virtuais de séries antigas a considerarem mudar-se para os VMs mais recentes equivalentes de acordo com as seguintes recomendações: Estes VMs estão otimizados para o hardware mais recente e permitirão que você aproveite um melhor preço e desempenho. 
 
 |Série/tamanho VM legado|VM/tamanho recomendado|Mais informações|
 |----------------------|----------------------------|--------------------|
