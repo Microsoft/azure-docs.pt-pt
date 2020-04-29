@@ -16,10 +16,10 @@ ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74b56e30eb8851913f91cbee377204a575311375
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76293679"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ssogen---azure-ad-sso-gateway-for-oracle-e-business-suite---ebs-peoplesoft-and-jde"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com sSOGEN - Azure AD SSO Gateway para Oracle E-Business Suite - EBS, PeopleSoft e JDE
@@ -51,7 +51,7 @@ Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
 ## <a name="adding-ssogen---azure-ad-sso-gateway-for-oracle-e-business-suite---ebs-peoplesoft-and-jde-from-the-gallery"></a>Adicionando SSOGEN - Azure AD SSO Gateway para Oracle E-Business Suite - EBS, PeopleSoft e JDE da galeria
 
-Para configurar a integração da SSOGEN - Azure AD SSO Gateway para a Oracle E-Business Suite - EBS, PeopleSoft e JDE no Azure AD, você precisa adicionar SSOGEN - Azure AD SSO Gateway para Oracle E-Business Suite - EBS, PeopleSoft e JDE da galeria para a sua lista de geridos Aplicativos SaaS.
+Para configurar a integração da SSOGEN - Azure AD SSO Gateway para a Oracle E-Business Suite - EBS, PeopleSoft e JDE no Azure AD, você precisa adicionar SSOGEN - Azure AD SSO Gateway para Oracle E-Business Suite - EBS, PeopleSoft e JDE da galeria para a sua lista de aplicações geridas saaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
@@ -151,7 +151,7 @@ Por [info@ssogen.com](mailto:info@ssogen.com) favor [support@ssogen.com](mailto:
 
 Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Ao clicar no SSOGEN - Azure AD SSO Gateway para oracle E-Business Suite - EBS, PeopleSoft e JDE no Painel de Acesso, deverá ser automaticamente inscrito no SSOGEN - Azure AD SSO Gateway para a Oracle E-Business Suite - EBS, PeopleSoft e JDE para o qual deverá ser automaticamente inscrito no SSOGEN - Azure AD SSO Gateway para a Oracle E-Business Suite - EBS, PeopleSoft e JDE para o qual deverá ser automaticamente inscrito no SSOGEN - Azure AD SSO Gateway para a Oracle E-Business Suite - EBS, PeopleSoft e JDE para o qual deverá ser automaticamente inscrito no SSOGEN - Azure AD SSO Gateway para a Oracle E-Business Suite - EBS, PeopleSoft e JDE para o qual deverá ser automaticamente inscrito no SSOGEN - Azure AD SSO Gateway para a Oracle E-Business Suite - EBS, PeopleSoft e JDE para o qual deverá ser automaticamente inscrito no SSOGEN - Azure AD SSO Gateway para a Oracle E-Business configurar sSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando clicar no SSOGEN - Azure AD SSO Gateway para oracle E-Business Suite - EBS, PeopleSoft e JDE no Painel de Acesso, deverá ser automaticamente inscrito no SSOGEN - Azure AD SSO Gateway para a Oracle E-Business Suite - EBS, PeopleSoft e JDE para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

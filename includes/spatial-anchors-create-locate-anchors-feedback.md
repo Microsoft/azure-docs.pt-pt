@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 7b9954930c668e338cc289e948a5591c09ec2654
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76694551"
 ---
 ## <a name="provide-feedback-to-the-user"></a>Fornecer feedback ao utilizador

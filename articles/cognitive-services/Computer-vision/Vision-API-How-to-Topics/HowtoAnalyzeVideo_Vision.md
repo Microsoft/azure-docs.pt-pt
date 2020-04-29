@@ -12,10 +12,10 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 18b158b7a4881619b93ab404de67f7bb25f92b6a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76166835"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>Analisar vídeos em tempo quase real
@@ -231,7 +231,7 @@ Ao utilizar esta abordagem, pode visualizar imediatamente o rosto detetado. Em s
 Para começar com esta amostra, faça o seguinte:
 
 1. Obtenha as chaves de API para as APIs de Visão a partir de [Subscrições](https://azure.microsoft.com/try/cognitive-services/). Para análise de quadros de vídeo, os serviços aplicáveis são:
-    - [Visão Computorizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
+    - [Imagem Digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
     - [Rostos](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 2. Clone o repo [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub.
 

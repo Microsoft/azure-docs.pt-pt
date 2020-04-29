@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 07/02/2019
 ms.openlocfilehash: b3d5d003db89a11a013c3236a3afbe03ffe68557
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76271022"
 ---
 # <a name="high-performance-computing-on-h-series-vms"></a>Computação de alto desempenho em VMs da série H

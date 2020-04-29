@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f4c2fa8488490561e8f11746e8e737718ee9f37
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76261267"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>O que é a autenticação do Diretório Ativo Azure?
@@ -66,7 +66,7 @@ A autenticação multi-factor Azure funciona exigindo dois ou mais dos seguintes
 
 Os utilizadores podem registar-se tanto para o reset de palavra-passe self-service como para a Autenticação Multi-Factor Azure num só passo para simplificar a experiência de embarque. Os administradores podem definir quais as formas de autenticação secundária que podem ser utilizadas. A autenticação de multi-factores Azure também pode ser exigida quando os utilizadores realizam uma redefinição da palavra-passe self-service para garantir mais esse processo.
 
-## <a name="password-protection"></a>Proteção de senhas
+## <a name="password-protection"></a>Proteção por palavra-passe
 
 Por predefinição, o Azure AD bloqueia senhas fracas como *passwords*1 . Uma lista global de senhas proibidas é automaticamente atualizada e executada que inclui senhas fracas conhecidas. Se um utilizador da AD Azure tentar definir a sua palavra-passe numa destas palavras-passe fracas, recebe uma notificação para escolher uma palavra-passe mais segura.
 
