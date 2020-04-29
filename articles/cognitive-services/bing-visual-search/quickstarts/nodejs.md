@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 373d6fa5402ba703cbebe88ad562974ba97f3391
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75379713"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Quickstart: Obtenha insights de imagem usando a API e node.js de pesquisa visual bing
@@ -23,7 +23,7 @@ Utilize este quickstart para fazer a sua primeira chamada para a API de Pesquisa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Nó.js](https://nodejs.org/en/download/)
+* [Node.js](https://nodejs.org/en/download/)
 * O módulo Request para JavaScript. Pode utilizar `npm install request` o comando para instalar o módulo.
 * O módulo de dados de formulários. Pode utilizar `npm install form-data` o comando para instalar o módulo. 
 

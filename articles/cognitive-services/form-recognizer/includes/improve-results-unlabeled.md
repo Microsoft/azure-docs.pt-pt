@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
 ms.openlocfilehash: f0761847c3677b324ef16c5987eb9a1561dbcbe0
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75379301"
 ---
 Examine `"confidence"` os valores de cada `"pageResults"` resultado chave/valor sob o nó. Deve também olhar para as `"readResults"` pontuações de confiança no nó, que correspondem à operação de leitura de texto. A confiança dos resultados da leitura não afeta a confiança dos resultados da extração chave/valor, pelo que deve verificar ambos.
