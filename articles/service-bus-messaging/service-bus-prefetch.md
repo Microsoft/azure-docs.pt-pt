@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 80717ab940d27e9bf108b3740309bcd7d71668fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76760662"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Mensagens de ônibus de serviço Prefetch Azure
@@ -46,7 +46,7 @@ No modo de receção [PeekLock,](/dotnet/api/microsoft.servicebus.messaging.rece
 
 O pedido pode adquirir uma mensagem com um cadeado expirado ou iminentemente expirado. Em caso afirmativo, a aplicação poderá processar a mensagem, mas depois descobrir que não pode completá-la devido a uma expiração do bloqueio. A aplicação pode verificar a propriedade [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) (que está sujeita a um desvio do relógio entre o corretor e o relógio da máquina local). Se o bloqueio de mensagem tiver expirado, o pedido deve ignorar a mensagem; nenhuma chamada aPi ou com a mensagem deve ser feita. Se a mensagem não estiver expirada, mas a expiração estiver iminente, o bloqueio pode ser renovado e prolongado por outro período de bloqueio predefinido, ligando [para a mensagem. Renovar o Cadeado()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
 
-Se o cadeado expirar silenciosamente no tampão de pré-rebusca, a mensagem é tratada como abandonada e é novamente disponibilizada para recuperação da fila. Isso pode fazer com que seja recolhido para o tampão de prebusca; colocado no final. Se o tampão de prefetch não pode ser normalmente trabalhado durante a expiração da mensagem, isto faz com que as mensagens sejam repetidamente prefetched mas nunca efetivamente entregues em um estado utilizável (validamente bloqueado) e são eventualmente movidos para a fila de letras mortas uma vez que o A contagem máxima de entrega é ultrapassada.
+Se o cadeado expirar silenciosamente no tampão de pré-rebusca, a mensagem é tratada como abandonada e é novamente disponibilizada para recuperação da fila. Isso pode fazer com que seja recolhido para o tampão de prebusca; colocado no final. Se o tampão de prefetch não puder ser trabalhado durante a expiração da mensagem, isto faz com que as mensagens sejam repetidamente prefetchdas, mas nunca efetivamente entregues num estado utilizável (validamente bloqueado) e eventualmente são transferidas para a fila da letra morta uma vez que a contagem máxima de entrega é ultrapassada.
 
 Se necessitar de um elevado grau de fiabilidade para o processamento de mensagens, e o processamento requer um trabalho e tempo significativos, recomenda-se que utilize a funcionalidade de pré-busca de forma conservadora, ou não.
 

@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 2aca4f2c236112b80e9fc985cf80ccad6d82bde3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75902002"
 ---
 As tabelas seguintes fornecem quotas e limites específicos aos Hubs de [Eventos Azure.](https://azure.microsoft.com/services/event-hubs/) Para obter informações sobre os preços dos Hubs de Eventos, consulte os preços dos Centros de [Eventos.](https://azure.microsoft.com/pricing/details/event-hubs/)
@@ -49,7 +49,7 @@ A oferta dedicada do Event Hubs é faturada a um preço mensal fixo, com um mín
 | --- | ---|
 | Largura de banda |  20 CUs |
 | Espaços de nomes | 50 por CU |
-| Event Hubs |  1000 por espaço de nome |
+| Hubs de Eventos |  1000 por espaço de nome |
 | Eventos de ingresso | Incluído |
 | Tamanho da mensagem | 1 MB |
 | Partições | 2000 por CU |

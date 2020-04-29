@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
 ms.openlocfilehash: 770187693e5bac6e059dfd20455099fcc695b74b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76715026"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Ligações do Microsoft Graph para funções azure
@@ -1422,7 +1422,7 @@ Esta secção contém um exemplo para cada uma destas abordagens:
 Consulte o exemplo específico da linguagem:
 
 * [Script C# (.csx)](#app-identity-refresh---c-script-example)
-* Javascript
+* JavaScript
 
 ### <a name="app-identity-refresh---c-script-example"></a>Atualização de identidade de aplicativo - C# script exemplo
 
@@ -1588,5 +1588,5 @@ public class UserSubscription {
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções azure gatilhos e encadernações](functions-triggers-bindings.md)
 
-[Gatilho HTTP]: functions-bindings-http-webhook.md
+[Acionador HTTP]: functions-bindings-http-webhook.md
 [Trabalhar com webhooks no Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks

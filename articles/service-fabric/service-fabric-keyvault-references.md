@@ -4,10 +4,10 @@ description: Este artigo explica como usar suporte keyVaultReference de tecido d
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76545488"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte KeyVaultReference para aplicações de tecido de serviço (pré-visualização)

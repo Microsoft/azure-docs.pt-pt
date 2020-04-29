@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67184472"
 ---
 ## <a name="deleting-personal-information"></a>Apagar informações pessoais
@@ -40,7 +40,7 @@ As informações de contacto pessoais podem ser eliminadas das seguintes formas:
 - Os dados guardados com o trabalho são apagados com o trabalho. Os utilizadores podem eliminar os trabalhos manualmente e os trabalhos concluídos são automaticamente eliminados após 90 dias. Pode eliminar manualmente os trabalhos através da API REST ou do portal Azure. Para eliminar o trabalho no portal Azure, vá ao seu trabalho de importação/exportação e clique em *Apagar* a partir da barra de comando. Para obter informações sobre como eliminar um emprego de importação/exportação através da API REST, consulte a eliminação de um emprego de [importação/exportação](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
 - As informações de contacto guardadas nas definições do portal podem ser removidas apagando as definições do portal. Pode eliminar as definições do portal seguindo estes passos:
-  - Inicie sessão no [Portal do Azure](https://portal.azure.com).
+  - Inicie sessão no [portal do Azure](https://portal.azure.com).
   - Clique no ícone ![de definições do ícone *de definições* do Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
   - Clique *em Exportar todas as definições* (para guardar as definições atuais para um `.json` ficheiro).
   - Clique em *Apagar todas as definições e dashboards privados* para eliminar todas as definições, incluindo informações de contacto guardadas.

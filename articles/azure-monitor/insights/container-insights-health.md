@@ -4,10 +4,10 @@ description: Este artigo descreve como pode ver e analisar a saúde dos seus clu
 ms.topic: conceptual
 ms.date: 12/01/2019
 ms.openlocfilehash: f50ef13efca78bbb5285b99759b8111dc1915ad0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76843995"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Compreender a saúde do cluster Kubernetes com o Monitor Azure para contentores
@@ -42,7 +42,7 @@ A saúde do cluster kubernetes baseia-se numa série de cenários de monitoriza�
 
 Atualmente, apenas o estado de um kubelet virtual é suportado. O estado de saúde da CPU e a utilização da memória dos nós de kublet virtuais é relatado como **Desconhecido,** uma vez que não é recebido um sinal deles.
 
-Todos os monitores são mostrados num layout hierárquico no painel da Hierarquia da Saúde, onde um monitor agregado que representa o objeto ou abstração kubernetes (isto é, infraestrutura kubernetes ou nós) são o monitor mais alto que reflete a saúde combinada de todos monitores de crianças dependentes. Os principais cenários de monitorização utilizados para obter a saúde são:
+Todos os monitores são mostrados num layout hierárquico no painel da Hierarquia da Saúde, onde um monitor agregado que representa o objeto ou abstração kubernetes (isto é, infraestrutura kubernetes ou nós) são o monitor mais alto que reflete a saúde combinada de todos os monitores infantis dependentes. Os principais cenários de monitorização utilizados para obter a saúde são:
 
 * Avalie a utilização do CPU a partir do nó e do recipiente.
 * Avalie a utilização da memória a partir do nó e do recipiente.
@@ -63,7 +63,7 @@ Para compreender o comportamento e configuração de cada monitor que suporta o 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Ver saúde de um cluster AKS ou não-AKS
 

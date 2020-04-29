@@ -7,10 +7,10 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1426d6e770cca566c4b77ca4742e2f8a0fbb5465
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76715057"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Ligação Twilio para funções azure
@@ -201,7 +201,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo seguinte mostra como enviar uma mensagem SMS utilizando a ligação de saída tal como definida na *função.js*.
 
@@ -313,7 +313,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
@@ -335,7 +335,7 @@ A tabela a seguir explica as propriedades de configuração de ligação que def
 |**contaSid**|**contaSidSetting**| **AccountSidSetting**| Este valor deve ser definido para o nome de uma definição`TwilioAccountSid`de aplicação que detenha o seu Sid de Conta Twilio (). Se não for definido, o nome de definição de aplicação padrão é "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Este valor deve ser definido para o nome de uma definição de`TwilioAccountAuthToken`aplicação que detenha o seu símbolo de autenticação Twilio ( ). Se não for definido, o nome de definição de aplicação padrão é "AzureWebJobsTwilioAuthToken". |
 |**para**| N/A - especificar em código | **Para**| Este valor é definido para o número de telefone para o que o texto SMS é enviado.|
-|**De**|**De** | **From**| Este valor é definido para o número de telefone de que o texto SMS é enviado.|
+|**De**|**De** | **De**| Este valor é definido para o número de telefone de que o texto SMS é enviado.|
 |**corpo**|**corpo** | **Corpo**| Este valor pode ser usado para codificar duramente a mensagem de texto SMS se não precisar de o definir de forma dinâmica no código para a sua função. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

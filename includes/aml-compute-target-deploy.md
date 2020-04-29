@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 08/23/2019
 ms.openlocfilehash: ba1e0eee5de65364d8e5e762195f7de98384c2a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76122593"
 ---
 | Destino de computação | Utilizado para | Apoio à GPU | Apoio da FPGA | Descrição |

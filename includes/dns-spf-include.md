@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
 ms.openlocfilehash: 9cc650cea17acb8d89933c819c4ca60e2c459d1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67184890"
 ---
 Os registos de quadros de política do remetente (SPF) são usados para especificar quais servidores de e-mail podem enviar e-mail em nome de um nome de domínio. A configuração correta dos registos SPF é importante para evitar que os destinatários marcam o seu e-mail como lixo.

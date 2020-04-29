@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 49dc70788bf2a44b6925c5f3f8226fdadab8768c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76757427"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Upload vHD ficheiro para a conta de armazenamento do laboratório usando AzCopy
@@ -37,7 +37,7 @@ Os seguintes passos passam por você através do upload de um ficheiro VHD para 
 
 1. Obtenha o nome da conta de armazenamento do laboratório usando o portal Azure:
 
-1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Selecione **Todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 

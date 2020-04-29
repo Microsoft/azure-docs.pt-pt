@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/11/2019
 ms.openlocfilehash: 53c3c332f215d41d474bcf0eb3763a60e72619d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020

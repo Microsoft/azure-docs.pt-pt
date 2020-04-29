@@ -4,10 +4,10 @@ description: Saiba como usar o Azure CLI para apoiar as ações de ficheiros azu
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76844046"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Back up Ações de ficheiros Azure com CLI

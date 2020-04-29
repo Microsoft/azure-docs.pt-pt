@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 2e4fe55fac5edf73e16df05bd38cc2712a94377d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721732"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Custos de pista associados a um laboratório em Azure DevTest Labs
@@ -29,7 +29,7 @@ Nesta secção, aprende-se a utilizar o gráfico mensal de tendência de **custo
 
 Para ver o gráfico mensal de tendência de custos estimados, siga estes passos: 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Da lista de laboratórios, selecione o seu laboratório.  
 4. Selecione **Configuração e políticas** no menu esquerdo.  
@@ -85,7 +85,7 @@ A DevTest Labs permite-lhe gerir melhor os custos do seu laboratório, estabelec
 ## <a name="view-cost-by-resource"></a>Ver custo por recurso 
 A funcionalidade mensal de tendência de custos em laboratórios permite-lhe ver quanto gastou no mês civil em curso. Mostra também a projeção dos gastos até ao final do mês, com base nos seus gastos nos últimos sete dias. Para ajudá-lo a entender por que os gastos no laboratório estão a cumprir os limiares mais cedo, você pode usar o **custo por recurso** que mostra o custo mensal por **recurso** em uma tabela.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Da lista de laboratórios, selecione o laboratório desejado.  
 4. Selecione **Configuração e políticas** no menu esquerdo.

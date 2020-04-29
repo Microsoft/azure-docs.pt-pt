@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76903062"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Crie esquemas de rastreio personalizados que monitorizem fluxos de trabalho de ponta a ponta na Lógica Azure A
@@ -53,19 +53,19 @@ As Aplicações Lógicas Azure têm um rastreio incorporado que pode permitir pa
 
 | Propriedade | Necessário | Tipo | Descrição |
 |----------|----------|------|-------------|
-| fonteTipo | Sim | Cadeia | Tipo de fonte de execução `Microsoft.Logic/workflows`com estes valores permitidos:`custom` |
+| fonteTipo | Sim | String | Tipo de fonte de execução `Microsoft.Logic/workflows`com estes valores permitidos:`custom` |
 | source | Sim | Corda ou JToken | Se o tipo `Microsoft.Logic/workflows`de origem for, a informação de origem deve seguir este esquema. Se o tipo `custom`de origem for, o esquema é um JToken. |
-| systemId | Sim | Cadeia | ID do sistema de aplicações lógicas |
-| runId | Sim | Cadeia | Id de execução de aplicativológico |
-| operationName | Sim | Cadeia | Nome da operação, por exemplo, ação ou gatilho |
-| repeatItemScopeName | Sim | Cadeia | Repita o nome do item `foreach` `until` se a ação estiver dentro de um ou loop |
+| systemId | Sim | String | ID do sistema de aplicações lógicas |
+| runId | Sim | String | Id de execução de aplicativológico |
+| operationName | Sim | String | Nome da operação, por exemplo, ação ou gatilho |
+| repeatItemScopeName | Sim | String | Repita o nome do item `foreach` `until` se a ação estiver dentro de um ou loop |
 | repeatItemIndex | Sim | Número inteiro | Indica que a ação `foreach` `until` está dentro de um ou loop e é o número de índice de item repetido. |
-| trackingId | Não | Cadeia | Rastreio de ID para correlacionar as mensagens |
-| correlationId | Não | Cadeia | Id de correlação para correlacionar as mensagens |
-| clientRequestId | Não | Cadeia | O cliente pode povoar esta propriedade para correlacionar mensagens |
-| eventoN | Sim | Cadeia | Nível do evento |
+| trackingId | Não | String | Rastreio de ID para correlacionar as mensagens |
+| correlationId | Não | String | Id de correlação para correlacionar as mensagens |
+| clientRequestId | Não | String | O cliente pode povoar esta propriedade para correlacionar mensagens |
+| eventoN | Sim | String | Nível do evento |
 | eventTime | Sim | DateTime | Hora do evento em formato UTC: *YYYY-MM-DDTHH:MM:SS.00000Z* |
-| recordType | Sim | Cadeia | Tipo de registo com este valor permitido apenas:`custom` |
+| recordType | Sim | String | Tipo de registo com este valor permitido apenas:`custom` |
 | gravar | Sim | Rio JToken | Tipo de gravação personalizado apenas com formato JToken |
 |||||
 
