@@ -10,10 +10,10 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
 ms.openlocfilehash: 1cd617204bbc12a99b6ae9e3b55fbc59b0e0578a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75933701"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receba notificações dos seus espaços Azure Digital Twins utilizando aplicações lógicas
@@ -51,7 +51,7 @@ Nesta secção, você configura a Rede de [Eventos](../event-grid/overview.md) p
 
 Um tópico de grelha de [evento](../event-grid/concepts.md#topics) sintetiza uma interface para encaminhar os eventos gerados pela função definida pelo utilizador. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar um recurso**. 
 

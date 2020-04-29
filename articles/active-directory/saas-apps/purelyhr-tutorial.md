@@ -17,10 +17,10 @@ ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 56049e1b1253cd749a8e16061957c6b5b8786e3c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72594539"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purelyhr"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com A PureHR
@@ -182,7 +182,7 @@ Inscreva-se no site da empresa Velpic SAML como administrador e execute os segui
 
     e. O resto da informação é opcional, pode preenchê-la se necessário.
 
-    f. Clique em **GUARDAR**.
+    f. Clique em **SAVE**.
 
 ## <a name="test-sso"></a>Teste SSO 
 

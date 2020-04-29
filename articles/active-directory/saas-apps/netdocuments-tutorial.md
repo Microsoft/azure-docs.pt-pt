@@ -17,10 +17,10 @@ ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72035716"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com a NetDocuments
@@ -149,7 +149,7 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, conced
 
 5. No diálogo **da Identidade Federada,** execute os seguintes passos:
    
-    ![Identidade Federada](./media/netdocuments-tutorial/ic795049.png "Identidade federada")
+    ![Identidade federada](./media/netdocuments-tutorial/ic795049.png "Identidade federada")
    
     a. Como **tipo de servidor de identidade federado,** selecione Ative **Directory Federation Services**.
    

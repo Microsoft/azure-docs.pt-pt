@@ -4,10 +4,10 @@ description: As amostras são uma ótima maneira de experimentar os cadernos Jup
 ms.topic: sample
 ms.date: 01/11/2019
 ms.openlocfilehash: f67c37d0ffe0e90e13e05bb50ed6c523e0b3a14e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75646318"
 ---
 # <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Descubra e use cadernos de amostra sintetizar em Cadernos Azure Preview

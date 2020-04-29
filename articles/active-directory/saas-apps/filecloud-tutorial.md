@@ -17,10 +17,10 @@ ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6b4eecc3429dbf43a74148f39cff5f4dc697ea5f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73156568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Tutorial: Integração de Diretório Ativo Azure com FileCloud

@@ -5,10 +5,10 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc
 ms.openlocfilehash: 5ee80283ed39789eabb702a48aa97f678a6409f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75922718"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Criar uma Função do Azure que se liga a um Azure Cosmos DB
@@ -36,7 +36,7 @@ Este script utiliza os seguintes comandos: cada comando na tabela está ligado a
 | Comando | Notas |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Criar um grupo de recursos com localização |
-| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Criar uma conta do Storage |
+| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Criar uma conta de armazenamento |
 | [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de função no plano de [consumo](../functions-scale.md#consumption-plan)sem servidores. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crie uma base de dados do Azure Cosmos DB. |
 | [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Obtém a ligação da conta da base de dados. |

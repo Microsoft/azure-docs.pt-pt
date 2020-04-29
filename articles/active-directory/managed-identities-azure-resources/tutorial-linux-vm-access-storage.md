@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b11df2e1a6140d251801a3243f3eaa9458b77d29
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75971920"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure 
@@ -29,7 +29,7 @@ ms.locfileid: "75971920"
 Este tutorial mostra-lhe como utilizar uma identidade gerida atribuída pelo sistema para uma máquina virtual (VM) do Linux para aceder ao Armazenamento do Azure. Saiba como:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage
+> * Criar uma conta de armazenamento
 > * Criar um contentor de blobs numa conta de armazenamento
 > * Conceder acesso à Identidade Gerida de VM do Linux a um contentor de Armazenamento do Azure
 > * Obter um token de acesso e utilizá-lo para chamar o Armazenamento do Azure
@@ -46,7 +46,7 @@ Para executar os exemplos de script da CLI neste tutorial, tem duas opções:
 - Utilizar o [Azure Cloud Shell](~/articles/cloud-shell/overview.md) do portal do Azure ou através do botão **Experimentar**, localizado no canto superior direito de cada bloco de código.
 - [Instalar a versão mais recente da CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou posterior), se preferir utilizar uma consola CLI local.
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage 
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
 Nesta secção, vai criar uma conta de armazenamento. 
 
@@ -121,4 +121,4 @@ Para concluir os passos seguintes, precisa de trabalhar a partir da VM que criou
 Neste tutorial, aprendeu a ativar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure.  Para saber mais sobre o Armazenamento do Azure, veja:
 
 > [!div class="nextstepaction"]
-> [Storage do Azure](/azure/storage/common/storage-introduction)
+> [Armazenamento Azure](/azure/storage/common/storage-introduction)

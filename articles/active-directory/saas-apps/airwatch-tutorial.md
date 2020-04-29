@@ -17,10 +17,10 @@ ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 772b37816b83c275bae927d825434dc3ca76a35c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74231997"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Tutorial: Integrar o AirWatch com o Diretório Ativo Azure
@@ -134,7 +134,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Clique no separador **Servidor.**
 
-   ![Servidor](./media/airwatch-tutorial/ic791923.png "Server")
+   ![Servidor](./media/airwatch-tutorial/ic791923.png "Servidor")
 
 1. Efetue os seguintes passos na secção **LDAP:**
 
@@ -150,7 +150,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Na secção **Pedido,** execute os seguintes passos:
 
-    ![Pedido](./media/airwatch-tutorial/ic791925.png "Pedir")  
+    ![Pedir](./media/airwatch-tutorial/ic791925.png "Pedir")  
 
     a. Como **Pedido Tipo de Encadernação,** selecione **POST**.
 

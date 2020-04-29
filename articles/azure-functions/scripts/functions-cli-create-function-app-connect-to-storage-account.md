@@ -5,10 +5,10 @@ ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc
 ms.openlocfilehash: 833b9223d473c8bfc62485e9e47ba662a4f0e154
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75922676"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Criar uma aplicação de função com uma ligação de conta de armazenamento chamada 

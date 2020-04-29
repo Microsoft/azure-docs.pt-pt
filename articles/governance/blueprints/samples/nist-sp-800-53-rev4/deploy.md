@@ -4,10 +4,10 @@ description: Desloque os passos para a amostra de planta NIST SP 800-53 R4, incl
 ms.date: 11/18/2019
 ms.topic: sample
 ms.openlocfilehash: db8c2302a6c2311e096be2cdc78935bdab2ef9c7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74546612"
 ---
 # <a name="deploy-the-nist-sp-800-53-r4-blueprint-sample"></a>Implementar a amostra de plantas NIST SP 800-53 R4
@@ -121,7 +121,7 @@ Agora que reviu os passos para implementar a amostra de plantas NIST SP 800-53 R
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
-- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

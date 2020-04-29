@@ -17,10 +17,10 @@ ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75431463"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com F5
@@ -102,7 +102,7 @@ Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
 ### <a name="key-authentication-scenarios"></a>Cenários chave de autenticação
 
-Para além do suporte de integração nativa do Azure Ative Diretório para protocolos modernos de autenticação como Open ID Connect, SAML e WS-Fed, f5 alarga acesso seguro para aplicações de autenticação baseadas no legado para acesso interno e externo com AD Azure, permitindo cenários modernos (por exemplo, acesso sem palavra-passe) a estas aplicações. Isto inclui:
+Para além do suporte de integração nativa do Azure Ative Diretório para protocolos modernos de autenticação como Open ID Connect, SAML e WS-Fed, f5 alarga acesso seguro para aplicações de autenticação baseadas em legados para acesso interno e externo com AD Azure, permitindo cenários modernos (por exemplo, acesso sem palavra-passe) a estas aplicações. Isto inclui:
 
 * Aplicativos de autenticação baseados em cabeçalho
 

@@ -17,10 +17,10 @@ ms.date: 11/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d45a8427fec219bc153c8590f2d6c19a7c4eafb1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74085367"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-riva"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com riva

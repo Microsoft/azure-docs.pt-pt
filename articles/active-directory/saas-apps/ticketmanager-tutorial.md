@@ -16,10 +16,10 @@ ms.date: 01/30/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f132deb8e391ca4c8f4ed093e7cc5e0d91e595e3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76992388"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ticketmanager"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com ticketManager
