@@ -7,10 +7,10 @@ ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
 ms.openlocfilehash: d5b5a69c7927d07c0ae6b3b56ec97b6551e5d46b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77191339"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Aplicativos de call, trigger ou nest logic usando pontos finais HTTP em Aplicações Lógicas Azure
@@ -19,7 +19,7 @@ Para tornar a sua aplicação lógica chamada através de um URL para que a sua 
 
 Para configurar um ponto final http, você pode usar qualquer um destes tipos de gatilho, que permitem que aplicações lógicas recebam pedidos de entrada:
 
-* [Pedido](../connectors/connectors-native-reqres.md)
+* [Pedir](../connectors/connectors-native-reqres.md)
 * [Webhook de HTTP](../connectors/connectors-native-webhook.md)
 * Gatilhos de conector geridos que têm o [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber pedidos http recebidos
 
@@ -36,7 +36,7 @@ Se você é novo em aplicativos lógicos, veja [What is Azure Logic Apps](../log
 
 ## <a name="create-a-callable-endpoint"></a>Criar um ponto final calivel
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Crie e abra uma aplicação lógica em branco no Logic App Designer.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Crie e abra uma aplicação lógica em branco no Logic App Designer.
 
    Este exemplo utiliza o gatilho do Pedido, mas pode utilizar qualquer gatilho que possa receber pedidos http recebidos. Todos os princípios se aplicam de forma idêntica a estes gatilhos. Para mais informações sobre o gatilho do Pedido, consulte [Receber e responder às chamadas HTTPS recebidas utilizando aplicações lógicas do Azure](../connectors/connectors-native-reqres.md).
 

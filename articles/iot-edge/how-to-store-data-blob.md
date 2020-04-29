@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: bea00f429f31f2be62ee6a9c00f88873c595d94c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76509823"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazenar dados na periferia com o Armazenamento de Blobs do Azure no IoT Edge
@@ -82,7 +82,7 @@ O nome deste `deviceToCloudUploadProperties`cenário é . Se estiver a utilizar 
 | uploadOn | TRUE, false | Definido `false` por padrão. Se quiser ligar a funcionalidade, desloque este campo para `true`. <br><br> Variável ambiental:`deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, Mais Velho Primeiro | Permite-lhe escolher a ordem em que os dados são copiados para o Azure. Definido `OldestFirst` por padrão. A ordem é determinada pela última vez modificada de Blob. <br><br> Variável ambiental:`deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
 | cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`é uma cadeia de ligação que lhe permite especificar a conta de armazenamento à qual deseja que os seus dados sejam carregados. `Azure Storage Account Name`Especificar, `Azure Storage Account Key` `End point suffix`. Adicione endpointSuffix apropriado do Azure onde os dados serão carregados, varia para Global Azure, Government Azure e Microsoft Azure Stack. <br><br> Pode optar por especificar a cadeia de ligação Azure Storage SAS aqui. Mas tem que atualizar esta propriedade quando expirar. <br><br> Variável ambiental:`deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
-| recipientes de armazenamentoForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Permite especificar os nomes do contentor que pretende enviar para o Azure. Este módulo permite especificar os nomes de contentores de origem e alvo. Se não especificar o nome do recipiente-alvo, atribuirá automaticamente `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`o nome do recipiente como . Pode criar cordas de modelo para o nome do recipiente-alvo, verificar a possível coluna de valores. <br>* %h -> Nome do Hub IoT (3-50 caracteres). <br>* %d -> IoT Edge Device ID (1 a 129 caracteres). <br>* %m -> Nome do módulo (1 a 64 caracteres). <br>* %c -> Nome do Recipiente de Origem (3 a 63 caracteres). <br><br>O tamanho máximo do nome do recipiente é de 63 caracteres, atribuindo automaticamente o nome do recipiente-alvo se o tamanho do recipiente exceder 63 caracteres que irá aparar cada secção (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) a 15 personagens. <br><br> Variável ambiental:`deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
+| recipientes de armazenamentoForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Permite especificar os nomes do contentor que pretende enviar para o Azure. Este módulo permite especificar os nomes de contentores de origem e alvo. Se não especificar o nome do recipiente-alvo, atribuirá automaticamente `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`o nome do recipiente como . Pode criar cordas de modelo para o nome do recipiente-alvo, verificar a possível coluna de valores. <br>* %h -> Nome do Hub IoT (3-50 caracteres). <br>* %d -> IoT Edge Device ID (1 a 129 caracteres). <br>* %m -> Nome do módulo (1 a 64 caracteres). <br>* %c -> Nome do Recipiente de Origem (3 a 63 caracteres). <br><br>O tamanho máximo do nome do recipiente é de 63 caracteres, atribuindo automaticamente o nome do recipiente-alvo se o tamanho do recipiente exceder 63 caracteres que irá aparar cada secção (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) a 15 caracteres. <br><br> Variável ambiental:`deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | eliminarAfterUpload | TRUE, false | Definido `false` por padrão. Quando estiver programado para `true`, eliminará automaticamente os dados quando o upload para o armazenamento em nuvem estiver terminado. <br><br> **ATENÇÃO**: Se estiver a utilizar bolhas de apêndice, esta definição eliminará as bolhas de apêndice do armazenamento local após um upload bem sucedido, e quaisquer futuras operações do Bloco de Apêndice para essas bolhas falharão. Utilize esta definição com cuidado, não o ative se a sua aplicação fizer operações de apêndice pouco frequentes ou se não suportar operações contínuas de apêndice<br><br> Variável `deviceToCloudUploadProperties__deleteAfterUpload={false,true}`ambiental: . |
 
 ### <a name="deviceautodeleteproperties"></a>dispositivoAutoDeleteProperties
@@ -181,10 +181,10 @@ A documentação de armazenamento de Blob Azure inclui código de amostra de arr
 As seguintes amostras de quickstart utilizam idiomas que também são suportados pelo IoT Edge, para que possa implantá-las como módulos IoT Edge ao lado do módulo de armazenamento de bolhas:
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Pitão](../storage/blobs/storage-quickstart-blobs-python.md)
+* [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * As versões antes da V2.1 do Python SDK têm um problema conhecido onde o módulo não devolve o tempo de criação da bolha. Por causa desta questão, alguns métodos como as listas blobs não funcionam. Como supõe,definiu explicitamente a versão API no cliente blob para '2017-04-17'. Exemplo:`block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Amostra de bolhas de apêndice](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
-* [Nó.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
 * [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
 * [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
 * [Ir](../storage/blobs/storage-quickstart-blobs-go.md)

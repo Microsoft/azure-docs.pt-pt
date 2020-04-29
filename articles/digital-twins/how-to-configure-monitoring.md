@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: e35e18be20af3bd9f6fdc9541f9abfe857a6b87c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76511863"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar a monitorização em Azure Digital Twins
@@ -40,7 +40,7 @@ O registo de atividades para As Gémeas Digitais Azure está ativado por padrão
 1. Selecionando a sua instância De Gémeos Digitais Azure.
 1. Escolha **o registo de atividade** para elevar o painel de exibição:
 
-    [![Registo de atividade](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
+    [![Registo de atividades](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
 
 Para exploração madeireira de atividade avançada:
 
@@ -99,7 +99,7 @@ A consulta completa de registoé fornecida através de [registos do Monitor Azur
 1. Procure **o Log Analytics** no portal Azure.
 1. Os casos disponíveis do espaço de **trabalho log Analytics** serão apresentados. Escolha um e selecione **Registos** para consulta:
 
-    [![Log Analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
+    [![Análise de registo](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
 1. Se ainda não tiver uma instância de espaço de **trabalho Log Analytics,** pode criar um espaço de trabalho selecionando o botão **Adicionar:**
 

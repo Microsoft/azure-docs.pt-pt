@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 29acd1b00d23e4f1c2f241027dadbbb406e5e049
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77190784"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastres para uma implementação de aplicações SAP NetWeaver de vários níveis
@@ -138,7 +138,7 @@ Para que as suas aplicações funcionem corretamente, poderá ser necessário ef
 
 Pode implantar os scripts de Recuperação do Site mais utilizados na sua conta De automação Azure selecionando **o Deploy para o Azure**. Quando utilizar qualquer guião publicado, siga a orientação no script.
 
-[![Desdobre para Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Implementar no Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Adicione um script de pré-ação ao Grupo 1 para falhar sobre o grupo de disponibilidade do Servidor SQL. Utilize o script ASR-SQL-FailoverAG publicado nos scripts da amostra. Siga a orientação no script e faça as alterações necessárias no script adequadamente.
 1. Adicione um script pós-acção para fixar um equilibrador de carga nas máquinas virtuais falhadas do nível Web (Grupo 1). Utilize o script ASR-AddSingleLoadBalancer publicado nos scripts da amostra. Siga a orientação no script e faça as alterações necessárias no script conforme necessário.

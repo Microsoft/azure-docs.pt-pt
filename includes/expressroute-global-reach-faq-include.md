@@ -9,15 +9,15 @@ ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 317a480c13c5c6e00653fd61878a379df3f65ac4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183995"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>O que é ExpressRoute Global Reach?
 
-O ExpressRoute Global Reach é um serviço Azure que liga as suas redes no local através do serviço ExpressRoute através da rede global da Microsoft. Por exemplo, se tiver um centro de dados privado na Califórnia ligado ao ExpressRoute em Silicon Valley e a outro centro de dados privado no Texas ligado ao ExpressRoute em Dallas, com o ExpressRoute Global Reach, pode ligar os seus centros de dados privados em conjunto através das duas ligações ExpressRoute e do tráfego do seu centro de dados cruzados atravessará a espinha dorsal da rede da Microsoft.
+O ExpressRoute Global Reach é um serviço Azure que liga as suas redes no local através do serviço ExpressRoute através da rede global da Microsoft. Por exemplo, se tiver um centro de dados privado na Califórnia ligado ao ExpressRoute em Silicon Valley e a outro centro de dados privado no Texas ligado ao ExpressRoute em Dallas, com o ExpressRoute Global Reach, pode ligar os seus centros de dados privados através das duas ligações ExpressRoute e o tráfego do seu centro de dados cruzado sairá através da espinha dorsal da rede da Microsoft.
 
 ### <a name="how-do-i-enable-or-disable-expressroute-global-reach"></a>Como posso ativar ou desativar o ExpressRoute Global Reach?
 

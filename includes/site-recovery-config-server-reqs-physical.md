@@ -10,10 +10,10 @@ ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67184485"
 ---
 **Configuração/Requisitos do servidor de processo para replicação física do servidor**
@@ -37,7 +37,7 @@ Tipo de endereço IP | Estático
 | 
 **DEFINIÇÕES DE ACESSO** | 
 MYSQL | O MySQL deve ser instalado no servidor de configuração. Pode instalar manualmente, ou a Recuperação do Site pode instalá-la durante a implementação. Para instalar a Recuperação do Local, verifique se a máquina pode alcançar http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
- URLs | O servidor de configuração precisa de acesso a estes URLs (diretamente ou via procuração):<br/><br/> Azure AD: `login.microsoftonline.com` `login.microsoftonline.us`;`*.accesscontrol.windows.net`<br/><br/> Transferência de dados `*.backup.windowsazure.com`de replicação:`*.backup.windowsazure.us`<br/><br/> Gestão de `*.hypervrecoverymanager.windowsazure.com`replicação: `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`;`*.services.visualstudio.com`<br/><br/> Acesso ao `*.blob.core.windows.net`armazenamento: ;`*.blob.core.usgovcloudapi.net`<br/><br/> Sincronização do tempo: `time.nist.gov``time.windows.com`<br/><br/> Telemetria (opcional):`dc.services.visualstudio.com`
+URLs | O servidor de configuração precisa de acesso a estes URLs (diretamente ou via procuração):<br/><br/> Azure AD: `login.microsoftonline.com` `login.microsoftonline.us`;`*.accesscontrol.windows.net`<br/><br/> Transferência de dados `*.backup.windowsazure.com`de replicação:`*.backup.windowsazure.us`<br/><br/> Gestão de `*.hypervrecoverymanager.windowsazure.com`replicação: `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`;`*.services.visualstudio.com`<br/><br/> Acesso ao `*.blob.core.windows.net`armazenamento: ;`*.blob.core.usgovcloudapi.net`<br/><br/> Sincronização do tempo: `time.nist.gov``time.windows.com`<br/><br/> Telemetria (opcional):`dc.services.visualstudio.com`
 Firewall | As regras de firewall baseadas em endereçoIP devem permitir a comunicação aos URLs Azure. Para simplificar e limitar as gamas IP, recomendamos a utilização de filtragem de URL.<br/><br/>**Para iPs comerciais:**<br/><br/>- Permitir as gamas IP do Centro de [Dados Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)e a porta HTTPS (443).<br/><br/> - Permitir intervalos de endereços IP para os EUA Ocidentais (utilizados para controlo de acesso e gestão de identidade).<br/><br/> - Permitir intervalos de endereçoip para a região azure da sua subscrição, para apoiar os URLs necessários para o Diretório Ativo Azure, backup, replicação e armazenamento.<br/><br/> **Para os IPs do governo:**<br/><br/> - Permitir o Datacenter IP Ranges do Governo Azure e a porta HTTPS (443).<br/><br/> - Permitir intervalos de endereços IP para todas as regiões norte-americanas gov (Virgínia, Texas, Arizona e Iowa), para apoiar os URLs necessários para o Azure Ative Directory, backup, replicação e armazenamento.
 Portas | Permitir 443 (Orquestração de canais de controlo)<br/><br/> Permitir 9443 (Transporte de dados) 
 

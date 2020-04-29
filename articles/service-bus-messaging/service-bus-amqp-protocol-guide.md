@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77086145"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guia de protocolo sinuoso amqp 1.0 em Azure Service Bus and Event Hubs
@@ -29,13 +29,13 @@ A AMQP 1.0 é o resultado de uma ampla colaboração da indústria que reuniu fo
 
 ## <a name="goals"></a>Objetivos
 
-Este artigo resume brevemente os conceitos fundamentais da especificação de mensagens AMQP 1.0, juntamente com um pequeno conjunto de especificações de extensão que estão atualmente a ser finalizados no comité técnico da OASIS AMQP e explica como o Azure Service Bus está a ser finalizado no comité técnico da OASIS AMQP e explica como o Azure Service Bus está a ser finalizado no comité técnico da OASIS AMQP e explica como o Azure Service Bus está a ser finalizado no comité técnico da OASIS AMQP e explica como o Azure Service Bus bus implementa e baseia-se nestas especificações.
+Este artigo resume brevemente os conceitos fundamentais da especificação de mensagens AMQP 1.0, juntamente com um pequeno conjunto de especificações de extensão que estão atualmente a ser finalizados no comité técnico da OASIS AMQP e explica como o Azure Service Bus implementa e baseia-se nestas especificações.
 
 O objetivo é que qualquer desenvolvedor que utilize qualquer pilha de clientes AMQP 1.0 existente em qualquer plataforma para poder interagir com o Azure Service Bus via AMQP 1.0.
 
 Pilhas amqp 1.0 comuns de uso geral, tais como Apache Proton ou AMQP.NET Lite, já implementam todos os protocolos core AMQP 1.0. Esses gestos fundamentais são, por vezes, envoltos numa API de nível superior; Apache Proton até oferece dois, o imperativo Messenger API e o reator reativo API.
 
-Na discussão seguinte, assumimos que a gestão das ligações, sessões e ligações AMQP e o manuseamento de transferências de quadros e controlo de fluxos são tratados pela respetiva pilha (como apache Proton-C) e não requerem muita atenção se alguma atenção específica de desenvolvedores de aplicações. Assumimos abstratamente a existência de alguns primitivos da API, como a capacidade de se conectar, e `send()` criar `receive()` alguma forma de *remetente* e objetos de abstração *recetor,* que depois têm alguma forma e operações, respectivamente.
+Na discussão seguinte, assumimos que a gestão das ligações, sessões e ligações AMQP e o manuseamento das transferências de quadros e do controlo de fluxos são tratados pela respetiva pilha (como o Apache Proton-C) e não requerem muita atenção específica por parte dos desenvolvedores de aplicações. Assumimos abstratamente a existência de alguns primitivos da API, como a capacidade de se conectar, e `send()` criar `receive()` alguma forma de *remetente* e objetos de abstração *recetor,* que depois têm alguma forma e operações, respectivamente.
 
 Ao discutir capacidades avançadas do Azure Service Bus, como a navegação de mensagens ou a gestão de sessões, essas funcionalidades são explicadas em termos AMQP, mas também como uma pseudo-implementação em camadas em cima desta suposta abstração da API.
 
@@ -43,7 +43,7 @@ Ao discutir capacidades avançadas do Azure Service Bus, como a navegação de m
 
 AmQP é um protocolo de enquadramento e transferência. O enquadramento significa que fornece estrutura para fluxos binários de dados que fluem em qualquer direção de uma ligação de rede. A estrutura prevê a delimitação de blocos distintos de dados, *chamados quadros,* a trocar entre as partes ligadas. As capacidades de transferência asseguram-se de que ambas as partes comunicadoras podem estabelecer um entendimento partilhado sobre quando os quadros devem ser transferidos e quando as transferências serão consideradas completas.
 
-Ao contrário de versões anteriores expiradas produzidas pelo grupo de trabalho AMQP que ainda estão em uso por alguns corretores de mensagens, o protocolo final do grupo de trabalho e o protocolo AMQP 1.0 padronizado não prescreve a presença de um corretor de mensagens ou de qualquer topologia específica para entidades dentro de um corretor de mensagens.
+Ao contrário de versões anteriores expiradas produzidas pelo grupo de trabalho AMQP que ainda estão em uso por alguns corretores de mensagens, o protocolo final do grupo de trabalho, e o protocolo AMQP 1.0 padronizado não prescreve a presença de um corretor de mensagens ou de qualquer topologia específica para entidades dentro de um corretor de mensagens.
 
 O protocolo pode ser usado para comunicação par-a-par simétrica, para interação com corretores de mensagens que suportam filas e editores/entidades de subscrição, como faz o Azure Service Bus. Também pode ser usado para interação com infraestrutura de mensagens onde os padrões de interação são diferentes das filas regulares, como é o caso dos Hubs de Eventos Azure. Um Event Hub age como uma fila quando os eventos são enviados para ele, mas age mais como um serviço de armazenamento em série quando os eventos são lidos a partir dele; assemelha-se um pouco a uma unidade de fita adesiva. O cliente escolhe uma compensação no fluxo de dados disponível e é depois servido todos os eventos desde essa compensação até aos mais recentes disponíveis.
 
@@ -63,7 +63,7 @@ A AMQP chama os *recipientes*dos programas de comunicação; estes contêm *nós
 
 A ligação de rede está, assim, ancorada no recipiente. É iniciado pelo contentor na função cliente que faz uma ligação de tomada TCP de saída a um recipiente na função recetora, que ouve e aceita ligações TCP de entrada. O aperto de mão de ligação inclui a negociação da versão protocolar, a declaração ou a negociação da utilização da Segurança do Nível de Transporte (TLS/SSL), e um aperto de mão de autenticação/autorização no âmbito de ligação que se baseia no SASL.
 
-O Azure Service Bus requer sempre a utilização de TLS. Suporta ligações sobre a porta TCP 5671, através da qual a ligação TCP é primeiramente sobreposta com TLS antes de entrar no aperto de mão do protocolo AMQP, e também suporta ligações sobre a porta TCP 5672, através da qual o servidor oferece imediatamente uma atualização obrigatória da ligação para TLS utilizando o modelo prescrito pela AMQP. A ligação AMQP WebSockets cria um túnel sobre a porta TCP 443 que é então equivalente às ligações AMQP 5671.
+O Azure Service Bus requer sempre a utilização de TLS. Suporta ligações através da porta TCP 5671, através da qual a ligação TCP é primeiramente sobreposta com TLS antes de introduzir o aperto de mão do protocolo AMQP, e também suporta ligações sobre a porta TCP 5672, através da qual o servidor oferece imediatamente uma atualização obrigatória da ligação ao TLS utilizando o modelo prescrito pela AMQP. A ligação AMQP WebSockets cria um túnel sobre a porta TCP 443 que é então equivalente às ligações AMQP 5671.
 
 Após a instalação da ligação e do TLS, o Service Bus oferece duas opções de mecanismoS SASL:
 
@@ -97,7 +97,7 @@ A AMQP transfere mensagens sobre links. Um link é um caminho de comunicação c
 
 ![][2]
 
-As ligações podem ser criadas por qualquer um dos contentores a qualquer momento e durante uma sessão existente, o que torna a AMQP diferente de muitos outros protocolos, incluindo HTTP e MQTT, onde o início de transferências e via de transferência é um privilégio exclusivo da parte que cria o ligação à tomada.
+As ligações podem ser criadas por qualquer recipiente a qualquer momento e durante uma sessão existente, o que torna a AMQP diferente de muitos outros protocolos, incluindo HTTP e MQTT, onde o início de transferências e rota de transferência é um privilégio exclusivo da parte que cria a ligação à tomada.
 
 O recipiente de início de ligação pede ao recipiente oposto que aceite um link e escolhe um papel de remetente ou recetor. Portanto, qualquer um dos recipientes pode iniciar a criação de caminhos de comunicação unidirecionais ou bidirecionais, com este último modelado como pares de ligações.
 
@@ -143,7 +143,7 @@ Uma chamada "receber" ao nível da API traduz-se num *fluxo* performativo enviad
 
 O bloqueio de uma mensagem é divulgado quando a transferência é liquidada num dos estados terminais *aceites,* *rejeitados*ou *libertados.* A mensagem é removida do Ônibus de serviço quando o estado terminal é *aceite*. Permanece no Service Bus e é entregue ao próximo recetor quando a transferência chegar a qualquer um dos outros estados. O Service Bus move automaticamente a mensagem para a fila da carta morta da entidade quando atinge a contagem máxima de entrega permitida para a entidade devido a repetidas rejeições ou lançamentos.
 
-Mesmo que as APIs de ônibus de serviço não exponham diretamente tal opção hoje em dia, um cliente de protocolo AMQP de nível inferior pode usar o modelo de link-credit para transformar a interação "estilo pull" de emitir uma unidade de crédito para cada pedido receber em um modelo "push-style" por emitindo um grande número de créditos de ligação e, em seguida, receber mensagens à medida que ficam disponíveis sem qualquer interação adicional. O push é suportado através da [MessageingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) ou [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) definições de propriedade. Quando não são zero, o cliente AMQP usa-o como crédito de ligação.
+Mesmo que as APIs de ônibus de serviço não exponham diretamente tal opção hoje em dia, um cliente de protocolo AMQP de nível inferior pode usar o modelo de link-credit para transformar a interação "estilo pull" de emitir uma unidade de crédito para cada um receber um pedido em um modelo de "estilo push" emitindo um grande número de créditos de ligação e, em seguida, receber mensagens à medida que ficam disponíveis sem qualquer interação adicional. O push é suportado através da [MessageingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) ou [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) definições de propriedade. Quando não são zero, o cliente AMQP usa-o como crédito de ligação.
 
 Neste contexto, é importante entender que o relógio para a expiração do bloqueio da mensagem dentro da entidade começa quando a mensagem é retirada da entidade, e não quando a mensagem é colocada no fio. Sempre que o cliente indique disponibilidade para receber mensagens através da emissão de crédito de ligação, espera-se, portanto, que esteja ativamente a puxar mensagens através da rede e esteja pronto para as lidar. Caso contrário, o bloqueio da mensagem pode ter expirado antes mesmo de a mensagem ser entregue. A utilização do controlo do fluxo de crédito de ligação deve refletir diretamente a disponibilidade imediata para lidar com as mensagens disponíveis enviadas para o recetor.
 
@@ -358,7 +358,7 @@ O modelo de segurança padrão da AMQP discutido na introdução baseia-se no SA
 A integração SASL da AMQP tem duas desvantagens:
 
 * Todas as credenciais e fichas são reparadas à ligação. Uma infraestrutura de mensagens pode querer fornecer um controlo de acesso diferenciado numa base por entidade; por exemplo, permitindo que o portador de um símbolo envie para a fila A, mas não para fila B. Com o contexto de autorização ancorado na ligação, não é possível usar uma única ligação e ainda usar diferentes fichas de acesso para fila A e fila B.
-* As fichas de acesso são normalmente válidas apenas por um tempo limitado. Esta validade requer que o utilizador readquira periodicamente fichas e proporciona ao emitente simbólico que se recuse a emitir um novo sinal se as permissões de acesso do utilizador tiverem mudado. As ligações AMQP podem durar longos períodos de tempo. O modelo SASL apenas oferece a oportunidade de definir um símbolo no tempo de ligação, o que significa que a infraestrutura de mensagens tem que desligar o cliente quando o token expirar ou precisa aceitar o risco de permitir a comunicação contínua com um cliente que é Os direitos de acesso podem ter sido revogados intercalares.
+* As fichas de acesso são normalmente válidas apenas por um tempo limitado. Esta validade requer que o utilizador readquira periodicamente fichas e proporciona ao emitente simbólico que se recuse a emitir um novo sinal se as permissões de acesso do utilizador tiverem mudado. As ligações AMQP podem durar longos períodos de tempo. O modelo SASL apenas oferece a oportunidade de definir um símbolo no tempo de ligação, o que significa que a infraestrutura de mensagens tem de desligar o cliente quando o token expirar ou precisa de aceitar o risco de permitir a continuação da comunicação com um cliente que os direitos de acesso podem ter sido revogados durante o período intercalar.
 
 A especificação AMQP CBS, implementada pela Service Bus, permite uma salção de saúde elegante para ambas as questões: Permite que um cliente associe fichas de acesso a cada nó, e atualize esses tokens antes de expirarem, sem interromper o fluxo de mensagens.
 

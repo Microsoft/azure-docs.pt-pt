@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: aac0060527af7b7d880f971e7608be3fa44a2d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905111"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Create logic app workflows from prebuilt templates (Criar fluxos de trabalho de aplicações lógicas a partir de modelos pré-criados)
@@ -47,7 +47,7 @@ Se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratui
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
    | **Nome** | *seu nome lógica-app* | Indique um nome exclusivo para a aplicação lógica. | 
-   | **Assinatura** | *o-nome-da-sua-subscrição-do-Azure* | Selecione a subscrição do Azure que pretende utilizar. | 
+   | **Subscrição** | *o-nome-da-sua-subscrição-do-Azure* | Selecione a subscrição do Azure que pretende utilizar. | 
    | **Grupo de recursos** | *o-nome-do-seu-grupo-de-recursos-do-Azure* | Crie ou selecione um grupo de [recursos Azure](../azure-resource-manager/management/overview.md) para esta aplicação lógica e organize todos os recursos associados a esta app. | 
    | **Localização** | *a-região-do-seu-datacenter-do-Azure* | Selecione a região do datacenter para implementar a sua aplicação lógica, como, por exemplo, E.U.A. Oeste. | 
    | **Log Analytics** | **Desligado** (padrão) ou **Ligado** | Instale [o registo de diagnóstico](../logic-apps/monitor-logic-apps-log-analytics.md) para a sua aplicação lógica utilizando [registos do Monitor Azure](../log-analytics/log-analytics-overview.md). Requer que já tenha um espaço de trabalho log Analytics. | 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: f2876ea32bdcd900a454ae6b7ac58c11b8ec67c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840490"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Teste dados ao vivo localmente utilizando ferramentas Azure Stream Analytics para Estúdio Visual (Pré-visualização)
@@ -23,7 +23,7 @@ As ferramentas Azure Stream Analytics para O Estúdio Visual permitem-lhe testar
 
 São apoiadas as seguintes opções de teste locais:
 
-|**Entrada**  |**Saída**  |**Tipo de trabalho**  |
+|**Input**  |**Saída**  |**Tipo de trabalho**  |
 |---------|---------|---------|
 |Dados estáticos locais   |  Dados estáticos locais   |   Nuvem/Borda |
 |Dados de entrada ao vivo   |  Dados estáticos locais   |   Nuvem |

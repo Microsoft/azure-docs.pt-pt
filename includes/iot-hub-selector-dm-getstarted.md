@@ -5,17 +5,17 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 239ea2eb4d5bc8d326d5ca503a18b149252dc1be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69558716"
 ---
 > [!div class="op_single_selector"]
-> * [Nó.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
 > * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
-> * [Pitão](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
+> * [Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
 As aplicações back-end podem utilizar os primitivos do Hub Azure IoT, como métodos [de dispositivo sintetizantes][lnk-devtwin] e [diretos,][lnk-c2dmethod]para iniciar e monitorizar remotamente as ações de gestão de dispositivos nos dispositivos. Este tutorial mostra-lhe como uma aplicação de back-end e uma aplicação de dispositivo podem trabalhar em conjunto para iniciar e monitorizar um reboot de dispositivo remoto usando o IoT Hub.
 

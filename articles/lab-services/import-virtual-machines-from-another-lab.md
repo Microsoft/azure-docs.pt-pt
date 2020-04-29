@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 299d5c8758a13edded63b99abb2f12ddf9fa14be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759521"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importar máquinas virtuais de outro laboratório em Azure DevTest Labs
@@ -86,4 +86,4 @@ POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/reso
 Consulte os seguintes artigos:
 
 - [Definir políticas para um laboratório](devtest-lab-get-started-with-lab-policies.md)
-- [Perguntas frequentes](devtest-lab-faq.md)
+- [Perguntas mais frequentes](devtest-lab-faq.md)
