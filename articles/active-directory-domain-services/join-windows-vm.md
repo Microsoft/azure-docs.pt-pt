@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: iainfou
 ms.openlocfilehash: 1ac508fc9fee07482e475c46e1db262c8bfa1a12
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476235"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Junte-se a uma máquina virtual do Windows Server para um domínio gerido

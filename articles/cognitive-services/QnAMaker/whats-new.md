@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 02/14/2020
 ms.author: diberry
 ms.openlocfilehash: c0ee1abcb99e10d57d05945f45595e5bfd76fa28
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80155992"
 ---
 # <a name="whats-new-in-qna-maker"></a>O que há de novo no QnA Maker
@@ -25,7 +25,7 @@ Saiba o que há de novo no serviço. Estes itens podem lançar notas, vídeos, p
 
 Saiba o que há de novo com o Fabricante qnA.
 
-### <a name="march-2020"></a>março de 2020
+### <a name="march-2020"></a>Março de 2020
 
 * TLS 1.2 é agora aplicado para todos os pedidos http para este serviço. Para mais informações, consulte a [segurança dos Serviços Cognitivos Azure.](../cognitive-services-security.md)
 

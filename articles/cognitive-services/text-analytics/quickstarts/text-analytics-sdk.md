@@ -12,10 +12,10 @@ ms.date: 03/24/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
 ms.openlocfilehash: cc3f48ec1113f954336cfae0bda2cba2499d9a1d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240104"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Quickstart: Use a biblioteca de clientes Text Analytics
@@ -91,7 +91,7 @@ Se clicou neste separador, provavelmente não viu um início rápido na sua ling
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -99,7 +99,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 > [Explore uma solução](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
 * [Descrição Geral da Análise de Texto](../overview.md)
-* [Análise de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Análise de sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Reconhecimento de entidades](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Detetar idioma](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Reconhecimento linguístico](../how-tos/text-analytics-how-to-language-detection.md)

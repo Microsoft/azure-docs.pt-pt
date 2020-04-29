@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: douglasl
 ms.openlocfilehash: bf8d0992cd25b52955ac90cecc00750d93343da6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335082"
 ---
 O Azure Database Migration Service é um serviço totalmente gerido para permitir migrações perfeitas de várias fontes de base de dados para plataformas de dados Azure com o mínimo de tempo de inatividade.

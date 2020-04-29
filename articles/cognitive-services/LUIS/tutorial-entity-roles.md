@@ -4,10 +4,10 @@ description: Encontre dados relacionados com base no contexto. Por exemplo, as l
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.openlocfilehash: fdb463896e531619ea7ebe7c384729763dc84138
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80475817"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados contexicamente relacionados com uma expressão
@@ -16,7 +16,7 @@ Neste tutorial, localize fragmentos de dados relacionados com base no contexto. 
 
 Uma função pode ser usada com qualquer tipo de entidade pré-construída ou personalizada, e usada em ambos os exemplos e padrões.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Criar nova aplicação

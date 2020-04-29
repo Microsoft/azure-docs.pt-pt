@@ -4,17 +4,17 @@ description: Neste tutorial, altere as definições de publicação para obter m
 ms.topic: tutorial
 ms.date: 04/01/2020
 ms.openlocfilehash: 19913d16ecb1457ad4edb93ea34e4b96a590aca0
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80545778"
 ---
 # <a name="tutorial--add-sentiment-analysis-as-a-publishing-setting"></a>Tutorial: Adicionar análise de sentimento como um cenário de publicação
 
 Neste tutorial, modifique as definições de publicação para extrair análise de sentimento e, em seguida, consultar o ponto final do LUIS para ver o sentimento devolvido de uma expressão do utilizador.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]

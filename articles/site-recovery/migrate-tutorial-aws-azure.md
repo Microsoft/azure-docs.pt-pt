@@ -10,10 +10,10 @@ ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 929bc0695bda2e64f77f7e9286e06cee787822ba
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80388972"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar VMs do Amazon Web Services (AWS) para o Azure
@@ -61,7 +61,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 Tem de ter alguns recursos prontos no Azure para serem utilizados pelas instâncias do EC2 migradas. Esses recursos incluem uma conta de armazenamento, um cofre e uma rede virtual.
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 As imagens das máquinas replicadas são guardadas no Armazenamento do Microsoft Azure. As VMs do Azure são criadas a partir do armazenamento quando efetuar a ativação pós-falha do local para o Azure.
 
@@ -140,7 +140,7 @@ Na página **Preparar origem**, selecione em **+ Servidor de Configuração**.
 
     1. Sob **Antes de Começar**, selecione **Instalar o servidor de configuração e o servidor de processos** e depois selecione **Seguinte**.
     2. Em **Licença de Software de Terceiros**, selecione **Aceito o contrato de licença de terceiros**, e depois selecione **Seguinte**.
-    3. Em **Registo**, selecione **Procurar** e vá para a localização onde pretende colocar o ficheiro da chave de registo do cofre. Selecione **Next**.
+    3. Em **Registo**, selecione **Procurar** e vá para a localização onde pretende colocar o ficheiro da chave de registo do cofre. Selecione **Seguinte**.
     4. Em **Definições da Internet**, selecione **Ligar ao Azure Site Recovery sem um servidor proxy**, e depois selecione **Seguinte**.
     5. A página **Verificação de Pré-requisitos**, executa verificações relativamente a vários itens. Quando terminar, selecione **Seguinte**.
     6. Em **Configuração de MySQL**, indique as palavras-passe necessárias e depois selecione **Seguinte**.
