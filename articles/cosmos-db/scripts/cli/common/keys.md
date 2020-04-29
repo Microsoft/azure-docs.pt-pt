@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 9/25/2019
 ms.openlocfilehash: e766f52d729a4f916eefd2b148d926d929b4f540
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71275557"
 ---
 # <a name="work-with-account-keys-and-connection-strings-for-an-azure-cosmos-account-using-azure-cli"></a>Trabalhe com chaves de conta e cordas de ligação para uma conta Azure Cosmos usando o Azure CLI

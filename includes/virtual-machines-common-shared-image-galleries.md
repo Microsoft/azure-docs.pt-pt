@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
 ms.openlocfilehash: a477114bda7d138a6860d21f2fad75e27d968833
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80117080"
 ---
 A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens geridas. Galerias de Imagem Partilhada fornecem:
@@ -187,8 +187,8 @@ Os seguintes SDKs apoiam a criação de Galerias de Imagem Partilhada:
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Nó.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
-- [Pitão](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
+- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
 - [Ir](https://docs.microsoft.com/azure/go/)
 
 ## <a name="templates"></a>Modelos

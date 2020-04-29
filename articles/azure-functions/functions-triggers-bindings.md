@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276507"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Funções Azure desencadeia e encaderna conceitos
@@ -29,7 +29,7 @@ Considere os seguintes exemplos de como poderia implementar diferentes funções
 | Cenário de exemplo | Acionador | Encadernação de entrada | Encadernação de saída |
 |-------------|---------|---------------|----------------|
 | Chega uma nova mensagem de fila que funciona com uma função de escrever para outra fila. | Fila<sup>*</sup> | *Nenhum* | Fila<sup>*</sup> |
-|Um trabalho programado lê conteúdos de Blob Storage e cria um novo documento Cosmos DB. | Temporizador | Blob Storage | Cosmos DB |
+|Um trabalho programado lê conteúdos de Blob Storage e cria um novo documento Cosmos DB. | Temporizador | Blob Storage | BD do Cosmos |
 |A Grelha de Eventos é usada para ler uma imagem do Blob Storage e um documento da Cosmos DB para enviar um e-mail. | Event Grid | Blob Storage e Cosmos DB | SendGrid |
 | Um webhook que usa o Microsoft Graph para atualizar uma folha excel. | HTTP | *Nenhum* | Microsoft Graph |
 

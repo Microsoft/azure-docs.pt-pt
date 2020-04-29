@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: de99e9b1e4adceaf08beaf8ad3b5ea114b31a586
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79270787"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
@@ -186,7 +186,7 @@ Recomendamos que estabeleça permissões adequadas ao nível do laboratório par
 > [!NOTE]
 > Se um utilizador de laboratório for um utilizador externo que tenha uma conta Microsoft, mas que não seja membro da instância de Diretório Ativo da sua organização, o utilizador poderá ver uma mensagem de erro quando tentar aceder ao link partilhado. Se um utilizador externo vir uma mensagem de erro, peça ao utilizador para primeiro selecionar o seu nome no canto superior direito do portal Azure. Em seguida, na secção de Diretório do menu, o utilizador pode selecionar o diretório onde o laboratório existe.
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>Máquinas virtuais
 
 ### <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>Por que não vejo VMs na página de Máquinas Virtuais que vejo nos Laboratórios DevTest?
 Quando crias um VM nos Laboratórios DevTest, é-te dada permissão para acederes a esse VM. Pode ver o VM tanto na página dos laboratórios como na página das **Máquinas Virtuais.** Os utilizadores atribuídos à função **de Proprietário de Laboratórios DevTest** podem ver todos os VMs que foram criados em laboratório na página **All Virtual Machines** do laboratório. No entanto, os utilizadores que possuam a função **DevTest Labs User** não têm acesso de leitura automática aos recursos VM que outros utilizadores criaram. Assim, esses VMs não são exibidos na página **de Máquinas Virtuais.**
@@ -285,7 +285,7 @@ Para automatizar o upload de ficheiros VHD para criar imagens personalizadas, te
 
 Para encontrar a conta de armazenamento de destino que está associada ao seu laboratório:
 
-1.  Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1.  Inicie sessão no [portal do Azure](https://portal.azure.com).
 2.  No menu esquerdo, selecione **Grupos de Recursos**.
 3.  Encontre e selecione o grupo de recursos que está associado ao seu laboratório.
 4.  Em **resumo,** selecione uma das contas de armazenamento.

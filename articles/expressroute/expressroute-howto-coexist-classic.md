@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: charwen
 ms.openlocfilehash: aba07e0a1dd8e7b1db8677907672d919ef034057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79272932"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurar ligações coexistentes do ExpressRoute e de Site a Site (clássico)

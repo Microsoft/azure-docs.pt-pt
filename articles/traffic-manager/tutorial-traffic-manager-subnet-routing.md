@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: rohink
 ms.openlocfilehash: 49e0bce6eea8fac32f49bb905c225e898e709af0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77136290"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: Tráfego direto para pontos finais específicos com base na subnet do utilizador utilizando o Traffic Manager
@@ -47,7 +47,7 @@ As VMs de teste são utilizadas para ilustrar o modo como o Gestor de Tráfego e
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ### <a name="create-websites"></a>Criar sites
 

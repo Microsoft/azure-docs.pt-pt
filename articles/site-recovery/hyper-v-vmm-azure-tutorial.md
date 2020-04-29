@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
 ms.openlocfilehash: a391d8eb3cf7bc43b52883cbf2e76170338c44c6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067584"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação após desastre de VMs Hyper-V no local em clouds VMM para o Azure
@@ -82,7 +82,7 @@ Instale o agente em cada hospedeiro Hyper-V contendo VMs que pretende replicar.
 
 No Assistente de Configuração do Agente de Recuperação do Microsoft Azure, configure estas definições:
 
-1. **Pré-requisitos Verificar**. Selecione **Next**. Quaisquer pré-requisitos em falta serão instalados automaticamente.
+1. **Pré-requisitos Verificar**. Selecione **Seguinte**. Quaisquer pré-requisitos em falta serão instalados automaticamente.
 1. **Definições de instalação**. Aceite a localização da instalação e a localização da cache. A unidade de cache precisa de pelo menos 5 GB de armazenamento. Recomendamos uma unidade com 600 GB ou mais de espaço livre. Em seguida, selecione **Instalar**.
 1. **Instalação**. Quando a instalação terminar, selecione **Perto** para terminar o assistente.
 

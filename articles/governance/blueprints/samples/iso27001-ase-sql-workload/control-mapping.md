@@ -4,10 +4,10 @@ description: Mapeamento de controlo da amostra de projeto de carga de trabalho d
 ms.date: 01/13/2020
 ms.topic: sample
 ms.openlocfilehash: bc370170374654bf8bc9ae9ed3f1b545f4db8cba
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75920708"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto de carga de trabalho Iso 27001 ASE/SQL
@@ -210,7 +210,7 @@ Agora que reviu o mapeamento de controlo da amostra de base de trabalho iso 2700
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
-- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

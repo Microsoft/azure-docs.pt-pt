@@ -4,10 +4,10 @@ description: Mapeamento de controlo das amostras de plantas HIPAA HITRUST. Cada 
 ms.date: 11/26/2019
 ms.topic: sample
 ms.openlocfilehash: c6680055cfe41a2f893d46cba797783913d880ce
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75472311"
 ---
 # <a name="control-mapping-of-the-hipaa-hitrust-blueprint-sample"></a>Mapeamento de controlo da amostra de plantas HIPAA HITRUST
@@ -30,7 +30,7 @@ Esta planta ajuda-o a gerir a proteção de pontos finais, incluindo proteção 
 
 ## <a name="management-of-removable-media"></a>Gestão de Meios Amovíveis
 
-A organização, com base no nível de classificação de dados, regista os meios de comunicação (incluindo portáteis) antes da sua utilização, impõe restrições razoáveis sobre a forma como esses meios de comunicação são utilizados e fornece um nível adequado de proteção física e lógica (incluindo encriptação) para meios de comunicação que contenham informações cobertas até que sejam devidamente destruídos ou desineados.
+A organização, com base no nível de classificação de dados, regista meios (incluindo portáteis) antes da utilização, impõe restrições razoáveis sobre a forma como esses meios de comunicação são utilizados e fornece um nível adequado de proteção física e lógica (incluindo encriptação) para os meios que contenham informações cobertas até serem devidamente destruídos ou desineados.
 
 - Exigir encriptação nas contas da Data Lake Store
 - SQL gerido exemplo TDE protetor deve ser encriptado com a sua própria chave
@@ -40,13 +40,13 @@ A organização, com base no nível de classificação de dados, regista os meio
 
 ## <a name="information-exchange-policies-and-procedures"></a>Políticas e procedimentos de intercâmbio de informações
 
-Os fornecedores de serviços em nuvem utilizam uma plataforma de virtualização reconhecida pela indústria e formatos de virtualização padrão (por exemplo, Formato de Virtualização Aberta, OVF) para ajudar a garantir a interoperabilidade, e documentou alterações personalizadas feitas a qualquer hipervisor em uso e todos os ganchos de virtualização específicos para soluções disponíveis para revisão do cliente.
+Os fornecedores de serviços em nuvem utilizam uma plataforma de virtualização reconhecida pela indústria e formatos de virtualização padrão (por exemplo, Formato de Virtualização Aberta, OVF) para ajudar a garantir a interoperabilidade, e documentou alterações personalizadas feitas a qualquer hipervisor em uso e todos os ganchos de virtualização específicos da solução disponíveis para revisão do cliente.
 
 - Implementar pré-requisitos para auditar VMs do Windows que não tenham as aplicações especificadas instaladas
 
 ## <a name="control-of-operational-software"></a>Controlo do Software Operacional 
 
-A organização identifica software não autorizado no sistema de informação, incluindo servidores, estações de trabalho e portáteis, emprega uma política de permitir tudo, negar por exceção para proibir a execução de software não autorizado conhecido no sistema de informação, e avalia e atualiza periodicamente a lista de software não autorizado, mas não menos do que anualmente.
+A organização identifica software não autorizado no sistema de informação, incluindo servidores, estações de trabalho e portáteis, emprega uma política de permitir tudo, negar por exceção para proibir a execução de software não autorizado conhecido no sistema de informação, e analisa e atualiza a lista de software não autorizado periodicamente, mas não menos do que anualmente.
 
 - \[Preview\] Mostrar resultados da auditoria das configurações dos VMs do Windows em "Opções de Segurança-Auditoria"
 - \[Preview\] Mostrar resultados da auditoria das configurações dos VMs do Windows em "System Audit Policies- Account Management"
@@ -75,7 +75,7 @@ Existe um padrão de configuração endurecido para todos os componentes do sist
 
 ## <a name="segregation-in-networks"></a>Segregação em Redes
 
-Os gateways de segurança da organização (por exemplo, firewalls) aplicam as políticas de segurança e são configurados para filtrar o tráfego entre domínios, bloquear acesso não autorizado, e são usados para manter a segregação entre fios internos, sem fios internos e externos segmentos de rede (por exemplo, internet) incluindo DMZs e aplicação de políticas de controlo de acesso para cada um dos domínios.
+Os gateways de segurança da organização (por exemplo, firewalls) aplicam as políticas de segurança e são configurados para filtrar o tráfego entre domínios, bloquear o acesso não autorizado, e são usados para manter a segregação entre segmentos internos de rede com fios, sem fios internos e redes externas (por exemplo, a Internet), incluindo DMZs e impor políticas de controlo de acesso para cada um dos domínios.
 
 - Fornecimento Automático de Agente de Monitorização de Segurança
 - Implementar o observador da rede quando as redes virtuais são criadas
@@ -141,7 +141,7 @@ As aprovações são obtidas antes da utilização de serviços públicos extern
 
 ## <a name="on-line-transactions"></a>Transações on-line
 
-A organização requer o uso da encriptação entre, e o uso de assinaturas eletrónicas por, cada uma das partes envolvidas na transação. A organização garante que o armazenamento dos dados da transação está localizado fora de quaisquer ambientes acessíveis ao público (por exemplo, numa plataforma de armazenamento existente na intranet da organização) e não retido e exposto num meio de armazenamento diretamente acessível a partir da Internet.Quando uma autoridade de confiança é utilizada (por exemplo, para efeitos de emissão e manutenção de assinaturas digitais e/ou certificados digitais), a segurança é integrada e incorporada em toda a gestão final/certificação final/certificação final), a segurança é integrada e incorporada em toda a gestão final/certificação final/certificação final), a segurança é integrada e incorporada em toda a gestão final/certificação final/certificação final), a segurança é integrada e incorporada em toda a gestão final/certificação final/certificação final/ processo.
+A organização requer o uso da encriptação entre, e o uso de assinaturas eletrónicas por, cada uma das partes envolvidas na transação. A organização garante que o armazenamento dos dados da transação está localizado fora de quaisquer ambientes acessíveis ao público (por exemplo, numa plataforma de armazenamento existente na intranet da organização) e não retido e exposto num meio de armazenamento diretamente acessível a partir da Internet.Quando uma autoridade de confiança é utilizada (por exemplo, para efeitos de emissão e manutenção de assinaturas digitais e/ou certificados digitais), a segurança é integrada e incorporada em todo o processo final de gestão/certificação.
 
 - A encriptação do disco deve ser aplicada em VMs
 - \[Preview\] Mostrar resultados de auditoria de VMs do Windows que não contêm os certificados especificados na raiz fidedigna
@@ -236,7 +236,7 @@ Reviu o mapeamento de controlo da amostra de plantas HIPAA HITRUST. Em seguida, 
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
-- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

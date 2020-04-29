@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.openlocfilehash: f1a6e72e1444a26b675379d9948217a7773c4a1c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239869"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Criar uma função personalizada para os recursos Azure usando o Azure CLI

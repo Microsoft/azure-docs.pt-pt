@@ -1,18 +1,18 @@
 ---
-title: Mitigação do combate ao Z
+title: Mitigação de combate Z
 description: Descreve técnicas para mitigar artefactos de luta z
 author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.openlocfilehash: bc06deafe3f589fce9a9178fefdb22388254929d
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680456"
 ---
-# <a name="z-fighting-mitigation"></a>Mitigação do combate ao Z
+# <a name="z-fighting-mitigation"></a>Mitigação de combate Z
 
 Quando duas superfícies se sobrepõem, não é claro qual deve ser renderizado em cima do outro. O resultado varia mesmo por pixel, resultando em artefactos dependentes da vista. Consequentemente, quando a câmara ou a malha se movem, estes padrões cintilam visivelmente. Este artefacto *chama-se z-fighting.* Para aplicações AR e VR, o problema intensifica-se porque os dispositivos montados na cabeça movem-se naturalmente. Para evitar o desconforto do espectador, a funcionalidade de mitigação do z-fighting está disponível na Renderização Remota Azure.
 
@@ -64,5 +64,5 @@ A mitigação do z-fighting fornecida é um esforço melhor. Não há garantias 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Modos de renderização](../../concepts/rendering-modes.md)
-* [Reprojeção de estágio tardio](late-stage-reprojection.md)
+* [Modos de composição](../../concepts/rendering-modes.md)
+* [Reprojeção da última fase](late-stage-reprojection.md)

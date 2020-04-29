@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/10/2020
 ms.author: victorh
 ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79475846"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Tutorial: Criar uma política de firewall de aplicação web na porta frontal azure usando o portal Azure

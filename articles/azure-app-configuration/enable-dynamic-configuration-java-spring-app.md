@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 3/5/2020
 ms.author: lcozzens
 ms.openlocfilehash: 37c832e3b6d1430da0b45558c9632f0486a7233b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79216764"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Tutorial: Use a configuração dinâmica numa aplicação Java Spring

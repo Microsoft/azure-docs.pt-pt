@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.openlocfilehash: f4ba56bf79d707200bf361ab4c717bb63d081953
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77138234"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Conceder ao utilizador acesso aos recursos Azure utilizando o RBAC e o Azure PowerShell
@@ -40,7 +40,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 Para concluir este tutorial, irá precisar de:
 
 - Permissões para criar utilizadores no Azure Active Directory (ou ter um utilizador existente)
-- [Concha de nuvem azul](/azure/cloud-shell/quickstart-powershell)
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
 
 ## <a name="role-assignments"></a>Atribuições de funções
 

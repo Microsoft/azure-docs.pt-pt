@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.openlocfilehash: 7316df7bcf78e3a154510e69116c288b2b293d4c
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680612"
 ---
 # <a name="sky-reflections"></a>Reflexos do céu
@@ -113,7 +113,7 @@ A Azure Remote Rendering fornece alguns mapas ambientais incorporados que estão
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Lights](../../overview/features/lights.md)
+* [Luzes](../../overview/features/lights.md)
 * [Materiais](../../concepts/materials.md)
 * [Texturas](../../concepts/textures.md)
 * [A ferramenta de linha de comando TexConv](../../resources/tools/tex-conv.md)

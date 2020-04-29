@@ -1,18 +1,18 @@
 ---
-title: Configurar a conversão do modelo
+title: Configurar a conversão de modelos
 description: Descrição de todos os parâmetros de conversão do modelo
 author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
 ms.openlocfilehash: eb287b812c477b2e472c48d7bd8f44574a398bac
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681574"
 ---
-# <a name="configure-the-model-conversion"></a>Configurar a conversão do modelo
+# <a name="configure-the-model-conversion"></a>Configurar a conversão de modelos
 
 Este capítulo documenta as opções para a conversão do modelo.
 
@@ -234,4 +234,4 @@ Nestes casos de utilização, os modelos têm frequentemente um detalhe muito el
 * [Conversão de modelo](model-conversion.md)
 * [Materiais de cor](../../overview/features/color-materials.md)
 * [Materiais PBR](../../overview/features/pbr-materials.md)
-* [Materiais de sobreposição durante a conversão do modelo](override-materials.md)
+* [Substituir materiais durante a conversão de modelos](override-materials.md)

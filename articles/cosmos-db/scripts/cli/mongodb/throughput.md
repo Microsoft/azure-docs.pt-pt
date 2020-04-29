@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 9/25/2019
 ms.openlocfilehash: 20516a66fe664e415b97e40beacd77c34c7ccaea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71275508"
 ---
 # <a name="update-rus-for-a-database-and-collection-for-mongodb-api-for-azure-cosmos-db-using-azure-cli"></a>Atualização RU/s para uma base de dados e recolha para MongoDB API para Azure Cosmos DB usando Azure CLI

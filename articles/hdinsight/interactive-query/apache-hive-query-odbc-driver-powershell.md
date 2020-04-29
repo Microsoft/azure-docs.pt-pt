@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73494323"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Colmeia De AnaApache com ODBC e PowerShell

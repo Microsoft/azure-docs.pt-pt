@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 1751cc5d5bcf47f8fa269853051eee4185d4e3aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73156358"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutorial: Integração do Diretório Ativo Azure com o Flock

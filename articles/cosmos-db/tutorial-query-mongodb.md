@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74870144"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Dados de consulta utilizando a API da Azure Cosmos DB para mongoDB

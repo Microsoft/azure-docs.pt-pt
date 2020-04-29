@@ -9,10 +9,10 @@ ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
 ms.openlocfilehash: 848fd89444281d82d6d0d1bfc4df15d499c09ee0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79370496"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Alojamento de site estático no Armazenamento do Azure
@@ -41,11 +41,11 @@ Os ficheiros no contentor **$web** são sensíveis a casos, servidos através de
 Pode utilizar qualquer uma destas ferramentas para fazer o upload de conteúdo para **o** $web recipiente:
 
 > [!div class="checklist"]
-> * [Azure CLI](storage-blob-static-website-how-to.md#cli)
+> * [CLI do Azure](storage-blob-static-website-how-to.md#cli)
 > * [Módulo do Azure PowerShell](storage-blob-static-website-how-to.md#powershell)
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
-> * [Explorador do Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
-> * [Oleodutos Azure](https://azure.microsoft.com/services/devops/pipelines/)
+> * [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
+> * [Pipelines do Azure](https://azure.microsoft.com/services/devops/pipelines/)
 > * [Extensão do Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Visualização de conteúdos
@@ -54,8 +54,8 @@ Os utilizadores podem ver o conteúdo do site a partir de um browser utilizando 
 
 |Ferramenta| Orientação |
 |----|----|
-|**Portal Azure** | [Encontre o URL do site utilizando o portal Azure](storage-blob-static-website-how-to.md#portal-find-url) |
-|**Azure CLI** | [Encontre o URL do site utilizando o Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
+|**Portal do Azure** | [Encontre o URL do site utilizando o portal Azure](storage-blob-static-website-how-to.md#portal-find-url) |
+|**CLI do Azure** | [Encontre o URL do site utilizando o Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Módulo do Azure PowerShell** | [Encontre o URL do site usando powerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
 O URL do seu site contém um código regional. Por exemplo, `https://contosoblobaccount.z22.web.core.windows.net/` o `z22`URL contém código regional .

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/26/2020
 ms.openlocfilehash: 2c6495454e5ba2449d4b3c74a096681f74610813
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79272776"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Gerir clusters Azure HDInsight utilizando o Azure CLI

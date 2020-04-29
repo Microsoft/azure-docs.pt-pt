@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 03/17/2020
 ms.author: mjbrown
 ms.openlocfilehash: 719e2cd831a982c62ab965cd7dc8a37c4cb41265
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365626"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-api"></a>Criar uma base de dados e um recipiente para o Azure Cosmos DB - SQL API

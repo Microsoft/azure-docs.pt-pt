@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
 ms.openlocfilehash: 29e24166218a6757cded9d1b002321800ab0c073
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80055504"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutorial: Começar com consultas de Log Analytics

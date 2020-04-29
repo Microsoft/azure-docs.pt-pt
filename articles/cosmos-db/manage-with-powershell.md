@@ -8,10 +8,10 @@ ms.date: 03/26/2020
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: c8e833a4ba18520d8e354398cfd0d00525594d15
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365758"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gerir os recursos da API Da Azure Cosmos DB SQL utilizando a PowerShell

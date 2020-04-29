@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282890"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>OData $filter sintaxe na Pesquisa Cognitiva de Azure

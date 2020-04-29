@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 08/23/2019
 ms.author: dech
 ms.openlocfilehash: 4ac3d74cb76a936cc88261a2fedf16764e8ae52f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76718298"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Exemplos de Node.js para gerir dados em Azure Cosmos DB

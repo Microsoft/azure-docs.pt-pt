@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271645"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitetura do Azure IoT Central
@@ -142,7 +142,7 @@ Num modelo de dispositivo de aplicação IoT Central contém:
 
 Uma aplicação pode ter um ou mais dispositivos simulados e reais baseados em cada modelo de dispositivo.
 
-## <a name="data-export"></a>Exportar dados
+## <a name="data-export"></a>Exportação de dados
 
 Numa aplicação Azure IoT Central, pode [exportar continuamente os seus dados](howto-export-data.md) para os seus próprios Hubs de Eventos Azure e para as instâncias do Azure Service Bus. Também pode exportar periodicamente os seus dados para a sua conta de armazenamento Azure Blob. A IoT Central pode exportar medições, dispositivos e modelos de dispositivos.
 

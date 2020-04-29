@@ -4,10 +4,10 @@ description: Este padrão de política azure fornece um exemplo de como usar os 
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: 1a9aec50bd328b76271d54f7830c75e0848d3cde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80372642"
 ---
 # <a name="azure-policy-pattern-effects"></a>Padrão de política azure: efeitos

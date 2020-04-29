@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: a2bec6401ae3ac53f46e92e9be38abf57a92163d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74108096"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>Importar uma API SOAP e converter em REST

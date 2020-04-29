@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75553514"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Tutorial: Criar clusters Azure HDInsight com Automação Azure

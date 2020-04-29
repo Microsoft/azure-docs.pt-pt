@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 2f70b829e2202c3d28adcfbbb07338923c43e8a8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78402841"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizaa imagem de contentor constrói-se na nuvem quando comete código fonte

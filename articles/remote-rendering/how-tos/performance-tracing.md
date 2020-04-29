@@ -1,18 +1,18 @@
 ---
-title: Criar vestígios de desempenho do lado do cliente
+title: Criar rastreios de desempenho do lado do cliente
 description: Boas práticas para perfis de desempenho do lado do cliente usando WPF
 author: florianborn71
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1f4207a11f3ae3664023fccf6178b6db7cf253b9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681314"
 ---
-# <a name="create-client-side-performance-traces"></a>Criar vestígios de desempenho do lado do cliente
+# <a name="create-client-side-performance-traces"></a>Criar rastreios de desempenho do lado do cliente
 
 Existem muitas razões pelas quais o desempenho da Renderização Remota Azure pode não ser tão bom quanto desejado. Além do desempenho de renderização pura no servidor de nuvem, especialmente a qualidade da ligação de rede tem uma influência significativa na experiência. Para perfilar o desempenho do servidor, consulte as consultas de desempenho do [lado do servidor](../overview/features/performance-queries.md)do capítulo .
 

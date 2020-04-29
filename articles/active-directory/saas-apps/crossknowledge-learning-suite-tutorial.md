@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7fcbd726c7bd24ac8bc3037a9f982ed8137bffdd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80135819"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-crossknowledge-learning-suite"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com CrossKnowledge Learning Suite

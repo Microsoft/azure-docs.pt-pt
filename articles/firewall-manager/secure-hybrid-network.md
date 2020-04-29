@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: cdd416bdb833e4784334a6847d724a7375e2ef8d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77459958"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager-preview"></a>Tutorial: Proteja a sua rede virtual do hub utilizando a pré-visualização do Azure Firewall Manager 
@@ -71,7 +71,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 ## <a name="create-a-firewall-policy"></a>Criar uma Política de Firewall
 
-1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Na barra de pesquisa do portal Azure, escreva **Firewall Manager** e prima **Enter**.
 3. Na página Do Gestor de Firewall Azure, selecione as políticas de **firewall do View Azure**.
 

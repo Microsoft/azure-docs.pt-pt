@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.custom: mvc
 ms.openlocfilehash: cbfae89ffa446ca3915129fd9add2701ac21d837
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75465466"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Criar e implementar uma aplicação com um serviço front-end de API Web do ASP.NET Core e um serviço back-end com monitorização de estado

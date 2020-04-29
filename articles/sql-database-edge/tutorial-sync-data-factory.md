@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: e6fd9e6431137708ba93328a8ed1359b93b4ee1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74851711"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronizar dados da Base de Dados SQL Edge para o armazenamento de Blob Azure utilizando a Azure Data Factory
@@ -198,7 +198,7 @@ Crie uma fábrica de dados seguindo as instruções [deste tutorial.](../data-fa
     |Nome|Tipo|Valor|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}|
-    |TableName|Cadeia|@{activity('OldWaterMark').output.firstRow.TableName}|
+    |TableName|String|@{activity('OldWaterMark').output.firstRow.TableName}|
 
 33. Para validar as definições do gasoduto, selecione **Validar** na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela do **>>** Relatório de Validação do **Gasoduto,** selecione .
 

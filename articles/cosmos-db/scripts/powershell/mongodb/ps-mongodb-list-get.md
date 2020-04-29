@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: 686b140915e90adefa15084c2e8317404b91ed09
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365904"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>Liste e obtenha bases de dados e gráficos para Azure Cosmos DB - MongoDB API

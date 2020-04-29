@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2027629e1e9e297c97cbf40485ebe7dc2e3e6c0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277729"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da grelha de eventos azure para funções azure
@@ -159,7 +159,7 @@ module.exports = function (context, eventGridEvent) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo seguinte mostra uma ligação do gatilho num ficheiro *function.json* e uma [função Python](functions-reference-python.md) que utiliza a ligação.
 
@@ -293,7 +293,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
@@ -347,7 +347,7 @@ Nas Funções Azure 2.x e superior, também tem a opção de utilizar o seguinte
 
 A instância Da Grelha de Eventos está disponível através do `name` parâmetro configurado na propriedade do ficheiro *function.json.*
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 A instância Da Grelha de Eventos está disponível através do `name` parâmetro configurado `func.EventGridEvent`na propriedade do ficheiro *fun.json,* dactilografado como .
 

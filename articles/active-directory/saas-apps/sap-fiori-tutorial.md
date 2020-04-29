@@ -17,10 +17,10 @@ ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 917ba9274276fec5d01a40bdf7219e8d4fee1395
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78897766"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com sAP Fiori
@@ -231,15 +231,15 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
     ![As opções de Ficheiros de Dados de Adicionar e Upload no SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-uploadmetadata.png)
 
-1. Faça upload do ficheiro de metadados que descarregou no portal Azure. Selecione **Next**.
+1. Faça upload do ficheiro de metadados que descarregou no portal Azure. Selecione **Seguinte**.
 
     ![Selecione o ficheiro de metadados para carregar no SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-metadatafile.png)
 
-1. Na página seguinte, na caixa de **pseudónimos,** insira o nome do pseudónimo. Por exemplo, **adsts.** Selecione **Next**.
+1. Na página seguinte, na caixa de **pseudónimos,** insira o nome do pseudónimo. Por exemplo, **adsts.** Selecione **Seguinte**.
 
     ![A caixa de pseudónimos em SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-aliasname.png)
 
-1. Certifique-se de que o valor na caixa **de algoritmos digestiva** é **SHA-256**. Selecione **Next**.
+1. Certifique-se de que o valor na caixa **de algoritmos digestiva** é **SHA-256**. Selecione **Seguinte**.
 
     ![Verifique o valor do Algoritmo digestiva em SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-identityprovider.png)
 

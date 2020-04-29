@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: ffa0176c4dde6334e70b9a56b066a677d1610b48
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160207"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Diretório Ativo Azure com Dados do Periscope

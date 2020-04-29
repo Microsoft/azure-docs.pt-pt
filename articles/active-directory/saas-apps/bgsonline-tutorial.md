@@ -17,10 +17,10 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bccd90340fe8f8dfd5393a391899caf92dd2251f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73158866"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>Tutorial: Integração de Diretório Sonárte Azure com a BGS Online

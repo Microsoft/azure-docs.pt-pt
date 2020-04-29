@@ -6,13 +6,13 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681249"
 ---
-# <a name="use-the-session-management-rest-api"></a>Utilize a gestão da sessão REST API
+# <a name="use-the-session-management-rest-api"></a>Utilizar a API REST de gestão de sessões
 
 Para utilizar a funcionalidade de renderização remota Azure, é necessário criar uma *sessão*. Cada sessão corresponde a uma máquina virtual (VM) a ser atribuída no Azure e à espera que um dispositivo cliente se conecte. Quando um dispositivo se liga, o VM torna os dados solicitados e serve o resultado como um fluxo de vídeo. Durante a criação da sessão, escolheu o tipo de servidor que pretende executar, o que determina os preços. Uma vez que a sessão já não seja necessária, deve ser interrompida. Se não parar manualmente, será desligado automaticamente quando o tempo de *aluguer* da sessão expirar.
 
@@ -283,4 +283,4 @@ RawContentLength  : 0
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Exemplo de scripts PowerShell](../samples/powershell-example-scripts.md)
+* [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)

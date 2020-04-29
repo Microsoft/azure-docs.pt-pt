@@ -4,10 +4,10 @@ description: Mapeamento de controlo das amostras de plantas pBMM federais do Can
 ms.date: 09/04/2019
 ms.topic: sample
 ms.openlocfilehash: 943ca6849f9a55ce45b609a06cfcbb9b96b691c2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74545258"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controlo da amostra de planta pBMM federal do Canadá
@@ -315,7 +315,7 @@ Revistei o mapeamento de controlo da amostra de plantas pBMM federais do Canadá
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
-- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

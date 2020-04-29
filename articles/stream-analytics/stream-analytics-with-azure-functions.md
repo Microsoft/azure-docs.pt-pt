@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
 ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77589458"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Run Azure Funções a partir de trabalhos da Azure Stream Analytics 

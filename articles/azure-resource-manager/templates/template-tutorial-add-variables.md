@@ -6,10 +6,10 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: b1df86e5b593edec784de21e21a4399274d820bb
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80411692"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Tutorial: Adicione variáveis ao seu modelo ARM
@@ -88,7 +88,7 @@ az deployment group create \
 
 Pode verificar a implantação explorando o grupo de recursos a partir do portal Azure.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
 1. Selecione o grupo de recursos para o quais foi implantado.
 1. Sabe que foi implementado um recurso de conta de armazenamento. O nome da conta de armazenamento é **loja** mais uma série de caracteres aleatórios.

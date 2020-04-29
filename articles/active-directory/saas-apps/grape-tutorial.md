@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 9d614339e1520fd3ce78116d2b8fc2347e2799d6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73158099"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutorial: Integração do Diretório Ativo Azure com gra-Pe

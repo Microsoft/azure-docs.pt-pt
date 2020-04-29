@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 2485794d9ec1ce78a8916014dc1117ed59c34e44
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656069"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Quickstart: Gere uma miniatura utilizando a API e javaScript de Visão Computacional

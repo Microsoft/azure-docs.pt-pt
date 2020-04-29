@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 57630b789233dd23e61398f445b434e4ba08b48e
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80236028"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Treine e implante um modelo de Aprendizagem automática Azure
@@ -171,7 +171,7 @@ Para verificar se os cadernos foram concluídos com sucesso, verifique se foram 
     | Registo de Contentor | turbofandemoxxxxxxxx |
     | Insights de Aplicações | turbofaninsightxxxxxxxxx |
     | Cofre de Chaves | turbofankeyvaultbxxxxxxxx |
-    | Storage | turbofanstoragexxxxxxxxxxxx |
+    | Armazenamento | turbofanstoragexxxxxxxxxxxx |
 
 ### <a name="debugging"></a>Depurar
 
@@ -181,7 +181,7 @@ Poderá ter de eliminar ficheiros previamente criados e recursos Azure se precis
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, usamos dois Cadernos Jupyter em execução em Cadernos Azure para usar os dados dos dispositivos turbofan para treinar uma vida útil restante (RUL) classificada, para salvar o classificador como modelo, para criar uma imagem de recipiente, e para implantar e testar a imagem como uma web serviço.
+Neste artigo, utilizámos dois Cadernos Jupyter em Execução em Cadernos Azure para usar os dados dos dispositivos turbofan para treinar uma restante classe útil de vida (RUL), para salvar o classificador como modelo, para criar uma imagem de contentor, e para implantar e testar a imagem como um serviço web.
 
 Continue para o próximo artigo para criar um dispositivo IoT Edge.
 

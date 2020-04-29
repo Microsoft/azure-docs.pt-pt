@@ -17,10 +17,10 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5d07a54024ab3972734533767e6bf7c040efa94e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73157471"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chromeriver"></a>Tutorial: Integração do Diretório Ativo Azure com o Chromeriver

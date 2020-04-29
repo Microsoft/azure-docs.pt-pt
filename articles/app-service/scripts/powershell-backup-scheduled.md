@@ -9,10 +9,10 @@ ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 24723d442cdc684e109dee3270cdfbc217fd4f4c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80044612"
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app-using-powershell"></a>Criar uma cópia de segurança programada para uma aplicação web usando powerShell

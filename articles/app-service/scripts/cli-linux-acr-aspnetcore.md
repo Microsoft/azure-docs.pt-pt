@@ -10,10 +10,10 @@ ms.date: 12/13/2018
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 64177d00b302f9df8a0b28067031bd7cc1b3a156
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80057777"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Crie uma app ASP.NET Core num contentor Dono em App Service do Registo de Contentores Azure

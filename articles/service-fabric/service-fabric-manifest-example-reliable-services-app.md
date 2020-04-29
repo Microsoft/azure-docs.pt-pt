@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: f40e54f5260f827f0b18c833d23d1f57b5ebc3a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282357"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exemplos de manifesto e aplicação e serviço do Reliable Services
@@ -312,7 +312,7 @@ Indica se um código, config ou pacote de dados deve ser partilhado em instânci
 Concede permissões de acesso a um principal num recurso (como um ponto final) definido num manifesto de serviço. Tipicamente, é muito útil controlar e restringir o acesso dos serviços a diferentes recursos de forma a minimizar os riscos de segurança. Isto é especialmente importante quando a aplicação é construída a partir de uma coleção de serviços de um mercado que são desenvolvidos por diferentes desenvolvedores. Para mais informações, consulte [SecurityAccessPolicy Element](service-fabric-service-model-schema-elements.md#SecurityAccessPolicyElementSecurityAccessPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInSecurityAccessPolicieselementDefinedInDigestedEndpointelement)
 
 ### <a name="runaspolicy-element"></a>Elemento RunasPolicy
-Especifica a conta do utilizador local ou do sistema local que um pacote de código de serviço será executado como. As contas de domínio são suportadas nas implementações do Windows Server onde o Azure Ative Directory está disponível. Por predefinição, as aplicações são executadas sob a conta que o processo Fabric.exe é executado. Os pedidos também podem ser executados como outras contas, que devem ser declaradas na secção de Principados. Se aplicar uma política de RunAs a um serviço, e o manifesto de serviço declarar recursos de ponto final com o protocolo HTTP, também deve especificar uma Política de Acesso de Segurança para garantir que as portas atribuídas a estes pontos finais são corretamente controlo de acesso listado para os RunAs conta utilizador que o serviço é executado abaixo. Para um ponto final HTTPS, também tem de definir uma Política EndpointBinding para indicar o nome do certificado para devolver ao cliente. Para mais informações, consulte [RunAsPolicy Element](service-fabric-service-model-schema-elements.md#RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)
+Especifica a conta do utilizador local ou do sistema local que um pacote de código de serviço será executado como. As contas de domínio são suportadas nas implementações do Windows Server onde o Azure Ative Directory está disponível. Por predefinição, as aplicações são executadas sob a conta que o processo Fabric.exe é executado. Os pedidos também podem ser executados como outras contas, que devem ser declaradas na secção de Principados. Se aplicar uma política de RunAs a um serviço, e o manifesto de serviço declarar recursos de ponto final com o protocolo HTTP, deve também especificar uma Política de Acesso ao Segurança para garantir que as portas atribuídas a estes pontos finais são corretamente controlo de acesso listado para a conta de utilizador RunAs a que o serviço é executado. Para um ponto final HTTPS, também tem de definir uma Política EndpointBinding para indicar o nome do certificado para devolver ao cliente. Para mais informações, consulte [RunAsPolicy Element](service-fabric-service-model-schema-elements.md#RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)
 
 ### <a name="defaultservices-element"></a>Elemento de Serviços Predefinidos
 Declara instâncias de serviço que são automaticamente criadas sempre que uma aplicação é instantaneamente contra este tipo de aplicação. Para mais informações, consulte [DefaultServices Element](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)

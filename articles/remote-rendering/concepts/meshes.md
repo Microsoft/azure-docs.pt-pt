@@ -1,18 +1,18 @@
 ---
-title: Meshes
+title: Malhas
 description: Definição de maças no âmbito da renderização remota azure
 author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: b800272a538243d39a89e4eed64bc5cbc2d53ad8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681769"
 ---
-# <a name="meshes"></a>Meshes
+# <a name="meshes"></a>Malhas
 
 ## <a name="mesh-resource"></a>Recurso de malha
 

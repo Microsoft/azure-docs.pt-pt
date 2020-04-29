@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 ms.openlocfilehash: b0a9597e370648faab3787218c7d038798dbd455
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80048113"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro de Implantação de Azure Kubernetes

@@ -9,10 +9,10 @@ ms.date: 03/02/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78251494"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar tráfego de internet de entrada com Adn de Firewall Azure utilizando o portal Azure
@@ -37,7 +37,7 @@ Neste tutorial, vai criar duas VNets em modo peering:
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Na página inicial do portal Azure, selecione **grupos de Recursos**e, em seguida, selecione **Adicionar**.
 3. Em **Nome do grupo de recursos**, escreva **RG-DNAT-Test**.
 4. Em **Subscrição**, selecione a sua subscrição.

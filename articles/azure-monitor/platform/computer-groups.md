@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274778"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos informáticos em consultas de registo do Monitor Azure
@@ -26,7 +26,7 @@ Pode criar um grupo informático no Monitor Azure utilizando qualquer um dos mé
 | Consulta de log |Crie uma consulta de registo que retorne uma lista de computadores. |
 | API de Pesquisas de Registos |Utilize a API de pesquisa de registo para criar programáticamente um grupo de computador com base nos resultados de uma consulta de registo. |
 | Active Directory |Digitalize automaticamente a adesão do grupo a quaisquer computadores de agente que sejam membros de um domínio de Diretório Ativo e crie um grupo no Monitor Azure para cada grupo de segurança. (apenas máquinas de janelas)|
-| Configuration Manager | Importar coleções do Microsoft Endpoint Configuration Manager e criar um grupo no Monitor Azure para cada um. |
+| Gestor de configuração | Importar coleções do Microsoft Endpoint Configuration Manager e criar um grupo no Monitor Azure para cada um. |
 | Windows Server Update Services |Digitalize automaticamente servidores ou clientes wSUS para direcionar grupos e crie um grupo no Monitor Azure para cada um. |
 
 ### <a name="log-query"></a>Consulta de log
@@ -74,7 +74,7 @@ Configura o Monitor Azure para importar grupos WSUS a partir de **configuraçõe
 
 Quando os grupos foram importados, o menu enumera o número de computadores com membros do grupo detetados e o número de grupos importados.  Pode clicar em qualquer uma destas ligações para devolver os registos **do ComputerGroup** com esta informação.
 
-### <a name="configuration-manager"></a>Configuration Manager
+### <a name="configuration-manager"></a>Gestor de configuração
 Quando configura o Monitor Azure para importar membros de recolha do Gestor de Configuração, cria um grupo informático para cada coleção.  A informação sobre a adesão à coleção é recuperada a cada 3 horas para manter os grupos informáticos atuais. 
 
 Antes de importar coleções do Gestor de Configuração, deve ligar o Gestor de [Configuração ao Monitor Azure](collect-sccm.md).  

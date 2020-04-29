@@ -17,10 +17,10 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fdc93cb5d04630307026c2786fda117e16f60f4e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73154000"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Tutorial: Integração de Diretório Sonâmbulo Azure com a Adobe Captivate Prime

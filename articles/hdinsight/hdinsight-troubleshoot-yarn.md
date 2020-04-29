@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79272204"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Resolver Problemas do YARN do Apache Hadoop com o Azure HDInsight

@@ -4,10 +4,10 @@ description: Neste tutorial, aprenda a restaurar as bases de dados SAP HANA em f
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.openlocfilehash: 6dbe0c4382b648506d853feb281c70a8e8401595
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75472073"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Restaurar as bases de dados SAP HANA num Azure VM utilizando o Azure CLI

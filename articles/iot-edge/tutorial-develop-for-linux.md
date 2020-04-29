@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 478d9c0485125870f8d5ffb4132f46476b4bb4ef
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80384369"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos IoT Edge para dispositivos Linux
@@ -48,8 +48,8 @@ A tabela seguinte lista os cenários de desenvolvimento suportados para **conten
 |   | Visual Studio Code | Estúdio Visual 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Arquitetura de dispositivo sinuoso** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
-| **Serviços Azure** | Funções do Azure <br> Azure Stream Analytics <br> Azure Machine Learning |   |
-| **Idiomas** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
+| **Serviços do Azure** | Funções do Azure <br> Azure Stream Analytics <br> Azure Machine Learning |   |
+| **Linguagens** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
 | **Mais informações** | [Borda Azure IoT para código de estúdio visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Ferramentas de borda Azure IoT para Estúdio Visual 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) <br> [Ferramentas de borda Azure IoT para Estúdio Visual 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 >[!NOTE]

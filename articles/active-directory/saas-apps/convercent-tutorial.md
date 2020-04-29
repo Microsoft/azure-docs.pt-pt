@@ -17,10 +17,10 @@ ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4e9c96db69ed3bc49081607ab6e2c3ad6077c3c6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73159339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Tutorial: Integração do Diretório Ativo Azure com a Convercent

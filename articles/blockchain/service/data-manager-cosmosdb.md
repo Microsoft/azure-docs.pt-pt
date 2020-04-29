@@ -5,10 +5,10 @@ ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
 ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79533186"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Tutorial: Use blockchain Data Manager para enviar dados para O Azure Cosmos DB
@@ -41,7 +41,7 @@ Neste tutorial:
 
 Uma instância do Gestor de Dados blockchain conecta e monitoriza um nó de transações do Serviço Azure Blockchain. Um caso captura todos os dados de transações brutas e blocos brutos do nó de transações. Uma ligação de saída envia dados blockchain para a Rede de Eventos Azure. Configura uma única ligação de saída quando cria a instância.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Vá ao membro do Serviço Azure Blockchain que criou no [pré-requisito Quickstart: Crie um membro blockchain utilizando o portal Azure](create-member.md). Selecione **Blockchain Data Manager**.
 1. Selecione **Adicionar**.
 

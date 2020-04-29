@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
 ms.openlocfilehash: 12b32256c91dfcf93ca55eeb348cc78613ba860e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067110"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total da faturação de um recipiente de bolha

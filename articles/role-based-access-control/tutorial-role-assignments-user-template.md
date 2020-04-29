@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
 ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77138207"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Tutorial: Conceder ao utilizador acesso aos recursos Azure utilizando o modelo RBAC e Gestor de Recursos
@@ -63,7 +63,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="validate-the-deployment"></a>Validar a implementação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Abra o grupo de recursos criado no último procedimento. O nome padrão é o nome do projeto com **rg** anexado.
 1. Selecione **Controlo de acesso (IAM)** no menu da esquerda.
 1. Selecione **Atribuições de funções**. 

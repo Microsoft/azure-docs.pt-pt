@@ -16,10 +16,10 @@ ms.date: 03/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6771060f05a03c82879738dc5e8caccb67e55abc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80477997"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>Tutorial: Azure Ative Directory integração individual de assinatura com citrix NetScaler (autenticação baseada em Kerberos)

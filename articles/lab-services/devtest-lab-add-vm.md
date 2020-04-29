@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 22060cc6dd5eb15e81a0c397a7b0255f16780d74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79284255"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Adicione um VM a um laboratório em Azure DevTest Labs
@@ -27,7 +27,7 @@ Se já [criou o seu primeiro VM,](tutorial-create-custom-lab.md#add-a-vm-to-the-
 Este artigo também mostra como gerir os artefactos para um VM no seu laboratório.
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Passos para adicionar um VM a um laboratório em Azure DevTest Labs
-1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** na secção **DEVOPS.** Se selecionar * (estrela) ao lado de **DevTest Labs** na secção **DEVOPS.** Esta ação adiciona **DevTest Labs** ao menu de navegação esquerdo para que possa acessá-lo facilmente da próxima vez. Em seguida, pode selecionar **DevTest Labs** no menu de navegação esquerdo.
 
     ![Todos os serviços - selecione DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
@@ -70,7 +70,7 @@ Ao criar um VM, pode adicionar artefactos existentes. Cada laboratório inclui a
 
 Para descobrir como criar artefactos, consulte o artigo, [Saiba como autoria os seus próprios artefactos para uso com devTest Labs](devtest-lab-artifact-author.md).
 
-1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Da lista de laboratórios, selecione o laboratório que contém o VM com o qual quer trabalhar.
 1. Selecione **As minhas máquinas virtuais.**

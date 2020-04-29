@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 98458f8be162d0903f5ea0d1f7d4651d46f78e8e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80048441"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iprova"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com iProva
@@ -192,7 +192,7 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
 8. Selecione **Configurar**.
 
-9. Selecione **Next**.
+9. Selecione **Seguinte**.
 
 10. IProva pergunta se deseja descarregar dados da federação a partir de um URL ou carregá-lo a partir de um ficheiro. Selecione a opção **From URL.**
 
@@ -204,7 +204,7 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
 13. Quando o download estiver concluído, aparece o ficheiro De dados válido da **Federação Descarregada.**
 
-14. Selecione **Next**.
+14. Selecione **Seguinte**.
 
 15. Ignore a opção de **login** do Teste por enquanto e selecione **Next**.
 

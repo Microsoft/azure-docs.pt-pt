@@ -9,17 +9,17 @@ ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79272919"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Ligar uma rede virtual a um circuito do ExpressRoute com o portal
 > [!div class="op_single_selector"]
-> * [Portal Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Azure CLI](howto-linkvnet-cli.md)
+> * [CLI do Azure](howto-linkvnet-cli.md)
 > * [Vídeo - Portal Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-linkvnet-classic.md)
 > 

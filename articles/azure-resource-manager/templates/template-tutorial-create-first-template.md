@@ -6,10 +6,10 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 8b05bccf10ef5f273a74ca49e02162fd0408230f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80411714"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Crie e implante o seu primeiro modelo ARM
@@ -161,7 +161,7 @@ O comando de implantação devolve os resultados. Procure `ProvisioningState` ve
 
 Pode verificar a implantação explorando o grupo de recursos a partir do portal Azure.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
 

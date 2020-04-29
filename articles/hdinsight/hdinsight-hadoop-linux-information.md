@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.openlocfilehash: 3d9dec0065bb62821fcedcbc4f6e5b578c061caf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79272464"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
@@ -190,9 +190,9 @@ Se utilizar o __Armazenamento Azure,__ consulte os seguintes links para obter fo
 * Vários SDKs:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
-    * [Nó.js](https://github.com/Azure/azure-sdk-for-node)
+    * [Node.js](https://github.com/Azure/azure-sdk-for-node)
     * [PHP](https://github.com/Azure/azure-sdk-for-php)
-    * [Pitão](https://github.com/Azure/azure-sdk-for-python)
+    * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [API REST de Armazenamento](https://msdn.microsoft.com/library/azure/dd135733.aspx)
@@ -201,12 +201,12 @@ Se utilizar o Armazenamento do __Lago de Dados Azure,__ consulte os seguintes li
 
 * [Navegador web](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [Azure CLI](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
+* [CLI do Azure](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Ferramentas do Lago de Dados para Estúdio Visual](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
-* [Pitão](../data-lake-store/data-lake-store-get-started-python.md)
+* [Python](../data-lake-store/data-lake-store-get-started-python.md)
 
 ## <a name="scaling-your-cluster"></a><a name="scaling"></a>Escalando o seu cluster
 

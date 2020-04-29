@@ -4,10 +4,10 @@ description: Descreve os fornecedores de recursos que suportam o Gestor de Recur
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.openlocfilehash: 82b8251006a1a2d4edd198eca843489d3720f8d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273985"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos e fornecedores de recursos do Azure
@@ -33,7 +33,7 @@ Para uma lista que mapeie os fornecedores de recursos para os serviços Azure, c
 
 Para ver todos os fornecedores de recursos e o estado de registo da sua subscrição:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu do portal do Azure, selecione **Todos os serviços**.
 
     ![selecionar subscrições](./media/resource-providers-and-types/select-all-services.png)
@@ -50,7 +50,7 @@ Para ver todos os fornecedores de recursos e o estado de registo da sua subscri�
 
 Para ver informações para um determinado fornecedor de recursos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu do portal do Azure, selecione **Todos os serviços**.
 3. Na caixa **de todos os serviços,** introduza o explorador de **recursos,** e, em seguida, selecione **Resource Explorer**.
 

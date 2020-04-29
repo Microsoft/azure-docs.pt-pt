@@ -9,10 +9,10 @@ ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 4a22148d4151fd3c80c7be439b5dd281200e5456
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80044580"
 ---
 # <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>Restaurar uma aplicação web a partir de uma cópia de segurança em outra subscrição usando powerShell

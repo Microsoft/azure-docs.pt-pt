@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
 ms.openlocfilehash: fef325b67c38eda09a05dac9d74bd5b97df164cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067773"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Responda aos eventos de ônibus de serviço azure recebidos via Azure Event Grid usando funções Azure e aplicações lógicas azure

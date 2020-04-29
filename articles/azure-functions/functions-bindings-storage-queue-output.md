@@ -7,10 +7,10 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 76af5f398edd736874fa79095f2e80c02298eac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277339"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento de fila Azure para funções azure
@@ -150,7 +150,7 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo seguinte demonstra como obter valores únicos e múltiplos para as filas de armazenamento. A configuração necessária para *função.json* é a mesma de qualquer forma.
 
@@ -273,7 +273,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
@@ -362,7 +362,7 @@ No script C# e C#, escreva várias mensagens de fila utilizando um dos seguintes
 
 O item da fila `context.bindings.<NAME>` `<NAME>` de saída está disponível através do local onde corresponde ao nome definido na *função.json*. Pode utilizar uma corda ou um objeto json-serializável para a carga útil do item da fila.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Existem duas opções para distribuir uma mensagem do Event Hub a partir de uma função:
 

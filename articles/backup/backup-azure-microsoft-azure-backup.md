@@ -4,17 +4,17 @@ description: Neste artigo, aprenda a preparar o seu ambiente para proteger e faz
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273413"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup Azure
 
 > [!div class="op_single_selector"]
 >
-> * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+> * [Servidor do Backup do Azure](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
 >
 >
@@ -92,7 +92,7 @@ Para editar a definição de replicação de armazenamento:
 
 ### <a name="downloading-the-software-package"></a>Descarregar o pacote de software
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Se já tem um cofre dos Serviços de Recuperação aberto, proceda ao passo 3. Se não tiver um cofre dos Serviços de Recuperação aberto, mas estiver no portal Azure, no menu principal, clique em **Navegar**.
 
    * Na lista de recursos, escreva **Serviços de Recuperação**.

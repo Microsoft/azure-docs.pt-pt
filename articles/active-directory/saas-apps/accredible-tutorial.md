@@ -17,10 +17,10 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5be397ca14a90c333e20f0a1a42b63e0c9f0ae0e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73154156"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Tutorial: Integração do Diretório Ativo Azure com a Accredible

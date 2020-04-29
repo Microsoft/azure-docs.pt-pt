@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: 636903c20e07f11a2fd919654cfaa62037171f20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277768"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Ligação de saída Azure Cosmos DB para funções Azure 2.x
@@ -302,7 +302,7 @@ Aqui está o código JavaScript:
     };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo seguinte demonstra como escrever um documento a uma base de dados Azure CosmosDB como a saída de uma função.
 
@@ -549,7 +549,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 

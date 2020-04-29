@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 135c58a665779ffaad8750ffe618bdbe38639b66
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681496"
 ---
 # <a name="convert-models"></a>Converter modelos
@@ -50,7 +50,7 @@ Para as várias opções de conversão, consulte [este capítulo.](configure-mod
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Utilize o Armazenamento Azure Blob para conversão de modelos](blob-storage.md)
+- [Utilizar o Armazenamento de Blobs do Azure para conversão de modelos](blob-storage.md)
 - [A conversão do modelo REST API](conversion-rest-api.md)
 - [Configurar a conversão do modelo](configure-model-conversion.md)
-- [Mapeamento de material para formatos de modelo](../../reference/material-mapping.md)
+- [Mapeamento de materiais para formatos de modelos](../../reference/material-mapping.md)

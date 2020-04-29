@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ms.openlocfilehash: 121f6ffa5c1a7c903e59be8a5bc3e1e1db0834fc
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673354"
 ---
 ## <a name="add-an-output-binding-definition-to-the-function"></a>Adicione uma definição de ligação de saída à função

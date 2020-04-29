@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9f5c5cc3a943ad4a8882a91ffdcee89c2ad39743
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79272971"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos do NAT do ExpressRoute
@@ -70,7 +70,7 @@ Não existem restrições ao comprimento do prefixo do IP do NAT anunciado atrav
 * Para obter informações sobre o fluxo de trabalho, veja [Circuito ExpressRoute aprovisiona fluxos de trabalho e estados de circuitos](expressroute-workflows.md).
 * Configurar a ligação do ExpressRoute.
   
-  * [Crie um circuito do ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
+  * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configure o encaminhamento](expressroute-howto-routing-portal-resource-manager.md)
   * [Ligar uma VNet a um circuito do ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 

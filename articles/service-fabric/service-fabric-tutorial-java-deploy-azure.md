@@ -7,10 +7,10 @@ ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: df6719cad79bdb063c2d4d74892206b6e5bbd414
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80292041"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementar uma aplicação Java num cluster do Service Fabric no Azure

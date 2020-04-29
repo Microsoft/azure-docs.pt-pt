@@ -1,18 +1,18 @@
 ---
-title: Utilize o Armazenamento Azure Blob para conversão de modelos
+title: Utilizar o Armazenamento de Blobs do Azure para conversão de modelos
 description: Descreve passos comuns para configurar e utilizar o armazenamento de blob para conversão de modelos.
 author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681652"
 ---
-# <a name="use-azure-blob-storage-for-model-conversion"></a>Utilize o Armazenamento Azure Blob para conversão de modelos
+# <a name="use-azure-blob-storage-for-model-conversion"></a>Utilizar o Armazenamento de Blobs do Azure para conversão de modelos
 
 O serviço de conversão do [modelo](model-conversion.md) requer acesso ao armazenamento de blob Azure para que possa recuperar dados de entrada e armazenar dados de saída. Este artigo descreve como fazer os passos mais comuns.
 

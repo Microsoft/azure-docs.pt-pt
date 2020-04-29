@@ -16,10 +16,10 @@ ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: 0b6667965ddd1fce30bb2da2593e2a9274b595ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79472021"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Stream live with Media Services

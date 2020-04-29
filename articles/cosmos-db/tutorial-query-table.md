@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 8f31ace0045dad2f038a1eded52a41ffb1932f99
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76770492"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consultar o Azure Cosmos DB através da API de Tabela

@@ -6,10 +6,10 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: b91041b96a3819dbace3898d92226f0351f0f973
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80411509"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutorial: Utilize ficheiros de parâmetros para implementar o seu modelo ARM
@@ -127,7 +127,7 @@ az deployment group create \
 
 Pode verificar a implantação explorando os grupos de recursos a partir do portal Azure.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
 1. Vê os dois novos grupos de recursos que implantou neste tutorial.
 1. Selecione um grupo de recursos e veja os recursos implantados. Note que correspondem aos valores especificados no seu ficheiro de parâmetros para esse ambiente.

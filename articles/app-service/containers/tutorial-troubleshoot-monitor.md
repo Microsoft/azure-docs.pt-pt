@@ -6,10 +6,10 @@ ms.author: msangapu
 ms.topic: tutorial
 ms.date: 2/28/2020
 ms.openlocfilehash: d543a9364311b2cf5f0258fbf9185d27bb1bfb2f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78399528"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Troubleshoot uma app de serviço de aplicações com monitor Azure
@@ -40,7 +40,7 @@ Pode seguir os passos neste tutorial em macOS, Linux e Windows.
 Para completar este tutorial, você precisará:
 
 - [Subscrição do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 - [Git](https://git-scm.com/)
 
 ## <a name="create-azure-resources"></a>Criar recursos do Azure

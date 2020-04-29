@@ -1,18 +1,18 @@
 ---
-title: Instale o pacote de renderização remota para a unidade
+title: Instalar o pacote do Remote Rendering para o Unity
 description: Explica como instalar os DLLs do cliente de renderização remota para a Unidade
 author: florianborn71
 ms.author: flborn
 ms.date: 02/26/2020
 ms.topic: how-to
 ms.openlocfilehash: 86ffe47c009f9e0ae121ffc6ab57bff8fb73210f
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681184"
 ---
-# <a name="install-the-remote-rendering-package-for-unity"></a>Instale o pacote de renderização remota para a unidade
+# <a name="install-the-remote-rendering-package-for-unity"></a>Instalar o pacote do Remote Rendering para o Unity
 
 A Azure Remote Rendering usa um pacote de unidade para encapsular a integração na Unidade.
 

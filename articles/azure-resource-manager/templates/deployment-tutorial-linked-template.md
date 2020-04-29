@@ -5,10 +5,10 @@ ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 177a994450b6ffe5489a8c95c3b484521fd9b77b
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80672925"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutorial: Implementar um modelo ligado

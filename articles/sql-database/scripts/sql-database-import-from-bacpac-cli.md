@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
 ms.openlocfilehash: f47d0ec2edf54aaa708c176e92a9e1026b446882
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80061840"
 ---
 # <a name="use-cli-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Utilize o CLI para importar um ficheiro BACPAC numa base de dados Azure SQL

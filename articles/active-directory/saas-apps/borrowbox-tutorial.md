@@ -17,10 +17,10 @@ ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b11ce4ba21a6fd4db047c75104729737956699c4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73157631"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutorial: Integração de Diretório Ativo Azure com BorrowBox

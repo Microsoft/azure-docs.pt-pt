@@ -10,10 +10,10 @@ ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
 ms.openlocfilehash: fe74db34e62a80935954c6cfc2e591d49a84b0b7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76263953"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Instale borda de caixa de dados azure

@@ -8,10 +8,10 @@ ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 12c750f96b8852cdd6a6039ebfa750c2ee792a6b
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80396725"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Export Azure Activity log to storage or Azure Event Hubs

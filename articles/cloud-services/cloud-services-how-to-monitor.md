@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273101"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução à Monitorização do Serviço de Nuvem
@@ -89,7 +89,7 @@ Provavelmente tem dois **ficheiros .cscfg,** um chamado **ServiceConfiguration.c
 
 Ao publicar o Serviço cloud do Estúdio Visual, é-lhe dada a opção de enviar os dados de diagnóstico para A Aplicação Insights. Pode criar o recurso Application Insights Azure nessa altura ou enviar os dados para um recurso Azure existente. O seu serviço na nuvem pode ser monitorizado por Informações de Aplicação para disponibilidade, desempenho, falhas e utilização. Os gráficos personalizados podem ser adicionados aos Insights de Aplicação para que possa ver os dados que mais importam. Os dados da instância de função podem ser recolhidos utilizando o SDK de Insights de Aplicação no seu projeto de serviço na nuvem. Para obter mais informações sobre como integrar os Insights de Aplicação, consulte [os Insights de Aplicação com serviços na nuvem.](../azure-monitor/app/cloudservices.md)
 
-Note que, embora possa utilizar os Insights de Aplicação para exibir os contadores de desempenho (e as outras definições) especificado através da extensão de Diagnóstico do Windows Azure, só obtém uma experiência mais rica integrando o SDK de Insights de Aplicação na sua funções de trabalhador e web.
+Note que, embora possa utilizar os Insights de Aplicação para exibir os contadores de desempenho (e as outras definições) especificado através da extensão de Diagnóstico do Windows Azure, só obtém uma experiência mais rica integrando o SDK de Insights de Aplicação nos seus funções de trabalhador e web.
 
 
 ## <a name="next-steps"></a>Passos seguintes

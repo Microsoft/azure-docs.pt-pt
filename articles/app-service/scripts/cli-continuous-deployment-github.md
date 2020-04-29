@@ -10,10 +10,10 @@ ms.date: 09/02/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 0578ea7f677e1abaa5687295fc7bc871e6db2d3f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80044789"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>Criar uma aplicação de Serviço de Aplicações com implementação contínua do GitHub usando o CLI

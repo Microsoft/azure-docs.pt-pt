@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73177014"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integração do Diretório Ativo Azure com o Picturepark

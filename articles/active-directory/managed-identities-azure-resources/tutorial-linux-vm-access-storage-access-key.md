@@ -16,10 +16,10 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86f875fa80f8bb8dd33a369a23f49833162cd417
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273827"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure
@@ -36,7 +36,7 @@ Este tutorial mostra-lhe como utilizar uma identidade atribuída pelo sistema de
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage 
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
 Se ainda não tiver uma, irá agora criar uma conta de armazenamento.  Também pode ignorar este passo e conceder à identidade gerida atribuída pelo sistema da VM acesso às chaves de uma conta de armazenamento existente. 
 

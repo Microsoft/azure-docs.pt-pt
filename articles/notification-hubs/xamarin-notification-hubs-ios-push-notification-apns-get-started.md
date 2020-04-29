@@ -19,10 +19,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/23/2019
 ms.openlocfilehash: 07417427385806e61db0d7d83624d923e92eb693
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80127012"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Tutorial: Envie notificações push para aplicações Xamarin.iOS usando hubs de notificação Azure

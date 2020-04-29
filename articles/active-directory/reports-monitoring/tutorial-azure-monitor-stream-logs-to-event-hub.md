@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eba44252672248b983d7f6e0c843f638e5f73447
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74007645"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutorial: Stream Azure Ative Directory logy to a Azure event hub
@@ -39,7 +39,7 @@ Para utilizar esta funcionalidade, precisa de:
 
 ## <a name="stream-logs-to-an-event-hub"></a>Stream logs para um centro de eventos
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 2. Selecione**registos**de auditoria de > **monitorização de** >  **diretórios ativos azure**. 
 

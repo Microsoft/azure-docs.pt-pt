@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 0f535e902bc86ba3c098dd2238766a3bd547781f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80057859"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-to-a-staging-environment-using-azure-cli"></a>Crie uma aplicação de Serviço de Aplicações e implemente código para um ambiente de encenação usando o Azure CLI

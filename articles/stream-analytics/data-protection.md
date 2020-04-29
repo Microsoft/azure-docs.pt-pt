@@ -7,17 +7,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: 1b3bdad0125b5bddbba20c8d807924fc3ea87e32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79299401"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados em Azure Stream Analytics 
 
 O Azure Stream Analytics é uma plataforma totalmente gerida como um serviço que lhe permite construir pipelines de análise em tempo real. Todo o levantamento pesado, como o fornecimento de clusters, a escala de nós para acomodar o seu uso, e a gestão de postos de controlo internos, é gerido nos bastidores.
 
-## <a name="encrypt-your-data"></a>Criptografe os seus dados
+## <a name="encrypt-your-data"></a>Encriptar os dados
 
 O Stream Analytics emprega automaticamente padrões de encriptação de melhor classe em toda a sua infraestrutura para encriptar e proteger os seus dados. Pode simplesmente confiar no Stream Analytics para armazenar de forma segura todos os seus dados para que não tenha de se preocupar em gerir a infraestrutura.
 
@@ -32,7 +32,7 @@ Atualizar ou rodar chaves na sua conta de armazenamento não é possível utiliz
 
 Utilize os seguintes passos para configurar a sua conta de armazenamento para ativos de dados privados. Esta configuração é feita a partir do seu trabalho de Stream Analytics, não da sua conta de armazenamento.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure. 
 

@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8a49bc979923bf52d099e30615910c5bdb0601b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279861"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Prepare a infraestrutura Azure para SAP HA utilizando um cluster de falha do Windows e um disco partilhado para SAP ASCS/SCS
@@ -177,7 +177,7 @@ Os modelos de três níveis no Azure Resource Manager também suportam cenários
 
 Aqui é onde você pode obter modelos de Gestor de Recursos Azure para o cenário de exemplo que descrevemos neste artigo:
 
-* [Imagem azure marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
+* [Imagem do Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
 * [Imagem do Azure Marketplace utilizando discos geridos azure](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
 * [Imagem personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
 * [Imagem personalizada usando discos geridos](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
@@ -270,7 +270,7 @@ Você pode usar este modelo de Gestor de Recursos Azure para SAP para ajudar a s
 
 Aqui é onde você pode obter modelos de Gestor de Recursos Azure para este cenário de implementação:
 
-* [Imagem azure marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [Imagem do Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
 * [Imagem do Azure Marketplace utilizando discos geridos](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
 * [Imagem personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
 * [Imagem personalizada usando discos geridos](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)

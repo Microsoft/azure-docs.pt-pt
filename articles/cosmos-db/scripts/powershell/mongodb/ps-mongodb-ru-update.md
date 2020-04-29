@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: c0dba303a82fb39036b04198f835e4a1e71b6a1d
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365861"
 ---
 # <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Atualização RU/s para uma base de dados ou coleção para Azure Cosmos DB - MongoDB API

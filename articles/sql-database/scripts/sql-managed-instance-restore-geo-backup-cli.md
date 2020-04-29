@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
 ms.openlocfilehash: 1bd0322aee83fb980c60382a2ff3eaab1cd1313c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80061752"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Utilize o CLI para restaurar uma base de dados de Instância gerida para outra geo-região

@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73044651"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configure as políticas de Apache HBase em HDInsight com pacote de segurança empresarial
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 
 * Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
 
-* Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 * Crie um [cluster HDInsight HBase com pacote](apache-domain-joined-configure-using-azure-adds.md)de segurança empresarial .
 
@@ -235,7 +235,7 @@ Com base nas políticas dos Rangers configuradas, **sales_user1** podem ver `Nam
 
 Se não vai continuar a utilizar esta aplicação, elimine o cluster HBase que criou com os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Na caixa **de pesquisa** na parte superior, digite **HDInsight**. 
 1. Selecione **clusters HDInsight** em **Serviços**.
 1. Na lista de clusters HDInsight que aparece, clique no **...** ao lado do cluster que criou para este tutorial. 

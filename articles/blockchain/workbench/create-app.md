@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 33a9e9c10c07d0808626353a7edfd505e0f60bc9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74324812"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutorial: Criar uma aplicação blockchain para a bancada azure blockchain

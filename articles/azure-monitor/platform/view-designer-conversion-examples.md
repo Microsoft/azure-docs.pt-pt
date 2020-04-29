@@ -7,10 +7,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: b50d8cfa4731c487997e2bf431a9c71eff08f5d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274167"
 ---
 # <a name="view-designer-conversion-examples"></a>Ver exemplos de conversão de designers

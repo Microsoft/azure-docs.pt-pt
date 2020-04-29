@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa2cac7c89a2cb1bd99675727bcd51e82c4a18ef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74007850"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Tutorial: Arquivo Azure AD regista uma conta de armazenamento Azure
@@ -38,7 +38,7 @@ Para utilizar esta funcionalidade, precisa de:
 
 ## <a name="archive-logs-to-an-azure-storage-account"></a>Arquivar os registos para uma conta de armazenamento do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 2. Selecione**registos**de auditoria de > **atividade** > de **diretório ativo azure**. 
 

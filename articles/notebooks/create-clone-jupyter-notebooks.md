@@ -4,10 +4,10 @@ description: Os projetos de pré-visualização de Cadernos Azure gerem uma cole
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280576"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Criar e clonar projetos na Pré-visualização de cadernos Azure
@@ -73,7 +73,7 @@ As seguintes palavras reservadas não podem ser usadas por si próprias como ide
 | acerca de | conta | administração | api | blogue | sala de aula |
 | conteúdo | dashboard | explorar | Perguntas Frequentes | Ajuda | html |
 | home | importar | biblioteca | gestão | novo | caderno |
-| notebooks | pdf | pré-visualização | preços | perfil | pesquisar |
+| notebooks | pdf | preview | preços | perfil | pesquisar |
 | status | suporte | test | | | |
 
 Se tentar usar uma destas palavras como id de projeto, os popups **Create New Project** e Project **Settings** indicam: "O id da biblioteca é um identificador reservado."

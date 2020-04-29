@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ms.openlocfilehash: 3705f58a37c109ebe0b774603c60e246fc174f25
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673274"
 ---
 Agora, pode usar `msg` o novo parâmetro para escrever para a ligação de saída a partir do seu código de função. Adicione a seguinte linha de código antes da `name` resposta `msg` de sucesso para adicionar o valor da ligação de saída.

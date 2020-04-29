@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 9/25/2019
 ms.openlocfilehash: 4a6870da399049010c3f10a38916b6d36e72bcc7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71275606"
 ---
 # <a name="create-an-azure-cosmos-cassandra-api-account-keyspace-and-table-using-azure-cli"></a>Crie uma conta API Da API da Azure Cosmos Cassandra, espaço-chave e mesa usando o Azure CLI

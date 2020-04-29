@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: 0129b03e578d00689f085281d0499830e6ba37c2
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365580"
 ---
 # <a name="get-throughput-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Obtenha O Seu Passe (RU/s) para uma mesa para Azure Cosmos DB - Tabela API

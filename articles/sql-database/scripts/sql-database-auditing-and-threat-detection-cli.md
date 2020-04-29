@@ -12,10 +12,10 @@ ms.author: ronitr
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
 ms.openlocfilehash: 9f15c4a8b0410003bccd9fb42aa2c34c42d9b56b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80061887"
 ---
 # <a name="use-cli-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Utilize o CLI para configurar a auditoria da Base de Dados SQL e a Proteção Avançada de Ameaças

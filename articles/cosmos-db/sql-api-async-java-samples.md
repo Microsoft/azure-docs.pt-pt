@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 12/03/2018
 ms.author: sngun
 ms.openlocfilehash: 0a9b58a78ee9de48b721511646728bd8140ef980
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72170181"
 ---
 # <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos Async Java para a API SQL

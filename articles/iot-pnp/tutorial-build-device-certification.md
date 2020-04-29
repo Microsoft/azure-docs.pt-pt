@@ -10,10 +10,10 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: e97aa07d2a43a03805fd881c674157ee676c37b4
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80239912"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Construa um dispositivo ioT Plug e Play Preview que esteja pronto para certificação
@@ -32,7 +32,7 @@ Os testes de certificação verificam que:
 
 Para concluir este tutorial, precisa de:
 
-- [Código de estúdio visual](https://code.visualstudio.com/download)
+- [Visual Studio Code](https://code.visualstudio.com/download)
 - [Ferramentas Azure IoT para](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) pacote de extensão de código VS
 
 Também precisa de completar o modelo de capacidade do [dispositivo Use para criar um dispositivo](quickstart-create-pnp-device-windows.md) de arranque rápido para o Windows. O quickstart mostra-lhe como configurar o seu ambiente de desenvolvimento usando vcpkg e criar um projeto de amostra.

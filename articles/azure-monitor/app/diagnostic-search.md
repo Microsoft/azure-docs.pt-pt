@@ -4,10 +4,10 @@ description: Pesquisar e filtrar a telemetria crua enviada pela sua aplicação 
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275987"
 ---
 # <a name="using-search-in-application-insights"></a>Utilização de Pesquisa em Insights de Aplicação
@@ -92,7 +92,7 @@ Pode procurar termos em qualquer um dos valores da propriedade. Isto é útil se
 
 Procure palavras completas, não subcordas. Utilize aspas para encerrar caracteres especiais.
 
-| Cadeia | *Não* encontrado | Localizado |
+| String | *Não* encontrado | Localizado |
 | --- | --- | --- |
 | HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Estados Unidos|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`

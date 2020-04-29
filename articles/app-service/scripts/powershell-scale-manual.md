@@ -9,10 +9,10 @@ ms.date: 03/20/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: cb0af65f938baf24b2af574b21e09e099b70ba85
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80060289"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>Escala uma aplicação web manualmente usando powerShell

@@ -4,10 +4,10 @@ description: Declaração de política de retenção e privacidade
 ms.topic: conceptual
 ms.date: 09/29/2019
 ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276000"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados em Insights de Aplicação
@@ -196,7 +196,7 @@ Para garantir a segurança dos dados em trânsito para os pontos finais da Aplic
 
 O Conselho de Normas de Segurança do [PCI](https://www.pcisecuritystandards.org/) fixou um [prazo de 30 de junho de 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) para desativar versões mais antigas de TLS/SSL e atualizar para protocolos mais seguros. Uma vez que o Azure deixe cair o suporte legado, se a sua aplicação/clientes não puder comunicar pelo menos TLS 1.2 não poderá enviar dados para A Aplicação Insights. A abordagem que tomar para testar e validar o suporte TLS da sua aplicação variará consoante o sistema operativo/plataforma, bem como o idioma/enquadramento que a sua aplicação utiliza.
 
-Não recomendamos que a definição explícita da sua aplicação utilize apenas TLS 1.2, a menos que seja necessário, uma vez que isso pode quebrar funcionalidades de segurança ao nível da plataforma que lhe permitem detetar e tirar partido de protocolos mais recentes e seguros à medida que se tornam disponíveis, como TLS 1.3. Recomendamos a realização de uma auditoria exaustiva do código da sua aplicação para verificar se há uma codificação rigorosa de versões específicas de TLS/SSL.
+Não recomendamos que a definição explícita da sua aplicação utilize apenas TLS 1.2, a menos que seja necessário, uma vez que isso pode quebrar as funcionalidades de segurança de nível de plataforma que lhe permitem detetar e tirar partido de protocolos mais recentes e seguros à medida que se tornam disponíveis, como TLS 1.3. Recomendamos a realização de uma auditoria exaustiva do código da sua aplicação para verificar se há uma codificação rigorosa de versões específicas de TLS/SSL.
 
 ### <a name="platformlanguage-specific-guidance"></a>Orientação específica da plataforma/linguagem
 

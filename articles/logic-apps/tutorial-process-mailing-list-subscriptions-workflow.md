@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
 ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75456601"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutorial: Criar fluxos de trabalho automatizados baseados em aprovação utilizando aplicações da Lógica Azure
@@ -58,7 +58,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Nome** | LA-MailingList | O nome da sua aplicação lógica, que pode conter`-`apenas`_`letras, números,`(` `)`hífenes`.`(), parênteses ( ), e períodos ( ). Este exemplo utiliza "LA-MailingList". |
-   | **Assinatura** | <*seu nome de assinatura Azure*> | O seu nome de subscrição Azure |
+   | **Subscrição** | <*seu nome de assinatura Azure*> | O seu nome de subscrição Azure |
    | **Grupo de recursos** | LA-MailingList-RG | O nome do [grupo de recursos Azure,](../azure-resource-manager/management/overview.md)que é usado para organizar recursos relacionados. Este exemplo utiliza "LA-MailingList-RG". |
    | **Localização** | E.U.A. Oeste | TA região onde armazenar a sua informação lógica de aplicações. Este exemplo usa "West US". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |

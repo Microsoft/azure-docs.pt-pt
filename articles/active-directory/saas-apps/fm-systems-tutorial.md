@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 9f869d595aeb3ff2ab7c3fd0bab7b52c72ab904b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80048613"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Tutorial: Integração do Diretório Ativo Azure com FM:Sistemas

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273530"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Rastrear backup e restaurar postos de trabalho usando a API REST

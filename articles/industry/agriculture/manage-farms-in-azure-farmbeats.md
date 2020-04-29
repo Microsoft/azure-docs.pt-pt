@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271723"
 ---
 # <a name="manage-farms"></a>Gerir terrenos agrícolas

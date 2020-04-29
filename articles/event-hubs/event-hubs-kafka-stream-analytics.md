@@ -14,10 +14,10 @@ ms.custom: seodec18
 ms.date: 04/02/2020
 ms.author: spelluru
 ms.openlocfilehash: 9c678a91b88b87acb438311b4968be4cae46733b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80632791"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processa Apache Kafka para eventos de Event Hubs usando análise de stream 

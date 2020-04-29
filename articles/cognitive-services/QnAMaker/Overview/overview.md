@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 02/21/2020
 ms.author: diberry
 ms.openlocfilehash: 2863a086343b0a5d3bc69ae319dbe93d557bcb4a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80052933"
 ---
 # <a name="what-is-the-qna-maker-service"></a>O que é o serviço QnA Maker?

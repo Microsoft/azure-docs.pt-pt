@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77565473"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutorial: Realizar uma análise da causa raiz num alerta

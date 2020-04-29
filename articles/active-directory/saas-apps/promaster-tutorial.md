@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.openlocfilehash: b48d11e15d452b72426c5b83d387f9e004e95dc7
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80293933"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Tutorial: Integração de Diretório Ativo Azure com proMaster (por Inlogik)

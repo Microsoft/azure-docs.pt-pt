@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
 ms.openlocfilehash: aa99bdfcbc2f42ae81bdd55c266bcd7d87808031
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273803"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir o lançamento da integração em saúde ao Gestor de Implantação do Azure (pré-visualização pública)
@@ -140,7 +140,7 @@ Neste momento, o Gestor de Implantação azure sabe como consultar a saúde do s
     1. Durante a fase de espera, a saúde do serviço não é monitorizada. Isto é usado para permitir aos recursos implantados o tempo para assar antes de iniciar o processo de verificação de saúde. 
 1. Elástico
 
-    1. Uma vez que é impossível saber em todos os casos quanto tempo os recursos demorarão a assar antes de se tornarem estáveis, a fase Elástica permite um período de tempo flexível entre quando os recursos são potencialmente instáveis e quando são necessários para manter um estável saudável estado.
+    1. Uma vez que é impossível saber em todos os casos quanto tempo os recursos demorarão a cozer antes de se tornarem estáveis, a fase Elástica permite um período de tempo flexível entre quando os recursos são potencialmente instáveis e quando são obrigados a manter um estado saudável e estável.
     1. Quando a fase Elástica começa, o Gestor de Implantação azure começa a sondar periodicamente o ponto final de REST fornecido para a saúde do serviço. O intervalo de votação é configurável. 
     1. Se o monitor de saúde voltar com sinais que indicam que o serviço não é saudável, estes sinais são ignorados, a fase Elástica continua e as sondagens continuam. 
     1. Assim que o monitor de saúde volta com sinais indicando que o serviço é saudável, a fase Elástica termina e começa a fase HealthyState. 

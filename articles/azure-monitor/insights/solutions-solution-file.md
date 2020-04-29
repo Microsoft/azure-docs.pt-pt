@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275181"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criação de um ficheiro de solução de gestão em Azure (Pré-visualização)

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: b935355cce36a6e26b168db286ab40248f8f0f68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471732"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitorizar métricas e registos na Porta da Frente Azure
@@ -56,7 +56,7 @@ Aceda aos registos de atividade na porta da frente ou em todos os registos dos s
 
 3. Escolha um âmbito de filtragem e, em seguida, selecione **Aplicar**.
 
-## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registos de diagnóstico
+## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registos de diagnósticos
 Os registos de diagnóstico fornecem informações ricas sobre operações e erros que são importantes para a auditoria e resolução de problemas. Os registos de diagnóstico diferem dos registos de atividade.
 
 Os registos de atividade fornecem informações sobre as operações feitas sobre os recursos do Azure. Os registos de diagnóstico fornecem informações sobre as operações que o seu recurso realizou. Para mais informações, consulte os [registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)do Monitor Azure .

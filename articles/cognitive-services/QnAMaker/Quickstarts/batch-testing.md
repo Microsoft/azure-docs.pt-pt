@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756711"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Quickstart: Teste a base de conhecimento com perguntas de lote e respostas esperadas

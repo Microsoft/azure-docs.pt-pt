@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: mingshen
 ms.openlocfilehash: fca40e1beb3e3c7bf03682511447539be2702f93
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80874692"
 ---
 # <a name="consulting-service-prerequisites"></a>Pré-requisitos do serviço de consultoria
