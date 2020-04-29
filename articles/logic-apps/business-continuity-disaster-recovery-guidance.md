@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437706"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidade de negócios e recuperação de desastres para apps da Azure Logic
@@ -352,5 +352,5 @@ Pode configurar o registo de registos para as suas aplicações lógicas e envia
 * [Lista de verificação de resiliência para serviços específicos do Azure](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)
 * [Gestão de dados para resiliência em Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management)
 * [Backup e recuperação de desastres para aplicações azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)
-* [Recuperar de uma perturbação do serviço em toda a região](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
+* [Recupere de uma interrupção de serviço ao nível da região](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
 * [Acordos de Nível de Serviço da Microsoft (SLAs) para serviços Azure](https://azure.microsoft.com/support/legal/sla/)

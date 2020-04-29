@@ -9,10 +9,10 @@ ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422420"
 ---
 # <a name="linux-support"></a>Apoio Técnico para Linux
@@ -23,7 +23,7 @@ Os parceiros podem usar o Linux SDK para o Windows Virtual Desktop para construi
 
 Os seguintes parceiros aprovaram os clientes do Windows Virtual Desktop para dispositivos Linux.
 
-|Partner|Documentação do parceiro|Apoio ao parceiro|
+|Parceiro|Documentação do parceiro|Apoio ao parceiro|
 |:------|:--------------------|:--------------|
 |![Logotipo iGEL](./media/partners/igel.png)|[Documentação do cliente IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Suporte iGEL](https://www.igel.com/support/)|
 

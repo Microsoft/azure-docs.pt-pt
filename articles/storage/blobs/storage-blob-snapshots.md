@@ -9,10 +9,10 @@ ms.date: 09/06/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 9bf5eea55002814f461d375b3db43a37fe4f7aa9
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80474090"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Crie e gerencie um instantâneo blob em .NET

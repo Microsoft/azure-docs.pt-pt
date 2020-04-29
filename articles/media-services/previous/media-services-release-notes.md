@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.openlocfilehash: a3893c8d19c89b639e0584f203cbcd1adf7e2dee
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80474839"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de lançamento da Azure Media Services
@@ -367,7 +367,7 @@ Os metadados do Media Services REST são agora a versão 2.7. Para mais informa�
 
 O Media Services SDK para .NET é agora a versão 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Quebrar alterações
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Alterações interruptivas
 * A origem foi renomeada para [StreamingEndpoint].
 * Foi feita uma alteração no comportamento predefinido quando se utiliza o portal Azure para codificar e depois publicar ficheiros MP4.
 

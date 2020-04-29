@@ -12,10 +12,10 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.custom: ''
 ms.openlocfilehash: 5bd4436fc63fb570f052606ab557dbcf243cf5e7
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476867"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Versão e conjuntos de dados de rastreio em experiências
