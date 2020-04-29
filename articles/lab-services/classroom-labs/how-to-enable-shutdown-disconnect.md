@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: spelluru
 ms.openlocfilehash: 68a27a325a0ef02c6eeea9867a21ba0e24ab5321
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77117129"
 ---
 # <a name="enable-automatic-shutdown-of-vms-on-disconnect"></a>Ativar o encerramento automático de VMs na desconexão

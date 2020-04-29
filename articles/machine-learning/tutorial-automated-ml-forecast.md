@@ -11,10 +11,10 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 01/27/2020
 ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77088243"
 ---
 # <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Tutorial: Previsão de partilha de bicicletas com machine learning automatizado
@@ -86,7 +86,7 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
 
         1. Também para este exemplo, deixe as predefinições para as **Propriedades** e **Tipo**. 
         
-        1. Selecione **Next**.
+        1. Selecione **Seguinte**.
 
     1. No formulário **confirmar** detalhes, verifique as informações correspondem às anteriormente povoadas nas **informações** básicas e configurações e formulários de **pré-visualização.**
 
@@ -119,7 +119,7 @@ Depois de carregar e configurar os seus dados, configure o seu alvo de cálculo 
 
         1. Após a criação, selecione o seu novo alvo computacional da lista de lançamentos.
 
-    1. Selecione **Next**.
+    1. Selecione **Seguinte**.
 
 ## <a name="select-task-type-and-settings"></a>Selecione o tipo de tarefa e as definições
 

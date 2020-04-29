@@ -4,17 +4,17 @@ description: Com o C#, crie um chatbot integrado com compreensão de idiomas (LU
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.openlocfilehash: 2381f4cba39f81ab593f3149a2708f442156f30d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76988006"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutorial: Use um Bot de aplicação web habilitado com compreensão linguística em C #
 
 Use C# para construir um chat bot integrado com a compreensão da linguagem (LUIS). O bot é construído com o recurso bot da [aplicação](https://docs.microsoft.com/azure/bot-service/) Azure Web e [a versão Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) V4.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Criar um bot de aplicação Web. Este processo cria uma aplicação LUIS nova.

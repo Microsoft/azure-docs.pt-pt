@@ -4,17 +4,17 @@ description: Utilizando o Node.js, construa um chat bot integrado com a compreen
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.openlocfilehash: 3ce12176957412a5599ced8b043f553969194efb
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76987850"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutorial: Use um Bot de aplicação web habilitado com compreensão linguística em Node.js
 
 Use node.js para construir um chat bot integrado com a compreensão da linguagem (LUIS). O bot é construído com o recurso bot da [aplicação](https://docs.microsoft.com/azure/bot-service/) Azure Web e [a versão Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) V4.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Criar um bot de aplicação Web. Este processo cria uma aplicação LUIS nova.
@@ -25,7 +25,7 @@ Use node.js para construir um chat bot integrado com a compreensão da linguagem
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Emulador de bot](https://aka.ms/abs/build/emulatordownload)
-* [Código de estúdio visual](https://code.visualstudio.com/Download)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
 
 
 ## <a name="create-a-web-app-bot-resource"></a>Criar um recurso bot de aplicativo web
@@ -55,7 +55,7 @@ Use node.js para construir um chat bot integrado com a compreensão da linguagem
     |Definição|Objetivo|Seleção|
     |--|--|--|
     |Versão do SDK|Versão do Bot Framework|**SDK v4**|
-    |Idioma do SDK|Linguagem de programação do bot|**Nó.js**|
+    |Idioma do SDK|Linguagem de programação do bot|**Node.js**|
     |Bot|Tipo de bot|**Bot básico**|
 
 1. Selecione **Criar**. Esta ação cria e implementa o serviço de bot no Azure. Parte deste processo cria uma aplicação LUIS com o nome `luis-nodejs-bot-XXXX`. Este nome baseia-se no nome da aplicação /Azure Bot Service.

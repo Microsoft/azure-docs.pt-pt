@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: nitinme
 ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77118265"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutorial: Use reconhecimento de formulário com aplicações lógicas azure para analisar faturas
@@ -80,7 +80,7 @@ Siga estes passos para configurar o seu fluxo de trabalho.
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Nome** | <*lógica-app-nome*> | O nome da sua aplicação lógica, que pode`-`conter apenas letras, números, hífenes ,`_`sublinha ( ), parênteses (`(`), `)`e períodos (`.`). Este exemplo usa "My-First-Logic-App". |
-   | **Assinatura** | <*Nome de assinatura Azure*> | O seu nome de subscrição Azure |
+   | **Subscrição** | <*Nome de assinatura Azure*> | O seu nome de subscrição Azure |
    | **Grupo de recursos** | <*Nome do grupo azure-recursos*> | O nome do grupo de [recursos Azure](./../../azure-resource-manager/management/overview.md) usado para organizar recursos relacionados. Este exemplo usa "My-First-LA-RG". |
    | **Localização** | <*Região azul*> | A região onde armazenar informações de aplicações lógicas. Este exemplo usa "West US". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |

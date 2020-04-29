@@ -9,10 +9,10 @@ ms.date: 02/07/2020
 ms.author: jife
 ms.custom: include file
 ms.openlocfilehash: e1416b8b99c66daa4a27fa7f9bd7a20dfa9519e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77087446"
 ---
 A Azure Data Share permite às organizações partilhar em conjunto e de forma segura dados com os seus clientes e parceiros.
