@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: f1eec76d92edc97f7e4058d3afe813f0bb2aae47
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431881"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Mesas de design usando Synapse SQL
@@ -25,7 +25,7 @@ Este documento inclui conceitos-chave para a conceção de tabelas com piscina S
 
 A tabela que se segue lista os tópicos relevantes para o pool SQL vs. SQL a pedido:
 
-| Tópico                                                        | Piscina SQL | SQL a pedido |
+| Tópico                                                        | Conjunto de SQL | SQL a pedido |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
 | [Determinar a categoria de tabela](#determine-table-category)        | Sim                | Não                      |
 | [Nomes de esquemas](#schema-names)                                | Sim                | Sim                     |
@@ -73,7 +73,7 @@ Se você está migrando várias bases de dados de uma solução on-prem para pis
 
 Para mostrar a organização das mesas na piscina SQL, você poderia usar fato, dim, e int como prefixos para os nomes de mesa. A tabela abaixo mostra alguns dos nomes de schema e tabela saqueados para O WideWorldImportersDW.  
 
-| Tabela WideWorldImportersDW  | Tipo de tabela | Piscina SQL |
+| Tabela WideWorldImportersDW  | Tipo de tabela | Conjunto de SQL |
 |:-----|:-----|:------|:-----|
 | Localidade | Dimensão | wwi. DimCity |
 | Encomenda | Fact | wwi. FactOrder |

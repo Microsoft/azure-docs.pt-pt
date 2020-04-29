@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
 ms.openlocfilehash: bb3f22223bd64c06cfa4a5f6ffabe7b128dff1d5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416472"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para o movimento de dados na Fábrica de Dados Azure
@@ -179,7 +179,7 @@ Algumas lojas de dados na nuvem também requerem que permita o endereço IP da m
 As seguintes lojas de dados em nuvem exigem que permita o endereço IP da máquina de tempo de execução de integração auto-hospedada. Algumas destas lojas de dados, por defeito, podem não necessitar de lista de permitir. 
 
 - [Base de Dados SQL do Azure](../sql-database/sql-database-firewall-configure.md) 
-- [Armazém de dados Azure SQL](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 

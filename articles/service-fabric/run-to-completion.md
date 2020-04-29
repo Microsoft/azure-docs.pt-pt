@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
 ms.openlocfilehash: adf4b11412aa752144d4ed4fef06d2de1d76598d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431296"
 ---
-# <a name="runtocompletion"></a>RuntoCompletion
+# <a name="runtocompletion"></a>RunToCompletion
 
 A partir da versão 7.1, o Tecido de Serviço suporta a semântica **RunToCompletion** para [contentores][containers-introduction-link] e aplicações [executáveis por hóspedes.][guest-executables-introduction-link] Estas semânticas permitem aplicações e serviços que completam uma tarefa e saída, em contraste com, sempre executando aplicações e serviços.
 

@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 08/22/2019
 ms.author: trbye
 ms.openlocfilehash: f7ca8fdaddab9757292939c4f7e658179d6e517c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81421783"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Discurso a Texto (sub-gráfico: gráficos/discursoToTexto)

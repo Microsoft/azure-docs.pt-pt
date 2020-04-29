@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
 ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430633"
 ---
-# <a name="initializer-codepackages"></a>Pacotes de código de inicializador
+# <a name="initializer-codepackages"></a>CodePackages do Inicializador
 
 A partir da versão 7.1, o Tecido de Serviço suporta códigos de **inicializadorpara** [contentores][containers-introduction-link] e aplicações [executáveis por hóspedes.][guest-executables-introduction-link] Os Códigos de Inicializador proporcionam a oportunidade de realizar inicializações no âmbito servicePackage antes de outros Pacotes de Código iniciarem a execução. A sua relação com um ServicePackage é análoga ao que é um [SetupEntryPoint][setup-entry-point-link] para um CodePackage.
 

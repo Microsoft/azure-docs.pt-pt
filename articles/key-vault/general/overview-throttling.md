@@ -1,5 +1,5 @@
 ---
-title: Orientação de estrangulamento do cofre de chaves azure
+title: Diretrizes de limitação do Azure Key Vault
 description: A aceleração do cofre-chave limita o número de chamadas simultâneas para evitar o uso excessivo de recursos.
 services: key-vault
 author: msmbaldwin
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: f32a988ec0d75ca8d8eca04e69edd7226bf283b4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81432089"
 ---
-# <a name="azure-key-vault-throttling-guidance"></a>Orientação de estrangulamento do cofre de chaves azure
+# <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
 
 O estrangulamento é um processo que inicia que limita o número de chamadas simultâneas ao serviço Azure para evitar o uso excessivo de recursos. O Azure Key Vault (AKV) foi concebido para lidar com um elevado volume de pedidos. Se ocorrer um número esmagador de pedidos, a aceleração dos pedidos do seu cliente ajuda a manter o desempenho e a fiabilidade ideais do serviço AKV.
 

@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429021"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para funcionalidades SYnapse SQL em Azure Synapse Analytics
@@ -25,7 +25,7 @@ O objetivo destes artigos é ajudá-lo a desenvolver a abordagem técnica ideal 
 ## <a name="key-design-decisions"></a>Decisões-chave de design
 Os artigos abaixo destacam conceitos e decisões de design para o desenvolvimento synapse SQL:
 
-|                                                          |   Piscina SQL   | SQL a pedido |
+|                                                          |   Conjunto de SQL   | SQL a pedido |
 | -----------------------------------------------------    | ---- | ---- |
 | [Ligações](connect-overview.md)                    | Sim | Sim |
 | [Classes de recursos e conmoeda](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Sim    | Não |
@@ -44,7 +44,7 @@ Os artigos abaixo destacam conceitos e decisões de design para o desenvolviment
 
 Abaixo encontrará artigos essenciais que enfatizam técnicas específicas de codificação, dicas e recomendações para o desenvolvimento:
 
-|                                            | Piscina SQL | SQL a pedido |
+|                                            | Conjunto de SQL | SQL a pedido |
 | ------------------------------------------ | ------------------ | ----------------------- |
 | [Procedimentos armazenados](develop-stored-procedures.md)  | Sim                | Não                      |
 | [Etiquetas](develop-label.md)                           | Sim                | Não                      |

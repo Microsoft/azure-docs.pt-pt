@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 570e84b3a545736aad6983c7f0d8c0f0296ca589
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431816"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitetura Azure Synapse SQL 
@@ -31,7 +31,7 @@ Para o pool SQL, a unidade de escala é uma abstração do poder da computação
 
 Para o SQL a pedido, sendo desempregada, a escala é feita automaticamente para acomodar os requisitos de recursos de consulta. À medida que a topologia muda ao longo do tempo adicionando, removendo nós ou falhas, adapta-se a alterações e garante que a sua consulta tem recursos suficientes e termina com sucesso. Por exemplo, a imagem abaixo mostra sQL on-demand utilizando 4 nós de computação para executar uma consulta.
 
-![Arquitetura SqL synapse](./media//overview-architecture/sql-architecture.png)
+![Arquitetura SQL do Synapse](./media//overview-architecture/sql-architecture.png)
 
 Synapse SQL usa uma arquitetura baseada no nó. As aplicações ligam e emitem comandos T-SQL a um nó de controlo, que é o ponto único de entrada para synapse SQL. 
 

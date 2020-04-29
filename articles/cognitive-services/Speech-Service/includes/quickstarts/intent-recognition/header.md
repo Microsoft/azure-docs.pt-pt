@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
 ms.openlocfilehash: 8d70d282ffb1a39f9ffb3eb6addf694ac9d0d060
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81422300"
 ---
 Neste arranque rápido, utilizará o serviço [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) e o Language Understanding (LUIS) para reconhecer as intenções a partir de dados áudio captados a partir de um microfone. Especificamente, você usará o SDK de discurso para capturar o discurso, e um domínio pré-construído do LUIS para identificar intençãos de automação doméstica, como ligar e apagar uma luz. 

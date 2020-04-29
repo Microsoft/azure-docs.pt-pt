@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.openlocfilehash: e2c262915c928cf487cb84aeb3423d67e7a96e97
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424833"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Autoajuda para sQL a pedido (pré-visualização)
@@ -51,11 +51,11 @@ Reveja os seguintes artigos para saber mais sobre como utilizar a SQL a pedido:
 
 - [Consulta de ficheiros específicos](query-specific-files.md)
 
-- [Arquivos De Consulta Parquet](query-parquet-files.md)
+- [Consultar ficheiros de Parquet](query-parquet-files.md)
 
-- [Tipos aninhados de Parquet de consulta](query-parquet-nested-types.md)
+- [Consultar tipos aninhados de Parquet](query-parquet-nested-types.md)
 
-- [Consulta de ficheiros JSON](query-json-files.md)
+- [Consultar ficheiros JSON](query-json-files.md)
 
 - [Criar e usar vistas](create-use-views.md)
 

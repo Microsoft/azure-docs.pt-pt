@@ -1,5 +1,5 @@
 ---
-title: Códigos de erro REST API - Cofre chave Azure
+title: Códigos de erro da API REST - Azure Key Vault
 description: Estes códigos de erro podem ser devolvidos por uma operação num serviço web Azure Key Vault.
 keywords: ''
 services: machine-learning
@@ -11,10 +11,10 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
 ms.openlocfilehash: bbb30c0ad41babca4158391c9e4e5c5d4d25cbf9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81432063"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Códigos de erro do cofre de chaves azure REST API

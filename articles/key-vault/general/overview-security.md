@@ -12,13 +12,13 @@ ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ms.openlocfilehash: dbe13b2d1291f212af7da9d1176bc3d90997978b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428969"
 ---
-# <a name="azure-key-vault-security"></a>Segurança do cofre de chaves Azure
+# <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
 Você precisa proteger chaves de encriptação e segredos como certificados, cordas de ligação e senhas na nuvem para que você esteja usando Azure Key Vault. Uma vez que está a armazenar dados críticos sensíveis e empresariais, precisa de tomar medidas para maximizar a segurança dos seus cofres e os dados armazenados nos mesmos. Este artigo cobrirá alguns dos conceitos que deve considerar ao conceber a sua segurança do Cofre de Chaves Azure.
 

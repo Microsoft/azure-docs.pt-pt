@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: f231693fdcf3519e29eed38e47db52d92acc00fa
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430750"
 ---
 # <a name="use-the-azure-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Utilize o Estúdio Azure Synapse (pré-visualização) para monitorizar as suas aplicações Apache Spark
