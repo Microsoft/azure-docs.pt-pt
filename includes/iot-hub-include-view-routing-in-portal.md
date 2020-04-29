@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 178236f774b0e1a6fe20c73afe0e7fd6965e67a5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67235412"
 ---
 Agora que os seus pontos finais e rotas de mensagens estão configuradas, pode ver a sua configuração no portal. Inscreva-se no [portal Azure](https://portal.azure.com) e vá aos **Grupos de Recursos.** Em seguida, selecione o seu grupo de `ContosoTestHub` recursos e, em seguida, selecione o seu hub (o nome do hub começa com este tutorial). Vê o painel do Hub IoT.

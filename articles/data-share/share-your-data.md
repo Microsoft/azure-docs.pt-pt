@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.openlocfilehash: a8265680f74b2d5679d1ebfbb2873dd096f498a3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77083060"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Partilhar dados usando a Partilha de Dados do Azure  
@@ -67,7 +67,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-share-account"></a>Criar uma Conta de Partilha de Dados
 
@@ -97,7 +97,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 1. Navegue para a sua página de visão geral da partilha de dados.
 
-    ![Partilhe os seus dados](./media/share-receive-data.png "Partilhe os seus dados") 
+    ![Partilhar os seus dados](./media/share-receive-data.png "Partilhar os seus dados") 
 
 1. Selecione **Começar a partilhar os seus dados**.
 

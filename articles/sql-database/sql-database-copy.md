@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 02/24/2020
 ms.openlocfilehash: 7e4744627cfd08874e07bb126df048ea3e644f39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79473749"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transaccionalmente consistente de uma base de dados Azure SQL
@@ -65,7 +65,7 @@ A cópia da base de dados é uma operação assíncrona, mas a base de dados do 
 
 Para obter um script powerShell de amostra completa, consulte [Copiar uma base de dados para um novo servidor](scripts/sql-database-copy-database-to-new-server-powershell.md).
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myResourceGroup" --dest-server $targetserver `

@@ -10,10 +10,10 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.openlocfilehash: f9a8b0a4c51024d91e517db2f6ae10a4dba62384
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80389346"
 ---
 # <a name="designer-sample-pipelines"></a>Pipelines de exemplo de estruturador

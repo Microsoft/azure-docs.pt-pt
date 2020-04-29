@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: 60bb227af7cc886bb35cbd045cc8a27cf82ae903
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75372300"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Criar uma máquina virtual e uma conta de armazenamento para uma aplicação dimensionável
@@ -21,7 +21,7 @@ Este tutorial é a primeira parte de uma série. Este tutorial mostra como imple
 Na primeira parte da série, saiba como:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage
+> * Criar uma conta de armazenamento
 > * Criar uma máquina virtual
 > * Configurar uma extensão de script personalizado
 
@@ -41,7 +41,7 @@ Crie um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/a
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
  
 O exemplo carrega 50 ficheiros grandes para um contentor de blobs numa conta de Armazenamento do Azure. Uma conta de armazenamento fornece um espaço de nomes exclusivo para armazenar e aceder aos objetos de dados de armazenamento do Azure. Crie uma conta de armazenamento no grupo de recursos que criou utilizando o comando [New-AzStorageAccount.](/powershell/module/az.Storage/New-azStorageAccount)
 
@@ -126,7 +126,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 Na primeira parte da série, aprendeu como criar uma conta de armazenamento, implementar uma máquina virtual e configurar a máquina virtual com os pré-requisitos necessários, tais como:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage
+> * Criar uma conta de armazenamento
 > * Criar uma máquina virtual
 > * Configurar uma extensão de script personalizado
 

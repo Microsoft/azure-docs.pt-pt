@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: dd16753a9b057e441884b0a6a019701766aaa321
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73821404"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Exemplos do Azure PowerShell para a Base de Dados SQL do Azure
@@ -59,7 +59,7 @@ A tabela seguinte inclui ligações para scripts de exemplo do Azure PowerShell 
 
 Saiba mais sobre a [Base de Dados Única Azure PowerShell API](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases).
 
-## <a name="managed-instance"></a>[Instância Gerida](#tab/managed-instance)
+## <a name="managed-instance"></a>[Instância gerida](#tab/managed-instance)
 
 A tabela seguinte inclui links para a amostra de scripts Azure PowerShell para base de dados Azure SQL - Instância Gerida.
 

@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: fce60a10818943a9c6d420044d97c0c5b803de32
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 813baba37684525c336bc34a49e496f54a19288d
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133322"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509742"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas de lançamento da Azure Synapse Analytics
 
@@ -25,9 +25,10 @@ Este artigo resume as novas funcionalidades e melhorias nos recentes lançamento
 
 ## <a name="check-your-azure-synapse-version"></a>Consulte a sua versão Azure Synapse
 
-À medida que as novas funcionalidades são lançadas para todas as regiões, verifique a versão implementada na sua instância e as mais recentes notas de lançamento para a disponibilidade de funcionalidades. Para verificar a versão, ligue-se ao seu pool SQL via SQL Server Management Studio (SSMS) e corra `SELECT @@VERSION;` para devolver a versão atual.
+À medida que as novas funcionalidades são lançadas para todas as regiões, verifique a versão implementada na sua instância e as mais recentes notas de lançamento para a disponibilidade de funcionalidades. Para verificar a versão, ligue-se ao seu pool SQL via SQL Server Management Studio (SSMS) e corra `SELECT @@VERSION;` para devolver a versão atual. Utilize esta versão para confirmar qual a versão aplicada à sua piscina SQL. A data na saída identifica o mês para a libertação aplicada à sua piscina SQL. Isto aplica-se apenas a melhorias ao nível do serviço. 
 
-Utilize a versão identificada para confirmar qual a versão aplicada à sua piscina SQL. A data na saída identifica o mês para a libertação aplicada à sua piscina SQL.
+Para melhorar a ferramenta, certifique-se de que tem a versão correta instalada especificada na nota de lançamento. 
+
 
 > [!NOTE]
 > O nome do produto@VERSION devolvido por SELECT @ passará de Microsoft Azure SQL Data Warehouse para Azure Synapse Analytics. Enviaremos um aviso prévio antes da mudança ser feita. Esta alteração é relevante para os clientes que analisam o nome do produto a partir do resultado do SELECT @@VERSION no seu código de aplicação. Para evitar alterações no código de aplicação devido ao rebranding do produto, utilize estes comandos para consultar serverproperty para o nome e versão do produto da base de dados: Para devolver o número XX da versão. X.XXXXX. X (sem nome do produto) utilize este comando:
@@ -40,13 +41,20 @@ Utilize a versão identificada para confirmar qual a versão aplicada à sua pis
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+
+
 ## <a name="april-2020"></a>Abril de 2020
 
 | Melhorias nos serviços | Detalhes |
 | --- | --- |
 |**Nível de compatibilidade da base de dados (Pré-visualização)**| Com esta versão, os utilizadores podem agora definir o nível de compatibilidade de uma base de dados para obter o idioma Transact-SQL e comportamentos de processamento de consulta de uma versão específica do motor Synapse SQL. Para mais informações, consulte [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [Alter Configuração scoped Database](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Sp_describe_undeclared_parameters**| Permitir que os utilizadores vejam os metadados sobre parâmetros não declarados num lote Transact-SQL. Para mais informações, consulte [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
-|**[Estúdio Visual 16.6 Pré-visualização 2](/visualstudio/releases/2019/release-notes-preview) - Ferramentas de dados do servidor SQL (SSDT)** | Esta versão inclui as seguintes melhorias e correções para O SSDT: </br> </br> - Resolver uma questão em que a alteração de uma tabela referenciada por uma visão materializada (MV) faz com que sejam geradas declarações alter view que não sejam suportadas para mVs<br/><br/> - Implementou uma alteração para garantir que a operação Schema Compare não falha quando os objetos de segurança de nível de linha estão presentes na base de dados ou no projeto. Atualmente, os objetos de segurança de nível de linha não são suportados para o SSDT.  <br/><br/> - O limite de tempo limite do Explorador de Objetos do Servidor SQL foi aumentado para evitar intervalos de tempo ao listar um grande número de objetos na base de dados<br/><br/> - Otimizado a forma como o SQL Server Object Explorer recupera a lista de objetos de base de dados para reduzir a instabilidade e aumentar o desempenho ao povoar o explorador de objetos |
+
+## <a name="march-2020"></a>Março de 2020
+
+| Melhorias na ferramenta                                         | Detalhes                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **[Estúdio Visual 16.6 Pré-visualização 2](/visualstudio/releases/2019/release-notes-preview) - Ferramentas de dados do servidor SQL (SSDT)** | Esta versão inclui as seguintes melhorias e correções para O SSDT: </br> </br> - Resolver uma questão em que a alteração de uma tabela referenciada por uma visão materializada (MV) faz com que sejam geradas declarações alter view que não sejam suportadas para mVs<br/><br/> - Implementou uma alteração para garantir que a operação Schema Compare não falha quando os objetos de segurança de nível de linha estão presentes na base de dados ou no projeto. Atualmente, os objetos de segurança de nível de linha não são suportados para o SSDT.  <br/><br/> - O limite de tempo limite do Explorador de Objetos do Servidor SQL foi aumentado para evitar intervalos de tempo ao listar um grande número de objetos na base de dados<br/><br/> - Otimizado a forma como o SQL Server Object Explorer recupera a lista de objetos de base de dados para reduzir a instabilidade e aumentar o desempenho ao povoar o explorador de objetos |
 
 ## <a name="january-2020"></a>Janeiro de 2020
 

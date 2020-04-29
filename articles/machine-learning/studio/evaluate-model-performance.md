@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 3c041834b9ad191817cdf1380b0a75efc7639bd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79218149"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Como avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico)
@@ -50,9 +50,9 @@ Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learn
 
 * Dados sobre o preço do automóvel (Cru)
 * [Regressão Linear][linear-regression]
-* [Modelo de comboio][train-model]
-* [Modelo de pontuação][score-model]
-* [Modelo de avaliação][evaluate-model]
+* [Preparar Modelo][train-model]
+* [Modelo de Pontuação][score-model]
+* [Avaliar Modelo][evaluate-model]
 
 Ligue as portas como mostrado abaixo na Figura 1 e coloque a coluna de etiquetado do módulo [Modelo de Comboio][train-model] ao *preço*.
 
@@ -92,9 +92,9 @@ Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learn
 
 * Conjunto de dados de classificação binária de rendimento do recenseamento adulto
 * [Regressão Logística de Duas Classes][two-class-logistic-regression]
-* [Modelo de comboio][train-model]
-* [Modelo de pontuação][score-model]
-* [Modelo de avaliação][evaluate-model]
+* [Preparar Modelo][train-model]
+* [Modelo de Pontuação][score-model]
+* [Avaliar Modelo][evaluate-model]
 
 Ligue as portas como mostrado abaixo na Figura 5 e coloque a coluna de etiquetas do módulo [Modelo de Comboio][train-model] para o *rendimento*.
 
@@ -140,12 +140,12 @@ Nesta experiência, usaremos o popular conjunto de dados [da Íris,](https://arc
 ### <a name="creating-the-experiment"></a>Criação da Experiência
 Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learning Studio (clássico):
 
-* [Dados de Importação][import-data]
+* [Importar Dados][import-data]
 * [Floresta de Decisão de Várias Classes][multiclass-decision-forest]
 * [Dividir Dados][split]
-* [Modelo de comboio][train-model]
-* [Modelo de pontuação][score-model]
-* [Modelo de avaliação][evaluate-model]
+* [Preparar Modelo][train-model]
+* [Modelo de Pontuação][score-model]
+* [Avaliar Modelo][evaluate-model]
 
 Ligue as portas como mostrado abaixo na Figura 10.
 

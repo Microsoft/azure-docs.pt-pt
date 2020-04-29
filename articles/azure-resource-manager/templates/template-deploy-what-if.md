@@ -3,29 +3,27 @@ title: Implementação do modelo o que-se (Pré-visualização)
 description: Determine quais as mudanças que acontecerão aos seus recursos antes de implementar um modelo de Gestor de Recursos Azure.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 04/28/2020
 ms.author: jgao
-ms.openlocfilehash: b5b19bf9d630230fbdb8cec41cc77718bbbb4585
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f13789912e5b801295f1f926a12db50849cd75d8
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192387"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509589"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM que-se operação (Pré-visualização)
 
-Antes de implementar um modelo de Gestor de Recursos Azure (ARM), é melhor visualizar as alterações que irão acontecer. O Azure Resource Manager fornece a operação "what-if" para que veja como os recursos vão mudar se implementar o modelo. A operação "e se" não faz alterações nos recursos existentes. Em vez disso, prevê as alterações se o modelo especificado for implantado.
+Antes de implementar um modelo de Gestor de Recursos Azure (ARM), pode pré-visualizar as alterações que irão acontecer. O Azure Resource Manager fornece a operação "what-if" para que veja como os recursos vão mudar se implementar o modelo. A operação "e se" não faz alterações nos recursos existentes. Em vez disso, prevê as alterações se o modelo especificado for implantado.
 
 > [!NOTE]
 > A operação "e se" está atualmente em pré-visualização. Como um lançamento de pré-visualização, os resultados podem por vezes mostrar que um recurso mudará quando, na verdade, nenhuma mudança acontecerá. Estamos a trabalhar para reduzir estes problemas, mas precisamos da sua ajuda. Por favor, informe estas questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-Pode utilizar a operação "what-if" com os comandos PowerShell ou as operações REST API.
+Pode utilizar a operação "what-if" com operações Azure PowerShell, Azure CLI ou REST API.
 
 ## <a name="install-powershell-module"></a>Instalar módulo PowerShell
 
-Para utilizar o que-se no PowerShell, tem de ter powerShell Core (6.x ou 7.x). Se tiver PowerShell 5.x ou mais cedo, [atualize a sua versão do PowerShell](/powershell/scripting/install/installing-powershell).
-
-Depois de se certificar de que tem a versão correta do PowerShell, instale uma versão de pré-visualização do módulo Az.Resources a partir da galeria PowerShell.
+Para utilizar o que-if no PowerShell, tem de instalar uma versão de pré-visualização do módulo Az.Resources a partir da galeria PowerShell. Mas, antes de instalar o módulo, certifique-se de que tem powerShell Core (6.x ou 7.x). Se tiver PowerShell 5.x ou mais cedo, [atualize a sua versão do PowerShell](/powershell/scripting/install/installing-powershell). Não é possível instalar o módulo de pré-visualização no PowerShell 5.x ou mais cedo.
 
 ### <a name="install-preview-version"></a>Instalar versão de pré-visualização
 
@@ -60,9 +58,13 @@ Se instalou previamente uma versão alfa do módulo "e se", desinstale esse mód
 
 Está pronto para usar o que-se.
 
+## <a name="install-azure-cli-module"></a>Instalar módulo AZURE CLI
+
+Para utilizar o what-if no Azure CLI, deve ter Azure CLI 2.5.0 ou mais tarde. Se necessário, [instale a versão mais recente do Azure CLI](/cli/azure/install-azure-cli).
+
 ## <a name="see-results"></a>Ver resultados
 
-No PowerShell, a saída inclui resultados codificados por cores que o ajudam a ver os diferentes tipos de alterações.
+Quando utiliza o que-se no PowerShell ou no Azure CLI, a saída inclui resultados codificados por cores que o ajudam a ver os diferentes tipos de alterações.
 
 ![Implementação do modelo do Gestor de Recursos o que-se operação fullresourcepayload e tipos de mudança](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
@@ -97,11 +99,9 @@ Resource changes: 1 to modify.
 
 ## <a name="what-if-commands"></a>E se comandos
 
-Pode utilizar a API Azure PowerShell ou Azure REST para a operação "e se".
-
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Para ver uma pré-visualização das alterações `-Whatif` antes de implementar um modelo, adicione o parâmetro do interruptor ao comando de implantação.
+Para pré-visualizar alterações antes `-Whatif` de implementar um modelo, adicione o parâmetro do interruptor ao comando de implantação.
 
 * `New-AzResourceGroupDeployment -Whatif`para implantações de grupos de recursos
 * `New-AzSubscriptionDeployment -Whatif`e `New-AzDeployment -Whatif` para implementações de nível de subscrição
@@ -115,6 +115,23 @@ Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualme
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult`para implantações de grupos de recursos
 * `$results = Get-AzSubscriptionDeploymentWhatIfResult`ou `$results = Get-AzDeploymentWhatIfResult` para implementações de nível de subscrição
+
+### <a name="azure-cli"></a>CLI do Azure
+
+Para pré-visualizar alterações `what-if` antes de implementar um modelo, utilize com o comando de implantação.
+
+* `az deployment group what-if`para implantações de grupos de recursos
+* `az deployment sub what-if`para implementações de nível de subscrição
+
+Ou, pode utilizar `--confirm-with-what-if` o parâmetro para pré-visualizar as alterações e ser solicitado para continuar com a implementação.
+
+* `az deployment group create --confirm-with-what-if`para implantações de grupos de recursos
+* `az deployment sub create --confirm-with-what-if`para implementações de nível de subscrição
+
+Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualmente. Para obter um objeto JSON que possa inspecionar programáticamente para obter alterações, utilize:
+
+* `az deployment group what-if --no-pretty-print`para implantações de grupos de recursos
+* `az deployment sub what-if --no-pretty-print`para implementações de nível de subscrição
 
 ### <a name="azure-rest-api"></a>API REST do Azure
 
@@ -141,10 +158,17 @@ A operação "e se" enumera seis tipos diferentes de alterações:
 
 ## <a name="result-format"></a>Formato resultado
 
-Pode controlar o nível de detalhe que é devolvido sobre as alterações previstas. Nos comandos de`New-Az*Deployment`implantação (), utilize o parâmetro **-WhatIfResultFormat.** Nos comandos programáticos`Get-Az*DeploymentWhatIf`do objeto ( ), utilize o parâmetro **ResultFormat.**
+Controla o nível de detalhe que é devolvido sobre as alterações previstas. Tem duas opções:
 
-Defina o parâmetro de formato para **FullResourcePayloads** para obter uma lista de recursos que irão alterar e detalhes sobre as propriedades que irão mudar. Defina o parâmetro de formato para **O RecursoIdOnly** para obter uma lista de recursos que irão mudar. O valor predefinido é **FullResourcePayloads**.  
+* **FullResourcePayloads** - devolve uma lista de recursos que irão mudar e detalhes sobre as propriedades que irão mudar
+* **ResourceIdOnly** - devolve uma lista de recursos que vão mudar
 
+O valor predefinido é **FullResourcePayloads**.
+
+Para comandos de implantação `-WhatIfResultFormat` PowerShell, utilize o parâmetro. Nos comandos programáticos do `ResultFormat` objeto, utilize o parâmetro.
+
+Para o Azure CLI, utilize o `--result-format` parâmetro.
+ 
 Os seguintes resultados mostram os dois formatos de saída diferentes:
 
 - Cargas completas de recursos
@@ -197,6 +221,8 @@ Os seguintes resultados mostram os dois formatos de saída diferentes:
 
 Para ver como funciona, vamos fazer alguns testes. Primeiro, implemente um [modelo que crie uma rede virtual.](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.json) Utilizará esta rede virtual para testar como as mudanças são reportadas pelo "e se".
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name ExampleGroup `
@@ -206,9 +232,24 @@ New-AzResourceGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-before.json"
 ```
 
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name ExampleGroup \
+  --location "Central US"
+az deployment group create \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-before.json"
+```
+
+---
+
 ### <a name="test-modification"></a>Modificação do teste
 
-Depois da implementação terminar, está pronto para testar a operação "e se". Desta vez implemente um [modelo que altera a rede virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Falta uma das etiquetas originais, uma sub-rede foi removida, e o prefixo de endereço mudou.
+Depois da implementação terminar, está pronto para testar a operação "e se". Desta vez, implementa um [modelo que altera a rede virtual.](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json) Falta uma das etiquetas originais, uma sub-rede foi removida, e o prefixo de endereço mudou.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -216,6 +257,16 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group what-if \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
+```
+
+---
 
 A saída do que-se parece semelhante a:
 
@@ -260,6 +311,8 @@ Algumas das propriedades que estão listadas como eliminadas não vão realmente
 
 Agora, vamos avaliar programáticamente os resultados do que se, definindo o comando para uma variável.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 $results = Get-AzResourceGroupDeploymentWhatIfResult `
   -ResourceGroupName ExampleGroup `
@@ -275,19 +328,41 @@ foreach ($change in $results.Changes)
 }
 ```
 
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli
+results=$(az deployment group what-if --resource-group ExampleGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json" --no-pretty-print)
+```
+
+---
+
 ## <a name="confirm-deletion"></a>Confirmar eliminação
 
 A operação "e se" suporta a utilização do modo de [implantação](deployment-modes.md). Quando definido para completar o modo, os recursos não no modelo são eliminados. O exemplo seguinte implementa um [modelo que não tem recursos definidos](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) em modo completo.
 
 Para pré-visualizar alterações antes `-Confirm` de implementar um modelo, utilize o parâmetro do interruptor com o comando de implantação. Se as alterações forem como esperava, confirme que pretende que a implementação esteja concluída.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroupDeployment `
-  -Confirm `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json" `
-  -Mode Complete
+  -Mode Complete `
+  -Confirm `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
 ```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --resource-group ExampleGroup \
+  --mode Complete \
+  --confirm-with-what-if \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
+```
+
+---
 
 Como não são definidos recursos no modelo e o modo de implementação está definido para ser concluído, a rede virtual será eliminada.
 
@@ -326,4 +401,5 @@ Vê as alterações esperadas e pode confirmar que quer que a implantação seja
 
 - Se notar resultados incorretos a partir da versão prévia [https://aka.ms/whatifissues](https://aka.ms/whatifissues)do que-se, por favor, informe os problemas em .
 - Para implementar modelos com O PowerShell Azure, consulte [a implantação de recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).
+- Para implantar modelos com O CLI Azure, consulte [os recursos de implantação com modelos ARM e Azure CLI](deploy-cli.md).
 - Para implementar modelos com REST, consulte [Implementar recursos com modelos ARM e Gestor de Recursos REST API](deploy-rest.md).

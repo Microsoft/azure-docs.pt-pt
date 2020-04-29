@@ -4,10 +4,10 @@ description: Este artigo contém os procedimentos para o backup e recuperação 
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.openlocfilehash: 71cf446472ef0cf4f50bf64e47d359ea08ccc087
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420408"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Backup máquinas virtuais Hyper-V com servidor de backup Azure

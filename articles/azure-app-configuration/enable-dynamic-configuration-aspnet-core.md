@@ -16,10 +16,10 @@ ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
 ms.openlocfilehash: e9df6d2e7a8219d16e7b60f7c3b8d826a87e6110
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80348860"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Use a configuração dinâmica numa aplicação ASP.NET Core
@@ -319,7 +319,7 @@ Uma *tecla sentinela* é uma chave especial usada para sinalizar quando a config
 
     ![Lançar app quickstart localmente](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
 1. Selecione O Explorador de **Configuração**e atualize os valores das seguintes teclas:
 

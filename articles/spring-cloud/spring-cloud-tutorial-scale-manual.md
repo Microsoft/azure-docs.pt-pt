@@ -7,10 +7,10 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76277481"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Escala uma aplicação em Azure Spring Cloud
@@ -31,7 +31,7 @@ Para concluir este tutorial, precisa de:
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Navegue para a página Escala no portal Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Vá à sua página de **visão geral** da Nuvem de primavera Azure.
 

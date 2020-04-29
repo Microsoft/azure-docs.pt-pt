@@ -4,10 +4,10 @@ description: Saiba como usar um script Azure PowerShell para encontrar o cofre d
 ms.topic: sample
 ms.date: 1/28/2020
 ms.openlocfilehash: 786420ec8cef6516f7261c71b40641693efece07
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76775362"
 ---
 # <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>Powershell Script para encontrar o Cofre de Serviços de Recuperação onde uma conta de armazenamento está registada

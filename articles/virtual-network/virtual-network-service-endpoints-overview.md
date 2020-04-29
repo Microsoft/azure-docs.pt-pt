@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: b75e0c1e53f1e00579de73897197cdd2f14d79af
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ae9d219c376aa704be34088a4f7c48c35baa9669
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81455415"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509504"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
@@ -43,7 +43,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões azu
 
 **Pré-visualização pública**
 
-- **[Registo de contentores Azure](../container-registry/container-registry-vnet.md)** *(Microsoft.ContainerRegistry*): Pré-visualização disponível em todas as regiões do Azure onde o Registo de Contentores Azure está disponível.
+- **[Registo de contentores Azure](../container-registry/container-registry-vnet.md)** *(Microsoft.ContainerRegistry*): Pré-visualização disponível em regiões limitadas do Azure onde o Registo de Contentores Azure está disponível.
 
 Para obter as notificações mais atualizadas, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -151,5 +151,5 @@ Para perguntas frequentes, consulte [FAQs finais](https://docs.microsoft.com/azu
 - [Proteja um Armazém de Dados Azure SQL para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integração de serviços Azure em redes virtuais](virtual-network-for-azure-services.md)
 - [Políticas de fim do serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Modelo Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Modelo de Gestor de Recursos Azure](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
 

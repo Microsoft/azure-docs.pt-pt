@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
 ms.openlocfilehash: f2f3e84462307f43ffe432fe878476d979f489f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480917"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução Mapa de Serviços no Azure
@@ -30,7 +30,7 @@ Este artigo descreve os detalhes do embarque e utilização do Mapa de Serviço.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="enable-service-map"></a>Ativar o mapa de serviço
 
@@ -215,7 +215,7 @@ Ao navegar num mapa de mapas de serviço, pode selecionar máquinas e processos 
 
 ![Painel de propriedades da máquina](media/service-map/machine-properties.png)
 
-Pode recolher detalhes do processo a partir de metadados do sistema operativo sobre processos de execução, incluindo nome de processo, descrição do processo, nome e domínio do utilizador (no Windows), nome da empresa, nome do produto, versão do produto, diretório de trabalho, linha de comando e processo hora de início.
+Pode recolher detalhes do processo a partir de metadados do sistema operativo sobre processos de execução, incluindo nome de processo, descrição do processo, nome e domínio do utilizador (no Windows), nome da empresa, nome do produto, versão do produto, diretório de trabalho, linha de comando e tempo de início do processo.
 
 ![Painel de propriedades de processo](media/service-map/process-properties.png)
 

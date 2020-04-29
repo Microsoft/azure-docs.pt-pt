@@ -10,10 +10,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73822794"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerida na Base de Dados Azure SQL utilizando os diretores de servidores Azure AD (logins)
@@ -439,7 +439,7 @@ As consultas de base de dados cruzadas são suportadas para contas AD Azure com 
 Consulte o seguinte artigo de funcionalidades de segurança de funcionalidades de segurança de recursos de instância [geridas](sql-database-managed-instance.md#azure-sql-database-security-features) para uma lista completa de formas de proteger a sua base de dados. São discutidos os seguintes recursos de segurança:
 
 - [Auditoria de instância gerida](sql-database-managed-instance-auditing.md) 
-- [Sempre encriptado](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Deteção de ameaças](sql-database-managed-instance-threat-detection.md) 
 - [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
 - [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security) 

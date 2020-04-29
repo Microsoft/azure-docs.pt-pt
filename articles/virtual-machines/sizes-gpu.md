@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 7e1e0d488844a94bd0be2b91398678e620295729
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73a878d791997169b0823bb949e78bdced77cae6
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77913587"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509691"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU otimizado tamanhos de máquina virtual
 
@@ -35,11 +35,13 @@ Os tamanhos de VM otimizados pela GPU são máquinas virtuais especializadas dis
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos e controladores suportados
 
-Para tirar partido das capacidades de GPU das VMs da série N Azure, os condutores de GPU da NVIDIA devem ser instalados.
+Para tirar partido das capacidades de GPU dos pilotos de GpMs da série N Azure, da NVIDIA ou da AMD GPU devem ser instalados.
 
 A Extensão do [Condutor GPU da NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instala os condutores adequados da NVIDIA CUDA ou grid num VM da série N. Instale ou gerea extensão utilizando o portal Azure ou ferramentas como os modelos Azure PowerShell ou Azure Resource Manager. Consulte a documentação de extensão do [condutor da NVIDIA GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para sistemas operativos suportados e etapas de implementação. Para obter informações gerais sobre extensões VM, consulte [extensões e funcionalidades da máquina virtual Azure.](/azure/virtual-machines/extensions/overview)
 
 Se optar por instalar manualmente os controladores GPU da NVIDIA, consulte a configuração do controlador GPU da série N para a configuração do controlador [GPU da série N](/azure/virtual-machines/windows/n-series-driver-setup) para o [Linux](/azure/virtual-machines/linux/n-series-driver-setup) para sistemas operativos suportados, controladores, instalação e verificação.
+
+Para instalar manualmente os controladores GPU da AMD, consulte a configuração do [controlador GPU da série N para windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) para sistemas operativos, controladores, instalação e verificação suportados.
 
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 

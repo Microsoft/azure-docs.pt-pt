@@ -8,10 +8,10 @@ ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: acaf16e7469b3ea4e5e391db91e37dc76be3b261
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78298535"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover VMs do Azure entre regiões públicas e o Azure Government 
@@ -96,7 +96,7 @@ O serviço de Mobilidade deve ser instalado em cada servidor que pretende replic
 
      Consulte os seguintes documentos para criar os recursos de rede mais utilizados para si, com base na configuração vm de origem.
 
-    - [Grupos de Segurança de Rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+    - [Grupos de Segurança da Rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
     - [IP público](../virtual-network/virtual-network-public-ip-address.md)
     

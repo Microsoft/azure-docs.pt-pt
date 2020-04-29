@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9f52dfd92d430abffe5857d231898dd4b0e7745e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 701a5aab7a0061f8b5abfaac1b699034db2671b9
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679924"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508994"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gerir pacotes Python 2 na Automação Azure
 
@@ -32,11 +32,11 @@ Uma vez importado um pacote, está listado na página de pacotes Python 2 na sua
 
 ## <a name="import-packages-with-dependencies"></a>Pacotes de importação com dependências
 
-A automação azure não resolve dependências de pacotes de pitões durante o processo de importação. Há duas formas de importar um pacote com todas as suas dependências. Apenas um dos seguintes passos deve ser usado para importar os pacotes para a sua conta Automation.
+A automação azure não resolve dependências para pacotes Python durante o processo de importação. Há duas formas de importar um pacote com todas as suas dependências. Apenas um dos seguintes passos deve ser usado para importar os pacotes para a sua conta Automation.
 
 ### <a name="manually-download"></a>Download manual
 
-Numa máquina de 64 bits do Windows com [python2.7](https://www.python.org/downloads/release/latest/python2) e [pip](https://pip.pypa.io/en/stable/) instalado, execute o seguinte comando para descarregar um pacote e todas as suas dependências:
+Numa máquina de 64 bits do Windows com [Python2.7](https://www.python.org/downloads/release/latest/python2) e [pip](https://pip.pypa.io/en/stable/) instalado, execute o seguinte comando para descarregar um pacote e todas as suas dependências:
 
 ```cmd
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
@@ -46,7 +46,7 @@ Assim que os pacotes forem descarregados, pode importá-los para a sua conta de 
 
 ### <a name="runbook"></a>Runbook
 
-Importe o livro de pitão [Import Python 2 pacotes de pypi para a Azure Automation da](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) galeria para a sua conta Automation. Certifique-se de que as Definições de Execução estão definidas para **Azure** e inicie o livro de execução com os parâmetros. O livro de execução requer uma Conta De execução Como conta para a conta de Automação funcionar. Para cada parâmetro, certifique-se de que o inicia com o interruptor, tal como visto na lista e imagem seguintes:
+ Para obter um livro de execução, [importe pacotes Python 2 da pipia para a Azure Automation da](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) galeria para a sua conta Automation. Certifique-se de que as Definições de Execução estão definidas para **Azure** e inicie o livro de execução com os parâmetros. O livro de execução requer uma Conta De execução Como conta para a conta de Automação funcionar. Para cada parâmetro, certifique-se de que o inicia com o interruptor, tal como visto na lista e imagem seguintes:
 
 * -s \<subscriçãoId\>
 * -g \<recursosGroup\>
@@ -85,7 +85,7 @@ for group in groups:
 
 ## <a name="develop-and-test-runbooks-offline"></a>Desenvolver e testar livros offline
 
-Para desenvolver e testar os seus livros de execução Python 2 offline, pode utilizar o módulo de [ativos emulados da Pitão Azure Automation](https://github.com/azureautomation/python_emulated_assets) no GitHub. Este módulo permite-lhe fazer referência aos seus recursos partilhados, tais como credenciais, variáveis, ligações e certificados.
+Para desenvolver e testar os seus livros de execução Python 2 offline, pode utilizar o módulo de [ativos emulados da Azure Automation Python](https://github.com/azureautomation/python_emulated_assets) no GitHub. Este módulo permite-lhe fazer referência aos seus recursos partilhados, tais como credenciais, variáveis, ligações e certificados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

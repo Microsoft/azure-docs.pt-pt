@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 7b73923b7fc32ae83bfc8405d074835c02031a63
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77913706"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Migrar do Google Maps para o Azure Maps
@@ -65,7 +65,7 @@ Ao migrar para o Azure Maps do Google Maps, considere os seguintes pontos sobre 
 Aqui estão alguns recursos relacionados para o Azure Maps:
 
 - [Página de preços do Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/)
-- [Calculadora de preços azure](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
+- [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
 - [Termo de utilização do Azure Maps](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46) (incluído nos Termos de Serviços Online da Microsoft)
 - [Escolha o nível de preços certos no Azure Maps](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier)
 

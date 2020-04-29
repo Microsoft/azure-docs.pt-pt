@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: dbf75262440474c5cb50a6d733ac7cba212b5f3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75651660"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508139"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Aplicação gerida azure com identidade gerida
 
@@ -54,7 +54,7 @@ Uma Aplicação Gerida pode ser configurada com identidade gerida através do [C
 
 ```json
 "outputs": {
-    "managedIdentity": "[parse('{\"Type\":\"SystemAssigned\"}')]"
+    "managedIdentity": { "Type": "SystemAssigned" }
 }
 ```
 
@@ -66,71 +66,65 @@ Abaixo estão algumas recomendações sobre quando usar CreateUIDefinition para 
 - A Identidade Gerida requer uma entrada complexa do consumidor.
 - A Identidade Gerida é necessária na criação da Aplicação Gerida.
 
-#### <a name="systemassigned-createuidefinition"></a>SistemaAstada Definição DeUI
+#### <a name="managed-identity-createuidefinition-control"></a>Controlo de Definição de Definição de Identidade Gerida
 
-Uma Definição Basic CreateUI que permite a identidade Do Sistema Astada para a Aplicação Gerida.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-  "handler": "Microsoft.Azure.CreateUIDef",
-  "version": "0.1.2-preview",
-    "parameters": {
-        "basics": [
-            {}
-        ],
-        "steps": [
-        ],
-        "outputs": {
-            "managedIdentity": "[parse('{\"Type\":\"SystemAssigned\"}')]"
-        }
-    }
-}
-```
-
-#### <a name="userassigned-createuidefinition"></a>UserAssigned CreateUIDefinition
-
-Uma Definição Basic CreateUIQue que toma como entrada um recurso de **identidade atribuído** ao utilizador e permite a identidade UserAssigned para a Aplicação Gerida.
+A CreateUIDefinition suporta um controlo de [identidade gerido](./microsoft-managedidentity-identityselector.md)incorporado .
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
   "handler": "Microsoft.Azure.CreateUIDef",
-  "version": "0.1.2-preview",
-    "parameters": {
-        "basics": [
-            {}
-        ],
-        "steps": [
-            {
-                "name": "manageIdentity",
-                "label": "Identity",
-                "subLabel": {
-                    "preValidation": "Manage Identities",
-                    "postValidation": "Done"
-                },
-                "bladeTitle": "Identity",
-                "elements": [
-                    {
-                        "name": "userAssignedText",
-                        "type": "Microsoft.Common.TextBox",
-                        "label": "User assigned managed identity",
-                        "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity",
-                        "visible": true
-                    }
-                ]
-            }
-        ],
-        "outputs": {
-            "managedIdentity": "[parse(concat('{\"Type\":\"UserAssigned\",\"UserAssignedIdentities\":{',string(steps('manageIdentity').userAssignedText),':{}}}'))]"
-        }
+  "version": "0.0.1-preview",
+  "parameters": {
+    "basics": [],
+    "steps": [
+      {
+        "name": "applicationSettings",
+        "label": "Application Settings",
+        "subLabel": {
+          "preValidation": "Configure your application settings",
+          "postValidation": "Done"
+        },
+        "bladeTitle": "Application Settings",
+        "elements": [
+          {
+            "name": "appName",
+            "type": "Microsoft.Common.TextBox",
+            "label": "Managed application Name",
+            "toolTip": "Managed application instance name",
+            "visible": true
+          },
+          {
+            "name": "appIdentity",
+            "type": "Microsoft.ManagedIdentity.IdentitySelector",
+            "label": "Managed Identity Configuration",
+            "toolTip": {
+              "systemAssignedIdentity": "Enable system assigned identity to grant the managed application access to additional existing resources.",
+              "userAssignedIdentity": "Add user assigned identities to grant the managed application access to additional existing resources."
+            },
+            "defaultValue": {
+              "systemAssignedIdentity": "Off"
+            },
+            "options": {
+              "hideSystemAssignedIdentity": false,
+              "hideUserAssignedIdentity": false,
+              "readOnlySystemAssignedIdentity": false
+            },
+            "visible": true
+          }
+        ]
+      }
+    ],
+    "outputs": {
+      "applicationResourceName": "[steps('applicationSettings').appName]",
+      "location": "[location()]",
+      "managedIdentity": "[steps('applicationSettings').appIdentity]"
     }
+  }
 }
 ```
 
-O CreateUIDefinition.json acima gera uma experiência de criação de utilizador que tem uma caixa de texto para um consumidor introduzir o ID de recurso azure de identidade atribuído ao **utilizador.** A experiência gerada seria como:
-
-![Amostra de identidade atribuída ao utilizador CreateUIDefinition](./media/publish-managed-identity/user-assigned-identity.png)
+![Identidade Gerida CreateUIDefinition](./media/publish-managed-identity/msi-cuid.png)
 
 ### <a name="using-azure-resource-manager-templates"></a>Utilizar modelos do Azure Resource Manager
 
@@ -203,7 +197,7 @@ Um modelo básico de Gestor de Recursos Azure que implementa uma Aplicação Ger
 
 ## <a name="granting-access-to-azure-resources"></a>Concessão de acesso aos recursos azure
 
-Uma vez que uma Aplicação Gerida seja concedida uma identidade, pode ser-lhe concedido acesso aos recursos azuis existentes. Este processo pode ser feito através da interface de controlo de acesso (IAM) no portal Azure. O nome da Aplicação Gerida ou **identidade atribuída ao utilizador** pode ser pesquisado para adicionar uma atribuição de funções.
+Uma vez que uma Aplicação Gerida seja concedida uma identidade, pode ser-lhe concedido acesso aos recursos Azure existentes. Este processo pode ser feito através da interface de controlo de acesso (IAM) no portal Azure. O nome da Aplicação Gerida ou **identidade atribuída ao utilizador** pode ser pesquisado para adicionar uma atribuição de funções.
 
 ![Adicionar atribuição de funções para Aplicação Gerida](./media/publish-managed-identity/identity-role-assignment.png)
 
@@ -218,7 +212,7 @@ A Identidade Gerida também pode ser usada para implementar uma Aplicação Geri
 
 Ao associar a implementação da Aplicação Gerida aos recursos existentes, deve ser fornecido tanto o recurso Azure existente como uma **identidade atribuída ao utilizador** com a atribuição de funções aplicável nesse recurso.
 
- Uma amostra CreateUIDefinição que requer duas inputs: um ID de recurso de interface de rede e um id de recurso de identidade atribuído pelo utilizador.
+ Uma amostra CreateUIDefinição que requer duas inputs: um ID de recurso de interface de rede e um ID de recurso de identidade atribuído pelo utilizador.
 
 ```json
 {

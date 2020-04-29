@@ -3,12 +3,12 @@ title: Como criar políticas de configuração de hóspedes para Windows
 description: Saiba como criar uma política azure de configuração de hóspedes para windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f09bb543f73e37bd211a55e2238808f57585bb18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a75525b25945dd9548d7c293d5965cc67eb463dc
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024902"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509623"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de configuração de hóspedes para Windows
 
@@ -16,7 +16,7 @@ Antes de criar políticas personalizadas, é uma boa ideia ler a informação de
  
 Para aprender sobre a criação de políticas de configuração de hóspedes para o Linux, consulte a página Como criar políticas de [Configuração de Hóspedes para o Linux](./guest-configuration-create-linux.md)
 
-Ao auditar o Windows, a Configuração do Hóspede utiliza um módulo de recurso de [configuração](/powershell/scripting/dsc/overview/overview) do Estado Desejado (DSC) para e configurar ficheiros. A configuração DSC define a condição em que a máquina deve estar.
+Ao auditar o Windows, a Configuração do Hóspede utiliza um módulo de recurso [de configuração do Estado Desejado](/powershell/scripting/dsc/overview/overview) (DSC) para criar o ficheiro de configuração. A configuração DSC define a condição em que a máquina deve estar.
 Se a avaliação da configuração falhar, o efeito de política **auditaIfNotExists** é desencadeado e a máquina é considerada **incompatível**.
 
 [A configuração](../concepts/guest-configuration.md) do hóspede da Política Azure só pode ser usada para auditar definições dentro das máquinas. A reparação das definições dentro das máquinas ainda não está disponível.

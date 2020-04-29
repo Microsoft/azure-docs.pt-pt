@@ -5,10 +5,10 @@ ms.service: azure-functions
 ms.topic: sample
 ms.date: 11/23/2019
 ms.openlocfilehash: dd31dbadce4f0a55853607504b4322277784f27f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74536268"
 ---
 # <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>Criar uma aplicação de função num plano Premium - Azure CLI

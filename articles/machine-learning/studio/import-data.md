@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
 ms.openlocfilehash: cee49124a7547399889e425008a8580b9b25945a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79217987"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importe os seus dados de formação para o Azure Machine Learning Studio (clássico) de várias fontes de dados
@@ -66,7 +66,7 @@ Pode especificar ou alterar explicitamente as rubricas e tipos de dados para col
 
 Os seguintes tipos de dados são reconhecidos pelo Studio (clássico):
 
-* Cadeia
+* String
 * Número inteiro
 * Double
 * Booleano

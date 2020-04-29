@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 03/26/2020
 ms.author: aahi
 ms.openlocfilehash: e1d3a947df486cd347c17afae5d8dbce21878e09
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80549996"
 ---
 # <a name="quickstart-use-the-bing-visual-search-client-library"></a>Quickstart: Use a biblioteca de clientes bing visual search

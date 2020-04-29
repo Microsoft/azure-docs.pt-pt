@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 12/30/2019
 ms.openlocfilehash: 478a7e03b432006b429c96e03307fd8e494c88ff
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77472320"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Criar uma loja de conhecimentos usando REST e Carteiro
@@ -20,7 +20,7 @@ ms.locfileid: "77472320"
 > [!IMPORTANT] 
 > A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure . A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte de portal limitado e nenhum suporte sdk .NET.
 
-Uma loja de conhecimentos contém saída de um oleoduto de enriquecimento de pesquisa cognitiva Azure para análise posterior ou outro processamento a jusante. Um pipeline enriquecido pela IA aceita ficheiros de imagem ou ficheiros de texto não estruturados, indexa-os utilizando a Pesquisa Cognitiva Azure, aplica enriquecimentos de IA a partir de Serviços Cognitivos (como análise de imagem e processamento de linguagem natural), e depois guarda os resultados para um loja de conhecimento em Azure Storage. Pode utilizar ferramentas como o Power BI ou o Storage Explorer no portal Azure para explorar a loja de conhecimento.
+Uma loja de conhecimentos contém saída de um oleoduto de enriquecimento de pesquisa cognitiva Azure para análise posterior ou outro processamento a jusante. Um pipeline enriquecido pela IA aceita ficheiros de imagem ou ficheiros de texto não estruturados, indexa-os utilizando a Pesquisa Cognitiva Azure, aplica enriquecimentos de IA a partir de Serviços Cognitivos (como análise de imagem e processamento de linguagem natural), e depois guarda os resultados para uma loja de conhecimentos no Armazenamento Azure. Pode utilizar ferramentas como o Power BI ou o Storage Explorer no portal Azure para explorar a loja de conhecimento.
 
 Neste artigo, você usa a interface REST API para ingerir, indexar e aplicar enriquecimentos de IA a um conjunto de avaliações de hotéis. As avaliações do hotel são importadas para o armazenamento de Azure Blob. Os resultados são guardados como uma loja de conhecimento no armazenamento da Mesa Azure.
 

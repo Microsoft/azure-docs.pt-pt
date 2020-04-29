@@ -10,10 +10,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
 ms.openlocfilehash: 5fd69dcd30292630862887ab5434764ba377b396
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481087"
 ---
 # <a name="vcore-model-overview"></a>Descrição geral do modelo vCore
@@ -32,7 +32,7 @@ As opções de nível de serviço no modelo vCore incluem Propósito Geral, Busi
 ||**Fins gerais**|**Crítico de negócios**|**Hyperscale**|
 |---|---|---|---|
 |Melhor para|A maioria das cargas de trabalho de negócios. Oferece opções de cálculo e armazenamento orientados para o orçamento, equilibrados e escaláveis. |Oferece às aplicações empresariais a maior resiliência a falhas utilizando várias réplicas isoladas, e fornece o desempenho de I/S mais elevado por réplica de base de dados.|A maioria das cargas de trabalho empresariais com armazenamento altamente escalável e requisitos à escala de leitura.  Oferece maior resiliência às falhas, permitindo a configuração de mais de uma réplica de base de dados isolada. |
-|Storage|Usa armazenamento remoto.<br/>**Bases de dados únicas e piscinas elásticas aprovisionadas computação:**<br/>5 GB - 4 TB<br/>**Computação sem servidor:**<br/>5 GB - 3 TB<br/>**Instância Gerida**: 32 GB - 8 TB |Usa armazenamento local de SSD.<br/>**Bases de dados únicas e piscinas elásticas aprovisionadas computação:**<br/>5 GB - 4 TB<br/>**Instância gerida:**<br/>32 GB - 4 TB |Auto-cultivo flexível de armazenamento, se necessário. Suporta até 100 TB de armazenamento. Utiliza o armazenamento local de SSD para cache de piscina tampão local e armazenamento de dados locais. Utiliza o armazenamento remoto Azure como loja de dados final de longo prazo. |
+|Armazenamento|Usa armazenamento remoto.<br/>**Bases de dados únicas e piscinas elásticas aprovisionadas computação:**<br/>5 GB - 4 TB<br/>**Computação sem servidor:**<br/>5 GB - 3 TB<br/>**Instância Gerida**: 32 GB - 8 TB |Usa armazenamento local de SSD.<br/>**Bases de dados únicas e piscinas elásticas aprovisionadas computação:**<br/>5 GB - 4 TB<br/>**Instância gerida:**<br/>32 GB - 4 TB |Auto-cultivo flexível de armazenamento, se necessário. Suporta até 100 TB de armazenamento. Utiliza o armazenamento local de SSD para cache de piscina tampão local e armazenamento de dados locais. Utiliza o armazenamento remoto Azure como loja de dados final de longo prazo. |
 |IOPS e entrada (aproximada)|**Bases de dados únicas e piscinas elásticas**: Consulte os limites dos recursos para [bases de dados únicas](../sql-database/sql-database-vcore-resource-limits-single-databases.md) e [piscinas elásticas](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).<br/>**Instância gerida**: Ver [visão geral Azure SQL Base](../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics)de dados gerido limites de recursos de instância .|Consulte os limites de recursos para [bases de dados individuais](../sql-database/sql-database-vcore-resource-limits-single-databases.md) e [piscinas elásticas](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).|Hyperscale é uma arquitetura multi-nível com cache a vários níveis. IOPS eficaz estórias e a sua entrada dependerá da carga de trabalho.|
 |Disponibilidade|1 réplica, sem réplicas à escala de leitura|3 réplicas, 1 [réplica em escala de leitura,](sql-database-read-scale-out.md)<br/>alta disponibilidade redundante (HA)|1 réplica de leitura- escrita, mais [0-4 réplicas em escala de leitura](sql-database-read-scale-out.md)|
 |Cópias de segurança|[Armazenamento geo-redundante de acesso de leitura (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|[RA-GRS,](../storage/common/storage-designing-ha-apps-with-ragrs.md)7-35 dias (7 dias por defeito)|Backups baseados em instantâneos no armazenamento remoto azure. Os restauros usam estes instantâneos para uma rápida recuperação. As cópias de segurança são instantâneas e não impactam o desempenho do Computação Em/O. As restaurações são rápidas e não são uma operação de tamanho de dados (demorando minutos em vez de horas ou dias).|
@@ -163,7 +163,7 @@ Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" 
 
 Para mais detalhes, consulte o comando [Set-AzSqlInstance.](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Utilize o seguinte comando CLI:
 
@@ -185,7 +185,7 @@ A Gen5 está disponível na maioria das regiões do mundo.
 
 #### <a name="fsv2-series"></a>Série Fsv2
 
-A série Fsv2 está disponível nas seguintes regiões: Austrália Central, Austrália Central 2, Austrália Leste, Austrália Sudeste, Brasil Sul, Canadá Central, Ásia Oriental, Leste dos Eua, França Central, Índia Central, Índia Ocidental, Coreia Central, Coreia do Sul, Norte Europa, África do Sul Norte, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Oeste dos EUA 2.
+As séries FSV2 estão disponíveis nas seguintes regiões: Austrália Central, Austrália Central 2, Austrália Leste, Austrália Sudeste, Brasil Sul, Canadá Central, Ásia Oriental, Leste dos Estados-Americanos, França Central, Índia Central, Índia Ocidental, Coreia Central, Coreia do Sul, Norte da Europa, África do Sul Norte, Sudeste Asiático, Reino Unido Sul, Reino Unido Ocidental, Europa Ocidental, Oeste dos Eua 2.
 
 
 #### <a name="m-series"></a>Série M

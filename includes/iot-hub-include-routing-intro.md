@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 9a20dca71727e83db98c4c97567949bd127fc7fb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77111207"
 ---
 [O encaminhamento de mensagens](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) permite o envio de dados de telemetria dos seus dispositivos IoT para pontos finais compatíveis com o Event Hub ou pontos finais personalizados, tais como armazenamento de blob, filas de ônibus de serviço, tópicos de ônibus de serviço e centros de eventos. Para configurar o encaminhamento de mensagens personalizadas, cria consultas de [encaminhamento](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) para personalizar o percurso que corresponde a uma determinada condição. Uma vez configurado, os dados de entrada são automaticamente encaminhados para os pontos finais pelo Hub IoT. Se uma mensagem não corresponder a nenhuma das consultas de encaminhamento definidas, é encaminhada para o ponto final padrão.

@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: ff5f317bafd5c59ea4bba8bb6a23b60881cd218f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76720803"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-azure-cli"></a>Subscrever eventos para um grupo de recursos com a CLI do Azure
