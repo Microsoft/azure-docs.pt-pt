@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: aahi
 ms.openlocfilehash: 83cdaecfb819fb1f4677b051f87e23e0e03daef2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80370106"
 ---
 # <a name="tutorial-create-a-visual-search-single-page-web-app"></a>Tutorial: Criar uma aplicação web de pesquisa visual de uma página

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: d20c05e6ec5a413b81ede9cb4906de2595967115
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80048463"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integração do Diretório Ativo Azure com a Uberflip
@@ -54,7 +54,7 @@ A Uberflip suporta as seguintes funcionalidades:
 
 Para configurar a integração do Uberflip no Azure AD, precisa de adicionar o Uberflip do Azure Marketplace à sua lista de aplicações geridas pelo SaaS:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No painel esquerdo, selecione **Azure Active Directory**.
 
    ![A opção Azure Ative Diretório](common/select-azuread.png)

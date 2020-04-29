@@ -4,10 +4,10 @@ description: Monitorize o desempenho e diagnostique problemas em serviços Node.
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 38336e3faf3764233dd94bffbfb24421e054496a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411588"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
@@ -35,7 +35,7 @@ Antes de começar, confirme que tem uma subscrição do Azure ou [obtenha uma no
 ### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Configurar um recurso do Application Insights
 
 
-1. Inicie sessão no [Portal do Azure][portal].
+1. Inicie sessão no [portal do Azure][portal].
 2. Selecione **Criar um programador de recursos** > **Ferramentas** > **De aplicação Insights**. O recurso inclui um ponto final para receber dados de telemetria, armazenamento para esses dados, relatórios guardados e configuração de dashboards, regras e alertas, entre outras coisas.
 
 3. Na página de criação do recurso, na caixa **Tipo de Aplicação**, selecione **Aplicação Node.js**. O tipo de aplicação determina os dashboards e relatórios predefinidos que são criados por si. (Os recursos do Application Insights podem recolher dados de qualquer linguagem e plataforma.)

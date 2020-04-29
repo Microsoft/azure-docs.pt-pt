@@ -6,10 +6,10 @@ author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
 ms.openlocfilehash: 036b8c084bdfdc11c02274758c550c76bdc7b1e7
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80348738"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilizar análise de alterações de aplicações (pré-visualização) no Monitor Azure
@@ -72,7 +72,7 @@ Selecione Grupo de Recursos e recursos para começar a visualizar alterações.
 Pode ver Insights e recursos de dependências relacionadas que acolhem a sua aplicação. Esta visão foi concebida para ser centrada na aplicação para os desenvolvedores resolverem problemas.
 
 Os recursos atualmente apoiados incluem:
-- Máquinas Virtuais
+- Virtual Machines
 - Conjunto de escala de máquina virtual
 - Recursos de Networking Azure
 - Aplicação web com rastreio de ficheiros no hóspede e alterações de variáveis ambientais

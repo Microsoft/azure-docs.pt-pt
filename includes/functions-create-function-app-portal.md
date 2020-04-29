@@ -9,10 +9,10 @@ ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: c590b61ee1424d32d83dc5f758682fde37492c3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80057201"
 ---
 1. A partir do menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
@@ -23,7 +23,7 @@ ms.locfileid: "80057201"
 
     | Definição      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
-    | **Assinatura** | A sua subscrição | A subscrição sob a qual esta nova aplicação de função é criada. |
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual esta nova aplicação de função é criada. |
     | **[Grupo de Recursos](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. |
     | **Nome da app de função** | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os caracteres `a-z` válidos são `0-9`(caso insensível), e `-`.  |
     |**Publicar**| Código | Opção para publicar ficheiros de código ou um contentor de Docker. |
@@ -39,9 +39,9 @@ ms.locfileid: "80057201"
     | ------------ | ---------------- | ----------- |
     | **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres de comprimento e podem conter números e letras minúsculas apenas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da conta de [armazenamento.](../articles/azure-functions/functions-scale.md#storage-account-requirements) |
     |**Sistema Operativo**| Sistema operativo preferido | Um sistema operativo é pré-selecionado para si com base na sua seleção de pilhas de tempo de funcionamento, mas pode alterar a definição se necessário. |
-    | **[Plano](../articles/azure-functions/functions-scale.md)** | **Consumo (Servidor)** | O plano de alojamento que define a forma como os recursos são alocados à sua aplicação Function App. No plano de **consumo** padrão, os recursos são adicionados dinamicamente conforme exigido pelas suas funções. Neste alojamento [sem servidor,](https://azure.microsoft.com/overview/serverless-computing/) paga-se apenas pelo tempo em que as suas funções funcionam. Quando executa num plano do Serviço de Aplicações, tem de gerir o [dimensionamento da sua aplicação de funções](../articles/azure-functions/functions-scale.md).  |
+    | **[Planear](../articles/azure-functions/functions-scale.md)** | **Consumo (Servidor)** | O plano de alojamento que define a forma como os recursos são alocados à sua aplicação Function App. No plano de **consumo** padrão, os recursos são adicionados dinamicamente conforme exigido pelas suas funções. Neste alojamento [sem servidor,](https://azure.microsoft.com/overview/serverless-computing/) paga-se apenas pelo tempo em que as suas funções funcionam. Quando executa num plano do Serviço de Aplicações, tem de gerir o [dimensionamento da sua aplicação de funções](../articles/azure-functions/functions-scale.md).  |
 
-    ![Hosting](./media/functions-create-function-app-portal/function-app-create-hosting.png)
+    ![Alojamento](./media/functions-create-function-app-portal/function-app-create-hosting.png)
 
 1. Selecione **Seguinte : Monitorização**. Na página **de Monitorização,** introduza as seguintes definições.
 

@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: iainfou
 ms.openlocfilehash: 09fcf88c6dfe90380f387c6d72c751634f5b1606
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80475790"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar um VM de gestão para configurar e administrar um domínio gerido pelo Azure Ative Directory Domain Services

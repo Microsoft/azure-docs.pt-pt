@@ -10,10 +10,10 @@ ms.date: 10/09/2019
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: f79b25c98ae2e764f607fc5a12bc311ed0edacae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286188"
 ---
 Conecte-se diretamente com os clientes, listando a sua oferta nos mercados e ligando o seu sistema de Gestão de Relacionamento com o Cliente (CRM) para que possa receber informações de contacto do cliente imediatamente após um cliente expressar interesse ou implementar o seu produto.

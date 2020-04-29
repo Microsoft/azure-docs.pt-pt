@@ -4,16 +4,16 @@ description: Extrair dados consistentemente formatados de uma expressão utiliza
 ms.topic: tutorial
 ms.date: 04/01/2020
 ms.openlocfilehash: 5b585ee52880c474d3f2736b34a267012b390aad
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80545839"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutorial: Obtenha dados bem formatados da expressão
 Neste tutorial, crie uma entidade de expressão regular para extrair dados consistentemente formatados a partir de uma expressão.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]

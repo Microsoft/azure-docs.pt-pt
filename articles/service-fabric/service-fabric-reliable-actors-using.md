@@ -5,11 +5,11 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 55ee4c7498dcda3060d4e4221711793b80132bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502281"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implemente funcionalidades de nível de serviço no seu serviço de ator
@@ -143,7 +143,7 @@ public class Program
 
 ## <a name="implement-actor-backup-and-restore"></a>Implementar backup e restauro do ator
 
-Um serviço de ator personalizado pode expor um método para fazer o back `ActorService`up dados do ator, tirando partido do ouvinte remoting já presente em . Por exemplo, consulte [Backup e restaure os atores](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Um serviço de ator personalizado pode expor um método para fazer o back `ActorService`up dados do ator, tirando partido do ouvinte remoting já presente em . Por exemplo, consulte [Backup e restaure os atores](service-fabric-reliable-actors-backup-and-restore.md).
 
 ## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Ator que usa uma pilha V2 remoting (compatível com interface)
 

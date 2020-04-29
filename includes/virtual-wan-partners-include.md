@@ -9,10 +9,10 @@ ms.date: 10/09/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 38c0d7d93d00d31a8efa508a635b471a73da0419
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80123293"
 ---
 Pode consultar os links desta secção para obter mais informações sobre os serviços oferecidos pelos parceiros. Se o seu parceiro de dispositivo de sucursal não estiver listado na secção abaixo, mande o seu fornecedor de dispositivos de sucursal contactar-nos. Eles podem contactar-nos enviando um e-mail para azurevirtualwan@microsoft.com.

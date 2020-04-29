@@ -9,10 +9,10 @@ ms.date: 03/13/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 6cd883289513091ff1a57a130b12e25e012c1160
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334957"
 ---
 A tabela seguinte descreve limites predefinidos para as contas de armazenamento ativadas por objetivos gerais do Azure v1, v2, Blob, armazenamento de blocos blob e data Lake Storage Gen2. O limite de *ingresso* refere-se a todos os dados enviados para uma conta de armazenamento. O limite de *saída* refere-se a todos os dados recebidos de uma conta de armazenamento.

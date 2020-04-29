@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: b978190776aee3c89d3beadde76d20c4327b012f
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80388921"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas no local para o Azure
@@ -89,7 +89,7 @@ Hyper-V | Criar uma política de [replicação](hyper-v-azure-tutorial.md#set-up
 
 **Cenário** | **Detalhes**
 --- | --- 
-VMware | [Ative a replicação](vmware-azure-enable-replication.md) para as VMs VMware.
+VMware | [Ativar a replicação](vmware-azure-enable-replication.md) para VMware VMs.
 Máquina física | [Ativar a replicação](physical-azure-disaster-recovery.md#enable-replication) para máquinas físicas.
 Hyper-V | [Ativar a replicação](hyper-v-azure-tutorial.md#enable-replication)<br/><br/> [Ativar a replicação](hyper-v-vmm-azure-tutorial.md#enable-replication) para hiper-V implantado com O Centro de Sistema VMM.
 

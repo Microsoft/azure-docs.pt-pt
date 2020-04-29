@@ -10,10 +10,10 @@ ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
 ms.openlocfilehash: a22ae3b4b11a4eac7da147cf3ad896bbad435448
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80370212"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Quickstart: Construir, implementar e usar um modelo personalizado para tradução
@@ -40,7 +40,7 @@ Se for utilizador pela primeira vez, será-lhe pedido que concorde com os Termos
 ![Criar espaço de trabalho Criar espaço de trabalho Criar espaço de trabalho Criar espaço de](media/quickstart/create-workspace-5.png)
 ![trabalho Criar espaço de trabalho](media/quickstart/create-workspace-6.png)
 
-Nas visitas subsequentes ao portal Tradutor Personalizado, navegue para a página Definições onde pode gerir o seu espaço de trabalho, criar mais espaços de trabalho, associar a sua chave de subscrição de Texto De Texto Do Microsoft tradutor com os seus espaços de trabalho, adicionar coproprietários e alterar um chave de subscrição.
+Nas visitas subsequentes ao portal Tradutor Personalizado, navegue para a página Definições onde pode gerir o seu espaço de trabalho, criar mais espaços de trabalho, associar a sua chave de subscrição de Texto De Texto Do Microsoft tradutor com os seus espaços de trabalho, adicionar coproprietários e alterar uma chave de subscrição.
 
 ## <a name="create-a-project"></a>Criar um projeto
 

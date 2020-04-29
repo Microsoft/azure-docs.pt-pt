@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: ab22e9843ca133274361838eeb49abbe326588dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502224"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Quadro de Segurança: Dados Sensíveis [ Dados Sensíveis] Atenuações 
@@ -27,13 +27,13 @@ ms.locfileid: "79502224"
 | --------------- | ------- |
 | **Limite de confiança de máquina** | <ul><li>[Certifique-se de que os binários são obfuscados se contiverem informações sensíveis](#binaries-info)</li><li>[Considere utilizar o Sistema de Ficheiros Encriptados (EFS) para proteger dados confidenciais específicos do utilizador](#efs-user)</li><li>[Certifique-se de que os dados sensíveis armazenados pela aplicação no sistema de ficheiros estão encriptados](#filesystem)</li></ul> | 
 | **Aplicação Web** | <ul><li>[Certifique-se de que o conteúdo sensível não está em cache no navegador](#cache-browser)</li><li>[Criptografe secções dos ficheiros de configuração da Web App que contenham dados sensíveis](#encrypt-data)</li><li>[Desativar explicitamente o atributo HTML autocompleto em formas e inputs sensíveis](#autocomplete-input)</li><li>[Certifique-se de que os dados sensíveis apresentados no ecrã do utilizador são mascarados](#data-mask)</li></ul> | 
-| **Base de Dados** | <ul><li>[Implementar máscaras dinâmicas de dados para limitar a exposição a utilizadores não privilegiados de dados sensíveis](#dynamic-users)</li><li>[Certifique-se de que as palavras-passe são armazenadas em formato hash salgado](#salted-hash)</li><li>[Certifique-se de que os dados sensíveis nas colunas de base de dados estão encriptados](#db-encrypted)</li><li>[Certifique-se de que a encriptação ao nível da base de dados (TDE) está ativada](#tde-enabled)</li><li>[Certifique-se de que as cópias de segurança da base de dados estão encriptadas](#backup)</li></ul> | 
+| **Base de dados** | <ul><li>[Implementar máscaras dinâmicas de dados para limitar a exposição a utilizadores não privilegiados de dados sensíveis](#dynamic-users)</li><li>[Certifique-se de que as palavras-passe são armazenadas em formato hash salgado](#salted-hash)</li><li>[Certifique-se de que os dados sensíveis nas colunas de base de dados estão encriptados](#db-encrypted)</li><li>[Certifique-se de que a encriptação ao nível da base de dados (TDE) está ativada](#tde-enabled)</li><li>[Certifique-se de que as cópias de segurança da base de dados estão encriptadas](#backup)</li></ul> | 
 | **API Web** | <ul><li>[Certifique-se de que os dados sensíveis relevantes para a Web API não são armazenados no armazenamento do navegador](#api-browser)</li></ul> | 
 | Documento Azure DB | <ul><li>[Criptografe dados confidenciais armazenados em Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Fronteira de confiança Azure IaaS VM** | <ul><li>[Utilize encriptação de disco azure para encriptar discos usados por máquinas virtuais](#disk-vm)</li></ul> | 
 | **Limite de confiança de tecido de serviço** | <ul><li>[Criptografe segredos em aplicações de Tecido de Serviço](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Execute modelação de segurança e utilize Unidades/Equipas de Negócio supérbio, sempre que necessário](#modeling-teams)</li><li>[Minimizar o acesso à funcionalidade de partilha em entidades críticas](#entities)</li><li>[Treine os utilizadores sobre os riscos associados à funcionalidade Dynamics CRM Share e boas práticas de segurança](#good-practices)</li><li>[Incluir uma regra de padrões de desenvolvimento proscribing mostrando detalhes da config na gestão de exceção](#exception-mgmt)</li></ul> | 
-| **Storage do Azure** | <ul><li>[Utilize encriptação do serviço de armazenamento Azure (SSE) para dados em repouso (pré-visualização)](#sse-preview)</li><li>[Use encriptação do lado do cliente para armazenar dados confidenciais no Armazenamento Azure](#client-storage)</li></ul> | 
+| **Armazenamento Azure** | <ul><li>[Utilize encriptação do serviço de armazenamento Azure (SSE) para dados em repouso (pré-visualização)](#sse-preview)</li><li>[Use encriptação do lado do cliente para armazenar dados confidenciais no Armazenamento Azure](#client-storage)</li></ul> | 
 | **Cliente Móvel** | <ul><li>[Criptografe dados sensíveis ou PII escritos para telefones armazenamento local](#pii-phones)</li><li>[Obfuscate gerou binários antes de distribuir para utilizadores finais](#binaries-end)</li></ul> | 
 | **WCF** | <ul><li>[Definir clienteCredentialType para Certificado ou Windows](#cert)</li><li>[Modo WCF-Segurança não está ativado](#security)</li></ul> | 
 
@@ -79,7 +79,7 @@ ms.locfileid: "79502224"
 | **Tecnologias Aplicáveis** | Genérico, Formulários Web, MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Passos** | Os navegadores podem armazenar informações para fins de cache e histórico. Estes ficheiros em cache são armazenados numa pasta, como a pasta Ficheiros de Internet Temporários no caso do Internet Explorer. Quando estas páginas são novamente remetidas, o navegador exibe-as a partir da sua cache. Se forem apresentadas informações sensíveis ao utilizador (como o seu endereço, dados do cartão de crédito, Número de Segurança Social ou nome de utilizador), então esta informação poderá ser armazenada na cache do navegador e, portanto, recuperável através do exame da cache do navegador ou por basta premir o botão "Back" do navegador. Dete teto de cabeçalho de resposta de controlo de cache para "não-loja" para todas as páginas. |
+| **Passos** | Os navegadores podem armazenar informações para fins de cache e histórico. Estes ficheiros em cache são armazenados numa pasta, como a pasta Ficheiros de Internet Temporários no caso do Internet Explorer. Quando estas páginas são novamente remetidas, o navegador exibe-as a partir da sua cache. Se forem apresentadas informações sensíveis ao utilizador (como o seu endereço, dados do cartão de crédito, Número de Segurança Social ou nome de utilizador), então esta informação poderá ser armazenada na cache do navegador e, portanto, recuperável através do exame da cache do navegador ou simplesmente premindo o botão "Back" do navegador. Dete teto de cabeçalho de resposta de controlo de cache para "não-loja" para todas as páginas. |
 
 ### <a name="example"></a>Exemplo
 ```XML
@@ -173,7 +173,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Tecnologias Aplicáveis** | Sql Azure |
 | **Atributos**              | Versão SQL - V12, Versão SQL - MsSQL2016 |
 | **Referências**              | [Mascaramento de dados dinâmicos](https://msdn.microsoft.com/library/mt130841) |
-| **Passos** | O objetivo da máscara dinâmica de dados é limitar a exposição de dados sensíveis, impedindo que os utilizadores que não devam ter acesso aos dados os possam ver. A máscara de dados dinâmicos não tem como objetivo impedir que os utilizadores de bases de dados se conectem diretamente à base de dados e executem consultas exaustivas que exponham peças dos dados sensíveis. A máscara de dados dinâmicos é complementar a outras funcionalidades de segurança do SQL Server (auditoria, encriptação, segurança do nível da linha...) e é altamente recomendado utilizar esta funcionalidade em conjunto com eles, além de proteger melhor os dados sensíveis no base de dados. Por favor, note que esta funcionalidade é suportada apenas pelo SQL Server a partir de 2016 e pela Base de Dados Azure SQL. |
+| **Passos** | O objetivo da máscara dinâmica de dados é limitar a exposição de dados sensíveis, impedindo que os utilizadores que não devam ter acesso aos dados os possam ver. A máscara de dados dinâmicos não tem como objetivo impedir que os utilizadores de bases de dados se conectem diretamente à base de dados e executem consultas exaustivas que exponham peças dos dados sensíveis. A máscara de dados dinâmicos é complementar a outras funcionalidades de segurança do SQL Server (auditoria, encriptação, segurança do nível da linha...) e é altamente recomendado utilizar esta funcionalidade em conjunto com eles, além de proteger melhor os dados sensíveis na base de dados. Por favor, note que esta funcionalidade é suportada apenas pelo SQL Server a partir de 2016 e pela Base de Dados Azure SQL. |
 
 ## <a name="ensure-that-passwords-are-stored-in-salted-hash-format"></a><a id="salted-hash"></a>Certifique-se de que as palavras-passe são armazenadas em formato hash salgado
 

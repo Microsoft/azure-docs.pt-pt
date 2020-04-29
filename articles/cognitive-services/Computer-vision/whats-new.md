@@ -11,17 +11,17 @@ ms.topic: overview
 ms.date: 02/28/2020
 ms.author: pafarley
 ms.openlocfilehash: 82e9c9a6dd8dc18f186a21e72a1a3d205094b707
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80155193"
 ---
 # <a name="whats-new-in-computer-vision"></a>O que há de novo na Visão Computacional
 
 Saiba o que há de novo no serviço. Estes itens podem lançar notas, vídeos, posts de blog e outros tipos de informação. Marque esta página para manter-se atualizado com o serviço.
 
-## <a name="march-2020"></a>março de 2020
+## <a name="march-2020"></a>Março de 2020
 
 * TLS 1.2 é agora aplicado para todos os pedidos http para este serviço. Para mais informações, consulte a [segurança dos Serviços Cognitivos Azure.](../cognitive-services-security.md)
 

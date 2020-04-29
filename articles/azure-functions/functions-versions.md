@@ -4,10 +4,10 @@ description: A Azure Functions suporta várias versões do tempo de funcionament
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.openlocfilehash: e90752e89be7e381b06f8a87f76f123f0e4a8e3a
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422484"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral das versões de tempo de funcionamento do Azure Functions

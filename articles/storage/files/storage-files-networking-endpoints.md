@@ -8,10 +8,10 @@ ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: cc487e8def180735606aa010651dde40ef93908e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80082508"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos finais da rede Azure Files
@@ -239,7 +239,7 @@ Section    : Answer
 IP4Address : 192.168.0.5
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 Para criar um ponto final privado para a sua conta de armazenamento, primeiro precisa de obter uma referência à sua conta de armazenamento e à subnet de rede virtual à qual pretende adicionar o ponto final privado. Substitua, `<vnet-resource-group-name>` `<storage-account-resource-group-name>` `<storage-account-name>` `<vnet-name>`, `<vnet-subnet-name>` , e abaixo:
 
 ```bash
@@ -443,7 +443,7 @@ $storageAccount | Update-AzStorageAccountNetworkRuleSet `
     Out-Null
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 O seguinte comando CLI negará todo o tráfego para o ponto final da conta de armazenamento. Note que este `-bypass` comando tem `AzureServices`o parâmetro definido para . Isto permitirá que serviços de primeira parte confiáveis, como o Azure File Sync, acedam à conta de armazenamento através do ponto final público.
 
 ```bash
@@ -544,7 +544,7 @@ $storageAccount | Update-AzStorageAccountNetworkRuleSet `
     Out-Null
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 Para restringir o acesso ao ponto final da conta de armazenamento a redes virtuais específicas utilizando pontos finais de serviço, precisamos primeiro de recolher informações sobre a conta de armazenamento e a rede virtual. `<storage-account-resource-group>`Preencha, `<storage-account-name>` `<vnet-resource-group-name>`, `<vnet-name>`e `<subnet-name>` recolha desta informação.
 
 ```bash
@@ -633,5 +633,5 @@ az storage account update \
 
 ## <a name="see-also"></a>Consulte também
 - [Considerações de networking de Ficheiros Azure](storage-files-networking-overview.md)
-- [Configurar o encaminhamento de DNS para ficheiros Azure](storage-files-networking-dns.md)
+- [Configurar o reencaminhamento de DNS para Ficheiros do Azure](storage-files-networking-dns.md)
 - [Configurar VPN S2S para Ficheiros Azure](storage-files-configure-s2s-vpn.md)

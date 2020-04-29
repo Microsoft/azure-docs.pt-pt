@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81676418"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
@@ -237,9 +237,9 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**não assinadoInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de ficheiros disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
-|**logilogLogLevelFilter agendado**|**cadeia**|Opcional. Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor predefinido é **Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maior parte das informações) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico.**|  
+|**logilogLogLevelFilter agendado**|**string**|Opcional. Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor predefinido é **Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maior parte das informações) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico.**|  
 |**período de transferência programado**|**duração**|Opcional. Especifica o intervalo entre transferências programadas de dados, arredondadas até ao minuto mais próximo.<br /><br /> O padrão é PT0S.|  
-|**lava-se** |**cadeia**| Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico. Por exemplo, Insights de Aplicação ou Centros de Eventos.|  
+|**lava-se** |**string**| Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico. Por exemplo, Insights de Aplicação ou Centros de Eventos.|  
 
 ## <a name="dockersources"></a>Fontes de Docker
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -295,8 +295,8 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Atributos|Tipo|Descrição|  
 |----------------|----------|-----------------|  
-|**logLevel**|**cadeia**|Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor predefinido é **Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maior parte das informações) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico.**|  
-|**nome**|**cadeia**|Um nome único do canal para se referir|  
+|**logLevel**|**string**|Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor predefinido é **Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maior parte das informações) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico.**|  
+|**nome**|**string**|Um nome único do canal para se referir|  
 
 
 ## <a name="privateconfig-element"></a>Elemento PrivateConfig

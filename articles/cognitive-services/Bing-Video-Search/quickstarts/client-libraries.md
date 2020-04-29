@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 03/19/2020
 ms.author: aahi
 ms.openlocfilehash: 5e3d6ea4d2defa9567d142063bcdcdeef663e1f2
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80289750"
 ---
 # <a name="quickstart-use-the-bing-video-search-client-library"></a>Quickstart: Use a biblioteca de clientes bing video search

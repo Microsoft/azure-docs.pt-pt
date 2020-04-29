@@ -9,10 +9,10 @@ ms.date: 03/28/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 71489b1b2cd4897489135cb001439444e6c817ab
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80385168"
 ---
 | Tamanhos SSD premium | P1 | P2 | P3 | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 |

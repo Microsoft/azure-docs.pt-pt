@@ -16,10 +16,10 @@ ms.date: 03/26/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efac71f6164318de42c1adda3d6d9accf22987fc
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80385474"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spectrumu"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com a SpectrumU

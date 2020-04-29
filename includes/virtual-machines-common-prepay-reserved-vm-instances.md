@@ -5,10 +5,10 @@ ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 03/27/2020
 ms.openlocfilehash: d41affc55134ad34c325c12ab4a14f4013c58f9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80371652"
 ---
 Quando se compromete com um caso De VM reservado ao Azure, pode economizar dinheiro. O desconto de reserva é aplicado automaticamente ao número de máquinas virtuais em execução que correspondem ao âmbito de reserva e atributos. Não precisa atribuir uma reserva a uma máquina virtual para obter os descontos. Uma compra de instância reservada cobre apenas a parte computada do seu uso VM. Para os VMs do Windows, o medidor de utilização é dividido em dois metros separados. Há um medidor de cálculo, que é o mesmo que o medidor linux, e um medidor IP do Windows. As acusações que vê quando faz a compra são apenas para os custos do cálculo. Os encargos não incluem os custos do software do Windows. Para obter mais informações sobre os custos do software, consulte os custos de Software não incluídos com as [Instâncias VM reservadas do Azure.](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
@@ -36,7 +36,7 @@ A definição de flexibilidade de tamanho de instância determina quais serviço
 
 Quer a definição esteja ativada ou desativada, os descontos de reserva serão aplicados automaticamente a qualquer utilização de máquina virtual quando o *ConsumedService* for `Microsoft.Compute`. Portanto, verifique os dados de utilização para o valor *ConsumedService*. Alguns exemplos incluem:
 
-- Virtual Machines
+- Máquinas virtuais
 - Conjuntos de dimensionamento de máquinas virtuais
 - Serviço de contentores
 - Implementações do Azure Batch (no modo de subscrições do utilizador)
@@ -86,7 +86,7 @@ Estes requisitos aplicam-se à compra de uma instância VM reservada:
 
 Para comprar uma instância:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione todas as reservas **de serviços** > **Reservations**.
 1. Selecione **Adicionar** para comprar uma nova reserva e, em seguida, clicar na **máquina Virtual**.
 1. Introduza os campos necessários. Executar instâncias da VM que correspondem aos atributos que seleciona qualificam-no para obter o desconto da reserva. O número real das instâncias da VM que obtêm o desconto depende do âmbito e da quantidade selecionada.
@@ -133,11 +133,11 @@ No entanto, pode *trocar* uma reserva se quiser fazer alterações.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para mais informações, consulte [trocas de self-service e reembolsos para Reservas Azure](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio.
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Passos seguintes
 

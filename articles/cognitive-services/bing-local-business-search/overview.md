@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: 0006761126eb1d561da7eeff97e8a9928d62ddb0
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478929"
 ---
 # <a name="what-is-bing-local-business-search"></a>O que é Bing Local Business Search?

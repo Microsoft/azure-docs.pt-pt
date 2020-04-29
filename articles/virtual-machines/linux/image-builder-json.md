@@ -9,10 +9,10 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 manager: gwallace
 ms.openlocfilehash: e1f1bc09406c34836c13deb805fa399ab4751d41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246794"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Crie um modelo de construtor de imagem Azure 
@@ -97,7 +97,7 @@ Por padrão, o Image Builder não alterará o tamanho da imagem, utilizará o ta
 ```
 
 ## <a name="vnetconfig"></a>vnetConfig
-Se não especificar quaisquer propriedades VNET, então o Image Builder criará o seu próprio VNET, PUBLIC IP e NSG. O IP Público é utilizado para que o serviço comunique com a build VM, no entanto, se não quiser um IP público ou quiser que o Image Builder tenha acesso aos seus recursos VNET existentes, tais como servidores de configuração (DSC, Chef, Marioneta, Ansible), partilhas de ficheiros etc. , então pode especificar um VNET. Para mais informações, reveja a documentação em [rede,](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder)isto é opcional.
+Se não especificar quaisquer propriedades VNET, então o Image Builder criará o seu próprio VNET, PUBLIC IP e NSG. O IP Público é utilizado para que o serviço se comunique com o VM de construção, no entanto, se não quiser um IP público ou quiser que o Image Builder tenha acesso aos seus recursos VNET existentes, tais como servidores de configuração (DSC, Chef, Marioneta, Ansible), partilhas de ficheiros etc., então pode especificar um VNET. Para mais informações, reveja a documentação em [rede,](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder)isto é opcional.
 
 ```json
     "vnetConfig": {
@@ -420,7 +420,7 @@ Os comandos Image Builder para generalizar podem não ser adequados para todas a
 
 Se estiver a migrar a personalização existente, e estiver a utilizar diferentes comandos Sysprep/waagent, pode utilizar os comandos genéricos do Construtor de Imagem, e se a criação de VM falhar, utilize os seus próprios comandos Sysprep ou waagent.
 
-Se o Azure Image Builder criar uma imagem personalizada do Windows com sucesso, e criar um VM a partir dele, então descubra que a criação de VM falha ou não está concluída com sucesso, terá de rever a documentação do Windows Server Sysprep ou levantar um pedido de suporte com o A equipa de suporte ao serviço ao cliente do Windows Server Sysprep, que pode resolver problemas e aconselhar sobre a utilização correta do Sysprep.
+Se o Azure Image Builder criar uma imagem personalizada do Windows com sucesso, e criar um VM a partir dela, então descubra que a criação vM falha ou não se completa com sucesso, terá de rever a documentação de Sysprep do Windows Server ou levantar um pedido de suporte com a equipa de suporte ao serviço de apoio ao cliente do Windows Server, que pode resolver problemas e aconselhar sobre o uso correto do Sysprep.
 
 
 #### <a name="default-sysprep-command"></a>Comando Sysprep padrão

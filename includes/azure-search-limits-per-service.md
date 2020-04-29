@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 179f525b7b6a7e51889b14b66df6c537ca56bd75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80272941"
 ---
 O armazenamento é limitado pelo espaço do disco ou por um limite rígido no *número máximo* de índices, documentos ou outros recursos de alto nível, o que vier em primeiro lugar. Os seguintes documentos de tabela limitam-se ao armazenamento. Para limites máximos em índices, documentos e outros objetos, consulte [Limites por recurso](../articles/search/search-limits-quotas-capacity.md#index-limits).

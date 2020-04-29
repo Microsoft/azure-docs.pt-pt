@@ -8,13 +8,13 @@ ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 35dfbcb274721049f2160719222ca89038c93356
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80082501"
 ---
-# <a name="configuring-dns-forwarding-for-azure-files"></a>Configurar o encaminhamento de DNS para ficheiros Azure
+# <a name="configuring-dns-forwarding-for-azure-files"></a>Configurar o reencaminhamento de DNS para Ficheiros do Azure
 O Azure Files permite-lhe criar pontos finais privados para as contas de armazenamento que contêm as suas ações de ficheiro. Embora úteis para muitas aplicações diferentes, os pontos finais privados são especialmente úteis para conectar as suas partilhas de ficheiros Azure da sua rede no local usando uma ligação VPN ou ExpressRoute usando o peering privado. 
 
 Para que as ligações à sua conta de armazenamento ultrapassem o túnel de rede, o nome de domínio totalmente qualificado (FQDN) da sua conta de armazenamento deve ser resolvido para o endereço IP privado do seu ponto final privado. Para isso, deve encaminhar o sufixo`core.windows.net` final de armazenamento (para as regiões públicas de nuvem) para o serviço DNS privado Azure acessível a partir da sua rede virtual. Este guia mostrará como configurar e configurar o encaminhamento de DNS para resolver corretamente o endereço IP do ponto final da sua conta de armazenamento.
@@ -32,11 +32,11 @@ Cada conta de armazenamento tem um nome de domínio totalmente qualificado (FQDN
 
 Por predefinição, `storageaccount.file.core.windows.net` resolve-se no endereço IP do ponto final do público. O ponto final público para uma conta de armazenamento está hospedado num cluster de armazenamento Azure que acolhe muitos outros pontos finais públicos de contas de armazenamento. Ao criar um ponto final privado, uma zona privada de DNS está ligada à `storageaccount.file.core.windows.net` rede virtual a que foi adicionada, com um mapeamento de registo CNAME a uma entrada de registo a um endereço IP privado do ponto final privado da sua conta de armazenamento. Isto permite-lhe `storageaccount.file.core.windows.net` utilizar o FQDN dentro da rede virtual e resolvê-lo para o endereço IP do ponto final privado.
 
-Uma vez que o nosso objetivo final é aceder às ações de ficheiros Azure alojadas na conta de armazenamento a partir de um túnel de rede, como uma ligação VPN ou ExpressRoute, tem de configurar os seus servidores DNS no local para encaminhar pedidos feitos ao Azure Serviço de ficheiros para o serviço Privado DNS do Azure. Para isso, é necessário configurar o `*.core.windows.net` *reencaminhamento condicional* de (ou o sufixo final de armazenamento adequado para o Governo dos EUA, Alemanha ou Nuvens nacionais da China) para um servidor DNS alojado dentro da sua rede virtual Azure. Este servidor DNS irá então recursivamente encaminhar o pedido para o serviço Privado DNS da Azure que resolverá o nome de domínio totalmente qualificado da conta de armazenamento para o endereço IP privado apropriado.
+Uma vez que o nosso objetivo final é aceder às ações de ficheiros Azure alojadas dentro da conta de armazenamento a partir de um túnel de rede como uma ligação VPN ou ExpressRoute, deve configurar os seus servidores DNS no local para encaminhar pedidos feitos ao serviço Azure Files para o serviço DNS privado Azure. Para isso, é necessário configurar o `*.core.windows.net` *reencaminhamento condicional* de (ou o sufixo final de armazenamento adequado para o Governo dos EUA, Alemanha ou Nuvens nacionais da China) para um servidor DNS alojado dentro da sua rede virtual Azure. Este servidor DNS irá então recursivamente encaminhar o pedido para o serviço Privado DNS da Azure que resolverá o nome de domínio totalmente qualificado da conta de armazenamento para o endereço IP privado apropriado.
 
-Configurar o encaminhamento de DNS para Ficheiros Azure exigirá executar uma máquina virtual para alojar um servidor DNS para encaminhar os pedidos, no entanto este é um passo único para todas as ações de ficheiro sinuosas do Azure alojadas dentro da sua rede virtual. Além disso, este não é um requisito exclusivo para o Azure Files - qualquer serviço Azure que suporte pontos finais privados que deseja aceder a partir de instalações pode fazer uso do encaminhamento DNS que você irá configurar neste guia: Armazenamento Azure Blob, SQL Azure, Cosmos DB, etc. 
+Configurar o encaminhamento de DNS para Ficheiros Azure exigirá executar uma máquina virtual para alojar um servidor DNS para encaminhar os pedidos, no entanto este é um passo único para todas as ações de ficheiro sinuosas do Azure alojadas dentro da sua rede virtual. Além disso, este não é um requisito exclusivo para o Azure Files - qualquer serviço Azure que suporte pontos finais privados a que deseja aceder a partir de instalações pode fazer uso do encaminhamento DNS que você irá configurar neste guia: armazenamento Azure Blob, SQL Azure, Cosmos DB, etc. 
 
-Este guia mostra os passos para configurar o encaminhamento de DNS para o ponto final de armazenamento Azure, por isso, para além dos Ficheiros Azure, os pedidos de resolução de nomes DNS para todos os outros serviços de armazenamento Azure (armazenamento Azure Blob, armazenamento de mesa Azure, armazenamento de fila Azure, etc.) irão ser encaminhado para o serviço privado dNS do Azure. Os pontos finais adicionais para outros serviços Azure também podem ser adicionados se desejar. O DNS reencaminhado para os seus servidores DNS no local também será configurado, permitindo que os recursos da nuvem dentro da sua rede virtual (como um servidor DFS-N) resolvam os nomes das máquinas no local. 
+Este guia mostra os passos para configurar o encaminhamento de DNS para o ponto final de armazenamento Azure, pelo que, para além dos Ficheiros Azure, os pedidos de resolução de nomes DNS para todos os outros serviços de armazenamento Azure (armazenamento Azure Blob, armazenamento de mesa Azure, armazenamento de fila Azure, etc.) serão encaminhados para o serviço privado dNS da Azure. Os pontos finais adicionais para outros serviços Azure também podem ser adicionados se desejar. O DNS reencaminhado para os seus servidores DNS no local também será configurado, permitindo que os recursos da nuvem dentro da sua rede virtual (como um servidor DFS-N) resolvam os nomes das máquinas no local. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de configurar o DNS reencaminhamento para Ficheiros Azure, tem de ter concluído os seguintes passos:
@@ -49,7 +49,7 @@ Antes de configurar o DNS reencaminhamento para Ficheiros Azure, tem de ter conc
 > Este guia pressupõe que está a utilizar o servidor DNS dentro do Windows Server no seu ambiente no local. Todos os passos descritos neste guia são possíveis com qualquer servidor DNS, e não apenas com o Servidor DNS do Windows.
 
 ## <a name="manually-configuring-dns-forwarding"></a>Configuração manual do encaminhamento de DNS
-Se já tem servidores DNS no lugar dentro da sua rede virtual Azure, ou se simplesmente prefere implementar as suas próprias máquinas virtuais para serem servidores DNS por qualquer metodologia que a sua organização utilize, pode configurar o DNS manualmente com o servidor DNS incorporado Cmdlets PowerShell.
+Se já tem servidores DNS no lugar dentro da sua rede virtual Azure, ou se simplesmente prefere implementar as suas próprias máquinas virtuais para serem servidores DNS por qualquer metodologia que a sua organização utilize, pode configurar o DNS manualmente com os cmdlets de servidor DNS incorporados PowerShell.
 
 Nos seus servidores DNS no local, crie `Add-DnsServerConditionalForwarderZone`um avançado condicionado utilizando . Este avançado condicional deve ser implantado em todos os seus servidores DNS no local para ser eficaz no encaminhamento adequado do tráfego para O Azure. Lembre-se `<azure-dns-server-ip>` de substituir pelos endereços IP apropriados para o seu ambiente.
 

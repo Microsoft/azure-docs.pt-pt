@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
 ms.openlocfilehash: 7fb87380047d046a580d1ad62b1d7107a94bb297
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239893"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais Azure para SAP NetWeaver
@@ -508,7 +508,7 @@ O Agente Azure VM é implantado por padrão quando utiliza uma imagem do Mercado
 
 #### <a name="configure-proxy-settings"></a>Configurar definições de proxy
 
-Dependendo da configuração da sua rede no local, poderá ter de configurar o proxy no seu VM. Se o seu VM estiver ligado à sua rede no local via VPN ou ExpressRoute, o VM pode não conseguir aceder à Internet e não poderá descarregar as extensões VM necessárias ou recolher informações de infraestrutura Azure para o agente hospedeiro SAP através da extensão SAP para Azure. Para mais informações, consulte [Configure o proxy][deployment-guide-configure-proxy].
+Dependendo da configuração da sua rede no local, poderá ter de configurar o proxy no seu VM. Se o seu VM estiver ligado à sua rede no local via VPN ou ExpressRoute, o VM poderá não conseguir aceder à Internet e não poderá descarregar as extensões VM necessárias ou recolher informações de infraestrutura Azure para o agente hospedeiro SAP através da extensão SAP para o Azure. Para mais informações, consulte [Configure o proxy][deployment-guide-configure-proxy].
 
 #### <a name="join-a-domain-windows-only"></a>Junte-se a um domínio (apenas windows)
 
@@ -545,7 +545,7 @@ Usa diferentes passos para criar uma imagem privada para o Linux do que para cri
 >
 
 ---
-Pode preparar e criar uma imagem personalizada e depois usá-la para criar vários novos VMs. Isto é descrito no planeamento e implementação de [Máquinas Virtuais Azure para SAP NetWeaver][planning-guide]. Configurar o conteúdo da sua base de dados utilizando o SAP Software Provisioning Manager para instalar um novo sistema SAP (restaura uma cópia de segurança da base de dados a partir de um disco que está ligado à máquina virtual) ou restaurando diretamente uma cópia de segurança da base de dados do armazenamento do Azure, se o seu DBMS apoia-o. Para mais informações, consulte a implementação de [DBMS das Máquinas Virtuais Azure para SAP NetWeaver][dbms-guide]. Se já instalou um sistema SAP no seu VM no local (especialmente para sistemas de dois níveis), pode adaptar as definições do sistema SAP após a implementação do VM Azure utilizando o procedimento de renome do sistema suportado pelo SAP Software Provisioning Manager (SAP Note [1619720]). Caso contrário, pode instalar o software SAP depois de implementar o Azure VM.
+Pode preparar e criar uma imagem personalizada e depois usá-la para criar vários novos VMs. Isto é descrito no planeamento e implementação de [Máquinas Virtuais Azure para SAP NetWeaver][planning-guide]. Configurar o conteúdo da sua base de dados utilizando o SAP Software Provisioning Manager para instalar um novo sistema SAP (restaura uma cópia de segurança da base de dados a partir de um disco que está ligado à máquina virtual) ou restaurando diretamente uma cópia de segurança da base de dados do armazenamento do Azure, caso o seu DBMS o suporte. Para mais informações, consulte a implementação de [DBMS das Máquinas Virtuais Azure para SAP NetWeaver][dbms-guide]. Se já instalou um sistema SAP no seu VM no local (especialmente para sistemas de dois níveis), pode adaptar as definições do sistema SAP após a implementação do VM Azure utilizando o procedimento de renome do sistema suportado pelo SAP Software Provisioning Manager (SAP Note [1619720]). Caso contrário, pode instalar o software SAP depois de implementar o Azure VM.
 
 O fluxograma seguinte mostra a sequência de passos específicos do SAP para a implementação de um VM a partir de uma imagem personalizada:
 
@@ -676,7 +676,7 @@ Para mais informações sobre o Agente Azure VM, consulte os seguintes recursos.
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> [Visão geral do Agente De MáquinaS Virtuais Azure][virtual-machines-windows-agent-user-guide]
+> [Descrição geral do Agente da Máquina Virtual do Azure][virtual-machines-windows-agent-user-guide]
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -732,7 +732,7 @@ No portal Azure, introduza os seguintes parâmetros para o modelo:
 
 1. Selecione **Comprar**.
 
-#### <a name="install-the-vm-agent"></a>Instalar o Agente VM
+#### <a name="install-the-vm-agent"></a>Instalar o Agente da VM
 
 Para utilizar os modelos descritos na secção anterior, o Agente VM deve ser instalado no disco OS, ou a implantação falhará. Descarregue e instale o Agente VM no VM, conforme descrito no [Download, instale e ative o Agente Azure VM][deployment-guide-4.4].
 

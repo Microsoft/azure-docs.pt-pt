@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: a00291182059506aeab9cde965fa4cbd5177ecf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80132238"
 ---
 Se um utilizador não tiver o acesso necessário para a aplicação de etiquetas, pode atribuir a função **'Colaborador** de Etiquetas' ao utilizador. Para mais informações, consulte [Tutorial: Conceda ao utilizador o acesso aos recursos Azure utilizando o RBAC e o portal Azure](../articles/role-based-access-control/quickstart-assign-role-user-portal.md).

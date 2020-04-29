@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
 ms.openlocfilehash: 5d1dc90832a399aa9ee253b2c7962b8536c1926a
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80383009"
 ---
 # <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Exemplo do AZURE CLI: Faça upload de um ficheiro local para um recipiente

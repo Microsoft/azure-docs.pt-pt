@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9604f0c6eeb9d0ac4b7d07f1ab1ba03285fd60fe
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81640074"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como escalar o seu ambiente Time Series Insights

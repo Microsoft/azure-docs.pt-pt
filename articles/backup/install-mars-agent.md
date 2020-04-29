@@ -4,10 +4,10 @@ description: Saiba como instalar o agente do Microsoft Azure Recovery Services (
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: d3932b66dbc41ff2631e2cccbe716c0877a509d3
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422921"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instale o agente MARS de backup Azure
@@ -65,7 +65,7 @@ Para modificar o tipo de replicação de armazenamento:
 
 Se a sua máquina tiver acesso limitado à Internet, certifique-se de que as definições de firewall na máquina ou proxy permitem os seguintes URLs e endereços IP:
 
-*  URLs
+* URLs
   * `www\.msftncsi.com`
   * `*.Microsoft.com`
   * `*.WindowsAzure.com`

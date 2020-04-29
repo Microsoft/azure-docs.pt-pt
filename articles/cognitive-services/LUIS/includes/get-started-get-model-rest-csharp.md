@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
 ms.openlocfilehash: 96129b9141b4759fd61b539fa08354f02af3af7b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80151130"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -22,7 +22,7 @@ ms.locfileid: "80151130"
 * O ID da aplicação LUIS para a aplicação TravelAgent importada. O ID da aplicação é apresentado no dashboard de aplicações.
 * O ID da versão na aplicação que recebe as expressões. O ID predefinido é "0.1".
 * [.NET Core 3.1](https://dotnet.microsoft.com/download)
-* [Código de estúdio visual](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>Ficheiro JSON de expressões de exemplo
 

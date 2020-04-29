@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.openlocfilehash: 9bdc8cf97513854cf6a92ffd078febca6302d35c
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617398"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de Gestão de Atualização em Azure

@@ -8,10 +8,10 @@ ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067156"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerações de networking de Ficheiros Azure 
@@ -59,7 +59,7 @@ Independentemente do método de túnel que utilize para aceder às suas partilha
 Em vez de codificar duramente o endereço IP das suas contas de armazenamento nas suas regras de encaminhamento VPN, recomendamos a utilização de pontos finais privados, que dão à sua conta de armazenamento um endereço IP a partir do espaço de endereço de uma rede virtual Azure. Uma vez que a criação de um túnel para o Azure estabelece o olhar entre a sua rede no local e uma ou mais redes virtuais, isto permite o encaminhamento correto de uma forma durável.
 
 ### <a name="private-endpoints"></a>Pontos finais privados
-Além do ponto final do público por defeito para uma conta de armazenamento, o Azure Files oferece a opção de ter um ou mais pontos finais privados. Um ponto final privado é um ponto final que só é acessível dentro de uma rede virtual Azure. Quando cria um ponto final privado para a sua conta de armazenamento, a sua conta de armazenamento obtém um endereço IP privado a partir do espaço de endereço da sua rede virtual, tal como um servidor de ficheiros no local ou um dispositivo NAS recebe um endereço IP dentro do endereço dedicado espaço da sua rede no local. 
+Além do ponto final do público por defeito para uma conta de armazenamento, o Azure Files oferece a opção de ter um ou mais pontos finais privados. Um ponto final privado é um ponto final que só é acessível dentro de uma rede virtual Azure. Quando cria um ponto final privado para a sua conta de armazenamento, a sua conta de armazenamento obtém um endereço IP privado a partir do espaço de endereço da sua rede virtual, tal como um servidor de ficheiros no local ou um dispositivo NAS recebe um endereço IP dentro do espaço de endereço dedicado da sua rede no local. 
 
 Um ponto final privado individual está associado a uma subnet de rede virtual Azure específica. Uma conta de armazenamento pode ter pontos finais privados em mais de uma rede virtual.
 
@@ -71,7 +71,7 @@ A utilização de pontos finais privados com Ficheiros Azure permite-lhe:
 Para criar um ponto final privado, consulte [configurar pontos finais privados para Ficheiros Azure](storage-files-networking-endpoints.md).
 
 ### <a name="private-endpoints-and-dns"></a>Pontos finais privados e DNS
-Quando cria um ponto final privado, por padrão também criamos uma (ou atualizar `privatelink` uma zona privada de DNS existente) correspondente ao subdomínio. Em rigor, a criação de uma zona privada de DNS não é necessária para utilizar um ponto final privado para a sua conta de armazenamento, mas é altamente recomendado em geral e explicitamente necessário ao montar a sua partilha de ficheiros Azure com um diretor de diretório ativo ou aceder da API FileREST.
+Quando cria um ponto final privado, por padrão também criamos uma (ou atualizar `privatelink` uma zona privada de DNS existente) correspondente ao subdomínio. Em rigor, a criação de uma zona Privada de DNS não é necessária para utilizar um ponto final privado para a sua conta de armazenamento, mas é altamente recomendada em geral e explicitamente necessária ao montar a sua partilha de ficheiros Azure com um diretor de diretório ativo ou aceder a partir da API FileREST.
 
 > [!Note]  
 > Este artigo utiliza a conta de armazenamento DNS sufixo para as regiões públicas de Azure, `core.windows.net`. Este comentário também se aplica às nuvens soberanas do Azure, como a nuvem do Governo dos EUA azure e a nuvem azure china - apenas substitua os sufixos apropriados para o seu ambiente. 
@@ -129,7 +129,7 @@ IP4Address : 52.239.194.40
 Isto reflete o facto de a conta de armazenamento poder expor tanto o ponto final público como um ou mais pontos finais privados. Para garantir que o nome da conta de armazenamento se resolve no endereço IP privado do ponto final privado, deve alterar a configuração dos seus servidores DNS no local. Isto pode ser realizado de várias maneiras:
 
 - Modificar o ficheiro dos anfitriões `storageaccount.file.core.windows.net` nos seus clientes para resolver o endereço IP privado do ponto final pretendido. Isto é fortemente desencorajado para ambientes de produção, uma vez que você precisará fazer estas alterações a todos os clientes que queiram montar as suas ações de ficheiro Saque e alterações na conta de armazenamento ou ponto final privado não serão tratados automaticamente.
-- Criar um registo `storageaccount.file.core.windows.net` para os seus servidores DNS no local. Isto tem a vantagem de que os clientes no seu ambiente no local serão capazes de resolver automaticamente a conta de armazenamento sem precisar de configurar cada cliente, no entanto esta solução é igualmente frágil para modificar o ficheiro dos anfitriões porque as alterações não são refletido. Embora esta solução seja frágil, pode ser a melhor escolha para alguns ambientes.
+- Criar um registo `storageaccount.file.core.windows.net` para os seus servidores DNS no local. Isto tem a vantagem de que os clientes no seu ambiente no local serão capazes de resolver automaticamente a conta de armazenamento sem precisar de configurar cada cliente, no entanto esta solução é igualmente frágil para modificar o ficheiro dos anfitriões porque as alterações não são refletidas. Embora esta solução seja frágil, pode ser a melhor escolha para alguns ambientes.
 - Encaminhar `core.windows.net` a zona dos seus servidores DNS no local para a sua zona DNS privada Azure. O anfitrião Privado DNS azure pode ser`168.63.129.16`alcançado através de um endereço IP especial ( ) que só é acessível dentro de redes virtuais que estão ligadas à zona Privada DeNs do Azure. Para contornar esta limitação, pode executar servidores DNS adicionais dentro da sua rede virtual que irão encaminhar-se `core.windows.net` para a zona Privada DNS do Azure. Para simplificar esta configuração, fornecemos cmdlets PowerShell que irão implantar automaticamente servidores DNS na sua rede virtual Azure e configurá-los como desejado. Para aprender a configurar o encaminhamento de DNS, consulte [Configurar DNS com Ficheiros Azure](storage-files-networking-dns.md).
 
 ## <a name="storage-account-firewall-settings"></a>Definições de firewall de conta de armazenamento

@@ -12,10 +12,10 @@ ms.date: 03/12/2020
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 4ac9f4bcaed5400846bf94f7db6ea6c143c101d6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80136029"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Quickstart: Use a biblioteca de clientes Computer Vision

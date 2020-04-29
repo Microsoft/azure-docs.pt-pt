@@ -5,10 +5,10 @@ services: automation
 ms.date: 11/01/2018
 ms.topic: article
 ms.openlocfilehash: f288029bb35fe4e3c71db37a1de265edbcd913b1
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81310547"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Monitorização de livros de execução com alertas métricos

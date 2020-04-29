@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: diberry
 ms.openlocfilehash: b7b8befa0f5871b65b9b5621bfb99c659bf07235
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422761"
 ---
 1. Na [pré-visualização do portal LUIS](https://preview.luis.ai), na página **my apps,** selecione **+ Nova aplicação para conversação,** em **seguida, Import as JSON**. Encontre o ficheiro JSON guardado do passo anterior. Não precisa de mudar o nome da aplicação. Selecione **Feito**

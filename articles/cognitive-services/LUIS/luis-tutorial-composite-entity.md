@@ -4,10 +4,10 @@ description: Neste tutorial, adicione uma entidade composta para agregar dados e
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.openlocfilehash: 5b8185a56c54ec92ce8ceaf1cd029dd31f6e709c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478680"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Grupo e extrair dados relacionados
@@ -21,7 +21,7 @@ A entidade compósita é um bom ajuste para este tipo de dados porque os dados:
 * Use uma variedade de tipos de entidades.
 * Têm de ser agrupadas e processadas pela aplicação cliente como uma unidade de informações.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]

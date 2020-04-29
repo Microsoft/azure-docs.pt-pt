@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
 ms.openlocfilehash: 6ccc29422c6abf1120d13c05d10125efd0871ca6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502058"
 ---
 # <a name="manage-users"></a>Gerir utilizadores
@@ -67,7 +67,7 @@ Para remover os utilizadores do sistema Azure FarmBeats:
 
 Siga os passos para adicionar utilizadores ao Azure AD:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Na parte superior direita, selecione a sua conta e, em seguida, mude para o inquilino Azure AD que está associado com FarmBeats.
 3. Selecione > **Utilizadores**de **Diretório Ativo Azure**.
 

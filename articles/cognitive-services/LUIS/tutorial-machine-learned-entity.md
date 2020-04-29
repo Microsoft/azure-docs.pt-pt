@@ -4,10 +4,10 @@ description: Extrair dados estruturados de uma expressão utilizando a entidade 
 ms.topic: tutorial
 ms.date: 04/01/2020
 ms.openlocfilehash: 52bf2fb0b9f37e0c731a46c0aaf8b6c5e7f0e911
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80545860"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados a partir da expressão do utilizador com entidades aprendizes de máquinas em Compreensão linguística (LUIS)
@@ -16,7 +16,7 @@ Neste tutorial, extrair dados estruturados a partir de uma expressão utilizando
 
 A entidade aprendida por máquinas suporta o conceito de [decomposição](luis-concept-model.md#v3-authoring-model-decomposition) do modelo, fornecendo às entidades subcomponentes os seus descritores e constrangimentos.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * App de exemplo de importação

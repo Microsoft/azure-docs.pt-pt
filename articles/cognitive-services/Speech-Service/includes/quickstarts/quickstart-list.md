@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 1bc7d5e4b895f451b1680408f6cd7d17d76019e7
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80243625"
 ---
 - [Quickstart: Reconhecer o discurso a partir de um microfone](~/articles/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone.md)
