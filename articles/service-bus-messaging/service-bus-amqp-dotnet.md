@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 8157efac5ff1fc135659a84b4f4825ff36307480
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80297659"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Use ônibus de serviço de .NET com AMQP 1.0
@@ -71,7 +71,7 @@ Para facilitar a interoperabilidade com non-.NET clientes, utilize apenas tipos 
 | sbyte |byte |Valor AMQP |
 | curto |curto |Valor AMQP |
 | int |int |Valor AMQP |
-| longo |longo |Valor AMQP |
+| long |long |Valor AMQP |
 | float |float |Valor AMQP |
 | double |double |Valor AMQP |
 | decimal |decimal128 |Valor AMQP |

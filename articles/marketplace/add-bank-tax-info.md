@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
 ms.openlocfilehash: 40a73e386ce618d7254ec7cb1f95dcde6f82d65a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286664"
 ---
 # <a name="add-bank-and-tax-information"></a>Adicionar informação bancária e fiscal  

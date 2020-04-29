@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 1e7587c60e180fb35e1a2bed735b053b6b0c388a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294612"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicione um repositório Git para armazenar artefactos personalizados e modelos de Gestor de Recursos
@@ -71,7 +71,7 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
 10. Continue a ligar o seu laboratório à secção de [repositório.](#connect-your-lab-to-the-repository)
 
 ## <a name="connect-your-lab-to-the-repository"></a>Ligue o seu laboratório ao repositório
-1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Mais Serviços**e, em seguida, selecione **DevTest Labs** da lista de serviços.
 3. Da lista de laboratórios, selecione o seu laboratório. 
 4. **Selecione Configuração e políticas** > **Repositórios** > **+ Adicionar**.

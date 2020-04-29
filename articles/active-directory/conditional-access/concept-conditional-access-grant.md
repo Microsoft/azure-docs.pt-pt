@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02ec8dace971cd4dc1407c9e8d20839504c9ecc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331845"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Subvenção
@@ -24,7 +24,7 @@ No âmbito de uma política de Acesso Condicional, um administrador pode utiliza
 
 ![Política de Acesso Condicional com controlo de subvenções que requer a autenticação de vários fatores](./media/concept-conditional-access-grant/conditional-access-grant.png)
 
-## <a name="block-access"></a>Bloquear acesso
+## <a name="block-access"></a>Bloquear o acesso
 
 O Bloco tem em conta quaisquer atribuições e impede o acesso com base na configuração da política de Acesso Condicional.
 

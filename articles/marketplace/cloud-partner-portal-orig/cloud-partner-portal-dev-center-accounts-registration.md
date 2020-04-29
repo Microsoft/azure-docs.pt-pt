@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 161abde1ef0dfd86842fb56afe699fa632e0d9ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280376"
 ---
 <a name="create-a-microsoft-developer-account"></a>Criar uma conta microsoft developer
@@ -162,7 +162,7 @@ Para publicar ofertas comerciais para compra, você precisa adicionar informaç�
     >
     >Alterar a sua conta de pagamento pode atrasar os seus pagamentos até um ciclo de pagamento. Este atraso ocorre porque precisamos verificar a mudança de conta, tal como fizemos quando criou a conta de pagamento pela primeira vez. Ainda será pago o valor total depois de verificada a sua conta; quaisquer pagamentos devidos para o ciclo de pagamento em curso serão adicionados ao próximo.
 
-4.  Selecione **Next**.
+4.  Selecione **Seguinte**.
 
 **Para fornecer informações fiscais**
 
@@ -171,7 +171,7 @@ Para publicar ofertas comerciais para compra, você precisa adicionar informaç�
 3.  Na **página Configurar a sua ficha fiscal:**
     - Selecione o país ou região onde tem residência permanente.
     - Selecione o país ou região onde detém a cidadania primária.
-    - Selecione **Next**.
+    - Selecione **Seguinte**.
 4.  Introduza os seus dados fiscais e, em seguida, selecione **Next**.
 
 >[!WARNING]

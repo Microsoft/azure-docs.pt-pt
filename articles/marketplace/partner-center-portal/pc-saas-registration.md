@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
 ms.openlocfilehash: 9c20fe34e108de95a34aabea56390e8a6f0d858f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275718"
 ---
 # <a name="register-a-saas-application"></a>Registar uma aplicação SaaS
@@ -32,7 +32,7 @@ A Azure não impõe quaisquer restrições à autenticação que o serviço SaaS
 
 Qualquer aplicação que pretenda utilizar as capacidades do Azure AD, tem de estar registada previamente no inquilino do Azure AD. Este processo de registo envolve dar detalhes da AD Azure sobre a sua aplicação, como o URL onde está localizado, o URL para enviar respostas após a autenticação de um utilizador, o URI que identifica a app, e assim por diante.  Para registar uma nova aplicação utilizando o portal Azure, execute os seguintes passos:
 
-1.  Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1.  Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2.  Se a sua conta lhe der acesso a mais de um, clique na sua conta no canto superior direito e detete a sua sessão do portal para o desejado inquilino da AD Azure.
 3.  No painel de navegação à esquerda, clique no serviço **de Diretório Ativo Azure,** clique em registos de **Aplicações,** e clique em **Nova inscrição**de aplicação .
 

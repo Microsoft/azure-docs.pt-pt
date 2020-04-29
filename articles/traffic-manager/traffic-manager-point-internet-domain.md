@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: rohink
 ms.openlocfilehash: 6c5c5c185063caf8ca258ad70a70903c9b583e07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294848"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Apontar um domínio de Internet da empresa para um domínio do Gestor de Tráfego do Azure
@@ -32,6 +32,6 @@ Todos os pedidos de tráfego para *\.www contoso.com* ser direcionados para *con
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Métodos de encaminhamento do Gestor de Tráfego](traffic-manager-routing-methods.md)
+* [Métodos de encaminhamento do Traffic Manager](traffic-manager-routing-methods.md)
 * [Gestor de Tráfego - Desativar, ativar ou apagar um perfil](disable-enable-or-delete-a-profile.md)
 * [Gestor de Tráfego – Desativar ou ativar um ponto final](disable-or-enable-an-endpoint.md)

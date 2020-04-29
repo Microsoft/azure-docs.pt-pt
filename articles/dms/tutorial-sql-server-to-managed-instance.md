@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: 416be7de4b3cef4fb6e1bcfd09d934937f8c96d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80297734"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Tutorial: Migrar o Servidor SQL para uma Base de Dados Azure SQL gerida offline usando DMS
@@ -58,7 +58,7 @@ Para concluir este tutorial, precisa de:
 - Certifique-se de que as regras do Grupo de Segurança da Rede Virtual não bloqueiam as seguintes portas de comunicação de entrada para o Serviço de Migração de Bases de Dados Azure: 443, 53, 9354, 445, 12000. Para mais detalhes sobre a filtragem de tráfego da rede virtual NSG, consulte o artigo Filtrar o tráfego da [rede com grupos](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)de segurança da rede .
 - Configurar a sua Firewall do Windows para acesso ao motor de bases de dados. Veja [Windows Firewall for source database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra o seu Windows Firewall para permitir que o Serviço de Migração de Bases de Dados Azure aceda à fonte Do Servidor SQL, que por padrão é a porta TCP 1433.
-- Se estiver a executar várias instâncias de Servidor SQL com portas dinâmicas, poderá desejar ativar o Serviço de Navegador SQL e permitir o acesso à porta UDP 1434 através das suas firewalls para que o Serviço de Migração da Base de Dados Azure possa ligar-se a uma instância nomeada na sua fonte servidor.
+- Se estiver a executar várias instâncias de Servidor SQL com portas dinâmicas, poderá desejar ativar o Serviço de Navegador SQL e permitir o acesso à porta UDP 1434 através das suas firewalls para que o Serviço de Migração da Base de Dados Azure possa ligar-se a uma instância nomeada no seu servidor de origem.
 - Se estiver a utilizar um aparelho de firewall em frente às bases de dados de origem, poderá ter de adicionar regras de firewall para permitir que o Serviço de Migração de Bases de Dados Azure aceda à base de dados de origem para migração, bem como ficheiros através da porta SMB 445.
 - Crie uma base de dados Azure SQL gerida seguindo os detalhes do artigo Criar uma base de [dados Azure SQL gerida no portal Azure](https://aka.ms/sqldbmi).
 - Certifique-se de que os logins utilizados para ligar a fonte SQL Server e a instância gerida pelo alvo são membros da função do servidor de sysadmin.

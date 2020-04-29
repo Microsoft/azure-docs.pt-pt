@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
 ms.openlocfilehash: 857a4da0b24d600ecc572933af578e2e8faf501a
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80366322"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Remenda o sistema operativo Windows no seu cluster De Tecido de Serviço
@@ -161,7 +161,7 @@ Pode configurar o comportamento da POA para satisfazer as suas necessidades. Sob
 |Política de Desaprovação de Tarefas   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica a política que deve ser utilizada pelo Serviço de Coordenador para instalar atualizações do Windows nos nós do cluster do Tecido de Serviço.<br><br>Os valores permitidos são: <br>*NodeWise*: As atualizações do Windows são instaladas com um nó de cada vez. <br> *UpgradeDomainWise*: As atualizações do Windows são instaladas num domínio de atualização de cada vez. (No máximo, todos os nós pertencentes a um domínio de atualização podem optar por uma atualização do Windows.)<br><br> Para ajudar a decidir qual a política mais adequada para o seu cluster, consulte a secção [DE PERGUNTAS FREQUENTES.](#frequently-asked-questions)
 |LogsDiskQuotaInMB   |Longo  <br> (Predefinido: *1024)*               | O tamanho máximo dos registos de aplicativos de orquestração de patch em MB, que pode ser pernoia do local em nós.
 | WUQuery               | string<br>(Predefinido: *IsInstalled=0*)                | Consulta para obter atualizações do Windows. Para mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstalarWindowsOSOnlyUpdates | *Boolean* <br> (predefinição: falso)                 | Utilize esta bandeira para controlar quais as atualizações que devem ser descarregadas e instaladas. Os seguintes valores são permitidos <br>verdade - Instala apenas atualizações do sistema operativo Windows.<br>falso - Instala todas as atualizações disponíveis na máquina.          |
+| InstalarWindowsOSOnlyUpdates | *Booleano* <br> (predefinição: falso)                 | Utilize esta bandeira para controlar quais as atualizações que devem ser descarregadas e instaladas. Os seguintes valores são permitidos <br>verdade - Instala apenas atualizações do sistema operativo Windows.<br>falso - Instala todas as atualizações disponíveis na máquina.          |
 | WUOperationTimeTimeInMinutes | int <br>(Predefinido: *90)*                   | Especifica o prazo limite para qualquer operação de Atualização do Windows (pesquisar ou descarregar ou instalar). Se a operação não estiver concluída dentro do prazo previsto, é abortada.       |
 | WURescheduleCount     | int <br> (Predefinido: *5*)                  | O número máximo de vezes que o serviço remarca a atualização do Windows se uma operação falhar persistentemente.          |
 | WUReScheduleTimeInMinutes | int <br>(Predefinido: *30)* | O intervalo em que o serviço remarca as atualizações do Windows caso persista falha. |

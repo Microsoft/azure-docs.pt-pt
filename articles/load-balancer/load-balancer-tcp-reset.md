@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
 ms.openlocfilehash: d3d836ddea8d07a25ad09e6f19d9f17a680decd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294409"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle"></a>Balancer de carga com Reset TCP em Idle

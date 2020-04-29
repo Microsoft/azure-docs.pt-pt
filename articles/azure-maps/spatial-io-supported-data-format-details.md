@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 3353620f1751e939a04543115fe704555fb3bc21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334087"
 ---
 # <a name="supported-data-format-details"></a>Detalhes do formato de dados suportados
@@ -395,7 +395,7 @@ Ao digitalizar a linha do cabeçalho, qualquer informação do tipo que esteja n
 
 - edm.int64
 - int
-- longo
+- long
 - edm.double
 - float
 - double

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 2676dbf72309eeb51be1f08e7bae2c1502cc671e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280206"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurar a sua aplicação no Portal editorial
@@ -179,7 +179,7 @@ Introduza o URL de suporte para a sua aplicação.
 
 Selecione um sistema CRM onde o seu chumbo será armazenado. Selecione "Azure Table" aqui se tiver um dos seguintes sistemas CRM: Salesforce, Marketo, Microsoft Dynamics CRM. O sistema CRM que seleciona aqui é onde escreveremos detalhes dos utilizadores finais que experimentam a sua aplicação no AppSource (leads). Dependendo do sistema CRM que selecionar, clique no URL correspondente abaixo para obter informações sobre como completar o próximo conjunto de campos
 
-* [Mesa Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
+* [Tabela do Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
 * [Microsoft Dynamics CRM](./cloud-partner-portal-lead-management-instructions-dynamics.md)
 * [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)

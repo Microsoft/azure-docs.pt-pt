@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: dsindona
 ROBOTS: NOINDEX
 ms.openlocfilehash: 3ec8373288a2ea5809ee5d349c52c57051586035
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288347"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>SaaS Fulfillment APIs versão 1 (depreciada)
@@ -48,7 +48,7 @@ A ação post on resolve endpoint permite que os utilizadores resolvam um símbo
 
 Quando um utilizador é redirecionado para o website de um ISV, o URL contém um símbolo nos parâmetros de consulta. Espera-se que o ISV utilize este símbolo e faça um pedido para resolvê-lo. A resposta contém o ID de subscrição exclusivo da SAAS, nome, id de oferta e plano para o recurso. Este token é válido por apenas uma hora.
 
-*Pedido*
+*Pedir*
 
 **POST**
 
@@ -85,10 +85,10 @@ Quando um utilizador é redirecionado para o website de um ISV, o URL contém um
 
 | **Parameter name** (Nome do parâmetro) | **Tipo de dados** | **Descrição**                       |
 |--------------------|---------------|---------------------------------------|
-| ID                 | Cadeia        | Identificação da assinatura SaaS.          |
-| subscriptionName| Cadeia| Nome da subscrição SaaS definida pelo utilizador em Azure enquanto subscreve o serviço SaaS.|
-| Offerid            | Cadeia        | Ofereça ID que o utilizador subscreveu. |
-| planId             | Cadeia        | Plano ID que o utilizador subscreveu.  |
+| ID                 | String        | Identificação da assinatura SaaS.          |
+| subscriptionName| String| Nome da subscrição SaaS definida pelo utilizador em Azure enquanto subscreve o serviço SaaS.|
+| Offerid            | String        | Ofereça ID que o utilizador subscreveu. |
+| planId             | String        | Plano ID que o utilizador subscreveu.  |
 |  |  |  |
 
 
@@ -246,7 +246,7 @@ O ponto final de alteração permite ao utilizador converter o seu plano atualme
 
 A ação Delete no ponto final de subscrição permite que um utilizador elimine uma subscrição com um determinado ID.
 
-*Pedido*
+*Pedir*
 
 **ELIMINAR**
 
@@ -296,9 +296,9 @@ Para uma resposta de 202, acompanhe o estado da operação de pedido no cabeçal
 
 Este ponto final permite ao utilizador rastrear o estado de uma operação de asincronização desencadeada (Plano subscrever/cancelar/alterar).
 
-*Pedido*
+*Pedir*
 
-**Obter**
+**GET**
 
 **https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
 
@@ -331,9 +331,9 @@ Este ponto final permite ao utilizador rastrear o estado de uma operação de as
 
 | **Parameter name** (Nome do parâmetro) | **Tipo de dados** | **Descrição**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| ID                 | Cadeia        | Identificação da operação.                                                                      |
+| ID                 | String        | Identificação da operação.                                                                      |
 | status             | Enum          | Estado de funcionamento, `In Progress`um `Succeeded`dos `Failed`seguintes: , ou .          |
-| resourceLocation   | Cadeia        | Ligação à subscrição que foi criada ou modificada. Isto ajuda o cliente a obter uma operação estatal atualizada. Este valor não `Unsubscribe` está definido para operações. |
+| resourceLocation   | String        | Ligação à subscrição que foi criada ou modificada. Isto ajuda o cliente a obter uma operação estatal atualizada. Este valor não `Unsubscribe` está definido para operações. |
 | criado            | DateTime      | Tempo de criação de operação na UTC.                                                           |
 | últimaModificada       | DateTime      | Última atualização da operação na UTC.                                                      |
 |  |  |  |
@@ -364,9 +364,9 @@ Este ponto final permite ao utilizador rastrear o estado de uma operação de as
 
 A ação Get no ponto final de subscrição permite que um utilizador recupere uma subscrição com um determinado identificador de recursos.
 
-*Pedido*
+*Pedir*
 
-**Obter**
+**GET**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriçãoId}*?api-version=2017-04-15**
 
@@ -401,10 +401,10 @@ A ação Get no ponto final de subscrição permite que um utilizador recupere u
 
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID                     | Cadeia        | ID do recurso de subscrição SaaS em Azure.    |
-| offerId                | Cadeia        | Ofereça ID que o utilizador subscreveu.         |
-| planId                 | Cadeia        | Plano ID que o utilizador subscreveu.          |
-| nome saasSubscription   | Cadeia        | Nome da assinatura SaaS.                |
+| ID                     | String        | ID do recurso de subscrição SaaS em Azure.    |
+| offerId                | String        | Ofereça ID que o utilizador subscreveu.         |
+| planId                 | String        | Plano ID que o utilizador subscreveu.          |
+| nome saasSubscription   | String        | Nome da assinatura SaaS.                |
 | SaasEstatuto de Subscrição | Enum          | Estado de operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: O utilizador cria o recurso mas não é ativado pelo ISV.   <br/> - `Unsubscribed`: O utilizador não tem subscrição.   <br/> - `Suspended`: O utilizador suspendeu a subscrição.   <br/> - `Deactivated`: A subscrição do Azure está suspensa.  |
 | criado                | DateTime      | Valor de carimbo de tempo de criação de assinatura seleções na UTC. |
 | últimaModificada           | DateTime      | Valor de carimbo de tempo modificado por subscrição na UTC. |
@@ -437,9 +437,9 @@ A ação Get no ponto final de subscrição permite que um utilizador recupere u
 
 A ação Get no ponto final de subscrições permite que um utilizador recupere todas as subscrições para todas as ofertas do ISV.
 
-*Pedido*
+*Pedir*
 
-**Obter**
+**GET**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
@@ -473,10 +473,10 @@ A ação Get no ponto final de subscrições permite que um utilizador recupere 
 
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID                     | Cadeia        | ID do recurso de subscrição SaaS em Azure    |
-| offerId                | Cadeia        | DI oferta que o utilizador subscreveu         |
-| planId                 | Cadeia        | Id do plano que o utilizador subscreveu          |
-| nome saasSubscription   | Cadeia        | Nome da subscrição SaaS                |
+| ID                     | String        | ID do recurso de subscrição SaaS em Azure    |
+| offerId                | String        | DI oferta que o utilizador subscreveu         |
+| planId                 | String        | Id do plano que o utilizador subscreveu          |
+| nome saasSubscription   | String        | Nome da subscrição SaaS                |
 | SaasEstatuto de Subscrição | Enum          | Estado de operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: O utilizador cria o recurso mas não é ativado pelo ISV.   <br/> - `Unsubscribed`: O utilizador não tem subscrição.   <br/> - `Suspended`: O utilizador suspendeu a subscrição.   <br/> - `Deactivated`: A subscrição do Azure está suspensa.  |
 | criado                | DateTime      | Valor de carimbo de tempo de criação de assinatura seleções na UTC |
 | últimaModificada           | DateTime      | Valor de carimbo de tempo modificado por subscrição na UTC |
@@ -523,14 +523,14 @@ Um webhook SaaS é usado para notificar alterações proactivamente ao serviço 
 
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID  | Cadeia       | Identificação única para a operação desencadeada.                |
-| atividadeId   | Cadeia        | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação.               |
-| subscriptionId                     | Cadeia        | ID do recurso de subscrição SaaS em Azure.    |
-| offerId                | Cadeia        | Ofereça ID que o utilizador subscreveu. Fornecido apenas com a ação "Atualizar".        |
-| editorId                | Cadeia        | Identificação da editora da oferta SaaS         |
-| planId                 | Cadeia        | Plano ID que o utilizador subscreveu. Fornecido apenas com a ação "Atualizar".          |
-| action                 | Cadeia        | A ação que está a desencadear esta notificação. Possíveis valores - Ativar, Eliminar, Suspender, Restabelecer, Atualizar          |
-| tempoStamp                 | Cadeia        | Valor de carimbo na UTC quando esta notificação foi desencadeada.          |
+| ID  | String       | Identificação única para a operação desencadeada.                |
+| atividadeId   | String        | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação.               |
+| subscriptionId                     | String        | ID do recurso de subscrição SaaS em Azure.    |
+| offerId                | String        | Ofereça ID que o utilizador subscreveu. Fornecido apenas com a ação "Atualizar".        |
+| editorId                | String        | Identificação da editora da oferta SaaS         |
+| planId                 | String        | Plano ID que o utilizador subscreveu. Fornecido apenas com a ação "Atualizar".          |
+| action                 | String        | A ação que está a desencadear esta notificação. Possíveis valores - Ativar, Eliminar, Suspender, Restabelecer, Atualizar          |
+| tempoStamp                 | String        | Valor de carimbo na UTC quando esta notificação foi desencadeada.          |
 |  |  |  |
 
 

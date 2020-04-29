@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 76f8cbd6cb16b585a7dbda7b2ffa5eeeeb1b68d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280614"
 ---
 # <a name="appsource-package-preparation"></a>Preparação de pacotes appSource
@@ -101,7 +101,7 @@ Aqui está o código de exemplo para entrada.xml. Consulte as definições na ta
         </Locales>
     </PvsPackageData>
  
-**Em que:**
+**Onde:**
 
 |Campo|Detalhes|
 |---|---|
@@ -110,7 +110,7 @@ Aqui está o código de exemplo para entrada.xml. Consulte as definições na ta
 |Nome Âncora de Soluções |Nome do ficheiro zip da solução no desdobrador de pacotes que é utilizado para o nome de exibição e descrição dos ativos da solução.|
 | StartDate| Esta é a data em que o pacote de soluções estará disponível. O formato é MM/DD/YYYY|
 |Data final|Esta é a data em que o pacote de soluções deixará de estar disponível. O formato é MM/DD/YYYY |
-|Países Apoiados |Trata-se de uma lista de países/regiões delimitada sem acordo que deverá ver este pacote. Contacte os serviços online para obter uma lista de todos os códigos do país em vigor. Na altura, desta escrita a lista era: AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO, DZ,EC, EE,EG .ES,FI,FR,GB,GE,GH,GR,GT,HK,HR,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,Mk,MN, MO,MT,MM, MO,MT,MM, MM, MO,MT,MX,MM,MO,MT,MX,MM,MO,MT,MM,MO,MT,MM, MM, MO,MT,MM, MM, MO,MT,MM, MO,MT,MM, MO,MT,MM, MM, MO,MT,MM, MO,MT,MX,MM, MO,MT,MM, MM, MO,MT,MM, MO,MT,MX,MM, MO,MT,MU,MX, MX, MT,MM, MO,MT,MX,MM, MO,MT,MX,MM, MO,MT,MX,MM, MO,MT,MX, MO,MT,MX, ,NG,NI,NL,NO,NZ,Om,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,Rs,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,Ua,USY,UZ,VE,VI,VN,ZAW |
+|Países Apoiados |Trata-se de uma lista de países/regiões delimitada sem acordo que deverá ver este pacote. Contacte os serviços online para obter uma lista de todos os códigos do país em vigor. Na época, desta escrita a lista era: AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO,DZ,EC,EE,EE,EG,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL ,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,NG,NI,NL,NO,NZ,Om,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,Rs,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN ,TR,TT,TW,Ua,US,Uy,UZ,VI,VN,ZA,ZW |
 |LearnMoreLink | URL para a página mais informações para este pacote. |
 |Locais|Um exemplo deste nó para cada idioma UX que você quer suportar na solução preferida UX. Este nó contém crianças que descrevem o local, logotipo e termos para cada língua|
 |Locais: PackageLocale.Code|LCID da língua para este nó. Exemplo: Us English é 1033|

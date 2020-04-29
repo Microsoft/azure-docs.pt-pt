@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: dsindona
 ms.openlocfilehash: 8002d67ebd6dbeb70282bbbae84b115a778cffaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288874"
 ---
 # <a name="insights-page"></a>Página de informações
@@ -25,7 +25,7 @@ A página [**Insights**](https://cloudpartner.azure.com/#insights) fornece os se
 | **Pagamento**        | pagamentos e transações relacionadas em formatos gráficos e descarregados |
 | **Encomendas & utilização** | encomendas e informações de utilização em formatos gráficos e descarregados |
 | **Cliente**      | informações sobre clientes, incluindo o seu perfil de compra |
-| **Implantação**    | sucesso de implementação e informação de falha em formatos gráficos e de nível de evento |
+| **Implementação**    | sucesso de implementação e informação de falha em formatos gráficos e de nível de evento |
 | **Transferências**     | lista de pedidos de descarregamento para os últimos 30 dias |
 | **Análise**     | resumo da análise web e análise do desempenho da campanha |
 |  |  |

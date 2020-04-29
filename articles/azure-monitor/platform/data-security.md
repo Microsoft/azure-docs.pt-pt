@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
 ms.openlocfilehash: 63d8d8d3701a9adca4bd01e6e061877f5d0bd245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80333350"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados do Log Analytics
@@ -35,7 +35,7 @@ Para garantir a segurança dos dados em trânsito para o Log Analytics, encoraja
 
 O Conselho de Normas de Segurança do [PCI](https://www.pcisecuritystandards.org/) fixou um [prazo de 30 de junho de 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) para desativar versões mais antigas de TLS/SSL e atualizar para protocolos mais seguros. Uma vez que o Azure deixe cair o suporte do legado, se os seus agentes não conseguirem comunicar pelo menos TLS 1.2 não poderá enviar dados para o Log Analytics. 
 
-Não recomendamos que o seu agente utilize explicitamente o TLS 1.2 a menos que seja absolutamente necessário, pois pode quebrar funcionalidades de segurança ao nível da plataforma que lhe permitem detetar e tirar partido de protocolos mais recentes e seguros à medida que se tornam disponíveis, tais como como TLS 1.3. 
+Não recomendamos que o seu agente utilize explicitamente o TLS 1.2 a menos que seja absolutamente necessário, pois pode quebrar funcionalidades de segurança de nível de plataforma que lhe permitem detetar e tirar partido de protocolos mais recentes e seguros à medida que se tornam disponíveis, como tLS 1.3. 
 
 ### <a name="platform-specific-guidance"></a>Orientação específica da plataforma
 
@@ -68,10 +68,10 @@ O quadro que se segue apresenta exemplos de tipos de dados:
 
 | **Tipo de dados** | **Campos** |
 | --- | --- |
-| Alerta |Nome de alerta, Descrição do alerta, BaseManagedEntityId, ID de problemas, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModificadoReRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
+| Alerta |Nome de alerta, Descrição do alerta, BaseManagedEntityId, PROBLEM ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedRepeatCount, TimeResolved, TimeResolutionStateLastModificadod, TimeResolutionStateLastModificado, RepeatCount |
 | Configuração |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
 | Evento |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Nota:** Quando escreve eventos com campos personalizados no registo de eventos do Windows, o Log Analytics recolhe-os. |
-| Metadados |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Endereço, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, MainName, OffsetInMinuteFromGreenwichTime |
+| Metadados |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, MainName, OffsetInMinuteFromGreenwichTime |
 | Desempenho |Nome de objeto, ContraNome, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Estado |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
@@ -144,7 +144,7 @@ Para que a sua organização envie dados para o Log Analytics, configura um agen
 
 Um espaço de trabalho de Log Analytics é onde os dados são recolhidos, agregados, analisados e apresentados. Um espaço de trabalho é usado principalmente como um meio para dados de partição, e cada espaço de trabalho é único. Por exemplo, é melhor que os seus dados de produção sejam geridos com um espaço de trabalho e os seus dados de teste geridos com outro espaço de trabalho. Os espaços de trabalho também ajudam um administrador a controlar o acesso do utilizador aos dados. Cada espaço de trabalho pode ter várias contas de utilizador associadas a ele, e cada conta de utilizador pode aceder a vários espaços de trabalho do Log Analytics. Cria espaços de trabalho baseados na região do datacenter.
 
-Para o Gestor de Operações, o grupo de gestão do Gestor de Operações estabelece uma ligação com o serviço Log Analytics. Em seguida, configura quais os sistemas geridos pelo agente no grupo de gestão que podem recolher e enviar dados para o serviço. Dependendo da solução que permitiu, os dados destas soluções são enviados diretamente de um servidor de gestão do Gestor de Operações para o serviço Log Analytics, ou devido ao volume de dados recolhidos pelo sistema gerido pelo agente, são enviados diretamente a partir de um servidor de gestão de Gestão de Operações para o serviço Log Analytics, ou devido ao volume de dados recolhidos pelo sistema gerido pelo agente, são enviados diretamente a partir de um sistema gerido pelo agente, são enviados diretamente a partir do sistema gerido pelo agente, ou são enviados diretamente a partir do sistema gerido pelo agente, são enviados diretamente a partir do sistema gerido pelo agente, são enviados diretamente a partir do sistema gerido pelo agente, são enviados direta o agente para o serviço. Para sistemas não monitorizados pelo Gestor de Operações, cada um liga-se de forma segura ao serviço Log Analytics diretamente.
+Para o Gestor de Operações, o grupo de gestão do Gestor de Operações estabelece uma ligação com o serviço Log Analytics. Em seguida, configura quais os sistemas geridos pelo agente no grupo de gestão que podem recolher e enviar dados para o serviço. Dependendo da solução que permitiu, os dados destas soluções são enviados diretamente de um servidor de gestão do Gestor de Operações para o serviço Log Analytics, ou devido ao volume de dados recolhidos pelo sistema gerido pelo agente, são enviados diretamente do agente para o serviço. Para sistemas não monitorizados pelo Gestor de Operações, cada um liga-se de forma segura ao serviço Log Analytics diretamente.
 
 Toda a comunicação entre sistemas conectados e o serviço Log Analytics está encriptada. O protocolo TLS (HTTPS) é utilizado para encriptação.  O processo SDL da Microsoft é seguido para garantir que o Log Analytics está atualizado com os avanços mais recentes em protocolos criptográficos.
 
@@ -157,7 +157,7 @@ Com o Gestor de Operações, o grupo de gestão registado com um espaço de trab
 
 Para os agentes Windows ou Linux que executam máquinas virtuais Azure, uma chave de armazenamento apenas para leitura é usada para ler eventos de diagnóstico em tabelas Azure.  
 
-Com qualquer agente a reportar a um grupo de gestão do Gestor de Operações que esteja integrado com o Log Analytics, se o servidor de gestão não conseguir comunicar com o serviço por qualquer motivo, os dados recolhidos são armazenados localmente numa cache temporária sobre a gestão servidor.   Tentam reenviar os dados a cada 8 minutos durante duas horas.  Para dados que contorna o servidor de gestão e é enviado diretamente para o Log Analytics, o comportamento é consistente com o agente windows.  
+Com qualquer agente a reportar a um grupo de gestão do Gestor de Operações que esteja integrado com o Log Analytics, se o servidor de gestão não conseguir comunicar com o serviço por qualquer motivo, os dados recolhidos são armazenados localmente numa cache temporária no servidor de gestão.   Tentam reenviar os dados a cada 8 minutos durante duas horas.  Para dados que contorna o servidor de gestão e é enviado diretamente para o Log Analytics, o comportamento é consistente com o agente windows.  
 
 Os dados cached do Windows ou do agente de servidor de gestão estão protegidos pela loja de credenciais do sistema operativo. Se o serviço não puder processar os dados após duas horas, os agentes irão fazer fila dos dados. Se a fila ficar cheia, o agente começa a deixar cair os tipos de dados, começando pelos dados de desempenho. O limite de fila do agente é uma chave de registo para que possa modificá-la, se necessário. Os dados recolhidos são comprimidos e enviados para o serviço, contornando as bases de dados do grupo de gestão do Gestor de Operações, pelo que não lhes adiciona qualquer carga. Após o envio dos dados recolhidos, este é removido da cache.
 

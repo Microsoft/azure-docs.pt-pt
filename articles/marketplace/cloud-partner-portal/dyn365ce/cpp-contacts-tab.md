@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: dsindona
 ms.openlocfilehash: 8c7973d267f083180f2dd73c55fbf90fef25e9ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278472"
 ---
 # <a name="azure-application-contacts-tab"></a>Separador de contactos de aplicação Azure

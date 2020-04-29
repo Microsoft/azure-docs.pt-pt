@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8054d8985596095db32d9262322d7fb0f4aab8c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295143"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>Acesso Condicional: Acesso Condicional baseado no risco
@@ -30,7 +30,7 @@ As organizações com licenças Azure AD Premium P2 podem criar políticas de Ac
 
 Ativar esta política exigirá que todos os utilizadores se registem para autenticação multi-factor Azure no prazo de 14 dias. 
 
-1. Inicie sessão no **Portal do Azure**.
+1. Inicie sessão no **portal do Azure**.
 1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.
 1. Clique em **Registo na MFA**.
 1. Em **Atribuições,** selecione **Utilizadores**.
@@ -44,7 +44,7 @@ Ativar esta política exigirá que todos os utilizadores se registem para autent
 
 A Microsoft trabalha com investigadores, entidades responsáveis pela aplicação da lei, várias equipas de segurança da Microsoft e outras origens fidedignas para localizar os pares de nome de utilizador e palavra-passe. Quando um destes pares corresponde a uma conta no seu ambiente, pode ser acionada uma alteração de palavra-passe baseada em risco, com a política seguinte.
 
-1. Inicie sessão no **Portal do Azure**.
+1. Inicie sessão no **portal do Azure**.
 1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.
 1. Clique na política de **risco do Utilizador**.
 1. Em **Atribuições**, selecione **Utilizadores**
@@ -62,7 +62,7 @@ A Microsoft trabalha com investigadores, entidades responsáveis pela aplicaçã
 
 A maioria dos utilizadores tem um comportamento normal que pode ser controlado. Quando fugirem a esta norma, pode ser arriscado permitir-lhes iniciar sessão. Pode querer bloquear esse utilizador ou talvez pedir-lhes que realizem a autenticação de vários fatores para provar que são realmente quem dizem ser. Para ativar uma política que exija a MFA quando é detetado um risco de início de sessão, ative a política seguinte.
 
-1. Inicie sessão no **Portal do Azure**.
+1. Inicie sessão no **portal do Azure**.
 1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.
 1. Clique na **política de risco de iniciar sessão**
 1. Em **Atribuições**, selecione **Utilizadores**

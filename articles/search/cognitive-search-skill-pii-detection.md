@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: f21200bc6f5b25f3330f5bb87c0843caa5a84e56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298886"
 ---
 #    <a name="pii-detection-cognitive-skill"></a>Habilidade cognitiva de deteção de PII

@@ -7,10 +7,10 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 03/25/2020
 ms.openlocfilehash: a7f44a21dd404c556d6f3d8444fa70583cd71c57
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80349742"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-cli"></a>Configure um conjunto de escala de máquina virtual com um equilíbrio de carga Azure existente utilizando o ClI Azure

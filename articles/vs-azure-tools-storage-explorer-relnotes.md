@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: 986da8980a569583ef454833957ace85dd1bfbb6
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80351063"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de lançamento do Microsoft Azure Storage Explorer
@@ -364,7 +364,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 ### <a name="hotfixes"></a>Correções
 * Em alguns casos, clicar em "Carregar mais" ao nível dos recursos não devolveria a página seguinte dos recursos. Este problema foi corrigido. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
 * No Windows, os downloads do AzCopy falhariam se um único ficheiro ou pasta estivesse a ser descarregado e o nome do ficheiro ou pasta tivesse um personagem que fosse inválido para um caminho windows. Este problema foi corrigido. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
-* Em casos extremamente raros, enquanto executava um nome de uma Partilha de Ficheiros ou um nome numa Partilha de Ficheiros, se as cópias para o renome não tivessem sido, ou se o Storage Explore não fosse capaz de confirmar o sucesso das cópias com o Azure, havia o potencial para o Storage Explorer eliminar o ficheiros originais antes da cópia ter terminado. Este problema foi corrigido.
+* Em casos extremamente raros, ao realizar um nome de uma Partilha de Ficheiros ou um nome numa Partilha de Ficheiros, se as cópias para o renome falharam, ou se o Storage Explore não foi capaz de confirmar o sucesso das cópias com o Azure, havia o potencial para o Storage Explorer apagar os ficheiros originais antes da cópia ter terminado. Este problema foi corrigido.
 
 ### <a name="new"></a>Novo
 

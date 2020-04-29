@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80371108"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integre 3270 aplicações orientadas para ecrãs nos mainframes da IBM com o Azure utilizando apps azure logic e conector IBM 3270
@@ -35,7 +35,7 @@ Este artigo descreve estes aspetos para a utilização do conector 3270:
 
 Para aceder a aplicações nos mainframes da IBM, normalmente utiliza-se um emulador terminal 3270, muitas vezes chamado de "ecrã verde". Este método é uma forma testada no tempo, mas tem limitações. Embora o Host Integration Server (HIS) o ajude a trabalhar diretamente com estas aplicações, por vezes, separar o ecrã e a lógica do negócio pode não ser possível. Ou talvez já não tenhainformações sobre como funcionam as aplicações do anfitrião.
 
-Para alargar estes cenários, o conector IBM 3270 em Aplicações Lógicas Azure trabalha com a Ferramenta de Design 3270, que utiliza para gravar, ou "capturar", os ecrãs hospedeiros utilizados para uma tarefa específica, definir o fluxo de navegação para essa tarefa através da sua aplicação mainframe, e definir o métodos com parâmetros de entrada e saída para essa tarefa. A ferramenta de design converte essa informação em metadados que o conector 3270 utiliza ao chamar uma ação que representa essa tarefa a partir da sua aplicação lógica.
+Para alargar estes cenários, o conector IBM 3270 em Aplicações Lógicas Azure funciona com a Ferramenta de Design 3270, que utiliza para gravar, ou "capturar", os ecrãs hospedeiros utilizados para uma tarefa específica, definir o fluxo de navegação para essa tarefa através da sua aplicação mainframe, e definir os métodos com parâmetros de entrada e saída para essa tarefa. A ferramenta de design converte essa informação em metadados que o conector 3270 utiliza ao chamar uma ação que representa essa tarefa a partir da sua aplicação lógica.
 
 Depois de gerar o ficheiro de metadados a partir da ferramenta de design, adicione esse ficheiro a uma conta de integração no Azure. Desta forma, a sua aplicação lógica pode aceder aos metadados da sua aplicação quando adicionar uma ação de conector 3270. O conector lê o ficheiro de metadados da sua conta de integração, lida com a navegação através dos ecrãs 3270 e apresenta dinamicamente os parâmetros para a ação do conector 3270. Em seguida, pode fornecer dados à aplicação anfitriã, e o conector devolve os resultados à sua aplicação lógica. Desta forma, pode integrar as suas aplicações antigas com o Azure, microsoft e outras aplicações, serviços e sistemas que a Azure Logic Apps suporta.
 
@@ -335,7 +335,7 @@ Quando estiver pronto, gere o ficheiro HIDX para que possa fazer o upload para a
 
 1. Adicione o seu ficheiro HIDX como um mapa à sua conta de [integração, siga estes passos semelhantes para adicionar mapas,](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md)mas quando selecionar o tipo de mapa, selecione **HIDX**.
 
-Mais tarde neste tópico, quando adiciona uma ação IBM 3270 à sua aplicação lógica pela primeira vez, é-lhe solicitado que crie uma ligação entre a sua aplicação lógica e o servidor anfitrião, fornecendo informações de ligação, como os nomes para a sua conta de integração e servidor anfitrião . Depois de criar a ligação, pode selecionar o ficheiro HIDX anteriormente adicionado, o método a executar e os parâmetros a utilizar.
+Mais tarde neste tópico, quando adiciona uma ação IBM 3270 à sua aplicação lógica pela primeira vez, é-lhe solicitado que crie uma ligação entre a sua aplicação lógica e o servidor anfitrião, fornecendo informações de ligação, como os nomes para a sua conta de integração e servidor anfitrião. Depois de criar a ligação, pode selecionar o ficheiro HIDX anteriormente adicionado, o método a executar e os parâmetros a utilizar.
 
 Quando terminar todos estes passos, pode utilizar a ação que cria na sua aplicação lógica para se conectar ao seu mainframe IBM, conduzir ecrãs para a sua aplicação, introduzir dados, devolver resultados, e assim por diante. Também pode continuar a adicionar outras ações à sua app lógica para integrar com outras aplicações, serviços e sistemas.
 

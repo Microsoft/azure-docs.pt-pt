@@ -15,10 +15,10 @@ ms.custom: seodec18
 ms.date: 01/10/2020
 ms.author: shvija
 ms.openlocfilehash: 485f51e45e342ca28d54d609fd975bef5b204f7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80372234"
 ---
 # <a name="event-processor-host"></a>Anfitrião do processador de eventos
@@ -26,7 +26,7 @@ ms.locfileid: "80372234"
 > Este artigo aplica-se à versão antiga do Azure Event Hubs SDK. Para aprender a migrar o seu código para a versão mais recente do SDK, consulte estes guias de migração. 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
-> - [Pitão](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
 > - [Roteiro de Java](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
 >
 > Além disso, consulte a carga de [partição Balance em várias instâncias da sua aplicação](event-processor-balance-partition-load.md).
@@ -205,7 +205,7 @@ Agora que está familiarizado com o Anfitrião do Processador de Eventos, consul
 - Introdução ao Event Hubs
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
-    - [Pitão](get-started-python-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
     - [JavaScript](get-started-java-send-v2.md)
 * [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md)
 * [Disponibilidade e consistência em Hubs de Eventos](event-hubs-availability-and-consistency.md)

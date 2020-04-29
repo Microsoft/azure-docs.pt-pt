@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: dsindona
 ms.openlocfilehash: bc75ebbba807aa981e8de29c40947516fea6638d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288500"
 ---
 # <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Gerencie o seu perfil de editor Azure Marketplace e AppSource

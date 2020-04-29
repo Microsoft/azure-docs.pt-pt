@@ -7,10 +7,10 @@ ms.author: bfung
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 8af688e38003e0613a06d7d8622ce279a3838589
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298278"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Ativar snapshot Debugger para .NET apps no Serviço de Aplicações Azure
@@ -19,7 +19,7 @@ O Snapshot Debugger trabalha atualmente para ASP.NET e ASP.NET aplicações Core
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a>Ativar o Debugger Snapshot
 Para ativar o Snapshot Debugger para uma aplicação, siga as instruções abaixo. Se estiver a executar um tipo diferente de serviço Azure, aqui estão as instruções para ativar o Snapshot Debugger noutras plataformas suportadas:
-* [Serviços Cloud do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Cloud Services do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Serviço Azure Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais azure e conjuntos de escala de máquinas virtuais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [No local máquinas virtuais ou físicas](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

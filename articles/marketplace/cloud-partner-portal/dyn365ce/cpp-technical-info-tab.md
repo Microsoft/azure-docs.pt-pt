@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: dsindona
 ms.openlocfilehash: 4b390dcac424ea5f56ca0e1817095ac301b64f1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80279917"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Dinâmica 365 para separador de Informação Técnica de Envolvimento do Cliente

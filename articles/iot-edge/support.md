@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 42c0a5d0c590f8c395c2afe366a00fcb9c83ce46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79536943"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas suportados Azure IoT Edge
@@ -119,7 +119,7 @@ O IoT Edge utiliza o Microsoft.Azure.Device.Client SDK. Para mais informações,
 * **IoT Edge 1.0.6**: Cliente SDK 1.17.1
 * **IoT Edge 1.0.5:** Cliente SDK 1.17.1
 
-## <a name="virtual-machines"></a>Máquinas Virtuais
+## <a name="virtual-machines"></a>Virtual Machines
 
 O Azure IoT Edge pode ser executado em máquinas virtuais. Usar uma máquina virtual como um dispositivo IoT Edge é comum quando os clientes querem aumentar a infraestrutura existente com inteligência de ponta. A família do hospedeiro VM OS deve corresponder à família do oss o si convidado usado dentro do recipiente de um módulo. Este requisito é o mesmo que quando o Azure IoT Edge é executado diretamente num dispositivo. O Azure IoT Edge é agnóstico da tecnologia de virtualização subjacente e trabalha em VMs alimentados por plataformas como Hyper-V e vSphere.
 

@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9ed613972f166f1f9955fc34e9bb640d87da6b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331431"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Mapa de instalação do Azure AD Connect e do Azure AD Connect Health
@@ -98,7 +98,7 @@ O modelo de configuração em sincronização é designado por [aprovisionamento
 |Tópico |Ligação|  
 | --- | --- |
 |Todos os artigos acerca da sincronização do Azure AD Connect | [Sincronização azure AD Connect](how-to-connect-sync-whatis.md)|
-|Conceitos técnicos | [Sincronização do Azure AD Connect: Conceitos Técnicos](how-to-connect-sync-technical-concepts.md)|
+|Conceitos técnicos | [Sincronização azure AD Connect: Conceitos Técnicos](how-to-connect-sync-technical-concepts.md)|
 |Entender a configuração predefinida | [Sincronização do Azure AD Connect: entender a configuração predefinida](concept-azure-ad-connect-sync-default-configuration.md)|
 |Entender utilizadores e contactos | [Sincronização do Azure AD Connect: entender Utilizadores e Contactos](concept-azure-ad-connect-sync-user-and-contacts.md)|
 |Aprovisionamento declarativo | [Sincronização do Azure AD Connect: entender as Expressões do Aprovisionamento Declarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|

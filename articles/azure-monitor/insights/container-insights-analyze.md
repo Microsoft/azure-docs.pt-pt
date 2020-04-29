@@ -4,10 +4,10 @@ description: Este artigo descreve como pode ver e analisar o desempenho de um cl
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: 227fe70512536790d179797394b6fba22e7eb50e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298377"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorize o seu desempenho do cluster Kubernetes com o Monitor Azure para contentores
@@ -24,7 +24,7 @@ As principais diferenças na monitorização de um cluster do Windows Server com
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Vista multi-cluster do Monitor Azure
 

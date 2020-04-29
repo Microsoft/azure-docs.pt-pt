@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/21/2020
 ms.author: scottnap
 ms.openlocfilehash: 8a22e8f0bde2d13b4055566d96680fadc2db6e11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80337099"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Trabalhar remotamente: Redes Virtuais (NVA) considerações para trabalhoremoto
@@ -24,7 +24,7 @@ Alguns clientes da Azure utilizam eletrodomésticos virtuais de rede de terceiro
 
 ## <a name="nva-performance-considerations"></a>Considerações de desempenho da NVA
 
-Todos os principais fornecedores de NVA no Mercado Azure devem ter recomendações sobre o tamanho VM e o número de instâncias a utilizar ao implementar as suas soluções.  Embora quase todos os fornecedores de NVA lhe permitam escolher qualquer tamanho que esteja disponível numa determinada Região, é muito importante que siga as recomendações dos fornecedores para tamanhos de instância Sav, já que estas recomendações são os tamanhos VM que o fornecedor tem feito testes com em Azure.  
+Todos os principais fornecedores de NVA no Mercado Azure devem ter recomendações sobre o tamanho VM e o número de instâncias a utilizar ao implementar as suas soluções.  Embora quase todos os fornecedores de NVA lhe permitam escolher qualquer tamanho que esteja disponível numa determinada Região, é muito importante que siga as recomendações dos fornecedores para tamanhos de instância Sav, uma vez que estas recomendações são os tamanhos VM com que o fornecedor fez testes de desempenho em Azure.  
 
 ### <a name="consider-the-following"></a>Considere o seguinte
 
@@ -41,7 +41,7 @@ Todos os principais fornecedores de NVA no Mercado Azure devem ter recomendaçõ
 
 Cada solução NVA tem as suas próprias ferramentas e recursos para monitorizar o desempenho da sua NVA.  Consulte a documentação dos seus fornecedores para se certificar de que compreende as limitações de desempenho e pode detetar quando o seu NVA está próximo ou a atingir a capacidade.  Além disso, pode ver o Azure Monitor Network Insights e ver informações básicas sobre o desempenho da sua rede de aparelhos virtuais, tais como:
 
-- Utilização do CPU
+- Utilização da CPU
 - Entrada na Rede
 - Saída da Rede
 - Fluxos de Entrada

@@ -16,10 +16,10 @@ ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.openlocfilehash: f3bd7bc78eeb62cc33a01ed31bb04d94078cae4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294343"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Transmissão offline em fluxo de Widevine para Android  
@@ -150,7 +150,7 @@ A partir do lançamento do [Chrome para Android vs. 62](https://developers.googl
 
 Além disso, a Google produziu uma amostra de Aplicação Web Progressiva (PWA) e a briu-a: 
 
-- [Código fonte](https://github.com/GoogleChromeLabs/sample-media-pwa)
+- [Código de origem](https://github.com/GoogleChromeLabs/sample-media-pwa)
 - [Versão hospedada pela Google](https://biograf-155113.appspot.com/ttt/episode-2/) (apenas funciona no Chrome v 62 e superior em dispositivos Android)
 
 Se atualizar o seu navegador Chrome móvel para v62 (ou superior) num telefone Android e testar a aplicação de amostras hospedada acima, verá que tanto o streaming online como o reprodução offline funcionam.

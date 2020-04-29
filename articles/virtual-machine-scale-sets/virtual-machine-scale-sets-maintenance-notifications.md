@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: shants
 ms.openlocfilehash: 53ebb7c4710c5455ef90701dc7e94f1b846a874a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062692"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Planned maintenance notifications for virtual machine scale sets (Notificações de manutenção planeada para conjuntos de dimensionamento de máquinas virtuais)
@@ -71,7 +71,7 @@ A manutenção do self-service não é recomendada para implementações que uti
 
 Quando uma onda de manutenção planeada está programada, pode ver a lista de conjuntos de escala de máquinas virtuais que são afetados pela próxima onda de manutenção utilizando o portal Azure. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu esquerdo, selecione **Todos os serviços,** e, em seguida, selecione **conjuntos**de escala de máquina virtual .
 3. Em conjuntos de escala de **máquina virtual,** selecione **colunas Editar** para abrir a lista de colunas disponíveis.
 4. Na secção **colunas disponíveis,** selecione **manutenção de self-service**e, em seguida, mova-a para a lista de **colunas Selecionadas.** Selecione **Aplicar**.  
@@ -90,7 +90,7 @@ A coluna **de manutenção self-service** aparece agora na lista de conjuntos de
 
 O Azure comunica um calendário para a manutenção planeada enviando um e-mail ao proprietário da subscrição e ao grupo de coproprietários. Pode adicionar destinatários e canais a esta comunicação criando alertas de Registo de Atividade. Para mais informações, consulte a [atividade de subscrição do Monitor com o Registo de Atividades do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu esquerdo, selecione **Monitor**. 
 3. No **painel Monitor - Alertas (clássicos),** selecione **+Adicionar alerta**de registo de atividade .
 4. Na página de alerta de registo de **atividade adicionar,** selecione ou introduza as informações solicitadas. Em **Critérios,** certifique-se de que define os seguintes valores:

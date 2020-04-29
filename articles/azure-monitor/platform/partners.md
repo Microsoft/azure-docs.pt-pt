@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 33ab913c64b651db9e75d4791ecb631ed7e081a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298399"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
@@ -70,7 +70,7 @@ A CloudMonix oferece serviços de monitorização, automação e auto-cura para 
 
 [Vá à documentação.][cloudmonix-doc]
 
-## <a name="datadog"></a>Cão de Dados
+## <a name="datadog"></a>Datadog
 
 ![Logotipo dataDog](./media/partners/datadog.png)
 
@@ -217,7 +217,7 @@ Reduza os incidentes e a plataforma MTTR com a plataforma NOW AIOps para elimina
 
 ![Logotipo signalFX](./media/partners/signalfx.png)
 
-SignalFx é o líder na inteligência operacional em tempo real para DevOps baseados em dados. O serviço descobre e recolhe métricas em todos os componentes da nuvem. Substitui as ferramentas de ponto tradicionais e proporciona visibilidade em tempo real aos ambientes dinâmicos de hoje. Aproveitando a plataforma SignalFx massivamente escalável, a plataforma SaaS está otimizada para arquiteturas baseadas em contentores e microserviços e fornece poderosa visualização, alerta proativo e capacidades de triagem colaborativa entre organizações de todos os tamanhos. O SignalFx integra-se diretamente com o Azure Monitor, bem como através de conectores de código aberto como *o Telegraf,* *statsD,* e *recolhidos* para fornecer o melhor em dashboards de classe, análise e alertas para o Azure.
+SignalFx é o líder na inteligência operacional em tempo real para DevOps baseados em dados. O serviço descobre e recolhe métricas em todos os componentes da nuvem. Substitui as ferramentas de ponto tradicionais e proporciona visibilidade em tempo real aos ambientes dinâmicos de hoje. Aproveitando a plataforma SignalFx massivamente escalável, a plataforma SaaS está otimizada para arquiteturas baseadas em contentores e microserviços e fornece poderosa visualização, alerta proativo e capacidades de triagem colaborativa seletiva seletivas entre organizações de todos os tamanhos. O SignalFx integra-se diretamente com o Azure Monitor, bem como através de conectores de código aberto como *o Telegraf,* *statsD,* e *recolhidos* para fornecer o melhor em dashboards de classe, análise e alertas para o Azure.
 
 [Vá à documentação.][signalfx-doc]
 
@@ -245,7 +245,7 @@ O Addon Do Monitor Azure para Splunk está [disponível na Base Splunk aqui](htt
 
 ![Logotipo quadrado](./media/partners/squaredup.png)
 
-O SquaredUp para o Azure torna a visualização das suas aplicações Azure maravilhosamente simples. Dá-te instrumentos interativos em tempo real. Você pode aprofundar em subscrições, grupos de recursos, tags e recursos individuais para ver métricas como CPU, a maioria das ligações de entrada, tempo de resposta de Aplicação Insights, custo total e estado de saúde sumário, e perfurar através para ver dados relacionados tais como alertas, eventos de Log Analytics, métricas mais detalhadas, ou para ver dados relacionados a partir das outras ferramentas que utiliza – como ServiceNow, Dynatrace, PagerDuty ou Pingdom, por exemplo.  Pode personalizar os seus próprios dashboards, publicar e partilhá-los com indivíduos ou em páginas intranet. 
+O SquaredUp para o Azure torna a visualização das suas aplicações Azure maravilhosamente simples. Dá-te instrumentos interativos em tempo real. Você pode aprofundar em subscrições, grupos de recursos, tags e recursos individuais para ver métricas como CPU, a maioria das ligações de entrada, tempo de resposta de Aplicação Insights, custo total e estado de saúde sumário, e perfurar através para ver dados relacionados como alertas, eventos Log Analytics, métricas mais detalhadas, ou para ver dados relacionados a partir das outras ferramentas que você usa - como ServiceNow , Dynatrace, PagerDuty ou Pingdom, por exemplo.  Pode personalizar os seus próprios dashboards, publicar e partilhá-los com indivíduos ou em páginas intranet. 
 
 [Saiba mais.](https://squaredup.com/)
 
@@ -261,7 +261,7 @@ A Sumo Logic é um serviço de análise de dados seguros, nativos em nuvem, de d
 
 ![Logotipo turbonómico](./media/partners/Turbonomic.png)
 
-A Turbonómica fornece automatização de carga de trabalho para nuvens híbridas, otimizando simultaneamente o desempenho, o custo e a conformidade em tempo real. A Turbonómica ajuda as organizações a serem elásticas na sua propriedade Azure, otimizando continuamente a propriedade para garantir que as aplicações recebem constantemente os recursos necessários para entregar o seu SLA e nada mais através da computação, armazenamento e rede para o IaaS e PaaS camada. As organizações podem simular migrações, escalar adequadamente as cargas de trabalho e retirar recursos do datacenter para migrar em tempo útil para Azure, dentro do orçamento, garantindo tanto o desempenho como o cumprimento. O turbonómico é conduzido pela API e funciona como um VM sem agente em Azure e no local.
+A Turbonómica fornece automatização de carga de trabalho para nuvens híbridas, otimizando simultaneamente o desempenho, o custo e a conformidade em tempo real. A Turbonómica ajuda as organizações a serem elásticas na sua propriedade Azure, otimizando continuamente a propriedade para garantir que as aplicações obtêm constantemente os recursos necessários para entregar o seu SLA e nada mais através da computação, armazenamento e rede para a camada IaaS e PaaS. As organizações podem simular migrações, escalar adequadamente as cargas de trabalho e retirar recursos do datacenter para migrar em tempo útil para Azure, dentro do orçamento, garantindo tanto o desempenho como o cumprimento. O turbonómico é conduzido pela API e funciona como um VM sem agente em Azure e no local.
 
 [Saiba mais.][turbonomic-doc]
 

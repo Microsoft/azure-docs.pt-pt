@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: ce212b5da90906966025674b58884d0e2f5bb064
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80337133"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>Wan Virtual Azure e apoio ao trabalho remoto
@@ -27,7 +27,7 @@ Precisa que os seus utilizadores remotos consigam alcançar recursos por trás d
 Tem necessidade de os utilizadores acederem a recursos intra-cloud sem terem a necessidade de estabelecer conectividade entre regiões?
 À medida que esta pandemia global cria mudanças sem precedentes à nossa volta, a equipa Azure Virtual WAN está aqui para satisfazer as suas necessidades de conectividade.
 
-O Azure Virtual WAN é um serviço de networking que reúne muitas funcionalidades de networking, segurança e encaminhamento para fornecer uma única interface operacional. Estas funcionalidades incluem conectividade branch (via automatização de conectividade de dispositivos virtual WAN Partner, tais como SD-WAN ou VPN CPE), conectividade VPN site-to-site, conectividade VPN de utilizador remoto (conectividade ponto-a-local), conectividade privada (ExpressRoute), Conectividade intra cloud (Conectividade transitiva para redes virtuais), Interconectividade VPN ExpressRoute, Encaminhamento, firewall Azure, Encriptação para conectividade privada, etc. Não é preciso ter todos estes casos de uso para começar a usar WAN virtual. Pode começar com apenas uma caixa de utilização e ajustar a sua rede à medida que evolui.
+O Azure Virtual WAN é um serviço de networking que reúne muitas funcionalidades de networking, segurança e encaminhamento para fornecer uma única interface operacional. Estas funcionalidades incluem conectividade de ramificação (via automatização de conectividade de dispositivos Virtual WAN Partner, tais como SD-WAN ou VPN CPE), conectividade VPN site-to-site, conectividade VPN (Ponto-a-local), Conectividade Privada (ExpressRoute), Conectividade intra cloud (conectividade transitiva para redes virtuais), VPN ExpressRoute Interconectividade, Routing, firewall Azure, Encriptação para conectividade privada etc. Não é preciso ter todos estes casos de uso para começar a usar WAN virtual. Pode começar com apenas uma caixa de utilização e ajustar a sua rede à medida que evolui.
 
 ![Diagrama da WAN Virtual](./media/virtual-wan-about/virtualwan1.png)
 

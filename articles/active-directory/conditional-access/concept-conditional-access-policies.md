@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295313"
 ---
 # <a name="building-a-conditional-access-policy"></a>Construção de uma política de acesso condicional
@@ -74,7 +74,7 @@ A parte de controlo de acesso saem da política de acesso condicional na forma c
 
 [Grant](concept-conditional-access-grant.md) fornece aos administradores um meio de aplicação da política onde podem bloquear ou conceder acesso.
 
-#### <a name="block-access"></a>Bloquear acesso
+#### <a name="block-access"></a>Bloquear o acesso
 
 O acesso ao bloco faz isso mesmo, bloqueará o acesso ao abrigo das atribuições especificadas. O controlo do bloco é poderoso e deve ser exercido com o conhecimento adequado.
 

@@ -9,10 +9,10 @@ ms.date: 03/26/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 3a853dc32f8716f3f2ba32896a7a4a239efcc5bd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80349868"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Anfitriões de sessão de escala usando a Automação Azure
@@ -107,7 +107,7 @@ Primeiro, vai precisar de uma conta Azure Automation para executar o livro de ex
 
 Agora que tem uma conta Azure Automation, também terá de criar uma Corrida de Automação Azure Como conta para aceder aos seus recursos Azure.
 
-Uma execução de [automação Azure Como conta](../automation/manage-runas-account.md) fornece autenticação para gestão de recursos em Azure com os cmdlets Azure. Ao criar uma conta Run As, cria um novo utilizador principal de serviço no Diretório Ativo do Azure e atribui a função de Colaborador ao principal utilizador do serviço ao nível da subscrição, a Conta Azure Run As é uma ótima forma de autenticar de forma segura com certificados e um nome principal de serviço sem necessidade de armazenar um nome de utilizador e senha num objeto credencial. Para saber mais sobre executar Como autenticação, consulte [Limiting Run As permissões](../automation/manage-runas-account.md#limiting-run-as-account-permissions)de conta .
+Uma execução de [automação Azure Como conta](../automation/manage-runas-account.md) fornece autenticação para gestão de recursos em Azure com os cmdlets Azure. Quando cria uma conta Run As, cria um novo utilizador principal de serviço no Diretório Ativo do Azure e atribui a função de Colaborador ao utilizador principal do serviço ao nível da subscrição, o Azure Run As Account é uma ótima maneira de autenticar de forma segura com certificados e um nome principal de serviço sem precisar de armazenar um nome de utilizador e senha num objeto credencial. Para saber mais sobre executar Como autenticação, consulte [Limiting Run As permissões](../automation/manage-runas-account.md#limiting-run-as-account-permissions)de conta .
 
 Qualquer utilizador que seja membro da função de Administrador de Subscrição e coadministrador da subscrição pode criar uma conta Run As seguindo as instruções da próxima secção.
 

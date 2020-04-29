@@ -7,13 +7,13 @@ ms.service: marketplace
 ms.topic: guide
 ms.date: 12/12/2019
 ms.openlocfilehash: a0912e1dca63fabfe6bc546305824a1c582b9a2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80279747"
 ---
-# <a name="commercial-marketplace-billing"></a>Faturação do mercado comercial
+# <a name="commercial-marketplace-billing"></a>Faturação do marketplace comercial
 
 Este artigo aborda temas relacionados com o comércio para o mercado comercial:
 

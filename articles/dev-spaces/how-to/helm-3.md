@@ -1,18 +1,18 @@
 ---
-title: Configure o seu cluster Dev Spaces Azure para utilizar o Helm 3 (pré-visualização)
+title: Configurar o cluster do Azure Dev Spaces para utilizar o Helm 3 (pré-visualização)
 services: azure-dev-spaces
 ms.date: 02/28/2020
 ms.topic: conceptual
 description: Saiba como configurar o seu cluster Dev Spaces para usar o Helm 3
 keywords: Espaços Azure Dev, Espaços Dev, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
 ms.openlocfilehash: dbccb2618fd5a27805261d60e7891d920e0bc372
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79454300"
 ---
-# <a name="configure-your-azure-dev-spaces-cluster-to-use-helm-3-preview"></a>Configure o seu cluster Dev Spaces Azure para utilizar o Helm 3 (pré-visualização)
+# <a name="configure-your-azure-dev-spaces-cluster-to-use-helm-3-preview"></a>Configurar o cluster do Azure Dev Spaces para utilizar o Helm 3 (pré-visualização)
 
 A Azure Dev Spaces utiliza o Helm 2 por padrão para instalar serviços de utilizador em espaços de v no seu cluster AKS. Pode ativar o Azure Dev Spaces a utilizar o Helm 3 em vez de o Helm 2 instalar serviços de utilizador em espaços de v. Independentemente da versão que a Helm Azure Dev Spaces utiliza para instalar serviços de utilizador, pode continuar a utilizar o cliente Helm 2 ou 3 para gerir os seus próprios lançamentos no mesmo cluster.
 

@@ -4,10 +4,10 @@ description: Exportar dados de diagnóstico e utilização para armazenamento no
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: f6afe42e483ab7ad5810169fc301946c75308c29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298292"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria a partir do Application Insights

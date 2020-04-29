@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: c32fdc67c74e100e0e31dad3afde128c05c356d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335976"
 ---
 # <a name="azure-api-management-faqs"></a>FaQs de Gestão API Azure
@@ -83,7 +83,7 @@ Sim, pode gerir a Gestão de API programáticamente utilizando:
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Como posso adicionar um utilizador ao grupo de Administradores?
 Eis como pode adicionar um utilizador ao grupo de Administradores:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Vá ao grupo de recursos que tem a instância de Gestão API que pretende atualizar.
 3. Na Gestão da API, atribuir ao utilizador a função de Colaborador do Serviço de Gestão da **API.**
 
@@ -138,7 +138,7 @@ Se utilizar o Git Credential Manager, ou se estiver a tentar clonar um repositó
 Sim. A API Management trabalha com a Azure ExpressRoute.
 
 ### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>Por que precisamos de uma subnet dedicada em VNETs estilo Gestor de Recursos quando a API Management é implantada neles?
-O requisito dedicado da subnet para a API Management provém do facto de ser construído com base no modelo de implantação Clássico (camada PAAS V1). Embora possamos implantar-nos num VNET (camada V2) do Gestor de Recursos, há consequências para isso. O modelo de implantação Classic em Azure não está fortemente associado ao modelo De Gestor de Recursos e por isso, se criar um recurso em camada V2, a camada V1 não sabe disso e podem ocorrer problemas, como a API Management tentando usar um IP que já está atribuído a um NIC . construído em V2).
+O requisito dedicado da subnet para a API Management provém do facto de ser construído com base no modelo de implantação Clássico (camada PAAS V1). Embora possamos implantar-nos num VNET (camada V2) do Gestor de Recursos, há consequências para isso. O modelo de implantação Classic em Azure não está fortemente associado ao modelo De Gestor de Recursos e por isso, se criar um recurso em camada V2, a camada V1 não sabe disso e podem ocorrer problemas, como a API Management tentando usar um IP que já está atribuído a um NIC (construído em V2).
 Para saber mais sobre a diferença de modelos Classic e Resource Manager em Azure, consulte a diferença nos modelos de [implementação.](../azure-resource-manager/management/deployment-models.md)
 
 ### <a name="what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet"></a>Qual é o tamanho mínimo da sub-rede necessário ao implantar a Gestão API num VNET?

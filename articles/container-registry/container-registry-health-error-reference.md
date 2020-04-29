@@ -4,10 +4,10 @@ description: Códigos de erro e possíveis soluções para problemas encontrados
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: 971b28b2bf8d9ac22cec0efe979837886762cf17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80289146"
 ---
 # <a name="health-check-error-reference"></a>Referência de erro de verificação de saúde

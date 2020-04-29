@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2020
 ms.author: akjosh
 ms.openlocfilehash: 85977819d30ddc8745eb9231242eb1990222676c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530993"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics virtual machine extension for Windows (Extensão de máquina virtual do Log Analytics para Windows)
@@ -36,7 +36,7 @@ A tabela seguinte fornece um mapeamento da versão da extensão VM do Windows Lo
 
 | Log Analytics Windows versão pacote de pacote | Versão de extensão do Windows VM de Log Analytics | Data de Lançamento | Notas de Versão |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 10.20.18029 | 1.0.18029 | março de 2020   | <ul><li>Adiciona suporte de assinatura de código SHA-2</li><li>Melhora a instalação e gestão da extensão VM</li><li>Resolve um bug em Azure Arc para integração de Servidores</li><li>Adiciona uma ferramenta incorporada de resolução de problemas para apoio ao cliente</li><li>Acrescenta apoio a regiões adicionais do Governo azure</li> |
+| 10.20.18029 | 1.0.18029 | Março de 2020   | <ul><li>Adiciona suporte de assinatura de código SHA-2</li><li>Melhora a instalação e gestão da extensão VM</li><li>Resolve um bug em Azure Arc para integração de Servidores</li><li>Adiciona uma ferramenta incorporada de resolução de problemas para apoio ao cliente</li><li>Acrescenta apoio a regiões adicionais do Governo azure</li> |
 | 10.20.18018 | 1.0.18018 | Outubro de 2019 | <ul><li> Pequenas correções de insetos e melhorias de estabilização </li></ul> |
 | 10.20.18011 | 1.0.18011 | Julho de 2019 | <ul><li> Pequenas correções de insetos e melhorias de estabilização </li><li> Aumento da MaxExpressionDepth para 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Junho de 2019 | <ul><li> Pequenas correções de insetos e melhorias de estabilização </li><li> Capacidade acrescida de desativar credenciais predefinidas ao elo de ligação proxy (suporte para WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|

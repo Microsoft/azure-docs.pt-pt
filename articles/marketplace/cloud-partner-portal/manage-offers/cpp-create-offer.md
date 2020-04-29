@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: dsindona
 ms.openlocfilehash: d14940eff569a80759e9db0bfa2d6d1541a01377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286477"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Criar ofertas de Marketplace Azure e AppSource

@@ -10,10 +10,10 @@ author: dphansen
 ms.author: davidph
 ms.date: 03/26/2020
 ms.openlocfilehash: 7813a08b6b18e517b81e8c4bfac660d198eba7f7
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80366262"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>Machine learning e IA com ONNX na Pré-visualização de borda de base de dados SQL

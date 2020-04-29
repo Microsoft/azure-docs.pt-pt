@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.openlocfilehash: 8cb641f95e7327e80f42df86a56eba8c34e7e598
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79367028"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Starting an Azure Automation runbook with a webhook (Iniciar um runbook da Automatização do Azure com um webhook)

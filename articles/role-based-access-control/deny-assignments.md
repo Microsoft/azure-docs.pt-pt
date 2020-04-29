@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: db249ccde1026cd468a1c30942891119482697ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80372476"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Entenda negar atribuições para recursos Azure
@@ -56,13 +56,13 @@ As atribuições de negação seguem um padrão semelhante ao de atribuições d
 > [!div class="mx-tableFixed"]
 > | Propriedade | Necessário | Tipo | Descrição |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | Sim | Cadeia | O nome da exibição da missão de negação. Os nomes devem ser únicos para um dado âmbito. |
-> | `Description` | Não | Cadeia | A descrição da atribuição de negação. |
+> | `DenyAssignmentName` | Sim | String | O nome da exibição da missão de negação. Os nomes devem ser únicos para um dado âmbito. |
+> | `Description` | Não | String | A descrição da atribuição de negação. |
 > | `Permissions.Actions` | Pelo menos uma Ação ou uma Ação de Dados | Corda[] | Uma série de cordas que especificam as operações de gestão a que a missão de negação bloqueia o acesso. |
 > | `Permissions.NotActions` | Não | Corda[] | Um conjunto de cordas que especificam as operações de gestão para excluir da atribuição de negação. |
 > | `Permissions.DataActions` | Pelo menos uma Ação ou uma Ação de Dados | Corda[] | Um conjunto de cordas que especificam as operações de dados a que a atribuição de negação bloqueia o acesso. |
 > | `Permissions.NotDataActions` | Não | Corda[] | Um conjunto de cordas que especificam as operações de dados para excluir da atribuição de negação. |
-> | `Scope` | Não | Cadeia | Uma cadeia que especifica o âmbito a que a atribuição de negação se aplica. |
+> | `Scope` | Não | String | Uma cadeia que especifica o âmbito a que a atribuição de negação se aplica. |
 > | `DoNotApplyToChildScopes` | Não | Booleano | Especifica se a atribuição de negação se aplica aos âmbitos infantis. O valor predefinido é falso. |
 > | `Principals[i].Id` | Sim | Corda[] | Uma série de IDs principais de objetos Azure AD (utilizador, grupo, diretor de serviço ou identidade gerida) a que se aplica a atribuição de negação. Coloque-o num `00000000-0000-0000-0000-000000000000` GUID vazio para representar todos os principais. |
 > | `Principals[i].Type` | Não | Corda[] | Uma série de tipos de objetos representados pelos `SystemDefined` Diretores[i].Id. Definido para representar todos os principais. |

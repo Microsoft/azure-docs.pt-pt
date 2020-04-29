@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: dsindona
 ms.openlocfilehash: 57bc370fd160b8b3d6d7941ea28cd460c99f3d96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80285372"
 ---
 <a name="store-your-appsource-package-to-azure-storage-and-generate-a-url-with-sas-key"></a>Guarde o seu Pacote AppSource para o armazenamento do Azure e gere um URL com a chave SAS

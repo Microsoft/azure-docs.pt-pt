@@ -1,18 +1,18 @@
 ---
-title: Ligue o seu computador de desenvolvimento a um cluster AKS (pré-visualização)
+title: Ligar o computador de desenvolvimento a um cluster do AKS (pré-visualização)
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Saiba como ligar o seu computador de desenvolvimento a um cluster AKS com o Azure Dev Spaces
 keywords: Espaços Azure Dev, Espaços Dev, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
 ms.openlocfilehash: 772f221a8047a71902f36fa98ded6c24b5e02d27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235008"
 ---
-# <a name="connect-your-development-computer-to-an-aks-cluster-preview"></a>Ligue o seu computador de desenvolvimento a um cluster AKS (pré-visualização)
+# <a name="connect-your-development-computer-to-an-aks-cluster-preview"></a>Ligar o computador de desenvolvimento a um cluster do AKS (pré-visualização)
 
 A Azure Dev Spaces permite-lhe executar e depurar código com ou sem recipiente no seu computador de desenvolvimento, enquanto ainda está ligado ao seu cluster Kubernetes com o resto da sua aplicação ou serviços. Ligar o computador de desenvolvimento ao seu cluster ajuda-o a desenvolver rapidamente a sua aplicação e a realizar testes de ponta a ponta sem ter de criar qualquer configuração de Docker ou Kubernetes. Também pode ligar-se ao seu cluster AKS sem afetar outras cargas de trabalho ou utilizadores que possam estar a utilizar o mesmo cluster.
 

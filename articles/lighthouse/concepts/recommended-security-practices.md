@@ -4,17 +4,17 @@ description: Ao utilizar a gestão de recursos delegados do Azure, é importante
 ms.date: 03/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246913"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
 Ao utilizar a [gestão de recursos delegados do Azure,](azure-delegated-resource-management.md)é importante considerar a segurança e o controlo de acesso. Os utilizadores do seu inquilino terão acesso direto a subscrições de clientes e grupos de recursos, pelo que irá querer tomar medidas para manter a segurança do seu inquilino. Também vai querer ter a certeza de que só permite o acesso necessário para gerir eficazmente os recursos dos seus clientes. Este tópico fornece recomendações para ajudá-lo a fazê-lo.
 
-## <a name="require-azure-multi-factor-authentication"></a>Exigir autenticação de vários fatores azure
+## <a name="require-azure-multi-factor-authentication"></a>Exigir a Multi-Factor Authentication do Azure
 
 [A autenticação de vários fatores azure](../../active-directory/authentication/concept-mfa-howitworks.md) (também conhecida como verificação em duas etapas) ajuda a impedir que os atacantes tenham acesso a uma conta, exigindo múltiplas etapas de autenticação. Deverá necessitar de Autenticação Multi-Factor para todos os utilizadores do seu fornecedor de serviços, incluindo quaisquer utilizadores que tenham acesso aos recursos do cliente.
 

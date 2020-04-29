@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 5c37dbdc34138faab8adae6ad18252c18a75cad4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80337080"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada
@@ -74,7 +74,7 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
     -SkuName <sku>
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para alterar a opção de despedimento para a sua conta de armazenamento com `--sku` o Azure CLI, ligue para o comando de atualização da conta de armazenamento [az](/cli/azure/storage/account#az-storage-account-update) e especifique o parâmetro:
 
@@ -121,14 +121,14 @@ Pode solicitar migração ao vivo através do [portal de suporte azure.](https:/
 
 1. Selecione **novo pedido de suporte**
 2. Complete o **Básico** com base nas informações da sua conta. Na secção **Serviço,** selecione **Gestão** de Conta de Armazenamento e o recurso que pretende converter para ZRS.
-3. Selecione **Next**.
+3. Selecione **Seguinte**.
 4. Especificar os seguintes valores na secção **Problema:**
     - **Gravidade**: Deixe o valor padrão como está.
     - **Tipo de problema:** Selecione **migração de dados**.
     - **Categoria**: **Selecione Migrar para ZRS**.
     - **Denominação**: Digite um título descritivo, por exemplo, migração da **conta ZRS**.
     - **Detalhes**: Digite detalhes adicionais na caixa **de Detalhes,** por exemplo, gostaria de migrar para \_ \_ ZRS de [LRS, GRS] na região.
-5. Selecione **Next**.
+5. Selecione **Seguinte**.
 6. Verifique se as informações de contacto estão corretas na lâmina de informação do **contacto.**
 7. Selecione **Criar**.
 
@@ -170,7 +170,7 @@ Para atualizar para ZRS utilizando powerShell, ligue para o seguinte comando:
 Set-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage_account> -UpgradeToStorageV2
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para atualizar para ZRS utilizando o Azure CLI, ligue para o seguinte comando:
 

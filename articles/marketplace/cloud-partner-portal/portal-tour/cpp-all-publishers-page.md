@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: dsindona
 ms.openlocfilehash: 679a88395dbfe6b41f1c947e605a21faca183e3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288959"
 ---
 # <a name="all-publishers-page"></a>Página com todos os editores

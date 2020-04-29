@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dsindona
 ms.openlocfilehash: cee28c65b97d4ac163f78b746dc7be9ee210843c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280359"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Instruções de gestão de chumbo para armazenamento de mesa

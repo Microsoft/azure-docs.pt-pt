@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: cherylmc
 ms.openlocfilehash: 265004b1171d1df95b3090676d5836b951c28a28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282856"
 ---
 # <a name="about-expressroute-fastpath"></a>Acerca do ExpressRoute FastPath
@@ -39,9 +39,9 @@ Embora o FastPath suporte a maioria das configurações, não suporta as seguint
 
 * UDR na sub-rede gateway: Se aplicar um UDR à subnet de gateway da sua rede virtual, o tráfego de rede a partir da sua rede no local continuará a ser enviado para o portal da rede virtual.
 
-* VNet Peering: Se tiver outras redes virtuais empeeradas com a que está ligada ao ExpressRoute, o tráfego de rede da sua rede no local para outras redes virtuais (ou seja, os chamados VNets "Spoke") continuará a ser enviado para a rede virtual porta de entrada. A seleção é ligar diretamente todas as redes virtuais ao circuito ExpressRoute.
+* VNet Peering: Se tiver outras redes virtuais empeeradas com a que está ligada ao ExpressRoute, o tráfego de rede da sua rede no local para outras redes virtuais (ou seja, os chamados VNets "Spoke") continuará a ser enviado para o portal da rede virtual. A seleção é ligar diretamente todas as redes virtuais ao circuito ExpressRoute.
 
-* Equilíbrio de carga básico: Se implementar um equilíbrio de carga interna Básico na sua rede virtual ou no serviço Azure PaaS que implementa na sua rede virtual utiliza um equilíbrio de carga interna Básico, o tráfego de rede da sua rede no local para os IPs virtuais hospedados no O equilíbrio de carga básico será enviado para o portal da rede virtual. A solução é atualizar o equilíbrio de carga Basic para um [equilibrador](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)de carga Standard .
+* Equilíbrio de carga básico: Se implementar um equilíbrio de carga interna Básico na sua rede virtual ou no serviço Azure PaaS que implementa na sua rede virtual utiliza um equilíbrio de carga interna Básico, o tráfego de rede da sua rede no local para os IPs virtuais alojados no equilíbrio de carga Basic será enviado para o gateway da rede virtual. A solução é atualizar o equilíbrio de carga Basic para um [equilibrador](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)de carga Standard .
 
 * Link Privado: Se ligar a um [ponto final privado](../private-link/private-link-overview.md) na sua rede virtual a partir da sua rede no local, a ligação passará pelo portal de rede virtual.
  

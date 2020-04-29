@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80293937"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para o Azure
@@ -155,7 +155,7 @@ Recomendamos a utilização de uma subnet separada para todas as máquinas virtu
 
 Certifique-se \<de que existem \<saisys de utilizador hanasid>adm, sapsid>adm e group sapsys na máquina-alvo com o mesmo ID e gid ou utilize LDAP. Ative e ligue o servidor NFS nas máquinas virtuais que devem ser utilizadas para executar o SAP NetWeaver (A)SCS.
 
-### <a name="manual-deployment"></a>Manual Deployment (Implementação Manual)
+### <a name="manual-deployment"></a>Implantação Manual
 
 O SAP LaMa comunica com a máquina virtual utilizando o Agente hospedeiro SAP. Se utilizar manualmente as máquinas virtuais ou não utilizando o modelo do Gestor de Recursos Azure a partir do repositório de arranque rápido, certifique-se de instalar o mais recente Agente hospedeiro SAP e as extensões adaptativas SAP. Para obter mais informações sobre os níveis de patch necessários para o Azure, consulte A Nota [SAP 2343511 .]
 

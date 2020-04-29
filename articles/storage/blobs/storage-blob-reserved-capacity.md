@@ -9,10 +9,10 @@ ms.date: 03/26/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: e73686629de8481f6a37e5bfafc9b723206b4853
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80351038"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Otimizar os custos do Armazenamento de blobs com a capacidade reservada
@@ -81,7 +81,7 @@ Siga estes passos para adquirir a capacidade reservada:
    |Campo  |Descrição  |
    |---------|---------|
    |**Âmbito**   |  Indica quantas subscrições podem usar o benefício de faturação associado à reserva. Também controla a forma como a reserva é aplicada a subscrições específicas. <br/><br/> Se selecionar **Shared**, o desconto de reserva é aplicado à capacidade de Armazenamento Azure em qualquer subscrição dentro do seu contexto de faturação. O contexto de faturação baseia-se na forma como se inscreveu no Azure. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes pay-as-you-go, o âmbito partilhado inclui todas as subscrições individuais com taxas de pagamento criadas pelo administrador da conta.  <br/><br/>  Se selecionar **subscrição Única,** o desconto de reserva é aplicado à capacidade de Armazenamento Azure na subscrição selecionada. <br/><br/> Se selecionar o **grupo de recursos Single,** o desconto de reserva é aplicado à capacidade de Armazenamento Azure na subscrição selecionada e ao grupo de recursos selecionados dentro dessa subscrição. <br/><br/> Pode alterar o âmbito da reserva depois de comprar a reserva.  |
-   |**Assinatura**  | A subscrição que é usada para pagar a reserva de armazenamento Azure. O método de pagamento da subscrição selecionada é utilizado para cobrar os custos. A subscrição deve ser um dos seguintes tipos: <br/><br/>  Acordo empresarial (números de oferta: MS-AZR-0017P ou MS-AZR-0148P): Para uma subscrição da Enterprise, os encargos são deduzidos do saldo de compromisso monetário da inscrição ou cobrados como overage. <br/><br/> Subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P): Para uma subscrição individual com taxas de pagamento, os encargos são cobrados para o cartão de crédito ou método de pagamento de fatura na subscrição.    |
+   |**Subscrição**  | A subscrição que é usada para pagar a reserva de armazenamento Azure. O método de pagamento da subscrição selecionada é utilizado para cobrar os custos. A subscrição deve ser um dos seguintes tipos: <br/><br/>  Acordo empresarial (números de oferta: MS-AZR-0017P ou MS-AZR-0148P): Para uma subscrição da Enterprise, os encargos são deduzidos do saldo de compromisso monetário da inscrição ou cobrados como overage. <br/><br/> Subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P): Para uma subscrição individual com taxas de pagamento, os encargos são cobrados para o cartão de crédito ou método de pagamento de fatura na subscrição.    |
    | **Região** | A região onde a reserva está em vigor. |
    | **Escalão de acesso** | O nível de acesso onde a reserva está em vigor. As opções incluem *Hot,* *Cool*ou *Archive*. Para obter mais informações sobre os níveis de acesso, consulte o [armazenamento do Azure Blob: hot, cool e archive access tiers](storage-blob-storage-tiers.md). |
    | **Redundância** | A opção de redundância para a reserva. As opções incluem *LRS,* *ZRS,* *GRS*e *RA-GZRS*. Para obter mais informações sobre opções de despedimento, consulte o [despedimento do Azure Storage.](../common/storage-redundancy.md) |
@@ -125,7 +125,7 @@ Receberá uma notificação por e-mail 30 dias antes da expiração da reserva e
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido](https://go.microsoft.com/fwlink/?linkid=2083458)de apoio.
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passos seguintes
 

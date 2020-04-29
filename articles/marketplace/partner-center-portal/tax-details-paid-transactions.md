@@ -7,10 +7,10 @@ author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.openlocfilehash: 2546de2b63c70d7456712ba39086cd7fb540cf82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80285168"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Detalhes fiscais para editores de mercado comercial
@@ -274,7 +274,7 @@ O seguinte aplica-se apenas aos Editores do Mercado Azure, não obstante nada em
 ## <a name="mixed-remittance-countriesregions-for-publishers"></a>Países/regiões de remessas mistas para editores
 
 
-Alguns parceiros de faturação da Microsoft podem cobrar e remeter vendas, utilização, bens e serviços, valor acrescentado ou impostos semelhantes, se houver, aplicáveis à aquisição de Clientes da sua App ou Produto In-App através da Loja nos países/regiões listados abaixo. Os [relatórios](payout-summary.md#transaction-history-download-export) que a Microsoft disponibiliza identificarão as transações para as quais um parceiro de faturação recolheu vendas, utilização, bens e serviços, valor acrescentado ou impostos semelhantes aplicáveis à aquisição de Clientes da sua App ou Produto In-App através da Loja. Com exceção das transações descritas neste tipo de relatórios, nem a Microsoft nem os seus prestadores de serviços de faturação irão remeter quaisquer vendas, utilizações, bens e serviços, valor acrescentado ou outro imposto similar relacionado com a aquisição de Clientes da sua App ou In-App Produtos nestes países. É responsável por rever os relatórios que lhe são fornecidos e determinar e cumprir as suas obrigações, caso existam, de registar, cobrar e remeter impostos relacionados com transações que envolvam as suas Aplicações ou Produtos In-App( s).
+Alguns parceiros de faturação da Microsoft podem cobrar e remeter vendas, utilização, bens e serviços, valor acrescentado ou impostos semelhantes, se houver, aplicáveis à aquisição de Clientes da sua App ou Produto In-App através da Loja nos países/regiões listados abaixo. Os [relatórios](payout-summary.md#transaction-history-download-export) que a Microsoft disponibiliza identificarão as transações para as quais um parceiro de faturação recolheu vendas, utilização, bens e serviços, valor acrescentado ou impostos semelhantes aplicáveis à aquisição de Clientes da sua App ou Produto In-App através da Loja. Com exceção das transações descritas nestes relatórios, nem a Microsoft nem os seus prestadores de serviços de faturação irão remeter quaisquer vendas, utilizações, bens e serviços, valor acrescentado ou outro imposto similar relacionado com a aquisição de clientes da sua(s) App ou Produto In-App nestes ou no país. É responsável por rever os relatórios que lhe são fornecidos e determinar e cumprir as suas obrigações, caso existam, de registar, cobrar e remeter impostos relacionados com transações que envolvam as suas Aplicações ou Produtos In-App( s).
 
 | Países/regiões de remessas mistas |
 |------------------------------------|

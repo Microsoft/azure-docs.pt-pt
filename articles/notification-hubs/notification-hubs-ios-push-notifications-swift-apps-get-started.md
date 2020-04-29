@@ -17,10 +17,10 @@ ms.author: miparker
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
 ms.openlocfilehash: a721c519c7a836e20455c6f1887bcfa7b52951f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80336645"
 ---
 # <a name="tutorial-send-push-notifications-to-swift-ios-apps-using-notification-hubs-rest-api"></a>Tutorial: Enviar notificações push para aplicações swift iOS usando Centros de Notificação REST API
@@ -83,7 +83,7 @@ Nesta secção, irá construir a aplicação iOS que se ligará ao centro de not
 
    1. Desloque o **idioma** a **Swift.**
 
-   1. Selecione **Next**.
+   1. Selecione **Seguinte**.
 
 1. Crie uma nova pasta chamada **Ficheiros de Suporte**.
 
@@ -93,10 +93,10 @@ Nesta secção, irá construir a aplicação iOS que se ligará ao centro de not
 
    | Chave                            | Tipo                     | Valor                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificaçãoHubKey             | Cadeia                   | \<hubKey>                  |
-   | notificaçãoHubKeyName         | Cadeia                   | \<> hubKeyName              |
-   | notificaçãoHubName            | Cadeia                   | \<> hubName                 |
-   | notificationHubNamespace       | Cadeia                   | \<hubNamespace>            |
+   | notificaçãoHubKey             | String                   | \<hubKey>                  |
+   | notificaçãoHubKeyName         | String                   | \<> hubKeyName              |
+   | notificaçãoHubName            | String                   | \<> hubName                 |
+   | notificationHubNamespace       | String                   | \<hubNamespace>            |
 
    Pode encontrar os valores necessários navegando para o recurso hub de notificação no portal Azure. Em particular, os valores do HubName e da **notificação HubNamespace** estão no canto superior direito do resumo **essencial** dentro da página **'Visão Geral'.** **notificationHubName**
 
