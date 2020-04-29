@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 45bc8f16a547d4a95820f9dcd02132844b3be83c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480713"
 ---
 # <a name="enable-azure-monitor-for-vms-in-the-azure-portal"></a>Enable Azure Monitor para VMs no portal Azure
@@ -22,7 +22,7 @@ Antes de começar, reveja os [pré-requisitos](vminsights-enable-overview.md) e 
 ## <a name="enable-monitoring-for-a-single-azure-vm"></a>Ativar a monitorização de um único VM Azure
 Para permitir a monitorização do seu VM Azure:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione **Máquinas Virtuais**.
 
@@ -47,7 +47,7 @@ Para permitir a monitorização do seu VM Azure:
 
 Para permitir a monitorização do conjunto de escala de máquinas virtuais Azure:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **conjuntos**de escala de máquina virtual .
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 04/24/2020
 ms.author: victorh
-ms.openlocfilehash: 6396f8292a4c54f7fce237439f37c3e8156d59e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4fcadb6d930f7863c733dad105432a64127b59b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "74169042"
+ms.locfileid: "82232654"
 ---
 # <a name="fqdn-tags-overview"></a>Visão geral das etiquetas FQDN
 
@@ -36,6 +36,7 @@ A tabela a seguir mostra as etiquetas FQDN atuais que pode utilizar. A Microsoft
 |Ambiente de Serviço de Aplicativos (ASE)|Permite o acesso de saída ao tráfego da plataforma ASE. Esta etiqueta não cobre pontos finais de Armazenamento e SQL específicos do cliente criados pela ASE. Estes devem ser ativados através de [pontos finais](../virtual-network/tutorial-restrict-network-access-to-resources.md) de serviço ou adicionados manualmente.<br><br>Para obter mais informações sobre a integração do Firewall Azure com a ASE, consulte Bloquear um Ambiente de Serviço de [Aplicações](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Azure Backup|Permite o acesso de saída aos serviços de backup Azure.|
 |Azure HDInsight|Permite o acesso de saída para o tráfego da plataforma HDInsight. Esta etiqueta não cobre o armazenamento específico do cliente ou o tráfego SQL da HDInsight. Ative-os utilizando [pontos finais](../virtual-network/tutorial-restrict-network-access-to-resources.md) de serviço ou adicione-os manualmente.|
+|WindowsVirtualDesktop (WVD)|Permite o tráfego da plataforma de desktop virtual Windows de saída. Esta etiqueta não cobre pontos finais de armazenamento e ônibus de serviço específicos de implementação criados pela WVD. Além disso, são necessárias regras de rede DNS e KMS. Para obter mais informações sobre a integração da Firewall Azure com WVD, consulte [Use Azure Firewall para proteger as implementações de ambiente de trabalho virtual da Janela](protect-windows-virtual-desktop.md). 
 
 > [!NOTE]
 > Ao selecionar a Etiqueta FQDN numa regra de aplicação, o campo protocol:porta deve ser definido para **https**.

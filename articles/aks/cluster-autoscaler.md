@@ -4,12 +4,12 @@ description: Aprenda a utilizar o autoscaler cluster para escalar automaticament
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 732c405cad20aef3485b521fa245cb504a809c40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ebbeab82031ddc037c7885e7453e603a8f440a1
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129068"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509249"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escala automaticamente um cluster para satisfazer as exigências de aplicação no Serviço Azure Kubernetes (AKS)
 
@@ -44,7 +44,7 @@ Tanto o autoscaler horizontal da cápsula como o autoscaler do cluster também p
 
 Para obter mais informações sobre como o autoscaler do cluster pode ser incapaz de reduzir a escala, veja [que tipos de cápsulas podem impedir o autoescalador do cluster de remover um nó?][autoscaler-scaledown]
 
-O autoscaler cluster utiliza parâmetros de arranque para coisas como intervalos de tempo entre eventos de escala e limiares de recursos. Estes parâmetros são definidos pela plataforma Azure, e não estão atualmente expostos para que se ajuste. Para obter mais informações sobre os parâmetros que o autoescalador do cluster utiliza, veja [Quais são os parâmetros autoescaladores do cluster?][autoscaler-parameters]
+O autoscaler cluster utiliza parâmetros de arranque para coisas como intervalos de tempo entre eventos de escala e limiares de recursos. Para obter mais informações sobre os parâmetros que o autoescalador do cluster utiliza, veja [Quais são os parâmetros autoescaladores do cluster?][autoscaler-parameters]
 
 Os autoscalers de cluster e pod horizontal podem trabalhar em conjunto, e são frequentemente ambos implantados num cluster. Quando combinado, o autoescalador horizontal da cápsula está focado em executar o número de cápsulas necessárias para satisfazer a procura da aplicação. O autoscaler do cluster está focado em executar o número de nós necessários para suportar as cápsulas programadas.
 

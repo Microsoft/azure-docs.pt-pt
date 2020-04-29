@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: d015eea21bcfa499d6751e024a882a7316b7f1a5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e85c8c0990a2659dba1f254a8f1aa7c7be7852eb
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380750"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508093"
 ---
 # <a name="azure-sql-database-long-term-retention"></a>Retenção a longo prazo da Base de Dados Azure SQL
 
@@ -84,8 +84,7 @@ A utilização de retenção de cópia de segurança a longo prazo com uma Base 
 - **Pré-visualização pública limitada** - Esta pré-visualização só está disponível para subscrições de EA e CSP e está sujeita a disponibilidade limitada.  
 - [**Apenas PowerShell**](sql-database-managed-instance-long-term-backup-retention-configure.md) - Não existe atualmente suporte ao portal Azure. O LTR deve ser ativado utilizando o PowerShell. 
 
-Para solicitar a inscrição, crie um bilhete de [apoio Azure](https://azure.microsoft.com/support/create-ticket/) ao abrigo do tópico de apoio **Backup, Restore e Business continuity / Retenção de backup a longo prazo**.
-
+Para solicitar a inscrição, crie um bilhete de [apoio Azure.](https://azure.microsoft.com/support/create-ticket/) Para problemas de tipo de problemas, escolha o caso de Controlo de Base de Dados SQL e para o tipo de problema **selecione Backup, Restore e Business continuity / Retenção de backup a longo prazo**. No seu pedido, por favor, diga que gostaria de ser inscrito na pré-visualização pública limitada de LTR para por exemplo gerido.
 
 ## <a name="configure-long-term-backup-retention"></a>Configurar a retenção de cópias de segurança de longa duração
 
@@ -93,7 +92,7 @@ Para aprender a configurar a retenção a longo prazo utilizando o portal Azure 
 
 ## <a name="restore-database-from-ltr-backup"></a>Restaurar a base de dados da cópia de segurança LTR
 
-Para restaurar uma base de dados do armazenamento LTR, pode selecionar uma cópia de segurança específica com base na sua marcação de tempo. A base de dados pode ser restaurada a qualquer servidor existente sob a mesma subscrição que a base de dados original. Para aprender a restaurar a sua base de dados a partir de uma cópia de segurança LTR, utilizando o portal Azure, ou PowerShell, consulte a retenção de backup a longo prazo da [Manage Azure SQL](sql-database-long-term-backup-retention-configure.md)Database .
+Para restaurar uma base de dados do armazenamento LTR, pode selecionar uma cópia de segurança específica com base na sua marcação de tempo. A base de dados pode ser restaurada a qualquer servidor existente sob a mesma subscrição que a base de dados original. Para aprender a restaurar a sua base de dados a partir de uma cópia de segurança LTR, utilizando o portal Azure, ou PowerShell, consulte a retenção de backup a longo prazo da [Manage Azure SQL](sql-database-long-term-backup-retention-configure.md)Database . No seu pedido, por favor, diga que gostaria de estar inscrito na antevisão pública limitada do LTR para instância gerida.
 
 ## <a name="next-steps"></a>Passos seguintes
 

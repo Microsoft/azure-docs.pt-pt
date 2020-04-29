@@ -4,12 +4,12 @@ description: Saiba como executar aplicações de Interface de Passagem de Mensag
 ms.topic: article
 ms.date: 03/13/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aad2b649c92716a807d577bb4f112d47d447545e
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 39c7aff0618daafc2c02efaea229de3741804c7a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115980"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231701"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utilize tarefas de várias instâncias para executar aplicações de interface de passagem de mensagens (MPI) em Lote
 
@@ -181,9 +181,7 @@ As seguintes variáveis ambientais são criadas pelo serviço Batch para utiliza
 Para mais detalhes sobre estas e outras variáveis ambientais de némesis de computação batch, incluindo o seu conteúdo e visibilidade, consulte [variáveis ambientais computadas.][msdn_env_var]
 
 > [!TIP]
-> A amostra de código MPI batch Linux contém um exemplo de como várias destas variáveis ambientais podem ser usadas. O guião de [coordenação-cmd][coord_cmd_example] Bash descarrega aplicações comuns e ficheiros de entrada do Azure Storage, permite uma partilha do Sistema de Ficheiros de Rede (NFS) no nó principal, e confunde os outros nós atribuídos à tarefa em várias instâncias como clientes NFS.
->
->
+> A amostra de código MPI batch Linux contém um exemplo de como várias destas variáveis ambientais podem ser usadas.
 
 ## <a name="resource-files"></a>Ficheiros de recursos
 Existem dois conjuntos de ficheiros de recursos a considerar para tarefas de várias instâncias: **ficheiros de recursos comuns** que *todas as* tarefas descarregam (primárias e subtarefas), e os **ficheiros** de recursos especificados para a própria tarefa em várias instâncias, que *apenas a* tarefa primária descarrega.

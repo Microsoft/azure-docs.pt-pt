@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
 ms.openlocfilehash: 7780bdbc92868f62e8d066d171b2a04fe06a981d
-ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80245808"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: Utilize a configuração dinâmica numa aplicação .NET Framework
@@ -131,7 +131,7 @@ Neste tutorial, ficará a saber como:
 
     ![App lança local](./media/dotnet-app-run.png)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
 1. Selecione O Explorador de **Configuração**e atualize os valores das seguintes teclas:
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/23/2020
-ms.openlocfilehash: 8380cfcbf267b117108d46794153bd5a61b8ec6a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8170a0190e2d322c07f8f4978a77a8171579cbfb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116235"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232892"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir os clusters Apache Hadoop em HDInsight utilizando o portal Azure
 
@@ -200,9 +200,9 @@ A partir da página inicial do [cluster:](#homePage)
 
 A palavra-passe é alterada em todos os nós do cluster.
 
-### <a name="change-the-ssh-user-password"></a>Alterar a palavra-passe do utilizador SSH
+### <a name="change-the-ssh-user-password-or-public-key"></a>Alterar a palavra-passe do utilizador SSH ou a chave pública
 
-1. Utilizando um editor de texto, guarde o seguinte texto como ficheiro chamado **changepassword.sh**.
+1. Utilizando um editor de texto, guarde o seguinte texto como ficheiro chamado **changecredentials.sh**.
 
     > [!IMPORTANT]  
     > Deve usar um editor que use LF como o fim da linha. Se o editor usa CRLF, então o guião não funciona.
@@ -222,13 +222,13 @@ A palavra-passe é alterada em todos os nós do cluster.
    | Campo | Valor |
    | --- | --- |
    | Tipo de script | Selecione **- Personalizado** da lista de lançamentos.|
-   | Nome |"Alterar a senha ssh" |
-   | Roteiro de bash URI |O URI para o ficheiro changepassword.sh |
+   | Nome |"Alterar credenciais ssh" |
+   | Roteiro de bash URI |O URI para o arquivo changecredentials.sh |
    | Tipo de nó): (Cabeça, Trabalhador, Nimbus, Supervisor ou Zookeeper.) |✓ para todos os tipos de nó listados |
    | Parâmetros |Introduza o nome de utilizador SSH e, em seguida, a nova palavra-passe. Deve haver um espaço entre o nome do utilizador e a palavra-passe. Os seguintes caracteres não são suportados em palavras-passe ssh: " ' / \ < % ~ | $&
    | Persista esta ação do guião... |Deixe este campo descontrolado. |
 
-6. Selecione **Criar** para aplicar o script. Uma vez terminada a script, é possível ligar-se ao cluster utilizando o SSH com a nova senha.
+6. Selecione **Criar** para aplicar o script. Uma vez terminada a script, é possível ligar-se ao cluster utilizando o SSH com as novas credenciais.
 
 ## <a name="find-the-subscription-id"></a>Encontre o ID de subscrição
 

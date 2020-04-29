@@ -6,21 +6,22 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: f386530ffb3a074a5c1db1d9f28535d28c8b1284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: 77623a89e52a5e15fbb4159ff49d9377e53e7d4c
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252412"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509538"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integre a Apache Spark e a Apache Hive com o Conector de Armazém da Colmeia
 
-O Conector apache Hive Warehouse (HWC) é uma biblioteca que permite trabalhar mais facilmente com a Apache Spark e a Apache Hive, suportando tarefas como mover dados entre dataframes de faíscas e mesas de Colmeia, e também direcionar dados de streaming de Faíscas para as tabelas da Colmeia. O Conector hive Warehouse funciona como uma ponte entre A Faísca e a Colmeia. Apoia Scala, Java e Python para o desenvolvimento.
+O Conector apache hive warehouse (HWC) é uma biblioteca que lhe permite trabalhar mais facilmente com Apache Spark e Apache Hive. Mais fácil suportando tarefas como mover dados entre dataframes de faíscas e tabelas de colmeias. E direcionando os dados de streaming de Faíscas para as mesas da Colmeia. O Conector hive Warehouse funciona como uma ponte entre A Faísca e a Colmeia. Apoia Scala, Java e Python para o desenvolvimento.
 
-O Conector de Armazém Hive permite-lhe aproveitar as características únicas da Hive e Spark para construir poderosas aplicações de big data. A Apache Hive oferece suporte para transações de base de dados que são atómicas, consistentes, isoladas e duráveis (ACID). Para obter mais informações sobre acid e transações na Colmeia, consulte [As Transações da Colmeia.](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions) A Hive também oferece controlos de segurança detalhados através de Apache Ranger e De baixa latência analítica processamento não disponível em Apache Spark.
+O Conector de Armazém hive permite-lhe aproveitar as características únicas da Hive e Spark. Funcionalidades usadas para construir poderosas aplicações de big data. A Apache Hive oferece suporte para transações de base de dados que são atómicas, consistentes, isoladas e duráveis (ACID). Para obter mais informações sobre acid e transações na Colmeia, consulte [As Transações da Colmeia.](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions) A Hive também oferece controlos de segurança detalhados através de Apache Ranger e De baixa latência analítica processamento não disponível em Apache Spark.
 
-Apache Spark, tem um API de streaming estruturado que dá capacidades de streaming não disponíveis na Colmeia Apache. Começando com HDInsight 4.0, Apache Spark 2.3.1 e Apache Hive 3.1.0 têm metastores separados, o que pode dificultar a interoperabilidade. O Conector de Armazém hive facilita a utilização de Faíscae e Colmeia juntos. A biblioteca HWC carrega dados de daemons LLAP a executores spark em paralelo, tornando-o mais eficiente e escalável do que usar uma ligação JDBC padrão de Spark para Hive.
+Apache Spark, tem um API de streaming estruturado que dá capacidades de streaming não disponíveis na Colmeia Apache. Começando com HDInsight 4.0, Apache Spark 2.3.1 e Apache Hive 3.1.0 têm metastores separados. Estas metastores separadas podem dificultar a interoperabilidade. O Conector de Armazém hive facilita a utilização de Faíscae e Colmeia juntos. A biblioteca HWC carrega dados de daemons LLAP (Low Latency Analytical Processing) a executores de faíscas em paralelo. Esta ação torna-a mais eficiente e adaptável do que usar uma ligação JDBC padrão de Spark a Hive.
 
 ![arquitetura de conector de armazém de colmeia](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -72,7 +73,7 @@ A partir da sua Web UI Spark Ambari, navegue até **Spark2** > **CONFIGS** > **C
 
 ![Configuração Apache Ambari Spark2](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-Selecione **Adicionar Propriedade...** conforme necessário para adicionar/atualizar o seguinte:
+Selecione **Adicionar Propriedade...** conforme necessário para adicionar/atualizar o seguinte valor:
 
 | Chave | Valor |
 |----|----|
@@ -111,7 +112,7 @@ Para iniciar uma sessão de spark-shell, faça os seguintes passos:
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-    Verá uma mensagem de `scala>` boas-vindas e uma solicitação onde poderá entrar nos comandos.
+    Verá uma mensagem de boas-vindas e uma `scala>` solicitação onde pode entrar nos comandos.
 
 1. Depois de iniciar a casca de faísca, uma instância de Conector de Armazém hive pode ser iniciada usando os seguintes comandos:
 
@@ -122,13 +123,13 @@ Para iniciar uma sessão de spark-shell, faça os seguintes passos:
 
 ### <a name="connecting-and-running-queries-on-enterprise-security-package-esp-clusters"></a>Consultas de ligação e execução em clusters do Pacote de Segurança Empresarial (ESP)
 
-O Pacote de Segurança Empresarial (ESP) fornece capacidades de nível empresarial como autenticação baseada em Diretório ativo, suporte multiutilizador e controlo de acesso baseado em papéis para clusters Apache Hadoop em Azure HDInsight. Para obter mais informações sobre esp, consulte [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+O Pacote de Segurança Empresarial (ESP) fornece capacidades de nível empresarial como a autenticação baseada em Diretório ativo. E suporte multiutilizador, e controlo de acesso baseado em papéis para clusters Apache Hadoop em Azure HDInsight. Para obter mais informações sobre esp, consulte [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
-1. SSH no nó do cabeça para o seu aglomerado de Faíscas Apache. Para obter mais informações sobre a ligação ao seu cluster com o SSH, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+1. SSH no nó do cabeça para o seu aglomerado de Faíscas Apache.
 
 1. Digite `kinit` e faça login com um utilizador de domínio.
 
-1. Inicie a casca de faísca com a lista completa dos parâmetros de configuração, como mostrado abaixo. Todos os valores em todas as letras maiúsculas entre parênteses angulares devem ser especificados com base no seu cluster. Se precisar de descobrir os valores a inserir para qualquer um dos parâmetros abaixo, consulte a secção do [Conector](#hive-warehouse-connector-setup)do Armazém hive .:
+1. Inicie a casca de faísca com a lista completa dos parâmetros de configuração, como mostrado abaixo. Todos os valores em todas as letras maiúsculas entre parênteses angulares devem ser especificados com base no seu cluster. Se precisar de descobrir os valores a inserir para qualquer um dos parâmetros abaixo, consulte a secção do [Conector](#hive-warehouse-connector-setup)do Armazém hive .
 
     ```bash
     spark-shell --master yarn \
@@ -181,7 +182,7 @@ A Faísca não apoia a escrita nas mesas acid geridas da Hive. Usando o HWC, no 
 
 Utilizando o Conector de Armazém Hive, pode utilizar o streaming Spark para escrever dados em tabelas da Hive.
 
-Siga os passos abaixo para criar um exemplo de Conector de Armazém hive que ingere dados de um fluxo de faíscas no porto de localização 9999 para uma mesa da Colmeia.
+Siga os passos abaixo para criar um Conector de Armazém da Colmeia. O exemplo ingere dados de um fluxo de faíscas no porto 9999 local numa mesa da Colmeia.
 
 1. Siga os passos sob consultas de [ligação e execução](#connecting-and-running-queries).
 
@@ -193,7 +194,7 @@ Siga os passos abaixo para criar um exemplo de Conector de Armazém hive que ing
 
 1. Gere dados para o fluxo Spark que criou, fazendo os seguintes passos:
     1. Abra uma segunda sessão de SSH no mesmo cluster Spark.
-    1. No pedido de `nc -lk 9999`comando, escreva . Este comando utiliza o utilitário netcat para enviar dados da linha de comando para a porta especificada.
+    1. No pedido de `nc -lk 9999`comando, escreva . Este comando `netcat` utiliza o utilitário para enviar dados da linha de comando para a porta especificada.
 
 1. Volte à primeira sessão de SSH e crie uma nova tabela Hive para segurar os dados de streaming. Na casca de faísca, insira o seguinte comando:
 
@@ -224,7 +225,7 @@ Siga os passos abaixo para criar um exemplo de Conector de Armazém hive que ing
     hive.table("stream_table").show()
     ```
 
-Utilize **ctrl + C** para parar o netcat na segunda sessão SSH. Utilize `:q` para sair de uma casca de faísca na primeira sessão sHH.
+Utilize **ctrl +** `netcat` C para parar na segunda sessão SSH. Utilize `:q` para sair de uma casca de faísca na primeira sessão sHH.
 
 ### <a name="securing-data-on-spark-esp-clusters"></a>Obtenção de dados sobre clusters Spark ESP
 
@@ -253,7 +254,7 @@ Utilize **ctrl + C** para parar o netcat na segunda sessão SSH. Utilize `:q` pa
 
         ![hive armazém cone cector ranger lista política política](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
-    a. Forneça um nome de política desejado. Selecione base de dados: **Predefinido**, Tabela de Colmeias: **demo,** Coluna hive: **nome**, Utilizador: **rsadmin2**, Tipos de acesso: **selecione**- e **máscara parcial: mostrar o último 4** do menu Select **Masking Option.** Clique em **Adicionar**.
+    a. Forneça um nome político. Selecione base de dados: **Predefinido**, Tabela de Colmeias: **demo,** Coluna hive: **nome**, Utilizador: **rsadmin2**, Tipos de acesso: **selecione**- e **máscara parcial: mostrar o último 4** do menu Select **Masking Option.** Clique em **Adicionar**.
                 ![criar política](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Veja o conteúdo da mesa novamente. Depois de aplicar a política dos rangers, só podemos ver os últimos quatro caracteres da coluna.
 

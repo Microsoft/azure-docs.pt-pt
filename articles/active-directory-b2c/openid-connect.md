@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 04/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6640ab1660e6499a97a8c990a0001d5fbae4e997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 314d7ebe9cc363b4186b81d8eda5f892710d71c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264391"
+ms.locfileid: "82229991"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Entrada web com OpenID Connect no Diretório Ativo Azure B2C
 
@@ -262,7 +262,7 @@ As respostas de erro parecem:
 
 ## <a name="send-a-sign-out-request"></a>Enviar um pedido de inscrição
 
-Quando pretende assinar o utilizador fora da aplicação, não basta limpar os cookies da aplicação ou terminar a sessão com o utilizador. Redirecione o utilizador para O Azure AD B2C para assinar. Se não o fizer, o utilizador poderá reautenticar a sua aplicação sem voltar a introduzir as suas credenciais.
+Quando pretende assinar o utilizador fora da aplicação, não basta limpar os cookies da aplicação ou terminar a sessão com o utilizador. Redirecione o utilizador para O Azure AD B2C para assinar. Se não o fizer, o utilizador poderá reautenticar a sua aplicação sem voltar a introduzir as suas credenciais. Para mais informações, consulte a [sessão Azure AD B2C](session-overview.md).
 
 Para assinar o utilizador, redirecione o utilizador para o `end_session` ponto final listado no documento de metadados OpenID Connect descrito anteriormente:
 
@@ -283,6 +283,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 Após o logout, o utilizador é redirecionado `post_logout_redirect_uri` para o URI especificado no parâmetro, independentemente dos URLs de resposta especificados para a aplicação. No entanto, `id_token_hint` se um válido for aprovado, o Azure `post_logout_redirect_uri` AD B2C verifica que o valor da correspondência corresponde a um dos URIs de redirecionamento configurado da aplicação antes de realizar o redirecionamento. Se não tiver sido configurado nenhum URL de resposta correspondente para a aplicação, é apresentada uma mensagem de erro e o utilizador não é redirecionado.
 
-### <a name="external-identity-provider-sign-out"></a>Inscrição no fornecedor de identidade externa
 
-Direcionar o utilizador `end_session` para o ponto final iliba parte do único estado de inscrição do utilizador com o Azure AD B2C, mas não assina o utilizador fora da sua sessão de fornecedor de identidade social (IDP). Se o utilizador selecionar o mesmo IDP durante um início de sessão subsequente, este será reautenticado sem introduzir as suas credenciais. Se um utilizador quiser assinar a aplicação, isso não significa necessariamente que queira assinar a sua conta de Facebook. No entanto, se as contas locais forem utilizadas, a sessão do utilizador termina corretamente.

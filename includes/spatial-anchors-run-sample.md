@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: shreshar
 ms.openlocfilehash: fbc91b2610d97fe071e6585a58d7789dca873a9a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72882295"
 ---
 Implemente a aplicação para o seu dispositivo. Assim que a aplicação começar, no diálogo **Choose A Demo,** utilize as setas esquerda ou direita para selecionar a opção **LocalShare** e toque em **Go!** Siga as instruções na aplicação. Pode selecionar **criar & Partilhar Âncora** ou localizar âncora **partilhada**.

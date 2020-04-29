@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22576be8dec021f0f18a6e2dda16891ce70d4f13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99103c9994b240e2f45b66acf269b320c90e5135
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603217"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231735"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configure Local de Trabalho pelo Facebook para fornecimento automático de utilizadores
 
@@ -33,25 +33,16 @@ Se tiver uma integração existente com o Workplace pelo Facebook, consulte a se
 * Alterações do lado da AD Azure: O método de autorização para fornecer utilizadores no Local de Trabalho tem sido historicamente um símbolo secreto de longa duração. Em breve verá o método de autorização alterado para a concessão de autorização da OAuth. 
 * Mudanças no lado do Workplace: Anteriormente, a aplicação Azure AD era uma integração personalizada no Workplace pelo Facebook. Agora verá o Azure AD no diretório de integrações no Local de Trabalho como uma aplicação de terceiros. 
 
- 
-
 #### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>O que preciso fazer para migrar a minha integração personalizada existente para a nova aplicação?
-Se tiver uma integração no Local de Trabalho existente com um símbolo válido, **não é necessária qualquer ação.** Estamos a migrar automaticamente clientes todas as semanas para a nova aplicação. Isto é feito completamente nos bastidores. Se não puder esperar e pretender mudar-se para a nova aplicação manualmente, pode adicionar uma nova instância de Workplace a partir da galeria e configurar novamente o fornecimento. Todas as novas instâncias do Workplace utilizarão automaticamente a nova versão da aplicação. 
-
+Se tiver uma integração no Local de Trabalho existente com um símbolo válido, não é necessária qualquer ação. **A partir de 04/28/2020 migramos automaticamente todas as aplicações que não estão em quarentena devido a credenciais inválidas.**
  
-Se a sua integração no Local de Trabalho estiver em quarentena, terá de fornecer novamente um símbolo válido para que o migramos. A secção de credenciais de administração será acinzentada, mas pode anexar o seguinte **. Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=verdadeiro)** ao seu URL para salvar as credenciais novamente. 
-
-https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
-
 #### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Como posso saber se o meu pedido foi migrado? 
-Quando o seu pedido for migrado, o banner na secção de autorização sobre alterações de upcomming será removido e o campo de fichas secreto será substituído por um botão de autorização azul. 
+* No Portal Azure: Quando a sua aplicação for migrada, o banner na secção de autorização sobre as próximas alterações será removido e o campo de fichas secreto será substituído por um botão de autorização azul. 
+* No Workplace by Facebook portal: Reveja a aplicação Azure AD para garantir que é aprovada.  
 
 #### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>A secção de credenciais de administração está acinzentada na minha candidatura e não posso salvar. Porquê?
-Bloqueámos a secção de credenciais de administração para os clientes existentes no Local de Trabalho. Quando o seu inquilino tiver sido migrado para a nova aplicação workplace poderá atualizar novamente a secção de credenciais de administração. Se não puder esperar, pode usar o URL acima para editar a sua aplicação. 
+Bloqueámos a secção de credenciais de administração para clientes do Local de Trabalho que não migraram. Por favor, utilize o seguinte URL se a secção de credenciais de administração estiver acinzentada e tiver de autorizar o acesso novamente. **? Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=verdade** (https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true)
 
- 
-#### <a name="when-will-these-changes-happen"></a>Quando é que estas mudanças vão acontecer?
-Todas as novas instâncias do Workplace já estarão a utilizar o novo método de integração/autorização. As integrações existentes serão migradas gradualmente até maio. A equipa de trabalho forneceu uma extensão do prazo de 28 de fevereiro para 1 de maio. 
 
 ## <a name="capabilities-supported"></a>Capacidades suportadas
 > [!div class="checklist"]
@@ -101,7 +92,7 @@ O serviço de provisionamento de AD Azure permite-lhe examinar quem será provis
 
 * Comece minúsculo. Teste com um pequeno conjunto de utilizadores e grupos antes de passar para todos. Quando o âmbito de fornecimento for definido para utilizadores e grupos atribuídos, pode controlá-lo atribuindo um ou dois utilizadores ou grupos à aplicação. Quando o âmbito é definido para todos os utilizadores e grupos, pode especificar um filtro de [deteção baseado em atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -135,28 +126,28 @@ O serviço de provisionamento de AD Azure permite-lhe examinar quem será provis
 
    |Atributo|Tipo|
    |---|---|
-   |userName|Cadeia|
-   |displayName|Cadeia|
+   |userName|String|
+   |displayName|String|
    |ativo|Booleano|
    |título|Booleano|
-   |e-mails[tipo eq "work"].valor|Cadeia|
-   |nome.dadoNome|Cadeia|
-   |nome.familyName|Cadeia|
-   |nome.formatado|Cadeia|
-   |endereços[tipo eq "trabalho"].formado|Cadeia|
-   |endereços[tipo eq "trabalho"].streetAddress|Cadeia|
-   |endereços[tipo eq "trabalho"].localidade|Cadeia|
-   |endereços[tipo eq "trabalho"].região|Cadeia|
-   |endereços[tipo eq "trabalho"].país|Cadeia|
-   |endereços[tipo eq "trabalho"].código postal|Cadeia|
-   |endereços[tipo eq "outros"].formados|Cadeia|
-   |telefoneNumbers[tipo eq "trabalho"].valor|Cadeia|
-   |telefoneNumbers[tipo eq "mobile"].valor|Cadeia|
-   |telefoneNumbers[tipo eq "fax"].valor|Cadeia|
-   |id externo|Cadeia|
-   |língua preferida|Cadeia|
-   |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:manager|Cadeia|
-   |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:department|Cadeia|
+   |e-mails[tipo eq "work"].valor|String|
+   |nome.dadoNome|String|
+   |nome.familyName|String|
+   |nome.formatado|String|
+   |endereços[tipo eq "trabalho"].formado|String|
+   |endereços[tipo eq "trabalho"].streetAddress|String|
+   |endereços[tipo eq "trabalho"].localidade|String|
+   |endereços[tipo eq "trabalho"].região|String|
+   |endereços[tipo eq "trabalho"].país|String|
+   |endereços[tipo eq "trabalho"].código postal|String|
+   |endereços[tipo eq "outros"].formados|String|
+   |telefoneNumbers[tipo eq "trabalho"].valor|String|
+   |telefoneNumbers[tipo eq "mobile"].valor|String|
+   |telefoneNumbers[tipo eq "fax"].valor|String|
+   |id externo|String|
+   |língua preferida|String|
+   |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:manager|String|
+   |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:department|String|
 
 10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

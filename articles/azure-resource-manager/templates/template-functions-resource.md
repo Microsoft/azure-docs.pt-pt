@@ -2,13 +2,13 @@
 title: Funções do modelo - recursos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 90cee78c29c26c88d808cdef798e74a2184a5fcf
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.date: 04/28/2020
+ms.openlocfilehash: 4038d95942805ae26b5e82d5b766a80a92ae11bc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804763"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231310"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -28,9 +28,7 @@ Para obter valores a partir de parâmetros, variáveis ou a implementação atua
 
 ## <a name="extensionresourceid"></a>extensãoResourceId
 
-```json
-extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
-```
+`extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 Devolve o ID de recurso para um recurso de [extensão,](../management/extension-resource-types.md)que é um tipo de recurso que é aplicado a outro recurso para adicionar às suas capacidades.
 
@@ -108,9 +106,7 @@ O exemplo seguinte devolve o ID de recurso para um bloqueio de grupo de recursos
 
 ## <a name="list"></a>lista*
 
-```json
-list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
-```
+`list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
 A sintaxe para esta função varia em função do nome das operações da lista. Cada implementação devolve valores para o tipo de recurso que suporta uma operação de lista. O nome de `list`funcionamento deve começar por . Alguns usos `listKeys` `listSecrets`comuns são e .
 
@@ -356,9 +352,7 @@ Para obter o símbolo SAS, passe um objeto pelo tempo de validade. O prazo de va
 
 ## <a name="providers"></a>fornecedores
 
-```json
-providers(providerNamespace, [resourceType])
-```
+`providers(providerNamespace, [resourceType])`
 
 Devolve informações sobre um fornecedor de recursos e os seus tipos de recursos suportados. Se não fornecer um tipo de recurso, a função devolve todos os tipos suportados para o fornecedor de recursos.
 
@@ -433,9 +427,7 @@ Para o fornecedor de recursos **Microsoft.Web** e tipo de recursos de **sites,**
 
 ## <a name="reference"></a>referência
 
-```json
-reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
-```
+`reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Devolve um objeto que representa o estado de execução de um recurso.
 
@@ -670,9 +662,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 ## <a name="resourcegroup"></a>resourceGroup
 
-```json
-resourceGroup()
-```
+`resourceGroup()`
 
 Devolve um objeto que representa o grupo de recursos atual.
 
@@ -750,9 +740,7 @@ O exemplo anterior devolve um objeto no seguinte formato:
 
 ## <a name="resourceid"></a>resourceId
 
-```json
-resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
-```
+`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Devolve o identificador único de um recurso. Utilize esta função quando o nome do recurso é ambíguo ou não é provisionado dentro do mesmo modelo. O formato do identificador devolvido varia em função de se a implantação ocorre no âmbito de um grupo de recursos, subscrição, grupo de gestão ou inquilino.
 
@@ -907,9 +895,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 ## <a name="subscription"></a>subscrição
 
-```json
-subscription()
-```
+`subscription()`
 
 Devolve detalhes sobre a subscrição para a implementação atual.
 
@@ -950,9 +936,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 ## <a name="subscriptionresourceid"></a>subscriçãoResourceId
 
-```json
-subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)
-```
+`subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)`
 
 Devolve o identificador único para um recurso implantado ao nível da subscrição.
 
@@ -1034,9 +1018,7 @@ O seguinte modelo atribui uma função incorporada. Pode implantá-lo para um gr
 
 ## <a name="tenantresourceid"></a>inquilinoResourceId
 
-```json
-tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
-```
+`tenantResourceId(resourceType, resourceName1, [resourceName2], ...)`
 
 Devolve o identificador único para um recurso implantado ao nível do inquilino.
 

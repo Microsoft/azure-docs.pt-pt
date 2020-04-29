@@ -4,14 +4,14 @@ description: Aprenda a configurar e alterar a política de indexação padrão p
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: 930f156ebec76be860e7af02d41540ce67982f92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f010ec46c41c2302cc9c99a631fd18b1af9661eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80292074"
+ms.locfileid: "82232075"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -97,6 +97,26 @@ Quando não especificadas, estas propriedades terão os seguintes valores predef
 
 Consulte [esta secção](how-to-manage-indexing-policy.md#indexing-policy-examples) para indexar exemplos de políticas para incluir e excluir caminhos.
 
+## <a name="includeexclude-precedence"></a>Incluir/excluir precedência
+
+Se os seus caminhos incluídos e caminhos excluídos tiverem um conflito, o caminho mais preciso tem precedência.
+
+Segue-se um exemplo:
+
+**Caminho incluído:**`/food/ingredients/nutrition/*`
+
+**Caminho excluído:**`/food/ingredients/*`
+
+Neste caso, o caminho incluído tem precedência sobre o caminho excluído porque é mais preciso. Com base nestes caminhos, `food/ingredients` quaisquer dados no caminho ou aninhados no interior seriam excluídos do índice. A exceção seriam os dados `/food/ingredients/nutrition/*`dentro do caminho incluído: , que seriam indexados.
+
+Aqui estão algumas regras para precedência de caminhos incluídos e excluídos em Azure Cosmos DB:
+
+- Caminhos mais profundos são mais precisos do que caminhos mais estreitos. por exemplo: `/a/b/?` é `/a/?`mais preciso do que .
+
+- O `/?` é mais `/*`preciso que. Por `/a/?` exemplo, é `/a/*` mais `/a/?` preciso do que tem precedência.
+
+- O `/*` caminho deve ser um caminho incluído ou um caminho excluído.
+
 ## <a name="spatial-indexes"></a>Índices espaciais
 
 Quando se define um caminho espacial na política de ```type``` indexação, deve definir qual o índice que deve ser aplicado a esse caminho. Os tipos possíveis para índices espaciais incluem:
@@ -114,6 +134,8 @@ A Azure Cosmos DB, por defeito, não criará quaisquer índices espaciais. Se qu
 ## <a name="composite-indexes"></a>Índices compósitos
 
 Consultas que têm `ORDER BY` uma cláusula com duas ou mais propriedades requerem um índice composto. Também pode definir um índice composto para melhorar o desempenho de muitas consultas de igualdade e gama. Por predefinição, não são definidos índices compostos, pelo que deve [adicionar índices compostos](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) conforme necessário.
+
+Ao contrário de caminhos incluídos ou excluídos, não `/*` se pode criar um caminho com o wildcard. Cada caminho composto `/?` tem um implícito no final do caminho que não precisa especificar. Os caminhos compósitos levam a um valor escalar e este é o único valor que está incluído no índice composto.
 
 Ao definir um índice composto, especifice:
 

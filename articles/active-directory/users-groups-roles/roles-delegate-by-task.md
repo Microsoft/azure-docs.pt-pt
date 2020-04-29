@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd24650c9bf0c4de155b5bfc8723cfa1fef01548
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 89eeb276a7f096133083037e2a1c088cb6ad35f1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81755406"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232501"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administração no Diretório Ativo azure
 
@@ -76,9 +76,9 @@ Configurar propriedades da empresa | Administrador Global |
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Autenticação de passagem | Administrador de Identidade Híbrida | 
-Leia todas as configurações | Leitor global | Administrador de Identidade Híbrida |
-Inscrição única sem emenda | Administrador de Identidade Híbrida | 
+Autenticação de passagem | Administrador Global  | 
+Leia todas as configurações | Leitor global | Administrador Global  |
+Inscrição única sem emenda | Administrador Global  | 
 
 ## <a name="connect-health"></a>Connect Health
 
@@ -202,7 +202,7 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Ler registos de login | Leitor de relatórios | Leitor de Segurança, Administrador de Segurança
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Multi-factor authentication
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------

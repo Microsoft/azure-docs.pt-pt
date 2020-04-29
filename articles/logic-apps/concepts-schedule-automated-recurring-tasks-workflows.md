@@ -3,15 +3,15 @@ title: Agendar tarefas recorrentes e fluxos de trabalho em Aplicações Lógicas
 description: Uma visão geral sobre agendar tarefas automatizadas recorrentes, processos e fluxos de trabalho com aplicações lógicas azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 0f6ec158cf6ab855191e6796be3abec7d37439a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 20f27ebc7b9712d440dc1c67c46cb0385a3f874a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270566"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234099"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Agendar e executar tarefas, processos e fluxos de trabalho automatizados com o Azure Logic Apps
 
@@ -138,13 +138,13 @@ Aqui estão várias recorrências de exemplo que pode configurar para os gatilho
 | Recorrência | Corra a cada 15 minutos com as marcas de minutos especificadas (sem data e hora de início). | 1 | Dia | {nenhum} | {Indisponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Este horário só começa na próxima marca de 15 minutos. |
 | Recorrência | Corra diariamente às 8:00 *mais* a marca de minutos de quando você guarda a sua app lógica | 1 | Dia | {nenhum} | {Indisponível} | 8 | {nenhum} | Sem data e hora de início, este horário é executado com base no tempo em que guarda a aplicação lógica (operação PUT). |
 | Recorrência | Correr diariamente às 8:00 am (com data de início e hora) | 1 | Dia | *inícioData* T08:00:00 | {Indisponível} | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas. As ocorrências futuras decorrem diariamente às 8:00 da manhã. | 
-| Recorrência | Correr diariamente às 8:30 am (sem data e hora de início) | 1 | Dia | {nenhum} | {Indisponível} | 8 | 30 | Este horário é às 8:30 todos os dias. |
-| Recorrência | Corra diariamente às 8:30 e às 16:30 | 1 | Dia | {nenhum} | {Indisponível} | 8, 16 | 30 | |
+| Recorrência | Corra diariamente às 8:00 da manhã (sem data e hora de início) | 1 | Dia | {nenhum} | {Indisponível} | 8 | 00 | Este horário é às 8:00 todos os dias. |
+| Recorrência | Corra diariamente às 8:00 e às 16:00 | 1 | Dia | {nenhum} | {Indisponível} | 8, 16 | 0 | |
 | Recorrência | Corra diariamente às 8:30, 8:45, 16:30 e 16:45 | 1 | Dia | {nenhum} | {Indisponível} | 8, 16 | 30, 45 | |
-| Recorrência | Corra todos os sábados às 17:00 (sem data e hora de início) | 1 | Week (Semana) | {nenhum} | "Sábado" | 17 | 00 | Este horário decorre todos os sábados às 17:00. |
+| Recorrência | Corra todos os sábados às 17:00 (sem data e hora de início) | 1 | Week (Semana) | {nenhum} | "Sábado" | 17 | 0 | Este horário decorre todos os sábados às 17:00. |
 | Recorrência | Corra todos os sábados às 17:00 (com data e hora de início) | 1 | Week (Semana) | *inícioData* T17:00:00 | "Sábado" | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas, neste caso, 9 de setembro de 2017 às 17:00. As futuras recorrências decorrem todos os sábados às 17:00. |
 | Recorrência | Corra todas as terças-feiras, quintas-feiras às 17:00 *mais* a marca de minutos de quando você guarda a sua app lógica| 1 | Week (Semana) | {nenhum} | "Terça-feira", "Quinta-feira" | 17 | {nenhum} | |
-| Recorrência | Correr a cada hora durante o horário de trabalho | 1 | Week (Semana) | {nenhum} | Selecione todos os dias, exceto sábado e domingo. | Selecione as horas do dia que deseja. | Selecione os minutos da hora que desejar. | Por exemplo, se o seu horário de trabalho for das 8:00 às 17:00, então selecione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como as horas do dia. <p>Se o seu horário de trabalho for das 8:30 às 17:30, selecione as horas anteriores do dia mais "30" como minutos da hora. |
+| Recorrência | Correr a cada hora durante o horário de trabalho. | 1 | Week (Semana) | {nenhum} | Selecione todos os dias, exceto sábado e domingo. | Selecione as horas do dia que deseja. | Selecione os minutos da hora que desejar. | Por exemplo, se o seu horário de trabalho for das 8:00 às 17:00, então selecione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como as horas do dia *mais* "0" como os minutos da hora. |
 | Recorrência | Correr uma vez todos os dias nos fins de semana | 1 | Week (Semana) | {nenhum} | "Sábado", "Domingo" | Selecione as horas do dia que deseja. | Selecione quaisquer minutos da hora conforme apropriado. | Este horário decorre todos os sábados e domingos na programação especificada. |
 | Recorrência | Correr a cada 15 minutos quinzenalmente às segundas-feiras apenas | 2 | Week (Semana) | {nenhum} | "Segunda-feira" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Este horário decorre todas as segundas-feiras a cada marca de 15 minutos. |
 | Recorrência | Correr todos os meses | 1 | Mês | *inícioData* T*startTime*Z | {Indisponível} | {Indisponível} | {Indisponível} | Este horário não começa *mais cedo* do que a data e hora de início especificadas e calcula futuras recorrências na data e hora de início. Se não especificar a data e a hora de início, este horário utiliza a data e hora da criação. |

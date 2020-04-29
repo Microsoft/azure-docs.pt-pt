@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 53806a1a627c7ae6bc3470aa387be0982df914fa
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 07bf03096cbe5ec8e0fe9619519fdddb91cde984
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82082263"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231667"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Apoio à geração 2 VMs em Azure
 
@@ -38,13 +38,12 @@ Os VMs da geração 1 são suportados por todos os tamanhos vm em Azure (exceto 
 * [Série HB](../hb-series.md)
 * [Série HC](../hc-series.md)
 * [Série Ls](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) e [lsv2](../lsv2-series.md)
-* [Série Mv2](../mv2-series.md)
+* [Série Mv2](../mv2-series.md)<sup>1</sup>
 * [Série NCv2](../ncv2-series.md) e [série NCv3](../ncv3-series.md)
 * [Série ND](../nd-series.md)
 * [Série NVv3](../nvv3-series.md)
 
-> [!NOTE]
-> O uso de imagens VM da geração 2 para VMs sérieMs mv2 está geralmente disponível uma vez que a série Mv2 trabalha exclusivamente com imagens vM da geração 2. As imagens VM da geração 1 não são suportadas em VMs da série Mv2. 
+<sup>1</sup> A série Mv2 não suporta imagens VM da Geração 1 e apenas suporta um subconjunto de imagens da Geração 2. Por favor, consulte a [documentação da série Mv2](https://docs.microsoft.com/azure/virtual-machines/mv2-series) para obter mais detalhes.
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Imagens VM da Geração 2 no Mercado Azure
 
@@ -58,6 +57,9 @@ Os VMs da Geração 2 suportam as seguintes imagens do Marketplace:
 * RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
 * Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
 * Oracle Linux 7.7, 7.7-CI
+
+> [!NOTE]
+> Tamanhos específicos da máquina virtual como mv2-Series só podem suportar um subconjunto destas imagens - por favor, olhe para a documentação do tamanho da máquina virtual relevante para detalhes completos.
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>No local vs. Azure geração 2 VMs
 

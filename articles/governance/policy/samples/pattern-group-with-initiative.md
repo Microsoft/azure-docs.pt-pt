@@ -4,10 +4,10 @@ description: Este padrão de Política Azure fornece um exemplo de como agrupar 
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: 41c2b0cf3b8f677cdc408e85088c3ca6c2049d6b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77172857"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Padrão de política azure: definições de política de grupo
