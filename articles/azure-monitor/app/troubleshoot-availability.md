@@ -4,14 +4,14 @@ description: Testes web de resolução de problemas em Insights de Aplicação A
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 09/19/2019
+ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 94b00a36445b0f4284caba218f6416db726611eb
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 8f03099cf2890882a1c1d4ba9d69fcb64d0db600
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255452"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233963"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
 
@@ -67,6 +67,10 @@ Verifique a configuração de alertas clássicos para confirmar que o seu e-mail
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Não recebi a notificação do webhook?
 
 Verifique para garantir que a aplicação que recebe a notificação do webhook está disponível e processa com sucesso os pedidos do webhook. Veja [isto](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) para mais informações.
+
+### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Estou a receber 403 erros proibidos, o que significa isto?
+
+Este erro indica que precisa de adicionar exceções à firewall para permitir que os agentes de disponibilidade testem o seu url de destino. Para obter uma lista completa de endereços IP do agente para permitir, consulte o artigo de [exceção IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
 
 ### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Falha de teste intermitente com um erro de violação do protocolo?
 

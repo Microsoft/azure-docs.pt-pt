@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: 53d8da3f5ff715fa34f007272214823ed60e6326
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c0e95b71ec21b384f17a44ebf5cfd4f33b45f0f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192064"
+ms.locfileid: "82232858"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerir clusters do HDInsight através da IU da Web do Apache Ambari
 
@@ -135,7 +135,7 @@ A seleção de qualquer um destes links abre um novo separador no seu navegador,
 
 ### <a name="ambari-users-groups-and-permissions"></a>Utilizadores, grupos e permissões ambari
 
-Trabalhar com utilizadores, grupos e permissões são suportados quando se utiliza um cluster HDInsight de domínio. Para obter informações sobre a utilização do UI de Gestão Ambari num cluster unido ao domínio, consulte [Gerir os clusters HDInsight unidos](./domain-joined/hdinsight-security-overview.md)pelo domínio .
+Trabalhar com utilizadores, grupos e permissões é suportado. Para a administração local, consulte [Autorizar utilizadores para Apache Ambari Views](./hdinsight-authorize-users-to-ambari.md). Para clusters unidos pelo domínio, consulte [Gerir clusters HDInsight unidos pelo domínio](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
 > Não altere a palavra-passe do cão de guarda Ambari (hdinsightwatchdog) no seu cluster HDInsight baseado em Linux. Alterar a palavra-passe quebra a capacidade de utilizar ações de script ou realizar operações de escala com o seu cluster.

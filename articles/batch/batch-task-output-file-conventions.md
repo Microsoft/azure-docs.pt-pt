@@ -4,12 +4,12 @@ description: Aprenda a utilizar a biblioteca de Convenções de Ficheiros de Lot
 ms.topic: article
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e835b4e4ace344de65bc5d037b99afdf811ed4bb
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 2d7988ef4339280bd729cc1acaa1b7fb2c33b6b9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116439"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232705"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Persistir dados de trabalho e tarefa sintetizar para o Armazenamento Azure com a biblioteca de Convenções de Ficheiros de Lote para .NET
 
@@ -182,7 +182,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Ver ficheiros de saída no portal Azure
 
-O portal Azure exibe ficheiros de saída de tarefas e registos que são persistidos numa conta de armazenamento Azure ligada utilizando a [norma Deconvenções](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)de Ficheiros de Lote . Você pode implementar estas convenções você mesmo em uma linguagem à sua escolha, ou você pode usar a biblioteca de Convenções de Arquivo nas suas aplicações .NET.
+O portal Azure exibe ficheiros de saída de tarefas e registos que são persistidos numa conta de armazenamento Azure ligada utilizando a [norma Deconvenções](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files)de Ficheiros de Lote . Você pode implementar estas convenções você mesmo em uma linguagem à sua escolha, ou você pode usar a biblioteca de Convenções de Arquivo nas suas aplicações .NET.
 
 Para ativar a visualização dos seus ficheiros de saída no portal, deve satisfazer os seguintes requisitos:
 

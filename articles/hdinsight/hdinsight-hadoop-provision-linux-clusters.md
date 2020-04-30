@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
-ms.date: 02/12/2020
-ms.openlocfilehash: 6bba71ab35920027cc7296e774936c3d1deb8f92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 04/10/2020
+ms.openlocfilehash: ed2fe1736c887fd8aa866c8d0c71a5df0aa4fb31
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770323"
+ms.locfileid: "82232841"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
@@ -128,6 +128,9 @@ Para obter mais informações sobre as opções de armazenamento com o HDInsight
 Durante a configuração, para o ponto final de armazenamento predefinido, especifique um recipiente de bolha de uma conta de Armazenamento Azure ou armazenamento de data lake. O armazenamento predefinido contém registos de aplicação e sistema. Opcionalmente, pode especificar contas adicionais de Armazenamento Azure ligadas e contas de Armazenamento de Data Lake a que o cluster pode aceder. O cluster HDInsight e as contas de armazenamento dependentes devem estar na mesma localização Azure.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
+> [!IMPORTANT]
+> Permitir a transferência de armazenamento segura após a criação de um cluster pode resultar em erros utilizando a sua conta de armazenamento e não é recomendado. É melhor criar um novo cluster usando uma conta de armazenamento com transferência segura já ativada.
 
 ### <a name="metastore-settings"></a>Definições de metaloja
 

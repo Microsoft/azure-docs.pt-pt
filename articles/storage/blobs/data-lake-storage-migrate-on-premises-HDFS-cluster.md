@@ -8,22 +8,22 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: c0c6a8637223727a9b0c88245d939605f6a8530e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7f7793016d2a408d6b286f417e3e89e7a22ca91
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302005"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232381"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrar da loja on-prem HDFS para o Armazenamento Azure com caixa de dados Azure
 
-Pode migrar dados de uma loja HDFS no local do seu cluster Hadoop para o Armazenamento Azure (armazenamento de blob ou Data Lake Storage Gen2) utilizando um dispositivo Data Box. Pode escolher entre uma Caixa de Dados de 80 TB ou uma caixa de dados de 770 TB Pesada.
+Pode migrar dados de uma loja HDFS no local do seu cluster Hadoop para o Armazenamento Azure (armazenamento de blob ou Data Lake Storage Gen2) utilizando um dispositivo Data Box. Pode escolher entre data box disk, uma caixa de dados de 80 TB ou uma caixa de dados de 770 TB Pesada.
 
 Este artigo ajuda-o a completar estas tarefas:
 
 > [!div class="checklist"]
 > * Prepare-se para migrar os seus dados.
-> * Copie os seus dados para uma Caixa de Dados ou para um dispositivo Data Box Heavy.
+> * Copie os seus dados para um Disco de Caixa de Dados, Caixa de Dados ou um dispositivo Pesado data Box.
 > * Envie o dispositivo de volta para a Microsoft.
 > * Aplicar permissões de acesso a ficheiros e diretórios (apenas Data Lake Storage Gen2)
 

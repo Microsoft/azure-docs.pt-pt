@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: 24fe11610d2a91fcdb0f09b8e45ea6ff4b81bd70
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
-ms.translationtype: MT
+ms.openlocfilehash: af4e33e2653aebe5d1c979aa314463e4beb7b0d7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606384"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233402"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação de procura no fluxo de dados de mapeamento
 
@@ -55,11 +55,11 @@ Ao testar a transformação da procura com pré-visualização de dados no modo 
 
 ## <a name="broadcast-optimization"></a>Otimização de transmissão
 
-Na Azure Data Factory os fluxos de dados de mapeamento executam em ambientes de faíscas escaldados. Se o seu conjunto de dados puder encaixar no espaço de memória do nó do trabalhador, o seu desempenho de procura pode ser otimizado permitindo a transmissão.
-
 ![Broadcast Join](media/data-flow/broadcast.png "Broadcast Join")
 
-Permitir a radiodifusão empurra todo o conjunto de dados para a memória. Para conjuntos de dados mais pequenos que contenham apenas alguns milhares de linhas, a radiodifusão pode melhorar consideravelmente o seu desempenho de procura. Para grandes conjuntos de dados, esta opção pode levar a uma exceção fora da memória.
+Em conjuntos, as aparências e a transformação existe, se um ou ambos os fluxos de dados se encaixarem na memória do nó do trabalhador, pode otimizar o desempenho permitindo a **Radiodifusão**. Por predefinição, o motor de faísca decidirá automaticamente se transmite ou não um dos lados. Para escolher manualmente de que lado transmitir, selecione **Fixed**.
+
+Não é aconselhável desativar a radiodifusão através da opção **Off,** a menos que as suas juntas estejam a ter erros de tempo.
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
@@ -72,7 +72,7 @@ Permitir a radiodifusão empurra todo o conjunto de dados para a memória. Para 
         multiple: { true | false },
         pickup: { 'first' | 'last' | 'any' },  ## Only required if false is selected for multiple
         { desc | asc }( <sortColumn>, { true | false }), ## Only required if 'first' or 'last' is selected. true/false determines whether to put nulls first
-        broadcast: { 'none' | 'left' | 'right' | 'both' }
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <lookupTransformationName>
 ```
 ### <a name="example"></a>Exemplo
@@ -86,7 +86,7 @@ SQLProducts, DimProd lookup(ProductID == ProductKey,
     multiple: false,
     pickup: 'first',
     asc(ProductKey, true),
-    broadcast: 'none')~> LookupKeys
+    broadcast: 'auto')~> LookupKeys
 ```
 ## 
 Passos seguintes
