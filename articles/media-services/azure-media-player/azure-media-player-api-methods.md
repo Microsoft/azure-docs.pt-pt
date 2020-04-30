@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: d1ad0cbe30ce20e61a31f0534a47fe031f6f257b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727271"
 ---
 # <a name="api"></a>API #
@@ -47,7 +47,7 @@ OU
     });
 ```
 
-## <a name="api-methods"></a>Métodos API ##
+## <a name="api-methods"></a>Métodos de API ##
 
 Agora que tem acesso a um jogador pronto, pode controlar o vídeo, obter valores ou responder a eventos de vídeo. Os nomes da função API do Leitor de Mídia Azure tentam seguir a API dos meios de [comunicação HTML5](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html). A principal diferença é que as funções getter/setter são usadas para propriedades de vídeo.
 

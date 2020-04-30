@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 04/20/2020
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 03f1c1539233872d9b98fab317c9caf997d5df69
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733304"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>Quickstart: Obtenha intenção com APIs rest

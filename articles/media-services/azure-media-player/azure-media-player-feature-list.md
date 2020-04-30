@@ -7,13 +7,13 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: e5595620a2f888b06ad5b35d2e8a008f23861463
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727232"
 ---
-# <a name="feature-list"></a>Lista de recursos #
+# <a name="feature-list"></a>Lista de funcionalidades #
 Aqui está a lista de funcionalidades testadas e funcionalidades não suportadas:
 
 |                                         | TESTADO | PARCIALMENTE TESTADO | NÃO TESTADO | SEM APOIO | NOTAS                                                                                                                |

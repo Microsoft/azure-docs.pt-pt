@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2ef259bf76815fdf8672b696d2260fe6a143b798
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81730182"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreenda o registo de identidade no seu centro ioT
@@ -256,7 +256,7 @@ Agora que aprendeu a usar o registo de identidade do IoT Hub, pode estar interes
 
 Para experimentar alguns dos conceitos descritos neste artigo, consulte o seguinte tutorial IoT Hub:
 
-* [Começar com o Azure IoT Hub](quickstart-send-telemetry-dotnet.md)
+* [Introdução ao Hub IoT do Azure](quickstart-send-telemetry-dotnet.md)
 
 Para explorar a utilização do Serviço de Provisionamento de Dispositivos IoT Hub para permitir o fornecimento de zero toques, just-in-time, consulte: 
 

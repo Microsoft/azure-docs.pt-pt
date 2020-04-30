@@ -10,13 +10,13 @@ ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 241efab246dc903981da570a4191f93cc744bca7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81726446"
 ---
-# <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
+# <a name="about-keys-secrets-and-certificates"></a>Acerca de chaves, segredos e certificados
 
 O Azure Key Vault permite que as aplicações e utilizadores do Microsoft Azure armazenem e utilizem vários tipos de dados secretos/chave:
 

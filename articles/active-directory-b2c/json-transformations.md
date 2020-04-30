@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b42c2a414333e7ed262441321a808fc45425fc3b
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81756752"
 ---
 # <a name="json-claims-transformations"></a>JSON reclama transformações
@@ -188,7 +188,7 @@ Obtém um elemento numérico (longo) especificado a partir de um dado JSON.
 | ---- | ----------------------- | --------- | ----- |
 | Pedido de crédito | inputJson | string | Os Tipos de Reclamação que são utilizados pela transformação de sinistros para obter a reclamação. |
 | EntradaParametro | reivindicaçãoToExtrair | string | O nome do elemento JSON para extrair. |
-| Pedido de saída | reclamação extraída | longo | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado, o valor do elemento especificado nos parâmetros de entrada _do claimToExtract._ |
+| Pedido de saída | reclamação extraída | long | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado, o valor do elemento especificado nos parâmetros de entrada _do claimToExtract._ |
 
 No exemplo seguinte, a transformação `id` de sinistros extrai o elemento dos dados jSON.
 

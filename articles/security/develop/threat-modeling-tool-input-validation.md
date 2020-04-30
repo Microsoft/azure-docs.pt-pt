@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 712a0707826f97f29b015a2c5892f8d20577e41b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687884"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Quadro de segurança: Validação de entrada / Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicação Web** | <ul><li>[Desative a script XSLT para todas as transformações usando folhas de estilo não confiáveis](#disable-xslt)</li><li>[Certifique-se de que cada página que possa conter conteúdo controlável do utilizador opta por não cheirar mime automático](#out-sniffing)</li><li>[Endurecer ou desativar a Resolução de Entidades XML](#xml-resolution)</li><li>[Aplicações que utilizam http.sys realizam verificação de canonicalização url](#app-verification)</li><li>[Certifique-se de que existem controlos adequados ao aceitar ficheiros dos utilizadores](#controls-users)</li><li>[Certifique-se de que os parâmetros de segurança do tipo são utilizados na Aplicação Web para acesso a dados](#typesafe)</li><li>[Utilize classes de ligação de modelos separados ou listas de filtros de ligação para evitar a vulnerabilidade da atribuição em massa do MVC](#binding-mvc)</li><li>[Codificar saída web não fidedigna antes da renderização](#rendering)</li><li>[Execute validação de entrada e filtragem em todas as propriedades do modelo do tipo de corda](#typemodel)</li><li>[A sanitização deve ser aplicada em campos de formulárioque aceitam todos os caracteres, por exemplo, editor de texto rico](#richtext)</li><li>[Não atribuir elementos DOM a sumidouros que não tenham codificação incorporada](#inbuilt-encode)</li><li>[Validar todos os redirecionamentos dentro da aplicação são fechados ou feitos com segurança](#redirect-safe)</li><li>[Implementar validação de entrada em todos os parâmetros do tipo de cadeia aceites pelos métodos do Controlador](#string-method)</li><li>[Definir limite limite máximo para o processamento regular de expressão para evitar DoS devido a más expressões regulares](#dos-expression)</li><li>[Evite usar html.Raw em vistas de barbear](#html-razor)</li></ul> | 
-| **Base de Dados** | <ul><li>[Não utilize consultas dinâmicas em procedimentos armazenados](#stored-proc)</li></ul> |
+| **Base de dados** | <ul><li>[Não utilize consultas dinâmicas em procedimentos armazenados](#stored-proc)</li></ul> |
 | **API Web** | <ul><li>[Certifique-se de que a validação do modelo é feita nos métodos Web API](#validation-api)</li><li>[Implementar validação de entrada em todos os parâmetros do tipo de cadeia aceites pelos métodos Web API](#string-api)</li><li>[Certifique-se de que os parâmetros de segurança do tipo são utilizados na Web API para acesso a dados](#typesafe-api)</li></ul> | 
 | **Documento Azure DB** | <ul><li>[Use consultas SQL parametrizadas para O Azure Cosmos DB](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[Validação de entrada do WCF através da ligação schema](#schema-binding)</li><li>[WCF- Validação de entrada através de Inspetores de Parâmetros](#parameters)</li></ul> |

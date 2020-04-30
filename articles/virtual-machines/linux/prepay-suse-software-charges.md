@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
 ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759281"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pré-pagamento dos planos de software do Azure
@@ -70,7 +70,7 @@ Para aprender a gerir uma reserva, consulte [as reservas do Manage Azure.](../..
 
 Para saber mais, consulte os seguintes artigos:
 
-- [O que é o Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [O que são Reservas Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Gerir Reservas no Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 - [Entenda como é aplicado o desconto de reserva SUSE](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
 - [Compreender a utilização de reservas na sua subscrição Pay As You Go](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)

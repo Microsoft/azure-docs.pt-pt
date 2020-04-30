@@ -7,13 +7,13 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: d4c2dc58ca341db7ba17dbaf6a5ce7c009983379
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727245"
 ---
-# <a name="azure-media-player-full-setup"></a>Configuração completa do Azure Media Player #
+# <a name="azure-media-player-full-setup"></a>Configuração completa do Leitor de Multimédia do Azure #
 
 Azure Media Player é fácil de configurar. Basta maquete sem estôver os conteúdos dos media logo na sua conta Azure Media Services. [As amostras](https://github.com/Azure-Samples/azure-media-player-samples) também são fornecidas no diretório de amostras da libertação.
 

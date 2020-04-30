@@ -7,10 +7,10 @@ ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
 ms.openlocfilehash: 5a930dfb38007349155581424d03ee7b3e7a6b46
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81730210"
 ---
 # <a name="payout-reporting"></a>Relatórios de pagamento
@@ -31,7 +31,7 @@ Se vender ofertas no Azure Marketplace, também verá informações sobre pagame
 
 ## <a name="roles-and-permission-to-access-the-payout-report"></a>Funções e permissão para aceder ao relatório de pagamento
 
-| Relatórios/Páginas    | Proprietário de Conta    | Gestor  | Programador | Contribuinte de negócios |  Contribuinte financeiro | Marketer |
+| Relatórios/Páginas    | Proprietário de Conta    | Gestor  | Developer (Programador) | Contribuinte de negócios |  Contribuinte financeiro | Marketer |
 |------------------|------------------|----------|-----------|----|----|-----|
 | Relatório de aquisição (incluindo dados de tempo próximo em tempo real) | Pode ver | Pode ver | Sem acesso | Sem acesso | Pode ver | Sem acesso |
 | Relatório/respostas de feedback | Pode ver e enviar feedback | Pode ver e enviar feedback | Pode ver e enviar feedback | Sem acesso | Sem acesso | Pode ver e enviar feedback |

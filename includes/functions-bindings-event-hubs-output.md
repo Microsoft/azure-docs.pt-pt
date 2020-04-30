@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 1e25656b58fe675cfbe87fef75af4fcb174b7f55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78836ca4e51875be4237267b3bb9256cc4541fe2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77589743"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81791706"
 ---
 Utilize a ligação de saída dos Centros de Eventos para escrever eventos num fluxo de eventos. Para escrever eventos em um hub de eventos, é preciso ter permissão de envio para ele.
 
@@ -155,7 +155,7 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo seguinte mostra uma ligação do gatilho do centro de eventos num ficheiro *function.json* e uma [função Python](../articles/azure-functions/functions-reference-python.md) que utiliza a ligação. A função escreve uma mensagem para um centro de eventos.
 
@@ -229,7 +229,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
@@ -268,7 +268,7 @@ Envie mensagens utilizando um parâmetro `out string paramName`de método como .
 
 Aceda ao evento `context.bindings.<name>` `<name>` de saída utilizando onde `name` está o valor especificado na propriedade da *função.json*.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Existem duas opções para distribuir uma mensagem do Event Hub a partir de uma função:
 
@@ -291,33 +291,3 @@ Existem duas opções para eliminar uma mensagem do Event Hub a partir de uma fu
 | Enlace | Referência |
 |---|---|
 | Hub de Eventos | [Guia de Operações](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
-
-<a name="host-json"></a>  
-
-## <a name="hostjson-settings"></a>configurações host.json
-
-Esta secção descreve as definições de configuração global disponíveis para esta ligação nas versões 2.x e superiores. O ficheiro exemplo host.json abaixo contém apenas as definições da versão 2.x+ para esta ligação. Para obter mais informações sobre as configurações globais de configuração nas versões 2.x e além, consulte a [referência host.json para funções azure](../articles/azure-functions/functions-host-json.md).
-
-> [!NOTE]
-> Para uma referência do host.json nas funções 1.x, consulte a [referência host.json para as funções Azure 1.x](../articles/azure-functions/functions-host-json-v1.md).
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "eventHubs": {
-            "batchCheckpointFrequency": 5,
-            "eventProcessorOptions": {
-                "maxBatchSize": 256,
-                "prefetchCount": 512
-            }
-        }
-    }
-}  
-```
-
-|Propriedade  |Predefinição | Descrição |
-|---------|---------|---------|
-|`maxBatchSize`|10|A contagem máxima de evento recebida por ciclo de receção.|
-|`prefetchCount`|300|A contagem pre-fetch predefinida `EventProcessorHost`utilizada pelo subjacente .|
-|`batchCheckpointFrequency`|1|O número de lotes de eventos para processar antes de criar um ponto de verificação de cursor EventHub.|

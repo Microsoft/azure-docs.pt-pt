@@ -9,17 +9,17 @@ ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: 80fc33a93d4d83dad1e687b176b39728fc7e8807
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758599"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Executar scripts de concha no seu VM Linux usando o Comando de Execução
 
 A função Executar Command utiliza o agente da máquina virtual (VM) para executar scripts de concha dentro de um VM Azure Linux. Pode utilizar estes scripts para uma máquina geral ou gestão de aplicações. Podem ajudá-lo a diagnosticar e remediar rapidamente os problemas de acesso e rede vM e levar o VM de volta a um bom estado.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 Pode aceder às suas máquinas virtuais de várias maneiras. Executar o Comando pode executar scripts nas suas máquinas virtuais remotamente utilizando o agente VM. Utiliza o Comando de Execução através do portal Azure, [REST API,](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)ou [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para VMs Linux.
 

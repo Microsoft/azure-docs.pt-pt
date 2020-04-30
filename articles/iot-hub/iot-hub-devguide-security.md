@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: b7f9ac7e6e7049a3b744151bc9cb05115fbac935
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81729217"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
@@ -477,6 +477,6 @@ Agora que aprendeu a controlar o acesso ioT Hub, pode estar interessado nos segu
 
 Se quiser experimentar alguns dos conceitos descritos neste artigo, consulte os seguintes tutoriais IoT Hub:
 
-* [Começar com o Azure IoT Hub](quickstart-send-telemetry-node.md)
+* [Introdução ao Hub IoT do Azure](quickstart-send-telemetry-node.md)
 * [Como enviar mensagens cloud-to-device com IoT Hub](iot-hub-csharp-csharp-c2d.md)
 * [Como processar mensagens ioT Hub-to-cloud](tutorial-routing.md)

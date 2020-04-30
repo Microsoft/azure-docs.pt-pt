@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: aahi
 ms.openlocfilehash: 7a48992ab5978824f1ffb4b2c3ac0670f40c1424
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759980"
 ---
 # <a name="quickstart-use-the-anomaly-detector-client-library"></a>Quickstart: Use a biblioteca de clientes do Detetor de Anomalias
