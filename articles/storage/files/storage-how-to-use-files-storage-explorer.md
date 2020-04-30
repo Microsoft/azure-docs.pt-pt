@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75431827"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início rápido: criar e gerir partilhas de ficheiros do Azure com o Explorador de Armazenamento do Azure
@@ -24,7 +24,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 ## <a name="prerequisites"></a>Pré-requisitos
 Este início rápido requer a instalação do Explorador de Armazenamento. Para transferi-lo e instalá-lo, aceda ao [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Não pode utilizar o Explorador de Armazenamento para criar novos recursos. Para efeitos desta demonstração, crie a conta de armazenamento no [portal do Azure](https://portal.azure.com/). 
 
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]

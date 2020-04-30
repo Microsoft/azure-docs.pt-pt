@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 09df78955de6423244c2d8ec94e1e1c06ecab257
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75650031"
 ---
 # <a name="create-and-use-a-custom-provider"></a>Criar e usar um fornecedor personalizado
@@ -109,7 +109,7 @@ Depois de criar um fornecedor personalizado, pode utilizar as novas APIs Azure. 
 
 ### <a name="custom-actions"></a>Ações personalizadas
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 > [!NOTE]
 > Deve substituir `{subscriptionId}` os `{resourceGroupName}` espaços reservados e reservados pelo grupo de subscrição e recursos de onde implementou o fornecedor personalizado.
@@ -137,7 +137,7 @@ Nenhum.
 
 ### <a name="custom-resources"></a>Recursos personalizados
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 > [!NOTE]
 > Deve substituir `{subscriptionId}` os `{resourceGroupName}` espaços reservados e reservados pelo grupo de subscrição e recursos de onde implementou o fornecedor personalizado.

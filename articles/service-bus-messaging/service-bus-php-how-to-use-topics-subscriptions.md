@@ -15,10 +15,10 @@ ms.topic: quickstart
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 92f25f4bdac4942478c93f717c81eadd2c2f5b4a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76760679"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Quickstart: Como usar tópicos e subscrições de ônibus de serviço com PHP
@@ -321,7 +321,7 @@ catch(ServiceException $e){
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como: lidar com falhas de aplicação e mensagens ilegíveis
 O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não conseguir processar a mensagem `unlockMessage` por alguma razão, então pode ligar para o método na mensagem recebida (em vez do `deleteMessage` método). Faz com que a Service Bus desbloqueie a mensagem dentro da fila e a disponibilize novamente para ser recebida, quer pela mesma aplicação consumista, quer por outra aplicação consumista.
 
-Há também um intervalo associado a uma mensagem bloqueada dentro da fila, e se a aplicação não processar a mensagem antes do prazo de bloqueio expirar (por exemplo, se a aplicação falhar), então o Service Bus desbloqueia a mensagem automaticamente e a faz com que a mensagem seja concluída. disponível para ser recebido novamente.
+Há também um intervalo associado a uma mensagem bloqueada dentro da fila, e se a aplicação não processar a mensagem antes do prazo de bloqueio expirar (por exemplo, se a aplicação falhar), então o Service Bus desbloqueia automaticamente a mensagem e a disponibiliza para ser recebida novamente.
 
 No caso de a aplicação se falhar `deleteMessage` após o processamento da mensagem, mas antes de o pedido ser emitido, a mensagem é retransmitida à aplicação quando recomeçar. Este tipo de processamento é muitas vezes chamado *pelo menos uma vez* processado; ou seja, cada mensagem é processada pelo menos uma vez, mas em certas situações a mesma mensagem pode ser retransmitida. Se o cenário não puder tolerar o processamento duplicado, então os desenvolvedores de aplicações devem adicionar lógica adicional às aplicações para lidar com a entrega de mensagens duplicadas. É frequentemente alcançado `getMessageId` utilizando o método da mensagem, que permanece constante através das tentativas de entrega.
 

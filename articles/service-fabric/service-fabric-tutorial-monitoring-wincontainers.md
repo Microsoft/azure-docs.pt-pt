@@ -6,10 +6,10 @@ ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: eeb279892f987ed1f26ced97ab267e8140ccb20e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75614065"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutorial: Monitorize os recipientes Windows no Tecido de Serviço utilizando troncos do Monitor Azure
@@ -208,7 +208,7 @@ Clicar em qualquer um destes painéis irá levá-lo à consulta kusto que está 
 
 ## <a name="configure-log-analytics-agent-to-pick-up-performance-counters"></a>Configurar o agente do Log Analytics para recolher contadores de desempenho
 
-Outro benefício de usar o agente Log Analytics é a capacidade de alterar os contadores de desempenho que pretende captar através da experiência de II de análise de registo, em vez de ter de configurar o agente de diagnóstico sinuoso e fazer uma atualização baseada no modelo de Gestor de Recursos cada vez. Para tal, clique em **Área de Trabalho do OMS** na página de destino da solução de Monitorização de Contentores (ou do Service Fabric).
+Outro benefício de usar o agente Log Analytics é a capacidade de alterar os contadores de desempenho que pretende captar através da experiência de II de análise de registo, em vez de ter de configurar o agente de diagnóstico sinuoso e fazer uma atualização baseada no modelo de Gestor de Recursos de cada vez. Para tal, clique em **Área de Trabalho do OMS** na página de destino da solução de Monitorização de Contentores (ou do Service Fabric).
 
 Desta forma, é encaminhado para a área de trabalho do Log Analytics, onde pode ver as suas soluções, criar dashboards personalizados e configurar o agente do Log Analytics. 
 * Clique em **Definições Avançadas** para abrir o menu Definições Avançadas.

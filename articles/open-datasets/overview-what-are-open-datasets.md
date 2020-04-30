@@ -8,10 +8,10 @@ author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
 ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73606160"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>O que são Conjuntos de Dados Abertos Azure e como pode usá-los?
@@ -33,14 +33,14 @@ Seguem-se exemplos de conjuntos de dados disponíveis.
 
 ### <a name="weather-data"></a>Dados meteorológicos
  
-|Conjunto de dados         | Blocos de notas     | Descrição                                    |
+|Conjunto de dados         | Notebooks     | Descrição                                    |
 |----------------|---------------|------------------------------------------------|
 |[Dados de superfície integrados da NOAA (ISD)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureDatabricks) | Dados meteorológicos de hora a hora a nível mundial da NOAA com a melhor cobertura espacial na América do Norte, Europa, Austrália e partes da Ásia. Atualizado diariamente. |
 |[Noaa Global Forecast System (GFS)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureDatabricks) | Dados de previsão meteorológica de 15 dias por hora da NOAA. Atualizado diariamente. |
 
 ### <a name="calendar-data"></a>Dados do calendário
 
-|Conjunto de dados         | Blocos de notas     | Descrição                                    |
+|Conjunto de dados         | Notebooks     | Descrição                                    |
 |----------------|---------------|------------------------------------------------|
 |[Feriados](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Dados mundiais de feriados, abrangendo 41 países ou regiões entre 1970 e 2099. Inclui o país e se a maioria das pessoas pagou férias. |
 

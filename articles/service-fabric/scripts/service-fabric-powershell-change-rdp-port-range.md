@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.custom: sfrev
 ms.openlocfilehash: b3d922cb5a7cdf34e63731ab32f21c94d7b6bca0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76025014"
 ---
 # <a name="update-the-rdp-port-range-values"></a>Atualizar os valores de intervalos de portas RDP

@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 3d9d1240e31d40a3d9c75d56314acc1721d90b99
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73501947"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>O que é O Analisador de Internet? (Pré-visualização)
@@ -35,7 +35,7 @@ Pode configurar o seu próprio ponto final personalizado ou selecionar a partir 
 
 Durante a pré-visualização, estão disponíveis os seguintes pontos finais pré-configurados: 
 
-* **Regiões do Azure**
+* **Regiões de Azure**
     * Sul do Brasil
     * Índia Central
     * E.U.A. Central

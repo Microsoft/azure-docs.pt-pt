@@ -8,10 +8,10 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 1/23/2020
 ms.openlocfilehash: c40aa9b0a94940f48a8edbd046a744678f02cbd2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76775397"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Opções de suporte e ajuda do Azure IoT
@@ -26,7 +26,7 @@ Aqui ficam as sugestões para onde pode obter ajuda ao desenvolver as suas solu�
 
 Explore a gama de opções de [suporte azure e escolha o plano](https://azure.microsoft.com/support/plans) que melhor se adapte, seja um desenvolvedor apenas iniciando a sua jornada na nuvem ou uma grande organização implementando aplicações estratégicas críticas de negócios. Os clientes azure podem criar e gerir pedidos de apoio no portal Azure.
 
-* [Portal Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portal azure para o governo dos Estados Unidos](https://portal.azure.us)
 
 ## <a name="post-a-question-on-stack-overflow"></a>Poste uma pergunta sobre Stack Overflow
@@ -42,7 +42,7 @@ Se não encontrar uma resposta para o seu problema através de pesquisa, envie u
  - [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
  - [Azure IoT Central](https://stackoverflow.com/questions/tagged/azure-iot-central)
  - [Azure IoT Edge](https://stackoverflow.com/questions/tagged/azure-iot-edge)
- - [Hub IoT do Azure](https://stackoverflow.com/questions/tagged/azure-iot-hub)
+ - [Azure IoT Hub](https://stackoverflow.com/questions/tagged/azure-iot-hub)
  - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
  - [SDKs do Azure IoT](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
@@ -54,7 +54,7 @@ Discutir tecnologias e serviços azure para a criação de soluções IoT. A MSD
 Se não encontrar uma resposta para o seu problema através de pesquisa, envie uma nova pergunta à MSDN no fórum relacionado com o serviço:
 
 - [Azure Digital Twins](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredigitaltwins)
-- [Hub IoT do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureiothub)
+- [Azure IoT Hub](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureiothub)
 - [Azure IoT Edge](https://social.msdn.microsoft.com/Forums/en-US/home?forum=iotedge)
 - [Azure Maps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelbs)
 - [Azure Time Series Insights](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights)

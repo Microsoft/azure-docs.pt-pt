@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 07350ffe4a57bfe4a79bfce5d821b51535867935
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76167002"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
@@ -52,7 +52,7 @@ Antes de iniciar este tutorial, você deveria ter passado pelo tutorial anterior
 
 Para desenvolver um módulo IoT Edge com o serviço Custom Vision, instale os seguintes pré-requisitos adicionais na sua máquina de desenvolvimento:
 
-* [Pitão](https://www.python.org/downloads/)
+* [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
 * [Extensão python para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
@@ -77,7 +77,7 @@ Quando o classificador de imagens estiver compilado e preparado, pode exportá-l
    | Nome | Indique um nome para o projeto, como **EdgeTreeClassifier**. |
    | Descrição | Descrição do projeto opcional. |
    | Recurso | Selecione um dos seus grupos de recursos Azure que inclui um recurso do Serviço de Visão Personalizada ou **crie novo** se ainda não tiver adicionado um. |
-   | Project Types (Tipos de Projetos) | **Classification** (Classificação) |
+   | Project Types (Tipos de Projetos) | **Classificação** |
    | Classification Types (Tipos de Classificações) | **Multiclass (single tag per image)** (Multiclasses [etiqueta individual por imagem]) |
    | Domínios | **General (compact)** (Geral [compacto]) |
    | Capacidades de Exportação | **Plataformas básicas (Tensorflow, CoreML, ONNX, ...)** |
