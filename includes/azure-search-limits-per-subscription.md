@@ -8,10 +8,10 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: ee430241173a6c19e2a32e176f28411631d9cb19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80272719"
 ---
 Pode criar vários serviços dentro de uma subscrição. Cada um pode ser provisionado a um nível específico. Está limitado apenas pelo número de serviços permitidos em cada nível. Por exemplo, pode criar até 12 serviços no nível Básico e outros 12 serviços no nível S1 dentro da mesma subscrição. Para mais informações sobre os níveis, consulte [Escolha um SKU ou um nível para Pesquisa Cognitiva Azure](../articles/search/search-sku-tier.md).

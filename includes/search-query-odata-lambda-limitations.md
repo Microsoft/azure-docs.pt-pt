@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/13/2018
 ms.author: brjohnst
 ms.openlocfilehash: 998d0f1a84dc9cb2a07fb55286c1089787a263e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80272626"
 ---
 | Tipo de dados | Características permitidas em expressões lambda com`any` | Características permitidas em expressões lambda com`all` |
