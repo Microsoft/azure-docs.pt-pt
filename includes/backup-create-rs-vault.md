@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 6167774171affda7e5469d5852a79657a6da700d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c74783ea8246232cb5c4270691daf3f83fe9a30
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78262516"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82204534"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
@@ -45,10 +45,10 @@ Para criar um cofre dos Serviços de Recuperação, siga estes passos.
    - **Nome**: Introduza um nome amigável para identificar o cofre. O nome deve ser exclusivo da subscrição azure. Especifique um nome que tenha pelo menos 2, mas não mais de 50 caracteres. O nome deve começar com uma letra e consistir apenas em letras, números e hífenes.
    - **Subscrição**: Escolha a subscrição para utilizar. Se for membro de apenas uma subscrição, verá esse nome. Se não tiver a certeza de qual subscrição utilizar, utilize a subscrição predefinida (sugerida). Existem várias opções apenas se o seu trabalho ou conta escolar estiver associado a mais de uma subscrição Azure.
    - **Grupo de recursos**: Utilize um grupo de recursos existente ou crie um novo. Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **Use existente**, e, em seguida, selecione um recurso da lista de drop-down. Para criar um novo grupo de recursos, selecione **Criar novo** e insira o nome. Para mais informações sobre grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../articles/azure-resource-manager/management/overview.md).
-   - **Localização**: Selecione a região geográfica para o cofre. Para criar um cofre para proteger máquinas virtuais, o cofre *deve* estar na mesma região que as máquinas virtuais.
+   - **Localização**: Selecione a região geográfica para o cofre. Para criar um cofre para proteger qualquer fonte de dados, o cofre *deve* estar na mesma região que a fonte de dados.
 
       > [!IMPORTANT]
-      > Se não tiver a certeza da localização do seu VM, feche a caixa de diálogo. Vá à lista de máquinas virtuais no portal. Se tiver máquinas virtuais em várias regiões, crie um cofre de Serviços de Recuperação em cada região. Crie o cofre no primeiro local, antes de criar o cofre para outro local. Não há necessidade de especificar contas de armazenamento para armazenar os dados de reserva. O cofre dos Serviços de Recuperação e o cabo de backup Azure que automaticamente.
+      > Se não tiver a certeza da localização da sua fonte de dados, feche a caixa de diálogo. Vá à lista dos seus recursos no portal. Se tiver fontes de dados em várias regiões, crie um cofre de Serviços de Recuperação para cada região. Crie o cofre no primeiro local antes de criar o cofre para outro local. Não há necessidade de especificar contas de armazenamento para armazenar os dados de reserva. O cofre dos Serviços de Recuperação e o cabo de backup Azure que automaticamente.
       >
       >
 
