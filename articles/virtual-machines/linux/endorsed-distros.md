@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: guybo
 ms.openlocfilehash: ed7755251feb04a5f811d6ed96b00a347fba8994
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605914"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuições de Linux endossadas no Azure
