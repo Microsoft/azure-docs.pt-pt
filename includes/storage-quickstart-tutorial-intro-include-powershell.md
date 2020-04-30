@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 1f8f8d314a8bb37a08b3696f597b395a8a4beb8e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67184483"
 ---
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -35,7 +35,7 @@ $resourceGroup = "myResourceGroup"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Crie uma conta de armazenamento padrão com replicação LRS utilizando [new-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Em seguida, obtenha o contexto da conta de armazenamento que define a conta de armazenamento que pretende utilizar. Ao realizar ações em contas de armazenamento, referencia o contexto em vez de transmitir repetidamente as credenciais. Utilize o exemplo a seguir para criar uma conta de armazenamento denominada *mystorageaccount* com armazenamento localmente redundante (LRS) e encriptação de blobs (ativada por predefinição).
 
