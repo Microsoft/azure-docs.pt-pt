@@ -9,10 +9,10 @@ ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239575"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
@@ -56,7 +56,7 @@ Em primeiro lugar, crie um grupo de recursos para conter os recursos necessário
 
 O grupo de recursos contém todos os recursos para o tutorial.
 
-1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No menu do portal Azure, selecione **grupos de Recursos** ou procure e selecione *grupos de Recursos* a partir de qualquer página. Em seguida, selecione **Adicionar**.
 3. Para o nome do **grupo Resource,** insira *Test-FW-RG*.
 4. Em **Subscrição**, selecione a sua subscrição.

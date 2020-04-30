@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7047dfd0f02ffe95dcacfdf4ddc014047a338513
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79481199"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilização de Procuração de Aplicação AD Azure para publicar aplicações no local para utilizadores remotos
@@ -191,7 +191,7 @@ Até este momento, focamo-nos em usar o Application Proxy para publicar aplicaç
 
 A forma como trabalhamos e as ferramentas que usamos estão a mudar rapidamente. Com mais colaboradores a trazerem os seus próprios dispositivos para o trabalho e a utilização generalizada de aplicações de Software-as-a-Service (SaaS), a forma como as organizações gerem e asseguram os seus dados também deve evoluir. As empresas já não operam apenas dentro das suas próprias muralhas, protegidas por um fosso que rodeia a sua fronteira. Os dados viajam para mais locais do que nunca, tanto em ambientes no local como em ambientes de nuvem. Esta evolução tem ajudado a aumentar a produtividade e a capacidade de colaboração dos utilizadores, mas também torna a proteção de dados sensíveis mais desafiante.
 
-Quer esteja a utilizar a AD Azure para gerir os utilizadores num cenário de coexistência híbrida ou se está interessado em iniciar a sua viagem até à nuvem, implementar a Aplicação AD Proxy do Azure pode ajudar a reduzir o tamanho da sua pegada no local, fornecendo controlo remoto acesso como serviço.
+Quer esteja a utilizar a AD Azure para gerir os utilizadores num cenário de coexistência híbrida ou se está interessado em iniciar a sua viagem até à nuvem, implementar a Aplicação AD Proxy do Azure pode ajudar a reduzir o tamanho da sua pegada no local, fornecendo acesso remoto como serviço.
 
 As organizações devem começar hoje a aproveitar-se da App Proxy para aproveitar os seguintes benefícios:
 

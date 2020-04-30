@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d2b1d9748b243dcc2104ce7b8e0e8735a7b7276f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79497671"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>O que é o Azure Active Directory Identity Protection?
@@ -28,7 +28,7 @@ A Proteção de Identidade é uma ferramenta que permite às organizações real
 
 A Identity Protection utiliza as aprendizagens que a Microsoft adquiriu a partir da sua posição em organizações com a Azure AD, o espaço de consumo com as Contas Microsoft e em jogos com a Xbox para proteger os seus utilizadores. A Microsoft analisa 6,5 biliões de sinais por dia para identificar e proteger os clientes de ameaças.
 
-Os sinais gerados e alimentados à Proteção de Identidade podem ser ainda alimentados em ferramentas como acesso condicional para tomar decisões de acesso, ou devolvidos a uma ferramenta de informação de segurança e gestão de eventos (SIEM) para uma investigação mais aprofundada com base na da sua organização políticas aplicadas.
+Os sinais gerados e alimentados à Proteção de Identidade podem ser ainda alimentados em ferramentas como o Acesso Condicional para tomar decisões de acesso, ou devolvidos a uma ferramenta de informação de segurança e gestão de eventos (SIEM) para uma investigação mais aprofundada com base nas políticas impostas pela sua organização.
 
 ## <a name="why-is-automation-important"></a>Porque é que a automação é importante?
 

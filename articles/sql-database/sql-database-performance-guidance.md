@@ -12,10 +12,10 @@ ms.author: carlrab
 ms.reviewer: carlrab; jrasnick
 ms.date: 03/10/2020
 ms.openlocfilehash: 4f30ebe39d86db7076baa8c29b2a5cf060b07bf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255954"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Sintonize aplicações e bases de dados para o desempenho na Base de Dados Azure SQL
@@ -243,7 +243,7 @@ Uma vez que a Base de Dados Azure SQL funciona em hardware de mercadoria, os lim
 > [!NOTE]
 > A Base de Dados SQL fornece agora uma biblioteca para ajudar com o sharding. Para mais informações, consulte a visão geral da biblioteca do [cliente da Elástico.](sql-database-elastic-database-client-library.md)
 
-Por exemplo, se uma base de dados tiver nome, encomenda e detalhes de encomenda (como a base de dados tradicional do Northwind que envia com O Servidor SQL), pode dividir estes dados em várias bases de dados agrupando um cliente com o detalhe de encomendas e encomendas relacionados informação. Pode garantir que os dados do cliente se mantenham numa base de dados individual. A aplicação dividiria diferentes clientes através de bases de dados, efetivamente espalhando a carga através de várias bases de dados. Com o sharding, os clientes não só podem evitar o limite máximo de tamanho da base de dados, como também a Base de Dados Azure SQL também pode processar cargas de trabalho significativamente maiores do que os limites dos diferentes tamanhos de computação, desde que cada base de dados individual se encaixe no seu DTU.
+Por exemplo, se uma base de dados tiver dados sobre o nome do cliente, encomenda e encomenda (como a base de dados tradicional de Northwind que envia com O Servidor SQL), poderá dividir estes dados em várias bases de dados agrupando um cliente com as informações relacionadas sobre a encomenda e os detalhes da encomenda. Pode garantir que os dados do cliente se mantenham numa base de dados individual. A aplicação dividiria diferentes clientes através de bases de dados, efetivamente espalhando a carga através de várias bases de dados. Com o sharding, os clientes não só podem evitar o limite máximo de tamanho da base de dados, como também a Base de Dados Azure SQL também pode processar cargas de trabalho significativamente maiores do que os limites dos diferentes tamanhos de computação, desde que cada base de dados individual se encaixe no seu DTU.
 
 Embora a base de dados não reduza a capacidade de recursos agregados para uma solução, é altamente eficaz em suportar soluções muito grandes que estão espalhadas por várias bases de dados. Cada base de dados pode funcionar com um tamanho de computação diferente para suportar bases de dados muito grandes e "eficazes" com elevados requisitos de recursos.
 

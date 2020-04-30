@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79278197"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostics in Durable Functions in Azure (Diagnósticos no Durable Functions no Azure)
@@ -381,7 +381,7 @@ As Funções Azure suportam diretamente o código de função de depuração, e 
 > [!TIP]
 > Ao definir pontos de rutura em funções orquestradoras, se quiser apenas quebrar a execução de não repetição, pode definir um ponto de rutura condicional que só se rompe se `IsReplaying` for `false`.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 Por predefinição, as Lojas Durable Stores state in Azure Storage. Este comportamento significa que pode inspecionar o estado das suas orquestrações utilizando ferramentas como o [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/09/2020
 ms.openlocfilehash: 97ce402045cfd2c990b457c5d4d06888cda632d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255993"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Escolha entre os modelos de compra vCore e DTU
@@ -158,7 +158,7 @@ Se uma base de dados for transferida para hardware diferente, o desempenho da ca
 
 No entanto, em todo o vasto espectro de cargas de trabalho dos clientes em funcionamento na Base de Dados Azure SQL, o impacto da utilização de hardware diferente para o mesmo objetivo de serviço pode ser mais pronunciado. Diferentes cargas de trabalho beneficiarão de diferentes configurações e funcionalidades de hardware. Portanto, para cargas de trabalho que não o referencial DTU, é possível ver diferenças de desempenho se a base de dados passar de uma geração de hardware para outra.
 
-Por exemplo, uma aplicação sensível à latência da rede pode ver um melhor desempenho no hardware Gen5 vs. Gen4 devido ao uso de Networking Acelerado em Gen5, mas uma aplicação usando IO de leitura intensiva pode ver um melhor desempenho no hardware Gen4 vs. Gen5 devido a maior memória por relação do núcleo na Gen4.
+Por exemplo, uma aplicação sensível à latência da rede pode ver um melhor desempenho no hardware Gen5 vs. Gen4 devido ao uso de Networking Acelerado em Gen5, mas uma aplicação usando IO de leitura intensiva pode ver um melhor desempenho no hardware Gen4 vs. Gen5 devido a uma maior relação de memória por núcleo na Gen4.
 
 Os clientes com cargas de trabalho sensíveis a alterações de hardware, ou clientes que desejem controlar a escolha da geração de hardware para a sua base de dados, podem utilizar o modelo [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) para escolher a sua geração de hardware preferida durante a criação e escalagem da base de dados. No modelo vCore, são documentados os limites de recursos de cada objetivo de serviço em cada geração de hardware, tanto para bases de [dados únicas](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) como [para piscinas elásticas.](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) Para obter mais informações sobre gerações de hardware no modelo vCore, consulte [Gerações de Hardware](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
 

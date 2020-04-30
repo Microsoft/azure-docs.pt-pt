@@ -9,10 +9,10 @@ ms.date: 02/21/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: aee5195fe86fed3e631908a38d3bdb7d5e4883b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79365224"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão
@@ -46,7 +46,7 @@ Se já criou um anfitrião e vMs de anfitrião de sessão usando a [oferta do Az
 
 Aqui está como reimplantar o modelo do Gestor de Recursos Azure para expandir um pool de anfitriões:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. A partir da barra de pesquisa no topo do portal Azure, procure **por grupos de Recursos** e selecione o item em **Serviços**.
 3. Encontre e selecione o grupo de recursos que criou quando fez a piscina anfitriã.
 4. No painel do lado esquerdo do navegador, selecione **Implementações**.

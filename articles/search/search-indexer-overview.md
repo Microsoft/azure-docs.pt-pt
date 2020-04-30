@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2719bba0e88ba3125bd5ba163804e31885b286a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282994"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores na Pesquisa Cognitiva do Azure
@@ -32,7 +32,7 @@ Pode criar e gerir indexadores com estas abordagens:
 
 * [Portal > Assistente de Dados de Importação](search-import-data-portal.md)
 * [API REST do Serviço](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations)
+* [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations)
 
 Inicialmente, um indexador novo é anunciado como uma funcionalidade de pré-visualização. As funcionalidades de pré-visualização são introduzidas em APIs (REST e .NET) e, em seguida, são integradas no portal, após passarem para disponibilidade geral. Se estiver a avaliar um indexador novo, deverá planear sobre como escrever código.
 
@@ -46,7 +46,7 @@ Todas as operações relacionadas com os indexadores, incluindo pedidos de estat
 
 Os indexadores rastejam lojas de dados no Azure.
 
-* [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
+* [Armazenamento Azure Blob](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (em pré-visualização)
 * [Table Storage do Azure](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
@@ -130,7 +130,7 @@ Agora que tem uma noção básica, o passo seguinte é rever os requisitos e as 
 
 * [Base de Dados SQL ou SQL Server do Azure numa máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
+* [Armazenamento Azure Blob](search-howto-indexing-azure-blob-storage.md)
 * [Table Storage do Azure](search-howto-indexing-azure-tables.md)
 * [Indexação de bolhas CSV usando o indexante de blob de pesquisa cognitiva Azure](search-howto-index-csv-blobs.md)
 * [Bolhas JSON indexantes com indexador de blob de pesquisa cognitiva Azure](search-howto-index-json-blobs.md)

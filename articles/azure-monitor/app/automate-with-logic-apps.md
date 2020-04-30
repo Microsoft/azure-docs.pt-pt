@@ -4,10 +4,10 @@ description: Saiba como pode automatizar rapidamente processos repetíveis adici
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.openlocfilehash: 4a0944e661932d86fac75f78c4faf5be751806c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79473171"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizar processos de insights de aplicação utilizando aplicações lógicas
@@ -26,7 +26,7 @@ Também pode adicionar ações adicionais. A funcionalidade de Aplicações Lóg
 Neste tutorial, aprende-se a criar uma aplicação lógica que utiliza o algoritmo de autocluster Analytics para atributos de grupo nos dados de uma aplicação web. O fluxo envia automaticamente os resultados por e-mail, apenas um exemplo de como pode utilizar as Aplicações Insights Analytics e Logic Apps em conjunto. 
 
 ### <a name="step-1-create-a-logic-app"></a>Passo 1: Criar uma aplicação lógica
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Clique **em Criar um recurso,** selecione Web + **Mobile,** e depois selecione **Logic App**.
 
     ![Nova janela de aplicativo lógica](./media/automate-with-logic-apps/1createlogicapp.png)

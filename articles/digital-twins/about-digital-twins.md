@@ -10,10 +10,10 @@ ms.service: digital-twins
 services: digital-twins
 ms.custom: mvc
 ms.openlocfilehash: 91386eaf7753f2aefada2d1423a11b366c3ee924
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79370904"
 ---
 # <a name="overview-of-azure-digital-twins-preview"></a>Visão geral da pré-visualização de gémeos digitais Azure

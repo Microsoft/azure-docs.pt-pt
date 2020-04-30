@@ -12,10 +12,10 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dd7b412e99526935738c2494d31a16fded7101a6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240787"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory?
@@ -51,7 +51,7 @@ Para melhorar a sua implementação de Anúncios Azure, também pode adicionar c
 
 - **Azure Ative Directory Free.** Fornece gestão de utilizador e grupo, sincronização de directóriono no local, relatórios básicos, mudança de senha de autosserviço para utilizadores de nuvem, e inscrição única em Azure, Office 365, e muitas aplicações populares do SaaS.
 
-- **Azure Active Directory Premium P1.** Além das funcionalidades Gratuitas, o P1 também permite aos seus utilizadores híbridos aceder em recursos tanto no local como na nuvem. Também suporta administração avançada, tais como grupos dinâmicos, gestão de grupos de self-service, Microsoft Identity Manager (um suite de gestão de identidade e acesso no local) e capacidades de redisagem em nuvem, que permitem o reset de senha de autosserviço para seus utilizadores no local.
+- **Azure Active Directory Premium P1.** Além das funcionalidades Gratuitas, o P1 também permite aos seus utilizadores híbridos aceder em recursos tanto no local como na nuvem. Também suporta administração avançada, como grupos dinâmicos, gestão de grupos de self-service, Microsoft Identity Manager (um suite de gestão de identidade e acesso no local) e capacidades de redistente de nuvem, que permitem o reset de senha de autosserviço para os seus utilizadores no local.
 
 - **Azure Active Directory Premium P2.** Além das funcionalidades Free e P1, o P2 também oferece proteção de identidade de [diretório ativo Azure](../identity-protection/overview-identity-protection.md) para ajudar a fornecer acesso condicional baseado em risco às suas apps e dados críticos da empresa e [Gestão de Identidade Privilegiada](../privileged-identity-management/pim-getting-started.md) para ajudar a descobrir, restringir e monitorizar os administradores e o seu acesso aos recursos e fornecer acesso justo no tempo quando necessário.
 

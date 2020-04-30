@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 01/10/2020
 ms.openlocfilehash: de8611e53339d38a03836bc9272ad42ff88a59b8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79371431"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Quickstart: Encontre quartos disponíveis utilizando gémeos digitais Azure

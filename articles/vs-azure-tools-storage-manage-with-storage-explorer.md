@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279796"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de Armazenamento
@@ -123,7 +123,7 @@ Existem várias formas de anexar a um recurso no Explorador de Armazenamento:
 
 1. **Selecione Adicionar um recurso via Azure Ative Directory (Azure AD)** e, em seguida, selecione **Next**.
 
-1. Selecione uma conta Azure e um inquilino. Estes valores devem ter acesso ao recurso de armazenamento a que pretende anexar. Selecione **Next**.
+1. Selecione uma conta Azure e um inquilino. Estes valores devem ter acesso ao recurso de armazenamento a que pretende anexar. Selecione **Seguinte**.
 
 1. Escolha o tipo de recurso que pretende anexar. Introduza as informações necessárias para se ligar. 
 
@@ -155,7 +155,7 @@ Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o n
 
 1. Selecione Utilize uma assinatura de **acesso partilhado (SAS) URI**e, em seguida, selecione **Next**.
 
-1. Escolha um nome de exibição para a sua ligação e introduza a sua assinatura de acesso partilhado URI. O ponto final de serviço para o tipo de recurso que está a prender deve encher automaticamente. Se estáa a usar um ponto final personalizado, é possível que não. Selecione **Next**.
+1. Escolha um nome de exibição para a sua ligação e introduza a sua assinatura de acesso partilhado URI. O ponto final de serviço para o tipo de recurso que está a prender deve encher automaticamente. Se estáa a usar um ponto final personalizado, é possível que não. Selecione **Seguinte**.
 
 1. Reveja o resumo da **ligação** para se certificar de que todas as informações estão corretas. Se for, selecione **Connect**. Caso contrário, selecione **Voltar** às páginas anteriores para corrigir qualquer informação incorreta.
 

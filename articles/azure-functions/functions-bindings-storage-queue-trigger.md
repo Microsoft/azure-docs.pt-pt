@@ -7,10 +7,10 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 74ca984232bef979062221a451d0ee10a6965bc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277378"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento de fila azure para funções azure
@@ -142,7 +142,7 @@ module.exports = async function (context, message) {
 
 A secção de `myQueueItem` [utilização](#usage) explica, `name` que é nomeada pela propriedade em função.json.  A secção de metadados de [mensagens](#message-metadata) explica todas as outras variáveis mostradas.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo seguinte demonstra como ler uma mensagem de fila passada para uma função através de um gatilho.
 
@@ -274,7 +274,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
@@ -349,7 +349,7 @@ Se tentar ligar-se `CloudQueueMessage` e obter uma mensagem de erro, certifique-
 
 A carga útil do item da fila está disponível através `context.bindings.<NAME>` do local onde `<NAME>` corresponde ao nome definido na *função.json*. Se a carga útil for JSON, o valor é desserializado num objeto.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Aceda à mensagem de fila através do parâmetro digitado como [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
 

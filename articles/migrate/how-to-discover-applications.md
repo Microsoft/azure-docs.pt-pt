@@ -4,10 +4,10 @@ description: Saiba como descobrir aplicações, papéis e funcionalidades em ser
 ms.topic: article
 ms.date: 03/12/2020
 ms.openlocfilehash: e8ce279afc845ebf37ad4ab8b2ce7236cb18137a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79453587"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descubra aplicações, papéis e funcionalidades de máquinas

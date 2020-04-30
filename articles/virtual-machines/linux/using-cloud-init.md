@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danis
 ms.openlocfilehash: 1f0395956fa6977be5d1d6f4f4faf06b84c094d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79465044"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>suporte cloud-init para máquinas virtuais em Azure
@@ -83,7 +83,7 @@ Wala é um agente específico da plataforma Azure usado para fornecer e configur
 
 Estamos a reforçar a tarefa de configurar vMs para usar cloud-init em vez do Agente Linux, de modo a permitir que os clientes existentes em cloud-init utilizem os seus scripts de cloud-init atuais, ou novos clientes para aproveitar a rica funcionalidade de configuração cloud-init. Se tiver investimentos existentes em scripts de cloud-init para configurar sistemas Linux, **não existem configurações adicionais necessárias** para permitir o seu processo de init em nuvem. 
 
-Cloud-init não pode processar extensões Azure, por isso wala ainda é necessário na imagem para processar extensões, mas terá que ter o seu código de fornecimento desativado, para imagens de distros linux endossadas que estão sendo convertidas para fornecer por cloud-init, eles terão WALA instalado, e configurar corretamente.
+Cloud-init não pode processar extensões Azure, por isso wala ainda é necessário na imagem para processar extensões, mas terá que ter o seu código de fornecimento desativado, para imagens de distros linux endossadas que estão sendo convertidas para fornecer por cloud-init, eles terão WALA instalado, e configuração corretamente.
 
 Ao criar um VM, se não incluir `--custom-data` o interruptor Azure CLI no tempo de provisionamento, o cloud-init ou o WALA retira os parâmetros mínimos de fornecimento de VM necessários para fornecer o VM e completar a implementação com os defeitos.  Se consultar a configuração cloud-init com o `--custom-data` interruptor, o que estiver contido nos seus dados personalizados estará disponível para init em nuvem quando as botas VM.
 

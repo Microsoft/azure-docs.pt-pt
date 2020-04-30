@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 00d260a74807774d5bf226c3ec00a6b84f93b8d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248349"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gerir os recursos do Azure utilizando o portal Azure
@@ -33,7 +33,7 @@ Os recursos azure são organizados pelos serviços azure e por grupos de recurso
 
 Para abrir um recurso pelo tipo de serviço:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No painel esquerdo, selecione o serviço Azure. Neste caso, contas de **armazenamento.**  Se não vir o serviço listado, selecione **Todos os serviços**e, em seguida, selecione o tipo de serviço.
 
     ![recurso azure aberto no portal](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
@@ -48,7 +48,7 @@ Para abrir um recurso pelo tipo de serviço:
 
 Para abrir um recurso por grupo de recursos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No painel esquerdo, selecione **Grupos de Recursos** para listar o recurso dentro do grupo.
 3. Selecione o recurso que pretende abrir. 
 

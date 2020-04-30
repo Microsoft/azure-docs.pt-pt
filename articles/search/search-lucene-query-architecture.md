@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282942"
 ---
 # <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Como funciona a pesquisa em texto completo no Azure Cognitive Search
@@ -353,7 +353,7 @@ O documento 1 correspondia melhor à consulta porque tanto o termo *espaçoso* c
 
 Alguns tipos de consultas (wildcard, prefixo, regex) sempre contribuem com uma pontuação constante para a pontuação geral do documento. Isto permite que os fósforos encontrados através da expansão da consulta sejam incluídos nos resultados, mas sem afetar o ranking. 
 
-Um exemplo ilustra porque é que isto importa. As pesquisas wildcard, incluindo pesquisas prefixos, são ambíguas por definição porque a entrada é uma cadeia parcial com potenciais fósforos em um número muito grande de termos díspares (considere uma entrada de "tour*", com fósforos encontrados em "tours", "tourettes" e " tourmaline"). Dada a natureza destes resultados, não há forma de inferir razoavelmente quais os termos mais valiosos do que outros. Por esta razão, ignoramos as frequências de termo quando a pontuação resulta em consultas de tipos wildcard, prefixo e regex. Num pedido de pesquisa em várias partes que inclui termos parciais e completos, os resultados da entrada parcial são incorporados com uma pontuação constante para evitar distorções para partidas potencialmente inesperadas.
+Um exemplo ilustra porque é que isto importa. As pesquisas wildcard, incluindo pesquisas prefixos, são ambíguas por definição porque a entrada é uma cadeia parcial com potenciais fósforos em um número muito grande de termos díspares (considere uma entrada de "tour*", com fósforos encontrados em "tours", "tourettes" e "tourmaline"). Dada a natureza destes resultados, não há forma de inferir razoavelmente quais os termos mais valiosos do que outros. Por esta razão, ignoramos as frequências de termo quando a pontuação resulta em consultas de tipos wildcard, prefixo e regex. Num pedido de pesquisa em várias partes que inclui termos parciais e completos, os resultados da entrada parcial são incorporados com uma pontuação constante para evitar distorções para partidas potencialmente inesperadas.
 
 ### <a name="score-tuning"></a>Afinação de pontuação
 

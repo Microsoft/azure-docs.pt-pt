@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: cc3f38e9bb96ce76263a3124f8bfdc49dc638bfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282760"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral da importação de dados - Pesquisa Cognitiva Azure
@@ -73,7 +73,7 @@ O formato para o POST é o mesmo, contudo, apenas com a versão de API nos parâ
 O modelo de extração pesquisa uma origem de dados suportada e carrega automaticamente os dados para o seu índice. Na Pesquisa Cognitiva Azure, esta capacidade é implementada através de *indexadores*, atualmente disponíveis para estas plataformas:
 
 + [Armazenamento de blobs](search-howto-indexing-azure-blob-storage.md)
-+ [Armazenamento de tabelas](search-howto-indexing-azure-tables.md)
++ [Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
 + [Base de Dados SQL do Azure e SQL Server em VMs do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
