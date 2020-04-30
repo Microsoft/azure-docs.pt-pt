@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gwallace
 ms.openlocfilehash: 43352117d149abbe41ba7bf49a1ffb68e46d2707
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277131"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
-Pode utilizar algumas tecnologias diferentes para implementar o seu código de projeto Funções Azure para o Azure. Este artigo fornece uma lista exaustiva dessas tecnologias, descreve quais as tecnologias disponíveis para as quais os sabores das Funções, explica o que acontece quando se utiliza cada método, e fornece recomendações para o melhor método de utilização em vários cenários . As várias ferramentas que suportam a implantação para as Funções Azure estão sintonizadas com a tecnologia certa com base no seu contexto. Em geral, a implantação de zip é a tecnologia de implantação recomendada para funções Azure.
+Pode utilizar algumas tecnologias diferentes para implementar o seu código de projeto Funções Azure para o Azure. Este artigo fornece uma lista exaustiva dessas tecnologias, descreve quais as tecnologias disponíveis para as quais os sabores das Funções, explica o que acontece quando se utiliza cada método, e fornece recomendações para o melhor método de utilização em vários cenários. As várias ferramentas que suportam a implantação para as Funções Azure estão sintonizadas com a tecnologia certa com base no seu contexto. Em geral, a implantação de zip é a tecnologia de implantação recomendada para funções Azure.
 
 ## <a name="deployment-technology-availability"></a>Disponibilidade de tecnologia de implantação
 
@@ -173,7 +173,7 @@ No editor baseado no portal, pode editar diretamente os ficheiros que estão na 
 
 >__Quando usá-lo:__ O portal é uma boa maneira de começar com as Funções Azure. Para um trabalho de desenvolvimento mais intenso, recomendamos que utilize uma das seguintes ferramentas de cliente:
 >
->* [Código de estúdio visual](functions-create-first-function-vs-code.md)
+>* [Visual Studio Code](functions-create-first-function-vs-code.md)
 >* [Ferramentas nucleares de funções azure (linha de comando)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 

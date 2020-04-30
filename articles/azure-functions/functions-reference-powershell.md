@@ -5,10 +5,10 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276741"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvimento de funções Azure PowerShell
@@ -127,7 +127,7 @@ Os seguintes parâmetros `Push-OutputBinding`são válidos para a chamada:
 
 | Nome | Tipo | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Cadeia | 1 | O nome da ligação de saída que quer definir. |
+| **`-Name`** | String | 1 | O nome da ligação de saída que quer definir. |
 | **`-Value`** | Objeto | 2 | O valor da ligação de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
 | **`-Clobber`** | ParâmetroOpcional | Nomeado | (Opcional) Quando especificado, força o valor a definir para uma ligação de saída especificada. | 
 

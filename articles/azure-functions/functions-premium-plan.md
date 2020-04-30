@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
 ms.openlocfilehash: dd7f6d0760f2b848435e7c77657e261517d29dd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276910"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium de Funções Azure
@@ -88,7 +88,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 Ao criar ou escalar o seu plano, pode escolher entre três tamanhos de instância.  Será cobrado pelo número total de núcleos e memória consumidos por segundo.  A sua aplicação pode automaticamente dimensionar para várias instâncias, se necessário.  
 
-|SKU|Núcleos|Memória|Storage|
+|SKU|Núcleos|Memória|Armazenamento|
 |--|--|--|--|
 |EP1|1|3.5GB|250GB|
 |EP2|2|7GB|250GB|

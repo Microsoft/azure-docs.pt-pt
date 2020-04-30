@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256799"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para um site secundário
@@ -79,7 +79,7 @@ VM convidado - Windows/Linux - Endereço IP estático | Sim
 VM convidado - Multi-NIC | Sim
 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 ### <a name="host-storage"></a>Armazenamento de hospedeiro
 
@@ -121,7 +121,7 @@ Movimentar armazenamento, rede, VMs Azure através de grupos de recursos (dentro
 
 O serviço mobility coordena a replicação entre servidores VMware no local ou servidores físicos, e o site secundário. Ao configurar a replicação, deve certificar-se de que tem a versão mais recente do serviço mobility e de outros componentes.
 
-| **Atualização** | **Detalhes** |
+| **Atualizar** | **Detalhes** |
 | --- | --- |
 |Atualizações de escuteiros | As atualizações dos escuteiros são cumulativas. <br/><br/> [Saiba e descarregue](vmware-physical-secondary-disaster-recovery.md#updates) as últimas atualizações de Scout |
 |Atualizações de componentes | As atualizações de scout incluem atualizações para todos os componentes, incluindo o servidor RX, servidor de configuração, servidor de processos e servidores-alvo principais, servidores vContinuum e servidores de origem que pretende proteger.<br/><br/> [Saiba mais](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|

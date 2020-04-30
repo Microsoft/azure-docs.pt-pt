@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276481"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário Microsoft Azure: Um dicionário de terminologia em nuvem na plataforma Azure
@@ -102,7 +102,7 @@ Ver [visão geral do Gestor de Recursos azure](azure-resource-manager/management
 Um contentor em Gestor de Recursos que detém recursos relacionados para uma aplicação. O grupo de recursos pode incluir todos os recursos para uma aplicação, ou apenas os recursos que estão logicamente agrupados. Pode decidir como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização.  
 Ver [visão geral do Gestor de Recursos azure](azure-resource-manager/management/overview.md)
 
-## <a name="resource-manager-template"></a><a name="arm-template"></a>Modelo de Gestor de Recursos
+## <a name="resource-manager-template"></a><a name="arm-template"></a>Modelo do Resource Manager
 Um ficheiro JSON que define declarativamente um ou mais recursos Azure e que define dependências entre os recursos implantados. O modelo pode ser utilizado para implementar os recursos de forma consistente e repetida.  
 Ver [modelos de Gestor de Recursos Azure de Autoria](resource-group-authoring-templates.md)
 
