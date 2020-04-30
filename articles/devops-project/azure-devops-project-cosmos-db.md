@@ -1,26 +1,25 @@
 ---
-title: 'Tutorial: Implementar aplicações node.js alimentadas por Azure Cosmos DB com projetos Azure DevOps'
-description: A Azure DevOps Projects facilita o início do Azure. Com projetos DevOps, você pode implementar a sua app Node.js que é alimentada por Azure Cosmos DB para Windows Web App em alguns passos rápidos.
+title: 'Tutorial: Implementar aplicações node.js alimentadas por Azure Cosmos DB com Starter Azure DevOps'
+description: O Arranque azure DevOps facilita o arranque do Azure. Com o DevOps Starter, pode implementar a sua aplicação Node.js que é alimentada por Azure Cosmos DB para windows Web App em alguns passos rápidos.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 03/24/2020
 author: mlearned
-monikerRange: vsts
-ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 07579cf22738e195e3e4ae7a2aa18ffeb885bbe2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73888891"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233269"
 ---
-# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Implementar aplicativos Node.js alimentados por Azure Cosmos DB com Projetos DevOps
+# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Implementar aplicativos Node.js alimentados por Azure Cosmos DB com DevOps Starter
 
-O Azure DevOps Projects oferece uma experiência simplificada onde pode criar um oleoduto de integração contínua (CI) e de implantação contínua (CD) para o Azure. Fá-lo utilizando o código existente e o repositório Git (repo) ou selecionando uma aplicação de amostra.
+O Azure DevOps Starter oferece uma experiência simplificada onde pode criar um oleoduto de integração contínua (CI) e de implantação contínua (CD) para o Azure. Fá-lo utilizando o código existente e o repositório Git (repo) ou selecionando uma aplicação de amostra.
 
-Projetos DevOps também:
+DevOps Starter também:
 
 * Cria automaticamente recursos Azure, tais como Azure Cosmos DB, Azure Application Insights, Azure App Service e app service
 
@@ -29,7 +28,7 @@ Projetos DevOps também:
 Neste tutorial, irá:
 
 > [!div class="checklist"]
-> * Use Projetos DevOps para implementar uma app Node.js alimentada pela Azure Cosmos DB
+> * Use DevOps Starter para implementar uma app Node.js alimentada por Azure Cosmos DB
 > * Configure Azure DevOps e uma subscrição Azure
 > * Examine Azure Cosmos DB
 > * Examinar o pipeline de CI
@@ -41,17 +40,15 @@ Neste tutorial, irá:
 
 Você precisa de uma subscrição Azure, que você pode obter através [do Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) gratuitamente.
 
-## <a name="use-devops-projects-to-deploy-nodejs-app"></a>Use projetos DevOps para implementar app Node.js
+## <a name="use-devops-starter-to-deploy-nodejs-app"></a>Use devOps Starter para implementar app Node.js
 
-A DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode criar uma nova organização Azure DevOps ou usar uma organização existente. A DevOps Projects também cria recursos Azure, tais como Azure Cosmos DB, Application Insights, App Service e App Service, na subscrição Azure à sua escolha.
+DevOps Starter cria um oleoduto CI/CD em Pipelines Azure. Você pode criar uma nova organização Azure DevOps ou usar uma organização existente. A DevOps Starter também cria recursos Azure, tais como Azure Cosmos DB, Application Insights, App Service e App Service, na subscrição Azure à sua escolha.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. No painel esquerdo, selecione **Criar um recurso**.
+1. Na caixa de pesquisa, digite **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
-1. Na caixa de pesquisa, introduza **Projetos DevOps,** e, em seguida, **selecione Adicionar**.
-
-   ![Painel de Projetos DevOps](_img/azure-devops-project-cosmos-db/devops-project.png)
+    ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. Selecione **Node.js** como o tempo de execução e, em seguida, selecione **Next**. Em **'Escolha uma estrutura de aplicação**', selecione **Express.js**.
 
@@ -59,7 +56,7 @@ A DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode criar um
 
     ![Adicione uma base de dados](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    A Azure DevOps Projects apoia vários quadros de aplicações, tais como **express.js,** **sample node.js app**, e **Sail.js**. Neste tutorial, usamos **Express.js.**
+    O Azure DevOps Starter suporta vários quadros de aplicações, tais como **express.js,** **sample node.js app**, e **Sail.js**. Neste tutorial, usamos **Express.js.**
 
 1. Selecione um serviço Azure para implementar a aplicação e, em seguida, selecione **Next**. As suas opções incluem Windows Web App, Serviço Azure Kubernetes e Web App Azure para contentores. Neste tutorial, utilizamos a **Aplicação Web do Windows**.
 
@@ -77,17 +74,17 @@ A DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode criar um
 
 1. O processo termina passados alguns minutos. Uma aplicação node.js de amostra é configurada num repo Git na sua organização Azure DevOps. Em seguida, Azure Cosmos DB, App Service, App Service plan e Application Insights recursos são criados, bem como um pipeline CI/CD. A sua aplicação é então implantada para o Azure.
 
-   Depois de todos estes processos terminarem, o painel de instrumentos do Projeto Azure DevOps exibe no portal Azure. Você também pode ir ao dashboard DevOps Projects diretamente de **todos os recursos** no portal Azure.
+   Depois de todos estes processos terminarem, o painel de instrumentos de arranque Azure DevOps exibe no portal Azure. Também pode ir ao painel de arranque de DevOps diretamente de **todos os recursos** no portal Azure.
 
    Este dashboard proporciona visibilidade no seu repositório de código Azure DevOps, no seu pipeline CI/CD e na sua base de dados Azure Cosmos DB. Pode configurar opções adicionais de CI/CD no seu pipeline Azure DevOps. No lado direito do tablier, selecione **Azure Cosmos DB** para ver estas opções.
 
 ## <a name="examine-azure-cosmos-db"></a>Examine Azure Cosmos DB
 
-DevOps Projects configura automaticamente Azure Cosmos DB, que você pode explorar e personalizar. Para se familiarizar com o Azure Cosmos DB, faça o seguinte:
+DevOps Starter configura automaticamente Azure Cosmos DB, que você pode explorar e personalizar. Para se familiarizar com o Azure Cosmos DB, faça o seguinte:
 
-1. Vá ao painel de projetos DevOps.
+1. Vá ao painel de arranque de DevOps.
 
-    ![Painel de projetos de DevOps](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
+    ![Painel de projetos de DevOps](_img/azure-devops-project-cosmos-db/devops-starter-dashboard.png)
 
 1. À direita, selecione Azure Cosmos DB. Abre-se um painel para o Azure Cosmos DB. Nesta perspetiva, pode realizar várias ações, tais como operações de monitorização e registos de pesquisa.
 
@@ -95,9 +92,9 @@ DevOps Projects configura automaticamente Azure Cosmos DB, que você pode explor
 
 ## <a name="examine-the-ci-pipeline"></a>Examinar o pipeline de CI
 
-Os Projetos DevOps configuram automaticamente um oleoduto CI/CD na sua organização Azure DevOps. Pode explorar e personalizar o pipeline. Para se familiarizar com ele, faça o seguinte:
+DevOps Starter configura automaticamente um pipeline CI/CD na sua organização Azure DevOps. Pode explorar e personalizar o pipeline. Para se familiarizar com ele, faça o seguinte:
 
-1. Vá ao painel de projetos DevOps.
+1. Vá ao painel de arranque de DevOps.
 
 1. Selecione a hiperligação sob **a Build**. Um separador de navegador exibe o pipeline de construção para o seu novo projeto.
 
@@ -105,7 +102,7 @@ Os Projetos DevOps configuram automaticamente um oleoduto CI/CD na sua organiza�
 
 1. Selecione **Editar**. Neste painel, pode examinar as várias tarefas para o seu pipeline de construção. A construção executa várias tarefas, tais como a obtenção do código fonte do repo Git, a construção da aplicação, a execução de testes de unidades e a publicação de saídas que são usadas para implantações.
 
-1. Selecione **Triggers**. A DevOps Projects cria automaticamente um gatilho ci, e cada compromisso com o repo inicia uma nova construção. Pode optar por incluir ou excluir balcões do processo de CI.
+1. Selecione **Triggers**. DevOps Starter cria automaticamente um gatilho CI, e cada compromisso com o repo inicia uma nova construção. Pode optar por incluir ou excluir balcões do processo de CI.
 
 1. Selecione **Retenção**. Dependendo do seu cenário, pode especificar políticas para manter ou remover um determinado número de construções.
 
@@ -117,7 +114,7 @@ Os Projetos DevOps configuram automaticamente um oleoduto CI/CD na sua organiza�
 
 ## <a name="examine-the-cd-release-pipeline"></a>Examine o gasoduto de libertação do CD
 
-Os Projetos DevOps criam e confundem automaticamente os passos necessários para implementar da sua organização Azure DevOps para a sua subscrição Azure. Estes passos incluem configurar uma ligação de serviço Azure para autenticar O Azure DevOps à sua subscrição Azure. A automatização também cria um oleoduto de libertação, que fornece o CD ao Azure. Para saber mais sobre o gasoduto de libertação, faça o seguinte:
+DevOps Starter cria e configura automaticamente os passos necessários para implementar da sua organização Azure DevOps para a sua subscrição Azure. Estes passos incluem configurar uma ligação de serviço Azure para autenticar O Azure DevOps à sua subscrição Azure. A automatização também cria um oleoduto de libertação, que fornece o CD ao Azure. Para saber mais sobre o gasoduto de libertação, faça o seguinte:
 
 1. Vá a **Pipelines** e selecione **Lançamentos**.
 
@@ -150,18 +147,18 @@ Está agora pronto para colaborar com uma equipa na sua aplicação utilizando u
 
 1. No canto superior direito, selecione **Commit**, e, em seguida, selecione **Comprometer** novamente para empurrar a sua mudança.
 
-     Após alguns segundos, uma construção começa em Azure DevOps e uma libertação executa para implementar as alterações. Monitorize o estado de construção no painel de projetos DevOps ou no navegador com a sua organização Azure DevOps.
+     Após alguns segundos, uma construção começa em Azure DevOps e uma libertação executa para implementar as alterações. Monitorize o estado de construção no painel de arranque de DevOps ou no navegador com a sua organização Azure DevOps.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Apague os recursos relacionados que criou quando já não precisa deles. Utilize a funcionalidade **Eliminar** no painel de instrumentos de Projetos DevOps.
+Apague os recursos relacionados que criou quando já não precisa deles. Utilize a funcionalidade **Eliminar** no painel de arranque de DevOps.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Pode modificar estes pipelines de compilação e de lançamento para satisfazer as necessidades da sua equipa. Também pode utilizar este padrão de CI/CD como modelo para outros pipelines. Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Use Projetos DevOps para implementar uma app Node.js alimentada pela Azure Cosmos DB
+> * Use DevOps Starter para implementar uma app Node.js alimentada por Azure Cosmos DB
 > * Configure Azure DevOps e uma subscrição Azure 
 > * Examine Azure Cosmos DB
 > * Examinar o pipeline de CI

@@ -10,18 +10,18 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: laobri
 ms.date: 03/11/2020
-ms.openlocfilehash: 1ccd7a7f33c6ee5cab8b7173d8eb93365b6cb587
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 41d68c58c43262b36b93af0008e7d35de13dff4d
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472225"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562275"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Construa um oleoduto azure machine learning para pontuação de lotes
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Aprenda a construir um oleoduto em Azure Machine Learning para executar um trabalho de pontuação de lote. Os gasodutos de aprendizagem automática otimizam o seu fluxo de trabalho com velocidade, portabilidade e reutilização, para que possa focar-se na aprendizagem automática em vez de infraestrutura e automação. Depois de construir e publicar um pipeline, configura um ponto final REST que pode utilizar para acionar o pipeline a partir de qualquer biblioteca HTTP em qualquer plataforma. 
+Neste tutorial avançado, aprende-se a construir um oleoduto em Azure Machine Learning para executar um trabalho de pontuação em lotes. Os gasodutos de aprendizagem automática otimizam o seu fluxo de trabalho com velocidade, portabilidade e reutilização, para que possa focar-se na aprendizagem automática em vez de infraestrutura e automação. Depois de construir e publicar um pipeline, configura um ponto final REST que pode utilizar para acionar o pipeline a partir de qualquer biblioteca HTTP em qualquer plataforma. 
 
 O exemplo utiliza um modelo de rede neural convolucional [Inception-V3 pré-treinado](https://arxiv.org/abs/1512.00567) implementado no Tensorflow para classificar imagens não marcadas. [Saiba mais sobre os gasodutos de aprendizagem automática.](concept-ml-pipelines.md)
 

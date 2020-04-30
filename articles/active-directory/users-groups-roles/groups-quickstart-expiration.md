@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b6e4f521568c89e415e6e9fa621175052cf34d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 616910eda33b3ddc49fa6233ccb3989c5e4214e2
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74026906"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582842"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Início rápido: definir a expiração de grupos do Office 365 no Azure Active Directory
 
@@ -73,7 +73,7 @@ Já está! Neste início rápido, definiu com êxito a política de expiração 
 
 ### <a name="to-remove-the-expiration-policy"></a>Para remover a política de expiração
 
-1. Certifique-se de que inicia sessão no [portal do Azure](https://portal.azure.com) com uma conta que seja um Administrador Global do inquilino.
+1. Certifique-se de que está inscrito no [portal Azure](https://portal.azure.com) com uma conta que é o Administrador Global da sua organização Azure AD.
 2. Selecione**Expiração**de > **Grupos** > de **DirectórioActivo Azure**.
 3. Defina **Ativar a expiração para estes grupos do Office 365** como **Nenhum**.
 

@@ -5,14 +5,14 @@ keywords: serviço de aplicações, serviço de aplicações do azure, mapeament
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: adc9b60ce1c31076a91ec44b9656752b464e024d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 116ec218b1f3947b85b4ab865df30477f05c601a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "80811781"
+ms.locfileid: "82559911"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapeie um nome dNS personalizado existente para o Serviço de Aplicações Azure
 
@@ -93,6 +93,12 @@ Quando vir a notificação seguinte, significa que a operação de dimensionamen
 
 <a name="cname" aria-hidden="true"></a>
 
+## <a name="get-domain-verification-id"></a>Obter ID de verificação de domínio
+
+Para adicionar um domínio personalizado à sua aplicação, precisa de verificar a sua propriedade do domínio adicionando um ID de verificação como um registo TXT com o seu fornecedor de domínio. Na navegação à esquerda da sua página de aplicações, clique em **Resource explorer** em **Ferramentas**de Desenvolvimento e, em seguida, clique em **Go**.
+
+Na visão json das propriedades da sua `customDomainVerificationId`aplicação, procure , e copie o seu valor dentro das cotações duplas. Precisa desta identificação de verificação para o próximo passo.
+
 ## <a name="map-your-domain"></a>Mapear o seu domínio
 
 Para mapear um nome DNS personalizado para o Serviço de Aplicações, pode utilizar tanto um **registo CNAME**, como um **registo A**. Siga os passos correspondentes:
@@ -114,11 +120,14 @@ No exemplo do tutorial, vai adicionar um registo CNAME ao subdomínio `www` (por
 
 #### <a name="create-the-cname-record"></a>Criar o registo CNAME
 
-Adicione um registo CNAME para mapear um subdomínio ao`<app_name>.azurewebsites.net`nome `<app_name>` de domínio padrão da aplicação ( onde está o nome da sua aplicação).
+Mapeie um subdomínio para o`<app_name>.azurewebsites.net`nome `<app_name>` de domínio padrão da aplicação (onde está o nome da sua aplicação). Para criar um mapeamento `www` CNAME para o subdomínio, crie dois registos:
 
-No exemplo do domínio `www.contoso.com`, adicione um registo CNAME que mapeie o nome `www` para `<app_name>.azurewebsites.net`.
+| Tipo de registo | Anfitrião | Valor | Comentários |
+| - | - | - |
+| CNAME | `www` | `<app_name>.azurewebsites.net` | O domínio mapeamento em si. |
+| TXT | `asuid.www` | [A identificação de verificação que obteve mais cedo](#get-domain-verification-id) | O Serviço de `asuid.<subdomain>` Aplicações acede ao registo TXT para verificar a sua propriedade do domínio personalizado. |
 
-Depois de adicionar o CNAME, a página de registos DNS terá um aspeto semelhante ao seguinte exemplo:
+Depois de adicionar os registos CNAME e TXT, a página de registos DNS parece ser o seguinte exemplo:
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
@@ -183,17 +192,12 @@ Na página **Domínios personalizados**, copie o endereço IP da aplicação.
 
 #### <a name="create-the-a-record"></a>Criar um registo A
 
-Para mapear um registo A para uma aplicação, o Serviço de Aplicações requer **dois** registos DNS:
+Para mapear um registo A para uma aplicação, geralmente para o domínio raiz, criar dois registos:
 
-- Um registo **A**, para mapear o endereço IP da aplicação.
-- Um registo **TXT** para mapear o nome `<app_name>.azurewebsites.net`de domínio padrão da aplicação . O Serviço de Aplicações utiliza este registo apenas no momento da configuração, para verificar que é o proprietário do domínio personalizado. Após a validação e configuração do domínio personalizado no Serviço de Aplicações, pode eliminar este registo TXT.
-
-No exemplo do domínio `contoso.com`, crie os registos A e TXT de acordo com a tabela seguinte (`@` representa, normalmente, o domínio de raiz).
-
-| Tipo de registo | Anfitrião | Valor |
+| Tipo de registo | Anfitrião | Valor | Comentários |
 | - | - | - |
-| A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
-| TXT | `@` | `<app_name>.azurewebsites.net` |
+| A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#info) | O próprio mapeamento`@` de domínio (normalmente representa o domínio raiz). |
+| TXT | `asuid` | [A identificação de verificação que obteve mais cedo](#get-domain-verification-id) | O Serviço de `asuid.<subdomain>` Aplicações acede ao registo TXT para verificar a sua propriedade do domínio personalizado. Para o domínio `asuid`raiz, utilize. |
 
 > [!NOTE]
 > Para adicionar um subdomínio (como) `www.contoso.com`utilizando um disco A em vez de um registo [CNAME](#map-a-cname-record)recomendado, o seu registo A e o registo TXT devem parecer a seguinte tabela:
@@ -201,7 +205,7 @@ No exemplo do domínio `contoso.com`, crie os registos A e TXT de acordo com a t
 > | Tipo de registo | Anfitrião | Valor |
 > | - | - | - |
 > | A | `www` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
-> | TXT | `www` | `<app_name>.azurewebsites.net` |
+> | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
 >
 
 Quando os registos estiverem adicionados, a página de registos DNS terá um aspeto semelhante ao seguinte exemplo:

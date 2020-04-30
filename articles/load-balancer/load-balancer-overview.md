@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 8596b435ffa02da7daf4ef98bfe0fe7995b9270a
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: dd15b2ec985ddaba6031765368571a582fae1993
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768187"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583709"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -37,12 +37,7 @@ Um **[equilibrista de carga interno (ou privado)](./concepts-limitations.md#inte
 
 *Figura: Equilibrar aplicações a vários níveis utilizando equilibrantes de carga públicos e internos*
 
-Para obter mais informações sobre os componentes individuais do equilíbrio de carga, consulte componentes e limitações do [Equilíbrio de Carga Azure](./concepts-limitations.md)
-
->[!NOTE]
-> O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. Se precisa de alto desempenho, baixa latência, equilíbrio de carga camada 7, veja o que é o Portal de [Aplicação Azure?](../application-gateway/overview.md) Se procura o equilíbrio global de carga slédi, veja o que é o Gestor de [Tráfego?](../traffic-manager/traffic-manager-overview.md) Os seus cenários de ponta a ponta podem beneficiar da combinação destas soluções.
->
-> Para uma comparação de opções de equilíbrio de carga Azure, consulte [a visão geral das opções de equilíbrio de carga em Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+Para obter mais informações sobre os componentes individuais do equilíbrio de carga, consulte os componentes e limitações do [Equilíbrio de Carga Azure](./concepts-limitations.md).
 
 ## <a name="why-use-azure-load-balancer"></a>Porquê usar o Equilíbrio de Carga Azure?
 Com o Standard Load Balancer, pode escalar as suas aplicações e criar serviços altamente disponíveis. O equilibrista de carga suporta cenários de entrada e saída. O equilibrador de carga proporciona baixa latência e alta afluência, e escala até milhões de fluxos para todas as aplicações TCP e UDP.
@@ -74,7 +69,6 @@ Os cenários-chave que pode realizar usando o Standard Load Balancer incluem:
 O Standard Load Balancer baseia-se no modelo de segurança da rede zero trust no seu núcleo. O Balancer de Carga Standard é seguro por defeito e faz parte da sua rede virtual. A rede virtual é uma rede privada e isolada.  Isto significa que os equilibradores de carga padrão e os endereços IP públicos padrão estão fechados a fluxos de entrada, a menos que sejam abertos por Grupos de Segurança da Rede. Os NSGs são usados para permitir explicitamente o tráfego permitido.  Se não tiver um NSG numa subnet ou NIC do seu recurso virtual de máquina, o tráfego não está autorizado a chegar a este recurso. Para saber mais sobre nsgs e como aplicá-los para o seu cenário, consulte [Network Security Groups](../virtual-network/security-overview.md).
 O Equilíbrio de Carga Básico está aberto à internet por padrão.
 
-
 ## <a name="pricing-and-sla"></a>Preços e SLA
 
 Para obter informações sobre os preços do Equilíbrio de Carga Padrão, consulte [os preços do Balancer de Carga](https://azure.microsoft.com/pricing/details/load-balancer/).
@@ -87,3 +81,5 @@ Consulte [a atualização de um Balancer](upgrade-basic-standard.md) de carga b�
 Consulte [Criar um Balancer de Carga Padrão público](quickstart-load-balancer-standard-public-portal.md) para começar com o uso de um Balancer de Carga.
 
 Para obter mais informações sobre limitações e componentes do Equilíbrio de Carga Azure, consulte [conceitos e limitações do Azure Load Balancer](./concepts-limitations.md)
+
+Para uma comparação de opções de equilíbrio de carga Azure, consulte [a visão geral das opções de equilíbrio de carga em Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).

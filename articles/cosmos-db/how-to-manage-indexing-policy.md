@@ -1,17 +1,17 @@
 ---
 title: Gerir políticas de indexação no Azure Cosmos DB
 description: Saiba como gerir políticas de indexação, incluir ou excluir uma propriedade de indexação, como definir indexação usando diferentes SDKs DDKs DDKs Azure Cosmos
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: thweiss
-ms.openlocfilehash: 58a1ee13afa76b152723cb71d4037f9c31cc8d4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.author: tisande
+ms.openlocfilehash: bdd5d986752e9d80d2967a8f5fd32491154fa236
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252080"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233919"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerir políticas de indexação no Azure Cosmos DB
 
@@ -137,7 +137,7 @@ Esta política de indexação é equivalente à ```kind```abaixo ```dataType```d
     }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > É geralmente recomendado usar uma política de indexação **de opt-out** para permitir que o Azure Cosmos DB indexe proativamente qualquer nova propriedade que possa ser adicionada ao seu modelo.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Usando um índice espacial apenas em um caminho de propriedade específico
@@ -173,6 +173,9 @@ Esta política de indexação é equivalente à ```kind```abaixo ```dataType```d
 ## <a name="composite-indexing-policy-examples"></a>Exemplos de política de indexação compósita
 
 Além de incluir ou excluir caminhos para propriedades individuais, também pode especificar um índice composto. Se você gostaria de realizar uma `ORDER BY` consulta que tem uma cláusula para várias propriedades, é necessário um [índice composto](index-policy.md#composite-indexes) sobre essas propriedades. Além disso, os índices compósitos terão um benefício de desempenho para consultas que têm um filtro e têm uma cláusula ORDER BY em diferentes propriedades.
+
+> [!NOTE]
+> Os caminhos compósitos têm um implícito, `/?` uma vez que apenas o valor escalar nesse caminho está indexado. O `/*` wildcard não é suportado em caminhos compósitos. Não deve especificar `/?` `/*` ou num caminho composto.
 
 ### <a name="composite-index-defined-for-name-asc-age-desc"></a>Índice composto definido para (nome asc, idade desc):
 
@@ -346,7 +349,7 @@ Uma [atualização de política de indexação](index-policy.md#modifying-the-in
 
 Os contentores Azure Cosmos armazenam a sua política de indexação como um documento JSON que o portal Azure permite editar diretamente.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Crie uma nova conta Azure Cosmos ou selecione uma conta existente.
 
@@ -741,5 +744,5 @@ response = database_client.replace_container(container_client, container['partit
 
 Leia mais sobre a indexação nos seguintes artigos:
 
-- [Visão geral de indexação](index-overview.md)
+- [Descrição geral da indexação](index-overview.md)
 - [Política de indexação](index-policy.md)

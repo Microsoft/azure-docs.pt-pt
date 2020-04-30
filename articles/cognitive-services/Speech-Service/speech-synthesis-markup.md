@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: dc11d26c73c52b5e6c4d8e05cc27dd6ebce0c5d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb3db23189cbfd07362b1bd5be9aaa181064a2d6
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399826"
+ms.locfileid: "82583218"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese da fala (SSML)
 
@@ -274,7 +274,7 @@ Utilize `break` o elemento para inserir pausas (ou pausas) entre palavras ou evi
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-AriaNeural">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
@@ -469,7 +469,7 @@ Como os valores prosódicos podem variar ao longo de uma ampla gama, o reconheci
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
 | `pitch` | Indica o tom de base para o texto. Pode expressar o tom como:<ul><li>Um valor absoluto, expresso como um número seguido por "Hz" (Hertz). Por exemplo, 600 Hz.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" e seguido por "Hz" ou "st", que especifica um montante para alterar o tom. Por exemplo: +80 Hz ou -2º. O "st" indica que a unidade de mudança é semitona, que é metade de um tom (meio passo) na escala diatónica padrão.</li><li>Um valor constante:<ul><li>x-baixo</li><li>baixo</li><li>médio</li><li>alta</li><li>x-alto</li><li>predefinição</li></ul></li></ul>. | Opcional |
-| `contour` | O contorno não é suportado por vozes neurais. O contorno representa mudanças no tom. Estas alterações são representadas como uma série de alvos em posições de tempo especificadas na saída da fala. Cada alvo é definido por conjuntos de pares de parâmetros. Por exemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>O primeiro valor de cada conjunto de parâmetros especifica a localização da alteração do tom em percentagem da duração do texto. O segundo valor especifica o valor para aumentar ou baixar o tom, utilizando `pitch`um valor relativo ou um valor de enumeração para o pitch (ver). | Opcional |
+| `contour` |O Contorno agora suporta vozes neurais e padrão. O contorno representa mudanças no tom. Estas alterações são representadas como uma série de alvos em posições de tempo especificadas na saída da fala. Cada alvo é definido por conjuntos de pares de parâmetros. Por exemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>O primeiro valor de cada conjunto de parâmetros especifica a localização da alteração do tom em percentagem da duração do texto. O segundo valor especifica o valor para aumentar ou baixar o tom, utilizando `pitch`um valor relativo ou um valor de enumeração para o pitch (ver). | Opcional |
 | `range` | Um valor que representa o alcance do pitch para o texto. Pode exprimir-se `range` utilizando os mesmos valores absolutos, `pitch`valores relativos ou valores de enumeração utilizados para descrever . | Opcional |
 | `rate` | Indica a taxa de fala do texto. Pode expressar `rate` como:<ul><li>Um valor relativo, expresso como um número que atua como um multiplicador do padrão. Por exemplo, um valor de *1* resulta em nenhuma alteração da taxa. Um valor de *0,5* resulta numa redução para metade da taxa. Um valor de *3* resulta numa triplicação da taxa.</li><li>Um valor constante:<ul><li>x-lento</li><li>lento</li><li>médio</li><li>rápido</li><li>x-rápido</li><li>predefinição</li></ul></li></ul> | Opcional |
 | `duration` | O período de tempo que deve decorrer enquanto o serviço de síntese da fala (TTS) lê o texto, em segundos ou milissegundos. Por exemplo, *2s* ou *1800ms*. | Opcional |
@@ -477,13 +477,13 @@ Como os valores prosódicos podem variar ao longo de uma ampla gama, o reconheci
 
 ### <a name="change-speaking-rate"></a>Alterar taxa de fala
 
-A taxa de fala pode ser aplicada às vozes padrão na palavra ou nível de frase. Enquanto que a taxa de fala só pode ser aplicada às vozes neurais ao nível da frase.
+A taxa de fala pode ser aplicada às vozes neurais e vozes padrão na palavra ou nível de frase. 
 
 **Exemplo**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-Guy24kRUS">
+    <voice name="en-US-GuyNeural">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -524,15 +524,15 @@ As alterações de pitch podem ser aplicadas às vozes padrão na palavra ou ní
 ### <a name="change-pitch-contour"></a>Alterar contorno de pitch
 
 > [!IMPORTANT]
-> As alterações do contorno do pitch não são suportadas com vozes neurais.
+> As alterações do contorno do pitch são agora suportadas com vozes neurais.
 
 **Exemplo**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
-        <prosody contour="(80%,+20%) (90%,+30%)" >
-            Good morning.
+    <voice name="en-US-AriaNeural">
+        <prosody contour="(60%,-60%) (100%,+80%)" >
+            Were you the only person in the room? 
         </prosody>
     </voice>
 </speak>

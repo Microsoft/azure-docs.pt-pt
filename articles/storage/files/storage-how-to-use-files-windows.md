@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4bd9c64e1b9219f6752172d9dc518af71ad67e70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2694e0c1536064267faad10517ae58d0709ad1c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268148"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231769"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -21,7 +21,7 @@ Para utilizar uma partilha de ficheiros do Azure fora da região do Azure na qua
 
 Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows que esteja a ser executada numa VM do Azure ou no local. A tabela seguinte mostra as versões de SO que suportam o acesso a partilhas de ficheiros e em que ambiente:
 
-| Versão do Windows        | Versão do SMB | Montável em VM do Azure | Montável no Local |
+| Versão do Windows        | Versão do SMB | Montável em VM do Azure | Instalações montáveis |
 |------------------------|-------------|-----------------------|-----------------------|
 | Windows Server 2019 | SMB 3.0 | Sim | Sim |
 | Windows 10<sup>1</sup> | SMB 3.0 | Sim | Sim |
@@ -80,7 +80,7 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 ## <a name="using-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 Para utilizar uma partilha de ficheiros do Azure com o Windows, tem de montá-la, o que significa atribuir uma letra de unidade ou um caminho de ponto de montagem, ou aceder-lhe através do respetivo [caminho UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
 
-Ao contrário de outras partilhas SMB com que possa ter interagido, como as que estão alojadas em servidores do Windows Server, em servidores Linux Samba ou em dispositivos NAS, as partilhas de ficheiros do Azure não suportam, atualmente, a autenticação Kerberos com a sua identidade do Active Directory (AD) nem do Azure Active Directory (AAD), embora estejamos a [trabalhar](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles) nesta funcionalidade. Em vez disso, tem de aceder à partilha de ficheiros do Azure com a chave da conta de armazenamento que contém a sua partilha. Uma chave de conta de armazenamento é uma chave de administrador para uma conta de armazenamento, incluindo permissões de administrador para todos os ficheiros e pastas dentro da partilha de ficheiros a que acede, e para todas as ações de ficheiros e outros recursos de armazenamento (blobs, filas, tabelas, etc.) contidos dentro da sua conta de armazenamento. Se isso não for suficiente para a sua carga de trabalho, o [Azure File Sync](storage-sync-files-planning.md) poderá satisfazer a ausência da autenticação Kerberos e do suporte da ACL enquanto a autenticação Kerberos baseada no AAD e o suporte da ACL não estiverem disponíveis publicamente.
+Ao contrário de outras partilhas SMB com que possa ter interagido, como as que estão alojadas em servidores do Windows Server, em servidores Linux Samba ou em dispositivos NAS, as partilhas de ficheiros do Azure não suportam, atualmente, a autenticação Kerberos com a sua identidade do Active Directory (AD) nem do Azure Active Directory (AAD), embora estejamos a [trabalhar](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles) nesta funcionalidade. Em vez disso, tem de aceder à partilha de ficheiros do Azure com a chave da conta de armazenamento que contém a sua partilha. Uma chave de conta de armazenamento é uma chave de administrador para uma conta de armazenamento, incluindo permissões de administrador para todos os ficheiros e pastas dentro da partilha de ficheiros a que acede, e para todas as partilhas de ficheiros e outros recursos de armazenamento (blobs, filas, tabelas, etc.) contidas na sua conta de armazenamento. Se isso não for suficiente para a sua carga de trabalho, o [Azure File Sync](storage-sync-files-planning.md) poderá satisfazer a ausência da autenticação Kerberos e do suporte da ACL enquanto a autenticação Kerberos baseada no AAD e o suporte da ACL não estiverem disponíveis publicamente.
 
 Um padrão comum para fazer a migração lift and shift para o Azure de aplicações de linha de negócio (LOB) que esperam uma partilha de ficheiros SMB é utilizar uma partilha de ficheiros do Azure como alternativa à execução de um servidor de ficheiros do Windows dedicado numa VM do Azure. Uma consideração importante para a migração bem-sucedida de aplicações de linha de negócio de modo a utilizarem uma partilha de ficheiros do Azure é o facto de muitas dessas aplicações serem executadas no contexto de uma conta de serviço dedicada com permissões de sistema limitadas em vez de no contexto da conta administrativa da VM. Por esse motivo, tem de garantir que monta/guarda as credenciais da partilha de ficheiros do Azure no contexto da conta de serviço em vez da conta administrativa.
 
@@ -126,7 +126,7 @@ Agora, deverá conseguir montar ou aceder à partilha sem ter de indicar credenc
 #### <a name="advanced-cmdkey-scenarios"></a>Cenários de cmdkey avançados
 Existem outros dois cenários para considerar a utilização de cmdkey. Um é armazenar as credenciais de outro utilizador no computador, como uma conta de serviço e o outro é armazenar as credenciais num computador remoto com o PowerShell remoto.
 
-É muito fácil armazenar as credenciais de outro utilizador no computador. Quando tiver sessão iniciada na sua conta, basta executar o seguinte comando do PowerShell:
+Armazenar as credenciais para outro utilizador na máquina é fácil: quando iniciar sessão na sua conta, basta executar o seguinte comando PowerShell:
 
 ```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
@@ -139,7 +139,7 @@ Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
 Contudo, armazenar as credenciais num computador remoto com o PowerShell remoto não é possível, uma vez que cmdkey não permite o acesso, nem mesmo para adições, ao respetivo arquivo de credenciais se o utilizador tiver sessão iniciada através daquele. Recomendamos iniciar sssão no computador com o [Ambiente de Trabalho Remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows).
 
 ### <a name="mount-the-azure-file-share-with-powershell"></a>Montar a partilha de ficheiros do Azure com o PowerShell
-Para montar a partilha de ficheiros do Azure, eecute os seguintes comandos numa sessão do PowerShell normal (ou seja, não numa sessão elevada). Não se esqueça de substituir `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` e `<desired-drive-letter>` pelas informações adequadas.
+Executar os seguintes comandos a partir de uma sessão regular (não elevada) PowerShell para montar a partilha de ficheiros Azure. Não se esqueça de substituir `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` e `<desired-drive-letter>` pelas informações adequadas.
 
 ```powershell
 $resourceGroupName = "<your-resource-group-name>"
@@ -182,27 +182,23 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 1. Abra o Explorador de Ficheiros. Pode fazê-lo através do Menu Iniciar ou ao premir o atalho Win+E.
 
-2. Navegue para o item **Este PC**, no lado esquerdo da janela. Esta ação altera os menus disponíveis no friso. No menu Computador, selecione **Mapear unidade de rede**.
+1. Navegue para o item **Este PC**, no lado esquerdo da janela. Esta ação altera os menus disponíveis no friso. No menu Computador, selecione **Mapear unidade de rede**.
     
     ![Instantâneo do menu pendente "Mapear unidade de rede"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. Copie o caminho UNC do painel **Ligar** para o portal do Azure. 
-
-    ![O caminho UNC a partir do painel Ligar dos Ficheiros do Azure](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
-
-4. Selecione a letra de unidade e introduza o caminho UNC. 
+1. Selecione a letra de unidade e entre no `<storageAccountName>.file.core.windows.net/<fileShareName>`caminho do CNU, o formato de caminho da CNU é . Por exemplo: `anexampleaccountname.file.core.windows.net/example-share-name`.
     
     ![Instantâneo da caixa de diálogo “Mapear Unidade de Rede”](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. Utilize o nome da conta de armazenamento com o prefixo `AZURE\` como o nome de utilizador e a chave da conta de armazenamento como a palavra-passe.
+1. Utilize o nome da conta de armazenamento com o prefixo `AZURE\` como o nome de utilizador e a chave da conta de armazenamento como a palavra-passe.
     
     ![Captura de ecrã da caixa de diálogo de credenciais de rede](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
-6. Utilize a partilha de ficheiros conforme pretendido.
+1. Utilize a partilha de ficheiros conforme pretendido.
     
     ![A partilha de ficheiros do Azure está agora montada](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. Quando estiver pronto para desmontar a partilha de ficheiros do Azure, pode fazê-lo ao clicar no botão direito do rato na entrada da partilha, em **Localizações de rede** no Explorador de Ficheiros, e selecionar **Desligar**.
+1. Quando estiver pronto para desmontar a partilha de ficheiros do Azure, pode fazê-lo ao clicar no botão direito do rato na entrada da partilha, em **Localizações de rede** no Explorador de Ficheiros, e selecionar **Desligar**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Aceder a instantâneos de partilha do Windows
 Se obteve um instantâneo de partilha, manual ou automaticamente através de um script ou um serviço como o Azure Backup, pode ver as versões anteriores de uma partilha, um diretório ou um ficheiro específico a partir da partilha de ficheiros no Windows. Pode tirar uma fotografia partilhada do [portal Azure,](storage-how-to-use-files-portal.md) [Azure PowerShell](storage-how-to-use-files-powershell.md)e [Azure CLI](storage-how-to-use-files-cli.md).
@@ -222,6 +218,7 @@ Pode selecionar **Abrir** para abrir um instantâneo específico.
 
 #### <a name="restore-from-a-previous-version"></a>Restaurar de uma versão anterior
 Selecione **Restaurar** para copiar os conteúdos do diretório inteiro recursivamente no momento de criação do instantâneo de partilha para a localização original.
+
  ![Botão de restauro na mensagem de aviso](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Proteger o Windows/Windows Server

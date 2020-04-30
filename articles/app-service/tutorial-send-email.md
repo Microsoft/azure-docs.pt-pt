@@ -4,12 +4,12 @@ description: Saiba como invocar processos empresariais a partir da sua app App S
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 4073b49a134356943bd7da8d54bf574f2e0d5eea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: a8b94d626916b00d75eea3fea0567fa33df3382c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604857"
+ms.locfileid: "82562309"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: Envie e-mail e invoque outros processos de negócio do App Service
 
@@ -26,27 +26,27 @@ Neste tutorial, envia e-mails com o Gmail a partir da sua app App Service utiliz
 
 Implemente uma aplicação com o enquadramento linguístico da sua escolha para o App Service. Para seguir um tutorial para implementar uma aplicação de amostra, consulte abaixo:
 
-# <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
+### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
 [Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md)
 
-# <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
 [Tutorial: Construa uma app de base de dados core e SQL ASP.NET no Serviço de Aplicações Azure](app-service-web-tutorial-dotnetcore-sqldb.md)
 
-# <a name="nodejs"></a>[Node.js](#tab/node)
+### <a name="nodejs"></a>[Node.js](#tab/node)
 
 [Tutorial: Construa uma app Node.js e MongoDB em Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
 
-# <a name="php"></a>[PHP](#tab/php)
+### <a name="php"></a>[PHP](#tab/php)
 
 [Tutorial: Construa uma app PHP e MySQL em Azure](app-service-web-tutorial-php-mysql.md)
 
-# <a name="python"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 [Tutorial: Executar uma aplicação web Python (Django) com PostgreSQL no Azure App Service](containers/tutorial-python-postgresql-app.md)
 
-# <a name="ruby"></a>[Ruby](#tab/ruby)
+### <a name="ruby"></a>[Ruby](#tab/ruby)
 
 [Construa uma app Ruby and Postgres no Azure App Service em Linux](containers/tutorial-ruby-postgres-app.md)
 
@@ -150,7 +150,7 @@ No seu código, faça um post HTTP padrão no URL utilizando qualquer idioma cli
 
 Clique no separador idioma/quadro preferido abaixo para ver um exemplo.
 
-# <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
+### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
 Em ASP.NET, pode enviar o post HTTP com a classe [System.Net.Http.HttpClient.](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) Por exemplo:
 
@@ -175,7 +175,7 @@ var statusCode = result.StatusCode.ToString();
 
 Se estiver a testar este código na aplicação de amostras para [tutorial: Construa uma aplicação ASP.NET em Azure](app-service-web-tutorial-dotnet-sqldatabase.md)com `Todo` base de dados SQL, poderá usá-lo para enviar uma confirmação de e-mail na ação [Create](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/blob/master/DotNetAppSqlDb/Controllers/TodosController.cs#L52-L63), depois de adicionado o item. Para utilizar o código assíncrono acima, converta a ação Create em assíncrona.
 
-# <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
 Em ASP.NET Core, pode enviar o post HTTP com a classe [System.Net.Http.HttpClient.](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) Por exemplo:
 
@@ -203,7 +203,7 @@ var statusCode = result.StatusCode.ToString();
 
 Se estiver a testar este código na aplicação de amostras para [tutorial: Construa uma aplicação de base de dados Core e SQL ASP.NET no Serviço de Aplicações Azure,](app-service-web-tutorial-dotnetcore-sqldb.md)poderá usá-lo para enviar uma confirmação por e-mail na [ação Create](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), depois de adicionado o `Todo` item.
 
-# <a name="nodejs"></a>[Node.js](#tab/node)
+### <a name="nodejs"></a>[Node.js](#tab/node)
 
 Node.js, pode enviar o post HTTP facilmente com um pacote npm como [axios](https://www.npmjs.com/package/axios). Por exemplo:
 
@@ -230,7 +230,7 @@ var jsonData = {
 
 Se estiver a testar este código na aplicação de amostras para [tutorial: Construa uma aplicação Node.js e MongoDB em Azure,](app-service-web-tutorial-nodejs-mongodb-app.md)poderá usá-lo para enviar uma confirmação por e-mail na [função criar](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27), depois [de o artigo ser guardado com sucesso](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
 
-# <a name="php"></a>[PHP](#tab/php)
+### <a name="php"></a>[PHP](#tab/php)
 
 Em PHP, pode enviar facilmente o post HTTP com [guzzle](http://docs.guzzlephp.org/en/stable/index.html). Por exemplo:
 
@@ -262,7 +262,7 @@ Log::info(print_r($response, TRUE));
 
 Se estiver a testar este código na aplicação de amostras para [tutorial: Construa uma aplicação PHP e MySQL no Azure,](app-service-web-tutorial-php-mysql.md)poderá usá-lo para enviar uma confirmação de e-mail na [função Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), pouco antes da declaração de devolução.
 
-# <a name="python"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 Em Python, pode enviar facilmente o post HTTP com [pedidos](https://pypi.org/project/requests/). Por exemplo:
 
@@ -293,7 +293,7 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
 
 Se estiver a testar este código na aplicação de amostras para [tutorial: Executar uma aplicação web Python (Django) com postgreSQL no Serviço de Aplicações Azure,](containers/tutorial-python-postgresql-app.md)poderá usá-lo para enviar uma confirmação por e-mail na [função Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), pouco antes da declaração de devolução.
 
-# <a name="ruby"></a>[Ruby](#tab/ruby)
+### <a name="ruby"></a>[Ruby](#tab/ruby)
 
 Em Ruby, pode enviar facilmente o post HTTP com [o JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Por exemplo:
 
@@ -312,7 +312,7 @@ Se estiver a testar este código na aplicação de amostras para [construir uma 
 
 ---
 
-# <a name="more-resources"></a>Mais recursos
+## <a name="more-resources"></a>Mais recursos
 
 [Tutorial: Alojar uma API RESTful com CORS no Serviço de Aplicações do Azure](app-service-web-tutorial-rest-api.md)  
 [HTTP pedido/referência de resposta para Aplicações Lógicas](../connectors/connectors-native-reqres.md)  
