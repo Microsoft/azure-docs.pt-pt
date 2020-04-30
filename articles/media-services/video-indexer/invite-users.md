@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: juliako
 ms.openlocfilehash: e9a4575ce2f353d61654263aea8d968c650a689e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79499757"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>Quickstart: Convidar utilizadores para o Indexer de Vídeo

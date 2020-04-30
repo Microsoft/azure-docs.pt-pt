@@ -8,10 +8,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
 ms.openlocfilehash: 0ba41d63195c906b57046dc6c9fd57c9f08399ab
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79241669"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Visão geral - O que é Azure Logic Apps?
@@ -75,7 +75,7 @@ Comece por algo pequeno com os seus sistemas e serviços atuais, e aumente progr
 * Criar estes produtos e serviços:
 
   * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
-  * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
+  * [Service Bus do Azure](../service-bus-messaging/service-bus-messaging-overview.md)
   * [Funções do Azure](../azure-functions/functions-overview.md)
   * [API Management do Azure](../api-management/api-management-key-concepts.md)
 

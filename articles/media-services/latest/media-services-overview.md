@@ -18,10 +18,10 @@ ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
 ms.openlocfilehash: bd3890757377525cf9c178866a2a2fbc0791b9de
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79461015"
 ---
 # <a name="azure-media-services-v3-overview"></a>Descrição geral dos Serviços de Multimédia do Azure v3
@@ -68,7 +68,7 @@ Saiba como codificar e embalar conteúdos, transmitir vídeos a pedido, transmit
 
 Comece a desenvolver-se com [os SDKs de clientes V3 da Azure Media Services.](media-services-apis-overview.md#sdks)
 
-### <a name="quickstarts"></a>Guias de Início Rápido  
+### <a name="quickstarts"></a>Guias de Introdução  
 
 Os quickstarts mostram instruções fundamentais do dia 1 para os novos clientes experimentarem rapidamente os Serviços de Media.
 
@@ -76,7 +76,7 @@ Os quickstarts mostram instruções fundamentais do dia 1 para os novos clientes
 * [Stream ficheiros de vídeo - CLI](stream-files-cli-quickstart.md)
 * [Transmitir ficheiros de vídeo - Node.js](stream-files-nodejs-quickstart.md)
 
-### <a name="tutorials"></a>Tutoriais
+### <a name="tutorials"></a>Tutorials (Tutoriais)
 
 Os tutoriais mostram procedimentos baseados em cenários para algumas das principais tarefas dos Serviços de Media.
 
@@ -90,7 +90,7 @@ Os tutoriais mostram procedimentos baseados em cenários para algumas das princi
 
 Utilize [este navegador de amostras](https://docs.microsoft.com/samples/browse/?products=azure-media-services) para navegar em amostras de código do Azure Media Services.
 
-### <a name="how-to-guides"></a>Guias de procedimentos
+### <a name="how-to-guides"></a>How-to guides (Guias de procedimentos)
 
 Como orientar os guias contêm amostras de código que demonstram como completar uma tarefa. Nesta secção, você encontrará muitos exemplos. Aqui estão alguns deles:
 

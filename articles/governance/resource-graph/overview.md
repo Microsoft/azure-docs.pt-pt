@@ -4,10 +4,10 @@ description: Entenda como o serviço Azure Resource Graph permite uma consulta c
 ms.date: 03/02/2020
 ms.topic: overview
 ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81381521"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?

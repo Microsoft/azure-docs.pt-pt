@@ -12,10 +12,10 @@ ms.topic: overview
 ms.date: 04/07/2020
 ms.author: curtand
 ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81454490"
 ---
 # <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Configurar as suas informações de Segurança a partir de um pedido de início de sessão

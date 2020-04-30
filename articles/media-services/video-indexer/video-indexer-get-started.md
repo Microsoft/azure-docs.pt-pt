@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/17/2020
 ms.author: juliako
 ms.openlocfilehash: 22b06ce99333750d48d1cb65d9f60779572723b9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79499639"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Quickstart: Como se inscrever e fazer upload do seu primeiro vídeo
@@ -64,5 +64,5 @@ Depois de fazer o upload e indexar um vídeo, pode começar a usar o site [do In
 
 Para uma introdução detalhada visite o nosso laboratório de [introdução.](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md) 
 
-No final do workshop terá uma boa compreensão do tipo de informação que pode ser extraída a partir de conteúdos de vídeo e áudio, estará mais preparado para identificar oportunidades relacionadas com a inteligência de conteúdo, pitch video AI no Azure e demo vários cenários no Indexer de Vídeo.
+No final do workshop terá uma boa compreensão do tipo de informação que pode ser extraída a partir de conteúdos de vídeo e áudio, estará mais preparado para identificar oportunidades relacionadas com a inteligência de conteúdo, lançar vídeo IA no Azure e demo vários cenários no Video Indexer.
 

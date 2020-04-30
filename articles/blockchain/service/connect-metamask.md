@@ -5,10 +5,10 @@ ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
 ms.openlocfilehash: c0bad9efde44ce53f6b0656af3ac4af32ffe051d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79205100"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Quickstart: Use metaMask para ligar e implementar um contrato inteligente
@@ -27,7 +27,7 @@ Neste arranque rápido, utilizará o MetaMask para se ligar a uma rede de Servi�
 
 Precisa do endereço final do Azure Blockchain Service para ligar à rede blockchain. O endereço final e as chaves de acesso estão no portal Azure.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue para o seu membro do Serviço Azure Blockchain.
 1. Selecione **os nódosos de transação** e o link de nó de transação predefinido.
 

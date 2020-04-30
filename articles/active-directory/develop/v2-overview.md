@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 2e5bbbd311d71f2925e86ae756b36de7194aa9fb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80886250"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Visão geral da plataforma de identidade da Microsoft (v2.0)
@@ -51,7 +51,7 @@ Escolha um [cenário](authentication-flows-app-scenarios.md) que se aplique a si
 - [Construa uma API web que chama APIs web](scenario-web-api-call-api-overview.md)
 - [Construa uma aplicação para desktop](scenario-desktop-overview.md)
 - [Construa uma app daemon](scenario-daemon-overview.md)
-- [Construir uma aplicação móvel](scenario-mobile-overview.md)
+- [Criar uma aplicação móvel](scenario-mobile-overview.md)
 
 O gráfico seguinte descreve cenários comuns de aplicações de autenticação – use-a como referência ao integrar a plataforma de identidade da Microsoft com a sua aplicação.
 
