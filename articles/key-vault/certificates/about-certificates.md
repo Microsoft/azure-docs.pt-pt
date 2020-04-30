@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 5e014634ecb251f05710de16daee30d72dae619e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81685901"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Sobre certificados azure key vault
@@ -179,7 +179,7 @@ Para mais informações, consulte as operações do [Certificado na referência 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Sobre o Key Vault](../general/overview.md)
-- [Sobre chaves, segredos e certificados](../general/about-keys-secrets-certificates.md)
+- [Acerca de chaves, segredos e certificados](../general/about-keys-secrets-certificates.md)
 - [Acerca de chaves](../keys/about-keys.md)
 - [Acerca de segredos](../secrets/about-secrets.md)
 - [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)

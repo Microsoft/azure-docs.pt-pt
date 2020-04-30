@@ -4,10 +4,10 @@ description: O personalizer pode ser aplicado em qualquer situação em que a su
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: c562d7a1853736204a7a03262547e083bd85fb75
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81617676"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Onde e como usar o Personalizer

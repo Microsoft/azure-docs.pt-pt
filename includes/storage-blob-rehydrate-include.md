@@ -11,10 +11,10 @@ ms.topic: include
 ms.reviewer: hux
 ms.custom: include file
 ms.openlocfilehash: fc5f4d2c10cac23600025a72fedf7fe2cec5a34e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684097"
 ---
 Para ler os dados no armazenamento de arquivo, tem de, primeiro, alterar a camada do blob para frequente ou esporádica. Este processo é conhecido como reidratação e pode levar horas para ser concluído. Recomendamos grandes tamanhos de bolha para um ótimo desempenho de reidratação. “Reidratar” vários pequenos blobs em simultâneo pode provocar mais atrasos. Existem atualmente duas prioridades de rehidratação, High and Standard, que podem ser definidas através da propriedade opcional *x-ms-rehydrate-priority* em uma operação [set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) ou [Copy Blob.](https://docs.microsoft.com/rest/api/storageservices/copy-blob)

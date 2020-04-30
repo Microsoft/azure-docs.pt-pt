@@ -7,10 +7,10 @@ ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
 ms.openlocfilehash: 6cb83a87f2e96eb62696e5d92095ef2b8d7c7def
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81677327"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Problemas de resolução do aparelho e descoberta do Azure Migrate

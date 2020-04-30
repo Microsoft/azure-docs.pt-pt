@@ -12,10 +12,10 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.custom: seodec18
 ms.openlocfilehash: a9a3c10687b92d946fccb282f2eda4af637cf2ab
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686776"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Modelos de trem com Machine Learning Azure usando estimador

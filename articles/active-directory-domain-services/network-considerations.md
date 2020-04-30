@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: iainfou
 ms.openlocfilehash: e610bf94dfdee4e2765e4fae4259f18a9f1036b5
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81639983"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Serviços de Domínio AD Azure

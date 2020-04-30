@@ -4,10 +4,10 @@ description: Crie ficheiro de parâmetro para passar em valores durante a implem
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.openlocfilehash: a1a1f703594f8eaa572ea38ecef88b4cd6ba5a4b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81682900"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Criar ficheiro de parâmetro sinuoso do Gestor de Recursos

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: dsindona
 ms.openlocfilehash: fde249f22342ed2a0c50f5fdda3bde9dc2cde183
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81685731"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Fazer crescer o seu negócio com a Microsoft
@@ -26,7 +26,7 @@ Os parceiros de marketplace são obrigados a fazer parte da Microsoft Partner Ne
 
 Para promover a sua oferta ou app, e para aceder a mais benefícios e recursos, use a seguinte tabela:
 
-| Vantagens | Recursos |
+| Benefícios | Recursos |
 |:--- |:--- |
 | Use os seus Benefícios Nucleares | Como parte da Microsoft Partner Network, recebe um conjunto de benefícios fundamentais que podem ajudar a poupar tempo e dinheiro. Os benefícios podem ajudá-lo <ul> <li> fortalecer as suas capacidades, </li> <li> melhor servir os clientes, e </li> <li> construir ligações para atingir todo o seu potencial de negócio. </li> </ul> Para obter mais informações sobre os benefícios fundamentais, visite [benefícios e requisitos fundamentais.](https://partner.microsoft.com/membership/core-benefits#tab-content-1) |
 | Ganhe a sua Competência na Plataforma Cloud | Ganhar uma competência ajuda-o a <ul> <li> Diferencia-te entre outros parceiros da Microsoft. </li> <li> Demonstrar experiência técnica e sucesso do cliente no mercado. </li> </ul> A competência é um pré-requisito para muitos programas de parceiros chave, como co-sell. Consulte a competência da [Cloud Platform](https://partner.microsoft.com/reach-customers/selling-with-microsoft) para obter mais informações. |

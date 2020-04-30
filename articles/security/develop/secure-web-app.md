@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
 ms.openlocfilehash: 730e478622da8cd90af1c559e4d0c6fd04151cca
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686798"
 ---
 # <a name="develop-a-secure-web-app"></a>Desenvolver uma aplicação Web segura

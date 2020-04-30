@@ -10,10 +10,10 @@ ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 0676b6b183c64dcd0fb15b87de48a4afed3a0011
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641808"
 ---
 # <a name="tested-on-premises-live-streaming-encoders"></a>Codificadores de streaming ao vivo testados no local

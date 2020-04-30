@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
 ms.openlocfilehash: ba85b0a4ed30320099388ccb48dd91ad6445efd5
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81677235"
 ---
 # <a name="whats-new-in-azure-migrate"></a>O que há de novo em Azure Migrate

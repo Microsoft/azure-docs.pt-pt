@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
 ms.openlocfilehash: 38e728de22d49de760e998ddc97c5067beb3ecd1
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684688"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (pré-visualização)

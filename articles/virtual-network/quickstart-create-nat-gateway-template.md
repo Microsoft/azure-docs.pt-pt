@@ -16,10 +16,10 @@ ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
 ms.openlocfilehash: 3850f3f22e730e46f6d278b6cef0e17d357b126d
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81618044"
 ---
 # <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>Quickstart: Criar um gateway NAT - Modelo de Gestor de Recursos

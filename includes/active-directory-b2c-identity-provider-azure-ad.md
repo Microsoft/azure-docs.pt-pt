@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
 ms.openlocfilehash: 31a6d116ae1afce9afdd3786747490980963d823
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678051"
 ---
 ## <a name="register-an-azure-ad-app"></a>Registar uma aplicação do Azure AD

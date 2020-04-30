@@ -12,10 +12,10 @@ ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
 ms.openlocfilehash: 273a467f5db2201015352aaf4a232f5a42e29673
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81618078"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Quickstart: Definir e recuperar um segredo do Cofre de Chaves Azure usando o modelo de Gestor de Recursos
