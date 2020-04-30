@@ -9,10 +9,10 @@ ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 266cd52117f36b282fdd4bc8615a15e451cc203f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80132616"
 ---
 As funções facilitam a adição de Informações de Aplicação a uma aplicação de função do [portal Azure].
@@ -34,4 +34,4 @@ As funções facilitam a adição de Informações de Aplicação a uma aplicaç
 
 1. Volte para a aplicação de funções, selecione **as definições**de Aplicação e, em seguida, desloque-se para **as definições**da Aplicação . Se vir uma `APPINSIGHTS_INSTRUMENTATIONKEY`definição chamada , a integração de Insights de Aplicação está ativada para a sua aplicação de função em funcionamento no Azure.
 
-[Portal do Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

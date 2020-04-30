@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79f68635820125161ed4f5777e27a20de9e6fbe8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80049385"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>O que é o Agente de Administração do Azure AD Connect? 
@@ -24,9 +24,9 @@ O Agente de Administração Azure AD Connect é um novo componente do Azure Ativ
 >[!NOTE]
 >O agente administrativo não está instalado e ativado por predefinição.  Deve instalar o agente para recolher dados para ajudar nos casos de suporte.
 
-Quando instalado, o Agente de Administração Azure AD Connect aguarda pedidos específicos de dados do Azure Ative Directory, obtém os dados solicitados do ambiente de sincronização e envia-os para o Azure Ative Directory, onde é apresentado ao suporte da Microsoft engenheiro. 
+Quando instalado, o Agente de Administração Azure AD Connect aguarda pedidos específicos de dados do Azure Ative Directory, obtém os dados solicitados do ambiente de sincronização e envia-os para o Azure Ative Directory, onde é apresentado ao engenheiro de suporte da Microsoft. 
 
-A informação que o Agente de Administração Azure AD Connect recupera do seu ambiente não é armazenada de forma alguma - só é apresentada ao engenheiro de suporte da Microsoft para os ajudar na investigação e resolução de problemas do Azure Ative Directory Connect caso de suporte relacionado que abriu O Agente de Administração Azure AD Connect não está instalado no Servidor de Ligação AD Azure por padrão. 
+A informação que o Agente de Administração Azure AD Connect recupera do seu ambiente não é armazenada de forma alguma - só é apresentada ao engenheiro de suporte da Microsoft para os ajudar a investigar e resolver problemas o caso de suporte relacionado com o Azure Ative Directory Connect que abriu O Agente de Administração Azure AD Connect não está instalado no Servidor de Ligação Azure AD por padrão. 
 
 ## <a name="install-the-azure-ad-connect-administration-agent-on-the-azure-ad-connect-server"></a>Instale o Agente de Administração Azure AD Connect no servidor Azure AD Connect 
 
@@ -49,7 +49,7 @@ Após a instalação do agente, verá os seguintes dois novos programas na lista
 ![agente administrativo](media/whatis-aadc-admin-agent/adminagent1.png)
 
 ## <a name="what-data-in-my-sync-service-is-shown-to-the-microsoft-service-engineer"></a>Que dados no meu serviço Sync são mostrados ao engenheiro de serviços da Microsoft? 
-Ao abrir um caso de suporte, o Microsoft Support Engineer pode ver, para um determinado utilizador, os dados relevantes no Ative Directory, o espaço do conector ative diretório no servidor Azure Ative Directory Connect, o espaço do conector Azure Ative Directory no Azure Servidor Ative Directory Connect e o Metaverse no servidor Azure Ative Directory Connect. 
+Ao abrir um caso de suporte, o Microsoft Support Engineer pode ver, para um determinado utilizador, os dados relevantes no Ative Directory, o espaço do conector Ative Directory no servidor Azure Ative Directory Connect, o espaço de conector de diretório Ativo Azure no servidor Azure Ative Directory Connect e o Metaverse no servidor Azure Ative Directory Connect. 
 
 O Microsoft Support Engineer não pode alterar quaisquer dados no seu sistema e não pode ver nenhuma palavra-passe. 
 
