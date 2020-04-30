@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: fdf22e4d981549b876a14aed2b0a1d7e0c76e40e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 79638f584f1c65b33f23a68f01dbe82878460cc2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263459"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234082"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança do Azure
 
@@ -31,6 +31,10 @@ A proteção contra ameaças do Azure Security Center fornece defesas abrangente
 
 Se um alerta é gerado pelo Security Center, ou recebido pelo Security Center de um produto de segurança diferente, pode exportá-lo. Para exportar os seus alertas para o Azure Sentinel (ou um SIEM de terceiros) ou qualquer outra ferramenta externa, siga as instruções em [alertas de exportação para um SIEM](continuous-export.md). 
 
+> [!TIP]
+> Para permitir as capacidades de proteção contra ameaças do Security Center, deve aplicar o nível de preços padrão à subscrição que contém as cargas de trabalho aplicáveis.
+>
+> A proteção contra ameaças do Security Center para contas de armazenamento e servidores PaaS SQL/MySQL/PG são atualmente as únicas cargas de trabalho que podem ser ativadas ao nível de recursos para proteger cargas de trabalho individuais de armazenamento/SQL.
 
 
 

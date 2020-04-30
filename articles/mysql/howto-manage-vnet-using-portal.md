@@ -1,17 +1,17 @@
 ---
 title: Gerir pontos finais VNet - Portal Azure - Base de Dados Azure para MySQL
 description: Crie e gerea Base de Dados Azure para pontos finais de serviço MySQL VNet e regras usando o portal Azure
-author: bolzmj
-ms.author: mbolz
+author: kummanish
+ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: fec85f7d87bbfe0039744b9ea63239083ff1c8a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba63c65c2b0d7abda089c3dfd315bfe499632cc0
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063540"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509232"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Crie e gerea Base de Dados Azure para os pontos finais do serviço MySQL VNet e as regras VNet utilizando o portal Azure
 Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espaço do endereço privado de uma Rede Virtual ao seu servidor da Base de Dados do Azure para MySQL. Para uma visão geral da Base de Dados Azure para os pontos finais do serviço MySQL VNet, incluindo limitações, consulte a [Base de Dados Azure para os pontos finais do serviço MySQL Server VNet](concepts-data-access-and-security-vnet.md). Os pontos finais do serviço VNet estão disponíveis em todas as regiões suportadas para a Base de Dados Azure para mySQL.

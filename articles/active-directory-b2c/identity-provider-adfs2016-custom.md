@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 000f63ef5f73e77eb22fb539fc6736b929ac6bcc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 12845f09ac2eb2342cdb1ab82b703ebd3a67c706
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451572"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229736"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicione a ADFS como fornecedor de identidade SAML utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra-lhe como ativar o início de sessão para uma conta de utilizador ADFS utilizando [políticas personalizadas](custom-policy-overview.md) no Azure Ative Directory B2C (Azure AD B2C). Habilita o início de sessão adicionando um [perfil técnico SAML](saml-technical-profile.md) a uma política personalizada.
+Este artigo mostra-lhe como ativar o início de sessão para uma conta de utilizador ADFS utilizando [políticas personalizadas](custom-policy-overview.md) no Azure Ative Directory B2C (Azure AD B2C). Permite o início de sessão adicionando um perfil técnico de fornecedor de [identidade SAML](saml-identity-provider-technical-profile.md) a uma política personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,7 +48,7 @@ Você precisa armazenar seu certificado no seu inquilino Azure AD B2C.
 
 Se pretender que os utilizadores assinem através de uma conta ADFS, tem de definir a conta como um fornecedor de sinistros com o qual o Azure AD B2C pode comunicar através de um ponto final. O ponto final fornece um conjunto de reclamações que são utilizadas pelo Azure AD B2C para verificar se um utilizador específico se autenticou.
 
-Pode definir uma conta ADFS como fornecedor de sinistros adicionando-a ao elemento **Reclamadores** no ficheiro de extensão da sua apólice. Para mais informações, consulte [definir um perfil técnico SAML](saml-technical-profile.md).
+Pode definir uma conta ADFS como fornecedor de sinistros adicionando-a ao elemento **Reclamadores** no ficheiro de extensão da sua apólice. Para mais informações, consulte definir um perfil técnico do fornecedor de [identidade SAML](saml-identity-provider-technical-profile.md).
 
 1. Abra as *Extensões TrustFramework.xml*.
 1. Encontre o elemento **ClaimsProviders.** Se não existir, adicione-o sob o elemento raiz.

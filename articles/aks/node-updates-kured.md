@@ -5,18 +5,18 @@ description: Saiba como atualizar os nós linux e reinicie-os automaticamente co
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 8006baa3025ee1e794359bed854094cc9005dd14
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 955e5323769a7b9bf80413c045aaa3d55547eb02
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668374"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208079"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicar atualizações de segurança e kernel aos nós Linux no Serviço Azure Kubernetes (AKS)
 
 Para proteger os seus clusters, as atualizações de segurança são automaticamente aplicadas aos nós Linux no AKS. Estas atualizações incluem correções de segurança do OS ou atualizações de kernel. Algumas destas atualizações requerem um reboot do nó para completar o processo. A AKS não reinicia automaticamente estes nódosos Linux para completar o processo de atualização.
 
-O processo para manter os nós do Windows Server (atualmente em pré-visualização no AKS) é um pouco diferente. Os nós do Windows Server não recebem atualizações diárias. Em vez disso, executa uma atualização AKS que implementa novos nós com a mais recente imagem e patches do Window Server. Para os clusters AKS que utilizam os nós do Windows Server, consulte [a atualização de um conjunto][nodepool-upgrade]de nós em AKS .
+O processo para manter os nós do Windows Server atualizados é um pouco diferente. Os nós do Windows Server não recebem atualizações diárias. Em vez disso, executa uma atualização AKS que implementa novos nós com a mais recente imagem e patches do Window Server. Para os clusters AKS que utilizam os nós do Windows Server, consulte [a atualização de um conjunto][nodepool-upgrade]de nós em AKS .
 
 Este artigo mostra-lhe como usar o kured de código aberto [(KUbernetes REboot Daemon)][kured] para vigiar os nós linux que requerem um reboot, em seguida, lidar automaticamente com o reagendamento de cápsulas de corrida e processo de reinicialização do nó.
 

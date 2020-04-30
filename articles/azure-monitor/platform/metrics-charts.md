@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80371606"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509827"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Advanced features of Azure Metrics Explorer (Funcionalidades avançadas do Explorador de Métricas do Azure)
 
@@ -47,6 +47,25 @@ Clique na **tabela Adicionar** e crie outro gráfico com uma métrica diferente.
 ### <a name="order-or-delete-multiple-charts"></a>Encomende ou elimine vários gráficos
 
 Para encomendar ou eliminar vários gráficos, clique no símbolo das elipses **(...** ) para abrir o menu da tabela e escolha o item de menu apropriado de **Mover-se**para **cima, mover-se para baixo**ou **excluir**.
+
+## <a name="changing-aggregation"></a>Alteração da agregação
+
+Quando adiciona uma métrica a um gráfico, o explorador de métricas pré-seleciona automaticamente a sua agregação padrão. O padrão faz sentido nos cenários básicos, mas você pode usar uma agregação diferente para obter insights adicionais sobre a métrica. Ver diferentes agregações num gráfico requer que compreenda como o explorador de métricas as lida. 
+
+As métricas são a série de medições (ou "valores métricos") capturadas durante o período de tempo. Quando se traça um gráfico, os valores da métrica selecionada são agregados separadamente ao longo do *grão*de tempo . Selecione o tamanho do grão de tempo utilizando o painel de recolha de [tempo Metrics Explorer](metrics-getting-started.md#select-a-time-range). Se não fizer uma seleção explícita do grão de tempo, a granularidade do tempo é automaticamente selecionada com base na faixa hordo atualmente selecionada. Uma vez determinado o grão de tempo, os valores métricos que foram capturados durante cada intervalo de grão são agregados e colocados no gráfico - um ponto de dados por vez.
+
+Por exemplo, suponha que o gráfico está mostrando a métrica do tempo de resposta do **servidor** usando a agregação **média** ao longo das **últimas 24 horas** de tempo:
+
+- Se a granularidade do tempo for fixada para 30 minutos, o gráfico é extraído de 48 pontos de dados agregados (por exemplo, o gráfico de linha liga 48 pontos na área do enredo do gráfico). Isto é, 24 horas x 2 pontos de dados por hora. Cada ponto de dados representa a *média* de todos os tempos de resposta capturados para pedidos de servidores que ocorreram durante cada um dos 30 períodos de tempo relevantes.
+- Se mudar a granularidade do tempo para 15 minutos, obtém 96 pontos de dados agregados.  Isto é, 24 horas x 4 pontos de dados por hora.
+
+Existem cinco tipos básicos de agregação de estatísticas disponíveis no explorador de métricas: **Soma,** **Conde,** **Min,** **Max**e **Média**. A agregação da **soma** é por vezes referida como agregação **total.** Para muitas métricas, o Metrics Explorer esconderá as agregações que são totalmente irrelevantes e não podem ser usadas.
+
+- **Soma** – a soma de todos os valores capturados sobre o intervalo de agregação
+- **Contagem** – o número de medições capturadas sobre o intervalo de agregação. Note que **o Conde** será igual a **Soma** no caso em que a métrica é sempre capturada com o valor de 1. Isto é comum quando a métrica rastreia a contagem de eventos distintos, e cada medição representa um evento (isto é, o código dispara um registo métrico cada vez que um novo pedido entra)
+- **Média** – a média dos valores métricos capturados sobre o intervalo de agregação
+- **Min** – o menor valor capturado sobre o intervalo de agregação
+- **Max** – o maior valor capturado sobre o intervalo de agregação
 
 ## <a name="apply-filters-to-charts"></a>Aplicar filtros em gráficos
 

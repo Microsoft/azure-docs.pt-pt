@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de ingresso NGINX pa
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: d6533434fc053427ae26a28879af18aed73f40aa
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: 75db0a9bc5089ef652e05841eb9f8d3971770650
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82145430"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207450"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Criar um controlador de ingresso para uma rede virtual interna no Serviço Azure Kubernetes (AKS)
 
@@ -47,7 +47,7 @@ controller:
 
 Agora implemente o gráfico *de nginx-ingresscom* Helm. Para utilizar o ficheiro manifesto criado no `-f internal-ingress.yaml` passo anterior, adicione o parâmetro. Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de ingresso, certifique-se de que há mais de um nó no seu cluster AKS.
 
-O controlador de entrada também tem de estar agendado num nó do Linux. Os nós do Windows Server (atualmente em pré-visualização no AKS) não devem executar o controlador de entrada. É especificado um seletor de nós com o parâmetro `--set nodeSelector` para indicar ao agendador do Kubernetes que execute o controlador de entrada do NGINX num nó baseado no Linux.
+O controlador de entrada também tem de estar agendado num nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. É especificado um seletor de nós com o parâmetro `--set nodeSelector` para indicar ao agendador do Kubernetes que execute o controlador de entrada do NGINX num nó baseado no Linux.
 
 > [!TIP]
 > O exemplo seguinte cria um espaço de nome Kubernetes para os recursos de ingresso *denominados ingress-basic*. Especifique um espaço de nome para o seu próprio ambiente, conforme necessário. Se o seu cluster AKS não `--set rbac.create=false` estiver ativado por RBAC, adicione aos comandos Helm.
@@ -216,10 +216,10 @@ Em alternativa, uma abordagem mais granular é eliminar os recursos individuais 
 ```
 $ helm list
 
-NAME                REVISION    UPDATED                     STATUS      CHART                   APP VERSION NAMESPACE
-kissing-ferret      1           Tue Oct 16 17:13:39 2018    DEPLOYED    nginx-ingress-0.22.1    0.15.0      kube-system
-intended-lemur      1           Tue Oct 16 17:20:59 2018    DEPLOYED    aks-helloworld-0.1.0                default
-pioneering-wombat   1           Tue Oct 16 17:21:05 2018    DEPLOYED    aks-helloworld-0.1.0                default
+NAME                 REVISION    UPDATED                     STATUS      CHART                   APP VERSION    NAMESPACE
+kissing-ferret       1           Tue Oct 16 17:13:39 2018    DEPLOYED    nginx-ingress-0.22.1    0.15.0         kube-system
+intended-lemur       1           Tue Oct 16 17:20:59 2018    DEPLOYED    aks-helloworld-0.1.0                   default
+pioneering-wombat    1           Tue Oct 16 17:21:05 2018    DEPLOYED    aks-helloworld-0.1.0                   default
 ```
 
 Elimine os lançamentos com o `helm delete` comando. O exemplo seguinte elimina a implementação de ingresso NGINX, e as duas aplicações aks olá world.

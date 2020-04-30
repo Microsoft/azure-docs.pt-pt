@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2403faf23294afbba539c7240e842f928fed83dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8033122601077945790005e23ec728911c3a4e1f
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181295"
+ms.locfileid: "82207535"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -1823,12 +1823,12 @@ Administrador de serviço crm | Administrador da Dinâmica 365 | 44367163-eba1-4
 Aprovador de acesso ao Bloqueio do Cliente | Aprovador de acesso ao bloqueio do cliente | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Administrador de Análise de Desktop | Administrador de Análise de Desktop | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Administradores de Dispositivos | Administradores de dispositivos | 9f06204d-73c1-4d4c-880a-6edb90606fd8
-Aderamento do dispositivo | Adesão ao dispositivo | 9c094953-4995-41c8-84c8-3ebb9b32c93f
-Gestores de Dispositivos | Gestores de dispositivos | 2b499bcd-da44-4968-8aec-78e167444d
-Utilizadores de dispositivos | Utilizadores de dispositivos | d405c6df-0af8-4e3b-95e4-4d06e542189e
+Aderamento do dispositivo | Preterido | 9c094953-4995-41c8-84c8-3ebb9b32c93f
+Gestores de Dispositivos | Preterido | 2b499bcd-da44-4968-8aec-78e167444d
+Utilizadores de dispositivos | Preterido | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Leitores de Diretório | Leitores de diretório | 88d8e3e3-8f55-4a1e-953a-9b9898b876b
-Contas de Sincronização de Diretório | Contas de sincronização de diretórios | d29b2b05-8046-44ba-8758-1e26182fcf32
-Escritores de Diretório | Escritores de diretórios | 9360feb5-f418-4baa-8175-e2a00bac4301
+Contas de Sincronização de Diretório | Não mostrado porque não deve ser usado | d29b2b05-8046-44ba-8758-1e26182fcf32
+Escritores de Diretório | Não mostrado porque não deve ser usado | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrador de Serviço de Intercâmbio | Administrador do Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administrador de Fornecedor de Identidade Externa | Administrador de Fornecedor de Identidade Externa | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Leitor Global | Leitor global | f2ef992c-3afb-46b9-b7cf-a126ee74c451
@@ -1844,8 +1844,8 @@ Leitor de privacidade do Centro de Mensagens | Leitor de privacidade do centro d
 Leitor de centro de mensagens | Leitor de centro de mensagens | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Administrador de Rede | Administrador de rede | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Administrador de aplicações de escritório | Administrador de aplicações de escritório | 2b745bdf-0803-4d80-aa65-822c4493daac
-Suporte de parceiro tier1 | Suporte de nível parceiro1 | 4ba39ca4-527c-499a-b93d-d9b492c50246
-Suporte de parceiro tier2 | Suporte de nível parceiro2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
+Suporte de parceiro tier1 | Não mostrado porque não deve ser usado | 4ba39ca4-527c-499a-b93d-d9b492c50246
+Suporte de parceiro tier2 | Não mostrado porque não deve ser usado | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Administrador de palavra-passe | Administrador de palavras-passe | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Administrador do Serviço Power BI | Administrador power BI | a9ea8996-122f-4c74-9520-8edcd192826c
 Administrador da Plataforma de Energia | Administrador de plataforma de energia | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
@@ -1865,9 +1865,9 @@ Administrador de Comunicações de Equipas | Administrador de Comunicações de 
 Engenheiro de Apoio às Comunicações de Equipas | Engenheiro de Apoio às Comunicações de Equipas | f70938a0-fc10-4177-9e90-2178f8765737
 Especialista em Apoio às Comunicações de Equipas | Especialista em Apoio às Comunicações de Equipas | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrador de Serviço de Equipas | Administrador de Serviço de Equipas | 69091246-20e8-4a56-aa4d-066075b2a7a8
-Utilizador | Utilizador | a0b1b346-4d3e-4e8b-98f8-753987be4970
+Utilizador | Não mostrado porque não pode ser usado | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administrador da Conta do Utilizador | Administrador de utilizadores | fe930be7-5e62-47db-91af-98c3a49a38b1
-Dispositivo de local de trabalho Aderir | Dispositivo de local de trabalho aderir | c34f683f-4d5a-4403-affd-6615e00e3a7f
+Dispositivo de local de trabalho Aderir | Preterido | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>Papéis depreciados
 

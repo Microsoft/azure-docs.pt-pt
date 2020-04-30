@@ -5,12 +5,12 @@ description: Aprenda a criar manualmente um volume com Ficheiros Azure para util
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 412b7158ea366eefb1c3e9c1d2586d54c316aa6c
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 144d93cbb3b66f260dbd9d92863ca5fb13ed00a5
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803454"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207671"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Criar e utilizar manualmente um volume com a participação de Ficheiros Azure no Serviço Azure Kubernetes (AKS)
 
@@ -69,7 +69,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Monte a parte do ficheiro como um volume
 
-Para montar os Ficheiros Azure, configure o volume na especificação `azure-files-pod.yaml` do recipiente. Se alterar o nome da partilha de Ficheiros ou nome secreto, atualize o *nome de partilha* e o nome *secreto*. Se desejar, atualize o `mountPath`, que é o caminho onde a partilha de Ficheiros é montada na cápsula. Para os recipientes do Windows Server (atualmente em pré-visualização no AKS), especifique um *mountPath* utilizando a convenção de caminhos windows, como *'D:'*.
+Para montar os Ficheiros Azure, configure o volume na especificação `azure-files-pod.yaml` do recipiente. Se alterar o nome da partilha de Ficheiros ou nome secreto, atualize o *nome de partilha* e o nome *secreto*. Se desejar, atualize o `mountPath`, que é o caminho onde a partilha de Ficheiros é montada na cápsula. Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'*.
 
 ```yaml
 apiVersion: v1

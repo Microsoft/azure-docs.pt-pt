@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: allensu
-ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: c9b5aaefeb8ab21eed850f5bf291d38981239aab
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396096"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508433"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Conectividade na rede virtual Desfilmo Azure NaT
 
@@ -101,6 +101,7 @@ A tabela a seguir pode ser utilizada num ponto de partida para o qual as ferrame
 
 Problemas de conectividade com a [Rede Virtual NAT](nat-overview.md) podem ser causados por várias questões diferentes:
 
+* falhas permanentes devido a erros de configuração.
 * [exaustão sNAT](#snat-exhaustion) transitória ou persistente do portal NAT,
 * falhas transitórias na infraestrutura Azure, 
 * falhas transitórias no caminho entre Azure e o destino público da Internet, 
@@ -112,6 +113,13 @@ Utilize ferramentas como a seguinte para validação da conectividade. [O iCMP p
 |---|---|---|---|
 | Linux | nc (ensaio genérico de ligação) | caracóis (teste de camada de aplicação TCP) | aplicação específica |
 | Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | aplicação específica |
+
+#### <a name="configuration"></a>Configuração
+
+Verifique o seguinte:
+1. O recurso nat gateway tem pelo menos um recurso IP público ou um recurso público de pré-fixação IP? Deve pelo menos ter um endereço IP associado à porta de entrada NAT para que possa fornecer conectividade de saída.
+2. A subnet da rede virtual está configurada para usar o portal NAT?
+3. Está a usar o UDR (rota definida pelo utilizador) e está a sobrepor-se ao destino?  Os recursos de gateway NAT tornam-se a rota padrão (0/0) em subredes configuradas.
 
 #### <a name="snat-exhaustion"></a>Exaustão sNAT
 

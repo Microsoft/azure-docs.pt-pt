@@ -5,12 +5,12 @@ description: Conheça as melhores práticas do operador de cluster para gerir a 
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 3d4e8577116ba1d78aaa881887f64e71c04af4f2
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 305d4c15aaf72a47549497902e3027064fbfd608
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668335"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208096"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Boas práticas para segurança de clusters e upgrades no Serviço Azure Kubernetes (AKS)
 
@@ -195,7 +195,7 @@ Para obter mais informações sobre upgrades em AKS, consulte [versões De Kuber
 
 ## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Processe atualizações de nó linux e reboots usando kured
 
-**Orientação de boas práticas** - AKS descarrega e instala automaticamente correções de segurança em cada nó linux, mas não reinicia automaticamente se necessário. Utilize `kured` para vigiar as reinicializações pendentes, em seguida, penije com segurança e drene o nó para permitir que o nó reinicie, aplique as atualizações e seja o mais seguro possível no que diz respeito ao SISTEMA. Para os nós do Windows Server (atualmente em pré-visualização no AKS), execute regularmente uma operação de atualização AKS para isolar e drenar com segurança as cápsulas e implementar nós atualizados.
+**Orientação de boas práticas** - AKS descarrega e instala automaticamente correções de segurança em cada nó linux, mas não reinicia automaticamente se necessário. Utilize `kured` para vigiar as reinicializações pendentes, em seguida, penije com segurança e drene o nó para permitir que o nó reinicie, aplique as atualizações e seja o mais seguro possível no que diz respeito ao SISTEMA. Para os nós do Windows Server, execute regularmente uma operação de atualização AKS para isolar e drenar com segurança as cápsulas e implementar nós atualizados.
 
 Todas as noites, os nós linux no AKS recebem patches de segurança disponíveis através do seu canal de atualização de distro. Este comportamento é configurado automaticamente à medida que os nós são implantados num cluster AKS. Para minimizar a perturbação e o impacto potencial nas cargas de trabalho de funcionamento, os nós não são automaticamente reiniciados se uma correção de segurança ou atualização do núcleo o exigir.
 

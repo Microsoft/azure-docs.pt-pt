@@ -5,12 +5,12 @@ description: Conheça as quotas padrão, os tamanhos de VM SKU do nó restrito e
 services: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.openlocfilehash: 054d6ff4fc105d84192ac81feda97515f6cfae49
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: e3edbcf9603657ce0c747b01b3c59c2923bc0181
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886777"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208028"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quotas, restrições ao tamanho da máquina virtual e disponibilidade da região no Serviço Azure Kubernetes (AKS)
 
@@ -27,7 +27,7 @@ Este artigo detalha os limites de recursos padrão para os recursos do Serviço 
 Aplicam-se todas as outras limitações de rede, computação e armazenamento para a infraestrutura de aprovisionamento. Para os limites relevantes, consulte os limites de [subscrição e serviço do Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 > [!IMPORTANT]
-> Ao atualizar um cluster AKS, os recursos adicionais são temporariamente consumidos. Estes recursos incluem endereços IP disponíveis numa subnet de rede virtual ou quota vCPU de máquina virtual. Se utilizar os recipientes do Windows Server (atualmente em pré-visualização no AKS), a única abordagem endossada para aplicar as últimas atualizações nos nós é realizar uma operação de atualização. Um processo de atualização de cluster falhado pode indicar que não tem o espaço de endereço IP disponível ou quota vCPU para lidar com estes recursos temporários. Para obter mais informações sobre o processo de upgrade do nó do Windows Server, consulte [a atualização de um conjunto][nodepool-upgrade]de nós no AKS .
+> Ao atualizar um cluster AKS, os recursos adicionais são temporariamente consumidos. Estes recursos incluem endereços IP disponíveis numa subnet de rede virtual ou quota vCPU de máquina virtual. Se utilizar os recipientes do Windows Server, a única abordagem endossada para aplicar as últimas atualizações nos nós é realizar uma operação de atualização. Um processo de atualização de cluster falhado pode indicar que não tem o espaço de endereço IP disponível ou quota vCPU para lidar com estes recursos temporários. Para obter mais informações sobre o processo de upgrade do nó do Windows Server, consulte [a atualização de um conjunto][nodepool-upgrade]de nós no AKS .
 
 ## <a name="restricted-vm-sizes"></a>Tamanhos de VM restritos
 

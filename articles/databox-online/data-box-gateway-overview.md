@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: b8c6b4085f56bc12b67bf87177ba33b82c6a6db9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8911c1099db36b7e4e6d568ea64ae4afa3cc826e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "69900591"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561056"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>O que é Azure Data Box Gateway?
 
@@ -33,7 +33,7 @@ Pode tirar-se partido do Data Box Gateway para transferir dados para a cloud, co
 
 Para mais informações, vá a casos de utilização do Portal de [Dados do Azure.](data-box-gateway-use-cases.md)
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 O Data Box Gateway possui os benefícios seguintes:
 
@@ -89,7 +89,7 @@ A solução Data Box Gateway inclui o recurso Data Box Gateway, o dispositivo vi
 
 O dispositivo físico Data Box Gateway, o recurso Azure e a conta de armazenamento alvo para a qual transfere dados nem todos têm de estar na mesma região.
 
-- **Disponibilidade** de recursos - Para uma lista de todas as regiões onde o recurso Data Box Edge está disponível, vá aos [produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox) Data Box Gateway também pode ser implantado na Nuvem do Governo Azure. Para mais informações, veja o que é o [Governo de Azure?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
+- **Disponibilidade** de recursos - Para uma lista de todas as regiões onde o recurso Azure Stack Edge está disponível, vá aos [produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox) Data Box Gateway também pode ser implantado na Nuvem do Governo Azure. Para mais informações, veja o que é o [Governo de Azure?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 
 - **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure.
 

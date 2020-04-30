@@ -3,12 +3,12 @@ title: Monitorize aplicações java em qualquer ambiente - Insights de aplicaç�
 description: Monitorização do desempenho da aplicação para aplicações Java em qualquer ambiente sem instrumentar a aplicação. Mapa de rastreio e aplicação distribuído.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: b9c1a52051e63beee9a784714a7bb1a6a79e8759
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 591cfad0f4719595835f212b9205354aad7cb9e8
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687721"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508076"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java codeless application monitoring Azure Monitor Application Insights - pré-visualização pública
 
@@ -24,11 +24,11 @@ Ainda pode enviar telemetria personalizada da sua aplicação. O agente 3.0 irá
 
 **1. Descarregue o agente**
 
-Baixar [applicationinsights-agent-3.0.0-PREVIEW.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
+Baixar [applicationinsights-agent-3.0.0-PREVIEW.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
 
 **2. Indicar o JVM ao agente**
 
-Adicione `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.3.jar` ao JVM args da sua aplicação
+Adicione `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` ao JVM args da sua aplicação
 
 Os típicos args `-Xmx512m` `-XX:+UseG1GC`JVM incluem e . Então, se sabe onde adicionar isto, então já sabe onde adicionar isto.
 
@@ -44,7 +44,7 @@ Aponte o agente para o seu recurso Application Insights, quer através da defini
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Ou criando um ficheiro `ApplicationInsights.json`de configuração chamado , `applicationinsights-agent-3.0.0-PREVIEW.3.jar`e colocando-o no mesmo diretório que, com o seguinte conteúdo:
+Ou criando um ficheiro `ApplicationInsights.json`de configuração chamado , `applicationinsights-agent-3.0.0-PREVIEW.4.jar`e colocando-o no mesmo diretório que, com o seguinte conteúdo:
 
 ```json
 {
@@ -117,7 +117,7 @@ Consulte os detalhes em [3.0 Visualização Pública: Opções](https://docs.mic
 
 ### <a name="metrics"></a>Métricas
 
-* Micrometer
+* Micrómetro (incluindo métricas do Actuador de Arranque de primavera)
 * Métricas JMX
 
 ## <a name="sending-custom-telemetry-from-your-application"></a>Envio de telemetria personalizada a partir da sua aplicação

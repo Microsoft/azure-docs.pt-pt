@@ -1,7 +1,7 @@
 ---
-title: Gerir iterações das experimentações
+title: Ver experiências de recorrer &
 titleSuffix: ML Studio (classic) - Azure
-description: Como gerir iterações de experimentação no Azure Machine Learning Studio (clássico). Pode rever as execuções anteriores das suas experiências a qualquer momento para desafiar, revisitar e, em última análise, confirmar ou refinar pressupostos anteriores.
+description: Gerir as experiências corre no Azure Machine Learning Studio (clássico). Pode rever as execuções anteriores das suas experiências a qualquer momento para desafiar, revisitar e, em última análise, confirmar ou refinar pressupostos anteriores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,20 +10,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 5c8a278f09fdb3b605020e4c2fcf7aa2776906e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2ace48ff1b2027a95aef2100540edc10aebb4cc
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204312"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208419"
 ---
-# <a name="manage-experiment-iterations-in-azure-machine-learning-studio-classic"></a>Gerir iterações de experimentação no Azure Machine Learning Studio (clássico)
+# <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gerir experiências corre no Azure Machine Learning Studio (clássico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Desenvolver um modelo de análise preditiva é um processo iterativo - à medida que modifica as várias funções e parâmetros da sua experiência, os seus resultados convergem até ficar satisfeito por ter um modelo treinado e eficaz. A chave para este processo é rastrear as várias iterações dos parâmetros e configurações da sua experiência.
-
-
 
 Pode rever as execuções anteriores das suas experiências a qualquer momento para desafiar, revisitar e, em última análise, confirmar ou refinar pressupostos anteriores. Quando executa uma experiência, o Machine Learning Studio (clássico) mantém um histórico de execução, incluindo dataset, módulo e ligações e parâmetros de porta. Este histórico também captura resultados, informações de tempo de execução como tempos de início e paragem, mensagens de registo e estado de execução. Você pode olhar para trás em qualquer uma destas corridas a qualquer momento para rever a cronologia da sua experiência e resultados intermédios. Você pode até usar uma execução anterior da sua experiência para lançar em uma nova fase de investigação e descoberta no seu caminho para criar soluções de modelação simples, complexas ou até mesmo conjunto.
 
@@ -32,12 +30,12 @@ Pode rever as execuções anteriores das suas experiências a qualquer momento p
 > 
 > 
 
-## <a name="viewing-the-prior-run"></a>Visualização da Corrida Prévia
+## <a name="view-the-prior-run"></a>Ver a corrida anterior
 Quando tiver uma experiência aberta que tenha executado pelo menos uma vez, pode ver a execução anterior da experiência clicando em **Prior Run** no painel de propriedades.
 
 Por exemplo, suponha que crie uma experiência e execute versões dela às 11:23, 11:42 e 11:55. Se abrir a última execução da experiência (11:55) e clicar em **Prior Run,** a versão que executou às 11:42 está aberta.
 
-## <a name="viewing-the-run-history"></a>Visualizando a História da Corrida
+## <a name="view-the-run-history"></a>Ver a história da corrida
 Pode ver todas as execuções anteriores de uma experiência clicando em **Ver Histórico** numa experiência aberta.
 
 Por exemplo, suponha que crie uma experiência com o módulo [de regressão linear][linear-regression] e queira observar o efeito de alterar o valor da taxa de **Aprendizagem** nos resultados da sua experiência. Executa a experiência várias vezes com valores diferentes para este parâmetro, da seguinte forma:
@@ -62,7 +60,7 @@ Clique em qualquer uma destas corridas para ver uma foto da experiência no mome
 
 A lista de experiências no separador **EXPERIMENTS** no Machine Learning Studio (clássico) exibe sempre a versão mais recente de uma experiência. Se abrir uma execução anterior da experiência (utilizando **o Prior Run** ou VER RUN **HISTORY),** pode voltar à versão de rascunho clicando no **VER RUN HISTORY** e selecionando a iteração que tem um **ESTADO** de **Editável**.
 
-## <a name="iterating-on-a-previous-run"></a>Iteração em uma corrida anterior
+## <a name="run-a-previous-experiment"></a>Executar uma experiência anterior
 Quando clicar em **Prior Run** ou VIEW **RUN HISTORY** e abrir uma execução anterior, pode ver uma experiência acabada no modo de leitura.
 
 Se quiser iniciar uma iteração da sua experiência começando pela forma como a configurapara uma execução anterior, pode fazê-lo abrindo a execução e clicando EM **SAVE AS**. Isto cria uma nova experiência, com um novo título, uma história de execução vazia, e todos os componentes e valores de parâmetros da corrida anterior. Esta nova experiência está listada no separador **EXPERIMENTS** na página inicial do Estúdio de Aprendizagem automática (clássico), e pode modificá-la e executá-la, adar um novo histórico de execução para esta iteração da sua experiência. 

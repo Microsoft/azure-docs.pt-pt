@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 1f88df186526c2f9903337bb3331940be0989c3d
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 46bfabfb2ccf091fd5dc0fcf0e9b447bad7c34d1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892466"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82208623"
 ---
 # <a name="what-is-batch-transcription"></a>O que é a transcrição do lote?
 
@@ -288,7 +288,7 @@ A funcionalidade de sentimento estima o sentimento expresso no áudio. O sentime
 - O que correu bem ao transformar uma chamada negativa numa direção positiva
 - Identifique o que os clientes gostam e o que não gostam de um produto ou de um serviço
 
-O sentimento é pontuado por segmento de áudio com base na forma lexical. Todo o texto dentro desse segmento de áudio é usado para calcular o sentimento. Nenhum sentimento agregado está a ser calculado para toda a transcrição. Atualmente, a análise de sentimentos só está disponível para a língua inglesa.
+O sentimento é pontuado por segmento de áudio com base na forma lexical. Todo o texto dentro desse segmento de áudio é usado para calcular o sentimento. Nenhum sentimento agregado está a ser calculado para toda a transcrição. A análise de sentimentos está atualmente disponível apenas na língua inglesa.
 
 > [!NOTE]
 > Recomendamos a utilização do Microsoft Text Analytics API. Oferece características mais avançadas além da análise de sentimentos como a extração de frases-chave, deteção automática de linguagem, e muito mais. Pode encontrar informações e amostras na documentação do [Text Analytics.](https://azure.microsoft.com/services/cognitive-services/text-analytics/)

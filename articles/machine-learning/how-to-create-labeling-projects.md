@@ -6,13 +6,13 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 03/01/2020
-ms.openlocfilehash: f6723992ac3335e6abdd78f2008130dfe136f7df
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: 6c553580bc3f2c9cb1aac321bea3c86b04b2ba56
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873893"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231225"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -22,9 +22,9 @@ Rotular dados volumosos em projetos de aprendizagem automática é muitas vezes 
  
 [O Azure Machine Learning](https://ml.azure.com/) dá-lhe um lugar central para criar, gerir e monitorizar projetos de rotulagem (pré-visualização pública). Use-o para coordenar dados, etiquetas e membros da equipa para gerir eficientemente as tarefas de rotulagem. O Machine Learning suporta a classificação de imagem, multi-etiqueta ou multi-classe, e identificação de objetos com caixas limitadas.
 
-O Machine Learning acompanha o progresso e mantém a fila de tarefas de rotulagem incompletas. Os rotuladores não precisam de uma conta Azure para participar. Depois de autenticados com a sua conta Microsoft ou Com o [Diretório Ativo Azure,](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)podem fazer o máximo de rotulagem que o seu tempo permitir.
+O Azure Machine Learning acompanha o progresso e mantém a fila de tarefas de rotulagem incompletas.
 
-Você começa e para o projeto, adiciona e remove os rótulos e as equipas, e monitoriza o progresso da rotulagem. Pode exportar dados rotulados em formato COCO ou como um conjunto de dados de Aprendizagem automática Azure.
+É capaz de iniciar e parar o projeto e monitorizar o progresso da rotulagem. Pode exportar dados rotulados em formato COCO ou como um conjunto de dados de Aprendizagem automática Azure.
 
 > [!Important]
 > Apenas os projetos de classificação de imagem e identificação de objetos são atualmente suportados. Além disso, as imagens de dados devem estar disponíveis numa loja de dados azure blob. (Se não tiver uma datastore existente, poderá fazer upload de imagens durante a criação do projeto.)
@@ -34,7 +34,6 @@ Neste artigo, aprenderá a:
 > [!div class="checklist"]
 > * Criar um projeto
 > * Especificar os dados e estrutura do projeto
-> * Gerir as equipas e as pessoas que trabalham no projeto
 > * Executar e monitorizar o projeto
 > * Exportar os rótulos
 
@@ -50,7 +49,7 @@ Neste artigo, aprenderá a:
 
 ## <a name="create-a-labeling-project"></a>Criar um projeto de rotulagem
 
-Os projetos de rotulagem são geridos a partir de Azure Machine Learning. Usa a página de projetos de **rotulagem** para gerir os seus projetos e pessoas. Um projeto tem uma ou mais equipas atribuídas a ele, e uma equipa tem uma ou mais pessoas atribuídas a ele.
+Os projetos de rotulagem são geridos a partir de Azure Machine Learning. Utiliza a página de projetos de **rotulagem** para gerir os seus projetos.
 
 Se os seus dados já se encontra no armazenamento da Azure Blob, deverá disponibilizá-lo como uma datastore antes de criar o projeto de rotulagem. Para um exemplo de utilização de uma datastore, consulte [Tutorial: Crie o seu primeiro projeto](tutorial-labeling.md)de rotulagem de classificação de imagem .
 
@@ -84,7 +83,7 @@ Para criar um conjunto de dados a partir de dados que já armazenou no armazenam
     * Apêndice "/**" ao caminho para incluir todos os ficheiros em subpastas do caminho selecionado.
     * Apêndice "**/*.*" para incluir todos os dados do recipiente atual e das suas subpastas.
 1. Forneça uma descrição para o seu conjunto de dados.
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 1. Confirme os detalhes. Selecione **Voltar** a modificar as definições ou **criar** para criar o conjunto de dados.
 
 > [!NOTE]
@@ -100,7 +99,7 @@ Para fazer o upload direto dos seus dados:
 1. *Opcional:* Selecione **configurações avançadas** para personalizar a loja de dados, o recipiente e o caminho para os seus dados.
 1. **Selecione Navegar** para selecionar os ficheiros locais para carregar.
 1. Forneça uma descrição do seu conjunto de dados.
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 1. Confirme os detalhes. Selecione **Voltar** a modificar as definições ou **criar** para criar o conjunto de dados.
 
 Os dados são enviados para a loja de blob padrão ("workspaceblobstore") do seu espaço de trabalho machine learning.
@@ -168,23 +167,11 @@ Uma vez treinado um modelo de aprendizagem automática nos seus dados manualment
 
 Após a rubrica do projeto de rotulagem, alguns aspetos do projeto são imutáveis. Não é possível alterar o tipo de tarefa ou o conjunto de dados. *Pode* modificar as etiquetas e o URL para a descrição da tarefa. Reveja cuidadosamente as definições antes de criar o projeto. Depois de submeter o projeto, é devolvido à página inicial da **Data Labeling,** que mostrará o projeto como **Inicialização**. Esta página não atualiza automaticamente. Assim, após uma pausa, refresque manualmente a página para ver o estado do projeto como **Criado**.
 
-## <a name="manage-teams-and-people"></a>Gerir equipas e pessoas
-
-Por padrão, cada projeto de rotulagem que crias recebe uma nova equipa consigo como membro. Mas as equipas também podem ser partilhadas entre projetos. E os projetos podem ter mais do que uma equipa. Para criar uma equipa, selecione **Adicionar equipa** na página das **Equipas.** 
-
-Geres as pessoas na página dos **Labelers.** Adicione e remova as pessoas por endereço de e-mail. Cada rotulador tem de autenticar através da sua conta Microsoft ou do Diretório Ativo Azure, se a utilizar.  
-
-Depois de adicionar uma pessoa, pode atribuir essa pessoa a uma ou mais equipas: Vá à página das **Equipas,** selecione a equipa e, em seguida, selecione **Atribuir pessoas** ou **remover pessoas**.
-
-Para enviar um e-mail para a equipa, selecione a equipa para ver a página **de detalhes da Equipa.** Nesta página, selecione **a equipa de e-mail** para abrir um rascunho de e-mail com os endereços de todos na equipa.
-
 ## <a name="run-and-monitor-the-project"></a>Executar e monitorizar o projeto
 
 Depois de rubricar o projeto, o Azure vai começar a executá-lo. Selecione o projeto na página principal de **Rotulagem** de Dados para ir aos **detalhes do Projeto**. O **separador Dashboard** mostra o progresso da tarefa de rotulagem.
 
 No separador **Dados,** pode ver o seu conjunto de dados e rever os dados rotulados. Se vir dados incorretamente rotulados, selecione-os e escolha **Rejeitar**, que removerá as etiquetas e colocará os dados novamente na fila não marcada.
-
-Utilize o separador **Team** para atribuir ou desatribuir equipas ao projeto.
 
 Para interromper ou reiniciar o projeto, selecione o botão **Pausa**/**Iniciar.** Só é possível rotular dados quando o projeto está em execução.
 

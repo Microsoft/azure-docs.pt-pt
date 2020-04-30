@@ -4,12 +4,12 @@ description: Aprenda os componentes básicos de cluster e carga de trabalho das 
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 019c886aba1c8fe34211e73e4d960b14e79303b9
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 13169628aff2fe4bff64fed36db54d18d4f830b8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617442"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208164"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos centrais da Kubernetes para o Serviço Azure Kubernetes (AKS)
 
@@ -88,7 +88,7 @@ Para manter o desempenho e a funcionalidade do nó, os recursos são reservados 
 
 - **CPU** - CPU reservado depende do tipo de nó e da configuração do cluster que pode causar CPU menos alocável devido a funcionalidades adicionais de funcionamento
 
-| Núcleos de CPU no hospedeiro | 1 | 2 | 4 | 8 | 16 | 32|64|
+| Núcleos de CPU no hospedeiro | 1    | 2    | 4    | 8    | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
 |Reservado para Kube (miliscores)|60|100|140|180|260|420|740|
 
@@ -126,7 +126,7 @@ Para obter mais informações sobre como usar várias piscinas de nós em AKS, c
 
 ### <a name="node-selectors"></a>Selecionadores de nó
 
-Num cluster AKS que contém várias piscinas de nós, você pode precisar dizer ao Agendador Kubernetes que piscina de nó para usar para um determinado recurso. Por exemplo, os controladores de ingresso não devem ser executados em nós do Windows Server (atualmente em pré-visualização no AKS). Os selecionadores de nó permitem definir vários parâmetros, como o nó OS, para controlar onde uma vagem deve ser programada.
+Num cluster AKS que contém várias piscinas de nós, você pode precisar dizer ao Agendador Kubernetes que piscina de nó para usar para um determinado recurso. Por exemplo, os controladores de ingresso não devem ser executados nos nós do Windows Server. Os selecionadores de nó permitem definir vários parâmetros, como o nó OS, para controlar onde uma vagem deve ser programada.
 
 O exemplo básico seguinte programa uma instância NGINX num nó Linux utilizando o seletor de nó *"beta.kubernetes.io/os": linux*:
 

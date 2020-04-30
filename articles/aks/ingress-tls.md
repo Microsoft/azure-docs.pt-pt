@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de ingresso NGINX qu
 services: container-service
 ms.topic: article
 ms.date: 01/29/2020
-ms.openlocfilehash: bc95f60534e11be1babb4c688800e2c834c0d7dc
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: c0c0e885f7802c35b5fa33dfa0f81565d730f32a
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82145349"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207195"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de ingresso HTTPS no Serviço Azure Kubernetes (AKS)
 
@@ -40,7 +40,7 @@ Este artigo também requer que esteja a executar a versão Azure CLI 2.0.64 ou p
 
 Para criar o controlador `helm` de entrada, utilize o comando para instalar *nginx-ingress*. Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de ingresso, certifique-se de que há mais de um nó no seu cluster AKS.
 
-O controlador de entrada também tem de estar agendado num nó do Linux. Os nós do Windows Server (atualmente em pré-visualização no AKS) não devem executar o controlador de entrada. É especificado um seletor de nós com o parâmetro `--set nodeSelector` para indicar ao agendador do Kubernetes que execute o controlador de entrada do NGINX num nó baseado no Linux.
+O controlador de entrada também tem de estar agendado num nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. É especificado um seletor de nós com o parâmetro `--set nodeSelector` para indicar ao agendador do Kubernetes que execute o controlador de entrada do NGINX num nó baseado no Linux.
 
 > [!TIP]
 > O exemplo seguinte cria um espaço de nome Kubernetes para os recursos de ingresso *denominados ingress-basic*. Especifique um espaço de nome para o seu próprio ambiente, conforme necessário.

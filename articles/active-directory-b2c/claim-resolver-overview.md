@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0bdede482b79c82e6e05b1429cb7c17399bc2277
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 83e1e11fe38a21bbd7c44139fac562342bcab866
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81756606"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229651"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre pedidos de reclamação em políticas personalizadas do Diretório Ativo Azure B2C
 
@@ -139,7 +139,7 @@ Pode utilizar reclamações com os seguintes elementos:
 |Perfil técnico [openID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |Perfil técnico de transformação de [sinistros](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |Perfil técnico do [fornecedor RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
-|Perfil técnico [SAML2](saml-technical-profile.md)| `OutputClaim`| 1, 2|
+|Perfil técnico do fornecedor de [identidade SAML](saml-identity-provider-technical-profile.md)| `OutputClaim`| 1, 2|
 |Perfil técnico [autoafirmado](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |[Definição de Conteúdo](contentdefinitions.md)| `LoadUri`| |
 |[Parâmetros de Definição de Conteúdo](relyingparty.md#contentdefinitionparameters)| `Parameter` | |

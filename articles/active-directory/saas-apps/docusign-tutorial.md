@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02b0d8290e279b6ed4de08d074597154208cac6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b827c2e949502ad8bd19378a84ea89947929459d
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183994"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509368"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutorial: Azure Ative Diretório integração de inscrição única (SSO) com docuSign
 
@@ -221,7 +221,7 @@ Nesta secção, você concederá acesso b.Simon ao DocuSign para que este utiliz
        
        1. Copie o URL do **Serviço Afirmação**do Serviço ao Consumidor e cole-o na caixa URL de **resposta** na secção **de configuração SAML Básica** no portal Azure.
        
-       1. Copie o URL de login do prestador de **serviços**e, em seguida, cole-o na caixa **de URL Sign On** na secção basic **SAML Configuração** no portal Azure.
+       1. Copie o URL de login do prestador de **serviços**e, em seguida, cole-o na caixa **de URL Sign On** na secção basic **SAML Configuração** no portal Azure. No final do URL de **Login** do Fornecedor de Serviços, obterá o valor IDPID.
 
        1. Selecione **Fechar**.
 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 07b071b0e8efc5d664dada133a214d778c6531d0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 29eb0625ceebf4fee75d0c1accef7ae03b5f61b9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984951"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208385"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para proteger aplicações de indisponibilidades e de desastres do Service Bus
 
@@ -36,7 +36,7 @@ Service Bus Premium suporta a recuperação geo-desastre, ao nível do espaço d
 O Service Bus Premium SKU suporta zonas de [disponibilidade,](../availability-zones/az-overview.md)fornecendo localizações isoladas de falhas dentro da mesma região azure. O Service Bus gere três cópias da loja de mensagens (1 primária e 2 secundária). O Service Bus mantém todas as três cópias sincronizadas para operações de dados e gestão. Se a cópia primária falhar, uma das cópias secundárias é promovida para primária sem tempo de inatividade percebido. Se as aplicações virem desconexões transitórias do Bus de Serviço, a lógica de retry no SDK reconectar-se-á automaticamente para o Bus de Serviço. 
 
 > [!NOTE]
-> O suporte das Zonas de Disponibilidade para o Azure Service Bus Premium só está disponível nas [regiões do Azure](../availability-zones/az-overview.md#services-support-by-region) onde estão presentes zonas de disponibilidade.
+> O suporte das Zonas de Disponibilidade para o Azure Service Bus Premium só está disponível nas [regiões do Azure](../availability-zones/az-region.md) onde estão presentes zonas de disponibilidade.
 
 Só pode ativar Zonas de Disponibilidade em novos espaços de nome, utilizando o portal Azure. A Service Bus não suporta a migração de espaços de nome existentes. Não é possível desativar a redundância da zona depois de a ter habilitado para o seu espaço de nome.
 

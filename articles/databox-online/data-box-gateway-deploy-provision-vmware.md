@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9cf012df65560a921f2c9f12f6c0362a033300be
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60757745"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561650"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Gateway de caixa de dados Azure provision ioda em VMware
 
@@ -21,7 +21,7 @@ ms.locfileid: "60757745"
 
 Este tutorial descreve como fornecer um Data Box Gateway num sistema de anfitriões que executa VMware ESXi 6.0, 6.5 ou 6.7. 
 
-Necessita de privilégios de administrador para aprovisionar e ligar a um dispositivo virtual. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir.
+Necessita de privilégios de administrador para aprovisionar e ligar a um dispositivo virtual. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir. 
 
 Neste tutorial, ficará a saber como:
 

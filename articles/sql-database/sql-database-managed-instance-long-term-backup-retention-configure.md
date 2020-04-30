@@ -11,21 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/19/2020
-ms.openlocfilehash: 24eacb555704593fe44bc2d949de44de163345bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 04/29/2020
+ms.openlocfilehash: fba1dcdb8c4e5cfaa8071ae58ad75432b526c887
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677109"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509708"
 ---
 # <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Gerir a Base de Dados Azure SQL gerida por exemplo retenção de backup a longo prazo (PowerShell)
 
 Na base de dados Azure SQL gerida, pode configurar uma política de [retenção](sql-database-long-term-retention.md#managed-instance-support) de backup a longo prazo (LTR) como uma funcionalidade de pré-visualização pública limitada. Isto permite-lhe reter automaticamente cópias de dados em recipientes de armazenamento Azure Blob separados por um período de até 10 anos. Em seguida, pode recuperar uma base de dados utilizando estas cópias de segurança com o PowerShell.
 
    > [!IMPORTANT]
-   > O LTR para casos geridos encontra-se atualmente em pré-visualização limitada e disponível para subscrições de EA e CSP caso a caso. Para solicitar a inscrição, por favor crie um bilhete de [apoio Azure](https://azure.microsoft.com/support/create-ticket/) ao abrigo do tópico de apoio **Backup, Restore e Business Continuity/Retenção de backup a longo prazo**. 
-
+   > O LTR para casos geridos encontra-se atualmente em pré-visualização limitada e disponível para subscrições de EA e CSP caso a caso. Para solicitar a inscrição, por favor crie um bilhete de [apoio Azure.](https://azure.microsoft.com/support/create-ticket/) Para problemas de tipo de problema, escolha o caso de controlo de base de dados SQL e para o tipo de problema **selecione Backup, Restore e Business Continuity/Retenção de backup a longo prazo**. No seu pedido, por favor, diga que gostaria de estar inscrito na antevisão pública limitada do LTR para instância gerida.
 
 As seguintes secções mostram-lhe como usar o PowerShell para configurar a retenção de cópiade cópias de segurança a longo prazo, ver backups no armazenamento Azure SQL e restaurar a partir de uma cópia de segurança no armazenamento Azure SQL.
 

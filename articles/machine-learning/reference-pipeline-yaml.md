@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: 40e6d7f3d9c28708c5adec26ddc3c0463e75adc0
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: cee6de8fda45c429d0c74a3ecdc966b49e092567
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81529710"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208504"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Defina os gasodutos de aprendizagem automática em YAML
 
@@ -366,7 +366,7 @@ pipeline:
 
 | Chave YAML | Descrição |
 | ----- | ----- |
-| `steps` | Sequência de uma ou mais definições pipelineStep. Note que `destination` o passo `outputs` de um passo `inputs` tornou-se as chaves da .| 
+| `steps` | Sequência de uma ou mais definições pipelineStep. Note que `destination` as chaves de `outputs` um `source` passo `inputs` tornaram-se as chaves do próximo passo.| 
 
 ```yaml
 pipeline:

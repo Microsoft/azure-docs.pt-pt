@@ -1,17 +1,17 @@
 ---
 title: Utilize regras de rede virtuais - Portal Azure - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Crie e gerencie pontos finais de serviço VNet e regras Azure Database para PostgreSQL - Servidor Único utilizando o portal Azure
-author: bolzmj
-ms.author: mbolz
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 413c3a7b6fdcda996d3db548fb53f358eb8c71e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04084aa2a86c6faab40884446d108d49861cf79e
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978282"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509334"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Crie e gerencie pontos finais de serviço VNet e as regras VNet na Base de Dados Azure para PostgreSQL - Servidor Único utilizando o portal Azure
 Os serviços de rede virtual (VNet) terminam os pontos finais e as regras estendem o espaço de endereço privado de uma Rede Virtual à sua Base de Dados Azure para servidor PostgreSQL. Para uma visão geral da Base de Dados Azure para pontos finais do serviço PostgreSQL VNet, incluindo limitações, consulte a [Base de Dados Azure para os pontos finais do serviço VNet do Servidor PostgreSQL](concepts-data-access-and-security-vnet.md). Os pontos finais do serviço VNet estão disponíveis em todas as regiões suportadas para a Base de Dados Azure para PostgreSQL.

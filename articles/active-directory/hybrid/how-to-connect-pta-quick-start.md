@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18ffb48b2e7978831155afaf2e675bb720e57544
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: ca425c7c5739785f3463086d89b4796f09bf45b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82082208"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229821"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticação pass-through do Diretório Ativo Azure: Quickstart
 
@@ -31,6 +31,9 @@ A Autenticação pass-through do Azure Ative Directory (Azure AD) permite que os
 
 >[!IMPORTANT]
 >Se está a migrar de AD FS (ou outras tecnologias da federação) para a Autenticação Pass-through, recomendamos vivamente que siga o nosso guia de implementação detalhado publicado [aqui](https://aka.ms/adfstoPTADPDownload).
+
+>[!NOTE]
+>Se implementar o Pass Through Authentication com a nuvem do Governo Azure, veja considerações de [identidade híbrida para o Governo azure.](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud)
 
 Siga estas instruções para implementar a Autenticação Pass-through no seu inquilino:
 
@@ -74,7 +77,7 @@ Certifique-se de que estão em vigor os seguintes pré-requisitos.
    - Para validação de certificados, desbloqueie os seguintes URLs: **mscrl.microsoft.com:80,** **crl.microsoft.com:80,** **ocsp.msocsp.com:80**e **\.www microsoft.com:80**. Uma vez que estes URLs são utilizados para validação de certificados com outros produtos da Microsoft, pode já ter estes URLs desbloqueados.
 
 ### <a name="azure-government-cloud-prerequisite"></a>Pré-requisito da nuvem do Governo de Azure
-Antes de permitir a autenticação pass-through através do Azure AD Connect com o Passo 2, descarregue a mais recente versão do agente PTA do portal Azure.  Tem de garantir que o seu agente é versões **x.x.xxx.x** ou posteriormente.  Para verificar se o seu agente consulte agentes de [autenticação upgrade](how-to-connect-pta-upgrade-preview-authentication-agents.md)
+Antes de permitir a autenticação pass-through através do Azure AD Connect com o Passo 2, descarregue a mais recente versão do agente PTA do portal Azure.  Tem de garantir que o seu agente é versões **1.5.1742.0.** ou posterior.  Para verificar se o seu agente consulte agentes de [autenticação upgrade](how-to-connect-pta-upgrade-preview-authentication-agents.md)
 
 Depois de descarregar a mais recente versão do agente, proceda com as instruções abaixo para configurar a autenticação pass-through através do Azure AD Connect.
 

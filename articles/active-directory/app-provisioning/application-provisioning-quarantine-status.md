@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 04/28/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563c049bf3d1606e87db54e3b003dac987594610
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0355bb1c4255e6de4ed17d55097b7b22d6b37db6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154632"
+ms.locfileid: "82229906"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Fornecimento de candidaturas em estado de quarentena
 
@@ -33,7 +33,7 @@ Enquanto está em quarentena, a frequência dos ciclos incrementais é gradualme
 
 Há três formas de verificar se um pedido está em quarentena:
   
-- No portal Azure, navegue para **a Azure Ative Directory** > Enterprise aplica o nome&gt; > de > &lt;*aplicação***Provisioning** e percorra até à barra de progresso na parte inferior.**Enterprise applications**  
+- No portal Azure, navegue para **a Azure Ative Directory** > Enterprise aplica o nome&gt; > de > &lt;*aplicação***Provisioning** and review the progress bar for a quarantine message.**Enterprise applications**   
 
   ![Barra de estado de provisionamento que mostra o estado de quarentena](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
@@ -51,7 +51,13 @@ Há três formas de verificar se um pedido está em quarentena:
 
 ## <a name="why-is-my-application-in-quarantine"></a>Por que a minha candidatura está em quarentena?
 
-Um pedido do Microsoft Graph para obter o estatuto do trabalho de provisionamento mostra a seguinte razão para a quarentena:
+|Descrição|Ação Recomendada|
+|---|---|
+|Problema de conformidade com **o SCIM:** Uma resposta HTTP/404 Não Encontrada foi devolvida em vez da resposta esperada http/200 OK. Neste caso, o serviço de provisionamento da AD Azure fez um pedido ao pedido-alvo e recebeu uma resposta inesperada.|Verifique a secção de credenciais de administração para ver se a aplicação requer especificar o URL do arrendatário e certifique-se de que o URL está correto. Se não vir um problema, contacte o desenvolvedor de aplicações para garantir que o seu serviço está em conformidade com o SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
+|**Credenciais inválidas:** Ao tentar autorizar o acesso à aplicação-alvo recebemos uma resposta da aplicação-alvo que indica que as credenciais fornecidas são inválidas.|Por favor, navegue para a secção de credenciais de administração da UI de configuração de fornecimento e autorize o acesso novamente com credenciais válidas. Se a aplicação estiver na galeria, reveja o tutorial de configuração da aplicação para obter quaisquer passos adicionais necessários.|
+|**Funções duplicadas:** As funções importadas de determinadas aplicações, como a Salesforce e a Zendesk, devem ser únicas. |Navegue para o [manifesto](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) de aplicação no portal Azure e remova a função duplicada.|
+
+ Um pedido do Microsoft Graph para obter o estatuto do trabalho de provisionamento mostra a seguinte razão para a quarentena:
 
 - `EncounteredQuarantineException`indica que foram fornecidas credenciais inválidas. O serviço de provisionamento não pode estabelecer uma ligação entre o sistema de origem e o sistema-alvo.
 

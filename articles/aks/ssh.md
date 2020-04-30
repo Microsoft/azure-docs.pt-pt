@@ -4,16 +4,16 @@ description: Aprenda a criar uma ligação SSH com os nós de cluster azure Kube
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: dfdcda40a24142f85bbeb360aacf0971d72d181f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70ebcb1f340ba28cf80ad3e24a464aad5584b3a4
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77593636"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207161"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ligar com SSH aos nós de cluster do Azure Kubernetes Service (AKS) para manutenção ou resolução de problemas
 
-Ao longo do ciclo de vida do seu cluster Azure Kubernetes Service (AKS), poderá ter de aceder a um nó AKS. Este acesso pode ser para manutenção, recolha de registos ou outras operações de resolução de problemas. Pode aceder aos nós AKS utilizando sSH, incluindo os nós do Windows Server (atualmente em pré-visualização no AKS). Também pode [ligar-se aos nós do Windows Server utilizando ligações remotas][aks-windows-rdp]de protocolo de ambiente de trabalho (RDP). Para fins de segurança, os nós aks não estão expostos à internet. Para sSH para os nós AKS, você usa o endereço IP privado.
+Ao longo do ciclo de vida do seu cluster Azure Kubernetes Service (AKS), poderá ter de aceder a um nó AKS. Este acesso pode ser para manutenção, recolha de registos ou outras operações de resolução de problemas. Pode aceder a nós AKS utilizando SSH, incluindo nós do Windows Server. Também pode [ligar-se aos nós do Windows Server utilizando ligações remotas][aks-windows-rdp]de protocolo de ambiente de trabalho (RDP). Para fins de segurança, os nós aks não estão expostos à internet. Para sSH para os nós AKS, você usa o endereço IP privado.
 
 Este artigo mostra-lhe como criar uma ligação SSH com um nó AKS usando os seus endereços IP privados.
 
@@ -145,7 +145,7 @@ Para criar uma ligação SSH a um nó AKS, você executa uma cápsula de ajuda n
     ```
 
     > [!TIP]
-    > Se utilizar os nós do Windows Server (atualmente em pré-visualização no AKS), adicione um seletor de nó ao comando para agendar o recipiente Debian num nó Linux:
+    > Se utilizar os nós do Windows Server, adicione um seletor de nó ao comando para agendar o recipiente Debian num nó Linux:
     >
     > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 

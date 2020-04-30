@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
-ms.openlocfilehash: 2e057ca16e2e4f7fcb16ee39d090be853639fc12
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.date: 04/27/2020
+ms.openlocfilehash: 54b45825f2322dc127d5db818b7abe52e4a98967
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731453"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208402"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerencie a sua conta de mercado comercial no Partner Center
 
@@ -66,15 +66,12 @@ Na secção de informações de Contacto, pode ver o nome de **exibição**do Ed
 
 Uma conta de pagamento é a conta bancária para a qual os lucros são enviados das suas vendas. Esta conta bancária deve estar no mesmo país onde registou a sua conta de Partner Center.
 
-Para configurar a sua conta de pagamento, precisa de associar a **sua Conta Microsoft:**
-1. Vá à [página de visão geral](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) do mercado comercial no Partner Center.
-2. Na secção Perfil, selecione Associar a **sua Conta Microsoft**.
-3. Quando solicitado, inscreva-se na sua Conta Microsoft (MSA). Esta conta já não pode estar associada a outra conta do Partner Center.
-4. Para completar a configuração da sua conta de pagamento, faça login no Partner Center e, em seguida, faça login na sua Conta Microsoft (em vez da sua conta de trabalho).
+Para configurar a sua conta de pagamento:
 
-Agora que a sua Conta Microsoft está associada, para adicionar uma conta de pagamento, terá de:
-- **Escolha um método de pagamento**: Conta Bancária ou PayPal
-- **Adicionar informações de pagamento**: Isto pode incluir escolher um tipo de conta (verificação ou poupança), introduzir o nome do titular da conta, número de conta e número de encaminhamento, endereço de faturação, número de telefone ou endereço de e-mail PayPal. *Para obter mais informações sobre a utilização do PayPal como método de pagamento da sua conta e para saber se é suportado na sua região de mercado, consulte a [informação do PayPal](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+1. Vá à [página de visão geral](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) do mercado comercial no Partner Center.
+2. Na secção Perfil, ao lado do Perfil de **Pagamento,** selecione **Atualização**.
+3. **Escolha um método de pagamento**: Conta Bancária ou PayPal.
+4. **Adicionar informações de pagamento**: Isto pode incluir escolher um tipo de conta (verificação ou poupança), introduzir o nome do titular da conta, número de conta e número de encaminhamento, endereço de faturação, número de telefone ou endereço de e-mail PayPal. *Para obter mais informações sobre a utilização do PayPal como método de pagamento da sua conta e para saber se é suportado na sua região de mercado, consulte a [informação do PayPal](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > Alterar a sua conta de pagamento pode atrasar os seus pagamentos até um ciclo de pagamento. Este atraso ocorre porque precisamos verificar a mudança de conta, tal como fazemos quando estabelecemos a conta de pagamento. Ainda será pago o valor total depois de verificada a sua conta; quaisquer pagamentos devidos para o ciclo de pagamento em curso serão adicionados ao próximo.  
@@ -294,7 +291,7 @@ Os utilizadores da sua empresa podem ser atribuídos as seguintes funções e pe
 - **Gestor**
   - Pode aceder a todas as funcionalidades da conta da Microsoft, exceto definições de impostos e pagamentos
   - Pode gerir utilizadores, funções e contas de trabalho (inquilinos)
-- **Programador**
+- **Developer (Programador)**
   - Pode gerir e publicar ofertas
   - Pode ver alguns relatórios de editores
 

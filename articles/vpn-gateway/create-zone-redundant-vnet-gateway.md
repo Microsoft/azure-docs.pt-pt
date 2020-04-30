@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: d8c6b68a38d4b60cf7a3194e6a5ded8804cc416f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee789d0a9d06dfe6c5f47c02a5ff9c1637b3f976
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77150197"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209473"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Criar uma porta de entrada de rede virtual redundante em Zonas de Disponibilidade Azure
 
@@ -138,7 +138,7 @@ Sim, pode usar o portal Azure para implementar as novas SKUs. No entanto, você 
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Que regiões estão disponíveis para eu usar as novas SKUs?
 
-Consulte [as Zonas de Disponibilidade](../availability-zones/az-overview.md#services-support-by-region) para obter a mais recente lista de regiões disponíveis.
+Consulte [as Zonas de Disponibilidade](../availability-zones/az-region.md) para obter a mais recente lista de regiões disponíveis.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Posso mudar/migrar/atualizar os meus portões de rede virtual existentes para gateways de zona redundante ou zonal?
 

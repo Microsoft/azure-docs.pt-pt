@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 10fa16767061506eccf212c182e738246dc9fe7b
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 1c99af1927f39e2dc6fecd7a6cae43e3d4f4503f
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81867217"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208453"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Criar uma nova oferta Da Dynamics 365 Business Central
 
@@ -378,7 +378,7 @@ Deve fazer `.pdf` o upload de um ficheiro que lista os principais cenários de u
 
 ### <a name="app-tests-automation"></a>App testa automatização
 
-Pode fazer o upload opcional de um ficheiro de **automatização** de testes da App aqui (.app).
+Se a sua oferta for uma aplicação Add-on, tem de carregar um ficheiro de **automatização** de testes da App (.app). Este ficheiro não é aplicável às aplicações Connect.
 
 ### <a name="test-accounts"></a>Contas de teste
 

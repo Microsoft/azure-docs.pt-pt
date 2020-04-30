@@ -1,22 +1,22 @@
 ---
-title: Exploração madeireira de serviço web - Azure Machine Learning Studio (clássico) Microsoft Docs
+title: Ativar o registo de serviçoweb
+titleSuffix: ML Studio (classic) - Azure
 description: Saiba como ativar o loglogging para serviços web machine learning studio (clássicos). O registo de registo sintetiza informações adicionais para ajudar a resolver problemas com as APIs.
 services: machine-learning
-author: xiaoharper
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: 90e7692fe0e254074d8176d719d0ca9abad54a9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc4a2f83f59ab94d1bff8a005b37124f2822c72b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79217852"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209422"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Ativar a exploração de serviços web Azure Machine Learning Studio (clássico)
 

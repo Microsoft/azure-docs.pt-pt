@@ -1,21 +1,19 @@
 ---
-title: Executar o recipiente do Servidor Windows no cluster do Serviço Azure Kubernetes
+title: Crie um recipiente Windows Server num cluster azure Kubernetes Service (AKS)
 description: Aprenda a criar rapidamente um cluster Kubernetes, implemente uma aplicação num recipiente do Windows Server no Serviço Azure Kubernetes (AKS) utilizando o Azure CLI.
 services: container-service
 ms.topic: article
-ms.date: 01/27/2020
-ms.openlocfilehash: 2aecebcc45cb24c9ab3a594aa4d74b1584c7ffa7
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.date: 04/14/2020
+ms.openlocfilehash: 148ba900839c6eaf031416b0884778edded5735c
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392665"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208113"
 ---
-# <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Pré-visualização - Crie um recipiente de Servidor Windows num cluster do Serviço Azure Kubernetes (AKS) utilizando o Azure CLI
+# <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Crie um recipiente Windows Server num cluster do Serviço Azure Kubernetes (AKS) utilizando o Azure CLI
 
 O Azure Kubernetes Service (AKS) é um serviço gerido pela Kubernetes que permite implementar e gerir rapidamente clusters. Neste artigo, você implanta um cluster AKS usando o Azure CLI. Também implementa uma aplicação de amostra ASP.NET num recipiente do Windows Server para o cluster.
-
-Esta funcionalidade encontra-se em pré-visualização.
 
 ![Imagem de navegação para ASP.NET aplicação da amostra](media/windows-container/asp-net-sample-app.png)
 
@@ -25,17 +23,6 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.61 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
-
-## <a name="before-you-begin"></a>Antes de começar
-
-Tem de adicionar uma piscina adicional de nó depois de criar o seu cluster que pode executar os recipientes do Windows Server. A adição de uma piscina adicional de nó é coberta por um passo posterior, mas primeiro precisa de ativar algumas funcionalidades de pré-visualização.
-
-> [!IMPORTANT]
-> As funcionalidades de pré-visualização AKS são opt-in self-service. As pré-visualizações são fornecidas "as-is" e "conforme disponível" e estão excluídas dos acordos de nível de serviço e da garantia limitada. As pré-visualizações aks são parcialmente cobertas pelo apoio ao cliente na melhor base de esforço. Como tal, estas características não se destinam à utilização da produção. Para obter informações adicionais, consulte os seguintes artigos de apoio:
->
-> * [Políticas de apoio aks][aks-support-policies]
-> * [FaQ de suporte azure][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Instale a extensão CLI de pré-visualização de aks
 
@@ -44,32 +31,8 @@ Para utilizar os recipientes do Windows Server, necessita da versão de extensã
 ```azurecli-interactive
 # Install the aks-preview extension
 az extension add --name aks-preview
-
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
-```
-
-### <a name="register-windows-preview-feature"></a>Registar funcionalidade de pré-visualização do Windows
-
-Para criar um cluster AKS que pode usar várias piscinas de nós e executar recipientes Do Windows Server, primeiro ative as bandeiras da funcionalidade *WindowsPreview* na sua subscrição. A funcionalidade *WindowsPreview* também utiliza clusters de piscinas de vários nós e conjunto de escala de máquina virtual para gerir a implementação e configuração dos nós kubernetes. Registe a bandeira da funcionalidade *WindowsPreview* utilizando o comando de registo de [funcionalidades Az,][az-feature-register] como mostra o seguinte exemplo:
-
-```azurecli-interactive
-az feature register --name WindowsPreview --namespace Microsoft.ContainerService
-```
-
-> [!NOTE]
-> Qualquer cluster AKS que criar depois de ter registado com sucesso a bandeira da funcionalidade *WindowsPreview* utiliza esta experiência de cluster de pré-visualização. Para continuar a criar clusters regulares e totalmente suportados, não permita funcionalidades de pré-visualização nas subscrições de produção. Utilize uma assinatura Azure de teste ou desenvolvimento separada para testar funcionalidades de pré-visualização.
-
-Leva alguns minutos para a inscrição ser completada. Verifique o estado de registo utilizando o comando da [lista de características az:][az-feature-list]
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
-```
-
-Quando o estado `Registered`de registo estiver, pressione ctrl-C para parar de monitorizar o estado.  Em seguida, atualizar o registo do fornecedor de recursos *Microsoft.ContainerService* utilizando o comando de registo do [fornecedor az:][az-provider-register]
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
 ```
 
 ### <a name="limitations"></a>Limitações
@@ -78,10 +41,10 @@ As seguintes limitações aplicam-se quando cria e gere clusters AKS que suporta
 
 * Não pode apagar a primeira piscina de nó.
 
-Enquanto esta funcionalidade estiver em pré-visualização, aplicam-se as seguintes limitações adicionais:
+As seguintes limitações adicionais aplicam-se às piscinas de nós do Windows Server:
 
-* O cluster AKS pode ter um máximo de oito piscinas de nós.
-* O aglomerado AKS pode ter um máximo de 400 nós através dessas oito piscinas de nós.
+* O cluster AKS pode ter um máximo de 10 piscinas de nós.
+* O cluster AKS pode ter um máximo de 100 nós em cada piscina de nós.
 * O nome da piscina do Windows Server tem um limite de 6 caracteres.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -116,45 +79,33 @@ A saída de exemplo seguinte mostra o grupo de recursos criado com sucesso:
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-Para executar um cluster AKS que suporta piscinas de nós para contentores Do Windows Server, o seu cluster precisa de usar uma política de rede que utilize plugin de rede [Azure CNI][azure-cni-about] (avançado). Para obter informações mais detalhadas para ajudar a planear as gamas de subnet necessárias e considerações de rede, consulte a configuração da [rede Azure CNI][use-advanced-networking]. Use o [az aks criar][az-aks-create] comando para criar um cluster AKS chamado *myAKSCluster*. Este comando criará os recursos de rede necessários se não existirem.
-  * O cluster está configurado com dois nós
-  * Os parâmetros *windows-admin-password* e *windows-admin-username* definiram as credenciais de administração para quaisquer recipientes do Windows Server criados no cluster.
+Para executar um cluster AKS que suporta piscinas de nós para contentores Do Windows Server, o seu cluster precisa de usar uma política de rede que utilize plugin de rede [Azure CNI][azure-cni-about] (avançado). Para obter informações mais detalhadas para ajudar a planear as gamas de subnet necessárias e considerações de rede, consulte a configuração da [rede Azure CNI][use-advanced-networking]. Use o [az aks criar][az-aks-create] comando abaixo para criar um cluster AKS chamado *myAKSCluster*. Este comando criará os recursos de rede necessários se não existirem.
 
 > [!NOTE]
 > Para garantir que o seu cluster funcione de forma fiável, deve executar pelo menos 2 (dois) nós na piscina de nós padrão.
 
-Forneça o seu próprio *PASSWORD_WIN* seguro (lembre-se que os comandos deste artigo são inseridos numa concha BASH):
-
 ```azurecli-interactive
-PASSWORD_WIN="P@ssw0rd1234"
-
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.15.7 \
+    --kubernetes-version 1.16.7 \
     --generate-ssh-keys \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --enable-vmss \
     --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --network-plugin azure
 ```
 
 > [!Note]
-> Se tiver um erro de validação de palavra-passe, tente criar o seu grupo de recursos noutra região.
-> Em seguida, tente criar o cluster com o novo grupo de recursos.
-
-> [!Note]
 > Se não conseguir criar o cluster AKS porque a versão não é suportada nesta região, então pode usar o comando [az aks get-versions -- localização eastus] para encontrar a lista de versão suportada para esta região.
 
-
-Após alguns minutos, o comando completa e devolve informações formatadas da JSON sobre o cluster. Ocasionalmente, o cluster pode demorar mais do que alguns minutos a fornecer. Deixe até 10 minutos nestes casos. 
+Após alguns minutos, o comando completa e devolve informações formatadas da JSON sobre o cluster. Ocasionalmente, o cluster pode demorar mais do que alguns minutos a fornecer. Deixe até 10 minutos nestes casos.
 
 ## <a name="add-a-windows-server-node-pool"></a>Adicione uma piscina de nó do Windows Server
 
-Por padrão, um cluster AKS é criado com uma piscina de nó que pode executar contentores Linux. Utilize `az aks nodepool add` o comando para adicionar uma piscina adicional de nó que pode executar os recipientes do Windows Server.
+Por padrão, um cluster AKS é criado com uma piscina de nó que pode executar contentores Linux. Use `az aks nodepool add` o comando para adicionar uma piscina adicional de nó que pode executar os recipientes do Windows Server ao lado da piscina do nó Linux.
 
 ```azurecli
 az aks nodepool add \
@@ -163,7 +114,7 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.15.7
+    --kubernetes-version 1.16.7
 ```
 
 O comando acima cria uma nova piscina de nó chamada *npwin* e adiciona-a ao *myAKSCluster*. Ao criar uma piscina de nó para executar recipientes do Windows Server, o valor padrão para o tamanho do *nó-vm* é *Standard_D2s_v3*. Se optar por definir o parâmetro do tamanho do *nó vm,* verifique a lista de [tamanhos vm restritos][restricted-vm-sizes]. O tamanho mínimo recomendado é *Standard_D2s_v3*. O comando acima também utiliza a sub-rede predefinida na vnet predefinida criada durante a execução `az aks create`.
@@ -192,8 +143,8 @@ A saída de exemplo que se segue mostra todos os nós do cluster. Certifique-se 
 
 ```output
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.15.7
-aksnpwin987654                      Ready    agent   108s   v1.15.7
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
+aksnpwin987654                      Ready    agent   108s   v1.16.7
 ```
 
 ## <a name="run-the-application"></a>Executar a aplicação

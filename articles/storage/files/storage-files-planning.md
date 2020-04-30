@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d5bf3a6df9d7292c18a93737fb7dea5d8c91f984
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1fffb3eb10b7d3cbb3360a03112c3b4d7db8d109
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536502"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209490"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas formas principais: montando diretamente as ações de ficheiros Azure sem servidor ou por cache ingequedem ações de ficheiros Azure no local utilizando o Azure File Sync. Qual a opção de implementação que escolher altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -90,7 +90,7 @@ Em geral, as funcionalidades do Azure Files e a interoperabilidade com outros se
     - As ações de ficheiropremium podem ser provisionadas até 100 TiB sem qualquer trabalho adicional.
     - Por predefinição, as ações de ficheiropadrão podem abranger apenas até 5 TiB, embora o limite de ações possa ser aumentado para 100 TiB, optando pela bandeira de recurso de armazenamento de grandes partes de *ficheiros.* As ações de ficheiros standard só podem abranger até 100 TiB para contas de armazenamento redundantes ou redundantes locais. Para obter mais informações sobre o aumento do tamanho das partilhas de ficheiros, consulte [Enable e crie grandes partilhas](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share)de ficheiros .
 - **Disponibilidade regional**
-    - As ações de ficheiros premium não estão disponíveis em todas as regiões, e o apoio redundante da zona está disponível num subconjunto menor de regiões. Para saber se as ações de ficheiropremium estão atualmente disponíveis na sua região, consulte os [produtos disponíveis por página da região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para o Azure. Para saber quais as regiões que suportam o ZRS, consulte o [suporte da Zona de Disponibilidade Azure por região.](../../availability-zones/az-overview.md#services-support-by-region) Para nos ajudar a priorizar novas regiões e características de nível premium, preencha este [inquérito.](https://aka.ms/pfsfeedback)
+    - As ações de ficheiros premium não estão disponíveis em todas as regiões, e o apoio redundante da zona está disponível num subconjunto menor de regiões. Para saber se as ações de ficheiropremium estão atualmente disponíveis na sua região, consulte os [produtos disponíveis por página da região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para o Azure. Para saber quais as regiões que suportam o ZRS, consulte o [suporte da Zona de Disponibilidade Azure por região.](../../availability-zones/az-region.md) Para nos ajudar a priorizar novas regiões e características de nível premium, preencha este [inquérito.](https://aka.ms/pfsfeedback)
     - As ações padrão de ficheiros estão disponíveis em todas as regiões do Azure.
 - O Azure Kubernetes Service (AKS) suporta ações de ficheiropremium na versão 1.13 e posteriormente.
 

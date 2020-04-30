@@ -3,12 +3,12 @@ title: Matriz de suporte para cópia de segurança de partilha de ficheiros Azur
 description: Fornece um resumo das definições de suporte e limitações ao apoiar as ações de ficheiros Azure.
 ms.topic: conceptual
 ms.date: 1/26/2020
-ms.openlocfilehash: 03190c6b83fceec88442583a57ff46756cfe6221
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3f154f92d8d094654301bc319003adc22299017b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195694"
+ms.locfileid: "82207994"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para backup de partilha de ficheiros Azure
 
@@ -20,13 +20,13 @@ A cópia de segurança para as ações de ficheiros Azure está disponível no s
 
 | Regiões de Ga | Regiões apoiadas, mas não GA                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Austrália Sudeste (ASE), Canadá Central (CNC), West Central US (WCUS), West US 2 (WUS 2), Índia Sul (INS), North Central US (NCUS), Japão Leste (JPE), Brasil Sul (BRS), Sudeste Asiático (SEA)                                                     |Austrália Leste (AE), Canadá Leste (CE), Leste asiático (EA), Leste dos EUA (EUS2), Leste dos EUA 2 (EUS2), Japão Oeste (JPW), Índia Central (INC), Coreia Central (KRC), Coreia do Sul (KRS), Europa do Norte (NE)), South Central US (SCUS), UK South (UKS), UK West (UKW), West Europe (WE), West US (WUS), US Gov Arizona (UGA), EUA Gov Texas (UGT), EUA Gov Virginia (UGV), Australia Central (ACL) , Índia Oeste (INW), África do Sul Norte (SAN), UAE North (UAN), France Central (FRC), Alemanha Norte (GN), Alemanha West Central (GWC), África do Sul Oeste (SAW), UAE Central (UAC), Noruega Leste (NWE), Noruega Oeste (NWW), Suíça Norte (SZN), Centro dos EUA (CUS)           |
+| Austrália Sudeste (ASE), Canadá Central (CNC), West Central US (WCUS), West US 2 (WUS 2), Índia Sul (INS), North Central US (NCUS), Japão Leste (JPE), Brasil Sul (BRS), Sudeste Asiático (SEA), Suíça Oeste (SZW), UAE Central (UAC), Noruega Leste (NWE), Índia Ocidental (INW), Austrália Central (ACL)                                                  |Austrália Leste (AE), Canadá Leste (CE), Leste asiático (EA), Leste dos EUA (EUS2), Leste dos EUA 2 (EUS2), Japão Oeste (JPW), Índia Central (INC), Coreia Central (KRC), Coreia do Sul (KRS), Norte da Europa (NE), Centro-Sul dos EUA (SCUS), Reino Unido Sul (Reino Unido), Reino Unido Ocidental (UKW), Europa Ocidental (WE), Oeste DOS EUA (WUS), EUA Gov Arizona (UGA), EUA Gov Texas (UGT), EUA Gov Virginia (UGV), África do Sul Norte (SAN) , UAE North (UAN), France Central (FRC), Alemanha Norte (GN), Alemanha West Central (GWC), África do Sul Oeste (SAW), Noruega Oeste (NWW), Suíça Norte (SZN), Centro dos EUA (CUS)           |
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
 
 | Detalhes da conta de armazenamento | Suporte                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Tipo de conta            | A Azure Backup suporta as ações de ficheiros Azure presentes em contas de armazenamento de tipo v1 de uso geral, v2 de uso geral e tipo de partilha de ficheiros |
+| Tipo de conta            | A Azure Backup suporta as ações de ficheiros Azure presentes nas contas de armazenamento de tipo v1 de uso geral, v2 de propósito geral e tipo de armazenamento de ficheiros |
 | Desempenho              | Azure Backup suporta ações de ficheiros em contas standard e premium de armazenamento |
 | Replicação              | As ações do Azure em Contas de Armazenamento com qualquer tipo de replicação são suportadas |
 

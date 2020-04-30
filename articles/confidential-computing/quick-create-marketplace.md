@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 90e8aa4da88542648bec612553282ffe11b09eda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62ee8ddb03c00ba7d6ae495ee360c708b00c615c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192285"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82208640"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Quickstart: Implemente um VM de Computação Confidencial Azure no Mercado
 
@@ -107,7 +107,6 @@ ssh azureadmin@40.55.55.555
 
 Pode encontrar o endereço IP público do seu VM no portal Azure, sob a secção de visão geral da sua máquina virtual.
 
-[!div class="mx-imgBorder"]
 ![Endereço IP no portal do Azure](media/quick-create-portal/public-ip-virtual-machine.png)
 
 Se estiver a correr no Windows e não tiver uma concha BASH, instale um cliente SSH, como o PuTTY.

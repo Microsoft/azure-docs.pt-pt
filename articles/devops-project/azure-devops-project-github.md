@@ -1,36 +1,33 @@
 ---
-title: 'Tutorial: Crie um pipeline CI/CD para o seu código existente utilizando projetos Azure DevOps'
-description: A Azure DevOps Projects facilita o início do Azure. Em alguns passos rápidos, a DevOps Projects ajuda-o a usar o seu próprio código e o repo GitHub para lançar uma aplicação num serviço Azure.
+title: 'Tutorial: Crie um pipeline CI/CD para o seu código existente utilizando o Arranque de Azure DevOps'
+description: O Arranque azure DevOps facilita o arranque do Azure. Em alguns passos rápidos, a DevOps Projects ajuda-o a usar o seu próprio código e o repo GitHub para lançar uma aplicação num serviço Azure.
 services: vsts
 documentationcenter: vs-devops-build
 ms.author: mlearned
 ms.manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.workload: web
 ms.prod: devops
 ms.technology: devops-cicd
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/27/2019
+ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
-monikerRange: vsts
-ms.openlocfilehash: a0496999a9a5dc3e9bfd57df0ec035e6db77d620
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 55c6cbc18e37368dd47c47227041024b13987c47
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73615134"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233215"
 ---
-# <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Tutorial: Crie um pipeline CI/CD para o seu código existente utilizando projetos Azure DevOps
+# <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Crie um oleoduto CI/CD para o repo GitHub utilizando o Arranque de Azure DevOps
 
-A Azure DevOps Projects apresenta um processo simplificado para a criação de um oleoduto de integração contínua (CI) e entrega contínua (CD) ao Azure. Pode trazer o seu código existente e git repo, ou pode selecionar uma aplicação de amostra.
+A Azure DevOps Starter apresenta um processo simplificado para a criação de um oleoduto de integração contínua (CI) e entrega contínua (CD) ao Azure. Pode trazer o seu código existente e git repo, ou pode selecionar uma aplicação de amostra.
 
 Irá:
 
 > [!div class="checklist"]
-> * Utilize projetos DevOps para criar um pipeline CI/CD
+> * Use devOps Starter para criar um pipeline CI/CD
 > * Configure o acesso ao seu repo GitHub e escolha uma estrutura
 > * Configure Azure DevOps e uma subscrição Azure 
 > * Comprometa alterações ao GitHub e implemente-as automaticamente para o Azure
@@ -44,18 +41,14 @@ Irá:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-A Azure DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode criar uma nova organização Azure DevOps ou usar uma organização existente. A Azure DevOps Projects também cria recursos Azure na subscrição Azure à sua escolha.
+O Arranque azure DevOps cria um oleoduto CI/CD em Pipelines Azure. Você pode criar uma nova organização Azure DevOps ou usar uma organização existente. O Azure DevOps Starter também cria recursos Azure na subscrição Azure à sua escolha.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. A partir do menu do portal Azure, selecione **Criar um recurso**.
+1. Na caixa de pesquisa, digite **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
-   ![Menu portal Azure - Criar um recurso](_img/azure-devops-project-github/createaresource.png)
-
-3. Selecione **DevOps** > **DevOps Project**.
-
-   ![O painel de projetos DevOps](_img/azure-devops-project-github/azuredashboard.png)
-
+    ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
+    
 1. Selecione **Trazer o seu próprio código**e, em seguida, selecione **Next**.
 
 ## <a name="configure-access-to-your-github-repo-and-select-a-framework"></a>Configure o acesso ao seu repo GitHub e selecione uma estrutura
@@ -78,9 +71,9 @@ A Azure DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode cr
 
 1. Crie uma nova organização gratuita na **Organização Azure DevOps** ou selecione uma organização existente a partir do menu suspenso.
 
-1. Selecione a sua subscrição na **Subscrição Azure,** e introduza um nome na **aplicação Web** ou utilize o predefinido. Selecione um **Local**, e, em seguida, selecione **Done**. Após alguns minutos, a visão geral da implementação dos Projetos DevOps é exibida no portal Azure.
+1. Selecione a sua subscrição na **Subscrição Azure,** e introduza um nome na **aplicação Web** ou utilize o predefinido. Selecione um **Local**, e, em seguida, selecione **Done**. Após alguns minutos, a visão geral da implementação de Arranque de DevOps é exibida no portal Azure.
 
-1. Selecione **Ir recorrer** para ver o dashboard DevOps Projects. No canto superior direito, coloque o **Projeto** no seu painel para um acesso rápido. Os Projetos Azure DevOps configuram automaticamente um gatilho de construção e libertação de CI. O seu código permanece no seu repo GitHub ou noutro repo externo, e uma aplicação de amostra é configurada num repo na **Azure DevOps Organization**. A Azure DevOps Projects gere a construção e implementa a app para o Azure.
+1. Selecione **Recorrer para** ver o painel de arranque de DevOps. No canto superior direito, coloque o **Projeto** no seu painel para um acesso rápido. O Arranque de Azure DevOps configura automaticamente um gatilho de construção e libertação de CI. O seu código permanece no seu repo GitHub ou noutro repo externo, e uma aplicação de amostra é configurada num repo na **Azure DevOps Organization**. O Azure DevOps Starter gere a construção e implementa a aplicação para o Azure.
 
    ![Vista para o dashboard projetos Azure DevOps](_img/azure-devops-project-github/projectsdashboard.png)
 
@@ -90,15 +83,15 @@ A Azure DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode cr
 
 Está agora pronto para colaborar na sua aplicação com uma equipa. O processo CI/CD implementa automaticamente o seu mais recente trabalho no seu website. Cada alteração para o repo GitHub inicia uma construção em Azure DevOps, e um pipeline de CD executa uma implantação para Azure.
 
-1. A partir do seu painel de projetos DevOps, selecione **Repositórios**. O seu repositório GitHub abre num novo separador de navegador. **Commit changes**
+1. A partir do seu painel de arranque DevOps, selecione **Repositórios**. O seu repositório GitHub abre num novo separador de navegador. **Commit changes**
 
-1. Depois de alguns momentos, uma construção começa em Azure Pipelines. Pode monitorizar o estado de construção no painel de instrumentos de Projetos DevOps. Também pode monitorizá-lo na sua organização Azure DevOps selecionando o separador **de gasodutos Build** do dashboard DevOps Projects.
+1. Depois de alguns momentos, uma construção começa em Azure Pipelines. Pode monitorizar o estado de construção no painel de arranque de DevOps. Também pode monitorizá-lo na sua organização Azure DevOps selecionando o separador **de gasodutos Build** do painel de arranque de DevOps.
 
 ## <a name="examine-the-azure-pipelines-cicd-pipeline"></a>Examinar o gasoduto Azure CI/CD
 
-Os projetos Azure DevOps configuram automaticamente um oleoduto CI/CD em Pipelines Azure. Explore e personalize o pipeline, conforme necessário. Para se familiarizar com os oleodutos de construção e libertação, faça o seguinte:
+O Arranque de Azure DevOps configura automaticamente um oleoduto CI/CD em Pipelines Azure. Explore e personalize o pipeline, conforme necessário. Para se familiarizar com os oleodutos de construção e libertação, faça o seguinte:
 
-1. A partir do dashboard DevOps Projects, **selecione pipelines Build**.
+1. A partir do painel de arranque de DevOps, **selecione pipelines de construção**.
 
 1. Após a abertura da sua página **azure Pipelines,** você verá uma história das construções mais recentes e o estado para cada construção.
 

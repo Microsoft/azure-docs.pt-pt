@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 02/27/2020
+ms.date: 04/28/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 3fe13dcb35e6985d160f52b7ee3f9da4accd7806
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: f9558431d65a9c0f4fecf34141d9148afa514d86
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756665"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208572"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -1143,11 +1143,13 @@ Para configurar a implementação do seu `AMLResponse` modelo para suportar o CO
 O exemplo seguinte `Access-Control-Allow-Origin` define o cabeçalho para a resposta do script de entrada:
 
 ```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
 
 def init():
     print("This is init()")
 
+@rawhttp
 def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))

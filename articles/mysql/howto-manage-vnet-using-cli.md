@@ -1,19 +1,18 @@
 ---
 title: Gerir os pontos finais vNet - Azure CLI - Base de Dados Azure para MySQL
 description: Este artigo descreve como criar e gerir a Base de Dados Azure para os pontos finais e regras do serviço MySQL VNet utilizando a linha de comando Azure CLI.
-author: bolzmj
-ms.author: mbolz
-manager: jhubbard
+author: kummanish
+ms.author: manishku
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: c01f92f8144c8ebfce2d475f8b13ab1d70bca118
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a859fea121296dc977d48712c35ea3dcff798f50
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063590"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509300"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>Crie e gerea Base de Dados Azure para os pontos finais do serviço MySQL VNet utilizando o Azure CLI
 Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espaço do endereço privado de uma Rede Virtual ao seu servidor da Base de Dados do Azure para MySQL. Utilizando comandos convenientes da Interface da Linha de Comando Azure (CLI), pode criar, atualizar, excluir, listar e mostrar pontos finais e regras de serviço VNet para gerir o servidor. Para uma visão geral da Base de Dados Azure para os pontos finais do serviço MySQL VNet, incluindo limitações, consulte a [Base de Dados Azure para os pontos finais do serviço MySQL Server VNet](concepts-data-access-and-security-vnet.md). Os pontos finais do serviço VNet estão disponíveis em todas as regiões suportadas para a Base de Dados Azure para mySQL.

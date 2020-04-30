@@ -4,12 +4,12 @@ description: Aprenda a utilizar o serviço de lote API para persistir a tarefa d
 ms.topic: article
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5fbbf75defcfe976e59d38ae76341e71feee9f53
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: d9c6465a553e5652ecab5dcd167bb4058ff5cc08
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116473"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234286"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Persistir dados de tarefas para o Armazenamento Azure com o serviço de lote API
 
@@ -26,7 +26,7 @@ O Lote Azure fornece mais de uma forma de persistir a saída de tarefas. Usar o 
 - Pretende escrever código para persistir a saída de tarefas a partir da sua aplicação de cliente, sem modificar a aplicação que a sua tarefa está a executar.
 - Você quer persistir a saída a partir de tarefas do Lote e tarefas de gestor de emprego em piscinas criadas com a configuração da máquina virtual.
 - Você deve persistir a saída para um recipiente de armazenamento Azure com um nome arbitrário.
-- Pretende persistir a saída de um contentor de armazenamento Azure nomeado de acordo com a norma de Convenções de [Ficheiros](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)de Lote . 
+- Pretende persistir a saída de um contentor de armazenamento Azure nomeado de acordo com a norma de Convenções de [Ficheiros](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files)de Lote . 
 
 Se o seu cenário difere dos acima listados, poderá ter de considerar uma abordagem diferente. Por exemplo, o serviço de lote API não suporta atualmente a saída de streaming para o Armazenamento Azure enquanto a tarefa está em execução. Para transmitir a saída, considere a utilização da biblioteca de Convenções de Ficheiros de Lote, disponível para .NET. Para outras línguas, terá de implementar a sua própria solução. Para obter mais informações sobre outras opções para a persistência da saída de tarefas, consulte [a saída de trabalho e tarefa sinuosa para o Armazenamento Azure](batch-task-output.md).
 
@@ -155,7 +155,7 @@ Os `fileuploadout.txt` registos de ficheiros fazem upload do progresso. Pode exa
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Utilize o serviço de lote API com a norma De Convenções de Ficheiros de Lote
 
-Quando persistir a saída de tarefas com a API do serviço de lote, pode nomear o seu recipiente de destino e bolhas como quiser. Também pode optar por nomeá-los de acordo com a norma de Convenções de [Ficheiros](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)de Lote . A norma Determina os nomes do contentor de destino e blob no Armazenamento Azure para um determinado ficheiro de saída com base nos nomes do trabalho e da tarefa. Se utilizar a norma De Convenções de Ficheiros para nomear ficheiros de saída, os seus ficheiros de saída estão disponíveis para visualização no [portal Azure](https://portal.azure.com).
+Quando persistir a saída de tarefas com a API do serviço de lote, pode nomear o seu recipiente de destino e bolhas como quiser. Também pode optar por nomeá-los de acordo com a norma de Convenções de [Ficheiros](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files)de Lote . A norma Determina os nomes do contentor de destino e blob no Armazenamento Azure para um determinado ficheiro de saída com base nos nomes do trabalho e da tarefa. Se utilizar a norma De Convenções de Ficheiros para nomear ficheiros de saída, os seus ficheiros de saída estão disponíveis para visualização no [portal Azure](https://portal.azure.com).
 
 Se estiver a desenvolver-se em C#, pode utilizar os métodos incorporados na biblioteca de Convenções de Ficheiros de [Lote para .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Esta biblioteca cria os recipientes devidamente nomeados e caminhos blob para você. Por exemplo, pode ligar para a API para obter o nome correto para o recipiente, com base no nome do trabalho:
 

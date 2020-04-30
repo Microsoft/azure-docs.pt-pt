@@ -5,12 +5,12 @@ description: Conheça as melhores práticas do operador de cluster para recursos
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: d887f084ae329be30579b3400b4dc6cfb22c64ca
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82145444"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208062"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para conectividade e segurança da rede no Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ Quando utiliza a rede Azure CNI, o recurso de rede virtual encontra-se num grupo
 
 Para obter mais informações sobre a delegação principal do serviço AKS, consulte o [acesso do Delegado a outros recursos Do Iae.][sp-delegation] Em vez de um diretor de serviço, também pode utilizar o sistema de identidade gerida atribuída para permissões. Para mais informações, consulte [Use identidades geridas](use-managed-identity.md).
 
-À medida que cada nó e casulo recebem o seu próprio endereço IP, planeie as gamas de endereços para as subredes AKS. A subnet deve ser suficientemente grande para fornecer endereços IP para cada nó, cápsulas e recursos de rede que você implementa. Cada cluster AKS deve ser colocado na sua própria sub-rede. Para permitir a conectividade com as redes no local ou com o peered em Azure, não utilize gamas de endereços IP que se sobreponham aos recursos de rede existentes. Existem limites padrão para o número de cápsulas que cada nó funciona com a rede Kubenet e Azure CNI. Para lidar com eventos de escala ou upgrades de cluster, também precisa de endereços IP adicionais disponíveis para utilização na sub-rede atribuída. Este espaço adicional de endereço supre especialmente se utilizar os recipientes do Windows Server (atualmente em pré-visualização no AKS), uma vez que essas piscinas de nós requerem uma atualização para aplicar as mais recentes correções de segurança. Para obter mais informações sobre os nós do Windows Server, consulte [a atualização de um conjunto][nodepool-upgrade]de nós em AKS .
+À medida que cada nó e casulo recebem o seu próprio endereço IP, planeie as gamas de endereços para as subredes AKS. A subnet deve ser suficientemente grande para fornecer endereços IP para cada nó, cápsulas e recursos de rede que você implementa. Cada cluster AKS deve ser colocado na sua própria sub-rede. Para permitir a conectividade com as redes no local ou com o peered em Azure, não utilize gamas de endereços IP que se sobreponham aos recursos de rede existentes. Existem limites padrão para o número de cápsulas que cada nó funciona com a rede Kubenet e Azure CNI. Para lidar com eventos de escala ou upgrades de cluster, também precisa de endereços IP adicionais disponíveis para utilização na sub-rede atribuída. Este espaço adicional de endereço suplicou especialmente se utilizar os recipientes do Windows Server, uma vez que essas piscinas de nós requerem uma atualização para aplicar as mais recentes correções de segurança. Para obter mais informações sobre os nós do Windows Server, consulte [a atualização de um conjunto][nodepool-upgrade]de nós em AKS .
 
 Para calcular o endereço IP necessário, consulte a [rede Configure Azure CNI em AKS][advanced-networking].
 
@@ -99,7 +99,7 @@ spec:
 
 Um controlador de ingresso é um daemon que corre num nó AKS e observa para pedidos de entrada. O tráfego é então distribuído com base nas regras definidas no recurso de ingresso. O controlador de ingresso mais comum é baseado no [NGINX]. O AKS não o restringe a um controlador específico, por isso pode utilizar outros controladores como [Contour,][contour] [HAProxy][haproxy]ou [Traefik][traefik].
 
-Os controladores de ingresso devem ser programados num nó Linux. Os nós do Windows Server (atualmente em pré-visualização no AKS) não devem executar o controlador de entrada. Utilize um seletor de nó no seu manifesto YAML ou na implantação do gráfico Helm para indicar que o recurso deve ser executado num nó baseado em Linux. Para mais informações, consulte [Utilize os seletores de nó para controlar onde as cápsulas estão programadas no AKS][concepts-node-selectors].
+Os controladores de ingresso devem ser programados num nó Linux. Os nós do Windows Server não devem executar o controlador de entrada. Utilize um seletor de nó no seu manifesto YAML ou na implantação do gráfico Helm para indicar que o recurso deve ser executado num nó baseado em Linux. Para mais informações, consulte [Utilize os seletores de nó para controlar onde as cápsulas estão programadas no AKS][concepts-node-selectors].
 
 Existem muitos cenários para ingresso, incluindo os seguintes guias como-a::
 

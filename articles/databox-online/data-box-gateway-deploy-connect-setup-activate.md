@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: b3cf4fd958202c28586b7c15932dc88a21d7c60f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 78c06cc7f08fe94a25ea63d9bf76cc1352d9f2b7
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "81686868"
+ms.locfileid: "82561668"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Ligar, configurar, ativar portal da caixa de dados Azure
 
@@ -65,7 +65,7 @@ O seu painel de instrumentos apresenta as várias definições necessárias para
    
 ![Página local da UI "Dashboard"](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
-1. No painel esquerdo, selecione o **nome do Dispositivo**e, em seguida, introduza um nome amigável para o seu dispositivo. O nome amigável deve conter de 1 a 15 caracteres de comprimento e ter letra, números e hífenes.
+1. No painel esquerdo, selecione o **nome do Dispositivo**e, em seguida, introduza um nome amigável para o seu dispositivo. O nome amigável deve conter de 1 a 15 caracteres de comprimento e ter letra, números e hífenes. 
 
     ![Página local da UI "Nome do dispositivo"](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 

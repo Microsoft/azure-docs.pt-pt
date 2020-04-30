@@ -3,12 +3,12 @@ title: Monitor aplicativos Java em qualquer lugar - Azure Monitor Application In
 description: Monitorização do desempenho da aplicação sem código para aplicações Java em qualquer ambiente sem instrumentar a aplicação. Encontre a causa principal dos problemas d utilizando o rastreio distribuído e o mapa de aplicações.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 5d930d349a2ab1efbd7a61904874bf6bdb411889
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 478e42669339ac015076c89da103d91080090685
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641891"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509215"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opções de configuração - Java agente autónomo para Insights de Aplicação do Monitor Azure
 
@@ -33,14 +33,14 @@ Encontrará mais detalhes e opções de configuração adicionais abaixo para ma
 
 ## <a name="configuration-file-path"></a>Caminho de ficheiro de configuração
 
-Por predefinição, a Pré-visualização De Insights `ApplicationInsights.json`de Aplicação Java 3.0 `applicationinsights-agent-3.0.0-PREVIEW.jar`espera que o ficheiro de configuração seja nomeado , e que esteja localizado no mesmo diretório que .
+Por predefinição, a Pré-visualização De Insights `ApplicationInsights.json`de Aplicação Java 3.0 `applicationinsights-agent-3.0.0-PREVIEW.4.jar`espera que o ficheiro de configuração seja nomeado , e que esteja localizado no mesmo diretório que .
 
 Pode especificar o seu próprio caminho de ficheiro de configuração usando qualquer um dos dois
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE`variável ambiente, ou
 * `applicationinsights.configurationFile`Propriedade do sistema Java
 
-Se especificar um caminho relativo, será resolvido em `applicationinsights-agent-3.0.0-PREVIEW.jar` relação ao diretório onde se encontra.
+Se especificar um caminho relativo, será resolvido em `applicationinsights-agent-3.0.0-PREVIEW.4.jar` relação ao diretório onde se encontra.
 
 ## <a name="connection-string"></a>Cadeia de ligação
 
@@ -150,11 +150,13 @@ Se tiver algumas métricas JMX que está interessado em capturar:
 }
 ```
 
-## <a name="micrometer"></a>Micrometer
+## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrómetro (incluindo métricas do Actuador de Botas de primavera)
 
-Por predefinição, se a sua aplicação utilizar [o Micrometro](https://micrometer.io), Application Insights 3.0 (começando com Preview.2) agora se adiciona ao registo global do Micrometro e captura métricas de Micrómetro.
+Se a sua aplicação utilizar [o Micrometro](https://micrometer.io), Application Insights 3.0 (começando com Preview.2) captura agora as métricas enviadas para o registo global do Micrometro.
 
-Se quiser desativar esta funcionalidade:
+Se a sua aplicação utilizar o Acionador de Arranque de [Mola](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), application Insights 3.0 (começando com Preview.4) captura agora métricas configuradas pelo Acionador de Arranque de Mola (que utiliza o Micrometro, mas não utiliza o registo global do Micrometro).
+
+Se quiser desativar estas funcionalidades:
 
 ```json
 {

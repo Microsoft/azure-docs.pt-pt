@@ -5,24 +5,18 @@ description: Conheça as limitações conhecidas quando executa piscinas de nós
 services: container-service
 ms.topic: article
 ms.date: 12/18/2019
-ms.openlocfilehash: 934acf06a779c1c3b0b13e74b196b174dd944e66
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 935b049ce5e1951952b4af4e7df9574df764b6e8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886675"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208011"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para piscinas de nó do Windows Server e cargas de trabalho de aplicação no Serviço Azure Kubernetes (AKS)
 
 No Serviço Azure Kubernetes (AKS), pode criar um conjunto de nós que executa o Windows Server como o oss o hóspede nos nós. Estes nós podem executar aplicações de contentores Windows nativos, como as construídas no .NET Framework. Uma vez que existem grandes diferenças na forma como o Linux e o Windows OS fornecem suporte a contentores, algumas Kubernetes comuns e funcionalidades relacionadas com pods não estão atualmente disponíveis para piscinas de nó windows.
 
-Este artigo descreve algumas das limitações e conceitos de Spara para os nós do Windows Server em AKS. As piscinas de nós para o Windows Server estão atualmente em pré-visualização.
-
-> [!IMPORTANT]
-> As funcionalidades de pré-visualização AKS são opt-in self-service. As pré-visualizações são fornecidas "as-is" e "conforme disponível" e estão excluídas dos acordos de nível de serviço e da garantia limitada. As pré-visualizações aks são parcialmente cobertas pelo apoio ao cliente na melhor base de esforço. Como tal, estas características não se destinam à utilização da produção. Para mais informações, consulte os seguintes artigos de apoio:
->
-> * [Políticas de apoio aks][aks-support-policies]
-> * [FaQ de suporte azure][aks-faq]
+Este artigo descreve algumas das limitações e conceitos de Spara para os nós do Windows Server em AKS.
 
 ## <a name="which-windows-operating-systems-are-supported"></a>Que sistemas operativos Windows são suportados?
 
@@ -66,7 +60,7 @@ Os nós do Windows Server no AKS devem ser *atualizados* para obter as mais rece
 
 ## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>Como posso rodar o diretor de serviço para a minha piscina de nó do Windows?
 
-Durante a pré-visualização, as piscinas de nó do Windows não suportam a rotação principal do serviço como uma limitação de pré-visualização. Para atualizar o principal de serviço, crie uma nova piscina de nó windows e emigra as suas cápsulas da piscina mais antiga para a nova. Uma vez que isto esteja completo, elimine a piscina do nó mais antigo.
+As piscinas de nó do Windows não suportam a rotação principal do serviço. Para atualizar o principal de serviço, crie uma nova piscina de nó windows e emigra as suas cápsulas da piscina mais antiga para a nova. Uma vez que isto esteja completo, elimine a piscina do nó mais antigo.
 
 ## <a name="how-many-node-pools-can-i-create"></a>Quantas piscinas de nós posso criar?
 
@@ -120,6 +114,5 @@ Para começar com os recipientes do Windows Server no AKS, [crie uma piscina de 
 [aks-faq]: faq.md
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
-[preview-support]: support-policies.md#preview-features-or-feature-flags
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node

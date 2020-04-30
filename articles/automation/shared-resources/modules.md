@@ -8,12 +8,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c8d22e63be880c0cef0c4072e99ab85bf3250a1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: d036733c023417af3ef038bb9abc278ec91e665c
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114279"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508960"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Utilizar módulos na Automatização do Azure
 
@@ -21,8 +21,9 @@ A Azure Automation permite-lhe importar módulos PowerShell para ativar os cmdle
 
 * [Azure PowerShell Az.Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
 * [Azure PowerShell AzureRM.Automation](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
-* Módulo `Orchestrator.AssetManagement.Cmdlets` interno para o agente Log Analytics para Windows
 * Outros módulos PowerShell
+* Módulo `Orchestrator.AssetManagement.Cmdlets` interno
+* Módulos Python 2
 * Módulos personalizados que cria 
 
 Ao criar uma conta de Automação, a Azure Automation importa alguns módulos por padrão. Ver [módulos Predefinidos](#default-modules).
@@ -96,9 +97,13 @@ Note que as cmdlets internas diferem no nome dos cmdlets Az e AzureRM. Os nomes 
 
 Recomendamos que utilize cmdlets Az ou AzureRM para manipular recursos da Azure Automation fora do contexto de um livro de execução. 
 
-## <a name="module-supporting-get-automationpscredential"></a>Módulo de suporte Get-AutomationPSCredential
+## <a name="orchestratorassetmanagementcmdlets-module"></a>Módulo Orchestrator.AssetManagement.Cmdlets
 
-O `Get-AutomationPSCredential` cmdlet faz parte `Orchestrator.AssetManagement.Cmdlets`do módulo. Este cmdlet `PSCredential` devolve um objeto, que é esperado pela maioria dos cmdlets PowerShell que funcionam com credenciais. Para saber mais sobre o uso de credenciais na Automação Azure, consulte [os ativos credenciais na Automação Azure.](credentials.md)
+A Azure Automation `Orchestrator.AssetManagement.Cmdlets` suporta o módulo interno do agente Log Analytics para windows, instalado por padrão. O `Get-AutomationPSCredential` cmdlet neste módulo é comumente usado em `PSCredential` livros de execução para recuperar um objeto, o que é esperado pela maioria dos cmdlets PowerShell que funcionam com credenciais. Para saber mais sobre o uso de credenciais na Automação Azure, consulte [os ativos credenciais na Automação Azure.](credentials.md)
+
+## <a name="python-modules"></a>Módulos Python
+
+Pode criar livros de execução Python 2 na Azure Automation. Para obter informações sobre módulos Python, consulte [os pacotes Manage Python 2 em Automação Azure.](../python-packages.md)
 
 ## <a name="migrating-to-az-modules"></a>Migrar para módulos Az
 
@@ -117,7 +122,7 @@ Importar um módulo Az para a sua conta Automation não importa automaticamente 
 * Quando um livro de corridas invoca um cmdlet de um módulo
 * Quando um livro de resta importa explicitamente o módulo com o cmdlet [de Módulo de Importação](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7)
 * Quando um livro importa outro módulo dependente
-    
+
 #### <a name="testing-for-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>Teste para os seus livros de execução e configurações de DSC antes da migração do módulo
 
 Certifique-se de testar cuidadosamente todos os livros de execução e configurações de DSC numa conta de Automação separada antes de migrar para os módulos Az. 

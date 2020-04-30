@@ -14,12 +14,12 @@ ms.date: 04/23/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46f6c77916c7be62247c69b12dff1982e5781aff
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 1f8d41fb3e6233d319725cac924c0c0ed41b7ce4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82112223"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234303"
 ---
 # <a name="start-using-privileged-identity-management"></a>Começar a utilizar o Privileged Identity Management
 
@@ -69,8 +69,8 @@ Assim que a Gestão de Identidade Privilegiada estiver configurada, pode aprende
 | **Os meus pedidos** | Exibe os seus pedidos pendentes para ativar atribuições de funções elegíveis. |
 | **Aprovar pedidos** | Apresenta uma lista de pedidos para ativar funções elegíveis pelos utilizadores no seu diretório que está designado para aprovar. |
 | **Rever acesso** | Lista as avaliações de acesso ativa que lhe são atribuídas para completar, quer esteja a rever o acesso para si ou para outra pessoa. |
-| **Funções do Azure AD** | Apresenta um dashboard e configurações para administradores privilegiados para gerir atribuições de funções azure AD. Este dashboard está desativado para todos aqueles que não são um administrador de funções com privilégios. Estes utilizadores têm acesso a um dashboard especial intitulado A minha vista. O dashboard A minha vista só apresenta informações sobre o utilizador que está a aceder ao dashboard, e não sobre o inquilino completo. |
-| **Recursos do Azure** | Apresenta um dashboard e configurações para administradores privilegiados para gerir atribuições de funções de recursos Azure. Este dashboard está desativado para todos aqueles que não são um administrador de funções com privilégios. Estes utilizadores têm acesso a um dashboard especial intitulado A minha vista. O dashboard A minha vista só apresenta informações sobre o utilizador que está a aceder ao dashboard, e não sobre o inquilino completo. |
+| **Funções do Azure AD** | Apresenta um dashboard e configurações para administradores privilegiados para gerir atribuições de funções azure AD. Este dashboard está desativado para todos aqueles que não são um administrador de funções com privilégios. Estes utilizadores têm acesso a um dashboard especial intitulado A minha vista. O painel de instrumentos My view apenas mostra informações sobre o utilizador que acede ao painel de instrumentos, e não a toda a organização. |
+| **Recursos do Azure** | Apresenta um dashboard e configurações para administradores privilegiados para gerir atribuições de funções de recursos Azure. Este dashboard está desativado para todos aqueles que não são um administrador de funções com privilégios. Estes utilizadores têm acesso a um dashboard especial intitulado A minha vista. O painel de instrumentos My view apenas mostra informações sobre o utilizador que acede ao painel de instrumentos, e não a toda a organização. |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>Adicione um azulejo PIM ao tablier
 

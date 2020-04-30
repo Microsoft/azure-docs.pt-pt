@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: b75e0c1e53f1e00579de73897197cdd2f14d79af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ae9d219c376aa704be34088a4f7c48c35baa9669
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81455415"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509504"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
@@ -43,7 +43,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões azu
 
 **Pré-visualização pública**
 
-- **[Registo de contentores Azure](../container-registry/container-registry-vnet.md)** *(Microsoft.ContainerRegistry*): Pré-visualização disponível em todas as regiões do Azure onde o Registo de Contentores Azure está disponível.
+- **[Registo de contentores Azure](../container-registry/container-registry-vnet.md)** *(Microsoft.ContainerRegistry*): Pré-visualização disponível em regiões limitadas do Azure onde o Registo de Contentores Azure está disponível.
 
 Para obter as notificações mais atualizadas, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
